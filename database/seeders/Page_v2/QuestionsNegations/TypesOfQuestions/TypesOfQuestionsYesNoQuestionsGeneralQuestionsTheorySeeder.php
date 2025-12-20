@@ -28,21 +28,24 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 'title' => 'Види питальних речень',
                 'language' => 'uk',
             ],
+            // BLOCK-FIRST TAGGING: Page anchor tags (short, general page identifiers)
             'tags' => [
+                'Types of Questions',
+                'Question Forms',
                 'Yes/No Questions',
                 'General Questions',
-                'Загальні питання',
-                'Question Forms',
-                'Types of Questions',
-                'Auxiliary Verbs',
-                'Do/Does/Did',
-                'To Be Questions',
-                'Modal Questions',
                 'Grammar',
                 'Theory',
-                'A1',
-                'A2',
             ],
+            // BLOCK-FIRST TAGGING: Base tags inherited by all blocks (controlled inheritance)
+            'base_tags' => [
+                'Types of Questions',
+                'Question Forms',
+                'Yes/No Questions',
+                'General Questions',
+            ],
+            // Subtitle block tags configuration
+            'subtitle_tags' => ['Introduction', 'Overview'],
             'blocks' => [
                 [
                     'type' => 'hero',
@@ -50,6 +53,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'hero',
+                    // BLOCK-FIRST: Hero block detailed tags
+                    'tags' => ['Introduction', 'Overview', 'Do/Does/Did', 'To Be', 'Modal Verbs', 'CEFR A1', 'CEFR A2'],
                     'body' => json_encode([
                         'level' => 'A1–A2',
                         'intro' => 'У цій темі ти вивчиш <strong>загальні питання (Yes/No Questions)</strong> — найпростіший тип питань в англійській мові, на які можна відповісти "так" або "ні".',
@@ -81,6 +86,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'forms-grid-what-is',
+                    // BLOCK-FIRST: Definition block detailed tags
+                    'tags' => ['Definition', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '1. Що таке загальні питання?',
                         'intro' => 'Yes/No Questions (загальні питання) — це питання, на які можна відповісти "так" або "ні":',
@@ -97,6 +104,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-do-does-did',
+                    // BLOCK-FIRST: Do/Does/Did block detailed tags
+                    'tags' => ['Do/Does/Did', 'Present Simple', 'Past Simple', 'Auxiliaries', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '2. Загальні питання з DO/DOES/DID',
                         'sections' => [
@@ -140,6 +149,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-to-be',
+                    // BLOCK-FIRST: To Be block detailed tags
+                    'tags' => ['To Be', 'Be (am/is/are/was/were)', 'Present Simple', 'Past Simple', 'Inversion', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '3. Загальні питання з TO BE',
                         'sections' => [
@@ -183,6 +194,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-modals',
+                    // BLOCK-FIRST: Modal verbs block detailed tags
+                    'tags' => ['Modal Verbs', 'Can/Could', 'Will/Would', 'Should', 'Must', 'May', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '4. Загальні питання з модальними дієсловами',
                         'sections' => [
@@ -228,6 +241,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-have-got',
+                    // BLOCK-FIRST: Have Got block detailed tags
+                    'tags' => ['Have Got', 'Possession', 'British English', 'American English', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '5. Загальні питання з HAVE GOT',
                         'sections' => [
@@ -261,6 +276,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-other-tenses',
+                    // BLOCK-FIRST: Other Tenses block detailed tags
+                    'tags' => ['Present Continuous', 'Present Perfect', 'Past Continuous', 'Advanced Tenses', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '6. Інші часи',
                         'sections' => [
@@ -304,6 +321,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'comparison-table',
+                    // BLOCK-FIRST: Comparison table block detailed tags
+                    'tags' => ['Summary', 'Comparison', 'All Structures', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '7. Порівняльна таблиця',
                         'intro' => 'Як формувати загальні питання з різними типами дієслів:',
@@ -348,6 +367,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'mistakes-grid',
+                    // BLOCK-FIRST: Common mistakes block detailed tags
+                    'tags' => ['Common Mistakes', 'Word Order', 'Grammar Errors', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '8. Типові помилки',
                         'items' => [
@@ -388,6 +409,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'summary-list',
+                    // BLOCK-FIRST: Summary block detailed tags
+                    'tags' => ['Summary', 'Key Rules', 'Quick Reference', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '9. Короткий конспект',
                         'items' => [
@@ -408,6 +431,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'practice-set',
+                    // BLOCK-FIRST: Practice block detailed tags
+                    'tags' => ['Practice', 'Exercises', 'Interactive', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '10. Практика',
                         'select_title' => 'Вправа 1. Обери правильний варіант',
@@ -456,6 +481,9 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'navigation-chips',
+                    // BLOCK-FIRST: Navigation block - service block with no content tags
+                    'inherit_base_tags' => false,
+                    'tags' => ['Navigation'],
                     'body' => json_encode([
                         'title' => 'Інші теми з розділу Види питальних речень',
                         'items' => [

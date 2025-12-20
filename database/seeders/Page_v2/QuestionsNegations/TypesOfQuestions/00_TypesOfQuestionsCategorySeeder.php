@@ -9,6 +9,13 @@ use App\Support\Database\Seeder;
 
 class TypesOfQuestionsCategorySeeder extends Seeder
 {
+    /**
+     * Cache for Tag::firstOrCreate to avoid N+1 queries.
+     *
+     * @var array<string, int>
+     */
+    protected array $tagCache = [];
+
     protected function slug(): string
     {
         return 'types-of-questions';
@@ -43,14 +50,16 @@ class TypesOfQuestionsCategorySeeder extends Seeder
             ]
         );
 
-        // Sync tags if provided
-        if (! empty($description['tags'])) {
-            $tagIds = [];
-            foreach ($description['tags'] as $tagName) {
-                $tag = Tag::firstOrCreate(['name' => $tagName]);
-                $tagIds[] = $tag->id;
-            }
-            $category->tags()->sync($tagIds);
+        // Resolve category tags (including category slug as identifier tag for matching)
+        $categoryTags = $description['tags'] ?? [];
+        if (! in_array($slug, $categoryTags, true)) {
+            $categoryTags[] = $slug;
+        }
+        $categoryTagIds = $this->resolveTagIds($categoryTags);
+
+        // Sync tags to category
+        if (! empty($categoryTagIds)) {
+            $category->tags()->sync($categoryTagIds);
         }
 
         TextBlock::query()
@@ -60,9 +69,10 @@ class TypesOfQuestionsCategorySeeder extends Seeder
             ->delete();
 
         $locale = $description['locale'];
+        $createdTextBlocks = [];
 
         if (! empty($description['subtitle_html'])) {
-            TextBlock::create([
+            $textBlock = TextBlock::create([
                 'page_id' => null,
                 'page_category_id' => $category->getKey(),
                 'locale' => $locale,
@@ -74,12 +84,22 @@ class TypesOfQuestionsCategorySeeder extends Seeder
                 'body' => $description['subtitle_html'],
                 'seeder' => static::class,
             ]);
+            // BLOCK-FIRST: Subtitle gets only very general tags to avoid winning matches
+            // over more specific theory blocks. Use inherit_tags=false to exclude
+            // category tags and only have Introduction/Overview tags.
+            $createdTextBlocks[] = [
+                'block' => $textBlock,
+                'config' => [
+                    'tags' => $description['subtitle_tags'] ?? ['Introduction', 'Overview'],
+                    'inherit_tags' => false,
+                ],
+            ];
         }
 
         foreach ($description['blocks'] ?? [] as $index => $block) {
             $blockType = $block['type'] ?? 'box';
 
-            TextBlock::create([
+            $textBlock = TextBlock::create([
                 'page_id' => null,
                 'page_category_id' => $category->getKey(),
                 'locale' => $block['locale'] ?? $locale,
@@ -91,7 +111,60 @@ class TypesOfQuestionsCategorySeeder extends Seeder
                 'body' => $block['body'] ?? null,
                 'seeder' => static::class,
             ]);
+            $createdTextBlocks[] = ['block' => $textBlock, 'config' => $block];
         }
+
+        // Sync tags to each TextBlock (category tags + optional block-specific tags)
+        foreach ($createdTextBlocks as $item) {
+            $textBlock = $item['block'];
+            $blockConfig = $item['config'];
+
+            // Check if tag inheritance is disabled for this block
+            $inheritTags = $blockConfig['inherit_tags'] ?? true;
+
+            if ($inheritTags) {
+                // Start with category tags
+                $blockTagIds = $categoryTagIds;
+
+                // Add block-specific tags if defined
+                if (! empty($blockConfig['tags'])) {
+                    $blockSpecificTagIds = $this->resolveTagIds($blockConfig['tags']);
+                    $blockTagIds = array_unique(array_merge($blockTagIds, $blockSpecificTagIds));
+                }
+            } else {
+                // Only use block-specific tags (no inheritance)
+                $blockTagIds = ! empty($blockConfig['tags'])
+                    ? $this->resolveTagIds($blockConfig['tags'])
+                    : [];
+            }
+
+            if (! empty($blockTagIds)) {
+                $textBlock->tags()->sync($blockTagIds);
+            }
+        }
+    }
+
+    /**
+     * Resolve tag names to tag IDs with caching.
+     *
+     * @param  array<string>  $tagNames
+     * @return array<int>
+     */
+    protected function resolveTagIds(array $tagNames): array
+    {
+        $tagIds = [];
+
+        foreach ($tagNames as $tagName) {
+            if (isset($this->tagCache[$tagName])) {
+                $tagIds[] = $this->tagCache[$tagName];
+            } else {
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                $this->tagCache[$tagName] = $tag->id;
+                $tagIds[] = $tag->id;
+            }
+        }
+
+        return $tagIds;
     }
 
     protected function description(): array
@@ -102,26 +175,48 @@ class TypesOfQuestionsCategorySeeder extends Seeder
             'subtitle_text' => 'Види питальних речень в англійській мові: загальні, спеціальні, альтернативні, розділові питання та питання до підмета.',
             'locale' => 'uk',
             'tags' => [
-                'Види питань',
+                // Theme tags (canonical from QuestionsDifferentTypesClaudeSeeder)
                 'Types of Questions',
-                'Yes/No Questions',
-                'Wh-Questions',
-                'Subject Questions',
-                'Indirect Questions',
-                'Загальні питання',
-                'Спеціальні питання',
-                'Альтернативні питання',
-                'Розділові питання',
-                'Question Tags',
-                'Negative Questions',
                 'Question Forms',
                 'Grammar',
                 'Theory',
+                // All question type detail tags (canonical)
+                'Yes/No Questions',
+                'General Questions',
+                'Wh-Questions',
+                'Special Questions',
+                'Subject Questions',
+                'Indirect Questions',
+                'Tag Questions',
+                'Question Tags',
+                'Disjunctive Questions',
+                'Alternative Questions',
+                'Choice Questions',
+                'Negative Questions',
+                'Negative Question Forms',
+                // Auxiliary tags (canonical - common across all)
+                'Do/Does/Did',
+                'Be (am/is/are/was/were)',
+                'Have/Has/Had',
+                'Modal Verbs',
+                // Level tags (canonical CEFR format)
+                'CEFR A1',
+                'CEFR A2',
+                'CEFR B1',
+                'CEFR B2',
             ],
+            // Subtitle gets only Introduction/Overview tags - no category inheritance
+            // to prevent it from winning over detailed theory blocks
+            'subtitle_tags' => ['Introduction', 'Overview'],
             'blocks' => [
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    // BLOCK-FIRST: Hero block gets only general Overview tags
+                    // to avoid competing with specific theory blocks
+                    // No CEFR tags to prevent matching on level alone
+                    'tags' => ['Introduction', 'Overview'],
+                    'inherit_tags' => false,
                     'body' => json_encode([
                         'level' => 'A1–B1',
                         'intro' => 'У цьому розділі ти вивчиш <strong>різні види питальних речень</strong> в англійській мові: від простих загальних питань до складних розділових.',
@@ -151,6 +246,9 @@ class TypesOfQuestionsCategorySeeder extends Seeder
                     'column' => 'left',
                     'heading' => 'Загальні питання (Yes/No Questions)',
                     'css_class' => null,
+                    // BLOCK-FIRST: Yes/No Questions summary block with specific tags
+                    'tags' => ['Yes/No Questions', 'General Questions', 'Do/Does/Did', 'To Be', 'Summary'],
+                    'inherit_tags' => false,
                     'body' => <<<'HTML'
 <ul class="gw-list">
 <li><strong>Загальні питання</strong> — відповідь "так" або "ні": <span class="gw-en">Do you like coffee?</span></li>
@@ -164,6 +262,9 @@ HTML,
                     'column' => 'left',
                     'heading' => 'Спеціальні питання (Wh-Questions)',
                     'css_class' => null,
+                    // BLOCK-FIRST: Wh-Questions summary block with specific tags
+                    'tags' => ['Wh-Questions', 'Special Questions', 'Subject Questions', 'Question Words', 'Summary'],
+                    'inherit_tags' => false,
                     'body' => <<<'HTML'
 <ul class="gw-list">
 <li><strong>Спеціальні питання</strong> — починаються з питальних слів: <span class="gw-en">What, Where, When, Why, Who, How</span></li>
@@ -177,6 +278,9 @@ HTML,
                     'column' => 'left',
                     'heading' => 'Альтернативні питання',
                     'css_class' => null,
+                    // BLOCK-FIRST: Alternative Questions summary block with specific tags
+                    'tags' => ['Alternative Questions', 'Choice Questions', 'Or', 'Summary'],
+                    'inherit_tags' => false,
                     'body' => <<<'HTML'
 <ul class="gw-list">
 <li><strong>Альтернативні питання</strong> — вибір між варіантами з "or": <span class="gw-en">Do you prefer tea or coffee?</span></li>
@@ -190,6 +294,9 @@ HTML,
                     'column' => 'right',
                     'heading' => 'Теми у цьому розділі',
                     'css_class' => 'gw-box--scroll',
+                    // BLOCK-FIRST: Navigation/index table - no detailed matching tags
+                    'tags' => ['Navigation', 'Index'],
+                    'inherit_tags' => false,
                     'body' => <<<'HTML'
 <table class="gw-table" aria-label="Теми розділу Види питальних речень">
 <thead>
@@ -238,6 +345,9 @@ HTML,
                     'column' => 'right',
                     'heading' => 'Розділові питання (Question Tags)',
                     'css_class' => null,
+                    // BLOCK-FIRST: Question Tags summary block with specific tags
+                    'tags' => ['Tag Questions', 'Question Tags', 'Disjunctive Questions', 'Summary'],
+                    'inherit_tags' => false,
                     'body' => <<<'HTML'
 <ul class="gw-list">
 <li><strong>Question Tags</strong> — коротке питання в кінці речення: <span class="gw-en">You like tea, don't you?</span></li>
@@ -251,6 +361,9 @@ HTML,
                     'column' => 'right',
                     'heading' => 'Поради для вивчення',
                     'css_class' => null,
+                    // BLOCK-FIRST: Tips block - learning guidance, no matching tags
+                    'tags' => ['Tips', 'Learning'],
+                    'inherit_tags' => false,
                     'body' => <<<'HTML'
 <div class="gw-hint">
 <div class="gw-emoji">🧠</div>

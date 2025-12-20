@@ -5,12 +5,18 @@ namespace Database\Seeders\Ai\Claude;
 use App\Models\Category;
 use App\Models\Source;
 use App\Models\Tag;
+use App\Models\TextBlock;
 use App\Services\EnglishTagging\GapTagInferer;
 use App\Support\TextBlock\TextBlockUuidGenerator;
 use Database\Seeders\QuestionSeeder;
 
 class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
 {
+    private array $tagNameCache = [];
+    private array $pageTagsCacheByUuid = [];
+    private array $pageTagsCacheByPageId = [];
+    private int $optionsPerMarker = 3;
+
     public function run(): void
     {
         // Initialize the GapTagInferer service for gap-focused tagging
@@ -169,11 +175,17 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         $items = [];
         $meta = [];
 
+        $anchorTagNames = $this->resolveTagNames([
+            $sharedTheoryTags[0],
+            $sharedTheoryTags[1],
+        ]);
+
         foreach ($questions as $index => $question) {
             $uuid = $this->generateQuestionUuid($question['level'], $index, $question['question']);
 
             $answers = [];
             $optionMarkers = [];
+            $optionsByMarker = null;
 
             // Check if this is a multi-marker question (options are nested arrays with markers)
             // Multi-marker format: ['a1' => [...], 'a2' => [...]]
@@ -188,8 +200,14 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             }
 
             if ($isMultiMarker) {
+                $optionsByMarker = $this->buildOptionsByMarker(
+                    $question['options'],
+                    $question['answers'],
+                    $this->optionsPerMarker
+                );
+
                 // Multi-marker question format (like MixedConditionalsAIGeneratedSeeder)
-                foreach ($question['options'] as $marker => $markerOptions) {
+                foreach ($optionsByMarker as $marker => $markerOptions) {
                     foreach ($markerOptions as $option) {
                         $optionMarkers[$option] = $marker;
                     }
@@ -204,11 +222,13 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                     ];
                 }
 
-                // Flatten options for storage
-                $flatOptions = $this->flattenOptions($question['options']);
+                // Flatten options for storage using normalized per-marker options
+                $flatOptions = $this->flattenOptions($optionsByMarker);
             } else {
                 // Single-marker question format (original format)
-                foreach ($question['options'] as $option) {
+                $normalizedOptions = $this->normalizeOptionList($question['options']);
+
+                foreach ($normalizedOptions as $option) {
                     $optionMarkers[$option] = 'a1';
                 }
 
@@ -218,7 +238,8 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                     'verb_hint' => $this->normalizeHint($question['verb_hint'] ?? null),
                 ];
 
-                $flatOptions = $question['options'];
+                $optionsByMarker = [$normalizedOptions];
+                $flatOptions = $normalizedOptions;
             }
 
             $tagIds = array_merge([
@@ -252,13 +273,33 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ? array_keys($question['answers'])
                 : ['a1'];
 
+            $detailTagNames = [];
+            if (isset($question['detail'])) {
+                $detailTagIds = [];
+
+                if (isset($detailTags[$question['detail']])) {
+                    $detailTagIds[] = $detailTags[$question['detail']];
+                }
+
+                if (isset($detailContextTags[$question['detail']])) {
+                    $detailTagIds = array_merge($detailTagIds, $detailContextTags[$question['detail']]);
+                }
+
+                if (! empty($detailTagIds)) {
+                    $detailTagNames = $this->resolveTagNames($detailTagIds);
+                }
+            }
+
+            $theoryTextBlockUuid = $this->getTheoryTextBlockUuid($question['detail'] ?? null);
+            $availableTagNamesForPage = $this->getPageTagNamesForTheory($theoryTextBlockUuid);
+
             foreach ($markersToProcess as $marker) {
                 $correctAnswer = $question['answers'][$marker] ?? '';
 
                 // Get options for this specific marker
                 $markerOptions = $isMultiMarker
-                    ? ($question['options'][$marker] ?? [])
-                    : $question['options'];
+                    ? ($optionsByMarker[$marker] ?? [])
+                    : $optionsByMarker[0];
 
                 // Get verb hint for this marker
                 $verbHint = $isMultiMarker
@@ -274,19 +315,47 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                     $verbHint
                 );
 
-                // Convert tag names to tag IDs (limit 1-3 per marker)
+                $preparedGapTagNames = $this->prepareGapTagsForMarker(
+                    $gapTagNames,
+                    $correctAnswer,
+                    $availableTagNamesForPage
+                );
+
+                // Convert tag names to tag IDs (respecting availability)
                 $gapTagIdsForMarker = [];
-                foreach (array_slice($gapTagNames, 0, 3) as $tagName) {
+                foreach ($preparedGapTagNames as $tagName) {
                     if (isset($gapTagNameToId[$tagName])) {
                         $gapTagIdsForMarker[] = $gapTagNameToId[$tagName];
                     }
                 }
 
+                // Ensure auxiliary markers from the correct answer are tagged (do/did/does, have/has/had, etc.)
+                $gapTagIdsForMarker = array_values(array_unique(array_merge(
+                    $gapTagIdsForMarker,
+                    $this->getAuxiliaryTagsFromAnswer($correctAnswer, $auxiliaryTags)
+                )));
+
+                $fallbackVerbHintTags = [];
+                if (empty($gapTagIdsForMarker)) {
+                    $fallbackVerbHintTags = $this->getTagsFromVerbHint(
+                        $verbHint ?? '',
+                        $tenseTags,
+                        $auxiliaryTags
+                    );
+                }
+
                 // Store per-marker tags (names for meta, IDs for union)
-                $gapTagsPerMarker[$marker] = $gapTagNames;
+                $gapTagsPerMarker[$marker] = $this->buildMarkerTagChain(
+                    $preparedGapTagNames,
+                    $gapTagIdsForMarker,
+                    $fallbackVerbHintTags,
+                    $anchorTagNames,
+                    $detailTagNames
+                );
 
                 // Collect gap tag IDs (using array_push with spread for efficiency)
                 array_push($allGapTagIds, ...$gapTagIdsForMarker);
+                array_push($allGapTagIds, ...$fallbackVerbHintTags);
             }
 
             // Deduplicate gap tag IDs before merging
@@ -316,9 +385,6 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 $sourceId = $sources[$question['detail']];
             }
 
-            // Get theory text block UUID based on question detail type
-            $theoryTextBlockUuid = $this->getTheoryTextBlockUuid($question['detail'] ?? null);
-
             $items[] = [
                 'uuid' => $uuid,
                 'question' => $question['question'],
@@ -331,6 +397,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'theory_text_block_uuid' => $theoryTextBlockUuid,
                 'tag_ids' => array_values(array_unique($tagIds)),
                 'answers' => $answers,
+                'options_by_marker' => $optionsByMarker,
                 'options' => $flatOptions,
                 'variants' => [],
             ];
@@ -339,6 +406,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'uuid' => $uuid,
                 'answers' => $question['answers'],
                 'option_markers' => $optionMarkers,
+                'options_by_marker' => $optionsByMarker,
                 'hints' => $question['hints'],
                 'explanations' => $question['explanations'],
                 'gap_tags' => $gapTagsPerMarker, // Store per-marker gap tags in meta
@@ -401,6 +469,166 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         $mapping = $theoryMappings[$questionType];
 
         return TextBlockUuidGenerator::generateWithKey($mapping['seeder'], $mapping['uuid_key']);
+    }
+
+    private function getPageTagNamesForTheory(?string $theoryTextBlockUuid): array
+    {
+        if ($theoryTextBlockUuid === null) {
+            return [];
+        }
+
+        if (isset($this->pageTagsCacheByUuid[$theoryTextBlockUuid])) {
+            return $this->pageTagsCacheByUuid[$theoryTextBlockUuid];
+        }
+
+        $textBlock = TextBlock::where('uuid', $theoryTextBlockUuid)->first();
+
+        if (! $textBlock || $textBlock->page_id === null) {
+            $this->pageTagsCacheByUuid[$theoryTextBlockUuid] = [];
+
+            return [];
+        }
+
+        $pageId = $textBlock->page_id;
+
+        if (! isset($this->pageTagsCacheByPageId[$pageId])) {
+            $this->pageTagsCacheByPageId[$pageId] = TextBlock::where('page_id', $pageId)
+                ->with('tags:id,name')
+                ->get()
+                ->flatMap(fn (TextBlock $block) => $block->tags->pluck('name'))
+                ->filter()
+                ->unique()
+                ->values()
+                ->all();
+        }
+
+        $this->pageTagsCacheByUuid[$theoryTextBlockUuid] = $this->pageTagsCacheByPageId[$pageId];
+
+        return $this->pageTagsCacheByPageId[$pageId];
+    }
+
+    private function prepareGapTagsForMarker(array $gapTagNames, string $answer, array $availableTagNames): array
+    {
+        $filtered = $this->filterTagsAgainstTheory($gapTagNames, $availableTagNames);
+
+        if (empty($filtered)) {
+            $filtered = $gapTagNames;
+        }
+
+        $aligned = $this->ensureAuxiliaryPresence($filtered, $answer, $availableTagNames);
+
+        return array_values(array_unique($aligned));
+    }
+
+    private function filterTagsAgainstTheory(array $gapTagNames, array $availableTagNames): array
+    {
+        if (empty($availableTagNames)) {
+            return $gapTagNames;
+        }
+
+        return array_values(array_intersect($gapTagNames, $availableTagNames));
+    }
+
+    private function ensureAuxiliaryPresence(array $gapTagNames, string $answer, array $availableTagNames): array
+    {
+        $auxGroups = [
+            'Do/Does/Did',
+            'Have/Has/Had',
+            'Be (am/is/are/was/were)',
+            'Will/Would',
+            'Can/Could',
+            'Should',
+            'Must',
+            'May/Might',
+            'Modal Verbs',
+        ];
+
+        $hasAuxGroup = (bool) array_intersect($gapTagNames, $auxGroups);
+
+        if ($hasAuxGroup) {
+            return $gapTagNames;
+        }
+
+        $auxToken = $this->extractLeadingAuxTokenFromAnswer($answer);
+        $auxTag = $this->mapAuxTokenToTag($auxToken);
+
+        if ($auxTag === null) {
+            return $gapTagNames;
+        }
+
+        if (! empty($availableTagNames) && ! in_array($auxTag, $availableTagNames, true)) {
+            return $gapTagNames;
+        }
+
+        $gapTagNames[] = $auxTag;
+
+        return $gapTagNames;
+    }
+
+    private function extractLeadingAuxTokenFromAnswer(string $answer): string
+    {
+        $normalized = strtolower(trim($answer));
+
+        if ($normalized === '') {
+            return '';
+        }
+
+        $parts = preg_split('/\s+/', $normalized, -1, PREG_SPLIT_NO_EMPTY);
+
+        if (count($parts) >= 2 && $parts[0] === 'am' && $parts[1] === 'not') {
+            return 'am not';
+        }
+
+        return $parts[0] ?? '';
+    }
+
+    private function mapAuxTokenToTag(string $auxToken): ?string
+    {
+        if ($auxToken === '') {
+            return null;
+        }
+
+        $mapping = [
+            'do' => 'Do/Does/Did',
+            'does' => 'Do/Does/Did',
+            "don't" => 'Do/Does/Did',
+            "doesn't" => 'Do/Does/Did',
+            'did' => 'Do/Does/Did',
+            "didn't" => 'Do/Does/Did',
+            'have' => 'Have/Has/Had',
+            'has' => 'Have/Has/Had',
+            'had' => 'Have/Has/Had',
+            "haven't" => 'Have/Has/Had',
+            "hasn't" => 'Have/Has/Had',
+            "hadn't" => 'Have/Has/Had',
+            'am' => 'Be (am/is/are/was/were)',
+            'am not' => 'Be (am/is/are/was/were)',
+            'is' => 'Be (am/is/are/was/were)',
+            'are' => 'Be (am/is/are/was/were)',
+            'was' => 'Be (am/is/are/was/were)',
+            'were' => 'Be (am/is/are/was/were)',
+            "isn't" => 'Be (am/is/are/was/were)',
+            "aren't" => 'Be (am/is/are/was/were)',
+            "wasn't" => 'Be (am/is/are/was/were)',
+            "weren't" => 'Be (am/is/are/was/were)',
+            'will' => 'Will/Would',
+            "won't" => 'Will/Would',
+            'would' => 'Will/Would',
+            "wouldn't" => 'Will/Would',
+            'can' => 'Can/Could',
+            "can't" => 'Can/Could',
+            'cannot' => 'Can/Could',
+            'could' => 'Can/Could',
+            "couldn't" => 'Can/Could',
+            'should' => 'Should',
+            "shouldn't" => 'Should',
+            'must' => 'Must',
+            "mustn't" => 'Must',
+            'may' => 'May/Might',
+            'might' => 'May/Might',
+        ];
+
+        return $mapping[$auxToken] ?? null;
     }
 
     /**
@@ -478,6 +706,49 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
     }
 
     /**
+     * Detect auxiliary-related tags directly from the correct answer text.
+     */
+    private function getAuxiliaryTagsFromAnswer(string $answer, array $auxiliaryTags): array
+    {
+        $tags = [];
+        $normalized = strtolower($answer);
+
+        if (preg_match('/\b(do|does|did|don\'t|doesn\'t|didn\'t)\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['do_does_did'];
+        }
+
+        if (preg_match('/\b(have|has|had|haven\'t|hasn\'t|hadn\'t)\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['have_has_had'];
+        }
+
+        if (preg_match('/\b(am|is|are|was|were|isn\'t|aren\'t|wasn\'t|weren\'t)\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['be_auxiliary'];
+        }
+
+        if (preg_match('/\b(will|would|won\'t|wouldn\'t)\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['will_would'];
+        }
+
+        if (preg_match('/\b(can|could|can\'t|cannot|couldn\'t)\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['can_could'];
+        }
+
+        if (preg_match('/\bshould(n\'t)?\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['should'];
+        }
+
+        if (preg_match('/\bmust(n\'t)?\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['must'];
+        }
+
+        if (preg_match('/\b(may|might)\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['may_might'];
+        }
+
+        return array_values(array_unique($tags));
+    }
+
+    /**
      * Flatten nested options array into a single array of unique options.
      */
     private function flattenOptions(array $options): array
@@ -496,6 +767,151 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         }
 
         return $flat;
+    }
+
+    private function normalizeOptionList(array $options): array
+    {
+        $normalized = [];
+
+        foreach ($options as $option) {
+            $value = is_string($option) ? trim($option) : trim((string) $option);
+            if ($value === '') {
+                continue;
+            }
+
+            if (! in_array($value, $normalized, true)) {
+                $normalized[] = $value;
+            }
+        }
+
+        return $normalized;
+    }
+
+    /**
+     * Build a normalized map of marker => options (shuffled per marker).
+     */
+    private function buildOptionsByMarker(array $options, array $answers, int $targetCount): array
+    {
+        $result = [];
+        $markers = array_keys($answers);
+        $pool = $this->normalizeOptionList($this->flattenOptions($options));
+
+        foreach ($markers as $marker) {
+            $markerOptions = $this->normalizeOptionList($options[$marker] ?? []);
+            $answer = $answers[$marker] ?? null;
+
+            $result[$marker] = $this->ensureOptionCount($markerOptions, $pool, $targetCount, $answer);
+        }
+
+        return $result;
+    }
+
+    private function ensureOptionCount(array $options, array $pool, int $targetCount, ?string $answer): array
+    {
+        $options = $this->normalizeOptionList($options);
+
+        if ($answer !== null && ! in_array($answer, $options, true)) {
+            array_unshift($options, $answer);
+        }
+
+        // Pad options from the global pool if needed
+        if ($targetCount > 0 && count($options) < $targetCount) {
+            foreach ($pool as $candidate) {
+                if (count($options) >= $targetCount) {
+                    break;
+                }
+                if (! in_array($candidate, $options, true)) {
+                    $options[] = $candidate;
+                }
+            }
+        }
+
+        $options = array_values(array_unique($options));
+
+        if ($targetCount <= 0) {
+            shuffle($options);
+
+            return $options;
+        }
+
+        // Keep answer, shuffle the rest, then trim to targetCount
+        $answerValue = $answer;
+        $remaining = array_values(array_filter(
+            $options,
+            fn ($opt) => $answerValue === null ? true : $opt !== $answerValue
+        ));
+
+        shuffle($remaining);
+
+        $final = [];
+        if ($answerValue !== null) {
+            $final[] = $answerValue;
+        }
+
+        foreach ($remaining as $opt) {
+            if (count($final) >= $targetCount) {
+                break;
+            }
+            $final[] = $opt;
+        }
+
+        if (count($final) < $targetCount) {
+            $final = array_merge($final, array_slice($pool, 0, $targetCount - count($final)));
+        }
+
+        return array_slice(array_values(array_unique($final)), 0, $targetCount);
+    }
+
+    private function resolveTagNames(array $tagIds): array
+    {
+        $resolved = [];
+
+        foreach ($tagIds as $id) {
+            if (! is_int($id)) {
+                continue;
+            }
+
+            if (isset($this->tagNameCache[$id])) {
+                $resolved[] = $this->tagNameCache[$id];
+                continue;
+            }
+
+            $name = Tag::find($id)?->name;
+
+            if ($name) {
+                $this->tagNameCache[$id] = $name;
+                $resolved[] = $name;
+            }
+        }
+
+        return array_values(array_unique(array_filter($resolved)));
+    }
+
+    private function buildMarkerTagChain(
+        array $gapTagNames,
+        array $gapTagIds,
+        array $fallbackVerbHintTags,
+        array $anchorTagNames,
+        array $detailTagNames
+    ): array {
+        $tags = [];
+
+        $tags = array_merge($tags, $anchorTagNames);
+        $tags = array_merge($tags, $detailTagNames);
+        $tags = array_merge($tags, $gapTagNames);
+
+        if (empty($gapTagNames)) {
+            $tags = array_merge($tags, $this->resolveTagNames($gapTagIds));
+            $tags = array_merge($tags, $this->resolveTagNames($fallbackVerbHintTags));
+        }
+
+        $normalized = array_values(
+            array_unique(
+                array_map(fn ($tag) => trim((string) $tag), $tags)
+            )
+        );
+
+        return array_slice(array_filter($normalized), 0, 6);
     }
 
     private function buildQuestions(): array

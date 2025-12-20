@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChatGPTExplanation;
+use App\Models\Question;
+use App\Models\QuestionHint;
+use App\Services\ChatGPTService;
+use App\Services\GeminiService;
+use App\Services\MarkerTheoryMatcherService;
+use App\Services\QuestionVariantService;
 use Illuminate\Http\Request;
-use App\Models\{ChatGPTExplanation, Question, QuestionHint};
-use App\Services\{ChatGPTService, GeminiService, QuestionVariantService};
 
 class QuestionHelpController extends Controller
 {
-    public function __construct(private QuestionVariantService $variantService)
-    {
-    }
+    public function __construct(private QuestionVariantService $variantService) {}
 
     public function hint(Request $request, ChatGPTService $gpt, GeminiService $gemini)
     {
@@ -21,7 +24,7 @@ class QuestionHelpController extends Controller
             'test_slug' => 'sometimes|string',
         ]);
 
-        $lang = "uk"; // app()->getLocale();
+        $lang = 'uk'; // app()->getLocale();
 
         if (isset($data['question_id'])) {
             $question = Question::findOrFail($data['question_id']);
@@ -61,6 +64,7 @@ class QuestionHelpController extends Controller
         }
 
         $text = $data['question'];
+
         return response()->json([
             'chatgpt' => $gpt->hintSentenceStructure($text, $lang),
             'gemini' => $gemini->hintSentenceStructure($text, $lang),
@@ -201,5 +205,32 @@ class QuestionHelpController extends Controller
         }
 
         return null;
+    }
+
+    /**
+     * Get theory block for a specific marker in a question.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function markerTheory(Request $request, MarkerTheoryMatcherService $matcherService)
+    {
+        $data = $request->validate([
+            'question_id' => 'required|integer|exists:questions,id',
+            'marker' => 'required|string|regex:/^a\d+$/',
+            'test_slug' => 'sometimes|string',
+        ]);
+
+        $theoryBlock = $matcherService->findTheoryBlockForMarker(
+            $data['question_id'],
+            $data['marker']
+        );
+
+        return response()->json([
+            'theory_block' => $theoryBlock,
+            'matched_tag_ids' => $theoryBlock ? ($theoryBlock['matched_tag_ids'] ?? []) : [],
+            'matched_tag_names' => $theoryBlock ? ($theoryBlock['matched_tag_names'] ?? ($theoryBlock['matched_tags'] ?? [])) : [],
+            'score' => $theoryBlock ? ($theoryBlock['score'] ?? null) : null,
+            'marker' => $data['marker'],
+        ]);
     }
 }

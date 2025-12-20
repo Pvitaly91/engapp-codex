@@ -30,6 +30,9 @@
                     </div>
                 @endforeach
             </div>
+
+            {{-- Block Tags --}}
+            <x-text-block-tags :block="$block" />
         </div>
     </div>
 </section>

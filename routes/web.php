@@ -6,6 +6,7 @@ use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\DynamicPageController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MarkerTheoryTagController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\QuestionAnswerController;
 use App\Http\Controllers\QuestionController;
@@ -283,6 +284,13 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
 
         Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
         Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');
+        Route::post('/question-marker-theory', [QuestionHelpController::class, 'markerTheory'])->name('question.marker-theory');
+
+        // Marker Theory Tags API
+        Route::get('/api/v2/questions/{questionUuid}/markers/{marker}/available-theory-tags', [MarkerTheoryTagController::class, 'availableTheoryTags'])
+            ->name('api.v2.markers.available-theory-tags');
+        Route::post('/api/v2/questions/{questionUuid}/markers/{marker}/add-tags-from-theory-page', [MarkerTheoryTagController::class, 'addTagsFromTheoryPage'])
+            ->name('api.v2.markers.add-tags-from-theory-page');
 
         Route::get('/seed-runs', [SeedRunController::class, 'index'])->name('seed-runs.index');
         Route::get('/seed-runs/preview', [SeedRunController::class, 'preview'])->name('seed-runs.preview');
