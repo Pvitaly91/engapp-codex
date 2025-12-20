@@ -43,9 +43,7 @@ class WordsTest extends Component
         $this->queue = session('words_queue', []);
         $this->totalCount = session('words_total_count', 0);
 
-        $this->initializeQueue();
-        $this->calculateProgress();
-        $this->loadNextWord();
+        $this->loadNextQuestion();
     }
 
     private function getWords(array $tags): Collection
@@ -58,16 +56,6 @@ class WordsTest extends Component
         }
 
         return $query->get();
-    }
-
-    private function initializeQueue(): void
-    {
-        if (empty($this->queue)) {
-            $words = $this->getWords($this->selectedTags);
-            $this->queue = $words->pluck('id')->shuffle()->toArray();
-            $this->totalCount = count($this->queue);
-            session(['words_queue' => $this->queue, 'words_total_count' => $this->totalCount]);
-        }
     }
 
     private function calculateProgress(): void
@@ -83,25 +71,61 @@ class WordsTest extends Component
             : 0;
     }
 
-    private function loadNextWord(): void
+    private function ensureQueue(): void
     {
         if (empty($this->queue)) {
-            $this->initializeQueue();
+            $words = $this->getWords($this->selectedTags);
+            $this->queue = $words->pluck('id')->shuffle()->toArray();
+            $this->totalCount = count($this->queue);
+        }
 
-            if (empty($this->queue)) {
-                $this->isComplete = true;
-                $this->wordId = null;
-                $this->options = [];
+        if ($this->totalCount === 0 && ! empty($this->queue)) {
+            $this->totalCount = count($this->queue);
+        }
 
-                return;
-            }
+        session([
+            'words_queue' => $this->queue,
+            'words_total_count' => $this->totalCount,
+        ]);
+    }
+
+    private function setCompleteState(): void
+    {
+        $this->isComplete = true;
+        $this->wordId = null;
+        $this->wordText = '';
+        $this->translation = '';
+        $this->options = [];
+        $this->questionType = 'en_to_uk';
+        $this->wordTags = [];
+        $this->calculateProgress();
+    }
+
+    private function resetQuestionState(): void
+    {
+        $this->wordId = null;
+        $this->wordText = '';
+        $this->translation = '';
+        $this->options = [];
+        $this->questionType = 'en_to_uk';
+        $this->wordTags = [];
+        $this->isComplete = false;
+    }
+
+    private function loadNextQuestion(): void
+    {
+        $this->resetQuestionState();
+        $this->ensureQueue();
+
+        if (empty($this->queue)) {
+            $this->setCompleteState();
+
+            return;
         }
 
         // Check for completion
         if ($this->percentage >= 95 && $this->stats['total'] >= $this->totalCount) {
-            $this->isComplete = true;
-            $this->wordId = null;
-            $this->options = [];
+            $this->setCompleteState();
 
             return;
         }
@@ -112,7 +136,7 @@ class WordsTest extends Component
         $word = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags'])->find($wordId);
 
         if (! $word) {
-            $this->loadNextWord();
+            $this->loadNextQuestion();
             return;
         }
 
@@ -143,8 +167,6 @@ class WordsTest extends Component
         $this->options[] = $correct;
         shuffle($this->options);
 
-        // Recalculate progress after shifting queue
-        $this->isComplete = false;
         $this->calculateProgress();
     }
 
@@ -176,7 +198,7 @@ class WordsTest extends Component
         ];
 
         $this->calculateProgress();
-        $this->loadNextWord();
+        $this->loadNextQuestion();
     }
 
     public function submitAnswerByIndex(int $index): void
@@ -199,9 +221,7 @@ class WordsTest extends Component
 
             $this->feedback = null;
             $this->isComplete = false;
-            $this->initializeQueue();
-            $this->calculateProgress();
-            $this->loadNextWord();
+            $this->loadNextQuestion();
         }
         $this->showFilters = false;
     }
@@ -216,9 +236,7 @@ class WordsTest extends Component
         $this->feedback = null;
         $this->isComplete = false;
 
-        $this->initializeQueue();
-        $this->calculateProgress();
-        $this->loadNextWord();
+        $this->loadNextQuestion();
     }
 
     public function resetProgress(): void
@@ -226,7 +244,9 @@ class WordsTest extends Component
         session()->forget('words_test_stats');
         $this->stats = ['correct' => 0, 'wrong' => 0, 'total' => 0];
         $this->feedback = null;
-        $this->calculateProgress();
+        $this->isComplete = false;
+
+        $this->loadNextQuestion();
     }
 
     public function restartTest(): void
@@ -237,9 +257,7 @@ class WordsTest extends Component
         $this->feedback = null;
         $this->isComplete = false;
 
-        $this->initializeQueue();
-        $this->calculateProgress();
-        $this->loadNextWord();
+        $this->loadNextQuestion();
     }
 
     public function toggleFilters(): void
