@@ -11,7 +11,8 @@ class WordsTestController extends Controller
 {
     private function getWords(array $tags): Collection
     {
-        $query = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags']);
+        $query = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags'])
+            ->whereHas('translates', fn ($q) => $q->where('lang', 'uk'));
 
         if (! empty($tags)) {
             $query->whereHas('tags', fn ($q) => $q->whereIn('name', $tags));
@@ -95,6 +96,7 @@ class WordsTestController extends Controller
         }
 
         $otherWords = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])
+            ->whereHas('translates', fn ($q) => $q->where('lang', 'uk'))
             ->when($selectedTags, fn ($q) => $q->whereHas('tags', fn ($q2) => $q2->whereIn('name', $selectedTags)))
             ->where('id', '!=', $wordId)
             ->inRandomOrder()
