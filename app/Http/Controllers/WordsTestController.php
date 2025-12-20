@@ -11,7 +11,8 @@ class WordsTestController extends Controller
 {
     private function getWords(array $tags): Collection
     {
-        $query = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags']);
+        $query = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags'])
+            ->whereHas('translates', fn ($q) => $q->where('lang', 'uk'));
 
         if (! empty($tags)) {
             $query->whereHas('tags', fn ($q) => $q->whereIn('name', $tags));
@@ -20,7 +21,7 @@ class WordsTestController extends Controller
         return $query->get();
     }
 
-    public function index(Request $request)
+    private function resolveSelectedTags(Request $request): array
     {
         if ($request->boolean('reset')) {
             $selectedTags = [];
@@ -37,14 +38,11 @@ class WordsTestController extends Controller
 
         session(['words_selected_tags' => $selectedTags]);
 
-        $feedback = session('feedback');
-        $stats = session('words_test_stats', [
-            'correct' => 0,
-            'wrong' => 0,
-            'total' => 0,
-        ]);
-        $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
+        return $selectedTags;
+    }
 
+    private function getQueueAndTotalCount(array $selectedTags): array
+    {
         $queue = session('words_queue');
         $totalCount = session('words_total_count', 0);
 
@@ -55,14 +53,65 @@ class WordsTestController extends Controller
             session(['words_queue' => $queue, 'words_total_count' => $totalCount]);
         }
 
-        if (empty($queue) || ($percentage >= 95 && $stats['total'] >= $totalCount)) {
-            return view('words.complete', [
+        return [$queue, $totalCount];
+    }
+
+    private function renderIndex(Request $request, bool $isPublic)
+    {
+        $selectedTags = $this->resolveSelectedTags($request);
+        $feedback = session('feedback');
+        $stats = session('words_test_stats', [
+            'correct' => 0,
+            'wrong' => 0,
+            'total' => 0,
+        ]);
+        $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
+
+        [$queue, $totalCount] = $this->getQueueAndTotalCount($selectedTags);
+        $allTags = Tag::whereHas('words')->get();
+
+        if ($totalCount === 0) {
+            $baseData = [
+                'word' => null,
+                'translation' => '',
+                'options' => [],
+                'questionType' => null,
+                'feedback' => $feedback,
                 'stats' => $stats,
                 'percentage' => $percentage,
                 'totalCount' => $totalCount,
                 'selectedTags' => $selectedTags,
-                'allTags' => Tag::whereHas('words')->get(),
-            ]);
+                'allTags' => $allTags,
+            ];
+
+            if ($isPublic) {
+                $baseData['currentIndex'] = 0;
+                $baseData['progressPercent'] = 0;
+                $baseData['remainingCount'] = 0;
+            }
+
+            return view($isPublic ? 'engram.words.test' : 'words.complete', $baseData);
+        }
+
+        if (empty($queue) || ($percentage >= 95 && $stats['total'] >= $totalCount)) {
+            $completionData = [
+                'stats' => $stats,
+                'percentage' => $percentage,
+                'totalCount' => $totalCount,
+                'selectedTags' => $selectedTags,
+                'allTags' => $allTags,
+            ];
+
+            if ($isPublic) {
+                $remainingCount = count($queue ?? []);
+                $currentIndex = max(0, $totalCount - $remainingCount);
+                $progressPercent = $totalCount > 0 ? round(($currentIndex / $totalCount) * 100, 2) : 0;
+                $completionData['currentIndex'] = $currentIndex;
+                $completionData['progressPercent'] = $progressPercent;
+                $completionData['remainingCount'] = $remainingCount;
+            }
+
+            return view($isPublic ? 'engram.words.complete' : 'words.complete', $completionData);
         }
 
         $wordId = array_shift($queue);
@@ -71,6 +120,7 @@ class WordsTestController extends Controller
         $word = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags'])->find($wordId);
 
         $otherWords = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])
+            ->whereHas('translates', fn ($q) => $q->where('lang', 'uk'))
             ->when($selectedTags, fn ($q) => $q->whereHas('tags', fn ($q2) => $q2->whereIn('name', $selectedTags)))
             ->where('id', '!=', $wordId)
             ->inRandomOrder()
@@ -90,7 +140,7 @@ class WordsTestController extends Controller
         $options[] = $correct;
         shuffle($options);
 
-        return view('words.test', [
+        $viewData = [
             'word' => $word,
             'translation' => optional($word->translates->first())->translation ?? '',
             'options' => $options,
@@ -100,8 +150,29 @@ class WordsTestController extends Controller
             'percentage' => $percentage,
             'totalCount' => $totalCount,
             'selectedTags' => $selectedTags,
-            'allTags' => Tag::whereHas('words')->get(),
-        ]);
+            'allTags' => $allTags,
+        ];
+
+        if ($isPublic) {
+            $remainingCount = count($queue);
+            $currentIndex = max(1, $totalCount - $remainingCount);
+            $progressPercent = $totalCount > 0 ? round(($currentIndex / $totalCount) * 100, 2) : 0;
+            $viewData['currentIndex'] = $currentIndex;
+            $viewData['progressPercent'] = $progressPercent;
+            $viewData['remainingCount'] = $remainingCount;
+        }
+
+        return view($isPublic ? 'engram.words.test' : 'words.test', $viewData);
+    }
+
+    public function index(Request $request)
+    {
+        return $this->renderIndex($request, false);
+    }
+
+    public function publicIndex(Request $request)
+    {
+        return $this->renderIndex($request, true);
     }
 
     public function check(Request $request)
@@ -142,6 +213,13 @@ class WordsTestController extends Controller
             'questionType' => $request->input('questionType'),
         ]);
 
-        return redirect()->route('words.test');
+        return redirect()->route($request->input('redirect_route', 'words.test'));
+    }
+
+    public function reset(Request $request)
+    {
+        session()->forget('words_test_stats');
+
+        return redirect()->route($request->input('redirect_route', 'words.test'));
     }
 }

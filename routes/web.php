@@ -52,6 +52,12 @@ Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
 Route::get('/pages/{category:slug}', [PageController::class, 'category'])->name('pages.category');
 Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])->name('pages.show');
 
+Route::prefix('words')->name('words.public.')->group(function () {
+    Route::get('/test', [WordsTestController::class, 'publicIndex'])->name('test');
+    Route::post('/test/check', [WordsTestController::class, 'check'])->name('test.check');
+    Route::post('/test/reset', [WordsTestController::class, 'reset'])->name('test.reset');
+});
+
 // Public Theory pages routes (no authentication required)
 Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
 Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
@@ -139,11 +145,7 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
 
         Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
         Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
-        Route::post('/words/test/reset', function () {
-            session()->forget('words_test_stats');
-
-            return redirect()->route('words.test');
-        })->name('words.test.reset');
+        Route::post('/words/test/reset', [WordsTestController::class, 'reset'])->name('words.test.reset');
 
         Route::get('/translate/test', [SentenceTranslationTestController::class, 'index'])->name('translate.test');
         Route::post('/translate/test/check', [SentenceTranslationTestController::class, 'check'])->name('translate.test.check');
