@@ -1,4 +1,4 @@
-<div class="max-w-5xl mx-auto" x-data="{ showFilters: @entangle('showFilters') }">
+<div class="max-w-5xl mx-auto" x-data="{ showFilters: $wire.entangle('showFilters') }">
     {{-- Header Section --}}
     <header class="mb-8" data-animate>
         <h1 class="text-2xl sm:text-3xl font-bold text-foreground">Тест слів</h1>
