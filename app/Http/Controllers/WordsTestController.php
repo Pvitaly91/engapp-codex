@@ -151,41 +151,22 @@ class WordsTestController extends Controller
     }
 
     /**
-     * Public index method for engram-styled view.
+     * Public index method for engram-styled view with Livewire.
      */
     public function publicIndex(Request $request)
     {
-        $data = $this->prepareTestData($request);
-
-        if (empty($data['queue']) || ($data['percentage'] >= 95 && $data['stats']['total'] >= $data['totalCount'])) {
-            return view('engram.words.complete', [
-                'stats' => $data['stats'],
-                'percentage' => $data['percentage'],
-                'totalCount' => $data['totalCount'],
-                'selectedTags' => $data['selectedTags'],
-                'allTags' => $data['allTags'],
-                'currentIndex' => $data['currentIndex'],
-                'progressPercent' => $data['progressPercent'],
-            ]);
+        // Handle reset and filter parameters for backward compatibility
+        if ($request->boolean('reset')) {
+            session()->forget(['words_selected_tags', 'words_test_stats', 'words_queue', 'words_total_count']);
+        } elseif ($request->has('filter')) {
+            $selectedTags = $request->input('tags', []);
+            if ($selectedTags !== session('words_selected_tags')) {
+                session()->forget(['words_test_stats', 'words_queue', 'words_total_count']);
+            }
+            session(['words_selected_tags' => $selectedTags]);
         }
 
-        $questionData = $this->generateQuestionData($data['queue'], $data['selectedTags']);
-
-        // Recalculate currentIndex after question generation (queue was shifted)
-        $remainingCount = count(session('words_queue', []));
-        $currentIndex = $data['totalCount'] - $remainingCount;
-        $progressPercent = $data['totalCount'] > 0 ? round(($currentIndex / $data['totalCount']) * 100, 2) : 0;
-
-        return view('engram.words.test', array_merge([
-            'feedback' => $data['feedback'],
-            'stats' => $data['stats'],
-            'percentage' => $data['percentage'],
-            'totalCount' => $data['totalCount'],
-            'selectedTags' => $data['selectedTags'],
-            'allTags' => $data['allTags'],
-            'currentIndex' => $currentIndex,
-            'progressPercent' => $progressPercent,
-        ], $questionData ?? ['word' => null, 'translation' => '', 'options' => [], 'questionType' => 'en_to_uk']));
+        return view('engram.words.test');
     }
 
     public function check(Request $request)
