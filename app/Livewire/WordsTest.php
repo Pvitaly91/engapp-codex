@@ -104,7 +104,7 @@ class WordsTest extends Component
 
         $this->wordId = $word->id;
         $this->wordText = $word->word;
-        $this->translation = optional($word->translates->first())->translation ?? '';
+        $this->translation = $word->translates->first()?->translation ?? '';
         $this->wordTags = $word->tags->pluck('name')->toArray();
 
         // Generate options
@@ -120,7 +120,7 @@ class WordsTest extends Component
 
         if ($this->questionType === 'en_to_uk') {
             $correct = $this->translation;
-            $this->options = $otherWords->map(fn ($w) => optional($w->translates->first())->translation ?? '')->toArray();
+            $this->options = $otherWords->map(fn ($w) => $w->translates->first()?->translation ?? '')->toArray();
         } else {
             $correct = $this->wordText;
             $this->options = $otherWords->pluck('word')->toArray();
@@ -162,6 +162,13 @@ class WordsTest extends Component
 
         $this->calculateProgress();
         $this->loadNextWord();
+    }
+
+    public function submitAnswerByIndex(int $index): void
+    {
+        if (isset($this->options[$index])) {
+            $this->submitAnswer($this->options[$index]);
+        }
     }
 
     public function applyFilter(array $tags): void

@@ -11,6 +11,7 @@
 
   <!-- Tailwind CDN + runtime config -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
   @livewireStyles
   <script>
     tailwind.config = {

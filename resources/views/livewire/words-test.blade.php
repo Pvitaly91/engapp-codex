@@ -247,7 +247,7 @@
                             @foreach($options as $index => $option)
                                 <button
                                     type="button"
-                                    wire:click="submitAnswer('{{ addslashes($option) }}')"
+                                    wire:click="submitAnswerByIndex({{ $index }})"
                                     wire:loading.attr="disabled"
                                     class="w-full text-left rounded-2xl border-2 border-border bg-background px-5 py-4 text-lg font-medium text-foreground hover:border-primary hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 disabled:opacity-50"
                                     data-shortcut="{{ $index + 1 }}"
