@@ -77,9 +77,9 @@
                 @endif
             </button>
         </form>
-        <a href="{{ route('words.public.test', ['reset' => 1]) }}" class="flex-1 flex items-center justify-center rounded-2xl border border-border px-6 py-4 text-base font-semibold text-foreground hover:bg-muted transition text-center">
+        <a href="{{ route('words.public.test', ['reset' => 1]) }}" class="flex-1 flex items-center justify-center rounded-2xl border border-border px-6 py-4 text-base font-semibold text-foreground hover:bg-muted transition text-center" aria-label="Нова гра зі скиданням фільтра">
             Нова гра
-            <span class="block text-xs font-normal text-muted-foreground ml-2">(скинути фільтр)</span>
+            <span class="block text-xs font-normal text-muted-foreground ml-2" aria-hidden="true">(скинути фільтр)</span>
         </a>
     </div>
 
