@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class TextBlock extends Model
 {
@@ -29,5 +30,10 @@ class TextBlock extends Model
     public function category()
     {
         return $this->belongsTo(PageCategory::class, 'page_category_id');
+    }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

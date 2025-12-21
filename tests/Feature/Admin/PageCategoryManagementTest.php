@@ -4,6 +4,8 @@ namespace Tests\Feature\Admin;
 
 use App\Models\Page;
 use App\Models\PageCategory;
+use App\Models\Tag;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
@@ -21,6 +23,10 @@ class PageCategoryManagementTest extends TestCase
         config(['view.compiled' => $viewsPath]);
 
         Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('tag_text_block');
+        Schema::dropIfExists('page_category_tag');
+        Schema::dropIfExists('page_tag');
+        Schema::dropIfExists('tags');
         Schema::dropIfExists('text_blocks');
         Schema::dropIfExists('pages');
         Schema::dropIfExists('page_categories');
@@ -74,11 +80,46 @@ class PageCategoryManagementTest extends TestCase
             $table->string('seeder')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('category')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('page_tag', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('tag_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('page_id')->constrained('pages')->cascadeOnDelete();
+            $table->unique(['tag_id', 'page_id']);
+            $table->timestamps();
+        });
+
+        Schema::create('page_category_tag', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('tag_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('page_category_id')->constrained()->cascadeOnDelete();
+            $table->unique(['tag_id', 'page_category_id']);
+            $table->timestamps();
+        });
+
+        Schema::create('tag_text_block', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('tag_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('text_block_id')->constrained()->cascadeOnDelete();
+            $table->unique(['tag_id', 'text_block_id']);
+            $table->timestamps();
+        });
     }
 
     protected function tearDown(): void
     {
         Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('tag_text_block');
+        Schema::dropIfExists('page_category_tag');
+        Schema::dropIfExists('page_tag');
+        Schema::dropIfExists('tags');
         Schema::dropIfExists('text_blocks');
         Schema::dropIfExists('pages');
         Schema::dropIfExists('page_categories');
@@ -271,6 +312,42 @@ class PageCategoryManagementTest extends TestCase
         $this->assertDatabaseHas('text_blocks', [
             'page_category_id' => $category->id,
             'heading' => 'Intro',
+        ]);
+    }
+
+    public function test_category_block_can_be_created_with_tags(): void
+    {
+        $category = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar-tags',
+            'language' => 'uk',
+        ]);
+
+        $tag = Tag::create(['name' => 'Theory']);
+
+        $response = $this->withSession($this->adminSession())
+            ->post(route('pages.manage.categories.blocks.store', $category), [
+                'locale' => 'uk',
+                'type' => 'box',
+                'column' => 'left',
+                'heading' => 'Tagged intro',
+                'sort_order' => 10,
+                'body' => '<p>About grammar</p>',
+                'tags' => [$tag->id],
+            ]);
+
+        $response->assertRedirect(route('pages.manage.categories.blocks.index', $category));
+
+        $blockId = DB::table('text_blocks')
+            ->where('page_category_id', $category->id)
+            ->where('heading', 'Tagged intro')
+            ->value('id');
+
+        $this->assertNotNull($blockId);
+
+        $this->assertDatabaseHas('tag_text_block', [
+            'text_block_id' => $blockId,
+            'tag_id' => $tag->id,
         ]);
     }
 

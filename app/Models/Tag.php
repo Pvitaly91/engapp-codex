@@ -28,4 +28,9 @@ class Tag extends Model
     {
         return $this->belongsToMany(PageCategory::class);
     }
+
+    public function textBlocks(): BelongsToMany
+    {
+        return $this->belongsToMany(TextBlock::class);
+    }
 }

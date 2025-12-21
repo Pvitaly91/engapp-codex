@@ -14,6 +14,7 @@ class Question extends Model
 
     protected $casts = [
         'flag' => 'integer',
+        'options_by_marker' => 'array',
     ];
 
     public function renderQuestionText(): string
@@ -28,7 +29,19 @@ class Question extends Model
         return $questionText;
     }
 
-    protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'theory_text_block_uuid', 'category_id', 'source_id', 'flag', 'seeder', 'type'];
+    protected $fillable = [
+        'uuid',
+        'question',
+        'difficulty',
+        'level',
+        'theory_text_block_uuid',
+        'category_id',
+        'source_id',
+        'flag',
+        'seeder',
+        'type',
+        'options_by_marker',
+    ];
 
     /**
      * Get the theory text block linked to this question.
@@ -83,6 +96,27 @@ class Question extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    /**
+     * Get tags for specific markers (a1, a2, etc.) via the question_marker_tag pivot table.
+     */
+    public function markerTags()
+    {
+        return $this->belongsToMany(Tag::class, 'question_marker_tag')
+            ->withPivot('marker')
+            ->withTimestamps();
+    }
+
+    /**
+     * Get tags for a specific marker.
+     *
+     * @param  string  $marker  The marker name (e.g., 'a1', 'a2')
+     * @return \Illuminate\Database\Eloquent\Collection<Tag>
+     */
+    public function getTagsForMarker(string $marker)
+    {
+        return $this->markerTags()->wherePivot('marker', $marker)->get();
     }
 
     public function hints()

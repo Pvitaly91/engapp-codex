@@ -4,6 +4,8 @@ namespace Tests\Feature\Admin;
 
 use App\Models\Page;
 use App\Models\PageCategory;
+use App\Models\Tag;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
@@ -21,6 +23,8 @@ class PageBlockManagementTest extends TestCase
         config(['view.compiled' => $viewsPath]);
 
         Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('tag_text_block');
+        Schema::dropIfExists('tags');
         Schema::dropIfExists('text_blocks');
         Schema::dropIfExists('pages');
         Schema::dropIfExists('page_categories');
@@ -74,11 +78,28 @@ class PageBlockManagementTest extends TestCase
             $table->string('seeder')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('category')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('tag_text_block', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('tag_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('text_block_id')->constrained()->cascadeOnDelete();
+            $table->unique(['tag_id', 'text_block_id']);
+            $table->timestamps();
+        });
     }
 
     protected function tearDown(): void
     {
         Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('tag_text_block');
+        Schema::dropIfExists('tags');
         Schema::dropIfExists('text_blocks');
         Schema::dropIfExists('pages');
         Schema::dropIfExists('page_categories');
@@ -95,6 +116,50 @@ class PageBlockManagementTest extends TestCase
             ->get(route('pages.manage.blocks.edit', [$page, $block]));
 
         $response->assertOk();
+    }
+
+    public function test_block_can_be_created_with_tags(): void
+    {
+        $category = PageCategory::create([
+            'title' => 'Category',
+            'slug' => 'category-with-tags',
+            'language' => 'uk',
+        ]);
+
+        $page = $this->createPage($category->id, 'tagged-page');
+
+        $firstTag = Tag::create(['name' => 'Grammar']);
+        $secondTag = Tag::create(['name' => 'Practice']);
+
+        $response = $this->withSession($this->adminSession())
+            ->post(route('pages.manage.blocks.store', $page), [
+                'locale' => 'uk',
+                'type' => 'box',
+                'column' => 'left',
+                'heading' => 'Tagged block',
+                'sort_order' => 10,
+                'body' => 'Body',
+                'tags' => [$firstTag->id, $secondTag->id],
+            ]);
+
+        $response->assertRedirect(route('pages.manage.edit', $page));
+
+        $blockId = DB::table('text_blocks')
+            ->where('page_id', $page->id)
+            ->where('heading', 'Tagged block')
+            ->value('id');
+
+        $this->assertNotNull($blockId);
+
+        $this->assertDatabaseHas('tag_text_block', [
+            'text_block_id' => $blockId,
+            'tag_id' => $firstTag->id,
+        ]);
+
+        $this->assertDatabaseHas('tag_text_block', [
+            'text_block_id' => $blockId,
+            'tag_id' => $secondTag->id,
+        ]);
     }
 
     public function test_block_edit_form_returns_not_found_for_block_from_another_page(): void

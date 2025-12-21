@@ -312,6 +312,90 @@
                 </div>
             </header>
 
+            @php
+                $theoryData = $matchedTheoryByQuestionId[$question->id] ?? ['tags_normalized' => [], 'matched_theory' => []];
+                $questionTagsNormalized = $theoryData['tags_normalized'] ?? [];
+                $matchedTheory = $theoryData['matched_theory'] ?? [];
+            @endphp
+
+            {{-- Question Tags Section --}}
+            <div class="flex flex-wrap items-center gap-2">
+                <span class="text-xs font-semibold uppercase tracking-wide text-stone-500">Question tags:</span>
+                @if(count($questionTagsNormalized) > 0)
+                    @foreach($questionTagsNormalized as $tag)
+                        <span class="inline-flex items-center rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-medium text-indigo-700">{{ $tag }}</span>
+                    @endforeach
+                @else
+                    <span class="text-xs text-stone-400 italic">No tags</span>
+                @endif
+            </div>
+
+            {{-- Matched Theory (text_blocks) Section --}}
+            <details class="group">
+                <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                    <span>Matched theory (text_blocks)</span>
+                    <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                    <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                </summary>
+                <div class="mt-3">
+                    @if(count($matchedTheory) > 0)
+                        <div class="space-y-3">
+                            @foreach($matchedTheory as $match)
+                                <div class="rounded-lg border border-purple-100 bg-purple-50/60 p-3">
+                                    <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
+                                        <div class="flex items-center gap-2">
+                                            <span class="inline-flex items-center rounded-full bg-purple-600 px-2 py-0.5 text-xs font-bold text-white">
+                                                Score: {{ $match['score'] }}
+                                            </span>
+                                            <span class="text-stone-500">Block #{{ $match['block_id'] }}</span>
+                                        </div>
+                                        @if($match['admin_link'])
+                                            <a href="{{ $match['admin_link'] }}" target="_blank" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800">
+                                                Open source page →
+                                            </a>
+                                        @endif
+                                    </div>
+                                    @if($match['title'])
+                                        <p class="mt-2 font-semibold text-stone-800">{{ $match['title'] }}</p>
+                                    @endif
+                                    @if($match['snippet'])
+                                        <p class="mt-1 text-sm text-stone-600">{{ $match['snippet'] }}</p>
+                                    @endif
+                                    <div class="mt-2 flex flex-wrap items-center gap-1">
+                                        <span class="text-[10px] font-semibold uppercase tracking-wide text-purple-600">Matched tags:</span>
+                                        @foreach($match['matched_tags'] as $matchedTag)
+                                            <span class="inline-flex items-center rounded-full bg-purple-100 px-2 py-0.5 text-[11px] font-medium text-purple-700">{{ $matchedTag }}</span>
+                                        @endforeach
+                                    </div>
+                                    <div class="mt-1 flex flex-wrap items-center gap-1">
+                                        <span class="text-[10px] font-semibold uppercase tracking-wide text-stone-400">Block tags:</span>
+                                        @foreach($match['block_tags'] as $blockTag)
+                                            <span class="inline-flex items-center rounded-full bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-500">{{ $blockTag }}</span>
+                                        @endforeach
+                                    </div>
+                                    @if($match['source_page'])
+                                        <div class="mt-1 text-[11px] text-stone-400">
+                                            <span class="font-medium">Source:</span>
+                                            {{ $match['source_page']['title'] ?? $match['source_page']['slug'] }}
+                                            @if($match['page_category'])
+                                                <span class="text-stone-300">·</span> {{ $match['page_category']['title'] ?? $match['page_category']['slug'] }}
+                                            @endif
+                                        </div>
+                                    @endif
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="flex items-center gap-2 rounded-lg border border-dashed border-amber-200 bg-amber-50/60 px-3 py-4 text-sm text-amber-600">
+                            <svg class="h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                            </svg>
+                            <span>No matching theory blocks found for this question's tags.</span>
+                        </div>
+                    @endif
+                </div>
+            </details>
+
             <div data-variants-section>
                 @if($variants->isNotEmpty())
                     <details class="group">

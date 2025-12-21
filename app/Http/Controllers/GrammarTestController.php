@@ -20,6 +20,7 @@ use App\Services\GrammarTestFilterService;
 use App\Services\ResolvedSavedTest;
 use App\Services\SavedTestResolver;
 use App\Services\TagAggregationService;
+use App\Services\TheoryBlockMatcherService;
 use App\Services\VirtualSavedTest;
 use App\Models\QuestionHint;
 use Illuminate\Database\Eloquent\Model;
@@ -53,6 +54,7 @@ class GrammarTestController extends Controller
         private GrammarTestFilterService $filterService,
         private QuestionDeletionService $questionDeletionService,
         private TagAggregationService $aggregationService,
+        private TheoryBlockMatcherService $theoryBlockMatcherService,
     )
     {
     }
@@ -188,7 +190,7 @@ class GrammarTestController extends Controller
         $test = $resolved->model;
         $supportsVariants = $this->variantService->supportsVariants();
 
-        $relations = ['answers.option', 'options', 'verbHints.option', 'hints'];
+        $relations = ['answers.option', 'options', 'verbHints.option', 'hints', 'tags'];
         if ($supportsVariants) {
             $relations[] = 'variants';
         }
@@ -250,12 +252,20 @@ class GrammarTestController extends Controller
                 ->all();
         }
 
+        // Load theory blocks and match them to questions (once per request)
+        $theoryBlocks = $this->theoryBlockMatcherService->loadCandidateTheoryBlocks();
+        $matchedTheoryByQuestionId = $this->theoryBlockMatcherService->matchTheoryBlocksForQuestions(
+            $questions,
+            $theoryBlocks
+        );
+
         return view('engram.saved-test-tech', [
             'test' => $test,
             'questions' => $questions,
             'explanationsByQuestionId' => $explanationsByQuestionId,
             'hintProviders' => $hintProviders,
             'usesUuidLinks' => $resolved->usesUuidLinks,
+            'matchedTheoryByQuestionId' => $matchedTheoryByQuestionId,
         ]);
     }
 
@@ -494,19 +504,26 @@ class GrammarTestController extends Controller
             }
         }
 
-        return $questions->map(function ($q) {
-            $answers = $q->answers->map(function ($a) {
-                return [
-                    'marker' => $a->marker,
-                    'value' => $a->option->option ?? $a->answer ?? '',
-                ];
-            });
+        $controller = $this;
 
-            $answerList = $answers->pluck('value')->values()->toArray();
+        return $questions->map(function ($q) use ($controller) {
+            $answers = $q->answers
+                ->sortBy('marker')
+                ->values()
+                ->map(function ($a) {
+                    return [
+                        'marker' => $a->marker,
+                        'value' => $a->option->option ?? $a->answer ?? '',
+                    ];
+                });
+
             $answerMap = $answers
                 ->filter(fn ($ans) => ! empty($ans['marker']))
                 ->mapWithKeys(fn ($ans) => [$ans['marker'] => $ans['value']])
                 ->toArray();
+            $markers = array_keys($answerMap);
+            $answerList = array_map(fn ($marker) => $answerMap[$marker] ?? '', $markers);
+
             $options = $q->options->pluck('option')->toArray();
             foreach ($answerList as $ans) {
                 if ($ans && ! in_array($ans, $options)) {
@@ -517,6 +534,8 @@ class GrammarTestController extends Controller
             $verbHints = $q->verbHints
                 ->mapWithKeys(fn($vh) => [$vh->marker => $vh->option->option ?? ''])
                 ->toArray();
+            $optionsByMarker = $controller->normalizeOptionsByMarker($q->options_by_marker, $markers);
+            $firstMarker = $markers[0] ?? null;
 
             return [
                 'id' => $q->id,
@@ -524,13 +543,53 @@ class GrammarTestController extends Controller
                 'answer' => $answerList[0] ?? '',
                 'answers' => $answerList,
                 'answer_map' => $answerMap,
-                'verb_hint' => $verbHints['a1'] ?? '',
+                'markers' => $markers,
+                'markers_count' => count($markers),
+                'options_by_marker' => $optionsByMarker,
+                'verb_hint' => $firstMarker ? ($verbHints[$firstMarker] ?? '') : '',
                 'verb_hints' => $verbHints,
                 'options' => $options,
                 'tense' => $q->category->name ?? '',
                 'level' => $q->level ?? '',
             ];
         })->values()->all();
+    }
+
+    private function normalizeOptionsByMarker($rawOptions, array $markers): ?array
+    {
+        if (! is_array($rawOptions)) {
+            return null;
+        }
+
+        $normalized = [];
+        $hasValues = false;
+
+        foreach ($markers as $index => $marker) {
+            $options = $rawOptions[$marker] ?? $rawOptions[$index] ?? [];
+            $options = is_array($options) ? $this->filterOptionArray($options) : [];
+            if (! empty($options)) {
+                $hasValues = true;
+            }
+            $normalized[] = $options;
+        }
+
+        return $hasValues ? $normalized : null;
+    }
+
+    private function filterOptionArray(array $options): array
+    {
+        $clean = [];
+        foreach ($options as $option) {
+            $value = is_string($option) ? trim($option) : trim((string) $option);
+            if ($value === '') {
+                continue;
+            }
+            if (! in_array($value, $clean, true)) {
+                $clean[] = $value;
+            }
+        }
+
+        return $clean;
     }
 
     private function jsStateSessionKey(Test|SavedGrammarTest|VirtualSavedTest $test, string $view): string
