@@ -133,6 +133,22 @@
           </div>
           <p class="mt-3 text-muted-foreground">Можете почати заново, щоб повторити матеріал.</p>
         </div>
+
+        <div class="rounded-2xl bg-destructive/5 p-5 shadow-soft border border-destructive/30" id="failure" hidden>
+          <div class="flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-destructive/10 text-destructive">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/></svg>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-muted-foreground">Тест не пройдено</p>
+              <p class="text-lg font-semibold text-foreground">Перевищено ліміт у 3 помилки</p>
+            </div>
+          </div>
+          <p class="mt-3 text-muted-foreground">Почніть заново, щоб спробувати ще раз і покращити результат.</p>
+          <button id="retry-btn" class="mt-4 inline-flex items-center gap-2 rounded-xl border border-destructive/50 bg-destructive/10 px-4 py-2 text-sm font-semibold text-destructive shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+            Спробувати ще раз
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -159,9 +175,11 @@
       const feedbackTitle = document.getElementById('feedback-title');
       const feedbackBody = document.getElementById('feedback-body');
       const completion = document.getElementById('completion');
+      const failure = document.getElementById('failure');
       const questionWrapper = document.getElementById('question-wrapper');
       const emptyState = document.getElementById('empty-state');
       const resetBtn = document.getElementById('reset-btn');
+      const retryBtn = document.getElementById('retry-btn');
 
       let currentQuestion = null;
       let loading = false;
@@ -186,6 +204,17 @@
       function updateState(data) {
         renderStats(data.stats, data.percentage, data.totalCount);
         completion.hidden = !data.completed;
+        failure.hidden = !data.failed;
+
+        if (data.failed) {
+          currentQuestion = null;
+          questionWrapper.classList.add('hidden');
+          emptyState.classList.add('hidden');
+          questionLabel.textContent = 'Тест не пройдено';
+          queueCounter.textContent = '';
+          toggleOptions(false);
+          return;
+        }
 
         if (!data.question) {
           currentQuestion = null;
@@ -279,6 +308,18 @@
           showFeedback(data.result);
 
           currentQuestion = data.question;
+          completion.hidden = !data.completed;
+          failure.hidden = !data.failed;
+
+          if (data.failed) {
+            questionWrapper.classList.add('hidden');
+            emptyState.classList.add('hidden');
+            questionLabel.textContent = 'Тест не пройдено';
+            queueCounter.textContent = '';
+            toggleOptions(false);
+            return;
+          }
+
           if (data.completed || !data.question) {
             completion.hidden = false;
             questionWrapper.classList.add('hidden');
@@ -324,9 +365,11 @@
           : 'Зверніть увагу на правильний варіант і спробуйте ще раз.';
       }
 
-      resetBtn.addEventListener('click', async () => {
-        resetBtn.disabled = true;
-        resetBtn.classList.add('opacity-60');
+      async function resetTest(button) {
+        if (button) {
+          button.disabled = true;
+          button.classList.add('opacity-60');
+        }
         const response = await fetch(resetUrl, {
           method: 'POST',
           headers: {
@@ -337,9 +380,14 @@
 
         const data = await response.json();
         updateState(data);
-        resetBtn.disabled = false;
-        resetBtn.classList.remove('opacity-60');
-      });
+        if (button) {
+          button.disabled = false;
+          button.classList.remove('opacity-60');
+        }
+      }
+
+      resetBtn.addEventListener('click', () => resetTest(resetBtn));
+      retryBtn.addEventListener('click', () => resetTest(retryBtn));
 
       fetchState();
     });

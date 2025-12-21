@@ -16,6 +16,11 @@ class WordsTestController extends Controller
         'words_current_question',
     ];
 
+    private function isFailed(array $stats): bool
+    {
+        return $stats['wrong'] >= 3;
+    }
+
     private function activeLang(): string
     {
         $lang = session('locale', 'uk');
@@ -163,7 +168,15 @@ class WordsTestController extends Controller
         $this->initializeState($lang);
 
         $stats = session('words_test_stats');
-        $question = $this->ensureCurrentQuestion($lang);
+        $failed = $this->isFailed($stats);
+
+        if ($failed) {
+            session(['words_queue' => []]);
+            session()->forget('words_current_question');
+            $question = null;
+        } else {
+            $question = $this->ensureCurrentQuestion($lang);
+        }
         $percentage = $this->calculatePercentage($stats);
 
         return [
@@ -171,7 +184,8 @@ class WordsTestController extends Controller
             'stats' => $stats,
             'percentage' => $percentage,
             'totalCount' => session('words_total_count', 0),
-            'completed' => $this->completionStatus($question),
+            'completed' => $failed ? false : $this->completionStatus($question),
+            'failed' => $failed,
         ];
     }
 
@@ -225,7 +239,14 @@ class WordsTestController extends Controller
         session()->forget('words_current_question');
 
         $lang = $this->activeLang();
-        $nextQuestion = $this->ensureCurrentQuestion($lang);
+        $failed = $this->isFailed($stats);
+
+        if ($failed) {
+            session(['words_queue' => []]);
+            $nextQuestion = null;
+        } else {
+            $nextQuestion = $this->ensureCurrentQuestion($lang);
+        }
 
         return response()->json([
             'result' => [
@@ -239,7 +260,8 @@ class WordsTestController extends Controller
             'stats' => $stats,
             'percentage' => $this->calculatePercentage($stats),
             'totalCount' => session('words_total_count', 0),
-            'completed' => $this->completionStatus($nextQuestion),
+            'completed' => $failed ? false : $this->completionStatus($nextQuestion),
+            'failed' => $failed,
         ]);
     }
 
