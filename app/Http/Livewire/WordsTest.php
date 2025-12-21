@@ -124,7 +124,7 @@ class WordsTest extends Component
             ->take(4)
             ->get();
 
-        $questionType = rand(0, 1) === 0 ? 'en_to_uk' : 'uk_to_en';
+        $questionType = random_int(0, 1) === 0 ? 'en_to_uk' : 'uk_to_en';
 
         $translation = optional($word->translates->first())->translation ?? '';
 
@@ -185,11 +185,18 @@ class WordsTest extends Component
         $this->completed = empty($this->queue) && ! $this->currentQuestion;
     }
 
-    public function submitAnswer(string $answer): void
+    public function submitAnswer(int $optionIndex): void
     {
         if (! $this->currentQuestion || $this->isLoading) {
             return;
         }
+
+        $options = $this->currentQuestion['options'] ?? [];
+        if (! isset($options[$optionIndex])) {
+            return;
+        }
+
+        $answer = $options[$optionIndex];
 
         $this->isLoading = true;
         $this->selectedAnswer = $answer;
@@ -230,8 +237,6 @@ class WordsTest extends Component
         }
 
         $this->completed = empty($this->queue) && ! $this->currentQuestion && ! $this->failed;
-
-        $this->dispatch('answer-submitted', isCorrect: $isCorrect);
 
         $this->isLoading = false;
         $this->highlightedButton = '';

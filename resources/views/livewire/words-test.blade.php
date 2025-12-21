@@ -98,10 +98,10 @@
           </div>
 
           <div class="grid gap-3 md:grid-cols-2">
-            @foreach($currentQuestion['options'] as $option)
+            @foreach($currentQuestion['options'] as $index => $option)
               <button
                 type="button"
-                wire:click="submitAnswer('{{ addslashes($option) }}')"
+                wire:click="submitAnswer({{ $index }})"
                 wire:loading.attr="disabled"
                 @class([
                   'flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-60 disabled:cursor-not-allowed',
