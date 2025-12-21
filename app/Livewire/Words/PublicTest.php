@@ -5,12 +5,8 @@ namespace App\Livewire\Words;
 use App\Models\Tag;
 use App\Models\Word;
 use Illuminate\Support\Collection;
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Layout('layouts.engram')]
-#[Title('Тест слів')]
 class PublicTest extends Component
 {
     public array $selectedTags = [];

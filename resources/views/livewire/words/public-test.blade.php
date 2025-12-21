@@ -1,5 +1,3 @@
-@section('title', 'Тест слів')
-
 <div class="min-h-[60vh]">
     {{-- Header Section --}}
     <div class="mb-8" data-animate data-animate-delay="0">
