@@ -144,6 +144,8 @@
       transform: scale(1.1);
     }
   </style>
+
+  @livewireStyles
 </head>
 
 <body class="font-sans antialiased selection:bg-primary/15 selection:text-primary">
@@ -191,6 +193,7 @@
 
   <main class="page-shell mx-auto px-3 sm:px-4 py-8 sm:py-10">
     @yield('content')
+    {{ $slot ?? '' }}
   </main>
 
   <footer class="border-t border-border mt-12 py-8 text-sm">
@@ -624,6 +627,7 @@
     }
   </style>
 
+  @livewireScripts
   @yield('scripts')
 </body>
 </html>
