@@ -72,7 +72,7 @@ class TestJsV2Controller extends Controller
     {
         return $this->renderSavedTestJsV2View(
             $slug,
-            'saved-test-js-select-v2',
+            'saved-test-js-select-v2', // reuse select template with dedicated builder state
             'saved-test-js-builder-v2',
             fn ($q) => $this->isBuilderCompatibleQuestion($q)
         );
