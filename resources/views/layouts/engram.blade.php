@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
   <title>@yield('title', 'Gramlyze — Платформа для викладачів англійської')</title>
   <meta name="description" content="Gramlyze допомагає збирати тести, аналізувати відповіді та координувати команду викладачів англійської." />
 
@@ -41,6 +42,8 @@
       }
     }
   </script>
+
+  @livewireStyles
 
   <!-- Design tokens (light/dark) -->
   <style>
@@ -625,5 +628,7 @@
   </style>
 
   @yield('scripts')
+
+  @livewireScripts
 </body>
 </html>

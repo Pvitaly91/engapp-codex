@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use App\Models\Question;
 use App\Observers\QuestionObserver;
+use App\Livewire\Words\PublicTest as PublicWordsTest;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,5 +26,7 @@ class AppServiceProvider extends ServiceProvider
         app()->setLocale(session('locale', config('app.locale')));
 
         //  Question::observe(QuestionObserver::class);
+
+        Livewire::component('words.public-test', PublicWordsTest::class);
     }
 }
