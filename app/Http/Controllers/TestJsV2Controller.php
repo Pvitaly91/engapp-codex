@@ -64,6 +64,19 @@ class TestJsV2Controller extends Controller
     }
 
     /**
+     * Show the V2 builder mode of the JS select test page with new UI design.
+     */
+    public function showSavedTestJsBuilderV2($slug)
+    {
+        return $this->renderSavedTestJsV2View(
+            $slug,
+            'saved-test-js-select-v2',
+            'saved-test-js-builder-v2',
+            fn ($q) => (($q['markers_count'] ?? 0) >= 2) || ! empty($q['options_by_marker'])
+        );
+    }
+
+    /**
      * Show the V2 version of the JS input test page (card mode) with new UI design.
      */
     public function showSavedTestJsInputV2($slug)
@@ -79,18 +92,22 @@ class TestJsV2Controller extends Controller
         return $this->renderSavedTestJsV2View($slug, 'saved-test-js-manual-v2');
     }
 
-    private function renderSavedTestJsV2View(string $slug, string $view)
+    private function renderSavedTestJsV2View(string $slug, string $view, ?string $mode = null, ?callable $filter = null)
     {
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
-        $stateKey = $this->jsStateSessionKey($test, $view);
+        $mode ??= $view;
+        $stateKey = $this->jsStateSessionKey($test, $mode);
         $savedState = session($stateKey);
         $questions = $this->buildQuestionDataset($resolved, empty($savedState));
+        if ($filter) {
+            $questions = array_values(array_filter($questions, $filter));
+        }
 
         return view("tests.$view", [
             'test' => $test,
             'questionData' => $questions,
-            'jsStateMode' => $view,
+            'jsStateMode' => $mode,
             'savedState' => $savedState,
             'usesUuidLinks' => $resolved->usesUuidLinks,
             'isAdmin' => $this->isAdminUser(),
@@ -194,9 +211,9 @@ class TestJsV2Controller extends Controller
         })->values()->all();
     }
 
-    private function jsStateSessionKey($test, string $view): string
+    private function jsStateSessionKey($test, string $mode): string
     {
-        return sprintf('saved_test_js_state:%s:%s', $test->slug, $view);
+        return sprintf('saved_test_js_state:%s:%s', $test->slug, $mode);
     }
 
     private function isAdminUser(): bool
