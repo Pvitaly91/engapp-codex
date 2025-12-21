@@ -102,7 +102,7 @@ class PublicTest extends Component
     {
         $queue = session('words_queue');
 
-        if (! empty($queue)) {
+        if (is_array($queue) && count($queue) > 0) {
             $this->totalCount = session('words_total_count', count($queue));
 
             return;
@@ -116,11 +116,11 @@ class PublicTest extends Component
 
     protected function loadNextQuestion(WordsTestService $service): void
     {
+        $this->stats = session('words_test_stats', $this->stats);
         $this->initQueueIfNeeded($service);
 
         $queue = session('words_queue', []);
-        $this->totalCount = session('words_total_count', 0);
-        $this->stats = session('words_test_stats', $this->stats);
+        $this->totalCount = session('words_total_count', count($queue));
 
         if (empty($queue)) {
             $this->markComplete();
@@ -144,11 +144,13 @@ class PublicTest extends Component
         $this->wordTags = $question['tags'] ?? [];
         $this->questionType = $question['questionType'] ?? 'en_to_uk';
         $this->options = $question['options'] ?? [];
-        $this->currentIndex = max(1, $this->totalCount - count($queue));
-        $this->progressPercent = $this->totalCount > 0
-            ? (int) round(($this->stats['total'] / $this->totalCount) * 100)
-            : 0;
         $this->isComplete = false;
+
+        $answered = $this->stats['total'];
+        $this->currentIndex = min($answered + 1, max($this->totalCount, 1));
+        $this->progressPercent = $this->totalCount > 0
+            ? (int) round(($answered / $this->totalCount) * 100)
+            : 0;
     }
 
     protected function resetSessionState(): void

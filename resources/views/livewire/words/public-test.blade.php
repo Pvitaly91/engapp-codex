@@ -1,5 +1,5 @@
 <div class="grid gap-6 lg:grid-cols-[1fr_2fr]">
-  <div class="lg:sticky lg:top-24 space-y-4" data-animate>
+  <div class="lg:sticky lg:top-24 space-y-4" data-animate x-data="{ open: true }">
     <div class="bg-card border border-border/70 rounded-3xl p-5 shadow-soft">
       <div class="flex items-center justify-between gap-2">
         <div>
@@ -11,7 +11,7 @@
         </button>
       </div>
 
-      <div class="mt-4" x-data="{ open: true }">
+      <div class="mt-4">
         <div class="flex flex-wrap gap-2" :class="{'hidden' : !open && window.innerWidth < 1024}">
           @forelse ($availableTags as $tag)
             <label class="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-sm cursor-pointer hover:border-primary hover:text-primary transition">
