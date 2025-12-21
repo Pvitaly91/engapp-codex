@@ -36,9 +36,9 @@ class PublicWordsTestController extends Controller
             $translation = $word->translates->first()?->translation ?? '';
             $questionType = rand(0, 1) === 0 ? 'en_to_uk' : 'uk_to_en';
 
-            // Get other words for options (excluding current word)
+            // Get more other words to ensure we have enough valid options
             $otherWords = $shuffled->where('id', '!=', $word->id)
-                ->take(4)
+                ->take(15)
                 ->values();
 
             if ($questionType === 'en_to_uk') {
@@ -49,9 +49,12 @@ class PublicWordsTestController extends Controller
                 $options = $otherWords->pluck('word')->filter()->toArray();
             }
 
-            // Ensure we have 4 options total (pad if needed)
+            // Ensure we have up to 4 options total (pad if needed, with safety counter)
             $options = array_slice(array_unique(array_filter($options)), 0, 4);
-            while (count($options) < 4) {
+            $maxAttempts = 50;
+            $attempts = 0;
+            while (count($options) < 4 && $attempts < $maxAttempts && $shuffled->count() > 1) {
+                $attempts++;
                 $randomWord = $shuffled->random();
                 $newOption = $questionType === 'en_to_uk'
                     ? ($randomWord->translates->first()?->translation ?? '')

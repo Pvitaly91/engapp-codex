@@ -531,7 +531,10 @@
         if (n >= 1 && n <= 4) {
             const q = state.questions[state.currentIndex];
             if (q && q.options[n - 1]) {
-                const btn = questionCardEl.querySelector(`.option-btn[data-option="${q.options[n - 1].replace(/"/g, '\\"')}"]`);
+                // Use querySelectorAll and filter to find the correct button (avoids CSS injection)
+                const buttons = questionCardEl.querySelectorAll('.option-btn');
+                const targetOption = q.options[n - 1];
+                const btn = Array.from(buttons).find(b => b.dataset.option === targetOption);
                 if (btn && !btn.disabled) {
                     btn.click();
                 }
