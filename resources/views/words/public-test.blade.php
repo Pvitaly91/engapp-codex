@@ -351,7 +351,7 @@
 
     // Allow Enter key to submit
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' && !submitBtn.disabled && questionContent.classList.contains('hidden') === false) {
+        if (e.key === 'Enter' && !submitBtn.disabled && !questionContent.classList.contains('hidden')) {
             submitAnswer();
         }
     });

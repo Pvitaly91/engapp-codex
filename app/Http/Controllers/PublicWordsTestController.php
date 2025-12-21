@@ -20,9 +20,13 @@ class PublicWordsTestController extends Controller
     private function getWordsWithValidTranslation(): Collection
     {
         return Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])
-            ->whereHas('translates', fn ($q) => $q->where('lang', 'uk')->where('translation', '!=', '')->whereNotNull('translation'))
-            ->get()
-            ->filter(fn ($word) => $word->translates->isNotEmpty() && trim($word->translates->first()->translation) !== '');
+            ->whereHas('translates', fn ($q) => $q
+                ->where('lang', 'uk')
+                ->whereNotNull('translation')
+                ->where('translation', '!=', '')
+                ->whereRaw("TRIM(translation) != ''")
+            )
+            ->get();
     }
 
     /**
@@ -67,10 +71,15 @@ class PublicWordsTestController extends Controller
     private function getDistractors(int $excludeWordId, string $questionType, int $count = 4): array
     {
         $otherWords = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])
-            ->whereHas('translates', fn ($q) => $q->where('lang', 'uk')->where('translation', '!=', '')->whereNotNull('translation'))
+            ->whereHas('translates', fn ($q) => $q
+                ->where('lang', 'uk')
+                ->whereNotNull('translation')
+                ->where('translation', '!=', '')
+                ->whereRaw("TRIM(translation) != ''")
+            )
             ->where('id', '!=', $excludeWordId)
             ->inRandomOrder()
-            ->take($count * 2) // Get extra in case of duplicates
+            ->limit($count * 2) // Get extra in case of duplicates
             ->get();
 
         if ($questionType === 'en_to_uk') {
@@ -99,6 +108,7 @@ class PublicWordsTestController extends Controller
     /**
      * Prepare current question data.
      * If no current question is set, pop one from queue.
+     * Uses iterative approach to avoid potential stack overflow.
      */
     private function prepareCurrentQuestion(): ?array
     {
@@ -108,58 +118,61 @@ class PublicWordsTestController extends Controller
             return $current;
         }
 
-        $queue = session(self::SESSION_QUEUE, []);
+        // Use loop instead of recursion to avoid stack overflow
+        while (true) {
+            $queue = session(self::SESSION_QUEUE, []);
 
-        if (empty($queue)) {
-            return null;
+            if (empty($queue)) {
+                return null;
+            }
+
+            // Pop the first word from queue
+            $wordId = array_shift($queue);
+            session([self::SESSION_QUEUE => $queue]);
+
+            $word = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])->find($wordId);
+
+            if (!$word || $word->translates->isEmpty()) {
+                // Skip invalid word, try next
+                continue;
+            }
+
+            $translation = $word->translates->first()->translation;
+
+            if (empty(trim($translation ?? ''))) {
+                // Skip word with empty translation
+                continue;
+            }
+
+            $questionType = rand(0, 1) === 0 ? 'en_to_uk' : 'uk_to_en';
+
+            // Get correct answer based on question type
+            $correctAnswer = $questionType === 'en_to_uk' ? $translation : $word->word;
+
+            // Get distractors
+            $distractors = $this->getDistractors($wordId, $questionType, 4);
+
+            // Build options array
+            $options = $distractors;
+            $options[] = $correctAnswer;
+            
+            // Ensure uniqueness and no empty values
+            $options = array_values(array_filter(array_unique($options), fn ($o) => !empty(trim($o ?? ''))));
+            shuffle($options);
+
+            $current = [
+                'word_id' => $wordId,
+                'word' => $word->word,
+                'translation' => $translation,
+                'question_type' => $questionType,
+                'correct_answer' => $correctAnswer,
+                'options' => $options,
+            ];
+
+            session([self::SESSION_CURRENT => $current]);
+
+            return $current;
         }
-
-        // Pop the first word from queue
-        $wordId = array_shift($queue);
-        session([self::SESSION_QUEUE => $queue]);
-
-        $word = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])->find($wordId);
-
-        if (!$word || $word->translates->isEmpty()) {
-            // Skip invalid word, try next
-            return $this->prepareCurrentQuestion();
-        }
-
-        $translation = $word->translates->first()->translation;
-
-        if (empty(trim($translation))) {
-            // Skip word with empty translation
-            return $this->prepareCurrentQuestion();
-        }
-
-        $questionType = rand(0, 1) === 0 ? 'en_to_uk' : 'uk_to_en';
-
-        // Get correct answer based on question type
-        $correctAnswer = $questionType === 'en_to_uk' ? $translation : $word->word;
-
-        // Get distractors
-        $distractors = $this->getDistractors($wordId, $questionType, 4);
-
-        // Build options array
-        $options = $distractors;
-        $options[] = $correctAnswer;
-        
-        // Ensure uniqueness and no empty values
-        $options = array_values(array_filter(array_unique($options), fn ($o) => !empty(trim($o ?? ''))));
-        shuffle($options);
-
-        $current = [
-            'word_id' => $wordId,
-            'word' => $word->word,
-            'translation' => $translation,
-            'question_type' => $questionType,
-            'correct_answer' => $correctAnswer,
-            'options' => $options,
-        ];
-
-        session([self::SESSION_CURRENT => $current]);
-
-        return $current;
     }
 
     /**
