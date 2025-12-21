@@ -16,6 +16,7 @@ use App\Http\Controllers\QuestionOptionController;
 use App\Http\Controllers\QuestionReviewController;
 use App\Http\Controllers\QuestionReviewResultController;
 use App\Http\Controllers\QuestionVariantController;
+use App\Http\Controllers\PublicWordsTestController;
 use App\Http\Controllers\SeedRunController;
 use App\Http\Controllers\SentenceTranslationTestController;
 use App\Http\Controllers\SiteSearchController;
@@ -56,6 +57,12 @@ Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])
 Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
 Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
 Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
+
+// Public words test
+Route::get('/words/test', [PublicWordsTestController::class, 'index'])->name('public.words.test');
+Route::get('/words/test/state', [PublicWordsTestController::class, 'state'])->name('public.words.test.state');
+Route::post('/words/test/answer', [PublicWordsTestController::class, 'answer'])->name('public.words.test.answer');
+Route::post('/words/test/reset', [PublicWordsTestController::class, 'reset'])->name('public.words.test.reset');
 
 // Define a pattern that excludes reserved route prefixes for dynamic page type routes
 $reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$';
