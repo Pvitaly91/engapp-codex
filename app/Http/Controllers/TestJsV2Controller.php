@@ -74,7 +74,7 @@ class TestJsV2Controller extends Controller
             $slug,
             'saved-test-js-select-v2',
             'saved-test-js-builder-v2',
-            fn ($q) => (($q['markers_count'] ?? 0) >= self::BUILDER_MIN_MARKERS) || ! empty($q['options_by_marker'])
+            fn ($q) => $this->isBuilderCompatibleQuestion($q)
         );
     }
 
@@ -113,6 +113,7 @@ class TestJsV2Controller extends Controller
             'savedState' => $savedState,
             'usesUuidLinks' => $resolved->usesUuidLinks,
             'isAdmin' => $this->isAdminUser(),
+            'isBuilderMode' => $mode === 'saved-test-js-builder-v2',
         ]);
     }
 
@@ -216,6 +217,12 @@ class TestJsV2Controller extends Controller
     private function jsStateSessionKey($test, string $mode): string
     {
         return sprintf('saved_test_js_state:%s:%s', $test->slug, $mode);
+    }
+
+    private function isBuilderCompatibleQuestion(array $question): bool
+    {
+        return (($question['markers_count'] ?? 0) >= self::BUILDER_MIN_MARKERS)
+            || ! empty($question['options_by_marker']);
     }
 
     private function isAdminUser(): bool
