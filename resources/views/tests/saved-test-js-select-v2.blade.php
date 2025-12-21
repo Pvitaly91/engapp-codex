@@ -254,7 +254,7 @@ function getOptionsForSlot(q, markerIndex) {
     return markerOptions[markerIndex];
   }
 
-  return Array.isArray(q.options) ? q.options : (q.options || []);
+  return Array.isArray(q.options) ? q.options : [];
 }
 
 function renderSentence(q, qIdx) {
