@@ -42,6 +42,8 @@
     }
   </script>
 
+  @livewireStyles
+
   <!-- Design tokens (light/dark) -->
   <style>
     :root {
@@ -625,5 +627,7 @@
   </style>
 
   @yield('scripts')
+
+  @livewireScripts
 </body>
 </html>
