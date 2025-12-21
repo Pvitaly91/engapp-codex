@@ -3,15 +3,101 @@
 @section('title', 'Тест слів — Gramlyze')
 
 @section('content')
+<style>
+    /* Smooth animations */
+    .fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+    }
+    .fade-out {
+        animation: fadeOut 0.3s ease-out forwards;
+    }
+    .slide-up {
+        animation: slideUp 0.4s ease-out forwards;
+    }
+    .scale-in {
+        animation: scaleIn 0.3s ease-out forwards;
+    }
+    .bounce-in {
+        animation: bounceIn 0.5s ease-out forwards;
+    }
+    .shake {
+        animation: shake 0.5s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes bounceIn {
+        0% { opacity: 0; transform: scale(0.3); }
+        50% { opacity: 1; transform: scale(1.05); }
+        70% { transform: scale(0.9); }
+        100% { transform: scale(1); }
+    }
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+    
+    /* Option button states */
+    .option-btn {
+        transition: all 0.2s ease-out;
+    }
+    .option-btn:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .option-btn:active:not(:disabled) {
+        transform: translateY(0);
+    }
+    .option-btn.correct {
+        background: hsl(var(--success) / 0.15) !important;
+        border-color: hsl(var(--success)) !important;
+        color: hsl(var(--success)) !important;
+    }
+    .option-btn.wrong {
+        background: hsl(var(--destructive) / 0.15) !important;
+        border-color: hsl(var(--destructive)) !important;
+        color: hsl(var(--destructive)) !important;
+    }
+    .option-btn:disabled {
+        cursor: not-allowed;
+        opacity: 0.7;
+    }
+    
+    /* Stats counter animation */
+    .stat-update {
+        animation: statPulse 0.3s ease-out;
+    }
+    @keyframes statPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+</style>
+
 <div class="max-w-2xl mx-auto">
     <!-- Header -->
-    <div class="text-center mb-8" data-animate>
+    <div class="text-center mb-8 slide-up" style="animation-delay: 0s">
         <h1 class="text-3xl sm:text-4xl font-bold text-foreground mb-2">Тест слів</h1>
         <p class="text-muted-foreground">Перевірте свій словниковий запас англійської мови</p>
     </div>
 
     <!-- Stats Card -->
-    <div id="stats-card" class="bg-card border border-border rounded-3xl p-6 mb-6 shadow-soft" data-animate data-animate-delay="100">
+    <div id="stats-card" class="bg-card border border-border rounded-3xl p-6 mb-6 shadow-soft slide-up" style="animation-delay: 0.1s">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div class="text-center">
                 <div class="text-sm text-muted-foreground mb-1">Прогрес</div>
@@ -34,12 +120,12 @@
         </div>
         <!-- Progress Bar -->
         <div class="mt-4 h-2 bg-muted rounded-full overflow-hidden">
-            <div id="progress-bar" class="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-500" style="width: {{ $totalCount > 0 ? ($stats['total'] / $totalCount) * 100 : 0 }}%"></div>
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-500 ease-out" style="width: {{ $totalCount > 0 ? ($stats['total'] / $totalCount) * 100 : 0 }}%"></div>
         </div>
     </div>
 
     <!-- Question Card -->
-    <div id="question-card" class="bg-card border border-border rounded-3xl p-8 shadow-soft" data-animate data-animate-delay="200">
+    <div id="question-card" class="bg-card border border-border rounded-3xl p-8 shadow-soft slide-up" style="animation-delay: 0.2s">
         <!-- Loading State -->
         <div id="loading-state" class="text-center py-12">
             <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-primary border-t-transparent mb-4"></div>
@@ -57,12 +143,7 @@
             <input type="hidden" id="current-question-type" value="">
 
             <!-- Options -->
-            <div id="options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6"></div>
-
-            <!-- Submit Button -->
-            <button id="submit-btn" class="w-full py-4 rounded-2xl font-semibold text-lg transition-all duration-200 bg-primary text-primary-foreground hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                Перевірити
-            </button>
+            <div id="options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
         </div>
 
         <!-- Feedback -->
@@ -73,11 +154,11 @@
         <!-- Completed State -->
         <div id="completed-state" class="{{ $isCompleted ? '' : 'hidden' }}">
             <div class="text-center py-8">
-                <div class="text-6xl mb-4">🎉</div>
+                <div class="text-6xl mb-4 bounce-in">🎉</div>
                 <h2 class="text-2xl font-bold text-foreground mb-2">Тест завершено!</h2>
                 <p class="text-muted-foreground mb-6">Ви відповіли на всі питання</p>
                 <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                    <button id="restart-btn-completed" class="px-8 py-3 rounded-2xl font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-all">
+                    <button id="restart-btn-completed" class="px-8 py-3 rounded-2xl font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-all duration-200 hover:scale-105">
                         Почати знову
                     </button>
                 </div>
@@ -86,8 +167,8 @@
     </div>
 
     <!-- Restart Button -->
-    <div class="mt-6 text-center" data-animate data-animate-delay="300">
-        <button id="restart-btn" class="px-6 py-2 rounded-xl text-sm font-medium text-muted-foreground border border-border hover:border-primary hover:text-primary transition-all">
+    <div class="mt-6 text-center slide-up" style="animation-delay: 0.3s">
+        <button id="restart-btn" class="px-6 py-2 rounded-xl text-sm font-medium text-muted-foreground border border-border hover:border-primary hover:text-primary transition-all duration-200">
             Скинути прогрес
         </button>
     </div>
@@ -113,7 +194,6 @@
     const questionTypeLabel = document.getElementById('question-type-label');
     const questionText = document.getElementById('question-text');
     const optionsContainer = document.getElementById('options-container');
-    const submitBtn = document.getElementById('submit-btn');
     const currentWordId = document.getElementById('current-word-id');
     const currentQuestionType = document.getElementById('current-question-type');
     
@@ -124,13 +204,25 @@
     const restartBtn = document.getElementById('restart-btn');
     const restartBtnCompleted = document.getElementById('restart-btn-completed');
 
-    let selectedOption = null;
     let isSubmitting = false;
 
-    // Update stats display
+    // Animate stat update
+    function animateStatUpdate(element) {
+        element.classList.remove('stat-update');
+        void element.offsetWidth; // Trigger reflow
+        element.classList.add('stat-update');
+    }
+
+    // Update stats display with animation
     function updateStats(stats, perc, total, answered) {
-        correctCount.textContent = stats.correct;
-        wrongCount.textContent = stats.wrong;
+        if (parseInt(correctCount.textContent) !== stats.correct) {
+            correctCount.textContent = stats.correct;
+            animateStatUpdate(correctCount);
+        }
+        if (parseInt(wrongCount.textContent) !== stats.wrong) {
+            wrongCount.textContent = stats.wrong;
+            animateStatUpdate(wrongCount);
+        }
         answeredCount.textContent = answered;
         totalCount.textContent = total;
         percentage.textContent = perc + '%';
@@ -139,12 +231,18 @@
         progressBar.style.width = progressPercent + '%';
     }
 
-    // Render question
-    function renderQuestion(question) {
+    // Render question with animation
+    function renderQuestion(question, animate = true) {
         loadingState.classList.add('hidden');
         feedbackContainer.classList.add('hidden');
         completedState.classList.add('hidden');
         questionContent.classList.remove('hidden');
+
+        if (animate) {
+            questionContent.classList.remove('fade-in');
+            void questionContent.offsetWidth;
+            questionContent.classList.add('fade-in');
+        }
 
         currentWordId.value = question.word_id;
         currentQuestionType.value = question.question_type;
@@ -157,87 +255,79 @@
 
         questionText.textContent = question.question_text;
 
-        // Render options
+        // Render options with staggered animation
         optionsContainer.innerHTML = '';
-        selectedOption = null;
-        submitBtn.disabled = true;
 
         question.options.forEach((option, index) => {
             const optionBtn = document.createElement('button');
             optionBtn.type = 'button';
-            optionBtn.className = 'option-btn p-4 rounded-2xl border-2 border-border text-left font-medium transition-all duration-200 hover:border-primary hover:bg-muted';
+            optionBtn.className = 'option-btn p-4 rounded-2xl border-2 border-border text-left font-medium bg-card';
             optionBtn.textContent = option;
             optionBtn.dataset.value = option;
             
+            if (animate) {
+                optionBtn.style.opacity = '0';
+                optionBtn.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    optionBtn.style.transition = 'all 0.3s ease-out';
+                    optionBtn.style.opacity = '1';
+                    optionBtn.style.transform = 'translateY(0)';
+                }, index * 80);
+            }
+            
             optionBtn.addEventListener('click', function() {
-                // Remove selection from all options
-                optionsContainer.querySelectorAll('.option-btn').forEach(btn => {
-                    btn.classList.remove('border-primary', 'bg-primary/10');
-                    btn.classList.add('border-border');
-                });
-                
-                // Select this option
-                this.classList.remove('border-border');
-                this.classList.add('border-primary', 'bg-primary/10');
-                selectedOption = this.dataset.value;
-                submitBtn.disabled = false;
+                if (isSubmitting) return;
+                submitAnswer(this.dataset.value, this);
             });
 
             optionsContainer.appendChild(optionBtn);
         });
     }
 
-    // Show completed state
+    // Show completed state with animation
     function showCompleted() {
         loadingState.classList.add('hidden');
         questionContent.classList.add('hidden');
         feedbackContainer.classList.add('hidden');
         completedState.classList.remove('hidden');
+        completedState.classList.add('fade-in');
     }
 
-    // Show feedback
-    function showFeedback(result, nextQuestion) {
-        questionContent.classList.add('hidden');
-        feedbackContainer.classList.remove('hidden');
-
-        let html = '';
-        if (result.isCorrect) {
-            html = `
-                <div class="text-6xl mb-4">✅</div>
-                <h3 class="text-2xl font-bold text-success mb-2">Правильно!</h3>
-                <p class="text-muted-foreground">
-                    <strong>${escapeHtml(result.word)}</strong> = <strong>${escapeHtml(result.translation)}</strong>
-                </p>
-            `;
-        } else {
-            html = `
-                <div class="text-6xl mb-4">❌</div>
-                <h3 class="text-2xl font-bold text-destructive mb-2">Неправильно</h3>
-                <p class="text-muted-foreground mb-2">
-                    Ваша відповідь: <strong>${escapeHtml(result.userAnswer)}</strong>
-                </p>
-                <p class="text-foreground">
-                    Правильна відповідь: <strong class="text-success">${escapeHtml(result.correctAnswer)}</strong>
-                </p>
-                <p class="text-sm text-muted-foreground mt-2">
-                    ${escapeHtml(result.word)} = ${escapeHtml(result.translation)}
-                </p>
-            `;
+    // Show inline feedback on options
+    function showInlineFeedback(result, clickedBtn, nextQuestion) {
+        // Disable all options
+        const allOptions = optionsContainer.querySelectorAll('.option-btn');
+        allOptions.forEach(btn => {
+            btn.disabled = true;
+        });
+        
+        // Find the correct answer button and mark it
+        allOptions.forEach(btn => {
+            if (btn.dataset.value === result.correctAnswer) {
+                btn.classList.add('correct');
+                if (result.isCorrect) {
+                    btn.classList.add('scale-in');
+                }
+            }
+        });
+        
+        // Mark clicked button as wrong if incorrect
+        if (!result.isCorrect) {
+            clickedBtn.classList.add('wrong', 'shake');
         }
-
-        feedbackContent.innerHTML = html;
 
         // Update stats
         updateStats(result.stats, result.percentage, result.totalCount, result.answeredCount);
 
         // Auto-advance to next question after delay
+        const delay = result.isCorrect ? 600 : 1200;
         setTimeout(() => {
             if (result.completed) {
                 showCompleted();
             } else if (nextQuestion) {
-                renderQuestion(nextQuestion);
+                renderQuestion(nextQuestion, true);
             }
-        }, result.isCorrect ? 800 : 1500);
+        }, delay);
     }
 
     // Load initial state
@@ -261,7 +351,7 @@
             if (data.completed) {
                 showCompleted();
             } else {
-                renderQuestion(data.question);
+                renderQuestion(data.question, true);
             }
         } catch (error) {
             console.error('Failed to load state:', error);
@@ -271,13 +361,14 @@
         }
     }
 
-    // Submit answer
-    async function submitAnswer() {
-        if (!selectedOption || isSubmitting) return;
+    // Submit answer immediately on option click
+    async function submitAnswer(selectedOption, clickedBtn) {
+        if (isSubmitting) return;
 
         isSubmitting = true;
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Перевірка...';
+        
+        // Visual feedback that option was clicked
+        clickedBtn.classList.add('border-primary', 'bg-primary/10');
 
         try {
             const response = await fetch('{{ route("public.words.test.answer") }}', {
@@ -298,17 +389,19 @@
             const data = await response.json();
 
             if (response.ok) {
-                showFeedback(data, data.nextQuestion);
+                showInlineFeedback(data, clickedBtn, data.nextQuestion);
             } else {
                 throw new Error(data.error || 'Unknown error');
             }
         } catch (error) {
             console.error('Failed to submit answer:', error);
             alert('Помилка при відправці відповіді. Спробуйте ще раз.');
-        } finally {
             isSubmitting = false;
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Перевірити';
+        } finally {
+            // isSubmitting will be reset when new question renders
+            setTimeout(() => {
+                isSubmitting = false;
+            }, 1500);
         }
     }
 
@@ -345,16 +438,8 @@
     }
 
     // Event listeners
-    submitBtn.addEventListener('click', submitAnswer);
     restartBtn.addEventListener('click', resetTest);
     restartBtnCompleted.addEventListener('click', resetTest);
-
-    // Allow Enter key to submit
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' && !submitBtn.disabled && !questionContent.classList.contains('hidden')) {
-            submitAnswer();
-        }
-    });
 
     // Initial load - check if completed from server
     @if($isCompleted)
