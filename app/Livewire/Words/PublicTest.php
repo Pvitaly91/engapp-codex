@@ -218,6 +218,18 @@ class PublicTest extends Component
     }
 
     /**
+     * Submit an answer by index (safer for special characters).
+     */
+    public function submitAnswerByIndex(int $index): void
+    {
+        if (! isset($this->options[$index])) {
+            return;
+        }
+
+        $this->submitAnswer($this->options[$index]);
+    }
+
+    /**
      * Clear the feedback message.
      */
     public function clearFeedback(): void

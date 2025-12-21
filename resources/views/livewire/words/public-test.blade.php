@@ -274,10 +274,10 @@
 
                     {{-- Answer Options --}}
                     <div class="grid gap-3 sm:grid-cols-2">
-                        @foreach($options as $option)
+                        @foreach($options as $index => $option)
                             <button
                                 type="button"
-                                wire:click="submitAnswer('{{ addslashes($option) }}')"
+                                wire:click="submitAnswerByIndex({{ $index }})"
                                 wire:loading.attr="disabled"
                                 wire:loading.class="opacity-50 cursor-not-allowed"
                                 class="w-full text-left px-5 py-4 rounded-xl border-2 border-border bg-background text-foreground font-medium transition-all hover:border-primary hover:bg-primary/5 hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 active:translate-y-0"
