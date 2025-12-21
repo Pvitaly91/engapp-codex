@@ -248,14 +248,21 @@ function renderFeedback(q) {
   return '';
 }
 
+function getOptionsForSlot(q, markerIndex) {
+  const markerOptions = Array.isArray(q.options_by_marker) ? q.options_by_marker : null;
+  if (markerOptions && Array.isArray(markerOptions[markerIndex]) && markerOptions[markerIndex].length) {
+    return markerOptions[markerIndex];
+  }
+
+  return Array.isArray(q.options) ? q.options : (q.options || []);
+}
+
 function renderSentence(q, qIdx) {
   let text = q.question;
   q.answers.forEach((ans, i) => {
     let replacement = '';
     if (q.isCorrect === null) {
-      const slotOptions = (Array.isArray(q.options_by_marker) && Array.isArray(q.options_by_marker[i]) && q.options_by_marker[i].length)
-        ? q.options_by_marker[i]
-        : (q.options || []);
+      const slotOptions = getOptionsForSlot(q, i);
       const opts = slotOptions.map(o => `<option value="${html(o)}">${html(o)}</option>`).join('');
       replacement = `<select data-idx="${i}" class="px-3 py-2 border-2 border-indigo-200 rounded-xl focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-all font-medium bg-white min-w-20"><option value=""></option>${opts}</select>`;
     } else {

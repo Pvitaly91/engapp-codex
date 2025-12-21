@@ -9,6 +9,8 @@ use App\Services\SavedTestResolver;
 
 class TestJsV2Controller extends Controller
 {
+    private const BUILDER_MIN_MARKERS = 2;
+
     public function __construct(
         private QuestionVariantService $variantService,
         private SavedTestResolver $savedTestResolver,
@@ -72,7 +74,7 @@ class TestJsV2Controller extends Controller
             $slug,
             'saved-test-js-select-v2',
             'saved-test-js-builder-v2',
-            fn ($q) => (($q['markers_count'] ?? 0) >= 2) || ! empty($q['options_by_marker'])
+            fn ($q) => (($q['markers_count'] ?? 0) >= self::BUILDER_MIN_MARKERS) || ! empty($q['options_by_marker'])
         );
     }
 
