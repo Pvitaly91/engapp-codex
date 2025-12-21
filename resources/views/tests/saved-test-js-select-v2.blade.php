@@ -248,7 +248,7 @@ function renderFeedback(q) {
 
 function getOptionsForSlot(q, markerIndex) {
   const markerOptions = Array.isArray(q.options_by_marker) ? q.options_by_marker : null;
-  const slotOptions = markerOptions ? markerOptions[markerIndex] : null;
+  const slotOptions = markerOptions && markerIndex < markerOptions.length ? markerOptions[markerIndex] : null;
   if (Array.isArray(slotOptions) && slotOptions.length) {
     return slotOptions;
   }

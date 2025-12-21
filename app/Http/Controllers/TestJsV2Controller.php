@@ -221,6 +221,7 @@ class TestJsV2Controller extends Controller
 
     private function isBuilderCompatibleQuestion(array $question): bool
     {
+        // Builder mode includes multi-blank questions or those that specify marker-based options explicitly.
         return (($question['markers_count'] ?? 0) >= self::BUILDER_MIN_MARKERS)
             || ! empty($question['options_by_marker']);
     }
