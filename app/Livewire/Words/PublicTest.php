@@ -44,7 +44,7 @@ class PublicTest extends Component
         return view('livewire.words.public-test');
     }
 
-    public function submitAnswer(WordsTestService $service, string $answer): void
+    public function submitAnswer(string $answer, WordsTestService $service): void
     {
         if ($this->isComplete || ! $this->wordId || ! $this->word) {
             return;
