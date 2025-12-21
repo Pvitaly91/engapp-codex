@@ -128,10 +128,14 @@ class WordsTestController extends Controller
             return null;
         }
 
-        $wordId = array_shift($queue);
-        session(['words_queue' => $queue]);
+        $question = null;
 
-        $question = $this->buildQuestionPayload($wordId, $lang);
+        while (! empty($queue) && ! $question) {
+            $wordId = array_shift($queue);
+            $question = $this->buildQuestionPayload($wordId, $lang);
+        }
+
+        session(['words_queue' => $queue]);
 
         if (! $question) {
             return null;
