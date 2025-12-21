@@ -79,18 +79,37 @@ class TestJsV2Controller extends Controller
         return $this->renderSavedTestJsV2View($slug, 'saved-test-js-manual-v2');
     }
 
-    private function renderSavedTestJsV2View(string $slug, string $view)
+    /**
+     * Show the V2 version of the JS builder test page (multi-blank sentence builder).
+     * Shows only questions with >=2 markers or with options_by_marker set.
+     */
+    public function showSavedTestJsBuilderV2($slug)
     {
+        return $this->renderSavedTestJsV2View(
+            $slug,
+            'saved-test-js-select-v2',
+            'saved-test-js-builder-v2',
+            fn ($q) => (($q['markers_count'] ?? 0) >= 2) || ! empty($q['options_by_marker'])
+        );
+    }
+
+    private function renderSavedTestJsV2View(string $slug, string $view, ?string $mode = null, ?callable $filter = null)
+    {
+        $mode = $mode ?? $view;
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
-        $stateKey = $this->jsStateSessionKey($test, $view);
+        $stateKey = $this->jsStateSessionKey($test, $mode);
         $savedState = session($stateKey);
         $questions = $this->buildQuestionDataset($resolved, empty($savedState));
+
+        if ($filter !== null) {
+            $questions = array_values(array_filter($questions, $filter));
+        }
 
         return view("tests.$view", [
             'test' => $test,
             'questionData' => $questions,
-            'jsStateMode' => $view,
+            'jsStateMode' => $mode,
             'savedState' => $savedState,
             'usesUuidLinks' => $resolved->usesUuidLinks,
             'isAdmin' => $this->isAdminUser(),
