@@ -293,11 +293,13 @@
 
                 {{-- Content Blocks --}}
                 <div class="space-y-6">
+                    @php($practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [])
                     @foreach($contentBlocks as $block)
                         @includeIf('engram.theory.blocks-v3.' . $block->type, [
                             'page' => $page,
                             'block' => $block,
                             'data' => json_decode($block->body ?? '[]', true),
+                            'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
                         ])
                     @endforeach
                 </div>

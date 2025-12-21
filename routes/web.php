@@ -6,6 +6,7 @@ use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\DynamicPageController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MarkerTheoryTagController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\QuestionAnswerController;
 use App\Http\Controllers\QuestionController;
@@ -45,6 +46,11 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.perform');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
+Route::get('/words/test/state', [WordsTestController::class, 'state'])->name('words.test.state');
+Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
+Route::post('/words/test/reset', [WordsTestController::class, 'reset'])->name('words.test.reset');
 
 // Public pages routes (no authentication required)
 Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
@@ -135,14 +141,6 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         })->name('setlocale');
 
         Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
-
-        Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
-        Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
-        Route::post('/words/test/reset', function () {
-            session()->forget('words_test_stats');
-
-            return redirect()->route('words.test');
-        })->name('words.test.reset');
 
         Route::get('/translate/test', [SentenceTranslationTestController::class, 'index'])->name('translate.test');
         Route::post('/translate/test/check', [SentenceTranslationTestController::class, 'check'])->name('translate.test.check');
@@ -283,6 +281,13 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
 
         Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
         Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');
+        Route::post('/question-marker-theory', [QuestionHelpController::class, 'markerTheory'])->name('question.marker-theory');
+
+        // Marker Theory Tags API
+        Route::get('/api/v2/questions/{questionUuid}/markers/{marker}/available-theory-tags', [MarkerTheoryTagController::class, 'availableTheoryTags'])
+            ->name('api.v2.markers.available-theory-tags');
+        Route::post('/api/v2/questions/{questionUuid}/markers/{marker}/add-tags-from-theory-page', [MarkerTheoryTagController::class, 'addTagsFromTheoryPage'])
+            ->name('api.v2.markers.add-tags-from-theory-page');
 
         Route::get('/seed-runs', [SeedRunController::class, 'index'])->name('seed-runs.index');
         Route::get('/seed-runs/preview', [SeedRunController::class, 'preview'])->name('seed-runs.preview');

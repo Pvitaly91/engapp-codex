@@ -27,28 +27,36 @@
         @include('components.test-mode-nav-v2')
 
         <!-- Sticky Controls: Search + Progress -->
-        <div class="sticky top-0 z-30 max-h-[40vh] md:max-h-none">
-            <div class="space-y-2.5 sm:space-y-4 rounded-2xl border border-indigo-100 bg-white/90 p-2.5 sm:p-5 lg:p-6 shadow backdrop-blur-md">
-                @include('components.word-search')
-                <div class="bg-gradient-to-r from-indigo-50 via-white to-purple-50 rounded-2xl border border-indigo-100 p-2.5 sm:p-4 shadow-inner">
-                    <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-2 sm:mb-3">
+        <div class="sticky-test-header sticky top-0 z-30 max-h-[40vh] md:max-h-none" id="sticky-header">
+            <div class="sticky-inner space-y-2.5 sm:space-y-4 rounded-2xl border border-indigo-100 bg-white/90 p-2.5 sm:p-5 lg:p-6 shadow backdrop-blur-md transition-all duration-300">
+                <div class="word-search-section transition-all duration-300">
+                    @include('components.word-search')
+                </div>
+                <div class="progress-section bg-gradient-to-r from-indigo-50 via-white to-purple-50 rounded-2xl border border-indigo-100 p-2.5 sm:p-4 shadow-inner transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
                         <div class="flex items-center space-x-2.5 sm:space-x-3">
-                            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <!-- Search toggle button - only visible when stuck -->
+                            <button type="button" id="sticky-search-toggle" class="sticky-search-btn hidden w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-md" title="Пошук слова">
+                                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </button>
+                            <div class="progress-icon w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center transition-all duration-300">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500">Progress</div>
-                                <div id="progress-label" class="text-base sm:text-xl font-bold text-gray-900">1 / 0</div>
+                                <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">Progress</div>
+                                <div id="progress-label" class="progress-value text-base sm:text-xl font-bold text-gray-900 transition-all duration-300">1 / 0</div>
                             </div>
                         </div>
                         <div class="text-right space-y-0.5">
-                            <div class="text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500">Accuracy</div>
-                            <div id="score-label" class="text-base sm:text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">0%</div>
+                            <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">Accuracy</div>
+                            <div id="score-label" class="progress-value text-base sm:text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent transition-all duration-300">0%</div>
                         </div>
                     </div>
-                    <div class="relative w-full h-2.5 sm:h-3 bg-white border border-indigo-100 rounded-full overflow-hidden shadow-sm">
+                    <div class="progress-bar-container relative w-full h-2.5 sm:h-3 bg-white border border-indigo-100 rounded-full overflow-hidden shadow-sm transition-all duration-300">
                         <div id="progress-bar" class="absolute top-0 left-0 h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full transition-all duration-500 ease-out" style="width:0%"></div>
                     </div>
                 </div>
@@ -103,9 +111,14 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
     ? window.__INITIAL_JS_TEST_QUESTIONS__
     : [];
+const CSRF_TOKEN = '{{ csrf_token() }}';
+window.__IS_ADMIN__ = Boolean(@json(auth()->user()?->is_admin ?? session('admin_authenticated', false)));
+const MARKER_THEORY_URL = '{{ route('question.marker-theory') }}';
+const TEST_SLUG = @json($test->slug);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
+@include('components.marker-theory-js')
 <script>
 const state = {
   items: [],
@@ -125,6 +138,10 @@ async function init(forceFresh = false) {
       state.correct = Number.isFinite(saved.correct) ? saved.correct : 0;
       state.answered = Number.isFinite(saved.answered) ? saved.answered : 0;
       restored = true;
+      state.items.forEach((item) => {
+        if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') item.markerTheoryCache = {};
+        if (!item.markerTheoryMatch || typeof item.markerTheoryMatch !== 'object') item.markerTheoryMatch = {};
+      });
     }
   }
 
@@ -133,6 +150,8 @@ async function init(forceFresh = false) {
       ...q,
       chosen: Array(q.answers.length).fill(''),
       isCorrect: null,
+      markerTheoryCache: {},
+      markerTheoryMatch: {},
     }));
     state.correct = 0;
     state.answered = 0;
@@ -173,6 +192,7 @@ function renderQuestion(idx) {
           <span class="text-xs sm:text-sm text-gray-500 font-medium">${q.tense || 'Grammar'}</span>
         </div>
         <div class="text-base sm:text-xl leading-relaxed text-gray-900 font-medium">${sentence}</div>
+        <div id="theory-panel-${idx}" class="mt-2.5 sm:mt-3 hidden"></div>
       </div>
     <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0 sm:self-start">
         <div class="text-xs text-gray-500 font-medium">Q</div>
@@ -193,6 +213,16 @@ function renderQuestion(idx) {
       update();
     });
   }
+  // Add event delegation for marker theory button clicks
+  card.addEventListener('click', (e) => {
+    const markerTheoryBtn = e.target.closest('button.marker-theory-btn');
+    if (markerTheoryBtn) {
+      e.stopPropagation();
+      const marker = markerTheoryBtn.dataset.marker;
+      const btnIdx = parseInt(markerTheoryBtn.dataset.idx, 10);
+      fetchMarkerTheory(btnIdx, marker);
+    }
+  });
 }
 
 function onCheck(idx) {
@@ -231,7 +261,11 @@ function renderSentence(q, qIdx) {
     const hint = q.verb_hints && q.verb_hints[marker]
       ? ` <span class="verb-hint text-red-600 text-sm font-bold">( ${html(q.verb_hints[marker])} )</span>`
       : '';
-    text = text.replace(regex, replacement + hint);
+    // Add marker theory button if marker has tags
+    const theoryBtn = renderMarkerTheoryButton(marker, qIdx, hasMarkerTags(q, marker));
+    // Add marker tags debug display
+    const tagsDebug = renderMarkerTagsDebug(q, marker, qIdx);
+    text = text.replace(regex, replacement + hint + theoryBtn + tagsDebug);
   });
   return text;
 }
@@ -273,4 +307,5 @@ if (restartButton) {
 
 init();
 </script>
+@include('components.sticky-header-scroll')
 @endsection

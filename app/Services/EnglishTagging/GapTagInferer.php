@@ -24,7 +24,7 @@ class GapTagInferer
     /**
      * Maximum number of tags to return per marker.
      */
-    private const MAX_TAGS = 3;
+    private const MAX_TAGS = 4;
 
     /**
      * Patterns that indicate indirect/embedded questions.
@@ -112,18 +112,23 @@ class GapTagInferer
         array $flatOptions = [],
         ?string $verbHint = null
     ): array {
-        $tags = [];
-
         // Normalize inputs
         $normalizedQuestion = $this->normalizeText($questionText);
         $normalizedAnswer = $this->normalizeText($correctAnswer);
         $normalizedOptions = $this->normalizeOptions($flatOptions);
+        $leadingAuxToken = $this->extractLeadingAuxToken($normalizedAnswer);
 
         // Get context window around marker
         $window = $this->getMarkerWindow($normalizedQuestion, $marker);
 
-        // Priority 1: Structural patterns (highest priority)
-        $structuralTags = $this->detectStructuralPatterns(
+        // Priority 1: Indirect/Embedded questions (early return)
+        $indirectTags = $this->detectIndirectEmbeddedQuestions($normalizedQuestion, $window);
+        if (! empty($indirectTags)) {
+            return array_slice($indirectTags, 0, self::MAX_TAGS);
+        }
+
+        // Priority 2: Structural patterns without early return (tag/subject questions)
+        $tagQuestionTags = $this->detectTagQuestions(
             $normalizedQuestion,
             $marker,
             $normalizedAnswer,
@@ -131,23 +136,137 @@ class GapTagInferer
             $window
         );
 
-        if (! empty($structuralTags)) {
-            // If structural patterns detected, return them (1-3 tags max)
-            return array_slice($structuralTags, 0, self::MAX_TAGS);
-        }
+        $subjectQuestionTags = $this->detectSubjectQuestions(
+            $normalizedQuestion,
+            $normalizedAnswer,
+            $normalizedOptions,
+            $window
+        );
 
-        // Priority 2: Auxiliary/Tense patterns
+        // Priority 3: Auxiliary/Tense patterns
         $auxTenseTags = $this->detectAuxiliaryTensePatterns(
             $normalizedAnswer,
             $normalizedOptions,
             $window,
-            $verbHint
+            $verbHint,
+            $leadingAuxToken
         );
 
-        $tags = array_merge($tags, $auxTenseTags);
+        $combined = $this->combineStructuralAndAuxiliaryTags(
+            $tagQuestionTags,
+            $subjectQuestionTags,
+            $auxTenseTags
+        );
 
-        // Limit to MAX_TAGS
-        return array_slice(array_unique($tags), 0, self::MAX_TAGS);
+        return array_slice(array_unique($combined), 0, self::MAX_TAGS);
+    }
+
+    /**
+     * Extract the leading auxiliary token from the answer (lowercased).
+     */
+    private function extractLeadingAuxToken(string $answer): string
+    {
+        $trimmed = trim($answer);
+
+        if ($trimmed === '') {
+            return '';
+        }
+
+        $parts = preg_split('/\s+/', $trimmed, -1, PREG_SPLIT_NO_EMPTY);
+
+        if (count($parts) >= 2 && $parts[0] === 'am' && $parts[1] === 'not') {
+            return 'am not';
+        }
+
+        return $parts[0] ?? '';
+    }
+
+    /**
+     * Combine structural and auxiliary/tense tags with priorities.
+     */
+    private function combineStructuralAndAuxiliaryTags(
+        array $tagQuestionTags,
+        array $subjectQuestionTags,
+        array $auxTenseTags
+    ): array {
+        $tags = [];
+
+        $hasTagQuestion = in_array('Tag Questions', $tagQuestionTags, true);
+        $hasSubjectQuestion = in_array('Subject Questions', $subjectQuestionTags, true);
+
+        if ($hasTagQuestion) {
+            $tags = array_merge($tags, $tagQuestionTags);
+
+            $auxGroup = $this->extractAuxiliaryGroupTag($auxTenseTags);
+            $tenseTag = $this->extractTenseTag($auxTenseTags);
+
+            if ($auxGroup !== null && ! in_array($auxGroup, $tags, true)) {
+                $tags[] = $auxGroup;
+            }
+
+            if ($tenseTag !== null && ! in_array($tenseTag, $tags, true)) {
+                $tags[] = $tenseTag;
+            }
+
+            return $tags;
+        }
+
+        if ($hasSubjectQuestion) {
+            $tags = array_merge($tags, $subjectQuestionTags);
+
+            $tenseTag = $this->extractTenseTag($auxTenseTags);
+            if ($tenseTag !== null && ! in_array($tenseTag, $tags, true)) {
+                $tags[] = $tenseTag;
+            }
+
+            return $tags;
+        }
+
+        return array_merge($tagQuestionTags, $subjectQuestionTags, $auxTenseTags);
+    }
+
+    private function extractAuxiliaryGroupTag(array $auxTenseTags): ?string
+    {
+        $priority = [
+            'Do/Does/Did',
+            'Be (am/is/are/was/were)',
+            'Have/Has/Had',
+            'Will/Would',
+            'Can/Could',
+            'Should',
+            'Must',
+            'May/Might',
+            'Modal Verbs',
+        ];
+
+        foreach ($priority as $tag) {
+            if (in_array($tag, $auxTenseTags, true)) {
+                return $tag;
+            }
+        }
+
+        return null;
+    }
+
+    private function extractTenseTag(array $auxTenseTags): ?string
+    {
+        $tenses = [
+            'Past Simple',
+            'Present Simple',
+            'Future Simple',
+            'Past Continuous',
+            'Present Continuous',
+            'Past Perfect',
+            'Present Perfect',
+        ];
+
+        foreach ($tenses as $tense) {
+            if (in_array($tense, $auxTenseTags, true)) {
+                return $tense;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -220,34 +339,6 @@ class GapTagInferer
      * 2. Tag questions polarity
      * 3. Subject questions (no auxiliary)
      */
-    private function detectStructuralPatterns(
-        string $question,
-        string $marker,
-        string $answer,
-        array $options,
-        array $window
-    ): array {
-        // 1. Check for Indirect/Embedded question word order
-        $indirectTags = $this->detectIndirectEmbeddedQuestions($question, $window);
-        if (! empty($indirectTags)) {
-            return $indirectTags;
-        }
-
-        // 2. Check for Tag questions polarity
-        $tagQuestionTags = $this->detectTagQuestions($question, $marker, $answer, $options, $window);
-        if (! empty($tagQuestionTags)) {
-            return $tagQuestionTags;
-        }
-
-        // 3. Check for Subject questions (no auxiliary)
-        $subjectQuestionTags = $this->detectSubjectQuestions($question, $answer, $options, $window);
-        if (! empty($subjectQuestionTags)) {
-            return $subjectQuestionTags;
-        }
-
-        return [];
-    }
-
     /**
      * Detect Indirect/Embedded question patterns.
      *
@@ -381,31 +472,32 @@ class GapTagInferer
         string $answer,
         array $options,
         array $window,
-        ?string $verbHint
+        ?string $verbHint,
+        string $leadingAuxToken
     ): array {
         // FIRST: Check answer directly to determine the correct pattern type
         // This prevents options from incorrectly influencing the detection
 
         // Check if answer is a modal verb (check this early since modals are distinct)
-        $modalTags = $this->detectModalFromAnswer($answer, $window);
+        $modalTags = $this->detectModalFromAnswer($answer, $window, $leadingAuxToken);
         if (! empty($modalTags)) {
             return $modalTags;
         }
 
         // Check if answer is a have form (perfect patterns)
-        $haveTags = $this->detectHaveFromAnswer($answer, $window);
+        $haveTags = $this->detectHaveFromAnswer($answer, $window, $leadingAuxToken);
         if (! empty($haveTags)) {
             return $haveTags;
         }
 
         // Check if answer is a be form
-        $beTags = $this->detectBeFromAnswer($answer, $window);
+        $beTags = $this->detectBeFromAnswer($answer, $window, $leadingAuxToken);
         if (! empty($beTags)) {
             return $beTags;
         }
 
         // Check if answer is a do/does/did form
-        $doTags = $this->detectDoFromAnswer($answer, $window);
+        $doTags = $this->detectDoFromAnswer($answer, $window, $leadingAuxToken);
         if (! empty($doTags)) {
             return $doTags;
         }
@@ -430,7 +522,7 @@ class GapTagInferer
     /**
      * Detect modal verb from answer.
      */
-    private function detectModalFromAnswer(string $answer, array $window): array
+    private function detectModalFromAnswer(string $answer, array $window, string $leadingAuxToken): array
     {
         $modalGroups = [
             'will_would' => ['will', 'would', "won't", "wouldn't"],
@@ -441,11 +533,13 @@ class GapTagInferer
             'ought' => ['ought'],
         ];
 
+        $candidate = $leadingAuxToken ?: $answer;
+
         foreach ($modalGroups as $group => $modals) {
-            if (in_array($answer, $modals)) {
+            if (in_array($candidate, $modals)) {
                 switch ($group) {
                     case 'will_would':
-                        if (in_array($answer, ['would', "wouldn't"])) {
+                        if (in_array($candidate, ['would', "wouldn't"])) {
                             return ['Modal Verbs', 'Will/Would'];
                         }
 
@@ -470,14 +564,16 @@ class GapTagInferer
     /**
      * Detect have auxiliary from answer.
      */
-    private function detectHaveFromAnswer(string $answer, array $window): array
+    private function detectHaveFromAnswer(string $answer, array $window, string $leadingAuxToken): array
     {
         $haveForms = ['have', 'has', 'had', "haven't", "hasn't", "hadn't"];
 
-        if (in_array($answer, $haveForms)) {
+        $candidate = $leadingAuxToken ?: $answer;
+
+        if (in_array($candidate, $haveForms)) {
             // Check for perfect patterns (been, V3 forms in context)
             if (preg_match('/\bbeen\b/', $window['after'])) {
-                if (in_array($answer, ['had', "hadn't"])) {
+                if (in_array($candidate, ['had', "hadn't"])) {
                     return ['Have/Has/Had', 'Past Perfect'];
                 }
 
@@ -486,7 +582,7 @@ class GapTagInferer
 
             // Check for ever/never/just/already patterns (common with perfect)
             if (preg_match('/\b(ever|never|just|already|yet)\b/i', $window['full'])) {
-                if (in_array($answer, ['had', "hadn't"])) {
+                if (in_array($candidate, ['had', "hadn't"])) {
                     return ['Have/Has/Had', 'Past Perfect'];
                 }
 
@@ -494,7 +590,7 @@ class GapTagInferer
             }
 
             // Default based on have form
-            if (in_array($answer, ['had', "hadn't"])) {
+            if (in_array($candidate, ['had', "hadn't"])) {
                 return ['Have/Has/Had', 'Past Perfect'];
             }
 
@@ -507,25 +603,31 @@ class GapTagInferer
     /**
      * Detect be auxiliary from answer.
      */
-    private function detectBeFromAnswer(string $answer, array $window): array
+    private function detectBeFromAnswer(string $answer, array $window, string $leadingAuxToken): array
     {
         $beForms = ['am', 'is', 'are', 'was', 'were', 'be', 'been', 'being'];
         $beNegForms = ["isn't", "aren't", "wasn't", "weren't", "am not"];
 
         $allBeForms = array_merge($beForms, $beNegForms);
 
-        if (in_array($answer, $allBeForms)) {
+        $candidate = $leadingAuxToken ?: $answer;
+
+        if (in_array($candidate, $allBeForms)) {
             // Check for continuous patterns (-ing in context)
             if (preg_match('/\b\w+ing\b/', $window['after'])) {
-                if (in_array($answer, ['was', 'were', "wasn't", "weren't"])) {
+                if (in_array($candidate, ['was', 'were', "wasn't", "weren't"])) {
                     return ['Be (am/is/are/was/were)', 'Past Continuous'];
                 }
 
                 return ['Be (am/is/are/was/were)', 'Present Continuous'];
             }
 
+            if (in_array($window['before'], ['who', 'what'])) {
+                return ['Be (am/is/are/was/were)', 'Question Word Order'];
+            }
+
             // Simple be usage
-            if (in_array($answer, ['was', 'were', "wasn't", "weren't"])) {
+            if (in_array($candidate, ['was', 'were', "wasn't", "weren't"])) {
                 return ['Be (am/is/are/was/were)', 'To Be'];
             }
 
@@ -538,12 +640,14 @@ class GapTagInferer
     /**
      * Detect do/does/did from answer.
      */
-    private function detectDoFromAnswer(string $answer, array $window): array
+    private function detectDoFromAnswer(string $answer, array $window, string $leadingAuxToken): array
     {
         $doForms = ['do', 'does', 'did', "don't", "doesn't", "didn't"];
 
-        if (in_array($answer, $doForms)) {
-            if (in_array($answer, ['did', "didn't"])) {
+        $candidate = $leadingAuxToken ?: $answer;
+
+        if (in_array($candidate, $doForms)) {
+            if (in_array($candidate, ['did', "didn't"])) {
                 return ['Do/Does/Did', 'Past Simple'];
             }
 

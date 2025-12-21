@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MarkerTheoryTagController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Word;

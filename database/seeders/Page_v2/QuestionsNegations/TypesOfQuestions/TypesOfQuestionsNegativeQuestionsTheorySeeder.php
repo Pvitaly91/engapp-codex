@@ -28,19 +28,24 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                 'title' => 'Види питальних речень',
                 'language' => 'uk',
             ],
+            // BLOCK-FIRST TAGGING: Page anchor tags (short, general page identifiers)
             'tags' => [
-                'Negative Questions',
-                'Заперечні питання',
-                'Don\'t you',
-                'Isn\'t she',
-                'Didn\'t they',
-                'Question Forms',
                 'Types of Questions',
+                'Question Forms',
+                'Negative Questions',
+                'Negative Question Forms',
                 'Grammar',
                 'Theory',
-                'B1',
-                'B2',
             ],
+            // BLOCK-FIRST TAGGING: Base tags inherited by all blocks (controlled inheritance)
+            'base_tags' => [
+                'Types of Questions',
+                'Question Forms',
+                'Negative Questions',
+                'Negative Question Forms',
+            ],
+            // Subtitle block tags configuration
+            'subtitle_tags' => ['Introduction', 'Overview'],
             'blocks' => [
                 [
                     'type' => 'hero',
@@ -48,6 +53,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'hero',
+                    // BLOCK-FIRST: Hero block detailed tags
+                    'tags' => ['Introduction', 'Overview', 'CEFR B1', 'CEFR B2'],
                     'body' => json_encode([
                         'level' => 'B1–B2',
                         'intro' => 'У цій темі ти вивчиш <strong>заперечні питання (Negative Questions)</strong> — питання з негативною формою, які виражають здивування, подив або очікування певної відповіді.',
@@ -79,6 +86,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'forms-grid-what-is',
+                    // BLOCK-FIRST: Definition block detailed tags
+                    'tags' => ['Definition', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '1. Що таке Negative Questions?',
                         'intro' => 'Negative questions — це питання з негативною формою допоміжного дієслова:',
@@ -95,6 +104,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-do-does-did',
+                    // BLOCK-FIRST: Do/Does/Did block detailed tags
+                    'tags' => ['Do/Does/Did', 'Present Simple', 'Past Simple', 'Auxiliaries', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '2. Negative Questions з DO/DOES/DID',
                         'sections' => [
@@ -138,6 +149,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-to-be',
+                    // BLOCK-FIRST: To Be block detailed tags
+                    'tags' => ['To Be', 'Be (am/is/are/was/were)', 'Formal vs Informal', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '3. Negative Questions з TO BE',
                         'sections' => [
@@ -182,6 +195,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-modals',
+                    // BLOCK-FIRST: Modal verbs block detailed tags
+                    'tags' => ['Modal Verbs', 'Can/Could', 'Will/Would', 'Should', 'Must', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '4. Negative Questions з модальними дієсловами',
                         'sections' => [
@@ -224,6 +239,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B2',
                     'uuid_key' => 'usage-panels-other-tenses',
+                    // BLOCK-FIRST: Other Tenses block detailed tags
+                    'tags' => ['Present Perfect', 'Present Continuous', 'Past Continuous', 'Have/Has/Had', 'CEFR B2'],
                     'body' => json_encode([
                         'title' => '5. Negative Questions з іншими часами',
                         'sections' => [
@@ -266,6 +283,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B2',
                     'uuid_key' => 'usage-panels-meaning',
+                    // BLOCK-FIRST: Meaning and usage block detailed tags
+                    'tags' => ['Meaning', 'Surprise', 'Criticism', 'Politeness', 'Context', 'CEFR B2'],
                     'body' => json_encode([
                         'title' => '6. Значення та використання Negative Questions',
                         'sections' => [
@@ -315,6 +334,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B2',
                     'uuid_key' => 'usage-panels-answers',
+                    // BLOCK-FIRST: Answers block detailed tags
+                    'tags' => ['Answers', 'Yes/No', 'Response Patterns', 'CEFR B2'],
                     'body' => json_encode([
                         'title' => '7. Як відповідати на Negative Questions',
                         'sections' => [
@@ -355,6 +376,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'comparison-table',
+                    // BLOCK-FIRST: Comparison table block detailed tags
+                    'tags' => ['Summary', 'Comparison', 'Positive vs Negative', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '8. Порівняння звичайних та заперечних питань',
                         'intro' => 'Відмінності між звичайними та заперечними питаннями:',
@@ -394,6 +417,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'mistakes-grid',
+                    // BLOCK-FIRST: Common mistakes block detailed tags
+                    'tags' => ['Common Mistakes', 'Word Order', 'Grammar Errors', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '9. Типові помилки',
                         'items' => [
@@ -434,6 +459,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'summary-list',
+                    // BLOCK-FIRST: Summary block detailed tags
+                    'tags' => ['Summary', 'Key Rules', 'Quick Reference', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '10. Короткий конспект',
                         'items' => [
@@ -456,6 +483,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'practice-set',
+                    // BLOCK-FIRST: Practice block detailed tags
+                    'tags' => ['Practice', 'Exercises', 'Interactive', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '11. Практика',
                         'select_title' => 'Вправа 1. Обери правильну форму',
@@ -503,6 +532,9 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'navigation-chips',
+                    // BLOCK-FIRST: Navigation block - service block with no content tags
+                    'inherit_base_tags' => false,
+                    'tags' => ['Navigation'],
                     'body' => json_encode([
                         'title' => 'Інші теми з розділу Види питальних речень',
                         'items' => [
