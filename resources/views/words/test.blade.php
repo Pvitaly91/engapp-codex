@@ -141,7 +141,7 @@
       </div>
     </div>
 
-    <div id="failure-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
+    <div id="failure-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
       <div class="modal-backdrop absolute inset-0"></div>
       <div id="failure-card" class="relative mx-4 w-full max-w-xl rounded-2xl border border-destructive/30 bg-card p-6 shadow-2xl animate-pop">
         <div class="flex items-start gap-4">
