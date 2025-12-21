@@ -22,18 +22,31 @@
         100% { transform: scale(1); box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.25); }
       }
 
+      @keyframes choice-shake {
+        0%, 100% { transform: translateX(0); }
+        15% { transform: translateX(-6px); }
+        30% { transform: translateX(6px); }
+        45% { transform: translateX(-5px); }
+        60% { transform: translateX(5px); }
+        75% { transform: translateX(-3px); }
+        90% { transform: translateX(3px); }
+      }
+
       .animate-soft { animation: fade-in-soft 280ms ease; }
       .animate-pop { animation: pop-in 220ms ease; }
       .animate-choice { animation: choice-glow 1s ease; }
+      .animate-shake { animation: choice-shake 600ms ease; }
 
       .choice-correct {
         border-color: rgba(34, 197, 94, 0.35);
-        background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(34, 197, 94, 0.02));
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(34, 197, 94, 0.04));
+        color: rgb(21, 128, 61);
       }
 
       .choice-wrong {
         border-color: rgba(239, 68, 68, 0.35);
-        background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.02));
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.04));
+        color: rgb(185, 28, 28);
       }
     </style>
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -281,11 +294,15 @@
 
       function highlightSelection(button, isCorrect) {
         if (!button) return;
-        button.classList.remove('choice-correct', 'choice-wrong', 'animate-choice');
+        button.classList.remove('choice-correct', 'choice-wrong', 'animate-choice', 'animate-shake');
         void button.offsetWidth;
-        button.classList.add(isCorrect ? 'choice-correct' : 'choice-wrong', 'animate-choice');
+        if (isCorrect) {
+          button.classList.add('choice-correct', 'animate-choice');
+        } else {
+          button.classList.add('choice-wrong', 'animate-choice', 'animate-shake');
+        }
         setTimeout(() => {
-          button.classList.remove('choice-correct', 'choice-wrong', 'animate-choice');
+          button.classList.remove('choice-correct', 'choice-wrong', 'animate-choice', 'animate-shake');
         }, 1000);
       }
 
