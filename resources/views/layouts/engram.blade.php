@@ -144,6 +144,9 @@
       transform: scale(1.1);
     }
   </style>
+
+  <!-- Livewire Styles -->
+  @livewireStyles
 </head>
 
 <body class="font-sans antialiased selection:bg-primary/15 selection:text-primary">
@@ -623,6 +626,9 @@
       }
     }
   </style>
+
+  <!-- Livewire Scripts -->
+  @livewireScripts
 
   @yield('scripts')
 </body>
