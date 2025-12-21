@@ -1,115 +1,271 @@
-@extends('layouts.app')
+@extends('layouts.engram')
 
-@section('title', 'Words Test')
+@section('title', 'Тест слів')
 
 @section('content')
-    <div class=" mx-auto mt-8 p-8 bg-white rounded-xl shadow w-[800px]">
-        <h2 class="text-2xl font-bold mb-4 text-blue-700">Words Test</h2>
-
-        <form method="GET" action="{{ route('words.test') }}" class="mb-4">
-            <input type="hidden" name="filter" value="1">
-            <div class="mb-2 text-sm">Filter Tags:</div>
-            <div class="flex flex-wrap gap-2">
-                @foreach($allTags as $tag)
-                    <div>
-                        <input
-                            type="checkbox"
-                            name="tags[]"
-                            value="{{ $tag->name }}"
-                            id="tag-{{ $tag->id }}"
-                            class="hidden peer"
-                            {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}
-                        >
-                        <label
-                            for="tag-{{ $tag->id }}"
-                            class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white"
-                        >
-                            {{ $tag->name }}
-                        </label>
-                    </div>
-                @endforeach
-            </div>
-            <div class="mt-2 flex gap-2">
-                <button type="submit" class="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700 transition text-sm">Apply</button>
-                <a href="{{ route('words.test', ['reset' => 1]) }}" class="bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700 transition text-sm">Reset Filter</a>
-            </div>
-        </form>
-
-        @if(isset($stats))
-            <div class="mb-4 flex gap-4 text-gray-600 text-base">
-                <div>Total: <b>{{ $stats['total'] }} / {{ $totalCount }}</b></div>
-                <div>Correct: <b class="text-green-700">{{ $stats['correct'] }}</b></div>
-                <div>Wrong: <b class="text-red-700">{{ $stats['wrong'] }}</b></div>
-                <div>Percent: <b>{{ $percentage }}%</b></div>
-            </div>
-            <form method="POST" action="{{ route('words.test.reset') }}" class="mb-4">
-                @csrf
-                <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Reset</button>
-            </form>
-        @endif
-
-        @if(isset($feedback))
-            <div class="mb-4">
-                @if($feedback['isCorrect'])
-                    <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-2">
-                        Correct! <b>{{ $feedback['word'] }}</b> = <b>{{ $feedback['correctAnswer'] }}</b>
-                    </div>
-                @else
-                    <div class="bg-red-100 text-red-800 px-4 py-2 rounded mb-2">
-                        Wrong for <b>{{ $feedback['word'] }}</b>.<br>
-                        Your answer: <b>{{ $feedback['userAnswer'] }}</b><br>
-                        Correct: <b>{{ $feedback['correctAnswer'] }}</b>
-                    </div>
-                @endif
-            </div>
-        @endif
-
-        @if($word)
-            <form method="POST" action="{{ route('words.test.check') }}" class="mt-4">
-                @csrf
-                <input type="hidden" name="word_id" value="{{ $word->id }}">
-                <input type="hidden" name="questionType" value="{{ $questionType }}">
-
-                <div class="mb-6">
-                    <div class="text-sm text-gray-500 mb-1">
-                        @foreach($word->tags as $tag)
-                            {{ $tag->name }}@if(!$loop->last),@endif
-                        @endforeach
-                    </div>
-                    @if($questionType == 'en_to_uk')
-                        <div class="text-lg mb-2">Choose the correct <b>Ukrainian translation</b> for:</div>
-                        <div class="text-3xl font-bold text-blue-900 mb-6">{{ $word->word }}</div>
-                    @else
-                        <div class="text-lg mb-2">Choose the correct <b>English word</b> for:</div>
-                        <div class="text-3xl font-bold text-blue-900 mb-6">{{ $translation }}</div>
-                    @endif
-
-                    <div class="flex flex-wrap gap-2">
-                        @foreach($options as $option)
-                            <div>
-                                <input
-                                    type="radio"
-                                    name="answer"
-                                    value="{{ $option }}"
-                                    id="opt-{{ $loop->index }}"
-                                    class="hidden peer"
-                                    required
-                                >
-                                <label for="opt-{{ $loop->index }}" class="px-4 py-2 rounded border cursor-pointer bg-gray-200 peer-checked:bg-green-600 peer-checked:text-white">
-                                    {{ $option }}
-                                </label>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-
-                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-blue-700 transition">
-                    Check
-                </button>
-            </form>
-        @else
-            <div class="text-gray-500">No words available!</div>
-        @endif
+  <div class="space-y-8" x-data>
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div class="space-y-1">
+        <p class="text-sm text-muted-foreground">Практика перекладу · Активна мова: <span class="font-semibold text-primary">{{ strtoupper($activeLang) }}</span></p>
+        <h1 class="text-3xl font-semibold text-foreground">Швидкий тест слів</h1>
+        <p class="text-muted-foreground max-w-2xl">Виберіть правильний переклад без перезавантаження сторінки. Прогрес зберігається автоматично — можна оновити сторінку і продовжити з того ж місця.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <button id="reset-btn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+          <span>Почати заново</span>
+        </button>
+      </div>
     </div>
-@endsection
 
+    <div class="grid gap-4 md:grid-cols-[1.6fr_1fr]">
+      <div class="rounded-2xl bg-card p-6 shadow-soft border border-border/70" id="question-card">
+        <div class="flex items-center justify-between gap-3">
+          <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+            <span class="h-2 w-2 rounded-full bg-primary"></span>
+            <span id="question-label">Завантаження питання…</span>
+          </div>
+          <div class="text-sm text-muted-foreground" id="queue-counter"></div>
+        </div>
+
+        <div class="mt-6 space-y-6" id="question-wrapper">
+          <div class="space-y-2">
+            <p class="text-sm uppercase tracking-[0.08em] text-muted-foreground">Підказка</p>
+            <div id="question-prompt" class="text-3xl font-semibold text-foreground">Зачекайте...</div>
+            <p id="question-tags" class="text-sm text-muted-foreground"></p>
+          </div>
+
+          <div class="grid gap-3 md:grid-cols-2" id="options"></div>
+        </div>
+
+        <div id="empty-state" class="hidden text-muted-foreground">
+          <p class="text-lg font-semibold text-foreground">Питання не знайдено</p>
+          <p>Додайте більше слів з перекладом на активну мову або натисніть «Почати заново», щоб спробувати ще раз.</p>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div class="rounded-2xl bg-card p-5 shadow-soft border border-border/70">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold text-muted-foreground">Прогрес</p>
+            <span class="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground" id="percentage">0%</span>
+          </div>
+          <div class="mt-3 h-3 rounded-full bg-muted">
+            <div id="progress-bar" class="h-3 rounded-full bg-primary transition-all duration-500" style="width: 0%"></div>
+          </div>
+          <dl class="mt-4 grid grid-cols-3 gap-3 text-sm">
+            <div class="rounded-xl bg-muted px-3 py-2">
+              <dt class="text-muted-foreground">Усього</dt>
+              <dd id="stat-total" class="text-lg font-semibold text-foreground">0</dd>
+            </div>
+            <div class="rounded-xl bg-success/10 px-3 py-2 text-success">
+              <dt class="text-sm">Правильно</dt>
+              <dd id="stat-correct" class="text-lg font-semibold">0</dd>
+            </div>
+            <div class="rounded-xl bg-destructive/10 px-3 py-2 text-destructive">
+              <dt class="text-sm">Помилки</dt>
+              <dd id="stat-wrong" class="text-lg font-semibold">0</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="rounded-2xl bg-card p-5 shadow-soft border border-border/70" id="feedback" hidden>
+          <div id="feedback-chip" class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold"></div>
+          <div class="mt-3 space-y-2">
+            <p id="feedback-title" class="text-xl font-semibold"></p>
+            <p id="feedback-body" class="text-muted-foreground"></p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-card p-5 shadow-soft border border-dashed border-border/80" id="completion" hidden>
+          <div class="flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-muted-foreground">Тест завершено</p>
+              <p class="text-lg font-semibold text-foreground">Всі доступні слова опрацьовано</p>
+            </div>
+          </div>
+          <p class="mt-3 text-muted-foreground">Можете почати заново, щоб повторити матеріал.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const stateUrl = "{{ route('words.test.state') }}";
+      const checkUrl = "{{ route('words.test.check') }}";
+      const resetUrl = "{{ route('words.test.reset') }}";
+      const csrfToken = '{{ csrf_token() }}';
+
+      const questionLabel = document.getElementById('question-label');
+      const queueCounter = document.getElementById('queue-counter');
+      const questionPrompt = document.getElementById('question-prompt');
+      const questionTags = document.getElementById('question-tags');
+      const optionsWrapper = document.getElementById('options');
+      const percentageEl = document.getElementById('percentage');
+      const progressBar = document.getElementById('progress-bar');
+      const statTotal = document.getElementById('stat-total');
+      const statCorrect = document.getElementById('stat-correct');
+      const statWrong = document.getElementById('stat-wrong');
+      const feedback = document.getElementById('feedback');
+      const feedbackChip = document.getElementById('feedback-chip');
+      const feedbackTitle = document.getElementById('feedback-title');
+      const feedbackBody = document.getElementById('feedback-body');
+      const completion = document.getElementById('completion');
+      const questionWrapper = document.getElementById('question-wrapper');
+      const emptyState = document.getElementById('empty-state');
+      const resetBtn = document.getElementById('reset-btn');
+
+      let currentQuestion = null;
+      let loading = false;
+
+      async function fetchState() {
+        loading = true;
+        toggleOptions(false);
+        const response = await fetch(stateUrl, { headers: { 'Accept': 'application/json' } });
+        const data = await response.json();
+        updateState(data);
+        loading = false;
+      }
+
+      function updateState(data) {
+        renderStats(data.stats, data.percentage, data.totalCount);
+        completion.hidden = !data.completed;
+
+        if (!data.question) {
+          currentQuestion = null;
+          questionWrapper.classList.add('hidden');
+          emptyState.classList.remove('hidden');
+          queueCounter.textContent = '';
+          questionLabel.textContent = data.completed ? 'Все пройдено' : 'Немає питань';
+          return;
+        }
+
+        emptyState.classList.add('hidden');
+        questionWrapper.classList.remove('hidden');
+        currentQuestion = data.question;
+        renderQuestion(data.question, data.totalCount, data.stats.total);
+        feedback.hidden = true;
+        completion.hidden = true;
+      }
+
+      function renderStats(stats, percentage, totalCount) {
+        statTotal.textContent = `${stats.total} / ${totalCount}`;
+        statCorrect.textContent = stats.correct;
+        statWrong.textContent = stats.wrong;
+        percentageEl.textContent = `${percentage}%`;
+        progressBar.style.width = `${Math.min(percentage, 100)}%`;
+      }
+
+      function renderQuestion(question, totalCount, totalAnswered) {
+        questionLabel.textContent = question.questionType === 'en_to_uk'
+          ? 'Обрати переклад українською'
+          : 'Обрати слово англійською';
+
+        queueCounter.textContent = `Питання ${totalAnswered + 1} з ${totalCount}`;
+        questionPrompt.textContent = question.prompt;
+        questionTags.textContent = (question.tags || []).join(', ');
+
+        optionsWrapper.innerHTML = '';
+        question.options.forEach((option) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'flex items-center justify-between gap-3 rounded-xl border border-border/80 bg-muted px-4 py-3 text-left text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
+          btn.textContent = option;
+          btn.dataset.value = option;
+          btn.addEventListener('click', () => submitAnswer(option));
+          optionsWrapper.appendChild(btn);
+        });
+        toggleOptions(!loading);
+      }
+
+      function toggleOptions(enabled) {
+        optionsWrapper.querySelectorAll('button').forEach((btn) => {
+          btn.disabled = !enabled;
+          btn.classList.toggle('opacity-60', !enabled);
+          btn.classList.toggle('cursor-not-allowed', !enabled);
+        });
+      }
+
+      async function submitAnswer(answer) {
+        if (!currentQuestion || loading) return;
+        loading = true;
+        toggleOptions(false);
+
+        const formData = new FormData();
+        formData.append('word_id', currentQuestion.word_id);
+        formData.append('answer', answer);
+
+        const response = await fetch(checkUrl, {
+          method: 'POST',
+          headers: {
+            'X-CSRF-TOKEN': csrfToken,
+            'Accept': 'application/json',
+          },
+          body: formData,
+        });
+
+        if (!response.ok) {
+          loading = false;
+          toggleOptions(true);
+          return;
+        }
+
+        const data = await response.json();
+        renderStats(data.stats, data.percentage, data.totalCount);
+        showFeedback(data.result);
+
+        currentQuestion = data.question;
+        if (data.completed || !data.question) {
+          completion.hidden = false;
+          questionWrapper.classList.add('hidden');
+          emptyState.classList.remove('hidden');
+          questionLabel.textContent = 'Все пройдено';
+          queueCounter.textContent = '';
+        } else {
+          renderQuestion(data.question, data.totalCount, data.stats.total);
+        }
+
+        loading = false;
+      }
+
+      function showFeedback(result) {
+        feedback.hidden = false;
+        const isCorrect = result.isCorrect;
+        feedbackChip.textContent = isCorrect ? 'Правильно' : 'Помилка';
+        feedbackChip.className = `inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold ${isCorrect ? 'bg-success/10 text-success' : 'bg-destructive/10 text-destructive'}`;
+
+        if (result.questionType === 'en_to_uk') {
+          feedbackTitle.textContent = `${result.word} → ${result.correctAnswer}`;
+        } else {
+          feedbackTitle.textContent = `${result.translation} → ${result.correctAnswer}`;
+        }
+
+        feedbackBody.textContent = isCorrect
+          ? 'Чудово! Продовжуйте у тому ж дусі.'
+          : 'Зверніть увагу на правильний варіант і спробуйте ще раз.';
+      }
+
+      resetBtn.addEventListener('click', async () => {
+        resetBtn.disabled = true;
+        resetBtn.classList.add('opacity-60');
+        const response = await fetch(resetUrl, {
+          method: 'POST',
+          headers: {
+            'X-CSRF-TOKEN': csrfToken,
+            'Accept': 'application/json',
+          },
+        });
+
+        const data = await response.json();
+        updateState(data);
+        resetBtn.disabled = false;
+        resetBtn.classList.remove('opacity-60');
+      });
+
+      fetchState();
+    });
+  </script>
+@endsection

@@ -2,76 +2,80 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tag;
 use App\Models\Word;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
+use Illuminate\Support\Arr;
 
 class WordsTestController extends Controller
 {
-    private function getWords(array $tags): Collection
-    {
-        $query = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags']);
+    private const SESSION_KEYS = [
+        'words_selected_tags',
+        'words_test_stats',
+        'words_queue',
+        'words_total_count',
+        'words_current_question',
+    ];
 
-        if (! empty($tags)) {
-            $query->whereHas('tags', fn ($q) => $q->whereIn('name', $tags));
+    private function activeLang(): string
+    {
+        $lang = session('locale', app()->getLocale() ?? 'uk');
+
+        if (! in_array($lang, ['uk', 'pl', 'en'], true)) {
+            return 'uk';
         }
 
-        return $query->get();
+        return $lang;
     }
 
-    public function index(Request $request)
+    private function wordsQuery(string $lang)
     {
-        if ($request->boolean('reset')) {
-            $selectedTags = [];
-            session()->forget(['words_selected_tags', 'words_test_stats', 'words_queue', 'words_total_count']);
-        } elseif ($request->has('filter')) {
-            $selectedTags = $request->input('tags', []);
+        return Word::with(['translates' => fn ($q) => $q->where('lang', $lang), 'tags'])
+            ->whereHas('translates', function ($q) use ($lang) {
+                $q->where('lang', $lang)
+                    ->whereNotNull('translation')
+                    ->where('translation', '!=', '');
+            });
+    }
 
-            if ($selectedTags !== session('words_selected_tags')) {
-                session()->forget(['words_test_stats', 'words_queue', 'words_total_count']);
-            }
-        } else {
-            $selectedTags = session('words_selected_tags', []);
-        }
-
-        session(['words_selected_tags' => $selectedTags]);
-
-        $feedback = session('feedback');
-        $stats = session('words_test_stats', [
-            'correct' => 0,
-            'wrong' => 0,
-            'total' => 0,
-        ]);
-        $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
-
-        $queue = session('words_queue');
-        $totalCount = session('words_total_count', 0);
-
-        if (! $queue) {
-            $words = $this->getWords($selectedTags);
-            $queue = $words->pluck('id')->shuffle()->toArray();
-            $totalCount = count($queue);
-            session(['words_queue' => $queue, 'words_total_count' => $totalCount]);
-        }
-
-        if (empty($queue) || ($percentage >= 95 && $stats['total'] >= $totalCount)) {
-            return view('words.complete', [
-                'stats' => $stats,
-                'percentage' => $percentage,
-                'totalCount' => $totalCount,
-                'selectedTags' => $selectedTags,
-                'allTags' => Tag::whereHas('words')->get(),
+    private function initializeState(string $lang): void
+    {
+        if (! session()->has('words_test_stats')) {
+            session([
+                'words_test_stats' => [
+                    'correct' => 0,
+                    'wrong' => 0,
+                    'total' => 0,
+                ],
             ]);
         }
 
-        $wordId = array_shift($queue);
-        session(['words_queue' => $queue]);
+        if (! session()->has('words_queue')) {
+            $queue = $this->wordsQuery($lang)->pluck('id')->shuffle()->toArray();
+            session([
+                'words_queue' => $queue,
+                'words_total_count' => count($queue),
+            ]);
+        }
+    }
 
-        $word = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags'])->find($wordId);
+    private function calculatePercentage(array $stats): float
+    {
+        if ($stats['total'] === 0) {
+            return 0;
+        }
 
-        $otherWords = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])
-            ->when($selectedTags, fn ($q) => $q->whereHas('tags', fn ($q2) => $q2->whereIn('name', $selectedTags)))
+        return round(($stats['correct'] / $stats['total']) * 100, 2);
+    }
+
+    private function buildQuestionPayload(int $wordId, string $lang): ?array
+    {
+        $word = $this->wordsQuery($lang)->find($wordId);
+
+        if (! $word) {
+            return null;
+        }
+
+        $otherWords = $this->wordsQuery($lang)
             ->where('id', '!=', $wordId)
             ->inRandomOrder()
             ->take(4)
@@ -79,69 +83,168 @@ class WordsTestController extends Controller
 
         $questionType = rand(0, 1) === 0 ? 'en_to_uk' : 'uk_to_en';
 
+        $translation = optional($word->translates->first())->translation ?? '';
+
         if ($questionType === 'en_to_uk') {
-            $correct = optional($word->translates->first())->translation ?? '';
-            $options = $otherWords->map(fn ($w) => optional($w->translates->first())->translation ?? '')->toArray();
+            $correct = $translation;
+            $options = $otherWords
+                ->map(fn ($w) => optional($w->translates->first())->translation ?? '')
+                ->filter()
+                ->values();
         } else {
             $correct = $word->word;
-            $options = $otherWords->pluck('word')->toArray();
+            $options = $otherWords->pluck('word');
         }
 
-        $options[] = $correct;
-        shuffle($options);
+        $options = $options
+            ->filter()
+            ->push($correct)
+            ->unique()
+            ->shuffle()
+            ->values()
+            ->all();
 
-        return view('words.test', [
-            'word' => $word,
-            'translation' => optional($word->translates->first())->translation ?? '',
-            'options' => $options,
+        return [
+            'word_id' => $word->id,
+            'word' => $word->word,
+            'translation' => $translation,
+            'tags' => $word->tags->pluck('name')->all(),
             'questionType' => $questionType,
-            'feedback' => $feedback,
+            'prompt' => $questionType === 'en_to_uk' ? $word->word : $translation,
+            'options' => $options,
+            'correct_answer' => $correct,
+        ];
+    }
+
+    private function ensureCurrentQuestion(string $lang): ?array
+    {
+        if ($question = session('words_current_question')) {
+            return $question;
+        }
+
+        $queue = session('words_queue', []);
+
+        if (empty($queue)) {
+            return null;
+        }
+
+        $wordId = array_shift($queue);
+        session(['words_queue' => $queue]);
+
+        $question = $this->buildQuestionPayload($wordId, $lang);
+
+        if (! $question) {
+            return null;
+        }
+
+        session(['words_current_question' => $question]);
+
+        return $question;
+    }
+
+    private function completionStatus(?array $question): bool
+    {
+        $queue = session('words_queue', []);
+        $totalCount = session('words_total_count', 0);
+
+        if ($totalCount === 0) {
+            return true;
+        }
+
+        return empty($queue) && ! $question;
+    }
+
+    private function statePayload(string $lang): array
+    {
+        $this->initializeState($lang);
+
+        $stats = session('words_test_stats');
+        $question = $this->ensureCurrentQuestion($lang);
+        $percentage = $this->calculatePercentage($stats);
+
+        return [
+            'question' => $question ? Arr::except($question, ['correct_answer']) : null,
             'stats' => $stats,
             'percentage' => $percentage,
-            'totalCount' => $totalCount,
-            'selectedTags' => $selectedTags,
-            'allTags' => Tag::whereHas('words')->get(),
+            'totalCount' => session('words_total_count', 0),
+            'completed' => $this->completionStatus($question),
+        ];
+    }
+
+    public function index(Request $request)
+    {
+        $lang = $this->activeLang();
+        $this->initializeState($lang);
+
+        return view('words.test', [
+            'activeLang' => $lang,
         ]);
+    }
+
+    public function state(Request $request)
+    {
+        return response()->json($this->statePayload($this->activeLang()));
     }
 
     public function check(Request $request)
     {
         $request->validate([
-            'word_id' => 'required|exists:words,id',
+            'word_id' => 'required|integer',
             'answer' => 'required|string',
-            'questionType' => 'required|in:en_to_uk,uk_to_en',
         ]);
+
+        $question = session('words_current_question');
+
+        if (! $question || $question['word_id'] !== (int) $request->input('word_id')) {
+            return response()->json([
+                'message' => 'Поточне питання не знайдено. Оновіть сторінку.',
+            ], 422);
+        }
 
         $stats = session('words_test_stats', [
             'correct' => 0,
             'wrong' => 0,
             'total' => 0,
         ]);
+
         $stats['total']++;
 
-        $word = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])->findOrFail($request->input('word_id'));
-
-        $correct = $request->input('questionType') === 'en_to_uk'
-            ? optional($word->translates->first())->translation ?? ''
-            : $word->word;
-
-        $isCorrect = trim($request->input('answer')) === trim($correct);
+        $isCorrect = trim($request->input('answer')) === trim($question['correct_answer']);
 
         if ($isCorrect) {
             $stats['correct']++;
         } else {
             $stats['wrong']++;
         }
+
         session(['words_test_stats' => $stats]);
+        session()->forget('words_current_question');
 
-        session()->flash('feedback', [
-            'isCorrect' => $isCorrect,
-            'correctAnswer' => $correct,
-            'userAnswer' => $request->input('answer'),
-            'word' => $word->word,
-            'questionType' => $request->input('questionType'),
+        $lang = $this->activeLang();
+        $nextQuestion = $this->ensureCurrentQuestion($lang);
+
+        return response()->json([
+            'result' => [
+                'isCorrect' => $isCorrect,
+                'correctAnswer' => $question['correct_answer'],
+                'word' => $question['word'],
+                'questionType' => $question['questionType'],
+                'translation' => $question['translation'],
+            ],
+            'question' => $nextQuestion ? Arr::except($nextQuestion, ['correct_answer']) : null,
+            'stats' => $stats,
+            'percentage' => $this->calculatePercentage($stats),
+            'totalCount' => session('words_total_count', 0),
+            'completed' => $this->completionStatus($nextQuestion),
         ]);
+    }
 
-        return redirect()->route('words.test');
+    public function reset(Request $request)
+    {
+        session()->forget(self::SESSION_KEYS);
+
+        $payload = $this->statePayload($this->activeLang());
+
+        return response()->json($payload);
     }
 }
