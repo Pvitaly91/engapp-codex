@@ -99,11 +99,7 @@ class PublicWordsTestTest extends TestCase
     public function test_after_submit_answer_loads_next_question_or_completes(): void
     {
         // Create only 2 words for quick test completion
-        $words = $this->createTestWords(2);
-
-        // Get the word translations that were created
-        $word1 = $words[0]->translates->first();
-        $word2 = $words[1]->translates->first();
+        $this->createTestWords(2);
 
         Livewire::test(PublicTest::class)
             ->assertSet('isComplete', false)
