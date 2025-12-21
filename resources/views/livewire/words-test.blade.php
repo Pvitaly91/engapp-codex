@@ -218,7 +218,12 @@
                 </div>
             @elseif($wordId)
                 {{-- Question Card --}}
-                <div class="rounded-3xl border border-border/70 bg-card shadow-soft overflow-hidden" data-animate data-animate-delay="250" wire:key="question-{{ $wordId }}">
+                <div
+                    class="rounded-3xl border border-border/70 bg-card shadow-soft overflow-hidden"
+                    data-animate
+                    data-animate-delay="250"
+                    wire:key="word-test-question-{{ $wordId }}-{{ $questionType }}"
+                >
                     <div class="p-6">
                         {{-- Word Tags --}}
                         @if(count($wordTags) > 0)

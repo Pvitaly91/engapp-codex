@@ -30,6 +30,7 @@ class WordsTest extends Component
 
     public ?array $feedback = null;
     public bool $isComplete = false;
+    public bool $hasWords = true;
     public bool $showFilters = false;
 
     public function mount(): void
@@ -43,9 +44,7 @@ class WordsTest extends Component
         $this->queue = session('words_queue', []);
         $this->totalCount = session('words_total_count', 0);
 
-        $this->initializeQueue();
-        $this->calculateProgress();
-        $this->loadNextWord();
+        $this->loadNextQuestion();
     }
 
     private function getWords(array $tags): Collection
@@ -58,16 +57,6 @@ class WordsTest extends Component
         }
 
         return $query->get();
-    }
-
-    private function initializeQueue(): void
-    {
-        if (empty($this->queue)) {
-            $words = $this->getWords($this->selectedTags);
-            $this->queue = $words->pluck('id')->shuffle()->toArray();
-            $this->totalCount = count($this->queue);
-            session(['words_queue' => $this->queue, 'words_total_count' => $this->totalCount]);
-        }
     }
 
     private function calculateProgress(): void
@@ -83,14 +72,91 @@ class WordsTest extends Component
             : 0;
     }
 
-    private function loadNextWord(): void
+    private function ensureQueue(): void
     {
-        // Check for completion
-        if (empty($this->queue) || ($this->percentage >= 95 && $this->stats['total'] >= $this->totalCount)) {
-            $this->isComplete = true;
-            $this->wordId = null;
+        // Always start from the latest session snapshot to avoid stale local state
+        $this->queue = session('words_queue', []);
+        $this->totalCount = session('words_total_count', 0);
+
+        // If we already had a queue and exhausted it, keep the empty state so completion logic can run
+        if (empty($this->queue) && $this->totalCount > 0) {
             return;
         }
+
+        // Build a new queue only when none exists yet
+        if (empty($this->queue)) {
+            $words = $this->getWords($this->selectedTags);
+
+            if ($words->isEmpty()) {
+                $this->hasWords = false;
+
+                return;
+            }
+
+            $this->hasWords = true;
+            $this->queue = $words->pluck('id')->shuffle()->toArray();
+            $this->totalCount = count($this->queue);
+        }
+
+        session([
+            'words_queue' => $this->queue,
+            'words_total_count' => $this->totalCount,
+        ]);
+    }
+
+    private function setCompleteState(): void
+    {
+        $this->isComplete = true;
+        $this->wordId = null;
+        $this->wordText = '';
+        $this->translation = '';
+        $this->options = [];
+        $this->questionType = 'en_to_uk';
+        $this->wordTags = [];
+        $this->calculateProgress();
+    }
+
+    private function resetQuestionState(): void
+    {
+        $this->wordId = null;
+        $this->wordText = '';
+        $this->translation = '';
+        $this->options = [];
+        $this->questionType = 'en_to_uk';
+        $this->wordTags = [];
+        $this->isComplete = false;
+        $this->hasWords = true;
+    }
+
+    private function loadNextQuestion(): void
+    {
+        // Clear any prior feedback before attempting to show a fresh prompt
+        $this->feedback = null;
+
+        $this->ensureQueue();
+
+        if (! $this->hasWords) {
+            $this->resetQuestionState();
+
+            return;
+        }
+
+        // Recompute progress against the current queue snapshot before deciding on completion
+        $this->calculateProgress();
+
+        if ($this->totalCount > 0 && $this->stats['total'] >= $this->totalCount && $this->percentage >= 95) {
+            $this->setCompleteState();
+
+            return;
+        }
+
+        if (empty($this->queue)) {
+            $this->setCompleteState();
+
+            return;
+        }
+
+        $this->resetQuestionState();
 
         $wordId = array_shift($this->queue);
         session(['words_queue' => $this->queue]);
@@ -98,7 +164,7 @@ class WordsTest extends Component
         $word = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags'])->find($wordId);
 
         if (! $word) {
-            $this->loadNextWord();
+            $this->loadNextQuestion();
             return;
         }
 
@@ -129,7 +195,6 @@ class WordsTest extends Component
         $this->options[] = $correct;
         shuffle($this->options);
 
-        // Recalculate progress after shifting queue
         $this->calculateProgress();
     }
 
@@ -161,7 +226,7 @@ class WordsTest extends Component
         ];
 
         $this->calculateProgress();
-        $this->loadNextWord();
+        $this->loadNextQuestion();
     }
 
     public function submitAnswerByIndex(int $index): void
@@ -179,14 +244,14 @@ class WordsTest extends Component
 
             // Reset queue and stats when filter changes
             $this->queue = [];
+            $this->totalCount = 0;
             $this->stats = ['correct' => 0, 'wrong' => 0, 'total' => 0];
             session()->forget(['words_test_stats', 'words_queue', 'words_total_count']);
 
             $this->feedback = null;
             $this->isComplete = false;
-            $this->initializeQueue();
-            $this->calculateProgress();
-            $this->loadNextWord();
+            $this->hasWords = true;
+            $this->loadNextQuestion();
         }
         $this->showFilters = false;
     }
@@ -197,34 +262,38 @@ class WordsTest extends Component
         session()->forget(['words_selected_tags', 'words_test_stats', 'words_queue', 'words_total_count']);
 
         $this->queue = [];
+        $this->totalCount = 0;
         $this->stats = ['correct' => 0, 'wrong' => 0, 'total' => 0];
         $this->feedback = null;
         $this->isComplete = false;
+        $this->hasWords = true;
 
-        $this->initializeQueue();
-        $this->calculateProgress();
-        $this->loadNextWord();
+        $this->loadNextQuestion();
     }
 
     public function resetProgress(): void
     {
         session()->forget('words_test_stats');
         $this->stats = ['correct' => 0, 'wrong' => 0, 'total' => 0];
+        $this->queue = [];
+        $this->totalCount = 0;
         $this->feedback = null;
-        $this->calculateProgress();
+        $this->isComplete = false;
+
+        $this->loadNextQuestion();
     }
 
     public function restartTest(): void
     {
         session()->forget(['words_test_stats', 'words_queue', 'words_total_count']);
         $this->queue = [];
+        $this->totalCount = 0;
         $this->stats = ['correct' => 0, 'wrong' => 0, 'total' => 0];
         $this->feedback = null;
         $this->isComplete = false;
+        $this->hasWords = true;
 
-        $this->initializeQueue();
-        $this->calculateProgress();
-        $this->loadNextWord();
+        $this->loadNextQuestion();
     }
 
     public function toggleFilters(): void
