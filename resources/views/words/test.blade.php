@@ -16,8 +16,38 @@
         100% { transform: scale(1); }
       }
 
+      @keyframes choice-glow {
+        0% { transform: scale(1); box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.25); }
+        50% { transform: scale(1.02); box-shadow: 0 14px 40px -16px rgba(0, 0, 0, 0.3); }
+        100% { transform: scale(1); box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.25); }
+      }
+
+      @keyframes choice-shake {
+        0%, 100% { transform: translateX(0); }
+        15% { transform: translateX(-6px); }
+        30% { transform: translateX(6px); }
+        45% { transform: translateX(-5px); }
+        60% { transform: translateX(5px); }
+        75% { transform: translateX(-3px); }
+        90% { transform: translateX(3px); }
+      }
+
       .animate-soft { animation: fade-in-soft 280ms ease; }
       .animate-pop { animation: pop-in 220ms ease; }
+      .animate-choice { animation: choice-glow 1s ease; }
+      .animate-shake { animation: choice-shake 600ms ease; }
+
+      .choice-correct {
+        border-color: rgba(34, 197, 94, 0.35);
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(34, 197, 94, 0.04));
+        color: rgb(21, 128, 61);
+      }
+
+      .choice-wrong {
+        border-color: rgba(239, 68, 68, 0.35);
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.04));
+        color: rgb(185, 28, 28);
+      }
     </style>
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div class="space-y-1">
@@ -198,7 +228,7 @@
           btn.className = 'flex items-center justify-between gap-3 rounded-xl border border-border/80 bg-muted px-4 py-3 text-left text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
           btn.textContent = option;
           btn.dataset.value = option;
-          btn.addEventListener('click', () => submitAnswer(option));
+          btn.addEventListener('click', () => submitAnswer(option, btn));
           optionsWrapper.appendChild(btn);
           animate(btn, 'animate-soft');
         });
@@ -215,7 +245,7 @@
         });
       }
 
-      async function submitAnswer(answer) {
+      async function submitAnswer(answer, selectedButton) {
         if (!currentQuestion || loading) return;
         loading = true;
         toggleOptions(false);
@@ -241,20 +271,39 @@
 
         const data = await response.json();
         loading = false;
-        renderStats(data.stats, data.percentage, data.totalCount);
-        showFeedback(data.result);
 
-        currentQuestion = data.question;
-        if (data.completed || !data.question) {
-          completion.hidden = false;
-          questionWrapper.classList.add('hidden');
-          emptyState.classList.remove('hidden');
-          questionLabel.textContent = 'Все пройдено';
-          queueCounter.textContent = '';
+        highlightSelection(selectedButton, data.result?.isCorrect);
+
+        setTimeout(() => {
+          renderStats(data.stats, data.percentage, data.totalCount);
+          showFeedback(data.result);
+
+          currentQuestion = data.question;
+          if (data.completed || !data.question) {
+            completion.hidden = false;
+            questionWrapper.classList.add('hidden');
+            emptyState.classList.remove('hidden');
+            questionLabel.textContent = 'Все пройдено';
+            queueCounter.textContent = '';
+          } else {
+            renderQuestion(data.question, data.totalCount, data.stats.total);
+          }
+          toggleOptions(!!currentQuestion);
+        }, 1000);
+      }
+
+      function highlightSelection(button, isCorrect) {
+        if (!button) return;
+        button.classList.remove('choice-correct', 'choice-wrong', 'animate-choice', 'animate-shake');
+        void button.offsetWidth;
+        if (isCorrect) {
+          button.classList.add('choice-correct', 'animate-choice');
         } else {
-          renderQuestion(data.question, data.totalCount, data.stats.total);
+          button.classList.add('choice-wrong', 'animate-choice', 'animate-shake');
         }
-        toggleOptions(!!currentQuestion);
+        setTimeout(() => {
+          button.classList.remove('choice-correct', 'choice-wrong', 'animate-choice', 'animate-shake');
+        }, 1000);
       }
 
       function showFeedback(result) {
