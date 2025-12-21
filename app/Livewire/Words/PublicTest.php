@@ -75,7 +75,7 @@ class PublicTest extends Component
         session(['words_selected_tags' => $this->selectedTags]);
         $this->resetSessionState();
 
-        $this->initQueueIfNeeded($service);
+        $this->initQueueIfNeeded($service, force: true);
         $this->loadNextQuestion($service);
     }
 
@@ -85,7 +85,7 @@ class PublicTest extends Component
         session(['words_selected_tags' => $this->selectedTags]);
         $this->resetSessionState();
 
-        $this->initQueueIfNeeded($service);
+        $this->initQueueIfNeeded($service, force: true);
         $this->loadNextQuestion($service);
     }
 
@@ -94,18 +94,24 @@ class PublicTest extends Component
         session(['words_selected_tags' => $this->selectedTags]);
         $this->resetSessionState();
 
-        $this->initQueueIfNeeded($service);
+        $this->initQueueIfNeeded($service, force: true);
         $this->loadNextQuestion($service);
     }
 
-    protected function initQueueIfNeeded(WordsTestService $service): void
+    protected function initQueueIfNeeded(WordsTestService $service, bool $force = false): void
     {
         $queue = session('words_queue');
 
-        if (is_array($queue) && count($queue) > 0) {
+        if (! $force && is_array($queue)) {
             $this->totalCount = session('words_total_count', count($queue));
 
-            return;
+            if (count($queue) === 0 && $this->totalCount > 0) {
+                return;
+            }
+
+            if (count($queue) > 0) {
+                return;
+            }
         }
 
         [$queue, $totalCount] = $service->buildQueue($this->selectedTags);
