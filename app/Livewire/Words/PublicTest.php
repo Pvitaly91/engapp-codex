@@ -11,6 +11,8 @@ use Livewire\Component;
 #[Title('Тест слів')]
 class PublicTest extends Component
 {
+    protected WordsTestService $service;
+
     public array $selectedTags = [];
     public array $availableTags = [];
     public ?int $wordId = null;
@@ -29,14 +31,19 @@ class PublicTest extends Component
     public int $currentIndex = 1;
     public int $progressPercent = 0;
 
-    public function mount(WordsTestService $service): void
+    public function boot(WordsTestService $service): void
+    {
+        $this->service = $service;
+    }
+
+    public function mount(): void
     {
         $this->selectedTags = session('words_selected_tags', []);
         $this->stats = session('words_test_stats', $this->stats);
-        $this->availableTags = $service->fetchAvailableTags()->pluck('name')->all();
+        $this->availableTags = $this->service->fetchAvailableTags()->pluck('name')->all();
 
-        $this->initQueueIfNeeded($service);
-        $this->loadNextQuestion($service);
+        $this->initQueueIfNeeded();
+        $this->loadNextQuestion();
     }
 
     public function render()
@@ -44,13 +51,13 @@ class PublicTest extends Component
         return view('livewire.words.public-test');
     }
 
-    public function submitAnswer(string $answer, WordsTestService $service): void
+    public function submitAnswer(string $answer): void
     {
         if ($this->isComplete || ! $this->wordId || ! $this->word) {
             return;
         }
 
-        $isCorrect = $service->isCorrect($this->word, $this->questionType, $answer);
+        $isCorrect = $this->service->isCorrect($this->word, $this->questionType, $answer);
 
         $this->stats['total']++;
         $isCorrect ? $this->stats['correct']++ : $this->stats['wrong']++;
@@ -67,38 +74,38 @@ class PublicTest extends Component
             'userAnswer' => $answer,
         ];
 
-        $this->loadNextQuestion($service);
+        $this->loadNextQuestion();
     }
 
-    public function applyFilter(WordsTestService $service): void
+    public function applyFilter(): void
     {
         session(['words_selected_tags' => $this->selectedTags]);
         $this->resetSessionState();
 
-        $this->initQueueIfNeeded($service, force: true);
-        $this->loadNextQuestion($service);
+        $this->initQueueIfNeeded(force: true);
+        $this->loadNextQuestion();
     }
 
-    public function resetFilter(WordsTestService $service): void
+    public function resetFilter(): void
     {
         $this->selectedTags = [];
         session(['words_selected_tags' => $this->selectedTags]);
         $this->resetSessionState();
 
-        $this->initQueueIfNeeded($service, force: true);
-        $this->loadNextQuestion($service);
+        $this->initQueueIfNeeded(force: true);
+        $this->loadNextQuestion();
     }
 
-    public function resetProgress(WordsTestService $service): void
+    public function resetProgress(): void
     {
         session(['words_selected_tags' => $this->selectedTags]);
         $this->resetSessionState();
 
-        $this->initQueueIfNeeded($service, force: true);
-        $this->loadNextQuestion($service);
+        $this->initQueueIfNeeded(force: true);
+        $this->loadNextQuestion();
     }
 
-    protected function initQueueIfNeeded(WordsTestService $service, bool $force = false): void
+    protected function initQueueIfNeeded(bool $force = false): void
     {
         $queue = session('words_queue');
 
@@ -114,16 +121,16 @@ class PublicTest extends Component
             }
         }
 
-        [$queue, $totalCount] = $service->buildQueue($this->selectedTags);
+        [$queue, $totalCount] = $this->service->buildQueue($this->selectedTags);
         session(['words_queue' => $queue, 'words_total_count' => $totalCount]);
 
         $this->totalCount = $totalCount;
     }
 
-    protected function loadNextQuestion(WordsTestService $service): void
+    protected function loadNextQuestion(): void
     {
         $this->stats = session('words_test_stats', $this->stats);
-        $this->initQueueIfNeeded($service);
+        $this->initQueueIfNeeded();
 
         $queue = session('words_queue', []);
         $this->totalCount = session('words_total_count', count($queue));
@@ -137,7 +144,7 @@ class PublicTest extends Component
         $wordId = array_shift($queue);
         session(['words_queue' => $queue]);
 
-        $question = $service->makeQuestion($wordId, $this->selectedTags);
+        $question = $this->service->makeQuestion($wordId, $this->selectedTags);
 
         if (! $question) {
             $this->markComplete();
