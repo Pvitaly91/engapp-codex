@@ -48,6 +48,11 @@
         background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.04));
         color: rgb(185, 28, 28);
       }
+
+      .modal-backdrop {
+        background: radial-gradient(circle at center, rgba(15, 23, 42, 0.16), rgba(15, 23, 42, 0.55));
+        backdrop-filter: blur(8px);
+      }
     </style>
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div class="space-y-1">
@@ -133,21 +138,31 @@
           </div>
           <p class="mt-3 text-muted-foreground">Можете почати заново, щоб повторити матеріал.</p>
         </div>
+      </div>
+    </div>
 
-        <div class="rounded-2xl bg-destructive/5 p-5 shadow-soft border border-destructive/30" id="failure" hidden>
-          <div class="flex items-center gap-3">
-            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-destructive/10 text-destructive">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/></svg>
-            </div>
+    <div id="failure-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
+      <div class="modal-backdrop absolute inset-0"></div>
+      <div id="failure-card" class="relative mx-4 w-full max-w-xl rounded-2xl border border-destructive/30 bg-card p-6 shadow-2xl animate-pop">
+        <div class="flex items-start gap-4">
+          <div class="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10 text-destructive">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/></svg>
+          </div>
+          <div class="space-y-2">
             <div>
               <p class="text-sm font-semibold text-muted-foreground">Тест не пройдено</p>
-              <p class="text-lg font-semibold text-foreground">Перевищено ліміт у 3 помилки</p>
+              <p class="text-2xl font-semibold text-foreground">Перевищено ліміт у 3 помилки</p>
+            </div>
+            <p class="text-muted-foreground">Ви зробили три помилки поспіль. Натисніть «Спробувати ще раз», щоб пройти тест повторно.</p>
+            <div class="flex flex-wrap gap-3 pt-2">
+              <button id="retry-btn" class="inline-flex items-center gap-2 rounded-xl border border-destructive/50 bg-destructive/10 px-4 py-2 text-sm font-semibold text-destructive shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+                Спробувати ще раз
+              </button>
+              <button id="close-failure" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+                Закрити
+              </button>
             </div>
           </div>
-          <p class="mt-3 text-muted-foreground">Почніть заново, щоб спробувати ще раз і покращити результат.</p>
-          <button id="retry-btn" class="mt-4 inline-flex items-center gap-2 rounded-xl border border-destructive/50 bg-destructive/10 px-4 py-2 text-sm font-semibold text-destructive shadow-sm transition hover:-translate-y-0.5 hover:shadow">
-            Спробувати ще раз
-          </button>
         </div>
       </div>
     </div>
@@ -175,11 +190,13 @@
       const feedbackTitle = document.getElementById('feedback-title');
       const feedbackBody = document.getElementById('feedback-body');
       const completion = document.getElementById('completion');
-      const failure = document.getElementById('failure');
+      const failureModal = document.getElementById('failure-modal');
+      const failureCard = document.getElementById('failure-card');
       const questionWrapper = document.getElementById('question-wrapper');
       const emptyState = document.getElementById('empty-state');
       const resetBtn = document.getElementById('reset-btn');
       const retryBtn = document.getElementById('retry-btn');
+      const closeFailure = document.getElementById('close-failure');
 
       let currentQuestion = null;
       let loading = false;
@@ -204,7 +221,7 @@
       function updateState(data) {
         renderStats(data.stats, data.percentage, data.totalCount);
         completion.hidden = !data.completed;
-        failure.hidden = !data.failed;
+        toggleFailureModal(data.failed);
 
         if (data.failed) {
           currentQuestion = null;
@@ -309,7 +326,7 @@
 
           currentQuestion = data.question;
           completion.hidden = !data.completed;
-          failure.hidden = !data.failed;
+          toggleFailureModal(data.failed);
 
           if (data.failed) {
             questionWrapper.classList.add('hidden');
@@ -331,6 +348,13 @@
           }
           toggleOptions(!!currentQuestion);
         }, 1000);
+      }
+
+      function toggleFailureModal(show) {
+        failureModal.classList.toggle('hidden', !show);
+        if (show) {
+          animate(failureCard, 'animate-pop');
+        }
       }
 
       function highlightSelection(button, isCorrect) {
@@ -388,6 +412,7 @@
 
       resetBtn.addEventListener('click', () => resetTest(resetBtn));
       retryBtn.addEventListener('click', () => resetTest(retryBtn));
+      closeFailure.addEventListener('click', () => toggleFailureModal(false));
 
       fetchState();
     });
