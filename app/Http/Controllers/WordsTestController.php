@@ -18,7 +18,7 @@ class WordsTestController extends Controller
 
     private function activeLang(): string
     {
-        $lang = session('locale', app()->getLocale() ?? 'uk');
+        $lang = session('locale', 'uk');
 
         if (! in_array($lang, ['uk', 'pl', 'en'], true)) {
             return 'uk';
