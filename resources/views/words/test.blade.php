@@ -4,6 +4,21 @@
 
 @section('content')
   <div class="space-y-8" x-data>
+    <style>
+      @keyframes fade-in-soft {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes pop-in {
+        0% { transform: scale(0.97); opacity: 0; }
+        60% { transform: scale(1.02); opacity: 1; }
+        100% { transform: scale(1); }
+      }
+
+      .animate-soft { animation: fade-in-soft 280ms ease; }
+      .animate-pop { animation: pop-in 220ms ease; }
+    </style>
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div class="space-y-1">
         <p class="text-sm text-muted-foreground">Практика перекладу · Активна мова: <span class="font-semibold text-primary">{{ strtoupper($activeLang) }}</span></p>
@@ -121,13 +136,21 @@
       let currentQuestion = null;
       let loading = false;
 
+      function animate(el, className = 'animate-soft') {
+        if (!el) return;
+        el.classList.remove(className);
+        // force reflow
+        void el.offsetWidth;
+        el.classList.add(className);
+      }
+
       async function fetchState() {
         loading = true;
         toggleOptions(false);
         const response = await fetch(stateUrl, { headers: { 'Accept': 'application/json' } });
         const data = await response.json();
-        updateState(data);
         loading = false;
+        updateState(data);
       }
 
       function updateState(data) {
@@ -177,8 +200,11 @@
           btn.dataset.value = option;
           btn.addEventListener('click', () => submitAnswer(option));
           optionsWrapper.appendChild(btn);
+          animate(btn, 'animate-soft');
         });
         toggleOptions(!loading);
+        animate(questionPrompt);
+        animate(optionsWrapper);
       }
 
       function toggleOptions(enabled) {
@@ -214,6 +240,7 @@
         }
 
         const data = await response.json();
+        loading = false;
         renderStats(data.stats, data.percentage, data.totalCount);
         showFeedback(data.result);
 
@@ -227,12 +254,12 @@
         } else {
           renderQuestion(data.question, data.totalCount, data.stats.total);
         }
-
-        loading = false;
+        toggleOptions(!!currentQuestion);
       }
 
       function showFeedback(result) {
         feedback.hidden = false;
+        animate(feedback, 'animate-pop');
         const isCorrect = result.isCorrect;
         feedbackChip.textContent = isCorrect ? 'Правильно' : 'Помилка';
         feedbackChip.className = `inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold ${isCorrect ? 'bg-success/10 text-success' : 'bg-destructive/10 text-destructive'}`;
