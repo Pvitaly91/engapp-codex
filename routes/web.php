@@ -57,6 +57,9 @@ Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
 Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
 Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
 
+// Public words test route (Livewire component)
+Route::get('/words/test', \App\Livewire\Words\PublicTest::class)->name('words.public.test');
+
 // Define a pattern that excludes reserved route prefixes for dynamic page type routes
 $reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$';
 
