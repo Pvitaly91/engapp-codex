@@ -166,6 +166,7 @@ const state = {
         total: 0,
     },
     answered: new Set(),
+    wrongAttempts: {}, // Track wrong attempts per word to prevent infinite loops
     totalCount: 0,
 };
 
@@ -211,6 +212,7 @@ function saveState() {
         queue: state.queue,
         stats: state.stats,
         answered: Array.from(state.answered),
+        wrongAttempts: state.wrongAttempts,
         totalCount: state.totalCount,
     };
 
@@ -256,11 +258,20 @@ function renderQuestion() {
         return;
     }
 
-    const wordId = state.queue.shift();
-    const word = state.words.find(w => w.id === wordId);
+    // Use a loop instead of recursion to find a valid word
+    let word = null;
+    let maxAttempts = state.queue.length;
+    let attempts = 0;
+    
+    while (state.queue.length > 0 && attempts < maxAttempts) {
+        const wordId = state.queue.shift();
+        word = state.words.find(w => w.id === wordId);
+        if (word) break;
+        attempts++;
+    }
     
     if (!word) {
-        renderQuestion();
+        showSummary();
         return;
     }
 
@@ -328,17 +339,23 @@ async function onChoose(answer) {
         });
 
         const result = await response.json();
+        const wordId = state.current.id;
 
         state.stats.total++;
         if (result.isCorrect) {
             state.stats.correct++;
         } else {
             state.stats.wrong++;
-            // Add back to queue for retry later
-            state.queue.push(state.current.id);
+            // Track wrong attempts and limit retries to prevent infinite loops
+            const maxRetries = 2;
+            state.wrongAttempts[wordId] = (state.wrongAttempts[wordId] || 0) + 1;
+            if (state.wrongAttempts[wordId] < maxRetries) {
+                // Add back to queue for retry later
+                state.queue.push(wordId);
+            }
         }
 
-        state.answered.add(state.current.id);
+        state.answered.add(wordId);
 
         // Show feedback
         showFeedback(result);
@@ -446,12 +463,14 @@ function init(fresh = false) {
         state.queue = SAVED_STATE.queue;
         state.stats = SAVED_STATE.stats || { correct: 0, wrong: 0, total: 0 };
         state.answered = new Set(SAVED_STATE.answered || []);
+        state.wrongAttempts = SAVED_STATE.wrongAttempts || {};
         state.totalCount = SAVED_STATE.totalCount || state.words.length;
     } else {
         // Fresh start
         state.queue = shuffle(state.words.map(w => w.id));
         state.stats = { correct: 0, wrong: 0, total: 0 };
         state.answered = new Set();
+        state.wrongAttempts = {};
         state.totalCount = state.words.length;
     }
 

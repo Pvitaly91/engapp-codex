@@ -82,7 +82,42 @@ class PublicWordsTestController extends Controller
     {
         $state = $request->input('state');
         
-        session(['public_words_test_state' => $state]);
+        // Validate state structure
+        if (!is_array($state)) {
+            return response()->json(['success' => false, 'error' => 'Invalid state format'], 400);
+        }
+
+        // Sanitize wrongAttempts (object with word_id => count)
+        $wrongAttempts = [];
+        if (isset($state['wrongAttempts']) && is_array($state['wrongAttempts'])) {
+            foreach ($state['wrongAttempts'] as $key => $value) {
+                $wordId = intval($key);
+                if ($wordId > 0) {
+                    $wrongAttempts[$wordId] = max(0, min(10, intval($value))); // Limit to 10
+                }
+            }
+        }
+
+        // Sanitize and validate state data
+        $sanitizedState = [
+            'queue' => array_values(array_filter(
+                array_map('intval', $state['queue'] ?? []),
+                fn($id) => $id > 0
+            )),
+            'stats' => [
+                'correct' => max(0, intval($state['stats']['correct'] ?? 0)),
+                'wrong' => max(0, intval($state['stats']['wrong'] ?? 0)),
+                'total' => max(0, intval($state['stats']['total'] ?? 0)),
+            ],
+            'answered' => array_values(array_filter(
+                array_map('intval', $state['answered'] ?? []),
+                fn($id) => $id > 0
+            )),
+            'wrongAttempts' => $wrongAttempts,
+            'totalCount' => max(0, intval($state['totalCount'] ?? 0)),
+        ];
+        
+        session(['public_words_test_state' => $sanitizedState]);
 
         return response()->json(['success' => true]);
     }
