@@ -26,7 +26,7 @@ use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
-use App\Http\Controllers\WordsTestController;
+use App\Http\Livewire\WordsTest;
 use App\Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,10 +47,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
-Route::get('/words/test/state', [WordsTestController::class, 'state'])->name('words.test.state');
-Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
-Route::post('/words/test/reset', [WordsTestController::class, 'reset'])->name('words.test.reset');
+Route::get('/words/test', WordsTest::class)->name('words.test');
 
 // Public pages routes (no authentication required)
 Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
