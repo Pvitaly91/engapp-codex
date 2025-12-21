@@ -27,6 +27,7 @@ use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
+use App\Livewire\Words\PublicTest as PublicWordsTest;
 use App\Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,6 +52,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
 Route::get('/pages/{category:slug}', [PageController::class, 'category'])->name('pages.category');
 Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])->name('pages.show');
+
+Route::get('/words/test', PublicWordsTest::class)->name('words.public.test');
 
 // Public Theory pages routes (no authentication required)
 Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
@@ -137,9 +140,9 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
 
         Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
 
-        Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
-        Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
-        Route::post('/words/test/reset', function () {
+        Route::get('/admin/words/test', [WordsTestController::class, 'index'])->name('words.test');
+        Route::post('/admin/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
+        Route::post('/admin/words/test/reset', function () {
             session()->forget('words_test_stats');
 
             return redirect()->route('words.test');
