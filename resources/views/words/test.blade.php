@@ -247,9 +247,27 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const difficulty = "{{ $difficulty }}";
-      const stateUrl = "{{ $difficulty === 'easy' ? route('words.test.state') : ($difficulty === 'medium' ? route('words.test.medium.state') : route('words.test.hard.state')) }}";
-      const checkUrl = "{{ $difficulty === 'easy' ? route('words.test.check') : ($difficulty === 'medium' ? route('words.test.medium.check') : route('words.test.hard.check')) }}";
-      const resetUrl = "{{ $difficulty === 'easy' ? route('words.test.reset') : ($difficulty === 'medium' ? route('words.test.medium.reset') : route('words.test.hard.reset')) }}";
+      @php
+        $stateRoutes = [
+          'easy' => route('words.test.state'),
+          'medium' => route('words.test.medium.state'),
+          'hard' => route('words.test.hard.state'),
+        ];
+        $checkRoutes = [
+          'easy' => route('words.test.check'),
+          'medium' => route('words.test.medium.check'),
+          'hard' => route('words.test.hard.check'),
+        ];
+        $resetRoutes = [
+          'easy' => route('words.test.reset'),
+          'medium' => route('words.test.medium.reset'),
+          'hard' => route('words.test.hard.reset'),
+        ];
+      @endphp
+      const stateUrl = "{{ $stateRoutes[$difficulty] ?? $stateRoutes['easy'] }}";
+      const checkUrl = "{{ $checkRoutes[$difficulty] ?? $checkRoutes['easy'] }}";
+      const resetUrl = "{{ $resetRoutes[$difficulty] ?? $resetRoutes['easy'] }}";
+      const searchApiUrl = "{{ url('/api/search') }}";
       const csrfToken = '{{ csrf_token() }}';
 
       const questionLabel = document.getElementById('question-label');
@@ -581,7 +599,7 @@
         }
 
         try {
-          const response = await fetch(`/api/search?lang=en&q=${encodeURIComponent(query)}`);
+          const response = await fetch(`${searchApiUrl}?lang=en&q=${encodeURIComponent(query)}`);
           const data = await response.json();
 
           if (!Array.isArray(data) || data.length === 0) {

@@ -38,16 +38,13 @@ class WordsTestController extends Controller
 
     private function getDifficultyFromRequest(Request $request): string
     {
-        $path = $request->path();
+        $difficulty = $request->route('difficulty', 'easy');
 
-        if (str_contains($path, '/hard')) {
-            return 'hard';
-        }
-        if (str_contains($path, '/medium')) {
-            return 'medium';
+        if (! in_array($difficulty, self::VALID_DIFFICULTIES, true)) {
+            return 'easy';
         }
 
-        return 'easy';
+        return $difficulty;
     }
 
     private function sessionKey(string $key, string $difficulty): string
