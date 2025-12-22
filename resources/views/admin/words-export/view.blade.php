@@ -74,7 +74,7 @@
                         <code id="public-url" class="flex-1 rounded-lg bg-slate-100 px-3 py-2 text-sm font-mono text-slate-700">{{ $publicUrl }}</code>
                         <button
                             type="button"
-                            onclick="copyPublicUrl()"
+                            onclick="copyPublicUrl(event)"
                             class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring"
                         >
                             <i class="fa-solid fa-copy mr-1.5"></i>Copy
@@ -248,7 +248,7 @@
                 });
             }
 
-            function copyPublicUrl() {
+            function copyPublicUrl(event) {
                 const url = document.getElementById('public-url').textContent;
                 navigator.clipboard.writeText(url).then(() => {
                     // Show temporary success indicator
