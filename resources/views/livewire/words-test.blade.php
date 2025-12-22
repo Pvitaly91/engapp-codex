@@ -127,6 +127,7 @@
           x-data="{
             options: @js($currentQuestion['options']),
             correctAnswer: @js($currentQuestion['correct_answer']),
+            currentWordId: @js($currentQuestion['word_id']),
             selectedIndex: null,
             isPending: false,
             pick(index) {
@@ -136,7 +137,7 @@
               this.isPending = true;
 
               setTimeout(() => {
-                this.$wire.submitAnswer(index);
+                this.$wire.submitAnswer(this.currentWordId, index);
               }, 1500);
             },
             isCorrect(index) {
@@ -231,6 +232,16 @@
                 {{ $lastResult['translation'] }} → {{ $lastResult['correctAnswer'] }}
               @endif
             </p>
+            <div class="grid grid-cols-1 gap-3 text-sm sm:grid-cols-2">
+              <div class="rounded-xl border border-border/70 bg-muted px-3 py-2">
+                <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Ваша відповідь</p>
+                <p class="mt-1 font-semibold text-foreground">{{ $lastResult['userAnswer'] ?? '—' }}</p>
+              </div>
+              <div class="rounded-xl border border-success/30 bg-success/10 px-3 py-2 text-success">
+                <p class="text-xs font-semibold uppercase tracking-wide">Правильна відповідь</p>
+                <p class="mt-1 font-semibold">{{ $lastResult['correctAnswer'] }}</p>
+              </div>
+            </div>
             <p class="text-muted-foreground">
               {{ $lastResult['isCorrect'] ? 'Чудово! Продовжуйте у тому ж дусі.' : 'Зверніть увагу на правильний варіант і спробуйте ще раз.' }}
             </p>

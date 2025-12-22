@@ -88,13 +88,14 @@ class WordsTest extends Component
 
     protected function updatePercentage(): void
     {
-        if ($this->stats['total'] === 0) {
+        if ($this->totalCount === 0) {
             $this->percentage = 0;
 
             return;
         }
 
-        $this->percentage = round(($this->stats['correct'] / $this->stats['total']) * 100, 2);
+        $progress = ($this->stats['total'] / $this->totalCount) * 100;
+        $this->percentage = round(min($progress, 100), 2);
     }
 
     protected function checkFailed(): void
@@ -187,9 +188,13 @@ class WordsTest extends Component
         $this->completed = empty($this->queue) && ! $this->currentQuestion;
     }
 
-    public function submitAnswer(int $optionIndex): void
+    public function submitAnswer(int $wordId, int $optionIndex): void
     {
         if (! $this->currentQuestion || $this->isLoading) {
+            return;
+        }
+
+        if (($this->currentQuestion['word_id'] ?? null) !== $wordId) {
             return;
         }
 
@@ -226,6 +231,7 @@ class WordsTest extends Component
             'word' => $this->currentQuestion['word'],
             'questionType' => $this->currentQuestion['questionType'],
             'translation' => $this->currentQuestion['translation'],
+            'userAnswer' => $answer,
         ];
         $this->showFeedback = true;
 
