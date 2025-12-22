@@ -26,7 +26,7 @@ use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
-use App\Http\Livewire\WordsTest;
+use App\Http\Controllers\WordsTestController;
 use App\Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,7 +47,26 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/words/test', WordsTest::class)->name('words.test');
+// Words Test routes (public, no authentication required)
+Route::prefix('words/test')->group(function () {
+    // Easy mode (default)
+    Route::get('/', [WordsTestController::class, 'index'])->name('words.test')->defaults('difficulty', 'easy');
+    Route::get('/state', [WordsTestController::class, 'state'])->name('words.test.state')->defaults('difficulty', 'easy');
+    Route::post('/check', [WordsTestController::class, 'check'])->name('words.test.check')->defaults('difficulty', 'easy');
+    Route::post('/reset', [WordsTestController::class, 'reset'])->name('words.test.reset')->defaults('difficulty', 'easy');
+
+    // Medium mode
+    Route::get('/medium', [WordsTestController::class, 'index'])->name('words.test.medium')->defaults('difficulty', 'medium');
+    Route::get('/medium/state', [WordsTestController::class, 'state'])->name('words.test.medium.state')->defaults('difficulty', 'medium');
+    Route::post('/medium/check', [WordsTestController::class, 'check'])->name('words.test.medium.check')->defaults('difficulty', 'medium');
+    Route::post('/medium/reset', [WordsTestController::class, 'reset'])->name('words.test.medium.reset')->defaults('difficulty', 'medium');
+
+    // Hard mode
+    Route::get('/hard', [WordsTestController::class, 'index'])->name('words.test.hard')->defaults('difficulty', 'hard');
+    Route::get('/hard/state', [WordsTestController::class, 'state'])->name('words.test.hard.state')->defaults('difficulty', 'hard');
+    Route::post('/hard/check', [WordsTestController::class, 'check'])->name('words.test.hard.check')->defaults('difficulty', 'hard');
+    Route::post('/hard/reset', [WordsTestController::class, 'reset'])->name('words.test.hard.reset')->defaults('difficulty', 'hard');
+});
 
 // Public pages routes (no authentication required)
 Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
