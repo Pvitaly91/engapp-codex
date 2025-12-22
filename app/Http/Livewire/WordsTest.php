@@ -161,6 +161,8 @@ class WordsTest extends Component
 
     protected function loadNextQuestion(): void
     {
+        $this->highlightedButton = '';
+
         if ($this->failed) {
             return;
         }
@@ -239,7 +241,6 @@ class WordsTest extends Component
         $this->completed = empty($this->queue) && ! $this->currentQuestion && ! $this->failed;
 
         $this->isLoading = false;
-        $this->highlightedButton = '';
     }
 
     public function resetTest(): void

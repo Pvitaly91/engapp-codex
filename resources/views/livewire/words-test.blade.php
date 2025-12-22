@@ -1,4 +1,32 @@
-<div class="space-y-8">
+<div
+  class="space-y-8"
+  x-data="{
+    showOverlay: false,
+    loaderTimer: null,
+    targets: ['submitAnswer', 'resetTest'],
+  }"
+  x-init="
+    const component = this;
+    const getMethod = (message) => message?.method ?? message?.payload?.method ?? message?.updateQueue?.[0]?.payload?.method ?? null;
+
+    Livewire.hook('message.sent', (message) => {
+      const method = getMethod(message);
+      if (!component.targets.includes(method)) return;
+
+      if (component.loaderTimer) clearTimeout(component.loaderTimer);
+      component.loaderTimer = setTimeout(() => { component.showOverlay = true; }, 1500);
+    });
+
+    Livewire.hook('message.processed', (message) => {
+      const method = getMethod(message);
+      if (!component.targets.includes(method)) return;
+
+      if (component.loaderTimer) clearTimeout(component.loaderTimer);
+      component.loaderTimer = null;
+      component.showOverlay = false;
+    });
+  "
+>
   <style>
     @keyframes fade-in-soft {
       from { opacity: 0; transform: translateY(6px); }
@@ -51,7 +79,12 @@
   </style>
 
   {{-- Loading Overlay --}}
-  <div wire:loading.flex class="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm items-center justify-center">
+  <div
+    x-show="showOverlay"
+    x-transition.opacity.duration.200ms
+    x-cloak
+    class="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm items-center justify-center flex"
+  >
     <div class="bg-white rounded-lg shadow-lg px-6 py-4 flex items-center gap-3 text-sm text-gray-700">
       <span class="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></span>
       <span>Обробка...</span>
@@ -88,7 +121,29 @@
       </div>
 
       @if($currentQuestion && !$failed)
-        <div class="mt-6 space-y-6" wire:key="question-{{ $currentQuestion['word_id'] }}">
+        <div
+          class="mt-6 space-y-6"
+          wire:key="question-{{ $currentQuestion['word_id'] }}"
+          x-data="{
+            options: @js($currentQuestion['options']),
+            correctAnswer: @js($currentQuestion['correct_answer']),
+            selectedIndex: null,
+            isPending: false,
+            pick(index) {
+              if (this.isPending) return;
+
+              this.selectedIndex = index;
+              this.isPending = true;
+
+              setTimeout(() => {
+                this.$wire.submitAnswer(index);
+              }, 1500);
+            },
+            isCorrect(index) {
+              return this.options[index] === this.correctAnswer;
+            },
+          }"
+        >
           <div class="space-y-2">
             <p class="text-sm uppercase tracking-[0.08em] text-muted-foreground">Підказка</p>
             <div class="text-3xl font-semibold text-foreground animate-soft">{{ $currentQuestion['prompt'] }}</div>
@@ -101,14 +156,20 @@
             @foreach($currentQuestion['options'] as $index => $option)
               <button
                 type="button"
-                wire:click="submitAnswer({{ $index }})"
                 wire:loading.attr="disabled"
+                :disabled="isPending"
+                @click="pick({{ $index }})"
                 @class([
                   'flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-60 disabled:cursor-not-allowed',
                   'border-border/80 bg-muted text-foreground' => $highlightedButton !== $option,
                   'choice-correct animate-choice' => $highlightedButton === $option && $highlightCorrect,
                   'choice-wrong animate-choice animate-shake' => $highlightedButton === $option && !$highlightCorrect,
                 ])
+                x-bind:class="{
+                  'choice-correct animate-choice': selectedIndex === {{ $index }} && isCorrect({{ $index }}),
+                  'choice-wrong animate-choice animate-shake': selectedIndex === {{ $index }} && !isCorrect({{ $index }}),
+                  'border-border/80 bg-muted text-foreground': selectedIndex !== {{ $index }},
+                }"
               >
                 {{ $option }}
               </button>
