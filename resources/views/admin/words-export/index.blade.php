@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Експорт слів (JSON)')
+@section('title', 'Експорт слів (JSON/CSV)')
 
 @section('content')
     <div class="py-8">
@@ -8,8 +8,8 @@
             <header class="space-y-2">
                 <div class="flex flex-wrap items-center justify-between gap-3">
                     <div>
-                        <h1 class="text-3xl font-semibold text-slate-800">Експорт слів (JSON)</h1>
-                        <p class="text-slate-500">Вигрузка всіх слів по вибраній мові у форматі JSON</p>
+                        <h1 class="text-3xl font-semibold text-slate-800">Експорт слів (JSON/CSV)</h1>
+                        <p class="text-slate-500">Вигрузка всіх слів по вибраній мові у форматі JSON або CSV</p>
                     </div>
                 </div>
             </header>
@@ -48,9 +48,13 @@
                     </div>
                 </div>
 
-                <!-- Export Actions -->
+                <!-- JSON Export Actions -->
                 <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                    <h2 class="mb-4 text-lg font-semibold text-slate-800">Експорт для мови: <span class="text-blue-600">{{ strtoupper($lang) }}</span></h2>
+                    <h2 class="mb-4 text-lg font-semibold text-slate-800">
+                        <i class="fa-solid fa-file-code text-blue-600 mr-2"></i>
+                        JSON Експорт для мови: <span class="text-blue-600">{{ strtoupper($lang) }}</span>
+                    </h2>
+                    <p class="mb-4 text-sm text-slate-500">Повний експорт з усіма даними (id, word, translation, type, tags)</p>
                     <div class="flex flex-wrap gap-3">
                         <form
                             action="{{ route('admin.words.export.run', ['lang' => $lang]) }}"
@@ -83,9 +87,35 @@
                     </div>
                 </div>
 
-                <!-- Import Section -->
+                <!-- CSV Export Actions -->
                 <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                    <h2 class="mb-4 text-lg font-semibold text-slate-800">Імпорт з JSON</h2>
+                    <h2 class="mb-4 text-lg font-semibold text-slate-800">
+                        <i class="fa-solid fa-file-csv text-green-600 mr-2"></i>
+                        CSV Експорт для мови: <span class="text-green-600">{{ strtoupper($lang) }}</span>
+                    </h2>
+                    <p class="mb-4 text-sm text-slate-500">Простий експорт: тільки 2 колонки (word, translation)</p>
+                    <form
+                        action="{{ route('admin.words.export.csv') }}"
+                        method="POST"
+                        class="inline-flex"
+                    >
+                        @csrf
+                        <input type="hidden" name="lang" value="{{ $lang }}">
+                        <button
+                            type="submit"
+                            class="inline-flex items-center justify-center rounded-lg border border-green-300 bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring"
+                        >
+                            <i class="fa-solid fa-file-csv mr-2"></i>Експорт в CSV
+                        </button>
+                    </form>
+                </div>
+
+                <!-- JSON Import Section -->
+                <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <h2 class="mb-4 text-lg font-semibold text-slate-800">
+                        <i class="fa-solid fa-file-code text-blue-600 mr-2"></i>
+                        Імпорт з JSON
+                    </h2>
                     <p class="mb-4 text-sm text-slate-500">Завантажте JSON файл з перекладами. Дублікати слів, перекладів та тегів будуть пропущені.</p>
                     <form
                         action="{{ route('admin.words.export.import') }}"
@@ -129,6 +159,75 @@
                             class="inline-flex items-center justify-center rounded-lg border border-amber-300 bg-amber-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-amber-600 focus:outline-none focus:ring"
                         >
                             <i class="fa-solid fa-file-import mr-2"></i>Імпортувати з JSON
+                        </button>
+                    </form>
+                </div>
+
+                <!-- CSV Import Section -->
+                <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <h2 class="mb-4 text-lg font-semibold text-slate-800">
+                        <i class="fa-solid fa-file-csv text-green-600 mr-2"></i>
+                        Імпорт з CSV
+                    </h2>
+                    <p class="mb-4 text-sm text-slate-500">Завантажте CSV файл з 2 колонками: word, translation. Мову перекладу вкажіть нижче.</p>
+                    <form
+                        action="{{ route('admin.words.export.csv.import') }}"
+                        method="POST"
+                        enctype="multipart/form-data"
+                        class="space-y-4"
+                    >
+                        @csrf
+                        <div>
+                            <label for="csv_file" class="block text-sm font-medium text-slate-700 mb-2">CSV файл</label>
+                            <input
+                                type="file"
+                                name="csv_file"
+                                id="csv_file"
+                                accept=".csv,.txt"
+                                required
+                                class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
+                            >
+                            @error('csv_file')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="csv_lang" class="block text-sm font-medium text-slate-700 mb-2">Мова перекладу</label>
+                            <select
+                                name="csv_lang"
+                                id="csv_lang"
+                                required
+                                class="block w-full rounded-lg border-slate-300 shadow-sm focus:border-green-500 focus:ring-green-500 text-sm"
+                            >
+                                <option value="uk" {{ $lang === 'uk' ? 'selected' : '' }}>🇺🇦 Українська</option>
+                                <option value="pl" {{ $lang === 'pl' ? 'selected' : '' }}>🇵🇱 Польська</option>
+                                <option value="en" {{ $lang === 'en' ? 'selected' : '' }}>🇬🇧 Англійська</option>
+                            </select>
+                            @error('csv_lang')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <input
+                                type="checkbox"
+                                name="csv_overwrite_translations"
+                                id="csv_overwrite_translations"
+                                value="1"
+                                class="mt-1 h-4 w-4 rounded border-slate-300 text-red-600 focus:ring-red-500"
+                            >
+                            <label for="csv_overwrite_translations" class="text-sm text-slate-700">
+                                <span class="font-medium text-red-600">Перезаписати всі переклади</span>
+                                <p class="text-xs text-slate-500 mt-1">
+                                    Якщо увімкнено: всі переклади з CSV файлу перезапишуть існуючі (тільки переклади, інші поля не змінюються).
+                                    Якщо переклад у файлі порожній — переклад буде видалено з бази.
+                                </p>
+                            </label>
+                        </div>
+                        <button
+                            type="submit"
+                            class="inline-flex items-center justify-center rounded-lg border border-teal-300 bg-teal-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-600 focus:outline-none focus:ring"
+                        >
+                            <i class="fa-solid fa-file-import mr-2"></i>Імпортувати з CSV
                         </button>
                     </form>
                 </div>

@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class WordsExportController extends Controller
 {
@@ -480,6 +481,283 @@ class WordsExportController extends Controller
             return redirect()
                 ->route('admin.words.export.index')
                 ->with('error', 'Помилка імпорту: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Export words to CSV format (word, translation)
+     */
+    public function exportCsv(Request $request): StreamedResponse|RedirectResponse
+    {
+        $lang = $this->validateLang($request->input('lang', 'uk'));
+
+        // Load all words with translations for the selected language
+        $words = Word::with([
+            'translates' => fn ($q) => $q->where('lang', $lang),
+        ])->orderBy('word')->get();
+
+        $filename = "words_{$lang}_" . now()->format('Y-m-d_H-i-s') . ".csv";
+
+        return response()->streamDownload(function () use ($words, $lang) {
+            $handle = fopen('php://output', 'w');
+            
+            // Add BOM for UTF-8 Excel compatibility
+            fwrite($handle, "\xEF\xBB\xBF");
+            
+            // Header row
+            fputcsv($handle, ['word', 'translation']);
+            
+            foreach ($words as $word) {
+                $translate = $word->translates->first();
+                $translation = $translate ? trim($translate->translation ?? '') : '';
+                
+                fputcsv($handle, [
+                    $word->word,
+                    $translation,
+                ]);
+            }
+            
+            fclose($handle);
+        }, $filename, [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+        ]);
+    }
+
+    /**
+     * Import words from CSV format (word, translation)
+     */
+    public function importCsv(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'csv_file' => 'required|file|mimes:csv,txt|max:10240',
+            'csv_lang' => 'required|in:uk,pl,en',
+        ]);
+
+        $file = $request->file('csv_file');
+        $lang = $request->input('csv_lang');
+        $overwriteTranslations = $request->boolean('csv_overwrite_translations');
+        
+        // Additional size check before reading
+        if ($file->getSize() > 10 * 1024 * 1024) {
+            return redirect()
+                ->route('admin.words.export.index', ['lang' => $lang])
+                ->with('error', 'Файл занадто великий (максимум 10MB).');
+        }
+
+        $stats = [
+            'words_created' => 0,
+            'words_skipped' => 0,
+            'translations_created' => 0,
+            'translations_updated' => 0,
+            'translations_overwritten' => 0,
+            'translations_deleted' => 0,
+            'translations_skipped' => 0,
+            'rows_processed' => 0,
+            'rows_skipped' => 0,
+        ];
+
+        DB::beginTransaction();
+
+        try {
+            // Pre-load existing words by word text for faster lookup
+            $existingWords = Word::pluck('id', 'word')->all();
+
+            $handle = fopen($file->getRealPath(), 'r');
+            if ($handle === false) {
+                return redirect()
+                    ->route('admin.words.export.index', ['lang' => $lang])
+                    ->with('error', 'Не вдалося відкрити файл.');
+            }
+
+            // Skip BOM if present
+            $bom = fread($handle, 3);
+            if ($bom !== "\xEF\xBB\xBF") {
+                rewind($handle);
+            }
+
+            // Read header row
+            $header = fgetcsv($handle);
+            if ($header === false || count($header) < 2) {
+                fclose($handle);
+                return redirect()
+                    ->route('admin.words.export.index', ['lang' => $lang])
+                    ->with('error', 'Невірний формат CSV. Очікується 2 колонки: word, translation.');
+            }
+
+            // Process rows
+            while (($row = fgetcsv($handle)) !== false) {
+                if (count($row) < 2) {
+                    $stats['rows_skipped']++;
+                    continue;
+                }
+
+                $wordText = trim($row[0] ?? '');
+                $translation = trim($row[1] ?? '');
+
+                if ($wordText === '') {
+                    $stats['rows_skipped']++;
+                    continue;
+                }
+
+                $stats['rows_processed']++;
+
+                // Check if word exists
+                if (isset($existingWords[$wordText])) {
+                    $wordId = $existingWords[$wordText];
+                    $stats['words_skipped']++;
+                } else {
+                    // Create new word
+                    $word = Word::create([
+                        'word' => $wordText,
+                        'type' => null,
+                    ]);
+                    $wordId = $word->id;
+                    $existingWords[$wordText] = $wordId;
+                    $stats['words_created']++;
+                }
+
+                // Handle translation based on overwrite mode
+                if ($overwriteTranslations) {
+                    // Overwrite mode
+                    $existingTranslate = Translate::where('word_id', $wordId)
+                        ->where('lang', $lang)
+                        ->first();
+
+                    if ($translation === '') {
+                        // Empty translation in CSV - delete existing translation
+                        if ($existingTranslate) {
+                            $existingTranslate->delete();
+                            $stats['translations_deleted']++;
+                        }
+                    } else {
+                        if ($existingTranslate) {
+                            if ($existingTranslate->translation === $translation) {
+                                $stats['translations_skipped']++;
+                            } else {
+                                // Check for conflict
+                                $conflictingTranslate = Translate::where('word_id', $wordId)
+                                    ->where('lang', $lang)
+                                    ->where('translation', $translation)
+                                    ->where('id', '!=', $existingTranslate->id)
+                                    ->first();
+                                
+                                if ($conflictingTranslate) {
+                                    $existingTranslate->delete();
+                                    $stats['translations_overwritten']++;
+                                } else {
+                                    $existingTranslate->update(['translation' => $translation]);
+                                    $stats['translations_overwritten']++;
+                                }
+                            }
+                        } else {
+                            // Check if translation with same values already exists
+                            $existingWithSameValue = Translate::where('word_id', $wordId)
+                                ->where('lang', $lang)
+                                ->where('translation', $translation)
+                                ->first();
+                            
+                            if (!$existingWithSameValue) {
+                                Translate::create([
+                                    'word_id' => $wordId,
+                                    'lang' => $lang,
+                                    'translation' => $translation,
+                                ]);
+                                $stats['translations_created']++;
+                            } else {
+                                $stats['translations_skipped']++;
+                            }
+                        }
+                    }
+                } else {
+                    // Normal mode: only create/update empty translations
+                    if ($translation !== '') {
+                        $existingTranslate = Translate::where('word_id', $wordId)
+                            ->where('lang', $lang)
+                            ->first();
+
+                        if ($existingTranslate) {
+                            if (trim($existingTranslate->translation ?? '') === '') {
+                                // Check for conflict
+                                $conflictingTranslate = Translate::where('word_id', $wordId)
+                                    ->where('lang', $lang)
+                                    ->where('translation', $translation)
+                                    ->where('id', '!=', $existingTranslate->id)
+                                    ->first();
+                                
+                                if (!$conflictingTranslate) {
+                                    $existingTranslate->update(['translation' => $translation]);
+                                    $stats['translations_updated']++;
+                                } else {
+                                    // Delete the empty one since we already have a translation with this value
+                                    $existingTranslate->delete();
+                                    $stats['translations_deleted']++;
+                                }
+                            } else {
+                                $stats['translations_skipped']++;
+                            }
+                        } else {
+                            // Check if translation with same values already exists
+                            $existingWithSameValue = Translate::where('word_id', $wordId)
+                                ->where('lang', $lang)
+                                ->where('translation', $translation)
+                                ->first();
+                            
+                            if (!$existingWithSameValue) {
+                                Translate::create([
+                                    'word_id' => $wordId,
+                                    'lang' => $lang,
+                                    'translation' => $translation,
+                                ]);
+                                $stats['translations_created']++;
+                            } else {
+                                $stats['translations_skipped']++;
+                            }
+                        }
+                    }
+                }
+            }
+
+            fclose($handle);
+            DB::commit();
+
+            if ($overwriteTranslations) {
+                $message = sprintf(
+                    'CSV імпорт завершено для мови [%s] (режим перезапису). Рядків оброблено: %d, пропущено: %d. Слів створено: %d, пропущено: %d. Перекладів створено: %d, перезаписано: %d, видалено: %d, без змін: %d.',
+                    $lang,
+                    $stats['rows_processed'],
+                    $stats['rows_skipped'],
+                    $stats['words_created'],
+                    $stats['words_skipped'],
+                    $stats['translations_created'],
+                    $stats['translations_overwritten'],
+                    $stats['translations_deleted'],
+                    $stats['translations_skipped']
+                );
+            } else {
+                $message = sprintf(
+                    'CSV імпорт завершено для мови [%s]. Рядків оброблено: %d, пропущено: %d. Слів створено: %d, пропущено: %d. Перекладів створено: %d, оновлено: %d, видалено: %d, пропущено: %d.',
+                    $lang,
+                    $stats['rows_processed'],
+                    $stats['rows_skipped'],
+                    $stats['words_created'],
+                    $stats['words_skipped'],
+                    $stats['translations_created'],
+                    $stats['translations_updated'],
+                    $stats['translations_deleted'],
+                    $stats['translations_skipped']
+                );
+            }
+
+            return redirect()
+                ->route('admin.words.export.index', ['lang' => $lang])
+                ->with('status', $message);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return redirect()
+                ->route('admin.words.export.index')
+                ->with('error', 'Помилка CSV імпорту: ' . $e->getMessage());
         }
     }
 }
