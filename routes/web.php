@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AiTestController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\WordsExportController;
 use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\DynamicPageController;
 use App\Http\Controllers\GrammarTestController;
@@ -161,6 +162,13 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::get('/translate/test2', [SentenceTranslationTestController::class, 'indexV2'])->name('translate.test2');
         Route::post('/translate/test2/check', [SentenceTranslationTestController::class, 'checkV2'])->name('translate.test2.check');
         Route::post('/translate/test2/reset', [SentenceTranslationTestController::class, 'resetV2'])->name('translate.test2.reset');
+
+        Route::prefix('words/export')->name('admin.words.export.')->group(function () {
+            Route::get('/', [WordsExportController::class, 'index'])->name('index');
+            Route::post('/', [WordsExportController::class, 'export'])->name('run');
+            Route::get('/view', [WordsExportController::class, 'view'])->name('view');
+            Route::get('/download', [WordsExportController::class, 'download'])->name('download');
+        });
 
         Route::prefix('test-tags')->name('test-tags.')->group(function () {
             Route::get('/', [TestTagController::class, 'index'])->name('index');
