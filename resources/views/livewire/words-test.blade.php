@@ -50,8 +50,8 @@
     }
   </style>
 
-  {{-- Loading Overlay --}}
-  <div wire:loading.flex class="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm items-center justify-center">
+  {{-- Loading Overlay (shows only if request takes more than 1.5 seconds) --}}
+  <div wire:loading.flex.delay.longest class="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm items-center justify-center">
     <div class="bg-white rounded-lg shadow-lg px-6 py-4 flex items-center gap-3 text-sm text-gray-700">
       <span class="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></span>
       <span>Обробка...</span>
