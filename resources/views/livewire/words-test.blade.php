@@ -127,6 +127,7 @@
           x-data="{
             options: @js($currentQuestion['options']),
             correctAnswer: @js($currentQuestion['correct_answer']),
+            currentWordId: @js($currentQuestion['word_id']),
             selectedIndex: null,
             isPending: false,
             pick(index) {
@@ -136,7 +137,7 @@
               this.isPending = true;
 
               setTimeout(() => {
-                this.$wire.submitAnswer(index);
+                this.$wire.submitAnswer(this.currentWordId, index);
               }, 1500);
             },
             isCorrect(index) {

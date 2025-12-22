@@ -187,9 +187,13 @@ class WordsTest extends Component
         $this->completed = empty($this->queue) && ! $this->currentQuestion;
     }
 
-    public function submitAnswer(int $optionIndex): void
+    public function submitAnswer(int $wordId, int $optionIndex): void
     {
         if (! $this->currentQuestion || $this->isLoading) {
+            return;
+        }
+
+        if (($this->currentQuestion['word_id'] ?? null) !== $wordId) {
             return;
         }
 
