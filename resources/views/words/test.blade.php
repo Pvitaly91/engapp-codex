@@ -10,6 +10,12 @@
         ['label' => 'Medium', 'difficulty' => 'medium', 'href' => route('words.test.medium')],
         ['label' => 'Hard', 'difficulty' => 'hard', 'href' => route('words.test.hard')],
     ];
+
+    $heroDescription = [
+        'easy' => 'Виберіть правильний переклад без перезавантаження сторінки. Прогрес зберігається окремо для кожної складності — можна оновити сторінку і продовжити.',
+        'medium' => 'Введіть англійське слово вручну або виберіть варіант із підказок. Прогрес зберігається окремо для кожної складності — можна оновити сторінку і продовжити.',
+        'hard' => 'Введіть правильне англійське слово без підказок. Прогрес зберігається окремо для кожної складності — можна оновити сторінку і продовжити.',
+    ][$difficulty] ?? '';
   @endphp
 
   <div class="space-y-8" x-data>
@@ -64,24 +70,10 @@
       }
     </style>
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <div class="space-y-3">
-        <div class="inline-flex items-center rounded-full bg-muted px-1 py-1 text-sm font-semibold text-muted-foreground" role="tablist" aria-label="Режими складності">
-          @foreach ($tabs as $tab)
-            <a
-              href="{{ $tab['href'] }}"
-              role="tab"
-              aria-selected="{{ $tab['difficulty'] === $difficulty ? 'true' : 'false' }}"
-              class="px-4 py-2 rounded-full transition {{ $tab['difficulty'] === $difficulty ? 'bg-primary text-primary-foreground shadow-sm' : 'hover:bg-muted/70' }}"
-            >
-              {{ $tab['label'] }}
-            </a>
-          @endforeach
-        </div>
-        <div class="space-y-1">
-          <p class="text-sm text-muted-foreground">Практика перекладу · Активна мова: <span class="font-semibold text-primary">{{ strtoupper($activeLang) }}</span></p>
-          <h1 class="text-3xl font-semibold text-foreground">Швидкий тест слів</h1>
-          <p class="text-muted-foreground max-w-2xl">Виберіть правильний переклад без перезавантаження сторінки. Прогрес зберігається окремо для кожної складності — можна оновити сторінку і продовжити.</p>
-        </div>
+      <div class="space-y-1">
+        <p class="text-sm text-muted-foreground">Практика перекладу · Активна мова: <span class="font-semibold text-primary">{{ strtoupper($activeLang) }}</span></p>
+        <h1 class="text-3xl font-semibold text-foreground">Швидкий тест слів</h1>
+        <p class="text-muted-foreground max-w-2xl">{{ $heroDescription }}</p>
       </div>
       <div class="flex flex-wrap gap-3">
         <button id="reset-btn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
@@ -92,6 +84,18 @@
 
     <div class="grid gap-4 md:grid-cols-[1.6fr_1fr]">
       <div class="rounded-2xl bg-card p-6 shadow-soft border border-border/70" id="question-card">
+        <div class="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="Режими складності">
+          @foreach ($tabs as $tab)
+            <a
+              href="{{ $tab['href'] }}"
+              role="tab"
+              aria-selected="{{ $tab['difficulty'] === $difficulty ? 'true' : 'false' }}"
+              class="px-4 py-2 rounded-full transition {{ $tab['difficulty'] === $difficulty ? 'bg-primary text-primary-foreground shadow-sm' : 'bg-muted text-muted-foreground hover:bg-muted/70' }}"
+            >
+              {{ $tab['label'] }}
+            </a>
+          @endforeach
+        </div>
         <div class="flex items-center justify-between gap-3">
           <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
             <span class="h-2 w-2 rounded-full bg-primary"></span>
@@ -102,7 +106,7 @@
 
         <div class="mt-6 space-y-6" id="question-wrapper">
           <div class="space-y-2">
-            <p class="text-sm uppercase tracking-[0.08em] text-muted-foreground">Підказка</p>
+            <p class="text-sm uppercase tracking-[0.08em] text-muted-foreground">Переклад</p>
             <div id="question-prompt" class="text-3xl font-semibold text-foreground">Зачекайте...</div>
             <p id="question-tags" class="text-sm text-muted-foreground"></p>
           </div>
@@ -129,7 +133,6 @@
                 <button id="submit-answer" type="submit" class="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
                   Перевірити
                 </button>
-                <p class="text-sm text-muted-foreground">Відповідь буде перевірено без перезавантаження.</p>
               </div>
             </form>
           </div>
