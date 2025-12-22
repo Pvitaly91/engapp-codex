@@ -121,7 +121,29 @@
       </div>
 
       @if($currentQuestion && !$failed)
-        <div class="mt-6 space-y-6" wire:key="question-{{ $currentQuestion['word_id'] }}">
+        <div
+          class="mt-6 space-y-6"
+          wire:key="question-{{ $currentQuestion['word_id'] }}"
+          x-data="{
+            options: @js($currentQuestion['options']),
+            correctAnswer: @js($currentQuestion['correct_answer']),
+            selectedIndex: null,
+            isPending: false,
+            pick(index) {
+              if (this.isPending) return;
+
+              this.selectedIndex = index;
+              this.isPending = true;
+
+              setTimeout(() => {
+                this.$wire.submitAnswer(index);
+              }, 1500);
+            },
+            isCorrect(index) {
+              return this.options[index] === this.correctAnswer;
+            },
+          }"
+        >
           <div class="space-y-2">
             <p class="text-sm uppercase tracking-[0.08em] text-muted-foreground">Підказка</p>
             <div class="text-3xl font-semibold text-foreground animate-soft">{{ $currentQuestion['prompt'] }}</div>
@@ -134,14 +156,20 @@
             @foreach($currentQuestion['options'] as $index => $option)
               <button
                 type="button"
-                wire:click="submitAnswer({{ $index }})"
                 wire:loading.attr="disabled"
+                :disabled="isPending"
+                @click="pick({{ $index }})"
                 @class([
                   'flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-60 disabled:cursor-not-allowed',
                   'border-border/80 bg-muted text-foreground' => $highlightedButton !== $option,
                   'choice-correct animate-choice' => $highlightedButton === $option && $highlightCorrect,
                   'choice-wrong animate-choice animate-shake' => $highlightedButton === $option && !$highlightCorrect,
                 ])
+                x-bind:class="{
+                  'choice-correct animate-choice': selectedIndex === {{ $index }} && isCorrect({{ $index }}),
+                  'choice-wrong animate-choice animate-shake': selectedIndex === {{ $index }} && !isCorrect({{ $index }}),
+                  'border-border/80 bg-muted text-foreground': selectedIndex !== {{ $index }},
+                }"
               >
                 {{ $option }}
               </button>
