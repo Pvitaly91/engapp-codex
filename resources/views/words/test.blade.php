@@ -3,6 +3,15 @@
 @section('title', 'Тест слів')
 
 @section('content')
+  @php
+    $difficulty = $difficulty ?? 'easy';
+    $tabs = [
+        ['label' => 'Easy', 'difficulty' => 'easy', 'href' => route('words.test')],
+        ['label' => 'Medium', 'difficulty' => 'medium', 'href' => route('words.test.medium')],
+        ['label' => 'Hard', 'difficulty' => 'hard', 'href' => route('words.test.hard')],
+    ];
+  @endphp
+
   <div class="space-y-8" x-data>
     <style>
       @keyframes fade-in-soft {
@@ -55,10 +64,24 @@
       }
     </style>
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <div class="space-y-1">
-        <p class="text-sm text-muted-foreground">Практика перекладу · Активна мова: <span class="font-semibold text-primary">{{ strtoupper($activeLang) }}</span></p>
-        <h1 class="text-3xl font-semibold text-foreground">Швидкий тест слів</h1>
-        <p class="text-muted-foreground max-w-2xl">Виберіть правильний переклад без перезавантаження сторінки. Прогрес зберігається автоматично — можна оновити сторінку і продовжити з того ж місця.</p>
+      <div class="space-y-3">
+        <div class="inline-flex items-center rounded-full bg-muted px-1 py-1 text-sm font-semibold text-muted-foreground" role="tablist" aria-label="Режими складності">
+          @foreach ($tabs as $tab)
+            <a
+              href="{{ $tab['href'] }}"
+              role="tab"
+              aria-selected="{{ $tab['difficulty'] === $difficulty ? 'true' : 'false' }}"
+              class="px-4 py-2 rounded-full transition {{ $tab['difficulty'] === $difficulty ? 'bg-primary text-primary-foreground shadow-sm' : 'hover:bg-muted/70' }}"
+            >
+              {{ $tab['label'] }}
+            </a>
+          @endforeach
+        </div>
+        <div class="space-y-1">
+          <p class="text-sm text-muted-foreground">Практика перекладу · Активна мова: <span class="font-semibold text-primary">{{ strtoupper($activeLang) }}</span></p>
+          <h1 class="text-3xl font-semibold text-foreground">Швидкий тест слів</h1>
+          <p class="text-muted-foreground max-w-2xl">Виберіть правильний переклад без перезавантаження сторінки. Прогрес зберігається окремо для кожної складності — можна оновити сторінку і продовжити.</p>
+        </div>
       </div>
       <div class="flex flex-wrap gap-3">
         <button id="reset-btn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
@@ -85,6 +108,31 @@
           </div>
 
           <div class="grid gap-3 md:grid-cols-2" id="options"></div>
+
+          <div id="input-wrapper" class="hidden space-y-3">
+            <form id="answer-form" class="space-y-3">
+              <div class="space-y-2">
+                <label for="answer-input" class="text-sm font-semibold text-muted-foreground">Ваша відповідь</label>
+                <div class="relative">
+                  <input
+                    id="answer-input"
+                    type="text"
+                    name="answer"
+                    autocomplete="off"
+                    class="w-full rounded-xl border border-border/80 bg-muted px-4 py-3 text-lg font-semibold text-foreground shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                    placeholder="Введіть слово англійською"
+                  >
+                  <ul id="suggestions" class="absolute left-0 top-full z-10 mt-2 hidden max-h-60 w-full overflow-auto rounded-xl border border-border/80 bg-card shadow-lg"></ul>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center gap-3">
+                <button id="submit-answer" type="submit" class="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
+                  Перевірити
+                </button>
+                <p class="text-sm text-muted-foreground">Відповідь буде перевірено без перезавантаження.</p>
+              </div>
+            </form>
+          </div>
         </div>
 
         <div id="empty-state" class="hidden text-muted-foreground">
@@ -170,9 +218,13 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const stateUrl = "{{ route('words.test.state') }}";
-      const checkUrl = "{{ route('words.test.check') }}";
-      const resetUrl = "{{ route('words.test.reset') }}";
+      const difficulty = "{{ $difficulty }}";
+      const isEasy = difficulty === 'easy';
+      const isMedium = difficulty === 'medium';
+
+      const stateUrl = "{{ $stateUrl }}";
+      const checkUrl = "{{ $checkUrl }}";
+      const resetUrl = "{{ $resetUrl }}";
       const csrfToken = '{{ csrf_token() }}';
 
       const questionLabel = document.getElementById('question-label');
@@ -180,6 +232,11 @@
       const questionPrompt = document.getElementById('question-prompt');
       const questionTags = document.getElementById('question-tags');
       const optionsWrapper = document.getElementById('options');
+      const inputWrapper = document.getElementById('input-wrapper');
+      const answerInput = document.getElementById('answer-input');
+      const answerForm = document.getElementById('answer-form');
+      const submitAnswerBtn = document.getElementById('submit-answer');
+      const suggestionsList = document.getElementById('suggestions');
       const percentageEl = document.getElementById('percentage');
       const progressBar = document.getElementById('progress-bar');
       const statTotal = document.getElementById('stat-total');
@@ -200,19 +257,19 @@
 
       let currentQuestion = null;
       let loading = false;
+      let suggestionTimeout = null;
 
       function animate(el, className = 'animate-soft') {
         if (!el) return;
         el.classList.remove(className);
-        // force reflow
         void el.offsetWidth;
         el.classList.add(className);
       }
 
       async function fetchState() {
         loading = true;
-        toggleOptions(false);
-        const response = await fetch(stateUrl, { headers: { 'Accept': 'application/json' } });
+        toggleAnswerControls(false);
+        const response = await fetch(stateUrl, { headers: { Accept: 'application/json' } });
         const data = await response.json();
         loading = false;
         updateState(data);
@@ -229,7 +286,7 @@
           emptyState.classList.add('hidden');
           questionLabel.textContent = 'Тест не пройдено';
           queueCounter.textContent = '';
-          toggleOptions(false);
+          toggleAnswerControls(false);
           return;
         }
 
@@ -239,6 +296,7 @@
           emptyState.classList.remove('hidden');
           queueCounter.textContent = '';
           questionLabel.textContent = data.completed ? 'Все пройдено' : 'Немає питань';
+          toggleAnswerControls(false);
           return;
         }
 
@@ -259,26 +317,38 @@
       }
 
       function renderQuestion(question, totalCount, totalAnswered) {
-        questionLabel.textContent = question.questionType === 'en_to_uk'
-          ? 'Обрати переклад українською'
-          : 'Обрати слово англійською';
+        const label = isEasy
+          ? (question.questionType === 'en_to_uk' ? 'Обрати переклад українською' : 'Обрати слово англійською')
+          : 'Введіть слово англійською';
+        questionLabel.textContent = label;
 
         queueCounter.textContent = `Питання ${totalAnswered + 1} з ${totalCount}`;
         questionPrompt.textContent = question.prompt;
         questionTags.textContent = (question.tags || []).join(', ');
 
-        optionsWrapper.innerHTML = '';
-        question.options.forEach((option) => {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'flex items-center justify-between gap-3 rounded-xl border border-border/80 bg-muted px-4 py-3 text-left text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
-          btn.textContent = option;
-          btn.dataset.value = option;
-          btn.addEventListener('click', () => submitAnswer(option, btn));
-          optionsWrapper.appendChild(btn);
-          animate(btn, 'animate-soft');
-        });
-        toggleOptions(!loading);
+        optionsWrapper.classList.toggle('hidden', !isEasy);
+        inputWrapper.classList.toggle('hidden', isEasy);
+
+        if (isEasy) {
+          optionsWrapper.innerHTML = '';
+          question.options.forEach((option) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'flex items-center justify-between gap-3 rounded-xl border border-border/80 bg-muted px-4 py-3 text-left text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
+            btn.textContent = option;
+            btn.dataset.value = option;
+            btn.addEventListener('click', () => submitAnswer(option, btn));
+            optionsWrapper.appendChild(btn);
+            animate(btn, 'animate-soft');
+          });
+        } else {
+          optionsWrapper.innerHTML = '';
+          answerInput.value = '';
+          hideSuggestions();
+          setTimeout(() => answerInput?.focus(), 50);
+        }
+
+        toggleAnswerControls(!loading);
         animate(questionPrompt);
         animate(optionsWrapper);
       }
@@ -291,27 +361,52 @@
         });
       }
 
+      function toggleAnswerControls(enabled) {
+        if (isEasy) {
+          toggleOptions(enabled);
+          return;
+        }
+
+        if (answerInput) {
+          answerInput.disabled = !enabled;
+          answerInput.classList.toggle('opacity-60', !enabled);
+        }
+
+        if (submitAnswerBtn) {
+          submitAnswerBtn.disabled = !enabled;
+          submitAnswerBtn.classList.toggle('opacity-60', !enabled);
+        }
+      }
+
       async function submitAnswer(answer, selectedButton) {
         if (!currentQuestion || loading) return;
+
+        const value = typeof answer === 'string' ? answer : (answerInput?.value ?? '');
+        const preparedAnswer = value.trim();
+        if (!preparedAnswer) {
+          return;
+        }
+
         loading = true;
-        toggleOptions(false);
+        toggleAnswerControls(false);
+        hideSuggestions();
 
         const formData = new FormData();
         formData.append('word_id', currentQuestion.word_id);
-        formData.append('answer', answer);
+        formData.append('answer', preparedAnswer);
 
         const response = await fetch(checkUrl, {
           method: 'POST',
           headers: {
             'X-CSRF-TOKEN': csrfToken,
-            'Accept': 'application/json',
+            Accept: 'application/json',
           },
           body: formData,
         });
 
         if (!response.ok) {
           loading = false;
-          toggleOptions(true);
+          toggleAnswerControls(true);
           return;
         }
 
@@ -333,7 +428,7 @@
             emptyState.classList.add('hidden');
             questionLabel.textContent = 'Тест не пройдено';
             queueCounter.textContent = '';
-            toggleOptions(false);
+            toggleAnswerControls(false);
             return;
           }
 
@@ -343,10 +438,10 @@
             emptyState.classList.remove('hidden');
             questionLabel.textContent = 'Все пройдено';
             queueCounter.textContent = '';
+            toggleAnswerControls(false);
           } else {
             renderQuestion(data.question, data.totalCount, data.stats.total);
           }
-          toggleOptions(!!currentQuestion);
         }, 1000);
       }
 
@@ -398,17 +493,105 @@
           method: 'POST',
           headers: {
             'X-CSRF-TOKEN': csrfToken,
-            'Accept': 'application/json',
+            Accept: 'application/json',
           },
         });
 
         const data = await response.json();
+        hideSuggestions();
         updateState(data);
         if (button) {
           button.disabled = false;
           button.classList.remove('opacity-60');
         }
       }
+
+      function hideSuggestions() {
+        if (!suggestionsList) return;
+        suggestionsList.innerHTML = '';
+        suggestionsList.classList.add('hidden');
+      }
+
+      function renderSuggestions(query) {
+        if (!isMedium || !suggestionsList) return;
+        if (suggestionTimeout) {
+          clearTimeout(suggestionTimeout);
+        }
+
+        const term = query.trim();
+        if (!term) {
+          hideSuggestions();
+          return;
+        }
+
+        suggestionTimeout = setTimeout(async () => {
+          try {
+            const response = await fetch(`/api/search?lang=en&q=${encodeURIComponent(term)}`);
+            if (!response.ok) {
+              hideSuggestions();
+              return;
+            }
+            const data = await response.json();
+            if (answerInput.value.trim() !== term) {
+              return;
+            }
+            suggestionsList.innerHTML = '';
+            if (!Array.isArray(data) || data.length === 0) {
+              hideSuggestions();
+              return;
+            }
+
+            data.forEach((item) => {
+              const value = item.en ?? item.word ?? item;
+              if (!value) return;
+              const li = document.createElement('li');
+              li.textContent = value;
+              li.className = 'cursor-pointer px-4 py-2 text-sm hover:bg-muted';
+              li.addEventListener('click', () => {
+                answerInput.value = value;
+                hideSuggestions();
+                answerInput.focus();
+              });
+              suggestionsList.appendChild(li);
+            });
+
+            if (suggestionsList.childElementCount > 0) {
+              suggestionsList.classList.remove('hidden');
+            } else {
+              hideSuggestions();
+            }
+          } catch (e) {
+            hideSuggestions();
+          }
+        }, 200);
+      }
+
+      if (answerForm && !isEasy) {
+        answerForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+          submitAnswer();
+        });
+      }
+
+      if (answerInput && !isEasy) {
+        answerInput.addEventListener('input', (event) => {
+          if (isMedium) {
+            renderSuggestions(event.target.value);
+          }
+        });
+
+        answerInput.addEventListener('focus', () => {
+          if (isMedium && suggestionsList && suggestionsList.childElementCount > 0) {
+            suggestionsList.classList.remove('hidden');
+          }
+        });
+      }
+
+      document.addEventListener('click', (event) => {
+        if (suggestionsList && !suggestionsList.contains(event.target) && event.target !== answerInput) {
+          hideSuggestions();
+        }
+      });
 
       resetBtn.addEventListener('click', () => resetTest(resetBtn));
       retryBtn.addEventListener('click', () => resetTest(retryBtn));
