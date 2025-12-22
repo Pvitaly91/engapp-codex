@@ -299,21 +299,46 @@ class WordsExportController extends Controller
                         
                         if ($translationText !== '') {
                             if ($existingTranslate) {
-                                // Overwrite existing translation
-                                if ($existingTranslate->translation !== $translationText) {
-                                    $existingTranslate->update(['translation' => $translationText]);
-                                    $stats['translations_overwritten']++;
+                                // Check if translation value is the same
+                                if ($existingTranslate->translation === $translationText) {
+                                    $stats['translations_skipped']++;
+                                } else {
+                                    // Check if another record with same word_id, lang, translation exists
+                                    // (due to unique constraint on word_id, lang, translation)
+                                    $conflictingTranslate = Translate::where('word_id', $wordId)
+                                        ->where('lang', $lang)
+                                        ->where('translation', $translationText)
+                                        ->where('id', '!=', $existingTranslate->id)
+                                        ->first();
+                                    
+                                    if ($conflictingTranslate) {
+                                        // Translation with this value already exists, delete the old one
+                                        $existingTranslate->delete();
+                                        $stats['translations_overwritten']++;
+                                    } else {
+                                        // Safe to update
+                                        $existingTranslate->update(['translation' => $translationText]);
+                                        $stats['translations_overwritten']++;
+                                    }
+                                }
+                            } else {
+                                // Check if translation with same values already exists
+                                $existingWithSameValue = Translate::where('word_id', $wordId)
+                                    ->where('lang', $lang)
+                                    ->where('translation', $translationText)
+                                    ->first();
+                                
+                                if (!$existingWithSameValue) {
+                                    // Create new translation
+                                    Translate::create([
+                                        'word_id' => $wordId,
+                                        'lang' => $lang,
+                                        'translation' => $translationText,
+                                    ]);
+                                    $stats['translations_created']++;
                                 } else {
                                     $stats['translations_skipped']++;
                                 }
-                            } else {
-                                // Create new translation
-                                Translate::create([
-                                    'word_id' => $wordId,
-                                    'lang' => $lang,
-                                    'translation' => $translationText,
-                                ]);
-                                $stats['translations_created']++;
                             }
                         }
                     }
@@ -329,21 +354,44 @@ class WordsExportController extends Controller
 
                             if ($existingTranslate) {
                                 if (trim($existingTranslate->translation ?? '') === '') {
-                                    // Update empty translation
-                                    $existingTranslate->update(['translation' => $translationText]);
-                                    $stats['translations_updated']++;
+                                    // Check for conflict before updating
+                                    $conflictingTranslate = Translate::where('word_id', $wordId)
+                                        ->where('lang', $lang)
+                                        ->where('translation', $translationText)
+                                        ->where('id', '!=', $existingTranslate->id)
+                                        ->first();
+                                    
+                                    if (!$conflictingTranslate) {
+                                        // Update empty translation
+                                        $existingTranslate->update(['translation' => $translationText]);
+                                        $stats['translations_updated']++;
+                                    } else {
+                                        // Delete the empty one since we already have a translation with this value
+                                        $existingTranslate->delete();
+                                        $stats['translations_skipped']++;
+                                    }
                                 } else {
                                     // Translation already exists and is not empty
                                     $stats['translations_skipped']++;
                                 }
                             } else {
-                                // Create new translation
-                                Translate::create([
-                                    'word_id' => $wordId,
-                                    'lang' => $lang,
-                                    'translation' => $translationText,
-                                ]);
-                                $stats['translations_created']++;
+                                // Check if translation with same values already exists
+                                $existingWithSameValue = Translate::where('word_id', $wordId)
+                                    ->where('lang', $lang)
+                                    ->where('translation', $translationText)
+                                    ->first();
+                                
+                                if (!$existingWithSameValue) {
+                                    // Create new translation
+                                    Translate::create([
+                                        'word_id' => $wordId,
+                                        'lang' => $lang,
+                                        'translation' => $translationText,
+                                    ]);
+                                    $stats['translations_created']++;
+                                } else {
+                                    $stats['translations_skipped']++;
+                                }
                             }
                         }
                     }
