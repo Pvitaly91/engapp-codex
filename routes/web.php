@@ -27,6 +27,7 @@ use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
+use App\Http\Controllers\Admin\WordsExportController;
 use App\Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -245,6 +246,14 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::delete('/tests/{slug}', [GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
 
         Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
+
+        // Words Export routes
+        Route::prefix('words/export')->name('admin.words.export.')->group(function () {
+            Route::get('/', [WordsExportController::class, 'index'])->name('index');
+            Route::post('/', [WordsExportController::class, 'export'])->name('run');
+            Route::get('/view', [WordsExportController::class, 'view'])->name('view');
+            Route::get('/download', [WordsExportController::class, 'download'])->name('download');
+        });
 
         Route::get('/search', SiteSearchController::class)->name('site.search');
 
