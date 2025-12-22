@@ -53,12 +53,56 @@
         background: radial-gradient(circle at center, rgba(15, 23, 42, 0.16), rgba(15, 23, 42, 0.55));
         backdrop-filter: blur(8px);
       }
+
+      .suggestion-list {
+        max-height: 200px;
+        overflow-y: auto;
+      }
+
+      .suggestion-item {
+        cursor: pointer;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.15s;
+      }
+
+      .suggestion-item:hover {
+        background-color: hsl(var(--primary) / 0.1);
+      }
     </style>
+
+    {{-- Difficulty Tabs --}}
+    <div class="flex justify-center">
+      <div class="inline-flex rounded-xl border border-border bg-muted p-1 shadow-sm">
+        <a href="{{ route('words.test') }}"
+           class="px-4 py-2 text-sm font-semibold rounded-lg transition-all {{ $difficulty === 'easy' ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground' }}">
+          Easy
+        </a>
+        <a href="{{ route('words.test.medium') }}"
+           class="px-4 py-2 text-sm font-semibold rounded-lg transition-all {{ $difficulty === 'medium' ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground' }}">
+          Medium
+        </a>
+        <a href="{{ route('words.test.hard') }}"
+           class="px-4 py-2 text-sm font-semibold rounded-lg transition-all {{ $difficulty === 'hard' ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground' }}">
+          Hard
+        </a>
+      </div>
+    </div>
+
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div class="space-y-1">
         <p class="text-sm text-muted-foreground">Практика перекладу · Активна мова: <span class="font-semibold text-primary">{{ strtoupper($activeLang) }}</span></p>
         <h1 class="text-3xl font-semibold text-foreground">Швидкий тест слів</h1>
-        <p class="text-muted-foreground max-w-2xl">Виберіть правильний переклад без перезавантаження сторінки. Прогрес зберігається автоматично — можна оновити сторінку і продовжити з того ж місця.</p>
+        <p class="text-muted-foreground max-w-2xl">
+          @if($difficulty === 'easy')
+            Виберіть правильний переклад без перезавантаження сторінки.
+          @elseif($difficulty === 'medium')
+            Введіть правильний переклад англійською. Використовуйте підказки автозавершення.
+          @else
+            Введіть правильний переклад англійською без підказок.
+          @endif
+          Прогрес зберігається автоматично — можна оновити сторінку і продовжити з того ж місця.
+        </p>
       </div>
       <div class="flex flex-wrap gap-3">
         <button id="reset-btn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
@@ -79,12 +123,44 @@
 
         <div class="mt-6 space-y-6" id="question-wrapper">
           <div class="space-y-2">
-            <p class="text-sm uppercase tracking-[0.08em] text-muted-foreground">Підказка</p>
+            <p class="text-sm uppercase tracking-[0.08em] text-muted-foreground">
+              @if($difficulty === 'easy')
+                Підказка
+              @else
+                Переклад ({{ strtoupper($activeLang) }})
+              @endif
+            </p>
             <div id="question-prompt" class="text-3xl font-semibold text-foreground">Зачекайте...</div>
             <p id="question-tags" class="text-sm text-muted-foreground"></p>
           </div>
 
-          <div class="grid gap-3 md:grid-cols-2" id="options"></div>
+          {{-- Easy mode: multiple choice buttons --}}
+          @if($difficulty === 'easy')
+            <div class="grid gap-3 md:grid-cols-2" id="options"></div>
+          @else
+            {{-- Medium/Hard mode: input field --}}
+            <div class="space-y-4">
+              <div class="relative">
+                <input
+                  type="text"
+                  id="answer-input"
+                  autocomplete="off"
+                  placeholder="Введіть відповідь англійською..."
+                  class="w-full px-4 py-3 text-lg border-2 border-border rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all bg-background text-foreground"
+                />
+                @if($difficulty === 'medium')
+                  <ul id="suggestions-list" class="suggestion-list hidden absolute left-0 right-0 top-full mt-2 z-10 bg-card border border-border rounded-xl shadow-lg list-none p-2"></ul>
+                @endif
+              </div>
+              <button
+                type="button"
+                id="submit-answer-btn"
+                class="w-full px-4 py-3 rounded-xl bg-primary text-primary-foreground font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                Перевірити
+              </button>
+            </div>
+          @endif
         </div>
 
         <div id="empty-state" class="hidden text-muted-foreground">
@@ -170,16 +246,16 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const stateUrl = "{{ route('words.test.state') }}";
-      const checkUrl = "{{ route('words.test.check') }}";
-      const resetUrl = "{{ route('words.test.reset') }}";
+      const difficulty = "{{ $difficulty }}";
+      const stateUrl = "{{ $difficulty === 'easy' ? route('words.test.state') : ($difficulty === 'medium' ? route('words.test.medium.state') : route('words.test.hard.state')) }}";
+      const checkUrl = "{{ $difficulty === 'easy' ? route('words.test.check') : ($difficulty === 'medium' ? route('words.test.medium.check') : route('words.test.hard.check')) }}";
+      const resetUrl = "{{ $difficulty === 'easy' ? route('words.test.reset') : ($difficulty === 'medium' ? route('words.test.medium.reset') : route('words.test.hard.reset')) }}";
       const csrfToken = '{{ csrf_token() }}';
 
       const questionLabel = document.getElementById('question-label');
       const queueCounter = document.getElementById('queue-counter');
       const questionPrompt = document.getElementById('question-prompt');
       const questionTags = document.getElementById('question-tags');
-      const optionsWrapper = document.getElementById('options');
       const percentageEl = document.getElementById('percentage');
       const progressBar = document.getElementById('progress-bar');
       const statTotal = document.getElementById('stat-total');
@@ -198,20 +274,32 @@
       const retryBtn = document.getElementById('retry-btn');
       const closeFailure = document.getElementById('close-failure');
 
+      // Easy mode elements
+      const optionsWrapper = document.getElementById('options');
+
+      // Medium/Hard mode elements
+      const answerInput = document.getElementById('answer-input');
+      const submitAnswerBtn = document.getElementById('submit-answer-btn');
+      const suggestionsList = document.getElementById('suggestions-list');
+
       let currentQuestion = null;
       let loading = false;
+      let debounceTimer = null;
 
       function animate(el, className = 'animate-soft') {
         if (!el) return;
         el.classList.remove(className);
-        // force reflow
         void el.offsetWidth;
         el.classList.add(className);
       }
 
       async function fetchState() {
         loading = true;
-        toggleOptions(false);
+        if (difficulty === 'easy') {
+          toggleOptions(false);
+        } else {
+          toggleInput(false);
+        }
         const response = await fetch(stateUrl, { headers: { 'Accept': 'application/json' } });
         const data = await response.json();
         loading = false;
@@ -229,7 +317,11 @@
           emptyState.classList.add('hidden');
           questionLabel.textContent = 'Тест не пройдено';
           queueCounter.textContent = '';
-          toggleOptions(false);
+          if (difficulty === 'easy') {
+            toggleOptions(false);
+          } else {
+            toggleInput(false);
+          }
           return;
         }
 
@@ -259,31 +351,44 @@
       }
 
       function renderQuestion(question, totalCount, totalAnswered) {
-        questionLabel.textContent = question.questionType === 'en_to_uk'
-          ? 'Обрати переклад українською'
-          : 'Обрати слово англійською';
+        if (difficulty === 'easy') {
+          questionLabel.textContent = question.questionType === 'en_to_uk'
+            ? 'Обрати переклад українською'
+            : 'Обрати слово англійською';
+        } else {
+          questionLabel.textContent = 'Введіть слово англійською';
+        }
 
         queueCounter.textContent = `Питання ${totalAnswered + 1} з ${totalCount}`;
         questionPrompt.textContent = question.prompt;
         questionTags.textContent = (question.tags || []).join(', ');
 
-        optionsWrapper.innerHTML = '';
-        question.options.forEach((option) => {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'flex items-center justify-between gap-3 rounded-xl border border-border/80 bg-muted px-4 py-3 text-left text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
-          btn.textContent = option;
-          btn.dataset.value = option;
-          btn.addEventListener('click', () => submitAnswer(option, btn));
-          optionsWrapper.appendChild(btn);
-          animate(btn, 'animate-soft');
-        });
-        toggleOptions(!loading);
+        if (difficulty === 'easy') {
+          optionsWrapper.innerHTML = '';
+          question.options.forEach((option) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'flex items-center justify-between gap-3 rounded-xl border border-border/80 bg-muted px-4 py-3 text-left text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
+            btn.textContent = option;
+            btn.dataset.value = option;
+            btn.addEventListener('click', () => submitAnswer(option, btn));
+            optionsWrapper.appendChild(btn);
+            animate(btn, 'animate-soft');
+          });
+          toggleOptions(!loading);
+        } else {
+          // Clear input for new question
+          if (answerInput) {
+            answerInput.value = '';
+            hideSuggestions();
+          }
+          toggleInput(!loading);
+        }
         animate(questionPrompt);
-        animate(optionsWrapper);
       }
 
       function toggleOptions(enabled) {
+        if (!optionsWrapper) return;
         optionsWrapper.querySelectorAll('button').forEach((btn) => {
           btn.disabled = !enabled;
           btn.classList.toggle('opacity-60', !enabled);
@@ -291,10 +396,26 @@
         });
       }
 
-      async function submitAnswer(answer, selectedButton) {
+      function toggleInput(enabled) {
+        if (answerInput) {
+          answerInput.disabled = !enabled;
+          answerInput.classList.toggle('opacity-60', !enabled);
+        }
+        if (submitAnswerBtn) {
+          submitAnswerBtn.disabled = !enabled;
+        }
+      }
+
+      async function submitAnswer(answer, selectedButton = null) {
         if (!currentQuestion || loading) return;
         loading = true;
-        toggleOptions(false);
+
+        if (difficulty === 'easy') {
+          toggleOptions(false);
+        } else {
+          toggleInput(false);
+          hideSuggestions();
+        }
 
         const formData = new FormData();
         formData.append('word_id', currentQuestion.word_id);
@@ -311,14 +432,22 @@
 
         if (!response.ok) {
           loading = false;
-          toggleOptions(true);
+          if (difficulty === 'easy') {
+            toggleOptions(true);
+          } else {
+            toggleInput(true);
+          }
           return;
         }
 
         const data = await response.json();
         loading = false;
 
-        highlightSelection(selectedButton, data.result?.isCorrect);
+        if (difficulty === 'easy' && selectedButton) {
+          highlightSelection(selectedButton, data.result?.isCorrect);
+        } else if (answerInput) {
+          highlightInput(data.result?.isCorrect);
+        }
 
         setTimeout(() => {
           renderStats(data.stats, data.percentage, data.totalCount);
@@ -333,7 +462,11 @@
             emptyState.classList.add('hidden');
             questionLabel.textContent = 'Тест не пройдено';
             queueCounter.textContent = '';
-            toggleOptions(false);
+            if (difficulty === 'easy') {
+              toggleOptions(false);
+            } else {
+              toggleInput(false);
+            }
             return;
           }
 
@@ -346,7 +479,13 @@
           } else {
             renderQuestion(data.question, data.totalCount, data.stats.total);
           }
-          toggleOptions(!!currentQuestion);
+
+          if (difficulty === 'easy') {
+            toggleOptions(!!currentQuestion);
+          } else {
+            toggleInput(!!currentQuestion);
+            if (answerInput) answerInput.focus();
+          }
         }, 1000);
       }
 
@@ -368,6 +507,23 @@
         }
         setTimeout(() => {
           button.classList.remove('choice-correct', 'choice-wrong', 'animate-choice', 'animate-shake');
+        }, 1000);
+      }
+
+      function highlightInput(isCorrect) {
+        if (!answerInput) return;
+        answerInput.classList.remove('border-success', 'border-destructive', 'animate-shake');
+        void answerInput.offsetWidth;
+        if (isCorrect) {
+          answerInput.classList.add('border-success');
+          answerInput.style.borderColor = 'rgb(34, 197, 94)';
+        } else {
+          answerInput.classList.add('border-destructive', 'animate-shake');
+          answerInput.style.borderColor = 'rgb(239, 68, 68)';
+        }
+        setTimeout(() => {
+          answerInput.classList.remove('border-success', 'border-destructive', 'animate-shake');
+          answerInput.style.borderColor = '';
         }, 1000);
       }
 
@@ -410,9 +566,93 @@
         }
       }
 
+      // Autocomplete for medium mode
+      function hideSuggestions() {
+        if (suggestionsList) {
+          suggestionsList.classList.add('hidden');
+          suggestionsList.innerHTML = '';
+        }
+      }
+
+      async function fetchSuggestions(query) {
+        if (!query || query.length < 1) {
+          hideSuggestions();
+          return;
+        }
+
+        try {
+          const response = await fetch(`/api/search?lang=en&q=${encodeURIComponent(query)}`);
+          const data = await response.json();
+
+          if (!Array.isArray(data) || data.length === 0) {
+            hideSuggestions();
+            return;
+          }
+
+          suggestionsList.innerHTML = '';
+          data.forEach(item => {
+            const li = document.createElement('li');
+            li.className = 'suggestion-item';
+            li.textContent = item.en;
+            li.addEventListener('click', () => {
+              answerInput.value = item.en;
+              hideSuggestions();
+              answerInput.focus();
+            });
+            suggestionsList.appendChild(li);
+          });
+          suggestionsList.classList.remove('hidden');
+        } catch (e) {
+          hideSuggestions();
+        }
+      }
+
+      // Event listeners
       resetBtn.addEventListener('click', () => resetTest(resetBtn));
       retryBtn.addEventListener('click', () => resetTest(retryBtn));
       closeFailure.addEventListener('click', () => toggleFailureModal(false));
+
+      // Medium/Hard mode specific listeners
+      if (answerInput && submitAnswerBtn) {
+        submitAnswerBtn.addEventListener('click', () => {
+          const answer = answerInput.value.trim();
+          if (answer) {
+            submitAnswer(answer);
+          }
+        });
+
+        answerInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            const answer = answerInput.value.trim();
+            if (answer) {
+              submitAnswer(answer);
+            }
+          }
+        });
+
+        // Autocomplete for medium mode only
+        if (difficulty === 'medium' && suggestionsList) {
+          answerInput.addEventListener('input', () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+              fetchSuggestions(answerInput.value.trim());
+            }, 200);
+          });
+
+          answerInput.addEventListener('blur', () => {
+            // Delay hiding to allow click on suggestion
+            setTimeout(hideSuggestions, 150);
+          });
+
+          answerInput.addEventListener('focus', () => {
+            const query = answerInput.value.trim();
+            if (query.length > 0) {
+              fetchSuggestions(query);
+            }
+          });
+        }
+      }
 
       fetchState();
     });

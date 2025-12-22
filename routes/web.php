@@ -26,7 +26,7 @@ use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
-use App\Http\Livewire\WordsTest;
+use App\Http\Controllers\WordsTestController;
 use App\Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,7 +47,23 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/words/test', WordsTest::class)->name('words.test');
+// Words Test routes (public, no authentication required)
+Route::prefix('words/test')->group(function () {
+    Route::get('/', [WordsTestController::class, 'index'])->name('words.test');
+    Route::get('/state', [WordsTestController::class, 'state'])->name('words.test.state');
+    Route::post('/check', [WordsTestController::class, 'check'])->name('words.test.check');
+    Route::post('/reset', [WordsTestController::class, 'reset'])->name('words.test.reset');
+
+    Route::get('/medium', [WordsTestController::class, 'index'])->name('words.test.medium');
+    Route::get('/medium/state', [WordsTestController::class, 'state'])->name('words.test.medium.state');
+    Route::post('/medium/check', [WordsTestController::class, 'check'])->name('words.test.medium.check');
+    Route::post('/medium/reset', [WordsTestController::class, 'reset'])->name('words.test.medium.reset');
+
+    Route::get('/hard', [WordsTestController::class, 'index'])->name('words.test.hard');
+    Route::get('/hard/state', [WordsTestController::class, 'state'])->name('words.test.hard.state');
+    Route::post('/hard/check', [WordsTestController::class, 'check'])->name('words.test.hard.check');
+    Route::post('/hard/reset', [WordsTestController::class, 'reset'])->name('words.test.hard.reset');
+});
 
 // Public pages routes (no authentication required)
 Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
