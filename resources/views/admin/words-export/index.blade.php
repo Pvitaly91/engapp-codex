@@ -108,6 +108,22 @@
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
+                        <div class="flex items-start gap-3">
+                            <input
+                                type="checkbox"
+                                name="overwrite_translations"
+                                id="overwrite_translations"
+                                value="1"
+                                class="mt-1 h-4 w-4 rounded border-slate-300 text-red-600 focus:ring-red-500"
+                            >
+                            <label for="overwrite_translations" class="text-sm text-slate-700">
+                                <span class="font-medium text-red-600">Перезаписати всі переклади</span>
+                                <p class="text-xs text-slate-500 mt-1">
+                                    Якщо увімкнено: всі переклади з JSON файлу перезапишуть існуючі (тільки переклади, інші поля не змінюються).
+                                    Якщо <code class="bg-slate-100 px-1 rounded">"translation": null</code> — переклад буде видалено.
+                                </p>
+                            </label>
+                        </div>
                         <button
                             type="submit"
                             class="inline-flex items-center justify-center rounded-lg border border-amber-300 bg-amber-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-amber-600 focus:outline-none focus:ring"

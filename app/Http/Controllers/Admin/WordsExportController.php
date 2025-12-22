@@ -185,6 +185,7 @@ class WordsExportController extends Controller
         ]);
 
         $file = $request->file('json_file');
+        $overwriteTranslations = $request->boolean('overwrite_translations');
         
         // Additional size check before reading
         if ($file->getSize() > 10 * 1024 * 1024) {
@@ -230,6 +231,8 @@ class WordsExportController extends Controller
             'words_skipped' => 0,
             'translations_created' => 0,
             'translations_updated' => 0,
+            'translations_overwritten' => 0,
+            'translations_deleted' => 0,
             'translations_skipped' => 0,
             'tags_created' => 0,
             'tags_attached' => 0,
@@ -259,7 +262,8 @@ class WordsExportController extends Controller
 
                 $wordText = trim($wordData['word']);
                 $wordType = $wordData['type'] ?? null;
-                $translation = isset($wordData['translation']) ? trim($wordData['translation']) : null;
+                // Get translation - array_key_exists to detect null vs missing key
+                $translation = array_key_exists('translation', $wordData) ? $wordData['translation'] : null;
                 $tagNames = $wordData['tags'] ?? [];
 
                 // Check if word exists
@@ -277,29 +281,71 @@ class WordsExportController extends Controller
                     $stats['words_created']++;
                 }
 
-                // Handle translation
-                if ($translation !== null && $translation !== '') {
+                // Handle translation based on overwrite mode
+                if ($overwriteTranslations) {
+                    // Overwrite mode: update/delete/create translations based on JSON
                     $existingTranslate = Translate::where('word_id', $wordId)
                         ->where('lang', $lang)
                         ->first();
 
-                    if ($existingTranslate) {
-                        if (trim($existingTranslate->translation ?? '') === '') {
-                            // Update empty translation
-                            $existingTranslate->update(['translation' => $translation]);
-                            $stats['translations_updated']++;
-                        } else {
-                            // Translation already exists and is not empty
-                            $stats['translations_skipped']++;
+                    if ($translation === null) {
+                        // translation is null in JSON - delete existing translation
+                        if ($existingTranslate) {
+                            $existingTranslate->delete();
+                            $stats['translations_deleted']++;
                         }
                     } else {
-                        // Create new translation
-                        Translate::create([
-                            'word_id' => $wordId,
-                            'lang' => $lang,
-                            'translation' => $translation,
-                        ]);
-                        $stats['translations_created']++;
+                        $translationText = is_string($translation) ? trim($translation) : '';
+                        
+                        if ($translationText !== '') {
+                            if ($existingTranslate) {
+                                // Overwrite existing translation
+                                if ($existingTranslate->translation !== $translationText) {
+                                    $existingTranslate->update(['translation' => $translationText]);
+                                    $stats['translations_overwritten']++;
+                                } else {
+                                    $stats['translations_skipped']++;
+                                }
+                            } else {
+                                // Create new translation
+                                Translate::create([
+                                    'word_id' => $wordId,
+                                    'lang' => $lang,
+                                    'translation' => $translationText,
+                                ]);
+                                $stats['translations_created']++;
+                            }
+                        }
+                    }
+                } else {
+                    // Normal mode: only create/update empty translations
+                    if ($translation !== null) {
+                        $translationText = is_string($translation) ? trim($translation) : '';
+                        
+                        if ($translationText !== '') {
+                            $existingTranslate = Translate::where('word_id', $wordId)
+                                ->where('lang', $lang)
+                                ->first();
+
+                            if ($existingTranslate) {
+                                if (trim($existingTranslate->translation ?? '') === '') {
+                                    // Update empty translation
+                                    $existingTranslate->update(['translation' => $translationText]);
+                                    $stats['translations_updated']++;
+                                } else {
+                                    // Translation already exists and is not empty
+                                    $stats['translations_skipped']++;
+                                }
+                            } else {
+                                // Create new translation
+                                Translate::create([
+                                    'word_id' => $wordId,
+                                    'lang' => $lang,
+                                    'translation' => $translationText,
+                                ]);
+                                $stats['translations_created']++;
+                            }
+                        }
                     }
                 }
 
@@ -349,17 +395,32 @@ class WordsExportController extends Controller
 
             DB::commit();
 
-            $message = sprintf(
-                'Імпорт завершено для мови [%s]. Слів створено: %d, пропущено: %d. Перекладів створено: %d, оновлено: %d, пропущено: %d. Тегів створено: %d, прив\'язано: %d.',
-                $lang,
-                $stats['words_created'],
-                $stats['words_skipped'],
-                $stats['translations_created'],
-                $stats['translations_updated'],
-                $stats['translations_skipped'],
-                $stats['tags_created'],
-                $stats['tags_attached']
-            );
+            if ($overwriteTranslations) {
+                $message = sprintf(
+                    'Імпорт завершено для мови [%s] (режим перезапису). Слів створено: %d, пропущено: %d. Перекладів створено: %d, перезаписано: %d, видалено: %d, без змін: %d. Тегів створено: %d, прив\'язано: %d.',
+                    $lang,
+                    $stats['words_created'],
+                    $stats['words_skipped'],
+                    $stats['translations_created'],
+                    $stats['translations_overwritten'],
+                    $stats['translations_deleted'],
+                    $stats['translations_skipped'],
+                    $stats['tags_created'],
+                    $stats['tags_attached']
+                );
+            } else {
+                $message = sprintf(
+                    'Імпорт завершено для мови [%s]. Слів створено: %d, пропущено: %d. Перекладів створено: %d, оновлено: %d, пропущено: %d. Тегів створено: %d, прив\'язано: %d.',
+                    $lang,
+                    $stats['words_created'],
+                    $stats['words_skipped'],
+                    $stats['translations_created'],
+                    $stats['translations_updated'],
+                    $stats['translations_skipped'],
+                    $stats['tags_created'],
+                    $stats['tags_attached']
+                );
+            }
 
             return redirect()
                 ->route('admin.words.export.index', ['lang' => $lang])
