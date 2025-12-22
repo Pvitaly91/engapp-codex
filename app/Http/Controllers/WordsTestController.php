@@ -104,7 +104,7 @@ class WordsTestController extends Controller
             return null;
         }
 
-        $translation = optional($word->translates->first())->translation ?? '';
+        $translation = optional($word->translates->first())->translation ?: '';
 
         // For medium and hard, always use uk_to_en (show translation, user types English word)
         if ($difficulty === 'medium' || $difficulty === 'hard') {
