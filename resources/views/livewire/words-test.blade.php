@@ -1,4 +1,32 @@
-<div class="space-y-8">
+<div
+  class="space-y-8"
+  x-data="{
+    showOverlay: false,
+    loaderTimer: null,
+    targets: ['submitAnswer', 'resetTest'],
+  }"
+  x-init="
+    const component = this;
+    const getMethod = (message) => message?.method ?? message?.payload?.method ?? message?.updateQueue?.[0]?.payload?.method ?? null;
+
+    Livewire.hook('message.sent', (message) => {
+      const method = getMethod(message);
+      if (!component.targets.includes(method)) return;
+
+      if (component.loaderTimer) clearTimeout(component.loaderTimer);
+      component.loaderTimer = setTimeout(() => { component.showOverlay = true; }, 1500);
+    });
+
+    Livewire.hook('message.processed', (message) => {
+      const method = getMethod(message);
+      if (!component.targets.includes(method)) return;
+
+      if (component.loaderTimer) clearTimeout(component.loaderTimer);
+      component.loaderTimer = null;
+      component.showOverlay = false;
+    });
+  "
+>
   <style>
     @keyframes fade-in-soft {
       from { opacity: 0; transform: translateY(6px); }
@@ -52,9 +80,10 @@
 
   {{-- Loading Overlay --}}
   <div
-    wire:loading.flex
-    wire:target="submitAnswer, resetTest"
-    class="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm items-center justify-center"
+    x-show="showOverlay"
+    x-transition.opacity.duration.200ms
+    x-cloak
+    class="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm items-center justify-center flex"
   >
     <div class="bg-white rounded-lg shadow-lg px-6 py-4 flex items-center gap-3 text-sm text-gray-700">
       <span class="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></span>
