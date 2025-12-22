@@ -83,6 +83,40 @@
                     </div>
                 </div>
 
+                <!-- Import Section -->
+                <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <h2 class="mb-4 text-lg font-semibold text-slate-800">Імпорт з JSON</h2>
+                    <p class="mb-4 text-sm text-slate-500">Завантажте JSON файл з перекладами. Дублікати слів, перекладів та тегів будуть пропущені.</p>
+                    <form
+                        action="{{ route('admin.words.export.import') }}"
+                        method="POST"
+                        enctype="multipart/form-data"
+                        class="space-y-4"
+                    >
+                        @csrf
+                        <div>
+                            <label for="json_file" class="block text-sm font-medium text-slate-700 mb-2">JSON файл</label>
+                            <input
+                                type="file"
+                                name="json_file"
+                                id="json_file"
+                                accept=".json"
+                                required
+                                class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                            >
+                            @error('json_file')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <button
+                            type="submit"
+                            class="inline-flex items-center justify-center rounded-lg border border-amber-300 bg-amber-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-amber-600 focus:outline-none focus:ring"
+                        >
+                            <i class="fa-solid fa-file-import mr-2"></i>Імпортувати з JSON
+                        </button>
+                    </form>
+                </div>
+
                 <!-- File Info -->
                 @if ($fileExists)
                     <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">

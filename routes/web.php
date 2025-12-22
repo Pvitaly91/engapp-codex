@@ -253,6 +253,7 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
             Route::post('/', [WordsExportController::class, 'export'])->name('run');
             Route::get('/view', [WordsExportController::class, 'view'])->name('view');
             Route::get('/download', [WordsExportController::class, 'download'])->name('download');
+            Route::post('/import', [WordsExportController::class, 'import'])->name('import');
         });
 
         Route::get('/search', SiteSearchController::class)->name('site.search');
