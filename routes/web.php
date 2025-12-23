@@ -48,6 +48,21 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// Public locale switching route
+Route::get('/set-locale', function (\Illuminate\Http\Request $request) {
+    $lang = $request->input('lang', 'uk');
+    if (! in_array($lang, ['en', 'uk'])) {
+        $lang = 'uk';
+    }
+    session(['locale' => $lang]);
+    app()->setLocale($lang);
+
+    // Set cookie for 1 year
+    $cookie = cookie('locale', $lang, 60 * 24 * 365);
+
+    return redirect()->back()->withCookie($cookie);
+})->name('locale.set');
+
 Route::prefix('words/test')->group(function () {
     Route::get('/', [WordsTestController::class, 'index'])->name('words.test');
     Route::get('/medium', [WordsTestController::class, 'index'])->name('words.test.medium')->defaults('difficulty', 'medium');

@@ -1,6 +1,6 @@
 @extends('layouts.engram')
 
-@section('title', $sectionTitle ?? 'Теорія')
+@section('title', $sectionTitle ?? __('public.theory.title'))
 
 @section('content')
     @php
@@ -38,26 +38,24 @@
                             <svg class="h-5 w-5 text-yellow-300" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
                             </svg>
-                            Розділ теорії
+                            {{ __('public.theory.section_badge') }}
                         </span>
                         <span class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium">
-                            {{ $categories->count() }} категорій
+                            {{ $categories->count() }} {{ __('public.theory.categories_count') }}
                         </span>
                         <span class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium">
-                            {{ $totalPages }} уроків
+                            {{ $totalPages }} {{ __('public.theory.lessons_count') }}
                         </span>
                     </div>
 
                     {{-- Title --}}
                     <h1 class="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-6">
-                        Граматика англійської мови
+                        {{ __('public.theory.title') }}
                     </h1>
 
                     {{-- Description --}}
                     <p class="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-2xl">
-                        Вивчай граматику англійської мови від базових понять до просунутих тем. 
-                        Структуровані уроки, зрозумілі пояснення та практичні приклади допоможуть тобі 
-                        опанувати мову на рівні від A1 до B2.
+                        {{ __('public.theory.description') }}
                     </p>
 
                     {{-- Quick Action Buttons --}}
@@ -71,7 +69,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                 </svg>
-                                Почати навчання
+                                {{ __('public.theory.start_learning') }}
                             </a>
                         @endif
                         <a 
@@ -81,7 +79,7 @@
                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                             </svg>
-                            Усі категорії
+                            {{ __('public.theory.all_categories') }}
                         </a>
                     </div>
                 </div>
@@ -91,9 +89,9 @@
         {{-- Categories Section --}}
         <section id="categories-section" class="scroll-mt-24">
             <div class="text-center mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-3">Теми для вивчення</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-3">{{ __('public.theory.topics_to_learn') }}</h2>
                 <p class="text-muted-foreground max-w-2xl mx-auto">
-                    Обери тему та почни вивчати граматику англійської мови
+                    {{ __('public.theory.topics_hint') }}
                 </p>
             </div>
 
@@ -149,9 +147,9 @@
                             >
                                 <span class="text-sm text-muted-foreground">
                                     @if(isset($category->pages_count) && $category->pages_count > 0)
-                                        {{ $category->pages_count }} {{ trans_choice('уроків|урок|уроки', $category->pages_count) }}
+                                        {{ $category->pages_count }} {{ trans_choice(__('public.theory.lessons_count').'|'.__('public.theory.lessons_count').'|'.__('public.theory.lessons_count'), $category->pages_count) }}
                                     @else
-                                        Немає уроків
+                                        {{ __('public.common.no_lessons') }}
                                     @endif
                                 </span>
                             </a>
@@ -227,8 +225,8 @@
                                 </svg>
                             </div>
                         </div>
-                        <h3 class="text-lg font-semibold text-foreground mb-2">Категорії поки відсутні</h3>
-                        <p class="text-muted-foreground">Матеріали теорії з'являться тут незабаром.</p>
+                        <h3 class="text-lg font-semibold text-foreground mb-2">{{ __('public.theory.no_categories_title') }}</h3>
+                        <p class="text-muted-foreground">{{ __('public.theory.no_categories_hint') }}</p>
                     </div>
                 @endforelse
             </div>
@@ -243,32 +241,30 @@
                             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
-                            Рекомендований шлях
+                            {{ __('public.theory.recommended_path') }}
                         </div>
                         <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                            Як ефективно вивчати граматику?
+                            {{ __('public.theory.how_to_learn') }}
                         </h2>
                         <p class="text-muted-foreground leading-relaxed mb-6">
-                            Почни з базових тем і поступово переходь до складніших. 
-                            Кожен урок включає теоретичний матеріал, приклади та практичні вправи 
-                            для закріплення знань.
+                            {{ __('public.theory.how_to_learn_desc') }}
                         </p>
                         <div class="space-y-3">
                             <div class="flex items-start gap-3">
                                 <div class="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-600 text-xs font-bold flex-shrink-0 mt-0.5">1</div>
-                                <p class="text-sm text-foreground"><strong>Почни з базової граматики</strong> — частини мови та структура речення</p>
+                                <p class="text-sm text-foreground"><strong>{{ __('public.theory.step1') }}</strong> — {{ __('public.theory.step1_desc') }}</p>
                             </div>
                             <div class="flex items-start gap-3">
                                 <div class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-500/20 text-blue-600 text-xs font-bold flex-shrink-0 mt-0.5">2</div>
-                                <p class="text-sm text-foreground"><strong>Вивчи артиклі та іменники</strong> — a/an/the, злічувані/незлічувані</p>
+                                <p class="text-sm text-foreground"><strong>{{ __('public.theory.step2') }}</strong> — {{ __('public.theory.step2_desc') }}</p>
                             </div>
                             <div class="flex items-start gap-3">
                                 <div class="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-600 text-xs font-bold flex-shrink-0 mt-0.5">3</div>
-                                <p class="text-sm text-foreground"><strong>Опануй порівняння</strong> — ступені порівняння прикметників</p>
+                                <p class="text-sm text-foreground"><strong>{{ __('public.theory.step3') }}</strong> — {{ __('public.theory.step3_desc') }}</p>
                             </div>
                             <div class="flex items-start gap-3">
                                 <div class="flex h-6 w-6 items-center justify-center rounded-full bg-purple-500/20 text-purple-600 text-xs font-bold flex-shrink-0 mt-0.5">4</div>
-                                <p class="text-sm text-foreground"><strong>Поглиби знання</strong> — порядок слів, інверсія, складні структури</p>
+                                <p class="text-sm text-foreground"><strong>{{ __('public.theory.step4') }}</strong> — {{ __('public.theory.step4_desc') }}</p>
                             </div>
                         </div>
                     </div>
@@ -277,19 +273,19 @@
                     <div class="grid gap-4 sm:grid-cols-2">
                         <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
                             <div class="text-4xl font-black text-primary mb-2">{{ $categories->count() }}</div>
-                            <p class="text-sm text-muted-foreground">Категорій теорії</p>
+                            <p class="text-sm text-muted-foreground">{{ __('public.theory.theory_categories') }}</p>
                         </div>
                         <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
                             <div class="text-4xl font-black text-secondary mb-2">{{ $totalPages }}</div>
-                            <p class="text-sm text-muted-foreground">Сторінок уроків</p>
+                            <p class="text-sm text-muted-foreground">{{ __('public.theory.lesson_pages') }}</p>
                         </div>
                         <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
                             <div class="text-4xl font-black text-emerald-500 mb-2">A1-B2</div>
-                            <p class="text-sm text-muted-foreground">Рівні складності</p>
+                            <p class="text-sm text-muted-foreground">{{ __('public.theory.difficulty_levels') }}</p>
                         </div>
                         <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
-                            <div class="text-4xl font-black text-amber-500 mb-2" role="img" aria-label="Україна">🇺🇦</div>
-                            <p class="text-sm text-muted-foreground">Українською мовою</p>
+                            <div class="text-4xl font-black text-amber-500 mb-2" role="img" aria-label="{{ __('public.theory.in_ukrainian') }}">🇺🇦</div>
+                            <p class="text-sm text-muted-foreground">{{ __('public.theory.in_ukrainian') }}</p>
                         </div>
                     </div>
                 </div>
@@ -305,7 +301,7 @@
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
-                Категорії
+                {{ __('public.theory.mobile_categories') }}
             </button>
 
             {{-- Mobile Menu Content --}}
@@ -322,8 +318,8 @@
             >
                 <div class="space-y-4">
                     <div class="flex items-center justify-between border-b border-border pb-3">
-                        <h4 class="font-bold text-foreground">Категорії теорії</h4>
-                        <span class="text-xs text-muted-foreground">{{ $categories->count() }} категорій</span>
+                        <h4 class="font-bold text-foreground">{{ __('public.theory.theory_categories_mobile') }}</h4>
+                        <span class="text-xs text-muted-foreground">{{ $categories->count() }} {{ __('public.theory.categories_count') }}</span>
                     </div>
                     <nav class="space-y-2">
                         @forelse($categories as $category)
@@ -362,7 +358,7 @@
                                 @endif
                             </div>
                         @empty
-                            <p class="text-sm text-muted-foreground text-center py-4">Немає категорій</p>
+                            <p class="text-sm text-muted-foreground text-center py-4">{{ __('public.common.no_categories') }}</p>
                         @endforelse
                     </nav>
                 </div>
