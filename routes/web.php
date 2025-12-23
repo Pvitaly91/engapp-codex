@@ -29,6 +29,8 @@ use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
 use App\Http\Controllers\Admin\WordsExportController;
 use App\Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +49,20 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.perform');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/set-locale', function (Request $request) {
+    $lang = $request->input('lang', 'uk');
+
+    if (! in_array($lang, ['en', 'uk'])) {
+        $lang = 'uk';
+    }
+
+    session(['locale' => $lang]);
+    app()->setLocale($lang);
+    Cookie::queue('locale', $lang, 60 * 24 * 365);
+
+    return redirect()->back();
+})->name('setlocale');
 
 Route::prefix('words/test')->group(function () {
     Route::get('/', [WordsTestController::class, 'index'])->name('words.test');
@@ -143,16 +159,17 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::put('/site-tree-variants/{variant}', [SiteTreeController::class, 'updateVariant'])->name('site-tree.variants.update');
         Route::delete('/site-tree-variants/{variant}', [SiteTreeController::class, 'destroyVariant'])->name('site-tree.variants.destroy');
 
-        Route::get('set-locale', function (\Illuminate\Http\Request $request) {
-            $lang = $request->input('lang', 'en');
-            if (! in_array($lang, ['en', 'uk', 'pl'])) {
-                $lang = 'en';
+        Route::get('set-locale', function (Request $request) {
+            $lang = $request->input('lang', 'uk');
+            if (! in_array($lang, ['en', 'uk'])) {
+                $lang = 'uk';
             }
             session(['locale' => $lang]);
             app()->setLocale($lang);
+            Cookie::queue('locale', $lang, 60 * 24 * 365);
 
             return redirect()->back();
-        })->name('setlocale');
+        })->name('admin.setlocale');
 
         Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
 

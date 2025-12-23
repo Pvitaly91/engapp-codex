@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="uk" class="h-full">
+<html lang="{{ app()->getLocale() }}" class="h-full">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>@yield('title', 'Gramlyze — Платформа для викладачів англійської')</title>
-  <meta name="description" content="Gramlyze допомагає збирати тести, аналізувати відповіді та координувати команду викладачів англійської." />
+  <title>@yield('title', __('public.meta.title'))</title>
+  <meta name="description" content="@yield('meta_description', __('public.meta.description'))" />
 
   <!-- Google Font: Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -158,13 +158,13 @@
           <x-gramlyze-logo variant="compact" class="md:hidden" />
         </a>
         <form action="{{ route('site.search') }}" method="GET" class="relative hidden md:block">
-          <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук матеріалів" class="w-56 rounded-xl border border-input bg-background px-4 py-2 text-sm shadow-sm focus:border-primary focus:outline-none" />
+          <input type="search" name="q" id="search-box" autocomplete="off" placeholder="{{ __('public.search.placeholder') }}" class="w-56 rounded-xl border border-input bg-background px-4 py-2 text-sm shadow-sm focus:border-primary focus:outline-none" />
           <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
         </form>
         <div class="flex items-center gap-2 lg:hidden">
-          <button id="mobile-search-btn" class="rounded-xl border border-border p-2 text-sm md:hidden" aria-expanded="false" aria-controls="mobile-search">🔍<span class="sr-only">Пошук</span></button>
+          <button id="mobile-search-btn" class="rounded-xl border border-border p-2 text-sm md:hidden" aria-expanded="false" aria-controls="mobile-search">🔍<span class="sr-only">{{ __('public.search.mobile') }}</span></button>
           <button id="mobile-menu-toggle" class="rounded-xl border border-border p-2 text-sm" aria-expanded="false" aria-controls="primary-nav">
-            <span class="sr-only">Меню</span>
+            <span class="sr-only">{{ __('public.nav.menu') }}</span>
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="4" y1="6" x2="20" y2="6" />
               <line x1="4" y1="12" x2="20" y2="12" />
@@ -173,18 +173,32 @@
           </button>
         </div>
         <nav id="primary-nav" class="order-3 hidden w-full flex flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium lg:order-none lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-6 lg:border-0 lg:pt-0">
-          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog.tests-cards') }}">Каталог</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('theory.index') }}">Теорія</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">Рецензії</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">AI Toolkit</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">Командам</a>
-          <a class="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg" href="{{ route('grammar-test') }}">Розпочати</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('theory.index') }}">{{ __('public.nav.theory') }}</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">{{ __('public.nav.reviews') }}</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">{{ __('public.nav.ai_toolkit') }}</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">{{ __('public.nav.teams') }}</a>
+          <a class="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg" href="{{ route('grammar-test') }}">{{ __('public.nav.start') }}</a>
+          <form action="{{ route('setlocale') }}" method="GET" class="inline-flex items-center">
+            <label for="lang-select" class="sr-only">{{ __('public.common.language') ?? 'Language' }}</label>
+            <select id="lang-select" name="lang" class="rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold text-foreground" onchange="this.form.submit()">
+              <option value="uk" @selected(app()->getLocale() === 'uk')>UK</option>
+              <option value="en" @selected(app()->getLocale() === 'en')>EN</option>
+            </select>
+          </form>
         </nav>
       </div>
       <div id="mobile-search" class="md:hidden hidden pb-3">
         <form action="{{ route('site.search') }}" method="GET" class="relative">
-          <input type="search" name="q" id="search-box-mobile" autocomplete="off" placeholder="Пошук матеріалів" class="mt-3 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm shadow-sm" />
+          <input type="search" name="q" id="search-box-mobile" autocomplete="off" placeholder="{{ __('public.search.placeholder') }}" class="mt-3 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm shadow-sm" />
           <div id="search-box-mobile-list" class="absolute left-0 right-0 mt-1 bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
+        </form>
+        <form action="{{ route('setlocale') }}" method="GET" class="mt-3 flex items-center justify-end">
+          <label for="lang-select-mobile" class="sr-only">{{ __('public.common.language') ?? 'Language' }}</label>
+          <select id="lang-select-mobile" name="lang" class="rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold text-foreground" onchange="this.form.submit()">
+            <option value="uk" @selected(app()->getLocale() === 'uk')>UK</option>
+            <option value="en" @selected(app()->getLocale() === 'en')>EN</option>
+          </select>
         </form>
       </div>
     </div>
@@ -201,28 +215,31 @@
           <x-gramlyze-logo variant="compact" size="h-9 w-9" />
           <span class="font-semibold">Gramlyze <span id="year"></span></span>
         </div>
-        <p class="text-muted-foreground max-w-2xl">Платформа для викладачів та методистів англійської мови: тести, AI-аналіз, база знань і спільна робота команди.</p>
+        <p class="text-muted-foreground max-w-2xl">{{ __('public.footer.description') }}</p>
         <div class="flex flex-wrap gap-3 text-xs text-muted-foreground">
-          <span class="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1">🔒 Безпека даних</span>
-          <span class="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1">🤝 Підтримка команди</span>
-          <span class="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1">⚡ Швидкий старт</span>
+          <span class="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1">🔒 {{ __('public.footer.badges.security') }}</span>
+          <span class="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1">🤝 {{ __('public.footer.badges.team') }}</span>
+          <span class="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1">⚡ {{ __('public.footer.badges.fast') }}</span>
         </div>
       </div>
       <div class="flex flex-col gap-3 md:items-end">
         <div class="flex flex-wrap gap-4 text-sm md:justify-end">
-          <a class="text-muted-foreground hover:text-foreground" href="#">Політика</a>
-          <a class="text-muted-foreground hover:text-foreground" href="#">Умови</a>
-          <a class="text-muted-foreground hover:text-foreground" href="#faq">Підтримка</a>
+          <a class="text-muted-foreground hover:text-foreground" href="#">{{ __('public.footer.policy') }}</a>
+          <a class="text-muted-foreground hover:text-foreground" href="#">{{ __('public.footer.terms') }}</a>
+          <a class="text-muted-foreground hover:text-foreground" href="#faq">{{ __('public.footer.support') }}</a>
         </div>
         <div class="flex items-center gap-3">
-          <button id="theme-toggle" type="button" class="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:text-foreground">Тема</button>
-          <a href="{{ route('login.show') }}" class="rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary">Вхід до адмінки</a>
+          <button id="theme-toggle" type="button" class="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:text-foreground">{{ __('public.footer.theme') }}</button>
+          <a href="{{ route('login.show') }}" class="rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary">{{ __('public.footer.admin') }}</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
+    window.i18n = {
+      goToSlide: @json(__('public.slider.go_to_slide')),
+    };
     // Dark mode toggle with persistence
     (function themeInit(){
       const saved = localStorage.getItem('theme');
