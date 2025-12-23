@@ -29,6 +29,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                 'language' => 'uk',
             ],
             'tags' => [
+                'Question Sentences',
+                'Types of Question Sentences',
                 'Question Tags',
                 'Disjunctive Questions',
                 'Розділові питання',
@@ -39,8 +41,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                 'Types of Questions',
                 'Grammar',
                 'Theory',
-                'B1',
-                'B2',
+                'CEFR B1',
+                'CEFR B2',
             ],
             'blocks' => [
                 [
@@ -49,6 +51,14 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'hero',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'CEFR B1',
+                        'CEFR B2',
+                    ],
                     'body' => json_encode([
                         'level' => 'B1–B2',
                         'intro' => 'У цій темі ти вивчиш <strong>розділові питання (Question Tags)</strong> — короткі питання в кінці речення для підтвердження інформації або ввічливого спілкування.',
@@ -80,6 +90,13 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'forms-grid-what-is',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'CEFR B1',
+                    ],
                     'body' => json_encode([
                         'title' => '1. Що таке Question Tags?',
                         'intro' => 'Question tags — це короткі питання в кінці речення:',
@@ -96,6 +113,15 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-to-be',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'To Be',
+                        'Be (am/is/are/was/were)',
+                        'CEFR B1',
+                    ],
                     'body' => json_encode([
                         'title' => '2. Question Tags з дієсловом TO BE',
                         'sections' => [
@@ -141,6 +167,14 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-do-does-did',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'Do/Does/Did',
+                        'CEFR B1',
+                    ],
                     'body' => json_encode([
                         'title' => '3. Question Tags з DO/DOES/DID',
                         'sections' => [
@@ -185,6 +219,19 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-modals',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'Modal Verbs',
+                        'Can/Could',
+                        'Will/Would',
+                        'Should',
+                        'Must',
+                        'May/Might',
+                        'CEFR B1',
+                    ],
                     'body' => json_encode([
                         'title' => '4. Question Tags з модальними дієсловами',
                         'sections' => [
@@ -229,6 +276,14 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-have-has',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'Have/Has/Had',
+                        'CEFR B1',
+                    ],
                     'body' => json_encode([
                         'title' => '5. Question Tags з HAVE/HAS',
                         'sections' => [
@@ -271,6 +326,18 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-other-tenses',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'Present Continuous',
+                        'Past Continuous',
+                        'Future Simple',
+                        'Be (am/is/are/was/were)',
+                        'Will/Would',
+                        'CEFR B1',
+                    ],
                     'body' => json_encode([
                         'title' => '6. Question Tags з іншими часами',
                         'sections' => [
@@ -314,6 +381,15 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B2',
                     'uuid_key' => 'usage-panels-special-cases',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'To Be',
+                        'Will/Would',
+                        'CEFR B2',
+                    ],
                     'body' => json_encode([
                         'title' => '7. Спеціальні випадки та винятки',
                         'sections' => [
@@ -365,6 +441,13 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B2',
                     'uuid_key' => 'usage-panels-intonation',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'CEFR B2',
+                    ],
                     'body' => json_encode([
                         'title' => '8. Інтонація та використання',
                         'sections' => [
@@ -407,6 +490,17 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'comparison-table',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'To Be',
+                        'Do/Does/Did',
+                        'Modal Verbs',
+                        'Have/Has/Had',
+                        'CEFR B1',
+                    ],
                     'body' => json_encode([
                         'title' => '9. Швидка таблиця Question Tags',
                         'intro' => 'Основні правила формування question tags:',
@@ -451,6 +545,15 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'mistakes-grid',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'To Be',
+                        'Do/Does/Did',
+                        'CEFR B1',
+                    ],
                     'body' => json_encode([
                         'title' => '10. Типові помилки',
                         'items' => [
@@ -491,6 +594,13 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'summary-list',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'CEFR B1',
+                    ],
                     'body' => json_encode([
                         'title' => '11. Короткий конспект',
                         'items' => [
@@ -513,6 +623,13 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'practice-set',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'CEFR B1',
+                    ],
                     'body' => json_encode([
                         'title' => '12. Практика',
                         'select_title' => 'Вправа 1. Обери правильний tag',
@@ -561,6 +678,13 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'navigation-chips',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Question Tags',
+                        'Tag Questions',
+                        'CEFR B1',
+                    ],
                     'body' => json_encode([
                         'title' => 'Інші теми з розділу Види питальних речень',
                         'items' => [

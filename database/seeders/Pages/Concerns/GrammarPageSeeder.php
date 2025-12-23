@@ -91,7 +91,7 @@ abstract class GrammarPageSeeder extends Seeder
             $subtitleUuid = $config['subtitle_uuid']
                 ?? TextBlockUuidGenerator::generateWithKey(static::class, 'subtitle');
 
-            TextBlock::create([
+            $subtitle = TextBlock::create([
                 'uuid' => $subtitleUuid,
                 'page_id' => $page->id,
                 'locale' => $config['locale'] ?? 'uk',
@@ -105,6 +105,13 @@ abstract class GrammarPageSeeder extends Seeder
                 'seeder' => static::class,
             ]);
             $blockIndex++;
+
+            $subtitleTags = $this->resolveBlockTags($config, [
+                'tags' => $config['subtitle_tags'] ?? [],
+                'level' => $config['subtitle_level'] ?? null,
+            ]);
+
+            $this->syncBlockTags($subtitle, $subtitleTags);
         }
 
         foreach ($config['blocks'] ?? [] as $index => $block) {
@@ -117,7 +124,7 @@ abstract class GrammarPageSeeder extends Seeder
                     ? TextBlockUuidGenerator::generateWithKey(static::class, $block['uuid_key'])
                     : TextBlockUuidGenerator::generate(static::class, $blockIndex));
 
-            TextBlock::create([
+            $textBlock = TextBlock::create([
                 'uuid' => $uuid,
                 'page_id' => $page->id,
                 'locale' => $config['locale'] ?? 'uk',
@@ -131,6 +138,9 @@ abstract class GrammarPageSeeder extends Seeder
                 'seeder' => static::class,
             ]);
             $blockIndex++;
+
+            $blockTags = $this->resolveBlockTags($config, $block);
+            $this->syncBlockTags($textBlock, $blockTags);
         }
 
         // Attach tags if defined
@@ -138,9 +148,42 @@ abstract class GrammarPageSeeder extends Seeder
             $tagIds = [];
             foreach ($config['tags'] as $tagName) {
                 $tag = Tag::firstOrCreate(['name' => $tagName]);
-                $tagIds[] = $tag->id;
+             $tagIds[] = $tag->id;
             }
             $page->tags()->sync($tagIds);
         }
+    }
+
+    private function resolveBlockTags(array $config, array $block): array
+    {
+        $tags = [];
+
+        if (! empty($config['tags'])) {
+            $tags = array_merge($tags, $config['tags']);
+        }
+
+        if (! empty($block['tags'])) {
+            $tags = array_merge($tags, $block['tags']);
+        }
+
+        if (! empty($block['level'])) {
+            $tags[] = 'CEFR ' . $block['level'];
+        }
+
+        return array_values(array_unique($tags));
+    }
+
+    private function syncBlockTags(TextBlock $textBlock, array $tags): void
+    {
+        if (empty($tags)) {
+            return;
+        }
+
+        $tagIds = [];
+        foreach ($tags as $tagName) {
+            $tagIds[] = Tag::firstOrCreate(['name' => $tagName])->id;
+        }
+
+        $textBlock->tags()->sync($tagIds);
     }
 }

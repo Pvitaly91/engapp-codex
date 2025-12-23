@@ -29,6 +29,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 'language' => 'uk',
             ],
             'tags' => [
+                'Question Sentences',
+                'Types of Question Sentences',
                 'Yes/No Questions',
                 'General Questions',
                 'Загальні питання',
@@ -36,12 +38,13 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 'Types of Questions',
                 'Auxiliary Verbs',
                 'Do/Does/Did',
-                'To Be Questions',
-                'Modal Questions',
+                'To Be',
+                'Be (am/is/are/was/were)',
+                'Modal Verbs',
                 'Grammar',
                 'Theory',
-                'A1',
-                'A2',
+                'CEFR A1',
+                'CEFR A2',
             ],
             'blocks' => [
                 [
@@ -50,6 +53,14 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'hero',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Yes/No Questions',
+                        'General Questions',
+                        'CEFR A1',
+                        'CEFR A2',
+                    ],
                     'body' => json_encode([
                         'level' => 'A1–A2',
                         'intro' => 'У цій темі ти вивчиш <strong>загальні питання (Yes/No Questions)</strong> — найпростіший тип питань в англійській мові, на які можна відповісти "так" або "ні".',
@@ -81,6 +92,13 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'forms-grid-what-is',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Yes/No Questions',
+                        'General Questions',
+                        'CEFR A1',
+                    ],
                     'body' => json_encode([
                         'title' => '1. Що таке загальні питання?',
                         'intro' => 'Yes/No Questions (загальні питання) — це питання, на які можна відповісти "так" або "ні":',
@@ -97,6 +115,16 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-do-does-did',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Yes/No Questions',
+                        'General Questions',
+                        'Do/Does/Did',
+                        'Present Simple',
+                        'Past Simple',
+                        'CEFR A1',
+                    ],
                     'body' => json_encode([
                         'title' => '2. Загальні питання з DO/DOES/DID',
                         'sections' => [
@@ -140,6 +168,15 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-to-be',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Yes/No Questions',
+                        'To Be',
+                        'Be (am/is/are/was/were)',
+                        'General Questions',
+                        'CEFR A1',
+                    ],
                     'body' => json_encode([
                         'title' => '3. Загальні питання з TO BE',
                         'sections' => [
@@ -183,6 +220,19 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-modals',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Yes/No Questions',
+                        'General Questions',
+                        'Modal Verbs',
+                        'Can/Could',
+                        'Will/Would',
+                        'Should',
+                        'Must',
+                        'May/Might',
+                        'CEFR A2',
+                    ],
                     'body' => json_encode([
                         'title' => '4. Загальні питання з модальними дієсловами',
                         'sections' => [
@@ -228,6 +278,15 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-have-got',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Yes/No Questions',
+                        'General Questions',
+                        'Have/Has/Had',
+                        'Do/Does/Did',
+                        'CEFR A2',
+                    ],
                     'body' => json_encode([
                         'title' => '5. Загальні питання з HAVE GOT',
                         'sections' => [
@@ -261,6 +320,18 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-other-tenses',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Yes/No Questions',
+                        'General Questions',
+                        'Present Continuous',
+                        'Past Continuous',
+                        'Present Perfect',
+                        'Be (am/is/are/was/were)',
+                        'Have/Has/Had',
+                        'CEFR B1',
+                    ],
                     'body' => json_encode([
                         'title' => '6. Інші часи',
                         'sections' => [
@@ -304,6 +375,13 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'comparison-table',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Yes/No Questions',
+                        'General Questions',
+                        'CEFR A2',
+                    ],
                     'body' => json_encode([
                         'title' => '7. Порівняльна таблиця',
                         'intro' => 'Як формувати загальні питання з різними типами дієслів:',
@@ -348,6 +426,15 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'mistakes-grid',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Yes/No Questions',
+                        'General Questions',
+                        'Do/Does/Did',
+                        'To Be',
+                        'CEFR A1',
+                    ],
                     'body' => json_encode([
                         'title' => '8. Типові помилки',
                         'items' => [
@@ -388,6 +475,13 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'summary-list',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Yes/No Questions',
+                        'General Questions',
+                        'CEFR A1',
+                    ],
                     'body' => json_encode([
                         'title' => '9. Короткий конспект',
                         'items' => [
