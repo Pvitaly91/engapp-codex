@@ -179,10 +179,7 @@
           <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">{{ __('public.nav.ai_toolkit') }}</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">{{ __('public.nav.teams') }}</a>
           <!-- Language Switcher - Desktop -->
-          <div class="flex items-center gap-1 rounded-xl border border-border bg-muted/30 p-1">
-            <a href="{{ route('locale.set', ['lang' => 'uk']) }}" class="rounded-lg px-2.5 py-1 text-xs font-semibold transition {{ app()->getLocale() === 'uk' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-background' }}">{{ __('public.language.uk') }}</a>
-            <a href="{{ route('locale.set', ['lang' => 'en']) }}" class="rounded-lg px-2.5 py-1 text-xs font-semibold transition {{ app()->getLocale() === 'en' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-background' }}">{{ __('public.language.en') }}</a>
-          </div>
+          @include('language-manager::components.switcher', ['style' => 'pills'])
           <a class="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg" href="{{ route('grammar-test') }}">{{ __('public.nav.start') }}</a>
         </nav>
       </div>
@@ -221,9 +218,8 @@
         </div>
         <div class="flex items-center gap-3">
           <!-- Language Switcher - Mobile (shown in footer for mobile) -->
-          <div class="flex items-center gap-1 rounded-full border border-border bg-muted/30 p-1 lg:hidden">
-            <a href="{{ route('locale.set', ['lang' => 'uk']) }}" class="rounded-full px-2.5 py-1 text-xs font-semibold transition {{ app()->getLocale() === 'uk' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-background' }}">{{ __('public.language.uk') }}</a>
-            <a href="{{ route('locale.set', ['lang' => 'en']) }}" class="rounded-full px-2.5 py-1 text-xs font-semibold transition {{ app()->getLocale() === 'en' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-background' }}">{{ __('public.language.en') }}</a>
+          <div class="lg:hidden">
+            @include('language-manager::components.switcher', ['style' => 'pills'])
           </div>
           <button id="theme-toggle" type="button" class="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:text-foreground">{{ __('public.footer.theme') }}</button>
           <a href="{{ route('login.show') }}" class="rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary">{{ __('public.footer.admin_login') }}</a>
