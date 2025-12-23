@@ -1,13 +1,13 @@
 @extends('layouts.engram')
 
-@section('title', 'Пошук — Gramlyze')
+@section('title', __('public.search_page.title') . ' — Gramlyze')
 
 @section('content')
 <div class="space-y-6">
     <header class="space-y-2" data-animate>
-        <h1 class="text-3xl font-bold tracking-tight text-foreground">Результати пошуку</h1>
+        <h1 class="text-3xl font-bold tracking-tight text-foreground">{{ __('public.search_page.title') }}</h1>
         <p class="text-sm text-muted-foreground">
-            Знайдено для запиту: <span class="font-semibold text-foreground">"{{ e($query) }}"</span>
+            {{ __('public.search_page.found') }}: <span class="font-semibold text-foreground">"{{ e($query) }}"</span>
         </p>
     </header>
 
@@ -18,10 +18,10 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
             </div>
-            <p class="text-lg font-semibold text-foreground">Нічого не знайдено</p>
-            <p class="mt-2 text-sm text-muted-foreground">Спробуйте інший запит або перегляньте каталог тестів</p>
+            <p class="text-lg font-semibold text-foreground">{{ __('public.search_page.empty_title') }}</p>
+            <p class="mt-2 text-sm text-muted-foreground">{{ __('public.search_page.empty_body') }}</p>
             <a href="{{ route('catalog.tests-cards') }}" class="mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg">
-                До каталогу
+                {{ __('public.search_page.to_catalog') }}
             </a>
         </div>
     @else
@@ -31,11 +31,11 @@
                     <div class="flex items-start justify-between gap-2">
                         <h3 class="text-base font-semibold text-foreground group-hover:text-primary">{{ $item['title'] }}</h3>
                         <span class="shrink-0 rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
-                            {{ $item['type'] === 'page' ? 'Теорія' : 'Тест' }}
+                            {{ $item['type'] === 'page' ? __('public.search_page.type.theory') : __('public.search_page.type.test') }}
                         </span>
                     </div>
                     <div class="flex items-center gap-2 text-sm text-primary">
-                        <span>Перейти</span>
+                        <span>{{ __('public.common.go') }}</span>
                         <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>

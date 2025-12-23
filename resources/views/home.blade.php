@@ -1,8 +1,9 @@
 @extends('layouts.engram')
 
-@section('title', 'Gramlyze — платформа англійської практики')
+@section('title', __('public.meta.title'))
 
 @section('content')
+@php($home = __('public.home'))
 <div class="space-y-20">
   <!-- HERO -->
   <section id="hero" data-animate class="relative overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-10 shadow-soft md:p-14">
@@ -10,39 +11,32 @@
     <div class="grid gap-12 md:grid-cols-[1.35fr_1fr]">
       <div class="space-y-8" data-animate data-animate-delay="120">
         <span class="inline-flex items-center gap-2 rounded-full bg-background/70 px-5 py-1.5 text-xs font-semibold uppercase tracking-[0.4em] text-primary backdrop-blur">
-          Новий публічний інтерфейс
+          {{ $home['badge'] }}
         </span>
         <div class="space-y-5">
           <h1 class="text-4xl font-bold tracking-tight text-foreground md:text-6xl">
-            Gramlyze: платформа для <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">викладачів англійської</span>
+            {!! $home['title'] !!}
           </h1>
           <p class="text-base leading-relaxed text-muted-foreground md:text-xl max-w-2xl">
-            Оновлений дизайн головної та всіх публічних сторінок: чіткі CTA, швидкий пошук, теми й теги під рукою. Створюйте уроки швидше, керуйте контентом упевненіше.
+            {{ $home['subtitle'] }}
           </p>
         </div>
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="{{ route('catalog.tests-cards') }}" class="group inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">
-            📚 До каталогу тестів
+            {{ $home['cta_catalog'] }}
             <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </a>
           <a href="{{ route('grammar-test') }}" class="group inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-background/80 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition hover:border-primary hover:text-primary">
-            ✨ Зібрати власний тест
+            {{ $home['cta_builder'] }}
             <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </a>
         </div>
         <div class="grid gap-4 sm:grid-cols-3">
-          @php
-            $stats = [
-              ['label' => 'Категорій за CEFR та темами', 'value' => '120+'],
-              ['label' => 'AI-підказок та рецензій', 'value' => '2 400+'],
-              ['label' => 'Теги та ресурси в бібліотеці', 'value' => '7 500+'],
-            ];
-          @endphp
-          @foreach ($stats as $stat)
+          @foreach ($home['stats'] as $stat)
             <div class="rounded-2xl border border-border/70 bg-card/90 p-4 shadow-sm">
               <p class="text-2xl font-bold text-primary">{{ $stat['value'] }}</p>
               <p class="text-sm text-muted-foreground">{{ $stat['label'] }}</p>
@@ -53,32 +47,20 @@
 
       <div class="space-y-6 rounded-3xl border border-border/60 bg-card/90 p-6 shadow-xl backdrop-blur" data-animate data-animate-delay="200">
         <div class="space-y-3">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Що змінилось</p>
-          <h2 class="text-2xl font-semibold text-foreground">Новий публічний layout</h2>
-          <p class="text-sm leading-relaxed text-muted-foreground">Хедер з CTA, швидкий пошук, оновлена палітра та полегшений футер. Доступно на головній, пошуку, каталозі та сторінках теорії.</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{{ $home['sidebar']['eyebrow'] }}</p>
+          <h2 class="text-2xl font-semibold text-foreground">{{ $home['sidebar']['title'] }}</h2>
+          <p class="text-sm leading-relaxed text-muted-foreground">{{ $home['sidebar']['description'] }}</p>
         </div>
         <dl class="space-y-3 text-sm text-muted-foreground">
-          <div class="flex items-start gap-3 rounded-2xl border border-dashed border-primary/40 bg-primary/5 p-4">
-            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-primary"></span>
-            <div>
-              <dt class="font-semibold text-foreground">Єдиний каркас</dt>
-              <dd>Шапка, пошук та футер тепер спільні для всіх публічних сторінок: менше відволікань, більше швидких дій.</dd>
+          @foreach ($home['sidebar']['items'] as $item)
+            <div class="flex items-start gap-3 rounded-2xl border border-border/80 bg-background/80 p-4">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full @if ($loop->first) bg-primary @elseif($loop->last) bg-accent @else bg-secondary @endif"></span>
+              <div>
+                <dt class="font-semibold text-foreground">{{ $item['title'] }}</dt>
+                <dd>{{ $item['body'] }}</dd>
+              </div>
             </div>
-          </div>
-          <div class="flex items-start gap-3 rounded-2xl border border-border/80 bg-background/80 p-4">
-            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-secondary"></span>
-            <div>
-              <dt class="font-semibold text-foreground">Видимі CTA</dt>
-              <dd>Кнопки на каталог і конструктор тестів винесені у хедер та герой, щоб користувачі відразу могли почати роботу.</dd>
-            </div>
-          </div>
-          <div class="flex items-start gap-3 rounded-2xl border border-border/80 bg-background/80 p-4">
-            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-accent"></span>
-            <div>
-              <dt class="font-semibold text-foreground">Темна тема</dt>
-              <dd>Зберігається в локальному сховищі й доступна з футера: зручно для вечірньої підготовки уроків.</dd>
-            </div>
-          </div>
+          @endforeach
         </dl>
       </div>
     </div>
