@@ -147,7 +147,7 @@
                             >
                                 <span class="text-sm text-muted-foreground">
                                     @if(isset($category->pages_count) && $category->pages_count > 0)
-                                        {{ $category->pages_count }} {{ trans_choice(__('public.theory.lessons_count').'|'.__('public.theory.lessons_count').'|'.__('public.theory.lessons_count'), $category->pages_count) }}
+                                        {{ $category->pages_count }} {{ __('public.theory.lessons_count') }}
                                     @else
                                         {{ __('public.common.no_lessons') }}
                                     @endif

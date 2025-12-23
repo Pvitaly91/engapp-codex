@@ -16,6 +16,7 @@ class SetLocale
     public function handle(Request $request, Closure $next): Response
     {
         $locale = null;
+        $supportedLocales = config('app.supported_locales', ['uk', 'en']);
 
         // First, check session
         if ($request->session()->has('locale')) {
@@ -27,7 +28,7 @@ class SetLocale
         }
 
         // Validate locale
-        if ($locale && in_array($locale, ['uk', 'en'])) {
+        if ($locale && in_array($locale, $supportedLocales)) {
             app()->setLocale($locale);
         } else {
             // Fallback to default config locale (uk)

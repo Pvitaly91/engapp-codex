@@ -100,6 +100,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Supported Locales
+    |--------------------------------------------------------------------------
+    |
+    | This array defines the locales that the application supports. This is
+    | used by the locale switching middleware and route to validate locale
+    | values before applying them.
+    |
+    */
+
+    'supported_locales' => ['uk', 'en'],
+
+    /*
+    |--------------------------------------------------------------------------
     | Faker Locale
     |--------------------------------------------------------------------------
     |

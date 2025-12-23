@@ -51,8 +51,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Public locale switching route
 Route::get('/set-locale', function (\Illuminate\Http\Request $request) {
     $lang = $request->input('lang', 'uk');
-    if (! in_array($lang, ['en', 'uk'])) {
-        $lang = 'uk';
+    $supportedLocales = config('app.supported_locales', ['uk', 'en']);
+    
+    if (! in_array($lang, $supportedLocales)) {
+        $lang = config('app.locale', 'uk');
     }
     session(['locale' => $lang]);
     app()->setLocale($lang);
@@ -60,7 +62,16 @@ Route::get('/set-locale', function (\Illuminate\Http\Request $request) {
     // Set cookie for 1 year
     $cookie = cookie('locale', $lang, 60 * 24 * 365);
 
-    return redirect()->back()->withCookie($cookie);
+    // Use intended() with fallback to home for safety
+    $referer = $request->headers->get('referer');
+    $host = $request->getHost();
+    
+    // Validate referer is from same host to prevent open redirect
+    if ($referer && parse_url($referer, PHP_URL_HOST) === $host) {
+        return redirect()->back()->withCookie($cookie);
+    }
+    
+    return redirect()->route('home')->withCookie($cookie);
 })->name('locale.set');
 
 Route::prefix('words/test')->group(function () {
