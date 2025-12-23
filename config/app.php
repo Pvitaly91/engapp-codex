@@ -186,6 +186,7 @@ return [
         App\Modules\ArtisanManager\ArtisanManagerServiceProvider::class,
         App\Modules\DatabaseStructure\DatabaseStructureServiceProvider::class,
         App\Modules\FileManager\FileManagerServiceProvider::class,
+        App\Modules\LanguageManager\LanguageManagerServiceProvider::class,
         App\Modules\MigrationManager\MigrationManagerServiceProvider::class,
         App\Modules\PageManager\PageManagerServiceProvider::class,
         App\Modules\PromptGenerator\PromptGeneratorServiceProvider::class,
