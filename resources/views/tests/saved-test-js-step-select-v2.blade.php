@@ -136,6 +136,57 @@ const EXPLAIN_URL = '{{ route('question.explain') }}';
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
 <script>
+function getMarkersCount(q) {
+  if (Number.isInteger(q?.markers_count)) {
+    return q.markers_count;
+  }
+  return Array.isArray(q?.answers) ? q.answers.length : 1;
+}
+
+function sanitizeOptions(options) {
+  const clean = [];
+  (options || []).forEach((opt) => {
+    const value = String(opt).trim();
+    if (!value) return;
+    if (!clean.includes(value)) clean.push(value);
+  });
+  return clean;
+}
+
+function normalizeOptionsBySlot(q) {
+  const markers = Array.isArray(q.markers) ? q.markers : Object.keys(q.answer_map || {});
+  const markersCount = getMarkersCount(q);
+  const raw = q.options_by_marker;
+  const fallback = sanitizeOptions(q.options || []);
+  const optionsBySlot = [];
+
+  if (raw && typeof raw === 'object') {
+    for (let i = 0; i < markersCount; i++) {
+      const markerKey = markers[i] || `a${i + 1}`;
+      const markerOptions = Array.isArray(raw[markerKey])
+        ? raw[markerKey]
+        : Array.isArray(raw[i])
+          ? raw[i]
+          : [];
+      optionsBySlot.push(sanitizeOptions(markerOptions));
+    }
+    const hasValues = optionsBySlot.some((arr) => Array.isArray(arr) && arr.length > 0);
+    if (hasValues) {
+      return optionsBySlot.map((arr) => (arr.length ? arr : fallback));
+    }
+  }
+
+  for (let i = 0; i < markersCount; i++) {
+    optionsBySlot.push(fallback);
+  }
+  return optionsBySlot;
+}
+
+function areSlotsFilled(q) {
+  const total = getMarkersCount(q);
+  return Array.isArray(q.chosen) && q.chosen.slice(0, total).every((v) => String(v || '').trim() !== '');
+}
+
 const state = {
   items: [],
   current: 0,
@@ -160,13 +211,24 @@ async function init(forceFresh = false) {
       state.current = Number.isFinite(saved.current) ? saved.current : 0;
       state.correct = Number.isFinite(saved.correct) ? saved.correct : 0;
       restored = true;
+      state.items.forEach((item, idx) => {
+        const baseQ = QUESTIONS[idx] || item;
+        const markersCount = getMarkersCount(baseQ);
+        item.markers_count = markersCount;
+        const normalizedChosen = Array.isArray(item.chosen) ? item.chosen.slice(0, markersCount) : [];
+        while (normalizedChosen.length < markersCount) normalizedChosen.push('');
+        item.chosen = normalizedChosen;
+        item.optionsBySlot = normalizeOptionsBySlot(baseQ);
+      });
     }
   }
 
   if (!restored) {
     state.items = QUESTIONS.map((q) => ({
       ...q,
-      chosen: Array(q.answers.length).fill(''),
+      markers_count: getMarkersCount(q),
+      optionsBySlot: normalizeOptionsBySlot(q),
+      chosen: Array(getMarkersCount(q)).fill(''),
       isCorrect: null,
       explanation: '',
     }));
@@ -222,7 +284,11 @@ function render() {
   document.getElementById('help').addEventListener('click', () => fetchHints(q));
   renderHints(q);
   if (q.isCorrect === null) {
-    document.getElementById('check').addEventListener('click', onCheck);
+    const checkBtn = document.getElementById('check');
+    if (checkBtn) {
+      checkBtn.disabled = !areSlotsFilled(q);
+      checkBtn.addEventListener('click', onCheck);
+    }
     document.querySelectorAll('select[data-idx]').forEach(sel => {
       const idx = parseInt(sel.dataset.idx);
       const update = () => resizeSelect(sel);
@@ -230,6 +296,9 @@ function render() {
         q.chosen[idx] = sel.value;
         update();
         persistState(state);
+        if (checkBtn) {
+          checkBtn.disabled = !areSlotsFilled(q);
+        }
       });
       update();
     });
@@ -241,6 +310,7 @@ function render() {
 function onCheck() {
   const q = state.items[state.current];
   if (q.isCorrect !== null) return;
+  if (!areSlotsFilled(q)) return;
   q.isCorrect = q.answers.every((ans, i) => (q.chosen[i] || '').toLowerCase() === (ans || '').toLowerCase());
   if (q.isCorrect) {
     state.correct += 1;
@@ -374,7 +444,8 @@ function renderSentence(q) {
   q.answers.forEach((ans, i) => {
     let replacement = '';
     if (q.isCorrect === null) {
-      const opts = q.options.map(o => `<option value="${html(o)}">${html(o)}</option>`).join('');
+      const slotOptions = (q.optionsBySlot && Array.isArray(q.optionsBySlot[i])) ? q.optionsBySlot[i] : (q.options || []);
+      const opts = slotOptions.map(o => `<option value="${html(o)}">${html(o)}</option>`).join('');
       replacement = `<select data-idx="${i}" class="px-3 py-2 border-2 border-indigo-200 rounded-xl focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-all font-medium bg-white min-w-20"><option value=""></option>${opts}</select>`;
     } else {
       replacement = `<mark class="px-3 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-yellow-100 font-semibold">${html(q.chosen[i])}</mark>`;

@@ -120,6 +120,57 @@ const TEST_SLUG = @json($test->slug);
 @include('components.saved-test-js-helpers')
 @include('components.marker-theory-js')
 <script>
+function getMarkersCount(q) {
+  if (Number.isInteger(q?.markers_count)) {
+    return q.markers_count;
+  }
+  return Array.isArray(q?.answers) ? q.answers.length : 1;
+}
+
+function sanitizeOptions(options) {
+  const clean = [];
+  (options || []).forEach((opt) => {
+    const value = String(opt).trim();
+    if (!value) return;
+    if (!clean.includes(value)) clean.push(value);
+  });
+  return clean;
+}
+
+function normalizeOptionsBySlot(q) {
+  const markers = Array.isArray(q.markers) ? q.markers : Object.keys(q.answer_map || {});
+  const markersCount = getMarkersCount(q);
+  const raw = q.options_by_marker;
+  const fallback = sanitizeOptions(q.options || []);
+  const optionsBySlot = [];
+
+  if (raw && typeof raw === 'object') {
+    for (let i = 0; i < markersCount; i++) {
+      const markerKey = markers[i] || `a${i + 1}`;
+      const markerOptions = Array.isArray(raw[markerKey])
+        ? raw[markerKey]
+        : Array.isArray(raw[i])
+          ? raw[i]
+          : [];
+      optionsBySlot.push(sanitizeOptions(markerOptions));
+    }
+    const hasValues = optionsBySlot.some((arr) => Array.isArray(arr) && arr.length > 0);
+    if (hasValues) {
+      return optionsBySlot.map((arr) => (arr.length ? arr : fallback));
+    }
+  }
+
+  for (let i = 0; i < markersCount; i++) {
+    optionsBySlot.push(fallback);
+  }
+  return optionsBySlot;
+}
+
+function isQuestionComplete(q) {
+  const total = getMarkersCount(q);
+  return Array.isArray(q.chosen) && q.chosen.slice(0, total).every((v) => String(v || '').trim() !== '');
+}
+
 const state = {
   items: [],
   correct: 0,
@@ -138,26 +189,39 @@ async function init(forceFresh = false) {
       state.correct = Number.isFinite(saved.correct) ? saved.correct : 0;
       state.answered = Number.isFinite(saved.answered) ? saved.answered : 0;
       restored = true;
-      state.items.forEach((item) => {
+      state.items.forEach((item, idx) => {
         if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') item.markerTheoryCache = {};
         if (!item.markerTheoryMatch || typeof item.markerTheoryMatch !== 'object') item.markerTheoryMatch = {};
+        const baseQ = QUESTIONS[idx] || item;
+        const markersCount = getMarkersCount(baseQ);
+        item.markers_count = markersCount;
+        const normalizedChosen = Array.isArray(item.chosen) ? item.chosen.slice(0, markersCount) : [];
+        while (normalizedChosen.length < markersCount) normalizedChosen.push('');
+        item.chosen = normalizedChosen;
+        item.optionsBySlot = normalizeOptionsBySlot(baseQ);
       });
     }
   }
 
   if (!restored) {
-    state.items = QUESTIONS.map(q => ({
-      ...q,
-      chosen: Array(q.answers.length).fill(''),
-      isCorrect: null,
-      markerTheoryCache: {},
-      markerTheoryMatch: {},
-    }));
+    state.items = QUESTIONS.map(q => {
+      const markersCount = getMarkersCount(q);
+      return {
+        ...q,
+        markers_count: markersCount,
+        optionsBySlot: normalizeOptionsBySlot(q),
+        chosen: Array(markersCount).fill(''),
+        isCorrect: null,
+        markerTheoryCache: {},
+        markerTheoryMatch: {},
+      };
+    });
     state.correct = 0;
     state.answered = 0;
   }
 
   renderQuestions();
+  updateCheckAllDisabled();
   updateProgress();
   document.getElementById('final-check').classList.remove('hidden');
   document.getElementById('check-all').onclick = () => {
@@ -209,6 +273,7 @@ function renderQuestion(idx) {
         q.chosen[aIdx] = sel.value;
         update();
         persistState(state);
+        updateCheckAllDisabled();
       });
       update();
     });
@@ -228,11 +293,13 @@ function renderQuestion(idx) {
 function onCheck(idx) {
   const q = state.items[idx];
   if (q.isCorrect !== null) return;
+  if (!isQuestionComplete(q)) return;
   q.isCorrect = q.answers.every((ans, i) => (q.chosen[i] || '').toLowerCase() === (ans || '').toLowerCase());
   if (q.isCorrect) state.correct += 1;
   state.answered += 1;
   renderQuestion(idx);
   updateProgress();
+  updateCheckAllDisabled();
   persistState(state);
 }
 
@@ -251,7 +318,8 @@ function renderSentence(q, qIdx) {
   q.answers.forEach((ans, i) => {
     let replacement = '';
     if (q.isCorrect === null) {
-      const opts = q.options.map(o => `<option value="${html(o)}">${html(o)}</option>`).join('');
+      const slotOptions = (q.optionsBySlot && Array.isArray(q.optionsBySlot[i])) ? q.optionsBySlot[i] : (q.options || []);
+      const opts = slotOptions.map(o => `<option value="${html(o)}">${html(o)}</option>`).join('');
       replacement = `<select data-idx="${i}" class="px-3 py-2 border-2 border-indigo-200 rounded-xl focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-all font-medium bg-white min-w-20"><option value=""></option>${opts}</select>`;
     } else {
       replacement = `<mark class="px-3 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-yellow-100 font-semibold">${html(q.chosen[i])}</mark>`;
@@ -285,6 +353,13 @@ function updateProgress() {
       retryButton.onclick = () => restartJsTest(init, { button: retryButton });
     }
   }
+}
+
+function updateCheckAllDisabled() {
+  const btn = document.getElementById('check-all');
+  if (!btn) return;
+  const hasEmpty = state.items.some((q) => q.isCorrect === null && !isQuestionComplete(q));
+  btn.disabled = hasEmpty;
 }
 
 function resizeSelect(sel) {
