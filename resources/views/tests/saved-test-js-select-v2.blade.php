@@ -120,6 +120,71 @@ const TEST_SLUG = @json($test->slug);
 @include('components.saved-test-js-helpers')
 @include('components.marker-theory-js')
 <script>
+// Helper functions for per-marker options
+function getMarkersCount(q) {
+  if (Number.isInteger(q?.markers_count)) {
+    return q.markers_count;
+  }
+  return Array.isArray(q?.answers) ? q.answers.length : 1;
+}
+
+function sanitizeOptions(options) {
+  const clean = [];
+  (options || []).forEach((opt) => {
+    const value = String(opt).trim();
+    if (!value) return;
+    if (!clean.includes(value)) clean.push(value);
+  });
+  return clean;
+}
+
+function buildFallbackOptionsBySlot(options, markersCount) {
+  const normalized = sanitizeOptions(options);
+  const optionsBySlot = [];
+  if (markersCount > 0 && normalized.length % markersCount === 0) {
+    const chunkSize = Math.floor(normalized.length / markersCount);
+    if (chunkSize >= 2) {
+      for (let i = 0; i < markersCount; i++) {
+        const chunk = normalized.slice(i * chunkSize, (i + 1) * chunkSize);
+        shuffle(chunk);
+        optionsBySlot.push(chunk);
+      }
+      return optionsBySlot;
+    }
+  }
+  for (let i = 0; i < markersCount; i++) {
+    const all = [...normalized];
+    shuffle(all);
+    optionsBySlot.push(all);
+  }
+  return optionsBySlot;
+}
+
+function normalizeOptionsBySlot(q) {
+  const markers = Array.isArray(q.markers) ? q.markers : Object.keys(q.answer_map || {});
+  const markersCount = getMarkersCount(q);
+  const raw = q.options_by_marker;
+  const optionsBySlot = [];
+
+  if (raw && typeof raw === 'object') {
+    for (let i = 0; i < markersCount; i++) {
+      const markerKey = markers[i] || `a${i + 1}`;
+      const markerOptions = Array.isArray(raw[markerKey])
+        ? raw[markerKey]
+        : Array.isArray(raw[i])
+          ? raw[i]
+          : [];
+      optionsBySlot.push(sanitizeOptions(markerOptions));
+    }
+    const hasValues = optionsBySlot.some((arr) => Array.isArray(arr) && arr.length > 0);
+    if (hasValues) {
+      return optionsBySlot.map((arr) => (arr.length ? arr : sanitizeOptions(q.options || [])));
+    }
+  }
+
+  return buildFallbackOptionsBySlot(q.options || [], markersCount);
+}
+
 const state = {
   items: [],
   correct: 0,
@@ -138,9 +203,12 @@ async function init(forceFresh = false) {
       state.correct = Number.isFinite(saved.correct) ? saved.correct : 0;
       state.answered = Number.isFinite(saved.answered) ? saved.answered : 0;
       restored = true;
-      state.items.forEach((item) => {
+      state.items.forEach((item, idx) => {
         if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') item.markerTheoryCache = {};
         if (!item.markerTheoryMatch || typeof item.markerTheoryMatch !== 'object') item.markerTheoryMatch = {};
+        // Regenerate optionsBySlot from base questions on restore
+        const baseQ = QUESTIONS[idx] || item;
+        item.optionsBySlot = normalizeOptionsBySlot(baseQ);
       });
     }
   }
@@ -148,6 +216,7 @@ async function init(forceFresh = false) {
   if (!restored) {
     state.items = QUESTIONS.map(q => ({
       ...q,
+      optionsBySlot: normalizeOptionsBySlot(q),
       chosen: Array(q.answers.length).fill(''),
       isCorrect: null,
       markerTheoryCache: {},
@@ -251,7 +320,11 @@ function renderSentence(q, qIdx) {
   q.answers.forEach((ans, i) => {
     let replacement = '';
     if (q.isCorrect === null) {
-      const opts = q.options.map(o => `<option value="${html(o)}">${html(o)}</option>`).join('');
+      // Use per-slot options (optionsBySlot[i]) or fallback to q.options
+      const slotOptions = (q.optionsBySlot && Array.isArray(q.optionsBySlot[i]) && q.optionsBySlot[i].length > 0)
+        ? q.optionsBySlot[i]
+        : (q.options || []);
+      const opts = slotOptions.map(o => `<option value="${html(o)}">${html(o)}</option>`).join('');
       replacement = `<select data-idx="${i}" class="px-3 py-2 border-2 border-indigo-200 rounded-xl focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-all font-medium bg-white min-w-20"><option value=""></option>${opts}</select>`;
     } else {
       replacement = `<mark class="px-3 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-yellow-100 font-semibold">${html(q.chosen[i])}</mark>`;
