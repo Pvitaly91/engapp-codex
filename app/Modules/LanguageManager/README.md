@@ -62,7 +62,7 @@ return [
     'route_prefix' => 'admin/languages',
     
     // Middleware for admin routes
-    'middleware' => ['web', 'admin'],
+    'middleware' => ['web', 'auth.admin'],
     
     // Fallback locale if no default set
     'fallback_locale' => 'uk',

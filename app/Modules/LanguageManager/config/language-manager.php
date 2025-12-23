@@ -29,7 +29,7 @@ return [
     | Middleware to apply to all language manager routes.
     |
     */
-    'middleware' => ['web', 'admin'],
+    'middleware' => ['web', 'auth.admin'],
 
     /*
     |--------------------------------------------------------------------------
