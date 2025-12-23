@@ -23,8 +23,15 @@ class SetLocale
         $supportedLocales = $this->getSupportedLocales();
         $defaultLocale = $this->getDefaultLocale();
 
-        // First, check session
-        if ($request->session()->has('locale')) {
+        // First, check URL prefix for locale
+        $segments = $request->segments();
+        $firstSegment = $segments[0] ?? null;
+        
+        if ($firstSegment && in_array($firstSegment, $supportedLocales)) {
+            $locale = $firstSegment;
+        }
+        // Then, check session
+        elseif ($request->session()->has('locale')) {
             $locale = $request->session()->get('locale');
         }
         // Then, check cookie
@@ -35,6 +42,8 @@ class SetLocale
         // Validate locale
         if ($locale && in_array($locale, $supportedLocales)) {
             app()->setLocale($locale);
+            // Store in session for consistency
+            $request->session()->put('locale', $locale);
         } else {
             // Fallback to default locale
             app()->setLocale($defaultLocale);
