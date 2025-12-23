@@ -48,6 +48,49 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// Public locale switching route
+Route::get('/set-locale', function (\Illuminate\Http\Request $request) {
+    $lang = $request->input('lang', 'uk');
+    
+    // Get supported locales from Language Manager or fallback to config
+    $supportedLocales = ['uk', 'en']; // Default fallback
+    $defaultLocale = 'uk';
+    
+    if (\Illuminate\Support\Facades\Schema::hasTable('languages')) {
+        $codes = \App\Modules\LanguageManager\Services\LocaleService::getActiveLanguages()->pluck('code')->toArray();
+        if (!empty($codes)) {
+            $supportedLocales = $codes;
+        }
+        $default = \App\Modules\LanguageManager\Services\LocaleService::getDefaultLanguage();
+        if ($default) {
+            $defaultLocale = $default->code;
+        }
+    } else {
+        $supportedLocales = config('app.supported_locales', ['uk', 'en']);
+        $defaultLocale = config('app.locale', 'uk');
+    }
+    
+    if (! in_array($lang, $supportedLocales)) {
+        $lang = $defaultLocale;
+    }
+    session(['locale' => $lang]);
+    app()->setLocale($lang);
+
+    // Set cookie for 1 year
+    $cookie = cookie('locale', $lang, 60 * 24 * 365);
+
+    // Use intended() with fallback to home for safety
+    $referer = $request->headers->get('referer');
+    $host = $request->getHost();
+    
+    // Validate referer is from same host to prevent open redirect
+    if ($referer && parse_url($referer, PHP_URL_HOST) === $host) {
+        return redirect()->back()->withCookie($cookie);
+    }
+    
+    return redirect()->route('home')->withCookie($cookie);
+})->name('locale.set');
+
 Route::prefix('words/test')->group(function () {
     Route::get('/', [WordsTestController::class, 'index'])->name('words.test');
     Route::get('/medium', [WordsTestController::class, 'index'])->name('words.test.medium')->defaults('difficulty', 'medium');
