@@ -1,16 +1,26 @@
-# Polish Translation Fill Command
+# Translation Fill Command (Universal)
 
 ## Overview
 
-This command fills Polish translations in the `public/exports/words/words_pl.json` export file using AI-powered translation via Gemini API.
+This command fills translations in word export files for any supported language using AI-powered translation via Gemini API.
 
 ## Usage
 
 ### Basic Usage
 
 ```bash
-php artisan words:fill-pl-export
+php artisan words:fill-export {lang}
 ```
+
+### Supported Languages
+
+- `uk` - Ukrainian
+- `pl` - Polish  
+- `en` - English
+- `de` - German
+- `fr` - French
+- `es` - Spanish
+- `it` - Italian
 
 ### Options
 
@@ -21,17 +31,20 @@ php artisan words:fill-pl-export
 ### Examples
 
 ```bash
-# Translate with default batch size
-php artisan words:fill-pl-export
+# Fill Polish translations
+php artisan words:fill-export pl
 
-# Translate with larger batches (faster but more API usage)
-php artisan words:fill-pl-export --batch-size=100
+# Fill Ukrainian translations
+php artisan words:fill-export uk
+
+# Fill German translations with larger batches
+php artisan words:fill-export de --batch-size=100
 
 # Test without saving
-php artisan words:fill-pl-export --dry-run
+php artisan words:fill-export pl --dry-run
 
 # Skip database sync
-php artisan words:fill-pl-export --no-db
+php artisan words:fill-export pl --no-db
 ```
 
 ## Configuration
@@ -49,7 +62,7 @@ You can also configure timeouts and retries in `config/services.php`.
 
 ## How It Works
 
-1. **Read**: Loads `public/exports/words/words_pl.json`
+1. **Read**: Loads `public/exports/words/words_{lang}.json`
 2. **Identify**: Finds all entries where `translation === null`
 3. **Translate**: Sends words to Gemini API in batches
 4. **Validate**: Checks translations to ensure they're not just transliterations
@@ -59,20 +72,20 @@ You can also configure timeouts and retries in `config/services.php`.
 
 ## Translation Rules
 
-The translation service follows these rules:
+The translation service follows these rules for all languages:
 
 1. **Actual translations**, not transliterations
 2. **Nouns**: Base form (singular, nominative case)
 3. **Verbs**: Infinitive form
 4. **Phrases**: Natural translation preserving meaning
 5. **Proper names/brands**: Keep as-is (e.g., "Google", "London")
-6. **Loanwords**: May keep if naturally used in Polish (e.g., "pizza", "radio")
+6. **Loanwords**: May keep if naturally used in target language (e.g., "pizza", "radio")
 
 ## Validation
 
 The command validates translations to detect transliteration vs proper translation:
 
-- If translation matches the original word (case-insensitive), it verifies if it's a proper Polish loanword
+- If translation matches the original word (case-insensitive), it verifies if it's a proper loanword
 - Suspicious translations are marked and can be reviewed
 - Failed translations remain `null` and are listed in the report
 
@@ -86,11 +99,11 @@ The command provides:
   - Translations remaining null
   - Failed words list
   - Suspicious words list
-- Detailed report saved to `storage/logs/pl_translation_report_*.txt`
+- Detailed report saved to `storage/logs/{lang}_translation_report_*.txt`
 
 ## File Structure
 
-The `words_pl.json` file has this structure:
+The `words_{lang}.json` file has this structure:
 
 ```json
 {
@@ -139,6 +152,28 @@ The command includes built-in rate limiting:
 - Configurable batch size (default 50 words)
 - Retry logic with exponential backoff
 
+## Creating Export Files
+
+Before using this command, you need to create the export file for your target language:
+
+1. Go to Admin Panel → Words Export
+2. Select the target language
+3. Click "Export" to generate `words_{lang}.json`
+
+Alternatively, use the existing WordsExportController to export programmatically.
+
+## Backward Compatibility
+
+The old Polish-specific command is deprecated but still available:
+
+```bash
+# Old command (deprecated)
+php artisan words:fill-pl-export
+
+# New universal command (recommended)
+php artisan words:fill-export pl
+```
+
 ## Troubleshooting
 
 ### API Key Issues
@@ -150,16 +185,24 @@ If you get authentication errors:
 grep GEMINI_API_KEY .env
 ```
 
+### Language Not Supported
+
+If you need to add a new language:
+
+1. Add the language code to `ALLOWED_LANGS` in `FillTranslationsCommand.php`
+2. Add the language name to `LANGUAGE_NAMES` in `TranslationService.php`
+3. Create the export file via admin panel
+
 ### Large Files
 
 If you have many words to translate:
 
 ```bash
 # Use larger batches
-php artisan words:fill-pl-export --batch-size=100
+php artisan words:fill-export pl --batch-size=100
 
 # Skip database sync for faster operation
-php artisan words:fill-pl-export --no-db
+php artisan words:fill-export pl --no-db
 ```
 
 ### Testing
@@ -168,12 +211,8 @@ Before running on production:
 
 ```bash
 # Test with dry-run
-php artisan words:fill-pl-export --dry-run
+php artisan words:fill-export pl --dry-run
 ```
-
-## Caching
-
-The translation service caches results in memory during execution to avoid re-translating the same words within a single run.
 
 ## Cost Considerations
 
@@ -189,12 +228,12 @@ The translation service caches results in memory during execution to avoid re-tr
 
 ## Files Modified
 
-- `public/exports/words/words_pl.json` - Updated with translations
+- `public/exports/words/words_{lang}.json` - Updated with translations
 - `translates` table - Synced with new translations (unless `--no-db`)
-- `storage/logs/pl_translation_report_*.txt` - Detailed report
+- `storage/logs/{lang}_translation_report_*.txt` - Detailed report
 
 ## Support
 
 For issues or questions, refer to:
-- `app/Console/Commands/FillPolishTranslationsCommand.php` - Command implementation
-- `app/Services/PolishTranslationService.php` - Translation service
+- `app/Console/Commands/FillTranslationsCommand.php` - Command implementation
+- `app/Services/TranslationService.php` - Translation service

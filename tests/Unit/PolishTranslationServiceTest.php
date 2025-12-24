@@ -4,11 +4,11 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 
-class PolishTranslationServiceTest extends TestCase
+class TranslationServiceTest extends TestCase
 {
     public function test_clean_translation_removes_quotes()
     {
-        $service = new class extends \App\Services\PolishTranslationService {
+        $service = new class('pl') extends \App\Services\TranslationService {
             public function testClean($translation) {
                 return $this->cleanTranslation($translation);
             }
@@ -21,7 +21,7 @@ class PolishTranslationServiceTest extends TestCase
 
     public function test_clean_translation_removes_explanations()
     {
-        $service = new class extends \App\Services\PolishTranslationService {
+        $service = new class('pl') extends \App\Services\TranslationService {
             public function testClean($translation) {
                 return $this->cleanTranslation($translation);
             }
@@ -34,7 +34,7 @@ class PolishTranslationServiceTest extends TestCase
 
     public function test_clean_translation_takes_first_option()
     {
-        $service = new class extends \App\Services\PolishTranslationService {
+        $service = new class('pl') extends \App\Services\TranslationService {
             public function testClean($translation) {
                 return $this->cleanTranslation($translation);
             }
@@ -46,7 +46,7 @@ class PolishTranslationServiceTest extends TestCase
 
     public function test_clean_translation_returns_null_for_empty()
     {
-        $service = new class extends \App\Services\PolishTranslationService {
+        $service = new class('pl') extends \App\Services\TranslationService {
             public function testClean($translation) {
                 return $this->cleanTranslation($translation);
             }
@@ -59,13 +59,13 @@ class PolishTranslationServiceTest extends TestCase
 
     public function test_cache_functionality()
     {
-        $service = new \App\Services\PolishTranslationService();
+        $service = new \App\Services\TranslationService('pl');
 
         // Test cache is empty initially
         $this->assertEmpty($service->getCache());
 
         // Load cache
-        $cache = ['cat' => 'kot', 'dog' => 'pies'];
+        $cache = ['cat_pl' => 'kot', 'dog_pl' => 'pies'];
         $service->loadCache($cache);
 
         // Verify cache loaded
@@ -74,7 +74,7 @@ class PolishTranslationServiceTest extends TestCase
 
     public function test_validation_detects_same_word()
     {
-        $service = new \App\Services\PolishTranslationService();
+        $service = new \App\Services\TranslationService('pl');
 
         // Without API call, validation should detect when word equals translation
         // The validateTranslation method will try to verify loanword, but without API it returns invalid
@@ -85,5 +85,17 @@ class PolishTranslationServiceTest extends TestCase
         $this->assertIsArray($result);
         $this->assertArrayHasKey('valid', $result);
         $this->assertArrayHasKey('translation', $result);
+    }
+
+    public function test_supports_multiple_languages()
+    {
+        $servicePl = new \App\Services\TranslationService('pl');
+        $serviceUk = new \App\Services\TranslationService('uk');
+        $serviceEn = new \App\Services\TranslationService('en');
+
+        // Each service should be created successfully
+        $this->assertInstanceOf(\App\Services\TranslationService::class, $servicePl);
+        $this->assertInstanceOf(\App\Services\TranslationService::class, $serviceUk);
+        $this->assertInstanceOf(\App\Services\TranslationService::class, $serviceEn);
     }
 }
