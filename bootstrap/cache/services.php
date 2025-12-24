@@ -41,10 +41,11 @@
     37 => 'App\\Modules\\ArtisanManager\\ArtisanManagerServiceProvider',
     38 => 'App\\Modules\\DatabaseStructure\\DatabaseStructureServiceProvider',
     39 => 'App\\Modules\\FileManager\\FileManagerServiceProvider',
-    40 => 'App\\Modules\\MigrationManager\\MigrationManagerServiceProvider',
-    41 => 'App\\Modules\\PageManager\\PageManagerServiceProvider',
-    42 => 'App\\Modules\\PromptGenerator\\PromptGeneratorServiceProvider',
-    43 => 'App\\Modules\\SeedRunsV2\\SeedRunsV2ServiceProvider',
+    40 => 'App\\Modules\\LanguageManager\\LanguageManagerServiceProvider',
+    41 => 'App\\Modules\\MigrationManager\\MigrationManagerServiceProvider',
+    42 => 'App\\Modules\\PageManager\\PageManagerServiceProvider',
+    43 => 'App\\Modules\\PromptGenerator\\PromptGeneratorServiceProvider',
+    44 => 'App\\Modules\\SeedRunsV2\\SeedRunsV2ServiceProvider',
   ),
   'eager' => 
   array (
@@ -73,10 +74,11 @@
     22 => 'App\\Modules\\ArtisanManager\\ArtisanManagerServiceProvider',
     23 => 'App\\Modules\\DatabaseStructure\\DatabaseStructureServiceProvider',
     24 => 'App\\Modules\\FileManager\\FileManagerServiceProvider',
-    25 => 'App\\Modules\\MigrationManager\\MigrationManagerServiceProvider',
-    26 => 'App\\Modules\\PageManager\\PageManagerServiceProvider',
-    27 => 'App\\Modules\\PromptGenerator\\PromptGeneratorServiceProvider',
-    28 => 'App\\Modules\\SeedRunsV2\\SeedRunsV2ServiceProvider',
+    25 => 'App\\Modules\\LanguageManager\\LanguageManagerServiceProvider',
+    26 => 'App\\Modules\\MigrationManager\\MigrationManagerServiceProvider',
+    27 => 'App\\Modules\\PageManager\\PageManagerServiceProvider',
+    28 => 'App\\Modules\\PromptGenerator\\PromptGeneratorServiceProvider',
+    29 => 'App\\Modules\\SeedRunsV2\\SeedRunsV2ServiceProvider',
   ),
   'deferred' => 
   array (
