@@ -111,8 +111,8 @@
             </select>
             <p class="text-xs text-muted-foreground">{{ __('words_test.study_lang_hint') }}</p>
           </div>
-          <!-- Warning when no study language is selected -->
-          <div id="study-lang-warning" class="mt-3 p-3 rounded-lg bg-warning/10 border border-warning/30 text-warning text-sm {{ !$studyLang ? '' : 'hidden' }}">
+          <!-- Warning when site locale is English and no study language selected -->
+          <div id="study-lang-warning" class="mt-3 p-3 rounded-lg bg-warning/10 border border-warning/30 text-warning text-sm {{ (!$studyLang && $siteLocale === 'en') ? '' : 'hidden' }}">
             <span class="font-semibold">⚠️</span> {{ __('words_test.select_study_lang_warning') }}
           </div>
           <!-- Info when no languages available -->
@@ -314,9 +314,10 @@
           studyLangSelect.value = studyLang;
         }
 
-        // Show/hide warning when no study language selected
+        // Show/hide warning only when site locale is English and no study language selected
         if (studyLangWarning) {
-          studyLangWarning.classList.toggle('hidden', !!studyLang);
+          const showWarning = !studyLang && siteLocale === 'en';
+          studyLangWarning.classList.toggle('hidden', !showWarning);
         }
       }
 
