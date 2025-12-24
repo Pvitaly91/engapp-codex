@@ -49,7 +49,7 @@ class TranslationService
         
         // Configure based on provider
         if ($provider === 'gemini') {
-            $this->apiKey = config('services.gemini.key');
+            $this->apiKey = trim(config('services.gemini.key'));
             $this->model = config('services.gemini.model', 'gemini-2.0-flash-exp');
             $this->timeout = config('services.gemini.timeout', 60);
             $this->maxRetries = config('services.gemini.max_retries', 3);
@@ -235,7 +235,7 @@ class TranslationService
         try {
             $response = Http::timeout($this->timeout)
                 ->retry($this->maxRetries, 2000)
-                ->post('https://generativelanguage.googleapis.com/v1beta/models/' . $this->model . ':generateContent?key=' . $this->apiKey, [
+                ->post('https://generativelanguage.googleapis.com/v1beta/models/' . $this->model . ':generateContent?key=' . urlencode($this->apiKey), [
                     'contents' => [
                         [
                             'parts' => [

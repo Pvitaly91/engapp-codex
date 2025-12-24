@@ -16,7 +16,7 @@ class PolishTranslationService
     public function __construct()
     {
         // Use Gemini as it's more reliable for translations
-        $this->apiKey = config('services.gemini.key');
+        $this->apiKey = trim(config('services.gemini.key'));
         $this->model = config('services.gemini.model', 'gemini-2.0-flash-exp');
         
         if (empty($this->apiKey)) {
@@ -97,7 +97,7 @@ class PolishTranslationService
         try {
             $response = Http::timeout($this->timeout)
                 ->retry($this->maxRetries, 1000)
-                ->post('https://generativelanguage.googleapis.com/v1beta/models/' . $this->model . ':generateContent?key=' . $this->apiKey, [
+                ->post('https://generativelanguage.googleapis.com/v1beta/models/' . $this->model . ':generateContent?key=' . urlencode($this->apiKey), [
                     'contents' => [
                         [
                             'parts' => [
@@ -154,7 +154,7 @@ class PolishTranslationService
         try {
             $response = Http::timeout($this->timeout)
                 ->retry($this->maxRetries, 2000)
-                ->post('https://generativelanguage.googleapis.com/v1beta/models/' . $this->model . ':generateContent?key=' . $this->apiKey, [
+                ->post('https://generativelanguage.googleapis.com/v1beta/models/' . $this->model . ':generateContent?key=' . urlencode($this->apiKey), [
                     'contents' => [
                         [
                             'parts' => [

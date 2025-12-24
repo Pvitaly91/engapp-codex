@@ -4,6 +4,25 @@
 
 This command fills translations in word export files for any supported language using AI-powered translation via **Gemini API** or **OpenAI/ChatGPT API**.
 
+## Testing API Keys
+
+Before running translations, test your API keys:
+
+```bash
+# Test all configured API keys
+php artisan words:test-api-keys
+
+# Test specific provider
+php artisan words:test-api-keys --provider=gemini
+php artisan words:test-api-keys --provider=openai
+```
+
+This will verify:
+- API key is configured correctly
+- No extra whitespace or formatting issues
+- Key has proper permissions
+- API is responding correctly
+
 ## Usage
 
 ### Basic Usage
@@ -224,6 +243,36 @@ php artisan words:fill-export pl
 ```
 
 ## Troubleshooting
+
+### API Key Validation Errors
+
+If you get "API key not valid" errors:
+
+1. **Test your API key first:**
+   ```bash
+   php artisan words:test-api-keys
+   ```
+
+2. **Common issues:**
+   - **Extra whitespace**: Make sure there are no spaces before or after the key in .env
+   - **Line breaks**: Key should be on a single line
+   - **Wrong key format**: 
+     - Gemini keys don't have a specific prefix
+     - OpenAI keys should start with `sk-`
+   - **API not enabled**: For Gemini, make sure "Generative Language API" is enabled in Google Cloud Console
+
+3. **Verify the key manually:**
+   ```bash
+   # Check what's in your .env (shows first 20 characters)
+   head -20 .env | grep API_KEY
+   
+   # Check key length (Gemini keys are usually 39 characters)
+   php -r "echo strlen(trim(file_get_contents('.env')));echo PHP_EOL;"
+   ```
+
+4. **Regenerate if needed:**
+   - Gemini: https://makersuite.google.com/app/apikey
+   - OpenAI: https://platform.openai.com/api-keys
 
 ### API Key Issues
 
