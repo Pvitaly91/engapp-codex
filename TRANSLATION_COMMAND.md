@@ -218,7 +218,19 @@ php artisan words:fill-export pl --provider=openai --batch-size=5
 ```
 
 The command will warn you if you're using OpenAI with a large batch size.
-- Retry logic with exponential backoff
+
+### Gemini API Free Tier Limits
+
+**Note for free tier users:** Gemini's free tier has rate limits (60 requests per minute). If you get 429 errors:
+
+```bash
+# Use smaller batches
+php artisan words:fill-export pl --provider=gemini --batch-size=10
+
+# Or wait 1-2 minutes between runs if you hit the daily quota
+```
+
+The test command (`php artisan words:test-api-keys`) uses 1 request and can help verify if you've hit your quota.
 
 ## Creating Export Files
 

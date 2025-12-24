@@ -213,17 +213,50 @@ class FillTranslationsCommand extends Command
         // Save file
         if (!$this->option('dry-run')) {
             $this->info("Saving updated JSON...");
-            $result = file_put_contents(
-                $filePath,
-                json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
-            );
             
-            if ($result === false) {
-                $this->error("Failed to save file: {$filePath}");
+            // Create backup before saving
+            $backupPath = $filePath . '.backup_' . time();
+            if (!copy($filePath, $backupPath)) {
+                $this->warn("Could not create backup file");
+            } else {
+                $this->info("Backup created: " . basename($backupPath));
+            }
+            
+            // Encode JSON
+            $jsonString = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            
+            if ($jsonString === false) {
+                $this->error("Failed to encode JSON: " . json_last_error_msg());
                 return Command::FAILURE;
             }
             
-            $this->info("File saved successfully!");
+            if (empty($jsonString) || $jsonString === 'null' || $jsonString === '[]' || $jsonString === '{}') {
+                $this->error("Refusing to save empty/invalid JSON!");
+                $this->error("JSON string length: " . strlen($jsonString));
+                $this->error("Data structure keys: " . implode(', ', array_keys($data)));
+                return Command::FAILURE;
+            }
+            
+            $this->info("JSON encoded successfully (" . number_format(strlen($jsonString)) . " bytes)");
+            
+            // Write to file
+            $result = file_put_contents($filePath, $jsonString);
+            
+            if ($result === false) {
+                $this->error("Failed to save file: {$filePath}");
+                $this->error("Restore backup with: cp {$backupPath} {$filePath}");
+                return Command::FAILURE;
+            }
+            
+            $this->info("File saved successfully! ({$result} bytes written)");
+            
+            // Verify file was written correctly
+            if (filesize($filePath) < 100) {
+                $this->error("Warning: File size suspiciously small (" . filesize($filePath) . " bytes)");
+                $this->error("Restoring from backup...");
+                copy($backupPath, $filePath);
+                return Command::FAILURE;
+            }
             
             // Sync with database
             if (!$this->option('no-db')) {
@@ -317,6 +350,14 @@ class FillTranslationsCommand extends Command
         
         // Update counts
         $totalWords = count($newWithTranslation) + count($newWithoutTranslation);
+        
+        // Validate we haven't lost data
+        $originalTotal = count($withTranslation) + count($withoutTranslation);
+        if ($totalWords !== $originalTotal) {
+            throw new \RuntimeException(
+                "Data integrity error: Original had {$originalTotal} words, but result has {$totalWords} words!"
+            );
+        }
         
         return [
             'exported_at' => now()->toIso8601String(),
