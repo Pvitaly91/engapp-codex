@@ -230,10 +230,18 @@ class FillTranslationsCommand extends Command
                 return Command::FAILURE;
             }
             
-            if (empty($jsonString) || $jsonString === 'null' || $jsonString === '[]' || $jsonString === '{}') {
+            // Validate JSON is not empty and has proper structure
+            if (strlen($jsonString) < 50) { // Minimum viable JSON structure
                 $this->error("Refusing to save empty/invalid JSON!");
                 $this->error("JSON string length: " . strlen($jsonString));
-                $this->error("Data structure keys: " . implode(', ', array_keys($data)));
+                return Command::FAILURE;
+            }
+            
+            // Verify structure by decoding
+            $decoded = json_decode($jsonString, true);
+            if (!isset($decoded['counts']) || !isset($decoded['with_translation']) || !isset($decoded['without_translation'])) {
+                $this->error("JSON structure validation failed - missing required fields!");
+                $this->error("Available fields: " . implode(', ', array_keys($decoded ?? [])));
                 return Command::FAILURE;
             }
             
@@ -250,11 +258,18 @@ class FillTranslationsCommand extends Command
             
             $this->info("File saved successfully! ({$result} bytes written)");
             
-            // Verify file was written correctly
-            if (filesize($filePath) < 100) {
-                $this->error("Warning: File size suspiciously small (" . filesize($filePath) . " bytes)");
+            // Verify file was written correctly by checking it can be read back
+            $verifyContent = file_get_contents($filePath);
+            if ($verifyContent === false || strlen($verifyContent) < 50) {
+                $this->error("Warning: File verification failed (size: " . strlen($verifyContent) . " bytes)");
                 $this->error("Restoring from backup...");
-                copy($backupPath, $filePath);
+                
+                if (copy($backupPath, $filePath)) {
+                    $this->info("Backup restored successfully!");
+                } else {
+                    $this->error("CRITICAL: Backup restore failed! Manually restore with:");
+                    $this->error("  cp {$backupPath} {$filePath}");
+                }
                 return Command::FAILURE;
             }
             
