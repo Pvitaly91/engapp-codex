@@ -104,15 +104,19 @@
         <div class="mb-4 p-4 rounded-xl bg-muted/50 border border-border/50" id="study-lang-selector">
           <div class="flex flex-wrap items-center gap-3">
             <label for="study-lang" class="text-sm font-semibold text-muted-foreground">{{ __('words_test.study_lang') }}:</label>
-            <select id="study-lang" class="rounded-lg border border-border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
-              @foreach ($studyLangOptions as $langCode => $langName)
-                <option value="{{ $langCode }}" {{ $studyLang === $langCode ? 'selected' : '' }}>{{ $langName }}</option>
-              @endforeach
-            </select>
-            <p class="text-xs text-muted-foreground">{{ __('words_test.study_lang_hint') }}</p>
+            @if ($singleStudyLangName)
+              <span class="text-sm font-semibold text-foreground">{{ $singleStudyLangName }}</span>
+            @elseif (count($studyLangOptions) > 1)
+              <select id="study-lang" class="rounded-lg border border-border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                @foreach ($studyLangOptions as $langCode => $langName)
+                  <option value="{{ $langCode }}" {{ $studyLang === $langCode ? 'selected' : '' }}>{{ $langName }}</option>
+                @endforeach
+              </select>
+              <p class="text-xs text-muted-foreground">{{ __('words_test.study_lang_hint') }}</p>
+            @endif
           </div>
           <!-- Warning when site locale is English and no study language selected -->
-          <div id="study-lang-warning" class="mt-3 p-3 rounded-lg bg-warning/10 border border-warning/30 text-warning text-sm {{ (!$studyLang && $siteLocale === 'en') ? '' : 'hidden' }}">
+          <div id="study-lang-warning" class="mt-3 p-3 rounded-lg bg-warning/10 border border-warning/30 text-warning text-sm {{ (!$studyLang && $siteLocale === 'en' && count($studyLangOptions) > 1) ? '' : 'hidden' }}">
             <span class="font-semibold">⚠️</span> {{ __('words_test.select_study_lang_warning') }}
           </div>
           <!-- Info when no languages available -->
@@ -297,6 +301,7 @@
       let suggestionTimeout = null;
       let currentStudyLang = "{{ $studyLang ?? '' }}";
       let currentSiteLocale = "{{ $siteLocale }}";
+      let availableStudyLangs = @json($availableStudyLangs ?? []);
 
       function animate(el, className = 'animate-soft') {
         if (!el) return;
@@ -305,7 +310,7 @@
         el.classList.add(className);
       }
 
-      function updateStudyLangUI(studyLang, siteLocale) {
+      function updateStudyLangUI(studyLang, siteLocale, showWarning = false) {
         currentStudyLang = studyLang;
         currentSiteLocale = siteLocale;
 
@@ -314,9 +319,8 @@
           studyLangSelect.value = studyLang;
         }
 
-        // Show/hide warning only when site locale is English and no study language selected
+        // Show/hide warning based on current state computed by caller
         if (studyLangWarning) {
-          const showWarning = !studyLang && siteLocale === 'en';
           studyLangWarning.classList.toggle('hidden', !showWarning);
         }
       }
@@ -347,7 +351,7 @@
 
           const data = await response.json();
           if (data.ok) {
-            updateStudyLangUI(data.studyLang, data.siteLocale);
+            updateStudyLangUI(data.studyLang, data.siteLocale, false);
             // Fetch new state after language change
             await fetchState();
           }
@@ -368,8 +372,10 @@
       }
 
       function updateState(data) {
+        availableStudyLangs = Array.isArray(data.availableStudyLangs) ? data.availableStudyLangs : [];
+        const shouldShowWarning = data.needsStudyLanguage && data.siteLocale === 'en' && availableStudyLangs.length >= 2;
         // Update study language UI
-        updateStudyLangUI(data.studyLang, data.siteLocale);
+        updateStudyLangUI(data.studyLang, data.siteLocale, shouldShowWarning);
 
         // If needs study language selection, show warning and disable test
         if (data.needsStudyLanguage) {
