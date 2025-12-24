@@ -104,6 +104,10 @@ Route::prefix('words/test')->group(function () {
     Route::post('/medium/check', [WordsTestController::class, 'check'])->name('words.test.check.medium')->defaults('difficulty', 'medium');
     Route::post('/hard/check', [WordsTestController::class, 'check'])->name('words.test.check.hard')->defaults('difficulty', 'hard');
 
+    Route::post('/set-study-language', [WordsTestController::class, 'setStudyLanguage'])->name('words.test.setStudyLanguage');
+    Route::post('/medium/set-study-language', [WordsTestController::class, 'setStudyLanguage'])->name('words.test.setStudyLanguage.medium')->defaults('difficulty', 'medium');
+    Route::post('/hard/set-study-language', [WordsTestController::class, 'setStudyLanguage'])->name('words.test.setStudyLanguage.hard')->defaults('difficulty', 'hard');
+
     Route::post('/reset', [WordsTestController::class, 'reset'])->name('words.test.reset');
     Route::post('/medium/reset', [WordsTestController::class, 'reset'])->name('words.test.reset.medium')->defaults('difficulty', 'medium');
     Route::post('/hard/reset', [WordsTestController::class, 'reset'])->name('words.test.reset.hard')->defaults('difficulty', 'hard');
