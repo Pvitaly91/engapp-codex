@@ -1,6 +1,6 @@
 @extends('layouts.engram')
 
-@section('title', 'Тест слів')
+@section('title', __('words_test.title'))
 
 @section('content')
   @php
@@ -11,11 +11,14 @@
         ['label' => 'Hard', 'difficulty' => 'hard', 'href' => route('words.test.hard')],
     ];
 
-    $heroDescription = [
-        'easy' => 'Виберіть правильний переклад без перезавантаження сторінки. Прогрес зберігається окремо для кожної складності — можна оновити сторінку і продовжити.',
-        'medium' => 'Введіть англійське слово вручну або виберіть варіант із підказок. Прогрес зберігається окремо для кожної складності — можна оновити сторінку і продовжити.',
-        'hard' => 'Введіть правильне англійське слово без підказок. Прогрес зберігається окремо для кожної складності — можна оновити сторінку і продовжити.',
-    ][$difficulty] ?? '';
+    $heroDescriptionKey = [
+        'easy' => 'words_test.description_easy',
+        'medium' => 'words_test.description_medium',
+        'hard' => 'words_test.description_hard',
+    ][$difficulty] ?? 'words_test.description_easy';
+    $heroDescription = __($heroDescriptionKey);
+
+    // $studyLangOptions is now passed from controller based on LanguageManager
   @endphp
 
   <div class="space-y-8" x-data>
@@ -71,20 +74,20 @@
     </style>
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div class="space-y-1">
-        <p class="text-sm text-muted-foreground">Практика перекладу · Активна мова: <span class="font-semibold text-primary">{{ strtoupper($activeLang) }}</span></p>
-        <h1 class="text-3xl font-semibold text-foreground">Швидкий тест слів</h1>
+        <p class="text-sm text-muted-foreground">{{ __('words_test.subtitle') }} · {{ __('words_test.active_lang') }}: <span class="font-semibold text-primary">{{ strtoupper($siteLocale) }}</span></p>
+        <h1 class="text-3xl font-semibold text-foreground">{{ __('words_test.quick_test') }}</h1>
         <p class="text-muted-foreground max-w-2xl">{{ $heroDescription }}</p>
       </div>
       <div class="flex flex-wrap gap-3">
         <button id="reset-btn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
-          <span>Почати заново</span>
+          <span>{{ __('words_test.restart') }}</span>
         </button>
       </div>
     </div>
 
     <div class="grid gap-4 md:grid-cols-[1.6fr_1fr]">
       <div class="rounded-2xl bg-card p-6 shadow-soft border border-border/70" id="question-card">
-        <div class="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="Режими складності">
+        <div class="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="{{ __('words_test.difficulty_modes') }}">
           @foreach ($tabs as $tab)
             <a
               href="{{ $tab['href'] }}"
@@ -96,18 +99,42 @@
             </a>
           @endforeach
         </div>
+
+        <!-- Study Language Selector -->
+        <div class="mb-4 p-4 rounded-xl bg-muted/50 border border-border/50" id="study-lang-selector">
+          <div class="flex flex-wrap items-center gap-3">
+            <label for="study-lang" class="text-sm font-semibold text-muted-foreground">{{ __('words_test.study_lang') }}:</label>
+            <select id="study-lang" class="rounded-lg border border-border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+              @foreach ($studyLangOptions as $langCode => $langName)
+                <option value="{{ $langCode }}" {{ $studyLang === $langCode ? 'selected' : '' }}>{{ $langName }}</option>
+              @endforeach
+            </select>
+            <p class="text-xs text-muted-foreground">{{ __('words_test.study_lang_hint') }}</p>
+          </div>
+          <!-- Warning when site locale is English and no study language selected -->
+          <div id="study-lang-warning" class="mt-3 p-3 rounded-lg bg-warning/10 border border-warning/30 text-warning text-sm {{ (!$studyLang && $siteLocale === 'en') ? '' : 'hidden' }}">
+            <span class="font-semibold">⚠️</span> {{ __('words_test.select_study_lang_warning') }}
+          </div>
+          <!-- Info when no languages available -->
+          @if(empty($studyLangOptions))
+          <div class="mt-3 p-3 rounded-lg bg-destructive/10 border border-destructive/30 text-destructive text-sm">
+            <span class="font-semibold">⚠️</span> {{ __('words_test.no_langs_available') }}
+          </div>
+          @endif
+        </div>
+
         <div class="flex items-center justify-between gap-3">
           <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
             <span class="h-2 w-2 rounded-full bg-primary"></span>
-            <span id="question-label">Завантаження питання…</span>
+            <span id="question-label">{{ __('words_test.loading') }}</span>
           </div>
           <div class="text-sm text-muted-foreground" id="queue-counter"></div>
         </div>
 
         <div class="mt-6 space-y-6" id="question-wrapper">
           <div class="space-y-2">
-            <p class="text-sm uppercase tracking-[0.08em] text-muted-foreground">Переклад</p>
-            <div id="question-prompt" class="text-3xl font-semibold text-foreground">Зачекайте...</div>
+            <p class="text-sm uppercase tracking-[0.08em] text-muted-foreground">{{ __('words_test.translation') }}</p>
+            <div id="question-prompt" class="text-3xl font-semibold text-foreground">{{ __('words_test.wait') }}</div>
             <p id="question-tags" class="text-sm text-muted-foreground"></p>
           </div>
 
@@ -116,7 +143,7 @@
           <div id="input-wrapper" class="hidden space-y-3">
             <form id="answer-form" class="space-y-3">
               <div class="space-y-2">
-                <label for="answer-input" class="text-sm font-semibold text-muted-foreground">Ваша відповідь</label>
+                <label for="answer-input" class="text-sm font-semibold text-muted-foreground">{{ __('words_test.your_answer') }}</label>
                 <div class="relative">
                   <input
                     id="answer-input"
@@ -124,14 +151,14 @@
                     name="answer"
                     autocomplete="off"
                     class="w-full rounded-xl border border-border/80 bg-muted px-4 py-3 text-lg font-semibold text-foreground shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                    placeholder="Введіть слово англійською"
+                    placeholder="{{ __('words_test.enter_word') }}"
                   >
                   <ul id="suggestions" class="absolute left-0 top-full z-10 mt-2 hidden max-h-60 w-full overflow-auto rounded-xl border border-border/80 bg-card shadow-lg"></ul>
                 </div>
               </div>
               <div class="flex flex-wrap items-center gap-3">
                 <button id="submit-answer" type="submit" class="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
-                  Перевірити
+                  {{ __('words_test.check') }}
                 </button>
               </div>
             </form>
@@ -139,15 +166,15 @@
         </div>
 
         <div id="empty-state" class="hidden text-muted-foreground">
-          <p class="text-lg font-semibold text-foreground">Питання не знайдено</p>
-          <p>Додайте більше слів з перекладом на активну мову або натисніть «Почати заново», щоб спробувати ще раз.</p>
+          <p class="text-lg font-semibold text-foreground">{{ __('words_test.no_questions') }}</p>
+          <p>{{ __('words_test.no_questions_msg') }}</p>
         </div>
       </div>
 
       <div class="space-y-4">
         <div class="rounded-2xl bg-card p-5 shadow-soft border border-border/70">
           <div class="flex items-center justify-between">
-            <p class="text-sm font-semibold text-muted-foreground">Прогрес</p>
+            <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.progress') }}</p>
             <span class="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground" id="percentage">0%</span>
           </div>
           <div class="mt-3 h-3 rounded-full bg-muted">
@@ -155,15 +182,15 @@
           </div>
           <dl class="mt-4 grid grid-cols-3 gap-3 text-sm">
             <div class="rounded-xl bg-muted px-3 py-2">
-              <dt class="text-muted-foreground">Усього</dt>
+              <dt class="text-muted-foreground">{{ __('words_test.total') }}</dt>
               <dd id="stat-total" class="text-lg font-semibold text-foreground">0</dd>
             </div>
             <div class="rounded-xl bg-success/10 px-3 py-2 text-success">
-              <dt class="text-sm">Правильно</dt>
+              <dt class="text-sm">{{ __('words_test.correct') }}</dt>
               <dd id="stat-correct" class="text-lg font-semibold">0</dd>
             </div>
             <div class="rounded-xl bg-destructive/10 px-3 py-2 text-destructive">
-              <dt class="text-sm">Помилки</dt>
+              <dt class="text-sm">{{ __('words_test.errors') }}</dt>
               <dd id="stat-wrong" class="text-lg font-semibold">0</dd>
             </div>
           </dl>
@@ -183,11 +210,11 @@
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
             </div>
             <div>
-              <p class="text-sm font-semibold text-muted-foreground">Тест завершено</p>
-              <p class="text-lg font-semibold text-foreground">Всі доступні слова опрацьовано</p>
+              <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.test_completed') }}</p>
+              <p class="text-lg font-semibold text-foreground">{{ __('words_test.all_words_done') }}</p>
             </div>
           </div>
-          <p class="mt-3 text-muted-foreground">Можете почати заново, щоб повторити матеріал.</p>
+          <p class="mt-3 text-muted-foreground">{{ __('words_test.can_restart') }}</p>
         </div>
       </div>
     </div>
@@ -201,16 +228,16 @@
           </div>
           <div class="space-y-2">
             <div>
-              <p class="text-sm font-semibold text-muted-foreground">Тест не пройдено</p>
-              <p class="text-2xl font-semibold text-foreground">Перевищено ліміт у 3 помилки</p>
+              <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.test_failed') }}</p>
+              <p class="text-2xl font-semibold text-foreground">{{ __('words_test.error_limit') }}</p>
             </div>
-            <p class="text-muted-foreground">Ви зробили три помилки поспіль. Натисніть «Спробувати ще раз», щоб пройти тест повторно.</p>
+            <p class="text-muted-foreground">{{ __('words_test.error_limit_msg') }}</p>
             <div class="flex flex-wrap gap-3 pt-2">
               <button id="retry-btn" class="inline-flex items-center gap-2 rounded-xl border border-destructive/50 bg-destructive/10 px-4 py-2 text-sm font-semibold text-destructive shadow-sm transition hover:-translate-y-0.5 hover:shadow">
-                Спробувати ще раз
+                {{ __('words_test.retry') }}
               </button>
               <button id="close-failure" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
-                Закрити
+                {{ __('words_test.close') }}
               </button>
             </div>
           </div>
@@ -220,7 +247,11 @@
   </div>
 
   <script>
+    // Localization strings for JavaScript
+    window.wordsTestI18n = @json(__('words_test'));
+
     document.addEventListener('DOMContentLoaded', () => {
+      const i18n = window.wordsTestI18n;
       const difficulty = "{{ $difficulty }}";
       const isEasy = difficulty === 'easy';
       const isMedium = difficulty === 'medium';
@@ -228,6 +259,7 @@
       const stateUrl = "{{ $stateUrl }}";
       const checkUrl = "{{ $checkUrl }}";
       const resetUrl = "{{ $resetUrl }}";
+      const setStudyLangUrl = "{{ $setStudyLangUrl }}";
       const csrfToken = '{{ csrf_token() }}';
 
       const questionLabel = document.getElementById('question-label');
@@ -257,16 +289,73 @@
       const resetBtn = document.getElementById('reset-btn');
       const retryBtn = document.getElementById('retry-btn');
       const closeFailure = document.getElementById('close-failure');
+      const studyLangSelect = document.getElementById('study-lang');
+      const studyLangWarning = document.getElementById('study-lang-warning');
 
       let currentQuestion = null;
       let loading = false;
       let suggestionTimeout = null;
+      let currentStudyLang = "{{ $studyLang ?? '' }}";
+      let currentSiteLocale = "{{ $siteLocale }}";
 
       function animate(el, className = 'animate-soft') {
         if (!el) return;
         el.classList.remove(className);
         void el.offsetWidth;
         el.classList.add(className);
+      }
+
+      function updateStudyLangUI(studyLang, siteLocale) {
+        currentStudyLang = studyLang;
+        currentSiteLocale = siteLocale;
+
+        // Update select value
+        if (studyLangSelect && studyLang) {
+          studyLangSelect.value = studyLang;
+        }
+
+        // Show/hide warning only when site locale is English and no study language selected
+        if (studyLangWarning) {
+          const showWarning = !studyLang && siteLocale === 'en';
+          studyLangWarning.classList.toggle('hidden', !showWarning);
+        }
+      }
+
+      async function setStudyLanguage(lang) {
+        loading = true;
+        toggleAnswerControls(false);
+
+        try {
+          const formData = new FormData();
+          formData.append('lang', lang);
+          formData.append('difficulty', difficulty);
+
+          const response = await fetch(setStudyLangUrl, {
+            method: 'POST',
+            headers: {
+              'X-CSRF-TOKEN': csrfToken,
+              Accept: 'application/json',
+            },
+            body: formData,
+          });
+
+          if (!response.ok) {
+            loading = false;
+            toggleAnswerControls(true);
+            return;
+          }
+
+          const data = await response.json();
+          if (data.ok) {
+            updateStudyLangUI(data.studyLang, data.siteLocale);
+            // Fetch new state after language change
+            await fetchState();
+          }
+        } catch (e) {
+          console.error('Error setting study language:', e);
+        }
+
+        loading = false;
       }
 
       async function fetchState() {
@@ -279,6 +368,21 @@
       }
 
       function updateState(data) {
+        // Update study language UI
+        updateStudyLangUI(data.studyLang, data.siteLocale);
+
+        // If needs study language selection, show warning and disable test
+        if (data.needsStudyLanguage) {
+          currentQuestion = null;
+          questionWrapper.classList.add('hidden');
+          emptyState.classList.remove('hidden');
+          questionLabel.textContent = i18n.select_study_lang;
+          queueCounter.textContent = '';
+          toggleAnswerControls(false);
+          renderStats({ correct: 0, wrong: 0, total: 0 }, 0, 0);
+          return;
+        }
+
         renderStats(data.stats, data.percentage, data.totalCount);
         completion.hidden = !data.completed;
         toggleFailureModal(data.failed);
@@ -287,7 +391,7 @@
           currentQuestion = null;
           questionWrapper.classList.add('hidden');
           emptyState.classList.add('hidden');
-          questionLabel.textContent = 'Тест не пройдено';
+          questionLabel.textContent = i18n.test_failed;
           queueCounter.textContent = '';
           toggleAnswerControls(false);
           return;
@@ -298,7 +402,7 @@
           questionWrapper.classList.add('hidden');
           emptyState.classList.remove('hidden');
           queueCounter.textContent = '';
-          questionLabel.textContent = data.completed ? 'Все пройдено' : 'Немає питань';
+          questionLabel.textContent = data.completed ? i18n.all_done : i18n.no_question;
           toggleAnswerControls(false);
           return;
         }
@@ -320,12 +424,29 @@
       }
 
       function renderQuestion(question, totalCount, totalAnswered) {
-        const label = isEasy
-          ? (question.questionType === 'en_to_uk' ? 'Обрати переклад українською' : 'Обрати слово англійською')
-          : 'Введіть слово англійською';
+        // Determine label based on question type
+        let label;
+        if (isEasy) {
+          if (question.questionType === 'en_to_translation') {
+            label = i18n.choose_translation;
+          } else {
+            label = i18n.choose_word_en;
+          }
+        } else {
+          // For medium/hard, check what answer is expected
+          if (question.questionType === 'translation_to_en') {
+            label = i18n.enter_word_en;
+          } else {
+            label = i18n.enter_word;
+          }
+        }
         questionLabel.textContent = label;
 
-        queueCounter.textContent = `Питання ${totalAnswered + 1} з ${totalCount}`;
+        // Use translation string for question counter
+        const questionOfText = i18n.question_of
+          .replace(':current', totalAnswered + 1)
+          .replace(':total', totalCount);
+        queueCounter.textContent = questionOfText;
         questionPrompt.textContent = question.prompt;
         questionTags.textContent = (question.tags || []).join(', ');
 
@@ -347,6 +468,12 @@
         } else {
           optionsWrapper.innerHTML = '';
           answerInput.value = '';
+          // Update placeholder based on question type
+          if (question.questionType === 'translation_to_en') {
+            answerInput.placeholder = i18n.enter_word_en;
+          } else {
+            answerInput.placeholder = i18n.enter_word;
+          }
           hideSuggestions();
           setTimeout(() => answerInput?.focus(), 50);
         }
@@ -429,7 +556,7 @@
           if (data.failed) {
             questionWrapper.classList.add('hidden');
             emptyState.classList.add('hidden');
-            questionLabel.textContent = 'Тест не пройдено';
+            questionLabel.textContent = i18n.test_failed;
             queueCounter.textContent = '';
             toggleAnswerControls(false);
             return;
@@ -439,7 +566,7 @@
             completion.hidden = false;
             questionWrapper.classList.add('hidden');
             emptyState.classList.remove('hidden');
-            questionLabel.textContent = 'Все пройдено';
+            questionLabel.textContent = i18n.all_done;
             queueCounter.textContent = '';
             toggleAnswerControls(false);
           } else {
@@ -473,18 +600,18 @@
         feedback.hidden = false;
         animate(feedback, 'animate-pop');
         const isCorrect = result.isCorrect;
-        feedbackChip.textContent = isCorrect ? 'Правильно' : 'Помилка';
+        feedbackChip.textContent = isCorrect ? i18n.feedback_correct : i18n.feedback_error;
         feedbackChip.className = `inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold ${isCorrect ? 'bg-success/10 text-success' : 'bg-destructive/10 text-destructive'}`;
 
-        if (result.questionType === 'en_to_uk') {
+        if (result.questionType === 'en_to_translation') {
           feedbackTitle.textContent = `${result.word} → ${result.correctAnswer}`;
         } else {
           feedbackTitle.textContent = `${result.translation} → ${result.correctAnswer}`;
         }
 
         feedbackBody.textContent = isCorrect
-          ? 'Чудово! Продовжуйте у тому ж дусі.'
-          : 'Зверніть увагу на правильний варіант і спробуйте ще раз.';
+          ? i18n.feedback_correct_msg
+          : i18n.feedback_error_msg;
       }
 
       async function resetTest(button) {
@@ -567,6 +694,16 @@
             hideSuggestions();
           }
         }, 200);
+      }
+
+      // Study language change handler
+      if (studyLangSelect) {
+        studyLangSelect.addEventListener('change', (event) => {
+          const newLang = event.target.value;
+          if (newLang && newLang !== currentStudyLang) {
+            setStudyLanguage(newLang);
+          }
+        });
       }
 
       if (answerForm && !isEasy) {
