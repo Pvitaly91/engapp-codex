@@ -226,8 +226,8 @@ class FillTranslationsCommand extends Command
         if (!$this->option('dry-run')) {
             $this->info("Saving updated JSON...");
             
-            // Create backup before saving (use microtime for uniqueness)
-            $backupPath = $filePath . '.backup_' . str_replace('.', '_', microtime(true));
+            // Create backup before saving
+            $backupPath = $this->generateBackupFilename($filePath);
             if (!copy($filePath, $backupPath)) {
                 $this->warn("Could not create backup file");
             } else {
@@ -274,28 +274,12 @@ class FillTranslationsCommand extends Command
             $verifyContent = file_get_contents($filePath);
             if ($verifyContent === false) {
                 $this->error("Warning: File verification failed (could not read file back)");
-                $this->error("Restoring from backup...");
-                
-                if (copy($backupPath, $filePath)) {
-                    $this->info("Backup restored successfully!");
-                } else {
-                    $this->error("CRITICAL: Backup restore failed! Manually restore with:");
-                    $this->error("  cp {$backupPath} {$filePath}");
-                }
-                return Command::FAILURE;
+                return $this->restoreFromBackup($backupPath, $filePath);
             }
             
             if (strlen($verifyContent) < self::MIN_JSON_SIZE) {
                 $this->error("Warning: File verification failed (size: " . strlen($verifyContent) . " bytes, minimum: " . self::MIN_JSON_SIZE . ")");
-                $this->error("Restoring from backup...");
-                
-                if (copy($backupPath, $filePath)) {
-                    $this->info("Backup restored successfully!");
-                } else {
-                    $this->error("CRITICAL: Backup restore failed! Manually restore with:");
-                    $this->error("  cp {$backupPath} {$filePath}");
-                }
-                return Command::FAILURE;
+                return $this->restoreFromBackup($backupPath, $filePath);
             }
             
             // Sync with database
@@ -540,5 +524,40 @@ class FillTranslationsCommand extends Command
             file_put_contents($reportPath, $report);
             $this->info("Detailed report saved to: {$reportPath}");
         }
+    }
+
+    /**
+     * Generate a unique backup filename using microtime
+     * 
+     * @param string $filePath Original file path
+     * @return string Backup file path
+     */
+    private function generateBackupFilename(string $filePath): string
+    {
+        // Use microtime for microsecond precision to prevent collisions
+        // Replace dots with underscores to avoid multiple file extensions
+        $timestamp = str_replace('.', '_', microtime(true));
+        return $filePath . '.backup_' . $timestamp;
+    }
+
+    /**
+     * Restore file from backup and return failure status
+     * 
+     * @param string $backupPath Backup file path
+     * @param string $filePath Original file path
+     * @return int Command::FAILURE status code
+     */
+    private function restoreFromBackup(string $backupPath, string $filePath): int
+    {
+        $this->error("Restoring from backup...");
+        
+        if (copy($backupPath, $filePath)) {
+            $this->info("Backup restored successfully!");
+        } else {
+            $this->error("CRITICAL: Backup restore failed! Manually restore with:");
+            $this->error("  cp {$backupPath} {$filePath}");
+        }
+        
+        return Command::FAILURE;
     }
 }
