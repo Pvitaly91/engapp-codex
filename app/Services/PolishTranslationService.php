@@ -170,8 +170,7 @@ class PolishTranslationService
                 
                 // Extract JSON from response (might be wrapped in markdown)
                 $text = trim($text);
-                $text = preg_replace('/^```json\s*/m', '', $text);
-                $text = preg_replace('/^```\s*/m', '', $text);
+                $text = preg_replace('/^```(?:json)?\s*/m', '', $text);
                 $text = trim($text);
                 
                 $translations = json_decode($text, true);
@@ -200,7 +199,7 @@ class PolishTranslationService
     /**
      * Clean translation text
      */
-    private function cleanTranslation(?string $translation): ?string
+    protected function cleanTranslation(?string $translation): ?string
     {
         if ($translation === null || trim($translation) === '') {
             return null;

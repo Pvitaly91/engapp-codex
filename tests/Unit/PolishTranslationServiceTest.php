@@ -2,70 +2,64 @@
 
 namespace Tests\Unit;
 
-use App\Services\PolishTranslationService;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class PolishTranslationServiceTest extends TestCase
 {
-    private PolishTranslationService $service;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-        // Note: These tests don't require actual API calls
-        // They test the logic and validation methods
-    }
-
     public function test_clean_translation_removes_quotes()
     {
-        $service = new PolishTranslationService();
-        $reflection = new \ReflectionClass($service);
-        $method = $reflection->getMethod('cleanTranslation');
-        $method->setAccessible(true);
+        $service = new class extends \App\Services\PolishTranslationService {
+            public function testClean($translation) {
+                return $this->cleanTranslation($translation);
+            }
+        };
 
-        $this->assertEquals('test', $method->invoke($service, '"test"'));
-        $this->assertEquals('test', $method->invoke($service, "'test'"));
-        $this->assertEquals('test', $method->invoke($service, '"test"'));
+        $this->assertEquals('test', $service->testClean('"test"'));
+        $this->assertEquals('test', $service->testClean("'test'"));
+        $this->assertEquals('test', $service->testClean('"test"'));
     }
 
     public function test_clean_translation_removes_explanations()
     {
-        $service = new PolishTranslationService();
-        $reflection = new \ReflectionClass($service);
-        $method = $reflection->getMethod('cleanTranslation');
-        $method->setAccessible(true);
+        $service = new class extends \App\Services\PolishTranslationService {
+            public function testClean($translation) {
+                return $this->cleanTranslation($translation);
+            }
+        };
 
-        $this->assertEquals('dom', $method->invoke($service, 'dom (house)'));
-        $this->assertEquals('kot', $method->invoke($service, 'kot - cat'));
-        $this->assertEquals('pies', $method->invoke($service, 'pies: dog'));
+        $this->assertEquals('dom', $service->testClean('dom (house)'));
+        $this->assertEquals('kot', $service->testClean('kot - cat'));
+        $this->assertEquals('pies', $service->testClean('pies: dog'));
     }
 
     public function test_clean_translation_takes_first_option()
     {
-        $service = new PolishTranslationService();
-        $reflection = new \ReflectionClass($service);
-        $method = $reflection->getMethod('cleanTranslation');
-        $method->setAccessible(true);
+        $service = new class extends \App\Services\PolishTranslationService {
+            public function testClean($translation) {
+                return $this->cleanTranslation($translation);
+            }
+        };
 
-        $this->assertEquals('dom', $method->invoke($service, 'dom/mieszkanie'));
-        $this->assertEquals('kot', $method->invoke($service, 'kot/kotek'));
+        $this->assertEquals('dom', $service->testClean('dom/mieszkanie'));
+        $this->assertEquals('kot', $service->testClean('kot/kotek'));
     }
 
     public function test_clean_translation_returns_null_for_empty()
     {
-        $service = new PolishTranslationService();
-        $reflection = new \ReflectionClass($service);
-        $method = $reflection->getMethod('cleanTranslation');
-        $method->setAccessible(true);
+        $service = new class extends \App\Services\PolishTranslationService {
+            public function testClean($translation) {
+                return $this->cleanTranslation($translation);
+            }
+        };
 
-        $this->assertNull($method->invoke($service, null));
-        $this->assertNull($method->invoke($service, ''));
-        $this->assertNull($method->invoke($service, '  '));
+        $this->assertNull($service->testClean(null));
+        $this->assertNull($service->testClean(''));
+        $this->assertNull($service->testClean('  '));
     }
 
     public function test_cache_functionality()
     {
-        $service = new PolishTranslationService();
+        $service = new \App\Services\PolishTranslationService();
 
         // Test cache is empty initially
         $this->assertEmpty($service->getCache());
@@ -80,7 +74,7 @@ class PolishTranslationServiceTest extends TestCase
 
     public function test_validation_detects_same_word()
     {
-        $service = new PolishTranslationService();
+        $service = new \App\Services\PolishTranslationService();
 
         // Without API call, validation should detect when word equals translation
         // The validateTranslation method will try to verify loanword, but without API it returns invalid

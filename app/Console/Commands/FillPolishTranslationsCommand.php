@@ -120,10 +120,16 @@ class FillPolishTranslationsCommand extends Command
         // Save file
         if (!$this->option('dry-run')) {
             $this->info("Saving updated JSON...");
-            file_put_contents(
+            $result = file_put_contents(
                 $filePath,
                 json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
             );
+            
+            if ($result === false) {
+                $this->error("Failed to save file: {$filePath}");
+                return Command::FAILURE;
+            }
+            
             $this->info("File saved successfully!");
             
             // Sync with database
@@ -245,23 +251,7 @@ class FillPolishTranslationsCommand extends Command
             $synced = 0;
             $skipped = 0;
             
-            foreach ($translations as $key => $translation) {
-                if ($translation === null) {
-                    continue;
-                }
-                
-                // Extract word data from key
-                preg_match('/^(with|without)_translation_(\d+)$/', $key, $matches);
-                if (count($matches) !== 3) {
-                    continue;
-                }
-                
-                // We need to get the word from the original data
-                // For now, we'll use a simpler approach: find by word text
-                // This is a limitation, but works for this use case
-            }
-            
-            // Alternative approach: read the file again and match by word text
+            // Read the file to get word data with IDs
             $filePath = public_path('exports/words/words_pl.json');
             $data = json_decode(file_get_contents($filePath), true);
             
