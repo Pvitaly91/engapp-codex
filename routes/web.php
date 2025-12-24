@@ -27,6 +27,7 @@ use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
+use App\Http\Controllers\Admin\WordsExportController;
 use App\Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,10 +48,66 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
-Route::get('/words/test/state', [WordsTestController::class, 'state'])->name('words.test.state');
-Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
-Route::post('/words/test/reset', [WordsTestController::class, 'reset'])->name('words.test.reset');
+// Public locale switching route
+Route::get('/set-locale', function (\Illuminate\Http\Request $request) {
+    $lang = $request->input('lang', 'uk');
+    
+    // Get supported locales from Language Manager or fallback to config
+    $supportedLocales = ['uk', 'en']; // Default fallback
+    $defaultLocale = 'uk';
+    
+    if (\Illuminate\Support\Facades\Schema::hasTable('languages')) {
+        $codes = \App\Modules\LanguageManager\Services\LocaleService::getActiveLanguages()->pluck('code')->toArray();
+        if (!empty($codes)) {
+            $supportedLocales = $codes;
+        }
+        $default = \App\Modules\LanguageManager\Services\LocaleService::getDefaultLanguage();
+        if ($default) {
+            $defaultLocale = $default->code;
+        }
+    } else {
+        $supportedLocales = config('app.supported_locales', ['uk', 'en']);
+        $defaultLocale = config('app.locale', 'uk');
+    }
+    
+    if (! in_array($lang, $supportedLocales)) {
+        $lang = $defaultLocale;
+    }
+    session(['locale' => $lang]);
+    app()->setLocale($lang);
+
+    // Set cookie for 1 year
+    $cookie = cookie('locale', $lang, 60 * 24 * 365);
+
+    // Use intended() with fallback to home for safety
+    $referer = $request->headers->get('referer');
+    $host = $request->getHost();
+    
+    // Validate referer is from same host to prevent open redirect
+    if ($referer && parse_url($referer, PHP_URL_HOST) === $host) {
+        return redirect()->back()->withCookie($cookie);
+    }
+    
+    return redirect()->route('home')->withCookie($cookie);
+})->name('locale.set');
+
+Route::prefix('words/test')->group(function () {
+    Route::get('/', [WordsTestController::class, 'index'])->name('words.test');
+    Route::get('/medium', [WordsTestController::class, 'index'])->name('words.test.medium')->defaults('difficulty', 'medium');
+    Route::get('/hard', [WordsTestController::class, 'index'])->name('words.test.hard')->defaults('difficulty', 'hard');
+
+    Route::get('/state', [WordsTestController::class, 'state'])->name('words.test.state');
+    Route::get('/medium/state', [WordsTestController::class, 'state'])->name('words.test.state.medium')->defaults('difficulty', 'medium');
+    Route::get('/hard/state', [WordsTestController::class, 'state'])->name('words.test.state.hard')->defaults('difficulty', 'hard');
+
+    Route::post('/check', [WordsTestController::class, 'check'])->name('words.test.check');
+    Route::post('/medium/check', [WordsTestController::class, 'check'])->name('words.test.check.medium')->defaults('difficulty', 'medium');
+    Route::post('/hard/check', [WordsTestController::class, 'check'])->name('words.test.check.hard')->defaults('difficulty', 'hard');
+
+    Route::post('/reset', [WordsTestController::class, 'reset'])->name('words.test.reset');
+    Route::post('/medium/reset', [WordsTestController::class, 'reset'])->name('words.test.reset.medium')->defaults('difficulty', 'medium');
+    Route::post('/hard/reset', [WordsTestController::class, 'reset'])->name('words.test.reset.hard')->defaults('difficulty', 'hard');
+});
 
 // Public pages routes (no authentication required)
 Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
@@ -232,6 +289,17 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::delete('/tests/{slug}', [GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
 
         Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
+
+        // Words Export routes
+        Route::prefix('words/export')->name('admin.words.export.')->group(function () {
+            Route::get('/', [WordsExportController::class, 'index'])->name('index');
+            Route::post('/', [WordsExportController::class, 'export'])->name('run');
+            Route::get('/view', [WordsExportController::class, 'view'])->name('view');
+            Route::get('/download', [WordsExportController::class, 'download'])->name('download');
+            Route::post('/import', [WordsExportController::class, 'import'])->name('import');
+            Route::post('/csv', [WordsExportController::class, 'exportCsv'])->name('csv');
+            Route::post('/csv/import', [WordsExportController::class, 'importCsv'])->name('csv.import');
+        });
 
         Route::get('/search', SiteSearchController::class)->name('site.search');
 
