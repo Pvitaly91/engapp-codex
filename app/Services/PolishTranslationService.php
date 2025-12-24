@@ -207,8 +207,10 @@ class PolishTranslationService
 
         $translation = trim($translation);
         
-        // Remove quotes
-        $translation = trim($translation, '"\'""''');
+        // Remove quotes (both straight and curly)
+        $translation = trim($translation, "\"'");
+        // Also remove curly quotes
+        $translation = trim($translation, "\u{201C}\u{201D}\u{2018}\u{2019}");
         
         // Remove explanations in parentheses
         $translation = preg_replace('/\s*\([^)]*\)\s*/', '', $translation);
