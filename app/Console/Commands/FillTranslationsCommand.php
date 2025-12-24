@@ -29,6 +29,13 @@ class FillTranslationsCommand extends Command
      */
     protected $description = 'Fill translations in words export file for specified language';
 
+    /**
+     * Minimum viable JSON file size in bytes.
+     * A valid words export JSON must be at least this size to contain the basic structure:
+     * {"exported_at":"...","lang":"...","counts":{...},"with_translation":[],"without_translation":[]}
+     */
+    private const MIN_JSON_SIZE = 50;
+
     private TranslationService $translationService;
     private array $failedWords = [];
     private array $suspiciousWords = [];
@@ -231,7 +238,7 @@ class FillTranslationsCommand extends Command
             }
             
             // Validate JSON is not empty and has proper structure
-            if (strlen($jsonString) < 50) { // Minimum viable JSON structure
+            if (strlen($jsonString) < self::MIN_JSON_SIZE) {
                 $this->error("Refusing to save empty/invalid JSON!");
                 $this->error("JSON string length: " . strlen($jsonString));
                 return Command::FAILURE;
@@ -260,7 +267,7 @@ class FillTranslationsCommand extends Command
             
             // Verify file was written correctly by checking it can be read back
             $verifyContent = file_get_contents($filePath);
-            if ($verifyContent === false || strlen($verifyContent) < 50) {
+            if ($verifyContent === false || strlen($verifyContent) < self::MIN_JSON_SIZE) {
                 $this->error("Warning: File verification failed (size: " . strlen($verifyContent) . " bytes)");
                 $this->error("Restoring from backup...");
                 
