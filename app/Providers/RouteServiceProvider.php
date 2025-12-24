@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Modules\LanguageManager\Models\Language;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -35,6 +37,48 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            // Register localized routes for non-default languages
+            $this->registerLocalizedRoutes();
         });
+    }
+
+    /**
+     * Register routes with locale prefix for non-default languages.
+     */
+    protected function registerLocalizedRoutes(): void
+    {
+        // Skip if languages table doesn't exist
+        if (!Schema::hasTable('languages')) {
+            return;
+        }
+
+        try {
+            $languages = Language::getActive();
+            $defaultLanguage = Language::getDefault();
+
+            if (!$defaultLanguage || $languages->isEmpty()) {
+                return;
+            }
+
+            // Get non-default language codes for URL prefixes
+            $localePrefixes = $languages
+                ->where('is_default', false)
+                ->pluck('code')
+                ->toArray();
+
+            if (empty($localePrefixes)) {
+                return;
+            }
+
+            // Register the same web routes with locale prefix
+            foreach ($localePrefixes as $locale) {
+                Route::middleware('web')
+                    ->prefix($locale)
+                    ->group(base_path('routes/web.php'));
+            }
+        } catch (\Exception $e) {
+            // Silently fail if database isn't ready
+        }
     }
 }

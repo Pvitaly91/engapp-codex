@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'uk',
 
     /*
     |--------------------------------------------------------------------------
@@ -96,7 +96,20 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'uk',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Supported Locales
+    |--------------------------------------------------------------------------
+    |
+    | This array defines the locales that the application supports. This is
+    | used by the locale switching middleware and route to validate locale
+    | values before applying them.
+    |
+    */
+
+    'supported_locales' => ['uk', 'en'],
 
     /*
     |--------------------------------------------------------------------------
@@ -173,6 +186,7 @@ return [
         App\Modules\ArtisanManager\ArtisanManagerServiceProvider::class,
         App\Modules\DatabaseStructure\DatabaseStructureServiceProvider::class,
         App\Modules\FileManager\FileManagerServiceProvider::class,
+        App\Modules\LanguageManager\LanguageManagerServiceProvider::class,
         App\Modules\MigrationManager\MigrationManagerServiceProvider::class,
         App\Modules\PageManager\PageManagerServiceProvider::class,
         App\Modules\PromptGenerator\PromptGeneratorServiceProvider::class,
