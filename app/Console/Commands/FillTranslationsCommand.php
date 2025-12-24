@@ -31,8 +31,13 @@ class FillTranslationsCommand extends Command
 
     /**
      * Minimum viable JSON file size in bytes.
-     * A valid words export JSON must be at least this size to contain the basic structure:
-     * {"exported_at":"...","lang":"...","counts":{...},"with_translation":[],"without_translation":[]}
+     * 
+     * This is a safety threshold to catch obviously corrupted or empty files.
+     * The actual minimum size for a valid words export JSON with the required structure
+     * is larger, but we use a conservative threshold here as the structural validation
+     * (checking for required fields) provides the real validation.
+     * 
+     * A truly empty or corrupted file will be much smaller than 50 bytes.
      */
     private const MIN_JSON_SIZE = 50;
 
@@ -221,8 +226,8 @@ class FillTranslationsCommand extends Command
         if (!$this->option('dry-run')) {
             $this->info("Saving updated JSON...");
             
-            // Create backup before saving
-            $backupPath = $filePath . '.backup_' . time();
+            // Create backup before saving (use microtime for uniqueness)
+            $backupPath = $filePath . '.backup_' . str_replace('.', '_', microtime(true));
             if (!copy($filePath, $backupPath)) {
                 $this->warn("Could not create backup file");
             } else {
@@ -267,8 +272,21 @@ class FillTranslationsCommand extends Command
             
             // Verify file was written correctly by checking it can be read back
             $verifyContent = file_get_contents($filePath);
-            if ($verifyContent === false || strlen($verifyContent) < self::MIN_JSON_SIZE) {
-                $this->error("Warning: File verification failed (size: " . strlen($verifyContent) . " bytes)");
+            if ($verifyContent === false) {
+                $this->error("Warning: File verification failed (could not read file back)");
+                $this->error("Restoring from backup...");
+                
+                if (copy($backupPath, $filePath)) {
+                    $this->info("Backup restored successfully!");
+                } else {
+                    $this->error("CRITICAL: Backup restore failed! Manually restore with:");
+                    $this->error("  cp {$backupPath} {$filePath}");
+                }
+                return Command::FAILURE;
+            }
+            
+            if (strlen($verifyContent) < self::MIN_JSON_SIZE) {
+                $this->error("Warning: File verification failed (size: " . strlen($verifyContent) . " bytes, minimum: " . self::MIN_JSON_SIZE . ")");
                 $this->error("Restoring from backup...");
                 
                 if (copy($backupPath, $filePath)) {
