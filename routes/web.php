@@ -107,6 +107,8 @@ Route::prefix('words/test')->group(function () {
     Route::post('/reset', [WordsTestController::class, 'reset'])->name('words.test.reset');
     Route::post('/medium/reset', [WordsTestController::class, 'reset'])->name('words.test.reset.medium')->defaults('difficulty', 'medium');
     Route::post('/hard/reset', [WordsTestController::class, 'reset'])->name('words.test.reset.hard')->defaults('difficulty', 'hard');
+
+    Route::post('/set-study-language', [WordsTestController::class, 'setStudyLanguage'])->name('words.test.set-study-language');
 });
 
 // Public pages routes (no authentication required)
