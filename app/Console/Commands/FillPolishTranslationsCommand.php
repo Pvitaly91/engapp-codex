@@ -38,7 +38,19 @@ class FillPolishTranslationsCommand extends Command
      */
     public function handle(PolishTranslationService $translationService): int
     {
-        $this->translationService = $translationService;
+        try {
+            $this->translationService = $translationService;
+        } catch (\RuntimeException $e) {
+            $this->error($e->getMessage());
+            $this->newLine();
+            $this->warn("Note: This command is deprecated. Please use: php artisan words:fill-export pl");
+            $this->newLine();
+            $this->info("To fix this:");
+            $this->info("1. Add your Gemini API key to .env file:");
+            $this->info("   GEMINI_API_KEY=your-api-key-here");
+            $this->info("2. Get API key from: https://makersuite.google.com/app/apikey");
+            return Command::FAILURE;
+        }
         
         $filePath = public_path('exports/words/words_pl.json');
         

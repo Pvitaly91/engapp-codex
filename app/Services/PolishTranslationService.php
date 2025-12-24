@@ -18,6 +18,10 @@ class PolishTranslationService
         // Use Gemini as it's more reliable for translations
         $this->apiKey = config('services.gemini.key');
         $this->model = config('services.gemini.model', 'gemini-2.0-flash-exp');
+        
+        if (empty($this->apiKey)) {
+            throw new \RuntimeException('GEMINI_API_KEY is not configured. Please set it in your .env file.');
+        }
     }
 
     /**

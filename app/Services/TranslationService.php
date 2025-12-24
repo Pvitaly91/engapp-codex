@@ -30,6 +30,10 @@ class TranslationService
         $this->apiKey = config('services.gemini.key');
         $this->model = config('services.gemini.model', 'gemini-2.0-flash-exp');
         $this->targetLang = $targetLang;
+        
+        if (empty($this->apiKey)) {
+            throw new \RuntimeException('GEMINI_API_KEY is not configured. Please set it in your .env file.');
+        }
     }
 
     /**
@@ -208,16 +212,20 @@ class TranslationService
                     return $cleaned;
                 }
                 
-                Log::warning("Failed to parse Gemini response as JSON: " . $text);
+                $errorMsg = "Failed to parse Gemini response as JSON. Response: " . substr($text, 0, 200);
+                Log::warning($errorMsg);
+                throw new \RuntimeException($errorMsg);
             } else {
-                Log::error("Gemini API error: " . $response->body());
+                $statusCode = $response->status();
+                $errorBody = $response->body();
+                $errorMsg = "Gemini API error (HTTP {$statusCode}): " . substr($errorBody, 0, 500);
+                Log::error($errorMsg);
+                throw new \RuntimeException($errorMsg);
             }
         } catch (\Exception $e) {
             Log::error("Gemini API call failed: " . $e->getMessage());
+            throw $e;
         }
-
-        // Return empty translations on failure
-        return array_fill_keys($words, null);
     }
 
     /**

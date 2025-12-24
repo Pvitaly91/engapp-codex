@@ -52,7 +52,17 @@ class FillTranslationsCommand extends Command
         }
 
         // Create translation service for target language
-        $this->translationService = new TranslationService($this->lang);
+        try {
+            $this->translationService = new TranslationService($this->lang);
+        } catch (\RuntimeException $e) {
+            $this->error($e->getMessage());
+            $this->newLine();
+            $this->info("To fix this:");
+            $this->info("1. Add your Gemini API key to .env file:");
+            $this->info("   GEMINI_API_KEY=your-api-key-here");
+            $this->info("2. Get API key from: https://makersuite.google.com/app/apikey");
+            return Command::FAILURE;
+        }
         
         $filePath = public_path("exports/words/words_{$this->lang}.json");
         
@@ -95,29 +105,57 @@ class FillTranslationsCommand extends Command
         foreach ($batches as $batchIndex => $batch) {
             $words = array_column($batch, 'word');
             
-            // Translate batch
-            $batchTranslations = $this->translationService->translateBatch($words);
-            
-            // Validate each translation
-            foreach ($batch as $key => $wordData) {
-                $word = $wordData['word'];
-                $translation = $batchTranslations[$word] ?? null;
+            try {
+                // Translate batch
+                $batchTranslations = $this->translationService->translateBatch($words);
                 
-                if ($translation !== null) {
-                    $validation = $this->translationService->validateTranslation($word, $translation);
+                // Validate each translation
+                foreach ($batch as $key => $wordData) {
+                    $word = $wordData['word'];
+                    $translation = $batchTranslations[$word] ?? null;
                     
-                    if ($validation['valid']) {
-                        $translations[$key] = $validation['translation'];
+                    if ($translation !== null) {
+                        $validation = $this->translationService->validateTranslation($word, $translation);
+                        
+                        if ($validation['valid']) {
+                            $translations[$key] = $validation['translation'];
+                        } else {
+                            $this->suspiciousWords[] = $word;
+                            $translations[$key] = null;
+                        }
                     } else {
-                        $this->suspiciousWords[] = $word;
+                        $this->failedWords[] = $word;
                         $translations[$key] = null;
                     }
-                } else {
-                    $this->failedWords[] = $word;
+                    
+                    $bar->advance();
+                }
+            } catch (\Exception $e) {
+                $bar->clear();
+                $this->newLine();
+                $this->error("Translation batch failed: " . $e->getMessage());
+                $this->newLine();
+                $this->error("Failed at batch " . ($batchIndex + 1) . " of " . count($batches));
+                $this->info("Words in this batch: " . implode(', ', array_slice($words, 0, 5)) . (count($words) > 5 ? '...' : ''));
+                $this->newLine();
+                
+                // Mark all words in this batch as failed
+                foreach ($batch as $key => $wordData) {
+                    $this->failedWords[] = $wordData['word'];
                     $translations[$key] = null;
+                    $bar->advance();
                 }
                 
-                $bar->advance();
+                // Ask if user wants to continue
+                if ($batchIndex < count($batches) - 1) {
+                    if (!$this->confirm('Continue with next batch?', false)) {
+                        $bar->finish();
+                        $this->newLine();
+                        $this->warn("Translation stopped by user");
+                        break;
+                    }
+                    $bar->display();
+                }
             }
             
             // Small delay between batches to avoid rate limiting
