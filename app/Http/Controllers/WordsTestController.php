@@ -18,27 +18,80 @@ class WordsTestController extends Controller
 
     private const DIFFICULTIES = ['easy', 'medium', 'hard'];
 
+    private const STUDY_LANG_KEY = 'words_test_study_lang_%s';
+
+    private const ALLOWED_LANGS = ['uk', 'en', 'pl'];
+
     private function isFailed(array $stats): bool
     {
         return $stats['wrong'] >= 3;
     }
 
-    private function activeLang(): string
+    private function siteLocale(): string
     {
-        $lang = session('locale', 'uk');
+        $locale = app()->getLocale();
 
-        if (! in_array($lang, ['uk', 'pl', 'en'], true)) {
+        if (! in_array($locale, self::ALLOWED_LANGS, true)) {
             return 'uk';
         }
+
+        return $locale;
+    }
+
+    private function allowedStudyLang(string $lang): bool
+    {
+        return in_array($lang, self::ALLOWED_LANGS, true);
+    }
+
+    private function studyLangSessionKey(string $difficulty): string
+    {
+        return sprintf(self::STUDY_LANG_KEY, $difficulty);
+    }
+
+    private function getStudyLanguage(string $difficulty): ?string
+    {
+        $key = $this->studyLangSessionKey($difficulty);
+        $studyLang = session($key);
+
+        if ($studyLang && $this->allowedStudyLang($studyLang)) {
+            return $studyLang;
+        }
+
+        $siteLocale = $this->siteLocale();
+
+        if ($siteLocale !== 'en') {
+            session([$key => $siteLocale]);
+
+            return $siteLocale;
+        }
+
+        return null;
+    }
+
+    private function persistStudyLanguage(string $difficulty, string $studyLang): string
+    {
+        $lang = $this->allowedStudyLang($studyLang) ? $studyLang : $this->siteLocale();
+        session([$this->studyLangSessionKey($difficulty) => $lang]);
 
         return $lang;
     }
 
-    private function wordsQuery(string $lang)
+    private function requiresStudyLanguageSelection(?string $studyLang, string $siteLocale): bool
     {
-        return Word::with(['translates' => fn ($q) => $q->where('lang', $lang), 'tags'])
-            ->whereHas('translates', function ($q) use ($lang) {
-                $q->where('lang', $lang)
+        if ($siteLocale !== 'en') {
+            return $studyLang === null;
+        }
+
+        return $studyLang === null || $studyLang === 'en';
+    }
+
+    private function wordsQuery(string $studyLang, string $siteLocale)
+    {
+        $translationLang = $studyLang === 'en' ? $siteLocale : $studyLang;
+
+        return Word::with(['translates' => fn ($q) => $q->where('lang', $translationLang), 'tags'])
+            ->whereHas('translates', function ($q) use ($translationLang) {
+                $q->where('lang', $translationLang)
                     ->whereNotNull('translation')
                     ->where('translation', '!=', '');
             });
@@ -55,16 +108,16 @@ class WordsTestController extends Controller
         return $difficulty;
     }
 
-    private function sessionKey(string $key, string $difficulty): string
+    private function sessionKey(string $key, string $difficulty, string $studyLang): string
     {
-        return sprintf('%s_%s', $key, $difficulty);
+        return sprintf('%s_%s_%s', $key, $difficulty, $studyLang);
     }
 
-    private function initializeState(string $lang, string $difficulty): void
+    private function initializeState(string $studyLang, string $siteLocale, string $difficulty): void
     {
-        $statsKey = $this->sessionKey('words_test_stats', $difficulty);
-        $queueKey = $this->sessionKey('words_queue', $difficulty);
-        $totalKey = $this->sessionKey('words_total_count', $difficulty);
+        $statsKey = $this->sessionKey('words_test_stats', $difficulty, $studyLang);
+        $queueKey = $this->sessionKey('words_queue', $difficulty, $studyLang);
+        $totalKey = $this->sessionKey('words_total_count', $difficulty, $studyLang);
 
         if (! session()->has($statsKey)) {
             session([
@@ -77,7 +130,7 @@ class WordsTestController extends Controller
         }
 
         if (! session()->has($queueKey)) {
-            $queue = $this->wordsQuery($lang)->pluck('id')->shuffle()->toArray();
+            $queue = $this->wordsQuery($studyLang, $siteLocale)->pluck('id')->shuffle()->toArray();
             session([
                 $queueKey => $queue,
                 $totalKey => count($queue),
@@ -94,35 +147,32 @@ class WordsTestController extends Controller
         return round(($stats['correct'] / $stats['total']) * 100, 2);
     }
 
-    private function buildQuestionPayload(int $wordId, string $lang, string $difficulty): ?array
+    private function buildQuestionPayload(int $wordId, string $studyLang, string $siteLocale, string $difficulty): ?array
     {
-        $word = $this->wordsQuery($lang)->find($wordId);
+        $word = $this->wordsQuery($studyLang, $siteLocale)->find($wordId);
 
         if (! $word) {
             return null;
         }
 
         $translation = optional($word->translates->first())->translation ?? '';
+        $questionType = $studyLang === 'en' ? 'lang_to_en' : 'en_to_lang';
+        $prompt = $studyLang === 'en' ? $translation : $word->word;
+        $correct = $studyLang === 'en' ? $word->word : $translation;
 
         if ($difficulty === 'easy') {
-            $otherWords = $this->wordsQuery($lang)
+            $otherWords = $this->wordsQuery($studyLang, $siteLocale)
                 ->where('id', '!=', $wordId)
                 ->inRandomOrder()
                 ->take(4)
                 ->get();
 
-            $questionType = rand(0, 1) === 0 ? 'en_to_uk' : 'uk_to_en';
-
-            if ($questionType === 'en_to_uk') {
-                $correct = $translation;
-                $options = $otherWords
+            $options = $studyLang === 'en'
+                ? $otherWords->pluck('word')
+                : $otherWords
                     ->map(fn ($w) => optional($w->translates->first())->translation ?? '')
                     ->filter()
                     ->values();
-            } else {
-                $correct = $word->word;
-                $options = $otherWords->pluck('word');
-            }
 
             $options = $options
                 ->filter()
@@ -138,7 +188,7 @@ class WordsTestController extends Controller
                 'translation' => $translation,
                 'tags' => $word->tags->pluck('name')->all(),
                 'questionType' => $questionType,
-                'prompt' => $questionType === 'en_to_uk' ? $word->word : $translation,
+                'prompt' => $prompt,
                 'options' => $options,
                 'correct_answer' => $correct,
             ];
@@ -149,22 +199,22 @@ class WordsTestController extends Controller
             'word' => $word->word,
             'translation' => $translation,
             'tags' => $word->tags->pluck('name')->all(),
-            'questionType' => 'uk_to_en',
-            'prompt' => $translation,
+            'questionType' => $questionType,
+            'prompt' => $prompt,
             'options' => [],
-            'correct_answer' => $word->word,
+            'correct_answer' => $correct,
         ];
     }
 
-    private function ensureCurrentQuestion(string $lang, string $difficulty): ?array
+    private function ensureCurrentQuestion(string $studyLang, string $siteLocale, string $difficulty): ?array
     {
-        $currentQuestionKey = $this->sessionKey('words_current_question', $difficulty);
+        $currentQuestionKey = $this->sessionKey('words_current_question', $difficulty, $studyLang);
 
         if ($question = session($currentQuestionKey)) {
             return $question;
         }
 
-        $queueKey = $this->sessionKey('words_queue', $difficulty);
+        $queueKey = $this->sessionKey('words_queue', $difficulty, $studyLang);
         $queue = session($queueKey, []);
 
         if (empty($queue)) {
@@ -175,7 +225,7 @@ class WordsTestController extends Controller
 
         while (! empty($queue) && ! $question) {
             $wordId = array_shift($queue);
-            $question = $this->buildQuestionPayload($wordId, $lang, $difficulty);
+            $question = $this->buildQuestionPayload($wordId, $studyLang, $siteLocale, $difficulty);
         }
 
         session([$queueKey => $queue]);
@@ -189,10 +239,10 @@ class WordsTestController extends Controller
         return $question;
     }
 
-    private function completionStatus(?array $question, string $difficulty): bool
+    private function completionStatus(?array $question, string $difficulty, string $studyLang): bool
     {
-        $queue = session($this->sessionKey('words_queue', $difficulty), []);
-        $totalCount = session($this->sessionKey('words_total_count', $difficulty), 0);
+        $queue = session($this->sessionKey('words_queue', $difficulty, $studyLang), []);
+        $totalCount = session($this->sessionKey('words_total_count', $difficulty, $studyLang), 0);
 
         if ($totalCount === 0) {
             return true;
@@ -201,14 +251,14 @@ class WordsTestController extends Controller
         return empty($queue) && ! $question;
     }
 
-    private function statePayload(string $lang, string $difficulty): array
+    private function statePayload(string $studyLang, string $siteLocale, string $difficulty): array
     {
-        $this->initializeState($lang, $difficulty);
+        $this->initializeState($studyLang, $siteLocale, $difficulty);
 
-        $statsKey = $this->sessionKey('words_test_stats', $difficulty);
-        $queueKey = $this->sessionKey('words_queue', $difficulty);
-        $currentQuestionKey = $this->sessionKey('words_current_question', $difficulty);
-        $totalKey = $this->sessionKey('words_total_count', $difficulty);
+        $statsKey = $this->sessionKey('words_test_stats', $difficulty, $studyLang);
+        $queueKey = $this->sessionKey('words_queue', $difficulty, $studyLang);
+        $currentQuestionKey = $this->sessionKey('words_current_question', $difficulty, $studyLang);
+        $totalKey = $this->sessionKey('words_total_count', $difficulty, $studyLang);
 
         $stats = session($statsKey);
         $failed = $this->isFailed($stats);
@@ -218,7 +268,7 @@ class WordsTestController extends Controller
             session()->forget($currentQuestionKey);
             $question = null;
         } else {
-            $question = $this->ensureCurrentQuestion($lang, $difficulty);
+            $question = $this->ensureCurrentQuestion($studyLang, $siteLocale, $difficulty);
         }
         $percentage = $this->calculatePercentage($stats);
 
@@ -227,55 +277,94 @@ class WordsTestController extends Controller
             'stats' => $stats,
             'percentage' => $percentage,
             'totalCount' => session($totalKey, 0),
-            'completed' => $failed ? false : $this->completionStatus($question, $difficulty),
+            'completed' => $failed ? false : $this->completionStatus($question, $difficulty, $studyLang),
             'failed' => $failed,
             'difficulty' => $difficulty,
+            'studyLang' => $studyLang,
+            'siteLocale' => $siteLocale,
+            'needsStudyLanguage' => false,
         ];
     }
 
     public function index(Request $request, string $difficulty = 'easy')
     {
         $difficulty = $this->difficulty($difficulty);
-        $lang = $this->activeLang();
-        $this->initializeState($lang, $difficulty);
+        $siteLocale = $this->siteLocale();
+        $studyLang = $this->getStudyLanguage($difficulty);
+
+        if (! $this->requiresStudyLanguageSelection($studyLang, $siteLocale)) {
+            $this->initializeState($studyLang, $siteLocale, $difficulty);
+        }
 
         return view('words.test', [
-            'activeLang' => $lang,
+            'activeLang' => $siteLocale,
             'difficulty' => $difficulty,
+            'studyLang' => $studyLang,
+            'siteLocale' => $siteLocale,
             'stateUrl' => route($this->routeName('state', $difficulty)),
             'checkUrl' => route($this->routeName('check', $difficulty)),
             'resetUrl' => route($this->routeName('reset', $difficulty)),
+            'setStudyLangUrl' => route($this->routeName('setStudyLanguage', $difficulty)),
         ]);
     }
 
     public function state(Request $request, string $difficulty = 'easy')
     {
         $difficulty = $this->difficulty($difficulty);
+        $siteLocale = $this->siteLocale();
+        $studyLang = $this->getStudyLanguage($difficulty);
 
-        return response()->json($this->statePayload($this->activeLang(), $difficulty));
+        if ($this->requiresStudyLanguageSelection($studyLang, $siteLocale)) {
+            return response()->json([
+                'question' => null,
+                'stats' => [
+                    'correct' => 0,
+                    'wrong' => 0,
+                    'total' => 0,
+                ],
+                'percentage' => 0,
+                'totalCount' => 0,
+                'completed' => false,
+                'failed' => false,
+                'difficulty' => $difficulty,
+                'studyLang' => $studyLang,
+                'siteLocale' => $siteLocale,
+                'needsStudyLanguage' => true,
+            ]);
+        }
+
+        return response()->json($this->statePayload($studyLang, $siteLocale, $difficulty));
     }
 
     public function check(Request $request, string $difficulty = 'easy')
     {
         $difficulty = $this->difficulty($difficulty);
+        $siteLocale = $this->siteLocale();
+        $studyLang = $this->getStudyLanguage($difficulty);
+
+        if ($this->requiresStudyLanguageSelection($studyLang, $siteLocale)) {
+            return response()->json([
+                'message' => __('words_test.select_language_first'),
+            ], 422);
+        }
 
         $request->validate([
             'word_id' => 'required|integer',
             'answer' => 'required|string',
         ]);
 
-        $currentQuestionKey = $this->sessionKey('words_current_question', $difficulty);
+        $currentQuestionKey = $this->sessionKey('words_current_question', $difficulty, $studyLang);
         $question = session($currentQuestionKey);
 
         if (! $question || $question['word_id'] !== (int) $request->input('word_id')) {
             return response()->json([
-                'message' => 'Поточне питання не знайдено. Оновіть сторінку.',
+                'message' => __('words_test.missing_question'),
             ], 422);
         }
 
-        $statsKey = $this->sessionKey('words_test_stats', $difficulty);
-        $queueKey = $this->sessionKey('words_queue', $difficulty);
-        $totalKey = $this->sessionKey('words_total_count', $difficulty);
+        $statsKey = $this->sessionKey('words_test_stats', $difficulty, $studyLang);
+        $queueKey = $this->sessionKey('words_queue', $difficulty, $studyLang);
+        $totalKey = $this->sessionKey('words_total_count', $difficulty, $studyLang);
 
         $stats = session($statsKey, [
             'correct' => 0,
@@ -300,14 +389,13 @@ class WordsTestController extends Controller
         session([$statsKey => $stats]);
         session()->forget($currentQuestionKey);
 
-        $lang = $this->activeLang();
         $failed = $this->isFailed($stats);
 
         if ($failed) {
             session([$queueKey => []]);
             $nextQuestion = null;
         } else {
-            $nextQuestion = $this->ensureCurrentQuestion($lang, $difficulty);
+            $nextQuestion = $this->ensureCurrentQuestion($studyLang, $siteLocale, $difficulty);
         }
 
         return response()->json([
@@ -322,7 +410,7 @@ class WordsTestController extends Controller
             'stats' => $stats,
             'percentage' => $this->calculatePercentage($stats),
             'totalCount' => session($totalKey, 0),
-            'completed' => $failed ? false : $this->completionStatus($nextQuestion, $difficulty),
+            'completed' => $failed ? false : $this->completionStatus($nextQuestion, $difficulty, $studyLang),
             'failed' => $failed,
         ]);
     }
@@ -330,11 +418,22 @@ class WordsTestController extends Controller
     public function reset(Request $request, string $difficulty = 'easy')
     {
         $difficulty = $this->difficulty($difficulty);
+        $siteLocale = $this->siteLocale();
+        $studyLang = $this->getStudyLanguage($difficulty);
 
-        $keys = array_map(fn ($key) => $this->sessionKey($key, $difficulty), self::SESSION_KEYS);
+        if ($this->requiresStudyLanguageSelection($studyLang, $siteLocale)) {
+            return response()->json([
+                'message' => __('words_test.select_language_first'),
+                'needsStudyLanguage' => true,
+                'studyLang' => $studyLang,
+                'siteLocale' => $siteLocale,
+            ], 422);
+        }
+
+        $keys = array_map(fn ($key) => $this->sessionKey($key, $difficulty, $studyLang), self::SESSION_KEYS);
         session()->forget($keys);
 
-        $payload = $this->statePayload($this->activeLang(), $difficulty);
+        $payload = $this->statePayload($studyLang, $siteLocale, $difficulty);
 
         return response()->json($payload);
     }
@@ -350,5 +449,21 @@ class WordsTestController extends Controller
         }
 
         return "words.test.{$action}";
+    }
+
+    public function setStudyLanguage(Request $request, string $difficulty = 'easy')
+    {
+        $difficulty = $this->difficulty($difficulty);
+
+        $request->validate([
+            'lang' => 'required|in:uk,en,pl',
+        ]);
+
+        $studyLang = $this->persistStudyLanguage($difficulty, $request->input('lang'));
+
+        return response()->json([
+            'ok' => true,
+            'study_lang' => $studyLang,
+        ]);
     }
 }
