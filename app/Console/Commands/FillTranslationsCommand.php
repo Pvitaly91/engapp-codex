@@ -229,10 +229,11 @@ class FillTranslationsCommand extends Command
             // Create backup before saving
             $backupPath = $this->generateBackupFilename($filePath);
             if (!copy($filePath, $backupPath)) {
-                $this->warn("Could not create backup file");
-            } else {
-                $this->info("Backup created: " . basename($backupPath));
+                $this->error("CRITICAL: Could not create backup file!");
+                $this->error("Refusing to proceed without backup for data safety.");
+                return Command::FAILURE;
             }
+            $this->info("Backup created: " . basename($backupPath));
             
             // Encode JSON
             $jsonString = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
@@ -251,6 +252,11 @@ class FillTranslationsCommand extends Command
             
             // Verify structure by decoding
             $decoded = json_decode($jsonString, true);
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                $this->error("JSON re-decode validation failed: " . json_last_error_msg());
+                return Command::FAILURE;
+            }
+            
             if (!isset($decoded['counts']) || !isset($decoded['with_translation']) || !isset($decoded['without_translation'])) {
                 $this->error("JSON structure validation failed - missing required fields!");
                 $this->error("Available fields: " . implode(', ', array_keys($decoded ?? [])));
@@ -272,8 +278,9 @@ class FillTranslationsCommand extends Command
             
             // Verify file was written correctly by checking it can be read back
             $verifyContent = file_get_contents($filePath);
-            if ($verifyContent === false) {
-                $this->error("Warning: File verification failed (could not read file back)");
+            if ($verifyContent === false || $verifyContent === '') {
+                $errorMsg = $verifyContent === false ? "could not read file back" : "file is empty";
+                $this->error("Warning: File verification failed ({$errorMsg})");
                 return $this->restoreFromBackup($backupPath, $filePath);
             }
             
@@ -527,17 +534,18 @@ class FillTranslationsCommand extends Command
     }
 
     /**
-     * Generate a unique backup filename using microtime
+     * Generate a unique backup filename using microtime and random suffix
      * 
      * @param string $filePath Original file path
      * @return string Backup file path
      */
     private function generateBackupFilename(string $filePath): string
     {
-        // Use microtime for microsecond precision to prevent collisions
+        // Use microtime for microsecond precision + random suffix for extra uniqueness
         // Replace dots with underscores to avoid multiple file extensions
         $timestamp = str_replace('.', '_', microtime(true));
-        return $filePath . '.backup_' . $timestamp;
+        $random = substr(md5(uniqid('', true)), 0, 8);
+        return $filePath . '.backup_' . $timestamp . '_' . $random;
     }
 
     /**
