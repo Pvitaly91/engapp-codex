@@ -18,11 +18,7 @@
     ][$difficulty] ?? 'words_test.description_easy';
     $heroDescription = __($heroDescriptionKey);
 
-    $studyLangOptions = [
-        'uk' => __('words_test.lang_uk'),
-        'en' => __('words_test.lang_en'),
-        'pl' => __('words_test.lang_pl'),
-    ];
+    // $studyLangOptions is now passed from controller based on LanguageManager
   @endphp
 
   <div class="space-y-8" x-data>
@@ -115,14 +111,16 @@
             </select>
             <p class="text-xs text-muted-foreground">{{ __('words_test.study_lang_hint') }}</p>
           </div>
-          <!-- Warning for EN site locale without study language -->
-          <div id="study-lang-warning" class="mt-3 p-3 rounded-lg bg-warning/10 border border-warning/30 text-warning text-sm {{ $siteLocale === 'en' && !$studyLang ? '' : 'hidden' }}">
-            <span class="font-semibold">⚠️</span> {{ __('words_test.site_lang_en_warning') }}
+          <!-- Warning when no study language is selected -->
+          <div id="study-lang-warning" class="mt-3 p-3 rounded-lg bg-warning/10 border border-warning/30 text-warning text-sm {{ !$studyLang ? '' : 'hidden' }}">
+            <span class="font-semibold">⚠️</span> {{ __('words_test.select_study_lang_warning') }}
           </div>
-          <!-- Info when studying English -->
-          <div id="en-study-info" class="mt-3 p-3 rounded-lg bg-info/10 border border-info/30 text-info text-sm {{ $studyLang === 'en' ? '' : 'hidden' }}">
-            <span class="font-semibold">ℹ️</span> {{ __('words_test.en_study_warning') }}
+          <!-- Info when no languages available -->
+          @if(empty($studyLangOptions))
+          <div class="mt-3 p-3 rounded-lg bg-destructive/10 border border-destructive/30 text-destructive text-sm">
+            <span class="font-semibold">⚠️</span> {{ __('words_test.no_langs_available') }}
           </div>
+          @endif
         </div>
 
         <div class="flex items-center justify-between gap-3">
@@ -293,7 +291,6 @@
       const closeFailure = document.getElementById('close-failure');
       const studyLangSelect = document.getElementById('study-lang');
       const studyLangWarning = document.getElementById('study-lang-warning');
-      const enStudyInfo = document.getElementById('en-study-info');
 
       let currentQuestion = null;
       let loading = false;
@@ -317,15 +314,9 @@
           studyLangSelect.value = studyLang;
         }
 
-        // Show/hide warnings
-        const needsSelection = siteLocale === 'en' && !studyLang;
-        const isStudyingEnglish = studyLang === 'en';
-
+        // Show/hide warning when no study language selected
         if (studyLangWarning) {
-          studyLangWarning.classList.toggle('hidden', !needsSelection);
-        }
-        if (enStudyInfo) {
-          enStudyInfo.classList.toggle('hidden', !isStudyingEnglish);
+          studyLangWarning.classList.toggle('hidden', !!studyLang);
         }
       }
 

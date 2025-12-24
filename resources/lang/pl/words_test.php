@@ -10,8 +10,8 @@ return [
 
     // Difficulty descriptions
     'description_easy' => 'Wybierz poprawne tłumaczenie bez przeładowywania strony. Postęp jest zapisywany osobno dla każdego poziomu trudności — możesz odświeżyć stronę i kontynuować.',
-    'description_medium' => 'Wpisz angielskie słowo ręcznie lub wybierz z podpowiedzi. Postęp jest zapisywany osobno dla każdego poziomu trudności — możesz odświeżyć stronę i kontynuować.',
-    'description_hard' => 'Wpisz poprawne angielskie słowo bez podpowiedzi. Postęp jest zapisywany osobno dla każdego poziomu trudności — możesz odświeżyć stronę i kontynuować.',
+    'description_medium' => 'Wpisz tłumaczenie ręcznie lub wybierz z podpowiedzi. Postęp jest zapisywany osobno dla każdego poziomu trudności — możesz odświeżyć stronę i kontynuować.',
+    'description_hard' => 'Wpisz poprawne tłumaczenie bez podpowiedzi. Postęp jest zapisywany osobno dla każdego poziomu trudności — możesz odświeżyć stronę i kontynuować.',
 
     // Buttons
     'restart' => 'Zacznij od nowa',
@@ -28,7 +28,7 @@ return [
     'enter_word_en' => 'Wpisz słowo po angielsku',
     'choose_translation' => 'Wybierz tłumaczenie',
     'choose_word_en' => 'Wybierz słowo po angielsku',
-    'enter_word' => 'Wpisz słowo',
+    'enter_word' => 'Wpisz tłumaczenie',
     'question_of' => 'Pytanie :current z :total',
 
     // Stats
@@ -62,13 +62,10 @@ return [
     // Study language selection
     'select_study_lang' => 'Wybierz język nauki',
     'study_lang_hint' => 'Wybierz język, którego się uczysz',
-    'site_lang_en_warning' => 'Język strony to angielski. Proszę wybrać inny język do nauki.',
-    'en_study_warning' => 'Wybrałeś naukę angielskiego. Pytania będą wyświetlane w języku strony.',
+    'select_study_lang_warning' => 'Proszę wybrać język do nauki.',
+    'no_langs_available' => 'Brak dostępnych języków do nauki. Należy dodać więcej tłumaczeń.',
+    'invalid_study_lang' => 'Wybrany język nie jest dostępny do nauki.',
 
-    // Languages
-    'lang_uk' => 'Ukraiński',
-    'lang_en' => 'Angielski',
-    'lang_pl' => 'Polski',
-    // difficulty_modes
+    // Difficulty modes
     'difficulty_modes' => 'Tryby trudności',
 ];
