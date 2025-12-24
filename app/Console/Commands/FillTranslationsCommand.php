@@ -33,11 +33,19 @@ class FillTranslationsCommand extends Command
      * Minimum viable JSON file size in bytes.
      * 
      * This is a safety threshold to catch obviously corrupted or empty files.
-     * The actual minimum size for a valid words export JSON with the required structure
-     * is larger, but we use a conservative threshold here as the structural validation
-     * (checking for required fields) provides the real validation.
      * 
-     * A truly empty or corrupted file will be much smaller than 50 bytes.
+     * Example minimum structure (around 100+ bytes):
+     * {
+     *   "exported_at": "2025-01-01T00:00:00+00:00",
+     *   "lang": "pl",
+     *   "counts": {"total_words": 0, "with_translation": 0, "without_translation": 0},
+     *   "with_translation": [],
+     *   "without_translation": []
+     * }
+     * 
+     * We use 50 bytes as a conservative threshold since the structural validation
+     * (checking for required fields) provides the primary validation.
+     * A truly empty or corrupted file will be much smaller than this.
      */
     private const MIN_JSON_SIZE = 50;
 
@@ -240,6 +248,7 @@ class FillTranslationsCommand extends Command
             
             if ($jsonString === false) {
                 $this->error("Failed to encode JSON: " . json_last_error_msg());
+                $this->info("Original file preserved as backup: " . basename($backupPath));
                 return Command::FAILURE;
             }
             
@@ -247,6 +256,7 @@ class FillTranslationsCommand extends Command
             if (strlen($jsonString) < self::MIN_JSON_SIZE) {
                 $this->error("Refusing to save empty/invalid JSON!");
                 $this->error("JSON string length: " . strlen($jsonString));
+                $this->info("Original file preserved as backup: " . basename($backupPath));
                 return Command::FAILURE;
             }
             
@@ -254,12 +264,14 @@ class FillTranslationsCommand extends Command
             $decoded = json_decode($jsonString, true);
             if (json_last_error() !== JSON_ERROR_NONE) {
                 $this->error("JSON re-decode validation failed: " . json_last_error_msg());
+                $this->info("Original file preserved as backup: " . basename($backupPath));
                 return Command::FAILURE;
             }
             
             if (!isset($decoded['counts']) || !isset($decoded['with_translation']) || !isset($decoded['without_translation'])) {
                 $this->error("JSON structure validation failed - missing required fields!");
                 $this->error("Available fields: " . implode(', ', array_keys($decoded ?? [])));
+                $this->info("Original file preserved as backup: " . basename($backupPath));
                 return Command::FAILURE;
             }
             
