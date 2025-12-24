@@ -45,6 +45,7 @@ php artisan words:fill-export {lang}
 
 - `--provider=auto` - Translation provider (auto, gemini, openai) - default: auto
 - `--batch-size=50` - Number of words to translate in each batch (default: 50)
+- `--limit=N` - Maximum number of words to translate (useful for testing)
 - `--no-db` - Skip database synchronization
 - `--dry-run` - Run without saving changes (for testing)
 
@@ -62,6 +63,12 @@ php artisan words:fill-export de --provider=gemini
 
 # Fill with larger batches
 php artisan words:fill-export pl --batch-size=100
+
+# Test with only first 100 words (useful for testing)
+php artisan words:fill-export pl --limit=100
+
+# Test with small batch and limit
+php artisan words:fill-export pl --batch-size=10 --limit=50
 
 # Test without saving
 php artisan words:fill-export pl --dry-run

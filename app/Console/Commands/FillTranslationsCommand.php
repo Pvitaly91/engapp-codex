@@ -19,6 +19,7 @@ class FillTranslationsCommand extends Command
                             {lang : Language code (uk, pl, en, etc.)}
                             {--provider=auto : Translation provider (auto, gemini, openai)}
                             {--batch-size=50 : Number of words to translate in each batch}
+                            {--limit= : Maximum number of words to translate (useful for testing)}
                             {--no-db : Skip database synchronization}
                             {--dry-run : Run without saving changes}';
 
@@ -128,7 +129,21 @@ class FillTranslationsCommand extends Command
             return Command::SUCCESS;
         }
 
-        $this->info("Found " . count($wordsToTranslate) . " words to translate to {$this->lang}");
+        $totalWords = count($wordsToTranslate);
+        
+        // Apply limit if specified
+        $limit = $this->option('limit');
+        if ($limit !== null) {
+            $limit = (int) $limit;
+            if ($limit > 0 && $limit < $totalWords) {
+                $wordsToTranslate = array_slice($wordsToTranslate, 0, $limit, true);
+                $this->info("Found {$totalWords} words to translate, limiting to first {$limit} words (--limit option)");
+            } else {
+                $this->info("Found {$totalWords} words to translate to {$this->lang}");
+            }
+        } else {
+            $this->info("Found {$totalWords} words to translate to {$this->lang}");
+        }
         
         // Translate words in batches
         $batchSize = (int) $this->option('batch-size');
