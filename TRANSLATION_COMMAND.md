@@ -174,10 +174,31 @@ When database sync is enabled (default), the command:
 
 ## Rate Limiting
 
-The command includes built-in rate limiting:
+The command includes built-in rate limiting to avoid API quota issues:
 
+### Gemini API
 - 0.5 second delay between batches
-- Configurable batch size (default 50 words)
+- Default batch size: 50 words
+- More generous rate limits
+
+### OpenAI/ChatGPT API
+- 2 second delay between batches (longer to avoid 429 errors)
+- **Recommended batch size: 10-20 words** (stricter rate limits)
+- Automatic retry with exponential backoff on 429 errors
+- Free tier accounts have lower quotas
+
+**Important for OpenAI users:**
+If you encounter "You exceeded your current quota" (429 error), use a smaller batch size:
+
+```bash
+# Use smaller batches for OpenAI
+php artisan words:fill-export pl --provider=openai --batch-size=10
+
+# Or even smaller if you're on free tier
+php artisan words:fill-export pl --provider=openai --batch-size=5
+```
+
+The command will warn you if you're using OpenAI with a large batch size.
 - Retry logic with exponential backoff
 
 ## Creating Export Files

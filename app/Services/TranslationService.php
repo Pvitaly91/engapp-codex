@@ -307,7 +307,15 @@ class TranslationService
 
         try {
             $response = Http::timeout($this->timeout)
-                ->retry($this->maxRetries, 2000)
+                ->retry($this->maxRetries, 2000, function ($exception, $request) {
+                    // Retry on 429 (rate limit) with exponential backoff
+                    if ($exception instanceof \Illuminate\Http\Client\RequestException) {
+                        if ($exception->response && $exception->response->status() === 429) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }, true) // throw on failure
                 ->withHeaders([
                     'Authorization' => 'Bearer ' . $this->apiKey,
                     'Content-Type' => 'application/json',

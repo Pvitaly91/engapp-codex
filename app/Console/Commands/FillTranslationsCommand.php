@@ -35,6 +35,7 @@ class FillTranslationsCommand extends Command
     private int $translationsAdded = 0;
     private int $translationsRemaining = 0;
     private string $lang;
+    private int $delayBetweenBatches = 500000; // microseconds (0.5 seconds default)
 
     private const ALLOWED_LANGS = ['uk', 'pl', 'en', 'de', 'fr', 'es', 'it'];
 
@@ -111,6 +112,27 @@ class FillTranslationsCommand extends Command
         
         // Translate words in batches
         $batchSize = (int) $this->option('batch-size');
+        
+        // Warn about OpenAI rate limits
+        if ($this->translationService->getProvider() === 'openai') {
+            if ($batchSize > 20) {
+                $this->newLine();
+                $this->warn("OpenAI has stricter rate limits than Gemini.");
+                $this->warn("For better reliability, consider using a smaller batch size:");
+                $this->warn("  php artisan words:fill-export {$this->lang} --batch-size=10");
+                $this->newLine();
+                
+                if (!$this->confirm("Continue with batch size {$batchSize}?", true)) {
+                    return Command::FAILURE;
+                }
+            }
+            
+            // Increase delay between batches for OpenAI
+            $this->delayBetweenBatches = 2000000; // 2 seconds
+        } else {
+            $this->delayBetweenBatches = 500000; // 0.5 seconds for Gemini
+        }
+        
         $batches = array_chunk($wordsToTranslate, $batchSize, true);
         
         $this->info("Processing in " . count($batches) . " batches of {$batchSize} words...");
@@ -176,9 +198,9 @@ class FillTranslationsCommand extends Command
                 }
             }
             
-            // Small delay between batches to avoid rate limiting
+            // Delay between batches to avoid rate limiting
             if ($batchIndex < count($batches) - 1) {
-                usleep(500000); // 0.5 second
+                usleep($this->delayBetweenBatches);
             }
         }
         
