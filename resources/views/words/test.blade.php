@@ -91,7 +91,7 @@
 
     <div class="grid gap-4 md:grid-cols-[1.6fr_1fr]">
       <div class="rounded-2xl bg-card p-6 shadow-soft border border-border/70" id="question-card">
-        <div class="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="Difficulty modes">
+        <div class="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="{{ __('words_test.difficulty_modes') }}">
           @foreach ($tabs as $tab)
             <a
               href="{{ $tab['href'] }}"

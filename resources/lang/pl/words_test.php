@@ -69,4 +69,6 @@ return [
     'lang_uk' => 'Ukraiński',
     'lang_en' => 'Angielski',
     'lang_pl' => 'Polski',
+    // difficulty_modes
+    'difficulty_modes' => 'Tryby trudności',
 ];

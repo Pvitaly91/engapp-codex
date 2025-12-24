@@ -69,4 +69,6 @@ return [
     'lang_uk' => 'Українська',
     'lang_en' => 'Англійська',
     'lang_pl' => 'Польська',
+    // difficulty_modes
+    'difficulty_modes' => 'Режими складності',
 ];

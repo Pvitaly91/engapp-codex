@@ -118,12 +118,14 @@ class WordsTestController extends Controller
 
     private function sessionKey(string $key, string $difficulty): string
     {
-        $studyLang = session("words_test_study_lang_{$difficulty}");
-
         // For study_lang key itself, don't append language suffix
         if ($key === 'words_test_study_lang') {
             return sprintf('%s_%s', $key, $difficulty);
         }
+
+        // Read study language directly to avoid circular dependency
+        $studyLangKey = sprintf('words_test_study_lang_%s', $difficulty);
+        $studyLang = session($studyLangKey);
 
         // For other keys, append both difficulty and study language for separate progress
         if ($studyLang && in_array($studyLang, self::ALLOWED_STUDY_LANGS, true)) {
@@ -445,7 +447,7 @@ class WordsTestController extends Controller
             return response()->json([
                 'needsStudyLanguage' => true,
                 'message' => __('words_test.select_study_lang'),
-            ], 400);
+            ], 422);
         }
 
         $request->validate([
