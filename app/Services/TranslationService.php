@@ -383,6 +383,16 @@ class TranslationService
 
         $translation = trim($translation);
         
+        // Fix UTF-8 encoding issues - convert to UTF-8 if needed
+        // This handles malformed UTF-8 sequences that cause JSON encoding errors
+        if (!mb_check_encoding($translation, 'UTF-8')) {
+            // Try to fix encoding by converting from various common encodings
+            $translation = mb_convert_encoding($translation, 'UTF-8', 'UTF-8');
+        }
+        
+        // Additional UTF-8 sanitization - remove any invalid UTF-8 sequences
+        $translation = iconv('UTF-8', 'UTF-8//IGNORE', $translation);
+        
         // Remove quotes (both straight and curly)
         $translation = trim($translation, "\"'");
         // Also remove curly quotes

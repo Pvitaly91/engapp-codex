@@ -258,11 +258,15 @@ class FillTranslationsCommand extends Command
             }
             $this->info("Backup created: " . basename($backupPath));
             
+            // Sanitize UTF-8 encoding in data before JSON encoding
+            $data = $this->sanitizeUtf8Recursively($data);
+            
             // Encode JSON
             $jsonString = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
             
             if ($jsonString === false) {
                 $this->error("Failed to encode JSON: " . json_last_error_msg());
+                $this->error("This usually indicates malformed UTF-8 characters in translations.");
                 $this->info("Original file preserved as backup: " . basename($backupPath));
                 return Command::FAILURE;
             }
@@ -594,5 +598,46 @@ class FillTranslationsCommand extends Command
         }
         
         return Command::FAILURE;
+    }
+
+    /**
+     * Recursively sanitize UTF-8 encoding in data structures
+     * 
+     * Fixes malformed UTF-8 sequences that cause JSON encoding errors.
+     * This is a defensive measure to ensure data can always be encoded to JSON.
+     * 
+     * @param mixed $data Data to sanitize
+     * @return mixed Sanitized data
+     */
+    private function sanitizeUtf8Recursively($data)
+    {
+        if (is_string($data)) {
+            // Check if string has valid UTF-8 encoding
+            if (!mb_check_encoding($data, 'UTF-8')) {
+                // Fix encoding by converting from various common encodings
+                $data = mb_convert_encoding($data, 'UTF-8', 'UTF-8');
+            }
+            
+            // Additional sanitization - remove any remaining invalid UTF-8 sequences
+            // Using iconv with //IGNORE flag removes characters that can't be converted
+            $sanitized = iconv('UTF-8', 'UTF-8//IGNORE', $data);
+            
+            // If iconv fails, return original (shouldn't happen after mb_convert_encoding)
+            return $sanitized !== false ? $sanitized : $data;
+        }
+        
+        if (is_array($data)) {
+            // Recursively sanitize all array elements
+            $sanitized = [];
+            foreach ($data as $key => $value) {
+                // Sanitize both keys and values
+                $sanitizedKey = is_string($key) ? $this->sanitizeUtf8Recursively($key) : $key;
+                $sanitized[$sanitizedKey] = $this->sanitizeUtf8Recursively($value);
+            }
+            return $sanitized;
+        }
+        
+        // For non-string, non-array types (numbers, booleans, null), return as-is
+        return $data;
     }
 }

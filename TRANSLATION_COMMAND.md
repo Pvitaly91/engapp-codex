@@ -293,6 +293,27 @@ If you get "API key not valid" errors:
    - Gemini: https://makersuite.google.com/app/apikey
    - OpenAI: https://platform.openai.com/api-keys
 
+### UTF-8 Encoding Errors
+
+If you encounter "Malformed UTF-8 characters, possibly incorrectly encoded" error:
+
+**Cause**: The API occasionally returns translations with invalid UTF-8 sequences, which can't be encoded to JSON.
+
+**Solution**: This is now handled automatically! The command includes UTF-8 sanitization that:
+- Detects invalid UTF-8 sequences in translations
+- Automatically fixes encoding issues using `mb_convert_encoding()` and `iconv()`
+- Removes any characters that can't be properly converted
+- Sanitizes data recursively before JSON encoding
+
+**If the error persists:**
+1. Your backup file is preserved automatically (e.g., `words_pl.json.backup_1234567890_abcd1234`)
+2. The command will fail safely without corrupting your data
+3. Try running again with a smaller batch size:
+   ```bash
+   php artisan words:fill-export pl --batch-size=5
+   ```
+4. Consider using a different provider (Gemini vs OpenAI may produce different encodings)
+
 ### API Key Issues
 
 If you get authentication errors:
