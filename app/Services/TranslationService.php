@@ -13,6 +13,7 @@ class TranslationService
     private int $maxRetries = 3;
     private int $timeout = 60;
     private string $targetLang;
+    private string $provider; // 'gemini' or 'openai'
 
     private const LANGUAGE_NAMES = [
         'uk' => 'Ukrainian',
@@ -24,16 +25,58 @@ class TranslationService
         'it' => 'Italian',
     ];
 
-    public function __construct(string $targetLang = 'pl')
+    public function __construct(string $targetLang = 'pl', string $provider = 'auto')
     {
-        // Use Gemini as it's more reliable for translations
-        $this->apiKey = config('services.gemini.key');
-        $this->model = config('services.gemini.model', 'gemini-2.0-flash-exp');
         $this->targetLang = $targetLang;
         
-        if (empty($this->apiKey)) {
-            throw new \RuntimeException('GEMINI_API_KEY is not configured. Please set it in your .env file.');
+        // Auto-detect provider based on available API keys
+        if ($provider === 'auto') {
+            $geminiKey = config('services.gemini.key');
+            $openaiKey = config('services.openai.key');
+            
+            if (!empty($geminiKey)) {
+                $provider = 'gemini';
+            } elseif (!empty($openaiKey)) {
+                $provider = 'openai';
+            } else {
+                throw new \RuntimeException(
+                    'No API key configured. Please set either GEMINI_API_KEY or CHAT_GPT_API_KEY in your .env file.'
+                );
+            }
         }
+        
+        $this->provider = $provider;
+        
+        // Configure based on provider
+        if ($provider === 'gemini') {
+            $this->apiKey = config('services.gemini.key');
+            $this->model = config('services.gemini.model', 'gemini-2.0-flash-exp');
+            $this->timeout = config('services.gemini.timeout', 60);
+            $this->maxRetries = config('services.gemini.max_retries', 3);
+            
+            if (empty($this->apiKey)) {
+                throw new \RuntimeException('GEMINI_API_KEY is not configured. Please set it in your .env file.');
+            }
+        } elseif ($provider === 'openai') {
+            $this->apiKey = config('services.openai.key');
+            $this->model = config('services.openai.model', 'gpt-4o-mini');
+            $this->timeout = config('services.openai.timeout', 60);
+            $this->maxRetries = config('services.openai.max_retries', 3);
+            
+            if (empty($this->apiKey)) {
+                throw new \RuntimeException('OPENAI_API_KEY (or CHAT_GPT_API_KEY) is not configured. Please set it in your .env file.');
+            }
+        } else {
+            throw new \RuntimeException("Unsupported provider: {$provider}. Use 'gemini' or 'openai'.");
+        }
+    }
+
+    /**
+     * Get the current provider
+     */
+    public function getProvider(): string
+    {
+        return $this->provider;
     }
 
     /**
@@ -74,7 +117,7 @@ class TranslationService
         }
 
         // Translate uncached words
-        $translations = $this->callGeminiApi($uncachedWords);
+        $translations = $this->callTranslationApi($uncachedWords);
 
         // Merge with cached results
         foreach ($translations as $word => $translation) {
@@ -156,6 +199,20 @@ class TranslationService
     }
 
     /**
+     * Call Translation API (Gemini or OpenAI) to translate words
+     */
+    private function callTranslationApi(array $words): array
+    {
+        if ($this->provider === 'gemini') {
+            return $this->callGeminiApi($words);
+        } elseif ($this->provider === 'openai') {
+            return $this->callOpenAiApi($words);
+        }
+        
+        throw new \RuntimeException("Unsupported provider: {$this->provider}");
+    }
+
+    /**
      * Call Gemini API to translate words
      */
     private function callGeminiApi(array $words): array
@@ -224,6 +281,85 @@ class TranslationService
             }
         } catch (\Exception $e) {
             Log::error("Gemini API call failed: " . $e->getMessage());
+            throw $e;
+        }
+    }
+
+    /**
+     * Call OpenAI API to translate words
+     */
+    private function callOpenAiApi(array $words): array
+    {
+        $wordsJson = json_encode($words, JSON_UNESCAPED_UNICODE);
+        $langName = $this->getLanguageName($this->targetLang);
+        
+        $prompt = "Translate these English words to {$langName}. Follow these rules strictly:\n" .
+                  "1. Provide actual {$langName} translations, NOT transliterations\n" .
+                  "2. For nouns: use base form (singular, nominative case)\n" .
+                  "3. For verbs: use infinitive form\n" .
+                  "4. For phrases: translate naturally preserving meaning\n" .
+                  "5. For proper names/brands (like 'Google', 'London'): keep as is\n" .
+                  "6. For loanwords naturally used in {$langName} (like 'pizza', 'radio'): you may keep them\n" .
+                  "7. Return ONLY a JSON object mapping each English word to its {$langName} translation\n" .
+                  "8. Each translation must be a single word or short phrase, no explanations, no slashes, no alternatives\n\n" .
+                  "Words to translate: {$wordsJson}\n\n" .
+                  "Response format: {\"word1\": \"translation1\", \"word2\": \"translation2\"}";
+
+        try {
+            $response = Http::timeout($this->timeout)
+                ->retry($this->maxRetries, 2000)
+                ->withHeaders([
+                    'Authorization' => 'Bearer ' . $this->apiKey,
+                    'Content-Type' => 'application/json',
+                ])
+                ->post('https://api.openai.com/v1/chat/completions', [
+                    'model' => $this->model,
+                    'messages' => [
+                        [
+                            'role' => 'system',
+                            'content' => 'You are a professional translator. Always respond with valid JSON only.'
+                        ],
+                        [
+                            'role' => 'user',
+                            'content' => $prompt
+                        ]
+                    ],
+                    'temperature' => 0.3,
+                    'max_tokens' => 2048,
+                ]);
+
+            if ($response->successful()) {
+                $result = $response->json();
+                $text = $result['choices'][0]['message']['content'] ?? '';
+                
+                // Extract JSON from response (might be wrapped in markdown)
+                $text = trim($text);
+                $text = preg_replace('/^```(?:json)?\s*/m', '', $text);
+                $text = trim($text);
+                
+                $translations = json_decode($text, true);
+                
+                if (is_array($translations)) {
+                    // Clean translations
+                    $cleaned = [];
+                    foreach ($translations as $word => $translation) {
+                        $cleaned[$word] = $this->cleanTranslation($translation);
+                    }
+                    return $cleaned;
+                }
+                
+                $errorMsg = "Failed to parse OpenAI response as JSON. Response: " . substr($text, 0, 200);
+                Log::warning($errorMsg);
+                throw new \RuntimeException($errorMsg);
+            } else {
+                $statusCode = $response->status();
+                $errorBody = $response->body();
+                $errorMsg = "OpenAI API error (HTTP {$statusCode}): " . substr($errorBody, 0, 500);
+                Log::error($errorMsg);
+                throw new \RuntimeException($errorMsg);
+            }
+        } catch (\Exception $e) {
+            Log::error("OpenAI API call failed: " . $e->getMessage());
             throw $e;
         }
     }

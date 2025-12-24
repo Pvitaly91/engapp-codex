@@ -2,7 +2,7 @@
 
 ## Overview
 
-This command fills translations in word export files for any supported language using AI-powered translation via Gemini API.
+This command fills translations in word export files for any supported language using AI-powered translation via **Gemini API** or **OpenAI/ChatGPT API**.
 
 ## Usage
 
@@ -24,6 +24,7 @@ php artisan words:fill-export {lang}
 
 ### Options
 
+- `--provider=auto` - Translation provider (auto, gemini, openai) - default: auto
 - `--batch-size=50` - Number of words to translate in each batch (default: 50)
 - `--no-db` - Skip database synchronization
 - `--dry-run` - Run without saving changes (for testing)
@@ -31,14 +32,17 @@ php artisan words:fill-export {lang}
 ### Examples
 
 ```bash
-# Fill Polish translations
+# Fill Polish translations (auto-detect provider)
 php artisan words:fill-export pl
 
-# Fill Ukrainian translations
-php artisan words:fill-export uk
+# Fill Ukrainian translations using ChatGPT/OpenAI
+php artisan words:fill-export uk --provider=openai
 
-# Fill German translations with larger batches
-php artisan words:fill-export de --batch-size=100
+# Fill German translations using Gemini
+php artisan words:fill-export de --provider=gemini
+
+# Fill with larger batches
+php artisan words:fill-export pl --batch-size=100
 
 # Test without saving
 php artisan words:fill-export pl --dry-run
@@ -49,7 +53,9 @@ php artisan words:fill-export pl --no-db
 
 ## Configuration
 
-The command uses the Gemini API for translations. Make sure your `.env` file contains:
+The command supports two translation providers:
+
+### Option 1: Gemini API (Google)
 
 ```env
 GEMINI_API_KEY=your-api-key-here
@@ -57,6 +63,28 @@ GEMINI_MODEL=gemini-2.0-flash-exp
 GEMINI_TIMEOUT=60
 GEMINI_MAX_RETRIES=3
 ```
+
+Get API key from: https://makersuite.google.com/app/apikey
+
+### Option 2: OpenAI/ChatGPT API
+
+```env
+CHAT_GPT_API_KEY=your-api-key-here
+# OR
+OPENAI_API_KEY=your-api-key-here
+
+OPENAI_MODEL=gpt-4o-mini
+OPENAI_TIMEOUT=60
+OPENAI_MAX_RETRIES=3
+```
+
+Get API key from: https://platform.openai.com/api-keys
+
+### Provider Selection
+
+- `--provider=auto` (default) - Automatically uses Gemini if available, otherwise OpenAI
+- `--provider=gemini` - Force use of Gemini API
+- `--provider=openai` - Force use of OpenAI/ChatGPT API
 
 You can also configure timeouts and retries in `config/services.php`.
 

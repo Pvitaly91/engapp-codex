@@ -17,6 +17,7 @@ class FillTranslationsCommand extends Command
      */
     protected $signature = 'words:fill-export 
                             {lang : Language code (uk, pl, en, etc.)}
+                            {--provider=auto : Translation provider (auto, gemini, openai)}
                             {--batch-size=50 : Number of words to translate in each batch}
                             {--no-db : Skip database synchronization}
                             {--dry-run : Run without saving changes}';
@@ -51,16 +52,33 @@ class FillTranslationsCommand extends Command
             return Command::FAILURE;
         }
 
+        // Get provider option
+        $provider = $this->option('provider');
+        if (!in_array($provider, ['auto', 'gemini', 'openai'])) {
+            $this->error("Invalid provider: {$provider}");
+            $this->info("Supported providers: auto, gemini, openai");
+            return Command::FAILURE;
+        }
+
         // Create translation service for target language
         try {
-            $this->translationService = new TranslationService($this->lang);
+            $this->translationService = new TranslationService($this->lang, $provider);
+            
+            // Show which provider is being used
+            $actualProvider = $this->translationService->getProvider();
+            $this->info("Using translation provider: " . strtoupper($actualProvider));
+            $this->newLine();
         } catch (\RuntimeException $e) {
             $this->error($e->getMessage());
             $this->newLine();
             $this->info("To fix this:");
-            $this->info("1. Add your Gemini API key to .env file:");
-            $this->info("   GEMINI_API_KEY=your-api-key-here");
-            $this->info("2. Get API key from: https://makersuite.google.com/app/apikey");
+            $this->info("Option 1 - Use Gemini:");
+            $this->info("  GEMINI_API_KEY=your-api-key-here");
+            $this->info("  Get key from: https://makersuite.google.com/app/apikey");
+            $this->newLine();
+            $this->info("Option 2 - Use OpenAI/ChatGPT:");
+            $this->info("  CHAT_GPT_API_KEY=your-api-key-here");
+            $this->info("  Get key from: https://platform.openai.com/api-keys");
             return Command::FAILURE;
         }
         
