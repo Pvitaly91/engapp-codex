@@ -430,21 +430,12 @@
       }
 
       function renderQuestion(question, totalCount, totalAnswered) {
-        // Determine label based on question type
+        // Determine label - always EN -> translation direction
         let label;
         if (isEasy) {
-          if (question.questionType === 'en_to_translation') {
-            label = i18n.choose_translation;
-          } else {
-            label = i18n.choose_word_en;
-          }
+          label = i18n.choose_translation;
         } else {
-          // For medium/hard, check what answer is expected
-          if (question.questionType === 'translation_to_en') {
-            label = i18n.enter_word_en;
-          } else {
-            label = i18n.enter_word;
-          }
+          label = i18n.enter_word;
         }
         questionLabel.textContent = label;
 
@@ -474,12 +465,8 @@
         } else {
           optionsWrapper.innerHTML = '';
           answerInput.value = '';
-          // Update placeholder based on question type
-          if (question.questionType === 'translation_to_en') {
-            answerInput.placeholder = i18n.enter_word_en;
-          } else {
-            answerInput.placeholder = i18n.enter_word;
-          }
+          // Placeholder is always for translation since direction is EN -> study_lang
+          answerInput.placeholder = i18n.enter_word;
           hideSuggestions();
           setTimeout(() => answerInput?.focus(), 50);
         }
@@ -609,11 +596,8 @@
         feedbackChip.textContent = isCorrect ? i18n.feedback_correct : i18n.feedback_error;
         feedbackChip.className = `inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold ${isCorrect ? 'bg-success/10 text-success' : 'bg-destructive/10 text-destructive'}`;
 
-        if (result.questionType === 'en_to_translation') {
-          feedbackTitle.textContent = `${result.word} → ${result.correctAnswer}`;
-        } else {
-          feedbackTitle.textContent = `${result.translation} → ${result.correctAnswer}`;
-        }
+        // Always show EN word -> translation (fixed direction)
+        feedbackTitle.textContent = `${result.word} → ${result.correctAnswer}`;
 
         feedbackBody.textContent = isCorrect
           ? i18n.feedback_correct_msg
