@@ -433,18 +433,9 @@
         // Determine label based on question type
         let label;
         if (isEasy) {
-          if (question.questionType === 'en_to_translation') {
-            label = i18n.choose_translation;
-          } else {
-            label = i18n.choose_word_en;
-          }
+          label = i18n.choose_translation;
         } else {
-          // For medium/hard, check what answer is expected
-          if (question.questionType === 'translation_to_en') {
-            label = i18n.enter_word_en;
-          } else {
-            label = i18n.enter_word;
-          }
+          label = i18n.enter_word;
         }
         questionLabel.textContent = label;
 
@@ -474,12 +465,7 @@
         } else {
           optionsWrapper.innerHTML = '';
           answerInput.value = '';
-          // Update placeholder based on question type
-          if (question.questionType === 'translation_to_en') {
-            answerInput.placeholder = i18n.enter_word_en;
-          } else {
-            answerInput.placeholder = i18n.enter_word;
-          }
+          answerInput.placeholder = i18n.enter_word;
           hideSuggestions();
           setTimeout(() => answerInput?.focus(), 50);
         }
