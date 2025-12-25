@@ -8,6 +8,7 @@ use App\Modules\LanguageManager\Services\LocaleService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cookie;
 
 class WordsTestController extends Controller
 {
@@ -21,7 +22,7 @@ class WordsTestController extends Controller
 
     private const DIFFICULTIES = ['easy', 'medium', 'hard'];
 
-    private const MIN_TRANSLATIONS_COUNT = 100;
+    private const MIN_TRANSLATIONS_COUNT = 1;
 
     /**
      * Get available study languages from LanguageManager, excluding English,
@@ -44,9 +45,7 @@ class WordsTestController extends Controller
             ->toArray();
 
         if (empty($activeLanguages)) {
-            $this->cachedAvailableStudyLanguages = [];
-
-            return [];
+            $activeLanguages = ['uk', 'pl'];
         }
 
         // Count translations per language and filter by minimum count
@@ -59,7 +58,6 @@ class WordsTestController extends Controller
             ->pluck('count', 'lang')
             ->toArray();
 
-        // Return only languages that have enough translations
         $this->cachedAvailableStudyLanguages = array_keys($translationCounts);
 
         return $this->cachedAvailableStudyLanguages;
@@ -106,6 +104,11 @@ class WordsTestController extends Controller
         $sessionKey = $this->sessionKey('words_test_study_lang', $difficulty);
         $availableStudyLangs = $this->getAvailableStudyLanguages();
         $studyLang = session($sessionKey);
+        $cookieLang = Cookie::get('words_test_study_lang');
+
+        if (empty($availableStudyLangs)) {
+            return null;
+        }
 
         // Auto-select the only available study language
         if (count($availableStudyLangs) === 1) {
@@ -122,14 +125,27 @@ class WordsTestController extends Controller
             return $studyLang;
         }
 
-        // Default: if site locale is in available study languages, use it
-        $siteLocale = $this->siteLocale();
+        if ($cookieLang && in_array($cookieLang, $availableStudyLangs, true)) {
+            $this->setStudyLangInSession($cookieLang, $difficulty);
+
+            return $cookieLang;
+        }
+
+        $siteLocale = app()->getLocale();
+
         if (in_array($siteLocale, $availableStudyLangs, true)) {
+            $this->setStudyLangInSession($siteLocale, $difficulty);
+
             return $siteLocale;
         }
 
-        // No valid study language found - return null to force selection
-        // This happens when site locale is EN or site locale doesn't have enough translations
+        $fallback = Arr::first($availableStudyLangs);
+        if ($fallback) {
+            $this->setStudyLangInSession($fallback, $difficulty);
+
+            return $fallback;
+        }
+
         return null;
     }
 
@@ -140,6 +156,8 @@ class WordsTestController extends Controller
     {
         $sessionKey = $this->sessionKey('words_test_study_lang', $difficulty);
         session([$sessionKey => $lang]);
+
+        Cookie::queue(cookie('words_test_study_lang', $lang, 60 * 24 * 365));
     }
 
     /**
@@ -165,7 +183,8 @@ class WordsTestController extends Controller
             ->whereHas('translates', function ($q) use ($lang) {
                 $q->where('lang', $lang)
                     ->whereNotNull('translation')
-                    ->where('translation', '!=', '');
+                    ->where('translation', '!=', '')
+                    ->whereRaw('TRIM(translation) != ""');
             });
     }
 
@@ -248,51 +267,21 @@ class WordsTestController extends Controller
 
         $translation = optional($word->translates->first())->translation ?? '';
 
-        if ($difficulty === 'easy') {
-            $otherWords = $this->wordsQuery($translationLang)
-                ->where('id', '!=', $wordId)
-                ->inRandomOrder()
-                ->take(4)
-                ->get();
+        $otherWords = $this->wordsQuery($translationLang)
+            ->where('id', '!=', $wordId)
+            ->inRandomOrder()
+            ->take(4)
+            ->get();
 
-            // Mix question types: EN -> translation or translation -> EN
-            $questionType = rand(0, 1) === 0 ? 'en_to_translation' : 'translation_to_en';
+        $options = $otherWords
+            ->map(fn ($w) => optional($w->translates->first())->translation ?? '')
+            ->filter()
+            ->push($translation)
+            ->unique()
+            ->shuffle()
+            ->values()
+            ->all();
 
-            if ($questionType === 'en_to_translation') {
-                $correct = $translation;
-                $prompt = $word->word;
-                $options = $otherWords
-                    ->map(fn ($w) => optional($w->translates->first())->translation ?? '')
-                    ->filter()
-                    ->values();
-            } else {
-                $correct = $word->word;
-                $prompt = $translation;
-                $options = $otherWords->pluck('word');
-            }
-
-            $options = $options
-                ->filter()
-                ->push($correct)
-                ->unique()
-                ->shuffle()
-                ->values()
-                ->all();
-
-            return [
-                'word_id' => $word->id,
-                'word' => $word->word,
-                'translation' => $translation,
-                'tags' => $word->tags->pluck('name')->all(),
-                'questionType' => $questionType,
-                'prompt' => $prompt,
-                'options' => $options,
-                'correct_answer' => $correct,
-                'studyLang' => $studyLang,
-            ];
-        }
-
-        // Medium/Hard: prompt = EN word, answer = translation
         return [
             'word_id' => $word->id,
             'word' => $word->word,
@@ -300,7 +289,7 @@ class WordsTestController extends Controller
             'tags' => $word->tags->pluck('name')->all(),
             'questionType' => 'en_to_translation',
             'prompt' => $word->word,
-            'options' => [],
+            'options' => $options,
             'correct_answer' => $translation,
             'studyLang' => $studyLang,
         ];
@@ -427,9 +416,9 @@ class WordsTestController extends Controller
         $allLanguages = LocaleService::getActiveLanguages();
         foreach ($availableStudyLangs as $langCode) {
             $lang = $allLanguages->firstWhere('code', $langCode);
-            if ($lang) {
-                $studyLangOptions[$langCode] = $lang->native_name ?: $lang->name ?: strtoupper($langCode);
-            }
+            $studyLangOptions[$langCode] = $lang
+                ? ($lang->native_name ?: $lang->name ?: strtoupper($langCode))
+                : strtoupper($langCode);
         }
         $singleStudyLangName = count($studyLangOptions) === 1 ? array_values($studyLangOptions)[0] : null;
 
@@ -474,17 +463,12 @@ class WordsTestController extends Controller
         // Set the study language
         $this->setStudyLangInSession($lang, $difficulty);
 
-        // Reset the test progress for this difficulty (start fresh with new language)
-        $keys = array_map(fn ($key) => $this->sessionKey($key, $difficulty), self::SESSION_KEYS);
-        session()->forget($keys);
-
-        // Re-set the study language after clearing (since sessionKey depends on it)
-        $this->setStudyLangInSession($lang, $difficulty);
-
         return response()->json([
             'ok' => true,
             'studyLang' => $lang,
+            'study_lang' => $lang,
             'siteLocale' => $this->siteLocale(),
+            'availableStudyLangs' => $availableStudyLangs,
         ]);
     }
 
