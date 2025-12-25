@@ -352,12 +352,7 @@ class TranslateBlocksCommand extends Command
     {
         $query = TextBlock::where('locale', $this->targetLocale);
 
-        // Match by UUID if available
-        if (!empty($sourceBlock->uuid)) {
-            return $query->where('uuid', $sourceBlock->uuid)->first();
-        }
-
-        // Match by page_id and sort_order
+        // Match by page_id and sort_order (primary method for page blocks)
         if ($sourceBlock->page_id) {
             return $query
                 ->where('page_id', $sourceBlock->page_id)
@@ -365,7 +360,7 @@ class TranslateBlocksCommand extends Command
                 ->first();
         }
 
-        // Match by page_category_id and sort_order
+        // Match by page_category_id and sort_order (for category blocks)
         if ($sourceBlock->page_category_id) {
             return $query
                 ->where('page_category_id', $sourceBlock->page_category_id)
@@ -387,9 +382,10 @@ class TranslateBlocksCommand extends Command
                 'body' => $body ?? $existingTranslation->body,
             ]);
         } else {
-            // Create new translation
+            // Create new translation - UUID must be unique, so generate a new one or leave null
+            // UUID is globally unique, so translated blocks should have their own UUID
             TextBlock::create([
-                'uuid' => $sourceBlock->uuid,
+                'uuid' => null, // Don't copy source UUID - it must be globally unique
                 'page_id' => $sourceBlock->page_id,
                 'page_category_id' => $sourceBlock->page_category_id,
                 'locale' => $this->targetLocale,
