@@ -23,6 +23,9 @@ class WordsTestController extends Controller
 
     private const MIN_TRANSLATIONS_COUNT = 100;
 
+    /** Cookie lifetime for study language preference (1 year in minutes) */
+    private const STUDY_LANG_COOKIE_LIFETIME_MINUTES = 60 * 24 * 365;
+
     /**
      * Get available study languages from LanguageManager, excluding English,
      * and only languages with at least MIN_TRANSLATIONS_COUNT translations.
@@ -153,9 +156,9 @@ class WordsTestController extends Controller
         $sessionKey = $this->sessionKey('words_test_study_lang', $difficulty);
         session([$sessionKey => $lang]);
 
-        // Also set a cookie for 1 year persistence across sessions
+        // Also set a cookie for persistence across sessions
         $cookieKey = 'words_test_study_lang_'.$difficulty;
-        cookie()->queue(cookie($cookieKey, $lang, 60 * 24 * 365)); // 1 year
+        cookie()->queue(cookie($cookieKey, $lang, self::STUDY_LANG_COOKIE_LIFETIME_MINUTES));
     }
 
     /**
