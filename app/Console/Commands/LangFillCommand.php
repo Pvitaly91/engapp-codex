@@ -52,6 +52,10 @@ class LangFillCommand extends Command
         '/%[sdfb]/',
     ];
 
+    // Delay between batches in microseconds (to avoid API rate limiting)
+    private const OPENAI_BATCH_DELAY_MICROSECONDS = 2000000; // 2 seconds
+    private const GEMINI_BATCH_DELAY_MICROSECONDS = 500000;  // 0.5 seconds
+
     public function handle(): int
     {
         $this->targetLocale = $this->argument('locale');
@@ -418,7 +422,10 @@ class LangFillCommand extends Command
 
             // Delay between batches to avoid rate limiting
             if ($batchIndex < count($batches) - 1) {
-                usleep($this->provider->getName() === 'openai' ? 2000000 : 500000);
+                $delay = $this->provider->getName() === 'openai' 
+                    ? self::OPENAI_BATCH_DELAY_MICROSECONDS 
+                    : self::GEMINI_BATCH_DELAY_MICROSECONDS;
+                usleep($delay);
             }
         }
 
