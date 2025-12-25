@@ -104,8 +104,18 @@ class WordsTestController extends Controller
     private function getStudyLang(string $difficulty): ?string
     {
         $sessionKey = $this->sessionKey('words_test_study_lang', $difficulty);
-        $studyLang = session($sessionKey);
         $availableStudyLangs = $this->getAvailableStudyLanguages();
+        $studyLang = session($sessionKey);
+
+        // Auto-select the only available study language
+        if (count($availableStudyLangs) === 1) {
+            $singleLang = $availableStudyLangs[0];
+            if ($studyLang !== $singleLang) {
+                $this->setStudyLangInSession($singleLang, $difficulty);
+            }
+
+            return $singleLang;
+        }
 
         // If stored study language is valid, return it
         if ($studyLang && in_array($studyLang, $availableStudyLangs, true)) {
@@ -421,6 +431,7 @@ class WordsTestController extends Controller
                 $studyLangOptions[$langCode] = $lang->native_name ?: $lang->name ?: strtoupper($langCode);
             }
         }
+        $singleStudyLangName = count($studyLangOptions) === 1 ? array_values($studyLangOptions)[0] : null;
 
         return view('words.test', [
             'siteLocale' => $siteLocale,
@@ -429,6 +440,7 @@ class WordsTestController extends Controller
             'difficulty' => $difficulty,
             'availableStudyLangs' => $availableStudyLangs,
             'studyLangOptions' => $studyLangOptions,
+            'singleStudyLangName' => $singleStudyLangName,
             'stateUrl' => route($this->routeName('state', $difficulty)),
             'checkUrl' => route($this->routeName('check', $difficulty)),
             'resetUrl' => route($this->routeName('reset', $difficulty)),
