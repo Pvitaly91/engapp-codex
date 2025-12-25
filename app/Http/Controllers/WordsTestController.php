@@ -255,21 +255,14 @@ class WordsTestController extends Controller
                 ->take(4)
                 ->get();
 
-            // Mix question types: EN -> translation or translation -> EN
-            $questionType = rand(0, 1) === 0 ? 'en_to_translation' : 'translation_to_en';
-
-            if ($questionType === 'en_to_translation') {
-                $correct = $translation;
-                $prompt = $word->word;
-                $options = $otherWords
-                    ->map(fn ($w) => optional($w->translates->first())->translation ?? '')
-                    ->filter()
-                    ->values();
-            } else {
-                $correct = $word->word;
-                $prompt = $translation;
-                $options = $otherWords->pluck('word');
-            }
+            // Always test EN -> translation (never reverse)
+            $questionType = 'en_to_translation';
+            $correct = $translation;
+            $prompt = $word->word;
+            $options = $otherWords
+                ->map(fn ($w) => optional($w->translates->first())->translation ?? '')
+                ->filter()
+                ->values();
 
             $options = $options
                 ->filter()
