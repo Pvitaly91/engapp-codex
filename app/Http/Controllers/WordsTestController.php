@@ -99,47 +99,63 @@ class WordsTestController extends Controller
 
     /**
      * Get the study language for the test.
-     * Returns null if no valid study language is set (user must choose).
+     * Auto-selects a default if none is set: site locale if available, otherwise first available language.
+     * Returns null only if there are no available study languages at all.
      */
     private function getStudyLang(string $difficulty): ?string
     {
         $sessionKey = $this->sessionKey('words_test_study_lang', $difficulty);
         $availableStudyLangs = $this->getAvailableStudyLanguages();
-        $studyLang = session($sessionKey);
 
-        // Auto-select the only available study language
-        if (count($availableStudyLangs) === 1) {
-            $singleLang = $availableStudyLangs[0];
-            if ($studyLang !== $singleLang) {
-                $this->setStudyLangInSession($singleLang, $difficulty);
-            }
-
-            return $singleLang;
+        // No languages available at all
+        if (empty($availableStudyLangs)) {
+            return null;
         }
+
+        // Check session first
+        $studyLang = session($sessionKey);
 
         // If stored study language is valid, return it
         if ($studyLang && in_array($studyLang, $availableStudyLangs, true)) {
             return $studyLang;
         }
 
-        // Default: if site locale is in available study languages, use it
-        $siteLocale = $this->siteLocale();
-        if (in_array($siteLocale, $availableStudyLangs, true)) {
-            return $siteLocale;
+        // Check cookie for persisted value (fallback from previous sessions)
+        $cookieKey = 'words_test_study_lang_'.$difficulty;
+        $cookieLang = request()->cookie($cookieKey);
+        if ($cookieLang && in_array($cookieLang, $availableStudyLangs, true)) {
+            // Restore to session from cookie
+            session([$sessionKey => $cookieLang]);
+
+            return $cookieLang;
         }
 
-        // No valid study language found - return null to force selection
-        // This happens when site locale is EN or site locale doesn't have enough translations
-        return null;
+        // Auto-select default: prefer site locale if available, otherwise first available language
+        $siteLocale = $this->siteLocale();
+        if (in_array($siteLocale, $availableStudyLangs, true)) {
+            $defaultLang = $siteLocale;
+        } else {
+            // Fallback to first available language (per requirements: test should never block)
+            $defaultLang = $availableStudyLangs[0];
+        }
+
+        // Save the auto-selected language in session (and cookie for persistence)
+        $this->setStudyLangInSession($defaultLang, $difficulty);
+
+        return $defaultLang;
     }
 
     /**
-     * Set the study language in session.
+     * Set the study language in session and cookie for persistence.
      */
     private function setStudyLangInSession(string $lang, string $difficulty): void
     {
         $sessionKey = $this->sessionKey('words_test_study_lang', $difficulty);
         session([$sessionKey => $lang]);
+
+        // Also set a cookie for 1 year persistence across sessions
+        $cookieKey = 'words_test_study_lang_'.$difficulty;
+        cookie()->queue(cookie($cookieKey, $lang, 60 * 24 * 365)); // 1 year
     }
 
     /**
@@ -255,21 +271,14 @@ class WordsTestController extends Controller
                 ->take(4)
                 ->get();
 
-            // Mix question types: EN -> translation or translation -> EN
-            $questionType = rand(0, 1) === 0 ? 'en_to_translation' : 'translation_to_en';
-
-            if ($questionType === 'en_to_translation') {
-                $correct = $translation;
-                $prompt = $word->word;
-                $options = $otherWords
-                    ->map(fn ($w) => optional($w->translates->first())->translation ?? '')
-                    ->filter()
-                    ->values();
-            } else {
-                $correct = $word->word;
-                $prompt = $translation;
-                $options = $otherWords->pluck('word');
-            }
+            // Always EN -> translation (per requirements: test direction is always English → study_lang)
+            $questionType = 'en_to_translation';
+            $correct = $translation;
+            $prompt = $word->word;
+            $options = $otherWords
+                ->map(fn ($w) => optional($w->translates->first())->translation ?? '')
+                ->filter()
+                ->values();
 
             $options = $options
                 ->filter()
