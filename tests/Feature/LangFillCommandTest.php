@@ -91,6 +91,7 @@ class LangFillCommandTest extends TestCase
         // Test allowed providers list
         $allowedProviders = TranslationProviderFactory::getAllowedProviders();
         
+        $this->assertContains('auto', $allowedProviders);
         $this->assertContains('openai', $allowedProviders);
         $this->assertContains('gemini', $allowedProviders);
     }
