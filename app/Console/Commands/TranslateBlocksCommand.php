@@ -13,7 +13,7 @@ class TranslateBlocksCommand extends Command
 {
     protected $signature = 'pages:translate-blocks {targetLocale : Target locale code (e.g., en, pl)}
                             {--provider=auto : Translation provider (auto, openai, gemini)}
-                            {--batch-size=10 : Number of blocks to translate in each batch}
+                            {--batch-size=5 : Number of blocks to translate in each batch (smaller is more reliable for JSON/HTML)}
                             {--source-locale=uk : Source locale to translate from}
                             {--block-id= : Translate a single block by ID}
                             {--block-uuid= : Translate a single block by UUID}
@@ -44,8 +44,8 @@ class TranslateBlocksCommand extends Command
     private array $failedBlocks = [];
 
     // Delay between batches in microseconds
-    private const OPENAI_BATCH_DELAY_MICROSECONDS = 2000000; // 2 seconds
-    private const GEMINI_BATCH_DELAY_MICROSECONDS = 500000;  // 0.5 seconds
+    private const OPENAI_BATCH_DELAY_MICROSECONDS = 3000000; // 3 seconds (increased for reliability)
+    private const GEMINI_BATCH_DELAY_MICROSECONDS = 1000000;  // 1 second (increased for reliability)
 
     public function handle(): int
     {
@@ -83,15 +83,15 @@ class TranslateBlocksCommand extends Command
             return Command::FAILURE;
         }
 
-        // Warn about OpenAI rate limits
-        if ($this->provider->getName() === 'openai' && $this->batchSize > 20) {
+        // Warn about OpenAI rate limits and recommend smaller batch size
+        if ($this->provider->getName() === 'openai' && $this->batchSize > 5) {
             $this->newLine();
-            $this->warn("OpenAI has stricter rate limits than Gemini.");
-            $this->warn("For better reliability, consider using a smaller batch size:");
-            $this->warn("  php artisan pages:translate-blocks {$this->targetLocale} --batch-size=10");
+            $this->warn("OpenAI has stricter rate limits and timeouts.");
+            $this->warn("For text_blocks with JSON/HTML content, smaller batches are recommended:");
+            $this->warn("  php artisan pages:translate-blocks {$this->targetLocale} --batch-size=3");
             $this->newLine();
 
-            if (!$this->confirm("Continue with batch size {$this->batchSize}?", true)) {
+            if ($this->batchSize > 10 && !$this->confirm("Continue with batch size {$this->batchSize}? (Recommended: 3-5 for complex content)", false)) {
                 return Command::FAILURE;
             }
         }
