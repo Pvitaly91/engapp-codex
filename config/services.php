@@ -36,9 +36,18 @@ return [
         'language' => env('CHAT_GPT_LANGUAGE', 'uk'),
     ],
 
+    'openai' => [
+        'key' => env('OPENAI_API_KEY', env('CHAT_GPT_API_KEY')),
+        'model' => env('OPENAI_MODEL', 'gpt-4o-mini'),
+        'timeout' => env('OPENAI_TIMEOUT', 60),
+        'max_retries' => env('OPENAI_MAX_RETRIES', 3),
+    ],
+
     'gemini' => [
         'key'   => env('GEMINI_API_KEY'),
-        'model' => env('GEMINI_MODEL', 'gemini-2.5-flash'),
+        'model' => env('GEMINI_MODEL', 'gemini-2.0-flash-exp'),
+        'timeout' => env('GEMINI_TIMEOUT', 60),
+        'max_retries' => env('GEMINI_MAX_RETRIES', 3),
     ],
 
 ];
