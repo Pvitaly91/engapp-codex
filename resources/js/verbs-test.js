@@ -503,8 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Read settings
-    state.mode = modeTyping.classList.contains('bg-primary/10') ? 'typing' : 'choice';
+    // Read settings - use actual state tracking
     state.askWhat = askWhatSelect.value;
     state.count = Math.min(Math.max(parseInt(countInput.value) || 20, 5), 100);
     state.showTranslation = showTranslationCheckbox.checked;
@@ -556,11 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
     doneBox.classList.add('hidden');
     restartBtn.classList.remove('hidden');
 
-    if (state.currentQuestion) {
-      showQuestion();
-    } else {
-      showQuestion();
-    }
+    showQuestion();
   }
 
   // Event listeners

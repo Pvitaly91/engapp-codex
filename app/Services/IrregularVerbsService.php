@@ -107,8 +107,8 @@ class IrregularVerbsService
             return self::F1_EXCEPTIONS[$base];
         }
 
-        // Words ending in s, ss, sh, ch, x, z, o: add -es
-        if (preg_match('/(s|ss|sh|ch|x|z|o)$/', $base)) {
+        // Words ending in ss, sh, ch, s, x, z, o: add -es
+        if (preg_match('/(ss|sh|ch|[sxzo])$/', $base)) {
             return $base . 'es';
         }
 
@@ -156,10 +156,10 @@ class IrregularVerbsService
             return substr($base, 0, -1) . 'ing';
         }
 
-        // Words ending in single vowel + single consonant (except w, x, y):
+        // Words ending in single vowel + single consonant (except w, x, y, z):
         // For common short verbs, double the consonant
         // This is a simplified rule - doesn't handle all cases perfectly
-        if (preg_match('/^[a-z]{2,4}$/', $base) && preg_match('/[aeiou][bcdfghjklmnpqrstvz]$/', $base)) {
+        if (preg_match('/^[a-z]{2,4}$/', $base) && preg_match('/[aeiou][bcdfghjklmnpqrst]$/', $base)) {
             return $base . substr($base, -1) . 'ing';
         }
 
