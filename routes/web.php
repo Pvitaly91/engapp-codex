@@ -28,6 +28,7 @@ use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
 use App\Http\Controllers\Admin\WordsExportController;
+use App\Http\Controllers\IrregularVerbsTestController;
 use App\Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -109,6 +110,12 @@ Route::prefix('words/test')->group(function () {
     Route::post('/hard/reset', [WordsTestController::class, 'reset'])->name('words.test.reset.hard')->defaults('difficulty', 'hard');
 
     Route::post('/set-study-language', [WordsTestController::class, 'setStudyLanguage'])->name('words.test.set-study-language');
+});
+
+// Irregular verbs test routes
+Route::prefix('verbs/test')->group(function () {
+    Route::get('/', [IrregularVerbsTestController::class, 'index'])->name('verbs.test');
+    Route::get('/data', [IrregularVerbsTestController::class, 'data'])->name('verbs.test.data');
 });
 
 // Public pages routes (no authentication required)
