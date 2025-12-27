@@ -225,7 +225,7 @@
       </div>
     </div>
 
-    <div id="failure-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+    <div id="failure-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
       <div class="modal-backdrop absolute inset-0 animate-fade"></div>
       <div id="failure-card" class="relative mx-4 w-full max-w-xl rounded-2xl border border-destructive/30 bg-card p-6 shadow-2xl animate-bounce">
         <div class="flex items-start gap-4">
@@ -572,6 +572,7 @@
       function toggleFailureModal(show) {
         failureModal.classList.toggle('hidden', !show);
         if (show) {
+          failureModal.classList.add('flex', 'items-center', 'justify-center');
           failureCard.classList.remove('animate-bounce');
           void failureCard.offsetWidth;
           failureCard.classList.add('animate-bounce');
@@ -581,6 +582,8 @@
             void backdrop.offsetWidth;
             backdrop.classList.add('animate-fade');
           }
+        } else {
+          failureModal.classList.remove('flex', 'items-center', 'justify-center');
         }
       }
 
