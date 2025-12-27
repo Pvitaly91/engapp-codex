@@ -9,6 +9,8 @@ return [
     'restart' => 'Restart',
     'settings' => 'Ustawienia',
     'verbs_total' => 'czasowników',
+    'settings_show' => 'Pokaż ustawienia',
+    'settings_hide' => 'Schowaj ustawienia',
 
     'mode' => 'Poziom trudności',
     'mode_typing' => 'Hard',
@@ -53,4 +55,6 @@ return [
     'correct_answer' => 'Poprawnie!',
     'wrong_answer' => 'Błąd',
     'no_verbs' => 'Brak danych do testu. Dodaj czasowniki nieregularne do bazy.',
+    'failed_title' => 'Test niezdany',
+    'failed_message' => 'Osiągnięto maksymalną liczbę błędów. Uruchom test ponownie.',
 ];

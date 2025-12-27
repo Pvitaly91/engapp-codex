@@ -9,6 +9,8 @@ return [
     'restart' => 'Restart',
     'settings' => 'Settings',
     'verbs_total' => 'verbs',
+    'settings_show' => 'Show settings',
+    'settings_hide' => 'Hide settings',
 
     'mode' => 'Difficulty',
     'mode_typing' => 'Hard',
@@ -53,4 +55,6 @@ return [
     'correct_answer' => 'Correct!',
     'wrong_answer' => 'Wrong',
     'no_verbs' => 'No data for the test. Please add irregular verbs to the database.',
+    'failed_title' => 'Test failed',
+    'failed_message' => 'You have reached the maximum number of mistakes. Restart to try again.',
 ];
