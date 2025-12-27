@@ -36,6 +36,7 @@ return [
 
     // Question
     'question' => 'Question',
+    'task' => 'Task',
     'base_verb' => 'Base form',
     'give_answer' => 'Give answer for',
     'your_answer' => 'Your answer',

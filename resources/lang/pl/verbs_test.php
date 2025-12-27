@@ -36,6 +36,7 @@ return [
 
     // Question
     'question' => 'Pytanie',
+    'task' => 'Zadanie',
     'base_verb' => 'Forma podstawowa',
     'give_answer' => 'Podaj odpowiedź dla',
     'your_answer' => 'Twoja odpowiedź',

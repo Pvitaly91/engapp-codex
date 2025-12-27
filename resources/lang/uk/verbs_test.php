@@ -36,6 +36,7 @@ return [
 
     // Question
     'question' => 'Питання',
+    'task' => 'Завдання',
     'base_verb' => 'Базова форма',
     'give_answer' => 'Дай відповідь для',
     'your_answer' => 'Ваша відповідь',

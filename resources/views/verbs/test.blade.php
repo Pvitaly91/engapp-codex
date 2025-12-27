@@ -119,17 +119,24 @@
       <!-- Question Area (hidden initially) -->
       <div id="question-area" class="hidden space-y-6">
         <!-- Question Header -->
-        <div class="flex items-center justify-between gap-3">
-          <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-            <span class="h-2 w-2 rounded-full bg-primary"></span>
-            <span id="askLabel">{{ __('verbs_test.question') }}</span>
-          </div>
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <div class="text-sm text-muted-foreground" id="progressText">0 / 0</div>
+          <button type="button" id="restartBtnInTest" class="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground shadow-sm transition hover:bg-muted hover:text-foreground" title="{{ __('verbs_test.restart') }}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            {{ __('verbs_test.restart') }}
+          </button>
+        </div>
+        
+        <!-- Task Instruction - Prominent -->
+        <div class="rounded-xl bg-primary/15 border-2 border-primary/30 p-4 mb-4">
           <div class="flex items-center gap-3">
-            <div class="text-sm text-muted-foreground" id="progressText">0 / 0</div>
-            <button type="button" id="restartBtnInTest" class="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground shadow-sm transition hover:bg-muted hover:text-foreground" title="{{ __('verbs_test.restart') }}">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
-              {{ __('verbs_test.restart') }}
-            </button>
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-primary/70 font-medium mb-1">{{ __('verbs_test.task') }}</p>
+              <p id="askLabel" class="text-lg font-bold text-primary">{{ __('verbs_test.question') }}</p>
+            </div>
           </div>
         </div>
 
