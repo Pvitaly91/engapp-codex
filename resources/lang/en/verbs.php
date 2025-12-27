@@ -10,9 +10,9 @@ return [
     'settings' => 'Settings',
     'verbs_total' => 'verbs',
 
-    'mode' => 'Mode',
-    'mode_typing' => 'Typing',
-    'mode_choice' => 'Choice',
+    'mode' => 'Difficulty',
+    'mode_typing' => 'Hard (typing)',
+    'mode_choice' => 'Easy (choice)',
 
     'ask_what' => 'What to ask',
     'ask_random' => 'Random',
@@ -40,7 +40,7 @@ return [
 
     'how_it_works' => 'How it works',
     'tip_start' => 'Click “Start” to generate a queue of questions without page reloads.',
-    'tip_modes' => 'Switch between “Typing” and “Choice” modes at any moment.',
+    'tip_modes' => 'Switch between “Hard” and “Easy” difficulty at any moment.',
     'tip_storage' => 'Progress is saved automatically in your browser.',
 
     'form_label' => 'Form :number',

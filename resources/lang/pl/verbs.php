@@ -10,9 +10,9 @@ return [
     'settings' => 'Ustawienia',
     'verbs_total' => 'czasowników',
 
-    'mode' => 'Tryb',
-    'mode_typing' => 'Wpisywanie',
-    'mode_choice' => 'Wybór',
+    'mode' => 'Poziom trudności',
+    'mode_typing' => 'Hard (wpisywanie)',
+    'mode_choice' => 'Easy (wybór)',
 
     'ask_what' => 'Co pytać',
     'ask_random' => 'Losowo',
@@ -40,7 +40,7 @@ return [
 
     'how_it_works' => 'Jak to działa',
     'tip_start' => 'Kliknij „Start”, aby wygenerować kolejkę pytań bez przeładowań.',
-    'tip_modes' => 'Przełączaj między trybami „Wpisywanie” i „Wybór” w dowolnym momencie.',
+    'tip_modes' => 'Przełączaj poziom trudności między „Hard” i „Easy” w dowolnym momencie.',
     'tip_storage' => 'Postęp jest automatycznie zapisywany w Twojej przeglądarce.',
 
     'form_label' => 'Form :number',

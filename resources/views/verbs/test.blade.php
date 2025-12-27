@@ -139,6 +139,19 @@
     </div>
   </div>
 
+  <style>
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      50% { transform: translateX(4px); }
+      75% { transform: translateX(-4px); }
+      100% { transform: translateX(0); }
+    }
+    .shake {
+      animation: shake 0.35s ease;
+    }
+  </style>
+
   <script>
     window.__VERBS__ = @json($verbs);
     @php
@@ -168,6 +181,8 @@
       const i18n = window.__VERBS_I18N__ || {};
       const storageKey = 'verbs_test_state_v1';
       const signature = createSignature(verbs);
+      const choiceSuccessClasses = ['border-success', 'bg-success/10', 'text-success'];
+      const choiceErrorClasses = ['border-destructive', 'bg-destructive/10', 'text-destructive'];
 
       const els = {
           startBtn: document.getElementById('startBtn'),
@@ -247,6 +262,7 @@
                       answers: Array.isArray(state.current.answers) ? [...state.current.answers] : [],
                       answersRaw: Array.isArray(state.current.answersRaw) ? [...state.current.answersRaw] : [],
                       options: Array.isArray(state.current.options) ? [...state.current.options] : [],
+                      selected: state.current.selected || null,
                   }
                   : null,
           };
@@ -276,6 +292,7 @@
                       answered: Boolean(parsed.current.answered),
                       wasCorrect: Boolean(parsed.current.wasCorrect),
                       options: Array.isArray(parsed.current.options) ? parsed.current.options : [],
+                      selected: parsed.current.selected || null,
                   }
                   : null;
 
@@ -431,6 +448,37 @@
           els.questionCard.classList.toggle('hidden', !visible);
       }
 
+      function resetChoiceHighlights() {
+          if (!els.choiceBox) return;
+          Array.from(els.choiceBox.children).forEach((button) => {
+              const btn = button;
+              choiceSuccessClasses.forEach((cls) => btn.classList.remove(cls));
+              choiceErrorClasses.forEach((cls) => btn.classList.remove(cls));
+              btn.classList.remove('shake');
+          });
+      }
+
+      function findChoiceButtonByValue(value) {
+          if (!els.choiceBox) return null;
+          return Array.from(els.choiceBox.children).find((button) => {
+              const normalized = button.dataset.value || normalize(button.textContent || '');
+              return normalized === value;
+          }) || null;
+      }
+
+      function applyChoiceResult(isCorrect, chosenBtn) {
+          resetChoiceHighlights();
+          if (!chosenBtn) return;
+          const target = chosenBtn;
+          if (isCorrect) {
+              choiceSuccessClasses.forEach((cls) => target.classList.add(cls));
+          } else {
+              choiceErrorClasses.forEach((cls) => target.classList.add(cls));
+              target.classList.add('shake');
+              target.addEventListener('animationend', () => target.classList.remove('shake'), { once: true });
+          }
+      }
+
       function renderChoices(options) {
           if (!els.choiceBox) return;
           els.choiceBox.innerHTML = '';
@@ -443,24 +491,9 @@
               btn.dataset.value = option.normalized;
               btn.addEventListener('click', () => {
                   if (state.current?.answered) return;
-                  evaluateAnswer(option.normalized);
+                  evaluateAnswer(option.normalized, btn);
               });
               els.choiceBox.appendChild(btn);
-          });
-      }
-
-      function markChoiceButtons() {
-          if (!els.choiceBox || state.settings.mode !== 'choice') return;
-          const answers = state.current?.answers || [];
-          Array.from(els.choiceBox.children).forEach((button) => {
-              const btn = button;
-              const normalized = btn.dataset.value || normalize(btn.textContent || '');
-              btn.classList.remove('border-primary', 'bg-primary/10', 'border-destructive', 'bg-destructive/10');
-              if (answers.includes(normalized)) {
-                  btn.classList.add('border-primary', 'bg-primary/10');
-              } else if (state.current?.answered && !answers.includes(normalized)) {
-                  btn.classList.add('border-destructive/60', 'bg-destructive/10');
-              }
           });
       }
 
@@ -520,6 +553,7 @@
               answered: existingCurrent?.answered || false,
               wasCorrect: existingCurrent?.wasCorrect || false,
               options: [],
+              selected: existingCurrent?.selected || null,
           };
 
           if (els.baseVerb) els.baseVerb.textContent = verb?.base || '—';
@@ -544,6 +578,7 @@
                   : buildChoiceOptions(verb, askKey, answersNormalized);
               state.current.options = options;
               renderChoices(options);
+              resetChoiceHighlights();
           } else if (els.choiceBox) {
               els.choiceBox.innerHTML = '';
           }
@@ -558,7 +593,10 @@
                   state.current.wasCorrect
               );
               if (state.settings.mode === 'choice') {
-                  markChoiceButtons();
+                  const chosenBtn = state.current.selected
+                      ? findChoiceButtonByValue(state.current.selected)
+                      : null;
+                  applyChoiceResult(state.current.wasCorrect, chosenBtn);
               }
           }
 
@@ -567,12 +605,15 @@
           saveState();
       }
 
-      function evaluateAnswer(rawAnswer) {
+      function evaluateAnswer(rawAnswer, choiceBtn = null) {
           if (!state.current || state.current.answered) return;
           const answer = normalize(rawAnswer);
           const isCorrect = state.current.answers.includes(answer);
           state.current.answered = true;
           state.current.wasCorrect = isCorrect;
+          if (choiceBtn) {
+              state.current.selected = answer;
+          }
 
           if (isCorrect) {
               state.correct += 1;
@@ -588,7 +629,8 @@
 
           updateStats();
           if (state.settings.mode === 'choice') {
-              markChoiceButtons();
+              const targetBtn = choiceBtn || (state.current.selected ? findChoiceButtonByValue(state.current.selected) : null);
+              applyChoiceResult(isCorrect, targetBtn);
           }
           saveState();
       }
@@ -608,11 +650,22 @@
               els.answerInput.value = revealed;
           }
           if (state.settings.mode === 'choice' && els.choiceBox) {
+              resetChoiceHighlights();
               Array.from(els.choiceBox.children).forEach((button) => {
                   const btn = button;
-                  const normalized = normalize(btn.textContent || '');
-                  btn.classList.toggle('border-primary', state.current.answers.includes(normalized));
+                  const normalized = btn.dataset.value || normalize(btn.textContent || '');
+                  if (state.current.answers.includes(normalized)) {
+                      choiceSuccessClasses.forEach((cls) => btn.classList.add(cls));
+                  }
               });
+              if (state.current.selected) {
+                  const chosenBtn = findChoiceButtonByValue(state.current.selected);
+                  if (chosenBtn && !state.current.wasCorrect) {
+                      choiceErrorClasses.forEach((cls) => chosenBtn.classList.add(cls));
+                      chosenBtn.classList.add('shake');
+                      chosenBtn.addEventListener('animationend', () => chosenBtn.classList.remove('shake'), { once: true });
+                  }
+              }
           }
           const message = (i18n.revealed || 'Correct answer: :answer').replace(':answer', revealed);
           setFeedback(message, true);
