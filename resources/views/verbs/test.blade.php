@@ -141,23 +141,26 @@
 
   <script>
     window.__VERBS__ = @json($verbs);
-    window.__VERBS_I18N__ = @json([
-        'form1' => __('verbs.form_label', ['number' => 1]),
-        'form2' => __('verbs.form_label', ['number' => 2]),
-        'form3' => __('verbs.form_label', ['number' => 3]),
-        'form4' => __('verbs.form_label', ['number' => 4]),
-        'askLabel' => __('verbs.ask_label', ['form' => ':form']),
-        'startNeeded' => __('verbs.start_needed'),
-        'completed' => __('verbs.completed'),
-        'progressRestored' => __('verbs.progress_restored'),
-        'revealed' => __('verbs.revealed', ['answer' => ':answer']),
-        'correctAnswer' => __('verbs.correct_answer'),
-        'wrongAnswer' => __('verbs.wrong_answer'),
-        'noVerbs' => __('verbs.no_verbs'),
-        'done' => __('verbs.done'),
-        'result' => __('verbs.result'),
-        'answerFor' => __('verbs.answer_for'),
-    ]);
+    @php
+      $verbsI18n = [
+          'form1' => __('verbs.form_label', ['number' => 1]),
+          'form2' => __('verbs.form_label', ['number' => 2]),
+          'form3' => __('verbs.form_label', ['number' => 3]),
+          'form4' => __('verbs.form_label', ['number' => 4]),
+          'askLabel' => __('verbs.ask_label', ['form' => ':form']),
+          'startNeeded' => __('verbs.start_needed'),
+          'completed' => __('verbs.completed'),
+          'progressRestored' => __('verbs.progress_restored'),
+          'revealed' => __('verbs.revealed', ['answer' => ':answer']),
+          'correctAnswer' => __('verbs.correct_answer'),
+          'wrongAnswer' => __('verbs.wrong_answer'),
+          'noVerbs' => __('verbs.no_verbs'),
+          'done' => __('verbs.done'),
+          'result' => __('verbs.result'),
+          'answerFor' => __('verbs.answer_for'),
+      ];
+    @endphp
+    window.__VERBS_I18N__ = @json($verbsI18n);
   </script>
   @vite('resources/js/verbs-test.js')
 @endsection
