@@ -16,6 +16,7 @@ use App\Http\Controllers\QuestionOptionController;
 use App\Http\Controllers\QuestionReviewController;
 use App\Http\Controllers\QuestionReviewResultController;
 use App\Http\Controllers\QuestionVariantController;
+use App\Http\Controllers\IrregularVerbsTestController;
 use App\Http\Controllers\SeedRunController;
 use App\Http\Controllers\SentenceTranslationTestController;
 use App\Http\Controllers\SiteSearchController;
@@ -109,6 +110,11 @@ Route::prefix('words/test')->group(function () {
     Route::post('/hard/reset', [WordsTestController::class, 'reset'])->name('words.test.reset.hard')->defaults('difficulty', 'hard');
 
     Route::post('/set-study-language', [WordsTestController::class, 'setStudyLanguage'])->name('words.test.set-study-language');
+});
+
+Route::prefix('verbs/test')->group(function () {
+    Route::get('/', [IrregularVerbsTestController::class, 'index'])->name('verbs.test');
+    Route::get('/data', [IrregularVerbsTestController::class, 'data'])->name('verbs.test.data');
 });
 
 // Public pages routes (no authentication required)
