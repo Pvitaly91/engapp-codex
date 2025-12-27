@@ -9,6 +9,8 @@ return [
     'restart' => 'Restart',
     'settings' => 'Settings',
     'verbs_total' => 'verbs',
+    'settings_show' => 'Show settings',
+    'settings_hide' => 'Hide settings',
 
     'mode' => 'Difficulty',
     'mode_typing' => 'Hard',

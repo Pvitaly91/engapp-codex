@@ -16,10 +16,15 @@
       <div class="space-y-4 order-2 lg:order-1">
         <div class="rounded-2xl border border-border/70 bg-card p-5 shadow-soft">
           <div class="flex items-center justify-between gap-3">
-            <h2 class="text-lg font-semibold text-foreground">{{ __('verbs.settings') }}</h2>
-            <span class="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground" id="verbs-count-badge">{{ count($verbs) }} {{ __('verbs.verbs_total') }}</span>
+            <div>
+              <h2 class="text-lg font-semibold text-foreground">{{ __('verbs.settings') }}</h2>
+              <span class="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground" id="verbs-count-badge">{{ count($verbs) }} {{ __('verbs.verbs_total') }}</span>
+            </div>
+            <button id="settingsToggle" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2 text-xs font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+              <span id="settingsToggleText">{{ __('verbs.settings_hide') }}</span>
+            </button>
           </div>
-          <div class="mt-4 grid gap-4 md:grid-cols-2">
+          <div id="settingsBody" class="mt-4 grid gap-4 md:grid-cols-2">
             <div class="space-y-2">
               <p class="text-sm font-semibold text-muted-foreground">{{ __('verbs.mode') }}</p>
               <div id="modeButtons" class="grid grid-cols-2 gap-2">
@@ -105,8 +110,8 @@
         </div>
       </div>
 
-      <div class="space-y-4 order-1 lg:order-2 lg:static sticky top-2 z-20">
-        <div class="rounded-2xl border border-border/70 bg-card p-5 shadow-soft">
+      <div class="space-y-4 order-1 lg:order-2">
+        <div class="rounded-2xl border border-border/70 bg-card p-5 shadow-soft sticky top-2 z-20 lg:static">
           <div class="flex items-center justify-between">
             <p class="text-sm font-semibold text-muted-foreground">{{ __('verbs.progress') }}</p>
             <span id="progressPercent" class="text-sm font-semibold text-muted-foreground">0%</span>
@@ -169,6 +174,8 @@
           'done' => __('verbs.done'),
           'result' => __('verbs.result'),
           'answerFor' => __('verbs.answer_for'),
+          'settings_show' => __('verbs.settings_show'),
+          'settings_hide' => __('verbs.settings_hide'),
       ];
     @endphp
     window.__VERBS_I18N__ = @json($verbsI18n);
@@ -192,6 +199,9 @@
           modeButtons: document.querySelectorAll('[data-mode-button]'),
           askButtons: document.querySelectorAll('[data-ask-button]'),
           showUk: document.getElementById('showUk'),
+          settingsToggle: document.getElementById('settingsToggle'),
+          settingsToggleText: document.getElementById('settingsToggleText'),
+          settingsBody: document.getElementById('settingsBody'),
           baseVerb: document.getElementById('baseVerb'),
           ukVerb: document.getElementById('ukVerb'),
           askLabel: document.getElementById('askLabel'),
@@ -216,6 +226,7 @@
               mode: 'hard',
               askWhat: 'random',
               showTranslation: false,
+              settingsCollapsed: false,
           },
           queue: [],
           pos: 0,
@@ -331,6 +342,7 @@
               mode: modeButton?.value || 'hard',
               askWhat: askButton?.value || 'random',
               showTranslation: Boolean(els.showUk?.checked),
+              settingsCollapsed: state.settings?.settingsCollapsed ?? false,
           };
       }
 
@@ -348,6 +360,7 @@
               btn.classList.toggle('bg-primary/10', isActive);
           });
           if (els.showUk) els.showUk.checked = settings.showTranslation;
+          toggleSettingsBody(Boolean(settings.settingsCollapsed));
       }
 
       function toggleModeVisibility(mode) {
@@ -455,6 +468,14 @@
       function setQuestionVisibility(visible) {
           if (!els.questionCard) return;
           els.questionCard.classList.toggle('hidden', !visible);
+      }
+
+      function toggleSettingsBody(collapsed) {
+          if (!els.settingsBody || !els.settingsToggleText) return;
+          els.settingsBody.classList.toggle('hidden', collapsed);
+          els.settingsToggleText.textContent = collapsed
+              ? (i18n.settings_show || 'Show settings')
+              : (i18n.settings_hide || 'Hide settings');
       }
 
       function hideSuggestions() {
@@ -723,6 +744,7 @@
       function startTest() {
           state = defaultState();
           state.settings = readSettingsFromControls();
+          state.settings.settingsCollapsed = true;
           applySettingsToControls(state.settings);
           state.queue = createQueue();
           if (!state.queue.length) {
@@ -753,6 +775,11 @@
       function bindEvents() {
           els.startBtn?.addEventListener('click', () => startTest());
           els.restartBtn?.addEventListener('click', () => startTest());
+          els.settingsToggle?.addEventListener('click', () => {
+              state.settings.settingsCollapsed = !state.settings.settingsCollapsed;
+              toggleSettingsBody(state.settings.settingsCollapsed);
+              saveState();
+          });
           els.checkBtn?.addEventListener('click', () => {
               if (state.settings.mode === 'easy') return;
               evaluateAnswer(els.answerInput?.value || '');

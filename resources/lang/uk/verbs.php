@@ -9,6 +9,8 @@ return [
     'restart' => 'Перезапустити',
     'settings' => 'Налаштування',
     'verbs_total' => 'дієслів',
+    'settings_show' => 'Показати налаштування',
+    'settings_hide' => 'Сховати налаштування',
 
     'mode' => 'Складність',
     'mode_typing' => 'Hard',

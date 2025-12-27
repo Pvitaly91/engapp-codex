@@ -9,6 +9,8 @@ return [
     'restart' => 'Restart',
     'settings' => 'Ustawienia',
     'verbs_total' => 'czasowników',
+    'settings_show' => 'Pokaż ustawienia',
+    'settings_hide' => 'Schowaj ustawienia',
 
     'mode' => 'Poziom trudności',
     'mode_typing' => 'Hard',
