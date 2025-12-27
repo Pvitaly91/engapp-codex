@@ -144,8 +144,8 @@
   </div>
 
   <div id="failureModal" class="fixed inset-0 z-50 hidden items-center justify-center">
-    <div class="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
-    <div class="relative mx-4 w-full max-w-md rounded-2xl border border-destructive/40 bg-card p-6 shadow-2xl space-y-3 animate-pop">
+    <div class="absolute inset-0 bg-background/80 backdrop-blur-sm animate-fade"></div>
+    <div class="relative mx-4 w-full max-w-md rounded-2xl border border-destructive/40 bg-card p-6 shadow-2xl space-y-3 animate-bounce-in">
       <div class="flex items-start gap-3">
         <div class="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10 text-destructive">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/><circle cx="12" cy="12" r="9"/></svg>
@@ -164,6 +164,20 @@
   </div>
 
   <style>
+    @keyframes fade-in-soft {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes bounce-in {
+      0% { transform: scale(0.96); opacity: 0; }
+      60% { transform: scale(1.03); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    .animate-fade { animation: fade-in-soft 200ms ease; }
+    .animate-bounce-in { animation: bounce-in 260ms ease; }
+
     @keyframes shake {
       0% { transform: translateX(0); }
       25% { transform: translateX(-4px); }
@@ -502,6 +516,20 @@
       function toggleFailureModal(show) {
           if (!els.failureModal) return;
           els.failureModal.classList.toggle('hidden', !show);
+          if (show) {
+              const panel = els.failureModal.querySelector('.animate-bounce-in');
+              const backdrop = els.failureModal.querySelector('.animate-fade');
+              if (panel) {
+                  panel.classList.remove('animate-bounce-in');
+                  void panel.offsetWidth;
+                  panel.classList.add('animate-bounce-in');
+              }
+              if (backdrop) {
+                  backdrop.classList.remove('animate-fade');
+                  void backdrop.offsetWidth;
+                  backdrop.classList.add('animate-fade');
+              }
+          }
       }
 
       function toggleSettingsBody(collapsed) {
