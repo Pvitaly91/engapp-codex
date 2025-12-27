@@ -124,7 +124,13 @@
             <span class="h-2 w-2 rounded-full bg-primary"></span>
             <span id="askLabel">{{ __('verbs_test.question') }}</span>
           </div>
-          <div class="text-sm text-muted-foreground" id="progressText">0 / 0</div>
+          <div class="flex items-center gap-3">
+            <div class="text-sm text-muted-foreground" id="progressText">0 / 0</div>
+            <button type="button" id="restartBtnInTest" class="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground shadow-sm transition hover:bg-muted hover:text-foreground" title="{{ __('verbs_test.restart') }}">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              {{ __('verbs_test.restart') }}
+            </button>
+          </div>
         </div>
 
         <!-- Question Content -->
@@ -183,6 +189,12 @@
             <p id="doneText" class="text-lg font-semibold text-foreground">—</p>
           </div>
         </div>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <button type="button" id="restartBtnDone" class="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            {{ __('verbs_test.start_again') }}
+          </button>
+        </div>
       </div>
     </div>
 
@@ -240,6 +252,8 @@
     const settingsPanel = document.getElementById('settings-panel');
     const startBtn = document.getElementById('startBtn');
     const restartBtn = document.getElementById('restartBtn');
+    const restartBtnInTest = document.getElementById('restartBtnInTest');
+    const restartBtnDone = document.getElementById('restartBtnDone');
     const modeTyping = document.getElementById('mode-typing');
     const modeChoice = document.getElementById('mode-choice');
     const askWhatSelect = document.getElementById('askWhat');
@@ -789,6 +803,8 @@
     // Event listeners
     startBtn.addEventListener('click', startTest);
     restartBtn.addEventListener('click', restartTest);
+    restartBtnInTest.addEventListener('click', restartTest);
+    restartBtnDone.addEventListener('click', restartTest);
     checkBtn.addEventListener('click', checkTypedAnswer);
     revealBtn.addEventListener('click', revealAnswer);
     nextBtn.addEventListener('click', nextQuestion);

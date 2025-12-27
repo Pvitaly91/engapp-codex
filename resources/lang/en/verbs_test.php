@@ -29,6 +29,7 @@ return [
     // Buttons
     'start' => 'Start',
     'restart' => 'Restart',
+    'start_again' => 'Start Again',
     'check' => 'Check',
     'reveal' => 'Reveal',
     'next' => 'Next',

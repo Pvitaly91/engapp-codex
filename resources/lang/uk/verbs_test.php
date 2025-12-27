@@ -29,6 +29,7 @@ return [
     // Buttons
     'start' => 'Почати',
     'restart' => 'Перезапустити',
+    'start_again' => 'Почати занову',
     'check' => 'Перевірити',
     'reveal' => 'Показати',
     'next' => 'Далі',

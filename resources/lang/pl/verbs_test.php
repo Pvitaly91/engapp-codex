@@ -29,6 +29,7 @@ return [
     // Buttons
     'start' => 'Rozpocznij',
     'restart' => 'Zacznij od nowa',
+    'start_again' => 'Rozpocznij ponownie',
     'check' => 'Sprawdź',
     'reveal' => 'Pokaż',
     'next' => 'Dalej',
