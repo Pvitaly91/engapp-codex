@@ -10,6 +10,8 @@ return [
     'settings' => 'Налаштування',
     'start' => 'Почати',
     'restart' => 'Перезапустити',
+    'start_again' => 'Почати знову',
+    'change_settings' => 'Змінити налаштування',
     
     // Mode
     'mode' => 'Режим',

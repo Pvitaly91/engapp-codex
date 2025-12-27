@@ -10,6 +10,8 @@ return [
     'settings' => 'Ustawienia',
     'start' => 'Rozpocznij',
     'restart' => 'Zrestartuj',
+    'start_again' => 'Rozpocznij ponownie',
+    'change_settings' => 'Zmień ustawienia',
     
     // Mode
     'mode' => 'Tryb',

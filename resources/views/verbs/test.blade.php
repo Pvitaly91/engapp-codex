@@ -39,6 +39,15 @@
       <h1 class="text-3xl font-semibold text-foreground">{{ __('verbs_test.title') }}</h1>
       <p class="text-muted-foreground max-w-2xl">{{ __('verbs_test.description') }}</p>
     </div>
+    <!-- Restart button in header (visible during test) -->
+    <div id="headerRestartBtn" class="hidden">
+      <button type="button" id="headerRestart" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-primary">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+        {{ __('verbs_test.restart') }}
+      </button>
+    </div>
   </div>
 
   @if(empty($verbs))
@@ -190,8 +199,44 @@
 
   <!-- Done Card -->
   <div id="doneBox" class="hidden rounded-2xl bg-card p-8 shadow-soft border border-border/70 text-center">
-    <h2 class="text-2xl font-semibold text-foreground mb-2">{{ __('verbs_test.done') }}</h2>
-    <p id="doneText" class="text-lg text-muted-foreground"></p>
+    <div class="mb-6">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-success/10 mb-4">
+        <svg class="w-8 h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <h2 class="text-2xl font-semibold text-foreground mb-2">{{ __('verbs_test.done') }}</h2>
+      <p id="doneText" class="text-lg text-muted-foreground mb-6"></p>
+    </div>
+    
+    <!-- Summary stats -->
+    <div class="grid grid-cols-2 gap-4 mb-6 max-w-md mx-auto">
+      <div class="rounded-lg bg-success/10 border border-success/30 p-4">
+        <div class="text-3xl font-bold text-success" id="finalCorrect">0</div>
+        <div class="text-sm text-muted-foreground">{{ __('verbs_test.correct') }}</div>
+      </div>
+      <div class="rounded-lg bg-destructive/10 border border-destructive/30 p-4">
+        <div class="text-3xl font-bold text-destructive" id="finalWrong">0</div>
+        <div class="text-sm text-muted-foreground">{{ __('verbs_test.wrong') }}</div>
+      </div>
+    </div>
+    
+    <!-- Action buttons -->
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <button type="button" id="doneRestartBtn" class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+        {{ __('verbs_test.start_again') }}
+      </button>
+      <button type="button" id="doneSettingsBtn" class="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        {{ __('verbs_test.change_settings') }}
+      </button>
+    </div>
   </div>
 
   @endif
@@ -240,6 +285,10 @@
       restartBtn: document.getElementById('restartBtn'),
       settingsPanel: document.getElementById('settings-panel'),
       
+      // Header buttons
+      headerRestartBtn: document.getElementById('headerRestartBtn'),
+      headerRestart: document.getElementById('headerRestart'),
+      
       // Progress
       progressText: document.getElementById('progressText'),
       progressBar: document.getElementById('progressBar'),
@@ -269,7 +318,11 @@
       
       // Done
       doneBox: document.getElementById('doneBox'),
-      doneText: document.getElementById('doneText')
+      doneText: document.getElementById('doneText'),
+      finalCorrect: document.getElementById('finalCorrect'),
+      finalWrong: document.getElementById('finalWrong'),
+      doneRestartBtn: document.getElementById('doneRestartBtn'),
+      doneSettingsBtn: document.getElementById('doneSettingsBtn')
     };
 
     // Utility functions
@@ -425,6 +478,7 @@
       // Hide settings, show question box
       hideElement(els.startBtn);
       showElement(els.restartBtn);
+      showElement(els.headerRestartBtn);
       showElement(els.questionBox);
       hideElement(els.doneBox);
       
@@ -575,10 +629,16 @@
     function endTest() {
       state.isActive = false;
       hideElement(els.questionBox);
+      hideElement(els.headerRestartBtn);
       showElement(els.doneBox);
       
       const total = state.queue.length;
       els.doneText.textContent = `Тест завершено! Правильних відповідей: ${state.correct} з ${total}`;
+      els.finalCorrect.textContent = state.correct;
+      els.finalWrong.textContent = state.wrong;
+      
+      // Scroll to completion screen
+      els.doneBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       
       clearState();
     }
@@ -592,10 +652,33 @@
       
       hideElement(els.questionBox);
       hideElement(els.doneBox);
+      hideElement(els.headerRestartBtn);
       showElement(els.startBtn);
       hideElement(els.restartBtn);
       
       updateProgress();
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    function backToSettings() {
+      clearState();
+      state.pos = 0;
+      state.correct = 0;
+      state.wrong = 0;
+      state.isActive = false;
+      
+      hideElement(els.questionBox);
+      hideElement(els.doneBox);
+      hideElement(els.headerRestartBtn);
+      showElement(els.startBtn);
+      hideElement(els.restartBtn);
+      
+      updateProgress();
+      
+      // Scroll to settings
+      els.settingsPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // Event listeners
@@ -633,6 +716,9 @@
 
     els.startBtn.addEventListener('click', startTest);
     els.restartBtn.addEventListener('click', restartTest);
+    els.headerRestart.addEventListener('click', restartTest);
+    els.doneRestartBtn.addEventListener('click', startTest);
+    els.doneSettingsBtn.addEventListener('click', backToSettings);
 
     els.checkBtn.addEventListener('click', () => {
       const answer = els.answerInput.value.trim();
@@ -661,6 +747,7 @@
         // Restore UI
         hideElement(els.startBtn);
         showElement(els.restartBtn);
+        showElement(els.headerRestartBtn);
         showElement(els.questionBox);
         updateProgress();
         showQuestion();

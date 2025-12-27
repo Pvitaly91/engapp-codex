@@ -10,6 +10,8 @@ return [
     'settings' => 'Settings',
     'start' => 'Start',
     'restart' => 'Restart',
+    'start_again' => 'Start Again',
+    'change_settings' => 'Change Settings',
     
     // Mode
     'mode' => 'Mode',
