@@ -91,7 +91,7 @@
 
           <div id="choiceBox" class="grid gap-3 md:grid-cols-2"></div>
 
-          <div class="flex flex-wrap items-center gap-3">
+          <div id="controlButtons" class="flex flex-wrap items-center gap-3">
             <button id="checkBtn" class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
               {{ __('verbs.check') }}
             </button>
@@ -197,6 +197,7 @@
           checkBtn: document.getElementById('checkBtn'),
           revealBtn: document.getElementById('revealBtn'),
           nextBtn: document.getElementById('nextBtn'),
+          controlButtons: document.getElementById('controlButtons'),
           modeButtons: document.querySelectorAll('[data-mode-button]'),
           askButtons: document.querySelectorAll('[data-ask-button]'),
           showUk: document.getElementById('showUk'),
@@ -374,6 +375,9 @@
               els.typingBox.classList.remove('hidden');
               els.choiceBox.classList.add('hidden');
               hideSuggestions();
+          }
+          if (els.controlButtons) {
+              els.controlButtons.classList.toggle('hidden', mode === 'easy');
           }
       }
 
@@ -701,6 +705,7 @@
           if (state.settings.mode === 'easy') {
               const targetBtn = choiceBtn || (state.current.selected ? findChoiceButtonByValue(state.current.selected) : null);
               applyChoiceResult(isCorrect, targetBtn);
+              setTimeout(() => nextQuestion(), 650);
           }
           saveState();
       }
