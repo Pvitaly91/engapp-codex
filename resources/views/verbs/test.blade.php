@@ -10,14 +10,6 @@
         <h1 class="text-3xl font-semibold text-foreground">{{ __('verbs.title') }}</h1>
         <p class="text-muted-foreground max-w-3xl">{{ __('verbs.description') }}</p>
       </div>
-      <div class="flex flex-wrap gap-3">
-        <button id="startBtn" class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow-lg">
-          {{ __('verbs.start') }}
-        </button>
-        <button id="restartBtn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
-          {{ __('verbs.restart') }}
-        </button>
-      </div>
     </div>
 
     <div class="grid gap-4 lg:grid-cols-[1.5fr_0.9fr]">
@@ -29,21 +21,21 @@
           </div>
           <div class="mt-4 grid gap-4 md:grid-cols-2">
             <div class="space-y-2">
-              <label for="mode" class="text-sm font-semibold text-muted-foreground">{{ __('verbs.mode') }}</label>
-              <select id="mode" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/15">
-                <option value="typing">{{ __('verbs.mode_typing') }}</option>
-                <option value="choice">{{ __('verbs.mode_choice') }}</option>
-              </select>
+              <p class="text-sm font-semibold text-muted-foreground">{{ __('verbs.mode') }}</p>
+              <div id="modeButtons" class="grid grid-cols-2 gap-2">
+                <button type="button" data-mode-button value="typing" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_typing') }}</button>
+                <button type="button" data-mode-button value="choice" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_choice') }}</button>
+              </div>
             </div>
             <div class="space-y-2">
-              <label for="askWhat" class="text-sm font-semibold text-muted-foreground">{{ __('verbs.ask_what') }}</label>
-              <select id="askWhat" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/15">
-                <option value="random">{{ __('verbs.ask_random') }}</option>
-                <option value="f1">{{ __('verbs.ask_f1') }}</option>
-                <option value="f2">{{ __('verbs.ask_f2') }}</option>
-                <option value="f3">{{ __('verbs.ask_f3') }}</option>
-                <option value="f4">{{ __('verbs.ask_f4') }}</option>
-              </select>
+              <p class="text-sm font-semibold text-muted-foreground">{{ __('verbs.ask_what') }}</p>
+              <div id="askButtons" class="grid grid-cols-2 gap-2 md:grid-cols-3">
+                <button type="button" data-ask-button value="random" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_random') }}</button>
+                <button type="button" data-ask-button value="f1" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f1') }}</button>
+                <button type="button" data-ask-button value="f2" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f2') }}</button>
+                <button type="button" data-ask-button value="f3" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f3') }}</button>
+                <button type="button" data-ask-button value="f4" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f4') }}</button>
+              </div>
             </div>
             <div class="space-y-2">
               <label for="count" class="text-sm font-semibold text-muted-foreground">{{ __('verbs.count') }}</label>
@@ -54,9 +46,17 @@
               <label for="showUk" class="text-sm font-semibold text-foreground">{{ __('verbs.show_translation') }}</label>
             </div>
           </div>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <button id="startBtn" class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow-lg">
+              {{ __('verbs.start') }}
+            </button>
+            <button id="restartBtn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+              {{ __('verbs.restart') }}
+            </button>
+          </div>
         </div>
 
-        <div class="rounded-2xl border border-border/70 bg-card p-6 shadow-soft space-y-4">
+        <div id="questionCard" class="rounded-2xl border border-border/70 bg-card p-6 shadow-soft space-y-4 hidden">
           <div class="flex items-center justify-between gap-3">
             <div>
               <p class="text-xs uppercase tracking-[0.16em] text-muted-foreground">{{ __('verbs.question') }}</p>
@@ -175,8 +175,8 @@
           checkBtn: document.getElementById('checkBtn'),
           revealBtn: document.getElementById('revealBtn'),
           nextBtn: document.getElementById('nextBtn'),
-          mode: document.getElementById('mode'),
-          askWhat: document.getElementById('askWhat'),
+          modeButtons: document.querySelectorAll('[data-mode-button]'),
+          askButtons: document.querySelectorAll('[data-ask-button]'),
           count: document.getElementById('count'),
           showUk: document.getElementById('showUk'),
           baseVerb: document.getElementById('baseVerb'),
@@ -194,6 +194,7 @@
           feedback: document.getElementById('feedback'),
           doneBox: document.getElementById('doneBox'),
           doneText: document.getElementById('doneText'),
+          questionCard: document.getElementById('questionCard'),
       };
 
       const defaultState = () => ({
@@ -294,17 +295,29 @@
 
       function readSettingsFromControls() {
           const countValue = parseInt(els.count?.value ?? '10', 10);
+          const modeButton = Array.from(els.modeButtons || []).find((btn) => btn.classList.contains('active'));
+          const askButton = Array.from(els.askButtons || []).find((btn) => btn.classList.contains('active'));
           return {
-              mode: els.mode?.value || 'typing',
-              askWhat: els.askWhat?.value || 'random',
+              mode: modeButton?.value || 'typing',
+              askWhat: askButton?.value || 'random',
               count: Number.isNaN(countValue) || countValue < 1 ? verbs.length || 10 : countValue,
               showTranslation: Boolean(els.showUk?.checked),
           };
       }
 
       function applySettingsToControls(settings) {
-          if (els.mode) els.mode.value = settings.mode;
-          if (els.askWhat) els.askWhat.value = settings.askWhat;
+          Array.from(els.modeButtons || []).forEach((btn) => {
+              const isActive = btn.value === settings.mode;
+              btn.classList.toggle('active', isActive);
+              btn.classList.toggle('border-primary', isActive);
+              btn.classList.toggle('bg-primary/10', isActive);
+          });
+          Array.from(els.askButtons || []).forEach((btn) => {
+              const isActive = btn.value === settings.askWhat;
+              btn.classList.toggle('active', isActive);
+              btn.classList.toggle('border-primary', isActive);
+              btn.classList.toggle('bg-primary/10', isActive);
+          });
           if (els.count) els.count.value = settings.count;
           if (els.showUk) els.showUk.checked = settings.showTranslation;
       }
@@ -413,6 +426,11 @@
           saveState();
       }
 
+      function setQuestionVisibility(visible) {
+          if (!els.questionCard) return;
+          els.questionCard.classList.toggle('hidden', !visible);
+      }
+
       function renderChoices(options) {
           if (!els.choiceBox) return;
           els.choiceBox.innerHTML = '';
@@ -472,6 +490,7 @@
               setFeedback(i18n.noVerbs || '');
               if (els.baseVerb) els.baseVerb.textContent = '—';
               if (els.ukVerb) els.ukVerb.textContent = '';
+              setQuestionVisibility(false);
               return;
           }
 
@@ -482,6 +501,7 @@
               return;
           }
 
+          setQuestionVisibility(true);
           const verbIndex = state.queue[state.pos];
           const verb = verbs[verbIndex];
           const existingCurrent = state.current && state.current.verbIndex === verbIndex ? state.current : null;
@@ -611,6 +631,7 @@
           state.pos = 0;
           state.correct = 0;
           state.wrong = 0;
+          setQuestionVisibility(true);
           renderQuestion();
       }
 
@@ -621,6 +642,7 @@
           };
           applySettingsToControls(state.settings);
           toggleModeVisibility(state.settings.mode);
+          setQuestionVisibility(true);
           renderQuestion();
           if (i18n.progressRestored) {
               setFeedback(i18n.progressRestored, true);
@@ -636,14 +658,20 @@
           });
           els.nextBtn?.addEventListener('click', () => nextQuestion());
           els.revealBtn?.addEventListener('click', () => revealAnswer());
-          els.mode?.addEventListener('change', () => {
-              state.settings.mode = els.mode.value;
-              toggleModeVisibility(state.settings.mode);
-              saveState();
+          Array.from(els.modeButtons || []).forEach((btn) => {
+              btn.addEventListener('click', () => {
+                  state.settings.mode = btn.value;
+                  applySettingsToControls(state.settings);
+                  toggleModeVisibility(state.settings.mode);
+                  saveState();
+              });
           });
-          els.askWhat?.addEventListener('change', () => {
-              state.settings.askWhat = els.askWhat.value;
-              saveState();
+          Array.from(els.askButtons || []).forEach((btn) => {
+              btn.addEventListener('click', () => {
+                  state.settings.askWhat = btn.value;
+                  applySettingsToControls(state.settings);
+                  saveState();
+              });
           });
           els.count?.addEventListener('change', () => {
               const settings = readSettingsFromControls();
@@ -677,7 +705,9 @@
               restoreState(savedState);
           } else {
               toggleModeVisibility(state.settings.mode);
+              applySettingsToControls(state.settings);
               setFeedback(i18n.startNeeded || '');
+              setQuestionVisibility(false);
               updateProgress();
               updateStats();
           }
