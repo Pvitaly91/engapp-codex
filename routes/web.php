@@ -27,6 +27,7 @@ use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
+use App\Http\Controllers\IrregularVerbsTestController;
 use App\Http\Controllers\Admin\WordsExportController;
 use App\Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
 use Illuminate\Support\Facades\Route;
@@ -111,6 +112,12 @@ Route::prefix('words/test')->group(function () {
     Route::post('/set-study-language', [WordsTestController::class, 'setStudyLanguage'])->name('words.test.set-study-language');
 });
 
+// Irregular verbs test (public page, no authentication required)
+Route::prefix('verbs/test')->group(function () {
+    Route::get('/', [IrregularVerbsTestController::class, 'index'])->name('verbs.test');
+    Route::get('/data', [IrregularVerbsTestController::class, 'data'])->name('verbs.test.data');
+});
+
 // Public pages routes (no authentication required)
 Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
 Route::get('/pages/{category:slug}', [PageController::class, 'category'])->name('pages.category');
@@ -122,7 +129,7 @@ Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->na
 Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
 
 // Define a pattern that excludes reserved route prefixes for dynamic page type routes
-$reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$';
+$reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|verbs|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$';
 
 Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
 
