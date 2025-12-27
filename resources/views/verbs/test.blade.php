@@ -143,6 +143,26 @@
     </div>
   </div>
 
+  <div id="failureModal" class="fixed inset-0 z-50 hidden items-center justify-center">
+    <div class="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
+    <div class="relative mx-4 w-full max-w-md rounded-2xl border border-destructive/40 bg-card p-6 shadow-2xl space-y-3 animate-pop">
+      <div class="flex items-start gap-3">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10 text-destructive">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <div class="space-y-2">
+          <p class="text-sm font-semibold text-destructive">{{ __('verbs.failed_title') }}</p>
+          <p class="text-muted-foreground">{{ __('verbs.failed_message') }}</p>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <button id="retryBtn" class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
+          {{ __('verbs.restart') }}
+        </button>
+      </div>
+    </div>
+  </div>
+
   <style>
     @keyframes shake {
       0% { transform: translateX(0); }
@@ -190,6 +210,7 @@
       const choiceSuccessClasses = ['border-success', 'bg-success/10', 'text-success'];
       const choiceErrorClasses = ['border-destructive', 'bg-destructive/10', 'text-destructive'];
       const suggestionsByForm = buildSuggestionsByForm(verbs);
+      const maxMistakes = 3;
 
       const els = {
           startBtn: document.getElementById('startBtn'),
@@ -221,6 +242,8 @@
           doneBox: document.getElementById('doneBox'),
           doneText: document.getElementById('doneText'),
           questionCard: document.getElementById('questionCard'),
+          failureModal: document.getElementById('failureModal'),
+          retryBtn: document.getElementById('retryBtn'),
       };
 
       const defaultState = () => ({
@@ -234,6 +257,7 @@
           pos: 0,
           correct: 0,
           wrong: 0,
+          failed: false,
           current: null,
           signature,
       });
@@ -475,6 +499,11 @@
           els.questionCard.classList.toggle('hidden', !visible);
       }
 
+      function toggleFailureModal(show) {
+          if (!els.failureModal) return;
+          els.failureModal.classList.toggle('hidden', !show);
+      }
+
       function toggleSettingsBody(collapsed) {
           if (!els.settingsBody || !els.settingsToggleText) return;
           els.settingsBody.classList.toggle('hidden', collapsed);
@@ -597,6 +626,7 @@
               if (els.baseVerb) els.baseVerb.textContent = '—';
               if (els.ukVerb) els.ukVerb.textContent = '';
               setQuestionVisibility(false);
+              toggleFailureModal(false);
               return;
           }
 
@@ -604,6 +634,7 @@
               const total = state.queue.length || 0;
               const resultText = `${i18n.completed || ''}. ${i18n.result || 'Result'}: ${state.correct}/${total}`;
               setDone(resultText);
+              toggleFailureModal(false);
               return;
           }
 
@@ -707,6 +738,12 @@
               applyChoiceResult(isCorrect, targetBtn);
               setTimeout(() => nextQuestion(), 650);
           }
+          if (state.wrong >= maxMistakes) {
+              state.failed = true;
+              setFeedback('');
+              toggleFailureModal(true);
+              setQuestionVisibility(false);
+          }
           saveState();
       }
 
@@ -760,6 +797,8 @@
           state.pos = 0;
           state.correct = 0;
           state.wrong = 0;
+          state.failed = false;
+          toggleFailureModal(false);
           setQuestionVisibility(true);
           renderQuestion();
       }
@@ -781,6 +820,7 @@
       function bindEvents() {
           els.startBtn?.addEventListener('click', () => startTest());
           els.restartBtn?.addEventListener('click', () => startTest());
+          els.retryBtn?.addEventListener('click', () => startTest());
           els.settingsToggle?.addEventListener('click', () => {
               state.settings.settingsCollapsed = !state.settings.settingsCollapsed;
               toggleSettingsBody(state.settings.settingsCollapsed);
@@ -849,6 +889,7 @@
               applySettingsToControls(state.settings);
               setFeedback(i18n.startNeeded || '');
               setQuestionVisibility(false);
+              toggleFailureModal(false);
               updateProgress();
               updateStats();
           }

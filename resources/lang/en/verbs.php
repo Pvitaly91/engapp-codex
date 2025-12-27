@@ -55,4 +55,6 @@ return [
     'correct_answer' => 'Correct!',
     'wrong_answer' => 'Wrong',
     'no_verbs' => 'No data for the test. Please add irregular verbs to the database.',
+    'failed_title' => 'Test failed',
+    'failed_message' => 'You have reached the maximum number of mistakes. Restart to try again.',
 ];
