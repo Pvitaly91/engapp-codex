@@ -143,7 +143,7 @@
     </div>
   </div>
 
-  <div id="failureModal" class="fixed inset-0 z-50 hidden items-center justify-center">
+  <div id="failureModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
     <div class="absolute inset-0 bg-background/80 backdrop-blur-sm animate-fade"></div>
     <div class="relative mx-4 w-full max-w-md rounded-2xl border border-destructive/40 bg-card p-6 shadow-2xl space-y-3 animate-bounce-in">
       <div class="flex items-start gap-3">
@@ -517,6 +517,7 @@
           if (!els.failureModal) return;
           els.failureModal.classList.toggle('hidden', !show);
           if (show) {
+              els.failureModal.classList.add('flex', 'items-center', 'justify-center');
               const panel = els.failureModal.querySelector('.animate-bounce-in');
               const backdrop = els.failureModal.querySelector('.animate-fade');
               if (panel) {
@@ -529,6 +530,8 @@
                   void backdrop.offsetWidth;
                   backdrop.classList.add('animate-fade');
               }
+          } else {
+              els.failureModal.classList.remove('flex', 'items-center', 'justify-center');
           }
       }
 
