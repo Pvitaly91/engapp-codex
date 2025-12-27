@@ -54,6 +54,8 @@
       .animate-pop { animation: pop-in 220ms ease; }
       .animate-choice { animation: choice-glow 1s ease; }
       .animate-shake { animation: choice-shake 600ms ease; }
+      .animate-fade { animation: fade-in-soft 240ms ease; }
+      .animate-bounce { animation: pop-in 240ms ease; }
 
       .choice-correct {
         border-color: rgba(34, 197, 94, 0.35);
@@ -224,8 +226,8 @@
     </div>
 
     <div id="failure-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
-      <div class="modal-backdrop absolute inset-0"></div>
-      <div id="failure-card" class="relative mx-4 w-full max-w-xl rounded-2xl border border-destructive/30 bg-card p-6 shadow-2xl animate-pop">
+      <div class="modal-backdrop absolute inset-0 animate-fade"></div>
+      <div id="failure-card" class="relative mx-4 w-full max-w-xl rounded-2xl border border-destructive/30 bg-card p-6 shadow-2xl animate-bounce">
         <div class="flex items-start gap-4">
           <div class="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10 text-destructive">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/></svg>
@@ -570,7 +572,15 @@
       function toggleFailureModal(show) {
         failureModal.classList.toggle('hidden', !show);
         if (show) {
-          animate(failureCard, 'animate-pop');
+          failureCard.classList.remove('animate-bounce');
+          void failureCard.offsetWidth;
+          failureCard.classList.add('animate-bounce');
+          const backdrop = failureModal.querySelector('.animate-fade');
+          if (backdrop) {
+            backdrop.classList.remove('animate-fade');
+            void backdrop.offsetWidth;
+            backdrop.classList.add('animate-fade');
+          }
         }
       }
 
