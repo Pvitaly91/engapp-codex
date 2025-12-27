@@ -12,8 +12,8 @@
       </div>
     </div>
 
-    <div class="grid gap-4 lg:grid-cols-[1.5fr_0.9fr]">
-      <div class="space-y-4">
+    <div class="flex flex-col gap-4 lg:grid lg:grid-cols-[1.5fr_0.9fr]">
+      <div class="space-y-4 order-2 lg:order-1">
         <div class="rounded-2xl border border-border/70 bg-card p-5 shadow-soft">
           <div class="flex items-center justify-between gap-3">
             <h2 class="text-lg font-semibold text-foreground">{{ __('verbs.settings') }}</h2>
@@ -105,7 +105,7 @@
         </div>
       </div>
 
-      <div class="space-y-4">
+      <div class="space-y-4 order-1 lg:order-2 lg:static sticky top-2 z-20">
         <div class="rounded-2xl border border-border/70 bg-card p-5 shadow-soft">
           <div class="flex items-center justify-between">
             <p class="text-sm font-semibold text-muted-foreground">{{ __('verbs.progress') }}</p>

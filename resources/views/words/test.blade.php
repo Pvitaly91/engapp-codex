@@ -85,8 +85,8 @@
       </div>
     </div>
 
-    <div class="grid gap-4 md:grid-cols-[1.6fr_1fr]">
-      <div class="rounded-2xl bg-card p-6 shadow-soft border border-border/70" id="question-card">
+    <div class="flex flex-col gap-4 md:grid md:grid-cols-[1.6fr_1fr]">
+      <div class="rounded-2xl bg-card p-6 shadow-soft border border-border/70 order-2 md:order-1" id="question-card">
         <div class="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="{{ __('words_test.difficulty_modes') }}">
           @foreach ($tabs as $tab)
             <a
@@ -175,7 +175,7 @@
         </div>
       </div>
 
-      <div class="space-y-4">
+      <div class="space-y-4 order-1 md:order-2 md:static sticky top-2 z-20">
         <div class="rounded-2xl bg-card p-5 shadow-soft border border-border/70">
           <div class="flex items-center justify-between">
             <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.progress') }}</p>
