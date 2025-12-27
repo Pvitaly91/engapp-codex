@@ -11,8 +11,9 @@ return [
     'verbs_total' => 'дієслів',
 
     'mode' => 'Складність',
-    'mode_typing' => 'Hard (ввід)',
-    'mode_choice' => 'Easy (вибір)',
+    'mode_typing' => 'Hard',
+    'mode_medium' => 'Medium',
+    'mode_choice' => 'Easy',
 
     'ask_what' => 'Що питати',
     'ask_random' => 'Випадково',
@@ -40,7 +41,7 @@ return [
 
     'how_it_works' => 'Як це працює',
     'tip_start' => 'Натисніть «Почати», щоб згенерувати чергу питань без перезавантажень.',
-    'tip_modes' => 'Перемикайте складність між «Hard» та «Easy» у будь-який момент.',
+    'tip_modes' => 'Перемикайте складність між «Hard», «Medium» та «Easy» у будь-який момент.',
     'tip_storage' => 'Прогрес автоматично зберігається у вашому браузері.',
 
     'form_label' => 'Form :number',

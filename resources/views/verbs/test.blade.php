@@ -23,8 +23,9 @@
             <div class="space-y-2">
               <p class="text-sm font-semibold text-muted-foreground">{{ __('verbs.mode') }}</p>
               <div id="modeButtons" class="grid grid-cols-2 gap-2">
-                <button type="button" data-mode-button value="typing" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_typing') }}</button>
-                <button type="button" data-mode-button value="choice" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_choice') }}</button>
+                <button type="button" data-mode-button value="hard" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_typing') }}</button>
+                <button type="button" data-mode-button value="medium" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_medium') }}</button>
+                <button type="button" data-mode-button value="easy" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_choice') }}</button>
               </div>
             </div>
             <div class="space-y-2">
@@ -36,10 +37,6 @@
                 <button type="button" data-ask-button value="f3" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f3') }}</button>
                 <button type="button" data-ask-button value="f4" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f4') }}</button>
               </div>
-            </div>
-            <div class="space-y-2">
-              <label for="count" class="text-sm font-semibold text-muted-foreground">{{ __('verbs.count') }}</label>
-              <input id="count" type="number" min="1" step="1" value="10" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/15" />
             </div>
             <div class="flex items-center gap-3 rounded-xl border border-border/70 bg-muted/40 px-3 py-2">
               <input id="showUk" type="checkbox" class="h-4 w-4 rounded border-border text-primary focus:ring-primary" />
@@ -83,6 +80,7 @@
           <div id="typingBox" class="space-y-3">
             <label for="answerInput" class="text-sm font-semibold text-muted-foreground">{{ __('verbs.type_answer') }}</label>
             <input id="answerInput" type="text" autocomplete="off" class="w-full rounded-xl border border-border/70 bg-background px-4 py-3 text-lg font-semibold text-foreground shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
+            <div id="suggestionsBox" class="hidden rounded-xl border border-border/70 bg-muted/40 p-2 text-sm text-foreground space-y-1"></div>
           </div>
 
           <div id="choiceBox" class="grid gap-3 md:grid-cols-2"></div>
@@ -183,6 +181,7 @@
       const signature = createSignature(verbs);
       const choiceSuccessClasses = ['border-success', 'bg-success/10', 'text-success'];
       const choiceErrorClasses = ['border-destructive', 'bg-destructive/10', 'text-destructive'];
+      const suggestionsByForm = buildSuggestionsByForm(verbs);
 
       const els = {
           startBtn: document.getElementById('startBtn'),
@@ -192,7 +191,6 @@
           nextBtn: document.getElementById('nextBtn'),
           modeButtons: document.querySelectorAll('[data-mode-button]'),
           askButtons: document.querySelectorAll('[data-ask-button]'),
-          count: document.getElementById('count'),
           showUk: document.getElementById('showUk'),
           baseVerb: document.getElementById('baseVerb'),
           ukVerb: document.getElementById('ukVerb'),
@@ -201,6 +199,7 @@
           typingBox: document.getElementById('typingBox'),
           choiceBox: document.getElementById('choiceBox'),
           answerInput: document.getElementById('answerInput'),
+          suggestionsBox: document.getElementById('suggestionsBox'),
           progressText: document.getElementById('progressText'),
           progressBar: document.getElementById('progressBar'),
           progressPercent: document.getElementById('progressPercent'),
@@ -214,9 +213,8 @@
 
       const defaultState = () => ({
           settings: {
-              mode: 'typing',
+              mode: 'hard',
               askWhat: 'random',
-              count: 10,
               showTranslation: false,
           },
           queue: [],
@@ -228,6 +226,22 @@
       });
 
       let state = defaultState();
+
+      function buildSuggestionsByForm(list) {
+          const map = { f1: new Set(), f2: new Set(), f3: new Set(), f4: new Set() };
+          list.forEach((verb) => {
+              if (verb.f1) map.f1.add(verb.f1);
+              (verb.f2 || []).forEach((v) => map.f2.add(v));
+              (verb.f3 || []).forEach((v) => map.f3.add(v));
+              if (verb.f4) map.f4.add(verb.f4);
+          });
+          return {
+              f1: Array.from(map.f1),
+              f2: Array.from(map.f2),
+              f3: Array.from(map.f3),
+              f4: Array.from(map.f4),
+          };
+      }
 
       function createSignature(list) {
           return list
@@ -311,13 +325,11 @@
       }
 
       function readSettingsFromControls() {
-          const countValue = parseInt(els.count?.value ?? '10', 10);
           const modeButton = Array.from(els.modeButtons || []).find((btn) => btn.classList.contains('active'));
           const askButton = Array.from(els.askButtons || []).find((btn) => btn.classList.contains('active'));
           return {
-              mode: modeButton?.value || 'typing',
+              mode: modeButton?.value || 'hard',
               askWhat: askButton?.value || 'random',
-              count: Number.isNaN(countValue) || countValue < 1 ? verbs.length || 10 : countValue,
               showTranslation: Boolean(els.showUk?.checked),
           };
       }
@@ -335,18 +347,19 @@
               btn.classList.toggle('border-primary', isActive);
               btn.classList.toggle('bg-primary/10', isActive);
           });
-          if (els.count) els.count.value = settings.count;
           if (els.showUk) els.showUk.checked = settings.showTranslation;
       }
 
       function toggleModeVisibility(mode) {
           if (!els.typingBox || !els.choiceBox) return;
-          if (mode === 'choice') {
+          if (mode === 'easy') {
               els.typingBox.classList.add('hidden');
               els.choiceBox.classList.remove('hidden');
+              hideSuggestions();
           } else {
               els.typingBox.classList.remove('hidden');
               els.choiceBox.classList.add('hidden');
+              hideSuggestions();
           }
       }
 
@@ -415,13 +428,9 @@
           }
       }
 
-      function createQueue(count) {
+      function createQueue() {
           const baseIndexes = verbs.map((_, idx) => idx);
-          let queue = [];
-          while (queue.length < count) {
-              queue = queue.concat(shuffle(baseIndexes));
-          }
-          return queue.slice(0, count);
+          return shuffle(baseIndexes);
       }
 
       function setTranslationVisibility() {
@@ -446,6 +455,44 @@
       function setQuestionVisibility(visible) {
           if (!els.questionCard) return;
           els.questionCard.classList.toggle('hidden', !visible);
+      }
+
+      function hideSuggestions() {
+          if (els.suggestionsBox) {
+              els.suggestionsBox.classList.add('hidden');
+              els.suggestionsBox.innerHTML = '';
+          }
+      }
+
+      function renderSuggestions(askKey, query = '') {
+          if (!els.suggestionsBox || state.settings.mode !== 'medium') {
+              hideSuggestions();
+              return;
+          }
+          const list = suggestionsByForm[askKey] || [];
+          const normalizedQuery = normalize(query);
+          const matches = list
+              .filter((item) => !normalizedQuery || normalize(item).includes(normalizedQuery))
+              .slice(0, 6);
+          if (!matches.length) {
+              hideSuggestions();
+              return;
+          }
+          els.suggestionsBox.innerHTML = '';
+          matches.forEach((text) => {
+              const btn = document.createElement('button');
+              btn.type = 'button';
+              btn.className = 'w-full rounded-lg border border-border/60 bg-background px-3 py-2 text-left text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow';
+              btn.textContent = text;
+              btn.addEventListener('click', () => {
+                  if (!els.answerInput) return;
+                  els.answerInput.value = text;
+                  els.answerInput.focus();
+                  hideSuggestions();
+              });
+              els.suggestionsBox.appendChild(btn);
+          });
+          els.suggestionsBox.classList.remove('hidden');
       }
 
       function resetChoiceHighlights() {
@@ -563,16 +610,17 @@
           if (els.askLabel) els.askLabel.textContent = formatAskLabel(askKey);
           if (els.hint) els.hint.textContent = hintForVerb(verb);
 
-          if (state.settings.mode === 'typing' && els.answerInput) {
+          if (state.settings.mode !== 'easy' && els.answerInput) {
               els.answerInput.value = '';
               els.answerInput.focus();
+              renderSuggestions(askKey, '');
           }
 
           toggleModeVisibility(state.settings.mode);
           setFeedback('');
           if (els.doneBox) els.doneBox.classList.add('hidden');
 
-          if (state.settings.mode === 'choice') {
+          if (state.settings.mode === 'easy') {
               const options = (existingCurrent?.options && existingCurrent.options.length)
                   ? existingCurrent.options
                   : buildChoiceOptions(verb, askKey, answersNormalized);
@@ -592,7 +640,7 @@
                   state.current.wasCorrect ? (i18n.correctAnswer || 'Correct!') : `${i18n.wrongAnswer || 'Wrong'}. ${reveal}`,
                   state.current.wasCorrect
               );
-              if (state.settings.mode === 'choice') {
+              if (state.settings.mode === 'easy') {
                   const chosenBtn = state.current.selected
                       ? findChoiceButtonByValue(state.current.selected)
                       : null;
@@ -628,7 +676,7 @@
           }
 
           updateStats();
-          if (state.settings.mode === 'choice') {
+          if (state.settings.mode === 'easy') {
               const targetBtn = choiceBtn || (state.current.selected ? findChoiceButtonByValue(state.current.selected) : null);
               applyChoiceResult(isCorrect, targetBtn);
           }
@@ -646,10 +694,10 @@
       function revealAnswer() {
           if (!state.current) return;
           const revealed = state.current.answers[0] || '';
-          if (state.settings.mode === 'typing' && els.answerInput) {
+          if (state.settings.mode !== 'easy' && els.answerInput) {
               els.answerInput.value = revealed;
           }
-          if (state.settings.mode === 'choice' && els.choiceBox) {
+          if (state.settings.mode === 'easy' && els.choiceBox) {
               resetChoiceHighlights();
               Array.from(els.choiceBox.children).forEach((button) => {
                   const btn = button;
@@ -676,7 +724,7 @@
           state = defaultState();
           state.settings = readSettingsFromControls();
           applySettingsToControls(state.settings);
-          state.queue = createQueue(state.settings.count);
+          state.queue = createQueue();
           if (!state.queue.length) {
               setFeedback(i18n.noVerbs || '');
               return;
@@ -706,7 +754,7 @@
           els.startBtn?.addEventListener('click', () => startTest());
           els.restartBtn?.addEventListener('click', () => startTest());
           els.checkBtn?.addEventListener('click', () => {
-              if (state.settings.mode !== 'typing') return;
+              if (state.settings.mode === 'easy') return;
               evaluateAnswer(els.answerInput?.value || '');
           });
           els.nextBtn?.addEventListener('click', () => nextQuestion());
@@ -726,11 +774,6 @@
                   saveState();
               });
           });
-          els.count?.addEventListener('change', () => {
-              const settings = readSettingsFromControls();
-              state.settings.count = settings.count;
-              saveState();
-          });
           els.showUk?.addEventListener('change', () => {
               state.settings.showTranslation = Boolean(els.showUk.checked);
               setTranslationVisibility();
@@ -741,6 +784,18 @@
                   event.preventDefault();
                   evaluateAnswer(els.answerInput.value);
               }
+          });
+          els.answerInput?.addEventListener('input', (event) => {
+              const value = event.target.value || '';
+              const askKey = state.current?.askKey || 'f1';
+              renderSuggestions(askKey, value);
+          });
+          els.answerInput?.addEventListener('focus', (event) => {
+              const askKey = state.current?.askKey || 'f1';
+              renderSuggestions(askKey, event.target.value || '');
+          });
+          els.answerInput?.addEventListener('blur', () => {
+              setTimeout(() => hideSuggestions(), 150);
           });
       }
 
