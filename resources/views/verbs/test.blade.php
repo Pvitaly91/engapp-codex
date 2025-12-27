@@ -20,8 +20,9 @@
               <h2 class="text-lg font-semibold text-foreground">{{ __('verbs.settings') }}</h2>
               <span class="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground" id="verbs-count-badge">{{ count($verbs) }} {{ __('verbs.verbs_total') }}</span>
             </div>
-            <button id="settingsToggle" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2 text-xs font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
-              <span id="settingsToggleText">{{ __('verbs.settings_hide') }}</span>
+            <button id="settingsToggle" class="inline-flex items-center gap-2 rounded-xl border border-primary/60 bg-primary/10 px-3 py-2 text-xs font-semibold text-primary shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+              <span class="h-2 w-2 rounded-full bg-primary shadow-inner"></span>
+              <span id="settingsToggleText" class="uppercase tracking-[0.08em]">{{ __('verbs.settings_hide') }}</span>
             </button>
           </div>
           <div id="settingsBody" class="mt-4 grid gap-4 md:grid-cols-2">
@@ -60,9 +61,9 @@
 
         <div id="questionCard" class="rounded-2xl border border-border/70 bg-card p-6 shadow-soft space-y-4 hidden">
           <div class="flex items-center justify-between gap-3">
-            <div>
+            <div class="space-y-2">
               <p class="text-xs uppercase tracking-[0.16em] text-muted-foreground">{{ __('verbs.question') }}</p>
-              <p id="askLabel" class="text-sm font-semibold text-foreground"></p>
+              <span id="askLabel" class="inline-flex items-center gap-2 rounded-full bg-primary/15 px-3 py-1 text-sm font-semibold text-primary shadow-sm ring-1 ring-primary/40"></span>
             </div>
             <div class="text-sm text-muted-foreground">
               <span id="progressText">0 / 0</span>
