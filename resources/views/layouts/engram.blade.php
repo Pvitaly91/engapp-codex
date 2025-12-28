@@ -260,8 +260,11 @@
       document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
     })();
 
-    document.getElementById('year')?.textContent && (document.getElementById('year').textContent = new Date().getFullYear());
+    // Set year in footer
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
     document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+    
     const mobileSearchBtn = document.getElementById('mobile-search-btn');
     const mobileSearchPanel = document.getElementById('mobile-search');
     mobileSearchBtn?.addEventListener('click', () => {

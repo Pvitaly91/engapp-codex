@@ -120,10 +120,13 @@
             @foreach($languages as $index => $lang)
                 @php
                     $langFlag = $flags[$lang['code']] ?? '🌐';
+                    $langCode = e($lang['code']);
+                    $langNativeName = e($lang['native_name']);
+                    $langName = e($lang['name'] ?? $lang['native_name']);
                 @endphp
                 <a 
                     href="{{ $lang['url'] }}"
-                    x-show="matchesSearch('{{ $lang['code'] }}', '{{ addslashes($lang['native_name']) }}', '{{ addslashes($lang['name'] ?? $lang['native_name']) }}')"
+                    x-show="matchesSearch('{{ $langCode }}', '{{ $langNativeName }}', '{{ $langName }}')"
                     :class="{
                         'bg-primary/10 text-primary': focusedIndex === {{ $index }},
                         'hover:bg-muted': focusedIndex !== {{ $index }}
