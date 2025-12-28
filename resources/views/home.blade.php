@@ -13,10 +13,10 @@
             </h1>
             <p class="max-w-2xl text-lg text-[var(--muted)]">{{ __('public.home.hero_description') }}</p>
             <div class="flex flex-wrap gap-3">
-                <a href="{{ route('catalog.tests-cards') }}" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-card">
+                <a href="{{ localized_route('catalog.tests-cards') }}" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-card">
                     {{ __('public.home.to_catalog') }}
                 </a>
-                <a href="{{ route('theory.index') }}" class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-6 py-3 text-sm font-semibold">
+                <a href="{{ localized_route('theory.index') }}" class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-6 py-3 text-sm font-semibold">
                     {{ __('public.home.explore_theory') }}
                 </a>
             </div>
@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <a href="{{ route('catalog.tests-cards') }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
+            <a href="{{ localized_route('catalog.tests-cards') }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
                 <div class="space-y-3">
                     <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-600">📚</span>
                     <h3 class="text-xl font-semibold">{{ __('public.nav.catalog') }}</h3>
@@ -63,7 +63,7 @@
                 </div>
                 <span class="text-sm font-semibold text-brand-600">{{ __('public.common.go_to') }}</span>
             </a>
-            <a href="{{ route('theory.index') }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
+            <a href="{{ localized_route('theory.index') }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
                 <div class="space-y-3">
                     <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-600">🧠</span>
                     <h3 class="text-xl font-semibold">{{ __('public.nav.theory') }}</h3>
@@ -71,7 +71,7 @@
                 </div>
                 <span class="text-sm font-semibold text-brand-600">{{ __('public.common.go_to') }}</span>
             </a>
-            <a href="{{ route('words.test') }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
+            <a href="{{ localized_route('words.test') }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
                 <div class="space-y-3">
                     <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-600">📝</span>
                     <h3 class="text-xl font-semibold">{{ __('public.nav.words_test') }}</h3>
@@ -79,7 +79,7 @@
                 </div>
                 <span class="text-sm font-semibold text-brand-600">{{ __('public.common.go_to') }}</span>
             </a>
-            <a href="{{ route('verbs.test') }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
+            <a href="{{ localized_route('verbs.test') }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
                 <div class="space-y-3">
                     <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-600">⚡</span>
                     <h3 class="text-xl font-semibold">{{ __('public.nav.verbs_test') }}</h3>
@@ -122,7 +122,7 @@
         <div class="space-y-4 rounded-2xl border border-[var(--border)] bg-gradient-to-br from-brand-50 to-white p-6 text-sm text-[var(--muted)]">
             <h3 class="text-xl font-semibold text-[var(--fg)]">{{ __('public.home.search_block_title') }}</h3>
             <p>{{ __('public.home.search_block_desc') }}</p>
-            <form action="{{ route('site.search') }}" method="GET" class="flex items-center gap-3 rounded-full border border-[var(--border)] bg-white px-4 py-2 shadow-sm">
+            <form action="{{ localized_route('site.search') }}" method="GET" class="flex items-center gap-3 rounded-full border border-[var(--border)] bg-white px-4 py-2 shadow-sm">
                 <input type="search" name="q" placeholder="{{ __('public.search.placeholder') }}" class="w-full bg-transparent text-sm focus:outline-none">
                 <button type="submit" class="rounded-full bg-brand-600 px-4 py-2 text-xs font-semibold text-white">{{ __('public.search.button') }}</button>
             </form>

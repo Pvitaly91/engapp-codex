@@ -14,7 +14,7 @@
                 <p class="text-sm text-[var(--muted)]">{{ __('public.search.found_for') }}</p>
                 <h1 class="text-3xl font-bold">“{{ e($query) }}”</h1>
             </div>
-            <form action="{{ route('site.search') }}" method="GET" class="flex w-full max-w-lg items-center gap-3 rounded-full border border-[var(--border)] bg-white/70 px-4 py-2 shadow-sm">
+            <form action="{{ localized_route('site.search') }}" method="GET" class="flex w-full max-w-lg items-center gap-3 rounded-full border border-[var(--border)] bg-white/70 px-4 py-2 shadow-sm">
                 <svg class="h-5 w-5 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 <input type="search" name="q" value="{{ $query }}" placeholder="{{ __('public.search.placeholder') }}" class="w-full bg-transparent text-sm focus:outline-none" />
                 <button type="submit" class="rounded-full bg-brand-600 px-4 py-2 text-xs font-semibold text-white">{{ __('public.search.button') }}</button>

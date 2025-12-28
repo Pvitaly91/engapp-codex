@@ -113,7 +113,7 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
     : [];
 const CSRF_TOKEN = '{{ csrf_token() }}';
 window.__IS_ADMIN__ = Boolean(@json(auth()->user()?->is_admin ?? session('admin_authenticated', false)));
-const MARKER_THEORY_URL = '{{ route('question.marker-theory') }}';
+const MARKER_THEORY_URL = '{{ localized_route('question.marker-theory') }}';
 const TEST_SLUG = @json($test->slug);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
