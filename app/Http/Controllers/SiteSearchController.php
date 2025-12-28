@@ -30,7 +30,10 @@ class SiteSearchController extends Controller
                 ->map(fn ($page) => [
                     'title' => $page->title,
                     'type' => 'page',
-                    'url' => route('pages.show', [$page->category->slug, $page->slug]),
+                    // Use theory.show for theory pages, pages.show for others
+                    'url' => $page->type === 'theory' 
+                        ? route('theory.show', [$page->category->slug, $page->slug])
+                        : route('pages.show', [$page->category->slug, $page->slug]),
                 ]);
 
             $tests = Test::query()
