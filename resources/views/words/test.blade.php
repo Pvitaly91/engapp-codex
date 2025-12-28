@@ -54,6 +54,8 @@
       .animate-pop { animation: pop-in 220ms ease; }
       .animate-choice { animation: choice-glow 1s ease; }
       .animate-shake { animation: choice-shake 600ms ease; }
+      .animate-fade { animation: fade-in-soft 240ms ease; }
+      .animate-bounce { animation: pop-in 240ms ease; }
 
       .choice-correct {
         border-color: rgba(34, 197, 94, 0.35);
@@ -85,8 +87,8 @@
       </div>
     </div>
 
-    <div class="grid gap-4 md:grid-cols-[1.6fr_1fr]">
-      <div class="rounded-2xl bg-card p-6 shadow-soft border border-border/70" id="question-card">
+    <div class="flex flex-col gap-4 md:grid md:grid-cols-[1.6fr_1fr]">
+      <div class="rounded-2xl bg-card p-6 shadow-soft border border-border/70 order-2 md:order-1" id="question-card">
         <div class="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="{{ __('words_test.difficulty_modes') }}">
           @foreach ($tabs as $tab)
             <a
@@ -175,7 +177,7 @@
         </div>
       </div>
 
-      <div class="space-y-4">
+      <div class="space-y-4 order-1 md:order-2 md:static sticky top-2 z-20">
         <div class="rounded-2xl bg-card p-5 shadow-soft border border-border/70">
           <div class="flex items-center justify-between">
             <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.progress') }}</p>
@@ -223,9 +225,9 @@
       </div>
     </div>
 
-    <div id="failure-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
-      <div class="modal-backdrop absolute inset-0"></div>
-      <div id="failure-card" class="relative mx-4 w-full max-w-xl rounded-2xl border border-destructive/30 bg-card p-6 shadow-2xl animate-pop">
+    <div id="failure-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+      <div class="modal-backdrop absolute inset-0 animate-fade"></div>
+      <div id="failure-card" class="relative mx-4 w-full max-w-xl rounded-2xl border border-destructive/30 bg-card p-6 shadow-2xl animate-bounce">
         <div class="flex items-start gap-4">
           <div class="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10 text-destructive">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/></svg>
@@ -433,18 +435,9 @@
         // Determine label based on question type
         let label;
         if (isEasy) {
-          if (question.questionType === 'en_to_translation') {
-            label = i18n.choose_translation;
-          } else {
-            label = i18n.choose_word_en;
-          }
+          label = i18n.choose_translation;
         } else {
-          // For medium/hard, check what answer is expected
-          if (question.questionType === 'translation_to_en') {
-            label = i18n.enter_word_en;
-          } else {
-            label = i18n.enter_word;
-          }
+          label = i18n.enter_word;
         }
         questionLabel.textContent = label;
 
@@ -474,12 +467,7 @@
         } else {
           optionsWrapper.innerHTML = '';
           answerInput.value = '';
-          // Update placeholder based on question type
-          if (question.questionType === 'translation_to_en') {
-            answerInput.placeholder = i18n.enter_word_en;
-          } else {
-            answerInput.placeholder = i18n.enter_word;
-          }
+          answerInput.placeholder = i18n.enter_word;
           hideSuggestions();
           setTimeout(() => answerInput?.focus(), 50);
         }
@@ -584,7 +572,18 @@
       function toggleFailureModal(show) {
         failureModal.classList.toggle('hidden', !show);
         if (show) {
-          animate(failureCard, 'animate-pop');
+          failureModal.classList.add('flex', 'items-center', 'justify-center');
+          failureCard.classList.remove('animate-bounce');
+          void failureCard.offsetWidth;
+          failureCard.classList.add('animate-bounce');
+          const backdrop = failureModal.querySelector('.animate-fade');
+          if (backdrop) {
+            backdrop.classList.remove('animate-fade');
+            void backdrop.offsetWidth;
+            backdrop.classList.add('animate-fade');
+          }
+        } else {
+          failureModal.classList.remove('flex', 'items-center', 'justify-center');
         }
       }
 
