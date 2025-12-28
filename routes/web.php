@@ -134,7 +134,7 @@ Route::get('/search', SiteSearchController::class)->name('site.search');
 Route::get('/api/words', [WordSearchController::class, 'search'])->name('api.words.search');
 
 // Define a pattern that excludes reserved route prefixes for dynamic page type routes
-$reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$';
+$reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory|api)$';
 
 Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
 
