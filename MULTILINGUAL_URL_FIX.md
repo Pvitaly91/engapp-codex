@@ -2,13 +2,20 @@
 
 ## Problem
 
-The website is multilingual (Polish, Ukrainian, English) but all links on the site were pointing to Polish language URLs (`/pl/...`) regardless of the selected language.
+The website is multilingual (Polish, Ukrainian, English) but had two related issues:
+
+1. **Initial Problem:** All links on the site were pointing to Polish language URLs (`/pl/...`) regardless of the selected language.
+2. **Secondary Problem (discovered during fix):** When accessing URLs without a language prefix (e.g., `/catalog/tests-cards`), the site was using the language preference stored in the session/cookie instead of the default language (Ukrainian). This caused:
+   - Ukrainian pages to display English text if the user had previously visited an English page
+   - Links to generate English URLs (`/en/...`) even though the current URL had no prefix
 
 ## Root Cause
 
+### Initial Issue
 The Laravel `route()` helper function generates routes without locale prefixes. When `route('catalog.tests-cards')` was called, it generated `/catalog/tests-cards` instead of `/pl/catalog/tests-cards`, `/uk/catalog/tests-cards`, or `/en/catalog/tests-cards`.
 
-The `SetLocale` middleware correctly detects the locale from the URL prefix and sets it in the application, but the route URLs weren't being generated with the appropriate locale prefix.
+### Secondary Issue
+The `SetLocale` middleware was reading from session/cookie when the URL had no language prefix, instead of treating URLs without prefix as explicitly requesting the default language. This violated the principle that URL structure should be the primary source of truth for language selection.
 
 ## Solution
 
@@ -46,7 +53,42 @@ function localized_route(
 ): string
 ```
 
-### 3. Registered Blade Directive and URL Macro
+### 3. Fixed SetLocale Middleware
+
+**File:** `app/Http/Middleware/SetLocale.php`
+
+Updated the middleware to properly handle URL-based locale detection:
+
+**Before (incorrect):**
+```php
+if ($firstSegment && in_array($firstSegment, $supportedLocales)) {
+    $locale = $firstSegment;
+} else {
+    // Would read from session/cookie, causing wrong language
+    $preferredLocale = session('locale') ?? $request->cookie('locale');
+    $locale = $preferredLocale ?: $defaultLocale;
+}
+```
+
+**After (correct):**
+```php
+if ($firstSegment && in_array($firstSegment, $supportedLocales)) {
+    // URL has locale prefix - use it
+    $locale = $firstSegment;
+} else {
+    // No prefix means default language (ignore session/cookie)
+    $locale = $defaultLocale;
+}
+// Always store the resolved locale for consistency
+$this->storeLocale($locale);
+```
+
+**Key principle:** URL structure is the single source of truth for language selection:
+- `/catalog/tests-cards` → Ukrainian (default)
+- `/pl/catalog/tests-cards` → Polish  
+- `/en/catalog/tests-cards` → English
+
+### 4. Registered Blade Directive and URL Macro
 
 In `LanguageManagerServiceProvider`:
 - Registered `@localizedRoute` Blade directive
@@ -141,21 +183,45 @@ Updated `app/Modules/LanguageManager/README.md` with comprehensive documentation
 ## Files Modified
 
 ### Core Logic
+- `app/Http/Middleware/SetLocale.php` - **Fixed to use default locale for URLs without prefix**
 - `app/Modules/LanguageManager/Services/LocaleService.php` - Added `localizedRoute()` method
 - `app/Modules/LanguageManager/LanguageManagerServiceProvider.php` - Registered helpers, directive, and macro
 - `app/Modules/LanguageManager/helpers.php` - New file with helper functions
 - `app/Modules/LanguageManager/README.md` - Updated documentation
 
-### Views (17 files)
+### Views (21 files)
 - Layout: `layouts/engram.blade.php`
 - Home: `home.blade.php`
 - Search: `search/results.blade.php`
-- Catalog: `engram/catalog-tests-cards-aggregated.blade.php`
+- Catalog: `engram/catalog-tests-cards-aggregated.blade.php`, `engram/catalog-tests-cards.blade.php`
 - Pages: `engram/pages/partials/*.blade.php`, `engram/pages/show.blade.php`
 - Theory: All theory view files (8 files)
 - Tests: Test V2 views (5 files)
 - Words: `words/complete.blade.php`
-- Components: `components/related-test-card.blade.php`, `components/test-mode-nav-v2.blade.php`
+- Components: `components/related-test-card.blade.php`, `components/test-mode-nav-v2.blade.php`, and others
+
+## Key Behaviors
+
+### URL Structure Determines Language
+- **`/catalog/tests-cards`** → Ukrainian (default) - no prefix means default
+- **`/pl/catalog/tests-cards`** → Polish - explicit language prefix
+- **`/en/catalog/tests-cards`** → English - explicit language prefix
+
+### Language Persistence
+- Language is stored in session/cookie when visiting any page
+- BUT: The URL structure always takes priority over stored preferences
+- This ensures URLs are shareable and bookmarkable with consistent behavior
+
+### Why This Matters
+Before the fix, a user could:
+1. Visit `/en/catalog/tests-cards` (English version)
+2. Then visit `/catalog/tests-cards` (expecting Ukrainian)
+3. But see English content because session/cookie was used
+
+After the fix:
+1. Visit `/en/catalog/tests-cards` → English content
+2. Visit `/catalog/tests-cards` → Ukrainian content (correctly ignores session)
+3. URLs are now self-documenting and predictable
 
 ## Future Improvements
 
