@@ -59,14 +59,14 @@
         <header class="sticky top-0 z-40 border-b border-[var(--border)]/80 backdrop-blur bg-[color-mix(in_srgb,var(--card)_90%,transparent)]">
             <div class="mx-auto max-w-6xl px-4">
                 <div class="flex items-center justify-between gap-4 py-4">
-                    <a href="{{ route('home') }}" class="flex items-center gap-3" aria-label="Gramlyze">
+                    <a href="{{ localized_route('home') }}" class="flex items-center gap-3" aria-label="Gramlyze">
                         <x-gramlyze-logo variant="horizontal" class="h-10 w-auto" />
                     </a>
                     <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold">
-                        <a class="hover:text-brand-600 transition" href="{{ route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
-                        <a class="hover:text-brand-600 transition" href="{{ route('theory.index') }}">{{ __('public.nav.theory') }}</a>
-                        <a class="hover:text-brand-600 transition" href="{{ route('words.test') }}">{{ __('public.nav.words_test') }}</a>
-                        <a class="hover:text-brand-600 transition" href="{{ route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>
+                        <a class="hover:text-brand-600 transition" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+                        <a class="hover:text-brand-600 transition" href="{{ localized_route('theory.index') }}">{{ __('public.nav.theory') }}</a>
+                        <a class="hover:text-brand-600 transition" href="{{ localized_route('words.test') }}">{{ __('public.nav.words_test') }}</a>
+                        <a class="hover:text-brand-600 transition" href="{{ localized_route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>
                     </nav>
                     <div class="flex items-center gap-3">
                         <div x-data="searchBox()" class="hidden md:flex items-center gap-2">
@@ -132,10 +132,10 @@
             <div x-show="mobile" x-transition class="lg:hidden border-t border-[var(--border)] bg-[var(--card)]/95 shadow-lg">
                 <div class="mx-auto max-w-6xl px-4 py-4 space-y-4">
                     <div class="flex flex-col gap-3 text-sm font-semibold">
-                        <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
-                        <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ route('theory.index') }}">{{ __('public.nav.theory') }}</a>
-                        <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ route('words.test') }}">{{ __('public.nav.words_test') }}</a>
-                        <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>
+                        <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+                        <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ localized_route('theory.index') }}">{{ __('public.nav.theory') }}</a>
+                        <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ localized_route('words.test') }}">{{ __('public.nav.words_test') }}</a>
+                        <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ localized_route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>
                     </div>
                     <div class="border-t border-[var(--border)] pt-4 space-y-3">
                         <div x-data="searchBox()" class="w-full">
@@ -188,10 +188,10 @@
                 <div class="space-y-2 text-sm">
                     <h3 class="font-semibold">{{ __('public.footer.links') }}</h3>
                     <div class="flex flex-col gap-2 text-[var(--muted)]">
-                        <a class="hover:text-brand-600" href="{{ route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
-                        <a class="hover:text-brand-600" href="{{ route('theory.index') }}">{{ __('public.nav.theory') }}</a>
-                        <a class="hover:text-brand-600" href="{{ route('words.test') }}">{{ __('public.nav.words_test') }}</a>
-                        <a class="hover:text-brand-600" href="{{ route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>
+                        <a class="hover:text-brand-600" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+                        <a class="hover:text-brand-600" href="{{ localized_route('theory.index') }}">{{ __('public.nav.theory') }}</a>
+                        <a class="hover:text-brand-600" href="{{ localized_route('words.test') }}">{{ __('public.nav.words_test') }}</a>
+                        <a class="hover:text-brand-600" href="{{ localized_route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>
                     </div>
                 </div>
                 <div class="space-y-3 text-sm">
@@ -231,7 +231,7 @@
                 open: false,
                 go() {
                     if (this.query.trim()) {
-                        window.location.href = '{{ route('site.search') }}?q=' + encodeURIComponent(this.query.trim());
+                        window.location.href = '{{ localized_route('site.search') }}?q=' + encodeURIComponent(this.query.trim());
                     }
                 },
                 highlight(text) {
@@ -242,7 +242,7 @@
                 },
                 async autocomplete() {
                     if (this.query.trim().length < 2) { this.results = []; this.open = false; return; }
-                    const res = await fetch('{{ route('site.search') }}?q=' + encodeURIComponent(this.query.trim()), { headers: { 'Accept': 'application/json' }});
+                    const res = await fetch('{{ localized_route('site.search') }}?q=' + encodeURIComponent(this.query.trim()), { headers: { 'Accept': 'application/json' }});
                     this.results = await res.json();
                     this.open = true;
                 }

@@ -110,6 +110,69 @@ Include in any Blade template:
 
 {{-- Switch locale URL for current page --}}
 <a href="@switchLocaleUrl('en')">English</a>
+
+{{-- Generate localized route (recommended) --}}
+<a href="@localizedRoute('pages.show', ['slug' => 'about'])">About Page</a>
+```
+
+### Localized Routes
+
+The module provides a `localized_route()` helper function that automatically adds the current locale prefix to route URLs:
+
+```blade
+{{-- Standard Laravel route() --}}
+<a href="{{ route('catalog.tests-cards') }}">Tests</a>
+{{-- Generates: /catalog/tests-cards (missing locale prefix!) --}}
+
+{{-- Localized route (recommended) --}}
+<a href="{{ localized_route('catalog.tests-cards') }}">Tests</a>
+{{-- Generates: /pl/catalog/tests-cards (for Polish locale) --}}
+{{-- Generates: /en/catalog/tests-cards (for English locale) --}}
+{{-- Generates: /catalog/tests-cards (for default locale) --}}
+```
+
+**Parameters:**
+
+```php
+localized_route(
+    string $name,           // Route name
+    mixed $parameters = [], // Route parameters
+    bool $absolute = true,  // Generate absolute URL
+    ?string $locale = null  // Locale code (defaults to current locale)
+)
+```
+
+**Examples:**
+
+```blade
+{{-- Simple route --}}
+<a href="{{ localized_route('home') }}">Home</a>
+
+{{-- Route with parameters --}}
+<a href="{{ localized_route('pages.show', ['category' => 'grammar', 'page' => 'present-simple']) }}">
+    Present Simple
+</a>
+
+{{-- Route with specific locale --}}
+<a href="{{ localized_route('home', [], true, 'en') }}">English Home</a>
+
+{{-- Relative URL --}}
+<a href="{{ localized_route('catalog.tests-cards', [], false) }}">Tests</a>
+```
+
+**PHP Usage:**
+
+```php
+use App\Modules\LanguageManager\Services\LocaleService;
+
+// Generate localized route
+$url = LocaleService::localizedRoute('pages.show', ['slug' => 'about']);
+
+// Or use the helper function
+$url = localized_route('pages.show', ['slug' => 'about']);
+
+// Use URL facade macro
+$url = URL::localized('pages.show', ['slug' => 'about']);
 ```
 
 ### View Variables
@@ -146,14 +209,38 @@ $languages = LocaleService::getActiveLanguages();
 // Get default language
 $default = LocaleService::getDefaultLanguage();
 
+// Get current locale
+$currentLocale = LocaleService::getCurrentLocale();
+
+// Check if current locale is default
+$isDefault = LocaleService::isDefaultLocale();
+
 // Generate localized URL
 $url = LocaleService::localizedUrl('en', '/about');
 
 // Get switch URL for current page
 $switchUrl = LocaleService::switchLocaleUrl('en');
 
+// Generate localized route (recommended for routes)
+$routeUrl = LocaleService::localizedRoute('pages.show', ['slug' => 'about']);
+
 // Get switcher data
 $data = LocaleService::getLanguageSwitcherData();
+```
+
+### Helper Functions
+
+The module provides convenient helper functions:
+
+```php
+// Generate localized route
+$url = localized_route('pages.show', ['slug' => 'about']);
+
+// Get current locale
+$locale = current_locale(); // e.g., 'uk', 'en', 'pl'
+
+// Check if default locale
+$isDefault = is_default_locale(); // true/false
 ```
 
 ### Model Methods
