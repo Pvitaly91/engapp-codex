@@ -130,4 +130,51 @@ class LocaleService
             ];
         })->toArray();
     }
+
+    /**
+     * Generate a localized route URL.
+     * 
+     * @param string $name Route name
+     * @param mixed $parameters Route parameters
+     * @param bool $absolute Whether to generate an absolute URL
+     * @param string|null $locale Locale code (uses current locale if null)
+     * @return string
+     */
+    public static function localizedRoute(string $name, $parameters = [], bool $absolute = true, ?string $locale = null): string
+    {
+        $locale = $locale ?? self::getCurrentLocale();
+        $default = self::getDefaultLanguage();
+        
+        // Generate the base route URL
+        $url = route($name, $parameters, $absolute);
+        
+        // If locale is not the default, add locale prefix
+        if (!$default || $locale !== $default->code) {
+            $parsedUrl = parse_url($url);
+            $path = $parsedUrl['path'] ?? '/';
+            
+            // Get current segments
+            $segments = array_values(array_filter(explode('/', $path)));
+            $activeCodes = self::getActiveLanguages()->pluck('code')->toArray();
+            
+            // Remove existing locale prefix if present
+            if (!empty($segments) && in_array($segments[0], $activeCodes)) {
+                array_shift($segments);
+            }
+            
+            // Add locale prefix
+            array_unshift($segments, $locale);
+            
+            $newPath = '/' . implode('/', $segments);
+            
+            // Rebuild URL
+            $scheme = $parsedUrl['scheme'] ?? 'http';
+            $host = $parsedUrl['host'] ?? '';
+            $query = isset($parsedUrl['query']) ? '?' . $parsedUrl['query'] : '';
+            
+            return $absolute ? "{$scheme}://{$host}{$newPath}{$query}" : $newPath . $query;
+        }
+        
+        return $url;
+    }
 }
