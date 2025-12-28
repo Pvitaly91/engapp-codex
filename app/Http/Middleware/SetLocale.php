@@ -30,15 +30,9 @@ class SetLocale
             $locale = $firstSegment;
             $this->storeLocale($locale);
         } else {
-            // Try persisted preference first (session/cookie) before falling back to default
-            $preferredLocale = session('locale') ?? $request->cookie('locale');
-
-            if ($preferredLocale && in_array($preferredLocale, $supportedLocales)) {
-                $locale = $preferredLocale;
-            } else {
-                // No valid persisted locale - use default language
-                $locale = $defaultLocale;
-            }
+            // No locale prefix means default language (ignore session/cookie for URLs without prefix)
+            $locale = $defaultLocale;
+            $this->storeLocale($locale);
         }
 
         // Validate and set locale
