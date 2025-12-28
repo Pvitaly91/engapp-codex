@@ -11,11 +11,16 @@ return [
     'nav' => [
         'catalog' => 'Каталог',
         'theory' => 'Теорія',
+        'words_test' => 'Тест слів',
+        'verbs_test' => 'Тест дієслів',
         'reviews' => 'Рецензії',
         'ai_toolkit' => 'AI Toolkit',
         'teams' => 'Командам',
         'start' => 'Розпочати',
         'menu' => 'Меню',
+        'change_language' => 'Змінити мову',
+        'search_languages' => 'Пошук мов...',
+        'no_languages_found' => 'Мови не знайдено',
     ],
 
     // Search
