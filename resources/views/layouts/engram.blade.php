@@ -162,6 +162,11 @@
           <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
         </form>
         <div class="flex items-center gap-2 lg:hidden">
+          <!-- Theme Toggle - Mobile -->
+          <button id="theme-toggle-mobile" type="button" class="rounded-xl border border-border p-2 text-sm" aria-label="{{ __('public.footer.theme') }}">
+            <svg class="h-5 w-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+            <svg class="h-5 w-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+          </button>
           <button id="mobile-search-btn" class="rounded-xl border border-border p-2 text-sm md:hidden" aria-expanded="false" aria-controls="mobile-search">🔍<span class="sr-only">{{ __('public.search.button') }}</span></button>
           <button id="mobile-menu-toggle" class="rounded-xl border border-border p-2 text-sm" aria-expanded="false" aria-controls="primary-nav">
             <span class="sr-only">{{ __('public.nav.menu') }}</span>
@@ -175,12 +180,15 @@
         <nav id="primary-nav" class="order-3 hidden w-full flex flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium lg:order-none lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-6 lg:border-0 lg:pt-0">
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('theory.index') }}">{{ __('public.nav.theory') }}</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">{{ __('public.nav.reviews') }}</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">{{ __('public.nav.ai_toolkit') }}</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">{{ __('public.nav.teams') }}</a>
-          <!-- Language Switcher - Desktop -->
-          @include('language-manager::components.switcher', ['style' => 'pills'])
-          <a class="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg" href="{{ route('grammar-test') }}">{{ __('public.nav.start') }}</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('words.test') }}">{{ __('public.nav.words_test') }}</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>
+          <!-- Language Switcher - Desktop (with search for many languages) -->
+          @include('language-manager::components.switcher-advanced')
+          <!-- Theme Toggle - Desktop -->
+          <button id="theme-toggle-desktop" type="button" class="hidden lg:flex items-center gap-2 rounded-xl border border-border px-3 py-2 text-sm transition hover:border-primary hover:text-primary" aria-label="{{ __('public.footer.theme') }}">
+            <svg class="h-4 w-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+            <svg class="h-4 w-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+          </button>
         </nav>
       </div>
       <div id="mobile-search" class="md:hidden hidden pb-3">
@@ -204,25 +212,25 @@
           <span class="font-semibold">Gramlyze <span id="year"></span></span>
         </div>
         <p class="text-muted-foreground max-w-2xl">{{ __('public.footer.description') }}</p>
-        <div class="flex flex-wrap gap-3 text-xs text-muted-foreground">
-          <span class="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1">🔒 {{ __('public.footer.data_security') }}</span>
-          <span class="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1">🤝 {{ __('public.footer.team_support') }}</span>
-          <span class="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1">⚡ {{ __('public.footer.quick_start') }}</span>
+        <div class="flex flex-wrap gap-4 text-sm">
+          <a class="text-muted-foreground hover:text-foreground transition" href="{{ route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+          <a class="text-muted-foreground hover:text-foreground transition" href="{{ route('theory.index') }}">{{ __('public.nav.theory') }}</a>
+          <a class="text-muted-foreground hover:text-foreground transition" href="{{ route('words.test') }}">{{ __('public.nav.words_test') }}</a>
+          <a class="text-muted-foreground hover:text-foreground transition" href="{{ route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>
         </div>
       </div>
       <div class="flex flex-col gap-3 md:items-end">
         <div class="flex flex-wrap gap-4 text-sm md:justify-end">
           <a class="text-muted-foreground hover:text-foreground" href="#">{{ __('public.footer.policy') }}</a>
           <a class="text-muted-foreground hover:text-foreground" href="#">{{ __('public.footer.terms') }}</a>
-          <a class="text-muted-foreground hover:text-foreground" href="#faq">{{ __('public.footer.support') }}</a>
+          <a class="text-muted-foreground hover:text-foreground" href="#">{{ __('public.footer.support') }}</a>
         </div>
         <div class="flex items-center gap-3">
           <!-- Language Switcher - Mobile (shown in footer for mobile) -->
           <div class="lg:hidden">
             @include('language-manager::components.switcher', ['style' => 'pills'])
           </div>
-          <button id="theme-toggle" type="button" class="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:text-foreground">{{ __('public.footer.theme') }}</button>
-          <a href="{{ route('login.show') }}" class="rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary">{{ __('public.footer.admin_login') }}</a>
+          <span class="text-xs text-muted-foreground">© <span class="footer-year"></span> Gramlyze</span>
         </div>
       </div>
     </div>
@@ -241,14 +249,22 @@
       const saved = localStorage.getItem('theme');
       const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (saved === 'dark' || (!saved && systemDark)) document.documentElement.classList.add('dark');
-      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      
+      function toggleTheme() {
         document.documentElement.classList.toggle('dark');
         const isDark = document.documentElement.classList.contains('dark');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
+      }
+      
+      document.getElementById('theme-toggle-desktop')?.addEventListener('click', toggleTheme);
+      document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
     })();
 
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Set year in footer
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+    
     const mobileSearchBtn = document.getElementById('mobile-search-btn');
     const mobileSearchPanel = document.getElementById('mobile-search');
     mobileSearchBtn?.addEventListener('click', () => {
