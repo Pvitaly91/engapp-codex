@@ -16,6 +16,8 @@ return [
         'teams' => 'Командам',
         'start' => 'Розпочати',
         'menu' => 'Меню',
+        'words' => 'Слова',
+        'verbs' => 'Дієслова',
     ],
 
     // Search
@@ -28,6 +30,22 @@ return [
         'nothing_found' => 'Нічого не знайдено',
         'try_another' => 'Спробуйте інший запит або перегляньте каталог тестів',
         'to_catalog' => 'До каталогу',
+        'pages_tests' => 'Сторінки та тести',
+        'dictionary' => 'Словник',
+        'word_placeholder' => 'Пошук слова...',
+        'no_translation' => 'Переклад відсутній',
+        'no_words_found' => 'Слова не знайдено',
+        'start_typing' => 'Почніть вводити для пошуку',
+        'start_typing_word' => 'Введіть слово для перекладу',
+        'view_all' => 'Переглянути всі результати',
+    ],
+
+    // Language Switcher
+    'language' => [
+        'switch' => 'Змінити мову',
+        'select' => 'Оберіть мову',
+        'search_placeholder' => 'Пошук мов...',
+        'no_results' => 'Мови не знайдено',
     ],
 
     // Footer
@@ -41,6 +59,10 @@ return [
         'data_security' => 'Безпека даних',
         'team_support' => 'Підтримка команди',
         'quick_start' => 'Швидкий старт',
+        'all_rights' => 'Всі права захищені',
+        'navigation' => 'Навігація',
+        'resources' => 'Ресурси',
+        'why_us' => 'Чому ми',
     ],
 
     // Common
@@ -59,6 +81,7 @@ return [
         'category_tags' => 'Теги категорії',
         'tests_on_topic' => 'Тести по темі',
         'related_tests' => 'Пов\'язані тести',
+        'close' => 'Закрити',
     ],
 
     // Slider (JS aria-labels)

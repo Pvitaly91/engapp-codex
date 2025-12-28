@@ -16,6 +16,8 @@ return [
         'teams' => 'Teams',
         'start' => 'Get Started',
         'menu' => 'Menu',
+        'words' => 'Words',
+        'verbs' => 'Verbs',
     ],
 
     // Search
@@ -28,6 +30,22 @@ return [
         'nothing_found' => 'Nothing found',
         'try_another' => 'Try a different query or browse the test catalog',
         'to_catalog' => 'To Catalog',
+        'pages_tests' => 'Pages & Tests',
+        'dictionary' => 'Dictionary',
+        'word_placeholder' => 'Search for a word...',
+        'no_translation' => 'No translation available',
+        'no_words_found' => 'No words found',
+        'start_typing' => 'Start typing to search',
+        'start_typing_word' => 'Type a word to translate',
+        'view_all' => 'View all results',
+    ],
+
+    // Language Switcher
+    'language' => [
+        'switch' => 'Switch language',
+        'select' => 'Select Language',
+        'search_placeholder' => 'Search languages...',
+        'no_results' => 'No languages found',
     ],
 
     // Footer
@@ -41,6 +59,10 @@ return [
         'data_security' => 'Data Security',
         'team_support' => 'Team Support',
         'quick_start' => 'Quick Start',
+        'all_rights' => 'All rights reserved',
+        'navigation' => 'Navigation',
+        'resources' => 'Resources',
+        'why_us' => 'Why Choose Us',
     ],
 
     // Common
@@ -59,6 +81,7 @@ return [
         'category_tags' => 'Category Tags',
         'tests_on_topic' => 'Tests on this topic',
         'related_tests' => 'Related Tests',
+        'close' => 'Close',
     ],
 
     // Slider (JS aria-labels)

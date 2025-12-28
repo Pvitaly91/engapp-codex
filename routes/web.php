@@ -117,6 +117,9 @@ Route::prefix('verbs/test')->group(function () {
     Route::get('/data', [IrregularVerbsTestController::class, 'data'])->name('verbs.test.data');
 });
 
+// Public search route (moved from admin)
+Route::get('/search', SiteSearchController::class)->name('site.search');
+
 // Public pages routes (no authentication required)
 Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
 Route::get('/pages/{category:slug}', [PageController::class, 'category'])->name('pages.category');
@@ -309,7 +312,7 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
             Route::post('/csv/import', [WordsExportController::class, 'importCsv'])->name('csv.import');
         });
 
-        Route::get('/search', SiteSearchController::class)->name('site.search');
+        // Note: Admin search moved to public route /search (see above)
 
         Route::get('/ai-test', [AiTestController::class, 'form'])->name('ai-test.form');
         Route::post('/ai-test/start', [AiTestController::class, 'start'])->name('ai-test.start');
