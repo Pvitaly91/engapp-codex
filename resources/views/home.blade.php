@@ -95,25 +95,25 @@
         'icon' => 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
       ],
       [
-        'title' => __('public.home.pillar_builder_title'),
-        'description' => __('public.home.pillar_builder_desc'),
-        'link' => route('grammar-test'),
-        'accent' => 'secondary',
-        'icon' => 'M4 6h16M4 10h16M4 14h16M4 18h7',
-      ],
-      [
         'title' => __('public.home.pillar_theory_title'),
         'description' => __('public.home.pillar_theory_desc'),
-        'link' => route('pages.index'),
-        'accent' => 'accent',
+        'link' => route('theory.index'),
+        'accent' => 'secondary',
         'icon' => 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13',
       ],
       [
-        'title' => __('public.home.pillar_reviews_title'),
-        'description' => __('public.home.pillar_reviews_desc'),
-        'link' => route('question-review.index'),
+        'title' => __('public.home.pillar_words_test_title'),
+        'description' => __('public.home.pillar_words_test_desc'),
+        'link' => route('words.test'),
+        'accent' => 'accent',
+        'icon' => 'M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129',
+      ],
+      [
+        'title' => __('public.home.pillar_verbs_test_title'),
+        'description' => __('public.home.pillar_verbs_test_desc'),
+        'link' => route('verbs.test'),
         'accent' => 'success',
-        'icon' => 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+        'icon' => 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01',
       ],
     ];
   @endphp
@@ -238,7 +238,7 @@
         <p class="text-base leading-relaxed text-muted-foreground max-w-2xl">{{ __('public.home.try_updated_desc') }}</p>
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="{{ route('catalog.tests-cards') }}" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">{{ __('public.home.open_catalog') }}</a>
-          <a href="{{ route('pages.index') }}" class="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary">{{ __('public.home.go_to_theory') }}</a>
+          <a href="{{ route('theory.index') }}" class="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary">{{ __('public.home.go_to_theory') }}</a>
         </div>
       </div>
       <div class="relative rounded-2xl border border-border/80 bg-card/90 p-6 shadow-lg">
