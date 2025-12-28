@@ -11,8 +11,10 @@
 @if ($variant === 'compact')
     <span {{ $attributes->class("inline-flex {$size} items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent text-white shadow-soft") }}>
         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.5 8C5.5 5.23858 7.73858 3 10.5 3H13.25C16.1495 3 18.5 5.35051 18.5 8.25C18.5 11.1495 16.1495 13.5 13.25 13.5H11.5C9.567 13.5 8 15.067 8 17C8 18.933 9.567 20.5 11.5 20.5H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M5 20.5H12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M4 8.5C4 5.46243 6.46243 3 9.5 3H13C16.3137 3 19 5.68629 19 9C19 12.3137 16.3137 15 13 15H10.5C8.567 15 7 16.567 7 18.5C7 20.433 8.567 22 10.5 22H16" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M4 21.5H11.5" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" />
+            <circle cx="13.5" cy="9" r="1.5" fill="currentColor" />
+            <circle cx="10.5" cy="18.5" r="1.5" fill="currentColor" />
         </svg>
     </span>
 @elseif ($variant === 'badge')
@@ -24,8 +26,10 @@
     <span {{ $attributes->class('inline-flex items-center gap-3') }}>
         <span class="relative inline-flex {{ $size }} items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent text-white shadow-soft">
             <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5.5 7.75C5.5 5.12665 7.62665 3 10.25 3H13.25C16.1495 3 18.5 5.35051 18.5 8.25C18.5 11.1495 16.1495 13.5 13.25 13.5H11.75C10.2312 13.5 9 14.7312 9 16.25C9 17.7688 10.2312 19 11.75 19H15.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M5 19H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M4 8.5C4 5.46243 6.46243 3 9.5 3H13C16.3137 3 19 5.68629 19 9C19 12.3137 16.3137 15 13 15H10.5C8.567 15 7 16.567 7 18.5C7 20.433 8.567 22 10.5 22H16" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M4 21.5H11.5" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" />
+                <circle cx="13.5" cy="9" r="1.5" fill="currentColor" />
+                <circle cx="10.5" cy="18.5" r="1.5" fill="currentColor" />
             </svg>
         </span>
         <span class="flex flex-col">

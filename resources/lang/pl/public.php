@@ -163,4 +163,11 @@ return [
         'ukrainian' => 'Ukraiński',
         'english' => 'Angielski',
     ],
+
+    // Word search component
+    'word_search' => [
+        'label' => 'Wyszukiwanie słów',
+        'hint' => 'Szybka pomoc podczas testu',
+        'placeholder' => 'Wprowadź słowo',
+    ],
 ];
