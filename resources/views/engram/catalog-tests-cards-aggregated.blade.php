@@ -1,34 +1,32 @@
-@extends('layouts.engram')
+@extends('layouts.public-v2')
 
 @section('title', 'Збережені тести')
 
 @section('content')
-<div class="flex flex-col md:flex-row gap-6">
+<div class="grid gap-6 md:grid-cols-[280px_1fr]">
     <div class="md:hidden">
-        <button type="button" id="filter-toggle" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border text-sm font-medium">
+        <button type="button" id="filter-toggle" class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white">
             <span>Фільтр</span>
             <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M3.5 5a.75.75 0 01.75-.75h11.5a.75.75 0 01.53 1.28L12 10.06v4.19a.75.75 0 01-1.13.65l-2.5-1.5a.75.75 0 01-.37-.65v-2.69L3.97 5.53A.75.75 0 013.5 5z" clip-rule="evenodd" />
             </svg>
         </button>
     </div>
-    <aside id="filters" class="md:w-48 w-full md:shrink-0 hidden md:block bg-card md:bg-transparent md:p-0 p-4 rounded-2xl shadow-soft md:shadow-none">
+    <aside id="filters" class="hidden rounded-2xl border border-white/5 bg-white/5 p-4 shadow-soft md:block">
         <div class="flex justify-between items-center md:hidden mb-4">
-            <h2 class="text-base font-semibold">Фільтр</h2>
-            <button type="button" id="filter-close" class="text-sm text-primary underline">
-                Закрити
-            </button>
+            <h2 class="text-base font-semibold text-white">Фільтр</h2>
+            <button type="button" id="filter-close" class="text-sm text-lilac underline">Закрити</button>
         </div>
-        <form id="tag-filter" action="{{ route('catalog.tests-cards') }}" method="GET">
+        <form id="tag-filter" action="{{ route('catalog.tests-cards') }}" method="GET" class="space-y-4">
             @if(isset($availableLevels) && $availableLevels->count())
-                <div class="mb-4">
-                    <label class="block text-sm mb-1">Level:</label>
+                <div class="space-y-2">
+                    <label class="block text-sm text-slate-300">Level:</label>
                     <div class="flex flex-wrap gap-2">
                         @foreach($availableLevels as $lvl)
                             @php $id = 'level-' . md5($lvl); @endphp
                             <div>
                                 <input type="checkbox" name="levels[]" value="{{ $lvl }}" id="{{ $id }}" class="hidden peer" {{ in_array($lvl, $selectedLevels ?? []) ? 'checked' : '' }}>
-                                <label for="{{ $id }}" class="px-3 py-1 rounded border border-border cursor-pointer text-sm bg-muted peer-checked:bg-primary peer-checked:text-primary-foreground">{{ $lvl }}</label>
+                                <label for="{{ $id }}" class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-slate-100 transition peer-checked:border-lilac peer-checked:bg-lilac/10 peer-checked:text-white">{{ $lvl }}</label>
                             </div>
                         @endforeach
                     </div>
@@ -37,29 +35,29 @@
             @foreach($tags as $category => $tagNames)
                 @php $isOther = in_array(strtolower($category), ['other', 'others']); @endphp
                 @if($isOther)
-                    <div class="mb-4" id="others-filter" data-open="false">
-                        <h3 class="text-lg font-bold mb-2 flex justify-between items-center">
-                            <span>{{ $category }}</span>
-                            <button type="button" id="toggle-others-btn" class="text-xs text-primary underline">Show</button>
-                        </h3>
+                    <div class="space-y-2" id="others-filter" data-open="false">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-sm font-semibold text-white">{{ $category }}</h3>
+                            <button type="button" id="toggle-others-btn" class="text-xs text-lilac underline">Show</button>
+                        </div>
                         <div id="others-tags" class="flex flex-wrap gap-2" style="display:none;">
                             @foreach($tagNames as $tag)
                                 @php $id = 'tag-' . md5($tag); @endphp
                                 <div>
                                     <input type="checkbox" name="tags[]" value="{{ $tag }}" id="{{ $id }}" class="hidden peer" {{ in_array($tag, $selectedTags ?? []) ? 'checked' : '' }}>
-                                    <label for="{{ $id }}" class="px-3 py-1 rounded border border-border cursor-pointer text-sm bg-muted peer-checked:bg-primary peer-checked:text-primary-foreground">{{ $tag }}</label>
+                                    <label for="{{ $id }}" class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-slate-100 transition peer-checked:border-lilac peer-checked:bg-lilac/10 peer-checked:text-white">{{ $tag }}</label>
                                 </div>
                             @endforeach
                         </div>
                     </div>
                 @else
-                    <h3 class="text-lg font-bold mb-2">{{ $category }}</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
+                    <h3 class="text-sm font-semibold text-white">{{ $category }}</h3>
+                    <div class="flex flex-wrap gap-2">
                         @foreach($tagNames as $tag)
                             @php $id = 'tag-' . md5($tag); @endphp
                             <div>
                                 <input type="checkbox" name="tags[]" value="{{ $tag }}" id="{{ $id }}" class="hidden peer" {{ in_array($tag, $selectedTags ?? []) ? 'checked' : '' }}>
-                                <label for="{{ $id }}" class="px-3 py-1 rounded border border-border cursor-pointer text-sm bg-muted peer-checked:bg-primary peer-checked:text-primary-foreground">{{ $tag }}</label>
+                                <label for="{{ $id }}" class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-slate-100 transition peer-checked:border-lilac peer-checked:bg-lilac/10 peer-checked:text-white">{{ $tag }}</label>
                             </div>
                         @endforeach
                     </div>
@@ -67,18 +65,18 @@
             @endforeach
         </form>
         @if(!empty($selectedTags) || !empty($selectedLevels))
-            <div class="mt-2">
-                <a href="{{ route('catalog.tests-cards') }}" class="text-xs text-muted-foreground hover:underline">Скинути фільтр</a>
+            <div class="pt-2">
+                <a href="{{ route('catalog.tests-cards') }}" class="text-xs text-slate-300 underline">Скинути фільтр</a>
             </div>
         @endif
     </aside>
-    <div class="flex-1">
+    <div class="flex-1 space-y-4">
         @if($tests->count())
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 @foreach($tests as $test)
-                    <div class="bg-card text-card-foreground p-4 rounded-2xl shadow-soft flex flex-col">
+                    <div class="glass-card text-white p-5 rounded-2xl shadow-soft flex flex-col border border-white/5">
                         <div class="font-bold text-lg mb-1">{{ $test->name }}</div>
-                        <div class="text-xs text-muted-foreground mb-2">
+                        <div class="text-xs text-slate-300 mb-2 leading-relaxed">
                             Створено: {{ $test->created_at->format('d.m.Y') }}<br>
                             Питань: {{ count($test->questions) }}<br>
                             @php
@@ -89,13 +87,13 @@
                             @endphp
                             Рівні: {{ $levels->join(', ') }}
                         </div>
-                        <div class="mb-3 text-xs">
+                        <div class="mb-3 text-[11px] text-slate-200">
                             @foreach($test->tag_names as $t)
-                                <span class="inline-block bg-muted px-2 py-0.5 mr-1 mb-1 rounded">{{ $t }}</span>
+                                <span class="inline-block bg-white/10 px-2 py-1 mr-1 mb-1 rounded-full">{{ $t }}</span>
                             @endforeach
                         </div>
                         @if($test->description)
-                            <div class="test-description text-sm mb-3">{{ \Illuminate\Support\Str::limit(strip_tags($test->description), 120) }}</div>
+                            <div class="test-description text-sm mb-3 text-slate-200">{{ \Illuminate\Support\Str::limit(strip_tags($test->description), 120) }}</div>
                         @endif
                         @php
                             $preferredView = data_get($test->filters, 'preferred_view');
@@ -107,12 +105,12 @@
                                 $testRoute = route('test.show', $test->slug);
                             }
                         @endphp
-                        <a href="{{ $testRoute }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-2xl text-sm font-semibold">Пройти тест</a>
+                        <a href="{{ $testRoute }}" class="mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-lilac to-mint px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lifted">Пройти тест</a>
                     </div>
                 @endforeach
             </div>
         @else
-            <div class="text-muted-foreground">Ще немає збережених тестів.</div>
+            <div class="rounded-2xl border border-dashed border-white/10 bg-white/5 p-10 text-center text-slate-300">Ще немає збережених тестів.</div>
         @endif
 </div>
 </div>

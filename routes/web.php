@@ -49,6 +49,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/search', SiteSearchController::class)->name('site.search');
+
 // Public locale switching route
 Route::get('/set-locale', function (\Illuminate\Http\Request $request) {
     $lang = $request->input('lang', 'uk');
@@ -308,8 +310,6 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
             Route::post('/csv', [WordsExportController::class, 'exportCsv'])->name('csv');
             Route::post('/csv/import', [WordsExportController::class, 'importCsv'])->name('csv.import');
         });
-
-        Route::get('/search', SiteSearchController::class)->name('site.search');
 
         Route::get('/ai-test', [AiTestController::class, 'form'])->name('ai-test.form');
         Route::post('/ai-test/start', [AiTestController::class, 'start'])->name('ai-test.start');
