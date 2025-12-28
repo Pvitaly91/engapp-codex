@@ -26,8 +26,10 @@ class WordSearchController extends Controller
 
             $forms = [];
             if ($word->type) {
-                $forms = Word::whereHas('translate', function ($q) use ($translation) {
-                        $q->where('lang', 'uk')->where('translation', $translation);
+                // Use current locale for translation matching
+                $currentLocale = app()->getLocale();
+                $forms = Word::whereHas('translate', function ($q) use ($translation, $currentLocale) {
+                        $q->where('lang', $currentLocale)->where('translation', $translation);
                     })
                     ->get()
                     ->groupBy('type')
