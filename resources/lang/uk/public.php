@@ -16,6 +16,8 @@ return [
         'teams' => 'Командам',
         'start' => 'Розпочати',
         'menu' => 'Меню',
+        'words_test' => 'Тест слів',
+        'verbs_test' => 'Дієслова',
     ],
 
     // Search
@@ -41,6 +43,9 @@ return [
         'data_security' => 'Безпека даних',
         'team_support' => 'Підтримка команди',
         'quick_start' => 'Швидкий старт',
+        'navigation' => 'Навігація',
+        'resources' => 'Ресурси',
+        'copyright' => 'Всі права захищені.',
     ],
 
     // Common
@@ -181,5 +186,17 @@ return [
         'en' => 'EN',
         'ukrainian' => 'Українська',
         'english' => 'English',
+        'switch' => 'Змінити мову',
+        'select' => 'Оберіть мову',
+        'filter' => 'Фільтрувати мови...',
+    ],
+
+    // Dictionary
+    'dictionary' => [
+        'title' => 'Словник',
+        'search_word' => 'Пошук слова',
+        'placeholder' => 'Введіть слово англійською...',
+        'no_translation' => 'немає перекладу',
+        'not_found' => 'Слова не знайдено',
     ],
 ];
