@@ -13,6 +13,8 @@ return [
         'teams' => 'Zespoły',
         'start' => 'Rozpocznij',
         'menu' => 'Menu',
+        'words' => 'Słowa',
+        'verbs' => 'Czasowniki',
     ],
     'search' => [
         'placeholder' => 'Szukaj materiałów',
@@ -23,6 +25,20 @@ return [
         'nothing_found' => 'Nic nie znaleziono',
         'try_another' => 'Spróbuj innego zapytania lub przeszukaj katalog testów',
         'to_catalog' => 'Do katalogu',
+        'pages_tests' => 'Strony i testy',
+        'dictionary' => 'Słownik',
+        'word_placeholder' => 'Szukaj słowa...',
+        'no_translation' => 'Brak tłumaczenia',
+        'no_words_found' => 'Nie znaleziono słów',
+        'start_typing' => 'Zacznij pisać, aby wyszukać',
+        'start_typing_word' => 'Wpisz słowo do przetłumaczenia',
+        'view_all' => 'Zobacz wszystkie wyniki',
+    ],
+    'language' => [
+        'switch' => 'Zmień język',
+        'select' => 'Wybierz język',
+        'search_placeholder' => 'Szukaj języków...',
+        'no_results' => 'Nie znaleziono języków',
     ],
     'footer' => [
         'description' => 'Gramlyze pomaga tworzyć testy, analizować odpowiedzi i koordynować zespół nauczycieli angielskiego.',
@@ -34,6 +50,10 @@ return [
         'data_security' => 'Bezpieczeństwo danych',
         'team_support' => 'Wsparcie zespołu',
         'quick_start' => 'Szybki start',
+        'all_rights' => 'Wszelkie prawa zastrzeżone',
+        'navigation' => 'Nawigacja',
+        'resources' => 'Zasoby',
+        'why_us' => 'Dlaczego my',
     ],
     'common' => [
         'go_to' => 'Przejdź do',
@@ -50,6 +70,7 @@ return [
         'category_tags' => 'Tagi kategorii',
         'tests_on_topic' => 'Testy na ten temat',
         'related_tests' => 'Powiązane testy',
+        'close' => 'Zamknij',
     ],
     'slider' => [
         'go_to_slide' => 'Przejdź do slajdu',
