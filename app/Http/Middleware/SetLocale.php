@@ -26,8 +26,9 @@ class SetLocale
         $firstSegment = $segments[0] ?? null;
         
         if ($firstSegment && in_array($firstSegment, $supportedLocales)) {
-            // URL has a locale prefix - use it
+            // URL has a locale prefix - use it and persist the choice
             $locale = $firstSegment;
+            $this->storeLocale($locale);
         } else {
             // Try persisted preference first (session/cookie) before falling back to default
             $preferredLocale = session('locale') ?? $request->cookie('locale');
@@ -48,6 +49,17 @@ class SetLocale
         }
 
         return $next($request);
+    }
+
+    /**
+     * Store the resolved locale in the session and a long-lived cookie.
+     */
+    protected function storeLocale(string $locale): void
+    {
+        session(['locale' => $locale]);
+
+        // Keep cookie lifetime consistent with set-locale route (1 year)
+        cookie()->queue(cookie('locale', $locale, 60 * 24 * 365));
     }
 
     /**
