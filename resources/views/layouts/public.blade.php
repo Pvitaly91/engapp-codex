@@ -152,11 +152,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Focus ring styles */
-    .focus-ring {
-      @apply focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background;
-    }
-    
     /* Custom scrollbar for dropdowns */
     .scrollbar-thin::-webkit-scrollbar {
       width: 6px;

@@ -11,7 +11,7 @@
       {{-- Logo --}}
       <a href="{{ route('home') }}" class="flex items-center gap-2.5 flex-shrink-0 group" aria-label="Gramlyze">
         <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/80 text-white shadow-sm transition-transform group-hover:scale-105">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M5.5 8C5.5 5.23858 7.73858 3 10.5 3H13.25C16.1495 3 18.5 5.35051 18.5 8.25C18.5 11.1495 16.1495 13.5 13.25 13.5H11.5C9.567 13.5 8 15.067 8 17C8 18.933 9.567 20.5 11.5 20.5H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M5 20.5H12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
           </svg>
@@ -393,7 +393,7 @@
         
         try {
           const locale = '{{ $currentLocale }}';
-          const response = await fetch(`/api/search?lang=${locale}&q=${encodeURIComponent(this.query)}`);
+          const response = await fetch(`{{ url('/api/search') }}?lang=${locale}&q=${encodeURIComponent(this.query)}`);
           this.results = await response.json();
         } catch (e) {
           this.results = [];

@@ -313,6 +313,7 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         });
 
         // Admin search route (for admin panel, separate from public /search)
+        Route::get('/search', SiteSearchController::class)->name('site.search');
 
         Route::get('/ai-test', [AiTestController::class, 'form'])->name('ai-test.form');
         Route::post('/ai-test/start', [AiTestController::class, 'start'])->name('ai-test.start');
