@@ -29,9 +29,15 @@ class SetLocale
             // URL has a locale prefix - use it
             $locale = $firstSegment;
         } else {
-            // No locale prefix in URL - use default locale
-            // This ensures "/" always shows default language regardless of session
-            $locale = $defaultLocale;
+            // Try persisted preference first (session/cookie) before falling back to default
+            $preferredLocale = session('locale') ?? $request->cookie('locale');
+
+            if ($preferredLocale && in_array($preferredLocale, $supportedLocales)) {
+                $locale = $preferredLocale;
+            } else {
+                // No valid persisted locale - use default language
+                $locale = $defaultLocale;
+            }
         }
 
         // Validate and set locale
