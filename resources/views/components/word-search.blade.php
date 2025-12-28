@@ -43,7 +43,7 @@ function wordSearch() {
                 this.results = [];
                 return;
             }
-            fetch('/admin/words?q=' + encodeURIComponent(this.query))
+            fetch('/words/search?q=' + encodeURIComponent(this.query))
                 .then(res => res.json())
                 .then(data => this.results = data);
         }

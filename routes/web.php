@@ -127,6 +127,44 @@ Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
 Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
 Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
 
+// Public site search (accessible without authentication)
+Route::get('/search', SiteSearchController::class)->name('site.search');
+
+// Public word search API (for dictionary lookup during tests)
+Route::get('/words/search', [WordSearchController::class, 'search'])->name('words.search.public');
+
+// Public test catalog routes (accessible without authentication)
+Route::get('/tests/cards', [GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
+Route::get('/catalog-tests/cards', [GrammarTestController::class, 'catalog'])->name('catalog-tests.cards');
+Route::get('/catalog/tests-cards', [GrammarTestController::class, 'catalogAggregated'])->name('catalog.tests-cards');
+
+// Public test state and question routes (for test interactivity)
+Route::post('/test/{slug}/js/state', [GrammarTestController::class, 'storeSavedTestJsState'])->name('saved-test.js.state');
+Route::get('/test/{slug}/js/questions', [GrammarTestController::class, 'fetchSavedTestJsQuestions'])->name('saved-test.js.questions');
+
+// Public test pages (old /js routes for backward compatibility)
+Route::get('/test/{slug}/js', [GrammarTestController::class, 'showSavedTestJs'])->name('saved-test.js');
+Route::get('/test/{slug}/js/step', [GrammarTestController::class, 'showSavedTestJsStep'])->name('saved-test.js.step');
+Route::get('/test/{slug}/js/manual', [GrammarTestController::class, 'showSavedTestJsManual'])->name('saved-test.js.manual');
+Route::get('/test/{slug}/js/step/manual', [GrammarTestController::class, 'showSavedTestJsStepManual'])->name('saved-test.js.step-manual');
+Route::get('/test/{slug}/js/step/input', [GrammarTestController::class, 'showSavedTestJsStepInput'])->name('saved-test.js.step-input');
+Route::get('/test/{slug}/js/input', [GrammarTestController::class, 'showSavedTestJsInput'])->name('saved-test.js.input');
+Route::get('/test/{slug}/js/step/select', [GrammarTestController::class, 'showSavedTestJsStepSelect'])->name('saved-test.js.step-select');
+Route::get('/test/{slug}/js/select', [GrammarTestController::class, 'showSavedTestJsSelect'])->name('saved-test.js.select');
+Route::get('/test/{slug}/js/drag-drop', [GrammarTestController::class, 'showSavedTestJsDragDrop'])->name('saved-test.js.drag-drop');
+Route::get('/test/{slug}/js/match', [GrammarTestController::class, 'showSavedTestJsMatch'])->name('saved-test.js.match');
+Route::get('/test/{slug}/js/dialogue', [GrammarTestController::class, 'showSavedTestJsDialogue'])->name('saved-test.js.dialogue');
+
+// Test V2 - New UI version (public test pages without /js suffix)
+Route::get('/test/{slug}', [TestJsV2Controller::class, 'showSavedTestJsV2'])->name('test.show');
+Route::get('/test/{slug}/step', [TestJsV2Controller::class, 'showSavedTestJsStepV2'])->name('test.step');
+Route::get('/test/{slug}/step/input', [TestJsV2Controller::class, 'showSavedTestJsStepInputV2'])->name('test.step-input');
+Route::get('/test/{slug}/step/manual', [TestJsV2Controller::class, 'showSavedTestJsStepManualV2'])->name('test.step-manual');
+Route::get('/test/{slug}/step/select', [TestJsV2Controller::class, 'showSavedTestJsStepSelectV2'])->name('test.step-select');
+Route::get('/test/{slug}/select', [TestJsV2Controller::class, 'showSavedTestJsSelectV2'])->name('test.select');
+Route::get('/test/{slug}/input', [TestJsV2Controller::class, 'showSavedTestJsInputV2'])->name('test.input');
+Route::get('/test/{slug}/manual', [TestJsV2Controller::class, 'showSavedTestJsManualV2'])->name('test.manual');
+
 // Define a pattern that excludes reserved route prefixes for dynamic page type routes
 $reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$';
 
@@ -143,34 +181,6 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
     Route::get('/{pageType}/{category}/{pageSlug}', [DynamicPageController::class, 'showForType'])
         ->where('pageType', $reservedPrefixes)
         ->name('dynamic-pages.show');
-
-    Route::get('/tests/cards', [GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
-    Route::get('/catalog-tests/cards', [GrammarTestController::class, 'catalog'])->name('catalog-tests.cards');
-    Route::get('/catalog/tests-cards', [GrammarTestController::class, 'catalogAggregated'])->name('catalog.tests-cards');
-
-    Route::post('/test/{slug}/js/state', [GrammarTestController::class, 'storeSavedTestJsState'])->name('saved-test.js.state');
-    Route::get('/test/{slug}/js/questions', [GrammarTestController::class, 'fetchSavedTestJsQuestions'])->name('saved-test.js.questions');
-    Route::get('/test/{slug}/js', [GrammarTestController::class, 'showSavedTestJs'])->name('saved-test.js');
-    Route::get('/test/{slug}/js/step', [GrammarTestController::class, 'showSavedTestJsStep'])->name('saved-test.js.step');
-    Route::get('/test/{slug}/js/manual', [GrammarTestController::class, 'showSavedTestJsManual'])->name('saved-test.js.manual');
-    Route::get('/test/{slug}/js/step/manual', [GrammarTestController::class, 'showSavedTestJsStepManual'])->name('saved-test.js.step-manual');
-    Route::get('/test/{slug}/js/step/input', [GrammarTestController::class, 'showSavedTestJsStepInput'])->name('saved-test.js.step-input');
-    Route::get('/test/{slug}/js/input', [GrammarTestController::class, 'showSavedTestJsInput'])->name('saved-test.js.input');
-    Route::get('/test/{slug}/js/step/select', [GrammarTestController::class, 'showSavedTestJsStepSelect'])->name('saved-test.js.step-select');
-    Route::get('/test/{slug}/js/select', [GrammarTestController::class, 'showSavedTestJsSelect'])->name('saved-test.js.select');
-    Route::get('/test/{slug}/js/drag-drop', [GrammarTestController::class, 'showSavedTestJsDragDrop'])->name('saved-test.js.drag-drop');
-    Route::get('/test/{slug}/js/match', [GrammarTestController::class, 'showSavedTestJsMatch'])->name('saved-test.js.match');
-    Route::get('/test/{slug}/js/dialogue', [GrammarTestController::class, 'showSavedTestJsDialogue'])->name('saved-test.js.dialogue');
-
-    // Test V2 - New UI version (public test pages without /js suffix)
-    Route::get('/test/{slug}', [TestJsV2Controller::class, 'showSavedTestJsV2'])->name('test.show');
-    Route::get('/test/{slug}/step', [TestJsV2Controller::class, 'showSavedTestJsStepV2'])->name('test.step');
-    Route::get('/test/{slug}/step/input', [TestJsV2Controller::class, 'showSavedTestJsStepInputV2'])->name('test.step-input');
-    Route::get('/test/{slug}/step/manual', [TestJsV2Controller::class, 'showSavedTestJsStepManualV2'])->name('test.step-manual');
-    Route::get('/test/{slug}/step/select', [TestJsV2Controller::class, 'showSavedTestJsStepSelectV2'])->name('test.step-select');
-    Route::get('/test/{slug}/select', [TestJsV2Controller::class, 'showSavedTestJsSelectV2'])->name('test.select');
-    Route::get('/test/{slug}/input', [TestJsV2Controller::class, 'showSavedTestJsInputV2'])->name('test.input');
-    Route::get('/test/{slug}/manual', [TestJsV2Controller::class, 'showSavedTestJsManualV2'])->name('test.manual');
 
     Route::prefix('admin')->group(function () {
         Route::get('/', [GitDeploymentController::class, 'index'])->name('admin.dashboard');
@@ -309,7 +319,7 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
             Route::post('/csv/import', [WordsExportController::class, 'importCsv'])->name('csv.import');
         });
 
-        Route::get('/search', SiteSearchController::class)->name('site.search');
+        Route::get('/search', SiteSearchController::class)->name('admin.search');
 
         Route::get('/ai-test', [AiTestController::class, 'form'])->name('ai-test.form');
         Route::post('/ai-test/start', [AiTestController::class, 'start'])->name('ai-test.start');

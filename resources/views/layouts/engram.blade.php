@@ -175,12 +175,11 @@
         <nav id="primary-nav" class="order-3 hidden w-full flex flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium lg:order-none lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-6 lg:border-0 lg:pt-0">
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('theory.index') }}">{{ __('public.nav.theory') }}</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">{{ __('public.nav.reviews') }}</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">{{ __('public.nav.ai_toolkit') }}</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">{{ __('public.nav.teams') }}</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('words.test') }}">{{ __('public.nav.words') }}</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('verbs.test') }}">{{ __('public.nav.verbs') }}</a>
           <!-- Language Switcher - Desktop -->
           @include('language-manager::components.switcher', ['style' => 'pills'])
-          <a class="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg" href="{{ route('grammar-test') }}">{{ __('public.nav.start') }}</a>
+          <a class="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg" href="{{ route('catalog.tests-cards') }}">{{ __('public.nav.start') }}</a>
         </nav>
       </div>
       <div id="mobile-search" class="md:hidden hidden pb-3">
