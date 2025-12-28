@@ -175,12 +175,16 @@
         <nav id="primary-nav" class="order-3 hidden w-full flex flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium lg:order-none lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-6 lg:border-0 lg:pt-0">
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('theory.index') }}">{{ __('public.nav.theory') }}</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">{{ __('public.nav.reviews') }}</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">{{ __('public.nav.ai_toolkit') }}</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">{{ __('public.nav.teams') }}</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('words.test') }}">{{ __('public.nav.words_test') }}</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>
           <!-- Language Switcher - Desktop -->
           @include('language-manager::components.switcher', ['style' => 'pills'])
-          <a class="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg" href="{{ route('grammar-test') }}">{{ __('public.nav.start') }}</a>
+          <!-- Theme Toggle Button - Desktop -->
+          <button id="theme-toggle-header" type="button" class="hidden lg:inline-flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2 text-xs font-semibold text-muted-foreground transition hover:text-foreground hover:border-primary" aria-label="{{ __('public.footer.theme') }}">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
         </nav>
       </div>
       <div id="mobile-search" class="md:hidden hidden pb-3">
@@ -241,11 +245,16 @@
       const saved = localStorage.getItem('theme');
       const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (saved === 'dark' || (!saved && systemDark)) document.documentElement.classList.add('dark');
-      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      
+      function toggleTheme() {
         document.documentElement.classList.toggle('dark');
         const isDark = document.documentElement.classList.contains('dark');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
+      }
+      
+      // Bind both header and footer theme toggle buttons
+      document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+      document.getElementById('theme-toggle-header')?.addEventListener('click', toggleTheme);
     })();
 
     document.getElementById('year').textContent = new Date().getFullYear();
