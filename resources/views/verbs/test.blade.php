@@ -12,19 +12,26 @@
       </div>
     </div>
 
-    <div class="grid gap-4 lg:grid-cols-[1.5fr_0.9fr]">
-      <div class="space-y-4">
+    <div class="flex flex-col gap-4 lg:grid lg:grid-cols-[1.5fr_0.9fr]">
+      <div class="space-y-4 order-2 lg:order-1">
         <div class="rounded-2xl border border-border/70 bg-card p-5 shadow-soft">
           <div class="flex items-center justify-between gap-3">
-            <h2 class="text-lg font-semibold text-foreground">{{ __('verbs.settings') }}</h2>
-            <span class="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground" id="verbs-count-badge">{{ count($verbs) }} {{ __('verbs.verbs_total') }}</span>
+            <div>
+              <h2 class="text-lg font-semibold text-foreground">{{ __('verbs.settings') }}</h2>
+              <span class="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground" id="verbs-count-badge">{{ count($verbs) }} {{ __('verbs.verbs_total') }}</span>
+            </div>
+            <button id="settingsToggle" class="inline-flex items-center gap-2 rounded-xl border border-primary/60 bg-primary/10 px-3 py-2 text-xs font-semibold text-primary shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+              <span class="h-2 w-2 rounded-full bg-primary shadow-inner"></span>
+              <span id="settingsToggleText" class="uppercase tracking-[0.08em]">{{ __('verbs.settings_hide') }}</span>
+            </button>
           </div>
-          <div class="mt-4 grid gap-4 md:grid-cols-2">
+          <div id="settingsBody" class="mt-4 grid gap-4 md:grid-cols-2">
             <div class="space-y-2">
               <p class="text-sm font-semibold text-muted-foreground">{{ __('verbs.mode') }}</p>
               <div id="modeButtons" class="grid grid-cols-2 gap-2">
-                <button type="button" data-mode-button value="typing" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_typing') }}</button>
-                <button type="button" data-mode-button value="choice" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_choice') }}</button>
+                <button type="button" data-mode-button value="hard" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_typing') }}</button>
+                <button type="button" data-mode-button value="medium" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_medium') }}</button>
+                <button type="button" data-mode-button value="easy" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_choice') }}</button>
               </div>
             </div>
             <div class="space-y-2">
@@ -36,10 +43,6 @@
                 <button type="button" data-ask-button value="f3" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f3') }}</button>
                 <button type="button" data-ask-button value="f4" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f4') }}</button>
               </div>
-            </div>
-            <div class="space-y-2">
-              <label for="count" class="text-sm font-semibold text-muted-foreground">{{ __('verbs.count') }}</label>
-              <input id="count" type="number" min="1" step="1" value="10" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/15" />
             </div>
             <div class="flex items-center gap-3 rounded-xl border border-border/70 bg-muted/40 px-3 py-2">
               <input id="showUk" type="checkbox" class="h-4 w-4 rounded border-border text-primary focus:ring-primary" />
@@ -58,9 +61,9 @@
 
         <div id="questionCard" class="rounded-2xl border border-border/70 bg-card p-6 shadow-soft space-y-4 hidden">
           <div class="flex items-center justify-between gap-3">
-            <div>
+            <div class="space-y-2">
               <p class="text-xs uppercase tracking-[0.16em] text-muted-foreground">{{ __('verbs.question') }}</p>
-              <p id="askLabel" class="text-sm font-semibold text-foreground"></p>
+              <span id="askLabel" class="inline-flex items-center gap-2 rounded-full bg-primary/15 px-3 py-1 text-sm font-semibold text-primary shadow-sm ring-1 ring-primary/40"></span>
             </div>
             <div class="text-sm text-muted-foreground">
               <span id="progressText">0 / 0</span>
@@ -83,11 +86,12 @@
           <div id="typingBox" class="space-y-3">
             <label for="answerInput" class="text-sm font-semibold text-muted-foreground">{{ __('verbs.type_answer') }}</label>
             <input id="answerInput" type="text" autocomplete="off" class="w-full rounded-xl border border-border/70 bg-background px-4 py-3 text-lg font-semibold text-foreground shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
+            <div id="suggestionsBox" class="hidden rounded-xl border border-border/70 bg-muted/40 p-2 text-sm text-foreground space-y-1"></div>
           </div>
 
           <div id="choiceBox" class="grid gap-3 md:grid-cols-2"></div>
 
-          <div class="flex flex-wrap items-center gap-3">
+          <div id="controlButtons" class="flex flex-wrap items-center gap-3">
             <button id="checkBtn" class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
               {{ __('verbs.check') }}
             </button>
@@ -107,8 +111,8 @@
         </div>
       </div>
 
-      <div class="space-y-4">
-        <div class="rounded-2xl border border-border/70 bg-card p-5 shadow-soft">
+      <div class="space-y-4 order-1 lg:order-2">
+        <div class="rounded-2xl border border-border/70 bg-card p-5 shadow-soft sticky top-2 z-20 lg:static">
           <div class="flex items-center justify-between">
             <p class="text-sm font-semibold text-muted-foreground">{{ __('verbs.progress') }}</p>
             <span id="progressPercent" class="text-sm font-semibold text-muted-foreground">0%</span>
@@ -139,6 +143,53 @@
     </div>
   </div>
 
+  <div id="failureModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div class="absolute inset-0 bg-background/80 backdrop-blur-sm animate-fade"></div>
+    <div class="relative mx-4 w-full max-w-md rounded-2xl border border-destructive/40 bg-card p-6 shadow-2xl space-y-3 animate-bounce-in">
+      <div class="flex items-start gap-3">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10 text-destructive">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <div class="space-y-2">
+          <p class="text-sm font-semibold text-destructive">{{ __('verbs.failed_title') }}</p>
+          <p class="text-muted-foreground">{{ __('verbs.failed_message') }}</p>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <button id="retryBtn" class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
+          {{ __('verbs.restart') }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes fade-in-soft {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes bounce-in {
+      0% { transform: scale(0.96); opacity: 0; }
+      60% { transform: scale(1.03); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    .animate-fade { animation: fade-in-soft 200ms ease; }
+    .animate-bounce-in { animation: bounce-in 260ms ease; }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      50% { transform: translateX(4px); }
+      75% { transform: translateX(-4px); }
+      100% { transform: translateX(0); }
+    }
+    .shake {
+      animation: shake 0.35s ease;
+    }
+  </style>
+
   <script>
     window.__VERBS__ = @json($verbs);
     @php
@@ -158,6 +209,8 @@
           'done' => __('verbs.done'),
           'result' => __('verbs.result'),
           'answerFor' => __('verbs.answer_for'),
+          'settings_show' => __('verbs.settings_show'),
+          'settings_hide' => __('verbs.settings_hide'),
       ];
     @endphp
     window.__VERBS_I18N__ = @json($verbsI18n);
@@ -168,6 +221,10 @@
       const i18n = window.__VERBS_I18N__ || {};
       const storageKey = 'verbs_test_state_v1';
       const signature = createSignature(verbs);
+      const choiceSuccessClasses = ['border-success', 'bg-success/10', 'text-success'];
+      const choiceErrorClasses = ['border-destructive', 'bg-destructive/10', 'text-destructive'];
+      const suggestionsByForm = buildSuggestionsByForm(verbs);
+      const maxMistakes = 3;
 
       const els = {
           startBtn: document.getElementById('startBtn'),
@@ -175,10 +232,13 @@
           checkBtn: document.getElementById('checkBtn'),
           revealBtn: document.getElementById('revealBtn'),
           nextBtn: document.getElementById('nextBtn'),
+          controlButtons: document.getElementById('controlButtons'),
           modeButtons: document.querySelectorAll('[data-mode-button]'),
           askButtons: document.querySelectorAll('[data-ask-button]'),
-          count: document.getElementById('count'),
           showUk: document.getElementById('showUk'),
+          settingsToggle: document.getElementById('settingsToggle'),
+          settingsToggleText: document.getElementById('settingsToggleText'),
+          settingsBody: document.getElementById('settingsBody'),
           baseVerb: document.getElementById('baseVerb'),
           ukVerb: document.getElementById('ukVerb'),
           askLabel: document.getElementById('askLabel'),
@@ -186,6 +246,7 @@
           typingBox: document.getElementById('typingBox'),
           choiceBox: document.getElementById('choiceBox'),
           answerInput: document.getElementById('answerInput'),
+          suggestionsBox: document.getElementById('suggestionsBox'),
           progressText: document.getElementById('progressText'),
           progressBar: document.getElementById('progressBar'),
           progressPercent: document.getElementById('progressPercent'),
@@ -195,24 +256,43 @@
           doneBox: document.getElementById('doneBox'),
           doneText: document.getElementById('doneText'),
           questionCard: document.getElementById('questionCard'),
+          failureModal: document.getElementById('failureModal'),
+          retryBtn: document.getElementById('retryBtn'),
       };
 
       const defaultState = () => ({
           settings: {
-              mode: 'typing',
+              mode: 'hard',
               askWhat: 'random',
-              count: 10,
               showTranslation: false,
+              settingsCollapsed: false,
           },
           queue: [],
           pos: 0,
           correct: 0,
           wrong: 0,
+          failed: false,
           current: null,
           signature,
       });
 
       let state = defaultState();
+
+      function buildSuggestionsByForm(list) {
+          const map = { f1: new Set(), f2: new Set(), f3: new Set(), f4: new Set() };
+          list.forEach((verb) => {
+              if (verb.f1) map.f1.add(verb.f1);
+              (verb.f2 || []).forEach((v) => map.f2.add(v));
+              (verb.f3 || []).forEach((v) => map.f3.add(v));
+              if (verb.f4) map.f4.add(verb.f4);
+          });
+          return {
+              f1: Array.from(map.f1),
+              f2: Array.from(map.f2),
+              f3: Array.from(map.f3),
+              f4: Array.from(map.f4),
+          };
+      }
 
       function createSignature(list) {
           return list
@@ -247,6 +327,7 @@
                       answers: Array.isArray(state.current.answers) ? [...state.current.answers] : [],
                       answersRaw: Array.isArray(state.current.answersRaw) ? [...state.current.answersRaw] : [],
                       options: Array.isArray(state.current.options) ? [...state.current.options] : [],
+                      selected: state.current.selected || null,
                   }
                   : null,
           };
@@ -276,6 +357,7 @@
                       answered: Boolean(parsed.current.answered),
                       wasCorrect: Boolean(parsed.current.wasCorrect),
                       options: Array.isArray(parsed.current.options) ? parsed.current.options : [],
+                      selected: parsed.current.selected || null,
                   }
                   : null;
 
@@ -294,14 +376,13 @@
       }
 
       function readSettingsFromControls() {
-          const countValue = parseInt(els.count?.value ?? '10', 10);
           const modeButton = Array.from(els.modeButtons || []).find((btn) => btn.classList.contains('active'));
           const askButton = Array.from(els.askButtons || []).find((btn) => btn.classList.contains('active'));
           return {
-              mode: modeButton?.value || 'typing',
+              mode: modeButton?.value || 'hard',
               askWhat: askButton?.value || 'random',
-              count: Number.isNaN(countValue) || countValue < 1 ? verbs.length || 10 : countValue,
               showTranslation: Boolean(els.showUk?.checked),
+              settingsCollapsed: state.settings?.settingsCollapsed ?? false,
           };
       }
 
@@ -318,18 +399,23 @@
               btn.classList.toggle('border-primary', isActive);
               btn.classList.toggle('bg-primary/10', isActive);
           });
-          if (els.count) els.count.value = settings.count;
           if (els.showUk) els.showUk.checked = settings.showTranslation;
+          toggleSettingsBody(Boolean(settings.settingsCollapsed));
       }
 
       function toggleModeVisibility(mode) {
           if (!els.typingBox || !els.choiceBox) return;
-          if (mode === 'choice') {
+          if (mode === 'easy') {
               els.typingBox.classList.add('hidden');
               els.choiceBox.classList.remove('hidden');
+              hideSuggestions();
           } else {
               els.typingBox.classList.remove('hidden');
               els.choiceBox.classList.add('hidden');
+              hideSuggestions();
+          }
+          if (els.controlButtons) {
+              els.controlButtons.classList.toggle('hidden', mode === 'easy');
           }
       }
 
@@ -398,13 +484,9 @@
           }
       }
 
-      function createQueue(count) {
+      function createQueue() {
           const baseIndexes = verbs.map((_, idx) => idx);
-          let queue = [];
-          while (queue.length < count) {
-              queue = queue.concat(shuffle(baseIndexes));
-          }
-          return queue.slice(0, count);
+          return shuffle(baseIndexes);
       }
 
       function setTranslationVisibility() {
@@ -431,6 +513,105 @@
           els.questionCard.classList.toggle('hidden', !visible);
       }
 
+      function toggleFailureModal(show) {
+          if (!els.failureModal) return;
+          els.failureModal.classList.toggle('hidden', !show);
+          if (show) {
+              els.failureModal.classList.add('flex', 'items-center', 'justify-center');
+              const panel = els.failureModal.querySelector('.animate-bounce-in');
+              const backdrop = els.failureModal.querySelector('.animate-fade');
+              if (panel) {
+                  panel.classList.remove('animate-bounce-in');
+                  void panel.offsetWidth;
+                  panel.classList.add('animate-bounce-in');
+              }
+              if (backdrop) {
+                  backdrop.classList.remove('animate-fade');
+                  void backdrop.offsetWidth;
+                  backdrop.classList.add('animate-fade');
+              }
+          } else {
+              els.failureModal.classList.remove('flex', 'items-center', 'justify-center');
+          }
+      }
+
+      function toggleSettingsBody(collapsed) {
+          if (!els.settingsBody || !els.settingsToggleText) return;
+          els.settingsBody.classList.toggle('hidden', collapsed);
+          els.settingsToggleText.textContent = collapsed
+              ? (i18n.settings_show || 'Show settings')
+              : (i18n.settings_hide || 'Hide settings');
+      }
+
+      function hideSuggestions() {
+          if (els.suggestionsBox) {
+              els.suggestionsBox.classList.add('hidden');
+              els.suggestionsBox.innerHTML = '';
+          }
+      }
+
+      function renderSuggestions(askKey, query = '') {
+          if (!els.suggestionsBox || state.settings.mode !== 'medium') {
+              hideSuggestions();
+              return;
+          }
+          const list = suggestionsByForm[askKey] || [];
+          const normalizedQuery = normalize(query);
+          const matches = list
+              .filter((item) => !normalizedQuery || normalize(item).includes(normalizedQuery))
+              .slice(0, 6);
+          if (!matches.length) {
+              hideSuggestions();
+              return;
+          }
+          els.suggestionsBox.innerHTML = '';
+          matches.forEach((text) => {
+              const btn = document.createElement('button');
+              btn.type = 'button';
+              btn.className = 'w-full rounded-lg border border-border/60 bg-background px-3 py-2 text-left text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow';
+              btn.textContent = text;
+              btn.addEventListener('click', () => {
+                  if (!els.answerInput) return;
+                  els.answerInput.value = text;
+                  els.answerInput.focus();
+                  hideSuggestions();
+              });
+              els.suggestionsBox.appendChild(btn);
+          });
+          els.suggestionsBox.classList.remove('hidden');
+      }
+
+      function resetChoiceHighlights() {
+          if (!els.choiceBox) return;
+          Array.from(els.choiceBox.children).forEach((button) => {
+              const btn = button;
+              choiceSuccessClasses.forEach((cls) => btn.classList.remove(cls));
+              choiceErrorClasses.forEach((cls) => btn.classList.remove(cls));
+              btn.classList.remove('shake');
+          });
+      }
+
+      function findChoiceButtonByValue(value) {
+          if (!els.choiceBox) return null;
+          return Array.from(els.choiceBox.children).find((button) => {
+              const normalized = button.dataset.value || normalize(button.textContent || '');
+              return normalized === value;
+          }) || null;
+      }
+
+      function applyChoiceResult(isCorrect, chosenBtn) {
+          resetChoiceHighlights();
+          if (!chosenBtn) return;
+          const target = chosenBtn;
+          if (isCorrect) {
+              choiceSuccessClasses.forEach((cls) => target.classList.add(cls));
+          } else {
+              choiceErrorClasses.forEach((cls) => target.classList.add(cls));
+              target.classList.add('shake');
+              target.addEventListener('animationend', () => target.classList.remove('shake'), { once: true });
+          }
+      }
+
       function renderChoices(options) {
           if (!els.choiceBox) return;
           els.choiceBox.innerHTML = '';
@@ -443,24 +624,9 @@
               btn.dataset.value = option.normalized;
               btn.addEventListener('click', () => {
                   if (state.current?.answered) return;
-                  evaluateAnswer(option.normalized);
+                  evaluateAnswer(option.normalized, btn);
               });
               els.choiceBox.appendChild(btn);
-          });
-      }
-
-      function markChoiceButtons() {
-          if (!els.choiceBox || state.settings.mode !== 'choice') return;
-          const answers = state.current?.answers || [];
-          Array.from(els.choiceBox.children).forEach((button) => {
-              const btn = button;
-              const normalized = btn.dataset.value || normalize(btn.textContent || '');
-              btn.classList.remove('border-primary', 'bg-primary/10', 'border-destructive', 'bg-destructive/10');
-              if (answers.includes(normalized)) {
-                  btn.classList.add('border-primary', 'bg-primary/10');
-              } else if (state.current?.answered && !answers.includes(normalized)) {
-                  btn.classList.add('border-destructive/60', 'bg-destructive/10');
-              }
           });
       }
 
@@ -491,6 +657,7 @@
               if (els.baseVerb) els.baseVerb.textContent = '—';
               if (els.ukVerb) els.ukVerb.textContent = '';
               setQuestionVisibility(false);
+              toggleFailureModal(false);
               return;
           }
 
@@ -498,6 +665,7 @@
               const total = state.queue.length || 0;
               const resultText = `${i18n.completed || ''}. ${i18n.result || 'Result'}: ${state.correct}/${total}`;
               setDone(resultText);
+              toggleFailureModal(false);
               return;
           }
 
@@ -520,6 +688,7 @@
               answered: existingCurrent?.answered || false,
               wasCorrect: existingCurrent?.wasCorrect || false,
               options: [],
+              selected: existingCurrent?.selected || null,
           };
 
           if (els.baseVerb) els.baseVerb.textContent = verb?.base || '—';
@@ -529,21 +698,23 @@
           if (els.askLabel) els.askLabel.textContent = formatAskLabel(askKey);
           if (els.hint) els.hint.textContent = hintForVerb(verb);
 
-          if (state.settings.mode === 'typing' && els.answerInput) {
+          if (state.settings.mode !== 'easy' && els.answerInput) {
               els.answerInput.value = '';
               els.answerInput.focus();
+              renderSuggestions(askKey, '');
           }
 
           toggleModeVisibility(state.settings.mode);
           setFeedback('');
           if (els.doneBox) els.doneBox.classList.add('hidden');
 
-          if (state.settings.mode === 'choice') {
+          if (state.settings.mode === 'easy') {
               const options = (existingCurrent?.options && existingCurrent.options.length)
                   ? existingCurrent.options
                   : buildChoiceOptions(verb, askKey, answersNormalized);
               state.current.options = options;
               renderChoices(options);
+              resetChoiceHighlights();
           } else if (els.choiceBox) {
               els.choiceBox.innerHTML = '';
           }
@@ -557,8 +728,11 @@
                   state.current.wasCorrect ? (i18n.correctAnswer || 'Correct!') : `${i18n.wrongAnswer || 'Wrong'}. ${reveal}`,
                   state.current.wasCorrect
               );
-              if (state.settings.mode === 'choice') {
-                  markChoiceButtons();
+              if (state.settings.mode === 'easy') {
+                  const chosenBtn = state.current.selected
+                      ? findChoiceButtonByValue(state.current.selected)
+                      : null;
+                  applyChoiceResult(state.current.wasCorrect, chosenBtn);
               }
           }
 
@@ -567,12 +741,15 @@
           saveState();
       }
 
-      function evaluateAnswer(rawAnswer) {
+      function evaluateAnswer(rawAnswer, choiceBtn = null) {
           if (!state.current || state.current.answered) return;
           const answer = normalize(rawAnswer);
           const isCorrect = state.current.answers.includes(answer);
           state.current.answered = true;
           state.current.wasCorrect = isCorrect;
+          if (choiceBtn) {
+              state.current.selected = answer;
+          }
 
           if (isCorrect) {
               state.correct += 1;
@@ -587,8 +764,16 @@
           }
 
           updateStats();
-          if (state.settings.mode === 'choice') {
-              markChoiceButtons();
+          if (state.settings.mode === 'easy') {
+              const targetBtn = choiceBtn || (state.current.selected ? findChoiceButtonByValue(state.current.selected) : null);
+              applyChoiceResult(isCorrect, targetBtn);
+              setTimeout(() => nextQuestion(), 650);
+          }
+          if (state.wrong >= maxMistakes) {
+              state.failed = true;
+              setFeedback('');
+              toggleFailureModal(true);
+              setQuestionVisibility(false);
           }
           saveState();
       }
@@ -604,15 +789,26 @@
       function revealAnswer() {
           if (!state.current) return;
           const revealed = state.current.answers[0] || '';
-          if (state.settings.mode === 'typing' && els.answerInput) {
+          if (state.settings.mode !== 'easy' && els.answerInput) {
               els.answerInput.value = revealed;
           }
-          if (state.settings.mode === 'choice' && els.choiceBox) {
+          if (state.settings.mode === 'easy' && els.choiceBox) {
+              resetChoiceHighlights();
               Array.from(els.choiceBox.children).forEach((button) => {
                   const btn = button;
-                  const normalized = normalize(btn.textContent || '');
-                  btn.classList.toggle('border-primary', state.current.answers.includes(normalized));
+                  const normalized = btn.dataset.value || normalize(btn.textContent || '');
+                  if (state.current.answers.includes(normalized)) {
+                      choiceSuccessClasses.forEach((cls) => btn.classList.add(cls));
+                  }
               });
+              if (state.current.selected) {
+                  const chosenBtn = findChoiceButtonByValue(state.current.selected);
+                  if (chosenBtn && !state.current.wasCorrect) {
+                      choiceErrorClasses.forEach((cls) => chosenBtn.classList.add(cls));
+                      chosenBtn.classList.add('shake');
+                      chosenBtn.addEventListener('animationend', () => chosenBtn.classList.remove('shake'), { once: true });
+                  }
+              }
           }
           const message = (i18n.revealed || 'Correct answer: :answer').replace(':answer', revealed);
           setFeedback(message, true);
@@ -622,8 +818,9 @@
       function startTest() {
           state = defaultState();
           state.settings = readSettingsFromControls();
+          state.settings.settingsCollapsed = true;
           applySettingsToControls(state.settings);
-          state.queue = createQueue(state.settings.count);
+          state.queue = createQueue();
           if (!state.queue.length) {
               setFeedback(i18n.noVerbs || '');
               return;
@@ -631,6 +828,8 @@
           state.pos = 0;
           state.correct = 0;
           state.wrong = 0;
+          state.failed = false;
+          toggleFailureModal(false);
           setQuestionVisibility(true);
           renderQuestion();
       }
@@ -652,8 +851,14 @@
       function bindEvents() {
           els.startBtn?.addEventListener('click', () => startTest());
           els.restartBtn?.addEventListener('click', () => startTest());
+          els.retryBtn?.addEventListener('click', () => startTest());
+          els.settingsToggle?.addEventListener('click', () => {
+              state.settings.settingsCollapsed = !state.settings.settingsCollapsed;
+              toggleSettingsBody(state.settings.settingsCollapsed);
+              saveState();
+          });
           els.checkBtn?.addEventListener('click', () => {
-              if (state.settings.mode !== 'typing') return;
+              if (state.settings.mode === 'easy') return;
               evaluateAnswer(els.answerInput?.value || '');
           });
           els.nextBtn?.addEventListener('click', () => nextQuestion());
@@ -673,11 +878,6 @@
                   saveState();
               });
           });
-          els.count?.addEventListener('change', () => {
-              const settings = readSettingsFromControls();
-              state.settings.count = settings.count;
-              saveState();
-          });
           els.showUk?.addEventListener('change', () => {
               state.settings.showTranslation = Boolean(els.showUk.checked);
               setTranslationVisibility();
@@ -688,6 +888,18 @@
                   event.preventDefault();
                   evaluateAnswer(els.answerInput.value);
               }
+          });
+          els.answerInput?.addEventListener('input', (event) => {
+              const value = event.target.value || '';
+              const askKey = state.current?.askKey || 'f1';
+              renderSuggestions(askKey, value);
+          });
+          els.answerInput?.addEventListener('focus', (event) => {
+              const askKey = state.current?.askKey || 'f1';
+              renderSuggestions(askKey, event.target.value || '');
+          });
+          els.answerInput?.addEventListener('blur', () => {
+              setTimeout(() => hideSuggestions(), 150);
           });
       }
 
@@ -708,6 +920,7 @@
               applySettingsToControls(state.settings);
               setFeedback(i18n.startNeeded || '');
               setQuestionVisibility(false);
+              toggleFailureModal(false);
               updateProgress();
               updateStats();
           }

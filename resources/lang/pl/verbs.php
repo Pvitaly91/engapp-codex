@@ -9,10 +9,13 @@ return [
     'restart' => 'Restart',
     'settings' => 'Ustawienia',
     'verbs_total' => 'czasowników',
+    'settings_show' => 'Pokaż ustawienia',
+    'settings_hide' => 'Schowaj ustawienia',
 
-    'mode' => 'Tryb',
-    'mode_typing' => 'Wpisywanie',
-    'mode_choice' => 'Wybór',
+    'mode' => 'Poziom trudności',
+    'mode_typing' => 'Hard',
+    'mode_medium' => 'Medium',
+    'mode_choice' => 'Easy',
 
     'ask_what' => 'Co pytać',
     'ask_random' => 'Losowo',
@@ -40,7 +43,7 @@ return [
 
     'how_it_works' => 'Jak to działa',
     'tip_start' => 'Kliknij „Start”, aby wygenerować kolejkę pytań bez przeładowań.',
-    'tip_modes' => 'Przełączaj między trybami „Wpisywanie” i „Wybór” w dowolnym momencie.',
+    'tip_modes' => 'Przełączaj poziom trudności między „Hard”, „Medium” i „Easy” w dowolnym momencie.',
     'tip_storage' => 'Postęp jest automatycznie zapisywany w Twojej przeglądarce.',
 
     'form_label' => 'Form :number',
@@ -52,4 +55,6 @@ return [
     'correct_answer' => 'Poprawnie!',
     'wrong_answer' => 'Błąd',
     'no_verbs' => 'Brak danych do testu. Dodaj czasowniki nieregularne do bazy.',
+    'failed_title' => 'Test niezdany',
+    'failed_message' => 'Osiągnięto maksymalną liczbę błędów. Uruchom test ponownie.',
 ];

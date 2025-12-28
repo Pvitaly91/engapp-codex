@@ -9,10 +9,13 @@ return [
     'restart' => 'Restart',
     'settings' => 'Settings',
     'verbs_total' => 'verbs',
+    'settings_show' => 'Show settings',
+    'settings_hide' => 'Hide settings',
 
-    'mode' => 'Mode',
-    'mode_typing' => 'Typing',
-    'mode_choice' => 'Choice',
+    'mode' => 'Difficulty',
+    'mode_typing' => 'Hard',
+    'mode_medium' => 'Medium',
+    'mode_choice' => 'Easy',
 
     'ask_what' => 'What to ask',
     'ask_random' => 'Random',
@@ -40,7 +43,7 @@ return [
 
     'how_it_works' => 'How it works',
     'tip_start' => 'Click “Start” to generate a queue of questions without page reloads.',
-    'tip_modes' => 'Switch between “Typing” and “Choice” modes at any moment.',
+    'tip_modes' => 'Switch between “Hard”, “Medium”, and “Easy” difficulty at any moment.',
     'tip_storage' => 'Progress is saved automatically in your browser.',
 
     'form_label' => 'Form :number',
@@ -52,4 +55,6 @@ return [
     'correct_answer' => 'Correct!',
     'wrong_answer' => 'Wrong',
     'no_verbs' => 'No data for the test. Please add irregular verbs to the database.',
+    'failed_title' => 'Test failed',
+    'failed_message' => 'You have reached the maximum number of mistakes. Restart to try again.',
 ];
