@@ -145,17 +145,25 @@ class LocaleService
         $locale = $locale ?? self::getCurrentLocale();
         $default = self::getDefaultLanguage();
         
+        // Fallback to config if database doesn't have default language
+        $defaultCode = $default ? $default->code : config('app.locale', 'uk');
+        
         // Generate the base route URL
         $url = route($name, $parameters, $absolute);
         
         // If locale is not the default, add locale prefix
-        if (!$default || $locale !== $default->code) {
+        if ($locale !== $defaultCode) {
             $parsedUrl = parse_url($url);
             $path = $parsedUrl['path'] ?? '/';
             
             // Get current segments
             $segments = array_values(array_filter(explode('/', $path)));
             $activeCodes = self::getActiveLanguages()->pluck('code')->toArray();
+            
+            // If no active languages from DB, use config
+            if (empty($activeCodes)) {
+                $activeCodes = config('app.supported_locales', ['uk', 'en', 'pl']);
+            }
             
             // Remove existing locale prefix if present
             if (!empty($segments) && in_array($segments[0], $activeCodes)) {
