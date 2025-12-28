@@ -127,8 +127,14 @@ Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
 Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
 Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
 
+// Public search route (moved from admin)
+Route::get('/search', SiteSearchController::class)->name('site.search');
+
+// Public word search API route (for word-search component)
+Route::get('/api/words', [WordSearchController::class, 'search'])->name('api.words.search');
+
 // Define a pattern that excludes reserved route prefixes for dynamic page type routes
-$reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$';
+$reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory|api)$';
 
 Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
 
@@ -308,8 +314,6 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
             Route::post('/csv', [WordsExportController::class, 'exportCsv'])->name('csv');
             Route::post('/csv/import', [WordsExportController::class, 'importCsv'])->name('csv.import');
         });
-
-        Route::get('/search', SiteSearchController::class)->name('site.search');
 
         Route::get('/ai-test', [AiTestController::class, 'form'])->name('ai-test.form');
         Route::post('/ai-test/start', [AiTestController::class, 'start'])->name('ai-test.start');

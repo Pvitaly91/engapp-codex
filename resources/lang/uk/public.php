@@ -182,4 +182,11 @@ return [
         'ukrainian' => 'Українська',
         'english' => 'English',
     ],
+
+    // Word search component
+    'word_search' => [
+        'label' => 'Пошук слова',
+        'hint' => 'Швидка допомога під час тесту',
+        'placeholder' => 'Введіть слово',
+    ],
 ];

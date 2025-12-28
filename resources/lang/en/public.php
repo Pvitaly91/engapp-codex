@@ -182,4 +182,11 @@ return [
         'ukrainian' => 'Ukrainian',
         'english' => 'English',
     ],
+
+    // Word search component
+    'word_search' => [
+        'label' => 'Word Search',
+        'hint' => 'Quick help during the test',
+        'placeholder' => 'Enter word',
+    ],
 ];
