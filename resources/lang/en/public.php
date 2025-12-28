@@ -16,6 +16,8 @@ return [
         'teams' => 'Teams',
         'start' => 'Get Started',
         'menu' => 'Menu',
+        'words_test' => 'Words Test',
+        'verbs_test' => 'Verbs',
     ],
 
     // Search
@@ -41,6 +43,9 @@ return [
         'data_security' => 'Data Security',
         'team_support' => 'Team Support',
         'quick_start' => 'Quick Start',
+        'navigation' => 'Navigation',
+        'resources' => 'Resources',
+        'copyright' => 'All rights reserved.',
     ],
 
     // Common
@@ -181,5 +186,17 @@ return [
         'en' => 'EN',
         'ukrainian' => 'Ukrainian',
         'english' => 'English',
+        'switch' => 'Switch language',
+        'select' => 'Select language',
+        'filter' => 'Filter languages...',
+    ],
+
+    // Dictionary
+    'dictionary' => [
+        'title' => 'Dictionary',
+        'search_word' => 'Search word',
+        'placeholder' => 'Enter word in English...',
+        'no_translation' => 'no translation',
+        'not_found' => 'Word not found',
     ],
 ];

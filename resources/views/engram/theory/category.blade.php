@@ -1,4 +1,4 @@
-@extends('layouts.engram')
+@extends('layouts.public')
 
 @section('title', ($selectedCategory->title ?? 'Категорія') . ' — ' . ($sectionTitle ?? 'Теорія'))
 

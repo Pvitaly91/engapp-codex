@@ -92,6 +92,9 @@ Route::get('/set-locale', function (\Illuminate\Http\Request $request) {
     return redirect()->route('home')->withCookie($cookie);
 })->name('locale.set');
 
+// Public search route (moved from /admin/search to /search)
+Route::get('/search', SiteSearchController::class)->name('search');
+
 Route::prefix('words/test')->group(function () {
     Route::get('/', [WordsTestController::class, 'index'])->name('words.test');
     Route::get('/medium', [WordsTestController::class, 'index'])->name('words.test.medium')->defaults('difficulty', 'medium');
@@ -309,6 +312,7 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
             Route::post('/csv/import', [WordsExportController::class, 'importCsv'])->name('csv.import');
         });
 
+        // Admin search route (for admin panel, separate from public /search)
         Route::get('/search', SiteSearchController::class)->name('site.search');
 
         Route::get('/ai-test', [AiTestController::class, 'form'])->name('ai-test.form');
