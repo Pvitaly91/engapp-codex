@@ -28,6 +28,13 @@ return [
         'nothing_found' => 'Nothing found',
         'try_another' => 'Try a different query or browse the test catalog',
         'to_catalog' => 'To Catalog',
+        'dictionary' => 'Dictionary',
+        'dictionary_title' => 'Dictionary search',
+        'dictionary_placeholder' => 'Type an English word',
+        'no_translation' => 'No translation yet',
+        'word' => 'Word',
+        'filter_lang' => 'Filter languages...',
+        'current' => 'Current',
     ],
 
     // Footer
@@ -50,6 +57,7 @@ return [
         'expand' => 'Expand',
         'type_theory' => 'Theory',
         'type_test' => 'Test',
+        'loading' => 'Loading',
         'no_lessons' => 'No lessons',
         'no_categories' => 'No categories',
         'categories' => 'Categories',

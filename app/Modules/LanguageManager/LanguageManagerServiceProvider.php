@@ -38,8 +38,8 @@ class LanguageManagerServiceProvider extends ServiceProvider
             return "<?php echo \App\Modules\LanguageManager\Services\LocaleService::switchLocaleUrl({$expression}); ?>";
         });
 
-        // Share languages with views that use engram layout (public) and language-manager
-        view()->composer(['layouts.engram', 'language-manager::*'], function ($view) {
+        // Share languages with views that use public layouts and language-manager
+        view()->composer(['layouts.engram', 'layouts.public-v2', 'language-manager::*'], function ($view) {
             $view->with('__languages', LocaleService::getActiveLanguages());
             $view->with('__currentLocale', LocaleService::getCurrentLocale());
             $view->with('__languageSwitcher', LocaleService::getLanguageSwitcherData());

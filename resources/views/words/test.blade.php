@@ -1,4 +1,4 @@
-@extends('layouts.engram')
+@extends('layouts.public-v2')
 
 @section('title', __('words_test.title'))
 

@@ -28,6 +28,13 @@ return [
         'nothing_found' => 'Нічого не знайдено',
         'try_another' => 'Спробуйте інший запит або перегляньте каталог тестів',
         'to_catalog' => 'До каталогу',
+        'dictionary' => 'Словник',
+        'dictionary_title' => 'Пошук слова',
+        'dictionary_placeholder' => 'Введіть англійське слово',
+        'no_translation' => 'Немає перекладу',
+        'word' => 'Слово',
+        'filter_lang' => 'Фільтр мов...',
+        'current' => 'Поточна',
     ],
 
     // Footer
@@ -50,6 +57,7 @@ return [
         'expand' => 'Розгорнути',
         'type_theory' => 'Теорія',
         'type_test' => 'Тест',
+        'loading' => 'Завантаження',
         'no_lessons' => 'Немає уроків',
         'no_categories' => 'Немає категорій',
         'categories' => 'Категорії',
