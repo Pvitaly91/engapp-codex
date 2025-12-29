@@ -161,7 +161,7 @@ class LocaleService
         
         // If no active languages from DB, use config
         if (empty($activeCodes)) {
-            $activeCodes = config('app.supported_locales', ['uk', 'en', 'pl']);
+            $activeCodes = config('app.supported_locales', []);
         }
         
         // Always remove existing locale prefix if present (even for default language)

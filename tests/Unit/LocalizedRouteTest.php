@@ -53,22 +53,26 @@ class LocalizedRouteTest extends TestCase
      * The bug was: when route() returned a URL with prefix like /pl/catalog,
      * and the target locale was 'uk' (default), it would return /pl/catalog
      * instead of stripping the prefix to return /catalog.
+     * 
+     * Note: We test the logic rather than the full method because in a test
+     * environment, route() may not have the actual routes registered with prefixes.
      */
     public function test_default_language_urls_have_no_prefix()
     {
         // Set app locale to Ukrainian (default)
         app()->setLocale('uk');
         
-        // Mock route() to simulate it returning a URL with polish prefix
-        // This can happen due to RouteServiceProvider registering routes with prefixes
-        $mockUrl = 'http://localhost/pl/catalog/tests-cards';
+        // Test the URL normalization logic that localizedRoute uses
+        $testCases = [
+            '/catalog/tests-cards' => '/catalog/tests-cards',
+            '/pl/catalog/tests-cards' => '/catalog/tests-cards',
+            '/en/catalog/tests-cards' => '/catalog/tests-cards',
+        ];
         
-        // Call localizedRoute with the mock URL
-        // We're testing the internal logic by directly manipulating what route() would return
-        $result = $this->callLocalizedRouteWithMockUrl('catalog.tests-cards', $mockUrl, 'uk');
-        
-        // For default language, URL should have NO prefix
-        $this->assertEquals('/catalog/tests-cards', $result);
+        foreach ($testCases as $input => $expected) {
+            $result = $this->normalizeUrlPath($input, 'uk');
+            $this->assertEquals($expected, $result, "Failed for input: {$input}");
+        }
     }
 
     public function test_non_default_language_urls_have_correct_prefix()
@@ -76,16 +80,16 @@ class LocalizedRouteTest extends TestCase
         // Set app locale to Polish
         app()->setLocale('pl');
         
-        // Mock route() returning various URLs
+        // Test the URL normalization logic
         $testCases = [
-            ['input' => 'http://localhost/catalog/tests-cards', 'expected' => '/pl/catalog/tests-cards'],
-            ['input' => 'http://localhost/pl/catalog/tests-cards', 'expected' => '/pl/catalog/tests-cards'],
-            ['input' => 'http://localhost/en/catalog/tests-cards', 'expected' => '/pl/catalog/tests-cards'],
+            '/catalog/tests-cards' => '/pl/catalog/tests-cards',
+            '/pl/catalog/tests-cards' => '/pl/catalog/tests-cards',
+            '/en/catalog/tests-cards' => '/pl/catalog/tests-cards',
         ];
         
-        foreach ($testCases as $case) {
-            $result = $this->callLocalizedRouteWithMockUrl('catalog.tests-cards', $case['input'], 'pl');
-            $this->assertEquals($case['expected'], $result, "Failed for input: {$case['input']}");
+        foreach ($testCases as $input => $expected) {
+            $result = $this->normalizeUrlPath($input, 'pl');
+            $this->assertEquals($expected, $result, "Failed for input: {$input}");
         }
     }
 
@@ -95,14 +99,14 @@ class LocalizedRouteTest extends TestCase
         app()->setLocale('en');
         
         $testCases = [
-            ['input' => 'http://localhost/catalog/tests-cards', 'expected' => '/en/catalog/tests-cards'],
-            ['input' => 'http://localhost/pl/catalog/tests-cards', 'expected' => '/en/catalog/tests-cards'],
-            ['input' => 'http://localhost/en/catalog/tests-cards', 'expected' => '/en/catalog/tests-cards'],
+            '/catalog/tests-cards' => '/en/catalog/tests-cards',
+            '/pl/catalog/tests-cards' => '/en/catalog/tests-cards',
+            '/en/catalog/tests-cards' => '/en/catalog/tests-cards',
         ];
         
-        foreach ($testCases as $case) {
-            $result = $this->callLocalizedRouteWithMockUrl('catalog.tests-cards', $case['input'], 'en');
-            $this->assertEquals($case['expected'], $result, "Failed for input: {$case['input']}");
+        foreach ($testCases as $input => $expected) {
+            $result = $this->normalizeUrlPath($input, 'en');
+            $this->assertEquals($expected, $result, "Failed for input: {$input}");
         }
     }
 
@@ -111,13 +115,12 @@ class LocalizedRouteTest extends TestCase
         // User is on Polish page
         app()->setLocale('pl');
         
-        // Mock route() returning Polish URL
-        $mockUrl = 'http://localhost/pl/catalog/tests-cards';
+        // URL with Polish prefix
+        $input = '/pl/catalog/tests-cards';
         
-        // Generate URL for Ukrainian (default)
-        $result = $this->callLocalizedRouteWithMockUrl('catalog.tests-cards', $mockUrl, 'uk');
+        // Generate URL for Ukrainian (default) - should strip prefix
+        $result = $this->normalizeUrlPath($input, 'uk');
         
-        // Should strip /pl/ prefix
         $this->assertEquals('/catalog/tests-cards', $result);
     }
 
@@ -126,27 +129,29 @@ class LocalizedRouteTest extends TestCase
         // User is on English page
         app()->setLocale('en');
         
-        // Mock route() returning English URL
-        $mockUrl = 'http://localhost/en/catalog/tests-cards';
+        // URL with English prefix
+        $input = '/en/catalog/tests-cards';
         
-        // Generate URL for Polish
-        $result = $this->callLocalizedRouteWithMockUrl('catalog.tests-cards', $mockUrl, 'pl');
+        // Generate URL for Polish - should replace prefix
+        $result = $this->normalizeUrlPath($input, 'pl');
         
-        // Should replace /en/ with /pl/
         $this->assertEquals('/pl/catalog/tests-cards', $result);
     }
 
     /**
-     * Helper method to test localizedRoute logic with a mocked route URL.
-     * This simulates the behavior when route() returns different URLs.
+     * Helper method to test the URL normalization logic.
+     * 
+     * This extracts and tests the core logic from LocaleService::localizedRoute()
+     * that strips and conditionally re-adds locale prefixes. We test this logic
+     * in isolation because in a test environment, route() may not have the actual
+     * routes registered with all the locale prefixes.
+     * 
+     * @param string $path The URL path to normalize (e.g., '/pl/catalog/tests-cards')
+     * @param string $targetLocale The target locale code (e.g., 'uk', 'pl', 'en')
+     * @return string The normalized path
      */
-    protected function callLocalizedRouteWithMockUrl(string $routeName, string $mockUrl, string $targetLocale): string
+    protected function normalizeUrlPath(string $path, string $targetLocale): string
     {
-        // Parse the URL components
-        $parsedUrl = parse_url($mockUrl);
-        $path = $parsedUrl['path'] ?? '/';
-        
-        // Simulate the logic from LocaleService::localizedRoute
         $default = LocaleService::getDefaultLanguage();
         $defaultCode = $default ? $default->code : config('app.locale', 'uk');
         
