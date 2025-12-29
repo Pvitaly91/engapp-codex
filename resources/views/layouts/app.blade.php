@@ -46,6 +46,13 @@
         [x-cloak] {
             display: none !important;
         }
+
+        body {
+            background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.08), transparent 24%), radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.08), transparent 22%), #f8fafc;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @livewireStyles
