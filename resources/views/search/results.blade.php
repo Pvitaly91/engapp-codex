@@ -25,9 +25,9 @@
                 <p class="text-xs uppercase tracking-[0.2em] font-semibold text-brand-600">{{ __('public.search.pages') }}</p>
                 <p class="text-2xl font-bold text-brand-900">{{ $pageResults->count() }}</p>
             </div>
-            <div class="rounded-2xl bg-indigo-50 p-4 text-indigo-900 border border-indigo-100">
-                <p class="text-xs uppercase tracking-[0.2em] font-semibold text-indigo-600">{{ __('public.search.tests') }}</p>
-                <p class="text-2xl font-bold text-indigo-900">{{ $testResults->count() }}</p>
+            <div class="rounded-2xl bg-brand-50/60 p-4 text-brand-900 border border-brand-100">
+                <p class="text-xs uppercase tracking-[0.2em] font-semibold text-brand-600">{{ __('public.search.tests') }}</p>
+                <p class="text-2xl font-bold text-brand-900">{{ $testResults->count() }}</p>
             </div>
         </div>
     </section>

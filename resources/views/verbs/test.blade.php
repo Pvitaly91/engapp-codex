@@ -146,11 +146,11 @@
             <div id="progressBar" class="h-3 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 transition-all duration-500 shadow-sm" style="width:0%"></div>
           </div>
           <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
-            <div class="rounded-xl bg-emerald-50 px-3 py-3 text-emerald-700 border border-emerald-200">
+            <div class="rounded-xl bg-brand-50 px-3 py-3 text-brand-700 border border-brand-200">
               <dt class="font-semibold">{{ __('verbs.correct') }}</dt>
               <dd id="correct" class="text-xl font-bold mt-1">0</dd>
             </div>
-            <div class="rounded-xl bg-red-50 px-3 py-3 text-red-700 border border-red-200">
+            <div class="rounded-xl bg-rose-50 px-3 py-3 text-rose-700 border border-rose-200">
               <dt class="font-semibold">{{ __('verbs.wrong') }}</dt>
               <dd id="wrong" class="text-xl font-bold mt-1">0</dd>
             </div>
