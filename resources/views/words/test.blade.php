@@ -74,28 +74,41 @@
         backdrop-filter: blur(8px);
       }
     </style>
-    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <div class="space-y-1">
-        <p class="text-sm text-muted-foreground">{{ __('words_test.subtitle') }} · {{ __('words_test.active_lang') }}: <span class="font-semibold text-primary">{{ strtoupper($siteLocale) }}</span></p>
-        <h1 class="text-3xl font-semibold text-foreground">{{ __('words_test.quick_test') }}</h1>
-        <p class="text-muted-foreground max-w-2xl">{{ $heroDescription }}</p>
+    {{-- Hero Section --}}
+    <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 via-brand-500 to-brand-400 p-8 text-white shadow-card">
+      {{-- Decorative background elements --}}
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-white/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-white/15 rounded-full blur-3xl"></div>
       </div>
-      <div class="flex flex-wrap gap-3">
-        <button id="reset-btn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
-          <span>{{ __('words_test.restart') }}</span>
-        </button>
+      
+      <div class="relative flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="space-y-3">
+          <span class="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-semibold">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+            {{ __('words_test.subtitle') }} · {{ __('words_test.active_lang') }}: <span class="font-bold">{{ strtoupper($siteLocale) }}</span>
+          </span>
+          <h1 class="text-3xl md:text-4xl font-bold">{{ __('words_test.quick_test') }}</h1>
+          <p class="text-white/80 max-w-2xl text-lg">{{ $heroDescription }}</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <button id="reset-btn" class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-brand-600 shadow-md transition hover:-translate-y-0.5 hover:shadow-lg">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <span>{{ __('words_test.restart') }}</span>
+          </button>
+        </div>
       </div>
-    </div>
+    </section>
 
     <div class="flex flex-col gap-4 md:grid md:grid-cols-[1.6fr_1fr]">
-      <div class="rounded-2xl bg-card p-6 shadow-soft border border-border/70 order-2 md:order-1" id="question-card">
+      <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm order-2 md:order-1" id="question-card">
         <div class="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="{{ __('words_test.difficulty_modes') }}">
           @foreach ($tabs as $tab)
             <a
               href="{{ $tab['href'] }}"
               role="tab"
               aria-selected="{{ $tab['difficulty'] === $difficulty ? 'true' : 'false' }}"
-              class="px-4 py-2 rounded-full transition {{ $tab['difficulty'] === $difficulty ? 'bg-primary text-primary-foreground shadow-sm' : 'bg-muted text-muted-foreground hover:bg-muted/70' }}"
+              class="px-4 py-2 rounded-full transition font-semibold {{ $tab['difficulty'] === $difficulty ? 'bg-brand-600 text-white shadow-sm' : 'border border-[var(--border)] bg-[var(--card)] text-[var(--muted)] hover:border-brand-400' }}"
             >
               {{ $tab['label'] }}
             </a>
@@ -103,18 +116,18 @@
         </div>
 
         <!-- Study Language Selector -->
-        <div class="mb-4 p-4 rounded-xl bg-muted/50 border border-border/50" id="study-lang-selector">
+        <div class="mb-4 p-4 rounded-2xl bg-brand-50/50 border border-brand-100" id="study-lang-selector">
           <div class="flex flex-wrap items-center gap-3">
-            <label for="study-lang" class="text-sm font-semibold text-muted-foreground">{{ __('words_test.study_lang') }}:</label>
+            <label for="study-lang" class="text-sm font-semibold text-brand-700">{{ __('words_test.study_lang') }}:</label>
             @if ($singleStudyLangName)
-              <span class="text-sm font-semibold text-foreground">{{ $singleStudyLangName }}</span>
+              <span class="text-sm font-semibold text-brand-900">{{ $singleStudyLangName }}</span>
             @elseif (count($studyLangOptions) > 1)
-              <select id="study-lang" class="rounded-lg border border-border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+              <select id="study-lang" class="rounded-full border border-brand-200 bg-white px-4 py-2 text-sm font-medium text-brand-900 shadow-sm transition focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200">
                 @foreach ($studyLangOptions as $langCode => $langName)
                   <option value="{{ $langCode }}" {{ $studyLang === $langCode ? 'selected' : '' }}>{{ $langName }}</option>
                 @endforeach
               </select>
-              <p class="text-xs text-muted-foreground">{{ __('words_test.study_lang_hint') }}</p>
+              <p class="text-xs text-brand-600">{{ __('words_test.study_lang_hint') }}</p>
             @endif
           </div>
           <!-- Warning when site locale is English and no study language selected -->
@@ -130,18 +143,18 @@
         </div>
 
         <div class="flex items-center justify-between gap-3">
-          <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-            <span class="h-2 w-2 rounded-full bg-primary"></span>
+          <div class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1.5 text-sm font-medium text-brand-700">
+            <span class="h-2 w-2 rounded-full bg-brand-600"></span>
             <span id="question-label">{{ __('words_test.loading') }}</span>
           </div>
-          <div class="text-sm text-muted-foreground" id="queue-counter"></div>
+          <div class="text-sm font-medium text-[var(--muted)]" id="queue-counter"></div>
         </div>
 
         <div class="mt-6 space-y-6" id="question-wrapper">
           <div class="space-y-2">
-            <p class="text-sm uppercase tracking-[0.08em] text-muted-foreground">{{ __('words_test.translation') }}</p>
-            <div id="question-prompt" class="text-3xl font-semibold text-foreground">{{ __('words_test.wait') }}</div>
-            <p id="question-tags" class="text-sm text-muted-foreground"></p>
+            <p class="text-sm uppercase tracking-[0.08em] text-[var(--muted)]">{{ __('words_test.translation') }}</p>
+            <div id="question-prompt" class="text-3xl font-bold text-[var(--fg)]">{{ __('words_test.wait') }}</div>
+            <p id="question-tags" class="text-sm text-[var(--muted)]"></p>
           </div>
 
           <div class="grid gap-3 md:grid-cols-2" id="options"></div>
@@ -149,21 +162,21 @@
           <div id="input-wrapper" class="hidden space-y-3">
             <form id="answer-form" class="space-y-3">
               <div class="space-y-2">
-                <label for="answer-input" class="text-sm font-semibold text-muted-foreground">{{ __('words_test.your_answer') }}</label>
+                <label for="answer-input" class="text-sm font-semibold text-[var(--muted)]">{{ __('words_test.your_answer') }}</label>
                 <div class="relative">
                   <input
                     id="answer-input"
                     type="text"
                     name="answer"
                     autocomplete="off"
-                    class="w-full rounded-xl border border-border/80 bg-muted px-4 py-3 text-lg font-semibold text-foreground shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                    class="w-full rounded-2xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-lg font-semibold text-[var(--fg)] shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
                     placeholder="{{ __('words_test.enter_word') }}"
                   >
-                  <ul id="suggestions" class="absolute left-0 top-full z-10 mt-2 hidden max-h-60 w-full overflow-auto rounded-xl border border-border/80 bg-card shadow-lg"></ul>
+                  <ul id="suggestions" class="absolute left-0 top-full z-10 mt-2 hidden max-h-60 w-full overflow-auto rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-lg"></ul>
                 </div>
               </div>
               <div class="flex flex-wrap items-center gap-3">
-                <button id="submit-answer" type="submit" class="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
+                <button id="submit-answer" type="submit" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:bg-brand-700">
                   {{ __('words_test.check') }}
                 </button>
               </div>
@@ -178,71 +191,74 @@
       </div>
 
       <div class="space-y-4 order-1 md:order-2 md:static sticky top-2 z-20">
-        <div class="rounded-2xl bg-card p-5 shadow-soft border border-border/70">
+        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm">
           <div class="flex items-center justify-between">
-            <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.progress') }}</p>
-            <span class="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground" id="percentage">0%</span>
+            <div class="flex items-center gap-2">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-brand-600">📊</span>
+              <p class="text-sm font-semibold text-[var(--muted)]">{{ __('words_test.progress') }}</p>
+            </div>
+            <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700" id="percentage">0%</span>
           </div>
-          <div class="mt-3 h-3 rounded-full bg-muted">
-            <div id="progress-bar" class="h-3 rounded-full bg-primary transition-all duration-500" style="width: 0%"></div>
+          <div class="mt-3 h-3 rounded-full bg-brand-100">
+            <div id="progress-bar" class="h-3 rounded-full bg-brand-600 transition-all duration-500" style="width: 0%"></div>
           </div>
           <dl class="mt-4 grid grid-cols-3 gap-3 text-sm">
-            <div class="rounded-xl bg-muted px-3 py-2">
-              <dt class="text-muted-foreground">{{ __('words_test.total') }}</dt>
-              <dd id="stat-total" class="text-lg font-semibold text-foreground">0</dd>
+            <div class="rounded-2xl bg-brand-50/50 px-3 py-2">
+              <dt class="text-[var(--muted)] text-xs">{{ __('words_test.total') }}</dt>
+              <dd id="stat-total" class="text-lg font-bold text-brand-900">0</dd>
             </div>
-            <div class="rounded-xl bg-success/10 px-3 py-2 text-success">
-              <dt class="text-sm">{{ __('words_test.correct') }}</dt>
-              <dd id="stat-correct" class="text-lg font-semibold">0</dd>
+            <div class="rounded-2xl bg-green-50 px-3 py-2 text-green-700">
+              <dt class="text-sm text-green-600">{{ __('words_test.correct') }}</dt>
+              <dd id="stat-correct" class="text-lg font-bold">0</dd>
             </div>
-            <div class="rounded-xl bg-destructive/10 px-3 py-2 text-destructive">
-              <dt class="text-sm">{{ __('words_test.errors') }}</dt>
-              <dd id="stat-wrong" class="text-lg font-semibold">0</dd>
+            <div class="rounded-2xl bg-red-50 px-3 py-2 text-red-700">
+              <dt class="text-sm text-red-600">{{ __('words_test.errors') }}</dt>
+              <dd id="stat-wrong" class="text-lg font-bold">0</dd>
             </div>
           </dl>
         </div>
 
-        <div class="rounded-2xl bg-card p-5 shadow-soft border border-border/70" id="feedback" hidden>
+        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm" id="feedback" hidden>
           <div id="feedback-chip" class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold"></div>
           <div class="mt-3 space-y-2">
-            <p id="feedback-title" class="text-xl font-semibold"></p>
-            <p id="feedback-body" class="text-muted-foreground"></p>
+            <p id="feedback-title" class="text-xl font-bold"></p>
+            <p id="feedback-body" class="text-[var(--muted)]"></p>
           </div>
         </div>
 
-        <div class="rounded-2xl bg-card p-5 shadow-soft border border-dashed border-border/80" id="completion" hidden>
+        <div class="rounded-2xl border border-dashed border-brand-200 bg-brand-50/30 p-5" id="completion" hidden>
           <div class="flex items-center gap-3">
-            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-600">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
             </div>
             <div>
-              <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.test_completed') }}</p>
-              <p class="text-lg font-semibold text-foreground">{{ __('words_test.all_words_done') }}</p>
+              <p class="text-sm font-semibold text-brand-600">{{ __('words_test.test_completed') }}</p>
+              <p class="text-lg font-bold text-brand-900">{{ __('words_test.all_words_done') }}</p>
             </div>
           </div>
-          <p class="mt-3 text-muted-foreground">{{ __('words_test.can_restart') }}</p>
+          <p class="mt-3 text-[var(--muted)]">{{ __('words_test.can_restart') }}</p>
         </div>
       </div>
     </div>
 
     <div id="failure-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
       <div class="modal-backdrop absolute inset-0 animate-fade"></div>
-      <div id="failure-card" class="relative mx-4 w-full max-w-xl rounded-2xl border border-destructive/30 bg-card p-6 shadow-2xl animate-bounce">
+      <div id="failure-card" class="relative mx-4 w-full max-w-xl rounded-3xl border border-red-200 bg-[var(--card)] p-8 shadow-card animate-bounce">
         <div class="flex items-start gap-4">
-          <div class="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10 text-destructive">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/></svg>
+          <div class="flex h-14 w-14 items-center justify-center rounded-full bg-red-100 text-red-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/></svg>
           </div>
-          <div class="space-y-2">
+          <div class="space-y-3">
             <div>
-              <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.test_failed') }}</p>
-              <p class="text-2xl font-semibold text-foreground">{{ __('words_test.error_limit') }}</p>
+              <p class="text-sm font-semibold text-red-600">{{ __('words_test.test_failed') }}</p>
+              <p class="text-2xl font-bold text-[var(--fg)]">{{ __('words_test.error_limit') }}</p>
             </div>
-            <p class="text-muted-foreground">{{ __('words_test.error_limit_msg') }}</p>
+            <p class="text-[var(--muted)]">{{ __('words_test.error_limit_msg') }}</p>
             <div class="flex flex-wrap gap-3 pt-2">
-              <button id="retry-btn" class="inline-flex items-center gap-2 rounded-xl border border-destructive/50 bg-destructive/10 px-4 py-2 text-sm font-semibold text-destructive shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+              <button id="retry-btn" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:bg-brand-700">
                 {{ __('words_test.retry') }}
               </button>
-              <button id="close-failure" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+              <button id="close-failure" class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-5 py-2.5 text-sm font-semibold text-[var(--fg)] shadow-sm transition hover:-translate-y-0.5 hover:shadow">
                 {{ __('words_test.close') }}
               </button>
             </div>
@@ -457,7 +473,7 @@
           question.options.forEach((option) => {
             const btn = document.createElement('button');
             btn.type = 'button';
-            btn.className = 'flex items-center justify-between gap-3 rounded-xl border border-border/80 bg-muted px-4 py-3 text-left text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
+            btn.className = 'flex items-center justify-between gap-3 rounded-2xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-left text-[var(--fg)] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:border-brand-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500';
             btn.textContent = option;
             btn.dataset.value = option;
             btn.addEventListener('click', () => submitAnswer(option, btn));
