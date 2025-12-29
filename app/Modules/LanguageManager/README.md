@@ -274,13 +274,31 @@ With the module configured:
 | English | No | `/en/about`, `/en/contacts` |
 | Polish | No | `/pl/about`, `/pl/contacts` |
 
+**SEO-Friendly URL Schema:**
+- Default language (Ukrainian) has NO prefix for clean, canonical URLs
+- All other languages use their language code as prefix (e.g., `/pl/`, `/en/`)
+- Languages are defined in the `languages` database table
+- System automatically scales to support additional languages
+
 ## Middleware
 
-The `locale.url` middleware automatically:
+The `SetLocale` middleware (registered in `app/Http/Middleware/SetLocale.php`) automatically:
 
-1. Detects locale from URL prefix
-2. Sets `app()->setLocale()` 
-3. Stores in session/cookie (based on config)
+1. **Detects locale from URL prefix** - First URL segment checked against active language codes
+2. **URL is the single source of truth:**
+   - If URL has prefix (e.g., `/pl/...`) → Uses that language
+   - If URL has NO prefix (e.g., `/catalog`) → Uses default language, **ignoring session/cookie**
+3. **Sets `app()->setLocale()`** - Makes locale available throughout the application
+4. **Stores in session/cookie** - For consistency across requests
+
+**Key Behavior:**
+```php
+// User visits /pl/catalog (Polish cookie set)
+// Then visits /catalog (no prefix)
+// Result: Ukrainian content (URL overrides cookie)
+```
+
+This ensures URLs are shareable and bookmarkable with predictable language behavior.
 
 ## Publishing Assets
 
@@ -294,6 +312,19 @@ php artisan vendor:publish --tag=language-manager-views
 # Publish migrations
 php artisan vendor:publish --tag=language-manager-migrations
 ```
+
+## Testing
+
+For comprehensive testing instructions, see:
+- **Manual Testing Guide:** `/MULTILINGUAL_URL_TESTING.md`
+- **Implementation Summary:** `/MULTILINGUAL_URL_FIX.md`
+
+Key test scenarios:
+1. Default language pages (no prefix) generate links without prefix
+2. Non-default language pages (with prefix) generate links with prefix
+3. URL overrides session/cookie (visit `/pl/...` then `/...` shows default language)
+4. Language switcher generates correct URLs
+5. Database-driven language support (new languages work automatically)
 
 ## Requirements
 
