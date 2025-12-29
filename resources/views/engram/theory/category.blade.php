@@ -3,9 +3,11 @@
 @section('title', ($selectedCategory->title ?? 'Категорія') . ' — ' . ($sectionTitle ?? 'Теорія'))
 
 @section('content')
-    @php($categoryPages = $categoryPages ?? collect())
-    @php($routePrefix = $routePrefix ?? 'theory')
-    @php($categoryDescription = $categoryDescription ?? ['hasBlocks' => false])
+    @php
+        $categoryPages = $categoryPages ?? collect();
+        $routePrefix = $routePrefix ?? 'theory';
+        $categoryDescription = $categoryDescription ?? ['hasBlocks' => false];
+    @endphp
 
     <div class="min-h-screen">
         {{-- Breadcrumb Navigation --}}
@@ -22,10 +24,10 @@
         </nav>
 
         {{-- Hero Section for Category --}}
-        <header class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white mb-8">
+        <header class="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-gradient-to-br from-brand-50 via-white to-brand-50 text-foreground shadow-card mb-8">
             {{-- Decorative Pattern --}}
-            <div class="absolute inset-0 opacity-10">
-                <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <div class="absolute inset-0 opacity-60">
+                <svg class="h-full w-full text-brand-100" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <defs>
                         <pattern id="grid-pattern-theory-category" width="10" height="10" patternUnits="userSpaceOnUse">
                             <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
@@ -37,14 +39,14 @@
             
             <div class="relative px-6 py-8 md:px-8 md:py-10">
                 <div class="flex items-center gap-3 mb-4">
-                    <span class="inline-flex items-center gap-1.5 rounded-lg bg-white/10 backdrop-blur-sm px-3 py-1.5 text-xs font-bold tracking-wide">
-                        <svg class="h-4 w-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-white text-brand-700 px-3 py-1.5 text-xs font-bold tracking-wide shadow-sm">
+                        <svg class="h-4 w-4 text-brand-500" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/>
                         </svg>
                         Категорія
                     </span>
-                    <span class="h-1 w-1 rounded-full bg-white/30"></span>
-                    <span class="inline-flex items-center gap-1.5 rounded-lg bg-white/10 backdrop-blur-sm px-3 py-1.5 text-xs font-bold tracking-wide">
+                    <span class="h-1 w-1 rounded-full bg-brand-200"></span>
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-brand-100 text-brand-800 px-3 py-1.5 text-xs font-bold tracking-wide">
                         {{ $categoryPages->count() }} {{ trans_choice('сторінок|сторінка|сторінки', $categoryPages->count()) }}
                     </span>
                 </div>
@@ -53,7 +55,7 @@
                     {{ $selectedCategory->title }}
                 </h1>
 
-                <p class="text-base md:text-lg text-white/80 leading-relaxed max-w-3xl">
+                <p class="text-base md:text-lg text-[var(--muted)] leading-relaxed max-w-3xl">
                     Матеріали з категорії «{{ $selectedCategory->title }}». Обери сторінку, щоб почати вивчення.
                 </p>
 
@@ -61,7 +63,7 @@
                 <div class="mt-6 flex flex-wrap gap-2">
                     <a 
                         href="{{ localized_route($routePrefix . '.index') }}"
-                        class="inline-flex items-center gap-1.5 rounded-full bg-white/10 backdrop-blur-sm px-4 py-2 text-sm font-medium text-white hover:bg-white/20 transition"
+                        class="inline-flex items-center gap-1.5 rounded-full bg-brand-600 text-white px-4 py-2 text-sm font-semibold shadow-card hover:bg-brand-700 transition"
                     >
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
@@ -86,7 +88,7 @@
             <aside class="hidden lg:block">
                 <div id="theory-sidebar" class="sticky top-24 space-y-5 transition-[top] duration-200 max-h-[calc(100vh-7rem)] overflow-y-auto pr-1">
                     {{-- Categories Navigation --}}
-                    <div class="rounded-2xl border border-border/60 bg-card p-5">
+                    <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card backdrop-blur-sm">
                         <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
                             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
@@ -110,7 +112,7 @@
 
                     {{-- Tags Section --}}
                     @if($selectedCategory->tags->isNotEmpty())
-                        <div class="rounded-2xl border border-border/60 bg-card p-5" x-data="{ show: false }">
+                        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card backdrop-blur-sm" x-data="{ show: false }">
                             <button 
                                 @click="show = !show"
                                 class="flex w-full items-center justify-between text-left"
@@ -142,7 +144,7 @@
                     @endif
 
                     {{-- Quick Actions --}}
-                    <div class="rounded-2xl border border-border/60 bg-gradient-to-br from-muted/30 to-muted/10 p-5">
+                    <div class="rounded-2xl border border-[var(--border)] bg-gradient-to-br from-brand-50/70 via-[var(--card)] to-white p-5 shadow-card backdrop-blur-sm">
                         <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
                             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -176,7 +178,7 @@
 
                 {{-- Pages Grid --}}
                 @if($categoryPages->isNotEmpty())
-                    <section class="scroll-mt-24">
+                    <section class="scroll-mt-24 rounded-3xl border border-[var(--border)] bg-[var(--card)]/90 p-6 shadow-card backdrop-blur-sm">
                         <div class="text-center mb-8">
                             <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-3">Матеріали для вивчення</h2>
                             <p class="text-muted-foreground max-w-2xl mx-auto">
@@ -184,52 +186,55 @@
                             </p>
                         </div>
 
+                        @php
+                            $palette = [
+                                ['icon' => 'bg-brand-100 text-brand-700', 'pill' => 'bg-brand-50 text-brand-700', 'glow' => 'from-brand-50/80 to-transparent'],
+                                ['icon' => 'bg-emerald-100 text-emerald-700', 'pill' => 'bg-emerald-50 text-emerald-700', 'glow' => 'from-emerald-50/80 to-transparent'],
+                                ['icon' => 'bg-sky-100 text-sky-700', 'pill' => 'bg-sky-50 text-sky-700', 'glow' => 'from-sky-50/80 to-transparent'],
+                                ['icon' => 'bg-amber-100 text-amber-700', 'pill' => 'bg-amber-50 text-amber-700', 'glow' => 'from-amber-50/80 to-transparent'],
+                                ['icon' => 'bg-rose-100 text-rose-700', 'pill' => 'bg-rose-50 text-rose-700', 'glow' => 'from-rose-50/80 to-transparent'],
+                                ['icon' => 'bg-violet-100 text-violet-700', 'pill' => 'bg-violet-50 text-violet-700', 'glow' => 'from-violet-50/80 to-transparent'],
+                            ];
+                        @endphp
                         <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-2">
                             @foreach($categoryPages as $index => $page)
+                                @php($colors = $palette[$index % count($palette)])
                                 <a 
                                     href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $page->slug]) }}"
-                                    class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-brand-500 hover:shadow-xl block"
+                                    class="group relative block overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm transition-all hover:border-brand-500 hover:shadow-card"
                                 >
-                                    {{-- Card Header with Gradient and Title --}}
-                                    <div class="relative min-h-[8rem] bg-gradient-to-br {{ ['from-indigo-500 to-purple-600', 'from-emerald-500 to-teal-600', 'from-blue-500 to-cyan-600', 'from-amber-500 to-orange-600', 'from-rose-500 to-pink-600', 'from-violet-500 to-purple-600'][$index % 6] }} p-6 transition-opacity group-hover:opacity-90">
-                                        {{-- Decorative elements --}}
-                                        <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                                        <div class="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
-                                        
-                                        {{-- Page number --}}
-                                        <div class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-white text-sm font-bold">
-                                            {{ $index + 1 }}
+                                    <div class="absolute inset-0 bg-gradient-to-br {{ $colors['glow'] }} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                                    <div class="relative flex items-start gap-4">
+                                        <div class="flex h-12 w-12 items-center justify-center rounded-xl {{ $colors['icon'] }} flex-shrink-0">
+                                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
                                         </div>
-                                        
-                                        {{-- Icon and Title --}}
-                                        <div class="flex items-start gap-4">
-                                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm text-white flex-shrink-0">
-                                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                                </svg>
+                                        <div class="flex-1 space-y-2">
+                                            <div class="flex items-center gap-2">
+                                                <span class="inline-flex items-center rounded-full {{ $colors['pill'] }} px-3 py-1 text-[11px] font-semibold">
+                                                    Сторінка {{ $index + 1 }}
+                                                </span>
+                                                <span class="text-[11px] text-muted-foreground">{{ $categoryPages->count() }} у категорії</span>
                                             </div>
-                                            <h3 class="text-lg font-bold text-white pr-10 leading-snug">
+                                            <h3 class="text-lg font-semibold text-foreground leading-snug">
                                                 {{ $page->title }}
                                             </h3>
+                                            @if(!empty($page->text))
+                                                <p class="text-sm text-muted-foreground line-clamp-2">
+                                                    {{ $page->text }}
+                                                </p>
+                                            @endif
                                         </div>
                                     </div>
-                                    
-                                    {{-- Card Body --}}
-                                    <div class="p-5">
-                                        @if(!empty($page->text))
-                                            <p class="text-sm text-muted-foreground line-clamp-2">
-                                                {{ $page->text }}
-                                            </p>
-                                        @endif
-                                        
-                                        {{-- Arrow indicator --}}
-                                        <div class="flex items-center justify-end mt-3">
-                                            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-muted/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                                                <svg class="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                                                </svg>
-                                            </div>
-                                        </div>
+                                    <div class="relative mt-4 flex items-center justify-between text-sm font-semibold text-brand-600">
+                                        <span class="inline-flex items-center gap-1">
+                                            Переглянути матеріал
+                                            <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                            </svg>
+                                        </span>
+                                        <span class="text-[11px] text-muted-foreground">#{{ $index + 1 }}</span>
                                     </div>
                                 </a>
                             @endforeach
@@ -305,7 +310,7 @@
         <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 lg:hidden" x-data="{ open: false }">
             <button 
                 @click="open = !open"
-                class="flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background shadow-lg transition-transform hover:scale-105"
+                class="flex items-center gap-2 rounded-full bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-105"
             >
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
