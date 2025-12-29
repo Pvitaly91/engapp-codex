@@ -184,10 +184,10 @@
             {{-- Primary Content Area --}}
             <div class="min-w-0 space-y-6">
                 {{-- Hero Title Card --}}
-                <header class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+                <header class="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-gradient-to-br from-brand-50 via-white to-brand-50 text-foreground shadow-card">
                     {{-- Decorative Pattern --}}
-                    <div class="absolute inset-0 opacity-10">
-                        <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <div class="absolute inset-0 opacity-60">
+                        <svg class="h-full w-full text-brand-100" viewBox="0 0 100 100" preserveAspectRatio="none">
                             <defs>
                                 <pattern id="grid-pattern" width="10" height="10" patternUnits="userSpaceOnUse">
                                     <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
@@ -200,14 +200,14 @@
                     <div class="relative px-6 py-8 md:px-8 md:py-10">
                         @if(!empty($heroData['level']))
                             <div class="mb-4 flex items-center gap-3">
-                                <span class="inline-flex items-center gap-1.5 rounded-lg bg-white/10 backdrop-blur-sm px-3 py-1.5 text-xs font-bold tracking-wide">
-                                    <svg class="h-3.5 w-3.5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                                <span class="inline-flex items-center gap-1.5 rounded-full bg-white text-brand-700 px-3 py-1.5 text-xs font-bold tracking-wide shadow-sm">
+                                    <svg class="h-3.5 w-3.5 text-brand-500" viewBox="0 0 20 20" fill="currentColor">
                                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                                     </svg>
                                     Рівень {{ $heroData['level'] }}
                                 </span>
-                                <span class="h-1 w-1 rounded-full bg-white/30"></span>
-                                <span class="text-xs text-white/60">Теорія</span>
+                                <span class="h-1 w-1 rounded-full bg-brand-200"></span>
+                                <span class="text-xs text-muted-foreground">Теорія</span>
                             </div>
                         @endif
 
@@ -216,7 +216,7 @@
                         </h1>
 
                         @if(!empty($heroData['intro']))
-                            <p class="text-base md:text-lg text-white/80 leading-relaxed max-w-3xl">
+                            <p class="text-base md:text-lg text-[var(--muted)] leading-relaxed max-w-3xl">
                                 {!! $heroData['intro'] !!}
                             </p>
                         @endif
@@ -227,12 +227,12 @@
                                 @foreach($heroData['rules'] as $rule)
                                     @php($ruleColor = $rule['color'] ?? 'slate')
                                     @php($pillBg = match($ruleColor) {
-                                        'emerald' => 'bg-emerald-500/20 text-emerald-200',
-                                        'blue' => 'bg-blue-500/20 text-blue-200',
-                                        'rose' => 'bg-rose-500/20 text-rose-200',
-                                        'amber' => 'bg-amber-500/20 text-amber-200',
-                                        'sky' => 'bg-sky-500/20 text-sky-200',
-                                        default => 'bg-slate-500/20 text-slate-200',
+                                        'emerald' => 'bg-emerald-50 text-emerald-700',
+                                        'blue' => 'bg-blue-50 text-blue-700',
+                                        'rose' => 'bg-rose-50 text-rose-700',
+                                        'amber' => 'bg-amber-50 text-amber-700',
+                                        'sky' => 'bg-sky-50 text-sky-700',
+                                        default => 'bg-slate-50 text-slate-700',
                                     })
                                     <span class="inline-flex items-center gap-1.5 rounded-full {{ $pillBg }} px-3 py-1 text-xs font-medium backdrop-blur-sm">
                                         <span class="h-1.5 w-1.5 rounded-full bg-current"></span>
@@ -265,7 +265,7 @@
                                 'sky' => 'bg-sky-100 text-sky-600',
                                 default => 'bg-slate-100 text-slate-600',
                             })
-                            <article class="group rounded-xl border border-border/60 {{ $borderColor }} border-l-4 bg-card p-4 transition-all hover:shadow-md hover:bg-card/90">
+                            <article class="group rounded-xl border border-[var(--border)] {{ $borderColor }} border-l-4 bg-[var(--card)] p-4 transition-all hover:shadow-card hover:-translate-y-0.5">
                                 <div class="flex items-start gap-3">
                                     <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg {{ $iconBg }} text-sm font-bold">
                                         {{ $index + 1 }}
@@ -368,7 +368,7 @@
         <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 lg:hidden" x-data="{ open: false }">
             <button 
                 @click="open = !open"
-                class="flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background shadow-lg transition-transform hover:scale-105"
+                class="flex items-center gap-2 rounded-full bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-105"
             >
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
