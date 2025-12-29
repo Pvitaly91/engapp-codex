@@ -17,7 +17,7 @@
         <nav class="mb-6 flex items-center gap-1.5 text-xs text-muted-foreground" aria-label="Breadcrumb">
             @foreach($breadcrumbs as $index => $crumb)
                 @if(!empty($crumb['url']))
-                    <a href="{{ $crumb['url'] }}" class="hover:text-primary transition-colors truncate max-w-[120px]">
+                    <a href="{{ $crumb['url'] }}" class="hover:text-brand-600 transition-colors truncate max-w-[120px]">
                         {{ $crumb['label'] }}
                     </a>
                 @else
@@ -75,7 +75,7 @@
                                     @php($isCurrentPage = $page->is($pageItem))
                                     <a
                                         href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
-                                        class="block rounded-lg px-3 py-2 text-sm transition-colors hover:bg-muted/50 {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground hover:text-foreground' }}"
+                                        class="block rounded-lg px-3 py-2 text-sm transition-colors hover:bg-muted/50 {{ $isCurrentPage ? 'bg-brand-50 text-brand-700 font-semibold' : 'text-muted-foreground hover:text-foreground' }}"
                                         @if($isCurrentPage) aria-current="page" @endif
                                     >
                                         {{ $pageItem->title }}
@@ -125,7 +125,7 @@
                         <div class="space-y-2">
                             <a 
                                 href="{{ localized_route($routePrefix . '.index') }}"
-                                class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 text-sm font-medium text-foreground transition-all hover:shadow-sm hover:border-primary/20 border border-transparent"
+                                class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 text-sm font-medium text-foreground transition-all hover:shadow-sm hover:border-brand-500 border border-transparent"
                             >
                                 <svg class="h-5 w-5 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
@@ -135,7 +135,7 @@
                             @if(isset($selectedCategory))
                                 <a 
                                     href="{{ localized_route($routePrefix . '.category', $selectedCategory->slug) }}"
-                                    class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 text-sm font-medium text-foreground transition-all hover:shadow-sm hover:border-primary/20 border border-transparent"
+                                    class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 text-sm font-medium text-foreground transition-all hover:shadow-sm hover:border-brand-500 border border-transparent"
                                 >
                                     <svg class="h-5 w-5 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
@@ -317,7 +317,7 @@
                             <div class="flex flex-wrap gap-2">
                                 @foreach($navData['items'] as $item)
                                     @if(!empty($item['current']))
-                                        <span class="inline-flex items-center gap-2 rounded-lg bg-primary/10 border border-primary/20 px-4 py-2 text-sm font-medium text-primary">
+                                        <span class="inline-flex items-center gap-2 rounded-lg bg-brand-50 border border-brand-200 px-4 py-2 text-sm font-medium text-brand-700">
                                             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                                             </svg>
@@ -326,7 +326,7 @@
                                     @else
                                         <a 
                                             href="{{ $item['url'] ?? '#' }}"
-                                            class="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-primary/40 hover:text-primary hover:bg-primary/5"
+                                            class="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-brand-500 hover:text-brand-600 hover:bg-brand-50/50"
                                         >
                                             {{ $item['label'] ?? '' }}
                                             <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -344,7 +344,7 @@
                 @if(isset($autoGeneratedTests) && $autoGeneratedTests->isNotEmpty())
                     <section class="rounded-2xl border border-border/60 bg-card p-6">
                         <div class="flex items-center gap-3 mb-5">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-white">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 text-white shadow-sm">
                                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                 </svg>
@@ -413,7 +413,7 @@
                                     @php($isCurrentPage = $page->is($pageItem))
                                     <a 
                                         href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
-                                        class="block rounded-lg px-3 py-2 text-sm {{ $isCurrentPage ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted' }}"
+                                        class="block rounded-lg px-3 py-2 text-sm {{ $isCurrentPage ? 'bg-brand-50 text-brand-700 font-medium' : 'text-muted-foreground hover:bg-muted' }}"
                                     >
                                         {{ $pageItem->title }}
                                     </a>
