@@ -3,9 +3,11 @@
 @section('title', ($selectedCategory->title ?? 'Категорія') . ' — ' . ($sectionTitle ?? 'Теорія'))
 
 @section('content')
-    @php($categoryPages = $categoryPages ?? collect())
-    @php($routePrefix = $routePrefix ?? 'theory')
-    @php($categoryDescription = $categoryDescription ?? ['hasBlocks' => false])
+    @php
+        $categoryPages = $categoryPages ?? collect();
+        $routePrefix = $routePrefix ?? 'theory';
+        $categoryDescription = $categoryDescription ?? ['hasBlocks' => false];
+    @endphp
 
     <div class="min-h-screen">
         {{-- Breadcrumb Navigation --}}
