@@ -85,7 +85,7 @@ class WordsTestController extends Controller
      */
     private function siteLocale(): string
     {
-        $lang = session('locale', app()->getLocale());
+        $lang = app()->getLocale();
         $availableLangs = LocaleService::getActiveLanguages()->pluck('code')->toArray();
 
         if (! in_array($lang, $availableLangs, true)) {
