@@ -151,38 +151,36 @@ class LocaleService
         // Generate the base route URL
         $url = route($name, $parameters, $absolute);
         
-        // If locale is not the default, add locale prefix
-        if ($locale !== $defaultCode) {
-            $parsedUrl = parse_url($url);
-            $path = $parsedUrl['path'] ?? '/';
-            
-            // Get current segments
-            $segments = array_values(array_filter(explode('/', $path)));
-            $activeCodes = self::getActiveLanguages()->pluck('code')->toArray();
-            
-            // If no active languages from DB, use config
-            if (empty($activeCodes)) {
-                $activeCodes = config('app.supported_locales', ['uk', 'en', 'pl']);
-            }
-            
-            // Remove existing locale prefix if present
-            if (!empty($segments) && in_array($segments[0], $activeCodes)) {
-                array_shift($segments);
-            }
-            
-            // Add locale prefix
-            array_unshift($segments, $locale);
-            
-            $newPath = '/' . implode('/', $segments);
-            
-            // Rebuild URL
-            $scheme = $parsedUrl['scheme'] ?? 'http';
-            $host = $parsedUrl['host'] ?? '';
-            $query = isset($parsedUrl['query']) ? '?' . $parsedUrl['query'] : '';
-            
-            return $absolute ? "{$scheme}://{$host}{$newPath}{$query}" : $newPath . $query;
+        // Parse the URL to extract components
+        $parsedUrl = parse_url($url);
+        $path = $parsedUrl['path'] ?? '/';
+        
+        // Get current segments
+        $segments = array_values(array_filter(explode('/', $path)));
+        $activeCodes = self::getActiveLanguages()->pluck('code')->toArray();
+        
+        // If no active languages from DB, use config
+        if (empty($activeCodes)) {
+            $activeCodes = config('app.supported_locales', ['uk', 'en', 'pl']);
         }
         
-        return $url;
+        // Always remove existing locale prefix if present (even for default language)
+        if (!empty($segments) && in_array($segments[0], $activeCodes)) {
+            array_shift($segments);
+        }
+        
+        // Add locale prefix only if locale is not the default
+        if ($locale !== $defaultCode) {
+            array_unshift($segments, $locale);
+        }
+        
+        $newPath = '/' . implode('/', $segments);
+        
+        // Rebuild URL
+        $scheme = $parsedUrl['scheme'] ?? 'http';
+        $host = $parsedUrl['host'] ?? '';
+        $query = isset($parsedUrl['query']) ? '?' . $parsedUrl['query'] : '';
+        
+        return $absolute ? "{$scheme}://{$host}{$newPath}{$query}" : $newPath . $query;
     }
 }
