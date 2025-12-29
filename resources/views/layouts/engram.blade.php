@@ -49,12 +49,18 @@
             --muted: #94a3b8;
             --border: #1f2937;
         }
-        body { background: radial-gradient(circle at 10% 20%, rgba(90,107,255,0.12), transparent 22%), radial-gradient(circle at 80% 0%, rgba(91,206,250,0.14), transparent 18%), var(--bg); color: var(--fg); }
+        body {
+            background: radial-gradient(circle at 10% 20%, rgba(90,107,255,0.12), transparent 22%), radial-gradient(circle at 80% 0%, rgba(91,206,250,0.14), transparent 18%), var(--bg);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: var(--fg);
+        }
     </style>
     @livewireStyles
 </head>
 <body class="min-h-full font-sans antialiased bg-[var(--bg)] text-[var(--fg)]">
-    <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.6),transparent_20%),radial-gradient(circle_at_90%_10%,rgba(90,107,255,0.12),transparent_20%)]"></div>
+    <div class="fixed inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.6),transparent_20%),radial-gradient(circle_at_90%_10%,rgba(90,107,255,0.12),transparent_20%)]"></div>
     <div class="relative">
         <header class="sticky top-0 z-40 border-b border-[var(--border)]/80 backdrop-blur bg-[color-mix(in_srgb,var(--card)_90%,transparent)]">
             <div class="mx-auto max-w-6xl px-4">
