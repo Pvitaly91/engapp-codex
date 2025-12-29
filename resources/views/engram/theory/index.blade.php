@@ -12,75 +12,54 @@
 
     <div class="min-h-screen">
         {{-- Hero Section with General Overview --}}
-        <header class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white mb-10">
-            {{-- Animated Background Pattern --}}
-            <div class="absolute inset-0 opacity-20">
-                <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <defs>
-                        <pattern id="theory-hero-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
-                            <circle cx="2" cy="2" r="1" fill="currentColor" opacity="0.5"/>
-                            <circle cx="12" cy="12" r="1.5" fill="currentColor" opacity="0.3"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#theory-hero-pattern)"/>
-                </svg>
-            </div>
-            
-            {{-- Decorative Shapes --}}
-            <div class="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-yellow-400/20 rounded-full blur-3xl"></div>
-            
-            <div class="relative px-8 py-12 md:px-12 md:py-16 lg:py-20">
-                <div class="max-w-4xl">
-                    {{-- Badge --}}
-                    <div class="flex flex-wrap items-center gap-3 mb-6">
-                        <span class="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-semibold">
-                            <svg class="h-5 w-5 text-yellow-300" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
-                            </svg>
-                            {{ __('public.theory.section_badge') }}
-                        </span>
-                        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium">
-                            {{ $categories->count() }} {{ __('public.theory.categories_count') }}
-                        </span>
-                        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium">
-                            {{ $totalPages }} {{ __('public.theory.lessons_count') }}
-                        </span>
-                    </div>
+        <header class="space-y-6 mb-10">
+            <div class="relative px-4 md:px-0">
+                {{-- Badge --}}
+                <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700">
+                    {{ __('public.theory.section_badge') }}
+                </span>
 
-                    {{-- Title --}}
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-6">
-                        {{ __('public.theory.title') }}
-                    </h1>
+                {{-- Title --}}
+                <h1 class="text-4xl font-bold leading-tight md:text-5xl">
+                    {{ __('public.theory.title') }}
+                </h1>
 
-                    {{-- Description --}}
-                    <p class="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-2xl">
-                        {{ __('public.theory.description') }}
-                    </p>
+                {{-- Description --}}
+                <p class="max-w-2xl text-lg text-[var(--muted)]">
+                    {{ __('public.theory.description') }}
+                </p>
 
-                    {{-- Quick Action Buttons --}}
-                    <div class="flex flex-wrap gap-3">
-                        @if($categories->first())
-                            <a 
-                                href="{{ localized_route($routePrefix . '.category', $categories->first()->slug) }}"
-                                class="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-indigo-600 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
-                            >
-                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                                {{ __('public.theory.start_learning') }}
-                            </a>
-                        @endif
+                {{-- Quick Action Buttons --}}
+                <div class="flex flex-wrap gap-3">
+                    @if($categories->first())
                         <a 
-                            href="#categories-section"
-                            class="inline-flex items-center gap-2 rounded-xl bg-white/20 backdrop-blur-sm px-6 py-3 text-sm font-bold text-white transition hover:bg-white/30"
+                            href="{{ localized_route($routePrefix . '.category', $categories->first()->slug) }}"
+                            class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-card"
                         >
-                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                            </svg>
-                            {{ __('public.theory.all_categories') }}
+                            {{ __('public.theory.start_learning') }}
                         </a>
+                    @endif
+                    <a 
+                        href="#categories-section"
+                        class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-6 py-3 text-sm font-semibold"
+                    >
+                        {{ __('public.theory.all_categories') }}
+                    </a>
+                </div>
+
+                {{-- Stats --}}
+                <div class="grid grid-cols-2 gap-4 md:grid-cols-3 max-w-2xl">
+                    <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 shadow-sm">
+                        <p class="text-2xl font-bold text-brand-600">{{ $categories->count() }}</p>
+                        <p class="text-sm text-[var(--muted)]">{{ __('public.theory.categories_count') }}</p>
+                    </div>
+                    <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 shadow-sm">
+                        <p class="text-2xl font-bold text-brand-600">{{ $totalPages }}</p>
+                        <p class="text-sm text-[var(--muted)]">{{ __('public.theory.lessons_count') }}</p>
+                    </div>
+                    <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 shadow-sm col-span-2 md:col-span-1">
+                        <p class="text-2xl font-bold text-brand-600">24/7</p>
+                        <p class="text-sm text-[var(--muted)]">{{ __('public.home.stat_access') }}</p>
                     </div>
                 </div>
             </div>
@@ -89,203 +68,125 @@
         {{-- Categories Section --}}
         <section id="categories-section" class="scroll-mt-24">
             <div class="text-center mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-3">{{ __('public.theory.topics_to_learn') }}</h2>
-                <p class="text-muted-foreground max-w-2xl mx-auto">
-                    {{ __('public.theory.topics_hint') }}
-                </p>
+                <p class="text-xs uppercase tracking-[0.25em] text-brand-600">{{ __('public.home.sections') }}</p>
+                <h2 class="text-2xl font-semibold">{{ __('public.theory.topics_to_learn') }}</h2>
             </div>
 
             {{-- Categories Grid --}}
-            <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 @forelse($categories as $index => $category)
                     @php
-                        $gradients = [
-                            'from-indigo-500 to-purple-600',
-                            'from-emerald-500 to-teal-600',
-                            'from-blue-500 to-cyan-600',
-                            'from-amber-500 to-orange-600',
-                            'from-rose-500 to-pink-600',
-                            'from-violet-500 to-purple-600',
-                        ];
-                        $gradient = $gradients[$index % count($gradients)];
                         $hasChildren = $category->relationLoaded('children') && $category->children->isNotEmpty();
                         $hasPages = $category->relationLoaded('pages') && $category->pages->isNotEmpty();
                     @endphp
-                    <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-brand-500 hover:shadow-xl">
-                        {{-- Card Header with Gradient and Title --}}
-                        <a 
-                            href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
-                            class="block relative min-h-[8rem] bg-gradient-to-br {{ $gradient }} p-6 transition-opacity hover:opacity-90"
-                        >
-                            {{-- Decorative elements --}}
-                            <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                            <div class="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
-                            
-                            {{-- Category number --}}
-                            <div class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-white text-sm font-bold">
-                                {{ $index + 1 }}
-                            </div>
-                            
-                            {{-- Icon and Title --}}
-                            <div class="flex items-start gap-4">
-                                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm text-white flex-shrink-0">
-                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                                    </svg>
-                                </div>
-                                <h3 class="text-lg font-bold text-white pr-10 leading-snug">
-                                    {{ $category->title }}
-                                </h3>
-                            </div>
-                        </a>
-                        
-                        {{-- Card Body --}}
-                        <div class="p-5">
-                            <a 
-                                href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
-                                class="block mb-3"
-                            >
-                                <span class="text-sm text-muted-foreground">
-                                    @if(isset($category->pages_count) && $category->pages_count > 0)
-                                        {{ $category->pages_count }} {{ __('public.theory.lessons_count') }}
-                                    @else
-                                        {{ __('public.common.no_lessons') }}
-                                    @endif
-                                </span>
-                            </a>
-                            
-                            {{-- Subcategories list --}}
-                            @if($hasChildren)
-                                <div class="mt-3 pt-3 border-t border-border/60">
-                                    <ul class="space-y-1.5">
-                                        @foreach($category->children as $child)
-                                            <li>
-                                                <a 
-                                                    href="{{ localized_route($routePrefix . '.category', $child->slug) }}"
-                                                    class="flex items-center justify-between text-sm text-foreground hover:text-brand-600 transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
-                                                >
-                                                    <span class="flex items-center gap-2">
-                                                        <svg class="h-3 w-3 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                                                        </svg>
-                                                        {{ $child->title }}
-                                                    </span>
-                                                    @if(isset($child->pages_count) && $child->pages_count > 0)
-                                                        <span class="text-xs text-muted-foreground">{{ $child->pages_count }}</span>
-                                                    @endif
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                            
-                            {{-- Pages list --}}
-                            @if($hasPages)
-                                <div class="{{ $hasChildren ? 'mt-3 pt-3 border-t border-border/60' : 'mt-3 pt-3 border-t border-border/60' }}">
-                                    <ul class="space-y-1.5">
-                                        @foreach($category->pages as $page)
-                                            <li>
-                                                <a 
-                                                    href="{{ localized_route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
-                                                    class="flex items-start gap-2 text-sm text-foreground hover:text-brand-600 transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
-                                                >
-                                                    <svg class="h-3 w-3 text-muted-foreground/60 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                                    </svg>
-                                                    <span class="line-clamp-2 break-words">{{ $page->title }}</span>
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                            
-                            @if(!$hasChildren && !$hasPages)
-                                {{-- Arrow indicator for categories without children or pages --}}
-                                <a 
-                                    href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
-                                    class="flex items-center justify-end mt-2"
-                                >
-                                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-muted/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                                        <svg class="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                                        </svg>
-                                    </div>
-                                </a>
-                            @endif
-                        </div>
-                    </div>
-                @empty
-                    <div class="col-span-full rounded-2xl border border-dashed border-muted p-12 text-center">
-                        <div class="flex justify-center mb-4">
-                            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-muted/50 text-muted-foreground">
-                                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    <a href="{{ localized_route($routePrefix . '.category', $category->slug) }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
+                        <div class="space-y-3">
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-600">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                                 </svg>
-                            </div>
+                            </span>
+                            <h3 class="text-xl font-semibold">{{ $category->title }}</h3>
+                            <p class="text-sm text-[var(--muted)]">
+                                @if(isset($category->pages_count) && $category->pages_count > 0)
+                                    {{ $category->pages_count }} {{ __('public.theory.lessons_count') }}
+                                @else
+                                    {{ __('public.common.no_lessons') }}
+                                @endif
+                            </p>
+                            
+                            {{-- Subcategories/Pages preview --}}
+                            @if($hasChildren || $hasPages)
+                                <div class="space-y-1 pt-2 border-t border-[var(--border)]">
+                                    @if($hasChildren)
+                                        @foreach($category->children->take(3) as $child)
+                                            <div class="text-sm text-[var(--muted)] flex items-center gap-2">
+                                                <svg class="h-3 w-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                                </svg>
+                                                <span class="truncate">{{ $child->title }}</span>
+                                            </div>
+                                        @endforeach
+                                    @elseif($hasPages)
+                                        @foreach($category->pages->take(3) as $page)
+                                            <div class="text-sm text-[var(--muted)] flex items-center gap-2">
+                                                <svg class="h-3 w-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                </svg>
+                                                <span class="truncate">{{ $page->title }}</span>
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                    @if(($hasChildren && $category->children->count() > 3) || ($hasPages && $category->pages->count() > 3))
+                                        <div class="text-xs text-brand-600 mt-1">
+                                            +{{ ($hasChildren ? $category->children->count() : $category->pages->count()) - 3 }} {{ __('public.common.more') }}
+                                        </div>
+                                    @endif
+                                </div>
+                            @endif
                         </div>
-                        <h3 class="text-lg font-semibold text-foreground mb-2">{{ __('public.theory.no_categories_title') }}</h3>
-                        <p class="text-muted-foreground">{{ __('public.theory.no_categories_hint') }}</p>
+                        <span class="text-sm font-semibold text-brand-600 mt-3">{{ __('public.common.go_to') }}</span>
+                    </a>
+                @empty
+                    <div class="col-span-full rounded-2xl border border-dashed border-[var(--border)] p-12 text-center">
+                        <h3 class="text-lg font-semibold mb-2">{{ __('public.theory.no_categories_title') }}</h3>
+                        <p class="text-[var(--muted)]">{{ __('public.theory.no_categories_hint') }}</p>
                     </div>
                 @endforelse
             </div>
         </section>
 
         {{-- Learning Path Section --}}
-        <section class="mt-16 mb-12">
-            <div class="rounded-3xl border border-border/60 bg-gradient-to-br from-muted/30 via-card to-muted/20 p-8 md:p-12">
-                <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
-                    <div>
-                        <div class="inline-flex items-center gap-2 rounded-full bg-brand-50 text-brand-700 px-4 py-2 text-sm font-semibold mb-4">
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            {{ __('public.theory.recommended_path') }}
+        <section class="mt-16 mb-12 rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card">
+            <div class="grid gap-6 lg:grid-cols-[1.1fr_1fr] items-center">
+                <div class="space-y-4">
+                    <p class="text-xs uppercase tracking-[0.25em] text-brand-600">{{ __('public.home.how_it_works') }}</p>
+                    <h2 class="text-3xl font-semibold">{{ __('public.theory.how_to_learn') }}</h2>
+                    <p class="text-[var(--muted)]">{{ __('public.theory.how_to_learn_desc') }}</p>
+                    <div class="space-y-3">
+                        <div class="flex gap-3 rounded-2xl border border-[var(--border)] p-4">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 font-semibold">1</div>
+                            <div>
+                                <p class="font-semibold">{{ __('public.theory.step1') }}</p>
+                                <p class="text-sm text-[var(--muted)]">{{ __('public.theory.step1_desc') }}</p>
+                            </div>
                         </div>
-                        <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                            {{ __('public.theory.how_to_learn') }}
-                        </h2>
-                        <p class="text-muted-foreground leading-relaxed mb-6">
-                            {{ __('public.theory.how_to_learn_desc') }}
-                        </p>
-                        <div class="space-y-3">
-                            <div class="flex items-start gap-3">
-                                <div class="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-600 text-xs font-bold flex-shrink-0 mt-0.5">1</div>
-                                <p class="text-sm text-foreground"><strong>{{ __('public.theory.step1') }}</strong> — {{ __('public.theory.step1_desc') }}</p>
+                        <div class="flex gap-3 rounded-2xl border border-[var(--border)] p-4">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 font-semibold">2</div>
+                            <div>
+                                <p class="font-semibold">{{ __('public.theory.step2') }}</p>
+                                <p class="text-sm text-[var(--muted)]">{{ __('public.theory.step2_desc') }}</p>
                             </div>
-                            <div class="flex items-start gap-3">
-                                <div class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-500/20 text-blue-600 text-xs font-bold flex-shrink-0 mt-0.5">2</div>
-                                <p class="text-sm text-foreground"><strong>{{ __('public.theory.step2') }}</strong> — {{ __('public.theory.step2_desc') }}</p>
+                        </div>
+                        <div class="flex gap-3 rounded-2xl border border-[var(--border)] p-4">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 font-semibold">3</div>
+                            <div>
+                                <p class="font-semibold">{{ __('public.theory.step3') }}</p>
+                                <p class="text-sm text-[var(--muted)]">{{ __('public.theory.step3_desc') }}</p>
                             </div>
-                            <div class="flex items-start gap-3">
-                                <div class="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-600 text-xs font-bold flex-shrink-0 mt-0.5">3</div>
-                                <p class="text-sm text-foreground"><strong>{{ __('public.theory.step3') }}</strong> — {{ __('public.theory.step3_desc') }}</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="flex h-6 w-6 items-center justify-center rounded-full bg-purple-500/20 text-purple-600 text-xs font-bold flex-shrink-0 mt-0.5">4</div>
-                                <p class="text-sm text-foreground"><strong>{{ __('public.theory.step4') }}</strong> — {{ __('public.theory.step4_desc') }}</p>
+                        </div>
+                        <div class="flex gap-3 rounded-2xl border border-[var(--border)] p-4">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 font-semibold">4</div>
+                            <div>
+                                <p class="font-semibold">{{ __('public.theory.step4') }}</p>
+                                <p class="text-sm text-[var(--muted)]">{{ __('public.theory.step4_desc') }}</p>
                             </div>
                         </div>
                     </div>
-                    
-                    {{-- Stats Cards --}}
-                    <div class="grid gap-4 sm:grid-cols-2">
-                        <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
-                            <div class="text-4xl font-black text-brand-600 mb-2">{{ $categories->count() }}</div>
-                            <p class="text-sm text-muted-foreground">{{ __('public.theory.theory_categories') }}</p>
+                </div>
+                
+                {{-- Stats Cards --}}
+                <div class="space-y-4 rounded-2xl border border-[var(--border)] bg-gradient-to-br from-brand-50 to-white p-6">
+                    <h3 class="text-xl font-semibold">{{ __('public.home.search_block_title') }}</h3>
+                    <p class="text-sm text-[var(--muted)]">{{ __('public.home.search_block_desc') }}</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="rounded-2xl border border-[var(--border)] bg-white p-4 text-center shadow-sm">
+                            <div class="text-2xl font-bold text-brand-600">{{ $categories->count() }}</div>
+                            <p class="text-xs text-[var(--muted)]">{{ __('public.theory.theory_categories') }}</p>
                         </div>
-                        <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
-                            <div class="text-4xl font-black text-brand-700 mb-2">{{ $totalPages }}</div>
-                            <p class="text-sm text-muted-foreground">{{ __('public.theory.lesson_pages') }}</p>
-                        </div>
-                        <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
-                            <div class="text-4xl font-black text-emerald-500 mb-2">A1-B2</div>
-                            <p class="text-sm text-muted-foreground">{{ __('public.theory.difficulty_levels') }}</p>
-                        </div>
-                        <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
-                            <div class="text-4xl font-black text-amber-500 mb-2" role="img" aria-label="{{ __('public.theory.in_ukrainian') }}">🇺🇦</div>
-                            <p class="text-sm text-muted-foreground">{{ __('public.theory.in_ukrainian') }}</p>
+                        <div class="rounded-2xl border border-[var(--border)] bg-white p-4 text-center shadow-sm">
+                            <div class="text-2xl font-bold text-brand-600">{{ $totalPages }}</div>
+                            <p class="text-xs text-[var(--muted)]">{{ __('public.theory.lesson_pages') }}</p>
                         </div>
                     </div>
                 </div>
@@ -296,7 +197,7 @@
         <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 lg:hidden" x-data="{ open: false }">
             <button 
                 @click="open = !open"
-                class="flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-105"
+                class="flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg"
             >
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
@@ -314,12 +215,12 @@
                 x-transition:leave-start="opacity-100 translate-y-0"
                 x-transition:leave-end="opacity-0 translate-y-4"
                 @click.away="open = false"
-                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-80 max-h-[60vh] overflow-y-auto rounded-2xl border border-border bg-card p-5 shadow-xl"
+                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-80 max-h-[60vh] overflow-y-auto rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-xl"
             >
                 <div class="space-y-4">
-                    <div class="flex items-center justify-between border-b border-border pb-3">
-                        <h4 class="font-bold text-foreground">{{ __('public.theory.theory_categories_mobile') }}</h4>
-                        <span class="text-xs text-muted-foreground">{{ $categories->count() }} {{ __('public.theory.categories_count') }}</span>
+                    <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
+                        <h4 class="font-bold">{{ __('public.theory.theory_categories_mobile') }}</h4>
+                        <span class="text-xs text-[var(--muted)]">{{ $categories->count() }} {{ __('public.theory.categories_count') }}</span>
                     </div>
                     <nav class="space-y-2">
                         @forelse($categories as $category)
@@ -329,11 +230,11 @@
                             <div class="space-y-1">
                                 <a 
                                     href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
-                                    class="flex items-center justify-between rounded-xl bg-muted/30 px-4 py-3 text-sm font-medium text-foreground transition hover:bg-brand-50 hover:text-brand-700"
+                                    class="flex items-center justify-between rounded-xl bg-brand-50 px-4 py-3 text-sm font-medium hover:bg-brand-100"
                                 >
                                     <span>{{ $category->title }}</span>
                                     @if(isset($category->pages_count) && $category->pages_count > 0)
-                                        <span class="text-xs text-muted-foreground">{{ $category->pages_count }}</span>
+                                        <span class="text-xs text-[var(--muted)]">{{ $category->pages_count }}</span>
                                     @endif
                                 </a>
                                 @if($hasChildrenMobile)
@@ -341,7 +242,7 @@
                                         @foreach($category->children as $child)
                                             <a 
                                                 href="{{ localized_route($routePrefix . '.category', $child->slug) }}"
-                                                class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-muted-foreground transition hover:bg-brand-50 hover:text-brand-700"
+                                                class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-[var(--muted)] hover:bg-brand-50"
                                             >
                                                 <span class="flex items-center gap-1.5">
                                                     <svg class="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -358,7 +259,7 @@
                                 @endif
                             </div>
                         @empty
-                            <p class="text-sm text-muted-foreground text-center py-4">{{ __('public.common.no_categories') }}</p>
+                            <p class="text-sm text-[var(--muted)] text-center py-4">{{ __('public.common.no_categories') }}</p>
                         @endforelse
                     </nav>
                 </div>
