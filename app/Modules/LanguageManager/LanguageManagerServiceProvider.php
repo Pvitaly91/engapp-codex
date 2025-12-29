@@ -4,6 +4,7 @@ namespace App\Modules\LanguageManager;
 
 use App\Modules\LanguageManager\Services\LocaleService;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class LanguageManagerServiceProvider extends ServiceProvider
@@ -16,6 +17,9 @@ class LanguageManagerServiceProvider extends ServiceProvider
         $this->app->singleton(LocaleService::class, function () {
             return new LocaleService();
         });
+
+        // Load helper functions
+        require_once __DIR__ . '/helpers.php';
     }
 
     public function boot(): void
@@ -36,6 +40,15 @@ class LanguageManagerServiceProvider extends ServiceProvider
 
         Blade::directive('switchLocaleUrl', function ($expression) {
             return "<?php echo \App\Modules\LanguageManager\Services\LocaleService::switchLocaleUrl({$expression}); ?>";
+        });
+
+        Blade::directive('localizedRoute', function ($expression) {
+            return "<?php echo \App\Modules\LanguageManager\Services\LocaleService::localizedRoute({$expression}); ?>";
+        });
+
+        // Register URL macro for generating localized routes
+        URL::macro('localized', function (string $name, $parameters = [], bool $absolute = true, ?string $locale = null) {
+            return LocaleService::localizedRoute($name, $parameters, $absolute, $locale);
         });
 
         // Share languages with views that use engram layout (public) and language-manager

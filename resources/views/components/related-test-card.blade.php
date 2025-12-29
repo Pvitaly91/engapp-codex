@@ -1,7 +1,7 @@
 @props(['test'])
 
 <div class="bg-background border border-border/60 rounded-xl p-4 flex flex-col hover:border-primary/40 hover:shadow-md transition">
-    <a href="{{ route('test.show', $test->slug) }}" class="font-medium text-foreground hover:text-primary mb-2">
+    <a href="{{ localized_route('test.show', $test->slug) }}" class="font-medium text-foreground hover:text-primary mb-2">
         {{ $test->name }}
     </a>
     
@@ -23,7 +23,7 @@
         <p class="text-sm text-muted-foreground mb-3 line-clamp-2">{{ $test->description }}</p>
     @endif
 
-    <a href="{{ route('test.show', $test->slug) }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-xl text-sm font-semibold transition">
+    <a href="{{ localized_route('test.show', $test->slug) }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-xl text-sm font-semibold transition">
         Пройти тест
     </a>
 </div>

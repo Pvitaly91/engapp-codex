@@ -62,7 +62,7 @@
                     <div class="flex flex-wrap gap-3">
                         @if($categories->first())
                             <a 
-                                href="{{ route($routePrefix . '.category', $categories->first()->slug) }}"
+                                href="{{ localized_route($routePrefix . '.category', $categories->first()->slug) }}"
                                 class="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-indigo-600 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
                             >
                                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -114,7 +114,7 @@
                     <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-primary/30 hover:shadow-xl">
                         {{-- Card Header with Gradient and Title --}}
                         <a 
-                            href="{{ route($routePrefix . '.category', $category->slug) }}"
+                            href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
                             class="block relative min-h-[8rem] bg-gradient-to-br {{ $gradient }} p-6 transition-opacity hover:opacity-90"
                         >
                             {{-- Decorative elements --}}
@@ -142,7 +142,7 @@
                         {{-- Card Body --}}
                         <div class="p-5">
                             <a 
-                                href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
                                 class="block mb-3"
                             >
                                 <span class="text-sm text-muted-foreground">
@@ -161,7 +161,7 @@
                                         @foreach($category->children as $child)
                                             <li>
                                                 <a 
-                                                    href="{{ route($routePrefix . '.category', $child->slug) }}"
+                                                    href="{{ localized_route($routePrefix . '.category', $child->slug) }}"
                                                     class="flex items-center justify-between text-sm text-foreground hover:text-primary transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
                                                 >
                                                     <span class="flex items-center gap-2">
@@ -187,7 +187,7 @@
                                         @foreach($category->pages as $page)
                                             <li>
                                                 <a 
-                                                    href="{{ route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
+                                                    href="{{ localized_route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
                                                     class="flex items-start gap-2 text-sm text-foreground hover:text-primary transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
                                                 >
                                                     <svg class="h-3 w-3 text-muted-foreground/60 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -204,7 +204,7 @@
                             @if(!$hasChildren && !$hasPages)
                                 {{-- Arrow indicator for categories without children or pages --}}
                                 <a 
-                                    href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                    href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
                                     class="flex items-center justify-end mt-2"
                                 >
                                     <div class="flex h-8 w-8 items-center justify-center rounded-full bg-muted/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all">
@@ -328,7 +328,7 @@
                             @endphp
                             <div class="space-y-1">
                                 <a 
-                                    href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                    href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
                                     class="flex items-center justify-between rounded-xl bg-muted/30 px-4 py-3 text-sm font-medium text-foreground transition hover:bg-primary/10 hover:text-primary"
                                 >
                                     <span>{{ $category->title }}</span>
@@ -340,7 +340,7 @@
                                     <div class="ml-4 space-y-1">
                                         @foreach($category->children as $child)
                                             <a 
-                                                href="{{ route($routePrefix . '.category', $child->slug) }}"
+                                                href="{{ localized_route($routePrefix . '.category', $child->slug) }}"
                                                 class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-muted-foreground transition hover:bg-primary/10 hover:text-primary"
                                             >
                                                 <span class="flex items-center gap-1.5">

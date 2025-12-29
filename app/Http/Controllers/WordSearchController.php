@@ -15,19 +15,22 @@ class WordSearchController extends Controller
             return response()->json([]);
         }
 
+        $locale = app()->getLocale();
+
         $words = Word::with('translate')
             ->where('word', 'like', $query . '%')
             ->orderBy('word')
             ->limit(10)
             ->get();
 
-        $results = $words->map(function ($word) {
+        $results = $words->map(function ($word) use ($locale) {
             $translation = optional($word->translate)->translation;
+            $translationLang = optional($word->translate)->lang ?? $locale;
 
             $forms = [];
             if ($word->type) {
-                $forms = Word::whereHas('translate', function ($q) use ($translation) {
-                        $q->where('lang', 'uk')->where('translation', $translation);
+                $forms = Word::whereHas('translate', function ($q) use ($translation, $locale) {
+                        $q->where('lang', $locale)->where('translation', $translation);
                     })
                     ->get()
                     ->groupBy('type')
@@ -48,6 +51,7 @@ class WordSearchController extends Controller
             return [
                 'word' => $word->word,
                 'translation' => $translation,
+                'translation_lang' => $translationLang,
                 'forms' => [
                     'base' => $forms['base'] ?? [],
                     'past' => $forms['past'] ?? [],

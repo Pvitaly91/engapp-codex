@@ -26,12 +26,13 @@ class SetLocale
         $firstSegment = $segments[0] ?? null;
         
         if ($firstSegment && in_array($firstSegment, $supportedLocales)) {
-            // URL has a locale prefix - use it
+            // URL has a locale prefix - use it and persist the choice
             $locale = $firstSegment;
+            $this->storeLocale($locale);
         } else {
-            // No locale prefix in URL - use default locale
-            // This ensures "/" always shows default language regardless of session
+            // No locale prefix means default language (ignore session/cookie for URLs without prefix)
             $locale = $defaultLocale;
+            $this->storeLocale($locale);
         }
 
         // Validate and set locale
@@ -42,6 +43,17 @@ class SetLocale
         }
 
         return $next($request);
+    }
+
+    /**
+     * Store the resolved locale in the session and a long-lived cookie.
+     */
+    protected function storeLocale(string $locale): void
+    {
+        session(['locale' => $locale]);
+
+        // Keep cookie lifetime consistent with set-locale route (1 year)
+        cookie()->queue(cookie('locale', $locale, 60 * 24 * 365));
     }
 
     /**

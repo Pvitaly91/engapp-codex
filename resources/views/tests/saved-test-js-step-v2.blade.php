@@ -134,8 +134,8 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
 const CSRF_TOKEN = '{{ csrf_token() }}';
 const JS_IS_ADMIN = Boolean(@json($isAdmin ?? false));
 window.__IS_ADMIN__ = JS_IS_ADMIN;
-const EXPLAIN_URL = '{{ route('question.explain') }}';
-const MARKER_THEORY_URL = '{{ route('question.marker-theory') }}';
+const EXPLAIN_URL = '{{ localized_route('question.explain') }}';
+const MARKER_THEORY_URL = '{{ localized_route('question.marker-theory') }}';
 const TEST_SLUG = @json($test->slug);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
@@ -730,7 +730,7 @@ function fetchHints(q, refresh = false) {
   const payload = q.id ? { question_id: q.id } : { question: q.question };
   if (refresh) payload.refresh = true;
   showLoader(true);
-  fetch('{{ route('question.hint') }}', {
+  fetch('{{ localized_route('question.hint') }}', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

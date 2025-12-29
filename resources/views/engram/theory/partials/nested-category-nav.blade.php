@@ -46,7 +46,7 @@
             @endif
 
             <a
-                href="{{ route($routePrefix . '.category', $category->slug) }}"
+                href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
                 class="flex-1 flex items-center justify-between gap-2 rounded-lg  py-1.5 text-sm transition-all {{ $isActive ? 'bg-primary px-[5px] text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
             >
                 <span class="truncate">{{ $category->title }}</span>
@@ -74,7 +74,7 @@
                         @php($page = $item['model'])
                         @php($isCurrentPage = $currentPage && $currentPage->is($page))
                         <a
-                            href="{{ route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
+                            href="{{ localized_route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
                             class="flex items-start gap-2 rounded-lg px-2 py-1.5 text-xs transition-all {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
                             @if($isCurrentPage) aria-current="page" @endif
                         >

@@ -127,6 +127,32 @@ Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
 Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
 Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
 
+// Public catalog and search
+Route::get('/catalog/tests-cards', [GrammarTestController::class, 'catalogAggregated'])->name('catalog.tests-cards');
+Route::get('/catalog-tests/cards', fn () => redirect()->route('catalog.tests-cards')); // legacy
+Route::get('/tests/cards', fn () => redirect()->route('catalog.tests-cards')); // legacy
+
+Route::get('/search', SiteSearchController::class)->name('site.search');
+Route::get('/admin/search', fn () => redirect('/search', 301));
+
+Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
+Route::get('/admin/words', function (\Illuminate\Http\Request $request) {
+    $query = $request->getQueryString();
+    $suffix = $query ? '?' . $query : '';
+    return redirect('/words' . $suffix, 301);
+});
+
+Route::prefix('test')->group(function () {
+    Route::get('/{slug}', [TestJsV2Controller::class, 'showSavedTestJsV2'])->name('test.show');
+    Route::get('/{slug}/step', [TestJsV2Controller::class, 'showSavedTestJsStepV2'])->name('test.step');
+    Route::get('/{slug}/step/input', [TestJsV2Controller::class, 'showSavedTestJsStepInputV2'])->name('test.step-input');
+    Route::get('/{slug}/step/manual', [TestJsV2Controller::class, 'showSavedTestJsStepManualV2'])->name('test.step-manual');
+    Route::get('/{slug}/step/select', [TestJsV2Controller::class, 'showSavedTestJsStepSelectV2'])->name('test.step-select');
+    Route::get('/{slug}/select', [TestJsV2Controller::class, 'showSavedTestJsSelectV2'])->name('test.select');
+    Route::get('/{slug}/input', [TestJsV2Controller::class, 'showSavedTestJsInputV2'])->name('test.input');
+    Route::get('/{slug}/manual', [TestJsV2Controller::class, 'showSavedTestJsManualV2'])->name('test.manual');
+});
+
 // Define a pattern that excludes reserved route prefixes for dynamic page type routes
 $reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$';
 
@@ -144,10 +170,6 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         ->where('pageType', $reservedPrefixes)
         ->name('dynamic-pages.show');
 
-    Route::get('/tests/cards', [GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
-    Route::get('/catalog-tests/cards', [GrammarTestController::class, 'catalog'])->name('catalog-tests.cards');
-    Route::get('/catalog/tests-cards', [GrammarTestController::class, 'catalogAggregated'])->name('catalog.tests-cards');
-
     Route::post('/test/{slug}/js/state', [GrammarTestController::class, 'storeSavedTestJsState'])->name('saved-test.js.state');
     Route::get('/test/{slug}/js/questions', [GrammarTestController::class, 'fetchSavedTestJsQuestions'])->name('saved-test.js.questions');
     Route::get('/test/{slug}/js', [GrammarTestController::class, 'showSavedTestJs'])->name('saved-test.js');
@@ -161,16 +183,6 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
     Route::get('/test/{slug}/js/drag-drop', [GrammarTestController::class, 'showSavedTestJsDragDrop'])->name('saved-test.js.drag-drop');
     Route::get('/test/{slug}/js/match', [GrammarTestController::class, 'showSavedTestJsMatch'])->name('saved-test.js.match');
     Route::get('/test/{slug}/js/dialogue', [GrammarTestController::class, 'showSavedTestJsDialogue'])->name('saved-test.js.dialogue');
-
-    // Test V2 - New UI version (public test pages without /js suffix)
-    Route::get('/test/{slug}', [TestJsV2Controller::class, 'showSavedTestJsV2'])->name('test.show');
-    Route::get('/test/{slug}/step', [TestJsV2Controller::class, 'showSavedTestJsStepV2'])->name('test.step');
-    Route::get('/test/{slug}/step/input', [TestJsV2Controller::class, 'showSavedTestJsStepInputV2'])->name('test.step-input');
-    Route::get('/test/{slug}/step/manual', [TestJsV2Controller::class, 'showSavedTestJsStepManualV2'])->name('test.step-manual');
-    Route::get('/test/{slug}/step/select', [TestJsV2Controller::class, 'showSavedTestJsStepSelectV2'])->name('test.step-select');
-    Route::get('/test/{slug}/select', [TestJsV2Controller::class, 'showSavedTestJsSelectV2'])->name('test.select');
-    Route::get('/test/{slug}/input', [TestJsV2Controller::class, 'showSavedTestJsInputV2'])->name('test.input');
-    Route::get('/test/{slug}/manual', [TestJsV2Controller::class, 'showSavedTestJsManualV2'])->name('test.manual');
 
     Route::prefix('admin')->group(function () {
         Route::get('/', [GitDeploymentController::class, 'index'])->name('admin.dashboard');
@@ -296,8 +308,6 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::put('/tests/{slug}', [GrammarTestController::class, 'update'])->name('saved-tests.update');
         Route::delete('/tests/{slug}', [GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
 
-        Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
-
         // Words Export routes
         Route::prefix('words/export')->name('admin.words.export.')->group(function () {
             Route::get('/', [WordsExportController::class, 'index'])->name('index');
@@ -308,8 +318,6 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
             Route::post('/csv', [WordsExportController::class, 'exportCsv'])->name('csv');
             Route::post('/csv/import', [WordsExportController::class, 'importCsv'])->name('csv.import');
         });
-
-        Route::get('/search', SiteSearchController::class)->name('site.search');
 
         Route::get('/ai-test', [AiTestController::class, 'form'])->name('ai-test.form');
         Route::post('/ai-test/start', [AiTestController::class, 'start'])->name('ai-test.start');

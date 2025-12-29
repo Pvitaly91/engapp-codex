@@ -19,7 +19,7 @@
                 Закрити
             </button>
         </div>
-        <form id="tag-filter" action="{{ route('catalog.tests-cards') }}" method="GET">
+        <form id="tag-filter" action="{{ localized_route('catalog.tests-cards') }}" method="GET">
             @if(isset($availableLevels) && $availableLevels->count())
                 <div class="mb-4">
                     <label class="block text-sm mb-1">Level:</label>
@@ -68,7 +68,7 @@
         </form>
         @if(!empty($selectedTags) || !empty($selectedLevels))
             <div class="mt-2">
-                <a href="{{ route('catalog.tests-cards') }}" class="text-xs text-muted-foreground hover:underline">Скинути фільтр</a>
+                <a href="{{ localized_route('catalog.tests-cards') }}" class="text-xs text-muted-foreground hover:underline">Скинути фільтр</a>
             </div>
         @endif
     </aside>
@@ -100,11 +100,11 @@
                         @php
                             $preferredView = data_get($test->filters, 'preferred_view');
                             if ($preferredView === 'drag-drop') {
-                                $testRoute = route('saved-test.js.drag-drop', $test->slug);
+                                $testRoute = localized_route('saved-test.js.drag-drop', $test->slug);
                             } elseif ($preferredView === 'match') {
-                                $testRoute = route('saved-test.js.match', $test->slug);
+                                $testRoute = localized_route('saved-test.js.match', $test->slug);
                             } else {
-                                $testRoute = route('test.show', $test->slug);
+                                $testRoute = localized_route('test.show', $test->slug);
                             }
                         @endphp
                         <a href="{{ $testRoute }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-2xl text-sm font-semibold">Пройти тест</a>

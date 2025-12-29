@@ -51,7 +51,7 @@
     @livewireStyles
     @stack('head-scripts')
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
+<body class="bg-gray-50 min-h-screen flex flex-col" style="background-attachment: fixed;">
 
     <!-- Навігація -->
     <nav class="bg-white shadow mb-6" x-data="{ open: false }">

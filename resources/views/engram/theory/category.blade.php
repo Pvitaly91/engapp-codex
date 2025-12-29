@@ -10,11 +10,11 @@
     <div class="min-h-screen">
         {{-- Breadcrumb Navigation --}}
         <nav class="mb-6 flex items-center gap-1.5 text-xs text-muted-foreground" aria-label="Breadcrumb">
-            <a href="{{ route('home') }}" class="hover:text-primary transition-colors">
+            <a href="{{ localized_route('home') }}" class="hover:text-primary transition-colors">
                 Головна
             </a>
             <span class="text-border">/</span>
-            <a href="{{ route($routePrefix . '.index') }}" class="hover:text-primary transition-colors">
+            <a href="{{ localized_route($routePrefix . '.index') }}" class="hover:text-primary transition-colors">
                 {{ $sectionTitle ?? 'Теорія' }}
             </a>
             <span class="text-border">/</span>
@@ -60,7 +60,7 @@
                 {{-- Quick navigation back --}}
                 <div class="mt-6 flex flex-wrap gap-2">
                     <a 
-                        href="{{ route($routePrefix . '.index') }}"
+                        href="{{ localized_route($routePrefix . '.index') }}"
                         class="inline-flex items-center gap-1.5 rounded-full bg-white/10 backdrop-blur-sm px-4 py-2 text-sm font-medium text-white hover:bg-white/20 transition"
                     >
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -151,7 +151,7 @@
                         </h3>
                         <div class="space-y-2">
                             <a 
-                                href="{{ route($routePrefix . '.index') }}"
+                                href="{{ localized_route($routePrefix . '.index') }}"
                                 class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 text-sm font-medium text-foreground transition-all hover:shadow-sm hover:border-primary/20 border border-transparent"
                             >
                                 <svg class="h-5 w-5 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -187,7 +187,7 @@
                         <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-2">
                             @foreach($categoryPages as $index => $page)
                                 <a 
-                                    href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $page->slug]) }}"
+                                    href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $page->slug]) }}"
                                     class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-primary/30 hover:shadow-xl block"
                                 >
                                     {{-- Card Header with Gradient and Title --}}
@@ -347,7 +347,7 @@
                             <nav class="space-y-1">
                                 @foreach($categoryPages as $pageItem)
                                     <a 
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
+                                        href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
                                         class="block rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-muted"
                                     >
                                         {{ $pageItem->title }}
@@ -361,7 +361,7 @@
                     <div class="border-t border-border pt-4">
                         <div class="space-y-2">
                             <a 
-                                href="{{ route($routePrefix . '.index') }}"
+                                href="{{ localized_route($routePrefix . '.index') }}"
                                 class="flex items-center gap-2 rounded-lg bg-muted/50 px-3 py-2 text-sm font-medium text-foreground"
                             >
                                 <svg class="h-4 w-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
