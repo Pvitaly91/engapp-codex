@@ -49,7 +49,7 @@
             --muted: #94a3b8;
             --border: #1f2937;
         }
-        body { background: radial-gradient(circle at 10% 20%, rgba(90,107,255,0.12), transparent 22%), radial-gradient(circle at 80% 0%, rgba(91,206,250,0.14), transparent 18%), var(--bg); color: var(--fg); }
+        body { background: radial-gradient(circle at 10% 20%, rgba(90,107,255,0.12), transparent 22%), radial-gradient(circle at 80% 0%, rgba(91,206,250,0.14), transparent 18%), var(--bg); background-attachment: fixed; color: var(--fg); }
     </style>
     @livewireStyles
 </head>
