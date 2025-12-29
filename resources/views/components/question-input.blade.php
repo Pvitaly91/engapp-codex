@@ -115,7 +115,7 @@ HTML;
             if (this.testSlug) {
                 payload.test_slug = this.testSlug;
             }
-            fetch('{{ route('question.hint') }}', {
+            fetch('{{ localized_route('question.hint') }}', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

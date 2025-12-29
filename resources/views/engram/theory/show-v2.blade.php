@@ -121,7 +121,7 @@
                                 @php($isActiveCategory = isset($selectedCategory) && $selectedCategory->is($category))
                                 <li>
                                     <a 
-                                        href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                        href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
                                         class="block rounded-xl px-3 py-2 text-sm transition-all {{ $isActiveCategory ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted hover:text-foreground' }}"
                                     >
                                         {{ $category->title }}
@@ -169,7 +169,7 @@
                                 @php($isCurrentPage = $page->is($pageItem))
                                 <li>
                                     <a 
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
+                                        href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
                                         class="block rounded-xl px-3 py-2 text-sm transition-all {{ $isCurrentPage ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted hover:text-foreground' }}"
                                     >
                                         {{ $pageItem->title }}
@@ -187,7 +187,7 @@
                     </h3>
                     <div class="space-y-2">
                         <a 
-                            href="{{ route($routePrefix . '.index') }}"
+                            href="{{ localized_route($routePrefix . '.index') }}"
                             class="flex items-center gap-3 rounded-xl bg-background/60 px-3 py-2.5 text-sm font-medium text-foreground transition-all hover:bg-background hover:shadow-sm"
                         >
                             <svg class="h-4 w-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -197,7 +197,7 @@
                         </a>
                         @if(isset($selectedCategory))
                             <a 
-                                href="{{ route($routePrefix . '.category', $selectedCategory->slug) }}"
+                                href="{{ localized_route($routePrefix . '.category', $selectedCategory->slug) }}"
                                 class="flex items-center gap-3 rounded-xl bg-background/60 px-3 py-2.5 text-sm font-medium text-foreground transition-all hover:bg-background hover:shadow-sm"
                             >
                                 <svg class="h-4 w-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -343,7 +343,7 @@
                             @foreach($categories as $category)
                                 <li>
                                     <a 
-                                        href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                        href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
                                         class="block rounded-xl px-3 py-2 text-sm {{ isset($selectedCategory) && $selectedCategory->is($category) ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:bg-muted' }}"
                                     >
                                         {{ $category->title }}
@@ -362,7 +362,7 @@
                             @foreach($categoryPages as $pageItem)
                                 <li>
                                     <a 
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
+                                        href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
                                         class="block rounded-xl px-3 py-2 text-sm {{ $page->is($pageItem) ? 'bg-secondary text-secondary-foreground font-medium' : 'text-muted-foreground hover:bg-muted' }}"
                                     >
                                         {{ $pageItem->title }}
