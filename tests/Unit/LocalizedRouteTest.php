@@ -141,10 +141,18 @@ class LocalizedRouteTest extends TestCase
     /**
      * Helper method to test the URL normalization logic.
      * 
-     * This extracts and tests the core logic from LocaleService::localizedRoute()
-     * that strips and conditionally re-adds locale prefixes. We test this logic
-     * in isolation because in a test environment, route() may not have the actual
-     * routes registered with all the locale prefixes.
+     * NOTE: This intentionally duplicates the core logic from LocaleService::localizedRoute()
+     * for unit testing purposes. We test the logic in isolation here because:
+     * 
+     * 1. In a test environment, route() may not have the actual routes registered with
+     *    all the locale prefixes that RouteServiceProvider adds in production
+     * 2. We want to verify the URL normalization logic independently of Laravel's
+     *    route matching behavior
+     * 3. This allows us to test edge cases that would be hard to reproduce with
+     *    actual route registration
+     * 
+     * While this creates some duplication, it ensures we're testing the exact behavior
+     * that was fixed (always stripping prefixes before conditionally adding them back).
      * 
      * @param string $path The URL path to normalize (e.g., '/pl/catalog/tests-cards')
      * @param string $targetLocale The target locale code (e.g., 'uk', 'pl', 'en')

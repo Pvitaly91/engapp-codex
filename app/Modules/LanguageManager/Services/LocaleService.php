@@ -159,9 +159,9 @@ class LocaleService
         $segments = array_values(array_filter(explode('/', $path)));
         $activeCodes = self::getActiveLanguages()->pluck('code')->toArray();
         
-        // If no active languages from DB, use config
+        // If no active languages from DB, use config (with sensible default)
         if (empty($activeCodes)) {
-            $activeCodes = config('app.supported_locales', []);
+            $activeCodes = config('app.supported_locales', ['uk', 'en', 'pl']);
         }
         
         // Always remove existing locale prefix if present (even for default language)
