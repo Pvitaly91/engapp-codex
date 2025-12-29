@@ -117,7 +117,7 @@
             @if ($singleStudyLangName)
               <span class="text-sm font-semibold text-brand-900">{{ $singleStudyLangName }}</span>
             @elseif (count($studyLangOptions) > 1)
-              <select id="study-lang" class="rounded-xl border border-[var(--border)] bg-white px-3 py-2 text-sm font-medium shadow-sm transition focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+              <select id="study-lang" class="rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-sm font-medium shadow-sm transition focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
                 @foreach ($studyLangOptions as $langCode => $langName)
                   <option value="{{ $langCode }}" {{ $studyLang === $langCode ? 'selected' : '' }}>{{ $langName }}</option>
                 @endforeach

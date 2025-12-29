@@ -100,7 +100,7 @@
 
           <div id="typingBox" class="space-y-3">
             <label for="answerInput" class="text-sm font-semibold text-brand-600">{{ __('verbs.type_answer') }}</label>
-            <input id="answerInput" type="text" autocomplete="off" class="w-full rounded-xl border border-[var(--border)] bg-white px-4 py-3 text-lg font-semibold shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100" />
+            <input id="answerInput" type="text" autocomplete="off" class="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-lg font-semibold shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100" />
             <div id="suggestionsBox" class="hidden rounded-xl border border-[var(--border)] bg-brand-50/50 p-2 text-sm space-y-1"></div>
           </div>
 
@@ -142,7 +142,7 @@
             <p class="text-sm font-semibold text-brand-600">{{ __('verbs.progress') }}</p>
             <span id="progressPercent" class="text-sm font-semibold text-brand-700">0%</span>
           </div>
-          <div class="h-3 rounded-full bg-gray-200">
+          <div class="h-3 rounded-full bg-[var(--muted)]/20">
             <div id="progressBar" class="h-3 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 transition-all duration-500 shadow-sm" style="width:0%"></div>
           </div>
           <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
