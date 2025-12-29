@@ -161,7 +161,7 @@
                                 </div>
                                 
                                 @if($test->description)
-                                    <div class="text-sm text-[var(--muted)] mb-3 line-clamp-2">{{ \Illuminate\Support\Str::limit(strip_tags($test->description), 100) }}</div>
+                                    <div class="text-sm text-[var(--muted)] mb-3 line-clamp-2">{{ strip_tags($test->description) }}</div>
                                 @endif
                                 
                                 @php

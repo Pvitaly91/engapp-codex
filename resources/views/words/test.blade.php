@@ -194,7 +194,9 @@
         <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-brand-600">📊</span>
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-brand-600" role="img" aria-label="{{ __('words_test.progress') }}">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </span>
               <p class="text-sm font-semibold text-[var(--muted)]">{{ __('words_test.progress') }}</p>
             </div>
             <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700" id="percentage">0%</span>
