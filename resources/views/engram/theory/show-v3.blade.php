@@ -44,7 +44,7 @@
                 <div id="theory-sidebar" class="sticky top-24 space-y-5 transition-[top] duration-200 max-h-[calc(100vh-7rem)] overflow-y-auto pr-1">
                     {{-- Theory Categories List --}}
                     @if(isset($categories) && $categories->isNotEmpty())
-                        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card backdrop-blur-sm">
+                        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card">
                             <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
                                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
@@ -63,7 +63,7 @@
                     @endif
 
                     @if(isset($selectedCategory) && $categoryPages->isNotEmpty())
-                        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card backdrop-blur-sm">
+                        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card">
                             <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
                                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/>
@@ -88,7 +88,7 @@
                     {{-- Table of Contents --}}
                     @php($tocBlocks = $contentBlocks->filter(fn($b) => !empty(json_decode($b->body ?? '[]', true)['title'] ?? '')))
                     @if($tocBlocks->isNotEmpty())
-                        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card backdrop-blur-sm">
+                        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card">
                             <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
                                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/>
@@ -115,7 +115,7 @@
                 
 
                     {{-- Quick Actions --}}
-                        <div class="rounded-2xl border border-[var(--border)] bg-gradient-to-br from-brand-50/70 via-[var(--card)] to-white p-5 shadow-card backdrop-blur-sm">
+                        <div class="rounded-2xl border border-[var(--border)] bg-gradient-to-br from-brand-50/70 via-[var(--card)] to-white p-5 shadow-card">
                         <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
                             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -148,7 +148,7 @@
 
                     {{-- Tags Section --}}
                     @if($page->tags->isNotEmpty())
-                        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card backdrop-blur-sm" x-data="{ show: false }">
+                        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card" x-data="{ show: false }">
                             <button 
                                 @click="show = !show"
                                 class="flex w-full items-center justify-between text-left"
@@ -182,9 +182,9 @@
             </aside>
 
             {{-- Primary Content Area --}}
-            <div class="min-w-0 space-y-6 rounded-3xl border border-[var(--border)] bg-[var(--card)]/85 p-6 shadow-card backdrop-blur-sm">
+            <div class="min-w-0 space-y-6 rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card">
                 {{-- Hero Title Card --}}
-                <header class="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-gradient-to-br from-brand-50 via-white to-brand-50 text-foreground shadow-card">
+                <header class="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-gradient-to-br from-brand-50 via-white to-brand-50 text-foreground shadow-sm">
                     {{-- Decorative Pattern --}}
                     <div class="absolute inset-0 opacity-60">
                         <svg class="h-full w-full text-brand-100" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -234,7 +234,7 @@
                                         'sky' => 'bg-sky-50 text-sky-700',
                                         default => 'bg-slate-50 text-slate-700',
                                     })
-                                    <span class="inline-flex items-center gap-1.5 rounded-full {{ $pillBg }} px-3 py-1 text-xs font-medium backdrop-blur-sm">
+                                    <span class="inline-flex items-center gap-1.5 rounded-full {{ $pillBg }} px-3 py-1 text-xs font-medium">
                                         <span class="h-1.5 w-1.5 rounded-full bg-current"></span>
                                         {{ $rule['label'] ?? '' }}
                                     </span>
