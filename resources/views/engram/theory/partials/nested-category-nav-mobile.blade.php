@@ -47,7 +47,7 @@
             @endif
             
             <a
-                href="{{ route($routePrefix . '.category', $category->slug) }}"
+                href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
                 class="flex-1 flex items-center justify-between rounded-lg px-2 py-2 text-sm {{ $isActive ? 'bg-primary px-[5px] text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted' }}"
             >
                 <span>{{ $category->title }}</span>
@@ -72,7 +72,7 @@
                         @php($isCurrentPage = $currentPage && $currentPage->is($page))
                         <div class="space-y-0.5" style="padding-left: {{ $indent + 28 }}px">
                             <a
-                                href="{{ route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
+                                href="{{ localized_route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
                                 class="flex items-start gap-2 rounded-lg px-2 py-1.5 text-xs transition-all {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground hover:bg-muted' }}"
                                 @if($isCurrentPage) aria-current="page" @endif
                             >

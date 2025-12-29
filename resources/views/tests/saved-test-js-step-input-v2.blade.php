@@ -132,7 +132,7 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
     ? window.__INITIAL_JS_TEST_QUESTIONS__
     : [];
 const CSRF_TOKEN = '{{ csrf_token() }}';
-const EXPLAIN_URL = '{{ route('question.explain') }}';
+const EXPLAIN_URL = '{{ localized_route('question.explain') }}';
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
@@ -374,7 +374,7 @@ function fetchHints(q, refresh = false) {
   const payload = q.id ? { question_id: q.id } : { question: q.question };
   if (refresh) payload.refresh = true;
   showLoader(true);
-  fetch('{{ route('question.hint') }}', {
+  fetch('{{ localized_route('question.hint') }}', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

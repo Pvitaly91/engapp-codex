@@ -3,46 +3,76 @@
 @section('title', __('public.search.title'))
 
 @section('content')
-<div class="space-y-6">
-    <header class="space-y-2" data-animate>
-        <h1 class="text-3xl font-bold tracking-tight text-foreground">{{ __('public.search.results_title') }}</h1>
-        <p class="text-sm text-muted-foreground">
-            {{ __('public.search.found_for') }} <span class="font-semibold text-foreground">"{{ e($query) }}"</span>
-        </p>
-    </header>
-
-    @if($results->isEmpty())
-        <div class="rounded-2xl border border-dashed border-border/70 bg-muted/30 p-12 text-center" data-animate data-animate-delay="80">
-            <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-muted">
-                <svg class="h-8 w-8 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
+@php
+    $pageResults = $results->where('type', 'page');
+    $testResults = $results->where('type', 'test');
+@endphp
+<div class="space-y-10">
+    <section class="rounded-3xl border border-[var(--border)] bg-[var(--card)]/90 p-6 shadow-card">
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+                <p class="text-sm text-[var(--muted)]">{{ __('public.search.found_for') }}</p>
+                <h1 class="text-3xl font-bold">“{{ e($query) }}”</h1>
             </div>
-            <p class="text-lg font-semibold text-foreground">{{ __('public.search.nothing_found') }}</p>
-            <p class="mt-2 text-sm text-muted-foreground">{{ __('public.search.try_another') }}</p>
-            <a href="{{ route('catalog.tests-cards') }}" class="mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg">
-                {{ __('public.search.to_catalog') }}
-            </a>
+            <form action="{{ localized_route('site.search') }}" method="GET" class="flex w-full max-w-lg items-center gap-3 rounded-full border border-[var(--border)] bg-white/70 px-4 py-2 shadow-sm">
+                <svg class="h-5 w-5 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <input type="search" name="q" value="{{ $query }}" placeholder="{{ __('public.search.placeholder') }}" class="w-full bg-transparent text-sm focus:outline-none" />
+                <button type="submit" class="rounded-full bg-brand-600 px-4 py-2 text-xs font-semibold text-white">{{ __('public.search.button') }}</button>
+            </form>
         </div>
-    @else
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-animate data-animate-delay="100">
-            @foreach($results as $item)
-                <a href="{{ $item['url'] }}" class="group flex flex-col gap-3 rounded-2xl border border-border/70 bg-card p-5 shadow-soft transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-xl">
-                    <div class="flex items-start justify-between gap-2">
-                        <h3 class="text-base font-semibold text-foreground group-hover:text-primary">{{ $item['title'] }}</h3>
-                        <span class="shrink-0 rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
-                            {{ $item['type'] === 'page' ? __('public.common.type_theory') : __('public.common.type_test') }}
-                        </span>
-                    </div>
-                    <div class="flex items-center gap-2 text-sm text-primary">
-                        <span>{{ __('public.common.go_to') }}</span>
-                        <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                    </div>
-                </a>
-            @endforeach
+        <div class="mt-6 grid gap-4 text-sm text-[var(--muted)] sm:grid-cols-2">
+            <div class="rounded-2xl bg-brand-50/80 p-4 text-brand-900">
+                <p class="text-xs uppercase tracking-[0.2em] font-semibold">{{ __('public.search.pages') }}</p>
+                <p class="text-2xl font-bold">{{ $pageResults->count() }}</p>
+            </div>
+            <div class="rounded-2xl bg-slate-100 p-4 dark:bg-slate-800">
+                <p class="text-xs uppercase tracking-[0.2em] font-semibold">{{ __('public.search.tests') }}</p>
+                <p class="text-2xl font-bold">{{ $testResults->count() }}</p>
+            </div>
         </div>
-    @endif
+    </section>
+
+    <section class="grid gap-8 lg:grid-cols-2">
+        <div class="space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-xl font-semibold">{{ __('public.search.pages') }}</h2>
+                <span class="text-sm text-[var(--muted)]">{{ __('public.search.results_count', ['count' => $pageResults->count()]) }}</span>
+            </div>
+            @if($pageResults->isEmpty())
+                <div class="rounded-2xl border border-dashed border-[var(--border)] p-6 text-[var(--muted)]">{{ __('public.search.nothing_found') }}</div>
+            @else
+                <div class="divide-y divide-[var(--border)] overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)]">
+                    @foreach($pageResults as $item)
+                        <a href="{{ $item['url'] }}" class="block px-5 py-4 hover:bg-brand-50/70 dark:hover:bg-slate-800">
+                            <p class="text-sm text-brand-600">{{ __('public.common.type_theory') }}</p>
+                            <p class="text-lg font-semibold">{{ $item['title'] }}</p>
+                            <p class="text-xs text-[var(--muted)]">{{ $item['url'] }}</p>
+                        </a>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+        <div class="space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-xl font-semibold">{{ __('public.search.tests') }}</h2>
+                <span class="text-sm text-[var(--muted)]">{{ __('public.search.results_count', ['count' => $testResults->count()]) }}</span>
+            </div>
+            @if($testResults->isEmpty())
+                <div class="rounded-2xl border border-dashed border-[var(--border)] p-6 text-[var(--muted)]">{{ __('public.search.nothing_found') }}</div>
+            @else
+                <div class="grid gap-3">
+                    @foreach($testResults as $item)
+                        <a href="{{ $item['url'] }}" class="flex items-center justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 shadow-sm hover:border-brand-500">
+                            <div>
+                                <p class="text-sm text-brand-600">{{ __('public.common.type_test') }}</p>
+                                <p class="text-lg font-semibold">{{ $item['title'] }}</p>
+                            </div>
+                            <svg class="h-5 w-5 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+    </section>
 </div>
 @endsection

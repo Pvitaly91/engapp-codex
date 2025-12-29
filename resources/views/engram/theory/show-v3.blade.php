@@ -74,7 +74,7 @@
                                 @foreach($categoryPages as $pageItem)
                                     @php($isCurrentPage = $page->is($pageItem))
                                     <a
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
+                                        href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
                                         class="block rounded-lg px-3 py-2 text-sm transition-colors hover:bg-muted/50 {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground hover:text-foreground' }}"
                                         @if($isCurrentPage) aria-current="page" @endif
                                     >
@@ -124,7 +124,7 @@
                         </h3>
                         <div class="space-y-2">
                             <a 
-                                href="{{ route($routePrefix . '.index') }}"
+                                href="{{ localized_route($routePrefix . '.index') }}"
                                 class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 text-sm font-medium text-foreground transition-all hover:shadow-sm hover:border-primary/20 border border-transparent"
                             >
                                 <svg class="h-5 w-5 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -134,7 +134,7 @@
                             </a>
                             @if(isset($selectedCategory))
                                 <a 
-                                    href="{{ route($routePrefix . '.category', $selectedCategory->slug) }}"
+                                    href="{{ localized_route($routePrefix . '.category', $selectedCategory->slug) }}"
                                     class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 text-sm font-medium text-foreground transition-all hover:shadow-sm hover:border-primary/20 border border-transparent"
                                 >
                                     <svg class="h-5 w-5 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -412,7 +412,7 @@
                                 @foreach($categoryPages as $pageItem)
                                     @php($isCurrentPage = $page->is($pageItem))
                                     <a 
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
+                                        href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
                                         class="block rounded-lg px-3 py-2 text-sm {{ $isCurrentPage ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted' }}"
                                     >
                                         {{ $pageItem->title }}
@@ -426,7 +426,7 @@
                     <div class="border-t border-border pt-4">
                         <div class="space-y-2">
                             <a 
-                                href="{{ route($routePrefix . '.index') }}"
+                                href="{{ localized_route($routePrefix . '.index') }}"
                                 class="flex items-center gap-2 rounded-lg bg-muted/50 px-3 py-2 text-sm font-medium text-foreground"
                             >
                                 <svg class="h-4 w-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
