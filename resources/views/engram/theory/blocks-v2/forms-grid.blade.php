@@ -5,7 +5,7 @@
     <div class="rounded-3xl border border-border/50 bg-card/80 p-6 md:p-8 shadow-sm backdrop-blur-sm">
         @if(!empty($data['title']))
             <h2 class="text-xl md:text-2xl font-bold text-foreground mb-2 flex items-center gap-3">
-                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary text-sm font-bold">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-50 text-brand-700 text-sm font-bold">
                     {{ preg_replace('/[^0-9]/', '', $data['title']) ?: '•' }}
                 </span>
                 {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
@@ -18,9 +18,9 @@
 
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             @foreach($items as $item)
-                <article class="group relative rounded-2xl border border-border/50 bg-gradient-to-br from-background to-muted/30 p-5 transition-all hover:shadow-md hover:border-primary/20">
+                <article class="group relative rounded-2xl border border-border/50 bg-gradient-to-br from-background to-muted/30 p-5 transition-all hover:shadow-md hover:border-brand-500">
                     @if(!empty($item['label']))
-                        <span class="inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary mb-3">
+                        <span class="inline-block rounded-full bg-brand-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand-700 mb-3">
                             {{ $item['label'] }}
                         </span>
                     @endif
@@ -36,7 +36,7 @@
                     @endif
 
                     {{-- Decorative accent --}}
-                    <div class="absolute bottom-0 left-4 right-4 h-0.5 rounded-full bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-4 right-4 h-0.5 rounded-full bg-gradient-to-r from-brand-500/0 via-brand-500/20 to-brand-500/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </article>
             @endforeach
         </div>

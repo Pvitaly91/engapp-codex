@@ -7,10 +7,10 @@
 <section id="block-{{ $block->id }}" class="scroll-mt-24">
     <div class="rounded-2xl border border-border/60 bg-card overflow-hidden">
         @if(!empty($data['title']))
-            <div class="border-b border-border/40 bg-gradient-to-r from-primary/5 to-secondary/5 px-5 py-4">
+            <div class="border-b border-border/40 bg-gradient-to-r from-brand-50 to-indigo-50 px-5 py-4">
                 <div class="flex items-center justify-between gap-3">
                     <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
-                        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary text-white text-xs font-bold">
+                        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-600 text-white text-xs font-bold shadow-sm">
                             ⚡
                         </span>
                         {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
@@ -43,7 +43,7 @@
                                     <label class="block text-sm text-foreground/80 mb-1.5">
                                         {!! $item['label'] ?? '' !!}
                                     </label>
-                                    <select class="w-full sm:w-48 rounded-lg border-border bg-white px-3 py-1.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all">
+                                    <select class="w-full sm:w-48 rounded-lg border-border bg-white px-3 py-1.5 text-sm focus:border-brand-500 focus:ring-1 focus:ring-brand-100 transition-all">
                                         <option value="">— обери —</option>
                                         @foreach($options as $option)
                                             <option>{{ $option }}</option>
@@ -77,7 +77,7 @@
                                 <span>{!! $item['before'] ?? '' !!}</span>
                                 <input 
                                     type="text" 
-                                    class="w-28 rounded-lg border-border bg-white px-2.5 py-1 text-sm focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all" 
+                                    class="w-28 rounded-lg border-border bg-white px-2.5 py-1 text-sm focus:border-brand-500 focus:ring-1 focus:ring-brand-100 transition-all" 
                                     placeholder="..."
                                 />
                                 <span>{!! $item['after'] ?? '' !!}</span>
@@ -125,7 +125,7 @@
                                     </p>
                                     <input 
                                         type="text" 
-                                        class="w-full rounded-lg border-border bg-white px-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all" 
+                                        class="w-full rounded-lg border-border bg-white px-3 py-2 text-sm focus:border-brand-500 focus:ring-1 focus:ring-brand-100 transition-all" 
                                         placeholder="{{ $item['placeholder'] ?? '' }}"
                                     />
                                 </div>
