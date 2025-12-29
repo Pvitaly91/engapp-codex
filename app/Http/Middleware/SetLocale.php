@@ -19,7 +19,7 @@ class SetLocale
     {
         // Get supported locales from Language Manager module if available
         $supportedLocales = $this->getSupportedLocales();
-        $defaultLocale = $this->getDefaultLocale();
+        $defaultLocale = LocaleService::getDefaultLocaleCode();
 
         // Check URL prefix for locale - this is the primary source of truth for URL-based routing
         $segments = $request->segments();
@@ -61,32 +61,26 @@ class SetLocale
      */
     protected function getSupportedLocales(): array
     {
+        $defaultLocale = LocaleService::getDefaultLocaleCode();
+
         // Try to get from Language Manager database
         if (Schema::hasTable('languages')) {
             $codes = LocaleService::getActiveLanguages()->pluck('code')->toArray();
             if (!empty($codes)) {
-                return $codes;
+                if (!in_array($defaultLocale, $codes, true)) {
+                    $codes[] = $defaultLocale;
+                }
+
+                return array_values(array_unique($codes));
             }
         }
 
-        // Fallback to config
-        return config('app.supported_locales', ['uk', 'en']);
-    }
-
-    /**
-     * Get default locale from Language Manager or fallback to config.
-     */
-    protected function getDefaultLocale(): string
-    {
-        // Try to get from Language Manager database
-        if (Schema::hasTable('languages')) {
-            $default = LocaleService::getDefaultLanguage();
-            if ($default) {
-                return $default->code;
-            }
+        // Fallback to config and ensure default locale is present
+        $codes = config('app.supported_locales', ['uk', 'en']);
+        if (!in_array($defaultLocale, $codes, true)) {
+            $codes[] = $defaultLocale;
         }
 
-        // Fallback to config
-        return config('app.locale', 'uk');
+        return array_values(array_unique($codes));
     }
 }

@@ -51,13 +51,44 @@ class LocaleService
     }
 
     /**
+     * Resolve the default locale code for routing.
+     *
+     * Prioritizes the configured application locale when it is available
+     * in the active language list to ensure the base language uses URLs
+     * without a prefix. Falls back to the database default (if present)
+     * or the configured locale.
+     */
+    public static function getDefaultLocaleCode(): string
+    {
+        $configDefault = config('app.locale', config('language-manager.fallback_locale', 'uk'));
+        $activeCodes = [];
+
+        if (Schema::hasTable('languages')) {
+            $activeCodes = self::getActiveLanguages()->pluck('code')->toArray();
+            $default = self::getDefaultLanguage();
+
+            if (in_array($configDefault, $activeCodes, true)) {
+                return $configDefault;
+            }
+
+            if ($default) {
+                return $default->code;
+            }
+
+            if (!empty($activeCodes)) {
+                return $activeCodes[0];
+            }
+        }
+
+        return $configDefault;
+    }
+
+    /**
      * Check if current locale is the default.
      */
     public static function isDefaultLocale(): bool
     {
-        $default = self::getDefaultLanguage();
-        
-        return $default && $default->code === app()->getLocale();
+        return app()->getLocale() === self::getDefaultLocaleCode();
     }
 
     /**
@@ -72,7 +103,12 @@ class LocaleService
         // Get current segments
         $segments = array_values(array_filter(explode('/', $path)));
         $activeCodes = self::getActiveLanguages()->pluck('code')->toArray();
-        $default = self::getDefaultLanguage();
+        $defaultCode = self::getDefaultLocaleCode();
+
+        // Ensure the default locale is considered active for prefix stripping
+        if (!in_array($defaultCode, $activeCodes, true)) {
+            $activeCodes[] = $defaultCode;
+        }
 
         // Remove existing locale prefix if present
         if (!empty($segments) && in_array($segments[0], $activeCodes)) {
@@ -80,7 +116,7 @@ class LocaleService
         }
 
         // Add new locale prefix (except for default language)
-        if ($default && $locale !== $default->code) {
+        if ($locale !== $defaultCode) {
             array_unshift($segments, $locale);
         }
 
@@ -143,10 +179,7 @@ class LocaleService
     public static function localizedRoute(string $name, $parameters = [], bool $absolute = true, ?string $locale = null): string
     {
         $locale = $locale ?? self::getCurrentLocale();
-        $default = self::getDefaultLanguage();
-        
-        // Fallback to config if database doesn't have default language
-        $defaultCode = $default ? $default->code : config('app.locale', 'uk');
+        $defaultCode = self::getDefaultLocaleCode();
         
         // Generate the base route URL
         $url = route($name, $parameters, $absolute);
@@ -163,6 +196,11 @@ class LocaleService
             // If no active languages from DB, use config
             if (empty($activeCodes)) {
                 $activeCodes = config('app.supported_locales', ['uk', 'en', 'pl']);
+            }
+
+            // Make sure the default locale is present for prefix stripping
+            if (!in_array($defaultCode, $activeCodes, true)) {
+                $activeCodes[] = $defaultCode;
             }
             
             // Remove existing locale prefix if present

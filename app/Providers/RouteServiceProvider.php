@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Modules\LanguageManager\Models\Language;
+use App\Modules\LanguageManager\Services\LocaleService;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -61,10 +62,12 @@ class RouteServiceProvider extends ServiceProvider
                 return;
             }
 
+            $defaultLocaleCode = LocaleService::getDefaultLocaleCode();
+
             // Get non-default language codes for URL prefixes
             $localePrefixes = $languages
-                ->where('is_default', false)
                 ->pluck('code')
+                ->reject(fn ($code) => $code === $defaultLocaleCode)
                 ->toArray();
 
             if (empty($localePrefixes)) {
