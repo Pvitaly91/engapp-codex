@@ -2,7 +2,7 @@
 @php($items = $data['items'] ?? [])
 
 <section id="block-{{ $block->id }}" class="scroll-mt-24">
-    <div class="rounded-3xl border border-border/50 bg-gradient-to-br from-emerald-50/50 via-card to-primary/5 p-6 md:p-8 shadow-sm backdrop-blur-sm">
+    <div class="rounded-3xl border border-border/50 bg-gradient-to-br from-emerald-50/50 via-card to-brand-50/50 p-6 md:p-8 shadow-sm backdrop-blur-sm">
         @if(!empty($data['title']))
             <h2 class="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                 <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500 text-white text-sm font-bold">

@@ -7,7 +7,7 @@
             <div class="border-b border-border/40 bg-muted/30 px-5 py-4">
                 <div class="flex items-center justify-between gap-3">
                     <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
-                        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-secondary text-secondary-foreground text-xs font-bold">
+                        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-700 text-white text-xs font-bold">
                             {{ preg_replace('/[^0-9]/', '', $data['title']) ?: '#' }}
                         </span>
                         {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
