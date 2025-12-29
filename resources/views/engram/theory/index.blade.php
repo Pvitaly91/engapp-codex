@@ -111,7 +111,7 @@
                         $hasChildren = $category->relationLoaded('children') && $category->children->isNotEmpty();
                         $hasPages = $category->relationLoaded('pages') && $category->pages->isNotEmpty();
                     @endphp
-                    <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-primary/30 hover:shadow-xl">
+                    <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-brand-500 hover:shadow-xl">
                         {{-- Card Header with Gradient and Title --}}
                         <a 
                             href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
@@ -162,7 +162,7 @@
                                             <li>
                                                 <a 
                                                     href="{{ localized_route($routePrefix . '.category', $child->slug) }}"
-                                                    class="flex items-center justify-between text-sm text-foreground hover:text-primary transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
+                                                    class="flex items-center justify-between text-sm text-foreground hover:text-brand-600 transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
                                                 >
                                                     <span class="flex items-center gap-2">
                                                         <svg class="h-3 w-3 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -188,7 +188,7 @@
                                             <li>
                                                 <a 
                                                     href="{{ localized_route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
-                                                    class="flex items-start gap-2 text-sm text-foreground hover:text-primary transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
+                                                    class="flex items-start gap-2 text-sm text-foreground hover:text-brand-600 transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
                                                 >
                                                     <svg class="h-3 w-3 text-muted-foreground/60 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -237,7 +237,7 @@
             <div class="rounded-3xl border border-border/60 bg-gradient-to-br from-muted/30 via-card to-muted/20 p-8 md:p-12">
                 <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
                     <div>
-                        <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-2 text-sm font-semibold mb-4">
+                        <div class="inline-flex items-center gap-2 rounded-full bg-brand-50 text-brand-700 px-4 py-2 text-sm font-semibold mb-4">
                             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
@@ -272,11 +272,11 @@
                     {{-- Stats Cards --}}
                     <div class="grid gap-4 sm:grid-cols-2">
                         <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
-                            <div class="text-4xl font-black text-primary mb-2">{{ $categories->count() }}</div>
+                            <div class="text-4xl font-black text-brand-600 mb-2">{{ $categories->count() }}</div>
                             <p class="text-sm text-muted-foreground">{{ __('public.theory.theory_categories') }}</p>
                         </div>
                         <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
-                            <div class="text-4xl font-black text-secondary mb-2">{{ $totalPages }}</div>
+                            <div class="text-4xl font-black text-brand-700 mb-2">{{ $totalPages }}</div>
                             <p class="text-sm text-muted-foreground">{{ __('public.theory.lesson_pages') }}</p>
                         </div>
                         <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
@@ -329,7 +329,7 @@
                             <div class="space-y-1">
                                 <a 
                                     href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
-                                    class="flex items-center justify-between rounded-xl bg-muted/30 px-4 py-3 text-sm font-medium text-foreground transition hover:bg-primary/10 hover:text-primary"
+                                    class="flex items-center justify-between rounded-xl bg-muted/30 px-4 py-3 text-sm font-medium text-foreground transition hover:bg-brand-50 hover:text-brand-700"
                                 >
                                     <span>{{ $category->title }}</span>
                                     @if(isset($category->pages_count) && $category->pages_count > 0)
@@ -341,7 +341,7 @@
                                         @foreach($category->children as $child)
                                             <a 
                                                 href="{{ localized_route($routePrefix . '.category', $child->slug) }}"
-                                                class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-muted-foreground transition hover:bg-primary/10 hover:text-primary"
+                                                class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-muted-foreground transition hover:bg-brand-50 hover:text-brand-700"
                                             >
                                                 <span class="flex items-center gap-1.5">
                                                     <svg class="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
