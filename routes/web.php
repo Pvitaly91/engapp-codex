@@ -54,21 +54,19 @@ Route::get('/set-locale', function (\Illuminate\Http\Request $request) {
     $lang = $request->input('lang', 'uk');
     
     // Get supported locales from Language Manager or fallback to config
-    $supportedLocales = ['uk', 'en']; // Default fallback
-    $defaultLocale = 'uk';
+    $supportedLocales = config('app.supported_locales', ['uk', 'en']);
+    $defaultLocale = \App\Modules\LanguageManager\Services\LocaleService::getDefaultLocaleCode();
     
     if (\Illuminate\Support\Facades\Schema::hasTable('languages')) {
         $codes = \App\Modules\LanguageManager\Services\LocaleService::getActiveLanguages()->pluck('code')->toArray();
         if (!empty($codes)) {
             $supportedLocales = $codes;
         }
-        $default = \App\Modules\LanguageManager\Services\LocaleService::getDefaultLanguage();
-        if ($default) {
-            $defaultLocale = $default->code;
-        }
-    } else {
-        $supportedLocales = config('app.supported_locales', ['uk', 'en']);
-        $defaultLocale = config('app.locale', 'uk');
+    }
+
+    // Ensure default locale is included in supported list
+    if (!in_array($defaultLocale, $supportedLocales, true)) {
+        $supportedLocales[] = $defaultLocale;
     }
     
     if (! in_array($lang, $supportedLocales)) {
