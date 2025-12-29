@@ -10,9 +10,9 @@
         $totalPages = $categories->sum(fn($c) => $c->pages_count ?? 0);
     @endphp
 
-    <div class="min-h-screen">
+    <div class="min-h-screen space-y-10">
         {{-- Hero Section with General Overview --}}
-        <header class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white mb-10">
+        <header class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-500 via-brand-600 to-indigo-600 text-white shadow-card">
             {{-- Animated Background Pattern --}}
             <div class="absolute inset-0 opacity-20">
                 <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -34,16 +34,16 @@
                 <div class="max-w-4xl">
                     {{-- Badge --}}
                     <div class="flex flex-wrap items-center gap-3 mb-6">
-                        <span class="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-semibold">
+                        <span class="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-semibold shadow-card">
                             <svg class="h-5 w-5 text-yellow-300" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
                             </svg>
                             {{ __('public.theory.section_badge') }}
                         </span>
-                        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium">
+                        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium shadow-sm">
                             {{ $categories->count() }} {{ __('public.theory.categories_count') }}
                         </span>
-                        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium">
+                        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium shadow-sm">
                             {{ $totalPages }} {{ __('public.theory.lessons_count') }}
                         </span>
                     </div>
@@ -63,7 +63,7 @@
                         @if($categories->first())
                             <a 
                                 href="{{ localized_route($routePrefix . '.category', $categories->first()->slug) }}"
-                                class="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-indigo-600 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+                                class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-brand-700 shadow-card transition hover:-translate-y-0.5 hover:shadow-xl"
                             >
                                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
@@ -74,7 +74,7 @@
                         @endif
                         <a 
                             href="#categories-section"
-                            class="inline-flex items-center gap-2 rounded-xl bg-white/20 backdrop-blur-sm px-6 py-3 text-sm font-bold text-white transition hover:bg-white/30"
+                            class="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-sm px-6 py-3 text-sm font-bold text-white transition hover:bg-white/25 shadow-card"
                         >
                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
@@ -89,6 +89,7 @@
         {{-- Categories Section --}}
         <section id="categories-section" class="scroll-mt-24">
             <div class="text-center mb-8">
+                <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700 shadow-sm">{{ __('public.home.sections') }}</span>
                 <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-3">{{ __('public.theory.topics_to_learn') }}</h2>
                 <p class="text-muted-foreground max-w-2xl mx-auto">
                     {{ __('public.theory.topics_hint') }}
@@ -111,7 +112,7 @@
                         $hasChildren = $category->relationLoaded('children') && $category->children->isNotEmpty();
                         $hasPages = $category->relationLoaded('pages') && $category->pages->isNotEmpty();
                     @endphp
-                    <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-primary/30 hover:shadow-xl">
+                    <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-[var(--card)] transition-all hover:border-brand-300 hover:shadow-xl shadow-card">
                         {{-- Card Header with Gradient and Title --}}
                         <a 
                             href="{{ localized_route($routePrefix . '.category', $category->slug) }}"

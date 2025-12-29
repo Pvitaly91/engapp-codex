@@ -4,24 +4,27 @@
 
 @section('content')
   <div class="space-y-8">
-    <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-      <div class="space-y-2">
-        <p class="text-sm text-muted-foreground">{{ __('verbs.subtitle') }}</p>
-        <h1 class="text-3xl font-semibold text-foreground">{{ __('verbs.title') }}</h1>
-        <p class="text-muted-foreground max-w-3xl">{{ __('verbs.description') }}</p>
+    <div class="rounded-3xl border border-[var(--border)] bg-gradient-to-br from-brand-50/80 via-white to-white p-6 shadow-card">
+      <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <div class="space-y-2">
+          <span class="inline-flex items-center gap-2 rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700">{{ __('public.nav.verbs_test') }}</span>
+          <p class="text-sm text-muted-foreground">{{ __('verbs.subtitle') }}</p>
+          <h1 class="text-3xl font-bold text-foreground">{{ __('verbs.title') }}</h1>
+          <p class="text-muted-foreground max-w-3xl">{{ __('verbs.description') }}</p>
+        </div>
       </div>
     </div>
 
     <div class="flex flex-col gap-4 lg:grid lg:grid-cols-[1.5fr_0.9fr]">
       <div class="space-y-4 order-2 lg:order-1">
-        <div class="rounded-2xl border border-border/70 bg-card p-5 shadow-soft">
+        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card">
           <div class="flex items-center justify-between gap-3">
             <div>
               <h2 class="text-lg font-semibold text-foreground">{{ __('verbs.settings') }}</h2>
               <span class="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground" id="verbs-count-badge">{{ count($verbs) }} {{ __('verbs.verbs_total') }}</span>
             </div>
-            <button id="settingsToggle" class="inline-flex items-center gap-2 rounded-xl border border-primary/60 bg-primary/10 px-3 py-2 text-xs font-semibold text-primary shadow-sm transition hover:-translate-y-0.5 hover:shadow">
-              <span class="h-2 w-2 rounded-full bg-primary shadow-inner"></span>
+            <button id="settingsToggle" class="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+              <span class="h-2 w-2 rounded-full bg-brand-600 shadow-inner"></span>
               <span id="settingsToggleText" class="uppercase tracking-[0.08em]">{{ __('verbs.settings_hide') }}</span>
             </button>
           </div>
@@ -29,48 +32,48 @@
             <div class="space-y-2">
               <p class="text-sm font-semibold text-muted-foreground">{{ __('verbs.mode') }}</p>
               <div id="modeButtons" class="grid grid-cols-2 gap-2">
-                <button type="button" data-mode-button value="hard" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_typing') }}</button>
-                <button type="button" data-mode-button value="medium" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_medium') }}</button>
-                <button type="button" data-mode-button value="easy" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_choice') }}</button>
+                <button type="button" data-mode-button value="hard" class="w-full rounded-full border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_typing') }}</button>
+                <button type="button" data-mode-button value="medium" class="w-full rounded-full border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_medium') }}</button>
+                <button type="button" data-mode-button value="easy" class="w-full rounded-full border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.mode_choice') }}</button>
               </div>
             </div>
             <div class="space-y-2">
               <p class="text-sm font-semibold text-muted-foreground">{{ __('verbs.ask_what') }}</p>
               <div id="askButtons" class="grid grid-cols-2 gap-2 md:grid-cols-3">
-                <button type="button" data-ask-button value="random" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_random') }}</button>
-                <button type="button" data-ask-button value="f1" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f1') }}</button>
-                <button type="button" data-ask-button value="f2" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f2') }}</button>
-                <button type="button" data-ask-button value="f3" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f3') }}</button>
-                <button type="button" data-ask-button value="f4" class="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f4') }}</button>
+                <button type="button" data-ask-button value="random" class="w-full rounded-full border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_random') }}</button>
+                <button type="button" data-ask-button value="f1" class="w-full rounded-full border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f1') }}</button>
+                <button type="button" data-ask-button value="f2" class="w-full rounded-full border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f2') }}</button>
+                <button type="button" data-ask-button value="f3" class="w-full rounded-full border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f3') }}</button>
+                <button type="button" data-ask-button value="f4" class="w-full rounded-full border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">{{ __('verbs.ask_f4') }}</button>
               </div>
             </div>
-            <div class="flex items-center gap-3 rounded-xl border border-border/70 bg-muted/40 px-3 py-2">
-              <input id="showUk" type="checkbox" class="h-4 w-4 rounded border-border text-primary focus:ring-primary" />
+            <div class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-muted/40 px-3 py-2">
+              <input id="showUk" type="checkbox" class="h-4 w-4 rounded border-brand-300 text-brand-600 focus:ring-brand-500" />
               <label for="showUk" class="text-sm font-semibold text-foreground">{{ __('verbs.show_translation') }}</label>
             </div>
           </div>
           <div class="mt-4 flex flex-wrap gap-3">
-            <button id="startBtn" class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow-lg">
+            <button id="startBtn" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-card transition hover:-translate-y-0.5 hover:shadow-lg">
               {{ __('verbs.start') }}
             </button>
-            <button id="restartBtn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+            <button id="restartBtn" class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-white px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
               {{ __('verbs.restart') }}
             </button>
           </div>
         </div>
 
-        <div id="questionCard" class="rounded-2xl border border-border/70 bg-card p-6 shadow-soft space-y-4 hidden">
+        <div id="questionCard" class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card space-y-4 hidden">
           <div class="flex items-center justify-between gap-3">
             <div class="space-y-2">
               <p class="text-xs uppercase tracking-[0.16em] text-muted-foreground">{{ __('verbs.question') }}</p>
-              <span id="askLabel" class="inline-flex items-center gap-2 rounded-full bg-primary/15 px-3 py-1 text-sm font-semibold text-primary shadow-sm ring-1 ring-primary/40"></span>
+              <span id="askLabel" class="inline-flex items-center gap-2 rounded-full bg-brand-100 px-3 py-1 text-sm font-semibold text-brand-700 shadow-sm ring-1 ring-brand-200"></span>
             </div>
             <div class="text-sm text-muted-foreground">
               <span id="progressText">0 / 0</span>
             </div>
           </div>
 
-          <div class="space-y-3 rounded-xl border border-border/70 bg-muted/40 px-4 py-3">
+          <div class="space-y-3 rounded-xl border border-[var(--border)] bg-muted/40 px-4 py-3">
             <p class="text-sm text-muted-foreground">{{ __('verbs.answer_for') }}</p>
             <div class="flex flex-col gap-1">
               <div id="baseVerb" class="text-3xl font-semibold text-foreground">—</div>
@@ -78,47 +81,47 @@
             </div>
           </div>
 
-          <div class="rounded-xl border border-border/70 bg-background px-4 py-3">
+          <div class="rounded-xl border border-[var(--border)] bg-background px-4 py-3">
             <p class="text-xs uppercase tracking-[0.12em] text-muted-foreground">{{ __('verbs.hint') }}</p>
             <p id="hint" class="mt-1 text-sm text-foreground"></p>
           </div>
 
           <div id="typingBox" class="space-y-3">
             <label for="answerInput" class="text-sm font-semibold text-muted-foreground">{{ __('verbs.type_answer') }}</label>
-            <input id="answerInput" type="text" autocomplete="off" class="w-full rounded-xl border border-border/70 bg-background px-4 py-3 text-lg font-semibold text-foreground shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
-            <div id="suggestionsBox" class="hidden rounded-xl border border-border/70 bg-muted/40 p-2 text-sm text-foreground space-y-1"></div>
+            <input id="answerInput" type="text" autocomplete="off" class="w-full rounded-xl border border-[var(--border)] bg-background px-4 py-3 text-lg font-semibold text-foreground shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200" />
+            <div id="suggestionsBox" class="hidden rounded-xl border border-[var(--border)] bg-muted/40 p-2 text-sm text-foreground space-y-1"></div>
           </div>
 
           <div id="choiceBox" class="grid gap-3 md:grid-cols-2"></div>
 
           <div id="controlButtons" class="flex flex-wrap items-center gap-3">
-            <button id="checkBtn" class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
+            <button id="checkBtn" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-card transition hover:-translate-y-0.5 hover:shadow">
               {{ __('verbs.check') }}
             </button>
-            <button id="revealBtn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+            <button id="revealBtn" class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-white px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
               {{ __('verbs.reveal') }}
             </button>
-            <button id="nextBtn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-muted px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+            <button id="nextBtn" class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-muted px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
               {{ __('verbs.next') }}
             </button>
           </div>
 
           <div id="feedback" class="text-sm font-semibold text-muted-foreground"></div>
 
-          <div id="doneBox" class="hidden rounded-xl border border-border/70 bg-muted/50 px-4 py-3 text-sm font-semibold text-foreground">
+          <div id="doneBox" class="hidden rounded-xl border border-[var(--border)] bg-muted/50 px-4 py-3 text-sm font-semibold text-foreground">
             <p id="doneText"></p>
           </div>
         </div>
       </div>
 
       <div class="space-y-4 order-1 lg:order-2">
-        <div class="rounded-2xl border border-border/70 bg-card p-5 shadow-soft sticky top-2 z-20 lg:static">
+        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card sticky top-2 z-20 lg:static">
           <div class="flex items-center justify-between">
             <p class="text-sm font-semibold text-muted-foreground">{{ __('verbs.progress') }}</p>
             <span id="progressPercent" class="text-sm font-semibold text-muted-foreground">0%</span>
           </div>
           <div class="mt-3 h-3 rounded-full bg-muted">
-            <div id="progressBar" class="h-3 rounded-full bg-primary transition-all duration-500" style="width:0%"></div>
+            <div id="progressBar" class="h-3 rounded-full bg-brand-600 transition-all duration-500" style="width:0%"></div>
           </div>
           <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
             <div class="rounded-xl bg-success/10 px-3 py-2 text-success">
@@ -131,7 +134,7 @@
             </div>
           </dl>
         </div>
-        <div class="rounded-2xl border border-border/70 bg-card p-5 shadow-soft text-sm text-muted-foreground space-y-2">
+        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-card text-sm text-muted-foreground space-y-2">
           <p class="font-semibold text-foreground">{{ __('verbs.how_it_works') }}</p>
           <ul class="list-disc pl-5 space-y-1">
             <li>{{ __('verbs.tip_start') }}</li>

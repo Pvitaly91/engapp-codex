@@ -74,28 +74,31 @@
         backdrop-filter: blur(8px);
       }
     </style>
-    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <div class="space-y-1">
-        <p class="text-sm text-muted-foreground">{{ __('words_test.subtitle') }} · {{ __('words_test.active_lang') }}: <span class="font-semibold text-primary">{{ strtoupper($siteLocale) }}</span></p>
-        <h1 class="text-3xl font-semibold text-foreground">{{ __('words_test.quick_test') }}</h1>
-        <p class="text-muted-foreground max-w-2xl">{{ $heroDescription }}</p>
-      </div>
-      <div class="flex flex-wrap gap-3">
-        <button id="reset-btn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
-          <span>{{ __('words_test.restart') }}</span>
-        </button>
+    <div class="rounded-3xl border border-[var(--border)] bg-gradient-to-br from-brand-50/80 via-white to-white p-6 shadow-card">
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="space-y-2">
+          <span class="inline-flex items-center gap-2 rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700">{{ __('public.nav.words_test') }}</span>
+          <p class="text-sm text-muted-foreground">{{ __('words_test.subtitle') }} · {{ __('words_test.active_lang') }}: <span class="font-semibold text-brand-700">{{ strtoupper($siteLocale) }}</span></p>
+          <h1 class="text-3xl font-bold text-foreground">{{ __('words_test.quick_test') }}</h1>
+          <p class="text-muted-foreground max-w-2xl">{{ $heroDescription }}</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <button id="reset-btn" class="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+            <span>{{ __('words_test.restart') }}</span>
+          </button>
+        </div>
       </div>
     </div>
 
     <div class="flex flex-col gap-4 md:grid md:grid-cols-[1.6fr_1fr]">
-      <div class="rounded-2xl bg-card p-6 shadow-soft border border-border/70 order-2 md:order-1" id="question-card">
+      <div class="rounded-2xl bg-[var(--card)] p-6 shadow-card border border-[var(--border)] order-2 md:order-1" id="question-card">
         <div class="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="{{ __('words_test.difficulty_modes') }}">
           @foreach ($tabs as $tab)
             <a
               href="{{ $tab['href'] }}"
               role="tab"
               aria-selected="{{ $tab['difficulty'] === $difficulty ? 'true' : 'false' }}"
-              class="px-4 py-2 rounded-full transition {{ $tab['difficulty'] === $difficulty ? 'bg-primary text-primary-foreground shadow-sm' : 'bg-muted text-muted-foreground hover:bg-muted/70' }}"
+              class="px-4 py-2 rounded-full transition {{ $tab['difficulty'] === $difficulty ? 'bg-brand-600 text-white shadow-card' : 'bg-muted text-muted-foreground hover:bg-muted/70' }}"
             >
               {{ $tab['label'] }}
             </a>
@@ -129,9 +132,9 @@
           @endif
         </div>
 
-        <div class="flex items-center justify-between gap-3">
-          <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-            <span class="h-2 w-2 rounded-full bg-primary"></span>
+        <div class="flex items-center justify_between gap-3">
+          <div class="inline-flex items-center gap-2 rounded-full bg-brand-100 px-3 py-1 text-sm font-semibold text-brand-700 shadow-sm">
+            <span class="h-2 w-2 rounded-full bg-brand-500"></span>
             <span id="question-label">{{ __('words_test.loading') }}</span>
           </div>
           <div class="text-sm text-muted-foreground" id="queue-counter"></div>
@@ -184,7 +187,7 @@
             <span class="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground" id="percentage">0%</span>
           </div>
           <div class="mt-3 h-3 rounded-full bg-muted">
-            <div id="progress-bar" class="h-3 rounded-full bg-primary transition-all duration-500" style="width: 0%"></div>
+            <div id="progress-bar" class="h-3 rounded-full bg-brand-600 transition-all duration-500" style="width: 0%"></div>
           </div>
           <dl class="mt-4 grid grid-cols-3 gap-3 text-sm">
             <div class="rounded-xl bg-muted px-3 py-2">
