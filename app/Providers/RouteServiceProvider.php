@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Modules\LanguageManager\Models\Language;
+use App\Modules\LanguageManager\Services\LocaleService;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -48,28 +48,31 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function registerLocalizedRoutes(): void
     {
-        // Skip if languages table doesn't exist
-        if (!Schema::hasTable('languages')) {
-            return;
-        }
-
         try {
-            $languages = Language::getActive();
-            $defaultLanguage = Language::getDefault();
+            $defaultLocale = config('app.locale', 'uk');
+            $activeLanguages = collect();
 
-            if (!$defaultLanguage || $languages->isEmpty()) {
-                return;
+            if (Schema::hasTable('languages')) {
+                $activeLanguages = LocaleService::getActiveLanguages();
+                $defaultLanguage = LocaleService::getDefaultLanguage();
+
+                if ($defaultLanguage) {
+                    $defaultLocale = $defaultLanguage->code;
+                }
+            }
+
+            // Graceful fallback when the languages table is empty/unavailable
+            if ($activeLanguages->isEmpty()) {
+                $activeLanguages = collect(config('app.supported_locales', []))
+                    ->map(fn ($code) => (object) ['code' => $code]);
             }
 
             // Get non-default language codes for URL prefixes
-            $localePrefixes = $languages
-                ->where('is_default', false)
+            $localePrefixes = $activeLanguages
                 ->pluck('code')
-                ->toArray();
-
-            if (empty($localePrefixes)) {
-                return;
-            }
+                ->filter()
+                ->unique()
+                ->reject(fn ($code) => $code === $defaultLocale);
 
             // Register the same web routes with locale prefix
             foreach ($localePrefixes as $locale) {

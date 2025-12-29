@@ -21,6 +21,11 @@ class SetLocale
         $supportedLocales = $this->getSupportedLocales();
         $defaultLocale = $this->getDefaultLocale();
 
+        // Always make sure the default locale participates in validation
+        if (!in_array($defaultLocale, $supportedLocales, true)) {
+            $supportedLocales[] = $defaultLocale;
+        }
+
         // Check URL prefix for locale - this is the primary source of truth for URL-based routing
         $segments = $request->segments();
         $firstSegment = $segments[0] ?? null;
