@@ -146,16 +146,32 @@ async function init(forceFresh = false) {
   }
 
   if (!restored) {
-    state.items = QUESTIONS.map(q => ({
-      ...q,
-      chosen: Array(q.answers.length).fill(''),
-      isCorrect: null,
-      markerTheoryCache: {},
-      markerTheoryMatch: {},
-    }));
+    state.items = QUESTIONS.map(q => {
+      const shuffledOptions = Array.isArray(q.options) ? [...q.options] : [];
+      shuffle(shuffledOptions);
+
+      return {
+        ...q,
+        options: shuffledOptions,
+        optionsShuffled: true,
+        chosen: Array(q.answers.length).fill(''),
+        isCorrect: null,
+        markerTheoryCache: {},
+        markerTheoryMatch: {},
+      };
+    });
     state.correct = 0;
     state.answered = 0;
   }
+  // Ensure restored items get shuffled options at least once
+  state.items.forEach((item) => {
+    if (!item.optionsShuffled && Array.isArray(item.options)) {
+      const shuffled = [...item.options];
+      shuffle(shuffled);
+      item.options = shuffled;
+      item.optionsShuffled = true;
+    }
+  });
 
   renderQuestions();
   updateProgress();
