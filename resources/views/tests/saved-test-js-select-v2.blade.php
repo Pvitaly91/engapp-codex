@@ -153,6 +153,7 @@ async function init(forceFresh = false) {
       return {
         ...q,
         options: shuffledOptions,
+        optionsShuffled: true,
         chosen: Array(q.answers.length).fill(''),
         isCorrect: null,
         markerTheoryCache: {},
@@ -162,6 +163,15 @@ async function init(forceFresh = false) {
     state.correct = 0;
     state.answered = 0;
   }
+  // Ensure restored items get shuffled options at least once
+  state.items.forEach((item) => {
+    if (!item.optionsShuffled && Array.isArray(item.options)) {
+      const shuffled = [...item.options];
+      shuffle(shuffled);
+      item.options = shuffled;
+      item.optionsShuffled = true;
+    }
+  });
 
   renderQuestions();
   updateProgress();

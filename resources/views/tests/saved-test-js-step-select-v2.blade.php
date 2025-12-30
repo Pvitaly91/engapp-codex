@@ -171,6 +171,7 @@ async function init(forceFresh = false) {
       return {
         ...q,
         options: shuffledOptions,
+        optionsShuffled: true,
         chosen: Array(q.answers.length).fill(''),
         isCorrect: null,
         explanation: '',
@@ -179,6 +180,15 @@ async function init(forceFresh = false) {
     state.current = 0;
     state.correct = 0;
   }
+  // Ensure restored items get shuffled options at least once
+  state.items.forEach((item) => {
+    if (!item.optionsShuffled && Array.isArray(item.options)) {
+      const shuffled = [...item.options];
+      shuffle(shuffled);
+      item.options = shuffled;
+      item.optionsShuffled = true;
+    }
+  });
 
   if (state.current < 0) state.current = 0;
   if (state.current >= state.items.length) state.current = Math.max(0, state.items.length - 1);
