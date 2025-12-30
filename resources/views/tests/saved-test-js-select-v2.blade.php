@@ -146,13 +146,19 @@ async function init(forceFresh = false) {
   }
 
   if (!restored) {
-    state.items = QUESTIONS.map(q => ({
-      ...q,
-      chosen: Array(q.answers.length).fill(''),
-      isCorrect: null,
-      markerTheoryCache: {},
-      markerTheoryMatch: {},
-    }));
+    state.items = QUESTIONS.map(q => {
+      const shuffledOptions = Array.isArray(q.options) ? [...q.options] : [];
+      shuffle(shuffledOptions);
+
+      return {
+        ...q,
+        options: shuffledOptions,
+        chosen: Array(q.answers.length).fill(''),
+        isCorrect: null,
+        markerTheoryCache: {},
+        markerTheoryMatch: {},
+      };
+    });
     state.correct = 0;
     state.answered = 0;
   }
