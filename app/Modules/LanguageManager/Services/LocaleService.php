@@ -168,6 +168,16 @@ class LocaleService
         if (!empty($segments) && in_array($segments[0], $activeCodes)) {
             array_shift($segments);
         }
+
+        // Admin area should never be localized
+        if (!empty($segments) && $segments[0] === 'admin') {
+            $newPath = '/' . implode('/', $segments);
+            $scheme = $parsedUrl['scheme'] ?? 'http';
+            $host = $parsedUrl['host'] ?? '';
+            $query = isset($parsedUrl['query']) ? '?' . $parsedUrl['query'] : '';
+
+            return $absolute ? "{$scheme}://{$host}{$newPath}{$query}" : $newPath . $query;
+        }
         
         // Add locale prefix only if locale is not the default
         if ($locale !== $defaultCode) {
