@@ -157,19 +157,32 @@ class TestJsV2OptionsShuffleTest extends TestCase
         return $question;
     }
 
+    private function createTestWithQuestion(Question $question): Test
+    {
+        return Test::create([
+            'name' => 'Sample Test',
+            'slug' => 'sample-test-' . uniqid(),
+            'filters' => [],
+            'questions' => [$question->id],
+        ]);
+    }
+
+    private function extractQuestionDataFromResponse(string $content): ?array
+    {
+        if (preg_match('/window\.__INITIAL_JS_TEST_QUESTIONS__\s*=\s*(\[.*?\]);/s', $content, $matches)) {
+            return json_decode($matches[1], true);
+        }
+
+        return null;
+    }
+
     /**
      * @test
      */
     public function options_are_shuffled_in_question_data(): void
     {
         $question = $this->createQuestionWithOptions(4);
-
-        $test = Test::create([
-            'name' => 'Sample Test',
-            'slug' => 'sample-test-' . uniqid(),
-            'filters' => [],
-            'questions' => [$question->id],
-        ]);
+        $test = $this->createTestWithQuestion($question);
 
         // Collect option orders from multiple calls to confirm shuffling
         $optionsOrders = [];
@@ -182,15 +195,9 @@ class TestJsV2OptionsShuffleTest extends TestCase
             $response = $this->get(route('test.show', $test->slug));
             $response->assertStatus(200);
 
-            // Extract questionData from the response
-            $content = $response->getContent();
-
-            // Find the JSON data in the response
-            if (preg_match('/window\.__INITIAL_JS_TEST_QUESTIONS__\s*=\s*(\[.*?\]);/s', $content, $matches)) {
-                $questionData = json_decode($matches[1], true);
-                if ($questionData && isset($questionData[0]['options'])) {
-                    $optionsOrders[] = $questionData[0]['options'];
-                }
+            $questionData = $this->extractQuestionDataFromResponse($response->getContent());
+            if ($questionData && isset($questionData[0]['options'])) {
+                $optionsOrders[] = $questionData[0]['options'];
             }
         }
 
@@ -215,13 +222,7 @@ class TestJsV2OptionsShuffleTest extends TestCase
     public function options_include_correct_answer(): void
     {
         $question = $this->createQuestionWithOptions(4);
-
-        $test = Test::create([
-            'name' => 'Sample Test',
-            'slug' => 'sample-test-' . uniqid(),
-            'filters' => [],
-            'questions' => [$question->id],
-        ]);
+        $test = $this->createTestWithQuestion($question);
 
         session()->start();
         session()->flush();
@@ -229,21 +230,15 @@ class TestJsV2OptionsShuffleTest extends TestCase
         $response = $this->get(route('test.show', $test->slug));
         $response->assertStatus(200);
 
-        $content = $response->getContent();
+        $questionData = $this->extractQuestionDataFromResponse($response->getContent());
 
-        if (preg_match('/window\.__INITIAL_JS_TEST_QUESTIONS__\s*=\s*(\[.*?\]);/s', $content, $matches)) {
-            $questionData = json_decode($matches[1], true);
+        $this->assertNotNull($questionData, 'Could not extract question data from response');
+        $this->assertNotEmpty($questionData);
 
-            $this->assertNotNull($questionData);
-            $this->assertNotEmpty($questionData);
+        $options = $questionData[0]['options'] ?? [];
+        $answer = $questionData[0]['answer'] ?? '';
 
-            $options = $questionData[0]['options'] ?? [];
-            $answer = $questionData[0]['answer'] ?? '';
-
-            // Verify correct answer is in options
-            $this->assertContains($answer, $options, 'Correct answer should be included in options');
-        } else {
-            $this->fail('Could not extract question data from response');
-        }
+        // Verify correct answer is in options
+        $this->assertContains($answer, $options, 'Correct answer should be included in options');
     }
 }
