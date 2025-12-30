@@ -161,6 +161,12 @@ function sanitizeOptions(options) {
   return clean;
 }
 
+function buildShuffledOptions(options) {
+  const clean = sanitizeOptions(options);
+  shuffle(clean);
+  return clean;
+}
+
 function normalizeAnswer(value) {
   return String(value ?? '').trim().toLowerCase();
 }
@@ -201,11 +207,11 @@ function normalizeOptionsBySlot(q) {
         : Array.isArray(raw[i])
           ? raw[i]
           : [];
-      optionsBySlot.push(sanitizeOptions(markerOptions));
+      optionsBySlot.push(buildShuffledOptions(markerOptions));
     }
     const hasValues = optionsBySlot.some((arr) => Array.isArray(arr) && arr.length > 0);
     if (hasValues) {
-      return optionsBySlot.map((arr) => (arr.length ? arr : sanitizeOptions(q.options || [])));
+      return optionsBySlot.map((arr) => (arr.length ? arr : buildShuffledOptions(q.options || [])));
     }
   }
 
