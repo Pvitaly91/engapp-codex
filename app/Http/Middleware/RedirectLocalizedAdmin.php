@@ -11,6 +11,11 @@ use Symfony\Component\HttpFoundation\Response;
 class RedirectLocalizedAdmin
 {
     /**
+     * Cached supported locales for performance.
+     */
+    protected static ?array $cachedLocales = null;
+
+    /**
      * Handle an incoming request.
      *
      * Redirects requests like /{locale}/admin/... to /admin/... with 301 status.
@@ -53,15 +58,22 @@ class RedirectLocalizedAdmin
 
     /**
      * Get supported locales from Language Manager or fallback to config.
+     * Results are cached for the lifetime of the request.
      */
     protected function getSupportedLocales(): array
     {
+        // Return cached result if available
+        if (self::$cachedLocales !== null) {
+            return self::$cachedLocales;
+        }
+
         // Try to get from Language Manager database
         if (Schema::hasTable('languages')) {
             try {
                 $codes = LocaleService::getActiveLanguages()->pluck('code')->toArray();
                 if (!empty($codes)) {
-                    return $codes;
+                    self::$cachedLocales = $codes;
+                    return self::$cachedLocales;
                 }
             } catch (\Exception $e) {
                 // Database not ready
@@ -69,6 +81,7 @@ class RedirectLocalizedAdmin
         }
 
         // Fallback to config
-        return config('app.supported_locales', ['uk', 'en']);
+        self::$cachedLocales = config('app.supported_locales', ['uk', 'en']);
+        return self::$cachedLocales;
     }
 }

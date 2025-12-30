@@ -9,6 +9,14 @@ use Tests\TestCase;
 
 class AdminLocaleRoutingTest extends TestCase
 {
+    /**
+     * Test language configuration data.
+     */
+    private const TEST_LANGUAGES = [
+        ['code' => 'uk', 'name' => 'Ukrainian', 'is_active' => true, 'is_default' => true],
+        ['code' => 'en', 'name' => 'English', 'is_active' => true, 'is_default' => false],
+    ];
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -27,10 +35,7 @@ class AdminLocaleRoutingTest extends TestCase
         }
 
         // Insert test languages
-        \Illuminate\Support\Facades\DB::table('languages')->insert([
-            ['code' => 'uk', 'name' => 'Ukrainian', 'is_active' => true, 'is_default' => true],
-            ['code' => 'en', 'name' => 'English', 'is_active' => true, 'is_default' => false],
-        ]);
+        \Illuminate\Support\Facades\DB::table('languages')->insert(self::TEST_LANGUAGES);
 
         // Clear the locale service cache
         LocaleService::clearCache();
