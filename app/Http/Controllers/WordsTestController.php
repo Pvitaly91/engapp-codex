@@ -85,7 +85,7 @@ class WordsTestController extends Controller
      */
     private function siteLocale(): string
     {
-        $lang = session('locale', app()->getLocale());
+        $lang = app()->getLocale();
         $availableLangs = LocaleService::getActiveLanguages()->pluck('code')->toArray();
 
         if (! in_array($lang, $availableLangs, true)) {
@@ -430,10 +430,10 @@ class WordsTestController extends Controller
             'availableStudyLangs' => $availableStudyLangs,
             'studyLangOptions' => $studyLangOptions,
             'singleStudyLangName' => $singleStudyLangName,
-            'stateUrl' => route($this->routeName('state', $difficulty)),
-            'checkUrl' => route($this->routeName('check', $difficulty)),
-            'resetUrl' => route($this->routeName('reset', $difficulty)),
-            'setStudyLangUrl' => route('words.test.set-study-language'),
+            'stateUrl' => localized_route($this->routeName('state', $difficulty)),
+            'checkUrl' => localized_route($this->routeName('check', $difficulty)),
+            'resetUrl' => localized_route($this->routeName('reset', $difficulty)),
+            'setStudyLangUrl' => localized_route('words.test.set-study-language'),
         ]);
     }
 

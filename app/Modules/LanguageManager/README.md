@@ -117,7 +117,7 @@ Include in any Blade template:
 
 ### Localized Routes
 
-The module provides a `localized_route()` helper function that automatically adds the current locale prefix to route URLs:
+The module provides a `localized_route()` helper function that automatically adds the current locale prefix to route URLs. Route groups are registered for every **active non-default** language found in the `languages` table, so new languages automatically gain prefixed public URLs without code changes:
 
 ```blade
 {{-- Standard Laravel route() --}}
@@ -160,6 +160,8 @@ localized_route(
 <a href="{{ localized_route('catalog.tests-cards', [], false) }}">Tests</a>
 ```
 
+> **URL is the source of truth:** The current locale is always taken from the URL prefix when it exists. When there is no prefix, the default language is applied even if the session/cookie stores another locale.
+
 **PHP Usage:**
 
 ```php
@@ -174,6 +176,16 @@ $url = localized_route('pages.show', ['slug' => 'about']);
 // Use URL facade macro
 $url = URL::localized('pages.show', ['slug' => 'about']);
 ```
+
+### Manual verification (public pages)
+
+Run these quick checks after changing localization or routes:
+
+- Open `/catalog/tests-cards` → locale resolves to default (uk) and links have no `/uk` or other prefixes.
+- Open `/pl/catalog/tests-cards` → locale resolves to `pl` and all links start with `/pl/`.
+- Open `/en/theory` → locale resolves to `en` and all links start with `/en/`.
+- Visit `/pl/...`, then manually go to `/catalog/tests-cards` → locale must fall back to default (uk) with links **without** a prefix (URL beats cookie/session).
+
 
 ### View Variables
 

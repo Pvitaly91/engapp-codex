@@ -6,9 +6,9 @@
   @php
     $difficulty = $difficulty ?? 'easy';
     $tabs = [
-        ['label' => 'Easy', 'difficulty' => 'easy', 'href' => route('words.test')],
-        ['label' => 'Medium', 'difficulty' => 'medium', 'href' => route('words.test.medium')],
-        ['label' => 'Hard', 'difficulty' => 'hard', 'href' => route('words.test.hard')],
+        ['label' => 'Easy', 'difficulty' => 'easy', 'href' => localized_route('words.test')],
+        ['label' => 'Medium', 'difficulty' => 'medium', 'href' => localized_route('words.test.medium')],
+        ['label' => 'Hard', 'difficulty' => 'hard', 'href' => localized_route('words.test.hard')],
     ];
 
     $heroDescriptionKey = [
