@@ -79,6 +79,16 @@ class LocaleService
             array_shift($segments);
         }
 
+        // Admin area should never have locale prefix
+        if (!empty($segments) && $segments[0] === 'admin') {
+            $newPath = '/' . implode('/', $segments);
+            $scheme = $parsedUrl['scheme'] ?? request()->getScheme();
+            $host = $parsedUrl['host'] ?? request()->getHost();
+            $query = isset($parsedUrl['query']) ? '?' . $parsedUrl['query'] : '';
+
+            return "{$scheme}://{$host}{$newPath}{$query}";
+        }
+
         // Add new locale prefix (except for default language)
         if ($default && $locale !== $default->code) {
             array_unshift($segments, $locale);
