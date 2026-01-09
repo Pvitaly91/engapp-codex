@@ -48,6 +48,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'hero',
+                    'tags' => ['types-of-questions', 'negative-questions', 'auxiliaries'],
                     'body' => json_encode([
                         'level' => 'B1–B2',
                         'intro' => 'У цій темі ти вивчиш <strong>заперечні питання (Negative Questions)</strong> — питання з негативною формою, які виражають здивування, подив або очікування певної відповіді.',
@@ -79,6 +80,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'forms-grid-what-is',
+                    'tags' => ['types-of-questions', 'negative-questions'],
                     'body' => json_encode([
                         'title' => '1. Що таке Negative Questions?',
                         'intro' => 'Negative questions — це питання з негативною формою допоміжного дієслова:',
@@ -95,6 +97,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-do-does-did',
+                    'tags' => ['types-of-questions', 'negative-questions', 'do-support', 'auxiliaries'],
                     'body' => json_encode([
                         'title' => '2. Negative Questions з DO/DOES/DID',
                         'sections' => [
@@ -138,6 +141,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-to-be',
+                    'tags' => ['types-of-questions', 'negative-questions', 'auxiliaries'],
                     'body' => json_encode([
                         'title' => '3. Negative Questions з TO BE',
                         'sections' => [
@@ -182,6 +186,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-modals',
+                    'tags' => ['types-of-questions', 'negative-questions', 'modal-questions', 'auxiliaries'],
                     'body' => json_encode([
                         'title' => '4. Negative Questions з модальними дієсловами',
                         'sections' => [
@@ -224,6 +229,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B2',
                     'uuid_key' => 'usage-panels-other-tenses',
+                    'tags' => ['types-of-questions', 'negative-questions', 'auxiliaries'],
                     'body' => json_encode([
                         'title' => '5. Negative Questions з іншими часами',
                         'sections' => [
@@ -266,6 +272,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B2',
                     'uuid_key' => 'usage-panels-meaning',
+                    'tags' => ['types-of-questions', 'negative-questions'],
                     'body' => json_encode([
                         'title' => '6. Значення та використання Negative Questions',
                         'sections' => [
@@ -315,6 +322,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B2',
                     'uuid_key' => 'usage-panels-answers',
+                    'tags' => ['types-of-questions', 'negative-questions'],
                     'body' => json_encode([
                         'title' => '7. Як відповідати на Negative Questions',
                         'sections' => [
@@ -355,6 +363,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'comparison-table',
+                    'tags' => ['types-of-questions', 'negative-questions', 'yes-no-questions'],
                     'body' => json_encode([
                         'title' => '8. Порівняння звичайних та заперечних питань',
                         'intro' => 'Відмінності між звичайними та заперечними питаннями:',
@@ -394,6 +403,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'mistakes-grid',
+                    'tags' => ['types-of-questions', 'negative-questions'],
                     'body' => json_encode([
                         'title' => '9. Типові помилки',
                         'items' => [
@@ -434,6 +444,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'summary-list',
+                    'tags' => ['types-of-questions', 'negative-questions'],
                     'body' => json_encode([
                         'title' => '10. Короткий конспект',
                         'items' => [
@@ -456,6 +467,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'practice-set',
+                    'tags' => ['types-of-questions', 'negative-questions', 'do-support'],
                     'body' => json_encode([
                         'title' => '11. Практика',
                         'select_title' => 'Вправа 1. Обери правильну форму',
@@ -503,6 +515,7 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'navigation-chips',
+                    'tags' => ['types-of-questions'],
                     'body' => json_encode([
                         'title' => 'Інші теми з розділу Види питальних речень',
                         'items' => [

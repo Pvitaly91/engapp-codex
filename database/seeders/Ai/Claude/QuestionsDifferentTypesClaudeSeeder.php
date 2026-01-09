@@ -213,6 +213,14 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 $tagIds = array_merge($tagIds, $additionalTags);
             }
 
+            // Add kebab-case tags for tag intersection with text_blocks
+            if (isset($question['tags']) && is_array($question['tags'])) {
+                foreach ($question['tags'] as $tagName) {
+                    $tag = Tag::firstOrCreate(['name' => $tagName]);
+                    $tagIds[] = $tag->id;
+                }
+            }
+
             // Determine source_id based on question detail/topic
             $sourceId = $sources['yes_no']; // Default fallback
             if (isset($question['detail']) && isset($sources[$question['detail']])) {
@@ -435,6 +443,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Do', 'Does', 'Are', 'Is'],
                 'verb_hint' => 'auxiliary verb for questions',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => 'У Present Simple для формування загальних питань (Yes/No questions) потрібне допоміжне дієслово. Вибір допоміжного дієслова залежить від підмета речення та типу основного дієслова. Зверніть увагу, що "like" — це дієслово дії (action verb), а не дієслово стану "to be". Формула для питань: Auxiliary + Subject + Base verb.'],
                 'explanations' => [
                     'Do' => 'Do — це допоміжне дієслово Present Simple, яке використовується з підметами I, you, we, they. Воно допомагає формувати питання з дієсловами дії. Структура: Do + you + базова форма дієслова (без закінчень).',
@@ -450,6 +459,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Does', 'Do', 'Is', 'Can'],
                 'verb_hint' => 'auxiliary verb for 3rd person',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => 'У Present Simple питання формуються за допомогою допоміжних дієслів. Підмет "she" належить до третьої особи однини. Для третьої особи однини (he, she, it) існує спеціальна форма допоміжного дієслова. Зверніть увагу: "speak" — дієслово дії, тому потрібне саме допоміжне дієслово, а не "to be".'],
                 'explanations' => [
                     'Does' => 'Does — допоміжне дієслово Present Simple для третьої особи однини (he, she, it). Після does основне дієслово завжди стоїть у базовій формі без закінчення -s. Структура: Does + she/he/it + base verb.',
@@ -465,6 +475,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['is', 'are', 'does', 'do'],
                 'verb_hint' => 'be',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => "Це Wh-питання про ім'я людини. У таких питаннях використовується дієслово 'to be', яке зв'язує підмет (your name) з присудком. Вибір форми дієслова to be залежить від числа підмета. 'Your name' — це однина (одне ім'я), тому потрібна відповідна форма to be."],
                 'explanations' => [
                     'is' => "Is — форма дієслова 'to be' для третьої особи однини. 'Your name' граматично є однинним підметом (одне ім'я, навіть якщо воно складається з кількох слів), тому узгоджується з формою для однини.",
@@ -480,6 +491,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Are', 'Is', 'Do', 'Does'],
                 'verb_hint' => 'be',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Це загальне питання (Yes/No question) про місцезнаходження. Фраза 'at home' вказує на місце, а не на дію. Коли ми питаємо про стан чи місцезнаходження, використовуємо дієслово 'to be'. Форма to be залежить від підмета: they — це множина/третя особа множини."],
                 'explanations' => [
                     'Are' => "Are — форма дієслова 'to be' для множини (we, you, they). Підмет 'they' — це третя особа множини, тому узгоджується саме з цією формою. У питаннях to be виноситься на початок: Are + they + місце.",
@@ -495,6 +507,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['do', 'does', 'are', 'is'],
                 'verb_hint' => 'auxiliary for present tense questions',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "Це Wh-питання про місце проживання. Дієслово 'live' — це дієслово дії (action verb), яке описує постійну дію/стан у Present Simple. Для формування питань з дієсловами дії потрібне допоміжне дієслово. Вибір форми допоміжного дієслова залежить від підмета речення."],
                 'explanations' => [
                     'do' => "Do — допоміжне дієслово Present Simple для підметів I, you, we, they. Воно використовується для формування питань з дієсловами дії. Структура Wh-питання: Where + do + you + базова форма дієслова.",
@@ -510,6 +523,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Did', 'Do', 'Was', 'Were'],
                 'verb_hint' => 'auxiliary for past tense questions',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "Слово 'yesterday' вказує на минулий час (Past Simple). Дієслово 'go' — це дієслово дії. Для формування питань у Past Simple з дієсловами дії потрібне допоміжне дієслово минулого часу. Важливо: після цього допоміжного дієслова основне дієслово стоїть у базовій формі (go, а не went)."],
                 'explanations' => [
                     'Did' => "Did — допоміжне дієслово Past Simple для формування питань з дієсловами дії. Воно однакове для всіх підметів (I, you, he, she, it, we, they). Після did завжди йде базова форма дієслова: Did + subject + base verb.",
@@ -525,6 +539,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['did', 'does', 'was', 'is'],
                 'verb_hint' => 'past tense auxiliary',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "Це Wh-питання про час події у минулому. Дієслово 'arrive' — дієслово дії, що описує завершену подію. Контекст питання вказує на минулий час (коли вона прибула?). Для питань у Past Simple з дієсловами дії потрібне відповідне допоміжне дієслово."],
                 'explanations' => [
                     'did' => "Did — допоміжне дієслово Past Simple. Воно використовується для всіх підметів (she, he, I, they тощо) при формуванні питань з дієсловами дії у минулому часі. Структура: When + did + she + arrive (базова форма).",
@@ -540,6 +555,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['wrote', 'write', 'did write', 'writes'],
                 'verb_hint' => 'write',
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions'],
                 'hints' => ['a1' => "Це питання про підмет (Subject Question) — ми питаємо, ХТО виконав дію. У питаннях про підмет (коли Who/What є підметом речення) структура відрізняється від звичайних питань. Контекст вказує на минулу подію (книга вже написана). Зверніть увагу на особливість формування таких питань."],
                 'explanations' => [
                     'wrote' => "Wrote — форма Past Simple дієслова 'write'. У питаннях про підмет (Subject Questions) дієслово стоїть у тій самій формі, що й у стверджувальному реченні, без допоміжного дієслова. Структура: Who + V2 (Past Simple form) + object.",
@@ -555,6 +571,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["don't you", 'do you', "aren't you", 'are you'],
                 'verb_hint' => 'Use negative tag',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions', 'do-support'],
                 'hints' => ['a1' => "Це розділове питання (Tag Question). Головне речення 'You like coffee' є ствердним і використовує дієслово дії 'like' у Present Simple. Правило для tag questions: якщо головне речення ствердне, tag має бути заперечним, і навпаки. Tag формується з допоміжного дієслова + займенника."],
                 'explanations' => [
                     "don't you" => "Don't you — заперечний tag з допоміжним дієсловом 'do' (для Present Simple з you). Головне речення ствердне (You like), тому tag має бути заперечним. Займенник 'you' повторює підмет речення.",
@@ -570,6 +587,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Can', 'Do', 'Are', 'Does'],
                 'verb_hint' => 'modal verb',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'modal-questions'],
                 'hints' => ['a1' => "Контекст питання вказує на здатність людини виконувати дію (плавати). Для вираження здатності, можливості чи вміння в англійській мові використовуються модальні дієслова. Модальні дієслова не потребують допоміжного дієслова для формування питань — вони самі виносяться на початок речення."],
                 'explanations' => [
                     'Can' => "Can — модальне дієслово, що виражає здатність, вміння або можливість. Для питань з модальними дієсловами вони виносяться на початок речення: Can + subject + base verb. Після модальних дієслів завжди йде базова форма дієслова.",
@@ -585,6 +603,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['are', 'is', 'do', 'does'],
                 'verb_hint' => 'be',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => "Це питання про стан, самопочуття людини. Коли ми питаємо про стан (а не про дію), використовуємо дієслово 'to be'. Це також усталений англійський вираз привітання. Форма to be залежить від підмета речення."],
                 'explanations' => [
                     'are' => "Are — форма дієслова 'to be' для you (та we, they). Питання 'How are you?' — усталений вираз для запитування про стан, самопочуття. Структура: How + are + you + (time marker).",
@@ -600,6 +619,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Was', 'Were', 'Did', 'Is'],
                 'verb_hint' => 'be (past)',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries'],
                 'hints' => ['a1' => "Слово 'last night' вказує на минулий час. 'Cold' — це прикметник, що описує стан (погоду). Коли ми питаємо про стан чи характеристику в минулому, використовуємо минулу форму дієслова 'to be'. Форма залежить від підмета: 'it' — третя особа однини."],
                 'explanations' => [
                     'Was' => "Was — форма минулого часу дієслова 'to be' для I, he, she, it. Підмет 'it' (безособовий підмет для погоди) узгоджується саме з цією формою. Структура: Was + it + adjective.",
@@ -622,6 +642,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['is', 'does', 'do', 'are'],
                 'verb_hint' => 'be',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => "Це Wh-питання про причину стану. Слово 'late' — прикметник, що описує стан людини (бути запізнілим). Коли ми описуємо стан або характеристику за допомогою прикметника, використовуємо дієслово 'to be'. Форма to be залежить від підмета речення."],
                 'explanations' => [
                     'is' => "Is — форма дієслова 'to be' для третьої особи однини (he, she, it). Конструкція 'be late' означає 'бути запізнілим' — описує стан. Структура: Why + is + he + adjective.",
@@ -637,6 +658,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['the station is', 'is the station', 'does the station', 'the station are'],
                 'verb_hint' => 'Use statement order',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => "Це непряме питання (Indirect Question). Непрямі питання вбудовані в інше речення і починаються зі слів типу 'Can you tell me', 'Do you know', 'I wonder'. Головна особливість непрямих питань — у них використовується прямий порядок слів (як у стверджувальному реченні), а не інверсія."],
                 'explanations' => [
                     'the station is' => "У непрямих питаннях порядок слів такий самий, як у стверджувальному реченні: підмет + дієслово. 'The station' (підмет) стоїть перед 'is' (дієсловом). Порівняйте: Where is the station? (пряме) vs Can you tell me where the station is? (непряме).",
@@ -652,6 +674,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['does she', "doesn't she", 'is she', "isn't she"],
                 'verb_hint' => 'Use positive tag',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => ['a1' => "Це розділове питання (Tag Question). Головне речення \"She doesn't speak French\" є заперечним (містить doesn't). Основне правило tag questions: заперечне речення потребує ствердного tag, і навпаки. Tag формується з допоміжного дієслова головного речення + займенника."],
                 'explanations' => [
                     'does she' => "У tag questions використовується протилежна полярність до головного речення. Головне речення заперечне (doesn't speak), тому tag має бути ствердним. Допоміжне дієслово з головного речення — does (doesn't = does + not), займенник — she.",
@@ -667,6 +690,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['does', 'do', 'is', 'are'],
                 'verb_hint' => 'auxiliary for 3rd person singular',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "Це Wh-питання про кількість у Present Simple. Дієслово 'speak' — дієслово дії, що вимагає допоміжного дієслова для формування питання. Підмет 'she' — третя особа однини, що визначає форму допоміжного дієслова."],
                 'explanations' => [
                     'does' => "Does — допоміжне дієслово Present Simple для третьої особи однини (he, she, it). Підмет 'she' потребує саме цієї форми. Структура: How many + noun + does + she + base verb.",
@@ -682,6 +706,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Are', 'Is', 'Do', 'Does'],
                 'verb_hint' => 'be + -ing',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Слово 'now' вказує на дію, що відбувається прямо зараз. Для опису дій у момент мовлення використовується Present Continuous. Ця часова форма складається з дієслова to be + дієслово з закінченням -ing. Форма to be залежить від підмета."],
                 'explanations' => [
                     'Are' => "Are — форма дієслова 'to be' для they (а також we, you). Present Continuous формується як: be + V-ing. Для питання to be виноситься на початок: Are + they + working.",
@@ -697,6 +722,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['are', 'is', 'do', 'does'],
                 'verb_hint' => 'be + -ing',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => "Форма 'doing' (-ing закінчення) вказує на Present Continuous — час, який описує дію в процесі. Present Continuous складається з дієслова to be + V-ing. У питаннях to be виноситься на початок. Форма to be залежить від підмета."],
                 'explanations' => [
                     'are' => "Are — форма дієслова 'to be' для you (а також we, they). Present Continuous потребує to be перед формою -ing. Структура Wh-питання: What + are + you + doing.",
@@ -712,6 +738,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['broke', 'did break', 'break', 'broken'],
                 'verb_hint' => 'break',
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions'],
                 'hints' => ['a1' => "Це питання про підмет (Subject Question) — ми питаємо, ХТО виконав дію. У питаннях про підмет граматична структура відрізняється від звичайних питань. Контекст вказує на минулу подію (вікно вже розбите). Зверніть увагу на особливість формування цього типу питань."],
                 'explanations' => [
                     'broke' => "Broke — форма Past Simple дієслова 'break'. У питаннях про підмет (коли Who/What є підметом речення) дієслово стоїть у звичайній формі часу, без допоміжного дієслова did. Структура: Who + V2 + object.",
@@ -727,6 +754,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Will', 'Do', 'Are', 'Did'],
                 'verb_hint' => 'future',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Контекст питання вказує на майбутню подію (вечірка, яка ще не відбулася). Для опису майбутніх дій або планів в англійській мові використовуються різні конструкції. Одна з основних — Future Simple з допоміжним дієсловом. Зверніть увагу на часовий контекст питання."],
                 'explanations' => [
                     'Will' => "Will — допоміжне дієслово Future Simple. Воно використовується для всіх підметів (I, you, he, she, it, we, they) для вираження майбутніх дій, рішень, передбачень. Структура: Will + subject + base verb.",
@@ -742,6 +770,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['does', 'do', 'is', 'are'],
                 'verb_hint' => 'auxiliary for it/he/she',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "Це Wh-питання про ціну у Present Simple. Дієслово 'cost' — дієслово дії, яке описує вартість. Для формування питань з дієсловами дії у Present Simple потрібне допоміжне дієслово. Підмет 'it' — третя особа однини."],
                 'explanations' => [
                     'does' => "Does — допоміжне дієслово Present Simple для третьої особи однини (he, she, it). Підмет 'it' потребує саме цієї форми. Структура: How much + does + it + cost (base form).",
@@ -757,6 +786,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['the train left', 'did the train leave', 'left the train', 'the train leave'],
                 'verb_hint' => 'Use statement order',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => "Це непряме питання (Indirect Question), вбудоване у головне речення 'Do you know...'. У непрямих питаннях використовується прямий порядок слів (підмет + дієслово), як у стверджувальному реченні. Контекст вказує на минулу подію (поїзд вже відправився)."],
                 'explanations' => [
                     'the train left' => "У непрямих питаннях порядок слів такий самий, як у стверджувальному реченні: підмет (the train) + дієслово у відповідному часі (left). Допоміжне дієслово did не використовується у непрямих питаннях.",
@@ -772,6 +802,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['is', 'are', 'does', 'do'],
                 'verb_hint' => 'be',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => "Це Wh-питання про володіння/власника. 'Whose' питає 'чий/чия/чиє'. У таких питаннях дієслово 'to be' зв'язує підмет з присудком. 'Book' — іменник в однині, що визначає форму to be. Вказівний займенник 'this' підтверджує однину."],
                 'explanations' => [
                     'is' => "Is — форма дієслова 'to be' для однини. 'Book' — іменник в однині, 'this' — вказівний займенник однини. Конструкція: Whose + singular noun + is + this.",
@@ -787,6 +818,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["didn't they", 'did they', "weren't they", 'were they'],
                 'verb_hint' => 'Use negative tag',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions', 'do-support'],
                 'hints' => ['a1' => "Це розділове питання (Tag Question). Головне речення 'They visited Paris last year' є ствердним і використовує Past Simple (visited). Правило tag questions: ствердне речення потребує заперечного tag, заперечне — ствердного. Tag формується з допоміжного дієслова відповідного часу + займенника."],
                 'explanations' => [
                     "didn't they" => "У tag questions використовується протилежна полярність. Головне речення ствердне (They visited), тому tag має бути заперечним. 'Visited' — Past Simple, тому допоміжне дієслово — did (didn't у заперечній формі). Займенник they повторює підмет.",
@@ -809,6 +841,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Have', 'Has', 'Did', 'Do'],
                 'verb_hint' => 'present perfect auxiliary',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "Слово 'ever' (коли-небудь) часто використовується з Present Perfect для питань про життєвий досвід. Present Perfect формується з допоміжного дієслова have/has + Past Participle (V3). 'Been' — це V3 від 'be'. Вибір між have та has залежить від підмета."],
                 'explanations' => [
                     'Have' => "Have — допоміжне дієслово Present Perfect для підметів I, you, we, they. Present Perfect з 'ever' використовується для питань про досвід протягом життя. Структура: Have + you + ever + V3.",
@@ -826,6 +859,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["Doesn't", "Don't", "Isn't", "Didn't"],
                 'verb_hint' => 'negative question form',
                 'detail' => 'negative_questions',
+                'tags' => ['types-of-questions', 'negative-questions'],
                 'hints' => ['a1' => "Це заперечне питання (Negative Question). Заперечні питання виражають здивування, очікування підтвердження або риторичне питання. У Present Simple заперечне питання формується з заперечної форми допоміжного дієслова. Підмет 'he' — третя особа однини."],
                 'explanations' => [
                     "Doesn't" => "Doesn't — заперечна форма does для третьої особи однини (he, she, it). Заперечне питання виражає здивування: 'Невже він не знає?' або очікування: 'Він же знає, правда?'. Структура: Doesn't + he + base verb.",
@@ -843,6 +877,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['or', 'and', 'but', 'nor'],
                 'verb_hint' => 'choice connector',
                 'detail' => 'alternative_questions',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Це альтернативне питання (Alternative Question), яке пропонує вибір між двома варіантами. Альтернативні питання відрізняються від загальних (Yes/No) тим, що потребують конкретної відповіді, а не просто так/ні. Для з'єднання варіантів використовується спеціальний сполучник."],
                 'explanations' => [
                     'or' => "Or — сполучник, що означає 'або' і використовується для пропозиції вибору між варіантами. Альтернативні питання завжди містять or: A or B? Відповідь — один із варіантів.",
@@ -860,6 +895,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['have', 'has', 'are', 'do'],
                 'verb_hint' => 'perfect continuous auxiliary',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "'How long' (як довго) часто вживається з Present Perfect Continuous для питань про тривалість дії, яка почалася в минулому і продовжується досі. Present Perfect Continuous: have/has + been + V-ing. Форма 'been studying' вказує на цей час."],
                 'explanations' => [
                     'have' => "Have — допоміжне дієслово Present Perfect (Continuous) для I, you, we, they. Структура: have + been + V-ing. 'How long have you been studying?' — питання про тривалість процесу.",
@@ -877,6 +913,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['have they', "haven't they", 'did they', "didn't they"],
                 'verb_hint' => 'positive tag after negative',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions', 'do-support'],
                 'hints' => ['a1' => "Це розділове питання (Tag Question) з Present Perfect. Головне речення 'They haven't arrived' є заперечним (містить haven't). Слово 'yet' підтверджує Present Perfect. Правило: заперечне речення потребує ствердного tag."],
                 'explanations' => [
                     'have they' => "У tag questions протилежна полярність: заперечне речення (haven't arrived) потребує ствердного tag. Допоміжне дієслово з головного речення — have (haven't = have + not), займенник — they.",
@@ -894,6 +931,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['were', 'was', 'did', 'have'],
                 'verb_hint' => 'past continuous auxiliary',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "'Yesterday' та конкретний час (8 pm) вказують на минуле. Форма 'doing' (-ing) означає тривалу дію. Past Continuous описує дію, яка відбувалася у конкретний момент в минулому: was/were + V-ing. Вибір was/were залежить від підмета."],
                 'explanations' => [
                     'were' => "Were — форма минулого часу to be для you, we, they. Past Continuous формується як: was/were + V-ing. Питання 'What were you doing?' — про дію в процесі в конкретний момент минулого.",
@@ -911,6 +949,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['she has gone', 'has she gone', 'she gone has', 'gone she has'],
                 'verb_hint' => 'statement order in indirect question',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => "Це непряме питання (Indirect Question) з Present Perfect. 'Has gone' — Present Perfect, який описує дію з результатом у теперішньому (вона пішла і зараз її немає). У непрямих питаннях порядок слів прямий, як у стверджувальному реченні."],
                 'explanations' => [
                     'she has gone' => "У непрямих питаннях використовується прямий порядок слів: підмет (she) + допоміжне дієслово (has) + основне дієслово (gone). Це відрізняється від прямого питання: Where has she gone?",
@@ -928,6 +967,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Is', 'Are', 'Does', 'Will'],
                 'verb_hint' => 'be + going to',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Конструкція 'be going to + verb' виражає заплановані майбутні дії або наміри. Це альтернатива Future Simple (will). 'Going to' — фіксована фраза, яка потребує дієслова to be перед собою. Форма to be залежить від підмета."],
                 'explanations' => [
                     'Is' => "Is — форма to be для третьої особи однини (he, she, it). Конструкція 'be going to': Is + she + going to + base verb. Питання виражає намір або план.",
@@ -945,6 +985,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['gave', 'did give', 'has given', 'gives'],
                 'verb_hint' => 'past tense verb',
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions'],
                 'hints' => ['a1' => "Це питання про підмет (Subject Question) — ми питаємо, ХТО виконав дію. Контекст вказує на минулу подію (хтось уже дав відповідь). У питаннях про підмет структура відрізняється від звичайних питань — допоміжне дієслово не додається."],
                 'explanations' => [
                     'gave' => "Gave — форма Past Simple дієслова 'give'. У питаннях про підмет дієслово стоїть у звичайній формі часу без допоміжного дієслова. Структура: Who + V2 (Past Simple). Відповідь: 'John gave the best answer.'",
@@ -962,6 +1003,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["Didn't", "Don't", "Haven't", "Weren't"],
                 'verb_hint' => 'negative past question',
                 'detail' => 'negative_questions',
+                'tags' => ['types-of-questions', 'negative-questions'],
                 'hints' => ['a1' => "Це заперечне питання (Negative Question), яке виражає здивування або очікування. Контекст 'see the sign' (побачити знак) вказує на конкретну минулу подію. Заперечне питання формується з заперечної форми допоміжного дієслова відповідного часу."],
                 'explanations' => [
                     "Didn't" => "Didn't — заперечна форма did (Past Simple). Заперечне питання 'Didn't you see?' виражає здивування: 'Невже ти не бачив?' або 'Ти ж бачив, правда?'. Структура: Didn't + subject + base verb.",
@@ -979,6 +1021,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['or', 'and', 'but', 'so'],
                 'verb_hint' => 'alternative connector',
                 'detail' => 'alternative_questions',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Це альтернативне питання (Alternative Question), яке пропонує вибір між двома кольорами. Альтернативні питання структурно подібні до загальних (Yes/No), але пропонують конкретні варіанти для відповіді. Для з'єднання варіантів використовується спеціальний сполучник."],
                 'explanations' => [
                     'or' => "Or — сполучник вибору, що означає 'або'. Альтернативні питання завжди містять or між варіантами. Відповідь на таке питання — один із запропонованих варіантів, а не yes/no.",
@@ -996,6 +1039,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['do', 'does', 'are', 'have'],
                 'verb_hint' => 'present simple auxiliary',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "'How often' (як часто) — питання про частоту дії. Дієслово 'meet' (зустрічатися) описує регулярну дію, тому використовується Present Simple. Для формування питань з дієсловами дії у Present Simple потрібне допоміжне дієслово. Підмет 'they' визначає його форму."],
                 'explanations' => [
                     'do' => "Do — допоміжне дієслово Present Simple для I, you, we, they. Питання про частоту з 'How often' формується: How often + do/does + subject + base verb. Відповідь описуватиме частоту: daily, weekly тощо.",
@@ -1018,6 +1062,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Had', 'Have', 'Did', 'Were'],
                 'verb_hint' => 'past perfect auxiliary',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "Фраза 'before the deadline' (до дедлайну) вказує на дію, яка відбулася раніше за інший момент у минулому. Для опису такої послідовності подій використовується Past Perfect (передминулий час). Past Perfect формується з допоміжного дієслова + Past Participle (V3)."],
                 'explanations' => [
                     'Had' => "Had — допоміжне дієслово Past Perfect для всіх підметів. Past Perfect описує дію, що відбулася раніше за інший момент у минулому. Структура: Had + subject + V3 (finished).",
@@ -1035,6 +1080,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['should have', 'should', 'have', 'had'],
                 'verb_hint' => 'modal + perfect',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words', 'modal-questions'],
                 'hints' => ['a1' => "Це питання про минулу дію, яку слід було виконати інакше. Modal Perfect (модальний перфект) використовується для вираження критики, поради або жалю щодо минулих дій. Форма 'done' — Past Participle (V3) — вказує на потребу Perfect конструкції."],
                 'explanations' => [
                     'should have' => "Should have — Modal Perfect для вираження того, що було б правильним зробити в минулому. Структура: should have + V3. Виражає пораду або критику щодо минулого.",
@@ -1052,6 +1098,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["couldn't he", 'could he', "didn't he", "hasn't he"],
                 'verb_hint' => 'negative tag with modal',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions', 'modal-questions', 'do-support'],
                 'hints' => ['a1' => "Це розділове питання (Tag Question) з Modal Perfect 'could have'. Головне речення ствердне і виражає можливість/здатність у минулому. Правило tag questions: ствердне речення потребує заперечного tag. Tag формується з модального дієслова головного речення."],
                 'explanations' => [
                     "couldn't he" => "У tag questions після ствердного речення потрібен заперечний tag. Модальне дієслово в головному реченні — could, тому tag формується з couldn't + займенник (he).",
@@ -1069,6 +1116,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["Haven't", "Didn't", "Don't", "Aren't"],
                 'verb_hint' => 'negative perfect question',
                 'detail' => 'negative_questions',
+                'tags' => ['types-of-questions', 'negative-questions'],
                 'hints' => ['a1' => "Слово 'yet' (ще) типово вживається з Present Perfect. Це заперечне питання (Negative Question), яке виражає здивування: 'Невже ти ще не чув?' або очікування позитивної відповіді. Заперечне питання формується з заперечної форми допоміжного дієслова."],
                 'explanations' => [
                     "Haven't" => "Haven't — заперечна форма have (Present Perfect). Заперечне питання 'Haven't you heard?' виражає здивування, що співрозмовник ще не знає новину. Слово 'yet' підтверджує Present Perfect.",
@@ -1086,6 +1134,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Have', 'Has', 'Were', 'Did'],
                 'verb_hint' => 'perfect passive auxiliary',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "Конструкція 'been reviewed' — це Present Perfect Passive. 'Reviewed' — дієприкметник, а 'been' вказує на Passive Voice у Perfect часі. Present Perfect Passive формується: have/has + been + V3. Підмет 'documents' (множина) визначає форму допоміжного дієслова."],
                 'explanations' => [
                     'Have' => "Have — допоміжне дієслово Present Perfect для множини. 'Documents' — множина, тому потрібне have. Структура: Have + plural subject + been + V3.",
@@ -1103,6 +1152,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['she had left early', 'had she left early', 'she left early had', 'early left she had'],
                 'verb_hint' => 'statement order with had',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => "Це непряме питання (Indirect Question) з Past Perfect. 'Had left' описує дію, що відбулася раніше за інший момент у минулому. У непрямих питаннях порядок слів прямий, як у стверджувальному реченні, без інверсії."],
                 'explanations' => [
                     'she had left early' => "У непрямих питаннях порядок слів: підмет (she) + допоміжне дієслово (had) + Past Participle (left) + обставина (early). Це прямий порядок без інверсії.",
@@ -1120,6 +1170,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['has', 'have', 'did', 'was'],
                 'verb_hint' => 'perfect tense for result',
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions'],
                 'hints' => ['a1' => "Це питання про підмет (Subject Question) у Present Perfect. 'What' є підметом речення (що сталося?). Present Perfect використовується, коли результат події видимий у теперішньому (машина пошкоджена). Форма допоміжного дієслова залежить від числа підмета."],
                 'explanations' => [
                     'has' => "Has — допоміжне дієслово Present Perfect для однини. 'What' як підмет граматично розглядається як третя особа однини, тому потребує has. У питаннях про підмет порядок слів такий самий, як у стверджувальному реченні.",
@@ -1137,6 +1188,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['or', 'and', 'nor', 'but'],
                 'verb_hint' => 'choice between options',
                 'detail' => 'alternative_questions',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Це альтернативне питання (Alternative Question) з ввічливою формою 'Would you like'. Питання пропонує вибір між двома напоями. На відміну від загальних питань (Yes/No), альтернативні питання очікують конкретну відповідь — один із варіантів."],
                 'explanations' => [
                     'or' => "Or — сполучник вибору, що означає 'або'. Альтернативні питання пропонують конкретні варіанти для відповіді. 'Would you like tea or coffee?' очікує відповідь 'Tea' або 'Coffee', а не 'Yes/No'.",
@@ -1154,6 +1206,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["Wouldn't", "Won't", "Isn't", "Doesn't"],
                 'verb_hint' => 'negative modal suggestion',
                 'detail' => 'negative_questions',
+                'tags' => ['types-of-questions', 'negative-questions', 'modal-questions'],
                 'hints' => ['a1' => "Це заперечне питання з модальним дієсловом для ввічливої пропозиції або поради. Заперечне питання виражає очікування згоди: 'Чи не краще було б...?' Для ввічливості та умовності використовується відповідна форма модального дієслова."],
                 'explanations' => [
                     "Wouldn't" => "Wouldn't — заперечна форма would для ввічливих пропозицій та гіпотетичних ситуацій. 'Wouldn't it be better?' — ввічлива форма поради, яка очікує згоди співрозмовника.",
@@ -1171,6 +1224,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['had', 'have', 'were', 'did'],
                 'verb_hint' => 'past perfect continuous',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => "Фраза 'before the bus arrived' вказує на відносність двох минулих подій. Питання про тривалість дії, яка відбувалася до іншого моменту в минулому, використовує Past Perfect Continuous: had + been + V-ing. Форма 'been waiting' підтверджує цей час."],
                 'explanations' => [
                     'had' => "Had — допоміжне дієслово Past Perfect (Continuous) для всіх підметів. Past Perfect Continuous описує тривалу дію до певного моменту в минулому. Структура: had + been + V-ing.",
@@ -1188,6 +1242,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['we should go', 'should we go', 'we go should', 'go we should'],
                 'verb_hint' => 'statement order with whether',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => "Це непряме питання з 'whether' (чи). 'Whether...or not' виражає невизначеність між двома варіантами. У непрямих питаннях, навіть із модальними дієсловами типу should, використовується прямий порядок слів."],
                 'explanations' => [
                     'we should go' => "У непрямих питаннях порядок слів такий самий, як у стверджувальному реченні: підмет (we) + модальне дієслово (should) + основне дієслово (go). Інверсія не використовується.",
@@ -1205,6 +1260,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['shall we', "let's we", "don't we", 'will we'],
                 'verb_hint' => 'suggestion tag',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => ['a1' => "Конструкція 'Let's' (let us) виражає пропозицію зробити щось разом. Це особливий випадок tag questions: після Let's використовується спеціальний tag, який також виражає запрошення до спільної дії."],
                 'explanations' => [
                     'shall we' => "Shall we — стандартний tag після Let's. Він запрошує співрозмовника погодитися з пропозицією. Це єдиний правильний tag для конструкції Let's у формальній граматиці.",
@@ -1227,6 +1283,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['have I seen', 'I have seen', 'did I see', 'I saw'],
                 'verb_hint' => 'inversion after negative adverb',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Коли заперечний або обмежувальний прислівник (rarely, seldom, never, hardly) стоїть на початку речення для емфази, використовується інверсія — допоміжне дієслово виноситься перед підметом. Present Perfect підкреслює накопичений досвід."],
                 'explanations' => [
                     'have I seen' => "Після rarely на початку речення потрібна інверсія: допоміжне дієслово (have) перед підметом (I). Present Perfect (have seen) виражає досвід протягом життя. Це формальна літературна конструкція.",
@@ -1244,6 +1301,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["oughtn't she", 'ought she', "shouldn't she", "didn't she"],
                 'verb_hint' => 'tag from ought to',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => ['a1' => "Конструкція 'ought to have + V3' виражає критику або жаль щодо минулої дії. Це Modal Perfect з формальним модальним дієсловом 'ought to'. Tag формується з модального дієслова головного речення. Ствердне речення потребує заперечного tag."],
                 'explanations' => [
                     "oughtn't she" => "Oughtn't — заперечна форма ought. Після ствердного 'ought to have' потрібен заперечний tag. Це формальна британська форма, яка зберігає відповідність модальному дієслову.",
@@ -1261,6 +1319,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['he might have gone', 'might he have gone', 'he have might gone', 'might have he gone'],
                 'verb_hint' => 'statement order with might have',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order', 'modal-questions'],
                 'hints' => ['a1' => "Це непряме питання з Modal Perfect 'might have + V3', яке виражає припущення про минулу дію. У непрямих питаннях, навіть зі складними модальними конструкціями, використовується прямий порядок слів."],
                 'explanations' => [
                     'he might have gone' => "У непрямих питаннях порядок слів: підмет (he) + модальне дієслово (might) + have + V3 (gone). Це прямий порядок, як у стверджувальному реченні.",
@@ -1278,6 +1337,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["Haven't", "Hadn't", "Aren't", "Weren't"],
                 'verb_hint' => 'negative perfect continuous',
                 'detail' => 'negative_questions',
+                'tags' => ['types-of-questions', 'negative-questions'],
                 'hints' => ['a1' => "Це заперечне питання у Present Perfect Continuous, яке виражає здогадку або занепокоєння. Конструкція 'been pursuing' (been + V-ing) вказує на Perfect Continuous. Заперечне питання формується з заперечної форми допоміжного дієслова."],
                 'explanations' => [
                     "Haven't" => "Haven't — заперечна форма have для Present Perfect (Continuous). Питання виражає занепокоєння: 'Чи не помилялися ми весь цей час?' Present Perfect Continuous підкреслює тривалість процесу.",
@@ -1295,6 +1355,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['could have', 'could', 'did', 'has'],
                 'verb_hint' => 'modal speculation about past',
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions', 'modal-questions'],
                 'hints' => ['a1' => "Це питання про підмет (Subject Question) з Modal Perfect для вираження здогадки про минулу дію. 'Sent' — Past Participle (V3), що вказує на Perfect конструкцію. Питання виражає невизначеність: 'Хто міг надіслати?'"],
                 'explanations' => [
                     'could have' => "Could have + V3 (Modal Perfect) виражає здогадку або можливість у минулому. У питаннях про підмет порядок слів: Who + could have + V3. Виражає невпевненість: 'Хто міг це зробити?'",
@@ -1312,6 +1373,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['did they meet', 'they met', 'they did meet', 'met they'],
                 'verb_hint' => 'inversion after not only',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Конструкція 'Not only... but also' для підкреслення двох фактів. Коли 'Not only' стоїть на початку речення для емфази, потрібна інверсія з допоміжним дієсловом. Це формальна літературна конструкція."],
                 'explanations' => [
                     'did they meet' => "Після 'Not only' на початку речення потрібна інверсія: допоміжне дієслово (did) перед підметом (they), потім базова форма (meet). Це паралельно до конструкції з but also.",
@@ -1329,6 +1391,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['they would have agreed', 'would they have agreed', 'they had agreed would', 'would have they agreed'],
                 'verb_hint' => 'statement order in conditional',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => "Це непряме питання з Third Conditional (нереальна умова в минулому). 'If they had known' — умова, основне речення з 'would have + V3'. У непрямих питаннях навіть зі складними умовними конструкціями використовується прямий порядок слів."],
                 'explanations' => [
                     'they would have agreed' => "У непрямих питаннях порядок слів: підмет (they) + would have + V3 (agreed). Third Conditional: would have + V3 у головному реченні, had + V3 у if-clause.",
@@ -1346,6 +1409,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["Shouldn't", "Hadn't", "Wouldn't", "Didn't"],
                 'verb_hint' => 'negative modal criticism',
                 'detail' => 'negative_questions',
+                'tags' => ['types-of-questions', 'negative-questions', 'modal-questions'],
                 'hints' => ['a1' => "Це заперечне питання з Modal Perfect для вираження критики або докору щодо минулої дії. 'Have informed' (have + V3) вказує на Perfect конструкцію. Заперечне питання очікує згоди: 'Хіба ти не мав би...?'"],
                 'explanations' => [
                     "Shouldn't" => "Shouldn't have + V3 виражає критику за минулу бездіяльність або неправильну дію. Заперечне питання 'Shouldn't you have...?' риторично підкреслює, що дію слід було виконати.",
@@ -1363,6 +1427,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['will have been', 'will be', 'have been', 'will been'],
                 'verb_hint' => 'future perfect passive',
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions'],
                 'hints' => ['a1' => "Фраза 'by the end of the quarter' (до кінця кварталу) вказує на завершеність дії до певного моменту в майбутньому. Для таких ситуацій використовується Future Perfect. Слово 'implemented' (впроваджено) вказує на Passive Voice."],
                 'explanations' => [
                     'will have been' => "Will have been + V3 — Future Perfect Passive. Описує дію, яка буде завершена до певного моменту в майбутньому. 'By the end of' — типовий маркер Future Perfect.",
@@ -1380,6 +1445,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['or', 'and', 'than', 'but'],
                 'verb_hint' => 'preference between options',
                 'detail' => 'alternative_questions',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Конструкція 'would rather' виражає перевагу. Для альтернативних питань, що пропонують вибір між варіантами переваги, використовується спеціальний сполучник. Відповідь буде конкретним вибором, а не yes/no."],
                 'explanations' => [
                     'or' => "Or — сполучник вибору для альтернативних питань. 'Would you rather A or B?' пропонує вибір між двома перевагами. Відповідь: 'I'd rather work independently' або 'I'd rather collaborate'.",
@@ -1397,6 +1463,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["Wouldn't", "Won't", "Don't", "Aren't"],
                 'verb_hint' => 'rhetorical conditional',
                 'detail' => 'negative_questions',
+                'tags' => ['types-of-questions', 'negative-questions'],
                 'hints' => ['a1' => "Це риторичне питання, яке не потребує відповіді, а скоріше виражає думку мовця. Риторичні питання часто використовують заперечну форму для припущення згоди. Умовне модальне дієслово робить питання м'якшим і ввічливішим."],
                 'explanations' => [
                     "Wouldn't" => "Wouldn't — умовна форма, яка робить риторичне питання м'якшим та ввічливішим. 'Wouldn't we all benefit?' припускає згоду і звучить менш категорично.",
@@ -1414,6 +1481,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['you have been working on', 'have you been working on', 'you been have working on', 'on you have been working'],
                 'verb_hint' => 'statement order with phrasal verb',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => "Це непряме питання з Present Perfect Continuous та фразовим дієсловом 'work on' (працювати над). У непрямих питаннях порядок слів прямий. Прийменник фразового дієслова зазвичай залишається в кінці питання."],
                 'explanations' => [
                     'you have been working on' => "Прямий порядок слів: підмет (you) + have been + V-ing (working) + прийменник (on). Прийменник залишається в кінці, що типово для англійської.",
@@ -1436,6 +1504,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['who', 'that', 'which', 'whom'],
                 'verb_hint' => 'cleft with person',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Це cleft sentence (розщеплене речення) — конструкція для підкреслення певного елемента речення. Структура: It is/was + emphasized element + relative pronoun + rest of sentence. Вибір відносного займенника залежить від того, чи підкреслений елемент — людина, річ чи абстрактне поняття."],
                 'explanations' => [
                     'who' => "Who — відносний займенник для людей у ролі підмета. У cleft sentences для підкреслення людини (the CEO) who є стилістично кращим вибором, особливо у формальному контексті.",
@@ -1453,6 +1522,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Had', 'If had', 'Would', 'If I had'],
                 'verb_hint' => 'inverted conditional without if',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Це Third Conditional (нереальна умова в минулому). У формальному стилі замість 'if' можна використовувати інверсію — допоміжне дієслово виноситься перед підметом. Це надає реченню більш літературного та формального звучання."],
                 'explanations' => [
                     'Had' => "Інверсія у Third Conditional: Had + subject + V3 замість 'If + subject + had + V3'. Це формальна літературна конструкція, яка не потребує 'if'.",
@@ -1470,6 +1540,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['he be', 'he is', 'is he', 'he will be'],
                 'verb_hint' => 'subjunctive after insist',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => "Дієслово 'insist' (наполягати) у формальній англійській мові потребує subjunctive mood (умовного способу) у підрядному реченні. Subjunctive використовує базову форму дієслова (be, go, have) без узгодження з підметом."],
                 'explanations' => [
                     'he be' => "Subjunctive mood після 'insist': базова форма дієслова 'be' для всіх підметів (he be, she be, they be). Це формальна британська та американська норма для вимог та наполягань.",
@@ -1487,6 +1558,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['had she finished', 'she had finished', 'she finished', 'did she finish'],
                 'verb_hint' => 'inversion after scarcely',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "'Scarcely...when' — конструкція для вираження послідовності подій: 'ледь...як'. Коли scarcely/hardly стоїть на початку для емфази, потрібна інверсія. Часова конструкція: Past Perfect для першої події, Past Simple для другої."],
                 'explanations' => [
                     'had she finished' => "Після scarcely/hardly на початку речення потрібна інверсія з Past Perfect: had + subject + V3. Past Perfect показує, що перша дія ледь завершилася, коли почалася друга.",
@@ -1504,6 +1576,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["mustn't he", 'must he', "hasn't he", "wasn't he"],
                 'verb_hint' => 'tag from must have',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions', 'modal-questions'],
                 'hints' => ['a1' => "'Must have + V3' виражає впевнену дедукцію про минуле: 'напевно/мабуть'. Це ствердне речення з модальним дієсловом. Правило tag questions: ствердне речення потребує заперечного tag. Tag формується з модального дієслова головного речення."],
                 'explanations' => [
                     "mustn't he" => "Після ствердного 'must have' потрібен заперечний tag з тим самим модальним дієсловом: mustn't + pronoun. Це логічний та граматичний tag для модальної дедукції.",
@@ -1521,6 +1594,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['did we know', 'we knew', 'we did know', 'knew we'],
                 'verb_hint' => 'inversion after little',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "'Little' на початку речення у значенні 'мало/ледь' є негативним за значенням і потребує інверсії для емфази. Це літературна конструкція для вираження: 'Ми й не підозрювали, що...' Інверсія формується з допоміжним дієсловом."],
                 'explanations' => [
                     'did we know' => "Після 'little' на початку речення потрібна інверсія: did + subject + base verb. 'Little did we know' — усталена ідіоматична конструкція для 'ми й не підозрювали'.",
@@ -1538,6 +1612,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['we will have been working', 'will we have been working', 'we have been working will', 'will have we been working'],
                 'verb_hint' => 'statement order with future perfect continuous',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => "'By next month' вказує на момент у майбутньому. Питання про тривалість дії до цього моменту потребує Future Perfect Continuous: will have been + V-ing. У непрямих питаннях порядок слів прямий."],
                 'explanations' => [
                     'we will have been working' => "У непрямих питаннях порядок слів: subject + will have been + V-ing. Future Perfect Continuous описує тривалість дії до певного моменту в майбутньому.",
@@ -1555,6 +1630,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['that', 'which', 'what', 'who'],
                 'verb_hint' => 'cleft connector',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => "Це pseudo-cleft sentence (псевдо-розщеплене речення) — складна емфатична конструкція. Структура: 'What it was + connector + clause'. Це поєднання wh-cleft та it-cleft для подвійного підкреслення."],
                 'explanations' => [
                     'that' => "That — стандартний сполучник у cleft sentences після 'it was'. Навіть у складних pseudo-cleft конструкціях 'that' з'єднує підкреслений елемент із рештою речення.",
@@ -1572,6 +1648,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Should', 'If should', 'Would', 'If'],
                 'verb_hint' => 'inverted conditional first type',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Це First Conditional (реальна умова) у формальному стилі. Замість 'If + present simple' можна використовувати інверсію з 'should' для вираження менш ймовірної, але можливої події. Це надає реченню формального та ввічливого тону."],
                 'explanations' => [
                     'Should' => "Інверсія з should у First Conditional: Should + subject + base verb. Виражає менш ймовірну умову у формальному стилі. Еквівалентно 'If any issues should arise' або 'If any issues arise'.",
@@ -1589,6 +1666,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['was being done', 'was done', 'has been done', 'had been done'],
                 'verb_hint' => 'past continuous passive',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => "'At the time' вказує на конкретний момент у минулому. Питання про дію, яка тривала (була в процесі) у цей момент, потребує Past Continuous. Оскільки питання про дію ('що робилося'), а не про виконавця, потрібен Passive Voice."],
                 'explanations' => [
                     'was being done' => "Was being + V3 — Past Continuous Passive. Описує дію, яка тривала (була в процесі) у певний момент минулого. 'At the time' підкреслює тривалість дії.",
@@ -1606,6 +1684,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['we might not have acted', 'might we not have acted', 'we acted might not have', 'not have acted we might'],
                 'verb_hint' => 'statement order with complex modal',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order', 'modal-questions'],
                 'hints' => ['a1' => "Це непряме питання зі складною модальною конструкцією 'might not have + V3' (Modal Perfect Negative) та інверсією в умовній частині ('had we known'). У непрямих питаннях основна частина зберігає прямий порядок слів."],
                 'explanations' => [
                     'we might not have acted' => "У непрямих питаннях порядок слів: subject + modal + not + have + V3. Навіть зі складними заперечними модальними перфектами після 'whether' потрібен прямий порядок.",
@@ -1623,6 +1702,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['or', 'and', 'nor', 'but'],
                 'verb_hint' => 'choice in formal context',
                 'detail' => 'alternative_questions',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Це альтернативне питання (Alternative Question) у формальному діловому контексті. Незважаючи на складність лексики та формальний стиль, структура альтернативного питання залишається незмінною: пропозиція вибору між двома варіантами дій."],
                 'explanations' => [
                     'or' => "Or — сполучник вибору, який використовується у всіх альтернативних питаннях, незалежно від рівня формальності. Відповідь передбачає вибір одного з варіантів.",
@@ -1646,6 +1726,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Is', 'Are', 'Do', 'Does'],
                 'verb_hint' => 'to be form',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries'],
                 'hints' => ['a1' => "Це загальне питання (Yes/No question) про професію. Коли питаємо 'хто є ким' (ідентичність, професія, стан), використовуємо дієслово 'to be'. Форма to be залежить від підмета: she — третя особа однини."],
                 'explanations' => [
                     'Is' => "Is — форма дієслова 'to be' для третьої особи однини (he, she, it). Питання про професію формується: Is + she + noun (a teacher).",
@@ -1662,6 +1743,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Are', 'Is', 'Do', 'Does'],
                 'verb_hint' => 'plural to be',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries'],
                 'hints' => ['a1' => "Це загальне питання про ідентичність групи людей. Підмет 'they' — множина. Коли питаємо про те, ким є люди (статус, професія), використовуємо дієслово 'to be' у відповідній формі."],
                 'explanations' => [
                     'Are' => "Are — форма дієслова 'to be' для множини (we, you, they). Підмет 'they' потребує саме цієї форми. Питання: Are + they + noun.",
@@ -1678,6 +1760,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Does', 'Do', 'Is', 'Are'],
                 'verb_hint' => 'auxiliary for he/she/it',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "Це загальне питання про вподобання. Дієслово 'like' (подобатися) — дієслово дії. Для формування питань з дієсловами дії у Present Simple потрібне допоміжне дієслово. Підмет 'he' — третя особа однини."],
                 'explanations' => [
                     'Does' => "Does — допоміжне дієслово Present Simple для третьої особи однини (he, she, it). Структура: Does + he + base verb (like). Після does дієслово без -s.",
@@ -1696,6 +1779,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Do', 'Does', 'Are', 'Did'],
                 'verb_hint' => 'present simple auxiliary',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "Фраза 'every week' (кожного тижня) — маркер регулярної дії, що вказує на Present Simple. Дієслово 'play' — дієслово дії. Для питань з дієсловами дії у Present Simple потрібне допоміжне дієслово. Підмет 'you' визначає його форму."],
                 'explanations' => [
                     'Do' => "Do — допоміжне дієслово Present Simple для I, you, we, they. Маркери частоти (every week, always, usually) вказують на Present Simple. Структура: Do + you + base verb.",
@@ -1712,6 +1796,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Did', 'Does', 'Was', 'Is'],
                 'verb_hint' => 'past simple auxiliary',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => "Слово 'yesterday' (вчора) чітко вказує на минулий час (Past Simple). Дієслово 'rain' — дієслово дії, що описує погодне явище. Для питань з дієсловами дії у Past Simple потрібне допоміжне дієслово."],
                 'explanations' => [
                     'Did' => "Did — допоміжне дієслово Past Simple для всіх підметів. 'Yesterday' — маркер Past Simple. Після did дієслово стоїть у базовій формі: Did + it + rain.",
@@ -1728,6 +1813,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Is', 'Does', 'Are', 'Do'],
                 'verb_hint' => 'continuous tense',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Слово 'now' (зараз) вказує на дію, яка відбувається в момент мовлення. Форма 'working' (-ing) підтверджує Continuous час. Present Continuous формується з to be + V-ing. Підмет 'she' визначає форму to be."],
                 'explanations' => [
                     'Is' => "Is — форма to be для третьої особи однини (he, she, it). Present Continuous для питань: Is + she + V-ing. 'Now' підкреслює дію в процесі.",
@@ -1746,6 +1832,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Have', 'Has', 'Did', 'Were'],
                 'verb_hint' => 'experience question',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Слово 'before' (раніше, коли-небудь) вказує на досвід протягом життя без конкретного часу. Для питань про життєвий досвід використовується Present Perfect. Форма 'visited' (V3) підтверджує цей час."],
                 'explanations' => [
                     'Have' => "Have — допоміжне дієслово Present Perfect для I, you, we, they. Питання про досвід: Have + they + V3 (visited). 'Before' типово з Perfect часами.",
@@ -1762,6 +1849,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Are', 'Do', 'Will', 'Have'],
                 'verb_hint' => 'going to future',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Конструкція 'be going to + verb' виражає заплановані майбутні дії або наміри. 'Going to' — фіксована фраза, яка потребує дієслова to be перед собою. Підмет 'you' визначає форму to be."],
                 'explanations' => [
                     'Are' => "Are — форма to be для you (а також we, they). Конструкція 'be going to': Are + you + going to + base verb. Виражає плани на майбутнє.",
@@ -1778,6 +1866,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Has', 'Have', 'Is', 'Was'],
                 'verb_hint' => 'perfect continuous',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Фраза 'all day' (весь день) вказує на тривалість дії до теперішнього моменту. Для опису тривалої дії, яка почалася в минулому і продовжується досі, використовується Present Perfect Continuous: have/has + been + V-ing."],
                 'explanations' => [
                     'Has' => "Has — допоміжне дієслово для Present Perfect (Continuous) з третьою особою однини (he, she, it). 'It' (безособовий підмет для погоди) потребує has.",
@@ -1796,6 +1885,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Has', 'Have', 'Was', 'Is'],
                 'verb_hint' => 'perfect passive',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Конструкція 'been informed' — Present Perfect Passive. 'Informed' — дієприкметник, а 'been' вказує на Perfect та Passive. Present Perfect Passive формується: have/has + been + V3. Підмет 'she' визначає форму."],
                 'explanations' => [
                     'Has' => "Has — допоміжне дієслово Present Perfect для третьої особи однини (he, she, it). Present Perfect Passive: Has + she + been + V3. Питання про результат інформування.",
@@ -1812,6 +1902,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Have', 'Has', 'Were', 'Are'],
                 'verb_hint' => 'plural perfect passive',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "Слово 'yet' (ще) типово вживається з Present Perfect для питань про завершеність дії. 'Been reviewed' — Perfect Passive конструкція. Підмет 'the reports' — множина, що визначає форму допоміжного дієслова."],
                 'explanations' => [
                     'Have' => "Have — допоміжне дієслово Present Perfect для множини. 'Reports' — множина, тому потрібне have. 'Yet' підкреслює очікування завершення дії.",
@@ -1828,6 +1919,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Have', 'Has', 'Are', 'Were'],
                 'verb_hint' => 'duration until now',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => "'Long' (довго) питає про тривалість очікування до теперішнього моменту. Форма 'been waiting' вказує на Present Perfect Continuous — час для опису тривалої дії, що почалася в минулому і продовжується досі."],
                 'explanations' => [
                     'Have' => "Have — допоміжне дієслово Present Perfect (Continuous) для you (а також I, we, they). Питання про тривалість: Have + you + been + V-ing.",
@@ -1846,6 +1938,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Will', 'Has', 'Have', 'Is'],
                 'verb_hint' => 'future perfect passive',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => 'By next week вказує на Future Perfect Passive.'],
                 'explanations' => [
                     'Will' => '✅ Правильно! Future Perfect Passive. Приклад: Will the project have been completed by next week?',
@@ -1862,6 +1955,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Have', 'Are', 'Were', 'Had'],
                 'verb_hint' => 'continuous perfect question',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => 'Питання про можливу тривалу дію до теперішнього моменту.'],
                 'explanations' => [
                     'Have' => '✅ Правильно! Present Perfect Continuous з we. Приклад: Have we been overlooking something important?',
@@ -1878,6 +1972,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['have been', 'be', 'been', 'has been'],
                 'verb_hint' => 'modal perfect passive',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'modal-questions'],
                 'hints' => ['a1' => 'Could + perfect passive для критики минулого.'],
                 'explanations' => [
                     'have been' => '✅ Правильно! Could have been для можливості у минулому. Приклад: Could the data have been analyzed more thoroughly?',
@@ -1896,6 +1991,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['have been', 'be', 'been', 'has been'],
                 'verb_hint' => 'modal speculation passive',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'modal-questions'],
                 'hints' => ['a1' => 'Might have been для здогадки про минуле у пасиві.'],
                 'explanations' => [
                     'have been' => '✅ Правильно! Might have been для здогадки про минуле. Приклад: Might the results have been influenced by external factors?',
@@ -1912,6 +2008,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['to have been', 'have been', 'to be', 'been'],
                 'verb_hint' => 'ought to perfect passive',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => 'Ought to + perfect passive для критики минулого (формально).'],
                 'explanations' => [
                     'to have been' => '✅ Правильно! Ought to have been для критики минулого. Приклад: Ought the committee to have been consulted earlier?',
@@ -1928,6 +2025,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Have', 'Has', 'Were', 'Are'],
                 'verb_hint' => 'plural perfect passive',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => 'Питання про завершеність дії до теперішнього з множиною.'],
                 'explanations' => [
                     'Have' => '✅ Правильно! Present Perfect Passive з множиною. Приклад: Have the implications been fully considered?',
@@ -1946,6 +2044,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Is', 'Are', 'Does', 'Do'],
                 'verb_hint' => 'singular to be',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries'],
                 'hints' => ['a1' => 'З this (однина) використовуємо is.'],
                 'explanations' => [
                     'Is' => '✅ Правильно! З this використовуємо is. Приклад: Is this your book?',
@@ -1962,6 +2061,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Do', 'Does', 'Are', 'Can'],
                 'verb_hint' => 'present ability',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => 'Питання про здатність у Present Simple з you.'],
                 'explanations' => [
                     'Do' => '✅ Правильно! Present Simple з you. Приклад: Do you speak French?',
@@ -1978,6 +2078,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Have', 'Has', 'Did', 'Were'],
                 'verb_hint' => 'life experience',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => 'Питання про життєвий досвід у Present Perfect.'],
                 'explanations' => [
                     'Have' => '✅ Правильно! Present Perfect для досвіду з you. Приклад: Have you been to Italy?',
@@ -1994,6 +2095,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Have', 'Has', 'Are', 'Were'],
                 'verb_hint' => 'continuous until now',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => 'Питання про тривалість дії до теперішнього моменту.'],
                 'explanations' => [
                     'Have' => '✅ Правильно! Present Perfect Continuous з you. Приклад: Have you been working on this project?',
@@ -2010,6 +2112,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Have', 'Has', 'Were', 'Are'],
                 'verb_hint' => 'plural perfect passive',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => 'Present Perfect Passive з множинним підметом.'],
                 'explanations' => [
                     'Have' => '✅ Правильно! Present Perfect Passive з множиною. Приклад: Have the documents been filed correctly?',
@@ -2026,6 +2129,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Are', 'Is', 'Do', 'Does'],
                 'verb_hint' => 'state with you',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => 'Питання про стан з you використовує are.'],
                 'explanations' => [
                     'Are' => '✅ Правильно! З you використовуємо are. Приклад: Are you tired?',
@@ -2042,6 +2146,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Did', 'Does', 'Was', 'Has'],
                 'verb_hint' => 'past event',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => 'Last night вказує на Past Simple.'],
                 'explanations' => [
                     'Did' => '✅ Правильно! Past Simple з did. Приклад: Did he come to the party last night?',
@@ -2058,6 +2163,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Has', 'Have', 'Was', 'Is'],
                 'verb_hint' => 'perfect continuous weather',
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => ['a1' => 'All morning вказує на тривалість до теперішнього моменту.'],
                 'explanations' => [
                     'Has' => '✅ Правильно! Present Perfect Continuous з it. Приклад: Has it been snowing all morning?',
@@ -2082,6 +2188,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['What', 'Who', 'Where', 'When'],
                 'verb_hint' => 'asking for information',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => "Для питання про інформацію (ім'я, річ) використовуємо What."],
                 'explanations' => [
                     'What' => "✅ Правильно! What для питання про ім'я або річ. Приклад: What is your name?",
@@ -2098,6 +2205,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Where', 'What', 'Who', 'Why'],
                 'verb_hint' => 'location question',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Для питання про місце використовуємо Where.'],
                 'explanations' => [
                     'Where' => '✅ Правильно! Where для питання про місце. Приклад: Where do you live?',
@@ -2114,6 +2222,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Who', 'What', 'Where', 'How'],
                 'verb_hint' => 'person identity',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Для питання про особу (хто це) використовуємо Who.'],
                 'explanations' => [
                     'Who' => '✅ Правильно! Who для питання про особу. Приклад: Who is he?',
@@ -2132,6 +2241,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Where', 'When', 'Why', 'Who'],
                 'verb_hint' => 'location in past',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Питання про місце у минулому — Where.'],
                 'explanations' => [
                     'Where' => '✅ Правильно! Where для питання про місце. Приклад: Where did you go yesterday?',
@@ -2148,6 +2258,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Why', 'When', 'Where', 'What'],
                 'verb_hint' => 'reason question',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Для питання про причину використовуємо Why.'],
                 'explanations' => [
                     'Why' => '✅ Правильно! Why для питання про причину. Приклад: Why are you late?',
@@ -2164,6 +2275,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['When', 'Where', 'Why', 'How'],
                 'verb_hint' => 'time question',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Для питання про час використовуємо When.'],
                 'explanations' => [
                     'When' => '✅ Правильно! When для питання про час. Приклад: When does the class start?',
@@ -2182,6 +2294,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['How long', 'How much', 'How many', 'How often'],
                 'verb_hint' => 'duration question',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Для питання про тривалість використовуємо How long.'],
                 'explanations' => [
                     'How long' => '✅ Правильно! How long для тривалості. Приклад: How long have you been learning English?',
@@ -2198,6 +2311,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Why', 'When', 'Where', 'How'],
                 'verb_hint' => 'reason in past',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Питання про причину дії у минулому.'],
                 'explanations' => [
                     'Why' => '✅ Правильно! Why для причини. Приклад: Why did she say that?',
@@ -2214,6 +2328,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['How often', 'How long', 'How much', 'How many'],
                 'verb_hint' => 'frequency question',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Для питання про частоту використовуємо How often.'],
                 'explanations' => [
                     'How often' => '✅ Правильно! How often для частоти. Приклад: How often do you exercise per week?',
@@ -2232,6 +2347,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['How', 'Why', 'When', 'Where'],
                 'verb_hint' => 'manner question',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Для питання про спосіб дії використовуємо How.'],
                 'explanations' => [
                     'How' => '✅ Правильно! How для способу дії. Приклад: How would you handle this situation?',
@@ -2248,6 +2364,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['When', 'Why', 'Where', 'How'],
                 'verb_hint' => 'time of realization',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Питання про момент усвідомлення.'],
                 'explanations' => [
                     'When' => '✅ Правильно! When для моменту дії. Приклад: When did you realize the mistake?',
@@ -2264,6 +2381,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['What', 'Who', 'When', 'Where'],
                 'verb_hint' => 'thing selection',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Питання про вибір речі/завдання.'],
                 'explanations' => [
                     'What' => '✅ Правильно! What для вибору речі. Приклад: What should we prioritize?',
@@ -2282,6 +2400,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['What', 'Who', 'Why', 'When'],
                 'verb_hint' => 'cause speculation',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Здогадка про можливу причину (річ/подію).'],
                 'explanations' => [
                     'What' => '✅ Правильно! What для речі/події. Приклад: What might have caused the delay?',
@@ -2298,6 +2417,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['When', 'Why', 'How', 'Where'],
                 'verb_hint' => 'intended time',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Питання про запланований момент.'],
                 'explanations' => [
                     'When' => '✅ Правильно! When для запланованого часу. Приклад: When were you planning to inform us?',
@@ -2316,6 +2436,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Whom', 'Who', 'What', 'When'],
                 'verb_hint' => 'formal person object',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => "У формальній мові для об'єкта (кого) використовуємо Whom."],
                 'explanations' => [
                     'Whom' => "✅ Правильно! Whom для об'єкта у формальній мові. Приклад: Whom ought we to have consulted?",
@@ -2332,6 +2453,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['How', 'What', 'When', 'Why'],
                 'verb_hint' => 'age question',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Для питання про вік використовуємо How old.'],
                 'explanations' => [
                     'How' => '✅ Правильно! How old для питання про вік. Приклад: How old are you?',
@@ -2348,6 +2470,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['Why', 'When', 'How', 'What'],
                 'verb_hint' => 'reason for choice',
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => ['a1' => 'Питання про причину вибору.'],
                 'explanations' => [
                     'Why' => '✅ Правильно! Why для причини вибору. Приклад: Why did you choose this option?',
@@ -2372,6 +2495,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['wrote', 'did write', 'was writing', 'has written'],
                 'verb_hint' => 'past simple without auxiliary',
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => 'У питаннях про підмет не використовуємо допоміжне дієслово. Просто V2.'],
                 'explanations' => [
                     'wrote' => '✅ Правильно! У питаннях про підмет просто V2. Приклад: Who wrote this book?',
@@ -2388,6 +2512,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['is', 'does', 'are', 'do'],
                 'verb_hint' => 'singular to be',
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions', 'auxiliaries'],
                 'hints' => ['a1' => 'What як підмет — однина, використовуємо is.'],
                 'explanations' => [
                     'is' => '✅ Правильно! What (підмет) + is. Приклад: What is on the table?',
@@ -2406,6 +2531,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['arrived', 'did arrive', 'has arrived', 'was arriving'],
                 'verb_hint' => 'simple past',
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions'],
                 'hints' => ['a1' => 'У питаннях про підмет у Past Simple просто V2, без did.'],
                 'explanations' => [
                     'arrived' => '✅ Правильно! У питаннях про підмет просто V2. Приклад: Who arrived first?',
@@ -2422,6 +2548,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['caused', 'did cause', 'has caused', 'was causing'],
                 'verb_hint' => 'past without auxiliary',
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => 'What як підмет у Past Simple — просто V2.'],
                 'explanations' => [
                     'caused' => '✅ Правильно! What (підмет) + V2. Приклад: What caused the problem?',
@@ -2440,6 +2567,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['made', 'did make', 'has made', 'was making'],
                 'verb_hint' => 'simple past action',
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions'],
                 'hints' => ['a1' => 'Питання про підмет у минулому — V2 без допоміжного.'],
                 'explanations' => [
                     'made' => '✅ Правильно! Who (підмет) + V2. Приклад: Who made the decision?',
@@ -2458,6 +2586,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['have', 'has', 'did', 'were'],
                 'verb_hint' => 'plural perfect',
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions'],
                 'hints' => ['a1' => 'Which factors (підмет, множина) у Present Perfect.'],
                 'explanations' => [
                     'have' => '✅ Правильно! Множина як підмет + have. Приклад: Which factors have contributed to the outcome?',
@@ -2482,6 +2611,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["don't you", 'do you', "aren't you", 'are you'],
                 'verb_hint' => 'negative tag after positive',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions', 'do-support'],
                 'hints' => ['a1' => 'Після ствердного речення у Present Simple додаємо заперечний tag.'],
                 'explanations' => [
                     "don't you" => "✅ Правильно! Після ствердження заперечний tag. Приклад: You like coffee, don't you?",
@@ -2498,6 +2628,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['does she', "doesn't she", 'is she', "isn't she"],
                 'verb_hint' => 'positive after negative',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions', 'do-support'],
                 'hints' => ['a1' => 'Після заперечного речення додаємо ствердний tag.'],
                 'explanations' => [
                     'does she' => "✅ Правильно! Після заперечення ствердний tag. Приклад: She doesn't smoke, does she?",
@@ -2516,6 +2647,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["can't they", 'can they', "don't they", 'do they'],
                 'verb_hint' => 'modal tag',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions', 'modal-questions'],
                 'hints' => ['a1' => "Tag від модального can — can't."],
                 'explanations' => [
                     "can't they" => "✅ Правильно! Tag від can — can't. Приклад: They can swim, can't they?",
@@ -2532,6 +2664,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['will he', "won't he", 'is he', "isn't he"],
                 'verb_hint' => 'future tag',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => ['a1' => "Після заперечного won't додаємо ствердний will."],
                 'explanations' => [
                     'will he' => "✅ Правильно! Після won't ствердний will. Приклад: He won't be late, will he?",
@@ -2550,6 +2683,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["wouldn't you", 'would you', "won't you", 'will you'],
                 'verb_hint' => 'conditional tag',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => ['a1' => "Tag від would — wouldn't."],
                 'explanations' => [
                     "wouldn't you" => "✅ Правильно! Tag від would — wouldn't. Приклад: You would help me, wouldn't you?",
@@ -2566,6 +2700,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["hadn't she", 'had she', "didn't she", 'did she'],
                 'verb_hint' => 'past perfect tag',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => ['a1' => "Tag від Past Perfect had — hadn't."],
                 'explanations' => [
                     "hadn't she" => "✅ Правильно! Tag від had — hadn't. Приклад: She had left early, hadn't she?",
@@ -2584,6 +2719,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['did they', "didn't they", 'do they', "don't they"],
                 'verb_hint' => 'tag after nobody',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => ['a1' => 'Після nobody (заперечне значення) використовуємо ствердний tag з they.'],
                 'explanations' => [
                     'did they' => '✅ Правильно! Після nobody ствердний tag з they. Приклад: Nobody called, did they?',
@@ -2602,6 +2738,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['shall we', "let's we", 'will we', "won't we"],
                 'verb_hint' => 'suggestion tag',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => ['a1' => "Після Let's використовуємо shall we."],
                 'explanations' => [
                     'shall we' => "✅ Правильно! Після Let's використовуємо shall we. Приклад: Let's proceed with the plan, shall we?",
@@ -2618,6 +2755,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ["isn't it", 'is it', "doesn't it", 'does it'],
                 'verb_hint' => 'weather tag',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => ['a1' => "Після ствердного речення з it's додаємо isn't it."],
                 'explanations' => [
                     "isn't it" => "✅ Правильно! Tag від it's — isn't it. Приклад: It's cold today, isn't it?",
@@ -2634,6 +2772,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['have you', "haven't you", 'did you', "didn't you"],
                 'verb_hint' => 'perfect tag',
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => ['a1' => "Після заперечного haven't додаємо ствердний have."],
                 'explanations' => [
                     'have you' => "✅ Правильно! Після haven't ствердний have. Приклад: You haven't seen my keys, have you?",
@@ -2658,6 +2797,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['the station is', 'is the station', 'the is station', 'station is the'],
                 'verb_hint' => 'statement order',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => 'У непрямих питаннях прямий порядок слів: підмет + дієслово.'],
                 'explanations' => [
                     'the station is' => '✅ Правильно! У непрямих питаннях прямий порядок. Приклад: Can you tell me where the station is?',
@@ -2674,6 +2814,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['time it is', 'it is time', 'is it time', 'time is it'],
                 'verb_hint' => 'no inversion',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => 'У непрямих питаннях звичайний порядок слів без інверсії.'],
                 'explanations' => [
                     'time it is' => '✅ Правильно! Прямий порядок слів. Приклад: Do you know what time it is?',
@@ -2692,6 +2833,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['it costs', 'costs it', 'does it cost', 'it does cost'],
                 'verb_hint' => 'subject before verb',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => 'У непрямих питаннях підмет перед дієсловом, без do/does.'],
                 'explanations' => [
                     'it costs' => '✅ Правильно! Прямий порядок без do/does. Приклад: Could you tell me how much it costs?',
@@ -2708,6 +2850,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['she was', 'was she', 'she were', 'were she'],
                 'verb_hint' => 'statement word order',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => 'Після I wonder використовується прямий порядок слів.'],
                 'explanations' => [
                     'she was' => '✅ Правильно! Прямий порядок після I wonder. Приклад: I wonder why she was late.',
@@ -2724,6 +2867,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['this works', 'works this', 'does this work', 'this does work'],
                 'verb_hint' => 'normal order',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => 'У непрямих питаннях звичайний порядок слів без допоміжних дієслів.'],
                 'explanations' => [
                     'this works' => '✅ Правильно! Прямий порядок без does. Приклад: Can you explain how this works?',
@@ -2742,6 +2886,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['he will come', 'will he come', 'he come will', 'will come he'],
                 'verb_hint' => 'statement order with modal',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order', 'modal-questions'],
                 'hints' => ['a1' => 'Після whether використовується прямий порядок слів.'],
                 'explanations' => [
                     'he will come' => "✅ Правильно! Прямий порядок після whether. Приклад: I'm not sure whether he will come tomorrow.",
@@ -2758,6 +2903,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['they arrived', 'arrived they', 'did they arrive', 'they did arrive'],
                 'verb_hint' => 'past without auxiliary',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order', 'auxiliaries', 'do-support'],
                 'hints' => ['a1' => 'У непрямих питаннях у минулому не використовуємо did.'],
                 'explanations' => [
                     'they arrived' => '✅ Правильно! Прямий порядок без did. Приклад: Do you remember when they arrived?',
@@ -2774,6 +2920,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['we should do', 'should we do', 'we do should', 'do we should'],
                 'verb_hint' => 'modal in statement order',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order', 'modal-questions'],
                 'hints' => ['a1' => 'У непрямих питаннях модальне дієслово після підмета.'],
                 'explanations' => [
                     'we should do' => '✅ Правильно! Прямий порядок з should. Приклад: Could you clarify what we should do next?',
@@ -2792,6 +2939,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['they chose', 'chose they', 'did they choose', 'they did choose'],
                 'verb_hint' => 'past statement order',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => 'У непрямих питаннях у минулому прямий порядок без did.'],
                 'explanations' => [
                     'they chose' => "✅ Правильно! Прямий порядок без did. Приклад: I'd like to understand why they chose this approach.",
@@ -2808,6 +2956,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['this is', 'is this', 'this be', 'be this'],
                 'verb_hint' => 'to be statement order',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order', 'auxiliaries'],
                 'hints' => ['a1' => 'Після if використовується прямий порядок слів з is.'],
                 'explanations' => [
                     'this is' => '✅ Правильно! Прямий порядок після if. Приклад: We need to determine if this is feasible.',
@@ -2826,6 +2975,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['all options have', 'have all options', 'all have options', 'options all have'],
                 'verb_hint' => 'perfect statement order',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => ['a1' => 'У непрямих питаннях підмет перед have у Present Perfect.'],
                 'explanations' => [
                     'all options have' => '✅ Правильно! Прямий порядок з have. Приклад: One might wonder whether all options have been considered.',
@@ -2842,6 +2992,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'options' => ['this should be', 'should this be', 'this be should', 'be this should'],
                 'verb_hint' => 'passive modal statement',
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order', 'modal-questions'],
                 'hints' => ['a1' => 'У непрямих питаннях прямий порядок навіть з пасивними модальними конструкціями.'],
                 'explanations' => [
                     'this should be' => '✅ Правильно! Прямий порядок з модальним пасивом. Приклад: The question remains as to how this should be implemented.',
@@ -2873,6 +3024,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'auxiliary for you', 'a2' => 'base form after do'],
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => [
                     'a1' => 'Для формування питання з you використовуємо Do.',
                     'a2' => 'Після допоміжного дієслова do/does використовується базова форма дієслова без закінчення -s.',
@@ -2898,6 +3050,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'auxiliary for she', 'a2' => 'base form after does'],
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => [
                     'a1' => 'Для формування питання з she використовуємо Does.',
                     'a2' => 'Після does дієслово завжди у базовій формі.',
@@ -2923,6 +3076,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'to be singular', 'a2' => 'to be singular'],
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => [
                     'a1' => 'Your name — однина, тому is.',
                     'a2' => 'My name — однина, тому is.',
@@ -2946,6 +3100,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'to be for continuous', 'a2' => 'present participle'],
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => [
                     'a1' => 'Present Continuous: Are + they + V-ing.',
                     'a2' => 'У Present Continuous дієслово має форму -ing.',
@@ -2973,6 +3128,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'past auxiliary', 'a2' => 'base form after did'],
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => [
                     'a1' => 'Для Past Simple питань використовуємо Did.',
                     'a2' => 'Після did завжди базова форма дієслова.',
@@ -2998,6 +3154,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'past auxiliary', 'a2' => 'base form'],
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => [
                     'a1' => 'Last summer — минулий час, потрібен did.',
                     'a2' => 'Після did — базова форма дієслова.',
@@ -3023,6 +3180,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'statement order', 'a2' => 'modal negative'],
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => [
                     'a1' => 'У непрямих питаннях прямий порядок слів.',
                     'a2' => "Can't означає неможливість.",
@@ -3048,6 +3206,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'present simple', 'a2' => 'negative tag'],
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => [
                     'a1' => 'You speak — Present Simple з you.',
                     'a2' => "Після ствердження — заперечний tag: don't you.",
@@ -3075,6 +3234,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'present perfect auxiliary', 'a2' => 'past participle'],
                 'detail' => 'yes_no',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => [
                     'a1' => 'Present Perfect: Have + you + V3.',
                     'a2' => 'Been — це V3 від be.',
@@ -3100,6 +3260,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'perfect continuous', 'a2' => 'been for continuous'],
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => [
                     'a1' => 'Present Perfect Continuous: have/has + been + V-ing.',
                     'a2' => 'Been обов\'язковий для Perfect Continuous.',
@@ -3125,6 +3286,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'negative perfect', 'a2' => 'positive tag'],
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => [
                     'a1' => "Haven't — заперечення в Present Perfect.",
                     'a2' => 'Після заперечення — ствердний tag.',
@@ -3150,6 +3312,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'statement order', 'a2' => 'present simple 3rd person'],
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => [
                     'a1' => 'Непряме питання: прямий порядок слів.',
                     'a2' => 'She wants — третя особа однини.',
@@ -3177,6 +3340,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'negative question modal', 'a2' => 'past simple in conditional'],
                 'detail' => 'negative_questions',
+                'tags' => ['types-of-questions', 'negative-questions'],
                 'hints' => [
                     'a1' => "Would для гіпотетичних пропозицій.",
                     'a2' => 'If + Past Simple для нереальної умови.',
@@ -3202,6 +3366,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'alternative choice', 'a2' => 'auxiliary for you'],
                 'detail' => 'alternative_questions',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => [
                     'a1' => 'Or для вибору між варіантами.',
                     'a2' => 'Do you — питання з you.',
@@ -3227,6 +3392,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'subject question past', 'a2' => 'subject question past'],
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions'],
                 'hints' => [
                     'a1' => 'У питаннях про підмет — V2 без did.',
                     'a2' => 'Те саме правило: V2 без did.',
@@ -3252,6 +3418,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'modal for recommendation', 'a2' => 'modal in indirect'],
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => [
                     'a1' => 'Should для рекомендацій.',
                     'a2' => 'Непряме питання зберігає модальне дієслово.',
@@ -3277,6 +3444,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'modal past criticism', 'a2' => 'perfect passive', 'a3' => 'negative tag'],
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => [
                     'a1' => 'Should have been — критика минулої бездіяльності.',
                     'a2' => 'Have been для Perfect Passive.',
@@ -3308,6 +3476,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'subject question word', 'a2' => 'past without auxiliary', 'a3' => 'base form after might'],
                 'detail' => 'subject_questions',
+                'tags' => ['types-of-questions', 'subject-questions', 'wh-questions'],
                 'hints' => [
                     'a1' => 'What caused — питання про причину (підмет).',
                     'a2' => 'У питаннях про підмет — V2 без did.',
@@ -3338,6 +3507,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'present perfect auxiliary', 'a2' => 'past participle'],
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => [
                     'a1' => 'They have — Present Perfect з they.',
                     'a2' => 'Understood — V3 для Present Perfect.',
@@ -3364,6 +3534,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'past passive question', 'a2' => 'continuous passive', 'a3' => 'past plural'],
                 'detail' => 'alternative_questions',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => [
                     'a1' => 'Were для Past Passive з множиною.',
                     'a2' => 'Being implemented — Past Continuous Passive.',
@@ -3397,6 +3568,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'formal modal', 'a2' => 'infinitive after ought', 'a3' => 'positive tag'],
                 'detail' => 'tag_questions',
+                'tags' => ['types-of-questions', 'tag-questions'],
                 'hints' => [
                     'a1' => 'Ought to — формальна рекомендація.',
                     'a2' => 'Після ought завжди to + infinitive.',
@@ -3428,6 +3600,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'thing question word', 'a2' => 'cleft sentence', 'a3' => 'thing question'],
                 'detail' => 'wh_questions',
+                'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                 'hints' => [
                     'a1' => 'What для питання про річ/подію.',
                     'a2' => 'Was it — cleft sentence (It was X that...).',
@@ -3458,6 +3631,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'past perfect auxiliary', 'a2' => 'past participle passive'],
                 'detail' => 'indirect_questions',
+                'tags' => ['types-of-questions', 'indirect-questions', 'question-word-order'],
                 'hints' => [
                     'a1' => 'Had been — Past Perfect Passive.',
                     'a2' => 'Been vetted — Passive Voice.',
@@ -3485,6 +3659,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ],
                 'verb_hints' => ['a1' => 'present question', 'a2' => 'present perfect passive', 'a3' => 'adverb', 'a4' => 'plural existence'],
                 'detail' => 'alternative_questions',
+                'tags' => ['types-of-questions', 'yes-no-questions'],
                 'hints' => [
                     'a1' => 'Is it the case that — формальна конструкція.',
                     'a2' => 'Has been substantiated — Present Perfect Passive.',

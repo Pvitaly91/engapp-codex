@@ -50,6 +50,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'hero',
+                    'tags' => ['types-of-questions', 'yes-no-questions'],
                     'body' => json_encode([
                         'level' => 'A1–A2',
                         'intro' => 'У цій темі ти вивчиш <strong>відповіді на питання (Answers to Questions)</strong> — як правильно відповідати на різні типи питань, використовуючи короткі та повні відповіді.',
@@ -81,6 +82,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'forms-grid-types',
+                    'tags' => ['types-of-questions', 'yes-no-questions'],
                     'body' => json_encode([
                         'title' => '1. Типи відповідей',
                         'intro' => 'В англійській мові є кілька способів відповісти на питання:',
@@ -97,6 +99,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-do-does-did',
+                    'tags' => ['types-of-questions', 'yes-no-questions', 'do-support'],
                     'body' => json_encode([
                         'title' => '2. Короткі відповіді з DO/DOES/DID',
                         'sections' => [
@@ -138,6 +141,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-to-be',
+                    'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries'],
                     'body' => json_encode([
                         'title' => '3. Короткі відповіді з TO BE',
                         'sections' => [
@@ -181,6 +185,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-modals',
+                    'tags' => ['types-of-questions', 'yes-no-questions', 'modal-questions'],
                     'body' => json_encode([
                         'title' => '4. Короткі відповіді з модальними дієсловами',
                         'sections' => [
@@ -221,6 +226,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-have-has',
+                    'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries'],
                     'body' => json_encode([
                         'title' => '5. Короткі відповіді з HAVE/HAS',
                         'sections' => [
@@ -260,6 +266,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-other-tenses',
+                    'tags' => ['types-of-questions', 'yes-no-questions', 'auxiliaries'],
                     'body' => json_encode([
                         'title' => '6. Короткі відповіді з іншими часами',
                         'sections' => [
@@ -301,6 +308,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-full-answers',
+                    'tags' => ['types-of-questions', 'yes-no-questions'],
                     'body' => json_encode([
                         'title' => '7. Повні відповіді',
                         'sections' => [
@@ -343,6 +351,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-wh-answers',
+                    'tags' => ['types-of-questions', 'wh-questions'],
                     'body' => json_encode([
                         'title' => '8. Відповіді на Wh-питання',
                         'sections' => [
@@ -376,6 +385,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'comparison-table',
+                    'tags' => ['types-of-questions', 'yes-no-questions', 'do-support', 'modal-questions'],
                     'body' => json_encode([
                         'title' => '9. Швидка таблиця відповідей',
                         'intro' => 'Як формувати короткі відповіді з різними дієсловами:',
@@ -415,6 +425,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'mistakes-grid',
+                    'tags' => ['types-of-questions', 'yes-no-questions'],
                     'body' => json_encode([
                         'title' => '10. Типові помилки',
                         'items' => [
@@ -455,6 +466,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'summary-list',
+                    'tags' => ['types-of-questions', 'yes-no-questions'],
                     'body' => json_encode([
                         'title' => '11. Короткий конспект',
                         'items' => [
@@ -477,6 +489,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'practice-set',
+                    'tags' => ['types-of-questions', 'yes-no-questions', 'do-support'],
                     'body' => json_encode([
                         'title' => '12. Практика',
                         'select_title' => 'Вправа 1. Обери правильну відповідь',
@@ -525,6 +538,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'navigation-chips',
+                    'tags' => ['types-of-questions'],
                     'body' => json_encode([
                         'title' => 'Інші теми з розділу Види питальних речень',
                         'items' => [
