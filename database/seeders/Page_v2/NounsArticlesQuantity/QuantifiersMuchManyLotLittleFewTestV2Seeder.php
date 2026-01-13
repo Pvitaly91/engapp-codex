@@ -355,10 +355,10 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
         /**
          * =========================
          * Exercise 3 (10)
-         * word bank: much, how much, many, a lot of, a lot, a little, a few, any, no, none
+         * word bank: much, How much, many, a lot of, a lot, a little, a few, any, no, None
          * =========================
          */
-        $bank = ['much', 'How much', 'many', 'a lot of', 'a lot', 'a little', 'a few', 'any', 'no', 'none'];
+        $bank = ['much', 'How much', 'many', 'a lot of', 'a lot', 'a little', 'a few', 'any', 'no', 'None'];
 
         $uuid = $this->generateQuestionUuid('a1', 'quantifiers', 'much-many-lot-little-few', 'ex3', 1);
         $items[] = [
