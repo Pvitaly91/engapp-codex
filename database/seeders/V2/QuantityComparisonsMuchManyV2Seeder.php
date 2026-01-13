@@ -611,12 +611,12 @@ class QuantityComparisonsMuchManyV2Seeder extends QuestionSeeder
             'type' => 0,
             'tag_ids' => $tagIds,
             'answers' => [
-                ['marker' => 'a1', 'answer' => 'None'],
+                ['marker' => 'a1', 'answer' => 'none'],
             ],
             'options' => $bank,
             'variants' => ['"How many cups of coffee did you have?" "{a1}. I don\'t drink coffee."'],
         ];
-        $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'None'], 'hints' => ['Quantifiers (A1)']];
+        $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'none'], 'hints' => ['Quantifiers (A1)']];
 
         $this->seedQuestionData($items, $meta);
     }
