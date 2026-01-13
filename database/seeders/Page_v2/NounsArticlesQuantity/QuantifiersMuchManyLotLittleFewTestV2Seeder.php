@@ -369,7 +369,9 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
             'level' => 'A1',
             'difficulty' => 1,
             'type' => null,
-            'answers' => [['marker' => 'a1', 'answer' => 'a lot of']],
+            'answers' => [
+                ['marker' => 'a1', 'answer' => 'a lot of'],
+            ],
             'options' => $bank,
         ];
         $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'a lot of'], 'hints' => ['Quantifiers (A1)']];
@@ -383,7 +385,9 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
             'level' => 'A1',
             'difficulty' => 1,
             'type' => null,
-            'answers' => [['marker' => 'a1', 'answer' => 'How much']],
+            'answers' => [
+                ['marker' => 'a1', 'answer' => 'How much'],
+            ],
             'options' => $bank,
         ];
         $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'How much'], 'hints' => ['Quantifiers (A1)']];
@@ -397,7 +401,9 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
             'level' => 'A1',
             'difficulty' => 1,
             'type' => null,
-            'answers' => [['marker' => 'a1', 'answer' => 'a little']],
+            'answers' => [
+                ['marker' => 'a1', 'answer' => 'a little'],
+            ],
             'options' => $bank,
         ];
         $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'a little'], 'hints' => ['Quantifiers (A1)']];
@@ -411,7 +417,9 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
             'level' => 'A1',
             'difficulty' => 1,
             'type' => null,
-            'answers' => [['marker' => 'a1', 'answer' => 'a lot']],
+            'answers' => [
+                ['marker' => 'a1', 'answer' => 'a lot'],
+            ],
             'options' => $bank,
         ];
         $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'a lot'], 'hints' => ['Quantifiers (A1)']];
@@ -425,7 +433,9 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
             'level' => 'A1',
             'difficulty' => 1,
             'type' => null,
-            'answers' => [['marker' => 'a1', 'answer' => 'many']],
+            'answers' => [
+                ['marker' => 'a1', 'answer' => 'many'],
+            ],
             'options' => $bank,
         ];
         $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'many'], 'hints' => ['Quantifiers (A1)']];
@@ -439,7 +449,9 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
             'level' => 'A1',
             'difficulty' => 1,
             'type' => null,
-            'answers' => [['marker' => 'a1', 'answer' => 'a few']],
+            'answers' => [
+                ['marker' => 'a1', 'answer' => 'a few'],
+            ],
             'options' => $bank,
         ];
         $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'a few'], 'hints' => ['Quantifiers (A1)']];
@@ -453,7 +465,9 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
             'level' => 'A1',
             'difficulty' => 1,
             'type' => null,
-            'answers' => [['marker' => 'a1', 'answer' => 'no']],
+            'answers' => [
+                ['marker' => 'a1', 'answer' => 'no'],
+            ],
             'options' => $bank,
         ];
         $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'no'], 'hints' => ['Quantifiers (A1)']];
@@ -467,7 +481,9 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
             'level' => 'A1',
             'difficulty' => 1,
             'type' => null,
-            'answers' => [['marker' => 'a1', 'answer' => 'much']],
+            'answers' => [
+                ['marker' => 'a1', 'answer' => 'much'],
+            ],
             'options' => $bank,
         ];
         $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'much'], 'hints' => ['Quantifiers (A1)']];
@@ -481,7 +497,9 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
             'level' => 'A1',
             'difficulty' => 1,
             'type' => null,
-            'answers' => [['marker' => 'a1', 'answer' => 'any']],
+            'answers' => [
+                ['marker' => 'a1', 'answer' => 'any'],
+            ],
             'options' => $bank,
         ];
         $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'any'], 'hints' => ['Quantifiers (A1)']];
@@ -495,7 +513,9 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
             'level' => 'A1',
             'difficulty' => 1,
             'type' => null,
-            'answers' => [['marker' => 'a1', 'answer' => 'none']],
+            'answers' => [
+                ['marker' => 'a1', 'answer' => 'none'],
+            ],
             'options' => $bank,
         ];
         $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'none'], 'hints' => ['Quantifiers (A1)']];
