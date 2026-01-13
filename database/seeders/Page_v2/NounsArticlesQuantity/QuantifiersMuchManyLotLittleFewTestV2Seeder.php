@@ -514,11 +514,11 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
             'difficulty' => 1,
             'type' => null,
             'answers' => [
-                ['marker' => 'a1', 'answer' => 'none'],
+                ['marker' => 'a1', 'answer' => 'None'],
             ],
             'options' => $bank,
         ];
-        $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'none'], 'hints' => ['Quantifiers (A1)']];
+        $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'None'], 'hints' => ['Quantifiers (A1)']];
 
         $this->seedQuestionData($items, $meta);
     }
