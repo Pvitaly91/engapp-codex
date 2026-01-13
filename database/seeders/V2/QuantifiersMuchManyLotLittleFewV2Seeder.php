@@ -349,10 +349,10 @@ class QuantifiersMuchManyLotLittleFewV2Seeder extends QuestionSeeder
         /**
          * =========================
          * Exercise 3 (10)
-         * word bank: much, how much, many, a lot of, a lot, a little, a few, any, no, none
+         * word bank: much, How much, many, a lot of, a lot, a little, a few, any, no, None
          * =========================
          */
-        $bank = ['much', 'How much', 'many', 'a lot of', 'a lot', 'a little', 'a few', 'any', 'no', 'none'];
+        $bank = ['much', 'How much', 'many', 'a lot of', 'a lot', 'a little', 'a few', 'any', 'no', 'None'];
 
         $uuid = $this->generateQuestionUuid('a1', 'quantifiers', 'much-many-lot-little-few', 'ex3', 1);
         $items[] = [
@@ -489,10 +489,10 @@ class QuantifiersMuchManyLotLittleFewV2Seeder extends QuestionSeeder
             'level' => 'A1',
             'difficulty' => 1,
             'type' => null,
-            'answers' => [['marker' => 'a1', 'answer' => 'none']],
+            'answers' => [['marker' => 'a1', 'answer' => 'None']],
             'options' => $bank,
         ];
-        $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'none'], 'hints' => ['Quantifiers (A1)']];
+        $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'None'], 'hints' => ['Quantifiers (A1)']];
 
         $this->seedQuestionData($items, $meta);
     }
