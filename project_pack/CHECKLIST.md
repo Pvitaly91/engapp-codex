@@ -15,6 +15,7 @@
 | 9 | `BACKLOG.md` | Техборг, quick wins, prioritization | ✅ |
 | 10 | `DECISIONS.md` | Decision log з альтернативами | ✅ |
 | 11 | `LOCALIZATION.md` | i18n, lang files, LanguageManager | ✅ |
+| 12 | `SEEDERS.md` | Архітектура сідерів тестів та сторінок теорії | ✅ |
 
 ### Не створено (не виявлено в проєкті)
 - `HORIZON.md` — Laravel Horizon не підключено
@@ -22,7 +23,7 @@
 
 ---
 
-## 10 найважливіших файлів/папок проєкту
+## 14 найважливіших файлів/папок проєкту
 
 | # | Шлях | Призначення |
 |---|------|-------------|
@@ -36,6 +37,10 @@
 | 8 | `app/Http/Controllers/WordsTestController.php` | Тренажер слів — session-based логіка |
 | 9 | `app/Modules/LanguageManager/Services/LocaleService.php` | Локалізація — управління мовами |
 | 10 | `config/services.php` | Конфігурація — API ключі та external services |
+| 11 | `database/seeders/QuestionSeeder.php` | Базовий клас сідерів питань |
+| 12 | `database/seeders/Pages/Concerns/GrammarPageSeeder.php` | Базовий клас сідерів сторінок теорії |
+| 13 | `app/Http/Controllers/SeedRunController.php` | Адмін UI для управління сідерами |
+| 14 | `app/Services/QuestionSeedingService.php` | Сервіс збереження питань з сідерів |
 
 ---
 
@@ -81,7 +86,7 @@ GEMINI_API_KEY=...
 | AI Hints | `QuestionHelpController`, `ChatGPTService` | Пояснення помилок, підказки |
 | Question Variants | `QuestionVariantService` | Варіації одного питання |
 | Site Tree | `SiteTreeController`, `SiteTreeItem` | Структура навігації |
-| Seeders | `database/seeders/` | Контент management через PHP |
+| Seeders | `database/seeders/`, `SEEDERS.md` | Контент management через PHP |
 | Locale | `LanguageManager` module | UK/EN/PL підтримка |
 
 ---
@@ -93,6 +98,7 @@ GEMINI_API_KEY=...
 3. **Для AI фіч**: `SERVICES_AND_INTEGRATIONS.md` → `FLOWS.md` (AI-підказки)
 4. **Для DevOps**: `DEPLOYMENT.md` → `SECURITY_AND_RISKS.md`
 5. **Для планування**: `BACKLOG.md` → `DECISIONS.md`
+6. **Для роботи з контентом**: `SEEDERS.md` → `DATA_MODEL.md`
 
 ---
 
