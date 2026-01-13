@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Page_v2\NounsArticlesQuantity;
+namespace Database\Seeders\V2;
 
 use App\Models\Category;
 use App\Models\Source;
