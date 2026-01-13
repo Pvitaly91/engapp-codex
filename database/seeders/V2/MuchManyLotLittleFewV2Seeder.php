@@ -36,52 +36,52 @@ class MuchManyLotLittleFewV2Seeder extends QuestionSeeder
         $exercise1 = [
             [
                 'question' => 'If I want to pass the exam, I need to study {a1}.',
-                'answer' => 'a lot',
+                'answers' => ['a1' => 'a lot'],
                 'options' => ['a lot', 'a lot of', 'many'],
             ],
             [
                 'question' => 'There aren’t {a1} things to do in this village.',
-                'answer' => 'many',
+                'answers' => ['a1' => 'many'],
                 'options' => ['many', 'a lot', 'much'],
             ],
             [
                 'question' => '{a1} sugar do you take in your tea?',
-                'answer' => 'How much',
+                'answers' => ['a1' => 'How much'],
                 'options' => ['How many', 'How little', 'How much'],
             ],
             [
                 'question' => 'There was {a1} tension at the meeting.',
-                'answer' => 'a lot of',
+                'answers' => ['a1' => 'a lot of'],
                 'options' => ['much', 'a lot of', 'many'],
             ],
             [
                 'question' => 'Dad, I need {a1} money for school.',
-                'answer' => 'a little',
+                'answers' => ['a1' => 'a little'],
                 'options' => ['a little', 'many', 'a few'],
             ],
             [
                 'question' => 'There are {a1} things that you can do to improve your writing.',
-                'answer' => 'a few',
+                'answers' => ['a1' => 'a few'],
                 'options' => ['any', 'a little', 'a few'],
             ],
             [
                 'question' => 'There is {a1} milk in the fridge. We need to buy some.',
-                'answer' => 'no',
+                'answers' => ['a1' => 'no'],
                 'options' => ['none', 'no', 'any'],
             ],
             [
                 'question' => 'He doesn’t have {a1} hobbies.',
-                'answer' => 'any',
+                'answers' => ['a1' => 'any'],
                 'options' => ['none', 'no', 'any'],
             ],
             [
                 'question' => '“How many computers do you have?” “{a1}.”',
-                'answer' => 'None',
+                'answers' => ['a1' => 'None'],
                 'options' => ['None', 'Any', 'No'],
             ],
             [
                 'question' => 'I can help you; I have {a1} time today.',
-                'answer' => 'a lot of',
+                'answers' => ['a1' => 'a lot of'],
                 'options' => ['a lot of', 'much', 'many'],
             ],
         ];
@@ -89,52 +89,52 @@ class MuchManyLotLittleFewV2Seeder extends QuestionSeeder
         $exercise2 = [
             [
                 'question' => '“How much water do you drink?” “{a1}.”',
-                'answer' => 'A lot',
+                'answers' => ['a1' => 'A lot'],
                 'options' => ['Much', 'A lot of', 'A lot'],
             ],
             [
                 'question' => '{a1} goals did they score?',
-                'answer' => 'How many',
+                'answers' => ['a1' => 'How many'],
                 'options' => ['How many', 'How much', 'How little'],
             ],
             [
                 'question' => 'Nowadays we don’t use {a1} cash, because we use our credit cards.',
-                'answer' => 'much',
+                'answers' => ['a1' => 'much'],
                 'options' => ['many', 'much', 'a lot'],
             ],
             [
                 'question' => 'There’s {a1} pressure on the players.',
-                'answer' => 'a lot of',
+                'answers' => ['a1' => 'a lot of'],
                 'options' => ['a lot of', 'much', 'many'],
             ],
             [
                 'question' => 'They got married {a1} months after they met for the first time.',
-                'answer' => 'a few',
+                'answers' => ['a1' => 'a few'],
                 'options' => ['much', 'a little', 'a few'],
             ],
             [
                 'question' => '“How much milk do you want in your coffee?” “Only {a1}.”',
-                'answer' => 'a little',
+                'answers' => ['a1' => 'a little'],
                 'options' => ['a little', 'a few', 'much'],
             ],
             [
                 'question' => 'There were {a1} problems during the festival.',
-                'answer' => 'no',
+                'answers' => ['a1' => 'no'],
                 'options' => ['any', 'no', 'none'],
             ],
             [
                 'question' => 'I don’t want {a1} gifts.',
-                'answer' => 'any',
+                'answers' => ['a1' => 'any'],
                 'options' => ['none', 'no', 'any'],
             ],
             [
                 'question' => '“How many gifts do you want?” “{a1}.”',
-                'answer' => 'None',
+                'answers' => ['a1' => 'None'],
                 'options' => ['None', 'Any', 'No'],
             ],
             [
                 'question' => 'I eat {a1} vegetables.',
-                'answer' => 'a lot of',
+                'answers' => ['a1' => 'a lot of'],
                 'options' => ['much', 'a lot of', 'many'],
             ],
         ];
@@ -144,43 +144,43 @@ class MuchManyLotLittleFewV2Seeder extends QuestionSeeder
         $exercise3 = [
             [
                 'question' => 'He has {a1} paintings. It’s a really big collection.',
-                'answer' => 'a lot of',
+                'answers' => ['a1' => 'a lot of'],
             ],
             [
                 'question' => '{a1} salt do you put in your food?',
-                'answer' => 'How much',
+                'answers' => ['a1' => 'How much'],
             ],
             [
                 'question' => 'I normally use {a1} makeup, but not much, only some lipstick.',
-                'answer' => 'a little',
+                'answers' => ['a1' => 'a little'],
             ],
             [
                 'question' => 'It rained {a1} last week; it rained every day.',
-                'answer' => 'a lot',
+                'answers' => ['a1' => 'a lot'],
             ],
             [
                 'question' => 'They only scored one goal. They didn’t have {a1} opportunities to score; maybe two or three.',
-                'answer' => 'many',
+                'answers' => ['a1' => 'many'],
             ],
             [
                 'question' => 'Please, I just need 5 minutes of your time. I only have {a1} questions.',
-                'answer' => 'a few',
+                'answers' => ['a1' => 'a few'],
             ],
             [
                 'question' => 'We had {a1} problems. It was 100% perfect.',
-                'answer' => 'no',
+                'answers' => ['a1' => 'no'],
             ],
             [
                 'question' => 'We need to be fast; we haven’t got {a1} time, only 20 minutes.',
-                'answer' => 'much',
+                'answers' => ['a1' => 'much'],
             ],
             [
                 'question' => 'I didn’t see {a1} people in the room. It was completely empty.',
-                'answer' => 'any',
+                'answers' => ['a1' => 'any'],
             ],
             [
                 'question' => '“How many cups of coffee did you have?” “{a1}. I don’t drink coffee.”',
-                'answer' => 'none',
+                'answers' => ['a1' => 'none'],
             ],
         ];
 
@@ -219,21 +219,29 @@ class MuchManyLotLittleFewV2Seeder extends QuestionSeeder
                 'difficulty' => 1,
                 'type' => null,
                 'flag' => 0,
-                'answers' => [
-                    [
-                        'marker' => 'a1',
-                        'answer' => $entry['answer'],
-                    ],
-                ],
+                'answers' => $this->mapAnswers($entry['answers']),
                 'options' => $optionList,
                 'variants' => [],
             ];
 
             $meta[] = [
                 'uuid' => $uuid,
-                'answers' => ['a1' => $entry['answer']],
+                'answers' => $entry['answers'],
                 'hints' => ['Quantifiers (A1)'],
             ];
         }
+    }
+
+    private function mapAnswers(array $answers): array
+    {
+        $mapped = [];
+        foreach ($answers as $marker => $answer) {
+            $mapped[] = [
+                'marker' => $marker,
+                'answer' => $answer,
+            ];
+        }
+
+        return $mapped;
     }
 }
