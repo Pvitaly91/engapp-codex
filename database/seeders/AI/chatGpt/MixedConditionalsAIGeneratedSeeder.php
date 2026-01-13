@@ -867,6 +867,19 @@ class MixedConditionalsAIGeneratedSeeder extends QuestionSeeder
         return $explanations;
     }
 
+    private function flattenOptions(array $options): array
+    {
+        $flat = [];
+        foreach ($options as $values) {
+            foreach ($values as $value) {
+                if (! in_array($value, $flat, true)) {
+                    $flat[] = $value;
+                }
+            }
+        }
+        return $flat;
+    }
+
     private function classifyOption(string $option): string
     {
         return match ($option) {
