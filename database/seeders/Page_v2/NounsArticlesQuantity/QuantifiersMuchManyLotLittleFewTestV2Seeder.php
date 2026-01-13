@@ -500,10 +500,6 @@ class QuantifiersMuchManyLotLittleFewTestV2Seeder extends QuestionSeeder
         ];
         $meta[] = ['uuid' => $uuid, 'answers' => ['a1' => 'none'], 'hints' => ['Quantifiers (A1)']];
 
-        /**
-         * Далі у твоєму сідері:
-         * $this->seedQuestionData($items, $meta);
-         */
         $this->seedQuestionData($items, $meta);
     }
 }
