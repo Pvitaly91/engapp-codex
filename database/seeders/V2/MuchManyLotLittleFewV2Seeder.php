@@ -74,7 +74,7 @@ class MuchManyLotLittleFewV2Seeder extends QuestionSeeder
                 $answers[] = [
                     'marker' => $marker,
                     'answer' => $answer,
-                    'verb_hint' => null,
+                    'verb_hint' => $entry['verb_hints'][$marker] ?? null,
                 ];
             }
 
