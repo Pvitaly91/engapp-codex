@@ -13,11 +13,14 @@ class ComingSoonMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (! config('coming-soon.enabled')) {
+        if ($this->isAdmin($request)) {
             return $next($request);
         }
 
-        if ($this->isAdmin($request)) {
+        $isEnabled = (bool) config('coming-soon.enabled');
+        $isAdminOnly = (bool) config('coming-soon.admin_only');
+
+        if (! $isEnabled && ! $isAdminOnly) {
             return $next($request);
         }
 

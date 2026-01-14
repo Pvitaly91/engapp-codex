@@ -2,6 +2,7 @@
 
 return [
     'enabled' => env('COMING_SOON_ENABLED', false),
+    'admin_only' => env('COMING_SOON_ADMIN_ONLY', true),
 
     'route_names' => [
         'catalog.tests-cards',
