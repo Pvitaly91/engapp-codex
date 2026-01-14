@@ -4,8 +4,8 @@ return [
     'enabled' => env('COMING_SOON_ENABLED', false),
 
     'route_names' => [
-        // 'pricing.index',
-        // 'features.index',
+        'catalog.tests-cards',
+        'test.show',
     ],
 
     'path_prefixes' => [

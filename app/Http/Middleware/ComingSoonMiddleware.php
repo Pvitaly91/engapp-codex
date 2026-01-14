@@ -17,6 +17,10 @@ class ComingSoonMiddleware
             return $next($request);
         }
 
+        if ($this->isAdmin($request)) {
+            return $next($request);
+        }
+
         $routeName = $request->route()?->getName();
         $routeNames = config('coming-soon.route_names', []);
 
@@ -47,5 +51,10 @@ class ComingSoonMiddleware
         }
 
         return $response;
+    }
+
+    private function isAdmin(Request $request): bool
+    {
+        return (bool) (auth()->user()?->is_admin ?? $request->session()->get('admin_authenticated', false));
     }
 }
