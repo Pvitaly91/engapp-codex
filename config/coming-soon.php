@@ -44,6 +44,8 @@ return [
         // Add path prefixes here, e.g.:
         // '/pricing',
         // '/features',
+        '/catalog/tests-cards',
+        '/test/',
     ],
 
     /*

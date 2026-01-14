@@ -82,4 +82,41 @@ class ComingSoonMiddlewareTest extends TestCase
         $this->assertEquals(503, $response->getStatusCode());
         $this->assertEquals('3600', $response->headers->get('Retry-After'));
     }
+
+    public function test_middleware_allows_admin_users(): void
+    {
+        config(['coming-soon.enabled' => true]);
+        config(['coming-soon.prefixes' => ['/catalog/tests-cards', '/test/']]);
+
+        $request = Request::create('/catalog/tests-cards', 'GET');
+        $request->setLaravelSession(session());
+        session(['admin_authenticated' => true]);
+
+        $middleware = new ComingSoonMiddleware();
+
+        $response = $middleware->handle($request, function ($req) {
+            return new Response('OK', 200);
+        });
+
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals('OK', $response->getContent());
+    }
+
+    public function test_middleware_blocks_non_admin_users_on_protected_paths(): void
+    {
+        config(['coming-soon.enabled' => true]);
+        config(['coming-soon.prefixes' => ['/catalog/tests-cards', '/test/']]);
+
+        $request = Request::create('/test/some-slug', 'GET');
+        $request->setLaravelSession(session());
+        session(['admin_authenticated' => false]);
+
+        $middleware = new ComingSoonMiddleware();
+
+        $response = $middleware->handle($request, function ($req) {
+            return new Response('OK', 200);
+        });
+
+        $this->assertEquals(503, $response->getStatusCode());
+    }
 }

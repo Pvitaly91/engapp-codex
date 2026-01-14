@@ -19,6 +19,11 @@ class ComingSoonMiddleware
             return $next($request);
         }
 
+        // Skip Coming Soon for admin users
+        if ($request->session()->get('admin_authenticated', false)) {
+            return $next($request);
+        }
+
         // Check if current route name is in the list
         $routes = config('coming-soon.routes', []);
         $currentRouteName = $request->route()?->getName();
