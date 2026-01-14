@@ -25,7 +25,11 @@ class ComingSoonMiddleware
         $path = $request->path();
 
         // Remove locale prefix from path for matching
-        $locales = config('app.supported_locales', ['uk', 'en', 'pl']);
+        $locales = config('app.supported_locales', []);
+        if (empty($locales)) {
+            $locales = ['uk', 'en', 'pl'];
+        }
+        
         foreach ($locales as $locale) {
             if (str_starts_with($path, $locale . '/')) {
                 $path = substr($path, strlen($locale) + 1);
