@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'enabled' => env('COMING_SOON_ENABLED', false),
+    'enabled' => env('COMING_SOON_ENABLED', true),
 
     /*
     |--------------------------------------------------------------------------
