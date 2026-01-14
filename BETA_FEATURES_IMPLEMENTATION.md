@@ -14,7 +14,7 @@ This implementation adds beta version indicators, a "Coming Soon" page for secti
 
 ### 2. Coming Soon Page
 - **Configuration**: 
-  - `COMING_SOON_ENABLED` in `.env` (default: `false`)
+  - `COMING_SOON_ENABLED` in `.env` (default: `true` - catalog and tests protected by default)
   - Configure protected routes/paths in `config/coming-soon.php`
 - **Middleware**: `ComingSoonMiddleware` applied globally to web routes
 - **Features**:
@@ -26,9 +26,9 @@ This implementation adds beta version indicators, a "Coming Soon" page for secti
 - **Configuration Options**:
   - `routes`: Array of route names (e.g., `['pricing.index', 'catalog.tests-cards']`)
   - `path_prefixes`: Array of URL prefixes (e.g., `['/pricing', '/features']`)
-- **Default Protected Routes**:
-  - `/catalog/tests-cards` - Test catalog page
-  - `/test/{slug}` - All test display routes (public tests are blocked for non-admin users)
+- **Default Protected Routes** (enabled by default):
+  - `/catalog/tests-cards` - Test catalog page (only admins can access)
+  - `/test/{slug}` - All test display routes (only admins can access)
 
 ### 3. Error Pages (4xx/5xx)
 Custom error pages for:
@@ -112,17 +112,13 @@ APP_BETA=false
 
 ### 2. Test Coming Soon Page
 
-**Enable Coming Soon:**
-```bash
-# Add to .env file
-COMING_SOON_ENABLED=true
-```
+**Coming Soon is enabled by default** to protect catalog and test routes.
 
-**Configure Protected Routes:**
-
-The default configuration already includes:
+**Note:** The default configuration already includes:
 - `catalog.tests-cards` - Test catalog page  
 - All `/test/{slug}` routes - Public test display pages
+
+These routes are **only accessible to admins** by default.
 
 You can also add custom routes in `config/coming-soon.php`:
 
@@ -309,9 +305,11 @@ COMING_SOON_RETRY_AFTER=86400      # Retry-After header in seconds (default: 24h
 **`config/coming-soon.php`:**
 ```php
 return [
-    'enabled' => env('COMING_SOON_ENABLED', false),
+    'enabled' => env('COMING_SOON_ENABLED', true),
     'routes' => [
-        // Add route names here
+        'catalog.tests-cards',
+        'test.show',
+        // ... all test routes
     ],
     'path_prefixes' => [
         // Add path prefixes here, e.g., '/pricing'
