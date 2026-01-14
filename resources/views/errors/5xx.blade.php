@@ -1,9 +1,9 @@
 @extends('errors::layout')
 
-@section('title', $exception->getStatusCode() . ' - Error')
+@section('title', __('public.errors.500.title'))
 @section('code', $exception->getStatusCode())
-@section('error-title', 'Server Error')
-@section('error-message', 'Something went wrong on our server. We are already working on fixing the issue.')
+@section('error-title', __('public.errors.500.title'))
+@section('error-message', __('public.errors.500.text'))
 
 @section('error-icon')
 <div class="inline-flex h-24 w-24 items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400">

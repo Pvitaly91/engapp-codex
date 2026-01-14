@@ -3,7 +3,7 @@
 @section('title', $exception->getStatusCode() . ' - Error')
 @section('code', $exception->getStatusCode())
 @section('error-title', 'Client Error')
-@section('error-message', $exception->getMessage() ?: 'An error occurred while processing your request.')
+@section('error-message', 'An error occurred while processing your request. Please try again or contact support if the problem persists.')
 
 @section('error-icon')
 <div class="inline-flex h-24 w-24 items-center justify-center rounded-full bg-brand-100 text-brand-600">
