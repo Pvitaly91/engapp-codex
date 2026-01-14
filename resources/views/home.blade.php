@@ -4,6 +4,18 @@
 
 @section('content')
 <div class="space-y-16">
+    @if(config('app.is_beta'))
+    <section class="rounded-2xl border border-yellow-200 bg-yellow-50 p-5 dark:border-yellow-900/50 dark:bg-yellow-900/20">
+        <div class="flex items-start gap-3">
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-yellow-400 text-yellow-900">ℹ</span>
+            <div class="flex-1">
+                <h2 class="text-base font-semibold text-yellow-900 dark:text-yellow-100">{{ __('public.beta.banner_title') }}</h2>
+                <p class="mt-1 text-sm text-yellow-800 dark:text-yellow-200">{{ __('public.beta.banner_text') }}</p>
+            </div>
+        </div>
+    </section>
+    @endif
+
     <section class="grid gap-10 lg:grid-cols-[1.2fr_1fr] items-center">
         <div class="space-y-6">
             <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700">{{ __('public.home.badge') }}</span>

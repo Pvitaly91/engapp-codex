@@ -163,4 +163,56 @@ return [
         'ukrainian' => 'Ukraiński',
         'english' => 'Angielski',
     ],
+
+    'theme' => [
+        'light' => 'Przełącz na jasny motyw',
+        'dark' => 'Przełącz na ciemny motyw',
+    ],
+
+    // Beta notice
+    'beta' => [
+        'badge' => 'BETA',
+        'banner_title' => 'To jest wersja beta',
+        'banner_text' => 'Strona jest w fazie rozwoju. Niektóre sekcje mogą być niedostępne lub mieć ograniczoną funkcjonalność. Dziękujemy za zrozumienie!',
+    ],
+
+    // Coming Soon page
+    'coming_soon' => [
+        'title' => 'Wkrótce dostępne',
+        'text' => 'Ta sekcja jest w trakcie opracowywania. Sprawdź ponownie później.',
+        'home' => 'Strona główna',
+        'back' => 'Wróć',
+        'bug_notice' => 'Jeśli zauważyłeś błąd — daj nam znać',
+    ],
+
+    // Error pages
+    'errors' => [
+        '404' => [
+            'title' => 'Strona nie znaleziona',
+            'text' => 'Przepraszamy, strona, której szukasz, nie istnieje lub została przeniesiona.',
+        ],
+        '403' => [
+            'title' => 'Dostęp zabroniony',
+            'text' => 'Nie masz uprawnień do przeglądania tej strony.',
+        ],
+        '419' => [
+            'title' => 'Sesja wygasła',
+            'text' => 'Twoja sesja wygasła. Odśwież stronę i spróbuj ponownie.',
+        ],
+        '429' => [
+            'title' => 'Zbyt wiele żądań',
+            'text' => 'Wykonałeś zbyt wiele żądań. Poczekaj i spróbuj ponownie później.',
+        ],
+        '500' => [
+            'title' => 'Błąd serwera',
+            'text' => 'Coś poszło nie tak na naszym serwerze. Już pracujemy nad rozwiązaniem problemu.',
+        ],
+        '503' => [
+            'title' => 'Usługa niedostępna',
+            'text' => 'Strona jest tymczasowo niedostępna z powodu konserwacji. Spróbuj ponownie później.',
+        ],
+        'home' => 'Strona główna',
+        'back' => 'Wróć',
+        'search' => 'Szukaj',
+    ],
 ];

@@ -113,6 +113,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Beta Mode
+    |--------------------------------------------------------------------------
+    |
+    | When enabled, displays "BETA" badge in the header and shows a beta
+    | notice banner on the home page indicating the site is under development.
+    |
+    */
+
+    'is_beta' => env('APP_BETA', false),
+
+    /*
+    |--------------------------------------------------------------------------
     | Faker Locale
     |--------------------------------------------------------------------------
     |
