@@ -20,6 +20,11 @@ class ComingSoonMiddleware
             return $next($request);
         }
 
+        // Skip if user is authenticated as admin
+        if ($request->session()->get('admin_authenticated', false)) {
+            return $next($request);
+        }
+
         // Get current route name and path
         $routeName = $request->route() ? $request->route()->getName() : null;
         $path = $request->path();

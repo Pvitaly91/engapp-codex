@@ -22,9 +22,13 @@ This implementation adds beta version indicators, a "Coming Soon" page for secti
   - Includes `Retry-After` header (configurable)
   - Beautiful UI with "Home" and "Back" buttons
   - Bug reporting notice text
+  - **Admin Bypass**: Authenticated admins (with `admin_authenticated` session) can access protected routes
 - **Configuration Options**:
-  - `routes`: Array of route names (e.g., `['pricing.index']`)
+  - `routes`: Array of route names (e.g., `['pricing.index', 'catalog.tests-cards']`)
   - `path_prefixes`: Array of URL prefixes (e.g., `['/pricing', '/features']`)
+- **Default Protected Routes**:
+  - `/catalog/tests-cards` - Test catalog page
+  - `/test/{slug}` - All test display routes (public tests are blocked for non-admin users)
 
 ### 3. Error Pages (4xx/5xx)
 Custom error pages for:
@@ -116,7 +120,11 @@ COMING_SOON_ENABLED=true
 
 **Configure Protected Routes:**
 
-Edit `config/coming-soon.php`:
+The default configuration already includes:
+- `catalog.tests-cards` - Test catalog page  
+- All `/test/{slug}` routes - Public test display pages
+
+You can also add custom routes in `config/coming-soon.php`:
 
 ```php
 'path_prefixes' => [
@@ -126,7 +134,9 @@ Edit `config/coming-soon.php`:
 ```
 
 **What to Check:**
-1. Visit `http://localhost/pricing` or `http://localhost/features`
+
+**For Non-Admin Users:**
+1. Visit `http://localhost/catalog/tests-cards`
 2. Should see "Coming Soon" page with:
    - Clock icon
    - "Скоро буде доступно" title (or localized version)
@@ -134,21 +144,31 @@ Edit `config/coming-soon.php`:
    - "На головну" (Home) button - blue, primary
    - "Назад" (Back) button - outlined
    - Bug notice text at bottom
-3. Click "На головну" - should redirect to homepage
-4. Click "Назад" - should go back in browser history
-5. Check HTTP response: Should be **503 Service Unavailable**
-6. Check headers: Should include `Retry-After` header
+3. Visit any `/test/{slug}` route (e.g., `/test/present-simple`)
+4. Should also see "Coming Soon" page
+5. Click "На головну" - should redirect to homepage
+6. Click "Назад" - should go back in browser history
+7. Check HTTP response: Should be **503 Service Unavailable**
+8. Check headers: Should include `Retry-After` header
+
+**For Admin Users:**
+1. Login to admin panel at `/login`
+2. After authentication, visit `http://localhost/catalog/tests-cards`
+3. Should see the actual catalog page (NOT Coming Soon)
+4. Visit any `/test/{slug}` route
+5. Should see the actual test page (NOT Coming Soon)
+6. Admin users bypass Coming Soon middleware completely
 
 **Test with Different Languages:**
-- Visit `/en/pricing` - Should show English text
-- Visit `/pl/pricing` - Should show Polish text
-- Visit `/uk/pricing` - Should show Ukrainian text
+- Visit `/en/catalog/tests-cards` - Should show English text (if not admin)
+- Visit `/pl/catalog/tests-cards` - Should show Polish text (if not admin)
+- Visit `/uk/catalog/tests-cards` - Should show Ukrainian text (if not admin)
 
 **Disable Coming Soon:**
 ```bash
 COMING_SOON_ENABLED=false
 ```
-- Routes should work normally (or show 404 if they don't exist)
+- Routes should work normally for all users
 
 ### 3. Test Error Pages
 

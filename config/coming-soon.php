@@ -22,10 +22,20 @@ return [
     | List of route names that should display the Coming Soon page.
     | Example: ['pricing.index', 'features.show']
     |
+    | Note: Admin users (with admin_authenticated session) can still access these routes.
+    |
     */
 
     'routes' => [
-        // Add route names here, e.g., 'pricing.index'
+        'catalog.tests-cards',
+        'test.show',
+        'test.step',
+        'test.step-input',
+        'test.step-manual',
+        'test.step-select',
+        'test.select',
+        'test.input',
+        'test.manual',
     ],
 
     /*
