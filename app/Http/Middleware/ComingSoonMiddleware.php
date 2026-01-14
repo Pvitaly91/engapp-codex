@@ -28,6 +28,15 @@ class ComingSoonMiddleware
             return $this->comingSoonResponse();
         }
 
+        $routeNamePrefixes = config('coming-soon.route_name_prefixes', []);
+        if ($routeName) {
+            foreach ($routeNamePrefixes as $prefix) {
+                if ($prefix !== '' && str_starts_with($routeName, $prefix)) {
+                    return $this->comingSoonResponse();
+                }
+            }
+        }
+
         $prefixes = config('coming-soon.path_prefixes', []);
         $path = '/' . ltrim($request->path(), '/');
 

@@ -8,9 +8,13 @@ return [
         'test.show',
     ],
 
+    'route_name_prefixes' => [
+        // 'test.',
+    ],
+
     'path_prefixes' => [
-        // '/pricing',
-        // '/features',
+        '/catalog/tests-cards',
+        '/test',
     ],
 
     'retry_after' => 86400,
