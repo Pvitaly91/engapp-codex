@@ -153,4 +153,59 @@ return [
         'light' => 'Switch to light mode',
         'dark' => 'Switch to dark mode',
     ],
+
+    // Beta notice
+    'beta' => [
+        'badge' => 'BETA',
+        'banner_title' => 'This is a beta version',
+        'banner_text' => 'The site is under development. Some sections may be unavailable or have limited functionality. Thank you for understanding!',
+    ],
+
+    // Coming Soon page
+    'coming_soon' => [
+        'title' => 'Coming Soon',
+        'text' => 'This section is under development. Please check back later.',
+        'home' => 'Go Home',
+        'back' => 'Go Back',
+        'bug_notice' => 'If you spotted a bug — let us know',
+    ],
+
+    // Error pages
+    'errors' => [
+        '404' => [
+            'title' => 'Page Not Found',
+            'text' => 'Sorry, the page you are looking for does not exist or has been moved.',
+        ],
+        '403' => [
+            'title' => 'Access Forbidden',
+            'text' => 'You do not have permission to view this page.',
+        ],
+        '419' => [
+            'title' => 'Session Expired',
+            'text' => 'Your session has expired. Please refresh the page and try again.',
+        ],
+        '429' => [
+            'title' => 'Too Many Requests',
+            'text' => 'You have made too many requests. Please wait and try again later.',
+        ],
+        '500' => [
+            'title' => 'Server Error',
+            'text' => 'Something went wrong on our server. We are already working on fixing the issue.',
+        ],
+        '503' => [
+            'title' => 'Service Unavailable',
+            'text' => 'The site is temporarily unavailable due to maintenance. Please try again later.',
+        ],
+        '4xx' => [
+            'title' => 'Request Error',
+            'text' => 'An error occurred while processing your request. Please try again or contact support if the problem persists.',
+        ],
+        '5xx' => [
+            'title' => 'Server Error',
+            'text' => 'Something went wrong on our server. We are already working on fixing the issue.',
+        ],
+        'home' => 'Go Home',
+        'back' => 'Go Back',
+        'search' => 'Search',
+    ],
 ];
