@@ -196,6 +196,14 @@ return [
             'title' => 'Service Unavailable',
             'text' => 'The site is temporarily unavailable due to maintenance. Please try again later.',
         ],
+        '4xx' => [
+            'title' => 'Request Error',
+            'text' => 'An error occurred while processing your request. Please try again or contact support if the problem persists.',
+        ],
+        '5xx' => [
+            'title' => 'Server Error',
+            'text' => 'Something went wrong on our server. We are already working on fixing the issue.',
+        ],
         'home' => 'Go Home',
         'back' => 'Go Back',
         'search' => 'Search',

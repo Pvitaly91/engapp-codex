@@ -1,9 +1,9 @@
 @extends('errors::layout')
 
-@section('title', $exception->getStatusCode() . ' - Error')
+@section('title', $exception->getStatusCode() . ' - ' . __('public.errors.4xx.title'))
 @section('code', $exception->getStatusCode())
-@section('error-title', 'Client Error')
-@section('error-message', 'An error occurred while processing your request. Please try again or contact support if the problem persists.')
+@section('error-title', __('public.errors.4xx.title'))
+@section('error-message', __('public.errors.4xx.text'))
 
 @section('error-icon')
 <div class="inline-flex h-24 w-24 items-center justify-center rounded-full bg-brand-100 text-brand-600">

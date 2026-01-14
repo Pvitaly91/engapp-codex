@@ -211,6 +211,14 @@ return [
             'title' => 'Usługa niedostępna',
             'text' => 'Strona jest tymczasowo niedostępna z powodu konserwacji. Spróbuj ponownie później.',
         ],
+        '4xx' => [
+            'title' => 'Błąd żądania',
+            'text' => 'Wystąpił błąd podczas przetwarzania Twojego żądania. Spróbuj ponownie lub skontaktuj się z pomocą techniczną.',
+        ],
+        '5xx' => [
+            'title' => 'Błąd serwera',
+            'text' => 'Coś poszło nie tak na naszym serwerze. Już pracujemy nad rozwiązaniem problemu.',
+        ],
         'home' => 'Strona główna',
         'back' => 'Wróć',
         'search' => 'Szukaj',
