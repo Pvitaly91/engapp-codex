@@ -47,6 +47,21 @@
         </div>
     </section>
 
+    @if (config('app.is_beta'))
+        <section class="rounded-3xl border border-brand-200/70 bg-brand-50/70 p-6 shadow-sm dark:border-brand-500/30 dark:bg-brand-500/10">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div class="space-y-2">
+                    <div class="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 shadow-sm dark:bg-slate-900/40 dark:text-brand-200">
+                        {{ __('public.beta.badge') }}
+                    </div>
+                    <h2 class="text-lg font-semibold">{{ __('public.beta.banner_title') }}</h2>
+                    <p class="text-sm text-[var(--muted)]">{{ __('public.beta.banner_text') }}</p>
+                </div>
+                <span class="text-xs text-brand-700/80 dark:text-brand-200/80">{{ __('public.beta.banner_note') }}</span>
+            </div>
+        </section>
+    @endif
+
     <section class="space-y-6">
         <div class="flex items-center justify-between">
             <div>
