@@ -63,6 +63,11 @@
                 <div class="flex items-center justify-between gap-4 py-4">
                     <a href="{{ localized_route('home') }}" class="flex items-center gap-3" aria-label="Gramlyze">
                         <x-gramlyze-logo variant="horizontal" class="h-10 w-auto" />
+                        @if (config('app.is_beta'))
+                            <span class="inline-flex items-center rounded-full border border-brand-200/70 bg-brand-50/90 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-brand-700 dark:border-brand-400/40 dark:bg-brand-500/15 dark:text-brand-200">
+                                {{ __('public.beta.badge') }}
+                            </span>
+                        @endif
                     </a>
                     <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold">
                         <a class="hover:text-brand-600 transition" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>

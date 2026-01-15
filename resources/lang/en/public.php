@@ -139,6 +139,63 @@ return [
         'search_block_hint' => 'Suggestions appear after two characters.',
     ],
 
+    'beta' => [
+        'badge' => 'BETA',
+        'banner_title' => 'This is a beta version',
+        'banner_text' => 'The site is in development, and some sections may be unavailable.',
+        'banner_note' => 'Thanks for your patience and feedback.',
+    ],
+
+    'coming_soon' => [
+        'meta_title' => 'Coming soon — Gramlyze',
+        'kicker' => 'In progress',
+        'title' => 'Coming soon',
+        'text' => 'This section is under development. Please try again later.',
+        'home' => 'Go home',
+        'back' => 'Go back',
+        'contact_hint' => 'If you spotted a bug, let us know.',
+    ],
+
+    'errors' => [
+        'meta_title' => 'Error :code — Gramlyze',
+        'kicker' => 'Error page',
+        'home' => 'Go home',
+        'back' => 'Go back',
+        'search_label' => 'Search',
+        '403' => [
+            'title' => 'Access denied',
+            'text' => 'You do not have permission to view this page.',
+        ],
+        '404' => [
+            'title' => 'Page not found',
+            'text' => 'The page might have been removed or the address is incorrect.',
+        ],
+        '419' => [
+            'title' => 'Page expired',
+            'text' => 'The page has expired. Refresh and try again.',
+        ],
+        '429' => [
+            'title' => 'Too many requests',
+            'text' => 'You are sending requests too frequently. Try again later.',
+        ],
+        '500' => [
+            'title' => 'Server error',
+            'text' => 'Something went wrong on our end.',
+        ],
+        '503' => [
+            'title' => 'Service unavailable',
+            'text' => 'We are working on it. Please try again later.',
+        ],
+        '4xx' => [
+            'title' => 'Request error',
+            'text' => 'Something went wrong with your request.',
+        ],
+        '5xx' => [
+            'title' => 'Server error',
+            'text' => 'The server is temporarily unavailable. Please try again later.',
+        ],
+    ],
+
     // Language switcher
     'language' => [
         'uk' => 'UK',

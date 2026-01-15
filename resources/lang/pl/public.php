@@ -157,6 +157,60 @@ return [
         'public_focus_pages' => '/ (strona główna), /katalog, /strony, /wyszukiwanie, /przegląd-pytania',
         'public_focus_desc' => 'Zunifikowany układ dla wszystkich tras nie-administracyjnych: użytkownicy szybko nawigują, zespół ma wspólne wzorce UI.',
     ],
+    'beta' => [
+        'badge' => 'BETA',
+        'banner_title' => 'To wersja beta',
+        'banner_text' => 'Strona jest w trakcie rozwoju, niektóre sekcje mogą być niedostępne.',
+        'banner_note' => 'Dziękujemy za cierpliwość i feedback.',
+    ],
+    'coming_soon' => [
+        'meta_title' => 'Wkrótce dostępne — Gramlyze',
+        'kicker' => 'W trakcie',
+        'title' => 'Wkrótce dostępne',
+        'text' => 'Sekcja jest w trakcie tworzenia. Spróbuj ponownie później.',
+        'home' => 'Na stronę główną',
+        'back' => 'Wstecz',
+        'contact_hint' => 'Jeśli zauważyłeś błąd — napisz do nas.',
+    ],
+    'errors' => [
+        'meta_title' => 'Błąd :code — Gramlyze',
+        'kicker' => 'Strona błędu',
+        'home' => 'Na stronę główną',
+        'back' => 'Wróć',
+        'search_label' => 'Szukaj',
+        '403' => [
+            'title' => 'Brak dostępu',
+            'text' => 'Nie masz uprawnień do tej strony.',
+        ],
+        '404' => [
+            'title' => 'Nie znaleziono strony',
+            'text' => 'Strona mogła zostać usunięta lub adres jest nieprawidłowy.',
+        ],
+        '419' => [
+            'title' => 'Strona wygasła',
+            'text' => 'Strona wygasła. Odśwież i spróbuj ponownie.',
+        ],
+        '429' => [
+            'title' => 'Za dużo zapytań',
+            'text' => 'Wysyłasz zapytania zbyt często. Spróbuj później.',
+        ],
+        '500' => [
+            'title' => 'Błąd serwera',
+            'text' => 'Coś poszło nie tak po naszej stronie.',
+        ],
+        '503' => [
+            'title' => 'Usługa niedostępna',
+            'text' => 'Pracujemy nad tym. Spróbuj ponownie później.',
+        ],
+        '4xx' => [
+            'title' => 'Błąd żądania',
+            'text' => 'Wystąpił problem z Twoim żądaniem.',
+        ],
+        '5xx' => [
+            'title' => 'Błąd serwera',
+            'text' => 'Serwer jest tymczasowo niedostępny. Spróbuj ponownie później.',
+        ],
+    ],
     'language' => [
         'uk' => 'UK',
         'en' => 'EN',

@@ -59,6 +59,8 @@ return [
 
     'asset_url' => env('ASSET_URL'),
 
+    'is_beta' => env('APP_BETA', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
