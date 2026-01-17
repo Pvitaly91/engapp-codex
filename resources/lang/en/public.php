@@ -153,4 +153,58 @@ return [
         'light' => 'Switch to light mode',
         'dark' => 'Switch to dark mode',
     ],
+
+    // Beta
+    'beta' => [
+        'badge' => 'BETA',
+        'banner_title' => 'This is a beta version',
+        'banner_text' => 'The site is under development, some sections may be unavailable.',
+    ],
+
+    // Coming Soon
+    'coming_soon' => [
+        'title' => 'Coming soon',
+        'text' => 'This section is under development. Please try again later.',
+        'home' => 'Go to home',
+        'back' => 'Go back',
+        'bug_report' => 'If you noticed a bug — let us know',
+    ],
+
+    // Errors
+    'errors' => [
+        'home' => 'Go to home',
+        'back' => 'Go back',
+        '403' => [
+            'title' => 'Access Forbidden',
+            'text' => 'You do not have permission to view this page.',
+        ],
+        '404' => [
+            'title' => 'Page Not Found',
+            'text' => 'The page you are looking for does not exist or has been moved.',
+        ],
+        '419' => [
+            'title' => 'Page Expired',
+            'text' => 'Your session has expired. Please refresh the page and try again.',
+        ],
+        '429' => [
+            'title' => 'Too Many Requests',
+            'text' => 'You have sent too many requests. Please wait a moment and try again.',
+        ],
+        '500' => [
+            'title' => 'Server Error',
+            'text' => 'Something went wrong on our end. We are already working on a fix.',
+        ],
+        '503' => [
+            'title' => 'Service Unavailable',
+            'text' => 'The service is temporarily unavailable. Please try again later.',
+        ],
+        '4xx' => [
+            'title' => 'Request Error',
+            'text' => 'There was an error with your request. Please check the URL and try again.',
+        ],
+        '5xx' => [
+            'title' => 'Server Error',
+            'text' => 'A server error occurred. Please try again later.',
+        ],
+    ],
 ];
