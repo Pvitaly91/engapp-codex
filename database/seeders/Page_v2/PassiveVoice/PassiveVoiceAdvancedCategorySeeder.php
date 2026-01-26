@@ -7,7 +7,7 @@ use App\Models\Tag;
 use App\Models\TextBlock;
 use App\Support\Database\Seeder;
 
-class PassiveVoiceAdvancedTheorySeeder extends Seeder
+class PassiveVoiceAdvancedCategorySeeder extends Seeder
 {
     protected function slug(): string
     {
