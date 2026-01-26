@@ -162,5 +162,66 @@ return [
         'en' => 'EN',
         'ukrainian' => 'Ukraiński',
         'english' => 'Angielski',
+        'search' => 'Znajdź język',
+        'current' => 'Bieżący',
+    ],
+
+    'theme' => [
+        'light' => 'Przełącz na jasny motyw',
+        'dark' => 'Przełącz na ciemny motyw',
+    ],
+
+    // Beta
+    'beta' => [
+        'badge' => 'BETA',
+        'banner_title' => 'To jest wersja beta',
+        'banner_text' => 'Strona jest w trakcie rozwoju, niektóre sekcje mogą być niedostępne.',
+    ],
+
+    // Coming Soon
+    'coming_soon' => [
+        'title' => 'Wkrótce',
+        'text' => 'Ta sekcja jest w trakcie rozwoju. Spróbuj ponownie później.',
+        'home' => 'Strona główna',
+        'back' => 'Wróć',
+        'bug_report' => 'Jeśli zauważyłeś błąd — daj nam znać',
+    ],
+
+    // Errors
+    'errors' => [
+        'home' => 'Strona główna',
+        'back' => 'Wróć',
+        '403' => [
+            'title' => 'Dostęp zabroniony',
+            'text' => 'Nie masz uprawnień do wyświetlenia tej strony.',
+        ],
+        '404' => [
+            'title' => 'Strona nie znaleziona',
+            'text' => 'Strona, której szukasz, nie istnieje lub została przeniesiona.',
+        ],
+        '419' => [
+            'title' => 'Strona wygasła',
+            'text' => 'Twoja sesja wygasła. Odśwież stronę i spróbuj ponownie.',
+        ],
+        '429' => [
+            'title' => 'Zbyt wiele żądań',
+            'text' => 'Wysłałeś zbyt wiele żądań. Poczekaj chwilę i spróbuj ponownie.',
+        ],
+        '500' => [
+            'title' => 'Błąd serwera',
+            'text' => 'Coś poszło nie tak po naszej stronie. Pracujemy nad naprawą.',
+        ],
+        '503' => [
+            'title' => 'Usługa niedostępna',
+            'text' => 'Usługa jest tymczasowo niedostępna. Spróbuj ponownie później.',
+        ],
+        '4xx' => [
+            'title' => 'Błąd żądania',
+            'text' => 'Wystąpił błąd z Twoim żądaniem. Sprawdź URL i spróbuj ponownie.',
+        ],
+        '5xx' => [
+            'title' => 'Błąd serwera',
+            'text' => 'Wystąpił błąd serwera. Spróbuj ponownie później.',
+        ],
     ],
 ];

@@ -47,6 +47,22 @@
         </div>
     </section>
 
+    @if(config('app.is_beta'))
+    <section class="rounded-2xl border border-amber-200 dark:border-amber-700/50 bg-amber-50/80 dark:bg-amber-900/20 p-6">
+        <div class="flex items-start gap-4">
+            <div class="flex-shrink-0">
+                <svg class="h-6 w-6 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-amber-800 dark:text-amber-200">{{ __('public.beta.banner_title') }}</h3>
+                <p class="mt-1 text-sm text-amber-700 dark:text-amber-300">{{ __('public.beta.banner_text') }}</p>
+            </div>
+        </div>
+    </section>
+    @endif
+
     <section class="space-y-6">
         <div class="flex items-center justify-between">
             <div>
