@@ -97,7 +97,7 @@ class PassiveVoiceBasicsCategorySeeder extends Seeder
     protected function description(): array
     {
         return [
-            'title' => 'Passive Voice: База — Основи пасивного стану',
+            'title' => 'База — Основи пасивного стану',
             'subtitle_html' => '<p><strong>Основи пасивного стану (Passive Voice Basics)</strong> — це базовий рівень вивчення пасивних конструкцій в англійській мові. Тут ти дізнаєшся, як утворюється пасивний стан у Present Simple та Past Simple, і коли його використовувати.</p>',
             'subtitle_text' => 'Основи пасивного стану: базова структура, утворення у Present Simple та Past Simple, порівняння з активним станом.',
             'locale' => 'uk',
@@ -114,6 +114,7 @@ class PassiveVoiceBasicsCategorySeeder extends Seeder
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'level' => 'A2',
                         'intro' => 'У цій темі ти вивчиш <strong>основи пасивного стану</strong>: базову структуру, утворення в Present Simple та Past Simple, і коли використовувати пасив замість активу.',
@@ -142,6 +143,7 @@ class PassiveVoiceBasicsCategorySeeder extends Seeder
                 [
                     'type' => 'forms-grid',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '1. Що таке пасивний стан?',
                         'intro' => 'У пасивному стані фокус на дії або її результаті, а не на виконавці:',
@@ -172,6 +174,7 @@ class PassiveVoiceBasicsCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '2. Present Simple Passive',
                         'sections' => [
@@ -209,6 +212,7 @@ class PassiveVoiceBasicsCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '3. Past Simple Passive',
                         'sections' => [
@@ -246,6 +250,7 @@ class PassiveVoiceBasicsCategorySeeder extends Seeder
                 [
                     'type' => 'comparison-table',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '4. Порівняння Active vs Passive',
                         'intro' => 'Як трансформувати речення з активного стану в пасивний:',
@@ -272,6 +277,7 @@ class PassiveVoiceBasicsCategorySeeder extends Seeder
                 [
                     'type' => 'mistakes-grid',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '5. Типові помилки',
                         'items' => [
@@ -302,6 +308,7 @@ class PassiveVoiceBasicsCategorySeeder extends Seeder
                 [
                     'type' => 'summary-list',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '6. Короткий конспект',
                         'items' => [

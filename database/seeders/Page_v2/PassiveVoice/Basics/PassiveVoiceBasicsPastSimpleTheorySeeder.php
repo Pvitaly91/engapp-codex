@@ -23,7 +23,7 @@ class PassiveVoiceBasicsPastSimpleTheorySeeder extends PassiveVoiceBasicsPageSee
             'locale' => 'uk',
             'category' => [
                 'slug' => 'passive-voice-basics',
-                'title' => 'Passive Voice: База — Основи пасивного стану',
+                'title' => 'База — Основи пасивного стану',
                 'language' => 'uk',
             ],
             'tags' => [
@@ -38,6 +38,7 @@ class PassiveVoiceBasicsPastSimpleTheorySeeder extends PassiveVoiceBasicsPageSee
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'level' => 'A2',
                         'intro' => 'У цій темі ти вивчиш <strong>Past Simple Passive</strong>: як утворювати ствердження, заперечення та питання у пасивному стані минулого часу.',
@@ -66,6 +67,7 @@ class PassiveVoiceBasicsPastSimpleTheorySeeder extends PassiveVoiceBasicsPageSee
                 [
                     'type' => 'forms-grid',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '1. Вибір was/were',
                         'intro' => 'Дієслово <strong>be</strong> в минулому часі:',
@@ -96,6 +98,7 @@ class PassiveVoiceBasicsPastSimpleTheorySeeder extends PassiveVoiceBasicsPageSee
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '2. Стверджувальні речення',
                         'sections' => [
@@ -125,6 +128,7 @@ class PassiveVoiceBasicsPastSimpleTheorySeeder extends PassiveVoiceBasicsPageSee
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '3. Заперечні речення',
                         'sections' => [
@@ -153,6 +157,7 @@ class PassiveVoiceBasicsPastSimpleTheorySeeder extends PassiveVoiceBasicsPageSee
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '4. Питальні речення',
                         'sections' => [
@@ -191,6 +196,7 @@ class PassiveVoiceBasicsPastSimpleTheorySeeder extends PassiveVoiceBasicsPageSee
                 [
                     'type' => 'comparison-table',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '5. Active vs Passive: Past Simple',
                         'intro' => 'Порівняння активного та пасивного стану в минулому:',
@@ -217,6 +223,7 @@ class PassiveVoiceBasicsPastSimpleTheorySeeder extends PassiveVoiceBasicsPageSee
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '6. Маркери часу для Past Simple Passive',
                         'sections' => [
@@ -237,6 +244,7 @@ class PassiveVoiceBasicsPastSimpleTheorySeeder extends PassiveVoiceBasicsPageSee
                 [
                     'type' => 'mistakes-grid',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '7. Типові помилки',
                         'items' => [
@@ -267,6 +275,7 @@ class PassiveVoiceBasicsPastSimpleTheorySeeder extends PassiveVoiceBasicsPageSee
                 [
                     'type' => 'summary-list',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '8. Короткий конспект',
                         'items' => [
@@ -282,6 +291,7 @@ class PassiveVoiceBasicsPastSimpleTheorySeeder extends PassiveVoiceBasicsPageSee
                 [
                     'type' => 'navigation-chips',
                     'column' => 'footer',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => 'Інші сторінки з основ пасивного стану',
                         'items' => [

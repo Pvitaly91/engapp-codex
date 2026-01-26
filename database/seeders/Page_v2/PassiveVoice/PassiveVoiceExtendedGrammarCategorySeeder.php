@@ -97,7 +97,7 @@ class PassiveVoiceExtendedGrammarCategorySeeder extends Seeder
     protected function description(): array
     {
         return [
-            'title' => 'Passive Voice: Розширення граматики — Пасив у всіх часах',
+            'title' => 'Розширення граматики — Пасив у всіх часах',
             'subtitle_html' => '<p><strong>Розширення граматики пасивного стану</strong> — це середній рівень вивчення пасивних конструкцій. Тут ти дізнаєшся, як утворюється пасивний стан у Continuous та Perfect часах, а також з модальними дієсловами.</p>',
             'subtitle_text' => 'Пасивний стан у Continuous, Perfect часах та з модальними дієсловами. Розширена граматика для рівня B1.',
             'locale' => 'uk',
@@ -116,6 +116,7 @@ class PassiveVoiceExtendedGrammarCategorySeeder extends Seeder
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    'level' => 'B1',
                     'body' => json_encode([
                         'level' => 'B1',
                         'intro' => 'У цій темі ти вивчиш <strong>пасивний стан у різних часах</strong>: Continuous, Perfect, Future та з модальними дієсловами.',
@@ -144,6 +145,7 @@ class PassiveVoiceExtendedGrammarCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'B1',
                     'body' => json_encode([
                         'title' => '1. Present Continuous Passive',
                         'sections' => [
@@ -172,6 +174,7 @@ class PassiveVoiceExtendedGrammarCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'B1',
                     'body' => json_encode([
                         'title' => '2. Past Continuous Passive',
                         'sections' => [
@@ -198,6 +201,7 @@ class PassiveVoiceExtendedGrammarCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'B1',
                     'body' => json_encode([
                         'title' => '3. Present Perfect Passive',
                         'sections' => [
@@ -226,6 +230,7 @@ class PassiveVoiceExtendedGrammarCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'B1',
                     'body' => json_encode([
                         'title' => '4. Past Perfect Passive',
                         'sections' => [
@@ -252,6 +257,7 @@ class PassiveVoiceExtendedGrammarCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'B1',
                     'body' => json_encode([
                         'title' => '5. Future Simple Passive',
                         'sections' => [
@@ -280,6 +286,7 @@ class PassiveVoiceExtendedGrammarCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'B1',
                     'body' => json_encode([
                         'title' => '6. Passive з модальними дієсловами',
                         'sections' => [
@@ -309,6 +316,7 @@ class PassiveVoiceExtendedGrammarCategorySeeder extends Seeder
                 [
                     'type' => 'comparison-table',
                     'column' => 'left',
+                    'level' => 'B1',
                     'body' => json_encode([
                         'title' => '7. Зведена таблиця часів у пасиві',
                         'intro' => 'Структури пасивного стану в різних часах:',
@@ -359,6 +367,7 @@ class PassiveVoiceExtendedGrammarCategorySeeder extends Seeder
                 [
                     'type' => 'summary-list',
                     'column' => 'left',
+                    'level' => 'B1',
                     'body' => json_encode([
                         'title' => '8. Короткий конспект',
                         'items' => [

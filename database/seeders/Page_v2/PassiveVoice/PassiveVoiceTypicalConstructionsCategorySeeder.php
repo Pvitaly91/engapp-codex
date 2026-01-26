@@ -97,7 +97,7 @@ class PassiveVoiceTypicalConstructionsCategorySeeder extends Seeder
     protected function description(): array
     {
         return [
-            'title' => 'Passive Voice: Типові конструкції й "фішки"',
+            'title' => 'Типові конструкції й "фішки"',
             'subtitle_html' => '<p><strong>Типові конструкції пасивного стану</strong> — це особливі випадки та ідіоматичні вирази з пасивом. Тут ти вивчиш конструкції з <em>get</em>, <em>have something done</em>, пасив з двома додатками, безособові пасивні конструкції та інші "фішки".</p>',
             'subtitle_text' => 'Типові конструкції пасивного стану: get passive, have something done, пасив з двома додатками, безособові конструкції.',
             'locale' => 'uk',
@@ -115,6 +115,7 @@ class PassiveVoiceTypicalConstructionsCategorySeeder extends Seeder
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    'level' => 'B2',
                     'body' => json_encode([
                         'level' => 'B2',
                         'intro' => 'У цій темі ти вивчиш <strong>особливі конструкції пасивного стану</strong>: get passive, have something done, пасив з двома додатками та безособові пасивні структури.',
@@ -143,6 +144,7 @@ class PassiveVoiceTypicalConstructionsCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'B2',
                     'body' => json_encode([
                         'title' => '1. Get Passive — розмовний пасив',
                         'sections' => [
@@ -181,6 +183,7 @@ class PassiveVoiceTypicalConstructionsCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'B2',
                     'body' => json_encode([
                         'title' => '2. Have/Get Something Done — каузативна конструкція',
                         'sections' => [
@@ -220,6 +223,7 @@ class PassiveVoiceTypicalConstructionsCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'B2',
                     'body' => json_encode([
                         'title' => '3. Пасив з двома додатками',
                         'sections' => [
@@ -249,6 +253,7 @@ class PassiveVoiceTypicalConstructionsCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'B2',
                     'body' => json_encode([
                         'title' => '4. Безособові пасивні конструкції',
                         'sections' => [
@@ -287,6 +292,7 @@ class PassiveVoiceTypicalConstructionsCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'B2',
                     'body' => json_encode([
                         'title' => '5. Born — особлива конструкція',
                         'sections' => [
@@ -315,6 +321,7 @@ class PassiveVoiceTypicalConstructionsCategorySeeder extends Seeder
                 [
                     'type' => 'comparison-table',
                     'column' => 'left',
+                    'level' => 'B2',
                     'body' => json_encode([
                         'title' => '6. Be Passive vs Get Passive',
                         'intro' => 'Порівняння стандартного пасиву з get passive:',
@@ -346,6 +353,7 @@ class PassiveVoiceTypicalConstructionsCategorySeeder extends Seeder
                 [
                     'type' => 'summary-list',
                     'column' => 'left',
+                    'level' => 'B2',
                     'body' => json_encode([
                         'title' => '7. Короткий конспект',
                         'items' => [

@@ -23,7 +23,7 @@ class PassiveVoiceBasicsWhatIsPassiveTheorySeeder extends PassiveVoiceBasicsPage
             'locale' => 'uk',
             'category' => [
                 'slug' => 'passive-voice-basics',
-                'title' => 'Passive Voice: База — Основи пасивного стану',
+                'title' => 'База — Основи пасивного стану',
                 'language' => 'uk',
             ],
             'tags' => [
@@ -38,6 +38,7 @@ class PassiveVoiceBasicsWhatIsPassiveTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'level' => 'A2',
                         'intro' => 'У цій темі ти дізнаєшся, <strong>що таке пасивний стан</strong>, чим він відрізняється від активного, і в яких випадках його використовують.',
@@ -66,6 +67,7 @@ class PassiveVoiceBasicsWhatIsPassiveTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'forms-grid',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '1. Що таке Active і Passive?',
                         'intro' => 'В англійській мові речення може бути у двох станах:',
@@ -96,6 +98,7 @@ class PassiveVoiceBasicsWhatIsPassiveTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '2. Порівняння Active vs Passive',
                         'sections' => [
@@ -125,6 +128,7 @@ class PassiveVoiceBasicsWhatIsPassiveTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '3. Коли використовувати Passive Voice?',
                         'sections' => [
@@ -170,6 +174,7 @@ class PassiveVoiceBasicsWhatIsPassiveTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'comparison-table',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '4. Трансформація Active → Passive',
                         'intro' => 'Як перетворити речення з активного стану в пасивний:',
@@ -196,6 +201,7 @@ class PassiveVoiceBasicsWhatIsPassiveTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'summary-list',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '5. Короткий конспект',
                         'items' => [
@@ -210,6 +216,7 @@ class PassiveVoiceBasicsWhatIsPassiveTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'navigation-chips',
                     'column' => 'footer',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => 'Інші сторінки з основ пасивного стану',
                         'items' => [

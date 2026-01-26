@@ -10,7 +10,7 @@ abstract class PassiveVoiceBasicsPageSeeder extends GrammarPageSeeder
     {
         return [
             'slug' => 'passive-voice-basics',
-            'title' => 'Passive Voice: База — Основи пасивного стану',
+            'title' => 'База — Основи пасивного стану',
             'language' => 'uk',
         ];
     }

@@ -97,7 +97,7 @@ class PassiveVoiceAdvancedCategorySeeder extends Seeder
     protected function description(): array
     {
         return [
-            'title' => 'Passive Voice: Просунутий рівень — Складні конструкції',
+            'title' => 'Просунутий рівень — Складні конструкції',
             'subtitle_html' => '<p><strong>Просунутий рівень пасивного стану</strong> — це складні та рідкісні конструкції, що використовуються в академічному, науковому та формальному письмі. Тут ти вивчиш пасив з інфінітивами, герундіями, перфектними формами та особливі випадки.</p>',
             'subtitle_text' => 'Складні конструкції пасивного стану: пасив з інфінітивами, герундіями, перфектними формами, need/want passive та стилістичні особливості.',
             'locale' => 'uk',
@@ -115,6 +115,7 @@ class PassiveVoiceAdvancedCategorySeeder extends Seeder
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    'level' => 'C1',
                     'body' => json_encode([
                         'level' => 'C1',
                         'intro' => 'У цій темі ти вивчиш <strong>складні конструкції пасивного стану</strong>: пасив з інфінітивами та герундіями, перфектні форми, need/want passive та стилістичні нюанси.',
@@ -143,6 +144,7 @@ class PassiveVoiceAdvancedCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'C1',
                     'body' => json_encode([
                         'title' => '1. Пасивний інфінітив (Passive Infinitive)',
                         'sections' => [
@@ -172,6 +174,7 @@ class PassiveVoiceAdvancedCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'C1',
                     'body' => json_encode([
                         'title' => '2. Перфектний пасивний інфінітив',
                         'sections' => [
@@ -200,6 +203,7 @@ class PassiveVoiceAdvancedCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'C1',
                     'body' => json_encode([
                         'title' => '3. Пасивний герундій (Passive Gerund)',
                         'sections' => [
@@ -229,6 +233,7 @@ class PassiveVoiceAdvancedCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'C1',
                     'body' => json_encode([
                         'title' => '4. Перфектний пасивний герундій',
                         'sections' => [
@@ -257,6 +262,7 @@ class PassiveVoiceAdvancedCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'C1',
                     'body' => json_encode([
                         'title' => '5. Need/Want + Passive Gerund або Infinitive',
                         'sections' => [
@@ -294,6 +300,7 @@ class PassiveVoiceAdvancedCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'C1',
                     'body' => json_encode([
                         'title' => '6. Пасив у складнопідрядних реченнях',
                         'sections' => [
@@ -323,6 +330,7 @@ class PassiveVoiceAdvancedCategorySeeder extends Seeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'C1',
                     'body' => json_encode([
                         'title' => '7. Стилістичні особливості пасиву',
                         'sections' => [
@@ -361,6 +369,7 @@ class PassiveVoiceAdvancedCategorySeeder extends Seeder
                 [
                     'type' => 'comparison-table',
                     'column' => 'left',
+                    'level' => 'C1',
                     'body' => json_encode([
                         'title' => '8. Зведена таблиця складних форм',
                         'intro' => 'Всі складні конструкції пасивного стану:',
@@ -401,6 +410,7 @@ class PassiveVoiceAdvancedCategorySeeder extends Seeder
                 [
                     'type' => 'summary-list',
                     'column' => 'left',
+                    'level' => 'C1',
                     'body' => json_encode([
                         'title' => '9. Короткий конспект',
                         'items' => [

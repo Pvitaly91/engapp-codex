@@ -23,7 +23,7 @@ class PassiveVoiceBasicsPresentSimpleTheorySeeder extends PassiveVoiceBasicsPage
             'locale' => 'uk',
             'category' => [
                 'slug' => 'passive-voice-basics',
-                'title' => 'Passive Voice: База — Основи пасивного стану',
+                'title' => 'База — Основи пасивного стану',
                 'language' => 'uk',
             ],
             'tags' => [
@@ -38,6 +38,7 @@ class PassiveVoiceBasicsPresentSimpleTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'level' => 'A2',
                         'intro' => 'У цій темі ти вивчиш <strong>Present Simple Passive</strong>: як утворювати ствердження, заперечення та питання у пасивному стані теперішнього часу.',
@@ -66,6 +67,7 @@ class PassiveVoiceBasicsPresentSimpleTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'forms-grid',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '1. Вибір am/is/are',
                         'intro' => 'Дієслово <strong>be</strong> залежить від підмета:',
@@ -96,6 +98,7 @@ class PassiveVoiceBasicsPresentSimpleTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '2. Стверджувальні речення',
                         'sections' => [
@@ -125,6 +128,7 @@ class PassiveVoiceBasicsPresentSimpleTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '3. Заперечні речення',
                         'sections' => [
@@ -154,6 +158,7 @@ class PassiveVoiceBasicsPresentSimpleTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '4. Питальні речення',
                         'sections' => [
@@ -192,6 +197,7 @@ class PassiveVoiceBasicsPresentSimpleTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'comparison-table',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '5. Active vs Passive: Present Simple',
                         'intro' => 'Порівняння активного та пасивного стану:',
@@ -218,6 +224,7 @@ class PassiveVoiceBasicsPresentSimpleTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'mistakes-grid',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '6. Типові помилки',
                         'items' => [
@@ -248,6 +255,7 @@ class PassiveVoiceBasicsPresentSimpleTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'summary-list',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '7. Короткий конспект',
                         'items' => [
@@ -263,6 +271,7 @@ class PassiveVoiceBasicsPresentSimpleTheorySeeder extends PassiveVoiceBasicsPage
                 [
                     'type' => 'navigation-chips',
                     'column' => 'footer',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => 'Інші сторінки з основ пасивного стану',
                         'items' => [

@@ -23,7 +23,7 @@ class PassiveVoiceBasicsFormV3TheorySeeder extends PassiveVoiceBasicsPageSeeder
             'locale' => 'uk',
             'category' => [
                 'slug' => 'passive-voice-basics',
-                'title' => 'Passive Voice: База — Основи пасивного стану',
+                'title' => 'База — Основи пасивного стану',
                 'language' => 'uk',
             ],
             'tags' => [
@@ -40,6 +40,7 @@ class PassiveVoiceBasicsFormV3TheorySeeder extends PassiveVoiceBasicsPageSeeder
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'level' => 'A2',
                         'intro' => 'У цій темі ти вивчиш <strong>формулу пасивного стану</strong>: як утворюється V3 (Past Participle), різницю між регулярними та нерегулярними дієсловами, і порядок слів у пасивних реченнях.',
@@ -68,6 +69,7 @@ class PassiveVoiceBasicsFormV3TheorySeeder extends PassiveVoiceBasicsPageSeeder
                 [
                     'type' => 'forms-grid',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '1. Формула пасивного стану',
                         'intro' => 'Пасивний стан утворюється за формулою:',
@@ -98,6 +100,7 @@ class PassiveVoiceBasicsFormV3TheorySeeder extends PassiveVoiceBasicsPageSeeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '2. Регулярні дієслова (V3 = V2 = V + ed)',
                         'sections' => [
@@ -127,6 +130,7 @@ class PassiveVoiceBasicsFormV3TheorySeeder extends PassiveVoiceBasicsPageSeeder
                 [
                     'type' => 'comparison-table',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '3. Нерегулярні дієслова — Таблиця V3',
                         'intro' => 'Найчастіші нерегулярні дієслова для пасиву:',
@@ -198,6 +202,7 @@ class PassiveVoiceBasicsFormV3TheorySeeder extends PassiveVoiceBasicsPageSeeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '4. Порядок слів у пасиві',
                         'sections' => [
@@ -236,6 +241,7 @@ class PassiveVoiceBasicsFormV3TheorySeeder extends PassiveVoiceBasicsPageSeeder
                 [
                     'type' => 'mistakes-grid',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '5. Типові помилки',
                         'items' => [
@@ -266,6 +272,7 @@ class PassiveVoiceBasicsFormV3TheorySeeder extends PassiveVoiceBasicsPageSeeder
                 [
                     'type' => 'summary-list',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '6. Короткий конспект',
                         'items' => [
@@ -282,6 +289,7 @@ class PassiveVoiceBasicsFormV3TheorySeeder extends PassiveVoiceBasicsPageSeeder
                 [
                     'type' => 'navigation-chips',
                     'column' => 'footer',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => 'Інші сторінки з основ пасивного стану',
                         'items' => [
