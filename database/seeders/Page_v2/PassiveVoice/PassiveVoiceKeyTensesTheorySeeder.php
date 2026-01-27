@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Page_v2\PassiveVoice\ExtendedGrammar;
+namespace Database\Seeders\Page_v2\PassiveVoice;
 
 use Database\Seeders\Pages\PassiveVoice\PassiveVoicePageSeeder;
 
@@ -25,8 +25,8 @@ class PassiveVoiceKeyTensesTheorySeeder extends PassiveVoicePageSeeder
             'subtitle_level' => 'B1',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-extended-grammar',
-                'title' => 'Розширення граматики',
+                'slug' => 'pasyvnyi-stan',
+                'title' => 'Пасивний стан (Passive Voice)',
                 'language' => 'uk',
             ],
             // Page anchor tags
