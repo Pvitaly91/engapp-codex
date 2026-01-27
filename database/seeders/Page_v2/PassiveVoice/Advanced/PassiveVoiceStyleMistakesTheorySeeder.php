@@ -45,7 +45,7 @@ class PassiveVoiceStyleMistakesTheorySeeder extends PassiveVoiceAdvancedPageSeed
                     'level' => 'B2',
                     'body' => json_encode([
                         'level' => 'B2',
-                        'intro' => 'У цій темі ти дізнаєшся, <strong>де пасив доречний</strong>, а де краще використовувати активний стан. Також розглянемо <strong>найпоширеніші помилки</strong>, яких припускаються при використанні пасиву.',
+                        'intro' => 'У цій темі ти дізнаєшся, <strong>де пасив доречний</strong>, а де краще використовувати активний стан. Також розглянемо <strong>найпоширеніші помилки</strong>, яких допускаються при використанні пасиву.',
                         'rules' => [
                             [
                                 'label' => 'Академічний',
