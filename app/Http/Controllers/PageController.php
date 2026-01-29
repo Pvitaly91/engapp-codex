@@ -240,7 +240,6 @@ class PageController extends Controller
             ->when($this->pageType === 'theory', fn ($query) => $query->where('type', 'theory'))
             ->when($language, fn ($query, $lang) => $query->where('language', $lang))
             ->with([
-                'pages' => fn ($query) => $this->applyPageTypeFilter($query)->orderBy('title'),
                 'children' => function ($query) {
                     $this->applyCategoryChildrenRelations($query);
                 },
