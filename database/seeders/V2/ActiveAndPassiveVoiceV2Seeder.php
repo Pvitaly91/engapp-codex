@@ -570,13 +570,14 @@ class ActiveAndPassiveVoiceV2Seeder extends QuestionSeeder
                     'Підмет "The centre forward" виконує дію — це **Active Voice**.',
                     '**Present Simple Active** = Subject + V (base form / -s for 3rd person).',
                     'Нападник забиває гол (активний стан).',
+                    'Це питання тестує різницю між Active та Passive Voice.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'scores' => '✅ Present Simple Active з "-s" для третьої особи однини.',
-                        'was scored' => '❌ Passive Voice. Нападник виконує дію, а не є її об\'єктом.',
-                        'is scored' => '❌ Present Simple Passive. Нападник забиває (Active), а не "забивається".',
-                        'has scored' => '❌ Present Perfect Active вказує на зв\'язок з теперішнім моментом. Present Simple "scores" краще для опису типової дії.',
+                        'scores' => '✅ Present Simple Active з "-s" для третьої особи однини. Нападник виконує дію.',
+                        'was scored' => '❌ Past Simple Passive. Нападник виконує дію (Active), а не є її об\'єктом (Passive).',
+                        'is scored' => '❌ Present Simple Passive. Нападник забиває (Active Voice), а не "забивається" (Passive Voice).',
+                        'has scored' => '❌ Хоча Present Perfect граматично можливий, у цьому контексті тестується Active vs Passive Voice. "Scores" — найкращий вибір для Active Voice.',
                     ],
                 ],
             ],
