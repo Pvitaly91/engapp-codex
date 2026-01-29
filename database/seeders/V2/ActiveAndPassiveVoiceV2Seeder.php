@@ -291,7 +291,7 @@ class ActiveAndPassiveVoiceV2Seeder extends QuestionSeeder
                 'explanations' => [
                     'a1' => [
                         'be done' => '✅ Future Simple Passive (will be done) — правильна формула: will + be + V3.',
-                        'be doing' => '❌ "Being doing" — неправильна форма. Future Continuous Passive = will be being done.',
+                        'be doing' => '❌ "Will be doing" — Future Continuous Active, а не Passive. Потрібен пасивний стан.',
                         'do' => '❌ Це активний стан. Потрібен пасивний стан з "be + past participle".',
                         'have done' => '❌ Це Perfect Active. Потрібен Future Simple Passive: will be + past participle.',
                     ],
@@ -394,7 +394,7 @@ class ActiveAndPassiveVoiceV2Seeder extends QuestionSeeder
                 'hints' => [
                     'Підмет "Mr Johnson" виконує дію — це **Active Voice**.',
                     '**Past Simple Active**: Subject + V2 (past simple).',
-                    'Людина перекладає книгу (активний стан).',
+                    'Людина переклала книгу (активний стан, минулий час).',
                 ],
                 'explanations' => [
                     'a1' => [
@@ -416,7 +416,7 @@ class ActiveAndPassiveVoiceV2Seeder extends QuestionSeeder
                 'hints' => [
                     'Підмет "This policeman" виконує дію — це **Active Voice**.',
                     '**Past Simple Active**: Subject + V2 (past simple).',
-                    'Поліцейський заарештовує (активний стан).',
+                    'Поліцейський заарештував когось (активний стан, минулий час).',
                 ],
                 'explanations' => [
                     'a1' => [
@@ -576,7 +576,7 @@ class ActiveAndPassiveVoiceV2Seeder extends QuestionSeeder
                         'scores' => '✅ Present Simple Active з "-s" для третьої особи однини.',
                         'was scored' => '❌ Passive Voice. Нападник виконує дію, а не є її об\'єктом.',
                         'is scored' => '❌ Present Simple Passive. Нападник забиває (Active), а не "забивається".',
-                        'has scored' => '❌ Present Perfect Active. Можливо граматично, але "scores" краще для загального факту.',
+                        'has scored' => '❌ Present Perfect Active вказує на зв\'язок з теперішнім моментом. Present Simple "scores" краще для опису типової дії.',
                     ],
                 ],
             ],
