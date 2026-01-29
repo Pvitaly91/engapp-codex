@@ -221,9 +221,9 @@
                                                 {{ $page->title }}
                                             </h3>
                                             @if(!empty($page->text))
-                                                <p class="text-sm text-muted-foreground line-clamp-2">
-                                                    {{ $page->text }}
-                                                </p>
+                                                <div class="text-sm text-muted-foreground line-clamp-2 prose prose-sm max-w-none">
+                                                    {!! $page->text !!}
+                                                </div>
                                             @endif
                                         </div>
                                     </div>
