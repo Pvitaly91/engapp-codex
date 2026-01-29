@@ -617,4 +617,16 @@ class ActivePassiveV2Seeder extends QuestionSeeder
             ],
         ];
     }
+
+    private function flattenOptions(array $optionSets): array
+    {
+        $values = [];
+        foreach ($optionSets as $options) {
+            foreach ($options as $option) {
+                $values[] = (string) $option;
+            }
+        }
+
+        return array_values(array_unique($values));
+    }
 }
