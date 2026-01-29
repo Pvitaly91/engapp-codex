@@ -27,7 +27,7 @@
 
             {{-- Rows --}}
             @foreach($rows as $index => $row)
-                <div class="group rounded-2xl border border-border/50 bg-gradient-to-r from-background to-muted/20 p-4 transition-all hover:shadow-md hover:border-primary/20">
+                <div class="group rounded-2xl border border-border/50 bg-gradient-to-r from-background to-muted/20 p-4 transition-all hover:shadow-md hover:border-brand-500">
                     <div class="grid gap-3 md:grid-cols-3 md:gap-4 items-start">
                         {{-- English --}}
                         <div class="md:col-span-1">

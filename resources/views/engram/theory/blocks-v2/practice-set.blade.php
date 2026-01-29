@@ -8,7 +8,7 @@
     <div class="rounded-3xl border border-border/50 bg-card/80 p-6 md:p-8 shadow-sm backdrop-blur-sm">
         @if(!empty($data['title']))
             <h2 class="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary text-white text-sm font-bold">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-600 text-white text-sm font-bold shadow-sm">
                     {{ preg_replace('/[^0-9]/', '', $data['title']) ?: '⚡' }}
                 </span>
                 {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
@@ -40,7 +40,7 @@
                                     <label class="block text-sm text-foreground/80 mb-2">
                                         {!! $item['label'] ?? '' !!}
                                     </label>
-                                    <select class="w-full sm:w-auto rounded-xl border-border bg-background px-4 py-2 text-sm focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                                    <select class="w-full sm:w-auto rounded-xl border-border bg-background px-4 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-all">
                                         <option value="">— обери —</option>
                                         @foreach($options as $option)
                                             <option>{{ $option }}</option>
@@ -76,7 +76,7 @@
                                 <span>{!! $item['before'] ?? '' !!}</span>
                                 <input 
                                     type="text" 
-                                    class="w-32 rounded-xl border-border bg-background px-3 py-1.5 text-sm focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" 
+                                    class="w-32 rounded-xl border-border bg-background px-3 py-1.5 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-all" 
                                     placeholder="..."
                                 />
                                 <span>{!! $item['after'] ?? '' !!}</span>
@@ -126,7 +126,7 @@
                                     </p>
                                     <input 
                                         type="text" 
-                                        class="w-full rounded-xl border-border bg-background px-4 py-2.5 text-sm focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" 
+                                        class="w-full rounded-xl border-border bg-background px-4 py-2.5 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-all" 
                                         placeholder="{{ $item['placeholder'] ?? '' }}"
                                     />
                                 </div>

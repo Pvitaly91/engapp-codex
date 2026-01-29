@@ -74,28 +74,36 @@
         backdrop-filter: blur(8px);
       }
     </style>
-    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <div class="space-y-1">
-        <p class="text-sm text-muted-foreground">{{ __('words_test.subtitle') }} · {{ __('words_test.active_lang') }}: <span class="font-semibold text-primary">{{ strtoupper($siteLocale) }}</span></p>
-        <h1 class="text-3xl font-semibold text-foreground">{{ __('words_test.quick_test') }}</h1>
-        <p class="text-muted-foreground max-w-2xl">{{ $heroDescription }}</p>
+    
+    {{-- Hero Section --}}
+    <section class="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 md:p-8 shadow-card mb-6">
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="space-y-2">
+          <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700">{{ __('words_test.subtitle') }}</span>
+          <h1 class="text-3xl md:text-4xl font-bold">{{ __('words_test.quick_test') }}</h1>
+          <p class="text-[var(--muted)] max-w-2xl">{{ $heroDescription }}</p>
+          <p class="text-sm text-[var(--muted)]">{{ __('words_test.active_lang') }}: <span class="font-semibold text-brand-600">{{ strtoupper($siteLocale) }}</span></p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <button id="reset-btn" class="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+            <span>{{ __('words_test.restart') }}</span>
+          </button>
+        </div>
       </div>
-      <div class="flex flex-wrap gap-3">
-        <button id="reset-btn" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
-          <span>{{ __('words_test.restart') }}</span>
-        </button>
-      </div>
-    </div>
+    </section>
 
     <div class="flex flex-col gap-4 md:grid md:grid-cols-[1.6fr_1fr]">
-      <div class="rounded-2xl bg-card p-6 shadow-soft border border-border/70 order-2 md:order-1" id="question-card">
+      <div class="rounded-2xl bg-[var(--card)] p-6 shadow-card border border-[var(--border)] order-2 md:order-1" id="question-card">
         <div class="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="{{ __('words_test.difficulty_modes') }}">
           @foreach ($tabs as $tab)
             <a
               href="{{ $tab['href'] }}"
               role="tab"
               aria-selected="{{ $tab['difficulty'] === $difficulty ? 'true' : 'false' }}"
-              class="px-4 py-2 rounded-full transition {{ $tab['difficulty'] === $difficulty ? 'bg-primary text-primary-foreground shadow-sm' : 'bg-muted text-muted-foreground hover:bg-muted/70' }}"
+              class="px-4 py-2 rounded-full transition {{ $tab['difficulty'] === $difficulty ? 'bg-brand-600 text-white shadow-sm' : 'border border-[var(--border)] text-[var(--muted)] hover:border-brand-500 hover:text-brand-600' }}"
             >
               {{ $tab['label'] }}
             </a>
@@ -103,13 +111,13 @@
         </div>
 
         <!-- Study Language Selector -->
-        <div class="mb-4 p-4 rounded-xl bg-muted/50 border border-border/50" id="study-lang-selector">
+        <div class="mb-4 p-4 rounded-xl bg-brand-50/50 border border-brand-100" id="study-lang-selector">
           <div class="flex flex-wrap items-center gap-3">
-            <label for="study-lang" class="text-sm font-semibold text-muted-foreground">{{ __('words_test.study_lang') }}:</label>
+            <label for="study-lang" class="text-sm font-semibold text-brand-700">{{ __('words_test.study_lang') }}:</label>
             @if ($singleStudyLangName)
-              <span class="text-sm font-semibold text-foreground">{{ $singleStudyLangName }}</span>
+              <span class="text-sm font-semibold text-brand-900">{{ $singleStudyLangName }}</span>
             @elseif (count($studyLangOptions) > 1)
-              <select id="study-lang" class="rounded-lg border border-border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+              <select id="study-lang" class="rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-sm font-medium shadow-sm transition focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
                 @foreach ($studyLangOptions as $langCode => $langName)
                   <option value="{{ $langCode }}" {{ $studyLang === $langCode ? 'selected' : '' }}>{{ $langName }}</option>
                 @endforeach
@@ -202,25 +210,25 @@
           </dl>
         </div>
 
-        <div class="rounded-2xl bg-card p-5 shadow-soft border border-border/70" id="feedback" hidden>
-          <div id="feedback-chip" class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold"></div>
+        <div class="rounded-2xl bg-[var(--card)] p-5 shadow-card border border-[var(--border)]" id="feedback" hidden>
+          <div id="feedback-chip" class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold"></div>
           <div class="mt-3 space-y-2">
             <p id="feedback-title" class="text-xl font-semibold"></p>
-            <p id="feedback-body" class="text-muted-foreground"></p>
+            <p id="feedback-body" class="text-[var(--muted)]"></p>
           </div>
         </div>
 
-        <div class="rounded-2xl bg-card p-5 shadow-soft border border-dashed border-border/80" id="completion" hidden>
-          <div class="flex items-center gap-3">
-            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+        <div class="rounded-2xl bg-gradient-to-br from-brand-50 to-white border border-brand-200 p-6 shadow-sm" id="completion" hidden>
+          <div class="flex items-center gap-3 mb-3">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-600 text-white shadow-sm">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
             </div>
             <div>
-              <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.test_completed') }}</p>
-              <p class="text-lg font-semibold text-foreground">{{ __('words_test.all_words_done') }}</p>
+              <p class="text-xs font-semibold text-brand-600 uppercase tracking-wide">{{ __('words_test.test_completed') }}</p>
+              <p class="text-lg font-bold text-brand-900">{{ __('words_test.all_words_done') }}</p>
             </div>
           </div>
-          <p class="mt-3 text-muted-foreground">{{ __('words_test.can_restart') }}</p>
+          <p class="text-sm text-brand-700">{{ __('words_test.can_restart') }}</p>
         </div>
       </div>
     </div>
