@@ -85,7 +85,7 @@ class PageController extends Controller
 
         $selectedCategory?->load([
             'pages' => fn ($query) => $this->applyPageTypeFilter($query)->orderBy('title'),
-            'textBlocks' => fn ($query) => $query->whereIn('locale', $locales),
+            'textBlocks' => fn ($query) => $query->whereIn('locale', $locales)->whereNull('page_id'),
         ]);
 
         if ($selectedCategory) {
@@ -118,7 +118,7 @@ class PageController extends Controller
         $ordering = $this->siteTreeOrdering ?? [];
         $category->load([
             'pages' => fn ($query) => $this->applyPageTypeFilter($query)->orderBy('title'),
-            'textBlocks' => fn ($query) => $query->whereIn('locale', $locales),
+            'textBlocks' => fn ($query) => $query->whereIn('locale', $locales)->whereNull('page_id'),
             'tags',
         ]);
 
