@@ -270,7 +270,6 @@ class PageController extends Controller
             ->when($language, fn ($q, $lang) => $q->where('language', $lang))
             ->withCount(['pages' => fn ($q) => $this->applyPageTypeFilter($q)])
             ->with([
-                'pages' => fn ($q) => $this->applyPageTypeFilter($q)->orderBy('title'),
                 'children' => function ($childQuery) {
                     $this->applyCategoryChildrenRelations($childQuery);
                 },
