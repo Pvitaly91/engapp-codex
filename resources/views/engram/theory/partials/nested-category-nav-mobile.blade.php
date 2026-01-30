@@ -67,7 +67,8 @@
                             'routePrefix' => $routePrefix,
                             'level' => $level + 1,
                         ])
-                    @else
+                    @elseif($isActive)
+                        {{-- Only show pages for the active/selected category --}}
                         @php($page = $item['model'])
                         @php($isCurrentPage = $currentPage && $currentPage->is($page))
                         <div class="space-y-0.5" style="padding-left: {{ $indent + 28 }}px">
