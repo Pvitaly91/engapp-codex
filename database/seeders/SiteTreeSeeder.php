@@ -472,14 +472,44 @@ class SiteTreeSeeder extends Seeder
                 'title' => '13. Пасивний стан (Passive Voice)',
                 'level' => 'A2–C1',
                 'children' => [
-                    ['title' => 'Passive: Present Simple — It is made in China', 'level' => 'A2'],
-                    ['title' => 'Passive: Past Simple — It was built in 1990', 'level' => 'A2'],
-                    ['title' => 'Passive: all main tenses — огляд утворення', 'level' => 'B1–B2'],
-                    ['title' => 'Get-passive — get married, get fired', 'level' => 'B2'],
-                    ['title' => 'When to use passive — стилістика та типові помилки', 'level' => 'B1–B2'],
-                    ['title' => 'Personal vs impersonal passive — It is said that…, He is said to…', 'level' => 'B2'],
-                    ['title' => 'Causative form — have / get something done', 'level' => 'B2'],
-                    ['title' => 'Passive with gerunds/infinitives — dislike being told what to do', 'level' => 'C1'],
+                    [
+                        'title' => 'База — Основи пасивного стану',
+                        'level' => 'A2',
+                        'children' => [
+                            ['title' => 'Passive Voice — Що це і навіщо?', 'level' => 'A2'],
+                            ['title' => 'Passive Voice — Форма: be + V3 (Past Participle)', 'level' => 'A2'],
+                            ['title' => 'Present Simple Passive — Пасивний стан теперішнього часу', 'level' => 'A2'],
+                            ['title' => 'Past Simple Passive — Пасивний стан минулого часу', 'level' => 'A2'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Розширення граматики — Пасив у всіх часах',
+                        'level' => 'B1',
+                        'children' => [
+                            ['title' => 'Пасив у ключових часах — Passive in Key Tenses', 'level' => 'B1'],
+                            ['title' => 'Заперечення та питання у пасиві — Negatives & Questions in Passive', 'level' => 'B1'],
+                            ['title' => 'Passive з модальними дієсловами — Passive with Modals', 'level' => 'B1'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Типові конструкції й "фішки"',
+                        'level' => 'B1–B2',
+                        'children' => [
+                            ['title' => 'Get-passive — розмовний пасив', 'level' => 'B1'],
+                            ['title' => 'Two-object verbs (give/send/offer) у пасиві', 'level' => 'B1–B2'],
+                            ['title' => 'By-phrase: коли додавати "by …", а коли ні', 'level' => 'B1–B2'],
+                            ['title' => 'Reporting / Impersonal Passive — безособовий пасив', 'level' => 'B1–B2'],
+                            ['title' => 'Prepositional Passive — пасив з прийменниковими дієсловами', 'level' => 'B1–B2'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Просунутий рівень — Складні конструкції',
+                        'level' => 'B2',
+                        'children' => [
+                            ['title' => 'Passive з інфінітивами та герундіями', 'level' => 'B2'],
+                            ['title' => 'Стиль та типові помилки — де пасив доречний', 'level' => 'B2'],
+                        ],
+                    ],
                 ],
             ],
             [
