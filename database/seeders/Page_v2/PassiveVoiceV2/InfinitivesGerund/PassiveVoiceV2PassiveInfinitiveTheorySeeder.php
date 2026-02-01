@@ -6,7 +6,7 @@ class PassiveVoiceV2PassiveInfinitiveTheorySeeder extends PassiveVoiceV2Infiniti
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-passive-infinitive';
+        return 'theory-passive-voice-passive-infinitive';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2PassiveInfinitiveTheorySeeder extends PassiveVoiceV2Infiniti
             'subtitle_text' => 'Пасивний інфінітив: to be done (простий) та to have been done (перфектний). Утворення, використання після need/want/expect/seem, приклади.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2-infinitives-gerund',
+                'slug' => 'passive-voice-infinitives-gerund',
                 'title' => 'Інфінітив та герундій у пасиві',
                 'language' => 'uk',
             ],

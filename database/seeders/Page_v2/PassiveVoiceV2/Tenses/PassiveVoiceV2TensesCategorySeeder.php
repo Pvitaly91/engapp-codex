@@ -11,7 +11,7 @@ class PassiveVoiceV2TensesCategorySeeder extends Seeder
 {
     protected function slug(): string
     {
-        return 'passive-voice-v2-tenses';
+        return 'passive-voice-tenses';
     }
 
     protected function cleanupSeederClasses(): array
@@ -30,7 +30,7 @@ class PassiveVoiceV2TensesCategorySeeder extends Seeder
         $description = $this->description();
 
         // Find parent category
-        $parentCategory = PageCategory::where('slug', 'passive-voice-v2')->first();
+        $parentCategory = PageCategory::where('slug', 'passive-voice')->first();
 
         $category = PageCategory::updateOrCreate(
             ['slug' => $slug],

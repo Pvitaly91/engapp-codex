@@ -6,7 +6,7 @@ class PassiveVoiceV2FutureContinuousTheorySeeder extends PassiveVoiceV2TensesPag
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-future-continuous';
+        return 'theory-passive-voice-future-continuous';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2FutureContinuousTheorySeeder extends PassiveVoiceV2TensesPag
             'subtitle_text' => 'Future Continuous Passive (Майбутній тривалий пасив): формула will be being + V3, рідко вживана форма для тривалих дій у майбутньому.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2-tenses',
+                'slug' => 'passive-voice-tenses',
                 'title' => 'Пасив у різних часах',
                 'language' => 'uk',
             ],

@@ -6,7 +6,7 @@ class PassiveVoiceV2PassiveGerundTheorySeeder extends PassiveVoiceV2InfinitivesG
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-passive-gerund';
+        return 'theory-passive-voice-passive-gerund';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2PassiveGerundTheorySeeder extends PassiveVoiceV2InfinitivesG
             'subtitle_text' => 'Пасивний герундій: being done (простий) та having been done (перфектний). Утворення, використання після прийменників та дієслів почуттів, приклади.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2-infinitives-gerund',
+                'slug' => 'passive-voice-infinitives-gerund',
                 'title' => 'Інфінітив та герундій у пасиві',
                 'language' => 'uk',
             ],

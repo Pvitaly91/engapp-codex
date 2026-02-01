@@ -6,7 +6,7 @@ class PassiveVoiceV2PresentPerfectTheorySeeder extends PassiveVoiceV2TensesPageS
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-present-perfect';
+        return 'theory-passive-voice-present-perfect';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2PresentPerfectTheorySeeder extends PassiveVoiceV2TensesPageS
             'subtitle_text' => 'Present Perfect Passive (Теперішній доконаний пасив): формула has/have + been + V3, завершені дії з результатом, практичні приклади.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2-tenses',
+                'slug' => 'passive-voice-tenses',
                 'title' => 'Пасив у різних часах',
                 'language' => 'uk',
             ],

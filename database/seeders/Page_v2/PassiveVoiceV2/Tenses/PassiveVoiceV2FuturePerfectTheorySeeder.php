@@ -6,7 +6,7 @@ class PassiveVoiceV2FuturePerfectTheorySeeder extends PassiveVoiceV2TensesPageSe
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-future-perfect';
+        return 'theory-passive-voice-future-perfect';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2FuturePerfectTheorySeeder extends PassiveVoiceV2TensesPageSe
             'subtitle_text' => 'Future Perfect Passive (Майбутній доконаний пасив): формула will have been + V3, дії що будуть завершені до певного моменту в майбутньому.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2-tenses',
+                'slug' => 'passive-voice-tenses',
                 'title' => 'Пасив у різних часах',
                 'language' => 'uk',
             ],

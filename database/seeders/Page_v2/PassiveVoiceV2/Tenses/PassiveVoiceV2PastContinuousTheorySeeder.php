@@ -6,7 +6,7 @@ class PassiveVoiceV2PastContinuousTheorySeeder extends PassiveVoiceV2TensesPageS
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-past-continuous';
+        return 'theory-passive-voice-past-continuous';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2PastContinuousTheorySeeder extends PassiveVoiceV2TensesPageS
             'subtitle_text' => 'Past Continuous Passive (Минулий тривалий пасив): формула was/were + being + V3, опис тривалих дій у минулому.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2-tenses',
+                'slug' => 'passive-voice-tenses',
                 'title' => 'Пасив у різних часах',
                 'language' => 'uk',
             ],
