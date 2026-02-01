@@ -50,9 +50,9 @@
                 href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
                 class="flex-1 flex items-center justify-between rounded-lg px-2 py-2 text-sm {{ $isActive ? 'bg-primary px-[5px] text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted' }}"
             >
-                <span>{{ $category->title }}</span>
+                <span class="break-words">{{ $category->title }}</span>
                 @if(isset($category->pages_count) && $category->pages_count > 0)
-                    <span class="text-xs opacity-60">{{ $category->pages_count }}</span>
+                    <span class="text-xs opacity-60 flex-shrink-0">{{ $category->pages_count }}</span>
                 @endif
             </a>
         </div>

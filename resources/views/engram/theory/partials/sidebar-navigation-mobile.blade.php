@@ -44,7 +44,7 @@
                         class="block rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 {{ $isActive ? 'bg-primary px-[5px] text-primary-foreground' : 'text-muted-foreground' }}"
                         @if($isActive) aria-current="page" @endif
                     >
-                        {{ $category->title }}
+                        <span class="break-words">{{ $category->title }}</span>
                     </a>
                 @empty
                     <p class="px-3 py-2 text-sm text-muted-foreground">Немає категорій.</p>
@@ -81,7 +81,7 @@
                             class="block rounded-xl px-3 py-2 text-sm transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground' }}"
                             @if($isCurrentPage) aria-current="page" @endif
                         >
-                            {{ $pageItem->title }}
+                            <span class="break-words">{{ $pageItem->title }}</span>
                         </a>
                     @endforeach
                 </nav>
