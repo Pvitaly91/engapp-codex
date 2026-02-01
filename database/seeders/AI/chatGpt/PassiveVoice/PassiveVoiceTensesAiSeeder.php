@@ -21,7 +21,7 @@ class PassiveVoiceTensesAiSeeder extends QuestionSeeder
     public function run(): void
     {
         $categoryId = Category::firstOrCreate(['name' => 'Passive Voice'])->id;
-        $sourceId = Source::firstOrCreate(['name' => 'AI generated: Passive Voice Tenses (Set 1)'])->id;
+        $sourceIds = $this->buildSourceIds();
         $baseTagIds = $this->buildBaseTags();
         $tagMap = $this->buildTagMap();
         $questions = $this->questionEntries();
@@ -54,7 +54,7 @@ class PassiveVoiceTensesAiSeeder extends QuestionSeeder
                 'question' => $entry['question'],
                 'category_id' => $categoryId,
                 'difficulty' => $this->levelDifficulty[$entry['level']] ?? 3,
-                'source_id' => $sourceId,
+                'source_id' => $sourceIds[$entry['tense']] ?? reset($sourceIds),
                 'flag' => 2,
                 'type' => 0,
                 'level' => $entry['level'],
@@ -104,6 +104,39 @@ class PassiveVoiceTensesAiSeeder extends QuestionSeeder
         )->id;
 
         return [$grammarTagId, $themeTagId, $detailTagId, $structureTagId, $voiceTagId];
+    }
+
+    private function buildSourceIds(): array
+    {
+        return [
+            'present_simple' => Source::firstOrCreate(
+                ['name' => 'AI generated: Present Simple Passive (Set 1)']
+            )->id,
+            'present_continuous' => Source::firstOrCreate(
+                ['name' => 'AI generated: Present Continuous Passive (Set 1)']
+            )->id,
+            'present_perfect' => Source::firstOrCreate(
+                ['name' => 'AI generated: Present Perfect Passive (Set 1)']
+            )->id,
+            'past_simple' => Source::firstOrCreate(
+                ['name' => 'AI generated: Past Simple Passive (Set 1)']
+            )->id,
+            'past_continuous' => Source::firstOrCreate(
+                ['name' => 'AI generated: Past Continuous Passive (Set 1)']
+            )->id,
+            'past_perfect' => Source::firstOrCreate(
+                ['name' => 'AI generated: Past Perfect Passive (Set 1)']
+            )->id,
+            'future_simple' => Source::firstOrCreate(
+                ['name' => 'AI generated: Future Simple Passive (Set 1)']
+            )->id,
+            'future_continuous' => Source::firstOrCreate(
+                ['name' => 'AI generated: Future Continuous Passive (Set 1)']
+            )->id,
+            'future_perfect' => Source::firstOrCreate(
+                ['name' => 'AI generated: Future Perfect Passive (Set 1)']
+            )->id,
+        ];
     }
 
     private function buildTagMap(): array
