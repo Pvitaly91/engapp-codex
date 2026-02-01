@@ -26,7 +26,7 @@
     @endphp
 
     <div class="category-item" x-data="{ expanded: {{ $isExpanded ? 'true' : 'false' }} }">
-        <div class="flex items-center gap-1">
+        <div class="flex items-start gap-1">
             @if($isExpandable)
                 <button
                     @click="expanded = !expanded"
@@ -47,9 +47,9 @@
 
             <a
                 href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
-                class="flex-1 flex items-center justify-between gap-2 rounded-lg  py-1.5 text-sm transition-all {{ $isActive ? 'bg-primary px-[5px] text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
+                class="flex-1 flex items-start justify-between gap-2 rounded-lg  py-1.5 text-sm transition-all {{ $isActive ? 'bg-primary px-[5px] text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
             >
-                <span class="truncate">{{ $category->title }}</span>
+                <span class="line-clamp-2 break-words">{{ $category->title }}</span>
                 @if(isset($category->pages_count) && $category->pages_count > 0)
                     <span class="text-xs opacity-60">{{ $category->pages_count }}</span>
                 @endif
