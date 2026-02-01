@@ -310,6 +310,20 @@ class PassiveVoiceTensesAiSeeder extends QuestionSeeder
         return $map;
     }
 
+    private function flattenOptions(array $options): array
+    {
+        $flat = [];
+        foreach ($options as $values) {
+            foreach ($values as $value) {
+                if (! in_array($value, $flat, true)) {
+                    $flat[] = $value;
+                }
+            }
+        }
+
+        return $flat;
+    }
+
     private function buildExplanations(array $options, array $answers, string $tenseKey, string $form): array
     {
         $config = $this->tenseConfig()[$tenseKey];
