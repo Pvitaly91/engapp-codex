@@ -2186,9 +2186,10 @@ class SeedRunController extends Controller
         $deletedQuestions = 0;
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedCategories = 0;
         $profile = $this->describeSeederData($seedRun->class_name);
 
-        DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, $profile) {
+        DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, &$deletedCategories, $profile) {
             $classNames = collect([$seedRun->class_name]);
 
             if ($profile['type'] === 'questions') {
@@ -2197,6 +2198,10 @@ class SeedRunController extends Controller
                 $pageResult = $this->deletePageContentForSeeders($classNames);
                 $deletedBlocks = $pageResult['blocks'];
                 $deletedPages = $pageResult['pages_deleted'];
+            } elseif ($profile['type'] === 'categories') {
+                $categoryResult = $this->deleteCategoryContentForSeeders($classNames);
+                $deletedBlocks = $categoryResult['blocks'];
+                $deletedCategories = $categoryResult['categories_deleted'];
             } else {
                 $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
                 $pageResult = $this->deletePageContentForSeeders($classNames);
@@ -2218,6 +2223,12 @@ class SeedRunController extends Controller
                 'class' => $seedRun->class_name,
                 'count' => $deletedQuestions,
             ]),
+            'categories' => __('Removed seeder :class and deleted :count related category record(s).', [
+                'class' => $seedRun->class_name,
+                'count' => $deletedCategories,
+            ]) . ($deletedBlocks > 0
+                ? ' ' . __('Deleted :count related text block(s).', ['count' => $deletedBlocks])
+                : ''),
             default => __('Removed seeder :class entry and cleaned related data.', [
                 'class' => $seedRun->class_name,
             ]),
@@ -2246,6 +2257,7 @@ class SeedRunController extends Controller
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,
+                'categories_deleted' => $deletedCategories,
                 'overview' => [
                     'pending_count' => $overview['pendingSeeders']->count(),
                     'executed_count' => $overview['executedSeeders']->count(),
@@ -2317,11 +2329,12 @@ class SeedRunController extends Controller
         $deletedQuestions = 0;
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedCategories = 0;
         $profile = $this->describeSeederData($seedRun->class_name);
 
         try {
             // Delete old data in a transaction
-            DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, $profile) {
+            DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, &$deletedCategories, $profile) {
                 $classNames = collect([$seedRun->class_name]);
 
                 // Delete old data
@@ -2331,6 +2344,10 @@ class SeedRunController extends Controller
                     $pageResult = $this->deletePageContentForSeeders($classNames);
                     $deletedBlocks = $pageResult['blocks'];
                     $deletedPages = $pageResult['pages_deleted'];
+                } elseif ($profile['type'] === 'categories') {
+                    $categoryResult = $this->deleteCategoryContentForSeeders($classNames);
+                    $deletedBlocks = $categoryResult['blocks'];
+                    $deletedCategories = $categoryResult['categories_deleted'];
                 } else {
                     $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
                     $pageResult = $this->deletePageContentForSeeders($classNames);
@@ -2369,6 +2386,12 @@ class SeedRunController extends Controller
                 'class' => $seedRun->class_name,
                 'count' => $deletedQuestions,
             ]),
+            'categories' => __('Refreshed seeder :class. Deleted :count category record(s) and regenerated them.', [
+                'class' => $seedRun->class_name,
+                'count' => $deletedCategories,
+            ]) . ($deletedBlocks > 0
+                ? ' ' . __('Deleted :count text block(s).', ['count' => $deletedBlocks])
+                : ''),
             default => __('Refreshed seeder :class. Data has been regenerated.', [
                 'class' => $seedRun->class_name,
             ]),
@@ -2384,6 +2407,7 @@ class SeedRunController extends Controller
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,
+                'categories_deleted' => $deletedCategories,
                 'overview' => [
                     'pending_count' => $overview['pendingSeeders']->count(),
                     'executed_count' => $overview['executedSeeders']->count(),
@@ -2535,20 +2559,24 @@ class SeedRunController extends Controller
 
         $questionClasses = $typeMap->filter(fn ($type) => $type === 'questions')->keys()->values();
         $pageClasses = $typeMap->filter(fn ($type) => $type === 'pages')->keys()->values();
-        $unknownClasses = $typeMap->filter(fn ($type) => ! in_array($type, ['questions', 'pages'], true))->keys()->values();
+        $categoryClasses = $typeMap->filter(fn ($type) => $type === 'categories')->keys()->values();
+        $unknownClasses = $typeMap->filter(fn ($type) => ! in_array($type, ['questions', 'pages', 'categories'], true))->keys()->values();
 
         $deletedQuestions = 0;
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedCategories = 0;
 
         DB::transaction(function () use (
             $seedRunIdsToDelete,
             $questionClasses,
             $pageClasses,
+            $categoryClasses,
             $unknownClasses,
             &$deletedQuestions,
             &$deletedBlocks,
-            &$deletedPages
+            &$deletedPages,
+            &$deletedCategories
         ) {
             if ($questionClasses->isNotEmpty()) {
                 $deletedQuestions += $this->deleteQuestionsForSeeders($questionClasses);
@@ -2558,6 +2586,12 @@ class SeedRunController extends Controller
                 $pageResult = $this->deletePageContentForSeeders($pageClasses);
                 $deletedBlocks += $pageResult['blocks'];
                 $deletedPages += $pageResult['pages_deleted'];
+            }
+
+            if ($categoryClasses->isNotEmpty()) {
+                $categoryResult = $this->deleteCategoryContentForSeeders($categoryClasses);
+                $deletedBlocks += $categoryResult['blocks'];
+                $deletedCategories += $categoryResult['categories_deleted'];
             }
 
             if ($unknownClasses->isNotEmpty()) {
@@ -2589,6 +2623,10 @@ class SeedRunController extends Controller
             $statusMessage .= ' ' . __('Deleted :count related page record(s).', ['count' => $deletedPages]);
         }
 
+        if ($deletedCategories > 0) {
+            $statusMessage .= ' ' . __('Deleted :count related category record(s).', ['count' => $deletedCategories]);
+        }
+
         if ($request->wantsJson()) {
             $overview = $this->assembleSeedRunOverview();
             return response()->json([
@@ -2597,6 +2635,7 @@ class SeedRunController extends Controller
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,
+                'categories_deleted' => $deletedCategories,
                 'folder_label' => $folderLabel,
                 'overview' => [
                     'pending_count' => $overview['pendingSeeders']->count(),
@@ -2683,6 +2722,16 @@ class SeedRunController extends Controller
                 'delete_confirm' => __('Видалити лог та пов’язані сторінки й блоки?'),
                 'folder_delete_button' => __('Видалити зі сторінками'),
                 'folder_delete_confirm' => __('Видалити всі сидери в папці «:folder» разом із сторінками та блоками?'),
+            ];
+        }
+
+        if (is_subclass_of($className, PageCategoryDescriptionSeederBase::class)) {
+            return [
+                'type' => 'categories',
+                'delete_button' => __('Видалити з категорією'),
+                'delete_confirm' => __('Видалити лог та пов’язану категорію?'),
+                'folder_delete_button' => __('Видалити з категоріями'),
+                'folder_delete_confirm' => __('Видалити всі сидери в папці «:folder» разом із категоріями?'),
             ];
         }
 
@@ -2810,6 +2859,42 @@ class SeedRunController extends Controller
         return [
             'blocks' => $deletedBlocks,
             'pages_deleted' => $deletedPages,
+        ];
+    }
+
+    protected function deleteCategoryContentForSeeders(Collection $classNames): array
+    {
+        if (
+            $classNames->isEmpty()
+            || ! Schema::hasTable('page_categories')
+            || ! Schema::hasColumn('page_categories', 'seeder')
+        ) {
+            return ['categories_deleted' => 0, 'blocks' => 0];
+        }
+
+        $categoryIds = PageCategory::query()
+            ->whereIn('seeder', $classNames)
+            ->pluck('id');
+
+        if ($categoryIds->isEmpty()) {
+            return ['categories_deleted' => 0, 'blocks' => 0];
+        }
+
+        $deletedBlocks = 0;
+
+        if (Schema::hasTable('text_blocks') && Schema::hasColumn('text_blocks', 'page_category_id')) {
+            $deletedBlocks = TextBlock::query()
+                ->whereIn('page_category_id', $categoryIds)
+                ->delete();
+        }
+
+        $deletedCategories = PageCategory::query()
+            ->whereIn('id', $categoryIds)
+            ->delete();
+
+        return [
+            'categories_deleted' => $deletedCategories,
+            'blocks' => $deletedBlocks,
         ];
     }
 
