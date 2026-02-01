@@ -1125,4 +1125,74 @@ class FuturePerfectPassiveSeeder extends QuestionSeeder
             ],
         ];
     }
+
+    private function flattenOptions(array $options): array
+    {
+        $flat = [];
+        foreach ($options as $values) {
+            foreach ($values as $value) {
+                if (!in_array($value, $flat, true)) {
+                    $flat[] = $value;
+                }
+            }
+        }
+        return $flat;
+    }
+
+    private function buildOptionMarkers(array $options): array
+    {
+        $map = [];
+        foreach ($options as $marker => $values) {
+            foreach ($values as $value) {
+                $map[$value] = $marker;
+            }
+        }
+        return $map;
+    }
+
+    private function buildExplanations(array $options, array $answers): array
+    {
+        $explanations = [];
+        foreach ($options as $marker => $values) {
+            $correctAnswer = $answers[$marker] ?? '';
+            foreach ($values as $value) {
+                if ($value === $correctAnswer) {
+                    $explanations[$value] = $this->correctExplanation($value);
+                } else {
+                    $explanations[$value] = $this->wrongExplanation($value, $correctAnswer);
+                }
+            }
+        }
+        return $explanations;
+    }
+
+    private function correctExplanation(string $correct): string
+    {
+        return "✅ Правильно! «{$correct}» — це коректна форма Future Perfect Passive. Формула: will + have + been + past participle (V3).";
+    }
+
+    private function wrongExplanation(string $wrong, string $correct): string
+    {
+        // Future Simple Passive instead of Future Perfect Passive
+        if (preg_match('/^will be \w+ed$/i', $wrong) || preg_match('/^will be \w+en$/i', $wrong)) {
+            return "❌ «{$wrong}» — це Future Simple Passive (will be + V3). Для Future Perfect Passive потрібно: will have been + V3.";
+        }
+
+        // Present Perfect Passive
+        if (preg_match('/^(has|have) been/i', $wrong)) {
+            return "❌ «{$wrong}» — це Present Perfect Passive. Для Future Perfect Passive потрібно: will have been + V3.";
+        }
+
+        // Past Simple Passive
+        if (preg_match('/^(was|were) \w+ed$/i', $wrong) || preg_match('/^(was|were) \w+en$/i', $wrong)) {
+            return "❌ «{$wrong}» — це Past Simple Passive. Для Future Perfect Passive потрібно: will have been + V3.";
+        }
+
+        // Active Voice
+        if (!str_contains(strtolower($wrong), 'been') && !str_contains(strtolower($wrong), 'be')) {
+            return "❌ «{$wrong}» — це Active Voice (активний стан). Тут потрібен Passive Voice: will have been + V3.";
+        }
+
+        return "❌ «{$wrong}» — неправильна форма. Правильна відповідь: «{$correct}» (Future Perfect Passive: will + have + been + V3).";
+    }
 }
