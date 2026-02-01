@@ -10,9 +10,9 @@
                 @php($isActive = $selectedCategory && $selectedCategory->is($category))
                 <a
                     href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
-                    class="block rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-muted/80 {{ $isActive ? 'bg-primary px-[5px] text-primary-foreground' : 'text-muted-foreground' }}"
+                    class="block rounded-xl px-3 py-2 text-left text-sm font-medium transition hover:bg-muted/80 whitespace-normal break-words {{ $isActive ? 'bg-primary px-[5px] text-primary-foreground' : 'text-muted-foreground' }}"
                 >
-                    <span>{{ $category->title }}</span>
+                    <span class="block">{{ $category->title }}</span>
                 </a>
             @empty
                 <p class="text-sm text-muted-foreground">Немає категорій.</p>
@@ -28,9 +28,9 @@
                     @php($isCurrentPage = isset($currentPage) && $currentPage && $currentPage->is($pageItem))
                     <a
                         href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
-                        class="block rounded-xl px-3 py-2 text-sm transition hover:bg-muted/80 {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground' }}"
+                        class="block rounded-xl px-3 py-2 text-left text-sm transition hover:bg-muted/80 whitespace-normal break-words {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground' }}"
                     >
-                        {{ $pageItem->title }}
+                        <span class="block">{{ $pageItem->title }}</span>
                     </a>
                 @endforeach
             </nav>

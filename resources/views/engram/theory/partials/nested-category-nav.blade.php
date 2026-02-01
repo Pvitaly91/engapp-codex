@@ -47,9 +47,9 @@
 
             <a
                 href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
-                class="flex-1 flex items-center justify-between gap-2 rounded-lg  py-1.5 text-sm transition-all {{ $isActive ? 'bg-primary px-[5px] text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
+                class="flex-1 min-w-0 flex items-start justify-between gap-2 rounded-lg py-1.5 text-sm transition-all {{ $isActive ? 'bg-primary px-[5px] text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
             >
-                <span class="truncate">{{ $category->title }}</span>
+                <span class="min-w-0 whitespace-normal break-words">{{ $category->title }}</span>
                 @if(isset($category->pages_count) && $category->pages_count > 0)
                     <span class="text-xs opacity-60">{{ $category->pages_count }}</span>
                 @endif
@@ -81,7 +81,7 @@
                             <svg class="h-3 w-3 flex-shrink-0 text-muted-foreground/60 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                             </svg>
-                            <span class="line-clamp-2 break-words">{{ $page->title }}</span>
+                            <span class="min-w-0 whitespace-normal break-words">{{ $page->title }}</span>
                         </a>
                     @endif
                 @endforeach
