@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\AI\Claude\PassiveVoice;
+namespace Database\Seeders\AI\chatGpt\PassiveVoice;
 
 use App\Models\Category;
 use App\Models\Source;
