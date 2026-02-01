@@ -108,8 +108,7 @@
                             'from-violet-500 to-purple-600',
                         ];
                         $gradient = $gradients[$index % count($gradients)];
-                        $hasChildren = $category->relationLoaded('children') && $category->children->isNotEmpty();
-                        $hasPages = $category->relationLoaded('pages') && $category->pages->isNotEmpty();
+                        $hasPages = $category->pages_count ?? 0;
                     @endphp
                     <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-brand-500 hover:shadow-xl">
                         {{-- Card Header with Gradient and Title --}}
@@ -141,79 +140,24 @@
                         
                         {{-- Card Body --}}
                         <div class="p-5">
-                            <a 
+                            <a
                                 href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
-                                class="block mb-3"
+                                class="block"
                             >
                                 <span class="text-sm text-muted-foreground">
-                                    @if(isset($category->pages_count) && $category->pages_count > 0)
-                                        {{ $category->pages_count }} {{ __('public.theory.lessons_count') }}
+                                    @if($hasPages > 0)
+                                        {{ $hasPages }} {{ __('public.theory.lessons_count') }}
                                     @else
                                         {{ __('public.common.no_lessons') }}
                                     @endif
                                 </span>
+                                <span class="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">
+                                    Переглянути категорію
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </span>
                             </a>
-                            
-                            {{-- Subcategories list --}}
-                            @if($hasChildren)
-                                <div class="mt-3 pt-3 border-t border-border/60">
-                                    <ul class="space-y-1.5">
-                                        @foreach($category->children as $child)
-                                            <li>
-                                                <a 
-                                                    href="{{ localized_route($routePrefix . '.category', $child->slug) }}"
-                                                    class="flex items-center justify-between text-sm text-foreground hover:text-brand-600 transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
-                                                >
-                                                    <span class="flex items-center gap-2">
-                                                        <svg class="h-3 w-3 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                                                        </svg>
-                                                        {{ $child->title }}
-                                                    </span>
-                                                    @if(isset($child->pages_count) && $child->pages_count > 0)
-                                                        <span class="text-xs text-muted-foreground">{{ $child->pages_count }}</span>
-                                                    @endif
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                            
-                            {{-- Pages list --}}
-                            @if($hasPages)
-                                <div class="{{ $hasChildren ? 'mt-3 pt-3 border-t border-border/60' : 'mt-3 pt-3 border-t border-border/60' }}">
-                                    <ul class="space-y-1.5">
-                                        @foreach($category->pages as $page)
-                                            <li>
-                                                <a 
-                                                    href="{{ localized_route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
-                                                    class="flex items-start gap-2 text-sm text-foreground hover:text-brand-600 transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
-                                                >
-                                                    <svg class="h-3 w-3 text-muted-foreground/60 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                                    </svg>
-                                                    <span class="line-clamp-2 break-words">{{ $page->title }}</span>
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                            
-                            @if(!$hasChildren && !$hasPages)
-                                {{-- Arrow indicator for categories without children or pages --}}
-                                <a 
-                                    href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
-                                    class="flex items-center justify-end mt-2"
-                                >
-                                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-muted/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                                        <svg class="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                                        </svg>
-                                    </div>
-                                </a>
-                            @endif
                         </div>
                     </div>
                 @empty
