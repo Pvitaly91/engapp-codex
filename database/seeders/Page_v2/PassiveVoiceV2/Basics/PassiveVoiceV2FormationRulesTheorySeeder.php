@@ -23,7 +23,7 @@ class PassiveVoiceV2FormationRulesTheorySeeder extends PassiveVoiceV2BasicsPageS
             'locale' => 'uk',
             'category' => [
                 'slug' => 'passive-voice-v2',
-                'title' => 'Пасивний стан V2',
+                'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],
             'tags' => [

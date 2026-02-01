@@ -14,9 +14,9 @@ class PassiveVoiceV2CategorySeeder extends PageCategoryDescriptionSeeder
     protected function description(): array
     {
         return [
-            'title' => 'Passive Voice V2 — Пасивний стан V2',
-            'subtitle_html' => '<p><strong>Пасивний стан V2 (Passive Voice V2)</strong> — розширений курс з вивчення пасивного стану англійської мови. Охоплює всі часи, модальні дієслова, інфінітиви, герундії, спеціальні конструкції та стилістичні особливості пасиву.</p>',
-            'subtitle_text' => 'Пасивний стан V2: повний курс від основ до просунутого рівня. Утворення пасиву у всіх часах, модальні дієслова, інфінітиви, герундії та типові помилки.',
+            'title' => 'Passive Voice — Пасивний стан',
+            'subtitle_html' => '<p><strong>Пасивний стан (Passive Voice)</strong> — розширений курс з вивчення пасивного стану англійської мови. Охоплює всі часи, модальні дієслова, інфінітиви, герундії, спеціальні конструкції та стилістичні особливості пасиву.</p>',
+            'subtitle_text' => 'Пасивний стан: повний курс від основ до просунутого рівня. Утворення пасиву у всіх часах, модальні дієслова, інфінітиви, герундії та типові помилки.',
             'locale' => 'uk',
             'blocks' => [
                 // Hero block with V3 JSON structure
@@ -152,7 +152,7 @@ class PassiveVoiceV2CategorySeeder extends PageCategoryDescriptionSeeder
     {
         return [
             'slug' => 'passive-voice-v2',
-            'title' => 'Пасивний стан V2',
+            'title' => 'Пасивний стан',
             'language' => 'uk',
         ];
     }

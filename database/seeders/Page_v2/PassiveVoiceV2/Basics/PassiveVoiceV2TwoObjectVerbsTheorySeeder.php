@@ -23,7 +23,7 @@ class PassiveVoiceV2TwoObjectVerbsTheorySeeder extends PassiveVoiceV2BasicsPageS
             'locale' => 'uk',
             'category' => [
                 'slug' => 'passive-voice-v2',
-                'title' => 'Пасивний стан V2',
+                'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],
             'tags' => [
