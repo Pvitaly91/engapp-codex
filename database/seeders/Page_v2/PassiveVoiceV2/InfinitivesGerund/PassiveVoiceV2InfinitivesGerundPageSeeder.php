@@ -9,7 +9,7 @@ abstract class PassiveVoiceV2InfinitivesGerundPageSeeder extends GrammarPageSeed
     protected function category(): array
     {
         return [
-            'slug' => 'passive-voice-v2-infinitives-gerund',
+            'slug' => 'passive-voice-infinitives-gerund',
             'title' => 'Інфінітив та герундій у пасиві',
             'language' => 'uk',
         ];

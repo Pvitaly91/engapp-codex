@@ -6,7 +6,7 @@ class PassiveVoiceV2PastSimpleTheorySeeder extends PassiveVoiceV2TensesPageSeede
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-past-simple';
+        return 'theory-passive-voice-past-simple';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2PastSimpleTheorySeeder extends PassiveVoiceV2TensesPageSeede
             'subtitle_text' => 'Past Simple Passive (Минулий простий пасив): формула was/were + V3, ствердження, заперечення, питання та практичні приклади використання.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2-tenses',
+                'slug' => 'passive-voice-tenses',
                 'title' => 'Пасив у різних часах',
                 'language' => 'uk',
             ],

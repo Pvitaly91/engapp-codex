@@ -6,7 +6,7 @@ class PassiveVoiceV2PhrasalVerbsTheorySeeder extends PassiveVoiceV2BasicsPageSee
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-phrasal-verbs';
+        return 'theory-passive-voice-phrasal-verbs';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2PhrasalVerbsTheorySeeder extends PassiveVoiceV2BasicsPageSee
             'subtitle_text' => 'Пасив фразових дієслів: look after, bring up, put off, turn down. Структура, порядок слів та типові помилки.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2',
+                'slug' => 'passive-voice',
                 'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],

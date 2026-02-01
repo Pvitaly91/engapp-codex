@@ -6,7 +6,7 @@ class PassiveVoiceV2ImpersonalPassiveTheorySeeder extends PassiveVoiceV2BasicsPa
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-impersonal-passive';
+        return 'theory-passive-voice-impersonal-passive';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2ImpersonalPassiveTheorySeeder extends PassiveVoiceV2BasicsPa
             'subtitle_text' => 'Безособовий пасив: It is said that..., Subject + is said to..., reporting verbs у пасиві, вживання в офіційному стилі.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2',
+                'slug' => 'passive-voice',
                 'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],

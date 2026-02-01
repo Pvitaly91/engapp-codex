@@ -6,7 +6,7 @@ class PassiveVoiceV2CausativeTheorySeeder extends PassiveVoiceV2BasicsPageSeeder
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-causative';
+        return 'theory-passive-voice-causative';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2CausativeTheorySeeder extends PassiveVoiceV2BasicsPageSeeder
             'subtitle_text' => 'Каузатив: have/get something done — коли хтось робить щось для нас. Формула, приклади, різниця між have і get.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2',
+                'slug' => 'passive-voice',
                 'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],

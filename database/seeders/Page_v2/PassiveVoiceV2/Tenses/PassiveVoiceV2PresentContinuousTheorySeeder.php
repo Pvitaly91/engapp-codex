@@ -6,7 +6,7 @@ class PassiveVoiceV2PresentContinuousTheorySeeder extends PassiveVoiceV2TensesPa
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-present-continuous';
+        return 'theory-passive-voice-present-continuous';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2PresentContinuousTheorySeeder extends PassiveVoiceV2TensesPa
             'subtitle_text' => 'Present Continuous Passive (Теперішній тривалий пасив): формула am/is/are + being + V3, опис дій що відбуваються зараз, практичні приклади.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2-tenses',
+                'slug' => 'passive-voice-tenses',
                 'title' => 'Пасив у різних часах',
                 'language' => 'uk',
             ],

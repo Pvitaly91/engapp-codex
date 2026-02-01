@@ -6,7 +6,7 @@ class PassiveVoiceV2PresentSimpleTheorySeeder extends PassiveVoiceV2TensesPageSe
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-present-simple';
+        return 'theory-passive-voice-present-simple';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2PresentSimpleTheorySeeder extends PassiveVoiceV2TensesPageSe
             'subtitle_text' => 'Present Simple Passive (Теперішній простий пасив): формула am/is/are + V3, ствердження, заперечення, питання та практичні приклади використання.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2-tenses',
+                'slug' => 'passive-voice-tenses',
                 'title' => 'Пасив у різних часах',
                 'language' => 'uk',
             ],

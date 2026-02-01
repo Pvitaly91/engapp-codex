@@ -6,7 +6,7 @@ class PassiveVoiceV2FormationRulesTheorySeeder extends PassiveVoiceV2BasicsPageS
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-formation-rules';
+        return 'theory-passive-voice-formation-rules';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2FormationRulesTheorySeeder extends PassiveVoiceV2BasicsPageS
             'subtitle_text' => 'Основні правила утворення пасиву: формула be + V3, перетворення active → passive, коли використовувати пасив, by + agent.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2',
+                'slug' => 'passive-voice',
                 'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],

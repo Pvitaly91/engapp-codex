@@ -6,7 +6,7 @@ class PassiveVoiceV2TwoObjectVerbsTheorySeeder extends PassiveVoiceV2BasicsPageS
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-two-object-verbs';
+        return 'theory-passive-voice-two-object-verbs';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2TwoObjectVerbsTheorySeeder extends PassiveVoiceV2BasicsPageS
             'subtitle_text' => 'Пасив двооб\'єктних дієслів: give, send, show, tell, offer, teach. Два варіанти пасиву: з прямим та непрямим додатком.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2',
+                'slug' => 'passive-voice',
                 'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],

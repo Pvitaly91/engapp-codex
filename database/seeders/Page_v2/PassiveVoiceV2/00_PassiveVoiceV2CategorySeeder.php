@@ -8,7 +8,7 @@ class PassiveVoiceV2CategorySeeder extends PageCategoryDescriptionSeeder
 {
     protected function slug(): string
     {
-        return 'passive-voice-v2';
+        return 'passive-voice';
     }
 
     protected function description(): array
@@ -151,7 +151,7 @@ class PassiveVoiceV2CategorySeeder extends PageCategoryDescriptionSeeder
     protected function category(): array
     {
         return [
-            'slug' => 'passive-voice-v2',
+            'slug' => 'passive-voice',
             'title' => 'Пасивний стан',
             'language' => 'uk',
         ];

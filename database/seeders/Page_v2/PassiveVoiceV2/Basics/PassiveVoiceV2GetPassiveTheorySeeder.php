@@ -6,7 +6,7 @@ class PassiveVoiceV2GetPassiveTheorySeeder extends PassiveVoiceV2BasicsPageSeede
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-get-passive';
+        return 'theory-passive-voice-get-passive';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2GetPassiveTheorySeeder extends PassiveVoiceV2BasicsPageSeede
             'subtitle_text' => 'Get-пасив: формула get + V3, порівняння з be-пасивом, вживання, типові вирази та приклади.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2',
+                'slug' => 'passive-voice',
                 'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],

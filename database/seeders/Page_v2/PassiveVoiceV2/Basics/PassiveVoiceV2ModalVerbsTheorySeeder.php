@@ -6,7 +6,7 @@ class PassiveVoiceV2ModalVerbsTheorySeeder extends PassiveVoiceV2BasicsPageSeede
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-modal-verbs';
+        return 'theory-passive-voice-modal-verbs';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2ModalVerbsTheorySeeder extends PassiveVoiceV2BasicsPageSeede
             'subtitle_text' => 'Пасив з модальними дієсловами: can/could/may/might/must/should be done, утворення, заперечення, питання та приклади.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2',
+                'slug' => 'passive-voice',
                 'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],

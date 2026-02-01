@@ -6,7 +6,7 @@ class PassiveVoiceV2FormalityStyleTheorySeeder extends PassiveVoiceV2BasicsPageS
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-formality-style';
+        return 'theory-passive-voice-formality-style';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2FormalityStyleTheorySeeder extends PassiveVoiceV2BasicsPageS
             'subtitle_text' => 'Формальність та стиль пасиву: науковий, діловий, офіційний стиль, коли використовувати пасив і коли уникати.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2',
+                'slug' => 'passive-voice',
                 'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],

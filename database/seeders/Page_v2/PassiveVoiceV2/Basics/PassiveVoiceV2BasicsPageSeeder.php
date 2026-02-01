@@ -9,7 +9,7 @@ abstract class PassiveVoiceV2BasicsPageSeeder extends GrammarPageSeeder
     protected function category(): array
     {
         return [
-            'slug' => 'passive-voice-v2',
+            'slug' => 'passive-voice',
             'title' => 'Пасивний стан',
             'language' => 'uk',
         ];

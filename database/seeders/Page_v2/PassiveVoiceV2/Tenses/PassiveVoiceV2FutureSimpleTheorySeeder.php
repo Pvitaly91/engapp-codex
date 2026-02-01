@@ -6,7 +6,7 @@ class PassiveVoiceV2FutureSimpleTheorySeeder extends PassiveVoiceV2TensesPageSee
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-future-simple';
+        return 'theory-passive-voice-future-simple';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2FutureSimpleTheorySeeder extends PassiveVoiceV2TensesPageSee
             'subtitle_text' => 'Future Simple Passive (Майбутній простий пасив): формула will be + V3, ствердження, заперечення, питання та практичні приклади використання.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2-tenses',
+                'slug' => 'passive-voice-tenses',
                 'title' => 'Пасив у різних часах',
                 'language' => 'uk',
             ],

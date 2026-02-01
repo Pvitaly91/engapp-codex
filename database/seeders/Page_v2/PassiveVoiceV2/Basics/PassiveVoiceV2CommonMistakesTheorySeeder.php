@@ -6,7 +6,7 @@ class PassiveVoiceV2CommonMistakesTheorySeeder extends PassiveVoiceV2BasicsPageS
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-common-mistakes';
+        return 'theory-passive-voice-common-mistakes';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2CommonMistakesTheorySeeder extends PassiveVoiceV2BasicsPageS
             'subtitle_text' => 'Типові помилки у пасиві: неправильний вибір часу, пропуск be, плутання V2/V3, зайвий пасив та практичні приклади.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2',
+                'slug' => 'passive-voice',
                 'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],

@@ -6,7 +6,7 @@ class PassiveVoiceV2NegativesQuestionsTheorySeeder extends PassiveVoiceV2BasicsP
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-negatives-questions';
+        return 'theory-passive-voice-negatives-questions';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2NegativesQuestionsTheorySeeder extends PassiveVoiceV2BasicsP
             'subtitle_text' => 'Заперечення та питання у пасиві: структура, Yes/No питання, Wh-питання, короткі відповіді та практичні приклади.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2',
+                'slug' => 'passive-voice',
                 'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],

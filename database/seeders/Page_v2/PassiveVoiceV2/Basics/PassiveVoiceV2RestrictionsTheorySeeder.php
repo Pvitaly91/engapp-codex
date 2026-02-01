@@ -6,7 +6,7 @@ class PassiveVoiceV2RestrictionsTheorySeeder extends PassiveVoiceV2BasicsPageSee
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-restrictions';
+        return 'theory-passive-voice-restrictions';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2RestrictionsTheorySeeder extends PassiveVoiceV2BasicsPageSee
             'subtitle_text' => 'Обмеження вживання пасиву: неперехідні дієслова, дієслова стану, зворотні дієслова, обмеження значення.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2',
+                'slug' => 'passive-voice',
                 'title' => 'Пасивний стан',
                 'language' => 'uk',
             ],

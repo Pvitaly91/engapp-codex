@@ -6,7 +6,7 @@ class PassiveVoiceV2PastPerfectTheorySeeder extends PassiveVoiceV2TensesPageSeed
 {
     protected function slug(): string
     {
-        return 'theory-passive-voice-v2-past-perfect';
+        return 'theory-passive-voice-past-perfect';
     }
 
     protected function type(): ?string
@@ -22,7 +22,7 @@ class PassiveVoiceV2PastPerfectTheorySeeder extends PassiveVoiceV2TensesPageSeed
             'subtitle_text' => 'Past Perfect Passive (Минулий доконаний пасив): формула had + been + V3, дії що передували іншим минулим діям.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'passive-voice-v2-tenses',
+                'slug' => 'passive-voice-tenses',
                 'title' => 'Пасив у різних часах',
                 'language' => 'uk',
             ],
