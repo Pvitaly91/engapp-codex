@@ -31,6 +31,7 @@ class PageCategory extends Model
     public function textBlocks(): HasMany
     {
         return $this->hasMany(TextBlock::class, 'page_category_id')
+            ->whereNull('page_id')
             ->orderBy('sort_order')
             ->orderBy('id');
     }
