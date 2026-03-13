@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CopilotTheoryController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -113,6 +114,14 @@ Route::get('/catalog-tests/cards', fn () => redirect()->route('catalog.tests-car
 Route::get('/tests/cards', fn () => redirect()->route('catalog.tests-cards')); // legacy
 
 Route::get('/search', SiteSearchController::class)->name('site.search');
+
+// Copilot layout demo
+Route::get('/copilot', fn () => view('copilot.index'))->name('copilot.index');
+
+// Copilot – Theory section (same data as theory, new design under /copilot/theory)
+Route::get('/copilot/theory', [CopilotTheoryController::class, 'index'])->name('copilot.theory.index');
+Route::get('/copilot/theory/{category:slug}', [CopilotTheoryController::class, 'category'])->name('copilot.theory.category');
+Route::get('/copilot/theory/{category:slug}/{pageSlug}', [CopilotTheoryController::class, 'show'])->name('copilot.theory.show');
 Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
 
 Route::prefix('test')->group(function () {
