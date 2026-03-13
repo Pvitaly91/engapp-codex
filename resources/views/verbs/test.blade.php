@@ -1,4 +1,4 @@
-@extends('layouts.engram')
+@extends('layouts.gpt')
 
 @section('title', __('verbs.title'))
 
