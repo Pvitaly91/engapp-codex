@@ -47,9 +47,48 @@
                             900: '#0f172a',
                         }
                     },
+                    colors: {
+                        /* brand maps to pilot teal so reused engram blocks render correctly */
+                        brand: {
+                            50:  '#f0fdf9',
+                            100: '#ccfbef',
+                            200: '#99f6e0',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            900: '#134e4a',
+                        },
+                        pilot: {
+                            50:  '#f0fdf9',
+                            100: '#ccfbef',
+                            200: '#99f6e0',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        ink: {
+                            50:  '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
                     boxShadow: {
                         glow:  '0 0 0 3px rgba(20,184,166,0.25)',
                         panel: '0 4px 24px -8px rgba(15,23,42,0.18)',
+                        card:  '0 20px 50px -22px rgba(0,0,0,0.25)',
+                        soft:  '0 2px 12px -4px rgba(15,23,42,0.10)',
                     },
                     borderRadius: {
                         '4xl': '2rem',
@@ -66,6 +105,28 @@
             --cp-muted:  #475569;
             --cp-border: #ccfbef;
             --cp-accent: #0d9488;
+
+            /* Aliases so engram blocks-v3 partials render correctly in copilot */
+            --bg:     #f0fdf9;
+            --fg:     #0f172a;
+            --card:   #ffffff;
+            --muted:  #475569;
+            --border: #ccfbef;
+
+            /* Tailwind v4 semantic color tokens */
+            --color-background:           #f0fdf9;
+            --color-foreground:           #0f172a;
+            --color-card:                 #ffffff;
+            --color-card-foreground:      #0f172a;
+            --color-border:               #ccfbef;
+            --color-muted:                rgba(20,184,166,0.08);
+            --color-muted-foreground:     #475569;
+            --color-primary:              #0d9488;
+            --color-primary-foreground:   #ffffff;
+            --color-secondary:            rgba(20,184,166,0.12);
+            --color-secondary-foreground: #0f766e;
+            --color-accent:               #0d9488;
+            --color-accent-foreground:    #ffffff;
         }
         .dark {
             --cp-bg:     #0a1a18;
@@ -74,6 +135,28 @@
             --cp-muted:  #94a3b8;
             --cp-border: #164e47;
             --cp-accent: #2dd4bf;
+
+            /* Aliases for dark mode */
+            --bg:     #0a1a18;
+            --fg:     #e2e8f0;
+            --card:   #0f2420;
+            --muted:  #94a3b8;
+            --border: #164e47;
+
+            /* Tailwind v4 semantic color tokens – dark */
+            --color-background:           #0a1a18;
+            --color-foreground:           #e2e8f0;
+            --color-card:                 #0f2420;
+            --color-card-foreground:      #e2e8f0;
+            --color-border:               #164e47;
+            --color-muted:                rgba(20,184,166,0.08);
+            --color-muted-foreground:     #94a3b8;
+            --color-primary:              #14b8a6;
+            --color-primary-foreground:   #ffffff;
+            --color-secondary:            rgba(20,184,166,0.12);
+            --color-secondary-foreground: #5eead4;
+            --color-accent:               #2dd4bf;
+            --color-accent-foreground:    #0a1a18;
         }
         html { scroll-behavior: smooth; }
         body {
@@ -158,7 +241,7 @@
                     <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h10"/></svg>
                     {{ __('public.nav.catalog') }}
                 </a>
-                <a href="{{ localized_route('theory.index') }}" class="cp-nav-item">
+                <a href="{{ localized_route('copilot.theory.index') }}" class="cp-nav-item">
                     <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                     {{ __('public.nav.theory') }}
                 </a>
@@ -262,7 +345,7 @@
                     <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h10"/></svg>
                     {{ __('public.nav.catalog') }}
                 </a>
-                <a href="{{ localized_route('theory.index') }}" @click="sidebarOpen=false" class="cp-nav-item">
+                <a href="{{ localized_route('copilot.theory.index') }}" @click="sidebarOpen=false" class="cp-nav-item">
                     <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                     {{ __('public.nav.theory') }}
                 </a>
@@ -340,7 +423,7 @@
                         <h3 class="font-semibold text-[var(--cp-fg)]">{{ __('public.footer.links') }}</h3>
                         <div class="flex flex-col gap-1.5 text-[var(--cp-muted)]">
                             <a class="hover:text-pilot-600 transition-colors" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
-                            <a class="hover:text-pilot-600 transition-colors" href="{{ localized_route('theory.index') }}">{{ __('public.nav.theory') }}</a>
+                            <a class="hover:text-pilot-600 transition-colors" href="{{ localized_route('copilot.theory.index') }}">{{ __('public.nav.theory') }}</a>
                             <a class="hover:text-pilot-600 transition-colors" href="{{ localized_route('words.test') }}">{{ __('public.nav.words_test') }}</a>
                             <a class="hover:text-pilot-600 transition-colors" href="{{ localized_route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>
                         </div>
