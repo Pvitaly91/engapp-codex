@@ -28,6 +28,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.perform');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/new-design', [HomeController::class, 'newDesign'])->name('home.new-design');
 
 // Public locale switching route
 Route::get('/set-locale', function (\Illuminate\Http\Request $request) {

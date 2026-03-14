@@ -10,6 +10,11 @@ use App\Models\Tag;
 
 class HomeController extends Controller
 {
+    public function newDesign()
+    {
+        return view('home-new-design');
+    }
+
     public function index()
     {
         $latestTests = SavedGrammarTest::query()
