@@ -115,6 +115,9 @@ Route::get('/tests/cards', fn () => redirect()->route('catalog.tests-cards')); /
 
 Route::get('/search', SiteSearchController::class)->name('site.search');
 
+// New design preview
+Route::get('/new-design', fn () => view('new-design.home'))->name('new-design.home');
+
 // Copilot layout demo
 Route::get('/copilot', fn () => view('copilot.index'))->name('copilot.index');
 
