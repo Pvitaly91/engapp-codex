@@ -9,8 +9,8 @@
     $categoryDescription = $categoryDescription ?? ['hasBlocks' => false];
 @endphp
 
-<div class="overflow-hidden px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
-    <nav class="mb-6 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
+<div class="nd-page">
+    <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">Home</a>
         <span>/</span>
         <a href="{{ localized_route($routePrefix . '.index') }}" class="transition hover:text-ocean">{{ $sectionTitle ?? 'Теорія' }}</a>
@@ -18,7 +18,7 @@
         <span style="color: var(--text);">{{ $selectedCategory->title }}</span>
     </nav>
 
-    <section class="relative overflow-hidden rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
+    <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
         <div class="absolute -right-8 top-0 hidden h-32 w-32 rounded-full border-[18px] border-ocean/30 lg:block"></div>
         <div class="absolute bottom-0 right-0 hidden h-40 w-12 rounded-tl-[2rem] bg-amber lg:block"></div>
         <div class="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -49,9 +49,9 @@
         'routePrefix' => $routePrefix,
     ])
 
-    <div class="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
+    <div class="mt-8 grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
         <aside class="hidden lg:block">
-            <div class="sticky top-24 space-y-5">
+            <div class="sticky top-24 space-y-6">
                 <section class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <div class="flex items-end justify-between gap-3">
                         <div>
@@ -83,7 +83,7 @@
             </div>
         </aside>
 
-        <div class="min-w-0 space-y-6">
+        <div class="min-w-0 space-y-8">
             @if($categoryDescription['hasBlocks'] ?? false)
                 @include('theory.partials.category-description', [
                     'page' => $selectedCategory,

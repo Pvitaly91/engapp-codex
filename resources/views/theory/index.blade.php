@@ -9,13 +9,13 @@
     $gradients = ['bg-ocean', 'bg-amber', 'bg-emerald-500', 'bg-slate-800 dark:bg-slate-200', 'bg-rose-500', 'bg-sky-500'];
 @endphp
 
-<div class="overflow-hidden">
-    <section class="relative border-b px-5 py-8 sm:px-8 lg:px-10 lg:py-10" style="border-color: var(--line);">
+<div class="nd-page">
+    <section class="nd-section-tight relative border-b" style="border-color: var(--line);">
         <div class="absolute left-[12%] top-12 hidden h-24 w-24 rounded-full border-[16px] border-ocean/40 lg:block"></div>
         <div class="absolute right-[10%] top-10 hidden h-20 w-20 rounded-full bg-amber/80 lg:block"></div>
         <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-ocean lg:block"></div>
 
-        <div class="relative grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+        <div class="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div class="max-w-3xl">
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ __('public.theory.section_badge') }}
@@ -64,7 +64,7 @@
         </div>
     </section>
 
-    <section id="theory-categories" class="border-b px-5 py-8 sm:px-8 lg:px-10" style="border-color: var(--line);">
+    <section id="theory-categories" class="nd-section border-b" style="border-color: var(--line);">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.topics_to_learn') }}</p>
@@ -141,8 +141,8 @@
         </div>
     </section>
 
-    <section class="px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
-        <div class="grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
+    <section class="nd-section">
+        <div class="grid gap-8 xl:grid-cols-[1.08fr_0.92fr]">
             <article class="rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.recommended_path') }}</p>
                 <h2 class="mt-3 font-display text-2xl font-extrabold leading-tight">{{ __('public.theory.how_to_learn') }}</h2>

@@ -6,7 +6,7 @@
     $routePrefix = $routePrefix ?? 'theory';
 @endphp
 
-<div class="mb-6 lg:hidden" x-data="{ open: false }">
+<div class="mb-8 lg:hidden" x-data="{ open: false }">
     <button
         type="button"
         @click="open = !open"
@@ -22,10 +22,10 @@
         </svg>
     </button>
 
-    <div x-show="open" x-transition x-cloak class="mt-4 space-y-4 rounded-[24px] border p-4 shadow-card surface-card-strong" style="border-color: var(--line);">
+    <div x-show="open" x-transition x-cloak class="mt-5 space-y-5 rounded-[24px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
         <div>
             <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--muted);">Categories</p>
-            <div class="mt-3 space-y-2">
+            <div class="mt-4 space-y-3">
                 @include('theory.partials.tree-nav-mobile', [
                     'categories' => $categories,
                     'selectedCategory' => $selectedCategory,
@@ -36,9 +36,9 @@
         </div>
 
         @if($selectedCategory && $categoryPages->isNotEmpty())
-            <div class="border-t pt-4" style="border-color: var(--line);">
+            <div class="border-t pt-5" style="border-color: var(--line);">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--muted);">{{ __('public.common.section_pages') }}</p>
-                <div class="mt-3 space-y-2">
+                <div class="mt-4 space-y-3">
                     @foreach($categoryPages as $pageItem)
                         @php($isCurrentPage = $currentPage && $currentPage->is($pageItem))
                         <a

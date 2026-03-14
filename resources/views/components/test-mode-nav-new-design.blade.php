@@ -55,10 +55,10 @@
     };
 @endphp
 
-<nav class="mt-8 mb-8">
-    <div class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
-        <div class="grid gap-5 xl:grid-cols-3">
-            <div class="space-y-3">
+<nav class="mt-10 mb-10">
+    <div class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
+        <div class="grid gap-6 xl:grid-cols-3">
+            <div class="space-y-4">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">View mode</p>
                 <div class="flex flex-wrap gap-2">
                     <a href="{{ localized_route($cardRouteName, $test->slug) }}"
@@ -74,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="space-y-3">
+            <div class="space-y-4">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Difficulty</p>
                 <div class="flex flex-wrap gap-2">
                     <a href="{{ localized_route($difficultyRoutes['easy'], $test->slug) }}"
@@ -100,7 +100,7 @@
                 </div>
             </div>
 
-            <div class="space-y-3">
+            <div class="space-y-4">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Games</p>
                 <div class="flex flex-wrap gap-2">
                     <a href="{{ localized_route('test.drag-drop', $test->slug) }}"
