@@ -10,9 +10,9 @@ use App\Services\SavedTestResolver;
 class TestJsV2Controller extends Controller
 {
     public function __construct(
-        private QuestionVariantService $variantService,
-        private SavedTestResolver $savedTestResolver,
-        private MarkerTheoryMatcherService $markerTheoryMatcher,
+        protected QuestionVariantService $variantService,
+        protected SavedTestResolver $savedTestResolver,
+        protected MarkerTheoryMatcherService $markerTheoryMatcher,
     ) {}
 
     /**

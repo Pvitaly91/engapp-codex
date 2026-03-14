@@ -243,7 +243,7 @@
 
                                 {{-- Date --}}
                                 <div class="mb-4 text-xs text-steel">
-                                    {{ $test->created_at->format('d.m.Y') }}
+                                    {{ $test->created_at?->format('d.m.Y') ?? 'N/A' }}
                                 </div>
 
                                 {{-- Action button --}}
