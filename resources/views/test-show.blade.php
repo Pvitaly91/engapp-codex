@@ -382,8 +382,8 @@
     $template = str_replace("@include('components.test-mode-nav')", '', $template);
 @endphp
 
-<div class="overflow-hidden px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
-    <nav class="mb-6 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
+<div class="overflow-hidden px-5 py-10 sm:px-8 lg:px-10 lg:py-14">
+    <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">Home</a>
         <span>/</span>
         <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-ocean">{{ __('public.nav.catalog') }}</a>
@@ -394,21 +394,21 @@
     <section class="relative overflow-hidden rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
         <div class="absolute -right-10 top-0 hidden h-36 w-36 rounded-full border-[18px] border-ocean/30 lg:block"></div>
         <div class="absolute bottom-0 right-0 hidden h-44 w-14 rounded-tl-[2rem] bg-ocean lg:block"></div>
-        <div class="relative grid gap-6 lg:grid-cols-[1.04fr_0.96fr] lg:items-end">
+        <div class="relative grid gap-8 lg:grid-cols-[1.04fr_0.96fr] lg:items-end">
             <div class="max-w-3xl">
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ $heroBadge }}
                 </span>
-                <h1 class="mt-4 font-display text-4xl font-extrabold leading-[1.04] sm:text-5xl">{{ $test->name }}</h1>
+                <h1 class="mt-4 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $test->name }}</h1>
                 <p class="mt-4 max-w-2xl text-sm leading-7 sm:text-base" style="color: var(--muted);">
                     {{ $heroDescription }}
                 </p>
             </div>
 
-            <div class="grid gap-4 sm:grid-cols-2">
+            <div class="grid gap-5 sm:grid-cols-2">
                 <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Questions</p>
-                    <p class="mt-2 font-display text-[2.5rem] font-extrabold leading-none">{{ $questionCount }}</p>
+                    <p class="mt-2 font-display text-[2.25rem] font-extrabold leading-none">{{ $questionCount }}</p>
                     <p class="mt-2 text-sm leading-6" style="color: var(--muted);">Кількість завдань у тесті</p>
                 </article>
                 <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">

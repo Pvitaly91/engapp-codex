@@ -130,7 +130,7 @@
                         <a href="{{ localized_route('home') }}" class="flex items-center gap-3" aria-label="Gramlyze">
                             <x-gramlyze-logo variant="compact" class="h-12 w-12 rounded-2xl bg-[linear-gradient(135deg,#f7b34c_0%,#fff0d7_50%,#2f67b1_100%)] shadow-card" />
                             <div>
-                                <p class="font-display text-[1.7rem] font-extrabold leading-none tracking-tight">GRAMLYZE</p>
+                                <p class="font-display text-xl font-extrabold leading-none tracking-tight">GRAMLYZE</p>
                                 <p class="mt-1 text-xs font-semibold uppercase tracking-[0.28em]" style="color: var(--muted);">{{ __('public.home.badge') }}</p>
                             </div>
                         </a>
@@ -267,7 +267,7 @@
                         <div class="flex items-center gap-3">
                             <x-gramlyze-logo variant="compact" class="h-12 w-12 rounded-2xl bg-[linear-gradient(135deg,#f7b34c_0%,#fff0d7_50%,#2f67b1_100%)] shadow-card" />
                             <div>
-                                <p class="font-display text-[1.8rem] font-extrabold leading-none tracking-tight">GRAMLYZE</p>
+                                <p class="font-display text-xl font-extrabold leading-none tracking-tight">GRAMLYZE</p>
                                 <p class="mt-1 text-sm text-white/70">{{ __('public.footer.description') }}</p>
                             </div>
                         </div>
@@ -275,7 +275,7 @@
                     </div>
 
                     <div>
-                        <h3 class="font-display text-[1.45rem] font-extrabold">{{ __('public.footer.links') }}</h3>
+                        <h3 class="font-display text-lg font-extrabold">{{ __('public.footer.links') }}</h3>
                         <div class="mt-4 grid gap-3 text-sm text-white/80">
                             <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-white">{{ __('public.nav.catalog') }}</a>
                             <a href="{{ localized_route('theory.index') }}" class="transition hover:text-white">{{ __('public.nav.theory') }}</a>
@@ -285,7 +285,7 @@
                     </div>
 
                     <div>
-                        <h3 class="font-display text-[1.45rem] font-extrabold">{{ __('public.footer.contact') }}</h3>
+                        <h3 class="font-display text-lg font-extrabold">{{ __('public.footer.contact') }}</h3>
                         <p class="mt-4 text-sm text-white/80">{{ __('public.footer.support') }}</p>
                         <div class="mt-5 flex flex-wrap gap-3">
                             <a href="{{ localized_route('site.search') }}" class="rounded-2xl bg-white/10 px-4 py-3 text-sm font-semibold transition hover:bg-white/20">{{ __('public.search.button') }}</a>

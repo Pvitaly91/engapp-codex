@@ -4,15 +4,15 @@
 
 @section('content')
 <div class="overflow-hidden">
-    <section class="relative border-b px-5 py-8 sm:px-8 lg:px-10 lg:py-10" style="border-color: var(--line);">
+    <section class="relative border-b px-5 py-10 sm:px-8 lg:px-10 lg:py-14" style="border-color: var(--line);">
         <div class="absolute right-[8%] top-10 hidden h-20 w-20 rounded-full bg-amber/80 lg:block"></div>
         <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-ocean lg:block"></div>
-        <div class="relative grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+        <div class="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div class="max-w-3xl">
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ __('public.nav.catalog') }}
                 </span>
-                <h1 class="mt-6 font-display text-4xl font-extrabold leading-[1.04] sm:text-5xl xl:text-[3.4rem]">Каталог тестів</h1>
+                <h1 class="mt-6 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">Каталог тестів</h1>
                 <p class="mt-5 max-w-2xl text-lg leading-8 sm:text-xl" style="color: var(--muted);">
                     Обирайте тести за агрегованими темами й рівнями. Фільтри, рівні, картки тестів і переходи працюють так само, як у поточному публічному каталозі.
                 </p>
@@ -21,34 +21,34 @@
             <div class="grid gap-4 sm:grid-cols-2">
                 <article class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Tests</p>
-                    <p class="mt-3 font-display text-[3rem] font-extrabold leading-none">{{ $tests->count() }}</p>
+                    <p class="mt-3 font-display text-[2.25rem] font-extrabold leading-none">{{ $tests->count() }}</p>
                     <p class="mt-3 text-sm leading-6" style="color: var(--muted);">Кількість тестів після поточних фільтрів</p>
                 </article>
                 <article class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Tags</p>
-                    <p class="mt-3 font-display text-[3rem] font-extrabold leading-none">{{ $tags->flatten()->count() }}</p>
+                    <p class="mt-3 font-display text-[2.25rem] font-extrabold leading-none">{{ $tags->flatten()->count() }}</p>
                     <p class="mt-3 text-sm leading-6" style="color: var(--muted);">Агреговані теги каталогу</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <section class="px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
-        <div class="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
+    <section class="px-5 py-10 sm:px-8 lg:px-10 lg:py-14">
+        <div class="grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
             <aside>
-                <div class="sticky top-24 space-y-5">
-                    <section class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
+                <div class="sticky top-24 space-y-7">
+                    <section class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                         <div class="flex items-center justify-between gap-3">
                             <div>
                                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Filters</p>
-                                <h2 class="mt-2 font-display text-[1.8rem] font-extrabold leading-none">Catalog map</h2>
+                                <h2 class="mt-2 font-display text-xl font-extrabold leading-none">Catalog map</h2>
                             </div>
                             @if(!empty($selectedTags) || !empty($selectedLevels))
                                 <a href="{{ localized_route('catalog.tests-cards') }}" class="text-xs font-extrabold uppercase tracking-[0.18em]" style="color: var(--accent);">Reset</a>
                             @endif
                         </div>
 
-                        <form id="tag-filter" action="{{ localized_route('catalog.tests-cards') }}" method="GET" class="mt-5 space-y-5">
+                        <form id="tag-filter" action="{{ localized_route('catalog.tests-cards') }}" method="GET" class="mt-6 space-y-6">
                             @if(isset($availableLevels) && $availableLevels->count())
                                 <div class="rounded-[22px] border p-4 surface-card" style="border-color: var(--line);">
                                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Level</p>
@@ -95,7 +95,7 @@
 
             <div class="min-w-0">
                 @if($tests->count())
-                    <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="grid gap-7 md:grid-cols-2 xl:grid-cols-3">
                         @foreach($tests as $index => $test)
                             @php
                                 $accents = ['bg-ocean', 'bg-amber', 'bg-emerald-500', 'bg-slate-800 dark:bg-slate-200', 'bg-rose-500', 'bg-sky-500'];
@@ -125,10 +125,10 @@
                                             {{ count($test->questions) }} Q
                                         </span>
                                     </div>
-                                    <h3 class="mt-5 font-display text-[1.75rem] font-extrabold leading-tight">{{ $test->name }}</h3>
+                                    <h3 class="mt-5 font-display text-xl font-extrabold leading-tight">{{ $test->name }}</h3>
                                 </a>
 
-                                <div class="space-y-4 p-5">
+                                <div class="space-y-5 p-6">
                                     @if($levels->isNotEmpty())
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($levels as $lvl)
@@ -160,7 +160,7 @@
                     </div>
                 @else
                     <div class="rounded-[28px] border border-dashed p-10 text-center shadow-card surface-card-strong" style="border-color: var(--line);">
-                        <h3 class="font-display text-[1.8rem] font-extrabold">Тестів не знайдено</h3>
+                        <h3 class="font-display text-xl font-extrabold">Тестів не знайдено</h3>
                         <p class="mt-3 text-sm leading-6" style="color: var(--muted);">Спробуйте змінити поточні фільтри або скинути їх.</p>
                     </div>
                 @endif
