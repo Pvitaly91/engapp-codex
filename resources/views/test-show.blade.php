@@ -399,7 +399,7 @@
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ $heroBadge }}
                 </span>
-                <h1 class="mt-4 font-display text-4xl font-extrabold leading-[1.04] sm:text-5xl">{{ $test->name }}</h1>
+                <h1 class="mt-4 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $test->name }}</h1>
                 <p class="mt-4 max-w-2xl text-sm leading-7 sm:text-base" style="color: var(--muted);">
                     {{ $heroDescription }}
                 </p>
@@ -408,7 +408,7 @@
             <div class="grid gap-4 sm:grid-cols-2">
                 <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Questions</p>
-                    <p class="mt-2 font-display text-[2.5rem] font-extrabold leading-none">{{ $questionCount }}</p>
+                    <p class="mt-2 font-display text-[2.25rem] font-extrabold leading-none">{{ $questionCount }}</p>
                     <p class="mt-2 text-sm leading-6" style="color: var(--muted);">Кількість завдань у тесті</p>
                 </article>
                 <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">

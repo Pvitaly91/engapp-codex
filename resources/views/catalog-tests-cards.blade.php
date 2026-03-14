@@ -12,7 +12,7 @@
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ __('public.nav.catalog') }}
                 </span>
-                <h1 class="mt-6 font-display text-4xl font-extrabold leading-[1.04] sm:text-5xl xl:text-[3.4rem]">Каталог тестів</h1>
+                <h1 class="mt-6 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">Каталог тестів</h1>
                 <p class="mt-5 max-w-2xl text-lg leading-8 sm:text-xl" style="color: var(--muted);">
                     Обирайте тести за агрегованими темами й рівнями. Фільтри, рівні, картки тестів і переходи працюють так само, як у поточному публічному каталозі.
                 </p>
@@ -21,12 +21,12 @@
             <div class="grid gap-4 sm:grid-cols-2">
                 <article class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Tests</p>
-                    <p class="mt-3 font-display text-[3rem] font-extrabold leading-none">{{ $tests->count() }}</p>
+                    <p class="mt-3 font-display text-[2.25rem] font-extrabold leading-none">{{ $tests->count() }}</p>
                     <p class="mt-3 text-sm leading-6" style="color: var(--muted);">Кількість тестів після поточних фільтрів</p>
                 </article>
                 <article class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Tags</p>
-                    <p class="mt-3 font-display text-[3rem] font-extrabold leading-none">{{ $tags->flatten()->count() }}</p>
+                    <p class="mt-3 font-display text-[2.25rem] font-extrabold leading-none">{{ $tags->flatten()->count() }}</p>
                     <p class="mt-3 text-sm leading-6" style="color: var(--muted);">Агреговані теги каталогу</p>
                 </article>
             </div>
@@ -41,7 +41,7 @@
                         <div class="flex items-center justify-between gap-3">
                             <div>
                                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Filters</p>
-                                <h2 class="mt-2 font-display text-[1.8rem] font-extrabold leading-none">Catalog map</h2>
+                                <h2 class="mt-2 font-display text-xl font-extrabold leading-none">Catalog map</h2>
                             </div>
                             @if(!empty($selectedTags) || !empty($selectedLevels))
                                 <a href="{{ localized_route('catalog.tests-cards') }}" class="text-xs font-extrabold uppercase tracking-[0.18em]" style="color: var(--accent);">Reset</a>
@@ -125,7 +125,7 @@
                                             {{ count($test->questions) }} Q
                                         </span>
                                     </div>
-                                    <h3 class="mt-5 font-display text-[1.75rem] font-extrabold leading-tight">{{ $test->name }}</h3>
+                                    <h3 class="mt-5 font-display text-xl font-extrabold leading-tight">{{ $test->name }}</h3>
                                 </a>
 
                                 <div class="space-y-4 p-5">
@@ -160,7 +160,7 @@
                     </div>
                 @else
                     <div class="rounded-[28px] border border-dashed p-10 text-center shadow-card surface-card-strong" style="border-color: var(--line);">
-                        <h3 class="font-display text-[1.8rem] font-extrabold">Тестів не знайдено</h3>
+                        <h3 class="font-display text-xl font-extrabold">Тестів не знайдено</h3>
                         <p class="mt-3 text-sm leading-6" style="color: var(--muted);">Спробуйте змінити поточні фільтри або скинути їх.</p>
                     </div>
                 @endif

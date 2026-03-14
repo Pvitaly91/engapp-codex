@@ -20,7 +20,7 @@
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ __('public.theory.section_badge') }}
                 </span>
-                <h1 class="mt-6 font-display text-4xl font-extrabold leading-[1.04] sm:text-5xl xl:text-[3.5rem]">
+                <h1 class="mt-6 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">
                     {{ __('public.theory.title') }}
                 </h1>
                 <p class="mt-5 max-w-2xl text-lg leading-8 sm:text-xl" style="color: var(--muted);">
@@ -42,22 +42,22 @@
             <div class="grid gap-4 sm:grid-cols-2">
                 <article class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.categories_count') }}</p>
-                    <p class="mt-3 font-display text-[3rem] font-extrabold leading-none">{{ $categories->count() }}</p>
+                    <p class="mt-3 font-display text-[2.25rem] font-extrabold leading-none">{{ $categories->count() }}</p>
                     <p class="mt-3 text-sm leading-6" style="color: var(--muted);">{{ __('public.theory.theory_categories') }}</p>
                 </article>
                 <article class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.lessons_count') }}</p>
-                    <p class="mt-3 font-display text-[3rem] font-extrabold leading-none">{{ $totalPages }}</p>
+                    <p class="mt-3 font-display text-[2.25rem] font-extrabold leading-none">{{ $totalPages }}</p>
                     <p class="mt-3 text-sm leading-6" style="color: var(--muted);">{{ __('public.theory.lesson_pages') }}</p>
                 </article>
                 <article class="rounded-[28px] border p-6 shadow-card surface-card" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.difficulty_levels') }}</p>
-                    <p class="mt-3 font-display text-[2.3rem] font-extrabold leading-none">A1-B2</p>
+                    <p class="mt-3 font-display text-2xl font-extrabold leading-none">A1-B2</p>
                     <p class="mt-3 text-sm leading-6" style="color: var(--muted);">{{ __('public.theory.topics_hint') }}</p>
                 </article>
                 <article class="rounded-[28px] border p-6 shadow-card surface-card" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.in_ukrainian') }}</p>
-                    <p class="mt-3 font-display text-[2.3rem] font-extrabold leading-none">UA</p>
+                    <p class="mt-3 font-display text-2xl font-extrabold leading-none">UA</p>
                     <p class="mt-3 text-sm leading-6" style="color: var(--muted);">{{ __('public.theory.how_to_learn_desc') }}</p>
                 </article>
             </div>
@@ -68,7 +68,7 @@
         <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.topics_to_learn') }}</p>
-                <h2 class="mt-2 font-display text-[2.4rem] font-extrabold leading-none">{{ __('public.theory.topics_hint') }}</h2>
+                <h2 class="mt-2 font-display text-2xl font-extrabold leading-none">{{ __('public.theory.topics_hint') }}</h2>
             </div>
             <p class="max-w-2xl text-sm leading-6 sm:text-right" style="color: var(--muted);">
                 {{ __('public.theory.how_to_learn_desc') }}
@@ -92,7 +92,7 @@
                                 {{ $category->pages_count ?? 0 }} {{ __('public.theory.lessons_count') }}
                             </span>
                         </div>
-                        <h3 class="mt-5 font-display text-[1.9rem] font-extrabold leading-tight">{{ $category->title }}</h3>
+                        <h3 class="mt-5 font-display text-xl font-extrabold leading-tight">{{ $category->title }}</h3>
                     </a>
 
                     <div class="space-y-4 p-5">
@@ -134,7 +134,7 @@
                 </article>
             @empty
                 <div class="col-span-full rounded-[28px] border border-dashed p-10 text-center shadow-card surface-card-strong" style="border-color: var(--line);">
-                    <h3 class="font-display text-[1.8rem] font-extrabold">{{ __('public.theory.no_categories_title') }}</h3>
+                    <h3 class="font-display text-xl font-extrabold">{{ __('public.theory.no_categories_title') }}</h3>
                     <p class="mt-3 text-sm leading-6" style="color: var(--muted);">{{ __('public.theory.no_categories_hint') }}</p>
                 </div>
             @endforelse
@@ -145,7 +145,7 @@
         <div class="grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
             <article class="rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.recommended_path') }}</p>
-                <h2 class="mt-3 font-display text-[2.3rem] font-extrabold leading-tight">{{ __('public.theory.how_to_learn') }}</h2>
+                <h2 class="mt-3 font-display text-2xl font-extrabold leading-tight">{{ __('public.theory.how_to_learn') }}</h2>
                 <p class="mt-4 text-sm leading-7 sm:text-base" style="color: var(--muted);">{{ __('public.theory.how_to_learn_desc') }}</p>
                 <div class="mt-8 space-y-4">
                     @foreach([
@@ -159,7 +159,7 @@
                                 {{ $loop->iteration }}
                             </span>
                             <div>
-                                <h3 class="font-display text-[1.25rem] font-extrabold leading-tight">{{ $step[0] }}</h3>
+                                <h3 class="font-display text-lg font-extrabold leading-tight">{{ $step[0] }}</h3>
                                 <p class="mt-2 text-sm leading-6" style="color: var(--muted);">{{ $step[1] }}</p>
                             </div>
                         </div>
@@ -169,19 +169,19 @@
 
             <article class="rounded-[30px] border p-6 shadow-card surface-card" style="border-color: var(--line);">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Quick links</p>
-                <h2 class="mt-3 font-display text-[2.2rem] font-extrabold leading-tight">{{ __('public.home.pick_path') }}</h2>
+                <h2 class="mt-3 font-display text-2xl font-extrabold leading-tight">{{ __('public.home.pick_path') }}</h2>
                 <div class="mt-6 grid gap-4">
                     <a href="{{ localized_route('theory.index') }}" class="rounded-[22px] border p-5 surface-card-strong" style="border-color: var(--line);">
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.section_badge') }}</p>
-                        <h3 class="mt-2 font-display text-[1.5rem] font-extrabold">{{ __('public.theory.all_categories') }}</h3>
+                        <h3 class="mt-2 font-display text-xl font-extrabold">{{ __('public.theory.all_categories') }}</h3>
                     </a>
                     <a href="{{ localized_route('catalog.tests-cards') }}" class="rounded-[22px] border p-5 surface-card-strong" style="border-color: var(--line);">
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.nav.catalog') }}</p>
-                        <h3 class="mt-2 font-display text-[1.5rem] font-extrabold">{{ __('public.home.to_catalog') }}</h3>
+                        <h3 class="mt-2 font-display text-xl font-extrabold">{{ __('public.home.to_catalog') }}</h3>
                     </a>
                     <a href="{{ localized_route('home') }}" class="rounded-[22px] border p-5 surface-card-strong" style="border-color: var(--line);">
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">New design</p>
-                        <h3 class="mt-2 font-display text-[1.5rem] font-extrabold">{{ __('public.home.title') }}</h3>
+                        <h3 class="mt-2 font-display text-xl font-extrabold">{{ __('public.home.title') }}</h3>
                     </a>
                 </div>
             </article>
