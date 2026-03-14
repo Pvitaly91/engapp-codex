@@ -6,7 +6,7 @@
 <div class="nd-page">
     <section class="nd-section-tight relative border-b" style="border-color: var(--line);">
         <div class="absolute right-[8%] top-10 hidden h-20 w-20 rounded-full bg-amber/80 lg:block"></div>
-        <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-ocean lg:block"></div>
+        <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[1.5rem] bg-ocean lg:block"></div>
         <div class="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div class="max-w-3xl">
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
@@ -19,12 +19,12 @@
             </div>
 
             <div class="grid gap-4 sm:grid-cols-2">
-                <article class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
+                <article class="rounded-[12px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Tests</p>
                     <p class="mt-3 font-display text-[2.25rem] font-extrabold leading-none">{{ $tests->count() }}</p>
                     <p class="mt-3 text-sm leading-6" style="color: var(--muted);">Кількість тестів після поточних фільтрів</p>
                 </article>
-                <article class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
+                <article class="rounded-[12px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Tags</p>
                     <p class="mt-3 font-display text-[2.25rem] font-extrabold leading-none">{{ $tags->flatten()->count() }}</p>
                     <p class="mt-3 text-sm leading-6" style="color: var(--muted);">Агреговані теги каталогу</p>
@@ -37,7 +37,7 @@
         <div class="grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
             <aside>
                 <div class="sticky top-24 space-y-6">
-                    <section class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
+                    <section class="rounded-[12px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
                         <div class="flex items-center justify-between gap-3">
                             <div>
                                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Filters</p>
@@ -50,7 +50,7 @@
 
                         <form id="tag-filter" action="{{ localized_route('catalog.tests-cards') }}" method="GET" class="mt-5 space-y-5">
                             @if(isset($availableLevels) && $availableLevels->count())
-                                <div class="rounded-[22px] border p-4 surface-card" style="border-color: var(--line);">
+                                <div class="rounded-[10px] border p-4 surface-card" style="border-color: var(--line);">
                                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Level</p>
                                     <div class="mt-3 flex flex-wrap gap-2">
                                         @foreach($availableLevels as $lvl)
@@ -68,7 +68,7 @@
 
                             @foreach($tags as $category => $tagNames)
                                 @php $isOther = in_array(strtolower($category), ['other', 'others']); @endphp
-                                <div class="rounded-[22px] border p-4 surface-card" style="border-color: var(--line);">
+                                <div class="rounded-[10px] border p-4 surface-card" style="border-color: var(--line);">
                                     <div class="flex items-center justify-between gap-3">
                                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ $category }}</p>
                                         @if($isOther)
@@ -115,10 +115,10 @@
                                     ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
                                     ->map(fn($lvl) => $lvl ?? 'N/A');
                             @endphp
-                            <article class="overflow-hidden rounded-[26px] border shadow-card surface-card-strong" style="border-color: var(--line);">
+                            <article class="overflow-hidden rounded-[10px] border shadow-card surface-card-strong" style="border-color: var(--line);">
                                 <a href="{{ $testRoute }}" class="block border-b p-6" style="border-color: var(--line);">
                                     <div class="flex items-start justify-between gap-4">
-                                        <span class="inline-flex h-14 w-14 items-center justify-center rounded-[20px] {{ $accent }} text-sm font-extrabold text-white dark:text-slate-950">
+                                        <span class="inline-flex h-14 w-14 items-center justify-center rounded-[12px] {{ $accent }} text-sm font-extrabold text-white dark:text-slate-950">
                                             {{ str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) }}
                                         </span>
                                         <span class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--muted);">
@@ -150,7 +150,7 @@
                                         <span>{{ in_array($preferredView, ['drag-drop', 'match', 'dialogue'], true) ? $preferredView : 'card' }}</span>
                                     </div>
 
-                                    <a href="{{ $testRoute }}" class="inline-flex items-center gap-2 rounded-[18px] bg-ocean px-4 py-3 text-sm font-extrabold uppercase tracking-[0.18em] text-white transition hover:bg-[#245592]">
+                                    <a href="{{ $testRoute }}" class="inline-flex items-center gap-2 rounded-[12px] bg-ocean px-4 py-3 text-sm font-extrabold uppercase tracking-[0.18em] text-white transition hover:bg-[#245592]">
                                         Пройти тест
                                         <span>+</span>
                                     </a>
@@ -159,7 +159,7 @@
                         @endforeach
                     </div>
                 @else
-                    <div class="rounded-[28px] border border-dashed p-10 text-center shadow-card surface-card-strong" style="border-color: var(--line);">
+                    <div class="rounded-[12px] border border-dashed p-10 text-center shadow-card surface-card-strong" style="border-color: var(--line);">
                         <h3 class="font-display text-xl font-extrabold">Тестів не знайдено</h3>
                         <p class="mt-3 text-sm leading-6" style="color: var(--muted);">Спробуйте змінити поточні фільтри або скинути їх.</p>
                     </div>

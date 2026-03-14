@@ -17,7 +17,7 @@
     #new-design-test-shell .sticky-inner {
         border: 1px solid var(--line) !important;
         background: var(--surface-strong) !important;
-        border-radius: 28px !important;
+        border-radius: 12px !important;
         box-shadow: 0 18px 40px rgba(17, 38, 63, 0.08) !important;
         backdrop-filter: none !important;
     }
@@ -25,7 +25,7 @@
     #new-design-test-shell .progress-section {
         border: 1px solid var(--line) !important;
         background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, white) 0%, var(--surface-strong) 100%) !important;
-        border-radius: 24px !important;
+        border-radius: 12px !important;
         box-shadow: none !important;
     }
 
@@ -72,7 +72,7 @@
         overflow: hidden;
         background: var(--surface-strong) !important;
         border: 1px solid var(--line) !important;
-        border-radius: 30px !important;
+        border-radius: 12px !important;
         box-shadow: 0 14px 32px rgba(17, 38, 63, 0.08) !important;
         transform: none !important;
     }
@@ -154,7 +154,7 @@
     #new-design-test-shell article[data-idx] [id^="hints-"] > div,
     #new-design-test-shell article[data-idx] [id^="theory-panel-"] > div {
         border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--line)) !important;
-        border-radius: 22px !important;
+        border-radius: 10px !important;
         background: linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 52%, white) 0%, color-mix(in srgb, var(--surface) 96%, white) 100%) !important;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
     }
@@ -170,7 +170,7 @@
         margin-bottom: 1rem !important;
         padding: 0.75rem 0.9rem;
         border: 1px solid color-mix(in srgb, var(--line) 76%, white);
-        border-radius: 20px;
+        border-radius: 12px;
         background: color-mix(in srgb, var(--surface) 88%, white);
     }
 
@@ -194,7 +194,7 @@
         width: 4.5rem !important;
         height: 4.5rem !important;
         border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--line)) !important;
-        border-radius: 22px !important;
+        border-radius: 10px !important;
         background: linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 72%, white) 0%, color-mix(in srgb, var(--surface) 96%, white) 100%) !important;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
     }
@@ -221,14 +221,14 @@
         border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line)) !important;
         background: color-mix(in srgb, var(--accent-soft) 70%, white) !important;
         color: var(--text) !important;
-        border-radius: 14px !important;
+        border-radius: 10px !important;
     }
 
     #new-design-test-shell article[data-idx] button[data-opt] {
         border-color: var(--line) !important;
         background: var(--surface) !important;
         color: var(--text) !important;
-        border-radius: 22px !important;
+        border-radius: 10px !important;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75) !important;
         transform: none !important;
     }
@@ -242,7 +242,7 @@
     #new-design-test-shell article[data-idx] button[data-opt] .border-2 {
         border-color: color-mix(in srgb, var(--line) 80%, white) !important;
         color: var(--muted) !important;
-        border-radius: 14px !important;
+        border-radius: 10px !important;
     }
 
     #new-design-test-shell article[data-idx] button[data-opt].border-red-300 {
@@ -258,7 +258,7 @@
     }
 
     #new-design-test-shell article[data-idx] [id^="feedback-"] > div {
-        border-radius: 22px !important;
+        border-radius: 10px !important;
         box-shadow: none !important;
     }
 
@@ -286,7 +286,7 @@
         border-color: var(--line) !important;
         background: var(--surface-strong) !important;
         color: var(--text) !important;
-        border-radius: 18px !important;
+        border-radius: 12px !important;
         font-weight: 800 !important;
         text-transform: uppercase;
         letter-spacing: 0.08em;
@@ -300,7 +300,7 @@
     #new-design-test-shell #summary > div {
         border: 1px solid var(--line) !important;
         background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, white) 0%, var(--surface-strong) 100%) !important;
-        border-radius: 30px !important;
+        border-radius: 12px !important;
         box-shadow: 0 18px 40px rgba(17, 38, 63, 0.08) !important;
     }
 
@@ -315,7 +315,7 @@
 
     #new-design-test-shell #summary #retry {
         background: linear-gradient(135deg, #2f67b1 0%, #4f88d6 100%) !important;
-        border-radius: 20px !important;
+        border-radius: 12px !important;
         box-shadow: none !important;
         transform: none !important;
     }
@@ -324,7 +324,7 @@
         border-color: var(--line) !important;
         background: var(--surface-strong) !important;
         color: var(--text) !important;
-        border-radius: 20px !important;
+        border-radius: 12px !important;
     }
 
     #new-design-test-shell .bg-gradient-to-r.from-emerald-50.to-teal-50,
@@ -332,7 +332,7 @@
     #new-design-test-shell .bg-emerald-50,
     #new-design-test-shell .bg-red-50,
     #new-design-test-shell .bg-gray-50 {
-        border-radius: 20px !important;
+        border-radius: 12px !important;
     }
 
     @media (max-width: 640px) {
@@ -341,7 +341,7 @@
         }
 
         #new-design-test-shell article[data-idx] {
-            border-radius: 24px !important;
+            border-radius: 12px !important;
         }
 
         #new-design-test-shell article[data-idx] > .flex:first-child {
@@ -391,9 +391,9 @@
         <span style="color: var(--text);">{{ $test->name }}</span>
     </nav>
 
-    <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
+    <section class="relative overflow-hidden rounded-[12px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
         <div class="absolute -right-10 top-0 hidden h-36 w-36 rounded-full border-[18px] border-ocean/30 lg:block"></div>
-        <div class="absolute bottom-0 right-0 hidden h-44 w-14 rounded-tl-[2rem] bg-ocean lg:block"></div>
+        <div class="absolute bottom-0 right-0 hidden h-44 w-14 rounded-tl-[1.25rem] bg-ocean lg:block"></div>
         <div class="relative grid gap-8 lg:grid-cols-[1.04fr_0.96fr] lg:items-end">
             <div class="max-w-3xl">
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] soft-accent" style="border-color: var(--line); color: var(--accent);">
@@ -406,12 +406,12 @@
             </div>
 
             <div class="grid gap-4 sm:grid-cols-2">
-                <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
+                <article class="rounded-[10px] border p-5 surface-card" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Questions</p>
                     <p class="mt-2 font-display text-[2.25rem] font-extrabold leading-none">{{ $questionCount }}</p>
                     <p class="mt-2 text-sm leading-6" style="color: var(--muted);">Кількість завдань у тесті</p>
                 </article>
-                <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
+                <article class="rounded-[10px] border p-5 surface-card" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Levels</p>
                     <div class="mt-3 flex flex-wrap gap-2">
                         @forelse($levels as $level)
