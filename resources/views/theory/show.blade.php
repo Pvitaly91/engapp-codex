@@ -28,9 +28,9 @@
         <span style="color: var(--text);">{{ $page->title }}</span>
     </nav>
 
-    <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
+    <section class="relative overflow-hidden rounded-[12px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
         <div class="absolute -right-10 top-0 hidden h-36 w-36 rounded-full border-[18px] border-ocean/30 lg:block"></div>
-        <div class="absolute bottom-0 right-0 hidden h-44 w-14 rounded-tl-[2rem] bg-ocean lg:block"></div>
+        <div class="absolute bottom-0 right-0 hidden h-44 w-14 rounded-tl-[1.25rem] bg-ocean lg:block"></div>
         <div class="relative">
             @if(!empty($heroData['level']))
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] soft-accent" style="border-color: var(--line); color: var(--accent);">
@@ -67,7 +67,7 @@
     <div class="mt-8 grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
         <aside class="hidden lg:block">
             <div class="sticky top-24 space-y-6">
-                <section class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
+                <section class="rounded-[12px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Map</p>
                     <h2 class="mt-2 font-display text-xl font-extrabold leading-none">{{ __('public.common.categories') }}</h2>
                     <div class="mt-5 space-y-3">
@@ -81,14 +81,14 @@
                 </section>
 
                 @if(isset($selectedCategory) && $categoryPages->isNotEmpty())
-                    <section class="rounded-[28px] border p-5 shadow-card surface-card" style="border-color: var(--line);">
+                    <section class="rounded-[12px] border p-5 shadow-card surface-card" style="border-color: var(--line);">
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.section_pages') }}</p>
                         <div class="mt-4 space-y-2">
                             @foreach($categoryPages as $pageItem)
                                 @php($isCurrentPage = $page->is($pageItem))
                                 <a
                                     href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
-                                    class="flex items-start gap-3 rounded-[18px] border px-3 py-3 text-sm transition"
+                                    class="flex items-start gap-3 rounded-[12px] border px-3 py-3 text-sm transition"
                                     style="{{ $isCurrentPage ? 'border-color: var(--accent); background: var(--accent-soft); color: var(--text);' : 'border-color: var(--line); color: var(--muted);' }}"
                                     @if($isCurrentPage) aria-current="page" @endif
                                 >
@@ -101,13 +101,13 @@
                 @endif
 
                 @if($tocBlocks->isNotEmpty())
-                    <section class="rounded-[28px] border p-5 shadow-card surface-card" style="border-color: var(--line);">
+                    <section class="rounded-[12px] border p-5 shadow-card surface-card" style="border-color: var(--line);">
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Contents</p>
                         <div class="mt-4 space-y-2">
                             @foreach($tocBlocks as $tocBlock)
                                 @php($tocData = json_decode($tocBlock->body ?? '[]', true))
                                 @if(!empty($tocData['title']))
-                                    <a href="#block-{{ $tocBlock->id }}" class="flex items-start gap-3 rounded-[18px] border px-3 py-3 text-sm transition hover:-translate-y-0.5 surface-card-strong" style="border-color: var(--line); color: var(--muted);">
+                                    <a href="#block-{{ $tocBlock->id }}" class="flex items-start gap-3 rounded-[12px] border px-3 py-3 text-sm transition hover:-translate-y-0.5 surface-card-strong" style="border-color: var(--line); color: var(--muted);">
                                         <span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-amber text-[10px] font-extrabold text-white">{{ $loop->iteration }}</span>
                                         <span class="min-w-0 break-words leading-5">{{ preg_replace('/^\d+\.\s*/', '', $tocData['title']) }}</span>
                                     </a>
@@ -118,7 +118,7 @@
                 @endif
 
                 @if($page->tags->isNotEmpty())
-                    <section class="rounded-[28px] border p-5 shadow-card surface-card" style="border-color: var(--line);">
+                    <section class="rounded-[12px] border p-5 shadow-card surface-card" style="border-color: var(--line);">
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.page_tags') }}</p>
                         <div class="mt-4 flex flex-wrap gap-2">
                             @foreach($page->tags as $tag)
@@ -134,20 +134,20 @@
             @if(!empty($heroData['rules']))
                 <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                     @foreach($heroData['rules'] as $rule)
-                        <article class="rounded-[24px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
+                        <article class="rounded-[10px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
                             @if(!empty($rule['label']))
                                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ $rule['label'] }}</p>
                             @endif
                             <div class="mt-3 text-sm leading-6" style="color: var(--text);">{!! $rule['text'] ?? '' !!}</div>
                             @if(!empty($rule['example']))
-                                <code class="mt-4 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ $rule['example'] }}</code>
+                                <code class="mt-4 block rounded-[10px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ $rule['example'] }}</code>
                             @endif
                         </article>
                     @endforeach
                 </section>
             @endif
 
-            <section class="rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
+            <section class="rounded-[12px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                 <div class="space-y-6">
                     @foreach($contentBlocks as $block)
                         <div id="block-{{ $block->id }}">
@@ -159,7 +159,7 @@
                                     'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
                                 ])
                             @elseif($block->type === 'box' || empty($block->type))
-                                <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
+                                <article class="rounded-[10px] border p-5 surface-card" style="border-color: var(--line);">
                                     @if(!empty($block->heading))
                                         <h3 class="font-display text-lg font-extrabold leading-tight">{{ $block->heading }}</h3>
                                     @endif
@@ -175,16 +175,16 @@
                 @if($navBlock)
                     @php($navData = json_decode($navBlock->body ?? '[]', true) ?? [])
                     @if(!empty($navData['items']))
-                        <nav class="mt-8 rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
+                        <nav class="mt-8 rounded-[10px] border p-5 surface-card" style="border-color: var(--line);">
                             @if(!empty($navData['title']))
                                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ $navData['title'] }}</p>
                             @endif
                             <div class="mt-4 flex flex-wrap gap-2">
                                 @foreach($navData['items'] as $item)
                                     @if(!empty($item['current']))
-                                        <span class="rounded-[16px] px-4 py-2 text-sm font-bold" style="background: var(--accent-soft); color: var(--text);">{{ $item['label'] ?? '' }}</span>
+                                        <span class="rounded-[10px] px-4 py-2 text-sm font-bold" style="background: var(--accent-soft); color: var(--text);">{{ $item['label'] ?? '' }}</span>
                                     @else
-                                        <a href="{{ $item['url'] ?? '#' }}" class="rounded-[16px] border px-4 py-2 text-sm font-bold transition hover:-translate-y-0.5 surface-card-strong" style="border-color: var(--line); color: var(--muted);">
+                                        <a href="{{ $item['url'] ?? '#' }}" class="rounded-[10px] border px-4 py-2 text-sm font-bold transition hover:-translate-y-0.5 surface-card-strong" style="border-color: var(--line); color: var(--muted);">
                                             {{ $item['label'] ?? '' }}
                                         </a>
                                     @endif
@@ -196,7 +196,7 @@
             </section>
 
             @if(isset($autoGeneratedTests) && $autoGeneratedTests->isNotEmpty())
-                <section class="rounded-[30px] border p-6 shadow-card surface-card" style="border-color: var(--line);">
+                <section class="rounded-[12px] border p-6 shadow-card surface-card" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.tests_on_topic') }}</p>
                     <h2 class="mt-2 font-display text-2xl font-extrabold">{{ __('public.common.tests_on_topic') }}</h2>
                     <div class="mt-6 grid gap-3 sm:grid-cols-2">
