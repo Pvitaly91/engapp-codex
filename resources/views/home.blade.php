@@ -1,148 +1,238 @@
-@extends('layouts.engram')
+@extends('layouts.catalog-public')
 
 @section('title', __('public.home.title'))
 
 @section('content')
-<div class="space-y-16">
-    <section class="grid gap-10 lg:grid-cols-[1.2fr_1fr] items-center">
-        <div class="space-y-6">
-            <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700">{{ __('public.home.badge') }}</span>
-            <h1 class="text-4xl font-bold leading-tight md:text-5xl">
-                {{ __('public.home.hero_title') }}
-                <span class="text-brand-600">{{ __('public.home.hero_title_accent') }}</span>
-            </h1>
-            <p class="max-w-2xl text-lg text-[var(--muted)]">{{ __('public.home.hero_description') }}</p>
-            <div class="flex flex-wrap gap-3">
-                <a href="{{ localized_route('catalog.tests-cards') }}" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-card">
-                    {{ __('public.home.to_catalog') }}
-                </a>
-                <a href="{{ localized_route('theory.index') }}" class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-6 py-3 text-sm font-semibold">
-                    {{ __('public.home.explore_theory') }}
-                </a>
+@php
+    $statsCards = [
+        ['value' => '120+', 'label' => __('public.home.stat_categories')],
+        ['value' => '7k+', 'label' => __('public.home.stat_tags')],
+        ['value' => '2k+', 'label' => __('public.home.stat_ai_hints')],
+        ['value' => '24/7', 'label' => __('public.home.stat_access')],
+    ];
+
+    $pathCards = [
+        [
+            'href' => localized_route('catalog.tests-cards'),
+            'eyebrow' => __('public.nav.catalog'),
+            'title' => __('public.nav.catalog'),
+            'description' => __('public.home.catalog_desc'),
+            'badge' => '01',
+            'accent' => 'bg-ocean',
+            'icon' => 'CT',
+        ],
+        [
+            'href' => localized_route('theory.index'),
+            'eyebrow' => __('public.nav.theory'),
+            'title' => __('public.nav.theory'),
+            'description' => __('public.home.theory_desc'),
+            'badge' => '02',
+            'accent' => 'bg-amber',
+            'icon' => 'TH',
+        ],
+        [
+            'href' => localized_route('words.test'),
+            'eyebrow' => __('public.nav.words_test'),
+            'title' => __('public.nav.words_test'),
+            'description' => __('public.home.words_desc'),
+            'badge' => '03',
+            'accent' => 'bg-slate-800 dark:bg-slate-200',
+            'icon' => 'WD',
+        ],
+        [
+            'href' => localized_route('verbs.test'),
+            'eyebrow' => __('public.nav.verbs_test'),
+            'title' => __('public.nav.verbs_test'),
+            'description' => __('public.home.verbs_desc'),
+            'badge' => '04',
+            'accent' => 'bg-emerald-500',
+            'icon' => 'VB',
+        ],
+    ];
+
+    $steps = [
+        ['index' => '1', 'title' => __('public.home.step_find'), 'description' => __('public.home.step_find_desc')],
+        ['index' => '2', 'title' => __('public.home.step_start'), 'description' => __('public.home.step_start_desc')],
+        ['index' => '3', 'title' => __('public.home.step_share'), 'description' => __('public.home.step_share_desc')],
+    ];
+@endphp
+
+<div class="overflow-hidden">
+    <section class="relative border-b px-5 py-8 sm:px-8 lg:px-10 lg:py-10" style="border-color: var(--line);">
+        <div class="absolute left-[52%] top-0 hidden h-44 w-44 -translate-x-1/2 rounded-full border-[22px] border-ocean/70 lg:block"></div>
+        <div class="absolute right-5 top-10 hidden h-20 w-20 rounded-full bg-slate-200/70 lg:block dark:bg-slate-700/60"></div>
+        <div class="absolute -bottom-12 left-[44%] hidden h-28 w-28 rounded-full border-[18px] border-slate-200/90 lg:block dark:border-slate-700/70"></div>
+        <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-amber lg:block"></div>
+
+        <div class="relative grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div class="max-w-2xl py-3">
+                <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
+                    {{ __('public.home.badge') }}
+                </span>
+                <h1 class="mt-6 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl xl:text-[3.75rem]">
+                    {{ __('public.home.hero_title') }}
+                    <span class="block" style="color: var(--accent);">{{ __('public.home.hero_title_accent') }}</span>
+                </h1>
+                <p class="mt-5 max-w-2xl text-lg leading-8 sm:text-xl" style="color: var(--muted);">
+                    {{ __('public.home.hero_description') }}
+                </p>
+
+                <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+                    <a href="{{ localized_route('catalog.tests-cards') }}" class="rounded-2xl bg-ocean px-6 py-4 text-center text-base font-extrabold text-white shadow-card transition hover:bg-[#245592]">
+                        {{ __('public.home.to_catalog') }}
+                    </a>
+                    <a href="{{ localized_route('theory.index') }}" class="rounded-2xl bg-amber px-6 py-4 text-center text-base font-extrabold text-white shadow-card transition hover:bg-[#df8a24]">
+                        {{ __('public.home.explore_theory') }}
+                    </a>
+                </div>
+
+                <div class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                    @foreach($statsCards as $card)
+                        <article class="rounded-[24px] border p-4 shadow-card surface-card-strong">
+                            <p class="font-display text-[2rem] font-extrabold leading-none" style="color: var(--accent);">{{ $card['value'] }}</p>
+                            <p class="mt-3 text-sm font-semibold leading-6" style="color: var(--muted);">{{ $card['label'] }}</p>
+                        </article>
+                    @endforeach
+                </div>
             </div>
-            <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
-                @php
-                    $stats = [
-                        ['value' => '120+', 'label' => __('public.home.stat_categories')],
-                        ['value' => '7k+', 'label' => __('public.home.stat_tags')],
-                        ['value' => '2k+', 'label' => __('public.home.stat_ai_hints')],
-                        ['value' => '24/7', 'label' => __('public.home.stat_access')],
-                    ];
-                @endphp
-                @foreach($stats as $stat)
-                    <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 shadow-sm">
-                        <p class="text-2xl font-bold text-brand-600">{{ $stat['value'] }}</p>
-                        <p class="text-sm text-[var(--muted)]">{{ $stat['label'] }}</p>
+
+            <div class="grid gap-5">
+                <article class="rounded-[28px] border p-6 shadow-card surface-card-strong">
+                    <div class="flex items-start justify-between gap-4">
+                        <div>
+                            <p class="text-xs font-extrabold uppercase tracking-[0.28em]" style="color: var(--accent);">{{ __('public.home.quick_search') }}</p>
+                            <h2 class="mt-3 font-display text-[2rem] font-extrabold leading-tight">{{ __('public.home.quick_search_hint') }}</h2>
+                        </div>
+                        <span class="inline-flex h-14 w-14 items-center justify-center rounded-[20px] soft-accent text-lg font-extrabold" style="color: var(--accent);">A/Z</span>
                     </div>
-                @endforeach
-            </div>
-        </div>
-        <div class="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card space-y-4">
-            <p class="text-sm font-semibold text-brand-600">{{ __('public.home.quick_search') }}</p>
-            <p class="text-[var(--muted)]">{{ __('public.home.quick_search_hint') }}</p>
-            @include('components.word-search')
-            <div class="rounded-2xl bg-brand-50/80 p-4 text-sm text-brand-900">
-                {{ __('public.home.dictionary_cta') }}
+
+                    <div class="mt-6">
+                        @include('components.word-search')
+                    </div>
+
+                    <div class="mt-5 rounded-[22px] border px-4 py-4 text-sm font-semibold soft-accent" style="border-color: var(--line); color: var(--text);">
+                        {{ __('public.home.dictionary_cta') }}
+                    </div>
+                </article>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                    @foreach(array_slice($pathCards, 0, 2) as $card)
+                        <a href="{{ $card['href'] }}" class="rounded-[24px] border p-5 shadow-card transition hover:-translate-y-1 surface-card">
+                            <div class="flex items-center justify-between gap-4">
+                                <span class="inline-flex h-12 w-12 items-center justify-center rounded-[18px] {{ $card['accent'] }} text-sm font-extrabold text-white dark:text-slate-950">{{ $card['icon'] }}</span>
+                                <span class="text-xs font-extrabold uppercase tracking-[0.24em]" style="color: var(--muted);">{{ $card['badge'] }}</span>
+                            </div>
+                            <p class="mt-5 text-sm font-bold uppercase tracking-[0.24em]" style="color: var(--accent);">{{ $card['eyebrow'] }}</p>
+                            <h3 class="mt-3 font-display text-[1.6rem] font-extrabold leading-tight">{{ $card['title'] }}</h3>
+                            <p class="mt-2 text-sm leading-6" style="color: var(--muted);">{{ $card['description'] }}</p>
+                        </a>
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
 
     @if(config('app.is_beta'))
-    <section class="rounded-2xl border border-amber-200 dark:border-amber-700/50 bg-amber-50/80 dark:bg-amber-900/20 p-6">
-        <div class="flex items-start gap-4">
-            <div class="flex-shrink-0">
-                <svg class="h-6 w-6 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+        <section class="border-b px-5 py-6 sm:px-8 lg:px-10" style="border-color: var(--line);">
+            <div class="rounded-[26px] border border-amber-300/70 bg-amber-50/90 px-5 py-5 shadow-card dark:border-amber-500/30 dark:bg-amber-500/10">
+                <div class="flex items-start gap-4">
+                    <span class="inline-flex h-12 w-12 items-center justify-center rounded-[18px] bg-amber text-lg font-extrabold text-white">!</span>
+                    <div>
+                        <p class="font-display text-[1.35rem] font-extrabold text-slate-900 dark:text-amber-100">{{ __('public.beta.banner_title') }}</p>
+                        <p class="mt-2 text-sm font-medium leading-6 text-slate-700 dark:text-amber-50/80">{{ __('public.beta.banner_text') }}</p>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h3 class="text-sm font-semibold text-amber-800 dark:text-amber-200">{{ __('public.beta.banner_title') }}</h3>
-                <p class="mt-1 text-sm text-amber-700 dark:text-amber-300">{{ __('public.beta.banner_text') }}</p>
-            </div>
-        </div>
-    </section>
+        </section>
     @endif
 
-    <section class="space-y-6">
-        <div class="flex items-center justify-between">
+    <section class="border-b px-5 py-8 sm:px-8 lg:px-10" style="border-color: var(--line);">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-                <p class="text-xs uppercase tracking-[0.25em] text-brand-600">{{ __('public.home.sections') }}</p>
-                <h2 class="text-2xl font-semibold">{{ __('public.home.pick_path') }}</h2>
+                <p class="text-xs font-extrabold uppercase tracking-[0.28em]" style="color: var(--accent);">{{ __('public.home.sections') }}</p>
+                <h2 class="mt-2 font-display text-[2.3rem] font-extrabold leading-none">{{ __('public.home.pick_path') }}</h2>
             </div>
+            <p class="max-w-2xl text-sm leading-6 sm:text-right" style="color: var(--muted);">
+                {{ __('public.home.steps_intro') }}
+            </p>
         </div>
-        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <a href="{{ localized_route('catalog.tests-cards') }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
-                <div class="space-y-3">
-                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-600">📚</span>
-                    <h3 class="text-xl font-semibold">{{ __('public.nav.catalog') }}</h3>
-                    <p class="text-sm text-[var(--muted)]">{{ __('public.home.catalog_desc') }}</p>
-                </div>
-                <span class="text-sm font-semibold text-brand-600">{{ __('public.common.go_to') }}</span>
-            </a>
-            <a href="{{ localized_route('theory.index') }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
-                <div class="space-y-3">
-                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-600">🧠</span>
-                    <h3 class="text-xl font-semibold">{{ __('public.nav.theory') }}</h3>
-                    <p class="text-sm text-[var(--muted)]">{{ __('public.home.theory_desc') }}</p>
-                </div>
-                <span class="text-sm font-semibold text-brand-600">{{ __('public.common.go_to') }}</span>
-            </a>
-            <a href="{{ localized_route('words.test') }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
-                <div class="space-y-3">
-                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-600">📝</span>
-                    <h3 class="text-xl font-semibold">{{ __('public.nav.words_test') }}</h3>
-                    <p class="text-sm text-[var(--muted)]">{{ __('public.home.words_desc') }}</p>
-                </div>
-                <span class="text-sm font-semibold text-brand-600">{{ __('public.common.go_to') }}</span>
-            </a>
-            <a href="{{ localized_route('verbs.test') }}" class="group flex h-full flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm hover:border-brand-500">
-                <div class="space-y-3">
-                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-600">⚡</span>
-                    <h3 class="text-xl font-semibold">{{ __('public.nav.verbs_test') }}</h3>
-                    <p class="text-sm text-[var(--muted)]">{{ __('public.home.verbs_desc') }}</p>
-                </div>
-                <span class="text-sm font-semibold text-brand-600">{{ __('public.common.go_to') }}</span>
-            </a>
+
+        <div class="mt-8 grid gap-5 xl:grid-cols-4">
+            @foreach($pathCards as $card)
+                <a href="{{ $card['href'] }}" class="group overflow-hidden rounded-[24px] border shadow-card transition hover:-translate-y-1 surface-card-strong">
+                    <div class="relative border-b p-5" style="border-color: var(--line);">
+                        <span class="absolute right-5 top-5 text-xs font-extrabold uppercase tracking-[0.24em]" style="color: var(--muted);">{{ $card['badge'] }}</span>
+                        <span class="inline-flex h-16 w-16 items-center justify-center rounded-[22px] {{ $card['accent'] }} font-display text-lg font-extrabold text-white dark:text-slate-950">{{ $card['icon'] }}</span>
+                        <p class="mt-6 text-sm font-bold uppercase tracking-[0.24em]" style="color: var(--accent);">{{ $card['eyebrow'] }}</p>
+                        <h3 class="mt-2 font-display text-[1.75rem] font-extrabold leading-tight">{{ $card['title'] }}</h3>
+                        <p class="mt-3 text-sm leading-6" style="color: var(--muted);">{{ $card['description'] }}</p>
+                    </div>
+                    <div class="flex items-center justify-between px-5 py-4 text-sm font-extrabold uppercase tracking-[0.2em]" style="color: var(--text);">
+                        <span>{{ __('public.common.go_to') }}</span>
+                        <span class="transition group-hover:translate-x-1" style="color: var(--accent);">→</span>
+                    </div>
+                </a>
+            @endforeach
         </div>
     </section>
 
-    <section class="grid gap-6 lg:grid-cols-[1.1fr_1fr] items-center rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card">
-        <div class="space-y-4">
-            <p class="text-xs uppercase tracking-[0.25em] text-brand-600">{{ __('public.home.how_it_works') }}</p>
-            <h2 class="text-3xl font-semibold">{{ __('public.home.steps_title') }}</h2>
-            <p class="text-[var(--muted)]">{{ __('public.home.steps_intro') }}</p>
-            <div class="space-y-3">
-                <div class="flex gap-3 rounded-2xl border border-[var(--border)] p-4">
-                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 font-semibold">1</div>
-                    <div>
-                        <p class="font-semibold">{{ __('public.home.step_find') }}</p>
-                        <p class="text-sm text-[var(--muted)]">{{ __('public.home.step_find_desc') }}</p>
-                    </div>
+    <section class="px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
+        <div class="grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
+            <article class="rounded-[28px] border p-6 shadow-card surface-card-strong">
+                <p class="text-xs font-extrabold uppercase tracking-[0.28em]" style="color: var(--accent);">{{ __('public.home.how_it_works') }}</p>
+                <h2 class="mt-3 font-display text-[2.4rem] font-extrabold leading-tight">{{ __('public.home.steps_title') }}</h2>
+                <p class="mt-3 max-w-2xl text-sm leading-7 sm:text-base" style="color: var(--muted);">{{ __('public.home.steps_intro') }}</p>
+
+                <div class="mt-8 grid gap-4">
+                    @foreach($steps as $step)
+                        <div class="flex gap-4 rounded-[24px] border p-4 surface-card" style="border-color: var(--line);">
+                            <span class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-[18px] bg-ocean text-lg font-extrabold text-white">
+                                {{ $step['index'] }}
+                            </span>
+                            <div>
+                                <h3 class="font-display text-[1.35rem] font-extrabold leading-tight">{{ $step['title'] }}</h3>
+                                <p class="mt-2 text-sm leading-6" style="color: var(--muted);">{{ $step['description'] }}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="flex gap-3 rounded-2xl border border-[var(--border)] p-4">
-                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 font-semibold">2</div>
+            </article>
+
+            <article class="rounded-[28px] border p-6 shadow-card surface-card">
+                <div class="flex items-start justify-between gap-4">
                     <div>
-                        <p class="font-semibold">{{ __('public.home.step_start') }}</p>
-                        <p class="text-sm text-[var(--muted)]">{{ __('public.home.step_start_desc') }}</p>
+                        <p class="text-xs font-extrabold uppercase tracking-[0.28em]" style="color: var(--accent);">{{ __('public.home.search_block_title') }}</p>
+                        <h2 class="mt-3 font-display text-[2.2rem] font-extrabold leading-tight">{{ __('public.search.placeholder') }}</h2>
                     </div>
+                    <span class="inline-flex h-14 w-14 items-center justify-center rounded-[20px] bg-amber text-lg font-extrabold text-white">GO</span>
                 </div>
-                <div class="flex gap-3 rounded-2xl border border-[var(--border)] p-4">
-                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 font-semibold">3</div>
-                    <div>
-                        <p class="font-semibold">{{ __('public.home.step_share') }}</p>
-                        <p class="text-sm text-[var(--muted)]">{{ __('public.home.step_share_desc') }}</p>
+
+                <p class="mt-4 text-sm leading-7 sm:text-base" style="color: var(--muted);">{{ __('public.home.search_block_desc') }}</p>
+
+                <form action="{{ localized_route('site.search') }}" method="GET" class="mt-6 rounded-[24px] border p-3 shadow-sm surface-card-strong" style="border-color: var(--line);">
+                    <div class="flex flex-col gap-3 sm:flex-row">
+                        <input type="search" name="q" placeholder="{{ __('public.search.placeholder') }}" class="w-full rounded-[18px] border px-4 py-3 text-sm font-medium outline-none transition focus:border-ocean focus:ring-2 focus:ring-blue-100 dark:bg-slate-900/50" style="border-color: var(--line);">
+                        <button type="submit" class="rounded-[18px] bg-ocean px-5 py-3 text-sm font-extrabold uppercase tracking-[0.18em] text-white transition hover:bg-[#245592]">
+                            {{ __('public.search.button') }}
+                        </button>
                     </div>
+                </form>
+
+                <p class="mt-4 text-xs font-semibold uppercase tracking-[0.22em]" style="color: var(--muted);">{{ __('public.home.search_block_hint') }}</p>
+
+                <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                    @foreach(array_slice($pathCards, 2, 2) as $card)
+                        <a href="{{ $card['href'] }}" class="rounded-[22px] border p-4 transition hover:-translate-y-1 surface-card-strong" style="border-color: var(--line);">
+                            <div class="flex items-center justify-between gap-3">
+                                <span class="inline-flex h-11 w-11 items-center justify-center rounded-[16px] {{ $card['accent'] }} text-sm font-extrabold text-white dark:text-slate-950">{{ $card['icon'] }}</span>
+                                <span class="text-xs font-extrabold uppercase tracking-[0.24em]" style="color: var(--muted);">{{ $card['badge'] }}</span>
+                            </div>
+                            <h3 class="mt-4 font-display text-[1.4rem] font-extrabold leading-tight">{{ $card['title'] }}</h3>
+                            <p class="mt-2 text-sm leading-6" style="color: var(--muted);">{{ $card['description'] }}</p>
+                        </a>
+                    @endforeach
                 </div>
-            </div>
-        </div>
-        <div class="space-y-4 rounded-2xl border border-[var(--border)] bg-gradient-to-br from-brand-50 to-white p-6 text-sm text-[var(--muted)]">
-            <h3 class="text-xl font-semibold text-[var(--fg)]">{{ __('public.home.search_block_title') }}</h3>
-            <p>{{ __('public.home.search_block_desc') }}</p>
-            <form action="{{ localized_route('site.search') }}" method="GET" class="flex items-center gap-3 rounded-full border border-[var(--border)] bg-white px-4 py-2 shadow-sm">
-                <input type="search" name="q" placeholder="{{ __('public.search.placeholder') }}" class="w-full bg-transparent text-sm focus:outline-none">
-                <button type="submit" class="rounded-full bg-brand-600 px-4 py-2 text-xs font-semibold text-white">{{ __('public.search.button') }}</button>
-            </form>
-            <p class="text-xs text-[var(--muted)]">{{ __('public.home.search_block_hint') }}</p>
+            </article>
         </div>
     </section>
 </div>

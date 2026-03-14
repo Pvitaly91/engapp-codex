@@ -15,7 +15,7 @@
             integrity="sha384-OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb"
             crossorigin="anonymous"
             defer></script>
-    <script>
+    <script> 
         tailwind.config = {
             darkMode: 'class',
             theme: {
