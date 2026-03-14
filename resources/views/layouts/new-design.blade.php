@@ -22,9 +22,20 @@
                         night: "#14233b",
                         ocean: "#2f67b1",
                         amber: "#f59b2f",
-                        mist: "#f5fbff",
+                        mist:  "#f5fbff",
                         shell: "#fffefd",
-                        line: "#d8e2ee"
+                        line:  "#d8e2ee",
+                        /* brand maps to ocean so reused engram blocks render correctly */
+                        brand: {
+                            50:  "#eef4ff",
+                            100: "#d9e8ff",
+                            200: "#bed3fe",
+                            400: "#6b99e0",
+                            500: "#4d7fd0",
+                            600: "#2f67b1",
+                            700: "#1e4d8c",
+                            900: "#0c2247"
+                        }
                     },
                     fontFamily: {
                         display: ["Archivo", "sans-serif"],
@@ -52,6 +63,28 @@
             --nd-ocean:   #2f67b1;
             --nd-amber:   #f59b2f;
             --nd-night:   #14233b;
+
+            /* Aliases so engram blocks-v3 partials render correctly */
+            --bg:     #f5fbff;
+            --fg:     #14233b;
+            --card:   #fffefd;
+            --muted:  #54677a;
+            --border: #d8e2ee;
+
+            /* Tailwind v4 semantic color tokens */
+            --color-background:           #f5fbff;
+            --color-foreground:           #14233b;
+            --color-card:                 #fffefd;
+            --color-card-foreground:      #14233b;
+            --color-border:               #d8e2ee;
+            --color-muted:                rgba(47,103,177,0.07);
+            --color-muted-foreground:     #54677a;
+            --color-primary:              #2f67b1;
+            --color-primary-foreground:   #ffffff;
+            --color-secondary:            rgba(47,103,177,0.10);
+            --color-secondary-foreground: #14233b;
+            --color-accent:               #2f67b1;
+            --color-accent-foreground:    #ffffff;
         }
         .night-mode {
             --nd-bg:      #0b1828;
@@ -62,6 +95,35 @@
             --nd-ocean:   #4d8fd4;
             --nd-amber:   #f7ae52;
             --nd-night:   #d0e0f0;
+
+            /* Aliases for dark mode */
+            --bg:     #0b1828;
+            --fg:     #e5ecf5;
+            --card:   #0f1e30;
+            --muted:  #8ca5bf;
+            --border: #1e3048;
+
+            /* Tailwind v4 semantic color tokens – dark */
+            --color-background:           #0b1828;
+            --color-foreground:           #e5ecf5;
+            --color-card:                 #0f1e30;
+            --color-card-foreground:      #e5ecf5;
+            --color-border:               #1e3048;
+            --color-muted:                rgba(77,143,212,0.08);
+            --color-muted-foreground:     #8ca5bf;
+            --color-primary:              #4d8fd4;
+            --color-primary-foreground:   #ffffff;
+            --color-secondary:            rgba(77,143,212,0.12);
+            --color-secondary-foreground: #b8d4f0;
+            --color-accent:               #4d8fd4;
+            --color-accent-foreground:    #0b1828;
+        }
+        /* Utility card class for new-design */
+        .nd-card {
+            border-radius: 1rem;
+            border: 1px solid var(--nd-border);
+            background: var(--nd-card);
+            box-shadow: 0 2px 8px -2px rgba(17,38,63,0.06);
         }
         body {
             background: radial-gradient(circle at top left,rgba(255,255,255,0.18),transparent 30%),
