@@ -4,8 +4,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CopilotTheoryController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\IrregularVerbsTestController;
+use App\Http\Controllers\NewDesignCatalogController;
+use App\Http\Controllers\NewDesignTestController;
+use App\Http\Controllers\NewDesignTheoryController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiteSearchController;
 use App\Http\Controllers\TestJsV2Controller;
 use App\Http\Controllers\TheoryController;
@@ -114,6 +117,20 @@ Route::get('/catalog-tests/cards', fn () => redirect()->route('catalog.tests-car
 Route::get('/tests/cards', fn () => redirect()->route('catalog.tests-cards')); // legacy
 
 Route::get('/search', SiteSearchController::class)->name('site.search');
+
+// New design preview
+Route::get('/new-design', fn () => view('new-design.home'))->name('new-design.home');
+
+// New design – Theory section
+Route::get('/new-design/theory', [NewDesignTheoryController::class, 'index'])->name('new-design.theory.index');
+Route::get('/new-design/theory/{category:slug}', [NewDesignTheoryController::class, 'category'])->name('new-design.theory.category');
+Route::get('/new-design/theory/{category:slug}/{pageSlug}', [NewDesignTheoryController::class, 'show'])->name('new-design.theory.show');
+
+// New design – Catalog section
+Route::get('/new-design/catalog/tests-cards', [NewDesignCatalogController::class, 'catalogAggregated'])->name('new-design.catalog.tests-cards');
+
+// New design – Individual test page
+Route::get('/new-design/test/{slug}', [NewDesignTestController::class, 'show'])->name('new-design.test.show');
 
 // Copilot layout demo
 Route::get('/copilot', fn () => view('copilot.index'))->name('copilot.index');

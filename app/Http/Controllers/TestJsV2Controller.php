@@ -10,9 +10,9 @@ use App\Services\SavedTestResolver;
 class TestJsV2Controller extends Controller
 {
     public function __construct(
-        private QuestionVariantService $variantService,
-        private SavedTestResolver $savedTestResolver,
-        private MarkerTheoryMatcherService $markerTheoryMatcher,
+        protected QuestionVariantService $variantService,
+        protected SavedTestResolver $savedTestResolver,
+        protected MarkerTheoryMatcherService $markerTheoryMatcher,
     ) {}
 
     /**
@@ -79,7 +79,7 @@ class TestJsV2Controller extends Controller
         return $this->renderSavedTestJsV2View($slug, 'saved-test-js-manual-v2');
     }
 
-    private function renderSavedTestJsV2View(string $slug, string $view)
+    protected function renderSavedTestJsV2View(string $slug, string $view)
     {
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
@@ -97,7 +97,7 @@ class TestJsV2Controller extends Controller
         ]);
     }
 
-    private function buildQuestionDataset($resolved, bool $freshVariants = false)
+    protected function buildQuestionDataset($resolved, bool $freshVariants = false)
     {
         $test = $resolved->model;
         $relations = ['category', 'answers.option', 'options', 'verbHints.option'];
@@ -194,17 +194,17 @@ class TestJsV2Controller extends Controller
         })->values()->all();
     }
 
-    private function jsStateSessionKey($test, string $view): string
+    protected function jsStateSessionKey($test, string $view): string
     {
         return sprintf('saved_test_js_state:%s:%s', $test->slug, $view);
     }
 
-    private function isAdminUser(): bool
+    protected function isAdminUser(): bool
     {
         return (bool) (auth()->user()?->is_admin ?? session('admin_authenticated', false));
     }
 
-    private function normalizeOptionsByMarker($rawOptions, array $markers): ?array
+    protected function normalizeOptionsByMarker($rawOptions, array $markers): ?array
     {
         if (! is_array($rawOptions)) {
             return null;
@@ -225,7 +225,7 @@ class TestJsV2Controller extends Controller
         return $hasValues ? $normalized : null;
     }
 
-    private function filterOptionArray(array $options): array
+    protected function filterOptionArray(array $options): array
     {
         $clean = [];
         foreach ($options as $option) {

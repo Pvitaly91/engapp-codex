@@ -1,26 +1,97 @@
-@extends('layouts.engram')
+@extends('layouts.new-design')
 
 @section('title', __('verbs.title'))
 
 @section('content')
   <div class="space-y-8">
-    {{-- Hero Section --}}
-    <section class="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 md:p-8 shadow-card">
-      <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div class="space-y-2">
-          <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700">{{ __('verbs.subtitle') }}</span>
-          <h1 class="text-3xl md:text-4xl font-bold">{{ __('verbs.title') }}</h1>
-          <p class="text-[var(--muted)] max-w-3xl">{{ __('verbs.description') }}</p>
+    <style>
+      /* ── Missing semantic token aliases for verbs test ── */
+      .bg-muted { background-color: rgba(47,103,177,0.07); }
+      .hover\:bg-muted:hover { background-color: rgba(47,103,177,0.07); }
+      .bg-card { background-color: var(--nd-card); }
+      .bg-background { background-color: var(--nd-bg); }
+      .text-foreground { color: var(--nd-night); }
+      .text-muted-foreground { color: var(--nd-muted); }
+      .bg-primary { background-color: var(--nd-ocean); }
+      .bg-primary\/10 { background-color: rgba(47,103,177,0.10); }
+      .text-primary { color: var(--nd-ocean); }
+      .text-primary-foreground { color: #ffffff; }
+      .border-border\/60 { border-color: rgba(216,226,238,0.60); }
+      .border-border\/70 { border-color: rgba(216,226,238,0.70); }
+      .border-border { border-color: var(--nd-border); }
+      .bg-success\/10 { background-color: rgba(22,163,74,0.10); }
+      .text-success { color: rgb(22,163,74); }
+      .border-success { border-color: rgb(22,163,74); }
+      .bg-destructive\/10 { background-color: rgba(220,38,38,0.10); }
+      .text-destructive { color: rgb(220,38,38); }
+      .border-destructive\/40 { border-color: rgba(220,38,38,0.40); }
+      .border-destructive { border-color: rgb(220,38,38); }
+      .bg-background\/80 { background-color: rgba(245,251,255,0.80); }
+      .night-mode .bg-background\/80 { background-color: rgba(11,24,40,0.80); }
+      .night-mode .bg-card { background-color: var(--nd-card); }
+
+      @keyframes fade-in-soft {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
+      @keyframes bounce-in {
+        0% { transform: scale(0.96); opacity: 0; }
+        60% { transform: scale(1.03); opacity: 1; }
+        100% { transform: scale(1); }
+      }
+
+      .animate-fade { animation: fade-in-soft 200ms ease; }
+      .animate-bounce-in { animation: bounce-in 260ms ease; }
+
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-4px); }
+        50% { transform: translateX(4px); }
+        75% { transform: translateX(-4px); }
+        100% { transform: translateX(0); }
+      }
+      .shake {
+        animation: shake 0.35s ease;
+      }
+    </style>
+
+    {{-- ─── Hero Section ─── --}}
+    <header class="relative overflow-hidden rounded-[1.75rem] bg-[linear-gradient(135deg,#1a3d6e_0%,#2f67b1_50%,#1a3d6e_100%)] text-white shadow-panel">
+      <div class="pointer-events-none absolute inset-0 opacity-20">
+        <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="vt-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="currentColor" opacity="0.5"/>
+              <circle cx="12" cy="12" r="1.5" fill="currentColor" opacity="0.3"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#vt-dots)"/>
+        </svg>
+      </div>
+      <div class="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-amber/20 blur-3xl"></div>
+
+      <div class="relative flex flex-col gap-3 px-8 py-10 md:flex-row md:items-center md:justify-between md:px-12 md:py-12">
+        <div class="space-y-3">
+          <span class="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-xs font-semibold backdrop-blur-sm">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+            {{ __('verbs.subtitle') }}
+          </span>
+          <h1 class="font-display text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">{{ __('verbs.title') }}</h1>
+          <p class="max-w-3xl text-lg leading-relaxed text-white/85">{{ __('verbs.description') }}</p>
         </div>
       </div>
-    </section>
+    </header>
 
     <div class="flex flex-col gap-4 lg:grid lg:grid-cols-[1.5fr_0.9fr]">
       <div class="space-y-4 order-2 lg:order-1">
-        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card">
+        <div class="rounded-2xl border border-line bg-shell p-6 shadow-card">
           <div class="flex items-center justify-between gap-3 mb-5">
             <div>
-              <h2 class="text-lg font-semibold">{{ __('verbs.settings') }}</h2>
+              <h2 class="text-lg font-semibold text-night">{{ __('verbs.settings') }}</h2>
               <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 mt-2" id="verbs-count-badge">
                 <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -74,7 +145,7 @@
           </div>
         </div>
 
-        <div id="questionCard" class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card space-y-4 hidden">
+        <div id="questionCard" class="rounded-2xl border border-line bg-shell p-6 shadow-card space-y-4 hidden">
           <div class="flex items-center justify-between gap-3">
             <div class="space-y-2">
               <p class="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">{{ __('verbs.question') }}</p>
@@ -85,7 +156,7 @@
             </div>
           </div>
 
-          <div class="space-y-3 rounded-xl border border-[var(--border)] bg-brand-50/30 px-4 py-4">
+          <div class="space-y-3 rounded-xl border border-ocean/20 bg-ocean/5 px-4 py-4">
             <p class="text-sm text-brand-600 font-semibold">{{ __('verbs.answer_for') }}</p>
             <div class="flex flex-col gap-1">
               <div id="baseVerb" class="text-3xl font-bold text-brand-900">—</div>
@@ -93,7 +164,7 @@
             </div>
           </div>
 
-          <div class="rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 shadow-sm">
+          <div class="rounded-xl border border-line bg-shell px-4 py-3 shadow-sm">
             <p class="text-xs uppercase tracking-[0.12em] text-brand-600 font-semibold">{{ __('verbs.hint') }}</p>
             <p id="hint" class="mt-1 text-sm"></p>
           </div>
@@ -137,12 +208,12 @@
       </div>
 
       <div class="space-y-4 order-1 lg:order-2">
-        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card sticky top-2 z-20 lg:static">
+        <div class="rounded-2xl border border-line bg-shell p-6 shadow-card sticky top-2 z-20 lg:static">
           <div class="flex items-center justify-between mb-3">
-            <p class="text-sm font-semibold text-brand-600">{{ __('verbs.progress') }}</p>
-            <span id="progressPercent" class="text-sm font-semibold text-brand-700">0%</span>
+            <p class="text-sm font-semibold text-ocean">{{ __('verbs.progress') }}</p>
+            <span id="progressPercent" class="text-sm font-semibold text-ocean">0%</span>
           </div>
-          <div class="h-3 rounded-full bg-[var(--muted)]/20">
+          <div class="h-3 rounded-full bg-line/50">
             <div id="progressBar" class="h-3 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 transition-all duration-500 shadow-sm" style="width:0%"></div>
           </div>
           <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
@@ -156,12 +227,12 @@
             </div>
           </dl>
         </div>
-        <div class="rounded-2xl border border-[var(--border)] bg-gradient-to-br from-brand-50 to-white p-5 shadow-sm">
+        <div class="rounded-2xl border border-line bg-gradient-to-br from-brand-50 to-shell p-5 shadow-sm">
           <div class="flex items-center gap-2 mb-3">
-            <svg class="w-5 h-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <svg class="w-5 h-5 text-ocean" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            <p class="font-semibold text-brand-900">{{ __('verbs.how_it_works') }}</p>
+            <p class="font-semibold text-night">{{ __('verbs.how_it_works') }}</p>
           </div>
           <ul class="space-y-2 text-sm text-brand-700">
             <li class="flex items-start gap-2">
@@ -189,19 +260,19 @@
   </div>
 
   <div id="failureModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
-    <div class="absolute inset-0 bg-background/80 backdrop-blur-sm animate-fade"></div>
-    <div class="relative mx-4 w-full max-w-md rounded-2xl border border-destructive/40 bg-card p-6 shadow-2xl space-y-3 animate-bounce-in">
+    <div class="absolute inset-0 bg-night/70 backdrop-blur-sm animate-fade"></div>
+    <div class="relative mx-4 w-full max-w-md rounded-2xl border border-[rgba(220,38,38,0.40)] bg-shell p-6 shadow-2xl space-y-3 animate-bounce-in">
       <div class="flex items-start gap-3">
-        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10 text-destructive">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(220,38,38,0.10)] text-[rgb(220,38,38)]">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/><circle cx="12" cy="12" r="9"/></svg>
         </div>
         <div class="space-y-2">
-          <p class="text-sm font-semibold text-destructive">{{ __('verbs.failed_title') }}</p>
-          <p class="text-muted-foreground">{{ __('verbs.failed_message') }}</p>
+          <p class="text-sm font-semibold text-[rgb(220,38,38)]">{{ __('verbs.failed_title') }}</p>
+          <p class="text-steel">{{ __('verbs.failed_message') }}</p>
         </div>
       </div>
       <div class="flex justify-end">
-        <button id="retryBtn" class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
+        <button id="retryBtn" class="inline-flex items-center gap-2 rounded-xl bg-ocean px-4 py-2 text-sm font-semibold text-white shadow transition hover:-translate-y-0.5 hover:shadow-card">
           {{ __('verbs.restart') }}
         </button>
       </div>

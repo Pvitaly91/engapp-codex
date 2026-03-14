@@ -1,4 +1,4 @@
-@extends('layouts.engram')
+@extends('layouts.new-design')
 
 @section('title', __('words_test.title'))
 
@@ -23,6 +23,42 @@
 
   <div class="space-y-8" x-data>
     <style>
+      /* ── Missing semantic token aliases (not in new-design Tailwind config) ── */
+      .bg-muted { background-color: rgba(47,103,177,0.07); }
+      .hover\:bg-muted:hover { background-color: rgba(47,103,177,0.07); }
+      .bg-card { background-color: var(--nd-card); }
+      .bg-background { background-color: var(--nd-bg); }
+      .bg-background\/80 { background-color: rgba(245,251,255,0.80); }
+      .text-foreground { color: var(--nd-night); }
+      .text-muted-foreground { color: var(--nd-muted); }
+      .bg-primary { background-color: var(--nd-ocean); }
+      .bg-primary\/10 { background-color: rgba(47,103,177,0.10); }
+      .text-primary { color: var(--nd-ocean); }
+      .text-primary-foreground { color: #ffffff; }
+      .border-border\/70 { border-color: rgba(216,226,238,0.70); }
+      .border-border\/80 { border-color: rgba(216,226,238,0.80); }
+      .border-border { border-color: var(--nd-border); }
+      .bg-success\/10 { background-color: rgba(22,163,74,0.10); }
+      .text-success { color: rgb(22,163,74); }
+      .border-success { border-color: rgb(22,163,74); }
+      .bg-destructive\/10 { background-color: rgba(220,38,38,0.10); }
+      .text-destructive { color: rgb(220,38,38); }
+      .border-destructive\/30 { border-color: rgba(220,38,38,0.30); }
+      .border-destructive\/40 { border-color: rgba(220,38,38,0.40); }
+      .border-destructive\/50 { border-color: rgba(220,38,38,0.50); }
+      .border-destructive { border-color: rgb(220,38,38); }
+      .bg-warning\/10 { background-color: rgba(245,155,47,0.10); }
+      .border-warning\/30 { border-color: rgba(245,155,47,0.30); }
+      .text-warning { color: #b45309; }
+      .shadow-soft { box-shadow: 0 2px 8px -2px rgba(17,38,63,0.08); }
+      .focus-visible\:outline-primary:focus-visible { outline-color: var(--nd-ocean); }
+
+      /* Night-mode overrides for light-mode tokens above */
+      .night-mode .bg-card { background-color: var(--nd-card); }
+      .night-mode .bg-background { background-color: var(--nd-bg); }
+      .night-mode .bg-background\/80 { background-color: rgba(11,24,40,0.80); }
+      .night-mode .text-foreground { color: var(--nd-fg); }
+
       @keyframes fade-in-soft {
         from { opacity: 0; transform: translateY(6px); }
         to { opacity: 1; transform: translateY(0); }
@@ -74,18 +110,37 @@
         backdrop-filter: blur(8px);
       }
     </style>
-    
-    {{-- Hero Section --}}
-    <section class="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 md:p-8 shadow-card mb-6">
-      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div class="space-y-2">
-          <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700">{{ __('words_test.subtitle') }}</span>
-          <h1 class="text-3xl md:text-4xl font-bold">{{ __('words_test.quick_test') }}</h1>
-          <p class="text-[var(--muted)] max-w-2xl">{{ $heroDescription }}</p>
-          <p class="text-sm text-[var(--muted)]">{{ __('words_test.active_lang') }}: <span class="font-semibold text-brand-600">{{ strtoupper($siteLocale) }}</span></p>
+
+    {{-- ─── Hero Section ─── --}}
+    <header class="relative overflow-hidden rounded-[1.75rem] bg-[linear-gradient(135deg,#1a3d6e_0%,#2f67b1_50%,#1a3d6e_100%)] text-white shadow-panel">
+      <div class="pointer-events-none absolute inset-0 opacity-20">
+        <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="wt-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="currentColor" opacity="0.5"/>
+              <circle cx="12" cy="12" r="1.5" fill="currentColor" opacity="0.3"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#wt-dots)"/>
+        </svg>
+      </div>
+      <div class="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-amber/20 blur-3xl"></div>
+
+      <div class="relative flex flex-col gap-4 px-8 py-10 md:flex-row md:items-center md:justify-between md:px-12 md:py-12">
+        <div class="space-y-3">
+          <span class="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-xs font-semibold backdrop-blur-sm">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            {{ __('words_test.subtitle') }}
+          </span>
+          <h1 class="font-display text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">{{ __('words_test.quick_test') }}</h1>
+          <p class="max-w-2xl text-lg leading-relaxed text-white/85">{{ $heroDescription }}</p>
+          <p class="text-sm text-white/70">{{ __('words_test.active_lang') }}: <span class="font-bold text-amber">{{ strtoupper($siteLocale) }}</span></p>
         </div>
         <div class="flex flex-wrap gap-3">
-          <button id="reset-btn" class="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">
+          <button id="reset-btn" class="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-4 py-2.5 text-sm font-semibold backdrop-blur-sm transition hover:-translate-y-0.5 hover:bg-white/25 hover:shadow">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
             </svg>
@@ -93,10 +148,10 @@
           </button>
         </div>
       </div>
-    </section>
+    </header>
 
     <div class="flex flex-col gap-4 md:grid md:grid-cols-[1.6fr_1fr]">
-      <div class="rounded-2xl bg-[var(--card)] p-6 shadow-card border border-[var(--border)] order-2 md:order-1" id="question-card">
+      <div class="rounded-2xl bg-shell p-6 shadow-card border border-line order-2 md:order-1" id="question-card">
         <div class="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="{{ __('words_test.difficulty_modes') }}">
           @foreach ($tabs as $tab)
             <a
@@ -111,7 +166,7 @@
         </div>
 
         <!-- Study Language Selector -->
-        <div class="mb-4 p-4 rounded-xl bg-brand-50/50 border border-brand-100" id="study-lang-selector">
+        <div class="mb-4 p-4 rounded-xl bg-ocean/8 border border-ocean/20" id="study-lang-selector">
           <div class="flex flex-wrap items-center gap-3">
             <label for="study-lang" class="text-sm font-semibold text-brand-700">{{ __('words_test.study_lang') }}:</label>
             @if ($singleStudyLangName)
@@ -185,72 +240,72 @@
         </div>
       </div>
 
-      <div class="space-y-4 order-1 md:order-2 md:static sticky top-2 z-20">
-        <div class="rounded-2xl bg-card p-5 shadow-soft border border-border/70">
+        <div class="space-y-4 order-1 md:order-2 md:static sticky top-2 z-20">
+        <div class="rounded-2xl bg-shell p-5 shadow-soft border border-line">
           <div class="flex items-center justify-between">
-            <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.progress') }}</p>
-            <span class="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground" id="percentage">0%</span>
+            <p class="text-sm font-semibold text-steel">{{ __('words_test.progress') }}</p>
+            <span class="rounded-full bg-line/50 px-3 py-1 text-xs font-semibold text-steel" id="percentage">0%</span>
           </div>
-          <div class="mt-3 h-3 rounded-full bg-muted">
-            <div id="progress-bar" class="h-3 rounded-full bg-primary transition-all duration-500" style="width: 0%"></div>
+          <div class="mt-3 h-3 rounded-full bg-line/50">
+            <div id="progress-bar" class="h-3 rounded-full bg-ocean transition-all duration-500" style="width: 0%"></div>
           </div>
           <dl class="mt-4 grid grid-cols-3 gap-3 text-sm">
-            <div class="rounded-xl bg-muted px-3 py-2">
-              <dt class="text-muted-foreground">{{ __('words_test.total') }}</dt>
-              <dd id="stat-total" class="text-lg font-semibold text-foreground">0</dd>
+            <div class="rounded-xl bg-line/30 px-3 py-2">
+              <dt class="text-steel">{{ __('words_test.total') }}</dt>
+              <dd id="stat-total" class="text-lg font-semibold text-night">0</dd>
             </div>
-            <div class="rounded-xl bg-success/10 px-3 py-2 text-success">
+            <div class="rounded-xl bg-[rgba(22,163,74,0.08)] px-3 py-2 text-[rgb(22,163,74)]">
               <dt class="text-sm">{{ __('words_test.correct') }}</dt>
               <dd id="stat-correct" class="text-lg font-semibold">0</dd>
             </div>
-            <div class="rounded-xl bg-destructive/10 px-3 py-2 text-destructive">
+            <div class="rounded-xl bg-[rgba(220,38,38,0.08)] px-3 py-2 text-[rgb(220,38,38)]">
               <dt class="text-sm">{{ __('words_test.errors') }}</dt>
               <dd id="stat-wrong" class="text-lg font-semibold">0</dd>
             </div>
           </dl>
         </div>
 
-        <div class="rounded-2xl bg-[var(--card)] p-5 shadow-card border border-[var(--border)]" id="feedback" hidden>
+        <div class="rounded-2xl bg-shell p-5 shadow-card border border-line" id="feedback" hidden>
           <div id="feedback-chip" class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold"></div>
           <div class="mt-3 space-y-2">
-            <p id="feedback-title" class="text-xl font-semibold"></p>
-            <p id="feedback-body" class="text-[var(--muted)]"></p>
+            <p id="feedback-title" class="text-xl font-semibold text-night"></p>
+            <p id="feedback-body" class="text-steel"></p>
           </div>
         </div>
 
-        <div class="rounded-2xl bg-gradient-to-br from-brand-50 to-white border border-brand-200 p-6 shadow-sm" id="completion" hidden>
+        <div class="rounded-2xl bg-gradient-to-br from-brand-50 to-shell border border-brand-200 p-6 shadow-sm" id="completion" hidden>
           <div class="flex items-center gap-3 mb-3">
-            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-600 text-white shadow-sm">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-ocean text-white shadow-sm">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
             </div>
             <div>
-              <p class="text-xs font-semibold text-brand-600 uppercase tracking-wide">{{ __('words_test.test_completed') }}</p>
-              <p class="text-lg font-bold text-brand-900">{{ __('words_test.all_words_done') }}</p>
+              <p class="text-xs font-semibold text-ocean uppercase tracking-wide">{{ __('words_test.test_completed') }}</p>
+              <p class="text-lg font-bold text-night">{{ __('words_test.all_words_done') }}</p>
             </div>
           </div>
-          <p class="text-sm text-brand-700">{{ __('words_test.can_restart') }}</p>
+          <p class="text-sm text-steel">{{ __('words_test.can_restart') }}</p>
         </div>
       </div>
     </div>
 
     <div id="failure-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
       <div class="modal-backdrop absolute inset-0 animate-fade"></div>
-      <div id="failure-card" class="relative mx-4 w-full max-w-xl rounded-2xl border border-destructive/30 bg-card p-6 shadow-2xl animate-bounce">
+      <div id="failure-card" class="relative mx-4 w-full max-w-xl rounded-2xl border border-[rgba(220,38,38,0.30)] bg-shell p-6 shadow-2xl animate-bounce">
         <div class="flex items-start gap-4">
-          <div class="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10 text-destructive">
+          <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(220,38,38,0.10)] text-[rgb(220,38,38)]">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/></svg>
           </div>
           <div class="space-y-2">
             <div>
-              <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.test_failed') }}</p>
-              <p class="text-2xl font-semibold text-foreground">{{ __('words_test.error_limit') }}</p>
+              <p class="text-sm font-semibold text-steel">{{ __('words_test.test_failed') }}</p>
+              <p class="text-2xl font-semibold text-night">{{ __('words_test.error_limit') }}</p>
             </div>
-            <p class="text-muted-foreground">{{ __('words_test.error_limit_msg') }}</p>
+            <p class="text-steel">{{ __('words_test.error_limit_msg') }}</p>
             <div class="flex flex-wrap gap-3 pt-2">
-              <button id="retry-btn" class="inline-flex items-center gap-2 rounded-xl border border-destructive/50 bg-destructive/10 px-4 py-2 text-sm font-semibold text-destructive shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+              <button id="retry-btn" class="inline-flex items-center gap-2 rounded-xl border border-[rgba(220,38,38,0.50)] bg-[rgba(220,38,38,0.10)] px-4 py-2 text-sm font-semibold text-[rgb(220,38,38)] shadow-sm transition hover:-translate-y-0.5 hover:shadow">
                 {{ __('words_test.retry') }}
               </button>
-              <button id="close-failure" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+              <button id="close-failure" class="inline-flex items-center gap-2 rounded-xl border border-line bg-shell px-4 py-2 text-sm font-semibold text-steel shadow-sm transition hover:-translate-y-0.5 hover:shadow">
                 {{ __('words_test.close') }}
               </button>
             </div>
