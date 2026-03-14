@@ -10,12 +10,12 @@
 @endphp
 
 <div class="overflow-hidden">
-    <section class="relative border-b px-5 py-8 sm:px-8 lg:px-10 lg:py-10" style="border-color: var(--line);">
+    <section class="relative border-b px-5 py-10 sm:px-8 lg:px-10 lg:py-14" style="border-color: var(--line);">
         <div class="absolute left-[12%] top-12 hidden h-24 w-24 rounded-full border-[16px] border-ocean/40 lg:block"></div>
         <div class="absolute right-[10%] top-10 hidden h-20 w-20 rounded-full bg-amber/80 lg:block"></div>
         <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-ocean lg:block"></div>
 
-        <div class="relative grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+        <div class="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div class="max-w-3xl">
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ __('public.theory.section_badge') }}
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="grid gap-4 sm:grid-cols-2">
+            <div class="grid gap-5 sm:grid-cols-2">
                 <article class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.categories_count') }}</p>
                     <p class="mt-3 font-display text-[2.25rem] font-extrabold leading-none">{{ $categories->count() }}</p>
@@ -64,7 +64,7 @@
         </div>
     </section>
 
-    <section id="theory-categories" class="border-b px-5 py-8 sm:px-8 lg:px-10" style="border-color: var(--line);">
+    <section id="theory-categories" class="border-b px-5 py-10 sm:px-8 lg:px-10" style="border-color: var(--line);">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.topics_to_learn') }}</p>
@@ -75,7 +75,7 @@
             </p>
         </div>
 
-        <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div class="mt-8 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
             @forelse($categories as $index => $category)
                 @php
                     $accent = $gradients[$index % count($gradients)];
@@ -95,7 +95,7 @@
                         <h3 class="mt-5 font-display text-xl font-extrabold leading-tight">{{ $category->title }}</h3>
                     </a>
 
-                    <div class="space-y-4 p-5">
+                    <div class="space-y-5 p-6">
                         @if($hasChildren)
                             <div>
                                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.categories') }}</p>
@@ -141,13 +141,13 @@
         </div>
     </section>
 
-    <section class="px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
-        <div class="grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
+    <section class="px-5 py-10 sm:px-8 lg:px-10 lg:py-14">
+        <div class="grid gap-8 xl:grid-cols-[1.08fr_0.92fr]">
             <article class="rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.recommended_path') }}</p>
                 <h2 class="mt-3 font-display text-2xl font-extrabold leading-tight">{{ __('public.theory.how_to_learn') }}</h2>
                 <p class="mt-4 text-sm leading-7 sm:text-base" style="color: var(--muted);">{{ __('public.theory.how_to_learn_desc') }}</p>
-                <div class="mt-8 space-y-4">
+                <div class="mt-8 space-y-5">
                     @foreach([
                         [__('public.theory.step1'), __('public.theory.step1_desc')],
                         [__('public.theory.step2'), __('public.theory.step2_desc')],
@@ -170,7 +170,7 @@
             <article class="rounded-[30px] border p-6 shadow-card surface-card" style="border-color: var(--line);">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Quick links</p>
                 <h2 class="mt-3 font-display text-2xl font-extrabold leading-tight">{{ __('public.home.pick_path') }}</h2>
-                <div class="mt-6 grid gap-4">
+                <div class="mt-7 grid gap-5">
                     <a href="{{ localized_route('theory.index') }}" class="rounded-[22px] border p-5 surface-card-strong" style="border-color: var(--line);">
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.section_badge') }}</p>
                         <h3 class="mt-2 font-display text-xl font-extrabold">{{ __('public.theory.all_categories') }}</h3>

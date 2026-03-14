@@ -9,8 +9,8 @@
     $categoryDescription = $categoryDescription ?? ['hasBlocks' => false];
 @endphp
 
-<div class="overflow-hidden px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
-    <nav class="mb-6 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
+<div class="overflow-hidden px-5 py-10 sm:px-8 lg:px-10 lg:py-14">
+    <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">Home</a>
         <span>/</span>
         <a href="{{ localized_route($routePrefix . '.index') }}" class="transition hover:text-ocean">{{ $sectionTitle ?? 'Теорія' }}</a>
@@ -49,9 +49,9 @@
         'routePrefix' => $routePrefix,
     ])
 
-    <div class="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
+    <div class="grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
         <aside class="hidden lg:block">
-            <div class="sticky top-24 space-y-5">
+            <div class="sticky top-24 space-y-7">
                 <section class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <div class="flex items-end justify-between gap-3">
                         <div>
@@ -83,7 +83,7 @@
             </div>
         </aside>
 
-        <div class="min-w-0 space-y-6">
+        <div class="min-w-0 space-y-8">
             @if($categoryDescription['hasBlocks'] ?? false)
                 @include('theory.partials.category-description', [
                     'page' => $selectedCategory,
@@ -101,7 +101,7 @@
                 </div>
 
                 @if($categoryPages->isNotEmpty())
-                    <div class="mt-8 grid gap-5 md:grid-cols-2">
+                    <div class="mt-8 grid gap-6 md:grid-cols-2">
                         @foreach($categoryPages as $page)
                             <a href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $page->slug]) }}" class="rounded-[24px] border p-5 shadow-card transition hover:-translate-y-1 surface-card" style="border-color: var(--line);">
                                 <div class="flex items-center justify-between gap-4">

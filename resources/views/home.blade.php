@@ -58,13 +58,13 @@
 @endphp
 
 <div class="overflow-hidden">
-    <section class="relative border-b px-5 py-8 sm:px-8 lg:px-10 lg:py-10" style="border-color: var(--line);">
+    <section class="relative border-b px-5 py-10 sm:px-8 lg:px-10 lg:py-14" style="border-color: var(--line);">
         <div class="absolute left-[52%] top-0 hidden h-44 w-44 -translate-x-1/2 rounded-full border-[22px] border-ocean/70 lg:block"></div>
         <div class="absolute right-5 top-10 hidden h-20 w-20 rounded-full bg-slate-200/70 lg:block dark:bg-slate-700/60"></div>
         <div class="absolute -bottom-12 left-[44%] hidden h-28 w-28 rounded-full border-[18px] border-slate-200/90 lg:block dark:border-slate-700/70"></div>
         <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-amber lg:block"></div>
 
-        <div class="relative grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div class="relative grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div class="max-w-2xl py-3">
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ __('public.home.badge') }}
@@ -86,7 +86,7 @@
                     </a>
                 </div>
 
-                <div class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                <div class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
                     @foreach($statsCards as $card)
                         <article class="rounded-[24px] border p-4 shadow-card surface-card-strong">
                             <p class="font-display text-2xl font-extrabold leading-none" style="color: var(--accent);">{{ $card['value'] }}</p>
@@ -96,7 +96,7 @@
                 </div>
             </div>
 
-            <div class="grid gap-5">
+            <div class="grid gap-7">
                 <article class="rounded-[28px] border p-6 shadow-card surface-card-strong">
                     <div class="flex items-start justify-between gap-4">
                         <div>
@@ -133,8 +133,8 @@
     </section>
 
     @if(config('app.is_beta'))
-        <section class="border-b px-5 py-6 sm:px-8 lg:px-10" style="border-color: var(--line);">
-            <div class="rounded-[26px] border border-amber-300/70 bg-amber-50/90 px-5 py-5 shadow-card dark:border-amber-500/30 dark:bg-amber-500/10">
+        <section class="border-b px-5 py-8 sm:px-8 lg:px-10" style="border-color: var(--line);">
+            <div class="rounded-[26px] border border-amber-300/70 bg-amber-50/90 px-5 py-6 shadow-card dark:border-amber-500/30 dark:bg-amber-500/10">
                 <div class="flex items-start gap-4">
                     <span class="inline-flex h-12 w-12 items-center justify-center rounded-[18px] bg-amber text-lg font-extrabold text-white">!</span>
                     <div>
@@ -146,7 +146,7 @@
         </section>
     @endif
 
-    <section class="border-b px-5 py-8 sm:px-8 lg:px-10" style="border-color: var(--line);">
+    <section class="border-b px-5 py-10 sm:px-8 lg:px-10" style="border-color: var(--line);">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
                 <p class="text-xs font-extrabold uppercase tracking-[0.28em]" style="color: var(--accent);">{{ __('public.home.sections') }}</p>
@@ -157,7 +157,7 @@
             </p>
         </div>
 
-        <div class="mt-8 grid gap-5 xl:grid-cols-4">
+        <div class="mt-10 grid gap-6 xl:grid-cols-4">
             @foreach($pathCards as $card)
                 <a href="{{ $card['href'] }}" class="group overflow-hidden rounded-[24px] border shadow-card transition hover:-translate-y-1 surface-card-strong">
                     <div class="relative border-b p-5" style="border-color: var(--line);">
@@ -176,14 +176,14 @@
         </div>
     </section>
 
-    <section class="px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
-        <div class="grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
+    <section class="px-5 py-10 sm:px-8 lg:px-10 lg:py-14">
+        <div class="grid gap-8 xl:grid-cols-[1.08fr_0.92fr]">
             <article class="rounded-[28px] border p-6 shadow-card surface-card-strong">
                 <p class="text-xs font-extrabold uppercase tracking-[0.28em]" style="color: var(--accent);">{{ __('public.home.how_it_works') }}</p>
                 <h2 class="mt-3 font-display text-2xl font-extrabold leading-tight">{{ __('public.home.steps_title') }}</h2>
                 <p class="mt-3 max-w-2xl text-sm leading-7 sm:text-base" style="color: var(--muted);">{{ __('public.home.steps_intro') }}</p>
 
-                <div class="mt-8 grid gap-4">
+                <div class="mt-8 grid gap-5">
                     @foreach($steps as $step)
                         <div class="flex gap-4 rounded-[24px] border p-4 surface-card" style="border-color: var(--line);">
                             <span class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-[18px] bg-ocean text-lg font-extrabold text-white">
@@ -220,7 +220,7 @@
 
                 <p class="mt-4 text-xs font-semibold uppercase tracking-[0.22em]" style="color: var(--muted);">{{ __('public.home.search_block_hint') }}</p>
 
-                <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                <div class="mt-8 grid gap-5 sm:grid-cols-2">
                     @foreach(array_slice($pathCards, 2, 2) as $card)
                         <a href="{{ $card['href'] }}" class="rounded-[22px] border p-4 transition hover:-translate-y-1 surface-card-strong" style="border-color: var(--line);">
                             <div class="flex items-center justify-between gap-3">

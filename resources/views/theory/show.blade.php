@@ -15,8 +15,8 @@
     $practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [];
 @endphp
 
-<div class="overflow-hidden px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
-    <nav class="mb-6 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
+<div class="overflow-hidden px-5 py-10 sm:px-8 lg:px-10 lg:py-14">
+    <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">Home</a>
         <span>/</span>
         <a href="{{ localized_route($routePrefix . '.index') }}" class="transition hover:text-ocean">{{ $sectionTitle ?? 'Теорія' }}</a>
@@ -64,9 +64,9 @@
         'routePrefix' => $routePrefix,
     ])
 
-    <div class="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
+    <div class="grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
         <aside class="hidden lg:block">
-            <div class="sticky top-24 space-y-5">
+            <div class="sticky top-24 space-y-7">
                 <section class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Map</p>
                     <h2 class="mt-2 font-display text-xl font-extrabold leading-none">{{ __('public.common.categories') }}</h2>
@@ -130,9 +130,9 @@
             </div>
         </aside>
 
-        <div class="min-w-0 space-y-6">
+        <div class="min-w-0 space-y-8">
             @if(!empty($heroData['rules']))
-                <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <section class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                     @foreach($heroData['rules'] as $rule)
                         <article class="rounded-[24px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
                             @if(!empty($rule['label']))
@@ -148,7 +148,7 @@
             @endif
 
             <section class="rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
-                <div class="space-y-6">
+                <div class="space-y-8">
                     @foreach($contentBlocks as $block)
                         <div id="block-{{ $block->id }}">
                             @if(in_array($block->type, ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set']))
