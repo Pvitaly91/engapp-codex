@@ -12,6 +12,11 @@ class HomeController extends Controller
 {
     public function index()
     {
+        return view('home', $this->homeViewData());
+    }
+
+    private function homeViewData(): array
+    {
         $latestTests = SavedGrammarTest::query()
             ->withCount('questionLinks')
             ->latest()
@@ -38,11 +43,11 @@ class HomeController extends Controller
             'tags' => Tag::count(),
         ];
 
-        return view('home', [
+        return [
             'latestTests' => $latestTests,
             'featuredCategories' => $featuredCategories,
             'recentPages' => $recentPages,
             'stats' => $stats,
-        ]);
+        ];
     }
 }

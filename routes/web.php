@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CopilotTheoryController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewDesignTestController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\IrregularVerbsTestController;
 use App\Http\Controllers\SiteSearchController;
-use App\Http\Controllers\TestJsV2Controller;
 use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
@@ -113,15 +114,26 @@ Route::get('/catalog-tests/cards', fn () => redirect()->route('catalog.tests-car
 Route::get('/tests/cards', fn () => redirect()->route('catalog.tests-cards')); // legacy
 
 Route::get('/search', SiteSearchController::class)->name('site.search');
+
+// Copilot layout demo
+Route::get('/copilot', fn () => view('copilot.index'))->name('copilot.index');
+
+// Copilot – Theory section (same data as theory, new design under /copilot/theory)
+Route::get('/copilot/theory', [CopilotTheoryController::class, 'index'])->name('copilot.theory.index');
+Route::get('/copilot/theory/{category:slug}', [CopilotTheoryController::class, 'category'])->name('copilot.theory.category');
+Route::get('/copilot/theory/{category:slug}/{pageSlug}', [CopilotTheoryController::class, 'show'])->name('copilot.theory.show');
 Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
 
 Route::prefix('test')->group(function () {
-    Route::get('/{slug}', [TestJsV2Controller::class, 'showSavedTestJsV2'])->name('test.show');
-    Route::get('/{slug}/step', [TestJsV2Controller::class, 'showSavedTestJsStepV2'])->name('test.step');
-    Route::get('/{slug}/step/input', [TestJsV2Controller::class, 'showSavedTestJsStepInputV2'])->name('test.step-input');
-    Route::get('/{slug}/step/manual', [TestJsV2Controller::class, 'showSavedTestJsStepManualV2'])->name('test.step-manual');
-    Route::get('/{slug}/step/select', [TestJsV2Controller::class, 'showSavedTestJsStepSelectV2'])->name('test.step-select');
-    Route::get('/{slug}/select', [TestJsV2Controller::class, 'showSavedTestJsSelectV2'])->name('test.select');
-    Route::get('/{slug}/input', [TestJsV2Controller::class, 'showSavedTestJsInputV2'])->name('test.input');
-    Route::get('/{slug}/manual', [TestJsV2Controller::class, 'showSavedTestJsManualV2'])->name('test.manual');
+    Route::get('/{slug}', [NewDesignTestController::class, 'showSavedTestJsNewDesign'])->name('test.show');
+    Route::get('/{slug}/step', [NewDesignTestController::class, 'showSavedTestJsStepNewDesign'])->name('test.step');
+    Route::get('/{slug}/step/input', [NewDesignTestController::class, 'showSavedTestJsStepInputNewDesign'])->name('test.step-input');
+    Route::get('/{slug}/step/manual', [NewDesignTestController::class, 'showSavedTestJsStepManualNewDesign'])->name('test.step-manual');
+    Route::get('/{slug}/step/select', [NewDesignTestController::class, 'showSavedTestJsStepSelectNewDesign'])->name('test.step-select');
+    Route::get('/{slug}/select', [NewDesignTestController::class, 'showSavedTestJsSelectNewDesign'])->name('test.select');
+    Route::get('/{slug}/input', [NewDesignTestController::class, 'showSavedTestJsInputNewDesign'])->name('test.input');
+    Route::get('/{slug}/manual', [NewDesignTestController::class, 'showSavedTestJsManualNewDesign'])->name('test.manual');
+    Route::get('/{slug}/drag-drop', [NewDesignTestController::class, 'showSavedTestJsDragDropNewDesign'])->name('test.drag-drop');
+    Route::get('/{slug}/match', [NewDesignTestController::class, 'showSavedTestJsMatchNewDesign'])->name('test.match');
+    Route::get('/{slug}/dialogue', [NewDesignTestController::class, 'showSavedTestJsDialogueNewDesign'])->name('test.dialogue');
 });
