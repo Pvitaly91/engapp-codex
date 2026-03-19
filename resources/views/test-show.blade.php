@@ -4,6 +4,10 @@
 
 @section('head')
 <style>
+    .nd-page {
+        overflow: visible !important;
+    }
+
     #new-design-test-shell #quiz-app {
         min-height: auto !important;
     }
@@ -22,11 +26,104 @@
         backdrop-filter: none !important;
     }
 
+    #new-design-test-shell .sticky-inner > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 0.3125rem !important;
+    }
+
+    #site-header.has-attached-test-controls {
+        border-bottom-color: transparent !important;
+    }
+
+    #site-header > div.has-attached-test-controls {
+        padding-bottom: 0.75rem !important;
+    }
+
+    #new-design-test-shell .sticky-test-header.is-stuck {
+        z-index: 39 !important;
+    }
+
+    #new-design-test-shell .sticky-test-header.is-stuck .sticky-inner {
+        border-top: 0 !important;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+        border-bottom-left-radius: 24px !important;
+        border-bottom-right-radius: 24px !important;
+        padding: 0.3rem 0.45rem !important;
+        gap: 0.15rem !important;
+        box-shadow: 0 14px 22px rgba(17, 38, 63, 0.05) !important;
+        background: color-mix(in srgb, var(--surface) 88%, transparent) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+    }
+
     #new-design-test-shell .progress-section {
         border: 1px solid var(--line) !important;
         background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, white) 0%, var(--surface-strong) 100%) !important;
         border-radius: 24px !important;
         box-shadow: none !important;
+    }
+
+    #new-design-test-shell .progress-layout {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+    }
+
+    #new-design-test-shell .progress-main {
+        min-width: 0;
+    }
+
+    #new-design-test-shell .progress-actions {
+        align-self: stretch;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #new-design-test-shell .progress-actions #restart-test {
+        white-space: nowrap;
+    }
+
+    #new-design-test-shell .sticky-test-header.is-stuck .progress-section {
+        border: 0 !important;
+        padding: 0.1rem 0.3rem !important;
+        border-top-left-radius: 18px !important;
+        border-top-right-radius: 18px !important;
+        border-bottom-left-radius: 20px !important;
+        border-bottom-right-radius: 20px !important;
+        background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 80%, transparent) 0%, color-mix(in srgb, var(--surface-strong) 72%, transparent) 100%) !important;
+    }
+
+    #new-design-test-shell .sticky-test-header.is-stuck .progress-icon {
+        width: 1.1rem !important;
+        height: 1.1rem !important;
+    }
+
+    #new-design-test-shell .sticky-test-header.is-stuck .progress-icon svg {
+        width: 0.6rem !important;
+        height: 0.6rem !important;
+    }
+
+    #new-design-test-shell .sticky-test-header.is-stuck .progress-label-text {
+        font-size: 0.48rem !important;
+        line-height: 1 !important;
+    }
+
+    #new-design-test-shell .sticky-test-header.is-stuck .progress-value {
+        font-size: 0.72rem !important;
+        line-height: 1 !important;
+    }
+
+    #new-design-test-shell .sticky-test-header.is-stuck .progress-bar-container {
+        border: 0 !important;
+        box-shadow: none !important;
+        background: rgba(47, 103, 177, 0.14) !important;
+        height: 0.22rem !important;
+        margin-top: 0.04rem !important;
+    }
+
+    #new-design-test-shell .sticky-test-header.is-stuck #progress-bar {
+        top: 0 !important;
+        height: 100% !important;
+        border-radius: 999px !important;
     }
 
     #new-design-test-shell .progress-icon {
@@ -51,7 +148,8 @@
     }
 
     #new-design-test-shell .progress-bar-container {
-        border-color: var(--line) !important;
+        border: 1px solid var(--line) !important;
+        box-shadow: none !important;
         background: color-mix(in srgb, var(--surface) 85%, white) !important;
     }
 
@@ -120,7 +218,7 @@
         font-weight: 700 !important;
     }
 
-    #new-design-test-shell article[data-idx] .leading-relaxed {
+    #new-design-test-shell article[data-idx] > .flex:first-child > .flex-1 > .leading-relaxed {
         display: block;
         margin: 0.35rem 0 0 !important;
         font-size: clamp(1.2rem, 1.3vw + 0.9rem, 2rem) !important;
@@ -130,13 +228,19 @@
         letter-spacing: -0.025em;
     }
 
-    #new-design-test-shell article[data-idx] .leading-relaxed .gap-btn {
+    #new-design-test-shell article[data-idx] > .flex:first-child > .flex-1 > .leading-relaxed .gap-btn {
         min-width: 4.8rem;
         padding-inline: 0.9rem !important;
         padding-block: 0.35rem !important;
         font-size: 1rem !important;
         font-weight: 800 !important;
         box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+    }
+
+    #new-design-test-shell article[data-idx] > .flex:first-child > .flex-1 > .leading-relaxed .verb-hint {
+        font-size: inherit !important;
+        line-height: inherit !important;
+        font-weight: 700 !important;
     }
 
     #new-design-test-shell article[data-idx] .help-btn,
@@ -231,6 +335,8 @@
         border-radius: 22px !important;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75) !important;
         transform: none !important;
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
     }
 
     #new-design-test-shell article[data-idx] button[data-opt]:hover {
@@ -282,6 +388,15 @@
         color: #b42318 !important;
     }
 
+    #new-design-test-shell article[data-idx] [id^="hints-"] p,
+    #new-design-test-shell article[data-idx] [id^="theory-panel-"] p,
+    #new-design-test-shell article[data-idx] [id^="theory-panel-"] li,
+    #new-design-test-shell article[data-idx] [id^="feedback-"] .flex-1 > div,
+    #new-design-test-shell article[data-idx] [id^="feedback-"] .whitespace-pre-line {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+    }
+
     #new-design-test-shell #restart-test {
         border-color: var(--line) !important;
         background: var(--surface-strong) !important;
@@ -295,6 +410,14 @@
     #new-design-test-shell #restart-test:hover {
         border-color: var(--accent) !important;
         background: var(--accent-soft) !important;
+    }
+
+    #new-design-test-shell .sticky-test-header.is-stuck #restart-test {
+        padding: 0.35rem 0.7rem !important;
+        border-radius: 14px !important;
+        font-size: 0.68rem !important;
+        line-height: 1 !important;
+        letter-spacing: 0.05em !important;
     }
 
     #new-design-test-shell #summary > div {
@@ -336,6 +459,22 @@
     }
 
     @media (max-width: 640px) {
+        #new-design-test-shell .progress-layout {
+            grid-template-columns: 1fr;
+        }
+
+        #new-design-test-shell .progress-actions {
+            justify-content: stretch;
+        }
+
+        #new-design-test-shell .progress-actions #restart-test {
+            width: 100%;
+        }
+
+        #new-design-test-shell .sticky-inner > :not([hidden]) ~ :not([hidden]) {
+            margin-top: 0.3125rem !important;
+        }
+
         #new-design-test-shell .sticky-inner {
             padding: 0.9rem !important;
         }
@@ -348,7 +487,7 @@
             padding-bottom: 0.9rem;
         }
 
-        #new-design-test-shell article[data-idx] .leading-relaxed {
+        #new-design-test-shell article[data-idx] > .flex:first-child > .flex-1 > .leading-relaxed {
             font-size: 1.15rem !important;
         }
 
@@ -356,6 +495,12 @@
             align-items: flex-start !important;
             gap: 0.6rem !important;
             flex-direction: column;
+        }
+    }
+
+    @media (min-width: 641px) {
+        #new-design-test-shell .sticky-inner > :not([hidden]) ~ :not([hidden]) {
+            margin-top: 0.5rem !important;
         }
     }
 </style>

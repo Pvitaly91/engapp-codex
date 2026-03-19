@@ -8,6 +8,8 @@
 (function() {
   const stickyHeader = document.getElementById('sticky-header');
   if (!stickyHeader) return;
+  const siteHeader = document.getElementById('site-header') || document.querySelector('body > .relative > header');
+  const siteHeaderInner = siteHeader ? siteHeader.querySelector('div') : null;
 
   // Desktop media query (min-width: 1024px)
   const desktopQuery = window.matchMedia('(min-width: 1024px)');
@@ -24,12 +26,28 @@
     stickyHeader.parentNode.insertBefore(spacer, stickyHeader.nextSibling);
   }
 
+  function getSiteHeaderOffset() {
+    if (!desktopQuery.matches || !siteHeader) {
+      return 0;
+    }
+
+    return Math.max(0, Math.round(siteHeader.getBoundingClientRect().bottom) - 1);
+  }
+
+  function syncStickyOffset() {
+    const offset = getSiteHeaderOffset();
+    stickyHeader.style.setProperty('--site-header-offset', offset + 'px');
+    stickyHeader.style.top = offset + 'px';
+  }
+
   // Measure heights for compensation calculation
   function measureHeights() {
     // Only measure on desktop
     if (!desktopQuery.matches) {
       return;
     }
+
+    syncStickyOffset();
 
     // Remove is-stuck to measure original height
     const wasStuck = stickyHeader.classList.contains('is-stuck');
@@ -64,6 +82,14 @@
     // Only apply sticky behavior on desktop
     if (!desktopQuery.matches) {
       stickyHeader.classList.remove('is-stuck', 'search-expanded');
+      if (siteHeader) {
+        siteHeader.classList.remove('has-attached-test-controls');
+      }
+      if (siteHeaderInner) {
+        siteHeaderInner.classList.remove('has-attached-test-controls');
+      }
+      stickyHeader.style.removeProperty('--site-header-offset');
+      stickyHeader.style.top = '';
       if (spacer) {
         spacer.style.height = '0';
       }
@@ -71,14 +97,23 @@
       return;
     }
 
+    syncStickyOffset();
+
     const rect = stickyHeader.getBoundingClientRect();
-    // Header is "stuck" when its top is at or near the viewport top
-    const isStuck = rect.top <= 1 && window.scrollY > 50;
+    const siteHeaderOffset = getSiteHeaderOffset();
+    // Header is "stuck" when its top reaches the bottom edge of the main site header
+    const isStuck = rect.top <= (siteHeaderOffset + 1) && window.scrollY > 0;
     
     const wasStuck = stickyHeader.classList.contains('is-stuck');
     
     if (isStuck && !wasStuck) {
       stickyHeader.classList.add('is-stuck');
+      if (siteHeader) {
+        siteHeader.classList.add('has-attached-test-controls');
+      }
+      if (siteHeaderInner) {
+        siteHeaderInner.classList.add('has-attached-test-controls');
+      }
       // Remove search-expanded when first becoming stuck
       stickyHeader.classList.remove('search-expanded');
       // Add spacer height to compensate for reduced header height
@@ -88,6 +123,12 @@
       }
     } else if (!isStuck && wasStuck) {
       stickyHeader.classList.remove('is-stuck', 'search-expanded');
+      if (siteHeader) {
+        siteHeader.classList.remove('has-attached-test-controls');
+      }
+      if (siteHeaderInner) {
+        siteHeaderInner.classList.remove('has-attached-test-controls');
+      }
       if (spacer) {
         spacer.style.height = '0';
       }
@@ -125,6 +166,8 @@
       
       // Toggle search-expanded class
       stickyHeader.classList.toggle('search-expanded');
+      measureHeights();
+      updateStickyState();
       
       // Focus the search input when expanding
       if (stickyHeader.classList.contains('search-expanded')) {
@@ -146,6 +189,8 @@
       const wordSearchSection = stickyHeader.querySelector('.word-search-section');
       if (wordSearchSection && !wordSearchSection.contains(e.target) && !searchToggleBtn.contains(e.target)) {
         stickyHeader.classList.remove('search-expanded');
+        measureHeights();
+        updateStickyState();
       }
     });
   }

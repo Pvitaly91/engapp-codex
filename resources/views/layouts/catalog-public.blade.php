@@ -50,6 +50,7 @@
             --app-bg: linear-gradient(180deg, #607487 0%, #526678 100%);
             --shell-bg: #f5fbff;
             --shell-border: rgba(255, 255, 255, 0.72);
+            --shell-radius: 30px;
             --surface: rgba(255, 254, 253, 0.94);
             --surface-strong: #ffffff;
             --line: #d8e2ee;
@@ -97,6 +98,43 @@
                 radial-gradient(circle at top, rgba(104, 165, 231, 0.10), transparent 24%),
                 linear-gradient(180deg, var(--shell-bg) 0%, color-mix(in srgb, var(--shell-bg) 92%, white) 100%);
             border-color: var(--shell-border);
+            border-radius: var(--shell-radius);
+            transition: border-top-left-radius 180ms ease, border-top-right-radius 180ms ease, box-shadow 180ms ease;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            isolation: isolate;
+            background: transparent !important;
+            border-top-left-radius: var(--shell-radius);
+            border-top-right-radius: var(--shell-radius);
+            transition: border-top-left-radius 180ms ease, border-top-right-radius 180ms ease, background-color 180ms ease;
+        }
+
+        .site-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: color-mix(in srgb, var(--surface) 88%, transparent);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
+            transition: inherit;
+        }
+
+        .catalog-shell.is-header-stuck {
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+        }
+
+        .catalog-shell.is-header-stuck .site-header {
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
         }
 
         .surface-card {
@@ -115,6 +153,9 @@
 
         .footer-shell {
             background: var(--footer-bg);
+            border-bottom-left-radius: var(--shell-radius);
+            border-bottom-right-radius: var(--shell-radius);
+            overflow: hidden;
         }
 
         .nd-page {
@@ -179,8 +220,8 @@
 <body class="min-h-full font-body antialiased">
     <div class="app-fixed-background" aria-hidden="true"></div>
     <div class="relative mx-auto max-w-[1440px] px-4 py-5 sm:px-6 lg:px-8 lg:py-6">
-        <div class="catalog-shell overflow-hidden rounded-[30px] border shadow-panel">
-            <header class="border-b px-5 py-4 backdrop-blur sm:px-8 surface-card" style="border-color: var(--line);">
+        <div id="catalog-shell" class="catalog-shell rounded-[30px] border shadow-panel">
+            <header id="site-header" class="site-header border-b px-5 py-4 sm:px-8 surface-card" style="border-color: var(--line);">
                 <div class="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
                     <div class="flex items-center justify-between gap-4">
                         <a href="{{ localized_route('home') }}" class="flex items-center gap-3" aria-label="Gramlyze">
@@ -433,6 +474,38 @@
                 }
             }
         }
+
+        function initStickyShellHeader() {
+            const shell = document.getElementById('catalog-shell');
+            const header = document.getElementById('site-header');
+
+            if (!shell || !header) {
+                return;
+            }
+
+            let ticking = false;
+
+            const syncStickyState = () => {
+                ticking = false;
+                const isStuck = window.scrollY > 0 && header.getBoundingClientRect().top <= 0;
+                shell.classList.toggle('is-header-stuck', isStuck);
+            };
+
+            const requestSync = () => {
+                if (ticking) {
+                    return;
+                }
+
+                ticking = true;
+                window.requestAnimationFrame(syncStickyState);
+            };
+
+            requestSync();
+            window.addEventListener('scroll', requestSync, { passive: true });
+            window.addEventListener('resize', requestSync);
+        }
+
+        document.addEventListener('DOMContentLoaded', initStickyShellHeader);
     </script>
     @livewireScripts
     @yield('scripts')

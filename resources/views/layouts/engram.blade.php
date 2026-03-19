@@ -58,7 +58,7 @@
 <body class="min-h-full font-sans antialiased bg-[var(--bg)] text-[var(--fg)]">
     <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.6),transparent_20%),radial-gradient(circle_at_90%_10%,rgba(90,107,255,0.12),transparent_20%)]"></div>
     <div class="relative">
-        <header class="sticky top-0 z-40 border-b border-[var(--border)]/80 backdrop-blur bg-[color-mix(in_srgb,var(--card)_90%,transparent)]">
+        <header id="site-header" class="sticky top-0 z-40 border-b border-[var(--border)]/80 backdrop-blur bg-[color-mix(in_srgb,var(--card)_90%,transparent)]">
             <div class="mx-auto max-w-6xl px-4">
                 <div class="flex items-center justify-between gap-4 py-4">
                     <a href="{{ localized_route('home') }}" class="flex items-center gap-3" aria-label="Gramlyze">

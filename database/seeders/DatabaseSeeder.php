@@ -21,6 +21,8 @@ use Database\Seeders\Page_v2\Articles\SomeAny\SomeAnyCategorySeeder;
 use Database\Seeders\Page_v2\Articles\SomeAny\SomeAnyPlacesTheorySeeder;
 use Database\Seeders\Page_v2\PageV2TextBlockLevelSeeder;
 use Database\Seeders\Page_v2\BasicGrammar\WordOrder\BasicWordOrderTheorySeeder;
+use Database\Seeders\Page_v2\FutureForms\FutureFormsCategorySeeder;
+use Database\Seeders\Page_v2\FutureForms\FutureFormsWillVsBeGoingToTheorySeeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
 use Database\Seeders\V2\BasicWordOrderComprehensiveV2Seeder;
 use Database\Seeders\V2\BasicWordOrderPracticeV2Seeder;
@@ -44,6 +46,7 @@ use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
 use Database\Seeders\V2\QuestionsDifferentTypesV2Seeder;
 use Database\Seeders\V2\SecondConditionalTestV2Seeder;
 use Database\Seeders\V2\ThirdConditionalPracticeV2Seeder;
+use Database\Seeders\V2\WillVsBeGoingToFutureFormsV2Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -142,6 +145,7 @@ class DatabaseSeeder extends Seeder
             BasicWordOrderPracticeV2Seeder::class,
             BasicWordOrderComprehensiveV2Seeder::class,
             FutureTensesPracticeV2Seeder::class,
+            WillVsBeGoingToFutureFormsV2Seeder::class,
             ModalObligationNecessityV2Seeder::class,
             ModalDeductionPossibilityV2Seeder::class,
             ModalDeductionPossibilityPracticeV22MatchSeeder::class,
@@ -177,6 +181,8 @@ class DatabaseSeeder extends Seeder
             SomeAnyCategorySeeder::class,
             SomeAnyPlacesTheorySeeder::class,
             BasicWordOrderTheorySeeder::class,
+            FutureFormsCategorySeeder::class,
+            FutureFormsWillVsBeGoingToTheorySeeder::class,
             GrammarPagesSeeder::class,
             GptPageTagAssignmentSeeder::class,
             PageV2TextBlockLevelSeeder::class,
