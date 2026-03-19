@@ -91,6 +91,41 @@
                 radial-gradient(circle at bottom right, rgba(20,35,59,0.18), transparent 22%),
                 var(--app-bg);
             transform: translateZ(0);
+            overflow: hidden;
+        }
+
+        .app-fixed-background::before {
+            content: "";
+            position: absolute;
+            inset: -6%;
+            background-image: url('{{ asset('engram-language-pattern.svg') }}');
+            background-position: center top;
+            background-repeat: repeat;
+            background-size: 720px 720px;
+            opacity: 0.22;
+            filter: saturate(1.05) contrast(1.08);
+        }
+
+        .app-fixed-background::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.22), transparent 20%),
+                radial-gradient(circle at 78% 10%, rgba(245, 155, 47, 0.10), transparent 18%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(19, 35, 59, 0.08));
+        }
+
+        .dark .app-fixed-background::before {
+            opacity: 0.16;
+            filter: brightness(1.22) saturate(0.92) contrast(1.12);
+        }
+
+        .dark .app-fixed-background::after {
+            background:
+                radial-gradient(circle at 18% 18%, rgba(116, 169, 240, 0.10), transparent 22%),
+                radial-gradient(circle at 76% 10%, rgba(245, 155, 47, 0.06), transparent 18%),
+                linear-gradient(180deg, rgba(5, 11, 23, 0.04), rgba(5, 11, 23, 0.18));
         }
 
         .catalog-shell {
