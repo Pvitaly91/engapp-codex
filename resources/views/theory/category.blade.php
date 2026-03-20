@@ -2,6 +2,26 @@
 
 @section('title', ($selectedCategory->title ?? 'Категорія') . ' - ' . ($sectionTitle ?? 'Теорія'))
 
+@section('head')
+    <style>
+        .theory-page-show.nd-page {
+            padding-inline: 0.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .theory-page-show.nd-page {
+                padding-inline: 1.25rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .theory-page-show.nd-page {
+                padding-inline: 1.5rem;
+            }
+        }
+    </style>
+@endsection
+
 @section('content')
 @php
     $categoryPages = $categoryPages ?? collect();
@@ -9,7 +29,7 @@
     $categoryDescription = $categoryDescription ?? ['hasBlocks' => false];
 @endphp
 
-<div class="nd-page">
+<div class="nd-page theory-page-show">
     <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">Home</a>
         <span>/</span>
@@ -49,7 +69,7 @@
         'routePrefix' => $routePrefix,
     ])
 
-    <div class="mt-8 grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
+    <div class="mt-8 grid gap-6 lg:grid-cols-[390px_minmax(0,1fr)] xl:grid-cols-[410px_minmax(0,1fr)]">
         <aside class="hidden lg:block">
             <div class="sticky top-24 space-y-6">
                 <section class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">

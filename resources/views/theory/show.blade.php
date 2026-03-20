@@ -2,6 +2,26 @@
 
 @section('title', $page->title)
 
+@section('head')
+    <style>
+        .theory-page-show.nd-page {
+            padding-inline: 0.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .theory-page-show.nd-page {
+                padding-inline: 1.25rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .theory-page-show.nd-page {
+                padding-inline: 1.5rem;
+            }
+        }
+    </style>
+@endsection
+
 @section('content')
 @php
     $blocks = $page->textBlocks ?? collect();
@@ -15,7 +35,7 @@
     $practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [];
 @endphp
 
-<div class="nd-page">
+<div class="nd-page theory-page-show">
     <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">Home</a>
         <span>/</span>
@@ -64,13 +84,18 @@
         'routePrefix' => $routePrefix,
     ])
 
-    <div class="mt-8 grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
+    <div class="mt-8 grid gap-6 lg:grid-cols-[390px_minmax(0,1fr)] xl:grid-cols-[410px_minmax(0,1fr)]">
         <aside class="hidden lg:block">
             <div class="sticky top-24 space-y-6">
-                <section class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
-                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Map</p>
-                    <h2 class="mt-2 font-display text-xl font-extrabold leading-none">{{ __('public.common.categories') }}</h2>
-                    <div class="mt-5 space-y-3">
+                <section class="rounded-[28px] border p-4 shadow-card surface-card-strong xl:p-5" style="border-color: var(--line);">
+                    <div class="flex items-end justify-between gap-3">
+                        <div>
+                            <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Map</p>
+                            <h2 class="mt-2 font-display text-xl font-extrabold leading-none">{{ __('public.common.categories') }}</h2>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-[0.18em]" style="color: var(--muted);">{{ $categories->count() }}</span>
+                    </div>
+                    <div class="mt-4 space-y-3">
                         @include('theory.partials.tree-nav', [
                             'categories' => $categories,
                             'selectedCategory' => $selectedCategory ?? null,
@@ -80,28 +105,8 @@
                     </div>
                 </section>
 
-                @if(isset($selectedCategory) && $categoryPages->isNotEmpty())
-                    <section class="rounded-[28px] border p-5 shadow-card surface-card" style="border-color: var(--line);">
-                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.section_pages') }}</p>
-                        <div class="mt-4 space-y-2">
-                            @foreach($categoryPages as $pageItem)
-                                @php($isCurrentPage = $page->is($pageItem))
-                                <a
-                                    href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
-                                    class="flex items-start gap-3 rounded-[18px] border px-3 py-3 text-sm transition"
-                                    style="{{ $isCurrentPage ? 'border-color: var(--accent); background: var(--accent-soft); color: var(--text);' : 'border-color: var(--line); color: var(--muted);' }}"
-                                    @if($isCurrentPage) aria-current="page" @endif
-                                >
-                                    <span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-ocean text-[10px] font-extrabold text-white">{{ $loop->iteration }}</span>
-                                    <span class="min-w-0 break-words leading-5">{{ $pageItem->title }}</span>
-                                </a>
-                            @endforeach
-                        </div>
-                    </section>
-                @endif
-
                 @if($tocBlocks->isNotEmpty())
-                    <section class="rounded-[28px] border p-5 shadow-card surface-card" style="border-color: var(--line);">
+                    <section class="rounded-[28px] border p-4 shadow-card surface-card xl:p-5" style="border-color: var(--line);">
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Contents</p>
                         <div class="mt-4 space-y-2">
                             @foreach($tocBlocks as $tocBlock)
@@ -118,7 +123,7 @@
                 @endif
 
                 @if($page->tags->isNotEmpty())
-                    <section class="rounded-[28px] border p-5 shadow-card surface-card" style="border-color: var(--line);">
+                    <section class="rounded-[28px] border p-4 shadow-card surface-card xl:p-5" style="border-color: var(--line);">
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.page_tags') }}</p>
                         <div class="mt-4 flex flex-wrap gap-2">
                             @foreach($page->tags as $tag)
