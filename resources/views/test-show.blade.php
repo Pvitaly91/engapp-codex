@@ -550,7 +550,7 @@
     <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
         <div class="absolute -right-10 top-0 hidden h-36 w-36 rounded-full border-[18px] border-ocean/30 lg:block"></div>
         <div class="absolute bottom-0 right-0 hidden h-44 w-14 rounded-tl-[2rem] bg-ocean lg:block"></div>
-        <div class="relative grid gap-8 lg:grid-cols-[1.04fr_0.96fr] lg:items-end">
+        <div class="relative grid gap-6 lg:grid-cols-[1.04fr_0.96fr] lg:items-end">
             <div class="max-w-3xl">
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ $heroBadge }}
@@ -583,7 +583,7 @@
 
     @include('components.test-mode-nav-new-design')
 
-    <div id="new-design-test-shell" class="mt-10">
+    <div id="new-design-test-shell" class="mt-8">
         {!! \Illuminate\Support\Facades\Blade::render($template, [
             'test' => $test,
             'questionData' => $questionData,

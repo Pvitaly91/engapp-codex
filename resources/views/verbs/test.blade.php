@@ -3,7 +3,7 @@
 @section('title', __('verbs.title'))
 
 @section('content')
-  <div class="nd-page space-y-8 verbs-page">
+  <div class="nd-page space-y-6 verbs-page">
     {{-- Hero Section --}}
     <section class="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 md:p-8 shadow-card">
       <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">

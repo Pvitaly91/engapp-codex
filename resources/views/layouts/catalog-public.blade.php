@@ -195,25 +195,23 @@
 
         .nd-page {
             overflow: hidden;
-            padding-inline: 1.25rem;
+            padding-inline: 0.75rem;
             padding-block: 2rem;
         }
 
         .nd-section {
-            padding-inline: 1.25rem;
+            padding-inline: 0;
             padding-block: 2.5rem;
         }
 
         .nd-section-tight {
-            padding-inline: 1.25rem;
+            padding-inline: 0;
             padding-block: 2rem;
         }
 
         @media (min-width: 640px) {
-            .nd-page,
-            .nd-section,
-            .nd-section-tight {
-                padding-inline: 2rem;
+            .nd-page {
+                padding-inline: 1.25rem;
             }
 
             .nd-page {
@@ -230,10 +228,8 @@
         }
 
         @media (min-width: 1024px) {
-            .nd-page,
-            .nd-section,
-            .nd-section-tight {
-                padding-inline: 2.5rem;
+            .nd-page {
+                padding-inline: 1.5rem;
             }
 
             .nd-page {

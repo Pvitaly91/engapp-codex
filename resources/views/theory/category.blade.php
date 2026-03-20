@@ -2,26 +2,6 @@
 
 @section('title', ($selectedCategory->title ?? 'Категорія') . ' - ' . ($sectionTitle ?? 'Теорія'))
 
-@section('head')
-    <style>
-        .theory-page-show.nd-page {
-            padding-inline: 0.75rem;
-        }
-
-        @media (min-width: 640px) {
-            .theory-page-show.nd-page {
-                padding-inline: 1.25rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .theory-page-show.nd-page {
-                padding-inline: 1.5rem;
-            }
-        }
-    </style>
-@endsection
-
 @section('content')
 @php
     $categoryPages = $categoryPages ?? collect();
@@ -29,7 +9,7 @@
     $categoryDescription = $categoryDescription ?? ['hasBlocks' => false];
 @endphp
 
-<div class="nd-page theory-page-show">
+<div class="nd-page">
     <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">Home</a>
         <span>/</span>

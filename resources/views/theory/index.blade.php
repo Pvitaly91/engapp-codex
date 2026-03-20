@@ -15,7 +15,7 @@
         <div class="absolute right-[10%] top-10 hidden h-20 w-20 rounded-full bg-amber/80 lg:block"></div>
         <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-ocean lg:block"></div>
 
-        <div class="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+        <div class="relative grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div class="max-w-3xl">
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ __('public.theory.section_badge') }}
@@ -142,7 +142,7 @@
     </section>
 
     <section class="nd-section">
-        <div class="grid gap-8 xl:grid-cols-[1.08fr_0.92fr]">
+        <div class="grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
             <article class="rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.recommended_path') }}</p>
                 <h2 class="mt-3 font-display text-2xl font-extrabold leading-tight">{{ __('public.theory.how_to_learn') }}</h2>

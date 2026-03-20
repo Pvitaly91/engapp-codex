@@ -7,7 +7,7 @@
     <section class="nd-section-tight relative border-b" style="border-color: var(--line);">
         <div class="absolute right-[8%] top-10 hidden h-20 w-20 rounded-full bg-amber/80 lg:block"></div>
         <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-ocean lg:block"></div>
-        <div class="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+        <div class="relative grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div class="max-w-3xl">
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ __('public.nav.catalog') }}
@@ -34,7 +34,7 @@
     </section>
 
     <section class="nd-section">
-        <div class="grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
+        <div class="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
             <aside>
                 <div class="sticky top-24 space-y-6">
                     <section class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
@@ -115,7 +115,7 @@
                                     ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
                                     ->map(fn($lvl) => $lvl ?? 'N/A');
                             @endphp
-                            <article class="overflow-hidden rounded-[26px] border shadow-card surface-card-strong" style="border-color: var(--line);">
+                            <article class="flex h-full flex-col overflow-hidden rounded-[26px] border shadow-card surface-card-strong" style="border-color: var(--line);">
                                 <a href="{{ $testRoute }}" class="block border-b p-6" style="border-color: var(--line);">
                                     <div class="flex items-start justify-between gap-4">
                                         <span class="inline-flex h-14 w-14 items-center justify-center rounded-[20px] {{ $accent }} text-sm font-extrabold text-white dark:text-slate-950">
@@ -128,7 +128,7 @@
                                     <h3 class="mt-5 font-display text-xl font-extrabold leading-tight">{{ $test->name }}</h3>
                                 </a>
 
-                                <div class="space-y-4 p-5">
+                                <div class="flex flex-1 flex-col gap-4 p-5">
                                     @if($levels->isNotEmpty())
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($levels as $lvl)
@@ -150,7 +150,7 @@
                                         <span>{{ in_array($preferredView, ['drag-drop', 'match', 'dialogue'], true) ? $preferredView : 'card' }}</span>
                                     </div>
 
-                                    <a href="{{ $testRoute }}" class="inline-flex items-center gap-2 rounded-[18px] bg-ocean px-4 py-3 text-sm font-extrabold uppercase tracking-[0.18em] text-white transition hover:bg-[#245592]">
+                                    <a href="{{ $testRoute }}" class="mt-auto inline-flex items-center gap-2 rounded-[18px] bg-ocean px-4 py-3 text-sm font-extrabold uppercase tracking-[0.18em] text-white transition hover:bg-[#245592]">
                                         Пройти тест
                                         <span>+</span>
                                     </a>

@@ -23,7 +23,7 @@
         <div class="absolute right-[10%] top-10 hidden h-20 w-20 rounded-full bg-amber/80 lg:block"></div>
         <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-ocean lg:block"></div>
 
-        <div class="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+        <div class="relative grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div class="max-w-3xl">
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ __('public.search.title') }}
@@ -105,7 +105,7 @@
                 </p>
             </div>
         @else
-            <div class="grid gap-8 xl:grid-cols-2">
+            <div class="grid gap-6 xl:grid-cols-2">
                 <section class="space-y-5">
                     <div class="flex items-end justify-between gap-4">
                         <div>

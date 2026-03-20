@@ -199,7 +199,7 @@
         <div class="absolute right-[10%] top-10 hidden h-20 w-20 rounded-full bg-amber/80 lg:block"></div>
         <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-ocean lg:block"></div>
 
-        <div class="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+        <div class="relative grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div class="max-w-3xl">
                 <span class="wt-pill soft-accent border" style="border-color: var(--line); color: var(--accent);">
                     {{ __('public.nav.words_test') }}
@@ -244,7 +244,7 @@
     </section>
 
     <section class="nd-section">
-        <div class="grid gap-8 xl:grid-cols-[minmax(0,1fr)_340px] xl:items-start">
+        <div class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px] xl:items-start">
             <div id="words-test-panel" class="min-w-0">
                 <article class="rounded-[30px] border shadow-card surface-card-strong" style="border-color: var(--line);" x-data>
                     <div class="border-b p-6 sm:p-7" style="border-color: var(--line);">

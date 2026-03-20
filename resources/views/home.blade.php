@@ -64,7 +64,7 @@
         <div class="absolute -bottom-12 left-[44%] hidden h-28 w-28 rounded-full border-[18px] border-slate-200/90 lg:block dark:border-slate-700/70"></div>
         <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-amber lg:block"></div>
 
-        <div class="relative grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div class="relative grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div class="max-w-2xl py-3">
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ __('public.home.badge') }}
@@ -177,7 +177,7 @@
     </section>
 
     <section class="nd-section">
-        <div class="grid gap-8 xl:grid-cols-[1.08fr_0.92fr]">
+        <div class="grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
             <article class="rounded-[28px] border p-6 shadow-card surface-card-strong">
                 <p class="text-xs font-extrabold uppercase tracking-[0.28em]" style="color: var(--accent);">{{ __('public.home.how_it_works') }}</p>
                 <h2 class="mt-3 font-display text-2xl font-extrabold leading-tight">{{ __('public.home.steps_title') }}</h2>
