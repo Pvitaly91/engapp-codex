@@ -2,6 +2,52 @@
 
 @section('title', __('public.home.title'))
 
+@section('head')
+<style>
+    .home-decor-page #home-random-shapes {
+        z-index: 0;
+    }
+
+    .home-decor-page > section,
+    .home-decor-page > section > div {
+        position: relative;
+        z-index: 1;
+    }
+
+    .home-decor-page .surface-card {
+        background: color-mix(in srgb, var(--surface) 82%, transparent) !important;
+        backdrop-filter: blur(12px) saturate(1.05);
+        -webkit-backdrop-filter: blur(12px) saturate(1.05);
+    }
+
+    .home-decor-page .surface-card-strong {
+        background: color-mix(in srgb, var(--surface-strong) 84%, transparent) !important;
+        backdrop-filter: blur(14px) saturate(1.04);
+        -webkit-backdrop-filter: blur(14px) saturate(1.04);
+    }
+
+    .home-decor-page .soft-accent {
+        background: color-mix(in srgb, var(--accent-soft) 72%, transparent) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .home-decor-page .home-beta-banner {
+        background: color-mix(in srgb, rgba(255, 247, 237, 0.84) 88%, transparent) !important;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+    }
+
+    .dark .home-decor-page .home-beta-banner {
+        background: color-mix(in srgb, rgba(245, 158, 11, 0.12) 90%, transparent) !important;
+    }
+
+    .home-decor-page #home-random-shapes > span {
+        will-change: transform, opacity;
+    }
+</style>
+@endsection
+
 @section('content')
 @php
     $statsCards = [
@@ -57,12 +103,10 @@
     ];
 @endphp
 
-<div class="nd-page">
+<div class="nd-page relative isolate home-decor-page">
+    <div id="home-random-shapes" class="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true"></div>
+
     <section class="nd-section-tight relative border-b" style="border-color: var(--line);">
-        <div class="absolute left-[52%] top-0 hidden h-44 w-44 -translate-x-1/2 rounded-full border-[22px] border-ocean/70 lg:block"></div>
-        <div class="absolute right-5 top-10 hidden h-20 w-20 rounded-full bg-slate-200/70 lg:block dark:bg-slate-700/60"></div>
-        <div class="absolute -bottom-12 left-[44%] hidden h-28 w-28 rounded-full border-[18px] border-slate-200/90 lg:block dark:border-slate-700/70"></div>
-        <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-amber lg:block"></div>
 
         <div class="relative grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div class="max-w-2xl py-3">
@@ -134,7 +178,7 @@
 
     @if(config('app.is_beta'))
         <section class="nd-section-tight border-b" style="border-color: var(--line);">
-            <div class="rounded-[26px] border border-amber-300/70 bg-amber-50/90 px-5 py-5 shadow-card dark:border-amber-500/30 dark:bg-amber-500/10">
+            <div class="home-beta-banner rounded-[26px] border border-amber-300/70 bg-amber-50/90 px-5 py-5 shadow-card dark:border-amber-500/30 dark:bg-amber-500/10">
                 <div class="flex items-start gap-4">
                     <span class="inline-flex h-12 w-12 items-center justify-center rounded-[18px] bg-amber text-lg font-extrabold text-white">!</span>
                     <div>
@@ -236,4 +280,212 @@
         </div>
     </section>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    function buildHomeRandomShapes() {
+        const layer = document.getElementById('home-random-shapes');
+
+        if (!layer) {
+            return;
+        }
+
+        if (window.innerWidth < 1024) {
+            layer.replaceChildren();
+            return;
+        }
+
+        const width = layer.offsetWidth;
+        const height = layer.offsetHeight;
+
+        if (!width || !height) {
+            return;
+        }
+
+        const columns = width >= 1280 ? 5 : 4;
+        const rows = Math.max(5, Math.min(8, Math.round(height / 190)));
+        const cellWidth = width / columns;
+        const cellHeight = height / rows;
+        const shapes = [];
+
+        const shapeFactories = [
+            () => {
+                const size = randomBetween(58, 124);
+                const stroke = randomBetween(8, 18);
+                return {
+                    width: size,
+                    height: size,
+                    borderRadius: '999px',
+                    border: `${stroke}px solid ${pick([
+                        'rgba(47, 103, 177, 0.24)',
+                        'rgba(116, 169, 240, 0.30)',
+                        'rgba(156, 163, 175, 0.24)',
+                        'rgba(125, 211, 252, 0.28)',
+                    ])}`,
+                    background: 'transparent',
+                };
+            },
+            () => {
+                const width = randomBetween(72, 152);
+                const height = randomBetween(14, 34);
+                return {
+                    width,
+                    height,
+                    borderRadius: '999px',
+                    background: pick([
+                        'rgba(47, 103, 177, 0.18)',
+                        'rgba(245, 155, 47, 0.18)',
+                        'rgba(16, 185, 129, 0.18)',
+                        'rgba(244, 114, 182, 0.14)',
+                        'rgba(56, 189, 248, 0.16)',
+                    ]),
+                };
+            },
+            () => {
+                const width = randomBetween(46, 92);
+                const height = randomBetween(46, 92);
+                return {
+                    width,
+                    height,
+                    borderRadius: `${randomBetween(18, 34)}px`,
+                    border: `${randomBetween(6, 12)}px solid ${pick([
+                        'rgba(16, 185, 129, 0.24)',
+                        'rgba(125, 211, 252, 0.24)',
+                        'rgba(217, 70, 239, 0.18)',
+                        'rgba(251, 191, 36, 0.22)',
+                    ])}`,
+                    background: 'transparent',
+                };
+            },
+            () => {
+                const width = randomBetween(38, 84);
+                const height = randomBetween(38, 84);
+                return {
+                    width,
+                    height,
+                    borderRadius: `${randomBetween(16, 28)}px`,
+                    background: pick([
+                        'rgba(245, 155, 47, 0.12)',
+                        'rgba(16, 185, 129, 0.12)',
+                        'rgba(47, 103, 177, 0.10)',
+                        'rgba(251, 113, 133, 0.10)',
+                    ]),
+                };
+            },
+            () => {
+                const width = randomBetween(18, 30);
+                const height = randomBetween(110, 190);
+                return {
+                    width,
+                    height,
+                    borderRadius: '999px',
+                    background: pick([
+                        'rgba(245, 155, 47, 0.14)',
+                        'rgba(47, 103, 177, 0.14)',
+                        'rgba(16, 185, 129, 0.12)',
+                    ]),
+                };
+            },
+            () => {
+                const width = randomBetween(86, 156);
+                const height = randomBetween(42, 74);
+                return {
+                    width,
+                    height,
+                    borderRadius: `${randomBetween(20, 30)}px`,
+                    border: `${randomBetween(8, 12)}px solid ${pick([
+                        'rgba(167, 139, 250, 0.18)',
+                        'rgba(125, 211, 252, 0.18)',
+                        'rgba(47, 103, 177, 0.16)',
+                    ])}`,
+                    background: 'transparent',
+                };
+            },
+            () => {
+                const size = randomBetween(72, 150);
+                return {
+                    width: size,
+                    height: size,
+                    borderRadius: '999px',
+                    background: pick([
+                        'rgba(47, 103, 177, 0.08)',
+                        'rgba(245, 155, 47, 0.08)',
+                        'rgba(16, 185, 129, 0.08)',
+                    ]),
+                    filter: `blur(${randomBetween(1, 3)}px)`,
+                };
+            }
+        ];
+
+        for (let row = 0; row < rows; row += 1) {
+            for (let col = 0; col < columns; col += 1) {
+                const shape = shapeFactories[Math.floor(Math.random() * shapeFactories.length)]();
+                const offsetX = randomBetween(cellWidth * 0.16, cellWidth * 0.84);
+                const offsetY = randomBetween(cellHeight * 0.14, cellHeight * 0.86);
+                const left = clamp((col * cellWidth) + offsetX - (shape.width / 2), 0, width - shape.width);
+                const top = clamp((row * cellHeight) + offsetY - (shape.height / 2), 0, height - shape.height);
+
+                shapes.push({
+                    left,
+                    top,
+                    rotate: randomBetween(-32, 32),
+                    opacity: randomBetween(0.72, 1),
+                    ...shape,
+                });
+            }
+        }
+
+        layer.replaceChildren();
+
+        for (const shape of shuffle(shapes)) {
+            const node = document.createElement('span');
+            node.style.position = 'absolute';
+            node.style.left = `${shape.left}px`;
+            node.style.top = `${shape.top}px`;
+            node.style.width = `${shape.width}px`;
+            node.style.height = `${shape.height}px`;
+            node.style.transform = `rotate(${shape.rotate}deg)`;
+            node.style.borderRadius = shape.borderRadius;
+            node.style.opacity = shape.opacity;
+            node.style.background = shape.background || 'transparent';
+            node.style.border = shape.border || 'none';
+            node.style.filter = shape.filter || 'none';
+            layer.appendChild(node);
+        }
+    }
+
+    function randomBetween(min, max) {
+        return min + (Math.random() * (max - min));
+    }
+
+    function pick(items) {
+        return items[Math.floor(Math.random() * items.length)];
+    }
+
+    function shuffle(items) {
+        const copy = [...items];
+
+        for (let index = copy.length - 1; index > 0; index -= 1) {
+            const swapIndex = Math.floor(Math.random() * (index + 1));
+            [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
+        }
+
+        return copy;
+    }
+
+    function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        buildHomeRandomShapes();
+
+        let resizeTimeout = null;
+        window.addEventListener('resize', () => {
+            window.clearTimeout(resizeTimeout);
+            resizeTimeout = window.setTimeout(buildHomeRandomShapes, 180);
+        });
+    });
+</script>
 @endsection
