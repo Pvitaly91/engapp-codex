@@ -10,6 +10,7 @@
   if (!stickyHeader) return;
   const siteHeader = document.getElementById('site-header') || document.querySelector('body > .relative > header');
   const siteHeaderInner = siteHeader ? siteHeader.querySelector('div') : null;
+  const catalogShell = document.getElementById('catalog-shell');
 
   // Desktop media query (min-width: 1024px)
   const desktopQuery = window.matchMedia('(min-width: 1024px)');
@@ -17,6 +18,22 @@
   let originalHeight = 0;
   let stuckHeight = 0;
   let spacer = null;
+
+  function syncAttachedTestControls(isAttached) {
+    if (siteHeader) {
+      siteHeader.classList.toggle('has-attached-test-controls', isAttached);
+    }
+    if (siteHeaderInner) {
+      siteHeaderInner.classList.toggle('has-attached-test-controls', isAttached);
+    }
+    if (catalogShell) {
+      catalogShell.classList.toggle('has-attached-test-controls', isAttached);
+      if (!isAttached) {
+        // Force a reflow so shell border-radius transitions fully restore after unsticking.
+        void catalogShell.offsetHeight;
+      }
+    }
+  }
 
   // Create spacer element for layout shift prevention
   function createSpacer() {
@@ -82,12 +99,7 @@
     // Only apply sticky behavior on desktop
     if (!desktopQuery.matches) {
       stickyHeader.classList.remove('is-stuck', 'search-expanded');
-      if (siteHeader) {
-        siteHeader.classList.remove('has-attached-test-controls');
-      }
-      if (siteHeaderInner) {
-        siteHeaderInner.classList.remove('has-attached-test-controls');
-      }
+      syncAttachedTestControls(false);
       stickyHeader.style.removeProperty('--site-header-offset');
       stickyHeader.style.top = '';
       if (spacer) {
@@ -108,12 +120,7 @@
     
     if (isStuck && !wasStuck) {
       stickyHeader.classList.add('is-stuck');
-      if (siteHeader) {
-        siteHeader.classList.add('has-attached-test-controls');
-      }
-      if (siteHeaderInner) {
-        siteHeaderInner.classList.add('has-attached-test-controls');
-      }
+      syncAttachedTestControls(true);
       // Remove search-expanded when first becoming stuck
       stickyHeader.classList.remove('search-expanded');
       // Add spacer height to compensate for reduced header height
@@ -123,12 +130,7 @@
       }
     } else if (!isStuck && wasStuck) {
       stickyHeader.classList.remove('is-stuck', 'search-expanded');
-      if (siteHeader) {
-        siteHeader.classList.remove('has-attached-test-controls');
-      }
-      if (siteHeaderInner) {
-        siteHeaderInner.classList.remove('has-attached-test-controls');
-      }
+      syncAttachedTestControls(false);
       if (spacer) {
         spacer.style.height = '0';
       }

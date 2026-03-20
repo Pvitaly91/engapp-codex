@@ -1,12 +1,12 @@
-<div x-data="wordSearch()" class="space-y-1.5 sm:space-y-2">
+<div x-data="wordSearch()" @click.outside="close()" class="space-y-1.5 sm:space-y-2">
     <div class="flex flex-wrap items-center justify-between gap-1">
         <label for="word-search" class="text-xs sm:text-sm font-semibold text-gray-800">Пошук слова</label>
         <span class="text-[11px] sm:text-xs text-gray-500">Швидка допомога під час тесту</span>
     </div>
     <div class="relative">
-        <input id="word-search" type="text" x-model="query" @input="search" placeholder="Введіть слово"
+        <input id="word-search" type="text" x-model="query" @input.debounce.150ms="search" @focus="reopen()" @keydown.escape.stop.prevent="close()" placeholder="Введіть слово"
                class="w-full rounded-xl sm:rounded-2xl border border-indigo-100 bg-white px-3 py-2.5 text-sm sm:px-4 sm:py-3 sm:text-base shadow transition focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-200" autocomplete="off">
-        <div x-show="results.length" x-transition class="absolute left-0 right-0 z-20 mt-2 rounded-2xl border border-gray-200 bg-white shadow-xl">
+        <div x-show="open && results.length" x-cloak x-transition class="absolute left-0 right-0 z-20 mt-2 rounded-2xl border border-gray-200 bg-white shadow-xl">
             <div class="divide-y divide-gray-100 max-h-72 overflow-y-auto">
                 <template x-for="item in results" :key="item.word">
                     <div class="px-4 py-3 text-sm hover:bg-indigo-50/60">
@@ -38,14 +38,46 @@ function wordSearch() {
     return {
         query: '',
         results: [],
-        search() {
-            if (this.query.length < 2) {
+        open: false,
+        requestId: 0,
+        close() {
+            this.open = false;
+        },
+        reopen() {
+            if (this.query.trim().length >= 2 && this.results.length) {
+                this.open = true;
+            }
+        },
+        async search() {
+            const query = this.query.trim();
+            const requestId = ++this.requestId;
+
+            if (query.length < 2) {
                 this.results = [];
+                this.open = false;
                 return;
             }
-            fetch('/words?q=' + encodeURIComponent(this.query))
-                .then(res => res.json())
-                .then(data => this.results = data);
+
+            try {
+                const response = await fetch('/words?q=' + encodeURIComponent(query), {
+                    headers: { 'Accept': 'application/json' }
+                });
+                const data = await response.json();
+
+                if (requestId !== this.requestId) {
+                    return;
+                }
+
+                this.results = Array.isArray(data) ? data : [];
+                this.open = this.results.length > 0;
+            } catch (error) {
+                if (requestId !== this.requestId) {
+                    return;
+                }
+
+                this.results = [];
+                this.open = false;
+            }
         }
     }
 }

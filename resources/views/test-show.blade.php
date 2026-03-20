@@ -38,6 +38,17 @@
         padding-bottom: 0.75rem !important;
     }
 
+    #catalog-shell.has-attached-test-controls {
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+    }
+
+    #catalog-shell.has-attached-test-controls #site-header,
+    #catalog-shell.has-attached-test-controls #site-header::before {
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+    }
+
     #new-design-test-shell .sticky-test-header.is-stuck {
         z-index: 39 !important;
     }
