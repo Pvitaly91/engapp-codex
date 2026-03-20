@@ -286,7 +286,7 @@
                             <form @submit.prevent="go">
                                 <input x-model="query" @input="autocomplete" @keydown.escape="open = false" type="search" placeholder="{{ __('public.search.placeholder') }}" class="w-72 rounded-2xl border px-4 py-3 text-sm font-medium shadow-sm outline-none transition focus:border-ocean focus:ring-2 focus:ring-blue-100 surface-card-strong">
                             </form>
-                            <div x-show="open" x-cloak x-transition class="absolute left-0 right-0 top-full z-30 mt-2 overflow-hidden rounded-[22px] border shadow-card surface-card-strong">
+                            <div x-show="open" x-cloak x-transition class="absolute left-0 right-0 top-full z-30 mt-2 max-h-[min(28rem,calc(100vh-8rem))] overflow-y-auto overscroll-contain rounded-[22px] border shadow-card surface-card-strong">
                                 <template x-if="!results.length">
                                     <div class="px-4 py-3 text-sm" style="color: var(--muted);">{{ __('public.search.nothing_found') }}</div>
                                 </template>
@@ -357,7 +357,7 @@
                             <form @submit.prevent="go">
                                 <input x-model="query" @input="autocomplete" @keydown.escape="open = false" type="search" placeholder="{{ __('public.search.placeholder') }}" class="w-full rounded-2xl border px-4 py-3 text-sm font-medium outline-none transition focus:border-ocean focus:ring-2 focus:ring-blue-100 surface-card-strong">
                             </form>
-                            <div x-show="open" x-cloak x-transition class="absolute left-0 right-0 top-full z-20 mt-2 overflow-hidden rounded-[22px] border shadow-card surface-card-strong">
+                            <div x-show="open" x-cloak x-transition class="absolute left-0 right-0 top-full z-20 mt-2 max-h-[min(24rem,calc(100vh-10rem))] overflow-y-auto overscroll-contain rounded-[22px] border shadow-card surface-card-strong">
                                 <template x-for="item in results" :key="item.url">
                                     <a :href="item.url" class="block border-b px-4 py-3 last:border-b-0 hover:bg-blue-50/80 dark:hover:bg-slate-800/70" style="border-color: var(--line);">
                                         <p class="font-semibold" x-html="highlight(item.title)"></p>
