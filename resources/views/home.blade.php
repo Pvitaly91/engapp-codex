@@ -67,7 +67,7 @@
         [
             'href' => localized_route('catalog.tests-cards'),
             'eyebrow' => __('public.nav.catalog'),
-            'title' => __('public.nav.catalog'),
+            'title' => __('public.home.catalog_title'),
             'description' => __('public.home.catalog_desc'),
             'badge' => '01',
             'accent' => 'bg-ocean',
@@ -76,7 +76,7 @@
         [
             'href' => localized_route('theory.index'),
             'eyebrow' => __('public.nav.theory'),
-            'title' => __('public.nav.theory'),
+            'title' => __('public.home.theory_title'),
             'description' => __('public.home.theory_desc'),
             'badge' => '02',
             'accent' => 'bg-amber',
@@ -85,7 +85,7 @@
         [
             'href' => localized_route('words.test'),
             'eyebrow' => __('public.nav.words_test'),
-            'title' => __('public.nav.words_test'),
+            'title' => __('public.home.words_title'),
             'description' => __('public.home.words_desc'),
             'badge' => '03',
             'accent' => 'bg-slate-800 dark:bg-slate-200',
@@ -94,7 +94,7 @@
         [
             'href' => localized_route('verbs.test'),
             'eyebrow' => __('public.nav.verbs_test'),
-            'title' => __('public.nav.verbs_test'),
+            'title' => __('public.home.verbs_title'),
             'description' => __('public.home.verbs_desc'),
             'badge' => '04',
             'accent' => 'bg-emerald-500',
@@ -250,7 +250,7 @@
                 <div class="flex items-start justify-between gap-4">
                     <div>
                         <p class="text-xs font-extrabold uppercase tracking-[0.28em]" style="color: var(--accent);">{{ __('public.home.search_block_title') }}</p>
-                        <h2 class="mt-3 font-display text-2xl font-extrabold leading-tight">{{ __('public.search.placeholder') }}</h2>
+                        <h2 class="mt-3 font-display text-2xl font-extrabold leading-tight">{{ __('public.home.search_block_heading') }}</h2>
                     </div>
                     <span class="inline-flex h-14 w-14 items-center justify-center rounded-[20px] bg-amber text-lg font-extrabold text-white">GO</span>
                 </div>

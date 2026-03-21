@@ -264,8 +264,13 @@
 
             .nd-page {
                 width: 100% !important;
+                overflow: visible !important;
                 padding-inline: 0 !important;
                 padding-block: 1rem 1.25rem !important;
+            }
+
+            main {
+                overflow: visible;
             }
         }
 
