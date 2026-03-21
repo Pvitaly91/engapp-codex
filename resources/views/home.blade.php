@@ -305,14 +305,15 @@
         const compact = width < 640;
         const medium = width >= 640 && width < 1024;
         const sizeScale = compact ? 0.68 : (medium ? 0.82 : 1);
-        const columns = compact ? 2 : (medium ? 3 : (width >= 1280 ? 5 : 4));
+        const columns = compact ? 3 : (medium ? 4 : (width >= 1280 ? 6 : 5));
         const rows = compact
-            ? Math.max(6, Math.min(11, Math.round(height / 165)))
-            : Math.max(5, Math.min(8, Math.round(height / 190)));
+            ? Math.max(7, Math.min(13, Math.round(height / 150)))
+            : Math.max(6, Math.min(10, Math.round(height / 175)));
         const cellWidth = width / columns;
         const cellHeight = height / rows;
         const shapes = [];
         const scaledBetween = (min, max) => randomBetween(min * sizeScale, max * sizeScale);
+        const accentBetween = (min, max) => randomBetween(min * sizeScale * 0.58, max * sizeScale * 0.58);
 
         const shapeFactories = [
             () => {
@@ -512,6 +513,67 @@
             }
         ];
 
+        const accentFactories = [
+            () => {
+                const size = accentBetween(18, 42);
+                return {
+                    width: size,
+                    height: size,
+                    borderRadius: '999px',
+                    background: pick([
+                        'rgba(47, 103, 177, 0.14)',
+                        'rgba(245, 155, 47, 0.14)',
+                        'rgba(16, 185, 129, 0.12)',
+                        'rgba(217, 70, 239, 0.10)',
+                    ]),
+                };
+            },
+            () => {
+                const width = accentBetween(28, 72);
+                const height = accentBetween(8, 20);
+                return {
+                    width,
+                    height,
+                    borderRadius: '999px',
+                    background: pick([
+                        'rgba(47, 103, 177, 0.16)',
+                        'rgba(245, 155, 47, 0.16)',
+                        'rgba(16, 185, 129, 0.14)',
+                        'rgba(56, 189, 248, 0.14)',
+                    ]),
+                };
+            },
+            () => {
+                const size = accentBetween(24, 58);
+                const stroke = accentBetween(4, 9);
+                return {
+                    width: size,
+                    height: size,
+                    borderRadius: '999px',
+                    border: `${stroke}px solid ${pick([
+                        'rgba(125, 211, 252, 0.22)',
+                        'rgba(251, 191, 36, 0.22)',
+                        'rgba(16, 185, 129, 0.18)',
+                        'rgba(217, 70, 239, 0.16)',
+                    ])}`,
+                    background: 'transparent',
+                };
+            },
+            () => {
+                const size = accentBetween(20, 46);
+                return {
+                    width: size,
+                    height: size,
+                    background: pick([
+                        'rgba(245, 155, 47, 0.12)',
+                        'rgba(125, 211, 252, 0.12)',
+                        'rgba(16, 185, 129, 0.10)',
+                    ]),
+                    clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+                };
+            }
+        ];
+
         for (let row = 0; row < rows; row += 1) {
             for (let col = 0; col < columns; col += 1) {
                 const shape = shapeFactories[Math.floor(Math.random() * shapeFactories.length)]();
@@ -528,6 +590,22 @@
                     ...shape,
                 });
             }
+        }
+
+        const accentShapesCount = compact ? 18 : (medium ? 28 : 42);
+
+        for (let index = 0; index < accentShapesCount; index += 1) {
+            const shape = accentFactories[Math.floor(Math.random() * accentFactories.length)]();
+            const left = clamp(randomBetween(width * 0.03, width * 0.97) - (shape.width / 2), 0, width - shape.width);
+            const top = clamp(randomBetween(height * 0.03, height * 0.97) - (shape.height / 2), 0, height - shape.height);
+
+            shapes.push({
+                left,
+                top,
+                rotate: randomBetween(-40, 40),
+                opacity: randomBetween(0.5, 0.88),
+                ...shape,
+            });
         }
 
         layer.replaceChildren();
