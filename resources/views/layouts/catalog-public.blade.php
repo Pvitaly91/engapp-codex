@@ -78,6 +78,7 @@
         [x-cloak] { display: none !important; }
 
         body {
+            margin: 0;
             background: var(--app-bg);
             color: var(--text);
         }
@@ -129,6 +130,7 @@
         }
 
         .catalog-shell {
+            position: relative;
             background:
                 radial-gradient(circle at top, rgba(104, 165, 231, 0.10), transparent 24%),
                 linear-gradient(180deg, var(--shell-bg) 0%, color-mix(in srgb, var(--shell-bg) 92%, white) 100%);
@@ -193,6 +195,12 @@
             overflow: hidden;
         }
 
+        .catalog-shell > main,
+        .catalog-shell > footer {
+            position: relative;
+            z-index: 1;
+        }
+
         .nd-page {
             overflow: hidden;
             padding-inline: 0.75rem;
@@ -207,6 +215,58 @@
         .nd-section-tight {
             padding-inline: 0;
             padding-block: 2rem;
+        }
+
+        .catalog-frame {
+            width: 100%;
+        }
+
+        @media (max-width: 1023px) {
+            body {
+                background: var(--shell-bg);
+                overflow-x: hidden;
+            }
+
+            .app-fixed-background {
+                display: none;
+            }
+
+            .catalog-frame {
+                width: 100vw !important;
+                max-width: 100vw !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .catalog-shell {
+                width: 100vw !important;
+                min-height: 100dvh;
+                margin: 0 !important;
+                border: 0 !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+            }
+
+            .site-header,
+            .site-header::before,
+            .footer-shell {
+                border-radius: 0 !important;
+            }
+
+            .site-header {
+                width: 100% !important;
+                padding-inline: 0 !important;
+            }
+
+            .site-header > div {
+                padding-inline: 1rem;
+            }
+
+            .nd-page {
+                width: 100% !important;
+                padding-inline: 0 !important;
+                padding-block: 1rem 1.25rem !important;
+            }
         }
 
         @media (min-width: 640px) {
@@ -250,10 +310,11 @@
 </head>
 <body class="min-h-full font-body antialiased">
     <div class="app-fixed-background" aria-hidden="true"></div>
-    <div class="relative mx-auto max-w-[1440px] px-4 py-5 sm:px-6 lg:px-8 lg:py-6">
-        <div id="catalog-shell" class="catalog-shell rounded-[30px] border shadow-panel">
-            <header id="site-header" class="site-header border-b px-5 py-4 sm:px-8 surface-card" style="border-color: var(--line);">
-                <div class="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+    <div class="catalog-frame relative mx-auto max-w-[1440px] px-0 py-0 lg:px-8 lg:py-6">
+        <div id="catalog-shell" class="catalog-shell rounded-none border-0 shadow-none lg:rounded-[30px] lg:border lg:shadow-panel">
+            @yield('shell_background')
+            <header id="site-header" class="site-header border-b px-0 py-4 lg:px-8 surface-card" style="border-color: var(--line);">
+                <div class="flex flex-col gap-4 px-4 xl:flex-row xl:items-center xl:justify-between lg:px-0">
                     <div class="flex items-center justify-between gap-4">
                         <a href="{{ localized_route('home') }}" class="flex items-center gap-3" aria-label="Gramlyze">
                             <x-gramlyze-logo variant="compact" class="h-12 w-12 rounded-2xl bg-[linear-gradient(135deg,#f7b34c_0%,#fff0d7_50%,#2f67b1_100%)] shadow-card" />
@@ -385,7 +446,7 @@
                 </div>
             </header>
 
-            <main>
+            <main class="px-4 lg:px-0">
                 @yield('content')
             </main>
 

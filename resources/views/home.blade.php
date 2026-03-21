@@ -4,7 +4,9 @@
 
 @section('head')
 <style>
-    .home-decor-page #home-random-shapes {
+    #home-random-shapes {
+        position: absolute;
+        inset: 0;
         z-index: 0;
     }
 
@@ -42,10 +44,14 @@
         background: color-mix(in srgb, rgba(245, 158, 11, 0.12) 90%, transparent) !important;
     }
 
-    .home-decor-page #home-random-shapes > span {
+    #home-random-shapes > span {
         will-change: transform, opacity;
     }
 </style>
+@endsection
+
+@section('shell_background')
+    <div id="home-random-shapes" class="pointer-events-none" aria-hidden="true"></div>
 @endsection
 
 @section('content')
@@ -104,8 +110,6 @@
 @endphp
 
 <div class="nd-page relative isolate home-decor-page">
-    <div id="home-random-shapes" class="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true"></div>
-
     <section class="nd-section-tight relative border-b" style="border-color: var(--line);">
 
         <div class="relative grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
@@ -291,11 +295,6 @@
             return;
         }
 
-        if (window.innerWidth < 1024) {
-            layer.replaceChildren();
-            return;
-        }
-
         const width = layer.offsetWidth;
         const height = layer.offsetHeight;
 
@@ -303,16 +302,22 @@
             return;
         }
 
-        const columns = width >= 1280 ? 5 : 4;
-        const rows = Math.max(5, Math.min(8, Math.round(height / 190)));
+        const compact = width < 640;
+        const medium = width >= 640 && width < 1024;
+        const sizeScale = compact ? 0.68 : (medium ? 0.82 : 1);
+        const columns = compact ? 2 : (medium ? 3 : (width >= 1280 ? 5 : 4));
+        const rows = compact
+            ? Math.max(6, Math.min(11, Math.round(height / 165)))
+            : Math.max(5, Math.min(8, Math.round(height / 190)));
         const cellWidth = width / columns;
         const cellHeight = height / rows;
         const shapes = [];
+        const scaledBetween = (min, max) => randomBetween(min * sizeScale, max * sizeScale);
 
         const shapeFactories = [
             () => {
-                const size = randomBetween(58, 124);
-                const stroke = randomBetween(8, 18);
+                const size = scaledBetween(58, 124);
+                const stroke = scaledBetween(8, 18);
                 return {
                     width: size,
                     height: size,
@@ -327,8 +332,8 @@
                 };
             },
             () => {
-                const width = randomBetween(72, 152);
-                const height = randomBetween(14, 34);
+                const width = scaledBetween(72, 152);
+                const height = scaledBetween(14, 34);
                 return {
                     width,
                     height,
@@ -343,13 +348,13 @@
                 };
             },
             () => {
-                const width = randomBetween(46, 92);
-                const height = randomBetween(46, 92);
+                const width = scaledBetween(46, 92);
+                const height = scaledBetween(46, 92);
                 return {
                     width,
                     height,
-                    borderRadius: `${randomBetween(18, 34)}px`,
-                    border: `${randomBetween(6, 12)}px solid ${pick([
+                    borderRadius: `${scaledBetween(18, 34)}px`,
+                    border: `${scaledBetween(6, 12)}px solid ${pick([
                         'rgba(16, 185, 129, 0.24)',
                         'rgba(125, 211, 252, 0.24)',
                         'rgba(217, 70, 239, 0.18)',
@@ -359,12 +364,12 @@
                 };
             },
             () => {
-                const width = randomBetween(38, 84);
-                const height = randomBetween(38, 84);
+                const width = scaledBetween(38, 84);
+                const height = scaledBetween(38, 84);
                 return {
                     width,
                     height,
-                    borderRadius: `${randomBetween(16, 28)}px`,
+                    borderRadius: `${scaledBetween(16, 28)}px`,
                     background: pick([
                         'rgba(245, 155, 47, 0.12)',
                         'rgba(16, 185, 129, 0.12)',
@@ -374,8 +379,8 @@
                 };
             },
             () => {
-                const width = randomBetween(18, 30);
-                const height = randomBetween(110, 190);
+                const width = scaledBetween(18, 30);
+                const height = scaledBetween(110, 190);
                 return {
                     width,
                     height,
@@ -388,13 +393,13 @@
                 };
             },
             () => {
-                const width = randomBetween(86, 156);
-                const height = randomBetween(42, 74);
+                const width = scaledBetween(86, 156);
+                const height = scaledBetween(42, 74);
                 return {
                     width,
                     height,
-                    borderRadius: `${randomBetween(20, 30)}px`,
-                    border: `${randomBetween(8, 12)}px solid ${pick([
+                    borderRadius: `${scaledBetween(20, 30)}px`,
+                    border: `${scaledBetween(8, 12)}px solid ${pick([
                         'rgba(167, 139, 250, 0.18)',
                         'rgba(125, 211, 252, 0.18)',
                         'rgba(47, 103, 177, 0.16)',
@@ -403,7 +408,7 @@
                 };
             },
             () => {
-                const size = randomBetween(72, 150);
+                const size = scaledBetween(72, 150);
                 return {
                     width: size,
                     height: size,
@@ -413,7 +418,96 @@
                         'rgba(245, 155, 47, 0.08)',
                         'rgba(16, 185, 129, 0.08)',
                     ]),
-                    filter: `blur(${randomBetween(1, 3)}px)`,
+                    filter: `blur(${scaledBetween(1, 3)}px)`,
+                };
+            },
+            () => {
+                const width = scaledBetween(62, 118);
+                const height = scaledBetween(54, 104);
+                return {
+                    width,
+                    height,
+                    background: pick([
+                        'rgba(245, 155, 47, 0.14)',
+                        'rgba(47, 103, 177, 0.14)',
+                        'rgba(16, 185, 129, 0.14)',
+                        'rgba(244, 114, 182, 0.12)',
+                    ]),
+                    clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+                };
+            },
+            () => {
+                const size = scaledBetween(54, 96);
+                return {
+                    width: size,
+                    height: size,
+                    background: pick([
+                        'rgba(125, 211, 252, 0.16)',
+                        'rgba(167, 139, 250, 0.14)',
+                        'rgba(251, 191, 36, 0.14)',
+                        'rgba(16, 185, 129, 0.14)',
+                    ]),
+                    clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+                };
+            },
+            () => {
+                const width = scaledBetween(72, 124);
+                const height = scaledBetween(62, 108);
+                return {
+                    width,
+                    height,
+                    background: pick([
+                        'rgba(47, 103, 177, 0.12)',
+                        'rgba(245, 155, 47, 0.12)',
+                        'rgba(16, 185, 129, 0.12)',
+                        'rgba(217, 70, 239, 0.10)',
+                    ]),
+                    clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)',
+                };
+            },
+            () => {
+                const size = scaledBetween(52, 92);
+                return {
+                    width: size,
+                    height: size,
+                    background: pick([
+                        'rgba(245, 155, 47, 0.16)',
+                        'rgba(125, 211, 252, 0.16)',
+                        'rgba(16, 185, 129, 0.14)',
+                        'rgba(217, 70, 239, 0.12)',
+                    ]),
+                    clipPath: 'polygon(35% 0%, 65% 0%, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0% 65%, 0% 35%, 35% 35%)',
+                };
+            },
+            () => {
+                const width = scaledBetween(64, 120);
+                const height = scaledBetween(58, 110);
+                return {
+                    width,
+                    height,
+                    background: pick([
+                        'rgba(47, 103, 177, 0.12)',
+                        'rgba(245, 155, 47, 0.12)',
+                        'rgba(16, 185, 129, 0.12)',
+                        'rgba(251, 113, 133, 0.10)',
+                    ]),
+                    clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)',
+                };
+            },
+            () => {
+                const size = scaledBetween(44, 82);
+                return {
+                    width: size,
+                    height: size,
+                    borderRadius: `${scaledBetween(14, 22)}px`,
+                    border: `${scaledBetween(5, 9)}px solid ${pick([
+                        'rgba(125, 211, 252, 0.24)',
+                        'rgba(251, 191, 36, 0.24)',
+                        'rgba(16, 185, 129, 0.22)',
+                        'rgba(217, 70, 239, 0.18)',
+                    ])}`,
+                    background: 'transparent',
+                    transformOverride: `rotate(${randomBetween(38, 52)}deg)`,
                 };
             }
         ];
@@ -451,6 +545,10 @@
             node.style.background = shape.background || 'transparent';
             node.style.border = shape.border || 'none';
             node.style.filter = shape.filter || 'none';
+            node.style.clipPath = shape.clipPath || 'none';
+            if (shape.transformOverride) {
+                node.style.transform = shape.transformOverride;
+            }
             layer.appendChild(node);
         }
     }
