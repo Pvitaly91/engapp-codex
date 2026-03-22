@@ -82,8 +82,8 @@
                     $hasChildren = $category->relationLoaded('children') && $category->children->isNotEmpty();
                     $hasPages = $category->relationLoaded('pages') && $category->pages->isNotEmpty();
                 @endphp
-                <article class="overflow-hidden rounded-[26px] border shadow-card surface-card-strong" style="border-color: var(--line);">
-                    <a href="{{ localized_route($routePrefix . '.category', $category->slug) }}" class="block border-b p-6" style="border-color: var(--line);">
+                <article class="flex h-full flex-col overflow-hidden rounded-[26px] border shadow-card surface-card-strong" style="border-color: var(--line);">
+                    <a href="{{ localized_route($routePrefix . '.category', $category->slug) }}" class="block shrink-0 border-b p-6" style="border-color: var(--line);">
                         <div class="flex items-start justify-between gap-4">
                             <span class="inline-flex h-14 w-14 items-center justify-center rounded-[20px] {{ $accent }} text-sm font-extrabold text-white dark:text-slate-950">
                                 {{ str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) }}
@@ -95,7 +95,7 @@
                         <h3 class="mt-5 font-display text-xl font-extrabold leading-tight">{{ $category->title }}</h3>
                     </a>
 
-                    <div class="space-y-4 p-5">
+                    <div class="flex flex-1 flex-col gap-4 p-5">
                         @if($hasChildren)
                             <div>
                                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.categories') }}</p>
@@ -126,7 +126,7 @@
                             </div>
                         @endif
 
-                        <a href="{{ localized_route($routePrefix . '.category', $category->slug) }}" class="inline-flex items-center gap-2 rounded-[18px] bg-ocean px-4 py-3 text-sm font-extrabold uppercase tracking-[0.18em] text-white transition hover:bg-[#245592]">
+                        <a href="{{ localized_route($routePrefix . '.category', $category->slug) }}" class="mt-auto self-start inline-flex items-center gap-2 rounded-[18px] bg-ocean px-4 py-3 text-sm font-extrabold uppercase tracking-[0.18em] text-white transition hover:bg-[#245592]">
                             {{ __('public.common.go_to') }}
                             <span>+</span>
                         </a>
