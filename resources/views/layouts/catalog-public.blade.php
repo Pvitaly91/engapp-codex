@@ -201,6 +201,34 @@
             z-index: 1;
         }
 
+        #shell-random-shapes {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        #shell-random-shapes > span {
+            will-change: transform, opacity;
+        }
+
+        .decorated-content .surface-card {
+            background: color-mix(in srgb, var(--surface) 82%, transparent);
+            backdrop-filter: blur(12px) saturate(1.05);
+            -webkit-backdrop-filter: blur(12px) saturate(1.05);
+        }
+
+        .decorated-content .surface-card-strong {
+            background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
+            backdrop-filter: blur(14px) saturate(1.04);
+            -webkit-backdrop-filter: blur(14px) saturate(1.04);
+        }
+
+        .decorated-content .soft-accent {
+            background: color-mix(in srgb, var(--accent-soft) 72%, transparent);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
         .nd-page {
             overflow: hidden;
             padding-inline: 0.75rem;
@@ -317,6 +345,7 @@
     <div class="app-fixed-background" aria-hidden="true"></div>
     <div class="catalog-frame relative mx-auto max-w-[1440px] px-0 py-0 lg:px-8 lg:py-6">
         <div id="catalog-shell" class="catalog-shell rounded-none border-0 shadow-none lg:rounded-[30px] lg:border lg:shadow-panel">
+            <div id="shell-random-shapes" class="pointer-events-none" aria-hidden="true"></div>
             @yield('shell_background')
             <header id="site-header" class="site-header border-b px-0 py-4 lg:px-8 surface-card" style="border-color: var(--line);">
                 <div class="flex flex-col gap-4 px-4 xl:flex-row xl:items-center xl:justify-between lg:px-0">
@@ -451,7 +480,7 @@
                 </div>
             </header>
 
-            <main class="px-4 lg:px-0">
+            <main class="decorated-content px-4 lg:px-0">
                 @yield('content')
             </main>
 
@@ -602,7 +631,376 @@
             window.addEventListener('resize', requestSync);
         }
 
-        document.addEventListener('DOMContentLoaded', initStickyShellHeader);
+        function buildShellRandomShapes() {
+            const layer = document.getElementById('shell-random-shapes');
+
+            if (!layer) {
+                return;
+            }
+
+            const width = layer.offsetWidth;
+            const height = layer.offsetHeight;
+
+            if (!width || !height) {
+                return;
+            }
+
+            const randomBetween = (min, max) => min + (Math.random() * (max - min));
+            const pick = (items) => items[Math.floor(Math.random() * items.length)];
+            const shuffle = (items) => {
+                const copy = [...items];
+
+                for (let index = copy.length - 1; index > 0; index -= 1) {
+                    const swapIndex = Math.floor(Math.random() * (index + 1));
+                    [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
+                }
+
+                return copy;
+            };
+            const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+            const compact = width < 640;
+            const medium = width >= 640 && width < 1024;
+            const sizeScale = compact ? 0.68 : (medium ? 0.82 : 1);
+            const columns = compact ? 3 : (medium ? 4 : (width >= 1280 ? 6 : 5));
+            const rows = compact
+                ? Math.max(7, Math.min(13, Math.round(height / 150)))
+                : Math.max(6, Math.min(10, Math.round(height / 175)));
+            const cellWidth = width / columns;
+            const cellHeight = height / rows;
+            const shapes = [];
+            const scaledBetween = (min, max) => randomBetween(min * sizeScale, max * sizeScale);
+            const accentBetween = (min, max) => randomBetween(min * sizeScale * 0.58, max * sizeScale * 0.58);
+
+            const shapeFactories = [
+                () => {
+                    const size = scaledBetween(58, 124);
+                    const stroke = scaledBetween(8, 18);
+                    return {
+                        width: size,
+                        height: size,
+                        borderRadius: '999px',
+                        border: `${stroke}px solid ${pick([
+                            'rgba(47, 103, 177, 0.24)',
+                            'rgba(116, 169, 240, 0.30)',
+                            'rgba(156, 163, 175, 0.24)',
+                            'rgba(125, 211, 252, 0.28)',
+                        ])}`,
+                        background: 'transparent',
+                    };
+                },
+                () => {
+                    const width = scaledBetween(72, 152);
+                    const height = scaledBetween(14, 34);
+                    return {
+                        width,
+                        height,
+                        borderRadius: '999px',
+                        background: pick([
+                            'rgba(47, 103, 177, 0.18)',
+                            'rgba(245, 155, 47, 0.18)',
+                            'rgba(16, 185, 129, 0.18)',
+                            'rgba(244, 114, 182, 0.14)',
+                            'rgba(56, 189, 248, 0.16)',
+                        ]),
+                    };
+                },
+                () => {
+                    const width = scaledBetween(46, 92);
+                    const height = scaledBetween(46, 92);
+                    return {
+                        width,
+                        height,
+                        borderRadius: `${scaledBetween(18, 34)}px`,
+                        border: `${scaledBetween(6, 12)}px solid ${pick([
+                            'rgba(16, 185, 129, 0.24)',
+                            'rgba(125, 211, 252, 0.24)',
+                            'rgba(217, 70, 239, 0.18)',
+                            'rgba(251, 191, 36, 0.22)',
+                        ])}`,
+                        background: 'transparent',
+                    };
+                },
+                () => {
+                    const width = scaledBetween(38, 84);
+                    const height = scaledBetween(38, 84);
+                    return {
+                        width,
+                        height,
+                        borderRadius: `${scaledBetween(16, 28)}px`,
+                        background: pick([
+                            'rgba(245, 155, 47, 0.12)',
+                            'rgba(16, 185, 129, 0.12)',
+                            'rgba(47, 103, 177, 0.10)',
+                            'rgba(251, 113, 133, 0.10)',
+                        ]),
+                    };
+                },
+                () => {
+                    const width = scaledBetween(18, 30);
+                    const height = scaledBetween(110, 190);
+                    return {
+                        width,
+                        height,
+                        borderRadius: '999px',
+                        background: pick([
+                            'rgba(245, 155, 47, 0.14)',
+                            'rgba(47, 103, 177, 0.14)',
+                            'rgba(16, 185, 129, 0.12)',
+                        ]),
+                    };
+                },
+                () => {
+                    const width = scaledBetween(86, 156);
+                    const height = scaledBetween(42, 74);
+                    return {
+                        width,
+                        height,
+                        borderRadius: `${scaledBetween(20, 30)}px`,
+                        border: `${scaledBetween(8, 12)}px solid ${pick([
+                            'rgba(167, 139, 250, 0.18)',
+                            'rgba(125, 211, 252, 0.18)',
+                            'rgba(47, 103, 177, 0.16)',
+                        ])}`,
+                        background: 'transparent',
+                    };
+                },
+                () => {
+                    const size = scaledBetween(72, 150);
+                    return {
+                        width: size,
+                        height: size,
+                        borderRadius: '999px',
+                        background: pick([
+                            'rgba(47, 103, 177, 0.08)',
+                            'rgba(245, 155, 47, 0.08)',
+                            'rgba(16, 185, 129, 0.08)',
+                        ]),
+                        filter: `blur(${scaledBetween(1, 3)}px)`,
+                    };
+                },
+                () => {
+                    const width = scaledBetween(62, 118);
+                    const height = scaledBetween(54, 104);
+                    return {
+                        width,
+                        height,
+                        background: pick([
+                            'rgba(245, 155, 47, 0.14)',
+                            'rgba(47, 103, 177, 0.14)',
+                            'rgba(16, 185, 129, 0.14)',
+                            'rgba(244, 114, 182, 0.12)',
+                        ]),
+                        clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+                    };
+                },
+                () => {
+                    const size = scaledBetween(54, 96);
+                    return {
+                        width: size,
+                        height: size,
+                        background: pick([
+                            'rgba(125, 211, 252, 0.16)',
+                            'rgba(167, 139, 250, 0.14)',
+                            'rgba(251, 191, 36, 0.14)',
+                            'rgba(16, 185, 129, 0.14)',
+                        ]),
+                        clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+                    };
+                },
+                () => {
+                    const width = scaledBetween(72, 124);
+                    const height = scaledBetween(62, 108);
+                    return {
+                        width,
+                        height,
+                        background: pick([
+                            'rgba(47, 103, 177, 0.12)',
+                            'rgba(245, 155, 47, 0.12)',
+                            'rgba(16, 185, 129, 0.12)',
+                            'rgba(217, 70, 239, 0.10)',
+                        ]),
+                        clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)',
+                    };
+                },
+                () => {
+                    const size = scaledBetween(52, 92);
+                    return {
+                        width: size,
+                        height: size,
+                        background: pick([
+                            'rgba(245, 155, 47, 0.16)',
+                            'rgba(125, 211, 252, 0.16)',
+                            'rgba(16, 185, 129, 0.14)',
+                            'rgba(217, 70, 239, 0.12)',
+                        ]),
+                        clipPath: 'polygon(35% 0%, 65% 0%, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0% 65%, 0% 35%, 35% 35%)',
+                    };
+                },
+                () => {
+                    const width = scaledBetween(64, 120);
+                    const height = scaledBetween(58, 110);
+                    return {
+                        width,
+                        height,
+                        background: pick([
+                            'rgba(47, 103, 177, 0.12)',
+                            'rgba(245, 155, 47, 0.12)',
+                            'rgba(16, 185, 129, 0.12)',
+                            'rgba(251, 113, 133, 0.10)',
+                        ]),
+                        clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)',
+                    };
+                },
+                () => {
+                    const size = scaledBetween(44, 82);
+                    return {
+                        width: size,
+                        height: size,
+                        borderRadius: `${scaledBetween(14, 22)}px`,
+                        border: `${scaledBetween(5, 9)}px solid ${pick([
+                            'rgba(125, 211, 252, 0.24)',
+                            'rgba(251, 191, 36, 0.24)',
+                            'rgba(16, 185, 129, 0.22)',
+                            'rgba(217, 70, 239, 0.18)',
+                        ])}`,
+                        background: 'transparent',
+                        transformOverride: `rotate(${randomBetween(38, 52)}deg)`,
+                    };
+                }
+            ];
+
+            const accentFactories = [
+                () => {
+                    const size = accentBetween(18, 42);
+                    return {
+                        width: size,
+                        height: size,
+                        borderRadius: '999px',
+                        background: pick([
+                            'rgba(47, 103, 177, 0.14)',
+                            'rgba(245, 155, 47, 0.14)',
+                            'rgba(16, 185, 129, 0.12)',
+                            'rgba(217, 70, 239, 0.10)',
+                        ]),
+                    };
+                },
+                () => {
+                    const width = accentBetween(28, 72);
+                    const height = accentBetween(8, 20);
+                    return {
+                        width,
+                        height,
+                        borderRadius: '999px',
+                        background: pick([
+                            'rgba(47, 103, 177, 0.16)',
+                            'rgba(245, 155, 47, 0.16)',
+                            'rgba(16, 185, 129, 0.14)',
+                            'rgba(56, 189, 248, 0.14)',
+                        ]),
+                    };
+                },
+                () => {
+                    const size = accentBetween(24, 58);
+                    const stroke = accentBetween(4, 9);
+                    return {
+                        width: size,
+                        height: size,
+                        borderRadius: '999px',
+                        border: `${stroke}px solid ${pick([
+                            'rgba(125, 211, 252, 0.22)',
+                            'rgba(251, 191, 36, 0.22)',
+                            'rgba(16, 185, 129, 0.18)',
+                            'rgba(217, 70, 239, 0.16)',
+                        ])}`,
+                        background: 'transparent',
+                    };
+                },
+                () => {
+                    const size = accentBetween(20, 46);
+                    return {
+                        width: size,
+                        height: size,
+                        background: pick([
+                            'rgba(245, 155, 47, 0.12)',
+                            'rgba(125, 211, 252, 0.12)',
+                            'rgba(16, 185, 129, 0.10)',
+                        ]),
+                        clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+                    };
+                }
+            ];
+
+            for (let row = 0; row < rows; row += 1) {
+                for (let col = 0; col < columns; col += 1) {
+                    const shape = shapeFactories[Math.floor(Math.random() * shapeFactories.length)]();
+                    const offsetX = randomBetween(cellWidth * 0.16, cellWidth * 0.84);
+                    const offsetY = randomBetween(cellHeight * 0.14, cellHeight * 0.86);
+                    const left = clamp((col * cellWidth) + offsetX - (shape.width / 2), 0, width - shape.width);
+                    const top = clamp((row * cellHeight) + offsetY - (shape.height / 2), 0, height - shape.height);
+
+                    shapes.push({
+                        left,
+                        top,
+                        rotate: randomBetween(-32, 32),
+                        opacity: randomBetween(0.72, 1),
+                        ...shape,
+                    });
+                }
+            }
+
+            const accentShapesCount = compact ? 18 : (medium ? 28 : 42);
+
+            for (let index = 0; index < accentShapesCount; index += 1) {
+                const shape = accentFactories[Math.floor(Math.random() * accentFactories.length)]();
+                const left = clamp(randomBetween(width * 0.03, width * 0.97) - (shape.width / 2), 0, width - shape.width);
+                const top = clamp(randomBetween(height * 0.03, height * 0.97) - (shape.height / 2), 0, height - shape.height);
+
+                shapes.push({
+                    left,
+                    top,
+                    rotate: randomBetween(-40, 40),
+                    opacity: randomBetween(0.5, 0.88),
+                    ...shape,
+                });
+            }
+
+            layer.replaceChildren();
+
+            for (const shape of shuffle(shapes)) {
+                const node = document.createElement('span');
+                node.style.position = 'absolute';
+                node.style.left = `${shape.left}px`;
+                node.style.top = `${shape.top}px`;
+                node.style.width = `${shape.width}px`;
+                node.style.height = `${shape.height}px`;
+                node.style.transform = `rotate(${shape.rotate}deg)`;
+                node.style.borderRadius = shape.borderRadius;
+                node.style.opacity = shape.opacity;
+                node.style.background = shape.background || 'transparent';
+                node.style.border = shape.border || 'none';
+                node.style.filter = shape.filter || 'none';
+                node.style.clipPath = shape.clipPath || 'none';
+                if (shape.transformOverride) {
+                    node.style.transform = shape.transformOverride;
+                }
+                layer.appendChild(node);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initStickyShellHeader();
+            window.requestAnimationFrame(buildShellRandomShapes);
+
+            let shellShapesResizeTimeout = null;
+            const scheduleShellShapes = () => {
+                window.clearTimeout(shellShapesResizeTimeout);
+                shellShapesResizeTimeout = window.setTimeout(buildShellRandomShapes, 180);
+            };
+
+            window.addEventListener('load', scheduleShellShapes, { once: true });
+            window.addEventListener('resize', scheduleShellShapes);
+        });
     </script>
     @livewireScripts
     @yield('scripts')
