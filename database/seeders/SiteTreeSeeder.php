@@ -41,6 +41,17 @@ class SiteTreeSeeder extends Seeder
             $this->createOrUpdateItem($section, null, $sortOrder, $baseVariant->id);
         }
 
+        $rootTitles = array_map(
+            static fn (array $section): string => $section['title'],
+            $tree
+        );
+
+        SiteTreeItem::query()
+            ->where('variant_id', $baseVariant->id)
+            ->whereNull('parent_id')
+            ->whereNotIn('title', $rootTitles)
+            ->delete();
+
         // Link pages to tree items
         $this->linkPagesToTreeItems($baseVariant->id);
     }
@@ -61,9 +72,22 @@ class SiteTreeSeeder extends Seeder
         );
 
         if (isset($data['children'])) {
+            $childTitles = [];
             foreach ($data['children'] as $childSortOrder => $child) {
+                $childTitles[] = $child['title'];
                 $this->createOrUpdateItem($child, $item->id, $childSortOrder, $variantId);
             }
+
+            SiteTreeItem::query()
+                ->where('variant_id', $variantId)
+                ->where('parent_id', $item->id)
+                ->whereNotIn('title', $childTitles)
+                ->delete();
+        } else {
+            SiteTreeItem::query()
+                ->where('variant_id', $variantId)
+                ->where('parent_id', $item->id)
+                ->delete();
         }
     }
 
@@ -77,6 +101,7 @@ class SiteTreeSeeder extends Seeder
 
         // Get all pages with their categories
         $pages = Page::with('category')->get();
+        $categories = PageCategory::query()->get();
 
         $linkedCount = 0;
         $notLinkedCount = 0;
@@ -85,20 +110,41 @@ class SiteTreeSeeder extends Seeder
             $result = $this->findMatchingPage($item, $pages);
             $linkedPage = $result['page'];
             $linkMethod = $result['method'];
+            $linkedTitle = null;
+            $linkedUrl = null;
 
             if ($linkedPage) {
-                $pageUrl = $this->generatePageUrl($linkedPage);
+                $linkedTitle = $linkedPage->title;
+                $linkedUrl = $this->generatePageUrl($linkedPage);
+            } else {
+                $categoryResult = $this->findMatchingCategory($item, $categories);
+                $linkedCategory = $categoryResult['category'];
+                $linkMethod = $categoryResult['method'];
+
+                if ($linkedCategory) {
+                    $linkedTitle = $linkedCategory->title;
+                    $linkedUrl = $this->generateCategoryUrl($linkedCategory);
+                }
+            }
+
+            if ($linkedTitle && $linkedUrl) {
                 
                 // Update the tree item with linked page info
                 $item->update([
-                    'linked_page_title' => $linkedPage->title,
-                    'linked_page_url' => $pageUrl,
+                    'linked_page_title' => $linkedTitle,
+                    'linked_page_url' => $linkedUrl,
                     'link_method' => $linkMethod,
                 ]);
 
                 $linkedCount++;
-                Log::info("✓ Linked: '{$item->title}' -> '{$linkedPage->title}' ({$pageUrl}) via {$linkMethod}");
+                Log::info("✓ Linked: '{$item->title}' -> '{$linkedTitle}' ({$linkedUrl}) via {$linkMethod}");
             } else {
+                $item->update([
+                    'linked_page_title' => null,
+                    'linked_page_url' => null,
+                    'link_method' => null,
+                ]);
+
                 $notLinkedCount++;
                 Log::info("✗ Not linked: '{$item->title}'");
             }
@@ -161,6 +207,45 @@ class SiteTreeSeeder extends Seeder
         }
 
         return ['page' => null, 'method' => null];
+    }
+
+    /**
+     * Find a matching category for a tree item using the same strategy as pages.
+     *
+     * @param SiteTreeItem $item
+     * @param \Illuminate\Database\Eloquent\Collection $categories
+     * @return array{category: PageCategory|null, method: string|null}
+     */
+    private function findMatchingCategory(SiteTreeItem $item, $categories): array
+    {
+        foreach ($categories as $category) {
+            if (strcasecmp(trim($item->title), trim($category->title)) === 0) {
+                return ['category' => $category, 'method' => 'exact_title'];
+            }
+        }
+
+        foreach ($categories as $category) {
+            if ($category->seeder) {
+                $seederBaseName = class_basename($category->seeder);
+                $normalizedTitle = $this->normalizeTitle($item->title);
+
+                if (strlen($normalizedTitle) > self::MIN_MATCH_LENGTH && stripos($seederBaseName, $normalizedTitle) !== false) {
+                    return ['category' => $category, 'method' => 'seeder_name'];
+                }
+            }
+        }
+
+        $potentialSlug = $this->titleToSlug($item->title);
+
+        if (strlen($potentialSlug) > self::MIN_MATCH_LENGTH) {
+            foreach ($categories as $category) {
+                if (stripos($category->slug, $potentialSlug) !== false || stripos($potentialSlug, $category->slug) !== false) {
+                    return ['category' => $category, 'method' => 'slug_match'];
+                }
+            }
+        }
+
+        return ['category' => null, 'method' => null];
     }
 
     /**
@@ -227,6 +312,16 @@ class SiteTreeSeeder extends Seeder
         return "/{$pageType}/{$categorySlug}/{$pageSlug}";
     }
 
+    /**
+     * Generate URL for a category based on its type.
+     */
+    private function generateCategoryUrl(PageCategory $category): string
+    {
+        $pageType = $category->type ?? 'pages';
+
+        return "/{$pageType}/{$category->slug}";
+    }
+
     private function getTreeData(): array
     {
         return [
@@ -264,10 +359,16 @@ class SiteTreeSeeder extends Seeder
                     ['title' => 'Few / A few / Little / A little — тонкі відмінності', 'level' => 'A2–B1'],
                     ['title' => 'Partitives with uncountable nouns — a piece of, a cup of…', 'level' => 'A2–B1'],
                     ['title' => 'No / None / Neither / Either як означники кількості', 'level' => 'B1'],
-                    ['title' => 'Some / Any — Кількість у ствердженні та запереченні', 'level' => 'A1–A2'],
-                    ['title' => 'Some / Any — Люди', 'level' => 'A2'],
-                    ['title' => 'Some / Any — Місця', 'level' => 'A2'],
-                    ['title' => 'Some / Any — Речі', 'level' => 'A2'],
+                    [
+                        'title' => 'Some / Any',
+                        'level' => 'A1–A2',
+                        'children' => [
+                            ['title' => 'Some / Any — Кількість у ствердженні та запереченні', 'level' => 'A1–A2'],
+                            ['title' => 'Some / Any — Люди', 'level' => 'A2'],
+                            ['title' => 'Somewhere / Anywhere / Nowhere / Everywhere — місця з Some / Any', 'level' => 'A2'],
+                            ['title' => 'Some / Any — Речі', 'level' => 'A2'],
+                        ],
+                    ],
                     ['title' => 'Articles with geographical names — артиклі з географічними назвами', 'level' => 'B2'],
                     ['title' => 'Advanced articles — узагальнення, generic reference (the rich, a tiger, ∅ people)', 'level' => 'C1'],
                 ],
@@ -349,14 +450,20 @@ class SiteTreeSeeder extends Seeder
                             ['title' => 'Past Simple vs Past Continuous — порівняння', 'level' => 'A2–B1'],
                             ['title' => 'Past Simple vs Present Perfect — порівняння', 'level' => 'B1'],
                             ['title' => 'Present tenses with future meaning — present simple / continuous для майбутнього', 'level' => 'B1'],
-                            ['title' => 'Future forms — will / be going to / Present Continuous', 'level' => 'A2–B1'],
                             ['title' => 'Timeline of tenses — лінійка часів', 'level' => 'B1–B2'],
                         ],
                     ],
                 ],
             ],
             [
-                'title' => '7. Модальні дієслова',
+                'title' => '7. Майбутні форми',
+                'level' => 'A2–B1',
+                'children' => [
+                    ['title' => 'Will vs Be Going To — яка різниця?', 'level' => 'A2–B1'],
+                ],
+            ],
+            [
+                'title' => '8. Модальні дієслова',
                 'level' => 'A1–C1',
                 'children' => [
                     ['title' => 'Can / Could — модальні дієслова', 'level' => 'A1–A2'],
@@ -372,14 +479,22 @@ class SiteTreeSeeder extends Seeder
                 ],
             ],
             [
-                'title' => '8. Питальні речення та заперечення',
+                'title' => '9. Питальні речення та заперечення',
                 'level' => 'A1–B2',
                 'children' => [
-                    ['title' => 'Question forms — як ставити запитання', 'level' => 'A1'],
-                    ['title' => 'Wh-questions — who, what, where, when, why, how', 'level' => 'A1–A2'],
-                    ['title' => 'Short answers — короткі відповіді', 'level' => 'A1'],
+                    [
+                        'title' => 'Види питальних речень',
+                        'level' => 'A1–B1',
+                        'children' => [
+                            ['title' => 'Yes/No Questions (General Questions) — Загальні питання', 'level' => 'A1'],
+                            ['title' => 'Wh-questions (Special Questions) — Спеціальні питання: who, what, where, when, why, how', 'level' => 'A1–A2'],
+                            ['title' => 'Answers to Questions — Короткі і повні відповіді (Yes, I do / No, I don\'t)', 'level' => 'A1'],
+                            ['title' => 'Alternative Questions — Альтернативні питання (coffee or tea?)', 'level' => 'A2'],
+                            ['title' => 'Question Tags (Disjunctive Questions) — Розділові питання: …, don\'t you? […, isn\'t it?]', 'level' => 'B1'],
+                            ['title' => 'Negative Questions — Заперечні питання (Don\'t you know…?)', 'level' => 'B1'],
+                        ],
+                    ],
                     ['title' => 'Question word order — порядок слів у питаннях', 'level' => 'A1–A2'],
-                    ['title' => 'Question tags — isn\'t it?, don\'t you?', 'level' => 'B1'],
                     ['title' => 'Subject vs object questions — who called you? vs who did you call?', 'level' => 'B1'],
                     ['title' => 'Indirect questions — Can you tell me…?', 'level' => 'B1–B2'],
                     ['title' => 'Negation in Simple — do/does/did + not', 'level' => 'A1–A2'],
@@ -389,7 +504,7 @@ class SiteTreeSeeder extends Seeder
                 ],
             ],
             [
-                'title' => '9. Прикметники та прислівники',
+                'title' => '10. Прикметники та прислівники',
                 'level' => 'A1–C1',
                 'children' => [
                     ['title' => 'Adjectives — базові описові слова', 'level' => 'A1'],
@@ -410,7 +525,7 @@ class SiteTreeSeeder extends Seeder
                 ],
             ],
             [
-                'title' => '10. Умовні речення',
+                'title' => '11. Умовні речення',
                 'level' => 'A2–C1',
                 'children' => [
                     ['title' => 'Zero Conditional — загальні факти та рутини', 'level' => 'A2–B1'],
@@ -427,7 +542,7 @@ class SiteTreeSeeder extends Seeder
                 ],
             ],
             [
-                'title' => '11. Переклад та типові помилки',
+                'title' => '12. Переклад та типові помилки',
                 'level' => 'A2–C1',
                 'children' => [
                     ['title' => 'Translation techniques — як перекладати ефективно', 'level' => 'B2'],
@@ -439,7 +554,7 @@ class SiteTreeSeeder extends Seeder
                 ],
             ],
             [
-                'title' => '12. Просунута граматика та стиль (Advanced grammar & style)',
+                'title' => '13. Просунута граматика та стиль (Advanced grammar & style)',
                 'level' => 'B1–C2',
                 'children' => [
                     ['title' => 'Inversion for emphasis — Never have I seen…', 'level' => 'C1'],
@@ -469,51 +584,47 @@ class SiteTreeSeeder extends Seeder
                 ],
             ],
             [
-                'title' => '13. Пасивний стан (Passive Voice)',
+                'title' => '14. Пасивний стан (Passive Voice)',
                 'level' => 'A2–C1',
                 'children' => [
+                    ['title' => 'Основні правила утворення пасиву', 'level' => 'A2'],
+                    ['title' => 'Заперечення та питання у пасивному стані', 'level' => 'A2–B1'],
+                    ['title' => 'Пасив з модальними дієсловами', 'level' => 'B1'],
+                    ['title' => 'Get-пасив (get + V3)', 'level' => 'B1'],
+                    ['title' => 'Каузатив (have/get something done)', 'level' => 'B1–B2'],
+                    ['title' => 'Пасив двооб\'єктних дієслів', 'level' => 'B1–B2'],
+                    ['title' => 'Безособовий пасив (Impersonal Passive)', 'level' => 'B1–B2'],
+                    ['title' => 'Пасив фразових дієслів', 'level' => 'B2'],
+                    ['title' => 'Обмеження вживання пасиву', 'level' => 'B2'],
+                    ['title' => 'Формальність та стиль пасиву', 'level' => 'B2–C1'],
+                    ['title' => 'Приклади вживання та типові помилки', 'level' => 'A2–B2'],
                     [
-                        'title' => 'База — Основи пасивного стану',
-                        'level' => 'A2',
+                        'title' => 'Пасив у різних часах',
+                        'level' => 'A2–B2',
                         'children' => [
-                            ['title' => 'Passive Voice — Що це і навіщо?', 'level' => 'A2'],
-                            ['title' => 'Passive Voice — Форма: be + V3 (Past Participle)', 'level' => 'A2'],
-                            ['title' => 'Present Simple Passive — Пасивний стан теперішнього часу', 'level' => 'A2'],
-                            ['title' => 'Past Simple Passive — Пасивний стан минулого часу', 'level' => 'A2'],
+                            ['title' => 'Present Simple Passive — Теперішній простий пасив', 'level' => 'A2'],
+                            ['title' => 'Present Continuous Passive — Теперішній тривалий пасив', 'level' => 'B1'],
+                            ['title' => 'Present Perfect Passive — Теперішній доконаний пасив', 'level' => 'B1'],
+                            ['title' => 'Past Simple Passive — Минулий простий пасив', 'level' => 'A2'],
+                            ['title' => 'Past Continuous Passive — Минулий тривалий пасив', 'level' => 'B1'],
+                            ['title' => 'Past Perfect Passive — Минулий доконаний пасив', 'level' => 'B1–B2'],
+                            ['title' => 'Future Simple Passive — Майбутній простий пасив', 'level' => 'B1'],
+                            ['title' => 'Future Continuous Passive — Майбутній тривалий пасив', 'level' => 'B2'],
+                            ['title' => 'Future Perfect Passive — Майбутній доконаний пасив', 'level' => 'B2'],
                         ],
                     ],
                     [
-                        'title' => 'Розширення граматики — Пасив у всіх часах',
-                        'level' => 'B1',
-                        'children' => [
-                            ['title' => 'Пасив у ключових часах — Passive in Key Tenses', 'level' => 'B1'],
-                            ['title' => 'Заперечення та питання у пасиві — Negatives & Questions in Passive', 'level' => 'B1'],
-                            ['title' => 'Passive з модальними дієсловами — Passive with Modals', 'level' => 'B1'],
-                        ],
-                    ],
-                    [
-                        'title' => 'Типові конструкції й "фішки"',
-                        'level' => 'B1–B2',
-                        'children' => [
-                            ['title' => 'Get-passive — розмовний пасив', 'level' => 'B1'],
-                            ['title' => 'Two-object verbs (give/send/offer) у пасиві', 'level' => 'B1–B2'],
-                            ['title' => 'By-phrase: коли додавати "by …", а коли ні', 'level' => 'B1–B2'],
-                            ['title' => 'Reporting / Impersonal Passive — безособовий пасив', 'level' => 'B1–B2'],
-                            ['title' => 'Prepositional Passive — пасив з прийменниковими дієсловами', 'level' => 'B1–B2'],
-                        ],
-                    ],
-                    [
-                        'title' => 'Просунутий рівень — Складні конструкції',
+                        'title' => 'Інфінітив та герундій у пасиві',
                         'level' => 'B2',
                         'children' => [
-                            ['title' => 'Passive з інфінітивами та герундіями', 'level' => 'B2'],
-                            ['title' => 'Стиль та типові помилки — де пасив доречний', 'level' => 'B2'],
+                            ['title' => 'Пасивний інфінітив — to be done / to have been done', 'level' => 'B2'],
+                            ['title' => 'Пасивний герундій — being done / having been done', 'level' => 'B2'],
                         ],
                     ],
                 ],
             ],
             [
-                'title' => '14. Прийменники (Prepositions)',
+                'title' => '15. Прийменники (Prepositions)',
                 'level' => 'A1–C1',
                 'children' => [
                     ['title' => 'Prepositions of place — in, on, at', 'level' => 'A1'],
@@ -525,7 +636,7 @@ class SiteTreeSeeder extends Seeder
                 ],
             ],
             [
-                'title' => '15. Дискурс та текст (Discourse & Text)',
+                'title' => '16. Дискурс та текст (Discourse & Text)',
                 'level' => 'C1–C2',
                 'children' => [
                     ['title' => "Cohesion & coherence — зв'язність тексту", 'level' => 'C1'],
