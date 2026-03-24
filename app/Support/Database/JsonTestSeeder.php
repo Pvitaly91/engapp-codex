@@ -19,6 +19,11 @@ abstract class JsonTestSeeder extends QuestionSeeder
     final public function run(): void
     {
         $definition = $this->loadDefinitionFromFile($this->definitionPath());
+        $definition = app(JsonTestLocalizationManager::class)->mergeDefinitionLocalizations(
+            $definition,
+            $this->definitionPath(),
+            static::class
+        );
 
         $this->seedDefinition($definition, $this->resolveSeederClassName($definition));
     }

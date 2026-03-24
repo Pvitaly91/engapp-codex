@@ -133,6 +133,7 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
     ? window.__INITIAL_JS_TEST_QUESTIONS__
     : [];
 const CSRF_TOKEN = '{{ csrf_token() }}';
+const TEST_LOCALE = @json(app()->getLocale());
 const JS_IS_ADMIN = Boolean(@json($isAdmin ?? false));
 window.__IS_ADMIN__ = JS_IS_ADMIN;
 const EXPLAIN_URL = '{{ localized_route('question.explain') }}';
@@ -760,6 +761,7 @@ function ensureExplanation(item, idx, selected, expected, key, slotIndex) {
     question_id: item.id,
     answer: selected,
     correct_answer: expected,
+    language: TEST_LOCALE,
   };
 
   if (typeof slotIndex === 'number') {
@@ -800,7 +802,7 @@ function ensureExplanation(item, idx, selected, expected, key, slotIndex) {
 }
 
 function fetchHints(q, idx, refresh = false) {
-  const payload = q.id ? { question_id: q.id } : { question: q.question };
+  const payload = q.id ? { question_id: q.id, locale: TEST_LOCALE } : { question: q.question, locale: TEST_LOCALE };
   if (refresh) payload.refresh = true;
   showLoader(true);
   fetch(HINT_URL, {

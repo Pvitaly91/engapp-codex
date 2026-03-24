@@ -81,6 +81,7 @@
         $seederDeleteConfirm = $dataProfile['delete_confirm'] ?? __('Видалити лог та пов’язані дані?');
         $seedRunOrdinal = $recentSeedRunOrdinals->get($seedRun->id);
         $seedRunIsRecent = !is_null($seedRunOrdinal);
+        $isLocalizationSeeder = ($dataProfile['type'] ?? null) === 'question_localizations';
         $questionCount = (int) ($seedRun->question_count ?? 0);
         $executedCheckboxId = 'executed-seeder-' . $seedRun->id;
         $deleteQuestionsCheckboxId = 'executed-delete-questions-' . $seedRun->id;
@@ -90,9 +91,11 @@
             $seedRun->display_class_basename ?? $seedRun->display_class_name ?? '',
             'Category'
         );
-        $executedLabelClasses = $isCategorySeeder
+        $executedLabelClasses = $isLocalizationSeeder
+            ? 'inline-flex items-center px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-semibold ring-1 ring-sky-200'
+            : ($isCategorySeeder
             ? 'inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold ring-1 ring-emerald-200'
-            : '';
+            : '');
     @endphp
     <div style="margin-left: {{ $indent }}rem;" data-seeder-node data-seed-run-id="{{ $seedRun->id }}" data-depth="{{ $depth }}">
         <div @class([
@@ -133,23 +136,25 @@
                                 @endif
 
                                 <p class="text-xs text-gray-500 mt-2 {{ $questionCount > 0 ? 'hidden' : '' }}" data-no-questions-message data-seed-run-id="{{ $seedRun->id }}">
-                                    Питання відсутні.
+                                    {{ $isLocalizationSeeder ? 'Локалізації доступні через попередній перегляд.' : 'Питання відсутні.' }}
                                 </p>
 
-                                <div class="mt-2 flex items-center gap-2 text-[11px] text-red-700">
-                                    <input type="checkbox"
-                                           id="{{ $deleteQuestionsCheckboxId }}"
-                                           name="delete_with_questions[]"
-                                           value="{{ $seedRun->class_name }}"
-                                           form="executed-bulk-delete-form"
-                                           class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
-                                           data-delete-with-questions-toggle
-                                           data-class-name="{{ $seedRun->class_name }}"
-                                           data-bulk-scope="executed">
-                                    <label for="{{ $deleteQuestionsCheckboxId }}" class="cursor-pointer select-none">
-                                        Видаляти також питання цього сидера
-                                    </label>
-                                </div>
+                                @unless($isLocalizationSeeder)
+                                    <div class="mt-2 flex items-center gap-2 text-[11px] text-red-700">
+                                        <input type="checkbox"
+                                               id="{{ $deleteQuestionsCheckboxId }}"
+                                               name="delete_with_questions[]"
+                                               value="{{ $seedRun->class_name }}"
+                                               form="executed-bulk-delete-form"
+                                               class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
+                                               data-delete-with-questions-toggle
+                                               data-class-name="{{ $seedRun->class_name }}"
+                                               data-bulk-scope="executed">
+                                        <label for="{{ $deleteQuestionsCheckboxId }}" class="cursor-pointer select-none">
+                                            Видаляти також питання цього сидера
+                                        </label>
+                                    </div>
+                                @endunless
 
                                 <div class="mt-3 space-y-3" data-seeder-section data-seed-run-id="{{ $seedRun->id }}">
                                     @if($questionCount > 0)

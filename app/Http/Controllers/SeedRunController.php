@@ -8,6 +8,7 @@ use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Models\TextBlock;
 use App\Services\QuestionDeletionService;
+use App\Support\Database\JsonTestLocalizationManager;
 use Database\Seeders\Pages\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
 use Database\Seeders\Pages\Concerns\PageCategoryDescriptionSeeder as PageCategoryDescriptionSeederBase;
 use Database\Seeders\QuestionSeeder as QuestionSeederBase;
@@ -34,7 +35,10 @@ class SeedRunController extends Controller
      */
     private ?array $seederClassMap = null;
 
-    public function __construct(private QuestionDeletionService $questionDeletionService)
+    public function __construct(
+        private QuestionDeletionService $questionDeletionService,
+        private JsonTestLocalizationManager $jsonTestLocalizationManager,
+    )
     {
     }
 
@@ -425,6 +429,9 @@ class SeedRunController extends Controller
             ->map(function ($seedRun) {
                 $seedRun->ran_at = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
                 $seedRun->display_class_name = $this->formatSeederClassName($seedRun->class_name);
+                [$namespace, $baseName] = $this->splitSeederDisplayName($seedRun->display_class_name);
+                $seedRun->display_class_namespace = $namespace;
+                $seedRun->display_class_basename = $baseName;
 
                 return $seedRun;
             });
@@ -446,6 +453,7 @@ class SeedRunController extends Controller
             ->map(function (string $class) {
                 $displayName = $this->formatSeederClassName($class);
                 [$namespace, $baseName] = $this->splitSeederDisplayName($displayName);
+                $dataProfile = $this->describeSeederData($class);
 
                 return (object) [
                     'class_name' => $class,
@@ -453,6 +461,7 @@ class SeedRunController extends Controller
                     'display_class_namespace' => $namespace,
                     'display_class_basename' => $baseName,
                     'supports_preview' => $this->seederSupportsPreview($class),
+                    'data_type' => $dataProfile['type'] ?? 'unknown',
                 ];
             })
             ->values();
@@ -470,8 +479,10 @@ class SeedRunController extends Controller
         }
 
         $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionCounts) {
-            $seedRun->question_count = (int) ($questionCounts[$seedRun->class_name] ?? 0);
             $seedRun->data_profile = $this->describeSeederData($seedRun->class_name);
+            $seedRun->question_count = ($seedRun->data_profile['type'] ?? 'unknown') === 'questions'
+                ? (int) ($questionCounts[$seedRun->class_name] ?? 0)
+                : 0;
 
             return $seedRun;
         });
@@ -534,6 +545,10 @@ class SeedRunController extends Controller
 
     protected function seederSupportsPreview(string $className): bool
     {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return true;
+        }
+
         if (! $this->ensureSeederClassIsLoaded($className)) {
             return false;
         }
@@ -739,6 +754,10 @@ class SeedRunController extends Controller
 
     protected function buildSeederPreview(string $className): array
     {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->buildVirtualSeederPreview($className);
+        }
+
         if (is_subclass_of($className, QuestionSeederBase::class)) {
             return $this->buildQuestionSeederPreview($className);
         }
@@ -1515,22 +1534,30 @@ class SeedRunController extends Controller
                 ->withErrors(['run' => $message]);
         }
 
-        $filePath = $this->resolveSeederFilePath($className);
-
-        if (! $this->isInstantiableSeeder($className, $filePath)) {
-            $message = __('Seeder :class cannot be executed.', ['class' => $className]);
-            
-            if ($request->wantsJson()) {
-                return response()->json(['message' => $message], 422);
-            }
-
-            return redirect()
-                ->route('seed-runs.index')
-                ->withErrors(['run' => $message]);
-        }
-
         try {
-            Artisan::call('db:seed', ['--class' => $className]);
+            if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+                $this->jsonTestLocalizationManager->applyVirtualSeeder($className);
+                DB::table('seed_runs')->updateOrInsert(
+                    ['class_name' => $className],
+                    ['ran_at' => now()]
+                );
+            } else {
+                $filePath = $this->resolveSeederFilePath($className);
+
+                if (! $this->isInstantiableSeeder($className, $filePath)) {
+                    $message = __('Seeder :class cannot be executed.', ['class' => $className]);
+
+                    if ($request->wantsJson()) {
+                        return response()->json(['message' => $message], 422);
+                    }
+
+                    return redirect()
+                        ->route('seed-runs.index')
+                        ->withErrors(['run' => $message]);
+                }
+
+                Artisan::call('db:seed', ['--class' => $className]);
+            }
         } catch (\Throwable $exception) {
             report($exception);
 
@@ -1835,6 +1862,10 @@ class SeedRunController extends Controller
     {
         $candidatePaths = collect();
 
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            $candidatePaths->push($this->jsonTestLocalizationManager->filePathForClass($className));
+        }
+
         $map = $this->getSeederClassMap();
 
         if ($map->has($className)) {
@@ -2017,25 +2048,42 @@ class SeedRunController extends Controller
         $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
             ->reject(fn (string $class) => in_array($class, $executedClasses, true))
             ->values();
+        $orderedPendingSeeders = $pendingSeeders
+            ->reject(fn (string $class) => $this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($class))
+            ->values()
+            ->merge(
+                $pendingSeeders
+                    ->filter(fn (string $class) => $this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($class))
+                    ->values()
+            );
 
         $ran = collect();
         $errors = collect();
 
-        foreach ($pendingSeeders as $className) {
+        foreach ($orderedPendingSeeders as $className) {
             if (! $this->ensureSeederClassIsLoaded($className)) {
                 $errors->push(__('Seeder :class is not autoloadable.', ['class' => $className]));
                 continue;
             }
 
-            $filePath = $this->resolveSeederFilePath($className);
-
-            if (! $this->isInstantiableSeeder($className, $filePath)) {
-                $errors->push(__('Seeder :class cannot be executed.', ['class' => $className]));
-                continue;
-            }
-
             try {
-                Artisan::call('db:seed', ['--class' => $className]);
+                if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+                    $this->jsonTestLocalizationManager->applyVirtualSeeder($className);
+                    DB::table('seed_runs')->updateOrInsert(
+                        ['class_name' => $className],
+                        ['ran_at' => now()]
+                    );
+                } else {
+                    $filePath = $this->resolveSeederFilePath($className);
+
+                    if (! $this->isInstantiableSeeder($className, $filePath)) {
+                        $errors->push(__('Seeder :class cannot be executed.', ['class' => $className]));
+                        continue;
+                    }
+
+                    Artisan::call('db:seed', ['--class' => $className]);
+                }
+
                 $ran->push($className);
             } catch (\Throwable $exception) {
                 report($exception);
@@ -2186,12 +2234,26 @@ class SeedRunController extends Controller
         $deletedQuestions = 0;
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedHints = 0;
+        $deletedExplanations = 0;
         $profile = $this->describeSeederData($seedRun->class_name);
 
-        DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, $profile) {
+        DB::transaction(function () use (
+            $seedRun,
+            &$deletedQuestions,
+            &$deletedBlocks,
+            &$deletedPages,
+            &$deletedHints,
+            &$deletedExplanations,
+            $profile
+        ) {
             $classNames = collect([$seedRun->class_name]);
 
-            if ($profile['type'] === 'questions') {
+            if ($profile['type'] === 'question_localizations') {
+                $result = $this->jsonTestLocalizationManager->removeVirtualSeederData($seedRun->class_name);
+                $deletedHints = (int) ($result['deleted_hints'] ?? 0);
+                $deletedExplanations = (int) ($result['deleted_explanations'] ?? 0);
+            } elseif ($profile['type'] === 'questions') {
                 $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
             } elseif ($profile['type'] === 'pages') {
                 $pageResult = $this->deletePageContentForSeeders($classNames);
@@ -2208,6 +2270,11 @@ class SeedRunController extends Controller
         });
 
         $status = match ($profile['type']) {
+            'question_localizations' => __('Removed localization seeder :class and deleted :hints hint(s), :explanations explanation(s).', [
+                'class' => $seedRun->class_name,
+                'hints' => $deletedHints,
+                'explanations' => $deletedExplanations,
+            ]),
             'pages' => __('Removed seeder :class and deleted :blocks related text block(s).', [
                 'class' => $seedRun->class_name,
                 'blocks' => $deletedBlocks,
@@ -2246,6 +2313,8 @@ class SeedRunController extends Controller
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,
+                'hints_deleted' => $deletedHints,
+                'explanations_deleted' => $deletedExplanations,
                 'overview' => [
                     'pending_count' => $overview['pendingSeeders']->count(),
                     'executed_count' => $overview['executedSeeders']->count(),
@@ -2300,32 +2369,48 @@ class SeedRunController extends Controller
                 ->withErrors(['refresh' => $errorMessage]);
         }
 
-        $filePath = $this->resolveSeederFilePath($className);
-
-        if (! $this->isInstantiableSeeder($className, $filePath)) {
-            $errorMessage = __('Seeder :class cannot be executed.', ['class' => $className]);
-            
-            if ($request->wantsJson()) {
-                return response()->json(['message' => $errorMessage], 422);
-            }
-
-            return redirect()
-                ->route('seed-runs.index')
-                ->withErrors(['refresh' => $errorMessage]);
-        }
-
         $deletedQuestions = 0;
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedHints = 0;
+        $deletedExplanations = 0;
         $profile = $this->describeSeederData($seedRun->class_name);
 
         try {
-            // Delete old data in a transaction
-            DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, $profile) {
+            $isLocalizationSeeder = $this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className);
+
+            if (! $isLocalizationSeeder) {
+                $filePath = $this->resolveSeederFilePath($className);
+
+                if (! $this->isInstantiableSeeder($className, $filePath)) {
+                    $errorMessage = __('Seeder :class cannot be executed.', ['class' => $className]);
+
+                    if ($request->wantsJson()) {
+                        return response()->json(['message' => $errorMessage], 422);
+                    }
+
+                    return redirect()
+                        ->route('seed-runs.index')
+                        ->withErrors(['refresh' => $errorMessage]);
+                }
+            }
+
+            DB::transaction(function () use (
+                $seedRun,
+                &$deletedQuestions,
+                &$deletedBlocks,
+                &$deletedPages,
+                &$deletedHints,
+                &$deletedExplanations,
+                $profile
+            ) {
                 $classNames = collect([$seedRun->class_name]);
 
-                // Delete old data
-                if ($profile['type'] === 'questions') {
+                if ($profile['type'] === 'question_localizations') {
+                    $result = $this->jsonTestLocalizationManager->removeVirtualSeederData($seedRun->class_name);
+                    $deletedHints = (int) ($result['deleted_hints'] ?? 0);
+                    $deletedExplanations = (int) ($result['deleted_explanations'] ?? 0);
+                } elseif ($profile['type'] === 'questions') {
                     $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
                 } elseif ($profile['type'] === 'pages') {
                     $pageResult = $this->deletePageContentForSeeders($classNames);
@@ -2339,10 +2424,12 @@ class SeedRunController extends Controller
                 }
             });
 
-            // Re-run the seeder outside the transaction
-            Artisan::call('db:seed', ['--class' => $className]);
+            if ($isLocalizationSeeder) {
+                $this->jsonTestLocalizationManager->applyVirtualSeeder($className);
+            } else {
+                Artisan::call('db:seed', ['--class' => $className]);
+            }
 
-            // Update the ran_at timestamp
             DB::table('seed_runs')
                 ->where('id', $seedRun->id)
                 ->update(['ran_at' => now()]);
@@ -2359,6 +2446,11 @@ class SeedRunController extends Controller
         }
 
         $status = match ($profile['type']) {
+            'question_localizations' => __('Refreshed localization seeder :class. Deleted :hints hint(s) and :explanations explanation(s), then re-applied localization.', [
+                'class' => $seedRun->class_name,
+                'hints' => $deletedHints,
+                'explanations' => $deletedExplanations,
+            ]),
             'pages' => __('Refreshed seeder :class. Deleted :blocks text block(s) and regenerated content.', [
                 'class' => $seedRun->class_name,
                 'blocks' => $deletedBlocks,
@@ -2384,6 +2476,8 @@ class SeedRunController extends Controller
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,
+                'hints_deleted' => $deletedHints,
+                'explanations_deleted' => $deletedExplanations,
                 'overview' => [
                     'pending_count' => $overview['pendingSeeders']->count(),
                     'executed_count' => $overview['executedSeeders']->count(),
@@ -2533,23 +2627,35 @@ class SeedRunController extends Controller
             return [$className => $profile['type']];
         });
 
+        $localizationClasses = $typeMap->filter(fn ($type) => $type === 'question_localizations')->keys()->values();
         $questionClasses = $typeMap->filter(fn ($type) => $type === 'questions')->keys()->values();
         $pageClasses = $typeMap->filter(fn ($type) => $type === 'pages')->keys()->values();
-        $unknownClasses = $typeMap->filter(fn ($type) => ! in_array($type, ['questions', 'pages'], true))->keys()->values();
+        $unknownClasses = $typeMap->filter(fn ($type) => ! in_array($type, ['question_localizations', 'questions', 'pages'], true))->keys()->values();
 
         $deletedQuestions = 0;
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedHints = 0;
+        $deletedExplanations = 0;
 
         DB::transaction(function () use (
             $seedRunIdsToDelete,
+            $localizationClasses,
             $questionClasses,
             $pageClasses,
             $unknownClasses,
             &$deletedQuestions,
             &$deletedBlocks,
-            &$deletedPages
+            &$deletedPages,
+            &$deletedHints,
+            &$deletedExplanations
         ) {
+            foreach ($localizationClasses as $className) {
+                $result = $this->jsonTestLocalizationManager->removeVirtualSeederData($className);
+                $deletedHints += (int) ($result['deleted_hints'] ?? 0);
+                $deletedExplanations += (int) ($result['deleted_explanations'] ?? 0);
+            }
+
             if ($questionClasses->isNotEmpty()) {
                 $deletedQuestions += $this->deleteQuestionsForSeeders($questionClasses);
             }
@@ -2589,6 +2695,14 @@ class SeedRunController extends Controller
             $statusMessage .= ' ' . __('Deleted :count related page record(s).', ['count' => $deletedPages]);
         }
 
+        if ($deletedHints > 0) {
+            $statusMessage .= ' ' . __('Deleted :count related hint(s).', ['count' => $deletedHints]);
+        }
+
+        if ($deletedExplanations > 0) {
+            $statusMessage .= ' ' . __('Deleted :count related explanation(s).', ['count' => $deletedExplanations]);
+        }
+
         if ($request->wantsJson()) {
             $overview = $this->assembleSeedRunOverview();
             return response()->json([
@@ -2597,6 +2711,8 @@ class SeedRunController extends Controller
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,
+                'hints_deleted' => $deletedHints,
+                'explanations_deleted' => $deletedExplanations,
                 'folder_label' => $folderLabel,
                 'overview' => [
                     'pending_count' => $overview['pendingSeeders']->count(),
@@ -2664,6 +2780,16 @@ class SeedRunController extends Controller
 
         if (! $this->ensureSeederClassIsLoaded($className)) {
             return $default;
+        }
+
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return [
+                'type' => 'question_localizations',
+                'delete_button' => __('Видалити локалізації'),
+                'delete_confirm' => __('Видалити лог та пов’язані локалізації?'),
+                'folder_delete_button' => __('Видалити локалізації'),
+                'folder_delete_confirm' => __('Видалити всі локалізаційні сидери в папці «:folder» разом із локалізаціями?'),
+            ];
         }
 
         if (is_subclass_of($className, QuestionSeederBase::class)) {
@@ -2920,12 +3046,13 @@ class SeedRunController extends Controller
     private function discoverSeederClasses(string $directory): array
     {
         if (! is_dir($directory)) {
-            return [];
+            return $this->jsonTestLocalizationManager->virtualSeederClasses();
         }
 
         return $this->getSeederClassMap()
             ->filter(fn (string $path, string $class) => $this->isInstantiableSeeder($class, $path))
             ->keys()
+            ->merge($this->jsonTestLocalizationManager->virtualSeederClasses())
             ->unique()
             ->sort()
             ->values()
@@ -3042,6 +3169,10 @@ class SeedRunController extends Controller
 
     private function ensureSeederClassIsLoaded(string $className): bool
     {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return true;
+        }
+
         if ($this->classExistsSafely($className)) {
             return true;
         }

@@ -2,13 +2,18 @@
 
 namespace Tests\Feature;
 
+use App\Http\Controllers\SeedRunController;
 use App\Models\ChatGPTExplanation;
 use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Support\Database\JsonTestDirectorySeeder;
+use App\Support\Database\JsonTestLocalizationManager;
+use App\Services\QuestionDeletionService;
 use Database\Seeders\V2\PassiveVoiceAllTensesV2Seeder;
 use Database\Seeders\V3\PassiveVoiceAllTensesV3Seeder;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
@@ -239,6 +244,51 @@ class V3JsonTestSeederTest extends TestCase
         $this->assertNotNull($uaExplanation);
         $this->assertSame($uaExplanation, $ukExplanation);
         $this->assertStringContainsString('Past Perfect Passive', $uaExplanation);
+
+        $enHint = QuestionHint::query()
+            ->where('question_id', $question->id)
+            ->where('provider', 'chatgpt')
+            ->where('locale', 'en')
+            ->value('hint');
+
+        $plHint = QuestionHint::query()
+            ->where('question_id', $question->id)
+            ->where('provider', 'chatgpt')
+            ->where('locale', 'pl')
+            ->value('hint');
+
+        $this->assertNotNull($enHint);
+        $this->assertStringContainsString('Past Continuous Passive', $enHint);
+        $this->assertNotNull($plHint);
+        $this->assertStringContainsString('Past Continuous Passive', $plHint);
+
+        $enExplanation = ChatGPTExplanation::query()
+            ->where('question', $question->question)
+            ->where('wrong_answer', 'had being tested')
+            ->where('correct_answer', 'was being tested')
+            ->where('language', 'en')
+            ->value('explanation');
+
+        $plExplanation = ChatGPTExplanation::query()
+            ->where('question', $question->question)
+            ->where('wrong_answer', 'had being tested')
+            ->where('correct_answer', 'was being tested')
+            ->where('language', 'pl')
+            ->value('explanation');
+
+        $this->assertNotNull($enExplanation);
+        $this->assertStringContainsString('Past Perfect Passive form is', $enExplanation);
+        $this->assertNotNull($plExplanation);
+        $this->assertStringContainsString('forma "had being" nie występuje', $plExplanation);
+
+        $this->assertSame(
+            count($legacyEntries),
+            QuestionHint::query()->where('locale', 'en')->count()
+        );
+        $this->assertSame(
+            count($legacyEntries),
+            QuestionHint::query()->where('locale', 'pl')->count()
+        );
     }
 
     public function test_directory_seeder_supports_json_only_definition_and_skips_second_run(): void
@@ -340,5 +390,64 @@ class V3JsonTestSeederTest extends TestCase
             1,
             DB::table('seed_runs')->where('class_name', $question->seeder)->count()
         );
+    }
+
+    public function test_seed_runs_supports_virtual_localization_seeders_for_preview_and_execution(): void
+    {
+        $controller = new class(
+            app(QuestionDeletionService::class),
+            app(JsonTestLocalizationManager::class),
+        ) extends SeedRunController {
+            public function overviewData(): array
+            {
+                return $this->assembleSeedRunOverview();
+            }
+
+            public function previewData(string $className): array
+            {
+                return $this->buildSeederPreview($className);
+            }
+        };
+
+        $localizationSeederClass = 'Database\\Seeders\\V3\\Localizations\\En\\PassiveVoiceAllTensesV3LocalizationSeeder';
+
+        $overviewBeforeBaseRun = $controller->overviewData();
+
+        $this->assertTrue(
+            $overviewBeforeBaseRun['pendingSeeders']->pluck('class_name')->contains($localizationSeederClass)
+        );
+
+        $previewBeforeBaseRun = $controller->previewData($localizationSeederClass);
+
+        $this->assertSame('question_localizations', $previewBeforeBaseRun['type']);
+        $this->assertSame('en', $previewBeforeBaseRun['locale']);
+        $this->assertSame(30, $previewBeforeBaseRun['localizedQuestionCount']);
+        $this->assertSame(0, $previewBeforeBaseRun['existingQuestionCount']);
+
+        (new PassiveVoiceAllTensesV3Seeder())->__invoke();
+
+        $request = Request::create('/admin/seed-runs/run', 'POST', [
+            'class_name' => $localizationSeederClass,
+        ]);
+        $request->headers->set('Accept', 'application/json');
+
+        $response = $controller->run($request);
+
+        $this->assertInstanceOf(JsonResponse::class, $response);
+        $payload = $response->getData(true);
+
+        $this->assertSame($localizationSeederClass, $payload['class_name']);
+        $this->assertTrue((bool) ($payload['seeder_moved'] ?? false));
+        $this->assertDatabaseHas('seed_runs', [
+            'class_name' => $localizationSeederClass,
+        ]);
+
+        $overviewAfterRun = $controller->overviewData();
+        $this->assertTrue(
+            $overviewAfterRun['executedSeeders']->pluck('class_name')->contains($localizationSeederClass)
+        );
+
+        $previewAfterRun = $controller->previewData($localizationSeederClass);
+        $this->assertSame(30, $previewAfterRun['existingQuestionCount']);
     }
 }

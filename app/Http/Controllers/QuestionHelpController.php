@@ -22,9 +22,11 @@ class QuestionHelpController extends Controller
             'question' => 'required_without:question_id|string',
             'refresh' => 'sometimes|boolean',
             'test_slug' => 'sometimes|string',
+            'locale' => 'sometimes|string',
+            'language' => 'sometimes|string',
         ]);
 
-        $lang = 'uk'; // app()->getLocale();
+        $locale = $this->resolveRequestedLocale($request, $data['locale'] ?? $data['language'] ?? null);
 
         if (isset($data['question_id'])) {
             $question = Question::findOrFail($data['question_id']);
@@ -33,26 +35,20 @@ class QuestionHelpController extends Controller
             }
             $refresh = $data['refresh'] ?? false;
 
-            $chatgptHint = QuestionHint::where('question_id', $question->id)
-                ->where('provider', 'chatgpt')
-                ->where('locale', $lang)
-                ->first();
+            $chatgptHint = $refresh ? null : $this->findStoredHint($question->id, 'chatgpt', $locale);
             if (! $chatgptHint || $refresh) {
-                $text = $gpt->hintSentenceStructure($question->renderQuestionText(), $lang);
+                $text = $gpt->hintSentenceStructure($question->renderQuestionText(), $locale);
                 $chatgptHint = QuestionHint::updateOrCreate(
-                    ['question_id' => $question->id, 'provider' => 'chatgpt', 'locale' => $lang],
+                    ['question_id' => $question->id, 'provider' => 'chatgpt', 'locale' => $locale],
                     ['hint' => $text]
                 );
             }
 
-            $geminiHint = QuestionHint::where('question_id', $question->id)
-                ->where('provider', 'gemini')
-                ->where('locale', $lang)
-                ->first();
+            $geminiHint = $refresh ? null : $this->findStoredHint($question->id, 'gemini', $locale);
             if (! $geminiHint || $refresh) {
-                $text = $gemini->hintSentenceStructure($question->renderQuestionText(), $lang);
+                $text = $gemini->hintSentenceStructure($question->renderQuestionText(), $locale);
                 $geminiHint = QuestionHint::updateOrCreate(
-                    ['question_id' => $question->id, 'provider' => 'gemini', 'locale' => $lang],
+                    ['question_id' => $question->id, 'provider' => 'gemini', 'locale' => $locale],
                     ['hint' => $text]
                 );
             }
@@ -66,8 +62,8 @@ class QuestionHelpController extends Controller
         $text = $data['question'];
 
         return response()->json([
-            'chatgpt' => $gpt->hintSentenceStructure($text, $lang),
-            'gemini' => $gemini->hintSentenceStructure($text, $lang),
+            'chatgpt' => $gpt->hintSentenceStructure($text, $locale),
+            'gemini' => $gemini->hintSentenceStructure($text, $locale),
         ]);
     }
 
@@ -82,7 +78,7 @@ class QuestionHelpController extends Controller
             'language' => 'sometimes|string',
         ]);
 
-        $lang = $data['language'] ?? 'ua'; // Stored explanations use 'ua'
+        $locale = $this->resolveRequestedLocale($request, $data['language'] ?? null);
         $question = Question::with('answers.option')->findOrFail($data['question_id']);
 
         $originalQuestionText = $question->getOriginal('question') ?? $question->question;
@@ -134,7 +130,7 @@ class QuestionHelpController extends Controller
             $questionTexts,
             $normalizedGiven,
             $normalizedCorrect,
-            $lang,
+            $locale,
             $isCorrect
         );
 
@@ -154,7 +150,7 @@ class QuestionHelpController extends Controller
 
         $questionTextForGpt = $questionTexts[0] ?? $question->question;
         $fallbackCorrect = $correctAnswer !== '' ? $correctAnswer : ($answersByMarker->first() ?? '');
-        $explanation = $gpt->explainWrongAnswer($questionTextForGpt, $given, $fallbackCorrect, $lang);
+        $explanation = $gpt->explainWrongAnswer($questionTextForGpt, $given, $fallbackCorrect, $locale);
 
         return response()->json([
             'correct' => false,
@@ -162,18 +158,13 @@ class QuestionHelpController extends Controller
         ]);
     }
 
-    private function findStoredExplanation(array $questionTexts, string $normalizedGiven, string $normalizedCorrect, string $lang, bool $isCorrect): ?string
+    private function findStoredExplanation(array $questionTexts, string $normalizedGiven, string $normalizedCorrect, string $locale, bool $isCorrect): ?string
     {
         if (empty($questionTexts) || $normalizedCorrect === '') {
             return null;
         }
 
-        $languages = [];
-        foreach ([$lang, 'ua', 'uk'] as $candidate) {
-            if (is_string($candidate) && $candidate !== '' && ! in_array($candidate, $languages, true)) {
-                $languages[] = $candidate;
-            }
-        }
+        $languages = $this->preferredExplanationLanguages($locale);
 
         $baseQuery = ChatGPTExplanation::query()
             ->whereIn('question', $questionTexts)
@@ -181,9 +172,12 @@ class QuestionHelpController extends Controller
             ->whereRaw('LOWER(TRIM(correct_answer)) = ?', [$normalizedCorrect]);
 
         if ($normalizedGiven !== '') {
-            $match = (clone $baseQuery)
+            $match = $this->selectPreferredExplanation(
+                (clone $baseQuery)
                 ->whereRaw('LOWER(TRIM(wrong_answer)) = ?', [$normalizedGiven])
-                ->first();
+                ->get(),
+                $languages
+            );
 
             if ($match) {
                 return $match->explanation;
@@ -191,13 +185,16 @@ class QuestionHelpController extends Controller
         }
 
         if ($isCorrect) {
-            $match = (clone $baseQuery)
+            $match = $this->selectPreferredExplanation(
+                (clone $baseQuery)
                 ->where(function ($query) use ($normalizedCorrect) {
                     $query->whereRaw('LOWER(TRIM(wrong_answer)) = ?', [$normalizedCorrect])
                         ->orWhereNull('wrong_answer')
                         ->orWhereRaw("TRIM(wrong_answer) = ''");
                 })
-                ->first();
+                ->get(),
+                $languages
+            );
 
             if ($match) {
                 return $match->explanation;
@@ -205,6 +202,99 @@ class QuestionHelpController extends Controller
         }
 
         return null;
+    }
+
+    private function findStoredHint(int $questionId, string $provider, string $locale): ?QuestionHint
+    {
+        $locales = $this->preferredHintLocales($locale);
+        $matches = QuestionHint::query()
+            ->where('question_id', $questionId)
+            ->where('provider', $provider)
+            ->whereIn('locale', $locales)
+            ->get();
+
+        return $this->selectPreferredHint($matches, $locales);
+    }
+
+    private function selectPreferredHint($matches, array $locales): ?QuestionHint
+    {
+        if ($matches->isEmpty()) {
+            return null;
+        }
+
+        $priority = array_flip($locales);
+
+        return $matches
+            ->sortBy(fn (QuestionHint $hint) => $priority[strtolower(trim((string) $hint->locale))] ?? PHP_INT_MAX)
+            ->first();
+    }
+
+    private function selectPreferredExplanation($matches, array $languages): ?ChatGPTExplanation
+    {
+        if ($matches->isEmpty()) {
+            return null;
+        }
+
+        $priority = array_flip($languages);
+
+        return $matches
+            ->sortBy(fn (ChatGPTExplanation $explanation) => $priority[strtolower(trim((string) $explanation->language))] ?? PHP_INT_MAX)
+            ->first();
+    }
+
+    private function preferredHintLocales(string $locale): array
+    {
+        $normalized = $this->normalizeLocale($locale);
+
+        if ($normalized === 'uk') {
+            return ['uk', 'ua'];
+        }
+
+        return [$normalized];
+    }
+
+    private function preferredExplanationLanguages(string $locale): array
+    {
+        $normalized = $this->normalizeLocale($locale);
+
+        if ($normalized === 'uk') {
+            return ['uk', 'ua'];
+        }
+
+        return [$normalized];
+    }
+
+    private function resolveRequestedLocale(Request $request, ?string $explicit = null): string
+    {
+        $sessionLocale = $request->hasSession() ? $request->session()->get('locale') : null;
+
+        foreach ([
+            $explicit,
+            $request->input('locale'),
+            $request->input('language'),
+            app()->getLocale(),
+            $sessionLocale,
+            config('app.locale', 'uk'),
+        ] as $candidate) {
+            $normalized = $this->normalizeLocale($candidate);
+
+            if ($normalized !== '') {
+                return $normalized;
+            }
+        }
+
+        return 'uk';
+    }
+
+    private function normalizeLocale(?string $locale): string
+    {
+        $normalized = strtolower(trim((string) $locale));
+
+        if ($normalized === '' || $normalized === 'ua') {
+            return 'uk';
+        }
+
+        return $normalized;
     }
 
     /**

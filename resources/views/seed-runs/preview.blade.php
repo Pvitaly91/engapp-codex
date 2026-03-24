@@ -10,6 +10,7 @@
         $previewTypeLabel = match ($previewType) {
             'page' => __('Сторінка'),
             'category' => __('Категорія'),
+            'question_localizations' => __('Локалізації'),
             default => __('Питання'),
         };
         $questionPreviews = $preview['questions'] ?? collect();
@@ -21,6 +22,14 @@
         $existingQuestionCount = $preview['existingQuestionCount'] ?? null;
         $pagePreview = $previewType === 'page' ? ($preview['page'] ?? null) : null;
         $categoryPreview = $previewType === 'category' ? ($preview['category'] ?? null) : null;
+        $localizationsPreview = $previewType === 'question_localizations' ? ($preview['questions'] ?? collect()) : collect();
+
+        if (! $localizationsPreview instanceof \Illuminate\Support\Collection) {
+            $localizationsPreview = collect($localizationsPreview);
+        }
+
+        $localizationTarget = $preview['target'] ?? [];
+        $localizationLocale = $preview['locale'] ?? null;
         $levelsSummary = collect($preview['levelsSummary'] ?? []);
         $answersSummary = collect($preview['answersSummary'] ?? []);
     @endphp
@@ -34,6 +43,7 @@
                         {{ match ($previewType) {
                             'page' => __('Переконайтеся, що сторінка виглядає коректно, перш ніж запускати сидер.'),
                             'category' => __('Переконайтеся, що опис категорії виглядає коректно, перш ніж запускати сидер.'),
+                            'question_localizations' => __('Переконайтеся, що локалізовані hints та explanations прив’язані до правильних питань і locale.'),
                             default => __('Переконайтеся, що питання та пов’язані дані виглядають коректно, перш ніж запускати сидер.'),
                         } }}
                     </p>
@@ -110,6 +120,27 @@
                         <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('URL категорії') }}</dt>
                         <dd>{{ $categoryPreview['url'] ?? __('Немає посилання') }}</dd>
                     </div>
+                @elseif($previewType === 'question_localizations')
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Locale') }}</dt>
+                        <dd>{{ strtoupper((string) $localizationLocale) }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Цільовий сидер') }}</dt>
+                        <dd class="font-mono break-all">{{ $localizationTarget['seeder_class'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Цільовий definition') }}</dt>
+                        <dd>{{ $localizationTarget['definition'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Локалізованих питань') }}</dt>
+                        <dd>{{ $preview['localizedQuestionCount'] ?? $localizationsPreview->count() }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Питань уже в БД') }}</dt>
+                        <dd>{{ $preview['existingQuestionCount'] ?? 0 }}</dd>
+                    </div>
                 @endif
             </dl>
 
@@ -119,6 +150,82 @@
                 </div>
             @endif
         </div>
+
+        @if($previewType === 'question_localizations')
+            @if($localizationsPreview->isEmpty())
+                <div class="bg-white shadow rounded-lg p-6 text-sm text-slate-500">
+                    {{ __('У localization seeder немає елементів для попереднього перегляду.') }}
+                </div>
+            @else
+                <div class="space-y-4">
+                    @foreach($localizationsPreview as $localizedQuestion)
+                        <div class="bg-white shadow rounded-lg border border-slate-200 p-6 space-y-4">
+                            <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                                <div class="space-y-1">
+                                    <div class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                        {{ __('UUID') }}: <span class="font-mono normal-case">{{ $localizedQuestion['uuid'] ?? '—' }}</span>
+                                    </div>
+                                    <h2 class="text-lg font-semibold text-slate-800">{{ $localizedQuestion['raw_text'] ?? __('Питання не знайдено') }}</h2>
+                                </div>
+                                <div>
+                                    @if(!empty($localizedQuestion['database_exists']))
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold">
+                                            {{ __('Питання вже є в БД') }}
+                                        </span>
+                                    @else
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-semibold">
+                                            {{ __('Ще не створене в БД') }}
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            @if(!empty($localizedQuestion['answers']))
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">{{ __('Правильні відповіді') }}</h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach($localizedQuestion['answers'] as $answer)
+                                            <span class="inline-flex items-center px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-sm">
+                                                {{ $answer['marker'] ?? '—' }}: {{ $answer['label'] ?? '—' }}
+                                            </span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if(!empty($localizedQuestion['hints']))
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">{{ __('Hints') }}</h3>
+                                    <div class="space-y-2">
+                                        @foreach($localizedQuestion['hints'] as $hint)
+                                            <div class="rounded-lg bg-sky-50 border border-sky-200 px-4 py-3 text-sm text-sky-900">
+                                                {!! nl2br(e($hint)) !!}
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if(!empty($localizedQuestion['explanations']))
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">{{ __('Explanations') }}</h3>
+                                    <div class="space-y-3">
+                                        @foreach($localizedQuestion['explanations'] as $explanation)
+                                            <div class="rounded-lg bg-violet-50 border border-violet-200 px-4 py-3">
+                                                <div class="text-xs text-violet-700 font-semibold">{{ __('Маркер') }}: {{ $explanation['marker'] ?? '—' }}</div>
+                                                <div class="text-xs text-violet-700">{{ __('Неправильна відповідь') }}: {{ $explanation['wrong_answer'] ?? '—' }}</div>
+                                                <div class="text-xs text-violet-700 mb-2">{{ __('Правильна відповідь') }}: {{ $explanation['correct_answer'] ?? '—' }}</div>
+                                                <div class="text-sm text-violet-950">{!! nl2br(e($explanation['text'] ?? '')) !!}</div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        @endif
 
         @if($previewType === 'questions')
             {{-- Tags Summary Block - Moved to top and made collapsible --}}

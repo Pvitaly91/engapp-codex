@@ -30,13 +30,16 @@
         $pendingSeeder = $node['pending_seeder'];
         $pendingCheckboxId = 'pending-seeder-' . md5($pendingSeeder->class_name ?? $node['name']);
         $pendingActionsId = $pendingCheckboxId . '-actions';
+        $isLocalizationSeeder = ($pendingSeeder->data_type ?? null) === 'question_localizations';
         $isCategorySeeder = \Illuminate\Support\Str::contains(
             $pendingSeeder->display_class_basename ?? $pendingSeeder->display_class_name ?? '',
             'Category'
         );
-        $pendingLabelClasses = $isCategorySeeder
+        $pendingLabelClasses = $isLocalizationSeeder
+            ? 'inline-flex items-center px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-semibold ring-1 ring-sky-200'
+            : ($isCategorySeeder
             ? 'inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold ring-1 ring-emerald-200'
-            : 'inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold';
+            : 'inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold');
     @endphp
 
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between" style="margin-left: {{ $indent }}rem;" data-pending-seeder data-class-name="{{ $pendingSeeder->class_name }}">
