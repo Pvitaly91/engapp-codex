@@ -57,7 +57,7 @@ abstract class QuestionSeeder extends Seeder
         }
 
         $items = array_map(function (array $item) {
-            $item['seeder'] = static::class;
+            $item['seeder'] = $item['seeder'] ?? static::class;
 
             return $item;
         }, $items);
