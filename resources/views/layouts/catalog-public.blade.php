@@ -136,7 +136,7 @@
                 linear-gradient(180deg, var(--shell-bg) 0%, color-mix(in srgb, var(--shell-bg) 92%, white) 100%);
             border-color: var(--shell-border);
             border-radius: var(--shell-radius);
-            transition: border-top-left-radius 180ms ease, border-top-right-radius 180ms ease, box-shadow 180ms ease;
+            transition: border-top-left-radius 160ms ease, border-top-right-radius 160ms ease;
         }
 
         .site-header {
@@ -147,7 +147,10 @@
             background: transparent !important;
             border-top-left-radius: var(--shell-radius);
             border-top-right-radius: var(--shell-radius);
-            transition: border-top-left-radius 180ms ease, border-top-right-radius 180ms ease, background-color 180ms ease;
+            contain: paint;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            transition: border-top-left-radius 160ms ease, border-top-right-radius 160ms ease, background-color 160ms ease;
         }
 
         .site-header::before {
@@ -156,12 +159,13 @@
             inset: 0;
             z-index: -1;
             pointer-events: none;
-            background: color-mix(in srgb, var(--surface) 88%, transparent);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: color-mix(in srgb, var(--surface) 94%, transparent);
+            backdrop-filter: blur(10px) saturate(1.02);
+            -webkit-backdrop-filter: blur(10px) saturate(1.02);
             border-top-left-radius: inherit;
             border-top-right-radius: inherit;
             transition: inherit;
+            will-change: opacity, background-color;
         }
 
         .catalog-shell.is-header-stuck {
@@ -172,6 +176,12 @@
         .catalog-shell.is-header-stuck .site-header {
             border-top-left-radius: 0 !important;
             border-top-right-radius: 0 !important;
+        }
+
+        .catalog-shell.is-header-stuck .site-header::before {
+            background: color-mix(in srgb, var(--surface-strong) 97%, var(--surface));
+            backdrop-filter: blur(8px) saturate(1.01);
+            -webkit-backdrop-filter: blur(8px) saturate(1.01);
         }
 
         .surface-card {
@@ -610,10 +620,15 @@
             }
 
             let ticking = false;
+            let triggerY = 0;
+
+            const measureTrigger = () => {
+                triggerY = Math.max(0, Math.round(header.getBoundingClientRect().top + window.scrollY));
+            };
 
             const syncStickyState = () => {
                 ticking = false;
-                const isStuck = window.scrollY > 0 && header.getBoundingClientRect().top <= 0;
+                const isStuck = window.scrollY > 0 && window.scrollY >= triggerY;
                 shell.classList.toggle('is-header-stuck', isStuck);
             };
 
@@ -626,9 +641,13 @@
                 window.requestAnimationFrame(syncStickyState);
             };
 
+            measureTrigger();
             requestSync();
             window.addEventListener('scroll', requestSync, { passive: true });
-            window.addEventListener('resize', requestSync);
+            window.addEventListener('resize', () => {
+                measureTrigger();
+                requestSync();
+            });
         }
 
         function buildShellRandomShapes() {

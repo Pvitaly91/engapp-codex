@@ -17,6 +17,7 @@
   let ticking = false;
   let originalHeight = 0;
   let stuckHeight = 0;
+  let stickyTriggerY = 0;
   let spacer = null;
 
   function syncAttachedTestControls(isAttached) {
@@ -28,10 +29,6 @@
     }
     if (catalogShell) {
       catalogShell.classList.toggle('has-attached-test-controls', isAttached);
-      if (!isAttached) {
-        // Force a reflow so shell border-radius transitions fully restore after unsticking.
-        void catalogShell.offsetHeight;
-      }
     }
   }
 
@@ -39,7 +36,7 @@
   function createSpacer() {
     spacer = document.createElement('div');
     spacer.className = 'sticky-header-spacer';
-    spacer.style.cssText = 'height: 0; transition: height 200ms ease; pointer-events: none;';
+    spacer.style.cssText = 'height: 0; pointer-events: none;';
     stickyHeader.parentNode.insertBefore(spacer, stickyHeader.nextSibling);
   }
 
@@ -61,6 +58,7 @@
   function measureHeights() {
     // Only measure on desktop
     if (!desktopQuery.matches) {
+      stickyTriggerY = 0;
       return;
     }
 
@@ -70,18 +68,19 @@
     const wasStuck = stickyHeader.classList.contains('is-stuck');
     const wasExpanded = stickyHeader.classList.contains('search-expanded');
     stickyHeader.classList.remove('is-stuck', 'search-expanded');
-    
-    // Force reflow to get accurate measurement after class change
-    // Reading offsetHeight forces the browser to recalculate layout
-    void stickyHeader.offsetHeight;
+    syncAttachedTestControls(false);
+
+    stickyTriggerY = Math.max(
+      0,
+      Math.round(stickyHeader.getBoundingClientRect().top + window.scrollY - getSiteHeaderOffset())
+    );
+
     originalHeight = stickyHeader.offsetHeight;
-    
+
     // Measure stuck height by adding class temporarily
     stickyHeader.classList.add('is-stuck');
-    // Force reflow again to measure the new state accurately
-    void stickyHeader.offsetHeight;
     stuckHeight = stickyHeader.offsetHeight;
-    
+
     // Restore original state
     if (!wasStuck) {
       stickyHeader.classList.remove('is-stuck');
@@ -89,10 +88,13 @@
     if (wasExpanded) {
       stickyHeader.classList.add('search-expanded');
     }
-    
+
+    syncAttachedTestControls(wasStuck);
+
     // Store for CSS use
     stickyHeader.style.setProperty('--sticky-header-original-height', originalHeight + 'px');
     stickyHeader.style.setProperty('--sticky-header-stuck-height', stuckHeight + 'px');
+    stickyHeader.style.setProperty('--sticky-header-trigger-y', stickyTriggerY + 'px');
   }
 
   function updateStickyState() {
@@ -109,15 +111,9 @@
       return;
     }
 
-    syncStickyOffset();
-
-    const rect = stickyHeader.getBoundingClientRect();
-    const siteHeaderOffset = getSiteHeaderOffset();
-    // Header is "stuck" when its top reaches the bottom edge of the main site header
-    const isStuck = rect.top <= (siteHeaderOffset + 1) && window.scrollY > 0;
-    
+    const isStuck = stickyTriggerY > 0 && window.scrollY >= stickyTriggerY;
     const wasStuck = stickyHeader.classList.contains('is-stuck');
-    
+
     if (isStuck && !wasStuck) {
       stickyHeader.classList.add('is-stuck');
       syncAttachedTestControls(true);
@@ -152,6 +148,7 @@
     // Debounce resize measurements
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(function() {
+      syncStickyOffset();
       measureHeights();
       updateStickyState();
     }, 100);

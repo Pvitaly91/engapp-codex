@@ -24,6 +24,7 @@
         border-radius: 28px !important;
         box-shadow: 0 18px 40px rgba(17, 38, 63, 0.08) !important;
         backdrop-filter: none !important;
+        contain: paint;
     }
 
     #new-design-test-shell .sticky-inner > :not([hidden]) ~ :not([hidden]) {
@@ -32,10 +33,6 @@
 
     #site-header.has-attached-test-controls {
         border-bottom-color: transparent !important;
-    }
-
-    #site-header > div.has-attached-test-controls {
-        padding-bottom: 0.75rem !important;
     }
 
     #catalog-shell.has-attached-test-controls {
@@ -53,18 +50,53 @@
         z-index: 39 !important;
     }
 
+    #new-design-test-shell .sticky-test-header,
+    #new-design-test-shell .sticky-inner,
+    #new-design-test-shell .word-search-section,
+    #new-design-test-shell .progress-section,
+    #new-design-test-shell .progress-icon,
+    #new-design-test-shell .progress-icon svg,
+    #new-design-test-shell .progress-bar-container,
+    #new-design-test-shell .sticky-search-btn,
+    #new-design-test-shell #restart-test {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+
+    #new-design-test-shell .sticky-inner,
+    #new-design-test-shell .word-search-section,
+    #new-design-test-shell .progress-section,
+    #new-design-test-shell .progress-bar-container,
+    #new-design-test-shell .sticky-search-btn,
+    #new-design-test-shell #restart-test {
+        will-change: transform, opacity;
+        transition-duration: 180ms !important;
+        transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+        transition-property: transform, opacity, box-shadow, background-color, border-color, color !important;
+    }
+
+    #new-design-test-shell .progress-icon,
+    #new-design-test-shell .progress-icon svg,
+    #new-design-test-shell .progress-label-text,
+    #new-design-test-shell .progress-value,
+    #new-design-test-shell #score-label {
+        transition-duration: 180ms !important;
+        transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+        transition-property: transform, opacity, color !important;
+        transform-origin: left center;
+    }
+
     #new-design-test-shell .sticky-test-header.is-stuck .sticky-inner {
         border-top: 0 !important;
         border-top-left-radius: 0 !important;
         border-top-right-radius: 0 !important;
         border-bottom-left-radius: 24px !important;
         border-bottom-right-radius: 24px !important;
-        padding: 0.3rem 0.45rem !important;
-        gap: 0.15rem !important;
-        box-shadow: 0 14px 22px rgba(17, 38, 63, 0.05) !important;
-        background: color-mix(in srgb, var(--surface) 88%, transparent) !important;
-        backdrop-filter: blur(16px) !important;
-        -webkit-backdrop-filter: blur(16px) !important;
+        padding: 0.45rem 0.6rem !important;
+        box-shadow: 0 12px 24px rgba(17, 38, 63, 0.06) !important;
+        background: color-mix(in srgb, var(--surface-strong) 94%, var(--surface)) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
 
     #new-design-test-shell .progress-section {
@@ -95,40 +127,36 @@
 
     #new-design-test-shell .sticky-test-header.is-stuck .progress-section {
         border: 0 !important;
-        padding: 0.1rem 0.3rem !important;
+        padding: 0.35rem 0.45rem !important;
         border-top-left-radius: 18px !important;
         border-top-right-radius: 18px !important;
         border-bottom-left-radius: 20px !important;
         border-bottom-right-radius: 20px !important;
-        background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 80%, transparent) 0%, color-mix(in srgb, var(--surface-strong) 72%, transparent) 100%) !important;
+        background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 94%, white) 0%, color-mix(in srgb, var(--surface-strong) 98%, white) 100%) !important;
     }
 
     #new-design-test-shell .sticky-test-header.is-stuck .progress-icon {
-        width: 1.1rem !important;
-        height: 1.1rem !important;
+        transform: scale(0.78) !important;
     }
 
     #new-design-test-shell .sticky-test-header.is-stuck .progress-icon svg {
-        width: 0.6rem !important;
-        height: 0.6rem !important;
+        transform: scale(0.82) !important;
     }
 
     #new-design-test-shell .sticky-test-header.is-stuck .progress-label-text {
-        font-size: 0.48rem !important;
-        line-height: 1 !important;
+        transform: scale(0.88) !important;
+        opacity: 0.92 !important;
     }
 
     #new-design-test-shell .sticky-test-header.is-stuck .progress-value {
-        font-size: 0.72rem !important;
-        line-height: 1 !important;
+        transform: scale(0.9) !important;
     }
 
     #new-design-test-shell .sticky-test-header.is-stuck .progress-bar-container {
         border: 0 !important;
         box-shadow: none !important;
         background: rgba(47, 103, 177, 0.14) !important;
-        height: 0.22rem !important;
-        margin-top: 0.04rem !important;
+        transform: scaleY(0.72) !important;
     }
 
     #new-design-test-shell .sticky-test-header.is-stuck #progress-bar {
@@ -424,11 +452,8 @@
     }
 
     #new-design-test-shell .sticky-test-header.is-stuck #restart-test {
-        padding: 0.35rem 0.7rem !important;
-        border-radius: 14px !important;
-        font-size: 0.68rem !important;
-        line-height: 1 !important;
-        letter-spacing: 0.05em !important;
+        transform: scale(0.92) !important;
+        transform-origin: right center;
     }
 
     #new-design-test-shell #summary > div {
