@@ -33,6 +33,8 @@
 
     #site-header.has-attached-test-controls {
         border-bottom-color: transparent !important;
+        contain: none !important;
+        overflow: visible !important;
     }
 
     #catalog-shell.has-attached-test-controls {
@@ -44,6 +46,19 @@
     #catalog-shell.has-attached-test-controls #site-header::before {
         border-top-left-radius: 0 !important;
         border-top-right-radius: 0 !important;
+    }
+
+    #site-header-test-controls {
+        display: none;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+
+    #site-header.has-attached-test-controls #site-header-test-controls {
+        display: block;
+        padding-top: 0.8rem;
+        border-top: 0 !important;
     }
 
     #new-design-test-shell .sticky-test-header.is-stuck {
@@ -194,6 +209,134 @@
 
     #new-design-test-shell #progress-bar {
         background: linear-gradient(90deg, #2f67b1 0%, #74a9f0 55%, #f59b2f 100%) !important;
+    }
+
+    .sticky-inner.header-attached {
+        border: 1px solid var(--line) !important;
+        background: color-mix(in srgb, var(--surface-strong) 96%, var(--surface)) !important;
+        border-radius: 26px !important;
+        padding: 0.7rem 0.8rem !important;
+        box-shadow: 0 12px 28px rgba(17, 38, 63, 0.08) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        contain: none;
+        overflow: visible !important;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        will-change: transform, opacity;
+        transition-duration: 180ms !important;
+        transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+        transition-property: transform, opacity, box-shadow, background-color, border-color, color !important;
+    }
+
+    .sticky-inner.header-attached > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 0.5rem !important;
+    }
+
+    .sticky-inner.header-attached .word-search-section,
+    .sticky-inner.header-attached .progress-section,
+    .sticky-inner.header-attached .progress-bar-container,
+    .sticky-inner.header-attached .sticky-search-btn,
+    .sticky-inner.header-attached #restart-test {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        will-change: transform, opacity;
+        transition-duration: 180ms !important;
+        transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+        transition-property: transform, opacity, box-shadow, background-color, border-color, color !important;
+    }
+
+    .sticky-inner.header-attached .progress-icon,
+    .sticky-inner.header-attached .progress-icon svg,
+    .sticky-inner.header-attached .progress-label-text,
+    .sticky-inner.header-attached .progress-value,
+    .sticky-inner.header-attached #score-label {
+        transition-duration: 180ms !important;
+        transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+        transition-property: transform, opacity, color !important;
+        transform-origin: left center;
+    }
+
+    .sticky-inner.header-attached .progress-section {
+        border: 1px solid var(--line) !important;
+        background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, white) 0%, var(--surface-strong) 100%) !important;
+        border-radius: 24px !important;
+        padding: 0.45rem 0.55rem !important;
+        box-shadow: none !important;
+    }
+
+    .sticky-inner.header-attached .progress-layout {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+    }
+
+    .sticky-inner.header-attached .progress-main {
+        min-width: 0;
+    }
+
+    .sticky-inner.header-attached .progress-actions {
+        align-self: stretch;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .sticky-inner.header-attached .progress-actions #restart-test {
+        white-space: nowrap;
+    }
+
+    .sticky-inner.header-attached .progress-icon {
+        transform: scale(0.82) !important;
+        background: linear-gradient(135deg, #2f67b1 0%, #4f88d6 100%) !important;
+    }
+
+    .sticky-inner.header-attached .progress-icon svg {
+        transform: scale(0.86) !important;
+    }
+
+    .sticky-inner.header-attached .progress-label-text {
+        transform: scale(0.92) !important;
+        opacity: 0.94 !important;
+        color: var(--muted) !important;
+    }
+
+    .sticky-inner.header-attached .progress-value,
+    .sticky-inner.header-attached #progress-label {
+        transform: scale(0.94) !important;
+        color: var(--text) !important;
+        background: none !important;
+        -webkit-text-fill-color: initial !important;
+    }
+
+    .sticky-inner.header-attached #score-label {
+        color: var(--accent) !important;
+        background: none !important;
+        -webkit-text-fill-color: initial !important;
+    }
+
+    .sticky-inner.header-attached .progress-bar-container {
+        border: 1px solid var(--line) !important;
+        box-shadow: none !important;
+        background: rgba(47, 103, 177, 0.14) !important;
+        transform: scaleY(0.78) !important;
+    }
+
+    .sticky-inner.header-attached #progress-bar {
+        top: 0 !important;
+        height: 100% !important;
+        border-radius: 999px !important;
+        background: linear-gradient(90deg, #2f67b1 0%, #74a9f0 55%, #f59b2f 100%) !important;
+    }
+
+    .sticky-inner.header-attached #restart-test {
+        transform: scale(0.94) !important;
+        transform-origin: right center;
+        border-color: var(--line) !important;
+        background: var(--surface-strong) !important;
+        color: var(--text) !important;
+        border-radius: 18px !important;
+        font-weight: 800 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
     }
 
     #new-design-test-shell main {

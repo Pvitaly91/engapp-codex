@@ -445,6 +445,8 @@
                     </div>
                 </div>
 
+                <div id="site-header-test-controls" class="px-4 lg:px-0"></div>
+
                 <div x-show="mobile" x-cloak x-transition class="mt-4 space-y-4 border-t pt-4 xl:hidden" style="border-color: var(--line);">
                     <nav class="grid gap-2 text-sm font-semibold">
                         <a href="{{ localized_route('catalog.tests-cards') }}" class="rounded-2xl border px-4 py-3 transition hover:border-ocean surface-card-strong">{{ __('public.nav.catalog') }}</a>
