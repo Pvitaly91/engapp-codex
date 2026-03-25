@@ -1053,16 +1053,19 @@ class SeedRunsService
     {
         $hasTextBlockTable = Schema::hasTable('text_blocks');
         $hasPagesTable = Schema::hasTable('pages');
+        $hasPageCategoriesTable = Schema::hasTable('page_categories');
 
-        if ($classNames->isEmpty() || (! $hasTextBlockTable && ! $hasPagesTable)) {
-            return ['blocks' => 0, 'pages_deleted' => 0];
+        if ($classNames->isEmpty() || (! $hasTextBlockTable && ! $hasPagesTable && ! $hasPageCategoriesTable)) {
+            return ['blocks' => 0, 'pages_deleted' => 0, 'categories_deleted' => 0];
         }
 
         $classNames = $this->expandGrammarPageSeederClasses($classNames);
 
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedCategories = 0;
         $processedPageIds = collect();
+        $processedCategoryIds = collect();
 
         foreach ($classNames as $className) {
             if ($hasTextBlockTable) {
@@ -1113,11 +1116,53 @@ class SeedRunsService
                 $page->delete();
                 $deletedPages++;
             }
+
+            if (! $hasPageCategoriesTable) {
+                continue;
+            }
+
+            $categories = PageCategory::query()
+                ->where('seeder', $className)
+                ->get();
+
+            foreach ($categories as $category) {
+                if ($processedCategoryIds->contains($category->id)) {
+                    continue;
+                }
+
+                $processedCategoryIds->push($category->id);
+
+                if ($hasTextBlockTable) {
+                    TextBlock::query()
+                        ->where('page_category_id', $category->id)
+                        ->whereNotNull('page_id')
+                        ->update(['page_category_id' => null]);
+
+                    $deletedBlocks += TextBlock::query()
+                        ->where('page_category_id', $category->id)
+                        ->whereNull('page_id')
+                        ->delete();
+                }
+
+                if ($hasPagesTable) {
+                    Page::query()
+                        ->where('page_category_id', $category->id)
+                        ->update(['page_category_id' => null]);
+                }
+
+                PageCategory::query()
+                    ->where('parent_id', $category->id)
+                    ->update(['parent_id' => null]);
+
+                $category->delete();
+                $deletedCategories++;
+            }
         }
 
         return [
             'blocks' => $deletedBlocks,
             'pages_deleted' => $deletedPages,
+            'categories_deleted' => $deletedCategories,
         ];
     }
 

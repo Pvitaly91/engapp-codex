@@ -8,6 +8,7 @@ use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Models\TextBlock;
 use App\Services\QuestionDeletionService;
+use App\Support\Database\JsonPageLocalizationManager;
 use App\Support\Database\JsonTestLocalizationManager;
 use Database\Seeders\Pages\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
 use Database\Seeders\Pages\Concerns\PageCategoryDescriptionSeeder as PageCategoryDescriptionSeederBase;
@@ -38,8 +39,89 @@ class SeedRunController extends Controller
     public function __construct(
         private QuestionDeletionService $questionDeletionService,
         private JsonTestLocalizationManager $jsonTestLocalizationManager,
+        private JsonPageLocalizationManager $jsonPageLocalizationManager,
     )
     {
+    }
+
+    protected function isVirtualLocalizationSeeder(string $className): bool
+    {
+        return $this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)
+            || $this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className);
+    }
+
+    protected function virtualLocalizationType(string $className): ?string
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return 'question_localizations';
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return 'page_localizations';
+        }
+
+        return null;
+    }
+
+    protected function virtualLocalizationClasses(): array
+    {
+        return collect($this->jsonTestLocalizationManager->virtualSeederClasses())
+            ->merge($this->jsonPageLocalizationManager->virtualSeederClasses())
+            ->unique()
+            ->values()
+            ->all();
+    }
+
+    protected function virtualLocalizationFilePath(string $className): ?string
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->filePathForClass($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->filePathForClass($className);
+        }
+
+        return null;
+    }
+
+    protected function applyVirtualLocalizationSeeder(string $className): array
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->applyVirtualSeeder($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->applyVirtualSeeder($className);
+        }
+
+        throw new \RuntimeException(__('Localization seeder :class was not found.', ['class' => $className]));
+    }
+
+    protected function removeVirtualLocalizationSeederData(string $className): array
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->removeVirtualSeederData($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->removeVirtualSeederData($className);
+        }
+
+        return [];
+    }
+
+    protected function buildVirtualLocalizationPreview(string $className): array
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->buildVirtualSeederPreview($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->buildVirtualSeederPreview($className);
+        }
+
+        throw new \RuntimeException(__('Localization seeder :class was not found.', ['class' => $className]));
     }
 
     public function index(): View
@@ -545,7 +627,7 @@ class SeedRunController extends Controller
 
     protected function seederSupportsPreview(string $className): bool
     {
-        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+        if ($this->isVirtualLocalizationSeeder($className)) {
             return true;
         }
 
@@ -754,8 +836,8 @@ class SeedRunController extends Controller
 
     protected function buildSeederPreview(string $className): array
     {
-        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
-            return $this->jsonTestLocalizationManager->buildVirtualSeederPreview($className);
+        if ($this->isVirtualLocalizationSeeder($className)) {
+            return $this->buildVirtualLocalizationPreview($className);
         }
 
         if (is_subclass_of($className, QuestionSeederBase::class)) {
@@ -1535,8 +1617,8 @@ class SeedRunController extends Controller
         }
 
         try {
-            if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
-                $this->jsonTestLocalizationManager->applyVirtualSeeder($className);
+            if ($this->isVirtualLocalizationSeeder($className)) {
+                $this->applyVirtualLocalizationSeeder($className);
                 DB::table('seed_runs')->updateOrInsert(
                     ['class_name' => $className],
                     ['ran_at' => now()]
@@ -1862,8 +1944,8 @@ class SeedRunController extends Controller
     {
         $candidatePaths = collect();
 
-        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
-            $candidatePaths->push($this->jsonTestLocalizationManager->filePathForClass($className));
+        if ($this->isVirtualLocalizationSeeder($className)) {
+            $candidatePaths->push($this->virtualLocalizationFilePath($className));
         }
 
         $map = $this->getSeederClassMap();
@@ -2049,11 +2131,11 @@ class SeedRunController extends Controller
             ->reject(fn (string $class) => in_array($class, $executedClasses, true))
             ->values();
         $orderedPendingSeeders = $pendingSeeders
-            ->reject(fn (string $class) => $this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($class))
+            ->reject(fn (string $class) => $this->isVirtualLocalizationSeeder($class))
             ->values()
             ->merge(
                 $pendingSeeders
-                    ->filter(fn (string $class) => $this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($class))
+                    ->filter(fn (string $class) => $this->isVirtualLocalizationSeeder($class))
                     ->values()
             );
 
@@ -2067,8 +2149,8 @@ class SeedRunController extends Controller
             }
 
             try {
-                if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
-                    $this->jsonTestLocalizationManager->applyVirtualSeeder($className);
+                if ($this->isVirtualLocalizationSeeder($className)) {
+                    $this->applyVirtualLocalizationSeeder($className);
                     DB::table('seed_runs')->updateOrInsert(
                         ['class_name' => $className],
                         ['ran_at' => now()]
@@ -2250,9 +2332,12 @@ class SeedRunController extends Controller
             $classNames = collect([$seedRun->class_name]);
 
             if ($profile['type'] === 'question_localizations') {
-                $result = $this->jsonTestLocalizationManager->removeVirtualSeederData($seedRun->class_name);
+                $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
                 $deletedHints = (int) ($result['deleted_hints'] ?? 0);
                 $deletedExplanations = (int) ($result['deleted_explanations'] ?? 0);
+            } elseif ($profile['type'] === 'page_localizations') {
+                $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
+                $deletedBlocks = (int) ($result['deleted_blocks'] ?? 0);
             } elseif ($profile['type'] === 'questions') {
                 $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
             } elseif ($profile['type'] === 'pages') {
@@ -2274,6 +2359,10 @@ class SeedRunController extends Controller
                 'class' => $seedRun->class_name,
                 'hints' => $deletedHints,
                 'explanations' => $deletedExplanations,
+            ]),
+            'page_localizations' => __('Removed page localization seeder :class and deleted :blocks localized text block(s).', [
+                'class' => $seedRun->class_name,
+                'blocks' => $deletedBlocks,
             ]),
             'pages' => __('Removed seeder :class and deleted :blocks related text block(s).', [
                 'class' => $seedRun->class_name,
@@ -2377,7 +2466,7 @@ class SeedRunController extends Controller
         $profile = $this->describeSeederData($seedRun->class_name);
 
         try {
-            $isLocalizationSeeder = $this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className);
+            $isLocalizationSeeder = $this->isVirtualLocalizationSeeder($className);
 
             if (! $isLocalizationSeeder) {
                 $filePath = $this->resolveSeederFilePath($className);
@@ -2407,9 +2496,12 @@ class SeedRunController extends Controller
                 $classNames = collect([$seedRun->class_name]);
 
                 if ($profile['type'] === 'question_localizations') {
-                    $result = $this->jsonTestLocalizationManager->removeVirtualSeederData($seedRun->class_name);
+                    $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
                     $deletedHints = (int) ($result['deleted_hints'] ?? 0);
                     $deletedExplanations = (int) ($result['deleted_explanations'] ?? 0);
+                } elseif ($profile['type'] === 'page_localizations') {
+                    $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
+                    $deletedBlocks = (int) ($result['deleted_blocks'] ?? 0);
                 } elseif ($profile['type'] === 'questions') {
                     $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
                 } elseif ($profile['type'] === 'pages') {
@@ -2425,7 +2517,7 @@ class SeedRunController extends Controller
             });
 
             if ($isLocalizationSeeder) {
-                $this->jsonTestLocalizationManager->applyVirtualSeeder($className);
+                $this->applyVirtualLocalizationSeeder($className);
             } else {
                 Artisan::call('db:seed', ['--class' => $className]);
             }
@@ -2450,6 +2542,10 @@ class SeedRunController extends Controller
                 'class' => $seedRun->class_name,
                 'hints' => $deletedHints,
                 'explanations' => $deletedExplanations,
+            ]),
+            'page_localizations' => __('Refreshed page localization seeder :class. Deleted :blocks localized text block(s) and regenerated them.', [
+                'class' => $seedRun->class_name,
+                'blocks' => $deletedBlocks,
             ]),
             'pages' => __('Refreshed seeder :class. Deleted :blocks text block(s) and regenerated content.', [
                 'class' => $seedRun->class_name,
@@ -2627,10 +2723,11 @@ class SeedRunController extends Controller
             return [$className => $profile['type']];
         });
 
-        $localizationClasses = $typeMap->filter(fn ($type) => $type === 'question_localizations')->keys()->values();
+        $questionLocalizationClasses = $typeMap->filter(fn ($type) => $type === 'question_localizations')->keys()->values();
+        $pageLocalizationClasses = $typeMap->filter(fn ($type) => $type === 'page_localizations')->keys()->values();
         $questionClasses = $typeMap->filter(fn ($type) => $type === 'questions')->keys()->values();
         $pageClasses = $typeMap->filter(fn ($type) => $type === 'pages')->keys()->values();
-        $unknownClasses = $typeMap->filter(fn ($type) => ! in_array($type, ['question_localizations', 'questions', 'pages'], true))->keys()->values();
+        $unknownClasses = $typeMap->filter(fn ($type) => ! in_array($type, ['question_localizations', 'page_localizations', 'questions', 'pages'], true))->keys()->values();
 
         $deletedQuestions = 0;
         $deletedBlocks = 0;
@@ -2640,7 +2737,8 @@ class SeedRunController extends Controller
 
         DB::transaction(function () use (
             $seedRunIdsToDelete,
-            $localizationClasses,
+            $questionLocalizationClasses,
+            $pageLocalizationClasses,
             $questionClasses,
             $pageClasses,
             $unknownClasses,
@@ -2650,10 +2748,15 @@ class SeedRunController extends Controller
             &$deletedHints,
             &$deletedExplanations
         ) {
-            foreach ($localizationClasses as $className) {
-                $result = $this->jsonTestLocalizationManager->removeVirtualSeederData($className);
+            foreach ($questionLocalizationClasses as $className) {
+                $result = $this->removeVirtualLocalizationSeederData($className);
                 $deletedHints += (int) ($result['deleted_hints'] ?? 0);
                 $deletedExplanations += (int) ($result['deleted_explanations'] ?? 0);
+            }
+
+            foreach ($pageLocalizationClasses as $className) {
+                $result = $this->removeVirtualLocalizationSeederData($className);
+                $deletedBlocks += (int) ($result['deleted_blocks'] ?? 0);
             }
 
             if ($questionClasses->isNotEmpty()) {
@@ -2782,13 +2885,25 @@ class SeedRunController extends Controller
             return $default;
         }
 
-        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+        $localizationType = $this->virtualLocalizationType($className);
+
+        if ($localizationType === 'question_localizations') {
             return [
                 'type' => 'question_localizations',
                 'delete_button' => __('Видалити локалізації'),
                 'delete_confirm' => __('Видалити лог та пов’язані локалізації?'),
                 'folder_delete_button' => __('Видалити локалізації'),
                 'folder_delete_confirm' => __('Видалити всі локалізаційні сидери в папці «:folder» разом із локалізаціями?'),
+            ];
+        }
+
+        if ($localizationType === 'page_localizations') {
+            return [
+                'type' => 'page_localizations',
+                'delete_button' => __('Видалити локалізації сторінок'),
+                'delete_confirm' => __('Видалити лог та пов’язані локалізовані блоки сторінок?'),
+                'folder_delete_button' => __('Видалити локалізації сторінок'),
+                'folder_delete_confirm' => __('Видалити всі локалізаційні сидери сторінок у папці «:folder» разом із локалізованими блоками?'),
             ];
         }
 
@@ -2871,16 +2986,19 @@ class SeedRunController extends Controller
     {
         $hasTextBlockTable = Schema::hasTable('text_blocks');
         $hasPagesTable = Schema::hasTable('pages');
+        $hasPageCategoriesTable = Schema::hasTable('page_categories');
 
-        if ($classNames->isEmpty() || (! $hasTextBlockTable && ! $hasPagesTable)) {
-            return ['blocks' => 0, 'pages_deleted' => 0];
+        if ($classNames->isEmpty() || (! $hasTextBlockTable && ! $hasPagesTable && ! $hasPageCategoriesTable)) {
+            return ['blocks' => 0, 'pages_deleted' => 0, 'categories_deleted' => 0];
         }
 
         $classNames = $this->expandGrammarPageSeederClasses($classNames);
 
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedCategories = 0;
         $processedPageIds = collect();
+        $processedCategoryIds = collect();
 
         foreach ($classNames as $className) {
             if ($hasTextBlockTable) {
@@ -2931,11 +3049,53 @@ class SeedRunController extends Controller
                 $page->delete();
                 $deletedPages++;
             }
+
+            if (! $hasPageCategoriesTable) {
+                continue;
+            }
+
+            $categories = PageCategory::query()
+                ->where('seeder', $className)
+                ->get();
+
+            foreach ($categories as $category) {
+                if ($processedCategoryIds->contains($category->id)) {
+                    continue;
+                }
+
+                $processedCategoryIds->push($category->id);
+
+                if ($hasTextBlockTable) {
+                    TextBlock::query()
+                        ->where('page_category_id', $category->id)
+                        ->whereNotNull('page_id')
+                        ->update(['page_category_id' => null]);
+
+                    $deletedBlocks += TextBlock::query()
+                        ->where('page_category_id', $category->id)
+                        ->whereNull('page_id')
+                        ->delete();
+                }
+
+                if ($hasPagesTable) {
+                    Page::query()
+                        ->where('page_category_id', $category->id)
+                        ->update(['page_category_id' => null]);
+                }
+
+                PageCategory::query()
+                    ->where('parent_id', $category->id)
+                    ->update(['parent_id' => null]);
+
+                $category->delete();
+                $deletedCategories++;
+            }
         }
 
         return [
             'blocks' => $deletedBlocks,
             'pages_deleted' => $deletedPages,
+            'categories_deleted' => $deletedCategories,
         ];
     }
 
@@ -3046,13 +3206,13 @@ class SeedRunController extends Controller
     private function discoverSeederClasses(string $directory): array
     {
         if (! is_dir($directory)) {
-            return $this->jsonTestLocalizationManager->virtualSeederClasses();
+            return $this->virtualLocalizationClasses();
         }
 
         return $this->getSeederClassMap()
             ->filter(fn (string $path, string $class) => $this->isInstantiableSeeder($class, $path))
             ->keys()
-            ->merge($this->jsonTestLocalizationManager->virtualSeederClasses())
+            ->merge($this->virtualLocalizationClasses())
             ->unique()
             ->sort()
             ->values()
@@ -3169,7 +3329,7 @@ class SeedRunController extends Controller
 
     private function ensureSeederClassIsLoaded(string $className): bool
     {
-        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+        if ($this->isVirtualLocalizationSeeder($className)) {
             return true;
         }
 

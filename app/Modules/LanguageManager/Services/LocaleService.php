@@ -11,16 +11,57 @@ class LocaleService
     protected static ?Language $cachedDefault = null;
 
     /**
+     * Check whether the languages table can be queried safely.
+     */
+    public static function hasLanguagesTable(): bool
+    {
+        try {
+            return Schema::hasTable('languages');
+        } catch (\Throwable $e) {
+            return false;
+        }
+    }
+
+    /**
+     * Get configured supported locales with the default locale included.
+     *
+     * @return array<int, string>
+     */
+    public static function getConfiguredSupportedLocales(): array
+    {
+        $defaultLocale = self::getConfiguredDefaultLocale();
+        $locales = config('app.supported_locales', [$defaultLocale]);
+
+        if (! in_array($defaultLocale, $locales, true)) {
+            $locales[] = $defaultLocale;
+        }
+
+        return array_values(array_unique(array_filter($locales)));
+    }
+
+    /**
+     * Get the configured default locale.
+     */
+    public static function getConfiguredDefaultLocale(): string
+    {
+        return config('app.locale', config('language-manager.fallback_locale', 'uk'));
+    }
+
+    /**
      * Get all active languages.
      */
     public static function getActiveLanguages()
     {
-        if (!Schema::hasTable('languages')) {
+        if (!self::hasLanguagesTable()) {
             return collect();
         }
 
-        if (self::$cachedLanguages === null) {
-            self::$cachedLanguages = Language::getActive()->all();
+        try {
+            if (self::$cachedLanguages === null) {
+                self::$cachedLanguages = Language::getActive()->all();
+            }
+        } catch (\Throwable $e) {
+            self::$cachedLanguages = [];
         }
 
         return collect(self::$cachedLanguages);
@@ -31,15 +72,43 @@ class LocaleService
      */
     public static function getDefaultLanguage(): ?Language
     {
-        if (!Schema::hasTable('languages')) {
+        if (!self::hasLanguagesTable()) {
             return null;
         }
 
-        if (self::$cachedDefault === null) {
-            self::$cachedDefault = Language::getDefault();
+        try {
+            if (self::$cachedDefault === null) {
+                self::$cachedDefault = Language::getDefault();
+            }
+        } catch (\Throwable $e) {
+            self::$cachedDefault = null;
         }
 
         return self::$cachedDefault;
+    }
+
+    /**
+     * Get the active locale codes, falling back to config if the database is unavailable.
+     *
+     * @return array<int, string>
+     */
+    public static function getSupportedLocaleCodes(): array
+    {
+        $codes = self::getActiveLanguages()
+            ->pluck('code')
+            ->filter()
+            ->values()
+            ->toArray();
+
+        return $codes !== [] ? $codes : self::getConfiguredSupportedLocales();
+    }
+
+    /**
+     * Get the default locale code, falling back to config if the database is unavailable.
+     */
+    public static function getDefaultLocaleCode(): string
+    {
+        return self::getDefaultLanguage()?->code ?? self::getConfiguredDefaultLocale();
     }
 
     /**
@@ -55,9 +124,7 @@ class LocaleService
      */
     public static function isDefaultLocale(): bool
     {
-        $default = self::getDefaultLanguage();
-        
-        return $default && $default->code === app()->getLocale();
+        return self::getDefaultLocaleCode() === app()->getLocale();
     }
 
     /**
@@ -71,8 +138,8 @@ class LocaleService
 
         // Get current segments
         $segments = array_values(array_filter(explode('/', $path)));
-        $activeCodes = self::getActiveLanguages()->pluck('code')->toArray();
-        $default = self::getDefaultLanguage();
+        $activeCodes = self::getSupportedLocaleCodes();
+        $defaultCode = self::getDefaultLocaleCode();
 
         // Remove existing locale prefix if present
         if (!empty($segments) && in_array($segments[0], $activeCodes)) {
@@ -80,7 +147,7 @@ class LocaleService
         }
 
         // Add new locale prefix (except for default language)
-        if ($default && $locale !== $default->code) {
+        if ($locale !== $defaultCode) {
             array_unshift($segments, $locale);
         }
 
@@ -143,10 +210,7 @@ class LocaleService
     public static function localizedRoute(string $name, $parameters = [], bool $absolute = true, ?string $locale = null): string
     {
         $locale = $locale ?? self::getCurrentLocale();
-        $default = self::getDefaultLanguage();
-        
-        // Fallback to config if database doesn't have default language
-        $defaultCode = $default ? $default->code : config('app.locale', 'uk');
+        $defaultCode = self::getDefaultLocaleCode();
         
         // Generate the base route URL
         $url = route($name, $parameters, $absolute);
@@ -157,12 +221,7 @@ class LocaleService
         
         // Get current segments
         $segments = array_values(array_filter(explode('/', $path)));
-        $activeCodes = self::getActiveLanguages()->pluck('code')->toArray();
-        
-        // If no active languages from DB, use config (with sensible default)
-        if (empty($activeCodes)) {
-            $activeCodes = config('app.supported_locales', ['uk', 'en', 'pl']);
-        }
+        $activeCodes = self::getSupportedLocaleCodes();
         
         // Always remove existing locale prefix if present (even for default language)
         if (!empty($segments) && in_array($segments[0], $activeCodes)) {

@@ -1915,7 +1915,7 @@
                 const actionsId = checkboxId + '-actions';
                 const displayNamespace = seeder.display_class_namespace || '';
                 const displayBasename = seeder.display_class_basename || seeder.display_class_name;
-                const isLocalizationSeeder = (seeder.data_type || '') === 'question_localizations';
+                const isLocalizationSeeder = ['question_localizations', 'page_localizations'].includes(seeder.data_type || '');
                 const isCategorySeeder = (displayBasename || '').includes('Category');
                 const labelClasses = isLocalizationSeeder
                     ? 'inline-flex items-center px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-semibold ring-1 ring-sky-200'

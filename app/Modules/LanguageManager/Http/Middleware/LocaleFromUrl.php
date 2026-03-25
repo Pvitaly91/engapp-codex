@@ -2,10 +2,9 @@
 
 namespace App\Modules\LanguageManager\Http\Middleware;
 
-use App\Modules\LanguageManager\Models\Language;
+use App\Modules\LanguageManager\Services\LocaleService;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Schema;
 use Symfony\Component\HttpFoundation\Response;
 
 class LocaleFromUrl
@@ -15,19 +14,8 @@ class LocaleFromUrl
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Skip if languages table doesn't exist yet
-        if (!Schema::hasTable('languages')) {
-            return $next($request);
-        }
-
-        $defaultLanguage = Language::getDefault();
-        $activeCodes = Language::getActiveCodes();
-
-        // No languages configured, use fallback
-        if (empty($activeCodes) || !$defaultLanguage) {
-            app()->setLocale(config('language-manager.fallback_locale', 'uk'));
-            return $next($request);
-        }
+        $defaultLocale = LocaleService::getDefaultLocaleCode();
+        $activeCodes = LocaleService::getSupportedLocaleCodes();
 
         // Get the first segment of the URL
         $segments = $request->segments();
@@ -42,10 +30,10 @@ class LocaleFromUrl
             $this->storeLocale($request, $firstSegment);
         } else {
             // No language prefix - use default language
-            app()->setLocale($defaultLanguage->code);
+            app()->setLocale($defaultLocale);
             
             // Store in session/cookie
-            $this->storeLocale($request, $defaultLanguage->code);
+            $this->storeLocale($request, $defaultLocale);
         }
 
         return $next($request);

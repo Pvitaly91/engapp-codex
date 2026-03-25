@@ -11,6 +11,7 @@
             'page' => __('Сторінка'),
             'category' => __('Категорія'),
             'question_localizations' => __('Локалізації'),
+            'page_localizations' => __('Локалізації сторінок'),
             default => __('Питання'),
         };
         $questionPreviews = $preview['questions'] ?? collect();
@@ -23,9 +24,14 @@
         $pagePreview = $previewType === 'page' ? ($preview['page'] ?? null) : null;
         $categoryPreview = $previewType === 'category' ? ($preview['category'] ?? null) : null;
         $localizationsPreview = $previewType === 'question_localizations' ? ($preview['questions'] ?? collect()) : collect();
+        $pageLocalizationsPreview = $previewType === 'page_localizations' ? ($preview['blocks'] ?? collect()) : collect();
 
         if (! $localizationsPreview instanceof \Illuminate\Support\Collection) {
             $localizationsPreview = collect($localizationsPreview);
+        }
+
+        if (! $pageLocalizationsPreview instanceof \Illuminate\Support\Collection) {
+            $pageLocalizationsPreview = collect($pageLocalizationsPreview);
         }
 
         $localizationTarget = $preview['target'] ?? [];
@@ -44,6 +50,7 @@
                             'page' => __('Переконайтеся, що сторінка виглядає коректно, перш ніж запускати сидер.'),
                             'category' => __('Переконайтеся, що опис категорії виглядає коректно, перш ніж запускати сидер.'),
                             'question_localizations' => __('Переконайтеся, що локалізовані hints та explanations прив’язані до правильних питань і locale.'),
+                            'page_localizations' => __('Переконайтеся, що локалізовані блоки прив’язані до правильної сторінки або категорії та locale.'),
                             default => __('Переконайтеся, що питання та пов’язані дані виглядають коректно, перш ніж запускати сидер.'),
                         } }}
                     </p>
@@ -141,6 +148,31 @@
                         <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Питань уже в БД') }}</dt>
                         <dd>{{ $preview['existingQuestionCount'] ?? 0 }}</dd>
                     </div>
+                @elseif($previewType === 'page_localizations')
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Locale') }}</dt>
+                        <dd>{{ strtoupper((string) $localizationLocale) }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Тип цілі') }}</dt>
+                        <dd>{{ $localizationTarget['content_type'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Цільовий сидер') }}</dt>
+                        <dd class="font-mono break-all">{{ $localizationTarget['seeder_class'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Цільовий definition') }}</dt>
+                        <dd>{{ $localizationTarget['definition'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Локалізованих блоків') }}</dt>
+                        <dd>{{ $preview['localizedBlockCount'] ?? $pageLocalizationsPreview->count() }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Ціль уже є в БД') }}</dt>
+                        <dd>{{ !empty($preview['hasExistingTarget']) ? __('Так') : __('Ні') }}</dd>
+                    </div>
                 @endif
             </dl>
 
@@ -221,6 +253,56 @@
                                     </div>
                                 </div>
                             @endif
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        @endif
+
+        @if($previewType === 'page_localizations')
+            @if($pageLocalizationsPreview->isEmpty())
+                <div class="bg-white shadow rounded-lg p-6 text-sm text-slate-500">
+                    {{ __('У localization seeder сторінок немає блоків для попереднього перегляду.') }}
+                </div>
+            @else
+                <div class="space-y-4">
+                    @foreach($pageLocalizationsPreview as $localizedBlock)
+                        <div class="bg-white shadow rounded-lg border border-slate-200 p-6 space-y-4">
+                            <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                                <div class="space-y-1">
+                                    <div class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                        {{ __('Посилання на блок') }}:
+                                        <span class="font-mono normal-case">{{ $localizedBlock['reference'] ?? '—' }}</span>
+                                    </div>
+                                    <h2 class="text-lg font-semibold text-slate-800">
+                                        {{ $localizedBlock['type'] ?? __('Блок') }}
+                                        @if(filled($localizedBlock['column'] ?? null))
+                                            <span class="text-sm font-normal text-slate-500">({{ $localizedBlock['column'] }})</span>
+                                        @endif
+                                    </h2>
+                                </div>
+                                @if(filled($localizedBlock['level'] ?? null))
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold">
+                                        {{ $localizedBlock['level'] }}
+                                    </span>
+                                @endif
+                            </div>
+
+                            @if(filled($localizedBlock['heading'] ?? null))
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">{{ __('Heading') }}</h3>
+                                    <div class="rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 text-sm text-slate-900">
+                                        {!! nl2br(e($localizedBlock['heading'])) !!}
+                                    </div>
+                                </div>
+                            @endif
+
+                            <div>
+                                <h3 class="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">{{ __('Body') }}</h3>
+                                <div class="rounded-lg bg-sky-50 border border-sky-200 px-4 py-3 text-sm text-sky-950 whitespace-pre-wrap break-words">
+                                    {!! nl2br(e((string) ($localizedBlock['body'] ?? ''))) !!}
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </div>

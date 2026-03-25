@@ -11,6 +11,7 @@ use App\Http\Controllers\SiteSearchController;
 use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
+use App\Modules\LanguageManager\Services\LocaleService;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,23 +35,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/set-locale', function (\Illuminate\Http\Request $request) {
     $lang = $request->input('lang', 'uk');
     
-    // Get supported locales from Language Manager or fallback to config
-    $supportedLocales = ['uk', 'en']; // Default fallback
-    $defaultLocale = 'uk';
-    
-    if (\Illuminate\Support\Facades\Schema::hasTable('languages')) {
-        $codes = \App\Modules\LanguageManager\Services\LocaleService::getActiveLanguages()->pluck('code')->toArray();
-        if (!empty($codes)) {
-            $supportedLocales = $codes;
-        }
-        $default = \App\Modules\LanguageManager\Services\LocaleService::getDefaultLanguage();
-        if ($default) {
-            $defaultLocale = $default->code;
-        }
-    } else {
-        $supportedLocales = config('app.supported_locales', ['uk', 'en']);
-        $defaultLocale = config('app.locale', 'uk');
-    }
+    $supportedLocales = LocaleService::getSupportedLocaleCodes();
+    $defaultLocale = LocaleService::getDefaultLocaleCode();
     
     if (! in_array($lang, $supportedLocales)) {
         $lang = $defaultLocale;

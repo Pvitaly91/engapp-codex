@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use App\Modules\LanguageManager\Services\LocaleService;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Schema;
 use Symfony\Component\HttpFoundation\Response;
 
 class SetLocale
@@ -61,16 +60,7 @@ class SetLocale
      */
     protected function getSupportedLocales(): array
     {
-        // Try to get from Language Manager database
-        if (Schema::hasTable('languages')) {
-            $codes = LocaleService::getActiveLanguages()->pluck('code')->toArray();
-            if (!empty($codes)) {
-                return $codes;
-            }
-        }
-
-        // Fallback to config
-        return config('app.supported_locales', ['uk', 'en']);
+        return LocaleService::getSupportedLocaleCodes();
     }
 
     /**
@@ -78,15 +68,6 @@ class SetLocale
      */
     protected function getDefaultLocale(): string
     {
-        // Try to get from Language Manager database
-        if (Schema::hasTable('languages')) {
-            $default = LocaleService::getDefaultLanguage();
-            if ($default) {
-                return $default->code;
-            }
-        }
-
-        // Fallback to config
-        return config('app.locale', 'uk');
+        return LocaleService::getDefaultLocaleCode();
     }
 }

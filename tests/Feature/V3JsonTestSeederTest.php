@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Http\Controllers\SeedRunController;
+use App\Support\Database\JsonPageLocalizationManager;
 use App\Models\ChatGPTExplanation;
 use App\Models\Question;
 use App\Models\QuestionHint;
@@ -397,6 +398,7 @@ class V3JsonTestSeederTest extends TestCase
         $controller = new class(
             app(QuestionDeletionService::class),
             app(JsonTestLocalizationManager::class),
+            app(JsonPageLocalizationManager::class),
         ) extends SeedRunController {
             public function overviewData(): array
             {

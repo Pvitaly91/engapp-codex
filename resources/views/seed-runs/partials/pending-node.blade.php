@@ -30,7 +30,7 @@
         $pendingSeeder = $node['pending_seeder'];
         $pendingCheckboxId = 'pending-seeder-' . md5($pendingSeeder->class_name ?? $node['name']);
         $pendingActionsId = $pendingCheckboxId . '-actions';
-        $isLocalizationSeeder = ($pendingSeeder->data_type ?? null) === 'question_localizations';
+        $isLocalizationSeeder = in_array(($pendingSeeder->data_type ?? null), ['question_localizations', 'page_localizations'], true);
         $isCategorySeeder = \Illuminate\Support\Str::contains(
             $pendingSeeder->display_class_basename ?? $pendingSeeder->display_class_name ?? '',
             'Category'

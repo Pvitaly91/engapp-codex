@@ -2,13 +2,12 @@
 
 namespace App\Providers;
 
-use App\Modules\LanguageManager\Models\Language;
+use App\Modules\LanguageManager\Services\LocaleService;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Schema;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -56,16 +55,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function registerLocalizedRoutes(array $localeConfig): void
     {
-        // Skip if languages table doesn't exist
-        if (!Schema::hasTable('languages')) {
-            return;
-        }
-
-        if (empty($localeConfig['database_locales'])) {
-            return;
-        }
-
-        $localePrefixes = array_values(array_diff($localeConfig['database_locales'], [$localeConfig['default']]));
+        $localePrefixes = array_values(array_diff($localeConfig['active'], [$localeConfig['default']]));
 
         if (empty($localePrefixes)) {
             return;
@@ -112,23 +102,19 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function getLocaleConfig(): array
     {
-        $defaultLocale = config('app.locale', 'uk');
-        $locales = config('app.supported_locales', [$defaultLocale]);
+        $defaultLocale = LocaleService::getConfiguredDefaultLocale();
+        $locales = LocaleService::getConfiguredSupportedLocales();
         $databaseLocales = [];
 
-        if (Schema::hasTable('languages')) {
+        if (LocaleService::hasLanguagesTable()) {
             try {
-                $languages = Language::getActive();
-                $defaultLanguage = Language::getDefault();
+                $languages = LocaleService::getActiveLanguages();
+                $defaultLocale = LocaleService::getDefaultLocaleCode();
 
                 if ($languages->isNotEmpty()) {
                     $databaseLocales = $languages->pluck('code')->toArray();
                 }
-
-                if ($defaultLanguage) {
-                    $defaultLocale = $defaultLanguage->code;
-                }
-            } catch (\Exception $e) {
+            } catch (\Throwable $e) {
                 // Silently fall back to config values
             }
         }

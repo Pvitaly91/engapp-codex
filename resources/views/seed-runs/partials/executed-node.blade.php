@@ -81,7 +81,7 @@
         $seederDeleteConfirm = $dataProfile['delete_confirm'] ?? __('Видалити лог та пов’язані дані?');
         $seedRunOrdinal = $recentSeedRunOrdinals->get($seedRun->id);
         $seedRunIsRecent = !is_null($seedRunOrdinal);
-        $isLocalizationSeeder = ($dataProfile['type'] ?? null) === 'question_localizations';
+        $isLocalizationSeeder = in_array(($dataProfile['type'] ?? null), ['question_localizations', 'page_localizations'], true);
         $questionCount = (int) ($seedRun->question_count ?? 0);
         $executedCheckboxId = 'executed-seeder-' . $seedRun->id;
         $deleteQuestionsCheckboxId = 'executed-delete-questions-' . $seedRun->id;
