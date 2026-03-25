@@ -32,7 +32,7 @@
             >
                 @foreach($languages as $lang)
                     @if($lang['is_current'])
-                        <span>{{ $lang['native_name'] }}</span>
+                        <span>{{ $lang['localized_name'] ?? $lang['native_name'] }}</span>
                     @endif
                 @endforeach
                 <svg class="h-4 w-4 transition" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@
                         href="{{ $lang['url'] }}"
                         class="flex items-center justify-between px-4 py-2 text-sm transition {{ $lang['is_current'] ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground hover:bg-muted' }}"
                     >
-                        <span>{{ $lang['native_name'] }}</span>
+                        <span>{{ $lang['localized_name'] ?? $lang['native_name'] }}</span>
                         <span class="text-xs text-muted-foreground">{{ strtoupper($lang['code']) }}</span>
                     </a>
                 @endforeach
@@ -63,7 +63,7 @@
                     class="text-sm font-medium transition {{ $lang['is_current'] ? 'text-primary' : 'text-muted-foreground hover:text-foreground' }}"
                     @if($lang['is_current']) aria-current="true" @endif
                 >
-                    {{ $lang['native_name'] }}
+                    {{ $lang['localized_name'] ?? $lang['native_name'] }}
                 </a>
                 @unless($loop->last)
                     <span class="text-border">|</span>
@@ -77,7 +77,7 @@
                     href="{{ $lang['url'] }}"
                     class="flex items-center gap-1.5 rounded-lg px-2 py-1 text-sm transition {{ $lang['is_current'] ? 'bg-primary/10 ring-2 ring-primary/30' : 'hover:bg-muted' }}"
                     @if($lang['is_current']) aria-current="true" @endif
-                    title="{{ $lang['native_name'] }}"
+                    title="{{ $lang['localized_name'] ?? $lang['native_name'] }}"
                 >
                     <span class="text-lg">
                         @switch($lang['code'])

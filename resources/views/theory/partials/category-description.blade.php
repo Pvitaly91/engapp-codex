@@ -13,7 +13,7 @@
                 TH
             </span>
             <div class="min-w-0">
-                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Category overview</p>
+                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.category_overview') }}</p>
                 <h2 class="mt-2 font-display text-[2rem] font-extrabold leading-tight">{{ $page->title }}</h2>
                 @if($subtitleBlock && !empty($subtitleBlock->body))
                     <div class="mt-3 prose prose-sm max-w-none leading-7" style="color: var(--muted);">

@@ -10,8 +10,8 @@ class NewDesignTestController extends TestJsV2Controller
             $slug,
             'saved-test-js-v2',
             'test-modes.card-easy',
-            'Interactive test',
-            'Відповідайте на питання в card mode, використовуйте клавіші `1-4`, підказки, словниковий пошук і повертайтесь до каталогу без втрати функціоналу поточної сторінки тесту.'
+            'frontend.tests.hero.interactive',
+            'frontend.tests.hero.card_description'
         );
     }
 
@@ -21,8 +21,8 @@ class NewDesignTestController extends TestJsV2Controller
             $slug,
             'saved-test-js-step-v2',
             'test-modes.step-easy',
-            'Step-by-step test',
-            'Проходьте тест по одному питанню за раз у step mode, використовуйте пошук, підказки і стандартну навігацію без зміни поточної логіки.'
+            'frontend.tests.templates.step_easy.badge',
+            'frontend.tests.templates.step_easy.description'
         );
     }
 
@@ -32,8 +32,8 @@ class NewDesignTestController extends TestJsV2Controller
             $slug,
             'saved-test-js-step-select-v2',
             'test-modes.step-medium',
-            'Step medium',
-            'Середній step-режим залишає покрокову навігацію і працює в новій публічній оболонці без змін у функціоналі.'
+            'frontend.tests.templates.step_medium.badge',
+            'frontend.tests.templates.step_medium.description'
         );
     }
 
@@ -43,8 +43,8 @@ class NewDesignTestController extends TestJsV2Controller
             $slug,
             'saved-test-js-step-input-v2',
             'test-modes.step-hard',
-            'Step hard',
-            'Hard step-режим з ручним введенням відповіді тепер відкривається в новому дизайні, зберігаючи стару поведінку перевірки і прогресу.'
+            'frontend.tests.templates.step_hard.badge',
+            'frontend.tests.templates.step_hard.description'
         );
     }
 
@@ -54,8 +54,8 @@ class NewDesignTestController extends TestJsV2Controller
             $slug,
             'saved-test-js-step-manual-v2',
             'test-modes.step-expert',
-            'Step expert',
-            'Expert step-режим доступний у новому публічному інтерфейсі з тим самим сценарієм проходження, станом сесії та логікою оцінювання.'
+            'frontend.tests.templates.step_expert.badge',
+            'frontend.tests.templates.step_expert.description'
         );
     }
 
@@ -65,8 +65,8 @@ class NewDesignTestController extends TestJsV2Controller
             $slug,
             'saved-test-js-select-v2',
             'test-modes.card-medium',
-            'Card medium',
-            'Medium card-режим з варіантами відповідей працює в новому shell, але використовує той самий JS-функціонал і persistence.'
+            'frontend.tests.templates.card_medium.badge',
+            'frontend.tests.templates.card_medium.description'
         );
     }
 
@@ -76,8 +76,8 @@ class NewDesignTestController extends TestJsV2Controller
             $slug,
             'saved-test-js-input-v2',
             'test-modes.card-hard',
-            'Card hard',
-            'Hard card-режим з введенням відповіді вручну перенесено в новий інтерфейс без зміни правил перевірки.'
+            'frontend.tests.templates.card_hard.badge',
+            'frontend.tests.templates.card_hard.description'
         );
     }
 
@@ -87,8 +87,8 @@ class NewDesignTestController extends TestJsV2Controller
             $slug,
             'saved-test-js-manual-v2',
             'test-modes.card-expert',
-            'Card expert',
-            'Expert card-режим відображається в новому дизайні, але зберігає поточну логіку введення, оцінки і відновлення стану.'
+            'frontend.tests.templates.card_expert.badge',
+            'frontend.tests.templates.card_expert.description'
         );
     }
 
@@ -98,8 +98,8 @@ class NewDesignTestController extends TestJsV2Controller
             $slug,
             'saved-test-js-drag-drop',
             'test-modes.drag-drop',
-            'Drag & drop',
-            'Перетягуйте або обирайте варіанти для пропусків у drag & drop-режимі всередині нового layout.'
+            'frontend.tests.mode.drag_drop',
+            'frontend.tests.drag_drop.intro'
         );
     }
 
@@ -109,8 +109,8 @@ class NewDesignTestController extends TestJsV2Controller
             $slug,
             'saved-test-js-match',
             'test-modes.match',
-            'Match mode',
-            'Match-режим зіставлення речень і пояснень тепер також доступний у новому публічному інтерфейсі.'
+            'frontend.tests.mode.match',
+            'frontend.tests.match.intro'
         );
     }
 
@@ -120,8 +120,8 @@ class NewDesignTestController extends TestJsV2Controller
             $slug,
             'saved-test-js-dialogue',
             'test-modes.dialogue',
-            'Dialogue mode',
-            'Dialogue-режим із покроковим проходженням реплік відкривається в новому дизайні без зміни існуючої логіки.'
+            'frontend.tests.mode.dialogue',
+            'frontend.tests.dialogue.intro'
         );
     }
 
@@ -134,8 +134,8 @@ class NewDesignTestController extends TestJsV2Controller
     ) {
         return $this->renderSavedTestShell($slug, $stateMode, 'test-show', [
             'templateView' => $templateView,
-            'heroBadge' => $heroBadge,
-            'heroDescription' => $heroDescription,
+            'heroBadge' => __($heroBadge),
+            'heroDescription' => __($heroDescription),
         ]);
     }
 }

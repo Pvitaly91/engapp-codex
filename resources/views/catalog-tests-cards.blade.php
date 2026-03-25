@@ -1,6 +1,6 @@
 @extends('layouts.catalog-public')
 
-@section('title', __('public.nav.catalog'))
+@section('title', __('frontend.catalog.title'))
 
 @section('content')
 <div class="nd-page">
@@ -12,22 +12,22 @@
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.28em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ __('public.nav.catalog') }}
                 </span>
-                <h1 class="mt-6 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">Каталог тестів</h1>
+                <h1 class="mt-6 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ __('frontend.catalog.title') }}</h1>
                 <p class="mt-5 max-w-2xl text-lg leading-8 sm:text-xl" style="color: var(--muted);">
-                    Обирайте тести за агрегованими темами й рівнями. Фільтри, рівні, картки тестів і переходи працюють так само, як у поточному публічному каталозі.
+                    {{ __('frontend.catalog.description') }}
                 </p>
             </div>
 
             <div class="grid gap-4 sm:grid-cols-2">
                 <article class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
-                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Tests</p>
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.catalog.tests_label') }}</p>
                     <p class="mt-3 font-display text-[2.25rem] font-extrabold leading-none">{{ $tests->count() }}</p>
-                    <p class="mt-3 text-sm leading-6" style="color: var(--muted);">Кількість тестів після поточних фільтрів</p>
+                    <p class="mt-3 text-sm leading-6" style="color: var(--muted);">{{ __('frontend.catalog.tests_count_hint') }}</p>
                 </article>
                 <article class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
-                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Tags</p>
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.catalog.tags_label') }}</p>
                     <p class="mt-3 font-display text-[2.25rem] font-extrabold leading-none">{{ $tags->flatten()->count() }}</p>
-                    <p class="mt-3 text-sm leading-6" style="color: var(--muted);">Агреговані теги каталогу</p>
+                    <p class="mt-3 text-sm leading-6" style="color: var(--muted);">{{ __('frontend.catalog.tags_count_hint') }}</p>
                 </article>
             </div>
         </div>
@@ -40,18 +40,18 @@
                     <section class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
                         <div class="flex items-center justify-between gap-3">
                             <div>
-                                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Filters</p>
-                                <h2 class="mt-2 font-display text-xl font-extrabold leading-none">Catalog map</h2>
+                                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.catalog.filters') }}</p>
+                                <h2 class="mt-2 font-display text-xl font-extrabold leading-none">{{ __('frontend.catalog.map_title') }}</h2>
                             </div>
                             @if(!empty($selectedTags) || !empty($selectedLevels))
-                                <a href="{{ localized_route('catalog.tests-cards') }}" class="text-xs font-extrabold uppercase tracking-[0.18em]" style="color: var(--accent);">Reset</a>
+                                <a href="{{ localized_route('catalog.tests-cards') }}" class="text-xs font-extrabold uppercase tracking-[0.18em]" style="color: var(--accent);">{{ __('frontend.catalog.reset_short') }}</a>
                             @endif
                         </div>
 
                         <form id="tag-filter" action="{{ localized_route('catalog.tests-cards') }}" method="GET" class="mt-5 space-y-5">
                             @if(isset($availableLevels) && $availableLevels->count())
                                 <div class="rounded-[22px] border p-4 surface-card" style="border-color: var(--line);">
-                                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Level</p>
+                                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.catalog.level') }}</p>
                                     <div class="mt-3 flex flex-wrap gap-2">
                                         @foreach($availableLevels as $lvl)
                                             @php $id = 'level-' . md5($lvl); @endphp
@@ -70,9 +70,9 @@
                                 @php $isOther = in_array(strtolower($category), ['other', 'others']); @endphp
                                 <div class="rounded-[22px] border p-4 surface-card" style="border-color: var(--line);">
                                     <div class="flex items-center justify-between gap-3">
-                                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ $category }}</p>
+                                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ $isOther ? __('frontend.catalog.other_tags') : $category }}</p>
                                         @if($isOther)
-                                            <button type="button" id="toggle-others-btn" class="text-xs font-bold uppercase tracking-[0.18em]" style="color: var(--muted);">Show</button>
+                                            <button type="button" id="toggle-others-btn" class="text-xs font-bold uppercase tracking-[0.18em]" style="color: var(--muted);">{{ __('frontend.catalog.show') }}</button>
                                         @endif
                                     </div>
                                     <div id="{{ $isOther ? 'others-tags' : '' }}" class="mt-3 flex flex-wrap gap-2" @if($isOther) style="display:none;" @endif>
@@ -113,7 +113,13 @@
                                 $order = array_flip(['A1','A2','B1','B2','C1','C2']);
                                 $levels = $test->levels
                                     ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
-                                    ->map(fn($lvl) => $lvl ?? 'N/A');
+                                    ->map(fn($lvl) => $lvl ?? __('frontend.tests.hero.na'));
+                                $viewLabels = [
+                                    'drag-drop' => __('frontend.tests.mode.drag_drop'),
+                                    'match' => __('frontend.tests.mode.match'),
+                                    'dialogue' => __('frontend.tests.mode.dialogue'),
+                                ];
+                                $viewLabel = $viewLabels[$preferredView] ?? __('frontend.tests.mode.card');
                             @endphp
                             <article class="flex h-full flex-col overflow-hidden rounded-[26px] border shadow-card surface-card-strong" style="border-color: var(--line);">
                                 <a href="{{ $testRoute }}" class="block border-b p-6" style="border-color: var(--line);">
@@ -122,7 +128,7 @@
                                             {{ str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) }}
                                         </span>
                                         <span class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--muted);">
-                                            {{ count($test->questions) }} Q
+                                            {{ count($test->questions) }} {{ __('frontend.tests.question.label') }}
                                         </span>
                                     </div>
                                     <h3 class="mt-5 font-display text-xl font-extrabold leading-tight">{{ $test->name }}</h3>
@@ -147,11 +153,11 @@
 
                                     <div class="flex items-center justify-between gap-3 text-xs font-bold uppercase tracking-[0.18em]" style="color: var(--muted);">
                                         <span>{{ optional($test->created_at)->format('d.m.Y') }}</span>
-                                        <span>{{ in_array($preferredView, ['drag-drop', 'match', 'dialogue'], true) ? $preferredView : 'card' }}</span>
+                                        <span>{{ $viewLabel }}</span>
                                     </div>
 
                                     <a href="{{ $testRoute }}" class="mt-auto inline-flex items-center gap-2 rounded-[18px] bg-ocean px-4 py-3 text-sm font-extrabold uppercase tracking-[0.18em] text-white transition hover:bg-[#245592]">
-                                        Пройти тест
+                                        {{ __('frontend.catalog.take_test') }}
                                         <span>+</span>
                                     </a>
                                 </div>
@@ -160,8 +166,8 @@
                     </div>
                 @else
                     <div class="rounded-[28px] border border-dashed p-10 text-center shadow-card surface-card-strong" style="border-color: var(--line);">
-                        <h3 class="font-display text-xl font-extrabold">Тестів не знайдено</h3>
-                        <p class="mt-3 text-sm leading-6" style="color: var(--muted);">Спробуйте змінити поточні фільтри або скинути їх.</p>
+                        <h3 class="font-display text-xl font-extrabold">{{ __('frontend.catalog.empty_title') }}</h3>
+                        <p class="mt-3 text-sm leading-6" style="color: var(--muted);">{{ __('frontend.catalog.empty_description') }}</p>
                     </div>
                 @endif
             </div>
@@ -180,7 +186,7 @@
             const tags = document.getElementById('others-tags');
             const hidden = tags.style.display === 'none';
             tags.style.display = hidden ? '' : 'none';
-            toggleBtn.textContent = hidden ? 'Hide' : 'Show';
+            toggleBtn.textContent = hidden ? @json(__('frontend.catalog.hide')) : @json(__('frontend.catalog.show'));
         });
     }
 </script>

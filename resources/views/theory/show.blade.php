@@ -16,10 +16,10 @@
 @endphp
 
 <div class="nd-page">
-    <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
-        <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">Home</a>
+    <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="{{ __('public.common.breadcrumb') }}">
+        <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">{{ __('public.common.home') }}</a>
         <span>/</span>
-        <a href="{{ localized_route($routePrefix . '.index') }}" class="transition hover:text-ocean">{{ $sectionTitle ?? 'Теорія' }}</a>
+        <a href="{{ localized_route($routePrefix . '.index') }}" class="transition hover:text-ocean">{{ $sectionTitle ?? __('frontend.copilot_theory.theory') }}</a>
         @if(isset($selectedCategory))
             <span>/</span>
             <a href="{{ localized_route($routePrefix . '.category', $selectedCategory->slug) }}" class="transition hover:text-ocean">{{ $selectedCategory->title }}</a>
@@ -34,7 +34,7 @@
         <div class="relative">
             @if(!empty($heroData['level']))
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] soft-accent" style="border-color: var(--line); color: var(--accent);">
-                    Level {{ $heroData['level'] }}
+                    {{ __('theory_blocks.hero.level', ['level' => $heroData['level']]) }}
                 </span>
             @endif
             <h1 class="mt-4 max-w-4xl font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $page->title }}</h1>
@@ -70,7 +70,7 @@
                 <section class="rounded-[28px] border p-4 shadow-card surface-card-strong xl:p-5" style="border-color: var(--line);">
                     <div class="flex items-end justify-between gap-3">
                         <div>
-                            <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Map</p>
+                            <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.map') }}</p>
                             <h2 class="mt-2 font-display text-xl font-extrabold leading-none">{{ __('public.common.categories') }}</h2>
                         </div>
                         <span class="text-xs font-bold uppercase tracking-[0.18em]" style="color: var(--muted);">{{ $categories->count() }}</span>
@@ -87,7 +87,7 @@
 
                 @if($tocBlocks->isNotEmpty())
                     <section class="rounded-[28px] border p-4 shadow-card surface-card xl:p-5" style="border-color: var(--line);">
-                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Contents</p>
+                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.contents') }}</p>
                         <div class="mt-4 space-y-2">
                             @foreach($tocBlocks as $tocBlock)
                                 @php($tocData = json_decode($tocBlock->body ?? '[]', true))

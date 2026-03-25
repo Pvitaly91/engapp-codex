@@ -13,7 +13,11 @@ return [
         'theory' => 'Теорія',
         'words_test' => 'Слова',
         'verbs_test' => 'Дієслова',
+        'explore' => 'Дослідження',
+        'practice' => 'Практика',
         'menu' => 'Меню',
+        'open_menu' => 'Відкрити меню',
+        'close_menu' => 'Закрити меню',
     ],
 
     // Search
@@ -42,9 +46,12 @@ return [
 
     // Common
     'common' => [
+        'home' => 'Головна',
+        'breadcrumb' => 'Навігаційний ланцюжок',
         'go_to' => 'Перейти',
         'collapse' => 'Згорнути',
         'expand' => 'Розгорнути',
+        'level' => 'Рівень',
         'type_theory' => 'Теорія',
         'type_test' => 'Тест',
         'no_lessons' => 'Немає уроків',
@@ -56,6 +63,7 @@ return [
         'category_tags' => 'Теги категорії',
         'tests_on_topic' => 'Тести по темі',
         'related_tests' => 'Пов\'язані тести',
+        'quick_links' => 'Швидкі посилання',
     ],
 
     // Slider (JS aria-labels)
@@ -101,6 +109,7 @@ return [
         'in_ukrainian' => 'Українською мовою',
         'mobile_categories' => 'Категорії',
         'theory_categories_mobile' => 'Категорії теорії',
+        'sections' => 'Розділи',
     ],
 
     // Home page
@@ -132,6 +141,7 @@ return [
         'how_it_works' => 'Як це працює',
         'steps_title' => 'Потік навчання',
         'steps_intro' => 'Переходьте між каталогом, теорією та тренажерами без втрати контексту.',
+        'new_design' => 'Новий інтерфейс',
         'step_find' => 'Пошук у бібліотеці',
         'step_find_desc' => 'Глобальний пошук веде до теорії чи тестів.',
         'step_start' => 'Почати практику',
@@ -149,8 +159,10 @@ return [
     'language' => [
         'uk' => 'UK',
         'en' => 'EN',
+        'pl' => 'PL',
         'ukrainian' => 'Українська',
-        'english' => 'English',
+        'english' => 'Англійська',
+        'polish' => 'Польська',
         'search' => 'Знайти мову',
         'current' => 'Поточна',
     ],

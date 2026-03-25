@@ -1,12 +1,12 @@
 <div class="space-y-3">
     <div class="flex flex-wrap items-center justify-between gap-3 text-sm">
         <div>
-            <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Прогрес</p>
-            <span id="progress-label" class="text-base font-semibold text-gray-800">{{ $progress ?? '0 / 0' }}</span>
+            <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">{{ __('frontend.tests.progress.label') }}</p>
+            <span id="progress-label" class="text-base font-semibold text-gray-800">{{ $progress ?? __('frontend.tests.progress.default_progress') }}</span>
         </div>
         <div class="text-right">
-            <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Точність</p>
-            <span id="score-label" class="text-base font-semibold text-gray-800">{{ $score ?? 'Точність: 0%' }}</span>
+            <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">{{ __('frontend.tests.progress.accuracy') }}</p>
+            <span id="score-label" class="text-base font-semibold text-gray-800">{{ $score ?? __('frontend.tests.progress.accuracy_value', ['value' => 0]) }}</span>
         </div>
     </div>
     <div class="w-full h-3 rounded-full bg-gradient-to-r from-gray-100 via-gray-50 to-white border border-gray-200 shadow-inner">

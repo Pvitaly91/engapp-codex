@@ -7,7 +7,7 @@
     
     @if($test->level_range->isNotEmpty())
         <div class="text-xs text-muted-foreground mb-2">
-            <span class="font-semibold">Рівні:</span> {{ $test->level_range->join(', ') }}
+            <span class="font-semibold">{{ __('frontend.tests.related.levels') }}:</span> {{ $test->level_range->join(', ') }}
         </div>
     @endif
 
@@ -24,6 +24,6 @@
     @endif
 
     <a href="{{ localized_route('test.show', $test->slug) }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-xl text-sm font-semibold transition">
-        Пройти тест
+        {{ __('frontend.tests.related.take_test') }}
     </a>
 </div>

@@ -1,0 +1,225 @@
+<?php
+
+return [
+    'catalog' => [
+        'title' => 'Test Catalog',
+        'description' => 'Browse tests by grouped topics and levels. Filters, levels, test cards and transitions work the same way as in the current public catalog.',
+        'filter' => 'Filter',
+        'filters' => 'Filters',
+        'close' => 'Close',
+        'level' => 'Level',
+        'show' => 'Show',
+        'hide' => 'Hide',
+        'reset' => 'Reset filter',
+        'reset_short' => 'Reset',
+        'map_title' => 'Catalog map',
+        'tests_label' => 'Tests',
+        'tests_count_hint' => 'Number of tests after the current filters are applied',
+        'tags_label' => 'Tags',
+        'tags_count_hint' => 'Aggregated catalog tags',
+        'other_tags' => 'Other',
+        'created' => 'Created',
+        'questions' => 'Questions',
+        'levels' => 'Levels',
+        'take_test' => 'Take test',
+        'empty' => 'No tests found.',
+        'empty_title' => 'No tests found',
+        'empty_description' => 'Try changing the current filters or reset them.',
+    ],
+
+    'search' => [
+        'live' => 'LIVE',
+        'wait' => 'WAIT',
+    ],
+
+    'tests' => [
+        'mode' => [
+            'view' => 'View mode',
+            'card' => 'Cards',
+            'step' => 'Steps',
+            'difficulty' => 'Difficulty',
+            'games' => 'Games',
+            'easy' => 'Easy',
+            'medium' => 'Medium',
+            'hard' => 'Hard',
+            'expert' => 'Expert',
+            'drag_drop' => 'Drag & Drop',
+            'match' => 'Match',
+            'dialogue' => 'Dialogue',
+        ],
+
+        'templates' => [
+            'card_easy' => [
+                'badge' => 'Interactive test',
+                'description' => 'Answer questions instantly using keyboard shortcuts (1-4) or click on the options below.',
+            ],
+            'card_medium' => [
+                'badge' => 'Select mode',
+                'description' => 'Choose the correct answers from dropdown lists for all questions.',
+            ],
+            'card_hard' => [
+                'badge' => 'Input mode',
+                'description' => 'Type your answers using autocomplete hints for all questions.',
+            ],
+            'card_expert' => [
+                'badge' => 'Manual mode',
+                'description' => 'Type your answers without hints for all questions.',
+            ],
+            'step_easy' => [
+                'badge' => 'Step-by-step test',
+                'description' => 'Answer questions one at a time using keyboard shortcuts (1-4) or click on the options below.',
+            ],
+            'step_medium' => [
+                'badge' => 'Select mode',
+                'description' => 'Choose the correct answer from the dropdown list.',
+            ],
+            'step_hard' => [
+                'badge' => 'Input test mode',
+                'description' => 'Type your answers using hints and autocomplete suggestions.',
+            ],
+            'step_expert' => [
+                'badge' => 'Manual input mode',
+                'description' => 'Type your answers without hints.',
+            ],
+        ],
+
+        'hero' => [
+            'interactive' => 'Interactive test',
+            'card_description' => 'Answer questions in card mode, use the `1-4` keys, hints, word search, and return to the catalog without losing the current page state.',
+            'questions' => 'Questions',
+            'questions_count' => 'Number of tasks in the test',
+            'levels' => 'Levels',
+            'na' => 'N/A',
+        ],
+
+        'word_search' => [
+            'label' => 'Word search',
+            'hint' => 'Quick help during the test',
+            'placeholder' => 'Enter a word',
+        ],
+
+        'progress' => [
+            'label' => 'Progress',
+            'accuracy' => 'Accuracy',
+            'default_progress' => '0 / 0',
+            'accuracy_value' => 'Accuracy: :value%',
+        ],
+
+        'question' => [
+            'label' => 'Q',
+            'grammar' => 'Grammar',
+            'show_help' => 'Show help',
+            'show_theory' => 'Show theory',
+            'theory' => 'Theory',
+            'active_marker' => 'Active marker: :marker',
+            'gap' => 'Gap :label (:current / :total)',
+            'answer_options' => 'Answer options',
+            'hotkey' => 'Press :key',
+            'drop_zone' => 'Drop zone :index:slot',
+        ],
+
+        'actions' => [
+            'restart' => 'Restart test',
+            'check' => 'Check',
+            'check_answer' => 'Check answer',
+            'check_all' => 'Check all answers',
+            'try_again' => 'Try again',
+            'review_mistakes' => 'Review mistakes',
+            'previous' => 'Previous',
+            'next' => 'Next',
+            'reset' => 'Reset',
+            'show_answers' => 'Show answers',
+            'back_to_test' => 'Back to test',
+        ],
+
+        'status' => [
+            'completed' => 'Test completed',
+            'completed_celebration' => 'Test completed!',
+            'loading' => 'Loading...',
+            'correct' => 'Correct!',
+            'correct_long' => 'Correct! Well done!',
+            'incorrect' => 'Incorrect.',
+            'incorrect_try_again' => 'Incorrect. Try again!',
+            'correct_answer' => 'Correct answer: :answer',
+            'incorrect_with_answer' => 'Incorrect. Correct answer: :answer',
+            'fill_all_fields' => 'Fill in all fields before checking.',
+        ],
+
+        'summary' => [
+            'score' => 'You got :correct out of :total correct (:percent%)!',
+        ],
+
+        'hint' => [
+            'chatgpt' => 'ChatGPT hint',
+            'gemini' => 'Gemini hint',
+            'refresh' => 'Refresh hint',
+        ],
+
+        'dialogue' => [
+            'intro' => 'Complete the dialogue by filling in the blanks. Press Enter or click “Check” to move to the next line.',
+            'empty' => 'There are no dialogue tasks with blanks for this test yet.',
+            'completed' => 'Great! You completed the dialogue.',
+        ],
+
+        'match' => [
+            'intro' => 'Match each sentence with the correct explanation. On mobile, you can tap an item on the left and then the matching item on the right.',
+            'title' => 'Match the sentences with their meanings',
+            'search_left' => 'Search sentences...',
+            'search_right' => 'Search explanations...',
+            'empty' => 'There are no questions for this test that can be matched in the “sentence → explanation” format yet.',
+            'result' => 'Correct: :correct / :total',
+            'instructions' => [
+                'left_right' => 'Sentences are on the left (1…n), explanations are on the right (a…n).',
+                'connect' => 'Drag or tap to draw a line between matching pairs.',
+                'highlight' => 'Tap a connected item to highlight its connection.',
+                'single' => 'Each item can only have one connection.',
+                'check' => '“Check” becomes active when all pairs are connected.',
+                'reset' => '“Reset” clears connections and shuffles the items.',
+            ],
+        ],
+
+        'drag_drop' => [
+            'intro' => 'Drag the correct word into the blank. You can also tap a word and then tap a blank, which is convenient on mobile devices.',
+            'score' => '0 / :total',
+            'score_value' => ':current / :total',
+            'hint' => 'Highlighting: green means correct, red means incorrect.',
+            'word_bank' => 'Word bank',
+            'legend' => 'Drag or tap to choose a word.',
+            'word_bank_aria' => 'Word bank',
+            'remove_word' => 'Remove word',
+        ],
+
+        'related' => [
+            'levels' => 'Levels',
+            'take_test' => 'Take test',
+        ],
+    ],
+
+    'copilot_theory' => [
+        'category' => 'Category',
+        'category_overview' => 'Category overview',
+        'pages_count' => ':count pages',
+        'materials_in_category' => 'Materials from the “:category” category. Choose a page to start learning.',
+        'all_categories' => 'All categories',
+        'categories' => 'Categories',
+        'map' => 'Map',
+        'tags' => 'Tags (:count)',
+        'quick_actions' => 'Quick actions',
+        'materials_for_learning' => 'Learning materials',
+        'materials_for_learning_hint' => 'Choose a topic and start learning materials from the “:category” category.',
+        'page' => 'Page',
+        'page_number' => 'Page :number',
+        'items_in_category' => ':count in category',
+        'view_material' => 'View material',
+        'empty_category' => 'There are no theory pages in this category yet.',
+        'practice_tests' => 'Practice tests',
+        'check_category_knowledge' => 'Check your knowledge of this category',
+        'check_topic_knowledge' => 'Check your knowledge of this topic',
+        'related_tests' => 'Related tests',
+        'tests_by_tags' => ':count tests by tags',
+        'menu' => 'Menu',
+        'theory_categories' => 'Theory categories',
+        'contents' => 'Contents',
+        'theory' => 'Theory',
+    ],
+];

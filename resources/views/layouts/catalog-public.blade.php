@@ -147,10 +147,15 @@
             background: transparent !important;
             border-top-left-radius: var(--shell-radius);
             border-top-right-radius: var(--shell-radius);
-            contain: paint;
+            contain: none;
+            overflow: visible;
             transform: translateZ(0);
             backface-visibility: hidden;
             transition: border-top-left-radius 160ms ease, border-top-right-radius 160ms ease, background-color 160ms ease;
+        }
+
+        .site-header > div {
+            overflow: visible;
         }
 
         .site-header::before {
@@ -403,7 +408,7 @@
                         <div x-data="languageSwitcher()" class="relative">
                             <button @click="toggle" :aria-expanded="open" class="flex items-center gap-3 rounded-2xl border px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:border-ocean surface-card-strong">
                                 <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl soft-accent text-xs font-bold" style="color: var(--accent);" x-text="active.code.toUpperCase()"></span>
-                                <span class="max-w-24 truncate" x-text="active.native_name || active.name"></span>
+                                <span class="max-w-24 truncate" x-text="active.localized_name || active.native_name || active.name"></span>
                                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                 </svg>
@@ -418,7 +423,7 @@
                                             <div class="flex items-center gap-3">
                                                 <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl soft-accent text-xs font-bold" style="color: var(--accent);" x-text="lang.code.toUpperCase()"></span>
                                                 <div>
-                                                    <p class="text-sm font-semibold" x-text="lang.native_name || lang.name"></p>
+                                                    <p class="text-sm font-semibold" x-text="lang.localized_name || lang.native_name || lang.name"></p>
                                                     <p class="text-xs" style="color: var(--muted);" x-text="lang.name"></p>
                                                 </div>
                                             </div>
@@ -479,7 +484,7 @@
                             </button>
                             <div x-show="open" x-cloak @click.outside="open = false" class="absolute left-0 right-0 z-20 mt-2 overflow-hidden rounded-[22px] border shadow-card surface-card-strong">
                                 <template x-for="lang in filtered" :key="lang.code">
-                                    <a :href="lang.url" class="block border-b px-4 py-3 text-sm last:border-b-0 hover:bg-blue-50/80 dark:hover:bg-slate-800/70" style="border-color: var(--line);" x-text="lang.native_name || lang.name"></a>
+                                    <a :href="lang.url" class="block border-b px-4 py-3 text-sm last:border-b-0 hover:bg-blue-50/80 dark:hover:bg-slate-800/70" style="border-color: var(--line);" x-text="lang.localized_name || lang.native_name || lang.name"></a>
                                 </template>
                             </div>
                         </div>
@@ -605,6 +610,7 @@
 
                     return this.languages.filter((lang) => (
                         !term
+                        || (lang.localized_name && lang.localized_name.toLowerCase().includes(term))
                         || (lang.name && lang.name.toLowerCase().includes(term))
                         || (lang.native_name && lang.native_name.toLowerCase().includes(term))
                         || lang.code.toLowerCase().includes(term)

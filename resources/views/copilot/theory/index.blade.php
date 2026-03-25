@@ -3,8 +3,8 @@
 @section('title', $sectionTitle ?? __('public.theory.title'))
 
 @section('breadcrumb')
-    <nav class="flex items-center gap-1.5 text-xs text-[var(--cp-muted)]" aria-label="Breadcrumb">
-        <a href="{{ localized_route('copilot.index') }}" class="hover:text-pilot-600 transition-colors">Головна</a>
+    <nav class="flex items-center gap-1.5 text-xs text-[var(--cp-muted)]" aria-label="{{ __('public.common.breadcrumb') }}">
+        <a href="{{ localized_route('copilot.index') }}" class="hover:text-pilot-600 transition-colors">{{ __('public.common.home') }}</a>
         <span>/</span>
         <span class="font-medium text-[var(--cp-fg)]">{{ $sectionTitle ?? __('public.theory.title') }}</span>
     </nav>
@@ -91,7 +91,7 @@
         {{-- ── Category grid ────────────────────────────────────────────── --}}
         <section id="categories-section" class="scroll-mt-24 space-y-6">
             <div class="text-center">
-                <p class="text-xs uppercase font-semibold tracking-widest text-pilot-600 dark:text-pilot-400 mb-1">{{ __('public.theory.sections') ?? 'Розділи' }}</p>
+                <p class="text-xs uppercase font-semibold tracking-widest text-pilot-600 dark:text-pilot-400 mb-1">{{ __('public.theory.sections') }}</p>
                 <h2 class="text-2xl md:text-3xl font-bold text-[var(--cp-fg)] mb-2">{{ __('public.theory.topics_to_learn') }}</h2>
                 <p class="text-[var(--cp-muted)] max-w-xl mx-auto text-sm">{{ __('public.theory.topics_hint') }}</p>
             </div>

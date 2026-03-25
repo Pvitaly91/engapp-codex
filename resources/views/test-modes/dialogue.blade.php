@@ -6,7 +6,7 @@
 <div class="mx-auto w-full max-w-3xl px-4 py-8 text-slate-800" id="dialogue-app">
     <header class="mb-6 space-y-2">
         <h1 class="text-2xl font-bold text-slate-900 sm:text-3xl">{{ $test->name }}</h1>
-        <p class="text-sm text-slate-600">Пройди діалог, заповнюючи пропуски. Натискай <strong>Enter</strong> або кнопку «Перевірити», щоб перейти до наступної репліки.</p>
+        <p class="text-sm text-slate-600">{{ __('frontend.tests.dialogue.intro') }}</p>
     </header>
 
     @include('components.test-mode-nav')
@@ -16,10 +16,10 @@
     <div id="dialogue-chat" class="flex min-h-[420px] flex-col rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <div id="dialogue-container" class="flex flex-col space-y-4"></div>
         <div id="dialogue-empty" class="hidden rounded-xl border border-amber-200 bg-amber-50 p-4 text-center text-sm text-amber-700">
-            Для цього тесту поки немає діалогів з пропусками.
+            {{ __('frontend.tests.dialogue.empty') }}
         </div>
         <div id="dialogue-complete" class="hidden text-center text-lg font-semibold text-emerald-600">
-            ✅ Чудово! Ти завершив(-ла) діалог.
+            {{ __('frontend.tests.dialogue.completed') }}
         </div>
     </div>
 
@@ -27,7 +27,7 @@
 
     <div class="mt-4 flex flex-wrap items-center gap-3">
         <button id="dialogue-check" type="button" class="rounded-xl bg-sky-500 px-5 py-2 text-sm font-semibold text-white shadow transition hover:bg-sky-600 disabled:cursor-not-allowed disabled:opacity-50">
-            Перевірити
+            {{ __('frontend.tests.actions.check') }}
         </button>
     </div>
 
@@ -340,7 +340,7 @@ function updateProgress() {
         progressLabel.textContent = `${answered} / ${total}`;
     }
     if (scoreLabel) {
-        scoreLabel.textContent = `Точність: ${pct(correct, total)}%`;
+        scoreLabel.textContent = testUi('progress.accuracy_value', { value: pct(correct, total) });
     }
     if (progressBar) {
         progressBar.style.width = `${pct(answered, total)}%`;
@@ -545,7 +545,7 @@ function handleCheck() {
 
     if (!allFilled) {
         if (errorEl) {
-            errorEl.textContent = 'Заповни всі поля перед перевіркою.';
+            errorEl.textContent = testUi('status.fill_all_fields');
         }
         saveState();
         return;
@@ -553,7 +553,7 @@ function handleCheck() {
 
     if (!allCorrect) {
         if (errorEl) {
-            errorEl.textContent = '❌ Невірно. Спробуй ще раз!';
+            errorEl.textContent = testUi('status.incorrect_try_again');
         }
         saveState();
         return;

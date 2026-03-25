@@ -13,13 +13,13 @@
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
-                    Step-by-Step Test
+                    {{ __('frontend.tests.templates.step_easy.badge') }}
                 </div>
                 <h1 class="text-[28px] sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                     {{ $test->name }}
                 </h1>
                 <p class="text-[15px] sm:text-lg text-gray-600 max-w-2xl mx-auto">
-                    Answer questions one at a time using keyboard shortcuts (1-4) or click on the options below
+                    {{ __('frontend.tests.templates.step_easy.description') }}
                 </p>
             </div>
         </header>
@@ -37,7 +37,7 @@
                     <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
                         <div class="flex items-center space-x-2.5 sm:space-x-3">
                             <!-- Search toggle button - only visible when stuck -->
-                            <button type="button" id="sticky-search-toggle" class="sticky-search-btn hidden w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-md" title="Пошук слова">
+                            <button type="button" id="sticky-search-toggle" class="sticky-search-btn hidden w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-md" title="{{ __('frontend.tests.word_search.label') }}">
                                 <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                 </svg>
@@ -48,12 +48,12 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">Progress</div>
+                                <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">{{ __('frontend.tests.progress.label') }}</div>
                                 <div id="progress-label" class="progress-value text-base sm:text-xl font-bold text-gray-900 transition-all duration-300">1 / 0</div>
                             </div>
                         </div>
                         <div class="text-right space-y-0.5">
-                            <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">Accuracy</div>
+                            <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">{{ __('frontend.tests.progress.accuracy') }}</div>
                             <div id="score-label" class="progress-value text-base sm:text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent transition-all duration-300">0%</div>
                         </div>
                     </div>
@@ -77,12 +77,12 @@
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                             </svg>
-                            Previous
+                            {{ __('frontend.tests.actions.previous') }}
                         </span>
                     </button>
                     <button id="next" class="group px-6 py-3.5 sm:px-8 sm:py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
                         <span class="flex items-center justify-center">
-                            Next
+                            {{ __('frontend.tests.actions.next') }}
                             <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
@@ -99,14 +99,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-3">Test Complete! 🎉</h2>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-3">{{ __('frontend.tests.status.completed_celebration') }}</h2>
                     <p id="summary-text" class="text-xl text-gray-700 mb-8"></p>
                     <button id="retry" class="group px-6 py-3.5 sm:px-8 sm:py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
                         <span class="flex items-center justify-center">
                             <svg class="w-5 h-5 mr-2 group-hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                             </svg>
-                            Try Again
+                            {{ __('frontend.tests.actions.try_again') }}
                         </span>
                     </button>
                 </div>
@@ -122,7 +122,7 @@
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
         </svg>
-        <p class="text-gray-700 font-medium">Loading...</p>
+        <p class="text-gray-700 font-medium">{{ __('frontend.tests.status.loading') }}</p>
     </div>
 </div>
 
@@ -258,7 +258,7 @@ function getMarkerLabel(q, idx) {
 function formatSlotIndicator(q) {
   const total = getMarkersCount(q);
   const label = getMarkerLabel(q, q.activeSlot);
-  return `Gap ${label} (${q.activeSlot + 1} / ${total})`;
+  return testUi('question.gap', { label, current: q.activeSlot + 1, total });
 }
 
 const state = {
@@ -374,28 +374,28 @@ function render() {
         <div class="flex-1">
           <div class="flex items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-blue-100 to-indigo-100 text-indigo-700">
-              ${q.level || 'N/A'}
+              ${q.level || testUi('hero.na')}
             </span>
-            <span class="text-xs sm:text-sm text-gray-500 font-medium">${q.tense || 'Grammar'}</span>
+            <span class="text-xs sm:text-sm text-gray-500 font-medium">${q.tense || testUi('question.grammar')}</span>
           </div>
           <div class="text-base sm:text-xl leading-relaxed text-gray-900 font-medium mb-2.5 sm:mb-3">${sentence}</div>
           <button type="button" id="help" class="inline-flex items-center text-[13px] sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            Show Help
+            ${testUi('question.show_help')}
           </button>
           ${q.theory_block ? `<button type="button" id="theory-btn" class="ml-2 sm:ml-3 inline-flex items-center text-[13px] sm:text-sm text-emerald-600 hover:text-emerald-700 font-medium transition-colors">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
             </svg>
-            Show Theory
+            ${testUi('question.show_theory')}
           </button>` : ''}
           <div id="hints" class="mt-2.5 sm:mt-3 space-y-2"></div>
           <div id="theory-panel" class="mt-2.5 sm:mt-3 hidden"></div>
         </div>
         <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0 sm:self-start">
-          <div class="text-xs text-gray-500 font-medium">Q</div>
+          <div class="text-xs text-gray-500 font-medium">${testUi('question.label')}</div>
           <div class="text-lg font-bold text-indigo-600">${state.current + 1}</div>
         </div>
       </div>
@@ -403,9 +403,9 @@ function render() {
         <span class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-indigo-50 text-[12px] sm:text-sm font-semibold text-indigo-700 border border-indigo-100" id="slot-indicator-${state.current}">
           ${formatSlotIndicator(q)}
         </span>
-        <span class="text-[12px] sm:text-sm text-gray-600 font-medium">Active marker: ${getMarkerLabel(q, q.activeSlot)}</span>
+        <span class="text-[12px] sm:text-sm text-gray-600 font-medium">${testUi('question.active_marker', { marker: getMarkerLabel(q, q.activeSlot) })}</span>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-5 sm:mb-6" role="group" aria-label="Answer options">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-5 sm:mb-6" role="group" aria-label="${testUi('question.answer_options')}">
         ${activeOptions.map((opt, i) => renderOptionButton(q, opt, i)).join('')}
       </div>
       <div id="feedback">${renderFeedback(q)}</div>
@@ -468,7 +468,7 @@ function renderOptionButton(q, opt, i) {
   
   const hotkey = i + 1;
   return `
-    <button type="button" class="${base} ${cls}" data-opt="${html(opt)}" title="Press ${hotkey}" ${q.done ? 'disabled' : ''}>
+    <button type="button" class="${base} ${cls}" data-opt="${html(opt)}" title="${html(testUi('question.hotkey', { key: hotkey }))}" ${q.done ? 'disabled' : ''}>
       <div class="flex items-center gap-2.5 sm:gap-3">
         <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-xl border-2 font-bold text-sm ${iconColor} transition-colors">
           ${hotkey}
@@ -481,7 +481,7 @@ function renderOptionButton(q, opt, i) {
 
 function renderFeedback(q) {
   if (q.feedback === 'correct') {
-    let htmlStr = '<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><div class="flex-1"><div class="font-semibold text-emerald-800">Correct!</div></div></div>';
+    let htmlStr = '<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><div class="flex-1"><div class="font-semibold text-emerald-800">' + html(testUi('status.correct')) + '</div></div></div>';
     if (q.explanation) {
       htmlStr += `<div class="mt-2.5 sm:mt-3 p-3 sm:p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-sm text-emerald-800 whitespace-pre-line leading-relaxed">${html(q.explanation)}</div>`;
     }
@@ -560,7 +560,7 @@ function onChoose(opt) {
       q.chosen[slotIndex] = expected;
       q.attemptsBySlot[slotIndex] = 0;
       q.lastWrongBySlot[slotIndex] = null;
-      q.feedback = `Correct answer: ${expected}`;
+      q.feedback = testUi('status.correct_answer', { answer: expected });
       
       // Check if all slots are filled
       const allFilled = q.chosen.every(c => c !== null);
@@ -574,7 +574,7 @@ function onChoose(opt) {
         }
       }
     } else {
-      q.feedback = 'Incorrect, try again';
+      q.feedback = testUi('status.incorrect_try_again');
     }
   }
   render();
@@ -727,7 +727,11 @@ function showSummary() {
   document.getElementById('question-wrap').classList.add('hidden');
   const summary = document.getElementById('summary');
   summary.classList.remove('hidden');
-  document.getElementById('summary-text').textContent = `You got ${state.correct} out of ${state.items.length} correct (${pct(state.correct, state.items.length)}%)!`;
+  document.getElementById('summary-text').textContent = testUi('summary.score', {
+    correct: state.correct,
+    total: state.items.length,
+    percent: pct(state.correct, state.items.length),
+  });
   const retryButton = document.getElementById('retry');
   if (retryButton) {
     retryButton.onclick = () => restartJsTest(init, { showLoaderFn: showLoader, button: retryButton });
@@ -767,12 +771,12 @@ function renderHints(q) {
   }
   let htmlStr = '';
   if (q.hints.chatgpt) {
-    htmlStr += `<div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200"><p class="text-sm font-semibold text-blue-900 mb-2">💡 ChatGPT Hint:</p><p class="text-sm text-blue-800 whitespace-pre-line leading-relaxed">${html(q.hints.chatgpt)}</p></div>`;
+    htmlStr += `<div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200"><p class="text-sm font-semibold text-blue-900 mb-2">${html(testUi('hint.chatgpt'))}:</p><p class="text-sm text-blue-800 whitespace-pre-line leading-relaxed">${html(q.hints.chatgpt)}</p></div>`;
   }
   if (q.hints.gemini) {
-    htmlStr += `<div class="p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border border-purple-200"><p class="text-sm font-semibold text-purple-900 mb-2">✨ Gemini Hint:</p><p class="text-sm text-purple-800 whitespace-pre-line leading-relaxed">${html(q.hints.gemini)}</p></div>`;
+    htmlStr += `<div class="p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border border-purple-200"><p class="text-sm font-semibold text-purple-900 mb-2">${html(testUi('hint.gemini'))}:</p><p class="text-sm text-purple-800 whitespace-pre-line leading-relaxed">${html(q.hints.gemini)}</p></div>`;
   }
-  htmlStr += `<button type="button" id="refresh-hint" class="inline-flex items-center text-[13px] sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors mt-2"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>Refresh Hint</button>`;
+  htmlStr += `<button type="button" id="refresh-hint" class="inline-flex items-center text-[13px] sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors mt-2"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>${html(testUi('hint.refresh'))}</button>`;
   el.innerHTML = htmlStr;
   document.getElementById('refresh-hint').addEventListener('click', () => fetchHints(q, true));
 }
@@ -856,7 +860,7 @@ function renderTheoryPanel(q) {
         <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
         </svg>
-        <span class="text-sm font-semibold text-emerald-900">📚 Theory</span>
+        <span class="text-sm font-semibold text-emerald-900">${html(testUi('question.theory'))}</span>
         ${block.level ? `<span class="ml-auto px-2 py-0.5 text-xs font-bold rounded-full bg-emerald-200 text-emerald-800">${html(block.level)}</span>` : ''}
       </div>
       ${content}

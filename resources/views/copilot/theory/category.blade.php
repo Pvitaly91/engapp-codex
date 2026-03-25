@@ -1,12 +1,12 @@
 @extends('layouts.copilot')
 
-@section('title', ($selectedCategory->title ?? 'Категорія') . ' — ' . ($sectionTitle ?? 'Теорія'))
+@section('title', ($selectedCategory->title ?? __('frontend.copilot_theory.category')) . ' — ' . ($sectionTitle ?? __('frontend.copilot_theory.theory')))
 
 @section('breadcrumb')
-    <nav class="flex items-center gap-1.5 text-xs text-[var(--cp-muted)]" aria-label="Breadcrumb">
-        <a href="{{ localized_route('copilot.index') }}" class="hover:text-pilot-600 transition-colors">Головна</a>
+    <nav class="flex items-center gap-1.5 text-xs text-[var(--cp-muted)]" aria-label="{{ __('public.common.breadcrumb') }}">
+        <a href="{{ localized_route('copilot.index') }}" class="hover:text-pilot-600 transition-colors">{{ __('public.common.home') }}</a>
         <span>/</span>
-        <a href="{{ localized_route($routePrefix . '.index') }}" class="hover:text-pilot-600 transition-colors">{{ $sectionTitle ?? 'Теорія' }}</a>
+        <a href="{{ localized_route($routePrefix . '.index') }}" class="hover:text-pilot-600 transition-colors">{{ $sectionTitle ?? __('frontend.copilot_theory.theory') }}</a>
         <span>/</span>
         <span class="font-medium text-[var(--cp-fg)] truncate max-w-[180px]">{{ $selectedCategory->title }}</span>
     </nav>
@@ -39,11 +39,11 @@
                         <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/>
                         </svg>
-                        Категорія
+                        {{ __('frontend.copilot_theory.category') }}
                     </span>
                     <span class="h-1 w-1 rounded-full bg-pilot-200 dark:bg-pilot-700"></span>
                     <span class="inline-flex items-center gap-1.5 rounded-full bg-pilot-50 dark:bg-pilot-900/30 text-pilot-700 dark:text-pilot-300 px-3 py-1.5 text-xs font-bold tracking-wide">
-                        {{ $categoryPages->count() }} {{ trans_choice('сторінок|сторінка|сторінки', $categoryPages->count()) }}
+                        {{ __('frontend.copilot_theory.pages_count', ['count' => $categoryPages->count()]) }}
                     </span>
                 </div>
 
@@ -51,7 +51,7 @@
                     {{ $selectedCategory->title }}
                 </h1>
                 <p class="text-base md:text-lg text-[var(--cp-muted)] leading-relaxed max-w-3xl">
-                    Матеріали з категорії «{{ $selectedCategory->title }}». Обери сторінку, щоб почати вивчення.
+                    {{ __('frontend.copilot_theory.materials_in_category', ['category' => $selectedCategory->title]) }}
                 </p>
 
                 <div class="mt-6">
@@ -62,7 +62,7 @@
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                         </svg>
-                        Усі категорії
+                        {{ __('frontend.copilot_theory.all_categories') }}
                     </a>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                             </svg>
-                            Категорії
+                            {{ __('frontend.copilot_theory.categories') }}
                         </h3>
                         <nav class="space-y-1 overflow-y-auto pr-1">
                             @if($categories->isNotEmpty())
@@ -98,7 +98,7 @@
                                     'routePrefix' => $routePrefix,
                                 ])
                             @else
-                                <p class="text-sm text-[var(--cp-muted)]">Немає категорій.</p>
+                                <p class="text-sm text-[var(--cp-muted)]">{{ __('public.common.no_categories') }}</p>
                             @endif
                         </nav>
                     </div>
@@ -111,7 +111,7 @@
                                     <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
                                     </svg>
-                                    Теги ({{ $selectedCategory->tags->count() }})
+                                    {{ __('frontend.copilot_theory.tags', ['count' => $selectedCategory->tags->count()]) }}
                                 </h3>
                                 <svg class="h-4 w-4 text-[var(--cp-muted)] transition-transform" :class="{ 'rotate-180': show }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
@@ -135,7 +135,7 @@
                             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
-                            Швидкі дії
+                            {{ __('frontend.copilot_theory.quick_actions') }}
                         </h3>
                         <div class="space-y-2">
                             <a
@@ -145,7 +145,7 @@
                                 <svg class="h-5 w-5 text-[var(--cp-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
                                 </svg>
-                                Усі категорії
+                                {{ __('frontend.copilot_theory.all_categories') }}
                             </a>
                         </div>
                     </div>
@@ -166,9 +166,9 @@
                 @if($categoryPages->isNotEmpty())
                     <section class="rounded-3xl border border-[var(--cp-border)] bg-[var(--cp-surface)] p-6 shadow-panel">
                         <div class="text-center mb-8">
-                            <h2 class="text-xl md:text-2xl font-bold text-[var(--cp-fg)] mb-2">Матеріали для вивчення</h2>
+                            <h2 class="text-xl md:text-2xl font-bold text-[var(--cp-fg)] mb-2">{{ __('frontend.copilot_theory.materials_for_learning') }}</h2>
                             <p class="text-[var(--cp-muted)] max-w-xl mx-auto text-sm">
-                                Обери тему та почни вивчати матеріали з категорії «{{ $selectedCategory->title }}»
+                                {{ __('frontend.copilot_theory.materials_for_learning_hint', ['category' => $selectedCategory->title]) }}
                             </p>
                         </div>
 
@@ -200,9 +200,9 @@
                                         <div class="flex-1 space-y-1.5">
                                             <div class="flex items-center gap-2">
                                                 <span class="inline-flex items-center rounded-full {{ $colors['pill'] }} px-2.5 py-0.5 text-[11px] font-semibold">
-                                                    Сторінка {{ $index + 1 }}
+                                                    {{ __('frontend.copilot_theory.page_number', ['number' => $index + 1]) }}
                                                 </span>
-                                                <span class="text-[11px] text-[var(--cp-muted)]">{{ $categoryPages->count() }} у категорії</span>
+                                                <span class="text-[11px] text-[var(--cp-muted)]">{{ __('frontend.copilot_theory.items_in_category', ['count' => $categoryPages->count()]) }}</span>
                                             </div>
                                             <h3 class="text-base font-semibold text-[var(--cp-fg)] leading-snug">
                                                 {{ $page->title }}
@@ -214,7 +214,7 @@
                                     </div>
                                     <div class="relative mt-4 flex items-center justify-between text-sm font-semibold text-pilot-600 dark:text-pilot-400">
                                         <span class="inline-flex items-center gap-1">
-                                            Переглянути матеріал
+                                            {{ __('frontend.copilot_theory.view_material') }}
                                             <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                                             </svg>
@@ -227,7 +227,7 @@
                     </section>
                 @else
                     <div class="rounded-2xl border border-dashed border-[var(--cp-border)] p-8 text-center text-[var(--cp-muted)]">
-                        Поки що в цій категорії немає сторінок теорії.
+                        {{ __('frontend.copilot_theory.empty_category') }}
                     </div>
                 @endif
 
@@ -241,8 +241,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h2 class="text-lg font-bold text-[var(--cp-fg)]">Практичні тести</h2>
-                                <p class="text-xs text-[var(--cp-muted)]">Перевір свої знання з цієї категорії</p>
+                                <h2 class="text-lg font-bold text-[var(--cp-fg)]">{{ __('frontend.copilot_theory.practice_tests') }}</h2>
+                                <p class="text-xs text-[var(--cp-muted)]">{{ __('frontend.copilot_theory.check_category_knowledge') }}</p>
                             </div>
                         </div>
                         <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -264,8 +264,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h2 class="text-lg font-bold text-[var(--cp-fg)]">Пов'язані тести</h2>
-                                    <p class="text-xs text-[var(--cp-muted)]">{{ $relatedTests->count() }} тестів за тегами</p>
+                                    <h2 class="text-lg font-bold text-[var(--cp-fg)]">{{ __('frontend.copilot_theory.related_tests') }}</h2>
+                                    <p class="text-xs text-[var(--cp-muted)]">{{ __('frontend.copilot_theory.tests_by_tags', ['count' => $relatedTests->count()]) }}</p>
                                 </div>
                             </div>
                             <svg class="h-5 w-5 text-[var(--cp-muted)] transition-transform" :class="{ 'rotate-180': show }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -293,7 +293,7 @@
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
-                Меню
+                {{ __('frontend.copilot_theory.menu') }}
             </button>
             <div
                 x-show="open"
@@ -308,7 +308,7 @@
             >
                 <div class="space-y-4">
                     <div>
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--cp-muted)] mb-2">Категорії теорії</h4>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--cp-muted)] mb-2">{{ __('frontend.copilot_theory.theory_categories') }}</h4>
                         <nav class="space-y-1">
                             @if($categories->isNotEmpty())
                                 @include('copilot.theory.partials.nested-category-nav-mobile', [
@@ -342,7 +342,7 @@
                             <svg class="h-4 w-4 text-[var(--cp-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
                             </svg>
-                            Усі категорії
+                            {{ __('frontend.copilot_theory.all_categories') }}
                         </a>
                     </div>
                 </div>

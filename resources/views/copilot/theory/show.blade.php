@@ -3,7 +3,7 @@
 @section('title', $page->title)
 
 @section('breadcrumb')
-    <nav class="flex items-center gap-1.5 text-xs text-[var(--cp-muted)]" aria-label="Breadcrumb">
+    <nav class="flex items-center gap-1.5 text-xs text-[var(--cp-muted)]" aria-label="{{ __('public.common.breadcrumb') }}">
         @foreach($breadcrumbs as $index => $crumb)
             @if(!empty($crumb['url']))
                 <a href="{{ $crumb['url'] }}" class="hover:text-pilot-600 transition-colors truncate max-w-[120px]">{{ $crumb['label'] }}</a>
@@ -50,7 +50,7 @@
                                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                                 </svg>
-                                Категорії теорії
+                                {{ __('frontend.copilot_theory.theory_categories') }}
                             </h3>
                             <nav class="space-y-1">
                                 @include('copilot.theory.partials.nested-category-nav', [
@@ -98,7 +98,7 @@
                                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/>
                                 </svg>
-                                Зміст
+                                {{ __('frontend.copilot_theory.contents') }}
                             </h3>
                             <nav class="space-y-1">
                                 @foreach($tocBlocks as $tocBlock)
@@ -119,11 +119,11 @@
 
                     {{-- Quick actions --}}
                     <div class="cp-card p-5">
-                        <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--cp-muted)] mb-4">
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
-                            Швидкі дії
+                            <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--cp-muted)] mb-4">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            {{ __('frontend.copilot_theory.quick_actions') }}
                         </h3>
                         <div class="space-y-2">
                             <a
@@ -133,7 +133,7 @@
                                 <svg class="h-5 w-5 text-[var(--cp-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
                                 </svg>
-                                Усі категорії
+                                {{ __('frontend.copilot_theory.all_categories') }}
                             </a>
                             @if(isset($selectedCategory))
                                 <a
@@ -157,7 +157,7 @@
                                     <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
                                     </svg>
-                                    Теги ({{ $page->tags->count() }})
+                                    {{ __('frontend.copilot_theory.tags', ['count' => $page->tags->count()]) }}
                                 </h3>
                                 <svg class="h-4 w-4 text-[var(--cp-muted)] transition-transform" :class="{ 'rotate-180': show }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
@@ -200,10 +200,10 @@
                                     <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
                                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                                     </svg>
-                                    Рівень {{ $heroData['level'] }}
+                                    {{ __('theory_blocks.hero.level', ['level' => $heroData['level']]) }}
                                 </span>
                                 <span class="h-1 w-1 rounded-full bg-pilot-200 dark:bg-pilot-700"></span>
-                                <span class="text-xs text-[var(--cp-muted)]">Теорія</span>
+                                <span class="text-xs text-[var(--cp-muted)]">{{ __('frontend.copilot_theory.theory') }}</span>
                             </div>
                         @endif
 
@@ -344,8 +344,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h2 class="text-lg font-bold text-[var(--cp-fg)]">Практичні тести</h2>
-                                <p class="text-xs text-[var(--cp-muted)]">Перевір свої знання з цієї теми</p>
+                                <h2 class="text-lg font-bold text-[var(--cp-fg)]">{{ __('frontend.copilot_theory.practice_tests') }}</h2>
+                                <p class="text-xs text-[var(--cp-muted)]">{{ __('frontend.copilot_theory.check_topic_knowledge') }}</p>
                             </div>
                         </div>
                         <div class="grid gap-3 sm:grid-cols-2">
@@ -367,7 +367,7 @@
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
-                Меню
+                {{ __('frontend.copilot_theory.menu') }}
             </button>
             <div
                 x-show="open"
@@ -383,7 +383,7 @@
                 <div class="space-y-4">
                     @if(isset($categories) && $categories->isNotEmpty())
                         <div>
-                            <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--cp-muted)] mb-2">Категорії теорії</h4>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--cp-muted)] mb-2">{{ __('frontend.copilot_theory.theory_categories') }}</h4>
                             <nav class="space-y-1">
                                 @include('copilot.theory.partials.nested-category-nav-mobile', [
                                     'categories' => $categories,
@@ -423,7 +423,7 @@
                             <svg class="h-4 w-4 text-[var(--cp-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
                             </svg>
-                            Усі категорії
+                            {{ __('frontend.copilot_theory.all_categories') }}
                         </a>
                     </div>
                 </div>

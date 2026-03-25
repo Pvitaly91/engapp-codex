@@ -1,4 +1,35 @@
 <script>
+window.FRONTEND_TESTS_I18N = @json(__('frontend.tests'));
+
+function getTestUiValue(path, fallback = '') {
+    const source = window.FRONTEND_TESTS_I18N || {};
+    const value = String(path || '')
+        .split('.')
+        .reduce((acc, segment) => {
+            if (acc && typeof acc === 'object' && Object.prototype.hasOwnProperty.call(acc, segment)) {
+                return acc[segment];
+            }
+
+            return undefined;
+        }, source);
+
+    return value === undefined ? fallback : value;
+}
+
+function interpolateTestUi(template, replacements = {}) {
+    return String(template ?? '').replace(/:([a-zA-Z0-9_]+)/g, (match, key) => {
+        if (Object.prototype.hasOwnProperty.call(replacements, key)) {
+            return replacements[key];
+        }
+
+        return match;
+    });
+}
+
+function testUi(path, replacements = {}, fallback = '') {
+    return interpolateTestUi(getTestUiValue(path, fallback), replacements);
+}
+
 function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));

@@ -11,6 +11,31 @@ class LocaleService
     protected static ?Language $cachedDefault = null;
 
     /**
+     * Get the localized display name for a locale in the current app language.
+     */
+    protected static function getLocalizedLanguageName(string $code, ?string $fallback = null): string
+    {
+        $baseCode = strtolower(strtok($code, '-'));
+
+        $translationKey = match ($baseCode) {
+            'uk' => 'public.language.ukrainian',
+            'en' => 'public.language.english',
+            'pl' => 'public.language.polish',
+            default => null,
+        };
+
+        if ($translationKey === null) {
+            return $fallback ?: strtoupper($code);
+        }
+
+        $translated = __($translationKey);
+
+        return $translated !== $translationKey
+            ? $translated
+            : ($fallback ?: strtoupper($code));
+    }
+
+    /**
      * Check whether the languages table can be queried safely.
      */
     public static function hasLanguagesTable(): bool
@@ -187,10 +212,13 @@ class LocaleService
         $currentLocale = self::getCurrentLocale();
 
         return $languages->map(function ($language) use ($currentLocale) {
+            $fallbackName = $language->native_name ?: $language->name ?: strtoupper($language->code);
+
             return [
                 'code' => $language->code,
                 'name' => $language->name,
                 'native_name' => $language->native_name,
+                'localized_name' => self::getLocalizedLanguageName($language->code, $fallbackName),
                 'url' => self::switchLocaleUrl($language->code),
                 'is_current' => $language->code === $currentLocale,
                 'is_default' => $language->is_default,

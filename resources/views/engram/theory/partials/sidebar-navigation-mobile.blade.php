@@ -21,9 +21,9 @@
             @click="showCategories = !showCategories"
             :aria-expanded="showCategories"
         >
-            <span>Категорії</span>
+            <span>{{ __('public.common.categories') }}</span>
             <span class="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-                <span>{{ $selectedCategory->title ?? 'Оберіть категорію' }}</span>
+                <span>{{ $selectedCategory->title ?? __('public.common.select_category') }}</span>
                 <svg
                     class="h-4 w-4 transition-transform"
                     :class="{ 'rotate-180': showCategories }"
@@ -47,7 +47,7 @@
                         <span class="block">{{ $category->title }}</span>
                     </a>
                 @empty
-                    <p class="px-3 py-2 text-sm text-muted-foreground">Немає категорій.</p>
+                    <p class="px-3 py-2 text-sm text-muted-foreground">{{ __('public.common.no_categories') }}</p>
                 @endforelse
             </nav>
         </div>
@@ -57,14 +57,14 @@
         <div class="rounded-2xl border border-border/80 bg-card shadow-soft">
             <button
                 type="button"
-                class="flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-semibold"
-                @click="showPages = !showPages"
-                :aria-expanded="showPages"
-            >
-                <span>Сторінки розділу</span>
-                <svg
-                    class="h-4 w-4 transition-transform"
-                    :class="{ 'rotate-180': showPages }"
+            class="flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-semibold"
+            @click="showPages = !showPages"
+            :aria-expanded="showPages"
+        >
+            <span>{{ __('public.common.section_pages') }}</span>
+            <svg
+                class="h-4 w-4 transition-transform"
+                :class="{ 'rotate-180': showPages }"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"

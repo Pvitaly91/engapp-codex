@@ -292,7 +292,7 @@
                     <div x-data="cpLang()" class="relative flex-1">
                         <button @click="toggle" class="w-full flex items-center justify-between gap-2 rounded-xl border border-[var(--cp-border)] bg-[var(--cp-bg)] px-3 py-2 text-sm font-medium hover:border-pilot-400 transition" aria-haspopup="listbox">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-pilot-100 dark:bg-pilot-900 text-pilot-700 dark:text-pilot-300 text-[10px] font-bold" x-text="active.code.toUpperCase()"></span>
-                            <span class="truncate" x-text="active.native_name || active.name"></span>
+                            <span class="truncate" x-text="active.localized_name || active.native_name || active.name"></span>
                             <svg class="h-3.5 w-3.5 text-[var(--cp-muted)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
                         </button>
                         <div x-show="open" @click.outside="open=false" x-transition
@@ -307,7 +307,7 @@
                                        class="flex items-center justify-between px-3 py-2 text-sm hover:bg-pilot-50 dark:hover:bg-pilot-900/30" role="option">
                                         <div class="flex items-center gap-2">
                                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-pilot-100 dark:bg-pilot-900 text-pilot-700 dark:text-pilot-300 text-[10px] font-bold" x-text="lang.code.toUpperCase()"></span>
-                                            <span class="font-medium text-xs" x-text="lang.native_name || lang.name"></span>
+                                            <span class="font-medium text-xs" x-text="lang.localized_name || lang.native_name || lang.name"></span>
                                         </div>
                                         <span x-show="lang.is_current" class="text-[10px] text-pilot-600 font-semibold">{{ __('public.language.current') }}</span>
                                     </a>
@@ -335,7 +335,7 @@
                class="fixed inset-y-0 left-0 z-50 flex w-72 flex-col border-r border-[var(--cp-border)] bg-[var(--cp-surface)] shadow-panel lg:hidden">
             <div class="flex items-center justify-between px-5 py-5 border-b border-[var(--cp-border)]">
                 <x-gramlyze-logo variant="horizontal" class="h-8 w-auto" />
-                <button @click="sidebarOpen=false" class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-pilot-50 dark:hover:bg-pilot-900/30 text-[var(--cp-muted)]" aria-label="Close menu">
+                <button @click="sidebarOpen=false" class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-pilot-50 dark:hover:bg-pilot-900/30 text-[var(--cp-muted)]" aria-label="{{ __('public.nav.close_menu') }}">
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
@@ -369,7 +369,7 @@
                 {{-- Mobile hamburger --}}
                 <button @click="sidebarOpen=true"
                         class="lg:hidden flex h-9 w-9 items-center justify-center rounded-xl border border-[var(--cp-border)] bg-[var(--cp-bg)] hover:border-pilot-400 transition"
-                        aria-label="Open menu">
+                        aria-label="{{ __('public.nav.open_menu') }}">
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
 
@@ -494,7 +494,7 @@
                 toggle() { this.open = !this.open; },
                 get filtered() {
                     const t = this.filter.toLowerCase();
-                    return this.languages.filter(l => !t || (l.name && l.name.toLowerCase().includes(t)) || (l.native_name && l.native_name.toLowerCase().includes(t)) || l.code.toLowerCase().includes(t));
+                    return this.languages.filter(l => !t || (l.localized_name && l.localized_name.toLowerCase().includes(t)) || (l.name && l.name.toLowerCase().includes(t)) || (l.native_name && l.native_name.toLowerCase().includes(t)) || l.code.toLowerCase().includes(t));
                 }
             };
         }

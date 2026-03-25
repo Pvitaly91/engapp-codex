@@ -1,6 +1,6 @@
 @extends('layouts.catalog-public')
 
-@section('title', ($selectedCategory->title ?? 'Категорія') . ' - ' . ($sectionTitle ?? 'Теорія'))
+@section('title', ($selectedCategory->title ?? __('frontend.copilot_theory.category')) . ' - ' . ($sectionTitle ?? __('frontend.copilot_theory.theory')))
 
 @section('content')
 @php
@@ -10,10 +10,10 @@
 @endphp
 
 <div class="nd-page">
-    <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
-        <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">Home</a>
+    <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="{{ __('public.common.breadcrumb') }}">
+        <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">{{ __('public.common.home') }}</a>
         <span>/</span>
-        <a href="{{ localized_route($routePrefix . '.index') }}" class="transition hover:text-ocean">{{ $sectionTitle ?? 'Теорія' }}</a>
+        <a href="{{ localized_route($routePrefix . '.index') }}" class="transition hover:text-ocean">{{ $sectionTitle ?? __('frontend.copilot_theory.theory') }}</a>
         <span>/</span>
         <span style="color: var(--text);">{{ $selectedCategory->title }}</span>
     </nav>
@@ -23,10 +23,10 @@
         <div class="absolute bottom-0 right-0 hidden h-40 w-12 rounded-tl-[2rem] bg-amber lg:block"></div>
         <div class="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div class="max-w-3xl">
-                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Category</p>
+                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.category') }}</p>
                 <h1 class="mt-3 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $selectedCategory->title }}</h1>
                 <p class="mt-4 max-w-2xl text-sm leading-7 sm:text-base" style="color: var(--muted);">
-                    Матеріали з категорії «{{ $selectedCategory->title }}». Обери сторінку або переходь по навігації всередині розділу.
+                    {{ __('frontend.copilot_theory.materials_in_category', ['category' => $selectedCategory->title]) }}
                 </p>
             </div>
             <div class="grid gap-3 sm:grid-cols-2">
@@ -55,7 +55,7 @@
                 <section class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
                     <div class="flex items-end justify-between gap-3">
                         <div>
-                            <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Map</p>
+                            <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.map') }}</p>
                             <h2 class="mt-2 font-display text-xl font-extrabold leading-none">{{ __('public.common.categories') }}</h2>
                         </div>
                         <span class="text-xs font-bold uppercase tracking-[0.18em]" style="color: var(--muted);">{{ $categories->count() }}</span>
@@ -108,7 +108,7 @@
                                     <span class="inline-flex h-12 w-12 items-center justify-center rounded-[18px] bg-ocean text-sm font-extrabold text-white">
                                         {{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}
                                     </span>
-                                    <span class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--muted);">Page</span>
+                                    <span class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--muted);">{{ __('frontend.copilot_theory.page') }}</span>
                                 </div>
                                 <h3 class="mt-5 font-display text-xl font-extrabold leading-tight">{{ $page->title }}</h3>
                                 @if(!empty($page->text))

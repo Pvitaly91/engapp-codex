@@ -9,9 +9,9 @@
         <table class="min-w-full text-sm">
             <thead class="bg-slate-50">
                 <tr>
-                    <th class="px-4 py-2 text-left font-semibold text-slate-600">Речення англійською</th>
-                    <th class="px-4 py-2 text-left font-semibold text-slate-600">Переклад</th>
-                    <th class="px-4 py-2 text-left font-semibold text-slate-600">Коментар</th>
+                    <th class="px-4 py-2 text-left font-semibold text-slate-600">{{ __('theory_blocks.comparison_table.english_sentence') }}</th>
+                    <th class="px-4 py-2 text-left font-semibold text-slate-600">{{ __('theory_blocks.comparison_table.translation') }}</th>
+                    <th class="px-4 py-2 text-left font-semibold text-slate-600">{{ __('theory_blocks.comparison_table.comment') }}</th>
                 </tr>
             </thead>
             <tbody>

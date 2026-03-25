@@ -12,13 +12,13 @@
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
                     </svg>
-                    Manual Mode - All Questions
+                    {{ __('frontend.tests.templates.card_expert.badge') }}
                 </div>
                 <h1 class="text-[28px] sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                     {{ $test->name }}
                 </h1>
                 <p class="text-[15px] sm:text-lg text-gray-600 max-w-2xl mx-auto">
-                    Type your answers without hints for all questions
+                    {{ __('frontend.tests.templates.card_expert.description') }}
                 </p>
             </div>
         </header>
@@ -36,7 +36,7 @@
                     <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
                         <div class="flex items-center space-x-2.5 sm:space-x-3">
                             <!-- Search toggle button - only visible when stuck -->
-                            <button type="button" id="sticky-search-toggle" class="sticky-search-btn hidden w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-md" title="Пошук слова">
+                            <button type="button" id="sticky-search-toggle" class="sticky-search-btn hidden w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-md" title="{{ __('frontend.tests.word_search.label') }}">
                                 <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                 </svg>
@@ -47,12 +47,12 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">Progress</div>
+                                <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">{{ __('frontend.tests.progress.label') }}</div>
                                 <div id="progress-label" class="progress-value text-base sm:text-xl font-bold text-gray-900 transition-all duration-300">1 / 0</div>
                             </div>
                         </div>
                         <div class="text-right space-y-0.5">
-                            <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">Accuracy</div>
+                            <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">{{ __('frontend.tests.progress.accuracy') }}</div>
                             <div id="score-label" class="progress-value text-base sm:text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent transition-all duration-300">0%</div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        Check All Answers
+                        {{ __('frontend.tests.actions.check_all') }}
                     </span>
                 </button>
             </div>
@@ -90,7 +90,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-3">Test Complete! 🎉</h2>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-3">{{ __('frontend.tests.status.completed_celebration') }}</h2>
                     <p id="summary-text" class="text-xl text-gray-700 mb-8"></p>
                     <div class="flex flex-col sm:flex-row gap-3 justify-center">
                         <button id="retry" class="group px-6 py-3.5 sm:px-8 sm:py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
@@ -98,10 +98,10 @@
                                 <svg class="w-5 h-5 mr-2 group-hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                                 </svg>
-                                Try Again
+                                {{ __('frontend.tests.actions.try_again') }}
                             </span>
                         </button>
-                        <button id="show-wrong" class="px-6 py-3.5 sm:px-8 sm:py-4 rounded-2xl border-2 border-gray-200 bg-white text-gray-700 font-semibold hover:border-gray-300 hover:bg-gray-50 transition-all duration-200">Show Mistakes Only</button>
+                        <button id="show-wrong" class="px-6 py-3.5 sm:px-8 sm:py-4 rounded-2xl border-2 border-gray-200 bg-white text-gray-700 font-semibold hover:border-gray-300 hover:bg-gray-50 transition-all duration-200">{{ __('frontend.tests.actions.review_mistakes') }}</button>
                     </div>
                 </div>
             </div>
@@ -178,14 +178,14 @@ function renderQuestions(showOnlyWrong = false) {
         <div class="flex-1">
           <div class="flex items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-blue-100 to-indigo-100 text-indigo-700">
-              ${q.level || 'N/A'}
+              ${q.level || testUi('hero.na')}
             </span>
-            <span class="text-xs sm:text-sm text-gray-500 font-medium">${q.tense || 'Grammar'}</span>
+            <span class="text-xs sm:text-sm text-gray-500 font-medium">${q.tense || testUi('question.grammar')}</span>
           </div>
           <div class="text-base sm:text-xl leading-relaxed text-gray-900 font-medium">${sentence}</div>
         </div>
         <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0 sm:self-start">
-          <div class="text-xs text-gray-500 font-medium">Q</div>
+          <div class="text-xs text-gray-500 font-medium">${testUi('question.label')}</div>
           <div class="text-lg font-bold text-indigo-600">${idx + 1}</div>
         </div>
       </div>
@@ -215,7 +215,11 @@ function renderQuestions(showOnlyWrong = false) {
   document.getElementById('summary').classList.toggle('hidden', !allDone);
   document.getElementById('final-check').classList.toggle('hidden', allDone);
   if (allDone) {
-    document.getElementById('summary-text').textContent = `You got ${state.correct} out of ${state.items.length} correct (${pct(state.correct, state.items.length)}%)!`;
+    document.getElementById('summary-text').textContent = testUi('summary.score', {
+      correct: state.correct,
+      total: state.items.length,
+      percent: pct(state.correct, state.items.length),
+    });
     const retryButton = document.getElementById('retry');
     if (retryButton) {
       retryButton.onclick = () => restartJsTest(init, { button: retryButton });
@@ -248,7 +252,7 @@ function onCheck(idx) {
     if (!item.wrongAttempt) state.correct += 1;
   } else {
     item.wrongAttempt = true;
-    item.feedback = 'Incorrect, try again';
+    item.feedback = testUi('status.incorrect_try_again');
   }
   renderQuestions();
   updateProgress();
@@ -257,7 +261,7 @@ function onCheck(idx) {
 
 function renderFeedback(q) {
   if (q.done || q.feedback === 'correct') {
-    return '<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><div class="flex-1"><div class="font-semibold text-emerald-800">Correct!</div></div></div>';
+    return '<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><div class="flex-1"><div class="font-semibold text-emerald-800">' + html(testUi('status.correct_long')) + '</div></div></div>';
   }
   return q.feedback ? `<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><div class="flex-1"><div class="font-semibold text-red-800">${html(q.feedback)}</div></div></div>` : '';
 }
@@ -301,7 +305,7 @@ function updateProgress() {
   label.textContent = `${state.answered} / ${state.items.length}`;
   const score = document.getElementById('score-label');
   const percent = state.answered ? pct(state.correct, state.items.length) : 0;
-  score.textContent = `Accuracy: ${percent}%`;
+  score.textContent = testUi('progress.accuracy_value', { value: percent });
   const bar = document.getElementById('progress-bar');
   bar.style.width = `${(state.answered / state.items.length) * 100}%`;
 }

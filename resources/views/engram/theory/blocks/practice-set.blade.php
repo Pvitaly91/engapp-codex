@@ -7,7 +7,7 @@
     <h2 class="text-xl md:text-2xl font-semibold text-slate-900 mb-4">{{ $data['title'] ?? '' }}</h2>
 
     <div class="mb-6 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
-        <h3 class="text-lg font-semibold text-slate-900 mb-2">{{ $data['select_title'] ?? '' }}</h3>
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">{{ $data['select_title'] ?? __('theory_blocks.practice.select_title') }}</h3>
         @if(! empty($data['select_intro']))
             <p class="text-sm text-slate-600 mb-3">{!! $data['select_intro'] !!}</p>
         @endif
@@ -19,7 +19,7 @@
                     </label>
                     <div class="flex items-center gap-2">
                         <select class="rounded-lg border-slate-200 text-sm">
-                            <option value="">— обери —</option>
+                            <option value="">{{ __('theory_blocks.practice.select_placeholder') }}</option>
                             @foreach($options as $option)
                                 <option>{{ $option }}</option>
                             @endforeach
@@ -34,7 +34,7 @@
     </div>
 
     <div class="mb-6 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
-        <h3 class="text-lg font-semibold text-slate-900 mb-2">{{ $data['input_title'] ?? '' }}</h3>
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">{{ $data['input_title'] ?? __('theory_blocks.practice.input_title') }}</h3>
         @if(! empty($data['input_intro']))
             <p class="text-sm text-slate-600 mb-3">{!! $data['input_intro'] !!}</p>
         @endif
@@ -50,7 +50,7 @@
     </div>
 
     <div class="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
-        <h3 class="text-lg font-semibold text-slate-900 mb-2">{{ $data['rephrase_title'] ?? '' }}</h3>
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">{{ $data['rephrase_title'] ?? __('theory_blocks.practice.rephrase_title') }}</h3>
         @if(! empty($data['rephrase_intro']))
             <p class="text-sm text-slate-600 mb-3">{!! $data['rephrase_intro'] !!}</p>
         @endif
@@ -58,7 +58,7 @@
             @foreach($rephrase as $index => $item)
                 @if($index === 0 && ! empty($item['example_original']))
                     <div>
-                        <p class="text-xs text-slate-500 mb-1">{{ $item['example_label'] ?? 'Приклад:' }}</p>
+                        <p class="text-xs text-slate-500 mb-1">{{ $item['example_label'] ?? __('theory_blocks.practice.example_label') }}</p>
                         <p class="font-mono text-xs mb-1">{{ $item['example_original'] }}</p>
                         <p class="font-mono text-xs text-emerald-700">→ {{ $item['example_target'] ?? '' }}</p>
                     </div>

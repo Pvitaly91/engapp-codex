@@ -35,28 +35,28 @@
         <div class="drag-quiz__card drag-quiz__left">
             <header class="drag-quiz__header">
                 <h1 class="drag-quiz__title">{{ $test->name }}</h1>
-                <p class="drag-quiz__subtitle">Перетягни правильне <strong>question word</strong> у пропуск. Можна також натиснути на слово, а потім на пропуск — це зручно на мобільних пристроях.</p>
+                <p class="drag-quiz__subtitle">{{ __('frontend.tests.drag_drop.intro') }}</p>
             </header>
 
             <div id="drag-quiz-tasks"></div>
 
             <div class="drag-quiz__footer">
                 <div class="drag-quiz__controls">
-                    <button id="drag-quiz-check" class="drag-quiz__btn">Перевірити</button>
-                    <button id="drag-quiz-retry" class="drag-quiz__btn drag-quiz__btn--secondary">Спробувати ще</button>
-                    <div class="drag-quiz__score" id="drag-quiz-score">0 / {{ $scoreTotal }}</div>
+                    <button id="drag-quiz-check" class="drag-quiz__btn">{{ __('frontend.tests.actions.check') }}</button>
+                    <button id="drag-quiz-retry" class="drag-quiz__btn drag-quiz__btn--secondary">{{ __('frontend.tests.actions.try_again') }}</button>
+                    <div class="drag-quiz__score" id="drag-quiz-score">{{ __('frontend.tests.drag_drop.score_value', ['current' => 0, 'total' => $scoreTotal]) }}</div>
                 </div>
-                <p class="drag-quiz__hint">Підсвічення: <span class="drag-quiz__hint--correct">зелений</span> — вірно, <span class="drag-quiz__hint--wrong">червоний</span> — помилка.</p>
+                <p class="drag-quiz__hint">{{ __('frontend.tests.drag_drop.hint') }}</p>
             </div>
         </div>
 
         <aside class="drag-quiz__card drag-quiz__right">
-            <h3 class="drag-quiz__heading">Банк слів</h3>
-            <div class="drag-quiz__legend">Перетягуй або натискай, щоб обрати слово.</div>
-            <div id="drag-quiz-bank" class="drag-quiz__bank" aria-label="Word bank"></div>
+            <h3 class="drag-quiz__heading">{{ __('frontend.tests.drag_drop.word_bank') }}</h3>
+            <div class="drag-quiz__legend">{{ __('frontend.tests.drag_drop.legend') }}</div>
+            <div id="drag-quiz-bank" class="drag-quiz__bank" aria-label="{{ __('frontend.tests.drag_drop.word_bank_aria') }}"></div>
 
             <div class="drag-quiz__bank-controls">
-                <button id="drag-quiz-show" class="drag-quiz__btn drag-quiz__btn--ghost">Показати відповіді</button>
+                <button id="drag-quiz-show" class="drag-quiz__btn drag-quiz__btn--ghost">{{ __('frontend.tests.actions.show_answers') }}</button>
             </div>
         </aside>
     </div>
@@ -315,6 +315,7 @@
 <script>
 window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 </script>
+@include('components.saved-test-js-helpers')
 <script>
 (function () {
     const rawQuestions = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
@@ -493,8 +494,8 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     const checkBtn = document.getElementById('drag-quiz-check');
     const retryBtn = document.getElementById('drag-quiz-retry');
     const showBtn = document.getElementById('drag-quiz-show');
-    const showBtnDefaultText = showBtn ? showBtn.textContent.trim() : 'Показати відповіді';
-    const showBtnReturnText = 'Повернутися до тесту';
+    const showBtnDefaultText = showBtn ? showBtn.textContent.trim() : testUi('actions.show_answers');
+    const showBtnReturnText = testUi('actions.back_to_test');
     const storage =
         typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined'
             ? window.sessionStorage
@@ -1019,7 +1020,7 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         currentScore = value;
 
         if (scoreEl) {
-            scoreEl.textContent = `${value} / ${scoreTotal}`;
+            scoreEl.textContent = testUi('drag_drop.score_value', { current: value, total: scoreTotal });
         }
 
         if (!skipSave) {
@@ -1088,7 +1089,10 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         
         drop.tabIndex = 0;
         const suffix = totalBlanks > 1 ? ` (${blankIndex + 1})` : '';
-        drop.setAttribute('aria-label', `Drop zone ${questionIndex + 1}${suffix}`);
+        drop.setAttribute('aria-label', testUi('question.drop_zone', {
+            index: questionIndex + 1,
+            slot: suffix,
+        }));
         drop.addEventListener('dragover', (event) => {
             event.preventDefault();
             drop.classList.add('is-hover');
@@ -1240,7 +1244,7 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         const remove = document.createElement('span');
         remove.className = 'drag-quiz__remove';
         remove.setAttribute('role', 'button');
-        remove.setAttribute('aria-label', 'Видалити слово');
+        remove.setAttribute('aria-label', testUi('drag_drop.remove_word'));
         remove.textContent = '×';
         remove.addEventListener('click', (event) => {
             event.stopPropagation();

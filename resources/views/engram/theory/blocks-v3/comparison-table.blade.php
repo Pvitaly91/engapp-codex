@@ -27,9 +27,9 @@
                 <table class="w-full text-sm">
                     <thead>
                         <tr class="border-b border-border">
-                            <th class="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">English</th>
-                            <th class="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">Українською</th>
-                            <th class="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">Форми / Примітки</th>
+                            <th class="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">{{ __('theory_blocks.comparison_table.english_sentence') }}</th>
+                            <th class="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">{{ __('theory_blocks.comparison_table.translation') }}</th>
+                            <th class="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">{{ __('theory_blocks.comparison_table.forms_notes') }}</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-border/50">

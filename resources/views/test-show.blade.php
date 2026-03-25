@@ -824,8 +824,8 @@
 @section('content')
 @php
     $templateView = $templateView ?? 'test-modes.card-easy';
-    $heroBadge = $heroBadge ?? 'Interactive test';
-    $heroDescription = $heroDescription ?? 'Відповідайте на питання в card mode, використовуйте клавіші `1-4`, підказки, словниковий пошук і повертайтесь до каталогу без втрати функціоналу поточної сторінки тесту.';
+    $heroBadge = $heroBadge ?? __('frontend.tests.hero.interactive');
+    $heroDescription = $heroDescription ?? __('frontend.tests.hero.card_description');
     $levels = collect($questionData)->pluck('level')->filter()->unique()->values();
     $questionCount = count($questionData ?? []);
     $templatePath = resource_path('views/' . str_replace('.', '/', $templateView) . '.blade.php');
@@ -843,8 +843,8 @@
 @endphp
 
 <div class="nd-page">
-    <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="Breadcrumb">
-        <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">Home</a>
+    <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="{{ __('public.common.breadcrumb') }}">
+        <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">{{ __('public.common.home') }}</a>
         <span>/</span>
         <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-ocean">{{ __('public.nav.catalog') }}</a>
         <span>/</span>
@@ -867,17 +867,17 @@
 
             <div class="grid gap-4 sm:grid-cols-2">
                 <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
-                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Questions</p>
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.hero.questions') }}</p>
                     <p class="mt-2 font-display text-[2.25rem] font-extrabold leading-none">{{ $questionCount }}</p>
-                    <p class="mt-2 text-sm leading-6" style="color: var(--muted);">Кількість завдань у тесті</p>
+                    <p class="mt-2 text-sm leading-6" style="color: var(--muted);">{{ __('frontend.tests.hero.questions_count') }}</p>
                 </article>
                 <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
-                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Levels</p>
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.hero.levels') }}</p>
                     <div class="mt-3 flex flex-wrap gap-2">
                         @forelse($levels as $level)
                             <span class="rounded-full px-3 py-1.5 text-xs font-bold" style="background: var(--accent-soft); color: var(--text);">{{ $level }}</span>
                         @empty
-                            <span class="text-sm" style="color: var(--muted);">N/A</span>
+                            <span class="text-sm" style="color: var(--muted);">{{ __('frontend.tests.hero.na') }}</span>
                         @endforelse
                     </div>
                 </article>

@@ -20,9 +20,9 @@
         <div class="space-y-3">
             {{-- Header (visible on larger screens) --}}
             <div class="hidden md:grid md:grid-cols-3 gap-4 px-4 py-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                <span>Англійською</span>
-                <span>Українською</span>
-                <span>Коментар</span>
+                <span>{{ __('theory_blocks.comparison_table.english_sentence') }}</span>
+                <span>{{ __('theory_blocks.comparison_table.translation') }}</span>
+                <span>{{ __('theory_blocks.comparison_table.comment') }}</span>
             </div>
 
             {{-- Rows --}}
@@ -31,7 +31,7 @@
                     <div class="grid gap-3 md:grid-cols-3 md:gap-4 items-start">
                         {{-- English --}}
                         <div class="md:col-span-1">
-                            <span class="md:hidden text-[10px] font-bold uppercase tracking-wider text-muted-foreground block mb-1">Англійською</span>
+                            <span class="md:hidden text-[10px] font-bold uppercase tracking-wider text-muted-foreground block mb-1">{{ __('theory_blocks.comparison_table.english_sentence') }}</span>
                             <code class="font-mono text-sm font-medium text-foreground break-words">
                                 {{ $row['en'] ?? '' }}
                             </code>
@@ -39,7 +39,7 @@
 
                         {{-- Ukrainian --}}
                         <div class="md:col-span-1">
-                            <span class="md:hidden text-[10px] font-bold uppercase tracking-wider text-muted-foreground block mb-1">Українською</span>
+                            <span class="md:hidden text-[10px] font-bold uppercase tracking-wider text-muted-foreground block mb-1">{{ __('theory_blocks.comparison_table.translation') }}</span>
                             <span class="text-sm text-foreground/80">
                                 {{ $row['ua'] ?? '' }}
                             </span>
@@ -47,7 +47,7 @@
 
                         {{-- Note --}}
                         <div class="md:col-span-1">
-                            <span class="md:hidden text-[10px] font-bold uppercase tracking-wider text-muted-foreground block mb-1">Коментар</span>
+                            <span class="md:hidden text-[10px] font-bold uppercase tracking-wider text-muted-foreground block mb-1">{{ __('theory_blocks.comparison_table.comment') }}</span>
                             <span class="text-sm text-muted-foreground">
                                 {!! $row['note'] ?? '' !!}
                             </span>

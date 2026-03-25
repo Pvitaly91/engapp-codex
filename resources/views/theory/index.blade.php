@@ -168,7 +168,7 @@
             </article>
 
             <article class="rounded-[30px] border p-6 shadow-card surface-card" style="border-color: var(--line);">
-                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Quick links</p>
+                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.quick_links') }}</p>
                 <h2 class="mt-3 font-display text-2xl font-extrabold leading-tight">{{ __('public.home.pick_path') }}</h2>
                 <div class="mt-6 grid gap-4">
                     <a href="{{ localized_route('theory.index') }}" class="rounded-[22px] border p-5 surface-card-strong" style="border-color: var(--line);">
@@ -180,7 +180,7 @@
                         <h3 class="mt-2 font-display text-xl font-extrabold">{{ __('public.home.to_catalog') }}</h3>
                     </a>
                     <a href="{{ localized_route('home') }}" class="rounded-[22px] border p-5 surface-card-strong" style="border-color: var(--line);">
-                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">New design</p>
+                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.home.new_design') }}</p>
                         <h3 class="mt-2 font-display text-xl font-extrabold">{{ __('public.home.title') }}</h3>
                     </a>
                 </div>

@@ -14,7 +14,7 @@
         style="border-color: var(--line);"
     >
         <div class="text-left">
-            <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Map</p>
+            <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.map') }}</p>
             <p class="mt-1 text-sm font-bold">{{ $currentPage->title ?? $selectedCategory->title ?? __('public.theory.title') }}</p>
         </div>
         <svg class="h-5 w-5 transition-transform" :class="{ 'rotate-180': open }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

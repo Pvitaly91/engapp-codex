@@ -6,7 +6,7 @@
 <div class="mx-auto w-full max-w-6xl px-4 py-8 text-slate-800" id="match-quiz">
     <header class="mb-6 space-y-2">
         <h1 class="text-2xl font-bold text-slate-900 sm:text-3xl">{{ $test->name }}</h1>
-        <p class="text-sm text-slate-600">З'єднай речення з правильним поясненням. Для мобільних пристроїв можна натиснути на елемент зліва, а потім на відповідний праворуч.</p>
+        <p class="text-sm text-slate-600">{{ __('frontend.tests.match.intro') }}</p>
     </header>
 
     @include('components.test-mode-nav')
@@ -15,16 +15,16 @@
 
     <div class="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-4 text-sm text-slate-700 shadow-sm">
         <ul class="list-disc space-y-1 pl-4">
-            <li>Зліва — речення (1…n), справа — пояснення (a…n).</li>
-            <li>Тягни або натискай, щоб провести лінію між відповідними парами.</li>
-            <li>Натисни на елемент із зв'язком, щоб підсвітити його з'єднання.</li>
-            <li>Кожен елемент може мати лише один зв'язок.</li>
-            <li><strong>Перевірити</strong> активується, коли всі пари з'єднані.</li>
-            <li><strong>Скинути</strong> очищує з'єднання та перемішує елементи.</li>
+            <li>{{ __('frontend.tests.match.instructions.left_right') }}</li>
+            <li>{{ __('frontend.tests.match.instructions.connect') }}</li>
+            <li>{{ __('frontend.tests.match.instructions.highlight') }}</li>
+            <li>{{ __('frontend.tests.match.instructions.single') }}</li>
+            <li>{{ __('frontend.tests.match.instructions.check') }}</li>
+            <li>{{ __('frontend.tests.match.instructions.reset') }}</li>
         </ul>
     </div>
 <h1 class="text-2xl sm:text-3xl font-bold text-sky-700 text-center mb-6">
-            🧩 Match the Sentences with Their Meanings
+            {{ __('frontend.tests.match.title') }}
         </h1>
     <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm" id="match-board">
         <svg id="match-svg" class="pointer-events-none absolute inset-0 h-full w-full"></svg>
@@ -33,7 +33,7 @@
                 <input 
                     type="text" 
                     id="search-left" 
-                    placeholder="Пошук речень..." 
+                    placeholder="{{ __('frontend.tests.match.search_left') }}" 
                     class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
                 />
             </div>
@@ -41,7 +41,7 @@
                 <input 
                     type="text" 
                     id="search-right" 
-                    placeholder="Пошук пояснень..." 
+                    placeholder="{{ __('frontend.tests.match.search_right') }}" 
                     class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
                 />
             </div>
@@ -51,16 +51,16 @@
             <div class="space-y-3" id="match-right"></div>
         </div>
         <div id="match-empty" class="hidden rounded-xl border border-amber-200 bg-amber-50 p-4 text-center text-sm text-amber-700">
-            Для цього тесту поки немає питань, які можна зіставити у форматі «речення → пояснення».
+            {{ __('frontend.tests.match.empty') }}
         </div>
     </div>
 
     <div class="mt-6 flex flex-wrap items-center gap-3">
         <button id="match-check" type="button" class="rounded-xl bg-sky-500 px-5 py-2 text-sm font-semibold text-white shadow transition hover:bg-sky-600 disabled:cursor-not-allowed disabled:opacity-50" disabled>
-            Перевірити
+            {{ __('frontend.tests.actions.check') }}
         </button>
         <button id="match-reset" type="button" class="rounded-xl border border-slate-300 bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-200">
-            Скинути
+            {{ __('frontend.tests.actions.reset') }}
         </button>
         <div id="match-result" class="text-lg font-semibold text-sky-700"></div>
     </div>
@@ -356,7 +356,7 @@ function updateProgress() {
 
     if (scoreLabel) {
         const percent = matchState.evaluated ? pct(matchState.correct, total) : 0;
-        scoreLabel.textContent = `Точність: ${percent}%`;
+        scoreLabel.textContent = testUi('progress.accuracy_value', { value: percent });
     }
 
     if (progressBar) {
@@ -372,7 +372,7 @@ function updateResult() {
     }
 
     const total = matchState.items.length;
-    resultEl.textContent = `✅ Правильних: ${matchState.correct} / ${total}`;
+    resultEl.textContent = testUi('match.result', { correct: matchState.correct, total });
 }
 
 function updateEmptyState() {

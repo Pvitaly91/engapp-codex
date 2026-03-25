@@ -12,7 +12,7 @@
     $summaryCards = [
         ['label' => __('public.search.pages'), 'value' => $pageResults->count(), 'tone' => 'bg-ocean'],
         ['label' => __('public.search.tests'), 'value' => $testResults->count(), 'tone' => 'bg-amber'],
-        ['label' => __('public.search.button'), 'value' => $hasQuery ? 'LIVE' : 'WAIT', 'tone' => 'bg-emerald-500'],
+        ['label' => __('public.search.button'), 'value' => $hasQuery ? __('frontend.search.live') : __('frontend.search.wait'), 'tone' => 'bg-emerald-500'],
         ['label' => __('public.home.search_block_hint'), 'value' => $hasEnoughChars ? '2+' : '0-1', 'tone' => 'bg-slate-800 dark:bg-slate-200'],
     ];
 @endphp

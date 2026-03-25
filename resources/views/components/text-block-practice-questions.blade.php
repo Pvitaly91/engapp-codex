@@ -59,6 +59,21 @@
             'marker_tags' => $markerTags->toArray(),
         ];
     })->values()->toArray();
+
+    $practiceI18n = [
+        'title' => __('theory_blocks.practice_questions.title'),
+        'question_prefix' => __('theory_blocks.practice_questions.question_prefix'),
+        'matched_tags' => __('theory_blocks.practice_questions.matched_tags'),
+        'marker_tags' => __('theory_blocks.practice_questions.marker_tags'),
+        'hint' => __('theory_blocks.practice_questions.hint'),
+        'check_answer' => __('theory_blocks.practice_questions.check_answer'),
+        'correct' => __('theory_blocks.practice_questions.correct'),
+        'incorrect' => __('theory_blocks.practice_questions.incorrect', ['answer' => ':answer']),
+        'explanation' => __('theory_blocks.practice_questions.explanation'),
+        'next_question' => __('theory_blocks.practice_questions.next_question'),
+        'start_over' => __('theory_blocks.practice_questions.start_over'),
+        'footer' => __('theory_blocks.practice_questions.footer'),
+    ];
 @endphp
 
 @if($questions->isNotEmpty())
@@ -74,10 +89,10 @@
                     <svg class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                     </svg>
-                    Quick Practice
+                    {{ __('theory_blocks.practice_questions.title') }}
                 </h4>
                 <div class="flex items-center gap-2 text-xs text-muted-foreground">
-                    <span x-text="'Q' + (currentIndex + 1) + '/' + questions.length"></span>
+                    <span x-text="practiceI18n.question_prefix + (currentIndex + 1) + '/' + questions.length"></span>
                     <span class="text-emerald-600 font-medium" x-show="correctCount > 0" x-text="'✓ ' + correctCount"></span>
                 </div>
             </div>
@@ -101,7 +116,7 @@
                         {{-- Question tags (matched tags highlighted) --}}
                         @if($isAdmin)
                             <div class="mt-3 space-y-1" x-show="currentQuestion.tags && currentQuestion.tags.length">
-                                <div class="text-[11px] font-semibold text-muted-foreground">Tags (matched highlighted)</div>
+                                <div class="text-[11px] font-semibold text-muted-foreground">{{ __('theory_blocks.practice_questions.matched_tags') }}</div>
                                 <div class="flex flex-wrap gap-1">
                                     <template x-for="tag in currentQuestion.tags" :key="tag.id || tag.name">
                                         <span
@@ -123,7 +138,7 @@
                         {{-- Marker tags (admin only) --}}
                         @if($isAdmin)
                             <div class="mt-3 space-y-1" x-show="hasMarkerTags(currentQuestion)">
-                                <div class="text-[11px] font-semibold text-muted-foreground">Marker tags</div>
+                                <div class="text-[11px] font-semibold text-muted-foreground">{{ __('theory_blocks.practice_questions.marker_tags') }}</div>
                                 <template x-for="(tags, marker) in currentQuestion.marker_tags" :key="marker">
                                     <div class="flex items-start gap-2">
                                         <span class="px-1.5 py-0.5 rounded bg-muted/60 text-[10px] font-semibold uppercase text-muted-foreground" x-text="marker"></span>
@@ -145,7 +160,7 @@
                         {{-- Verb hint (shown before answering) --}}
                         <div x-show="!answered && currentVerbHint" class="mt-2">
                             <span class="text-xs text-rose-600 font-semibold">
-                                💡 Hint: <span x-text="currentVerbHint"></span>
+                                💡 {{ __('theory_blocks.practice_questions.hint') }}: <span x-text="currentVerbHint"></span>
                             </span>
                         </div>
                     </div>
@@ -182,7 +197,7 @@
                     @click="checkAnswer()"
                     class="w-full py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-colors"
                 >
-                    Check Answer
+                    {{ __('theory_blocks.practice_questions.check_answer') }}
                 </button>
             </div>
             
@@ -200,7 +215,7 @@
                                 <svg class="h-5 w-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                                 </svg>
-                                Correct! Well done!
+                                {{ __('theory_blocks.practice_questions.correct') }}
                             </span>
                         </template>
                         <template x-if="!isCorrect">
@@ -208,7 +223,7 @@
                                 <svg class="h-5 w-5 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
                                 </svg>
-                                <span>Incorrect. The answer is: <strong x-text="correctAnswer"></strong></span>
+                                <span x-text="incorrectFeedback()"></span>
                             </span>
                         </template>
                     </div>
@@ -222,7 +237,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
                             <div>
-                                <span class="font-semibold">Explanation:</span>
+                                <span class="font-semibold">{{ __('theory_blocks.practice_questions.explanation') }}:</span>
                                 <span x-text="currentExplanation" class="ml-1"></span>
                             </div>
                         </div>
@@ -234,7 +249,7 @@
                     @click="nextQuestion()"
                     class="w-full py-2.5 rounded-lg border border-border bg-background text-foreground font-medium text-sm hover:bg-muted/50 transition-colors flex items-center justify-center gap-2"
                 >
-                    <span x-text="hasMoreQuestions() ? 'Next Question' : 'Start Over'"></span>
+                    <span x-text="hasMoreQuestions() ? practiceI18n.next_question : practiceI18n.start_over"></span>
                     <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                     </svg>
@@ -243,7 +258,7 @@
             
             {{-- Footer --}}
             <p class="text-[10px] text-muted-foreground/70 text-center">
-                Practice questions matched by topic tags
+                {{ __('theory_blocks.practice_questions.footer') }}
             </p>
         </div>
     </div>
@@ -259,8 +274,10 @@
                 "wasn't", "weren't", "haven't", "hasn't", "hadn't",
                 "won't", "wouldn't", "can't", "couldn't", "shouldn't"
             ];
+            const practiceI18n = @js($practiceI18n);
             
             return {
+                practiceI18n,
                 questions: @json($questionsData),
                 currentIndex: 0,
                 currentQuestion: null,
@@ -394,6 +411,10 @@
                 
                 hasMoreQuestions() {
                     return this.currentIndex < this.questions.length - 1;
+                },
+
+                incorrectFeedback() {
+                    return this.practiceI18n.incorrect.replace(':answer', this.correctAnswer || '');
                 },
                 
                 nextQuestion() {
