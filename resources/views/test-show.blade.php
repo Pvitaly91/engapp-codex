@@ -35,6 +35,8 @@
         border-bottom-color: transparent !important;
         contain: none !important;
         overflow: visible !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.45rem !important;
     }
 
     #catalog-shell.has-attached-test-controls {
@@ -57,8 +59,76 @@
 
     #site-header.has-attached-test-controls #site-header-test-controls {
         display: block;
-        padding-top: 0.8rem;
+        padding-top: 0.28rem;
         border-top: 0 !important;
+    }
+
+    #site-header.has-attached-test-controls > div {
+        gap: 0.55rem !important;
+    }
+
+    #site-header.has-attached-test-controls > div > div:first-child {
+        gap: 0.6rem !important;
+    }
+
+    #site-header.has-attached-test-controls a[aria-label="Gramlyze"] {
+        gap: 0.55rem !important;
+    }
+
+    #site-header.has-attached-test-controls a[aria-label="Gramlyze"] .h-12.w-12 {
+        width: 2.45rem !important;
+        height: 2.45rem !important;
+        border-radius: 0.9rem !important;
+    }
+
+    #site-header.has-attached-test-controls a[aria-label="Gramlyze"] p:first-child {
+        font-size: 1rem !important;
+        line-height: 1 !important;
+    }
+
+    #site-header.has-attached-test-controls a[aria-label="Gramlyze"] p:last-child {
+        margin-top: 0.05rem !important;
+        font-size: 0.58rem !important;
+        line-height: 1 !important;
+    }
+
+    #site-header.has-attached-test-controls > div > nav {
+        gap: 0.95rem !important;
+        line-height: 1 !important;
+    }
+
+    #site-header.has-attached-test-controls > div > div:last-child {
+        gap: 0.45rem !important;
+    }
+
+    #site-header.has-attached-test-controls > div > div:last-child input[type="search"] {
+        padding-top: 0.56rem !important;
+        padding-bottom: 0.56rem !important;
+        border-radius: 0.95rem !important;
+        border-width: 1px !important;
+        border-color: var(--line) !important;
+        box-shadow: none !important;
+    }
+
+    #site-header.has-attached-test-controls > div > div:last-child > button,
+    #site-header.has-attached-test-controls > div > div:last-child > div > button {
+        min-height: 2.35rem !important;
+        padding-top: 0.42rem !important;
+        padding-bottom: 0.42rem !important;
+        border-radius: 0.95rem !important;
+        box-shadow: none !important;
+    }
+
+    #site-header.has-attached-test-controls > div > div:last-child > div > button {
+        border-width: 1px !important;
+        border-color: var(--line) !important;
+    }
+
+    #site-header.has-attached-test-controls > div > div:last-child > button {
+        width: 2.35rem !important;
+        height: 2.35rem !important;
+        padding-left: 0.42rem !important;
+        padding-right: 0.42rem !important;
     }
 
     #new-design-test-shell .sticky-test-header.is-stuck {
@@ -212,11 +282,11 @@
     }
 
     .sticky-inner.header-attached {
-        border: 1px solid var(--line) !important;
-        background: color-mix(in srgb, var(--surface-strong) 96%, var(--surface)) !important;
-        border-radius: 26px !important;
-        padding: 0.7rem 0.8rem !important;
-        box-shadow: 0 12px 28px rgba(17, 38, 63, 0.08) !important;
+        border: 0 !important;
+        background: color-mix(in srgb, var(--surface-strong) 97%, var(--surface)) !important;
+        border-radius: 22px !important;
+        padding: 0.24rem 0.34rem !important;
+        box-shadow: 0 10px 22px rgba(17, 38, 63, 0.06) !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
         contain: none;
@@ -230,7 +300,7 @@
     }
 
     .sticky-inner.header-attached > :not([hidden]) ~ :not([hidden]) {
-        margin-top: 0.5rem !important;
+        margin-top: 0.16rem !important;
     }
 
     .sticky-inner.header-attached .word-search-section,
@@ -257,67 +327,132 @@
         transform-origin: left center;
     }
 
+    .sticky-inner.header-attached .word-search-section > div {
+        gap: 0 !important;
+    }
+
+    .sticky-inner.header-attached .word-search-section > div > div:first-child {
+        display: none !important;
+    }
+
+    .sticky-inner.header-attached #word-search {
+        min-height: 2.15rem;
+        padding: 0.46rem 0.76rem !important;
+        border-radius: 0.9rem !important;
+        border-width: 1px !important;
+        border-color: var(--line) !important;
+        box-shadow: none !important;
+        font-size: 0.88rem !important;
+        line-height: 1.2 !important;
+    }
+
     .sticky-inner.header-attached .progress-section {
-        border: 1px solid var(--line) !important;
-        background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, white) 0%, var(--surface-strong) 100%) !important;
-        border-radius: 24px !important;
-        padding: 0.45rem 0.55rem !important;
+        border: 0 !important;
+        background: color-mix(in srgb, var(--surface-strong) 97%, var(--surface)) !important;
+        border-radius: 18px !important;
+        padding: 0.16rem 0.28rem !important;
         box-shadow: none !important;
     }
 
     .sticky-inner.header-attached .progress-layout {
         grid-template-columns: minmax(0, 1fr) auto;
         align-items: center;
+        gap: 0.25rem !important;
     }
 
     .sticky-inner.header-attached .progress-main {
+        display: flex;
+        flex-direction: column;
         min-width: 0;
+        gap: 0.14rem !important;
+    }
+
+    .sticky-inner.header-attached .progress-main > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 0 !important;
+    }
+
+    .sticky-inner.header-attached .progress-meta {
+        display: flex;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 0.5rem !important;
+    }
+
+    .sticky-inner.header-attached .progress-meta > .flex {
+        min-width: 0;
+        gap: 0.38rem !important;
+    }
+
+    .sticky-inner.header-attached .progress-meta > .flex > div,
+    .sticky-inner.header-attached .progress-meta > .text-right {
+        display: flex;
+        align-items: baseline;
+        gap: 0.26rem;
+        white-space: nowrap;
+    }
+
+    .sticky-inner.header-attached .progress-meta > .text-right {
+        text-align: left !important;
+    }
+
+    .sticky-inner.header-attached .progress-meta > .text-right > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 0 !important;
     }
 
     .sticky-inner.header-attached .progress-actions {
-        align-self: stretch;
+        align-self: center;
         display: flex;
         justify-content: flex-end;
     }
 
     .sticky-inner.header-attached .progress-actions #restart-test {
         white-space: nowrap;
+        padding: 0.42rem 0.68rem !important;
+        font-size: 0.67rem !important;
     }
 
     .sticky-inner.header-attached .progress-icon {
-        transform: scale(0.82) !important;
+        transform: scale(0.66) !important;
         background: linear-gradient(135deg, #2f67b1 0%, #4f88d6 100%) !important;
     }
 
     .sticky-inner.header-attached .progress-icon svg {
-        transform: scale(0.86) !important;
+        transform: scale(0.72) !important;
     }
 
     .sticky-inner.header-attached .progress-label-text {
-        transform: scale(0.92) !important;
-        opacity: 0.94 !important;
+        transform: none !important;
+        opacity: 0.84 !important;
         color: var(--muted) !important;
+        font-size: 0.62rem !important;
+        line-height: 1 !important;
     }
 
     .sticky-inner.header-attached .progress-value,
     .sticky-inner.header-attached #progress-label {
-        transform: scale(0.94) !important;
+        transform: none !important;
         color: var(--text) !important;
         background: none !important;
         -webkit-text-fill-color: initial !important;
+        font-size: 0.86rem !important;
+        line-height: 1 !important;
     }
 
     .sticky-inner.header-attached #score-label {
         color: var(--accent) !important;
         background: none !important;
         -webkit-text-fill-color: initial !important;
+        font-size: 0.86rem !important;
+        line-height: 1 !important;
     }
 
     .sticky-inner.header-attached .progress-bar-container {
-        border: 1px solid var(--line) !important;
+        border: 0 !important;
         box-shadow: none !important;
         background: rgba(47, 103, 177, 0.14) !important;
-        transform: scaleY(0.78) !important;
+        height: 0.3rem !important;
+        transform: none !important;
     }
 
     .sticky-inner.header-attached #progress-bar {
@@ -328,15 +463,16 @@
     }
 
     .sticky-inner.header-attached #restart-test {
-        transform: scale(0.94) !important;
+        transform: none !important;
         transform-origin: right center;
+        border-width: 1px !important;
         border-color: var(--line) !important;
         background: var(--surface-strong) !important;
         color: var(--text) !important;
-        border-radius: 18px !important;
+        border-radius: 0.85rem !important;
         font-weight: 800 !important;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.06em;
     }
 
     #new-design-test-shell main {
