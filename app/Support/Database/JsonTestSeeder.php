@@ -110,6 +110,12 @@ abstract class JsonTestSeeder extends QuestionSeeder
 
             $uuid = $this->resolveQuestionUuid($questionDefinition, $uuidNamespace, $index, $questionText);
             $tagKeys = $this->resolveQuestionTagKeys($questionDefinition, $defaultTagKeys);
+            $variants = $this->resolveVariants($questionDefinition, $questionText);
+            ['question' => $questionText, 'variants' => $variants] = $this->normalizeQuestionPresentation(
+                $questionText,
+                $variants,
+                $markers
+            );
 
             $items[] = [
                 'uuid' => $uuid,
@@ -124,7 +130,7 @@ abstract class JsonTestSeeder extends QuestionSeeder
                 'answers' => $answers,
                 'options' => $this->resolveQuestionOptions($questionDefinition, $optionsByMarker, $answersMap),
                 'options_by_marker' => $this->resolveOptionsByMarker($questionDefinition, $optionsByMarker),
-                'variants' => $this->resolveVariants($questionDefinition, $questionText),
+                'variants' => $variants,
                 'theory_text_block_uuid' => $questionDefinition['theory_text_block_uuid'] ?? null,
                 'gap_tags' => $gapTags,
                 'seeder' => $seederClass,
@@ -471,6 +477,36 @@ abstract class JsonTestSeeder extends QuestionSeeder
         }
 
         return $this->normalizeStringList($questionDefinition['variants']);
+    }
+
+    protected function normalizeQuestionPresentation(string $questionText, array $variants, array $markers): array
+    {
+        return [
+            'question' => $questionText,
+            'variants' => $variants,
+        ];
+    }
+
+    protected function stripDuplicatedVerbHintTail(string $text, array $markers): string
+    {
+        foreach ($markers as $marker => $markerDefinition) {
+            $verbHint = trim((string) ($markerDefinition['verb_hint'] ?? ''));
+
+            if ($verbHint === '') {
+                continue;
+            }
+
+            $markerPattern = preg_quote('{'.$marker.'}', '/');
+            $hintPattern = preg_quote($verbHint, '/');
+
+            $text = preg_replace(
+                "/{$markerPattern}\\h+{$hintPattern}(?=(?:[\\h\\v]|[\\.,!\\?;:\\)])|$)/u",
+                '{'.$marker.'}',
+                $text
+            ) ?? $text;
+        }
+
+        return $text;
     }
 
     protected function resolveSourceIdForQuestion(array $questionDefinition, array $sourceIds): ?int
