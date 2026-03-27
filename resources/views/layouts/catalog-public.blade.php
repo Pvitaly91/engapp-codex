@@ -169,6 +169,7 @@
             -webkit-backdrop-filter: blur(10px) saturate(1.02);
             border-top-left-radius: inherit;
             border-top-right-radius: inherit;
+            clip-path: inset(0 round var(--shell-radius) var(--shell-radius) 0 0);
             transition: inherit;
             will-change: opacity, background-color;
         }
@@ -187,6 +188,7 @@
             background: color-mix(in srgb, var(--surface-strong) 97%, var(--surface));
             backdrop-filter: blur(8px) saturate(1.01);
             -webkit-backdrop-filter: blur(8px) saturate(1.01);
+            clip-path: inset(0);
         }
 
         .surface-card {
