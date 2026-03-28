@@ -19,6 +19,6 @@ class WillVsBeGoingToFutureFormsV3QuestionsOnlySeeder extends JsonTestSeeder
                 fn (string $variant): string => $this->stripDuplicatedVerbHintTail($variant, $markers),
                 $variants
             ),
-        ];
+        ]; 
     }
 }
