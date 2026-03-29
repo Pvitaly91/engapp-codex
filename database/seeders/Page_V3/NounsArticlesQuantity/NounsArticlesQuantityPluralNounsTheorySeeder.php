@@ -2,12 +2,10 @@
 
 namespace Database\Seeders\Page_V3\NounsArticlesQuantity;
 
-use App\Support\Database\JsonPageSeeder;
-
-class NounsArticlesQuantityPluralNounsTheorySeeder extends JsonPageSeeder
+class NounsArticlesQuantityPluralNounsTheorySeeder extends NounsArticlesQuantityPageSeeder
 {
-    protected function definitionPath(): string
+    protected function sourceSlug(): ?string
     {
-        return database_path('seeders/Page_V3/definitions/nouns_articles_quantity_plural_nouns_theory.json');
+        return 'plural-nouns-s-es-ies';
     }
 }
