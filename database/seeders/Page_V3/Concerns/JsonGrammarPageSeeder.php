@@ -5,6 +5,14 @@ namespace Database\Seeders\Page_V3\Concerns;
 abstract class JsonGrammarPageSeeder extends GrammarPageSeeder
 {
     use InteractsWithPageV3Json;
+    use SyncsPageV3Localizations;
+
+    public function run(): void
+    {
+        parent::run();
+
+        $this->syncPageV3Localizations();
+    }
 
     protected function slug(): string
     {

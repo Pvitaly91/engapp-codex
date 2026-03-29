@@ -8,6 +8,7 @@ use App\Models\TextBlock;
 abstract class JsonPageCategorySeeder extends PageCategoryDescriptionSeeder
 {
     use InteractsWithPageV3Json;
+    use SyncsPageV3Localizations;
 
     protected function sourceEntityType(): string
     {
@@ -141,5 +142,7 @@ abstract class JsonPageCategorySeeder extends PageCategoryDescriptionSeeder
             $aggregatedBlockTagIds,
             $this->resolveTagIds($categoryAnchorTags)
         ))));
+
+        $this->syncPageV3Localizations();
     }
 }

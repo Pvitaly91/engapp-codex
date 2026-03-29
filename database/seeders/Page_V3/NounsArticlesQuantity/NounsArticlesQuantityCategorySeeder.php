@@ -15,4 +15,9 @@ class NounsArticlesQuantityCategorySeeder extends JsonPageCategorySeeder
     {
         return 'imennyky-artykli-ta-kilkist';
     }
+
+    protected function localizationDefinitionPath(): ?string
+    {
+        return database_path('seeders/Page_V3/definitions/nouns_articles_quantity_category.json');
+    }
 }
