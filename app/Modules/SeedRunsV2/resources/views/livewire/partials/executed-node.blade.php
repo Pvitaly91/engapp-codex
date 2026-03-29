@@ -48,6 +48,7 @@
         $questionCount = $seedRun['question_count'] ?? 0;
         $dataProfile = $node['data_profile'] ?? [];
         $recentOrdinal = $recentSeedRunOrdinals[$seedRunId] ?? null;
+        $theoryTarget = $seedRun['theory_target'] ?? null;
         
         // Get delete button text from data profile
         $deleteButtonText = $dataProfile['delete_button'] ?? __('Видалити з даними');
@@ -98,6 +99,19 @@
 
                 {{-- Action buttons --}}
                 <div class="flex flex-wrap gap-2">
+                    @if($theoryTarget)
+                        <a
+                            href="{{ $theoryTarget['url'] }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="{{ $theoryTarget['title'] ?? $theoryTarget['label'] }}"
+                            class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-md hover:bg-emerald-200 transition"
+                        >
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            {{ $theoryTarget['label'] }}
+                        </a>
+                    @endif
+
                     {{-- Preview button --}}
                     <a 
                         href="{{ route('seed-runs.preview', ['class_name' => $className]) }}"

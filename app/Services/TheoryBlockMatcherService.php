@@ -221,7 +221,7 @@ class TheoryBlockMatcherService
         // If page relation is loaded, try to build a link
         if ($block->page && $block->page->slug && $block->page->category) {
             try {
-                return route('pages.show', [
+                return localized_route('pages.show', [
                     'category' => $block->page->category->slug,
                     'pageSlug' => $block->page->slug,
                 ]);

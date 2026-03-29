@@ -409,7 +409,7 @@
                                         <td class="px-4 py-3 text-gray-500" data-search-highlight>#{{ $page->id }}</td>
                                         <td class="px-4 py-3 font-medium">
                                             @if ($page->category)
-                                                <a href="{{ route('pages.show', [$page->category->slug, $page->slug]) }}" class="hover:underline" target="_blank" rel="noopener">
+                                                <a href="{{ localized_route('pages.show', [$page->category->slug, $page->slug]) }}" class="hover:underline" target="_blank" rel="noopener">
                                                     <span data-search-highlight>{{ $page->title }}</span>
                                                 </a>
                                             @else

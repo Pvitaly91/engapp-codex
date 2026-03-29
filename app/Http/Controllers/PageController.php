@@ -206,9 +206,9 @@ class PageController extends Controller
         $practiceQuestionsByBlock = $this->textBlockToQuestionsMatcherService->findQuestionsForTextBlocks($blocks, 5);
 
         $breadcrumbs = [
-            ['label' => 'Home', 'url' => route('home')],
-            ['label' => $this->sectionTitle, 'url' => route($this->routePrefix.'.index')],
-            ['label' => $category->title, 'url' => route($this->routePrefix.'.category', $category->slug)],
+            ['label' => 'Home', 'url' => localized_route('home')],
+            ['label' => $this->sectionTitle, 'url' => localized_route($this->routePrefix.'.index')],
+            ['label' => $category->title, 'url' => localized_route($this->routePrefix.'.category', $category->slug)],
             ['label' => $page->title],
         ];
 

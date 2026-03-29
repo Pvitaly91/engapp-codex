@@ -560,11 +560,33 @@ class SeedRunController extends Controller
                 ->pluck('aggregate', 'seeder');
         }
 
-        $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionCounts) {
+        $theoryPageTargets = $executedClasses === []
+            ? collect()
+            : Page::query()
+                ->with('category')
+                ->whereIn('seeder', $executedClasses)
+                ->where('type', 'theory')
+                ->get()
+                ->keyBy('seeder');
+
+        $theoryCategoryTargets = $executedClasses === []
+            ? collect()
+            : PageCategory::query()
+                ->whereIn('seeder', $executedClasses)
+                ->where('type', 'theory')
+                ->get()
+                ->keyBy('seeder');
+
+        $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionCounts, $theoryPageTargets, $theoryCategoryTargets) {
             $seedRun->data_profile = $this->describeSeederData($seedRun->class_name);
             $seedRun->question_count = ($seedRun->data_profile['type'] ?? 'unknown') === 'questions'
                 ? (int) ($questionCounts[$seedRun->class_name] ?? 0)
                 : 0;
+            $seedRun->theory_target = $this->resolveTheoryTargetForSeeder(
+                $seedRun->class_name,
+                $theoryPageTargets,
+                $theoryCategoryTargets
+            );
 
             return $seedRun;
         });
@@ -834,6 +856,153 @@ class SeedRunController extends Controller
         return $folders->values()->merge($seeders->values())->values();
     }
 
+    protected function resolveTheoryTargetForSeeder(
+        string $className,
+        ?Collection $theoryPageTargets = null,
+        ?Collection $theoryCategoryTargets = null,
+    ): ?array {
+        if (! $this->isTheorySiteSeeder($className)) {
+            return null;
+        }
+
+        $page = $theoryPageTargets?->get($className);
+
+        if (! $page instanceof Page) {
+            $page = $this->findTheoryPageForSeeder($className);
+        }
+
+        if ($page instanceof Page && filled($page->slug) && filled($page->category?->slug)) {
+            return [
+                'type' => 'page',
+                'label' => __('Сторінка теорії'),
+                'url' => localized_route('theory.show', [$page->category->slug, $page->slug]),
+                'title' => $page->title,
+            ];
+        }
+
+        $category = $theoryCategoryTargets?->get($className);
+
+        if (! $category instanceof PageCategory) {
+            $category = $this->findTheoryCategoryForSeeder($className);
+        }
+
+        if ($category instanceof PageCategory && filled($category->slug)) {
+            return [
+                'type' => 'category',
+                'label' => __('Категорія теорії'),
+                'url' => localized_route('theory.category', $category->slug),
+                'title' => $category->title,
+            ];
+        }
+
+        return null;
+    }
+
+    protected function findTheoryPageForSeeder(string $className): ?Page
+    {
+        $page = Page::query()
+            ->with('category')
+            ->where('seeder', $className)
+            ->where('type', 'theory')
+            ->orderBy('id')
+            ->first();
+
+        if ($page instanceof Page && filled($page->slug) && filled($page->category?->slug)) {
+            return $page;
+        }
+
+        $slug = $this->resolvePageSlugForSeeder($className);
+
+        if (! filled($slug)) {
+            return null;
+        }
+
+        $page = Page::query()
+            ->with('category')
+            ->where('slug', $slug)
+            ->where('type', 'theory')
+            ->orderBy('id')
+            ->first();
+
+        return $page instanceof Page && filled($page->slug) && filled($page->category?->slug)
+            ? $page
+            : null;
+    }
+
+    protected function findTheoryCategoryForSeeder(string $className): ?PageCategory
+    {
+        $category = PageCategory::query()
+            ->where('seeder', $className)
+            ->where('type', 'theory')
+            ->orderBy('id')
+            ->first();
+
+        if ($category instanceof PageCategory && filled($category->slug)) {
+            return $category;
+        }
+
+        $slug = $this->resolveCategorySlugForSeeder($className);
+
+        if (! filled($slug)) {
+            return null;
+        }
+
+        $category = PageCategory::query()
+            ->where('slug', $slug)
+            ->where('type', 'theory')
+            ->orderBy('id')
+            ->first();
+
+        return $category instanceof PageCategory && filled($category->slug)
+            ? $category
+            : null;
+    }
+
+    protected function isTheorySiteSeeder(string $className): bool
+    {
+        return Str::startsWith($className, [
+            'Database\\Seeders\\Page_v2\\',
+            'Database\\Seeders\\Page_V3\\',
+        ]);
+    }
+
+    protected function resolveCategorySlugForSeeder(string $className): ?string
+    {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
+            return null;
+        }
+
+        if (is_subclass_of($className, PageCategoryDescriptionSeederBase::class)) {
+            $slug = $this->invokeSeederMethod($className, 'previewCategorySlug');
+
+            return is_string($slug) && $slug !== '' ? $slug : null;
+        }
+
+        return null;
+    }
+
+    protected function invokeSeederMethod(string $className, string $method): mixed
+    {
+        try {
+            $reflection = new \ReflectionClass($className);
+
+            if ($reflection->isAbstract() || ! $reflection->isInstantiable() || ! $reflection->hasMethod($method)) {
+                return null;
+            }
+
+            $instance = app()->make($className);
+            $methodReflection = $reflection->getMethod($method);
+
+            if (method_exists($methodReflection, 'setAccessible')) {
+                $methodReflection->setAccessible(true);
+            }
+
+            return $methodReflection->invoke($instance);
+        } catch (\Throwable) {
+            return null;
+        }
+    }
+
     protected function buildSeederPreview(string $className): array
     {
         if ($this->isVirtualLocalizationSeeder($className)) {
@@ -1099,14 +1268,14 @@ class SeedRunController extends Controller
             }
 
             $breadcrumbs = [
-                ['label' => 'Home', 'url' => route('home')],
-                ['label' => 'Теорія', 'url' => route('pages.index')],
+                ['label' => 'Home', 'url' => localized_route('home')],
+                ['label' => 'Теорія', 'url' => localized_route('pages.index')],
             ];
 
             if ($selectedCategory) {
                 $breadcrumbs[] = [
                     'label' => $selectedCategory->title,
-                    'url' => route('pages.category', $selectedCategory->slug),
+                    'url' => localized_route('pages.category', $selectedCategory->slug),
                 ];
             }
 
@@ -1216,7 +1385,7 @@ class SeedRunController extends Controller
                 'locale' => $locale,
                 'page_count' => $categoryPages->count(),
                 'text_block_count' => $blocks->count(),
-                'url' => route('pages.category', $category->slug),
+                'url' => localized_route('pages.category', $category->slug),
                 'html' => $categoryHtml,
             ];
         } finally {
@@ -2316,6 +2485,7 @@ class SeedRunController extends Controller
         $deletedQuestions = 0;
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedCategories = 0;
         $deletedHints = 0;
         $deletedExplanations = 0;
         $profile = $this->describeSeederData($seedRun->class_name);
@@ -2325,6 +2495,7 @@ class SeedRunController extends Controller
             &$deletedQuestions,
             &$deletedBlocks,
             &$deletedPages,
+            &$deletedCategories,
             &$deletedHints,
             &$deletedExplanations,
             $profile
@@ -2344,11 +2515,13 @@ class SeedRunController extends Controller
                 $pageResult = $this->deletePageContentForSeeders($classNames);
                 $deletedBlocks = $pageResult['blocks'];
                 $deletedPages = $pageResult['pages_deleted'];
+                $deletedCategories = $pageResult['categories_deleted'];
             } else {
                 $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
                 $pageResult = $this->deletePageContentForSeeders($classNames);
                 $deletedBlocks = $pageResult['blocks'];
                 $deletedPages = $pageResult['pages_deleted'];
+                $deletedCategories = $pageResult['categories_deleted'];
             }
 
             DB::table('seed_runs')->where('id', $seedRun->id)->delete();
@@ -2369,7 +2542,10 @@ class SeedRunController extends Controller
                 'blocks' => $deletedBlocks,
             ]) . ($deletedPages > 0
                 ? ' ' . __('Deleted :count related page record(s).', ['count' => $deletedPages])
-                : ''),
+                : '')
+                . ($deletedCategories > 0
+                    ? ' ' . __('Deleted :count related category record(s).', ['count' => $deletedCategories])
+                    : ''),
             'questions' => __('Removed seeder :class and deleted :count related question(s).', [
                 'class' => $seedRun->class_name,
                 'count' => $deletedQuestions,
@@ -2402,6 +2578,7 @@ class SeedRunController extends Controller
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,
+                'categories_deleted' => $deletedCategories,
                 'hints_deleted' => $deletedHints,
                 'explanations_deleted' => $deletedExplanations,
                 'overview' => [
@@ -2461,6 +2638,7 @@ class SeedRunController extends Controller
         $deletedQuestions = 0;
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedCategories = 0;
         $deletedHints = 0;
         $deletedExplanations = 0;
         $profile = $this->describeSeederData($seedRun->class_name);
@@ -2489,6 +2667,7 @@ class SeedRunController extends Controller
                 &$deletedQuestions,
                 &$deletedBlocks,
                 &$deletedPages,
+                &$deletedCategories,
                 &$deletedHints,
                 &$deletedExplanations,
                 $profile
@@ -2508,11 +2687,13 @@ class SeedRunController extends Controller
                     $pageResult = $this->deletePageContentForSeeders($classNames);
                     $deletedBlocks = $pageResult['blocks'];
                     $deletedPages = $pageResult['pages_deleted'];
+                    $deletedCategories = $pageResult['categories_deleted'];
                 } else {
                     $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
                     $pageResult = $this->deletePageContentForSeeders($classNames);
                     $deletedBlocks = $pageResult['blocks'];
                     $deletedPages = $pageResult['pages_deleted'];
+                    $deletedCategories = $pageResult['categories_deleted'];
                 }
             });
 
@@ -2552,7 +2733,10 @@ class SeedRunController extends Controller
                 'blocks' => $deletedBlocks,
             ]) . ($deletedPages > 0
                 ? ' ' . __('Deleted :count page record(s).', ['count' => $deletedPages])
-                : ''),
+                : '')
+                . ($deletedCategories > 0
+                    ? ' ' . __('Deleted :count category record(s).', ['count' => $deletedCategories])
+                    : ''),
             'questions' => __('Refreshed seeder :class. Deleted :count question(s) and regenerated them.', [
                 'class' => $seedRun->class_name,
                 'count' => $deletedQuestions,
@@ -2572,6 +2756,7 @@ class SeedRunController extends Controller
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,
+                'categories_deleted' => $deletedCategories,
                 'hints_deleted' => $deletedHints,
                 'explanations_deleted' => $deletedExplanations,
                 'overview' => [
@@ -2732,6 +2917,7 @@ class SeedRunController extends Controller
         $deletedQuestions = 0;
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedCategories = 0;
         $deletedHints = 0;
         $deletedExplanations = 0;
 
@@ -2745,6 +2931,7 @@ class SeedRunController extends Controller
             &$deletedQuestions,
             &$deletedBlocks,
             &$deletedPages,
+            &$deletedCategories,
             &$deletedHints,
             &$deletedExplanations
         ) {
@@ -2767,6 +2954,7 @@ class SeedRunController extends Controller
                 $pageResult = $this->deletePageContentForSeeders($pageClasses);
                 $deletedBlocks += $pageResult['blocks'];
                 $deletedPages += $pageResult['pages_deleted'];
+                $deletedCategories += $pageResult['categories_deleted'];
             }
 
             if ($unknownClasses->isNotEmpty()) {
@@ -2774,6 +2962,7 @@ class SeedRunController extends Controller
                 $pageResult = $this->deletePageContentForSeeders($unknownClasses);
                 $deletedBlocks += $pageResult['blocks'];
                 $deletedPages += $pageResult['pages_deleted'];
+                $deletedCategories += $pageResult['categories_deleted'];
             }
 
             DB::table('seed_runs')
@@ -2798,6 +2987,10 @@ class SeedRunController extends Controller
             $statusMessage .= ' ' . __('Deleted :count related page record(s).', ['count' => $deletedPages]);
         }
 
+        if ($deletedCategories > 0) {
+            $statusMessage .= ' ' . __('Deleted :count related category record(s).', ['count' => $deletedCategories]);
+        }
+
         if ($deletedHints > 0) {
             $statusMessage .= ' ' . __('Deleted :count related hint(s).', ['count' => $deletedHints]);
         }
@@ -2814,6 +3007,7 @@ class SeedRunController extends Controller
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,
+                'categories_deleted' => $deletedCategories,
                 'hints_deleted' => $deletedHints,
                 'explanations_deleted' => $deletedExplanations,
                 'folder_label' => $folderLabel,
@@ -2998,7 +3192,8 @@ class SeedRunController extends Controller
         $deletedPages = 0;
         $deletedCategories = 0;
         $processedPageIds = collect();
-        $processedCategoryIds = collect();
+        $explicitCategoryIds = collect();
+        $categoriesToEvaluate = collect();
 
         foreach ($classNames as $className) {
             if ($hasTextBlockTable) {
@@ -3013,41 +3208,43 @@ class SeedRunController extends Controller
                     });
             }
 
-            if (! $hasPagesTable) {
-                continue;
-            }
+            if ($hasPagesTable) {
+                $pages = Page::query()
+                    ->where('seeder', $className)
+                    ->get();
 
-            $pages = Page::query()
-                ->where('seeder', $className)
-                ->get();
+                if ($pages->isEmpty()) {
+                    $slug = $this->resolvePageSlugForSeeder($className);
 
-            if ($pages->isEmpty()) {
-                $slug = $this->resolvePageSlugForSeeder($className);
+                    if ($slug !== null) {
+                        $page = Page::query()->where('slug', $slug)->first();
 
-                if ($slug !== null) {
-                    $page = Page::query()->where('slug', $slug)->first();
-
-                    if ($page) {
-                        $pages = collect([$page]);
+                        if ($page) {
+                            $pages = collect([$page]);
+                        }
                     }
                 }
-            }
 
-            foreach ($pages as $page) {
-                if ($processedPageIds->contains($page->id)) {
-                    continue;
+                foreach ($pages as $page) {
+                    if ($processedPageIds->contains($page->id)) {
+                        continue;
+                    }
+
+                    $processedPageIds->push($page->id);
+
+                    if ($hasPageCategoriesTable && ! is_null($page->page_category_id)) {
+                        $categoriesToEvaluate->put((int) $page->page_category_id, $page->page_category_id);
+                    }
+
+                    if ($hasTextBlockTable) {
+                        $deletedBlocks += TextBlock::query()
+                            ->where('page_id', $page->id)
+                            ->delete();
+                    }
+
+                    $page->delete();
+                    $deletedPages++;
                 }
-
-                $processedPageIds->push($page->id);
-
-                if ($hasTextBlockTable) {
-                    $deletedBlocks += TextBlock::query()
-                        ->where('page_id', $page->id)
-                        ->delete();
-                }
-
-                $page->delete();
-                $deletedPages++;
             }
 
             if (! $hasPageCategoriesTable) {
@@ -3059,36 +3256,31 @@ class SeedRunController extends Controller
                 ->get();
 
             foreach ($categories as $category) {
-                if ($processedCategoryIds->contains($category->id)) {
-                    continue;
-                }
+                $categoriesToEvaluate->put($category->id, $category->id);
+                $explicitCategoryIds->push($category->id);
+            }
+        }
 
-                $processedCategoryIds->push($category->id);
+        if ($hasPageCategoriesTable && $categoriesToEvaluate->isNotEmpty()) {
+            $categoryIds = $categoriesToEvaluate->keys()->map(fn ($id) => (int) $id)->unique()->values();
+            $explicitCategoryIds = $explicitCategoryIds->map(fn ($id) => (int) $id)->unique()->values();
 
-                if ($hasTextBlockTable) {
-                    TextBlock::query()
-                        ->where('page_category_id', $category->id)
-                        ->whereNotNull('page_id')
-                        ->update(['page_category_id' => null]);
+            $categories = PageCategory::query()
+                ->whereIn('id', $categoryIds)
+                ->get()
+                ->sortByDesc(fn (PageCategory $category) => $this->resolvePageCategoryDepth($category));
 
-                    $deletedBlocks += TextBlock::query()
-                        ->where('page_category_id', $category->id)
-                        ->whereNull('page_id')
-                        ->delete();
-                }
+            foreach ($categories as $category) {
+                $result = $this->deletePageCategoryRecord(
+                    $category,
+                    $explicitCategoryIds->contains($category->id),
+                    $hasTextBlockTable,
+                    $hasPagesTable,
+                    $hasPageCategoriesTable
+                );
 
-                if ($hasPagesTable) {
-                    Page::query()
-                        ->where('page_category_id', $category->id)
-                        ->update(['page_category_id' => null]);
-                }
-
-                PageCategory::query()
-                    ->where('parent_id', $category->id)
-                    ->update(['parent_id' => null]);
-
-                $category->delete();
-                $deletedCategories++;
+                $deletedBlocks += $result['blocks'];
+                $deletedCategories += $result['categories_deleted'];
             }
         }
 
@@ -3097,6 +3289,81 @@ class SeedRunController extends Controller
             'pages_deleted' => $deletedPages,
             'categories_deleted' => $deletedCategories,
         ];
+    }
+
+    protected function deletePageCategoryRecord(
+        PageCategory $category,
+        bool $forceDelete,
+        bool $hasTextBlockTable,
+        bool $hasPagesTable,
+        bool $hasPageCategoriesTable,
+    ): array {
+        $category = PageCategory::query()->find($category->id);
+
+        if (! $category) {
+            return ['blocks' => 0, 'categories_deleted' => 0];
+        }
+
+        if (! $forceDelete) {
+            $hasRemainingPages = $hasPagesTable
+                && Page::query()->where('page_category_id', $category->id)->exists();
+            $hasRemainingChildren = $hasPageCategoriesTable
+                && PageCategory::query()->where('parent_id', $category->id)->exists();
+
+            if ($hasRemainingPages || $hasRemainingChildren) {
+                return ['blocks' => 0, 'categories_deleted' => 0];
+            }
+        }
+
+        $deletedBlocks = 0;
+
+        if ($hasTextBlockTable) {
+            TextBlock::query()
+                ->where('page_category_id', $category->id)
+                ->whereNotNull('page_id')
+                ->update(['page_category_id' => null]);
+
+            $deletedBlocks += TextBlock::query()
+                ->where('page_category_id', $category->id)
+                ->whereNull('page_id')
+                ->delete();
+        }
+
+        if ($hasPagesTable) {
+            Page::query()
+                ->where('page_category_id', $category->id)
+                ->update(['page_category_id' => null]);
+        }
+
+        if ($hasPageCategoriesTable) {
+            PageCategory::query()
+                ->where('parent_id', $category->id)
+                ->update(['parent_id' => null]);
+        }
+
+        $category->delete();
+
+        return [
+            'blocks' => $deletedBlocks,
+            'categories_deleted' => 1,
+        ];
+    }
+
+    protected function resolvePageCategoryDepth(PageCategory $category): int
+    {
+        $depth = 0;
+        $parentId = $category->parent_id;
+        $visited = [];
+
+        while ($parentId && ! in_array($parentId, $visited, true)) {
+            $visited[] = $parentId;
+            $depth++;
+            $parentId = PageCategory::query()
+                ->whereKey($parentId)
+                ->value('parent_id');
+        }
+
+        return $depth;
     }
 
     protected function expandGrammarPageSeederClasses(Collection $classNames): Collection
@@ -3143,13 +3410,7 @@ class SeedRunController extends Controller
                 return null;
             }
 
-            $instance = app()->make($className);
-
-            if (! method_exists($instance, 'slug')) {
-                return null;
-            }
-
-            $slug = $instance->slug();
+            $slug = $this->invokeSeederMethod($className, 'slug');
 
             return is_string($slug) ? $slug : null;
         } catch (\Throwable) {

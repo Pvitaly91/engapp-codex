@@ -134,7 +134,7 @@ class PromptGeneratorController extends Controller
             ->map(function (Page $page) {
                 return [
                     'title' => $page->title,
-                    'url' => route('theory.show', [$page->category->slug, $page->slug]),
+                    'url' => localized_route('theory.show', [$page->category->slug, $page->slug]),
                 ];
             })
             ->unique('url')
