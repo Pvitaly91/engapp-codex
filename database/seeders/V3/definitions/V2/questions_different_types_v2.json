@@ -1,0 +1,1155 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\V2\\QuestionsDifferentTypesV3Seeder",
+        "uuid_namespace": "QuestionsDifferentTypesV2Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": "0",
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions - Different Types"
+    },
+    "sources": {
+        "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise1": {
+            "name": "https://test-english.com/grammar-points/b1-b2/questions-different-types/ - Exercise 1"
+        },
+        "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise2": {
+            "name": "https://test-english.com/grammar-points/b1-b2/questions-different-types/ - Exercise 2"
+        },
+        "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise3": {
+            "name": "https://test-english.com/grammar-points/b1-b2/questions-different-types/ - Exercise 3"
+        }
+    },
+    "tags": {
+        "embedded_questions": {
+            "name": "Embedded Questions",
+            "category": "English Grammar Detail"
+        },
+        "subject_questions": {
+            "name": "Subject Questions",
+            "category": "English Grammar Detail"
+        },
+        "wh_questions_formation": {
+            "name": "Wh-Questions Formation",
+            "category": "English Grammar Detail"
+        },
+        "question_formation_practice": {
+            "name": "Question Formation Practice",
+            "category": "English Grammar Theme"
+        },
+        "question_word_order": {
+            "name": "Question word order",
+            "category": "Theory"
+        }
+    },
+    "default_tag_keys": [
+        "question_formation_practice"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "b1-0-tom-has-gone-out-but-i-dont-kno",
+            "question": "Tom has gone out, but I don't know {a1}.",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise1",
+            "level": "B1",
+            "answers": {
+                "a1": "where he has gone"
+            },
+            "options": [
+                "where he has gone",
+                "where has he gone",
+                "where gone he has"
+            ],
+            "verb_hints": {
+                "a1": "embedded question word order"
+            },
+            "variants": [],
+            "tag_keys": [
+                "embedded_questions"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: embedded question word order.  \nПриклад правильної відповіді: *Tom has gone out, but I don't know where he has gone.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "where he has gone": "✅ Правильно! «where he has gone» — це коректна форма питання.  \nПриклад: *Tom has gone out, but I don't know where he has gone.*",
+                            "where has he gone": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «where he has gone»",
+                            "where gone he has": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «where he has gone»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "b1-1-this-book-belongs-to-someone-a1",
+            "question": "This book belongs to someone. {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise1",
+            "level": "B1",
+            "answers": {
+                "a1": "Who does it belong to?"
+            },
+            "options": [
+                "Who does it belong to?",
+                "Who does it belong?",
+                "Who belongs it to?"
+            ],
+            "verb_hints": {
+                "a1": "preposition at end"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: preposition at end.  \nПриклад правильної відповіді: *This book belongs to someone. Who does it belong to?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Who does it belong to?": "✅ Правильно! «Who does it belong to?» — це коректна форма питання.  \nПриклад: *This book belongs to someone. Who does it belong to?*",
+                            "Who does it belong?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «Who does it belong to?»",
+                            "Who belongs it to?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «Who does it belong to?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "b1-2-somebody-lives-in-that-house-a1",
+            "question": "Somebody lives in that house. {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise1",
+            "level": "B1",
+            "answers": {
+                "a1": "Who lives in that house?"
+            },
+            "options": [
+                "Who lives in that house?",
+                "Who live in that house?",
+                "Who does lives in that house?"
+            ],
+            "verb_hints": {
+                "a1": "subject question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "subject_questions"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: subject question.  \nПриклад правильної відповіді: *Somebody lives in that house. Who lives in that house?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Who lives in that house?": "✅ Правильно! «Who lives in that house?» — це коректна форма питання.  \nПриклад: *Somebody lives in that house. Who lives in that house?*",
+                            "Who live in that house?": "❌ Коли питаємо про підмет, не використовуємо допоміжне дієслово do/does/did.  \nПравильна відповідь: «Who lives in that house?»",
+                            "Who does lives in that house?": "❌ Коли питаємо про підмет, не використовуємо допоміжне дієслово do/does/did.  \nПравильна відповідь: «Who lives in that house?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "qu-b1-3-this-word-means-something-a1",
+            "question": "This word means something. {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise1",
+            "level": "B1",
+            "answers": {
+                "a1": "What does this word mean?"
+            },
+            "options": [
+                "What does this word mean?",
+                "What means this word?",
+                "What does mean this word?"
+            ],
+            "verb_hints": {
+                "a1": "auxiliary + subject + verb"
+            },
+            "variants": [],
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: auxiliary + subject + verb.  \nПриклад правильної відповіді: *This word means something. What does this word mean?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "What does this word mean?": "✅ Правильно! «What does this word mean?» — це коректна форма питання.  \nПриклад: *This word means something. What does this word mean?*",
+                            "What means this word?": "❌ Неправильний порядок слів у питанні. Перевірте структуру питального речення.  \nПравильна відповідь: «What does this word mean?»",
+                            "What does mean this word?": "❌ Неправильний порядок слів у питанні. Перевірте структуру питального речення.  \nПравильна відповідь: «What does this word mean?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "b1-4-they-were-talking-about-somethi",
+            "question": "They were talking about something. {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise1",
+            "level": "B1",
+            "answers": {
+                "a1": "What were they talking about?"
+            },
+            "options": [
+                "What were they talking about?",
+                "About what they were talking?",
+                "What they were talking about?"
+            ],
+            "verb_hints": {
+                "a1": "preposition at end"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: preposition at end.  \nПриклад правильної відповіді: *They were talking about something. What were they talking about?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "What were they talking about?": "✅ Правильно! «What were they talking about?» — це коректна форма питання.  \nПриклад: *They were talking about something. What were they talking about?*",
+                            "About what they were talking?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What were they talking about?»",
+                            "What they were talking about?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What were they talking about?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "b1-5-something-fell-on-the-floor-a1",
+            "question": "Something fell on the floor. {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise1",
+            "level": "B1",
+            "answers": {
+                "a1": "What fell on the floor?"
+            },
+            "options": [
+                "What fell on the floor?",
+                "What did fall on the floor?",
+                "What did fell on the floor?"
+            ],
+            "verb_hints": {
+                "a1": "subject question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "subject_questions"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: subject question.  \nПриклад правильної відповіді: *Something fell on the floor. What fell on the floor?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "What fell on the floor?": "✅ Правильно! «What fell on the floor?» — це коректна форма питання.  \nПриклад: *Something fell on the floor. What fell on the floor?*",
+                            "What did fall on the floor?": "❌ Коли питаємо про підмет, не використовуємо допоміжне дієслово do/does/did.  \nПравильна відповідь: «What fell on the floor?»",
+                            "What did fell on the floor?": "❌ Коли питаємо про підмет, не використовуємо допоміжне дієслово do/does/did.  \nПравильна відповідь: «What fell on the floor?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "b1-6-the-library-is-near-here-do-you",
+            "question": "The library is near here. Do you know {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise1",
+            "level": "B1",
+            "answers": {
+                "a1": "where the library is?"
+            },
+            "options": [
+                "where the library is?",
+                "where is the library?",
+                "where is near the library?"
+            ],
+            "verb_hints": {
+                "a1": "embedded question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "embedded_questions"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: embedded question.  \nПриклад правильної відповіді: *The library is near here. Do you know where the library is?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "where the library is?": "✅ Правильно! «where the library is?» — це коректна форма питання.  \nПриклад: *The library is near here. Do you know where the library is?*",
+                            "where is the library?": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «where the library is?»",
+                            "where is near the library?": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «where the library is?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "b2-7-she-borrowed-the-money-from-som",
+            "question": "She borrowed the money from somebody. I wonder {a1}.",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise1",
+            "level": "B2",
+            "answers": {
+                "a1": "who she borrowed the money from"
+            },
+            "options": [
+                "who she borrowed the money from",
+                "who did she borrow the money from",
+                "from who did she borrow the money"
+            ],
+            "verb_hints": {
+                "a1": "embedded question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "embedded_questions"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: embedded question.  \nПриклад правильної відповіді: *She borrowed the money from somebody. I wonder who she borrowed the money from.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "who she borrowed the money from": "✅ Правильно! «who she borrowed the money from» — це коректна форма питання.  \nПриклад: *She borrowed the money from somebody. I wonder who she borrowed the money from.*",
+                            "who did she borrow the money from": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «who she borrowed the money from»",
+                            "from who did she borrow the money": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «who she borrowed the money from»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "b1-8-she-cant-understand-something-a",
+            "question": "She can't understand something. {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise1",
+            "level": "B1",
+            "answers": {
+                "a1": "What can she not understand?"
+            },
+            "options": [
+                "What can she not understand?",
+                "What she can't understand?",
+                "What does she understand?"
+            ],
+            "verb_hints": {
+                "a1": "modal question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: modal question.  \nПриклад правильної відповіді: *She can't understand something. What can she not understand?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "What can she not understand?": "✅ Правильно! «What can she not understand?» — це коректна форма питання.  \nПриклад: *She can't understand something. What can she not understand?*",
+                            "What she can't understand?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What can she not understand?»",
+                            "What does she understand?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What can she not understand?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "b1-9-he-didnt-come-to-the-party-for-",
+            "question": "He didn't come to the party for some reason. {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise1",
+            "level": "B1",
+            "answers": {
+                "a1": "Why didn't he come to the party?"
+            },
+            "options": [
+                "Why didn't he come to the party?",
+                "Why he didn't come to the party?",
+                "Why did not he come to the party?"
+            ],
+            "verb_hints": {
+                "a1": "negative question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: negative question.  \nПриклад правильної відповіді: *He didn't come to the party for some reason. Why didn't he come to the party?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Why didn't he come to the party?": "✅ Правильно! «Why didn't he come to the party?» — це коректна форма питання.  \nПриклад: *He didn't come to the party for some reason. Why didn't he come to the party?*",
+                            "Why he didn't come to the party?": "❌ Неправильний порядок слів у питанні. Перевірте структуру питального речення.  \nПравильна відповідь: «Why didn't he come to the party?»",
+                            "Why did not he come to the party?": "❌ Неправильний порядок слів у питанні. Перевірте структуру питального речення.  \nПравильна відповідь: «Why didn't he come to the party?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "questionsdi-b1-10-i-dont-know-why-a1",
+            "question": "I don't know why {a1}.",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise2",
+            "level": "B1",
+            "answers": {
+                "a1": "the meeting was cancelled"
+            },
+            "options": [
+                "the meeting was cancelled",
+                "was the meeting cancelled",
+                "cancelled was the meeting"
+            ],
+            "verb_hints": {
+                "a1": "embedded question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "embedded_questions"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: embedded question.  \nПриклад правильної відповіді: *I don't know why the meeting was cancelled.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "the meeting was cancelled": "✅ Правильно! «the meeting was cancelled» — це коректна форма питання.  \nПриклад: *I don't know why the meeting was cancelled.*",
+                            "was the meeting cancelled": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «the meeting was cancelled»",
+                            "cancelled was the meeting": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «the meeting was cancelled»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "questionsdifferenttypes-b1-15-who-a1",
+            "question": "Who {a1}?",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise2",
+            "level": "B1",
+            "answers": {
+                "a1": "told you that"
+            },
+            "options": [
+                "told you that",
+                "did tell you that",
+                "you told that"
+            ],
+            "verb_hints": {
+                "a1": "subject question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "subject_questions"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: subject question.  \nПриклад правильної відповіді: *Who told you that?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "told you that": "✅ Правильно! «told you that» — це коректна форма питання.  \nПриклад: *Who told you that?*",
+                            "did tell you that": "❌ Коли питаємо про підмет, не використовуємо допоміжне дієслово do/does/did.  \nПравильна відповідь: «told you that»",
+                            "you told that": "❌ Коли питаємо про підмет, не використовуємо допоміжне дієслово do/does/did.  \nПравильна відповідь: «told you that»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "b2-12-why-a1-choose-two-correct-vari",
+            "question": "Why {a1}? (Choose TWO correct варіанти.)",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise2",
+            "level": "B2",
+            "answers": {
+                "a1": "has she not replied to your email / hasn't she replied to your email"
+            },
+            "options": [
+                "has she not replied to your email / hasn't she replied to your email",
+                "has she not replied to your email",
+                "has not she replied to your email",
+                "hasn't she replied to your email"
+            ],
+            "verb_hints": {
+                "a1": "negative question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: negative question.  \nПриклад правильної відповіді: *Why has she not replied to your email / hasn't she replied to your email? (Choose TWO correct варіанти.)*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "has she not replied to your email": "✅ Правильно! «has she not replied to your email» — це коректна форма питання.  \nПриклад: *Why has she not replied to your email / hasn't she replied to your email? (Choose TWO correct варіанти.)*",
+                            "has not she replied to your email": "❌ Неправильний порядок слів у питанні. Перевірте структуру питального речення.  \nПравильна відповідь: «has she not replied to your email» або «hasn't she replied to your email»",
+                            "hasn't she replied to your email": "✅ Правильно! «hasn't she replied to your email» — це коректна форма питання.  \nПриклад: *Why has she not replied to your email / hasn't she replied to your email? (Choose TWO correct варіанти.)*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "b1-13-im-wondering-which-countries-a",
+            "question": "I'm wondering which countries {a1}.",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise2",
+            "level": "B1",
+            "answers": {
+                "a1": "he has visited"
+            },
+            "options": [
+                "he has visited",
+                "has he visited",
+                "has he been"
+            ],
+            "verb_hints": {
+                "a1": "embedded question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "embedded_questions"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: embedded question.  \nПриклад правильної відповіді: *I'm wondering which countries he has visited.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "he has visited": "✅ Правильно! «he has visited» — це коректна форма питання.  \nПриклад: *I'm wondering which countries he has visited.*",
+                            "has he visited": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «he has visited»",
+                            "has he been": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «he has visited»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "b1-14-when-we-arrived-someone-had-ta",
+            "question": "When we arrived, someone had taken the tickets. Who {a1}?",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise2",
+            "level": "B1",
+            "answers": {
+                "a1": "had taken the tickets"
+            },
+            "options": [
+                "had taken the tickets",
+                "had he taken the tickets",
+                "taken the tickets"
+            ],
+            "verb_hints": {
+                "a1": "subject question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "subject_questions"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: subject question.  \nПриклад правильної відповіді: *When we arrived, someone had taken the tickets. Who had taken the tickets?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had taken the tickets": "✅ Правильно! «had taken the tickets» — це коректна форма питання.  \nПриклад: *When we arrived, someone had taken the tickets. Who had taken the tickets?*",
+                            "had he taken the tickets": "❌ Коли питаємо про підмет, не використовуємо допоміжне дієслово do/does/did.  \nПравильна відповідь: «had taken the tickets»",
+                            "taken the tickets": "❌ Коли питаємо про підмет, не використовуємо допоміжне дієслово do/does/did.  \nПравильна відповідь: «had taken the tickets»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "questionsdifferenttype-b1-16-what-a1",
+            "question": "What {a1}?",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise2",
+            "level": "B1",
+            "answers": {
+                "a1": "are you waiting for"
+            },
+            "options": [
+                "are you waiting for",
+                "are you waiting",
+                "you are waiting for"
+            ],
+            "verb_hints": {
+                "a1": "preposition at end"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: preposition at end.  \nПриклад правильної відповіді: *What are you waiting for?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are you waiting for": "✅ Правильно! «are you waiting for» — це коректна форма питання.  \nПриклад: *What are you waiting for?*",
+                            "are you waiting": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «are you waiting for»",
+                            "you are waiting for": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «are you waiting for»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "questionsdiffer-b1-17-do-you-know-a1",
+            "question": "Do you know {a1}?",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise2",
+            "level": "B1",
+            "answers": {
+                "a1": "whether he will come or not"
+            },
+            "options": [
+                "whether he will come or not",
+                "if will he come or not",
+                "whether will he come or not"
+            ],
+            "verb_hints": {
+                "a1": "embedded question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "embedded_questions"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: embedded question.  \nПриклад правильної відповіді: *Do you know whether he will come or not?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "whether he will come or not": "✅ Правильно! «whether he will come or not» — це коректна форма питання.  \nПриклад: *Do you know whether he will come or not?*",
+                            "if will he come or not": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «whether he will come or not»",
+                            "whether will he come or not": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «whether he will come or not»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "b1-18-you-shouldnt-be-playing-video-",
+            "question": "You shouldn't be playing video games now. {a1}?",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise2",
+            "level": "B1",
+            "answers": {
+                "a1": "Don't you have homework to do"
+            },
+            "options": [
+                "Don't you have homework to do",
+                "You don't have homework to do",
+                "Do you haven't homework to do"
+            ],
+            "verb_hints": {
+                "a1": "negative question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: negative question.  \nПриклад правильної відповіді: *You shouldn't be playing video games now. Don't you have homework to do?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Don't you have homework to do": "✅ Правильно! «Don't you have homework to do» — це коректна форма питання.  \nПриклад: *You shouldn't be playing video games now. Don't you have homework to do?*",
+                            "You don't have homework to do": "❌ Неправильний порядок слів у питанні. Перевірте структуру питального речення.  \nПравильна відповідь: «Don't you have homework to do»",
+                            "Do you haven't homework to do": "❌ Неправильний порядок слів у питанні. Перевірте структуру питального речення.  \nПравильна відповідь: «Don't you have homework to do»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "qu-b1-19-who-a1-in-the-last-election",
+            "question": "Who {a1} in the last election?",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise2",
+            "level": "B1",
+            "answers": {
+                "a1": "did you vote for"
+            },
+            "options": [
+                "did you vote for",
+                "did you vote",
+                "voted you"
+            ],
+            "verb_hints": {
+                "a1": "preposition at end"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: preposition at end.  \nПриклад правильної відповіді: *Who did you vote for in the last election?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did you vote for": "✅ Правильно! «did you vote for» — це коректна форма питання.  \nПриклад: *Who did you vote for in the last election?*",
+                            "did you vote": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «did you vote for»",
+                            "voted you": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «did you vote for»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "b1-20-sentence-he-has-visited-fifty-",
+            "question": "Sentence: \"He has visited fifty countries.\" (underlined: fifty countries)  \nAsk a question about the underlined words.: {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise3",
+            "level": "B1",
+            "answers": {
+                "a1": "How many countries has he visited?"
+            },
+            "options": [
+                "How many countries has he visited?",
+                "How many countries he has visited?",
+                "How many has he visited countries?",
+                "How much countries has he visited?"
+            ],
+            "verb_hints": {
+                "a1": "how many + plural noun"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: how many + plural noun.  \nПриклад правильної відповіді: *Sentence: \"He has visited fifty countries.\" (underlined: fifty countries)  \nAsk a question about the underlined words.: How many countries has he visited?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "How many countries has he visited?": "✅ Правильно! «How many countries has he visited?» — це коректна форма питання.  \nПриклад: *Sentence: \"He has visited fifty countries.\" (underlined: fifty countries)  \nAsk a question about the underlined words.: How many countries has he visited?*",
+                            "How many countries he has visited?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «How many countries has he visited?»",
+                            "How many has he visited countries?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «How many countries has he visited?»",
+                            "How much countries has he visited?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «How many countries has he visited?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "b1-21-sentence-two-thousand-people-p",
+            "question": "Sentence: \"Two thousand people protested against the new law.\" (underlined: Two thousand people)  \nAsk a question about the underlined words.: {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise3",
+            "level": "B1",
+            "answers": {
+                "a1": "How many people protested against the new law?"
+            },
+            "options": [
+                "How many people protested against the new law?",
+                "How many people did protest against the new law?",
+                "How much people protested against the new law?",
+                "Who protested against the new law?"
+            ],
+            "verb_hints": {
+                "a1": "quantity question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: quantity question.  \nПриклад правильної відповіді: *Sentence: \"Two thousand people protested against the new law.\" (underlined: Two thousand people)  \nAsk a question about the underlined words.: How many people protested against the new law?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "How many people protested against the new law?": "✅ Правильно! «How many people protested against the new law?» — це коректна форма питання.  \nПриклад: *Sentence: \"Two thousand people protested against the new law.\" (underlined: Two thousand people)  \nAsk a question about the underlined words.: How many people protested against the new law?*",
+                            "How many people did protest against the new law?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «How many people protested against the new law?»",
+                            "How much people protested against the new law?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «How many people protested against the new law?»",
+                            "Who protested against the new law?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «How many people protested against the new law?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "b1-22-sentence-they-werent-able-to-f",
+            "question": "Sentence: \"They weren't able to finish the final report.\" (underlined: the final report)  \nAsk a question about the underlined words.: {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise3",
+            "level": "B1",
+            "answers": {
+                "a1": "What couldn't they finish?"
+            },
+            "options": [
+                "What couldn't they finish?",
+                "What they couldn't finish?",
+                "What could they not finish?",
+                "What weren't they able to finish?"
+            ],
+            "verb_hints": {
+                "a1": "object question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: object question.  \nПриклад правильної відповіді: *Sentence: \"They weren't able to finish the final report.\" (underlined: the final report)  \nAsk a question about the underlined words.: What couldn't they finish?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "What couldn't they finish?": "✅ Правильно! «What couldn't they finish?» — це коректна форма питання.  \nПриклад: *Sentence: \"They weren't able to finish the final report.\" (underlined: the final report)  \nAsk a question about the underlined words.: What couldn't they finish?*",
+                            "What they couldn't finish?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What couldn't they finish?»",
+                            "What could they not finish?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What couldn't they finish?»",
+                            "What weren't they able to finish?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What couldn't they finish?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "b1-23-sentence-he-has-been-posting-o",
+            "question": "Sentence: \"He has been posting on his blog every day.\" (underlined: every day)  \nAsk a question about the underlined words.: {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise3",
+            "level": "B1",
+            "answers": {
+                "a1": "How often has he been posting on his blog?"
+            },
+            "options": [
+                "How often has he been posting on his blog?",
+                "How often he has been posting on his blog?",
+                "When has he been posting on his blog?",
+                "How many times has he been posting on his blog?"
+            ],
+            "verb_hints": {
+                "a1": "frequency question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: frequency question.  \nПриклад правильної відповіді: *Sentence: \"He has been posting on his blog every day.\" (underlined: every day)  \nAsk a question about the underlined words.: How often has he been posting on his blog?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "How often has he been posting on his blog?": "✅ Правильно! «How often has he been posting on his blog?» — це коректна форма питання.  \nПриклад: *Sentence: \"He has been posting on his blog every day.\" (underlined: every day)  \nAsk a question about the underlined words.: How often has he been posting on his blog?*",
+                            "How often he has been posting on his blog?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «How often has he been posting on his blog?»",
+                            "When has he been posting on his blog?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «How often has he been posting on his blog?»",
+                            "How many times has he been posting on his blog?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «How often has he been posting on his blog?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "b1-24-sentence-they-have-been-listen",
+            "question": "Sentence: \"They have been listening to their teacher.\" (underlined: their teacher)  \nAsk a question about the underlined words.: {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise3",
+            "level": "B1",
+            "answers": {
+                "a1": "Who have they been listening to?"
+            },
+            "options": [
+                "Who have they been listening to?",
+                "To who have they been listening?",
+                "Who they have been listening to?",
+                "Whom have they been listening?"
+            ],
+            "verb_hints": {
+                "a1": "preposition at end"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: preposition at end.  \nПриклад правильної відповіді: *Sentence: \"They have been listening to their teacher.\" (underlined: their teacher)  \nAsk a question about the underlined words.: Who have they been listening to?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Who have they been listening to?": "✅ Правильно! «Who have they been listening to?» — це коректна форма питання.  \nПриклад: *Sentence: \"They have been listening to their teacher.\" (underlined: their teacher)  \nAsk a question about the underlined words.: Who have they been listening to?*",
+                            "To who have they been listening?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «Who have they been listening to?»",
+                            "Who they have been listening to?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «Who have they been listening to?»",
+                            "Whom have they been listening?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «Who have they been listening to?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "b1-25-sentence-it-took-them-two-hour",
+            "question": "Sentence: \"It took them two hours to get to Rome.\" (underlined: two hours)  \nAsk a question about the underlined words.: {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise3",
+            "level": "B1",
+            "answers": {
+                "a1": "How long did it take them to get to Rome?"
+            },
+            "options": [
+                "How long did it take them to get to Rome?",
+                "How long it took them to get to Rome?",
+                "How much time did it take them to get to Rome?",
+                "When did it take them to get to Rome?"
+            ],
+            "verb_hints": {
+                "a1": "duration question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: duration question.  \nПриклад правильної відповіді: *Sentence: \"It took them two hours to get to Rome.\" (underlined: two hours)  \nAsk a question about the underlined words.: How long did it take them to get to Rome?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "How long did it take them to get to Rome?": "✅ Правильно! «How long did it take them to get to Rome?» — це коректна форма питання.  \nПриклад: *Sentence: \"It took them two hours to get to Rome.\" (underlined: two hours)  \nAsk a question about the underlined words.: How long did it take them to get to Rome?*",
+                            "How long it took them to get to Rome?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «How long did it take them to get to Rome?»",
+                            "How much time did it take them to get to Rome?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «How long did it take them to get to Rome?»",
+                            "When did it take them to get to Rome?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «How long did it take them to get to Rome?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "b1-26-sentence-im-looking-for-a-new-",
+            "question": "Sentence: \"I'm looking for a new dress.\" (underlined: a new dress)  \nAsk a question about the underlined words.: {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise3",
+            "level": "B1",
+            "answers": {
+                "a1": "What are you looking for?"
+            },
+            "options": [
+                "What are you looking for?",
+                "What you are looking for?",
+                "For what are you looking?",
+                "What do you looking for?"
+            ],
+            "verb_hints": {
+                "a1": "preposition at end"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: preposition at end.  \nПриклад правильної відповіді: *Sentence: \"I'm looking for a new dress.\" (underlined: a new dress)  \nAsk a question about the underlined words.: What are you looking for?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "What are you looking for?": "✅ Правильно! «What are you looking for?» — це коректна форма питання.  \nПриклад: *Sentence: \"I'm looking for a new dress.\" (underlined: a new dress)  \nAsk a question about the underlined words.: What are you looking for?*",
+                            "What you are looking for?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What are you looking for?»",
+                            "For what are you looking?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What are you looking for?»",
+                            "What do you looking for?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What are you looking for?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "b1-27-sentence-he-never-does-his-hom",
+            "question": "Sentence: \"He never does his homework.\" (underlined: his homework)  \nAsk a question about the underlined words.: {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise3",
+            "level": "B1",
+            "answers": {
+                "a1": "What does he never do?"
+            },
+            "options": [
+                "What does he never do?",
+                "What he never does?",
+                "What doesn't he do?",
+                "What he does never?"
+            ],
+            "verb_hints": {
+                "a1": "object question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: object question.  \nПриклад правильної відповіді: *Sentence: \"He never does his homework.\" (underlined: his homework)  \nAsk a question about the underlined words.: What does he never do?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "What does he never do?": "✅ Правильно! «What does he never do?» — це коректна форма питання.  \nПриклад: *Sentence: \"He never does his homework.\" (underlined: his homework)  \nAsk a question about the underlined words.: What does he never do?*",
+                            "What he never does?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What does he never do?»",
+                            "What doesn't he do?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What does he never do?»",
+                            "What he does never?": "❌ У прямих Wh-питаннях потрібен правильний порядок слів: питальне слово + допоміжне дієслово + підмет + основне дієслово.  \nПравильна відповідь: «What does he never do?»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "b1-28-sentence-she-is-thinking-about",
+            "question": "Sentence: \"She is thinking about the new neighbour.\" (underlined: about the new neighbour)  \nAsk a question as an embedded question.: {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise3",
+            "level": "B1",
+            "answers": {
+                "a1": "I'd like to know what she is thinking about."
+            },
+            "options": [
+                "I'd like to know what she is thinking about.",
+                "I'd like to know what is she thinking about.",
+                "I'd like to know about what she is thinking.",
+                "I'd like to know she is thinking about what."
+            ],
+            "verb_hints": {
+                "a1": "embedded question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "embedded_questions"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: embedded question.  \nПриклад правильної відповіді: *Sentence: \"She is thinking about the new neighbour.\" (underlined: about the new neighbour)  \nAsk a question as an embedded question.: I'd like to know what she is thinking about.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "I'd like to know what she is thinking about.": "✅ Правильно! «I'd like to know what she is thinking about.» — це коректна форма питання.  \nПриклад: *Sentence: \"She is thinking about the new neighbour.\" (underlined: about the new neighbour)  \nAsk a question as an embedded question.: I'd like to know what she is thinking about.*",
+                            "I'd like to know what is she thinking about.": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «I'd like to know what she is thinking about.»",
+                            "I'd like to know about what she is thinking.": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «I'd like to know what she is thinking about.»",
+                            "I'd like to know she is thinking about what.": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «I'd like to know what she is thinking about.»"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "b1-29-sentence-that-thing-on-the-cha",
+            "question": "Sentence: \"That thing on the chair is my new bag.\" (underlined: That thing on the chair)  \nAsk a question as an embedded question.: {a1}",
+            "source": "httpstest_englishcomgrammar_pointsb1_b2questions_different_types_exercise3",
+            "level": "B1",
+            "answers": {
+                "a1": "Can you tell me what that thing is?"
+            },
+            "options": [
+                "Can you tell me what that thing is?",
+                "Can you tell me what is that thing?",
+                "Can you tell me that thing is what?",
+                "Can you tell me what that thing on the chair is?"
+            ],
+            "verb_hints": {
+                "a1": "embedded question"
+            },
+            "variants": [],
+            "tag_keys": [
+                "embedded_questions"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Підказка: embedded question.  \nПриклад правильної відповіді: *Sentence: \"That thing on the chair is my new bag.\" (underlined: That thing on the chair)  \nAsk a question as an embedded question.: Can you tell me what that thing is?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Can you tell me what that thing is?": "✅ Правильно! «Can you tell me what that thing is?» — це коректна форма питання.  \nПриклад: *Sentence: \"That thing on the chair is my new bag.\" (underlined: That thing on the chair)  \nAsk a question as an embedded question.: Can you tell me what that thing is?*",
+                            "Can you tell me what is that thing?": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «Can you tell me what that thing is?»",
+                            "Can you tell me that thing is what?": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «Can you tell me what that thing is?»",
+                            "Can you tell me what that thing on the chair is?": "❌ У непрямих/вбудованих питаннях використовується прямий порядок слів (підмет + дієслово), а не інвертований.  \nПравильна відповідь: «Can you tell me what that thing is?»"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

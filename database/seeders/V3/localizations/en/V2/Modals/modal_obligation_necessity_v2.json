@@ -1,0 +1,386 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\En\\V2\\Modals\\ModalObligationNecessityV2LocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\V2\\Modals\\ModalObligationNecessityV3Seeder",
+        "definition": "modal_obligation_necessity_v2",
+        "definition_path": "V2/Modals/modal_obligation_necessity_v2.json"
+    },
+    "locale": "en",
+    "hint_provider": "chatgpt",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "{a1} Formula: **be supposed to + base verb**. Usage: we use it for rules or expected behavior. Markers: rule, expected, supposed to. Example: *You'd better not aren't supposed to use this product without protection.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "are not meant to use": "❌ «are not meant to use» hints at purpose, but the sentence refers to an external rule. Example: *You'd better not aren't supposed to use this product without protection.*.",
+                    "aren't supposed to use": "✅ «aren't supposed to use» shows a rule or expected action. Example: *You'd better not aren't supposed to use this product without protection.*.",
+                    "must not use": "❌ «must not use» means a strict prohibition, while here it emphasizes a rule/expectation. Correct example: *You'd better not aren't supposed to use this product without protection.*.",
+                    "shouldn't use": "❌ «shouldn't use» is just advice, not a requirement of the rule. See the correct version: *You'd better not aren't supposed to use this product without protection.*."
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "{a1} Formula: **do/does not have to or needn't + base verb**. Usage: when the action is not mandatory in the present/general time. Markers: no need, optional, don't have to. Example: *You don't have to go to the ceremony if you don’t feel like it. It’ll be very boring anyway.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "mustn't": "❌ «mustn't» expresses obligation or prohibition, but we need to show that the action is optional. Correct example: *You don't have to go to the ceremony if you don’t feel like it. It’ll be very boring anyway.*.",
+                    "don't have to": "✅ «don't have to» means there is no obligation. Example: *You don't have to go to the ceremony if you don’t feel like it. It’ll be very boring anyway.*.",
+                    "haven't to": "❌ This option does not remove the obligation. Correct example: *You don't have to go to the ceremony if you don’t feel like it. It’ll be very boring anyway.*.",
+                    "needn't": "❌ This option does not remove the obligation. Correct example: *You don't have to go to the ceremony if you don’t feel like it. It’ll be very boring anyway.*."
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "{a1} Formula: **needn't have + V3**. Usage: indicates that the action was unnecessary but occurred. Markers: already, unnecessary action, regret. Example: *We took too much risk. We needn't have made that decision.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "needn't have made": "✅ «needn't have made» emphasizes that the action in the past was unnecessary. Example: *We took too much risk. We needn't have made that decision.*.",
+                    "shouldn't make": "❌ «shouldn't make» gives general advice, not that the action was already unnecessary. Correct example: *We took too much risk. We needn't have made that decision.*.",
+                    "mustn't have made": "❌ The form does not show that the action was pointless. See: *We took too much risk. We needn't have made that decision.*.",
+                    "shouldn't have made": "❌ The form does not show that the action was pointless. See: *We took too much risk. We needn't have made that decision.*."
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "{a1} Formula: **didn't need to / didn't have to + base verb**. Usage: when there was no necessity in the past. Markers: yesterday, last, past, no need. Example: *He didn't need to take the bus because his brother picked him up at the station.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "needn't have taken": "❌ «needn't have taken» means that the action did occur, although it was unnecessary. The sentence states that it was not done at all. Example: *He didn't need to take the bus because his brother picked him up at the station.*.",
+                    "shouldn't have taken": "❌ «shouldn't have taken» is a reproach, not a lack of obligation. See the correct example: *He didn't need to take the bus because his brother picked him up at the station.*.",
+                    "didn't need to take": "✅ «didn't need to take» shows that doing something was unnecessary. Example: *He didn't need to take the bus because his brother picked him up at the station.*.",
+                    "mustn't have taken": "❌ The option does not show that the action was optional. See: *He didn't need to take the bus because his brother picked him up at the station.*."
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "{a1} Formula: **shouldn't have + V3**. Usage: we express reproach regarding a past action. Markers: mistake, regret, past action. Example: *He shouldn't have spent so much money on the trip last summer.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "shouldn't spend": "❌ «shouldn't spend» only advises for the future, but we need to express reproach for the past. Example: *He shouldn't have spent so much money on the trip last summer.*.",
+                    "had better not spend": "❌ The form does not convey regret. Check the example: *He shouldn't have spent so much money on the trip last summer.*.",
+                    "shouldn't have spent": "✅ «shouldn't have spent» expresses reproach regarding a past action. Example: *He shouldn't have spent so much money on the trip last summer.*.",
+                    "mustn't have spent": "❌ The form does not convey regret. Check the example: *He shouldn't have spent so much money on the trip last summer.*."
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "{a1} Formula: **be allowed/permitted to + base verb**. Usage: we talk about permissions or prohibitions. Markers: rule, regulation, allowed. Example: *The refugees are not allowed to work outside the camp.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "had better not": "❌ «had better not» sounds like advice, but we need to refer to a rule. Example: *The refugees are not allowed to work outside the camp.*.",
+                    "mustn't": "❌ «mustn't» prohibits absolutely, but the context is about an administrative prohibition with allowed. Check: *The refugees are not allowed to work outside the camp.*.",
+                    "are not allowed to": "✅ «are not allowed to» clearly indicates prohibition. Example: *The refugees are not allowed to work outside the camp.*.",
+                    "are allowed to": "❌ «are allowed to» permits the action, but the sentence is about prohibition. See: *The refugees are not allowed to work outside the camp.*."
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "{a1} Formula: **had to / needed to + base verb**. Usage: we explain a forced action in the past. Markers: had to, needed, obligation. Example: *We couldn’t find a hotel so we had to sleep in the car. It was so uncomfortable!.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "must have slept": "❌ \"must have slept\" means assumption, not a real necessity. Correct example: *We couldn’t find a hotel so we had to sleep in the car. It was so uncomfortable!*.",
+                    "had to sleep": "✅ \"had to sleep\" describes a forced obligation. Example: *We couldn’t find a hotel so we had to sleep in the car. It was so uncomfortable!*.",
+                    "should have slept": "❌ \"should have slept\" advises, but does not show a forced action. See: *We couldn’t find a hotel so we had to sleep in the car. It was so uncomfortable!*.",
+                    "would have slept": "❌ The form does not show that the action was forced. Example: *We couldn’t find a hotel so we had to sleep in the car. It was so uncomfortable!*."
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "{a1} Formula: **mustn't + base verb**. Usage: strict prohibition. Markers: safety, strong rule. Example: *You mustn't forget to take your medicine.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "mustn't": "✅ \"mustn't\" strictly prohibits the action. Example: *You mustn't forget to take your medicine.*.",
+                    "don't have to": "❌ The form does not warn against the action. Example: *You mustn't forget to take your medicine.*.",
+                    "must": "❌ \"must\" does not contain a prohibition. See the correct variant: *You mustn't forget to take your medicine.*.",
+                    "ought not to": "❌ The form does not warn against the action. Example: *You mustn't forget to take your medicine.*."
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "{a1} Formula: **didn't need to / didn't have to + base verb**. Usage: when there was no necessity in the past. Markers: yesterday, last, past, no need. Example: *We didn't have to get up early because it was a holiday, so we slept till late.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "didn't have to": "✅ \"didn't have to\" shows that doing something was not necessary. Example: *We didn't have to get up early because it was a holiday, so we slept till late.*.",
+                    "needn't get up": "❌ The variant does not show that the action was optional. See: *We didn't have to get up early because it was a holiday, so we slept till late.*.",
+                    "needn't have got up": "❌ \"needn't have got up\" means that the action did happen, although it was not needed. The sentence states that it was not done at all. Example: *We didn't have to get up early because it was a holiday, so we slept till late.*.",
+                    "didn't need to": "❌ The variant does not show that the action was optional. See: *We didn't have to get up early because it was a holiday, so we slept till late.*."
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "{a1} Formula: **was/were supposed to + base verb**. Usage: talking about expectations in the past. Markers: supposed to, meant to, expectation in the past. Example: *You were meant to call me as soon as you arrived. I was very worried!*."
+            ],
+            "explanations": {
+                "a1": {
+                    "were meant to": "✅ \"were meant to\" shows a rule or expected action. Example: *You were meant to call me as soon as you arrived. I was very worried!*.",
+                    "were supposed to": "❌ This form does not convey the required rule. Check the correct example: *You were meant to call me as soon as you arrived. I was very worried!*.",
+                    "must": "❌ \"must\" talks about personal requirement, not an established rule. See the example: *You were meant to call me as soon as you arrived. I was very worried!*.",
+                    "had to": "❌ This form does not convey the required rule. Check the correct example: *You were meant to call me as soon as you arrived. I was very worried!*."
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "{a1} Formula: **needn't (have) + base verb**. Usage: politely saying that the gift or action was not needed. Markers: gift, politeness, no need. Example: *It’s beautiful! Thanks, but you needn't have bought anything for me.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "needn't buy": "✅ \"needn't buy\" politely says that the gift was not obligatory. Example: *It’s beautiful! Thanks, but you needn't buy anything for me.*."
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "{a1} Formula: **will have to / need to + base verb**. Usage: when the action will become necessary in the future. Markers: future plan, obligation. Example: *We’ll have to be more careful about what we say in the future.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "need to": "✅ \"need to\" shows future need. Example: *We’ll need to be more careful about what we say in the future.*."
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "{a1} Formula: **should / ought to + base verb**. Usage: giving advice or soft necessity. Markers: advice, recommendation. Example: *You need see a specialist to check that knee.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "ought to": "✅ \"ought to\" sounds like strong advice. Example: *You ought to see a specialist to check that knee.*."
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "{a1} Formula: **won't have to / won't need to + base verb**. Usage: when the obligation will disappear in the future. Markers: future, relief, no obligation. Example: *When you get a new employee, you won't have to work so hard any longer.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "won't need to": "✅ Correct answer. Example: *When you get a new employee, you won't need to work so hard any longer.*."
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "{a1} Formula: **be supposed/meant to + base verb**. Usage: we explain the purpose or normal course of events. Markers: meant to, supposed to, expectation. Example: *The effects are meant to last 6 to 8 hours.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "are supposed to": "✅ \"are supposed to\" indicates a rule or expected action. Example: *The effects are supposed to last 6 to 8 hours.*."
+                }
+            }
+        },
+        {
+            "id": 16,
+            "hints": [
+                "{a1} Formula: **should / ought to have + V3**. Usage: expectation in the past that was not fulfilled. Markers: should have, regret, expectation. Example: *They ought to have offered us a discount because we couldn’t sleep in the room that we had booked.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "should have offered": "✅ \"should have offered\" indicates an expected but unfulfilled action. Example: *They should have offered us a discount because we couldn’t sleep in the room that we had booked.*."
+                }
+            }
+        },
+        {
+            "id": 17,
+            "hints": [
+                "{a1} Formula: **be supposed to + base verb**. Usage: we use it for rules or expected behavior. Markers: rule, expected, supposed to. Example: *If we aren't meant to have midnight snacks, why is there a light in the fridge?*."
+            ],
+            "explanations": {
+                "a1": {
+                    "aren't supposed": "✅ \"aren't supposed\" indicates a rule or expected action. Example: *If we aren't supposed to have midnight snacks, why is there a light in the fridge?*."
+                }
+            }
+        },
+        {
+            "id": 18,
+            "hints": [
+                "{a1} Formula: **had to / were supposed to + base verb**. Usage: rules or duties in the past. Markers: school rules, duty in the past. Example: *When I was at school, we had to wear a uniform.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "were supposed to": "✅ \"were supposed to\" describes school rules. Example: *When I was at school, we were supposed to wear a uniform.*."
+                }
+            }
+        },
+        {
+            "id": 19,
+            "hints": [
+                "{a1} Formula: **do/does not have to or needn't + base verb**. Usage: when the action is not mandatory in the present/general time. Markers: no need, optional, don't have to. Example: *We needn't do the dishes today; we can leave them for tomorrow.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "don't need to": "✅ \"don't need to\" means there is no obligation. Example: *We don't need to do the dishes today; we can leave them for tomorrow.*."
+                }
+            }
+        },
+        {
+            "id": 20,
+            "hints": [
+                "{a1} Formula: **be allowed/permitted to + base verb**. Usage: we talk about permissions or prohibitions. Markers: rule, regulation, allowed. Example: *Visitors aren't permitted to stay at night.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "aren't allowed to": "✅ \"aren't allowed to\" clearly indicates a prohibition. Example: *Visitors aren't allowed to stay at night.*."
+                }
+            }
+        },
+        {
+            "id": 21,
+            "hints": [
+                "{a1} Formula: **be allowed/permitted to + base verb**. Usage: we talk about permissions or prohibitions. Markers: rule, regulation, allowed. Example: *TEACHER: What are you doing here? You are not permitted to be here.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "permitted": "✅ \"permitted\" clearly indicates a prohibition. Example: *TEACHER: What are you doing here? You are not permitted to be here.*.",
+                    "invited": "❌ The option does not convey the prohibition from the rules. Example: *TEACHER: What are you doing here? You are not permitted to be here.*.",
+                    "supposed": "❌ The option does not convey the prohibition from the rules. Example: *TEACHER: What are you doing here? You are not permitted to be here.*.",
+                    "expected": "❌ The option does not convey the prohibition from the rules. Example: *TEACHER: What are you doing here? You are not permitted to be here.*."
+                }
+            }
+        },
+        {
+            "id": 22,
+            "hints": [
+                "{a1} Formula: **be allowed/permitted to + base verb**. Usage: we talk about permissions or prohibitions. Markers: rule, regulation, allowed. Example: *STUDENT: Sorry, I know students aren't allowed to not go into the staffroom, but I really need to speak with Mr. Donovan.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "must": "❌ The option does not convey the prohibition from the rules. Example: *STUDENT: Sorry, I know students aren't allowed to not go into the staffroom, but I really need to speak with Mr. Donovan.*.",
+                    "mustn't": "❌ \"mustn't\" absolutely prohibits, but the context is about administrative prohibition with allowed. Check: *STUDENT: Sorry, I know students aren't allowed to not go into the staffroom, but I really need to speak with Mr. Donovan.*.",
+                    "don't have to": "❌ The option does not convey the prohibition from the rules. Example: *STUDENT: Sorry, I know students aren't allowed to not go into the staffroom, but I really need to speak with Mr. Donovan.*.",
+                    "aren't allowed to": "✅ \"aren't allowed to\" clearly indicates a prohibition. Example: *STUDENT: Sorry, I know students aren't allowed to not go into the staffroom, but I really need to speak with Mr. Donovan.*."
+                }
+            }
+        },
+        {
+            "id": 23,
+            "hints": [
+                "{a1} Formula: **needn't have + V3**. Usage: we indicate that the action was unnecessary but occurred. Markers: already, unnecessary action, regret. Example: *TEACHER: Well, you needn't have come in here to talk to him.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "needn't": "✅ \"needn't\" emphasizes that the action in the past was unnecessary. Example: *TEACHER: Well, you needn't have come in here to talk to him.*.",
+                    "mustn't": "❌ The form does not show that the action was unnecessary. See: *TEACHER: Well, you needn't have come in here to talk to him.*.",
+                    "shouldn't": "❌ \"shouldn't\" refers to general advice, not that the action was already unnecessary. Correct example: *TEACHER: Well, you needn't have come in here to talk to him.*.",
+                    "couldn't": "❌ The form does not show that the action was unnecessary. See: *TEACHER: Well, you needn't have come in here to talk to him.*."
+                }
+            }
+        },
+        {
+            "id": 24,
+            "hints": [
+                "{a1} Formula: **should / ought to have + V3**. Usage: expectation in the past that was not fulfilled. Markers: should have, regret, expectation. Example: *It wasn’t really necessary. You could have gone to the principal’s office and asked him to call Mr. Donovan. Actually, that’s what you should have done.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "should": "✅ \"should\" indicates an expected but unfulfilled action. Example: *It wasn’t really necessary. You could have gone to the principal’s office and asked him to call Mr. Donovan. Actually, that’s what you should have done.*.",
+                    "ought": "❌ \"ought\" without have does not create the past tense. Example: *It wasn’t really necessary. You could have gone to the principal’s office and asked him to call Mr. Donovan. Actually, that’s what you should have done.*.",
+                    "had better": "❌ \"had better\" is grammatically incorrect in the past. See the correct version: *It wasn’t really necessary. You could have gone to the principal’s office and asked him to call Mr. Donovan. Actually, that’s what you should have done.*.",
+                    "ought to": "❌ \"ought to\" without have does not create the past tense. Example: *It wasn’t really necessary. You could have gone to the principal’s office and asked him to call Mr. Donovan. Actually, that’s what you should have done.*."
+                }
+            }
+        },
+        {
+            "id": 25,
+            "hints": [
+                "{a1} Formula: **had to / needed to + base verb**. Usage: explaining a forced action in the past. Markers: had to, needed, obligation. Example: *STUDENT: I’m sorry, I wasn’t thinking straight. I really needed to talk to him urgently.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "had": "❌ The form does not show that the action was forced. Example: *STUDENT: I’m sorry, I wasn’t thinking straight. I really needed to talk to him urgently.*.",
+                    "ought": "❌ The form does not show that the action was forced. Example: *STUDENT: I’m sorry, I wasn’t thinking straight. I really needed to talk to him urgently.*.",
+                    "needed": "✅ \"needed\" describes a forced obligation. Example: *STUDENT: I’m sorry, I wasn’t thinking straight. I really needed to talk to him urgently.*.",
+                    "must": "❌ The form does not show that the action was forced. Example: *STUDENT: I’m sorry, I wasn’t thinking straight. I really needed to talk to him urgently.*."
+                }
+            }
+        },
+        {
+            "id": 26,
+            "hints": [
+                "{a1} Formula: **had better + base verb**. Usage: strict advice with a warning about consequences. Markers: warning, better, advice. Example: *TEACHER: Well, you’d better think straight the next time, OK? Now, if you want to talk to Mr. Donovan, you don’t need to go to the principal’s office.*.\n{a2} Formula: **do/does not have to or needn't + base verb**. Usage: when the action is not required in the present/general tense. Markers: no need, optional, don't have to. Example: *TEACHER: Well, you’d better think straight the next time, OK? Now, if you want to talk to Mr. Donovan, you don’t need to go to the principal’s office.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "better": "✅ The form sounds like a convincing piece of advice. Example: *TEACHER: Well, you’d better think straight the next time, OK? Now, if you want to talk to Mr. Donovan, you don’t need to go to the principal’s office.*.",
+                    "ought to": "❌ The option does not convey urgent advice. Correct example: *TEACHER: Well, you’d better think straight the next time, OK? Now, if you want to talk to Mr. Donovan, you don’t need to go to the principal’s office.*.",
+                    "mustn't": "❌ The option does not convey urgent advice. Correct example: *TEACHER: Well, you’d better think straight the next time, OK? Now, if you want to talk to Mr. Donovan, you don’t need to go to the principal’s office.*.",
+                    "needn't": "❌ The option does not convey urgent advice. Correct example: *TEACHER: Well, you’d better think straight the next time, OK? Now, if you want to talk to Mr. Donovan, you don’t need to go to the principal’s office.*."
+                },
+                "a2": {
+                    "need": "✅ \"need\" forms the construction \"don't need to\", which removes the obligation. Example: *TEACHER: Well, you’d better think straight the next time, OK? Now, if you want to talk to Mr. Donovan, you don’t need to go to the principal’s office.*.",
+                    "have": "❌ This option does not remove the obligation. Correct example: *TEACHER: Well, you’d better think straight the next time, OK? Now, if you want to talk to Mr. Donovan, you don’t need to go to the principal’s office.*.",
+                    "must": "❌ \"must\" expresses obligation or prohibition, while we need to show that the action is not required. Correct example: *TEACHER: Well, you’d better think straight the next time, OK? Now, if you want to talk to Mr. Donovan, you don’t need to go to the principal’s office.*.",
+                    "ought": "❌ This option does not remove the obligation. Correct example: *TEACHER: Well, you’d better think straight the next time, OK? Now, if you want to talk to Mr. Donovan, you don’t need to go to the principal’s office.*."
+                }
+            }
+        },
+        {
+            "id": 27,
+            "hints": [
+                "{a1} Formula: **have to / must + base verb**. Usage: describes present obligation. Markers: duty, must, have to. Example: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.\n{a2} Formula: **be allowed/permitted**. Usage: describes the status of permission or prohibition without infinitive. Markers: allowed, permitted, forbidden. Example: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "have to": "✅ The form conveys necessity. Example: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.",
+                    "don't have to": "❌ «don't have to» removes obligation, but we need to emphasize it. Look: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.",
+                    "had better": "❌ The option does not sound like an obligation. Correct example: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.",
+                    "must": "❌ The option does not sound like an obligation. Correct example: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*."
+                },
+                "a2": {
+                    "allowed": "✅ «allowed» forms a natural collocation with the word not. Example: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.",
+                    "welcome": "❌ «welcome» does not convey prohibition. Correct example: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.",
+                    "encouraged": "❌ «encouraged» does not convey prohibition. Correct example: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.",
+                    "required": "❌ «required» does not convey prohibition. Correct example: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*."
+                }
+            }
+        },
+        {
+            "id": 28,
+            "hints": [
+                "{a1} Formula: **had better + base verb**. Usage: strict advice with a warning about consequences. Markers: warning, better, advice. Example: *You had better not do it again, or I’ll have to send you to detention.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "'d": "✅ «'d» conveys strong advice with a warning. Example: *You 'd better not do it again, or I’ll have to send you to detention.*."
+                }
+            }
+        }
+    ]
+}

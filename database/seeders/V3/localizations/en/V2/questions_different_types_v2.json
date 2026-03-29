@@ -1,0 +1,402 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\En\\V2\\QuestionsDifferentTypesV2LocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\V2\\QuestionsDifferentTypesV3Seeder",
+        "definition": "questions_different_types_v2",
+        "definition_path": "V2/questions_different_types_v2.json"
+    },
+    "locale": "en",
+    "hint_provider": "chatgpt",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "Hint: embedded question word order.  \nExample of a correct answer: *Tom has gone out, but I don't know where he has gone.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "where he has gone": "✅ Correct! «where he has gone» is the correct form of the question.  \nExample: *Tom has gone out, but I don't know where he has gone.*",
+                    "where has he gone": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: «where he has gone»",
+                    "where gone he has": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: «where he has gone»"
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "Hint: preposition at end.  \nExample of a correct answer: *This book belongs to someone. Who does it belong to?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "Who does it belong to?": "✅ Correct! «Who does it belong to?» is the correct form of the question.  \nExample: *This book belongs to someone. Who does it belong to?*",
+                    "Who does it belong?": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: «Who does it belong to?»",
+                    "Who belongs it to?": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: «Who does it belong to?»"
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "Hint: subject question.  \nExample of a correct answer: *Somebody lives in that house. Who lives in that house?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "Who lives in that house?": "✅ Correct! «Who lives in that house?» is the correct form of the question.  \nExample: *Somebody lives in that house. Who lives in that house?*",
+                    "Who live in that house?": "❌ When asking about the subject, do not use the auxiliary verb do/does/did.  \nCorrect answer: «Who lives in that house?»",
+                    "Who does lives in that house?": "❌ When asking about the subject, do not use the auxiliary verb do/does/did.  \nCorrect answer: «Who lives in that house?»"
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "Hint: auxiliary + subject + verb.  \nExample of a correct answer: *This word means something. What does this word mean?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What does this word mean?": "✅ Correct! «What does this word mean?» is the correct form of the question.  \nExample: *This word means something. What does this word mean?*",
+                    "What means this word?": "❌ Incorrect word order in the question. Check the structure of the interrogative sentence.  \nCorrect answer: «What does this word mean?»",
+                    "What does mean this word?": "❌ Incorrect word order in the question. Check the structure of the interrogative sentence.  \nCorrect answer: «What does this word mean?»"
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "Hint: preposition at end.  \nExample of a correct answer: *They were talking about something. What were they talking about?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What were they talking about?": "✅ Correct! «What were they talking about?» is the correct form of the question.  \nExample: *They were talking about something. What were they talking about?*",
+                    "About what they were talking?": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: «What were they talking about?»",
+                    "What they were talking about?": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: «What were they talking about?»"
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "Hint: subject question.  \nExample of a correct answer: *Something fell on the floor. What fell on the floor?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What fell on the floor?": "✅ Correct! «What fell on the floor?» is the correct form of the question.  \nExample: *Something fell on the floor. What fell on the floor?*",
+                    "What did fall on the floor?": "❌ When asking about the subject, do not use the auxiliary verb do/does/did.  \nCorrect answer: «What fell on the floor?»",
+                    "What did fell on the floor?": "❌ When asking about the subject, do not use the auxiliary verb do/does/did.  \nCorrect answer: «What fell on the floor?»"
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "Hint: embedded question.  \nExample of a correct answer: *The library is near here. Do you know where the library is?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "where the library is?": "✅ Correct! «where the library is?» is the correct form of the question.  \nExample: *The library is near here. Do you know where the library is?*",
+                    "where is the library?": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: \"where the library is?\"",
+                    "where is near the library?": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: \"where the library is?\""
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "Hint: embedded question.  \nExample of a correct answer: *She borrowed the money from somebody. I wonder who she borrowed the money from.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "who she borrowed the money from": "✅ Correct! \"who she borrowed the money from\" is the correct form of the question.  \nExample: *She borrowed the money from somebody. I wonder who she borrowed the money from.*",
+                    "who did she borrow the money from": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: \"who she borrowed the money from\"",
+                    "from who did she borrow the money": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: \"who she borrowed the money from\""
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "Hint: modal question.  \nExample of a correct answer: *She can't understand something. What can she not understand?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What can she not understand?": "✅ Correct! \"What can she not understand?\" is the correct form of the question.  \nExample: *She can't understand something. What can she not understand?*",
+                    "What she can't understand?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"What can she not understand?\"",
+                    "What does she understand?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"What can she not understand?\""
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "Hint: negative question.  \nExample of a correct answer: *He didn't come to the party for some reason. Why didn't he come to the party?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "Why didn't he come to the party?": "✅ Correct! \"Why didn't he come to the party?\" is the correct form of the question.  \nExample: *He didn't come to the party for some reason. Why didn't he come to the party?*",
+                    "Why he didn't come to the party?": "❌ Incorrect word order in the question. Check the structure of the interrogative sentence.  \nCorrect answer: \"Why didn't he come to the party?\"",
+                    "Why did not he come to the party?": "❌ Incorrect word order in the question. Check the structure of the interrogative sentence.  \nCorrect answer: \"Why didn't he come to the party?\""
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "Hint: embedded question.  \nExample of a correct answer: *I don't know why the meeting was cancelled.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "the meeting was cancelled": "✅ Correct! \"the meeting was cancelled\" is the correct form of the question.  \nExample: *I don't know why the meeting was cancelled.*",
+                    "was the meeting cancelled": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: \"the meeting was cancelled\"",
+                    "cancelled was the meeting": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: \"the meeting was cancelled\""
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "Hint: subject question.  \nExample of a correct answer: *Who told you that?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "told you that": "✅ Correct! \"told you that\" is the correct form of the question.  \nExample: *Who told you that?*",
+                    "did tell you that": "❌ When asking about the subject, do not use the auxiliary verb do/does/did.  \nCorrect answer: \"told you that\"",
+                    "you told that": "❌ When asking about the subject, do not use the auxiliary verb do/does/did.  \nCorrect answer: \"told you that\""
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "Hint: negative question.  \nExample of a correct answer: *Why has she not replied to your email / hasn't she replied to your email? (Choose TWO correct options.)*"
+            ],
+            "explanations": {
+                "a1": {
+                    "has she not replied to your email": "✅ Correct! \"has she not replied to your email\" is the correct form of the question.  \nExample: *Why has she not replied to your email / hasn't she replied to your email? (Choose TWO correct options.)*",
+                    "has not she replied to your email": "❌ Incorrect word order in the question. Check the structure of the interrogative sentence.  \nCorrect answer: \"has she not replied to your email\" or \"hasn't she replied to your email\"",
+                    "hasn't she replied to your email": "✅ Correct! \"hasn't she replied to your email\" is the correct form of the question.  \nExample: *Why has she not replied to your email / hasn't she replied to your email? (Choose TWO correct options.)*"
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "Hint: embedded question.  \nExample of a correct answer: *I'm wondering which countries he has visited.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "he has visited": "✅ Correct! \"he has visited\" is the correct form of the question.  \nExample: *I'm wondering which countries he has visited.*",
+                    "has he visited": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: \"he has visited\"",
+                    "has he been": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: \"he has visited\""
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "Hint: subject question.  \nExample of a correct answer: *When we arrived, someone had taken the tickets. Who had taken the tickets?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "had taken the tickets": "✅ Correct! \"had taken the tickets\" is the correct form of the question.  \nExample: *When we arrived, someone had taken the tickets. Who had taken the tickets?*",
+                    "had he taken the tickets": "❌ When asking about the subject, we do not use the auxiliary verb do/does/did.  \nCorrect answer: \"had taken the tickets\"",
+                    "taken the tickets": "❌ When asking about the subject, we do not use the auxiliary verb do/does/did.  \nCorrect answer: \"had taken the tickets\""
+                }
+            }
+        },
+        {
+            "id": 16,
+            "hints": [
+                "Hint: preposition at end.  \nExample of the correct answer: *What are you waiting for?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "are you waiting for": "✅ Correct! \"are you waiting for\" is the correct form of the question.  \nExample: *What are you waiting for?*",
+                    "are you waiting": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"are you waiting for\"",
+                    "you are waiting for": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"are you waiting for\""
+                }
+            }
+        },
+        {
+            "id": 17,
+            "hints": [
+                "Hint: embedded question.  \nExample of the correct answer: *Do you know whether he will come or not?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "whether he will come or not": "✅ Correct! \"whether he will come or not\" is the correct form of the question.  \nExample: *Do you know whether he will come or not?*",
+                    "if will he come or not": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: \"whether he will come or not\"",
+                    "whether will he come or not": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: \"whether he will come or not\""
+                }
+            }
+        },
+        {
+            "id": 18,
+            "hints": [
+                "Hint: negative question.  \nExample of the correct answer: *You shouldn't be playing video games now. Don't you have homework to do?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "Don't you have homework to do": "✅ Correct! \"Don't you have homework to do\" is the correct form of the question.  \nExample: *You shouldn't be playing video games now. Don't you have homework to do?*",
+                    "You don't have homework to do": "❌ Incorrect word order in the question. Check the structure of the interrogative sentence.  \nCorrect answer: \"Don't you have homework to do\"",
+                    "Do you haven't homework to do": "❌ Incorrect word order in the question. Check the structure of the interrogative sentence.  \nCorrect answer: \"Don't you have homework to do\""
+                }
+            }
+        },
+        {
+            "id": 19,
+            "hints": [
+                "Hint: preposition at end.  \nExample of the correct answer: *Who did you vote for in the last election?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "did you vote for": "✅ Correct! \"did you vote for\" is the correct form of the question.  \nExample: *Who did you vote for in the last election?*",
+                    "did you vote": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"did you vote for\"",
+                    "voted you": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"did you vote for\""
+                }
+            }
+        },
+        {
+            "id": 20,
+            "hints": [
+                "Hint: how many + plural noun.  \nExample of the correct answer: *Sentence: \"He has visited fifty countries.\" (underlined: fifty countries)  \nAsk a question about the underlined words.: How many countries has he visited?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "How many countries has he visited?": "✅ Correct! \"How many countries has he visited?\" is the correct form of the question.  \nExample: *Sentence: \"He has visited fifty countries.\" (underlined: fifty countries)  \nAsk a question about the underlined words.: How many countries has he visited?*",
+                    "How many countries he has visited?": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"How many countries has he visited?\"",
+                    "How many has he visited countries?": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"How many countries has he visited?\"",
+                    "How much countries has he visited?": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"How many countries has he visited?\""
+                }
+            }
+        },
+        {
+            "id": 21,
+            "hints": [
+                "Hint: quantity question.  \nExample of the correct answer: *Sentence: \"Two thousand people protested against the new law.\" (underlined: Two thousand people)  \nAsk a question about the underlined words.: How many people protested against the new law?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "How many people protested against the new law?": "✅ Correct! \"How many people protested against the new law?\" is the correct form of the question.  \nExample: *Sentence: \"Two thousand people protested against the new law.\" (underlined: Two thousand people)  \nAsk a question about the underlined words.: How many people protested against the new law?*",
+                    "How many people did protest against the new law?": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"How many people protested against the new law?\"",
+                    "How much people protested against the new law?": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"How many people protested against the new law?\"",
+                    "Who protested against the new law?": "❌ In direct Wh-questions, the correct word order is needed: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"How many people protested against the new law?\""
+                }
+            }
+        },
+        {
+            "id": 22,
+            "hints": [
+                "Hint: object question.  \nExample of the correct answer: *Sentence: \"They weren't able to finish the final report.\" (underlined: the final report)  \nAsk a question about the underlined words.: What couldn't they finish?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What couldn't they finish?": "✅ Correct! \"What couldn't they finish?\" is the correct form of the question.  \nExample: *Sentence: \"They weren't able to finish the final report.\" (underlined: the final report)  \nAsk a question about the underlined words.: What couldn't they finish?*",
+                    "What they couldn't finish?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"What couldn't they finish?\"",
+                    "What could they not finish?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"What couldn't they finish?\"",
+                    "What weren't they able to finish?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"What couldn't they finish?\""
+                }
+            }
+        },
+        {
+            "id": 23,
+            "hints": [
+                "Hint: frequency question.  \nExample of the correct answer: *Sentence: \"He has been posting on his blog every day.\" (underlined: every day)  \nAsk a question about the underlined words.: How often has he been posting on his blog?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "How often has he been posting on his blog?": "✅ Correct! \"How often has he been posting on his blog?\" is the correct form of the question.  \nExample: *Sentence: \"He has been posting on his blog every day.\" (underlined: every day)  \nAsk a question about the underlined words.: How often has he been posting on his blog?*",
+                    "How often he has been posting on his blog?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"How often has he been posting on his blog?\"",
+                    "When has he been posting on his blog?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"How often has he been posting on his blog?\"",
+                    "How many times has he been posting on his blog?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"How often has he been posting on his blog?\""
+                }
+            }
+        },
+        {
+            "id": 24,
+            "hints": [
+                "Hint: preposition at end.  \nExample of the correct answer: *Sentence: \"They have been listening to their teacher.\" (underlined: their teacher)  \nAsk a question about the underlined words.: Who have they been listening to?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "Who have they been listening to?": "✅ Correct! \"Who have they been listening to?\" is the correct form of the question.  \nExample: *Sentence: \"They have been listening to their teacher.\" (underlined: their teacher)  \nAsk a question about the underlined words.: Who have they been listening to?*",
+                    "To who have they been listening?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"Who have they been listening to?\"",
+                    "Who they have been listening to?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"Who have they been listening to?\"",
+                    "Whom have they been listening?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"Who have they been listening to?\""
+                }
+            }
+        },
+        {
+            "id": 25,
+            "hints": [
+                "Hint: duration question.  \nExample of the correct answer: *Sentence: \"It took them two hours to get to Rome.\" (underlined: two hours)  \nAsk a question about the underlined words.: How long did it take them to get to Rome?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "How long did it take them to get to Rome?": "✅ Correct! \"How long did it take them to get to Rome?\" is the correct form of the question.  \nExample: *Sentence: \"It took them two hours to get to Rome.\" (underlined: two hours)  \nAsk a question about the underlined words.: How long did it take them to get to Rome?*",
+                    "How long it took them to get to Rome?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"How long did it take them to get to Rome?\"",
+                    "How much time did it take them to get to Rome?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"How long did it take them to get to Rome?\"",
+                    "When did it take them to get to Rome?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"How long did it take them to get to Rome?\""
+                }
+            }
+        },
+        {
+            "id": 26,
+            "hints": [
+                "Hint: preposition at end.  \nExample of the correct answer: *Sentence: \"I'm looking for a new dress.\" (underlined: a new dress)  \nAsk a question about the underlined words.: What are you looking for?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What are you looking for?": "✅ Correct! \"What are you looking for?\" is the correct form of the question.  \nExample: *Sentence: \"I'm looking for a new dress.\" (underlined: a new dress)  \nAsk a question about the underlined words.: What are you looking for?*",
+                    "What you are looking for?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"What are you looking for?\"",
+                    "For what are you looking?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"What are you looking for?\"",
+                    "What do you looking for?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"What are you looking for?\""
+                }
+            }
+        },
+        {
+            "id": 27,
+            "hints": [
+                "Hint: object question.  \nExample of the correct answer: *Sentence: \"He never does his homework.\" (underlined: his homework)  \nAsk a question about the underlined words.: What does he never do?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What does he never do?": "✅ Correct! \"What does he never do?\" is the correct form of the question.  \nExample: *Sentence: \"He never does his homework.\" (underlined: his homework)  \nAsk a question about the underlined words.: What does he never do?*",
+                    "What he never does?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"What does he never do?\"",
+                    "What doesn't he do?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"What does he never do?\"",
+                    "What he does never?": "❌ In direct Wh-questions, the correct word order is required: question word + auxiliary verb + subject + main verb.  \nCorrect answer: \"What does he never do?\""
+                }
+            }
+        },
+        {
+            "id": 28,
+            "hints": [
+                "Hint: embedded question.  \nExample of a correct answer: *Sentence: \"She is thinking about the new neighbour.\" (underlined: about the new neighbour)  \nAsk a question as an embedded question.: I'd like to know what she is thinking about.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "I'd like to know what she is thinking about.": "✅ Correct! «I'd like to know what she is thinking about.» — is the correct form of the question.  \nExample: *Sentence: \"She is thinking about the new neighbour.\" (underlined: about the new neighbour)  \nAsk a question as an embedded question.: I'd like to know what she is thinking about.*",
+                    "I'd like to know what is she thinking about.": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: «I'd like to know what she is thinking about.»",
+                    "I'd like to know about what she is thinking.": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: «I'd like to know what she is thinking about.»",
+                    "I'd like to know she is thinking about what.": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: «I'd like to know what she is thinking about.»"
+                }
+            }
+        },
+        {
+            "id": 29,
+            "hints": [
+                "Hint: embedded question.  \nExample of a correct answer: *Sentence: \"That thing on the chair is my new bag.\" (underlined: That thing on the chair)  \nAsk a question as an embedded question.: Can you tell me what that thing is?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "Can you tell me what that thing is?": "✅ Correct! «Can you tell me what that thing is?» — is the correct form of the question.  \nExample: *Sentence: \"That thing on the chair is my new bag.\" (underlined: That thing on the chair)  \nAsk a question as an embedded question.: Can you tell me what that thing is?*",
+                    "Can you tell me what is that thing?": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: «Can you tell me what that thing is?»",
+                    "Can you tell me that thing is what?": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: «Can you tell me what that thing is?»",
+                    "Can you tell me what that thing on the chair is?": "❌ In indirect/embedded questions, the direct word order (subject + verb) is used, not inverted.  \nCorrect answer: «Can you tell me what that thing is?»"
+                }
+            }
+        }
+    ]
+}

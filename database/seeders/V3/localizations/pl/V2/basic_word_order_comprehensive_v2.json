@@ -1,0 +1,356 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\Pl\\V2\\BasicWordOrderComprehensiveV2LocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\V2\\BasicWordOrderComprehensiveV3Seeder",
+        "definition": "basic_word_order_comprehensive_v2",
+        "definition_path": "V2/basic_word_order_comprehensive_v2.json"
+    },
+    "locale": "pl",
+    "hint_provider": "chatgpt",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "Kolejność słów: najpierw nazywamy dopełnienie (the food), potem przysłówek miary (very much). Przysłówek miary zazwyczaj stoi po dopełnieniu."
+            ],
+            "explanations": {
+                "a1": {
+                    "the food very much": "✅ «the food very much» — poprawnie. Dopełnienie (the food) zawsze stoi przed przysłówkiem miary (very much). Przykład: *Nie podobało mi się jedzenie bardzo wczoraj wieczorem.*",
+                    "very much the food": "❌ Przysłówek miary (very much) nie stoi przed dopełnieniem (the food). Poprawna kolejność: obiekt → przysłówek."
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "Kolejność słów: miejsce (home) po czasowniku, potem okolicznik sposobu/czasu (very late). Miejsce jest bliżej czasownika niż okolicznik czasu."
+            ],
+            "explanations": {
+                "a1": {
+                    "home very late": "✅ «home very late» — poprawnie. Najpierw wskazujemy miejsce (home), potem okolicznik czasu/sposobu (very late). Przykład: *Przyjechaliśmy do domu bardzo późno.*",
+                    "very late home": "❌ Okolicznik (very late) nie stoi przed miejscem (home). Miejsce jest bliżej czasownika."
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "Kolejność słów: dopełnienie (English) przed przysłówkiem sposobu (very well). Przysłówek sposobu stawiamy po obiekcie."
+            ],
+            "explanations": {
+                "a1": {
+                    "English very well": "✅ «English very well» — poprawnie. Dopełnienie (English) stoi przed przysłówkiem sposobu (very well). Przykład: *Teresa mówi po angielsku bardzo dobrze.*",
+                    "very well English": "❌ Przysłówek sposobu (very well) nie stoi przed obiektem (English). Poprawna kolejność: obiekt → przysłówek."
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "Kolejność słów: najpierw dopełnienie (that box), potem okolicznik miejsca (in the corner). Przedmiot nazywamy jako pierwszy."
+            ],
+            "explanations": {
+                "a1": {
+                    "that box in the corner": "✅ «to pudełko w rogu» — poprawnie. Najpierw nazywamy dopełnienie (to pudełko), a potem miejsce (w rogu). Przykład: *Can you put that box in the corner?*",
+                    "in the corner that box": "❌ Okolicznik miejsca (w rogu) nie poprzedza bezpośredniego dopełnienia (to pudełko). Przedmiot nazywamy jako pierwszy."
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "Kolejność słów: okolicznik miejsca (w szpitalu) przed okolicznikiem czasu/trwania (przez tydzień). Miejsce zazwyczaj poprzedza czas."
+            ],
+            "explanations": {
+                "a1": {
+                    "in hospital for a week": "✅ «w szpitalu przez tydzień» — poprawnie. Okolicznik miejsca (w szpitalu) stoi przed długością (przez tydzień). Przykład: *Jim was in hospital for a week.*",
+                    "for a week in hospital": "❌ Długość czasu (przez tydzień) nie stoi przed miejscem (w szpitalu). Najpierw podajemy miejsce."
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "Kolejność słów: dopełnienie (ta muzyka) przed przysłówkiem miary (bardzo). Obiekt stawiamy zaraz po czasowniku."
+            ],
+            "explanations": {
+                "a1": {
+                    "this music a lot": "✅ «ta muzyka bardzo» — poprawnie. Obiekt (ta muzyka) stoi przed przysłówkiem miary (bardzo). Przykład: *I like this music a lot.*",
+                    "a lot this music": "❌ Przysłówek miary (bardzo) nie stoi przed obiektem (ta muzyka). Obiekt zawsze po czasowniku."
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "Kolejność słów: konkretniejsze miejsce (u przyjaciela) przed szerszym kontekstem (po imprezie). Od konkretnego do ogólnego."
+            ],
+            "explanations": {
+                "a1": {
+                    "at a friend's house after a party": "✅ «u przyjaciela po imprezie» — poprawnie. Konkretne miejsce (u przyjaciela) przed szerszym kontekstem (po imprezie). Przykład: *They met at a friend's house after a party.*",
+                    "after a party at a friend's house": "❌ Szerszy kontekst (po imprezie) nie stoi przed konkretnym miejscem. Logika: od konkretnego do ogólnego."
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "Kolejność słów: dopełnienie (ich ofiary) przed przysłówkiem sposobu (bardzo wolno). Obiekt bliżej czasownika."
+            ],
+            "explanations": {
+                "a1": {
+                    "their victims very slowly": "✅ «ich ofiary bardzo wolno» — poprawnie. Obiekt (ich ofiary) stoi przed przysłówkiem sposobu (bardzo wolno). Przykład: *Tigers approach their victims very slowly.*",
+                    "very slowly their victims": "❌ Przysłówek sposobu (bardzo wolno) nie stoi przed obiektem (ich ofiary). Obiekt bliżej czasownika."
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "Kolejność słów: najpierw kto/co (Hellen), potem gdzie (w bibliotece). Obiekt poprzedza okolicznik miejsca."
+            ],
+            "explanations": {
+                "a1": {
+                    "Hellen at the library": "✅ «Hellen w bibliotece» — poprawnie. Najpierw nazywamy kogo widzieliśmy (Hellen), a potem gdzie (w bibliotece). Przykład: *I saw Hellen at the library.*",
+                    "at the library Hellen": "❌ Miejsce (w bibliotece) nie stoi przed obiektem (Hellen). Osoba nazwana jako pierwsza."
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "Kolejność słów: dopełnienie (egzamin) przed przysłówkiem sposobu (bardzo szybko). Przysłówek sposobu po obiekcie."
+            ],
+            "explanations": {
+                "a1": {
+                    "the exam very quickly": "✅ «egzamin bardzo szybko» — poprawnie. Dopełnienie (egzamin) stoi przed przysłówkiem sposobu (bardzo szybko). Przykład: *He finished the exam very quickly.*",
+                    "very quickly the exam": "❌ Przysłówek sposobu (bardzo szybko) nie stoi przed dopełnieniem (egzamin). Obiekt idzie pierwszy."
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "Kolejność słów: obiekt (mój pies) → miejsce (w parku) → częstotliwość (codziennie). Standardowa kolejność okoliczników."
+            ],
+            "explanations": {
+                "a1": {
+                    "my dog in the park every day": "✅ «mój pies w parku codziennie» — poprawnie. Kolejność: obiekt (mój pies) → miejsce (w parku) → częstotliwość (codziennie). Przykład: *I walk my dog in the park every day.*",
+                    "my dog every day in the park": "❌ Częstotliwość (codziennie) nie stoi przed miejscem (w parku). Standardowa kolejność: obiekt → miejsce → czas.",
+                    "every day my dog in the park": "❌ Częstotliwość (codziennie) nie zaczyna zdania po czasowniku. Obiekt musi być zaraz po czasowniku."
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "Kolejność słów: obiekt (jej syn) → kierunek (do lekarza) → czas (dzisiaj rano). Obiekt zawsze po czasowniku."
+            ],
+            "explanations": {
+                "a1": {
+                    "her son to the doctor this morning": "✅ «jej syn do lekarza dzisiaj rano» — poprawnie. Kolejność: obiekt (jej syn) → kierunek (do lekarza) → czas (dzisiaj rano). Przykład: *Lisa zabrała swojego syna do lekarza dzisiaj rano.*",
+                    "to the doctor her son this morning": "❌ Kierunek (do lekarza) nie stoi przed obiektem (jej syn). Obiekt zawsze pierwszy.",
+                    "this morning her son to the doctor": "❌ Czas (dzisiaj rano) nie zaczyna zdania. Standardowa kolejność: obiekt → miejsce → czas."
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "Kolejność słów: obiekt (mnie) → miejsce (do domu) → czas (po koncercie). Kogo wieźć → dokąd → kiedy."
+            ],
+            "explanations": {
+                "a1": {
+                    "me home after the concert": "✅ «mnie do domu po koncercie» — poprawnie. Kolejność: obiekt (mnie) → miejsce (do domu) → czas (po koncercie). Przykład: *Czy możesz zawieźć mnie do domu po koncercie?*",
+                    "home me after the concert": "❌ Miejsce (do domu) nie stoi przed obiektem (mnie). Kogo wieźć — pierwszy.",
+                    "me after the concert home": "❌ Czas (po koncercie) między obiektem a miejscem narusza kolejność. Dokąd — przed kiedy."
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "Kolejność słów: przysłówek częstotliwości (zawsze) przed czasownikiem (kończyć), potem obiekt (szkoła) → czas (o 15:30)."
+            ],
+            "explanations": {
+                "a1": {
+                    "always finish school at 3.30 pm": "✅ «zawsze kończymy szkołę o 15:30» — poprawnie. Przysłówek częstotliwości (zawsze) przed czasownikiem, czas na końcu. Przykład: *Zawsze kończymy szkołę o 15:30.*",
+                    "finish always school at 3.30 pm": "❌ Przysłówek częstotliwości (zawsze) nie stoi między czasownikiem a obiektem. Częstotliwość przed czasownikiem.",
+                    "finish school at 3.30 pm always": "❌ Przysłówek częstotliwości (zawsze) zazwyczaj nie stoi na końcu takiego zdania. Częstotliwość przed czasownikiem."
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "Kolejność słów: czasownik (lubi) → obiekt (tenis) → przysłówek miary (bardzo). Obiekt przed przysłówkiem."
+            ],
+            "explanations": {
+                "a1": {
+                    "don't like tennis very much": "✅ «nie lubię tenisa bardzo» — poprawnie. Czasownik → obiekt → przysłówek miary. Przykład: *Nie lubię tenisa bardzo.*",
+                    "don't play very often tennis": "❌ To inny czasownik (grać), a nie lubić. Ponadto, kolejność słów jest niepoprawna.",
+                    "don't like very much tennis": "❌ Przysłówek miary (bardzo) nie stoi przed obiektem (tenis). Obiekt od razu po czasowniku."
+                }
+            }
+        },
+        {
+            "id": 16,
+            "hints": [
+                "Kolejność słów: czasownik (kocha) → dopełnienie (swoje dzieci) → przysłówek miary (bardzo). Przysłówek miary na końcu."
+            ],
+            "explanations": {
+                "a1": {
+                    "loves his children very much": "✅ «kocha swoje dzieci bardzo» — poprawnie. Czasownik → obiekt → przysłówek miary. Przykład: *David kocha swoje dzieci bardzo.*",
+                    "very much loves his children": "❌ Przysłówek miary (bardzo) nie stoi przed czasownikiem. Przysłówek na końcu.",
+                    "loves very much his children": "❌ Przysłówek miary (bardzo) nie dzieli czasownika i obiektu. Obiekt od razu po czasowniku."
+                }
+            }
+        },
+        {
+            "id": 17,
+            "hints": [
+                "Kolejność słów: obiekt (włoski) → miejsce (w Rzymie) → czas/wydarzenie (podczas programu wymiany studenckiej). Od ogółu do szczegółów."
+            ],
+            "explanations": {
+                "a1": {
+                    "Italian in Rome during a student exchange program": "✅ «włoski w Rzymie podczas programu wymiany studenckiej» — poprawnie. Kolejność: obiekt (włoski) → miejsce (w Rzymie) → czas/wydarzenie (podczas...). Przykład: *Nauczyłem się włoskiego w Rzymie podczas programu wymiany studenckiej.*",
+                    "Italian during a student exchange program in Rome": "❌ Wydarzenie (podczas...) nie stoi przed miejscem (w Rzymie). Miejsce bliżej obiektu.",
+                    "in Rome Italian during a student exchange program": "❌ Miejsce (w Rzymie) nie poprzedza obiektu (włoski). Obiekt zawsze po czasowniku."
+                }
+            }
+        },
+        {
+            "id": 18,
+            "hints": [
+                "Kolejność słów: czasownik (miał) → obiekt (miły lunch) → miejsce (w restauracji) → czas (dzisiaj). Standardowa struktura zdania."
+            ],
+            "explanations": {
+                "a1": {
+                    "had a nice lunch at a restaurant today": "✅ «miał miły lunch w restauracji dzisiaj» — poprawnie. Kolejność: czasownik → obiekt → miejsce → czas. Przykład: *Mieliśmy miły lunch w restauracji dzisiaj.*",
+                    "had a nice lunch today at a restaurant": "❌ Czas (today) nie stawia się przed miejscem (at a restaurant). Miejsce przed czasem.",
+                    "had at a restaurant a nice lunch today": "❌ Miejsce (at a restaurant) nie dzieli czasownika i obiektu. Obiekt od razu po czasowniku."
+                }
+            }
+        },
+        {
+            "id": 19,
+            "hints": [
+                "Kolejność słów: czasownik (forgot) → obiekt (the keys) → miejsce (in the car) → czas (last night). Przedmiot przed miejscem."
+            ],
+            "explanations": {
+                "a1": {
+                    "forgot the keys in the car last night": "✅ «forgot the keys in the car last night» — poprawnie. Kolejność: czasownik → obiekt → miejsce → czas. Przykład: *He forgot the keys in the car last night.*",
+                    "forgot in the car the keys last night": "❌ Miejsce (in the car) nie poprzedza obiektu (the keys). Obiekt po czasowniku.",
+                    "forgot the keys last night in the car": "❌ Czas (last night) nie stawia się przed miejscem (in the car). Miejsce przed czasem."
+                }
+            }
+        },
+        {
+            "id": 20,
+            "hints": [
+                "Kolejność słów: przysłówek częstotliwości (often) przed czasownikiem (takes), potem obiekt (a taxi) → kierunek (to work)."
+            ],
+            "explanations": {
+                "a1": {
+                    "often takes a taxi to work": "✅ «often takes a taxi to work» — poprawnie. Przysłówek częstotliwości (often) przed czasownikiem, potem obiekt → kierunek. Przykład: *Susan often takes a taxi to work.*",
+                    "takes often a taxi to work": "❌ Przysłówek częstotliwości (often) nie stawia się między czasownikiem a obiektem. Częstotliwość przed czasownikiem.",
+                    "takes a taxi often to work": "❌ Przysłówek częstotliwości (often) nie dzieli obiektu i kierunku. Częstotliwość na początku."
+                }
+            }
+        },
+        {
+            "id": 21,
+            "hints": [
+                "Kolejność słów: fraza modalna (have to return) → obiekt (the book) → miejsce (to the library) → czas (today)."
+            ],
+            "explanations": {
+                "a1": {
+                    "have to return the book to the library today": "✅ «have to return the book to the library today» — poprawnie. Fraza modalna → obiekt → miejsce → czas. Przykład: *I have to return the book to the library today.*",
+                    "have to return today the book to the library": "❌ Czas (today) nie stawia się między frazą a obiektem. Czas na końcu.",
+                    "have to return to the library the book today": "❌ Miejsce (to the library) nie poprzedza obiektu (the book). Obiekt po czasowniku."
+                }
+            }
+        },
+        {
+            "id": 22,
+            "hints": [
+                "Kolejność słów: czasownik be → przysłówek częstotliwości (never) → miejsce (at home) → czas (at lunchtime)."
+            ],
+            "explanations": {
+                "a1": {
+                    "are never at home at lunchtime": "✅ «are never at home at lunchtime» — poprawnie. Czasownik be → przysłówek częstotliwości → miejsce → czas. Przykład: *They are never at home at lunchtime.*",
+                    "are never at lunchtime at home": "❌ Czas (at lunchtime) nie stawia się przed miejscem (at home). Miejsce przed czasem.",
+                    "never are at home at lunchtime": "❌ Przysłówek częstotliwości (never) stawia się po czasowniku be, a nie przed nim."
+                }
+            }
+        },
+        {
+            "id": 23,
+            "hints": [
+                "Kolejność słów: czasownik (is) → przysłówek częstotliwości (always) → przymiotnik (very hot) → miejsce (here) → czas (in July)."
+            ],
+            "explanations": {
+                "a1": {
+                    "is always very hot here in July": "✅ «is always very hot here in July» — poprawnie. Be → przysłówek częstotliwości → przymiotnik → miejsce → czas. Przykład: *It is always very hot here in July.*",
+                    "is very hot always here in July": "❌ Przysłówek częstotliwości (always) powinien stać od razu po czasowniku be, a nie w środku.",
+                    "is always very hot in July here": "❌ Miejsce (here) nie stawia się po czasie (in July). Miejsce przed czasem."
+                }
+            }
+        },
+        {
+            "id": 24,
+            "hints": [
+                "Kolejność słów: czasownik (play) → obiekt (football) → miejsce (in the park) → czas (after school)."
+            ],
+            "explanations": {
+                "a1": {
+                    "play football in the park after school": "✅ «play football in the park after school» — poprawnie. Czasownik → obiekt → miejsce → czas. Przykład: *We play football in the park after school.*",
+                    "play football after school in the park": "❌ Czas (after school) nie stawia się przed miejscem (in the park). Miejsce przed czasem.",
+                    "play in the park football after school": "❌ Miejsce (in the park) nie dzieli czasownika i obiektu. Obiekt od razu po czasowniku."
+                }
+            }
+        },
+        {
+            "id": 25,
+            "hints": [
+                "Kolejność słów: przysłówek częstotliwości (usually) przed czasownikiem (has), potem obiekt (cereal) → okoliczność (for breakfast)."
+            ],
+            "explanations": {
+                "a1": {
+                    "usually has cereal for breakfast": "✅ «usually has cereal for breakfast» — poprawnie. Przysłówek częstotliwości przed czasownikiem, potem obiekt → okoliczność. Przykład: *She usually has cereal for breakfast.*",
+                    "has usually cereal for breakfast": "❌ Przysłówek częstotliwości (usually) nie stoi między czasownikiem a obiektem. Częstotliwość przed czasownikiem.",
+                    "has cereal usually for breakfast": "❌ Przysłówek częstotliwości (usually) nie dzieli obiektu i okoliczności. Częstotliwość na początku."
+                }
+            }
+        },
+        {
+            "id": 26,
+            "hints": [
+                "Kolejność słów: czasownik (met) → obiekt (her husband) → miejsce (at a nightclub) → czas (in 2006)."
+            ],
+            "explanations": {
+                "a1": {
+                    "met her husband at a nightclub in 2006": "✅ «met her husband at a nightclub in 2006» — poprawnie. Czasownik → obiekt → miejsce → czas. Przykład: *Linda met her husband at a nightclub in 2006.*",
+                    "met her husband in 2006 at a nightclub": "❌ Czas (in 2006) nie stoi przed miejscem (at a nightclub). Miejsce przed czasem.",
+                    "met at a nightclub her husband in 2006": "❌ Miejsce (at a nightclub) nie poprzedza obiektu (her husband). Obiekt po czasowniku."
+                }
+            }
+        },
+        {
+            "id": 27,
+            "hints": [
+                "Kolejność słów: przysłówek częstotliwości (always) przed czasownikiem (work), potem miejsce (from home) → czas (on Tuesdays)."
+            ],
+            "explanations": {
+                "a1": {
+                    "always work from home on Tuesdays": "✅ «always work from home on Tuesdays» — poprawnie. Przysłówek częstotliwości przed czasownikiem, potem miejsce → czas. Przykład: *I always work from home on Tuesdays.*",
+                    "work from home always on Tuesdays": "❌ Przysłówek częstotliwości (always) powinien stać przed czasownikiem, nie po miejscu.",
+                    "work always from home on Tuesdays": "❌ Przysłówek częstotliwości (always) nie stoi między czasownikiem a miejscem. Częstotliwość przed czasownikiem."
+                }
+            }
+        }
+    ]
+}

@@ -2,8 +2,7 @@
 
 namespace Database\Seeders\Page_v2\Articles\SomeAny;
 
-use Database\Seeders\Pages\Articles\Concerns\SomeAnyContent;
-use Database\Seeders\Pages\Concerns\PageCategoryDescriptionSeeder;
+use Database\Seeders\Page_v2\Concerns\PageCategoryDescriptionSeeder;
 
 class SomeAnyCategorySeeder extends PageCategoryDescriptionSeeder
 {

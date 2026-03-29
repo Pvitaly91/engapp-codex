@@ -371,12 +371,27 @@ abstract class JsonPageSeeder extends Seeder
             return null;
         }
 
-        $parentId = $this->resolveCategoryParentId($payload);
-        $language = $this->normalizeLocale((string) ($payload['language'] ?? $payload['locale'] ?? $locale));
+        $existingCategory = PageCategory::query()
+            ->where('slug', $slug)
+            ->first();
+        $hasExplicitParent = array_key_exists('parent_id', $payload) || array_key_exists('parent_slug', $payload);
+        $hasExplicitLanguage = array_key_exists('language', $payload) || array_key_exists('locale', $payload);
+        $hasExplicitType = array_key_exists('type', $payload);
+        $hasExplicitTitle = array_key_exists('title', $payload);
+        $parentId = $hasExplicitParent
+            ? $this->resolveCategoryParentId($payload)
+            : $existingCategory?->parent_id;
+        $language = $hasExplicitLanguage
+            ? $this->normalizeLocale((string) ($payload['language'] ?? $payload['locale'] ?? $locale))
+            : ($existingCategory?->language ?? $this->normalizeLocale($locale));
         $attributes = [
-            'title' => $payload['title'] ?? $slug,
+            'title' => $hasExplicitTitle
+                ? ($payload['title'] ?? $slug)
+                : ($existingCategory?->title ?? $slug),
             'language' => $language,
-            'type' => $payload['type'] ?? null,
+            'type' => $hasExplicitType
+                ? ($payload['type'] ?? null)
+                : $existingCategory?->type,
             'parent_id' => $parentId,
         ];
 

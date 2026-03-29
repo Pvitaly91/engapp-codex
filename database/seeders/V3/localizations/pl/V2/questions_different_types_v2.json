@@ -1,0 +1,402 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\Pl\\V2\\QuestionsDifferentTypesV2LocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\V2\\QuestionsDifferentTypesV3Seeder",
+        "definition": "questions_different_types_v2",
+        "definition_path": "V2/questions_different_types_v2.json"
+    },
+    "locale": "pl",
+    "hint_provider": "chatgpt",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "Wskazówka: kolejność słów w pytaniach wbudowanych.  \nPrzykład poprawnej odpowiedzi: *Tom wyszedł, ale nie wiem, gdzie poszedł.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "where he has gone": "✅ Poprawnie! „where he has gone” — to poprawna forma pytania.  \nPrzykład: *Tom wyszedł, ale nie wiem, gdzie poszedł.*",
+                    "where has he gone": "❌ W pytaniach pośrednich/wbudowanych używa się bezpośredniej kolejności słów (podmiot + czasownik), a nie inwersji.  \nPoprawna odpowiedź: „where he has gone”",
+                    "where gone he has": "❌ W pytaniach pośrednich/wbudowanych używa się bezpośredniej kolejności słów (podmiot + czasownik), a nie inwersji.  \nPoprawna odpowiedź: „where he has gone”"
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "Wskazówka: przyimek na końcu.  \nPrzykład poprawnej odpowiedzi: *Ta książka należy do kogoś. Do kogo należy?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "Who does it belong to?": "✅ Poprawnie! „Who does it belong to?” — to poprawna forma pytania.  \nPrzykład: *Ta książka należy do kogoś. Do kogo należy?*",
+                    "Who does it belong?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „Who does it belong to?”",
+                    "Who belongs it to?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „Who does it belong to?”"
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "Wskazówka: pytanie o podmiot.  \nPrzykład poprawnej odpowiedzi: *Ktoś mieszka w tym domu. Kto mieszka w tym domu?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "Who lives in that house?": "✅ Poprawnie! „Who lives in that house?” — to poprawna forma pytania.  \nPrzykład: *Ktoś mieszka w tym domu. Kto mieszka w tym domu?*",
+                    "Who live in that house?": "❌ Kiedy pytamy o podmiot, nie używamy czasownika pomocniczego do/does/did.  \nPoprawna odpowiedź: „Who lives in that house?”",
+                    "Who does lives in that house?": "❌ Kiedy pytamy o podmiot, nie używamy czasownika pomocniczego do/does/did.  \nPoprawna odpowiedź: „Who lives in that house?”"
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "Wskazówka: pomocniczy + podmiot + czasownik.  \nPrzykład poprawnej odpowiedzi: *To słowo coś znaczy. Co znaczy to słowo?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What does this word mean?": "✅ Poprawnie! „What does this word mean?” — to poprawna forma pytania.  \nPrzykład: *To słowo coś znaczy. Co znaczy to słowo?*",
+                    "What means this word?": "❌ Niepoprawna kolejność słów w pytaniu. Sprawdź strukturę zdania pytającego.  \nPoprawna odpowiedź: „What does this word mean?”",
+                    "What does mean this word?": "❌ Niepoprawna kolejność słów w pytaniu. Sprawdź strukturę zdania pytającego.  \nPoprawna odpowiedź: „What does this word mean?”"
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "Wskazówka: przyimek na końcu.  \nPrzykład poprawnej odpowiedzi: *Rozmawiali o czymś. O czym rozmawiali?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What were they talking about?": "✅ Poprawnie! „What were they talking about?” — to poprawna forma pytania.  \nPrzykład: *Rozmawiali o czymś. O czym rozmawiali?*",
+                    "About what they were talking?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What were they talking about?”",
+                    "What they were talking about?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What were they talking about?”"
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "Wskazówka: pytanie o podmiot.  \nPrzykład poprawnej odpowiedzi: *Coś spadło na podłogę. Co spadło na podłogę?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What fell on the floor?": "✅ Poprawnie! „What fell on the floor?” — to poprawna forma pytania.  \nPrzykład: *Coś spadło na podłogę. Co spadło na podłogę?*",
+                    "What did fall on the floor?": "❌ Kiedy pytamy o podmiot, nie używamy czasownika pomocniczego do/does/did.  \nPoprawna odpowiedź: „What fell on the floor?”",
+                    "What did fell on the floor?": "❌ Kiedy pytamy o podmiot, nie używamy czasownika pomocniczego do/does/did.  \nPoprawna odpowiedź: „What fell on the floor?”"
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "Wskazówka: pytanie wbudowane.  \nPrzykład poprawnej odpowiedzi: *Biblioteka jest blisko. Czy wiesz, gdzie jest biblioteka?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "where the library is?": "✅ Poprawnie! „where the library is?” — to poprawna forma pytania.  \nPrzykład: *Biblioteka jest blisko. Czy wiesz, gdzie jest biblioteka?*",
+                    "where is the library?": "❌ W pytaniach pośrednich/wbudowanych stosuje się prosty szyk zdania (podmiot + czasownik), a nie inwersyjny.  \nPoprawna odpowiedź: „where the library is?”",
+                    "where is near the library?": "❌ W pytaniach pośrednich/wbudowanych stosuje się prosty szyk zdania (podmiot + czasownik), a nie inwersyjny.  \nPoprawna odpowiedź: „where the library is?”"
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "Podpowiedź: embedded question.  \nPrzykład poprawnej odpowiedzi: *She borrowed the money from somebody. I wonder who she borrowed the money from.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "who she borrowed the money from": "✅ Dobrze! „who she borrowed the money from” — to poprawna forma pytania.  \nPrzykład: *She borrowed the money from somebody. I wonder who she borrowed the money from.*",
+                    "who did she borrow the money from": "❌ W pytaniach pośrednich/wbudowanych stosuje się prosty szyk zdania (podmiot + czasownik), a nie inwersyjny.  \nPoprawna odpowiedź: „who she borrowed the money from”",
+                    "from who did she borrow the money": "❌ W pytaniach pośrednich/wbudowanych stosuje się prosty szyk zdania (podmiot + czasownik), a nie inwersyjny.  \nPoprawna odpowiedź: „who she borrowed the money from”"
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "Podpowiedź: modal question.  \nPrzykład poprawnej odpowiedzi: *She can't understand something. What can she not understand?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What can she not understand?": "✅ Dobrze! „What can she not understand?” — to poprawna forma pytania.  \nPrzykład: *She can't understand something. What can she not understand?*",
+                    "What she can't understand?": "❌ W prostych pytaniach Wh potrzebny jest poprawny szyk zdania: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What can she not understand?”",
+                    "What does she understand?": "❌ W prostych pytaniach Wh potrzebny jest poprawny szyk zdania: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What can she not understand?”"
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "Podpowiedź: negative question.  \nPrzykład poprawnej odpowiedzi: *He didn't come to the party for some reason. Why didn't he come to the party?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "Why didn't he come to the party?": "✅ Dobrze! „Why didn't he come to the party?” — to poprawna forma pytania.  \nPrzykład: *He didn't come to the party for some reason. Why didn't he come to the party?*",
+                    "Why he didn't come to the party?": "❌ Niepoprawny szyk zdania w pytaniu. Sprawdź strukturę zdania pytającego.  \nPoprawna odpowiedź: „Why didn't he come to the party?”",
+                    "Why did not he come to the party?": "❌ Niepoprawny szyk zdania w pytaniu. Sprawdź strukturę zdania pytającego.  \nPoprawna odpowiedź: „Why didn't he come to the party?”"
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "Podpowiedź: embedded question.  \nPrzykład poprawnej odpowiedzi: *I don't know why the meeting was cancelled.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "the meeting was cancelled": "✅ Dobrze! „the meeting was cancelled” — to poprawna forma pytania.  \nPrzykład: *I don't know why the meeting was cancelled.*",
+                    "was the meeting cancelled": "❌ W pytaniach pośrednich/wbudowanych stosuje się prosty szyk zdania (podmiot + czasownik), a nie inwersyjny.  \nPoprawna odpowiedź: „the meeting was cancelled”",
+                    "cancelled was the meeting": "❌ W pytaniach pośrednich/wbudowanych stosuje się prosty szyk zdania (podmiot + czasownik), a nie inwersyjny.  \nPoprawna odpowiedź: „the meeting was cancelled”"
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "Podpowiedź: subject question.  \nPrzykład poprawnej odpowiedzi: *Who told you that?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "told you that": "✅ Dobrze! „told you that” — to poprawna forma pytania.  \nPrzykład: *Who told you that?*",
+                    "did tell you that": "❌ Kiedy pytamy o podmiot, nie używamy czasownika pomocniczego do/does/did.  \nPoprawna odpowiedź: „told you that”",
+                    "you told that": "❌ Kiedy pytamy o podmiot, nie używamy czasownika pomocniczego do/does/did.  \nPoprawna odpowiedź: „told you that”"
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "Podpowiedź: negative question.  \nPrzykład poprawnej odpowiedzi: *Why has she not replied to your email / hasn't she replied to your email? (Choose TWO correct варіанти.)*"
+            ],
+            "explanations": {
+                "a1": {
+                    "has she not replied to your email": "✅ Dobrze! „has she not replied to your email” — to poprawna forma pytania.  \nPrzykład: *Why has she not replied to your email / hasn't she replied to your email? (Choose TWO correct варіанти.)*",
+                    "has not she replied to your email": "❌ Niepoprawny szyk zdania w pytaniu. Sprawdź strukturę zdania pytającego.  \nPoprawna odpowiedź: „has she not replied to your email” lub „hasn't she replied to your email”",
+                    "hasn't she replied to your email": "✅ Dobrze! „hasn't she replied to your email” — to poprawna forma pytania.  \nPrzykład: *Why has she not replied to your email / hasn't she replied to your email? (Choose TWO correct варіанти.)*"
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "Podpowiedź: embedded question.  \nPrzykład poprawnej odpowiedzi: *I'm wondering which countries he has visited.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "he has visited": "✅ Dobrze! „he has visited” — to poprawna forma pytania.  \nPrzykład: *I'm wondering which countries he has visited.*",
+                    "has he visited": "❌ W pytaniach pośrednich/wbudowanych stosuje się prosty szyk zdania (podmiot + czasownik), a nie inwersyjny.  \nPoprawna odpowiedź: „he has visited”",
+                    "has he been": "❌ W pytaniach pośrednich/wbudowanych stosuje się prosty szyk zdania (podmiot + czasownik), a nie inwersyjny.  \nPoprawna odpowiedź: „he has visited”"
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "Podpowiedź: subject question.  \nPrzykład poprawnej odpowiedzi: *When we arrived, someone had taken the tickets. Who had taken the tickets?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "had taken the tickets": "✅ Dobrze! „had taken the tickets” — to poprawna forma pytania.  \nPrzykład: *When we arrived, someone had taken the tickets. Who had taken the tickets?*",
+                    "had he taken the tickets": "❌ Kiedy pytamy o podmiot, nie używamy czasownika pomocniczego do/does/did.  \nPoprawna odpowiedź: „had taken the tickets”",
+                    "taken the tickets": "❌ Kiedy pytamy o podmiot, nie używamy czasownika pomocniczego do/does/did.  \nPoprawna odpowiedź: „had taken the tickets”"
+                }
+            }
+        },
+        {
+            "id": 16,
+            "hints": [
+                "Podpowiedź: przyimek na końcu.  \nPrzykład poprawnej odpowiedzi: *What are you waiting for?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "are you waiting for": "✅ Dobrze! „are you waiting for” — to poprawna forma pytania.  \nPrzykład: *What are you waiting for?*",
+                    "are you waiting": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „are you waiting for”",
+                    "you are waiting for": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „are you waiting for”"
+                }
+            }
+        },
+        {
+            "id": 17,
+            "hints": [
+                "Podpowiedź: pytanie wbudowane.  \nPrzykład poprawnej odpowiedzi: *Do you know whether he will come or not?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "whether he will come or not": "✅ Dobrze! „whether he will come or not” — to poprawna forma pytania.  \nPrzykład: *Do you know whether he will come or not?*",
+                    "if will he come or not": "❌ W pytaniach pośrednich/wbudowanych używa się bezpośredniej kolejności słów (podmiot + czasownik), a nie odwróconej.  \nPoprawna odpowiedź: „whether he will come or not”",
+                    "whether will he come or not": "❌ W pytaniach pośrednich/wbudowanych używa się bezpośredniej kolejności słów (podmiot + czasownik), a nie odwróconej.  \nPoprawna odpowiedź: „whether he will come or not”"
+                }
+            }
+        },
+        {
+            "id": 18,
+            "hints": [
+                "Podpowiedź: pytanie negatywne.  \nPrzykład poprawnej odpowiedzi: *You shouldn't be playing video games now. Don't you have homework to do?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "Don't you have homework to do": "✅ Dobrze! „Don't you have homework to do” — to poprawna forma pytania.  \nPrzykład: *You shouldn't be playing video games now. Don't you have homework to do?*",
+                    "You don't have homework to do": "❌ Niepoprawna kolejność słów w pytaniu. Sprawdź strukturę pytania.  \nPoprawna odpowiedź: „Don't you have homework to do”",
+                    "Do you haven't homework to do": "❌ Niepoprawna kolejność słów w pytaniu. Sprawdź strukturę pytania.  \nPoprawna odpowiedź: „Don't you have homework to do”"
+                }
+            }
+        },
+        {
+            "id": 19,
+            "hints": [
+                "Podpowiedź: przyimek na końcu.  \nPrzykład poprawnej odpowiedzi: *Who did you vote for in the last election?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "did you vote for": "✅ Dobrze! „did you vote for” — to poprawna forma pytania.  \nPrzykład: *Who did you vote for in the last election?*",
+                    "did you vote": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „did you vote for”",
+                    "voted you": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „did you vote for”"
+                }
+            }
+        },
+        {
+            "id": 20,
+            "hints": [
+                "Podpowiedź: ile + rzeczownik w liczbie mnogiej.  \nPrzykład poprawnej odpowiedzi: *Sentence: \"He has visited fifty countries.\" (underlined: fifty countries)  \nAsk a question about the underlined words.: How many countries has he visited?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "How many countries has he visited?": "✅ Dobrze! „How many countries has he visited?” — to poprawna forma pytania.  \nPrzykład: *Sentence: \"He has visited fifty countries.\" (underlined: fifty countries)  \nAsk a question about the underlined words.: How many countries has he visited?*",
+                    "How many countries he has visited?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „How many countries has he visited?”",
+                    "How many has he visited countries?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „How many countries has he visited?”",
+                    "How much countries has he visited?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „How many countries has he visited?”"
+                }
+            }
+        },
+        {
+            "id": 21,
+            "hints": [
+                "Podpowiedź: pytanie o ilość.  \nPrzykład poprawnej odpowiedzi: *Sentence: \"Two thousand people protested against the new law.\" (underlined: Two thousand people)  \nAsk a question about the underlined words.: How many people protested against the new law?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "How many people protested against the new law?": "✅ Dobrze! „How many people protested against the new law?” — to poprawna forma pytania.  \nPrzykład: *Sentence: \"Two thousand people protested against the new law.\" (underlined: Two thousand people)  \nAsk a question about the underlined words.: How many people protested against the new law?*",
+                    "How many people did protest against the new law?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „How many people protested against the new law?”",
+                    "How much people protested against the new law?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „How many people protested against the new law?”",
+                    "Who protested against the new law?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „How many people protested against the new law?”"
+                }
+            }
+        },
+        {
+            "id": 22,
+            "hints": [
+                "Podpowiedź: pytanie o obiekt.  \nPrzykład poprawnej odpowiedzi: *Sentence: \"They weren't able to finish the final report.\" (underlined: the final report)  \nAsk a question about the underlined words.: What couldn't they finish?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What couldn't they finish?": "✅ Dobrze! „What couldn't they finish?” — to poprawna forma pytania.  \nPrzykład: *Zdanie: \"Nie byli w stanie dokończyć końcowego raportu.\" (podkreślone: końcowy raport)  \nZadaj pytanie o podkreślone słowa.: Co nie mogli dokończyć?*",
+                    "What they couldn't finish?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What couldn't they finish?”",
+                    "What could they not finish?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What couldn't they finish?”",
+                    "What weren't they able to finish?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What couldn't they finish?”"
+                }
+            }
+        },
+        {
+            "id": 23,
+            "hints": [
+                "Podpowiedź: pytanie o częstotliwość.  \nPrzykład poprawnej odpowiedzi: *Zdanie: \"On publikuje na swoim blogu codziennie.\" (podkreślone: codziennie)  \nZadaj pytanie o podkreślone słowa.: Jak często publikuje na swoim blogu?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "How often has he been posting on his blog?": "✅ Dobrze! „How often has he been posting on his blog?” — to poprawna forma pytania.  \nPrzykład: *Zdanie: \"On publikuje na swoim blogu codziennie.\" (podkreślone: codziennie)  \nZadaj pytanie o podkreślone słowa.: Jak często publikuje na swoim blogu?*",
+                    "How often he has been posting on his blog?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „How often has he been posting on his blog?”",
+                    "When has he been posting on his blog?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „How often has he been posting on his blog?”",
+                    "How many times has he been posting on his blog?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „How often has he been posting on his blog?”"
+                }
+            }
+        },
+        {
+            "id": 24,
+            "hints": [
+                "Podpowiedź: przyimek na końcu.  \nPrzykład poprawnej odpowiedzi: *Zdanie: \"Słuchali swojego nauczyciela.\" (podkreślone: swojego nauczyciela)  \nZadaj pytanie o podkreślone słowa.: Kogo słuchali?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "Who have they been listening to?": "✅ Dobrze! „Who have they been listening to?” — to poprawna forma pytania.  \nPrzykład: *Zdanie: \"Słuchali swojego nauczyciela.\" (podkreślone: swojego nauczyciela)  \nZadaj pytanie o podkreślone słowa.: Kogo słuchali?*",
+                    "To who have they been listening?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „Who have they been listening to?”",
+                    "Who they have been listening to?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „Who have they been listening to?”",
+                    "Whom have they been listening?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „Who have they been listening to?”"
+                }
+            }
+        },
+        {
+            "id": 25,
+            "hints": [
+                "Podpowiedź: pytanie o czas trwania.  \nPrzykład poprawnej odpowiedzi: *Zdanie: \"Dotarcie do Rzymu zajęło im dwie godziny.\" (podkreślone: dwie godziny)  \nZadaj pytanie o podkreślone słowa.: Jak długo zajęło im dotarcie do Rzymu?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "How long did it take them to get to Rome?": "✅ Dobrze! „How long did it take them to get to Rome?” — to poprawna forma pytania.  \nPrzykład: *Zdanie: \"Dotarcie do Rzymu zajęło im dwie godziny.\" (podkreślone: dwie godziny)  \nZadaj pytanie o podkreślone słowa.: Jak długo zajęło im dotarcie do Rzymu?*",
+                    "How long it took them to get to Rome?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „How long did it take them to get to Rome?”",
+                    "How much time did it take them to get to Rome?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „How long did it take them to get to Rome?”",
+                    "When did it take them to get to Rome?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „How long did it take them to get to Rome?”"
+                }
+            }
+        },
+        {
+            "id": 26,
+            "hints": [
+                "Podpowiedź: przyimek na końcu.  \nPrzykład poprawnej odpowiedzi: *Zdanie: \"Szukam nowej sukienki.\" (podkreślone: nowej sukienki)  \nZadaj pytanie o podkreślone słowa.: Czego szukasz?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What are you looking for?": "✅ Dobrze! „What are you looking for?” — to poprawna forma pytania.  \nPrzykład: *Zdanie: \"Szukam nowej sukienki.\" (podkreślone: nowej sukienki)  \nZadaj pytanie o podkreślone słowa.: Czego szukasz?*",
+                    "What you are looking for?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What are you looking for?”",
+                    "For what are you looking?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What are you looking for?”",
+                    "What do you looking for?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What are you looking for?”"
+                }
+            }
+        },
+        {
+            "id": 27,
+            "hints": [
+                "Podpowiedź: pytanie o obiekt.  \nPrzykład poprawnej odpowiedzi: *Zdanie: \"On nigdy nie odrabia pracy domowej.\" (podkreślone: pracy domowej)  \nZadaj pytanie o podkreślone słowa.: Co on nigdy nie robi?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "What does he never do?": "✅ Dobrze! „What does he never do?” — to poprawna forma pytania.  \nPrzykład: *Zdanie: \"On nigdy nie odrabia pracy domowej.\" (podkreślone: pracy domowej)  \nZadaj pytanie o podkreślone słowa.: Co on nigdy nie robi?*",
+                    "What he never does?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What does he never do?”",
+                    "What doesn't he do?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What does he never do?”",
+                    "What he does never?": "❌ W bezpośrednich pytaniach Wh potrzebna jest poprawna kolejność słów: słowo pytające + czasownik pomocniczy + podmiot + czasownik główny.  \nPoprawna odpowiedź: „What does he never do?”"
+                }
+            }
+        },
+        {
+            "id": 28,
+            "hints": [
+                "Podpowiedź: embedded question.  \nPrzykład poprawnej odpowiedzi: *Sentence: \"She is thinking about the new neighbour.\" (underlined: about the new neighbour)  \nAsk a question as an embedded question.: I'd like to know what she is thinking about.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "I'd like to know what she is thinking about.": "✅ Dobrze! «I'd like to know what she is thinking about.» — to poprawna forma pytania.  \nPrzykład: *Sentence: \"She is thinking about the new neighbour.\" (underlined: about the new neighbour)  \nAsk a question as an embedded question.: I'd like to know what she is thinking about.*",
+                    "I'd like to know what is she thinking about.": "❌ W pytaniach pośrednich/wbudowanych używa się prostego szyku zdania (podmiot + czasownik), a nie inwersji.  \nPoprawna odpowiedź: «I'd like to know what she is thinking about.»",
+                    "I'd like to know about what she is thinking.": "❌ W pytaniach pośrednich/wbudowanych używa się prostego szyku zdania (podmiot + czasownik), a nie inwersji.  \nPoprawna odpowiedź: «I'd like to know what she is thinking about.»",
+                    "I'd like to know she is thinking about what.": "❌ W pytaniach pośrednich/wbudowanych używa się prostego szyku zdania (podmiot + czasownik), a nie inwersji.  \nPoprawna odpowiedź: «I'd like to know what she is thinking about.»"
+                }
+            }
+        },
+        {
+            "id": 29,
+            "hints": [
+                "Podpowiedź: embedded question.  \nPrzykład poprawnej odpowiedzi: *Sentence: \"That thing on the chair is my new bag.\" (underlined: That thing on the chair)  \nAsk a question as an embedded question.: Can you tell me what that thing is?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "Can you tell me what that thing is?": "✅ Dobrze! «Can you tell me what that thing is?» — to poprawna forma pytania.  \nPrzykład: *Sentence: \"That thing on the chair is my new bag.\" (underlined: That thing on the chair)  \nAsk a question as an embedded question.: Can you tell me what that thing is?*",
+                    "Can you tell me what is that thing?": "❌ W pytaniach pośrednich/wbudowanych używa się prostego szyku zdania (podmiot + czasownik), a nie inwersji.  \nPoprawna odpowiedź: «Can you tell me what that thing is?»",
+                    "Can you tell me that thing is what?": "❌ W pytaniach pośrednich/wbudowanych używa się prostego szyku zdania (podmiot + czasownik), a nie inwersji.  \nPoprawna odpowiedź: «Can you tell me what that thing is?»",
+                    "Can you tell me what that thing on the chair is?": "❌ W pytaniach pośrednich/wbudowanych używa się prostego szyku zdania (podmiot + czasownik), a nie inwersji.  \nPoprawna odpowiedź: «Can you tell me what that thing is?»"
+                }
+            }
+        }
+    ]
+}

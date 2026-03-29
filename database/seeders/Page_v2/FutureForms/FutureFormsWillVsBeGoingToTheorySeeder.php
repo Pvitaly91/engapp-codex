@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Page_v2\FutureForms;
 
-use Database\Seeders\Pages\FutureForms\FutureFormsPageSeeder;
+use Database\Seeders\Page_v2\FutureForms\FutureFormsPageSeeder;
 
 class FutureFormsWillVsBeGoingToTheorySeeder extends FutureFormsPageSeeder
 {

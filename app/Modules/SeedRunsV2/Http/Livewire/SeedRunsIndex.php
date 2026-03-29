@@ -71,11 +71,40 @@ class SeedRunsIndex extends Component
         }
     }
 
+    public function runFolder(string $folderPath): void
+    {
+        $classNames = $this->resolvePendingFolderClassNames($folderPath);
+
+        if ($classNames === []) {
+            $this->statusMessage = __('Не знайдено сидерів для вибраної папки.');
+            $this->statusType = 'error';
+
+            return;
+        }
+
+        $result = $this->seedRunsService->runSeedersInFolder($classNames, $folderPath);
+
+        $this->statusMessage = $result['message'];
+        $this->statusType = $result['success'] ? 'success' : 'error';
+
+        if ($result['success']) {
+            $this->refreshOverview();
+        }
+    }
+
     public function confirmRunSeeder(string $className, string $displayName): void
     {
         $this->confirmAction = 'runSeeder';
         $this->confirmMessage = __('Виконати сидер «:name»?', ['name' => $displayName]);
         $this->confirmData = $className;
+        $this->showConfirmModal = true;
+    }
+
+    public function confirmRunFolder(string $folderPath, string $folderLabel): void
+    {
+        $this->confirmAction = 'runFolder';
+        $this->confirmMessage = __('Виконати всі сидери в папці «:name»?', ['name' => $folderLabel]);
+        $this->confirmData = ['path' => $folderPath];
         $this->showConfirmModal = true;
     }
 
@@ -213,6 +242,7 @@ class SeedRunsIndex extends Component
         // Execute the action after modal is closed
         match ($action) {
             'runSeeder' => $this->runSeeder($data),
+            'runFolder' => $this->runFolder($data['path'] ?? ''),
             'runMissingSeeders' => $this->runMissingSeeders(),
             'markAsExecuted' => $this->markAsExecuted($data),
             'deleteSeedRun' => $this->deleteSeedRun($data),
@@ -313,6 +343,36 @@ class SeedRunsIndex extends Component
     public function clearStatus(): void
     {
         $this->statusMessage = '';
+    }
+
+    protected function resolvePendingFolderClassNames(string $folderPath): array
+    {
+        $node = $this->findPendingFolderNodeByPath($this->pendingSeederHierarchy, $folderPath);
+
+        return is_array($node['class_names'] ?? null)
+            ? array_values(array_filter(array_map('strval', $node['class_names'])))
+            : [];
+    }
+
+    protected function findPendingFolderNodeByPath(array $nodes, string $folderPath): ?array
+    {
+        foreach ($nodes as $node) {
+            if (($node['type'] ?? null) !== 'folder') {
+                continue;
+            }
+
+            if (($node['path'] ?? '') === $folderPath) {
+                return $node;
+            }
+
+            $nested = $this->findPendingFolderNodeByPath($node['children'] ?? [], $folderPath);
+
+            if ($nested !== null) {
+                return $nested;
+            }
+        }
+
+        return null;
     }
 
     public function render()

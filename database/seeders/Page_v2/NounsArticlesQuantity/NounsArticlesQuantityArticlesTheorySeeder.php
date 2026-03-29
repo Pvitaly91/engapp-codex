@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Page_v2\NounsArticlesQuantity;
 
-use Database\Seeders\Pages\NounsArticlesQuantity\NounsArticlesQuantityPageSeeder;
+use Database\Seeders\Page_v2\NounsArticlesQuantity\NounsArticlesQuantityPageSeeder;
 
 class NounsArticlesQuantityArticlesTheorySeeder extends NounsArticlesQuantityPageSeeder
 {

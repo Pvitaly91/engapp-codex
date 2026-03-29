@@ -8,10 +8,11 @@ use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Models\TextBlock;
 use App\Services\QuestionDeletionService;
+use App\Support\Database\JsonPageSeeder;
 use App\Support\Database\JsonPageLocalizationManager;
 use App\Support\Database\JsonTestLocalizationManager;
-use Database\Seeders\Pages\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
-use Database\Seeders\Pages\Concerns\PageCategoryDescriptionSeeder as PageCategoryDescriptionSeederBase;
+use Database\Seeders\Page_v2\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
+use Database\Seeders\Page_v2\Concerns\PageCategoryDescriptionSeeder as PageCategoryDescriptionSeederBase;
 use Database\Seeders\QuestionSeeder as QuestionSeederBase;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -972,7 +973,20 @@ class SeedRunController extends Controller
             return null;
         }
 
-        if (is_subclass_of($className, PageCategoryDescriptionSeederBase::class)) {
+        if (is_subclass_of($className, JsonPageSeeder::class)) {
+            $definition = $this->loadJsonSeederDefinition($className);
+            $contentType = Str::lower(trim((string) ($definition['content_type'] ?? '')));
+
+            if ($definition && ($contentType === 'category' || (is_array($definition['category'] ?? null) && ! is_array($definition['page'] ?? null)))) {
+                $slug = trim((string) ($definition['slug'] ?? data_get($definition, 'category.slug', '')));
+
+                return $slug !== '' ? $slug : null;
+            }
+
+            return null;
+        }
+
+        if (is_subclass_of($className, PageCategoryDescriptionSeederBase::class) || Str::contains(class_basename($className), 'Category')) {
             $slug = $this->invokeSeederMethod($className, 'previewCategorySlug');
 
             return is_string($slug) && $slug !== '' ? $slug : null;
@@ -1841,6 +1855,72 @@ class SeedRunController extends Controller
             ->with('status', $message);
     }
 
+    public function runFolder(Request $request): RedirectResponse|JsonResponse
+    {
+        $validated = $request->validate([
+            'class_names' => ['required', 'array', 'min:1'],
+            'class_names.*' => ['string'],
+            'folder_label' => ['nullable', 'string'],
+        ]);
+
+        $classNames = collect($validated['class_names'] ?? [])
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($classNames->isEmpty()) {
+            $message = __('No seeders were selected.');
+
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $message], 422);
+            }
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => $message]);
+        }
+
+        $folderLabel = $this->resolveFolderLabel($validated['folder_label'] ?? null);
+        $result = $this->executeSeedersInOrder($classNames);
+
+        $successMessage = $result['ran']->isNotEmpty()
+            ? __('Executed :count seeder(s) from folder :folder.', [
+                'count' => $result['ran']->count(),
+                'folder' => $folderLabel,
+            ])
+            : __('No seeders were executed from folder :folder.', ['folder' => $folderLabel]);
+
+        if ($request->wantsJson()) {
+            $overview = $this->assembleSeedRunOverview();
+
+            return response()->json([
+                'message' => $successMessage,
+                'errors' => $result['errors']->all(),
+                'folder_label' => $folderLabel,
+                'executed_count' => $result['ran']->count(),
+                'executed_classes' => $result['ran']->all(),
+                'ordered_classes' => $result['ordered']->all(),
+                'overview' => [
+                    'pending_count' => $overview['pendingSeeders']->count(),
+                    'executed_count' => $overview['executedSeeders']->count(),
+                ],
+            ], $result['ran']->isNotEmpty() ? 200 : 422);
+        }
+
+        $redirect = redirect()->route('seed-runs.index');
+
+        if ($result['ran']->isNotEmpty()) {
+            $redirect = $redirect->with('status', $successMessage);
+        }
+
+        if ($result['errors']->isNotEmpty()) {
+            $redirect = $redirect->withErrors(['run' => $result['errors']->implode(' ')]);
+        }
+
+        return $redirect;
+    }
+
     public function destroySeederFile(Request $request): RedirectResponse|JsonResponse
     {
         $validated = $request->validate([
@@ -2299,48 +2379,9 @@ class SeedRunController extends Controller
         $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
             ->reject(fn (string $class) => in_array($class, $executedClasses, true))
             ->values();
-        $orderedPendingSeeders = $pendingSeeders
-            ->reject(fn (string $class) => $this->isVirtualLocalizationSeeder($class))
-            ->values()
-            ->merge(
-                $pendingSeeders
-                    ->filter(fn (string $class) => $this->isVirtualLocalizationSeeder($class))
-                    ->values()
-            );
-
-        $ran = collect();
-        $errors = collect();
-
-        foreach ($orderedPendingSeeders as $className) {
-            if (! $this->ensureSeederClassIsLoaded($className)) {
-                $errors->push(__('Seeder :class is not autoloadable.', ['class' => $className]));
-                continue;
-            }
-
-            try {
-                if ($this->isVirtualLocalizationSeeder($className)) {
-                    $this->applyVirtualLocalizationSeeder($className);
-                    DB::table('seed_runs')->updateOrInsert(
-                        ['class_name' => $className],
-                        ['ran_at' => now()]
-                    );
-                } else {
-                    $filePath = $this->resolveSeederFilePath($className);
-
-                    if (! $this->isInstantiableSeeder($className, $filePath)) {
-                        $errors->push(__('Seeder :class cannot be executed.', ['class' => $className]));
-                        continue;
-                    }
-
-                    Artisan::call('db:seed', ['--class' => $className]);
-                }
-
-                $ran->push($className);
-            } catch (\Throwable $exception) {
-                report($exception);
-                $errors->push($exception->getMessage());
-            }
-        }
+        $result = $this->executeSeedersInOrder($pendingSeeders);
+        $ran = $result['ran'];
+        $errors = $result['errors'];
 
         $successMessage = null;
         if ($ran->isNotEmpty()) {
@@ -2375,6 +2416,310 @@ class SeedRunController extends Controller
         }
 
         return $redirect;
+    }
+
+    protected function executeSeedersInOrder(Collection $classNames): array
+    {
+        $orderedClassNames = $this->orderSeedersForExecution($classNames);
+        $ran = collect();
+        $errors = collect();
+
+        foreach ($orderedClassNames as $className) {
+            if (! $this->ensureSeederClassIsLoaded($className)) {
+                $errors->push(__('Seeder :class is not autoloadable.', ['class' => $className]));
+                continue;
+            }
+
+            try {
+                if ($this->isVirtualLocalizationSeeder($className)) {
+                    $this->applyVirtualLocalizationSeeder($className);
+                    DB::table('seed_runs')->updateOrInsert(
+                        ['class_name' => $className],
+                        ['ran_at' => now()]
+                    );
+                } else {
+                    $filePath = $this->resolveSeederFilePath($className);
+
+                    if (! $this->isInstantiableSeeder($className, $filePath)) {
+                        $errors->push(__('Seeder :class cannot be executed.', ['class' => $className]));
+                        continue;
+                    }
+
+                    Artisan::call('db:seed', ['--class' => $className]);
+                }
+
+                $ran->push($className);
+            } catch (\Throwable $exception) {
+                report($exception);
+                $errors->push($exception->getMessage());
+            }
+        }
+
+        return [
+            'ordered' => $orderedClassNames,
+            'ran' => $ran,
+            'errors' => $errors,
+        ];
+    }
+
+    protected function orderSeedersForExecution(Collection $classNames): Collection
+    {
+        $normalized = $classNames
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($normalized->isEmpty()) {
+            return collect();
+        }
+
+        $metadataByClass = $normalized->mapWithKeys(fn (string $className) => [
+            $className => $this->buildSeederExecutionMetadata($className),
+        ]);
+
+        $categoryProviders = $metadataByClass
+            ->filter(fn (array $metadata) => filled($metadata['provided_category_slug'] ?? null))
+            ->mapWithKeys(fn (array $metadata, string $className) => [
+                (string) $metadata['provided_category_slug'] => $className,
+            ]);
+
+        $dependencies = [];
+        $dependents = [];
+        $inDegree = [];
+
+        foreach ($normalized as $className) {
+            $metadata = $metadataByClass->get($className, []);
+            $dependentClasses = collect();
+
+            $parentSlug = trim((string) ($metadata['parent_category_slug'] ?? ''));
+            if ($parentSlug !== '' && $categoryProviders->has($parentSlug)) {
+                $dependentClasses->push($categoryProviders->get($parentSlug));
+            }
+
+            $targetSlug = trim((string) ($metadata['target_category_slug'] ?? ''));
+            if ($targetSlug !== '' && $categoryProviders->has($targetSlug)) {
+                $dependentClasses->push($categoryProviders->get($targetSlug));
+            }
+
+            $resolvedDependencies = $dependentClasses
+                ->filter(fn ($dependency) => is_string($dependency) && $dependency !== '' && $dependency !== $className)
+                ->unique()
+                ->values()
+                ->all();
+
+            $dependencies[$className] = $resolvedDependencies;
+            $inDegree[$className] = count($resolvedDependencies);
+
+            foreach ($resolvedDependencies as $dependencyClass) {
+                $dependents[$dependencyClass] ??= [];
+                $dependents[$dependencyClass][] = $className;
+            }
+        }
+
+        $ready = $this->sortSeedersByExecutionPriority(
+            array_keys(array_filter($inDegree, fn (int $degree) => $degree === 0)),
+            $metadataByClass
+        );
+
+        $ordered = [];
+
+        while ($ready !== []) {
+            $currentClass = array_shift($ready);
+            $ordered[] = $currentClass;
+
+            foreach ($dependents[$currentClass] ?? [] as $dependentClass) {
+                $inDegree[$dependentClass]--;
+
+                if ($inDegree[$dependentClass] === 0) {
+                    $ready[] = $dependentClass;
+                }
+            }
+
+            $ready = $this->sortSeedersByExecutionPriority(array_values(array_unique($ready)), $metadataByClass);
+        }
+
+        $remaining = array_values(array_diff($normalized->all(), $ordered));
+
+        if ($remaining !== []) {
+            $ordered = array_merge(
+                $ordered,
+                $this->sortSeedersByExecutionPriority($remaining, $metadataByClass)
+            );
+        }
+
+        return collect($ordered)->values();
+    }
+
+    /**
+     * @param  array<int, string>  $classNames
+     * @param  Collection<string, array<string, mixed>>  $metadataByClass
+     * @return array<int, string>
+     */
+    protected function sortSeedersByExecutionPriority(array $classNames, Collection $metadataByClass): array
+    {
+        usort($classNames, function (string $leftClass, string $rightClass) use ($metadataByClass) {
+            $left = $metadataByClass->get($leftClass, []);
+            $right = $metadataByClass->get($rightClass, []);
+
+            $groupOrder = [
+                'category' => 0,
+                'page' => 1,
+                'other' => 2,
+                'localization' => 3,
+            ];
+
+            $leftGroup = $groupOrder[$left['group'] ?? 'other'] ?? 99;
+            $rightGroup = $groupOrder[$right['group'] ?? 'other'] ?? 99;
+
+            if ($leftGroup !== $rightGroup) {
+                return $leftGroup <=> $rightGroup;
+            }
+
+            $leftHasParent = filled($left['parent_category_slug'] ?? null) ? 1 : 0;
+            $rightHasParent = filled($right['parent_category_slug'] ?? null) ? 1 : 0;
+
+            if ($leftHasParent !== $rightHasParent) {
+                return $leftHasParent <=> $rightHasParent;
+            }
+
+            $leftDepth = (int) ($left['folder_depth'] ?? 0);
+            $rightDepth = (int) ($right['folder_depth'] ?? 0);
+
+            if ($leftDepth !== $rightDepth) {
+                return $leftDepth <=> $rightDepth;
+            }
+
+            return strcmp(
+                (string) ($left['sort_key'] ?? $leftClass),
+                (string) ($right['sort_key'] ?? $rightClass)
+            );
+        });
+
+        return $classNames;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function buildSeederExecutionMetadata(string $className): array
+    {
+        $displayName = $this->formatSeederClassName($className);
+        $segments = array_values(array_filter(explode('\\', $displayName), 'strlen'));
+
+        $metadata = [
+            'group' => 'other',
+            'folder_depth' => max(0, count($segments) - 1),
+            'sort_key' => Str::lower($displayName),
+            'provided_category_slug' => null,
+            'parent_category_slug' => null,
+            'target_category_slug' => null,
+        ];
+
+        if ($this->isVirtualLocalizationSeeder($className)) {
+            $metadata['group'] = 'localization';
+
+            return $metadata;
+        }
+
+        if (! $this->ensureSeederClassIsLoaded($className)) {
+            return $metadata;
+        }
+
+        if (is_subclass_of($className, JsonPageSeeder::class)) {
+            return array_merge($metadata, $this->buildJsonSeederExecutionMetadata($className));
+        }
+
+        $categorySlug = $this->resolveCategorySlugForSeeder($className);
+
+        if (
+            is_subclass_of($className, PageCategoryDescriptionSeederBase::class)
+            || ($categorySlug !== null && Str::contains(class_basename($className), 'Category'))
+        ) {
+            $metadata['group'] = 'category';
+            $metadata['provided_category_slug'] = $categorySlug;
+
+            return $metadata;
+        }
+
+        if (is_subclass_of($className, GrammarPageSeederBase::class)) {
+            $metadata['group'] = 'page';
+            $metadata['target_category_slug'] = $this->resolveGrammarPageCategorySlug($className);
+
+            return $metadata;
+        }
+
+        return $metadata;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function buildJsonSeederExecutionMetadata(string $className): array
+    {
+        $definition = $this->loadJsonSeederDefinition($className);
+
+        if ($definition === null) {
+            return [];
+        }
+
+        $contentType = Str::lower(trim((string) ($definition['content_type'] ?? '')));
+
+        if ($contentType === '') {
+            $contentType = is_array($definition['page'] ?? null) ? 'page' : 'category';
+        }
+
+        if ($contentType === 'category') {
+            return [
+                'group' => 'category',
+                'provided_category_slug' => trim((string) ($definition['slug'] ?? data_get($definition, 'category.slug', ''))) ?: null,
+                'parent_category_slug' => trim((string) data_get($definition, 'category.parent_slug', '')) ?: null,
+                'target_category_slug' => null,
+            ];
+        }
+
+        return [
+            'group' => 'page',
+            'provided_category_slug' => null,
+            'parent_category_slug' => null,
+            'target_category_slug' => trim((string) data_get($definition, 'page.category.slug', '')) ?: null,
+        ];
+    }
+
+    protected function loadJsonSeederDefinition(string $className): ?array
+    {
+        $definitionPath = $this->invokeSeederMethod($className, 'definitionPath');
+
+        if (! is_string($definitionPath) || $definitionPath === '' || ! File::exists($definitionPath)) {
+            return null;
+        }
+
+        $decoded = json_decode((string) File::get($definitionPath), true);
+
+        return is_array($decoded) ? $decoded : null;
+    }
+
+    protected function resolveGrammarPageCategorySlug(string $className): ?string
+    {
+        $pageConfig = $this->invokeSeederMethod($className, 'page');
+
+        if (is_array($pageConfig)) {
+            $categorySlug = trim((string) data_get($pageConfig, 'category.slug', ''));
+
+            if ($categorySlug !== '') {
+                return $categorySlug;
+            }
+        }
+
+        $categoryConfig = $this->invokeSeederMethod($className, 'category');
+
+        if (! is_array($categoryConfig)) {
+            return null;
+        }
+
+        $categorySlug = trim((string) ($categoryConfig['slug'] ?? ''));
+
+        return $categorySlug !== '' ? $categorySlug : null;
     }
 
     public function destroy(Request $request, int $seedRunId): RedirectResponse|JsonResponse

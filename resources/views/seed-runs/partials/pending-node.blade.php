@@ -5,16 +5,36 @@
 
 @if(($node['type'] ?? null) === 'folder')
     <div class="space-y-2" style="margin-left: {{ $indent }}rem;" data-pending-folder data-folder-path="{{ $node['path'] }}" data-folder-name="{{ $node['name'] }}" data-seeder-count="{{ $node['seeder_count'] ?? 0 }}">
-        <button type="button"
-                class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition"
-                data-pending-folder-toggle
-                data-folder-path="{{ $node['path'] }}"
-                aria-expanded="true">
-            <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform" data-pending-folder-icon></i>
-            <i class="fa-solid fa-folder-tree text-slate-500"></i>
-            <span data-folder-name>{{ $node['name'] }}</span>
-            <span class="text-xs font-normal text-slate-500" data-folder-count>({{ $node['seeder_count'] ?? 0 }})</span>
-        </button>
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <button type="button"
+                    class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition text-left"
+                    data-pending-folder-toggle
+                    data-folder-path="{{ $node['path'] }}"
+                    aria-expanded="true">
+                <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform" data-pending-folder-icon></i>
+                <i class="fa-solid fa-folder-tree text-slate-500"></i>
+                <span data-folder-name>{{ $node['name'] }}</span>
+                <span class="text-xs font-normal text-slate-500" data-folder-count>({{ $node['seeder_count'] ?? 0 }})</span>
+            </button>
+
+            @if(!empty($node['class_names']))
+                <form method="POST"
+                      action="{{ route('seed-runs.folders.run') }}"
+                      data-preloader
+                      data-confirm="Виконати всі сидери в папці «{{ e($node['path'] ?? $node['name']) }}»?"
+                      class="flex w-full sm:w-auto">
+                    @csrf
+                    <input type="hidden" name="folder_label" value="{{ $node['path'] ?? $node['name'] }}">
+                    @foreach($node['class_names'] as $className)
+                        <input type="hidden" name="class_names[]" value="{{ $className }}">
+                    @endforeach
+                    <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition w-full sm:w-auto">
+                        <i class="fa-solid fa-play"></i>
+                        Виконати все
+                    </button>
+                </form>
+            @endif
+        </div>
 
         <div class="space-y-3" data-pending-folder-children data-depth="{{ $depth + 1 }}">
             @foreach($node['children'] as $child)

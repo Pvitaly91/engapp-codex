@@ -1,0 +1,243 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\Pl\\V2\\ConditionalsType1And2WorksheetV2LocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\V2\\ConditionalsType1And2WorksheetV3Seeder",
+        "definition": "conditionals_type1_and2_worksheet_v2",
+        "definition_path": "V2/conditionals_type1_and2_worksheet_v2.json"
+    },
+    "locale": "pl",
+    "hint_provider": "chatgpt",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **would + V1** (na przykład, «would spend»).\nWyjaśnienie: W wyniku drugiego warunkowego używamy would + podstawowe czasownik.\nPrzykład: *Gdyby John dał mi pieniądze, wydałbym je na ubrania.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "would spend": "✅ «would spend» — poprawna konstrukcja would + V1 dla wyniku drugiego warunkowego.\nPrzykład: *Gdyby John dał mi pieniądze, wydałbym je na ubrania.*",
+                    "will spend": "❌ «will spend» z will należy do pierwszego warunkowego, a tutaj potrzebne jest would.\nPrzykład: *Gdyby John dał mi pieniądze, wydałbym je na ubrania.*",
+                    "spend": "❌ «spend» — Present Simple; w drugim warunkowym wynik opisujemy przez would.\nPrzykład: *Gdyby John dał mi pieniądze, wydałbym je na ubrania.*",
+                    "spent": "❌ «spent» — Past Simple; potrzebne jest would + V1.\nPrzykład: *Gdyby John dał mi pieniądze, wydałbym je na ubrania.*"
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "Czas: First Conditional.\nFormuła: **if + Present Simple**.\nWyjaśnienie: Część warunkowa typu 1 opisuje realną możliwość, dlatego używamy Present Simple (na przykład, forma od «see» dla zaimka «she»).\nPrzykład: *Cathy będzie zła, jeśli zobaczy Michaela na imprezie.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "sees": "✅ «sees» — poprawna forma Present Simple w zdaniu podrzędnym dla zaimka «she».\nPrzykład: *Cathy będzie zła, jeśli zobaczy Michaela na imprezie.*",
+                    "will see": "❌ «will see» zawiera will, ale w if-klauza typu 1 nie używamy will.\nPrzykład: *Cathy będzie zła, jeśli zobaczy Michaela na imprezie.*",
+                    "saw": "❌ «saw» — Past Simple; dla realnego warunku potrzebny jest Present Simple.\nPrzykład: *Cathy będzie zła, jeśli zobaczy Michaela na imprezie.*",
+                    "would see": "❌ «would see» należy do drugiego warunkowego z would, a nie do pierwszego.\nPrzykład: *Cathy będzie zła, jeśli zobaczy Michaela na imprezie.*"
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Wyimaginowaną sytuację w drugim warunkowym przekazujemy Past Simple od czasownika «have».\nPrzykład: *Rosemary kupiłaby dom, gdyby miała pieniądze.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "had": "✅ «had» — poprawna forma Past Simple w zdaniu podrzędnym drugiego warunkowego dla zaimka «she».\nPrzykład: *Rosemary kupiłaby dom, gdyby miała pieniądze.*",
+                    "has": "❌ «has» — Present Simple, ale druga warunkowa wymaga Past Simple.\nPrzykład: *Rosemary kupiłaby dom, gdyby miała pieniądze.*",
+                    "would have": "❌ «would have» — wynik z would, a nie część z if.\nPrzykład: *Rosemary kupiłaby dom, gdyby miała pieniądze.*",
+                    "have had": "❌ «have had» — forma Third Conditional (had + V3). W drugim warunkowym nie jest używana.\nPrzykład: *Rosemary kupiłaby dom, gdyby miała pieniądze.*"
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "Czas: First Conditional.\nFormuła: **if + Present Simple**.\nWyjaśnienie: Część warunkowa typu 1 opisuje realną możliwość, dlatego używamy Present Simple (na przykład, forma od «not want» dla zaimka «I»).\nPrzykład: *Nie zadzwonię do niego, jeśli nie będę chciał.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "don't want": "✅ «don't want» — poprawna forma Present Simple w zdaniu podrzędnym dla zaimka «I».\nPrzykład: *Nie zadzwonię do niego, jeśli nie będę chciał.*",
+                    "won't want": "❌ «won't want» zawiera will, ale w if-klauza typu 1 nie używamy will.\nPrzykład: *Nie zadzwonię do niego, jeśli nie będę chciał.*",
+                    "didn't want": "❌ «didn't want» — Past Simple; dla realnego warunku potrzebny jest Present Simple.\nPrzykład: *Nie zadzwonię do niego, jeśli nie będę chciał.*",
+                    "wouldn't want": "❌ «wouldn't want» należy do drugiego warunkowego z would, a nie do pierwszego.\nPrzykład: *Nie zadzwonię do niego, jeśli nie będę chciał.*"
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "Czas: First Conditional z modalnym czasownikiem must.\nFormuła: **must not + V1** (na przykład, «must not show»).\nWyjaśnienie: Zakaz w wyniku typu 1 przekazujemy przez must not + podstawowe czasownik.\nPrzykład: *Jeśli masz mapę skarbu, nie możesz jej nam pokazać.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "must not show": "✅ «nie powinno pokazywać» — poprawna modalna forma must not + V1 dla wyniku pierwszego warunkowego.\nPrzykład: *If you have the treasure map, you must not show it to us.*",
+                    "will not show": "❌ «nie pokaże» zawiera will, ale tutaj potrzebny jest zakaz must not.\nPrzykład: *If you have the treasure map, you must not show it to us.*",
+                    "do not show": "❌ «nie pokazuj» — Present Simple bez modalnego czasownika must.\nPrzykład: *If you have the treasure map, you must not show it to us.*",
+                    "would not show": "❌ «nie pokazałby» należy do drugiego warunkowego z would. Tutaj używamy must not.\nPrzykład: *If you have the treasure map, you must not show it to us.*"
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "Czas: Drugi warunkowy.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Wyimaginowaną sytuację w drugim warunkowym przekazujemy Past Simple od czasownika „wygrać”.\nPrzykład: *If you won the lottery, what would you buy?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "won": "✅ «wygrał» — poprawna forma Past Simple w zdaniu podrzędnym drugiego warunkowego dla zaimka „ty”.\nPrzykład: *If you won the lottery, what would you buy?*",
+                    "win": "❌ «wygrywa» — Present Simple, ale drugi warunek wymaga Past Simple.\nPrzykład: *If you won the lottery, what would you buy?*",
+                    "will win": "❌ «wygra» zawiera will, co jest charakterystyczne dla pierwszego warunkowego. Tutaj potrzebny jest Past Simple.\nPrzykład: *If you won the lottery, what would you buy?*",
+                    "would win": "❌ «wygrałby» — wynik z would, a nie część z if.\nPrzykład: *If you won the lottery, what would you buy?*"
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "Czas: Drugi warunkowy.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Wyimaginowaną sytuację w drugim warunkowym przekazujemy Past Simple od czasownika „być”.\nPrzykład: *If I were you, I would do the same in your place.*\nCzas: Drugi warunkowy.\nFormuła: **would + V1** (na przykład, „would do”).\nWyjaśnienie: W wyniku drugiego warunkowego używamy would + podstawowego czasownika.\nPrzykład: *If I were you, I would do the same in your place.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "were": "✅ «był» — poprawna forma Past Simple w zdaniu podrzędnym drugiego warunkowego dla zaimka „ja”.\nPrzykład: *If I were you, I would do the same in your place.*",
+                    "was": "❌ «byłem» — forma was; w drugim warunkowym dla dowolnego podmiotu używamy were.\nPrzykład: *If I were you, I would do the same in your place.*",
+                    "am": "❌ «jestem» — Present Simple, ale drugi warunek wymaga Past Simple.\nPrzykład: *If I were you, I would do the same in your place.*",
+                    "would be": "❌ «byłby» — wynik z would, a nie część z if.\nPrzykład: *If I were you, I would do the same in your place.*"
+                },
+                "a2": {
+                    "would do": "✅ «would do» — poprawna konstrukcja would + V1 dla wyniku drugiego warunkowego.\nPrzykład: *If I were you, I would do the same in your place.*",
+                    "will do": "❌ «zrobi» z will należy do pierwszego warunkowego, a tutaj potrzebny jest would.\nPrzykład: *If I were you, I would do the same in your place.*",
+                    "did": "❌ «zrobił» — Past Simple; potrzebne would + V1.\nPrzykład: *If I were you, I would do the same in your place.*",
+                    "do": "❌ «robi» — Present Simple; w drugim warunkowym wynik opisujemy przez would.\nPrzykład: *If I were you, I would do the same in your place.*"
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "Czas: Drugi warunkowy.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Wyimaginowaną sytuację w drugim warunkowym przekazujemy Past Simple od czasownika „nie iść”.\nPrzykład: *If I didn't go to the cinema, I would be extremely sad.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "didn't go": "✅ «nie poszedłem» — poprawna forma Past Simple w zdaniu podrzędnym drugiego warunkowego dla zaimka „ja”.\nPrzykład: *If I didn't go to the cinema, I would be extremely sad.*",
+                    "don't go": "❌ «nie idź» — Present Simple, ale drugi warunek wymaga Past Simple.\nPrzykład: *If I didn't go to the cinema, I would be extremely sad.*",
+                    "won't go": "❌ «nie pójdę» zawiera will, co jest charakterystyczne dla pierwszego warunkowego. Tutaj potrzebny jest Past Simple.\nPrzykład: *If I didn't go to the cinema, I would be extremely sad.*",
+                    "hadn't gone": "❌ «nie poszedłem» — forma Third Conditional (had + V3). W drugim warunkowym nie jest używana.\nPrzykład: *If I didn't go to the cinema, I would be extremely sad.*"
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "Czas: Drugi tryb warunkowy.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Wyobrażoną sytuację w drugim trybie warunkowym przekazujemy Past Simple od czasownika „być”.\nPrzykład: *If I were too tired, I would ask her to go to the cinema with me.*\nCzas: Drugi tryb warunkowy.\nFormuła: **would + V1** (na przykład „would ask”).\nWyjaśnienie: W wyniku drugiego trybu warunkowego używamy would + podstawowy czasownik.\nPrzykład: *If I were too tired, I would ask her to go to the cinema with me.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "were": "✅ „were” — poprawna forma Past Simple w zdaniu podrzędnym drugiego trybu warunkowego dla zaimka „I”.\nPrzykład: *If I were too tired, I would ask her to go to the cinema with me.*",
+                    "was": "❌ „was” — forma was; w drugim trybie warunkowym dla dowolnego podmiotu używamy were.\nPrzykład: *If I were too tired, I would ask her to go to the cinema with me.*",
+                    "am": "❌ „am” — Present Simple, ale drugi tryb wymaga Past Simple.\nPrzykład: *If I were too tired, I would ask her to go to the cinema with me.*",
+                    "would be": "❌ „would be” — wynik z would, a nie część z if.\nPrzykład: *If I were too tired, I would ask her to go to the cinema with me.*"
+                },
+                "a2": {
+                    "would ask": "✅ „would ask” — poprawna konstrukcja would + V1 dla wyniku drugiego trybu warunkowego.\nPrzykład: *If I were too tired, I would ask her to go to the cinema with me.*",
+                    "will ask": "❌ „will ask” z will należy do pierwszego trybu warunkowego, a tutaj potrzebny jest would.\nPrzykład: *If I were too tired, I would ask her to go to the cinema with me.*",
+                    "ask": "❌ „ask” — Present Simple; w drugim trybie warunkowym wynik opisujemy przez would.\nPrzykład: *If I were too tired, I would ask her to go to the cinema with me.*",
+                    "asked": "❌ „asked” — Past Simple; potrzebne jest would + V1.\nPrzykład: *If I were too tired, I would ask her to go to the cinema with me.*"
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "Czas: Pierwszy tryb warunkowy.\nFormuła: **will + V1** (na przykład „will be”).\nWyjaśnienie: Wynik w typie 1 wyrażamy przez will + podstawowy czasownik.\nPrzykład: *If my train isn't late, I will be in school on time.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "will be": "✅ „will be” — poprawny model will + V1 dla wyniku pierwszego trybu warunkowego.\nPrzykład: *If my train isn't late, I will be in school on time.*",
+                    "would be": "❌ „would be” używa would, a to drugi tryb. W typie 1 potrzebny jest will.\nPrzykład: *If my train isn't late, I will be in school on time.*",
+                    "am": "❌ „am” — Present Simple; wynik musi zawierać will.\nPrzykład: *If my train isn't late, I will be in school on time.*",
+                    "was": "❌ „was” — Past Simple, a nam potrzebny jest will + podstawowy czasownik.\nPrzykład: *If my train isn't late, I will be in school on time.*"
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "Czas: Drugi tryb warunkowy.\nFormuła: **would not / wouldn't + V1**.\nWyjaśnienie: Zaprzeczenie w drugim trybie warunkowym budujemy przez wouldn't + podstawowy czasownik „not be”.\nPrzykład: *You wouldn't be so unfit if you took more exercise.*\nCzas: Drugi tryb warunkowy.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Wyobrażoną sytuację w drugim trybie warunkowym przekazujemy Past Simple od czasownika „take”.\nPrzykład: *You wouldn't be so unfit if you took more exercise.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "wouldn't be": "✅ „wouldn't be” — poprawne zaprzeczenie wouldn't + V1 w drugim trybie warunkowym.\nPrzykład: *You wouldn't be so unfit if you took more exercise.*",
+                    "won't be": "❌ „won't be” z won't odpowiada pierwszemu trybowi warunkowemu, a w drugim trzeba wouldn't.\nPrzykład: *You wouldn't be so unfit if you took more exercise.*",
+                    "aren't": "❌ „aren't” — Present Simple; wyobrażony wynik wymaga wouldn't + V1.\nPrzykład: *You wouldn't be so unfit if you took more exercise.*",
+                    "weren't": "❌ „weren't” — Past Simple; w drugim trybie warunkowym potrzebna forma wouldn't + V1.\nPrzykład: *You wouldn't be so unfit if you took more exercise.*"
+                },
+                "a2": {
+                    "took": "✅ „took” — poprawna forma Past Simple w zdaniu podrzędnym drugiego trybu warunkowego dla zaimka „you”.\nPrzykład: *You wouldn't be so unfit if you took more exercise.*",
+                    "take": "❌ „take” — Present Simple, ale drugi tryb wymaga Past Simple.\nPrzykład: *You wouldn't be so unfit if you took more exercise.*",
+                    "will take": "❌ «will take» zawiera will, co jest charakterystyczne dla pierwszego warunkowego. Tutaj potrzebny jest Past Simple.\nPrzykład: *You wouldn't be so unfit if you took more exercise.*",
+                    "taken": "❌ «taken» — forma Third Conditional (had + V3). W drugim warunkowym nie jest używana.\nPrzykład: *You wouldn't be so unfit if you took more exercise.*"
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "Czas: First Conditional.\nFormuła: **will not / won't + V1**.\nWyjaśnienie: Do negacji w głównym zdaniu typu 1 używamy won't + podstawowy czasownik „keep”.\nPrzykład: *If he doesn't work harder, he won't keep his job.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "won't keep": "✅ «won't keep» — poprawna negacja won't + V1 dla wyniku typu 1.\nPrzykład: *If he doesn't work harder, he won't keep his job.*",
+                    "wouldn't keep": "❌ «wouldn't keep» ma would, co jest charakterystyczne dla drugiego warunkowego. Tutaj potrzebne jest won't.\nPrzykład: *If he doesn't work harder, he won't keep his job.*",
+                    "keeps": "❌ «keeps» — Present Simple bez will; w pierwszym warunkowym wynik tworzymy przez won't.\nPrzykład: *If he doesn't work harder, he won't keep his job.*",
+                    "kept": "❌ «kept» — Past Simple; poprawna negacja — won't + V1.\nPrzykład: *If he doesn't work harder, he won't keep his job.*"
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "Czas: First Conditional.\nFormuła: **will + V1** (na przykład, „will help”).\nWyjaśnienie: Wynik w typie 1 wyrażamy przez will + podstawowy czasownik.\nPrzykład: *If he doesn't pass the exam, will you help him?*"
+            ],
+            "explanations": {
+                "a1": {
+                    "help": "✅ «help» — poprawny model will + V1 dla wyniku pierwszego warunkowego.\nPrzykład: *If he doesn't pass the exam, will you help him?*",
+                    "will help": "❌ «will help» powtarza will, chociaż pomocnicze słowo już jest w zdaniu. Zobacz przykład: *If he doesn't pass the exam, will you help him?*",
+                    "helped": "❌ «helped» — Past Simple, a potrzebujemy will + podstawowy czasownik.\nPrzykład: *If he doesn't pass the exam, will you help him?*",
+                    "would help": "❌ «would help» używa would, a to druga warunkowa. W typie 1 potrzebne jest will.\nPrzykład: *If he doesn't pass the exam, will you help him?*"
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Wyimaginowaną sytuację w drugim warunkowym przekazujemy Past Simple od czasownika „not lose”.\nPrzykład: *If he didn't lose his scholarship, his friends would visit him more often.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "didn't lose": "✅ «didn't lose» — poprawna forma Past Simple w zdaniu podrzędnym drugiego warunkowego dla zaimka „he”.\nPrzykład: *If he didn't lose his scholarship, his friends would visit him more often.*",
+                    "doesn't lose": "❌ «doesn't lose» — Present Simple, ale druga warunkowa wymaga Past Simple.\nPrzykład: *If he didn't lose his scholarship, his friends would visit him more often.*",
+                    "wouldn't lose": "❌ «wouldn't lose» — wynik z would, a nie część z if.\nPrzykład: *If he didn't lose his scholarship, his friends would visit him more often.*",
+                    "had not lost": "❌ «had not lost» — forma Third Conditional (had + V3). W drugim warunkowym nie jest używana.\nPrzykład: *If he didn't lose his scholarship, his friends would visit him more often.*"
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Wyimaginowaną sytuację w drugim warunkowym przekazujemy Past Simple od czasownika „not live”.\nPrzykład: *If he didn't live so far, his friends would visit him every weekend.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "didn't live": "✅ «didn't live» — poprawna forma Past Simple w zdaniu podrzędnym drugiego warunkowego dla zaimka „he”.\nPrzykład: *If he didn't live so far, his friends would visit him every weekend.*",
+                    "doesn't live": "❌ «doesn't live» — Present Simple, ale druga warunkowa wymaga Past Simple.\nPrzykład: *If he didn't live so far, his friends would visit him every weekend.*",
+                    "lived": "❌ Niepoprawna wersja.\nPrzykład: *If he didn't live so far, his friends would visit him every weekend.*",
+                    "wouldn't live": "❌ «wouldn't live» — wynik z would, a nie część z if.\nPrzykład: *If he didn't live so far, his friends would visit him every weekend.*"
+                }
+            }
+        }
+    ]
+}

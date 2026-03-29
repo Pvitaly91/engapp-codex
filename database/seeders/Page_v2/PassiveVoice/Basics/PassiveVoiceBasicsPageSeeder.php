@@ -2,15 +2,15 @@
 
 namespace Database\Seeders\Page_v2\PassiveVoice\Basics;
 
-use Database\Seeders\Pages\Concerns\GrammarPageSeeder;
+use Database\Seeders\Page_v2\Concerns\GrammarPageSeeder;
 
 abstract class PassiveVoiceBasicsPageSeeder extends GrammarPageSeeder
 {
     protected function category(): array
     {
         return [
-            'slug' => 'passive-voice-basics',
-            'title' => 'База — Основи пасивного стану',
+            'slug' => 'passive-voice',
+            'title' => 'Пасивний стан',
             'language' => 'uk',
         ];
     }

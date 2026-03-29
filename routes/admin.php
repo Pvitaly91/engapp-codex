@@ -258,10 +258,11 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::get('/seed-runs/file', [SeedRunController::class, 'showSeederFile'])->name('seed-runs.file.show');
         Route::put('/seed-runs/file', [SeedRunController::class, 'updateSeederFile'])->name('seed-runs.file.update');
         Route::post('/seed-runs/file', [SeedRunController::class, 'storeSeederFile'])->name('seed-runs.file.store');
-        Route::get('/seed-runs/folders', [SeedRunController::class, 'getSeederFolders'])->name('seed-runs.folders.list');
-        Route::post('/seed-runs/run', [SeedRunController::class, 'run'])->name('seed-runs.run');
-        Route::delete('/seed-runs/delete-file', [SeedRunController::class, 'destroySeederFile'])
-            ->name('seed-runs.destroy-seeder-file');
+Route::get('/seed-runs/folders', [SeedRunController::class, 'getSeederFolders'])->name('seed-runs.folders.list');
+Route::post('/seed-runs/run', [SeedRunController::class, 'run'])->name('seed-runs.run');
+Route::post('/seed-runs/folders/run', [SeedRunController::class, 'runFolder'])->name('seed-runs.folders.run');
+Route::delete('/seed-runs/delete-file', [SeedRunController::class, 'destroySeederFile'])
+    ->name('seed-runs.destroy-seeder-file');
         Route::delete('/seed-runs/delete-files/bulk', [SeedRunController::class, 'destroySeederFiles'])
             ->name('seed-runs.destroy-seeder-files');
         Route::post('/seed-runs/mark-executed', [SeedRunController::class, 'markAsExecuted'])->name('seed-runs.mark-executed');

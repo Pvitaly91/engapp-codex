@@ -1,0 +1,279 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\En\\V2\\Modals\\ModalVerbsMixedPracticeV2LocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\V2\\Modals\\ModalVerbsMixedPracticeV3Seeder",
+        "definition": "modal_verbs_mixed_practice_v2",
+        "definition_path": "V2/Modals/modal_verbs_mixed_practice_v2.json"
+    },
+    "locale": "en",
+    "hint_provider": "chatgpt",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "{a1} Formula: **would/could/shall/can + base verb**. Usage: used for polite requests and offers. Markers: please, mind, polite request. Example: *Mike, would you mind not doing that?*."
+            ],
+            "explanations": {
+                "a1": {
+                    "can": "❌ «can» is a less polite form. Use would/could. Example: *Mike, would you mind not doing that?*.",
+                    "will": "❌ «will» sounds like an order, not a request. Example: *Mike, would you mind not doing that?*.",
+                    "would": "✅ «would» is a polite form for a request. Example: *Mike, would you mind not doing that?*.",
+                    "shall": "❌ The option is not suitable for a polite request. Example: *Mike, would you mind not doing that?*."
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "{a1} Formula: **can + base verb**. Usage: expresses ability or skill. Markers: speak, ability, skill. Example: *I can speak six languages.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "may": "❌ «may» expresses permission or possibility, not ability. Example: *I can speak six languages.*.",
+                    "can": "✅ «can» expresses ability or skill. Example: *I can speak six languages.*.",
+                    "must": "❌ «must» indicates obligation, not ability. Example: *I can speak six languages.*.",
+                    "should": "❌ The option does not express ability. Example: *I can speak six languages.*."
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "{a1} Formula: **might/may/could + base verb**. Usage: expresses possibility or assumption. Markers: maybe, perhaps, possibly. Example: *Why hasn't she arrived yet? — She might be ill.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "must": "❌ «must» expresses certainty, not assumption. Example: *Why hasn't she arrived yet? — She might be ill.*.",
+                    "might": "✅ «might» indicates possibility or assumption. Example: *Why hasn't she arrived yet? — She might be ill.*.",
+                    "can't": "❌ «can't» means impossibility, not assumption. Example: *Why hasn't she arrived yet? — She might be ill.*.",
+                    "should": "❌ The option is not suitable for expressing possibility. Example: *Why hasn't she arrived yet? — She might be ill.*."
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "{a1} Formula: **would/could/shall/can + base verb**. Usage: we use it for polite requests and offers. Markers: please, mind, polite request. Example: *Could you please help me with these bags?*."
+            ],
+            "explanations": {
+                "a1": {
+                    "could": "✅ \"could\" — polite form for a request. Example: *Could you please help me with these bags?*.",
+                    "can": "❌ \"can\" — less polite form. Use would/could. Example: *Could you please help me with these bags?*.",
+                    "shall": "❌ The option is not suitable for a polite request. Example: *Could you please help me with these bags?*.",
+                    "will": "❌ \"will\" sounds like a command, not a request. Example: *Could you please help me with these bags?*."
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "{a1} Formula: **should (have) + base verb / V3**. Usage: we give advice or criticize a past action. Markers: advice, should have, criticism. Example: *You should have told him the truth.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "should": "✅ \"should\" expresses advice or criticism. Example: *You should have told him the truth.*.",
+                    "must": "❌ The option does not convey advice properly. Example: *You should have told him the truth.*.",
+                    "might": "❌ The option does not convey advice properly. Example: *You should have told him the truth.*.",
+                    "can": "❌ The option does not convey advice properly. Example: *You should have told him the truth.*."
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "{a1} Formula: **mustn't / can't + base verb**. Usage: we express a strict prohibition. Markers: forbidden, prohibited, not allowed. Example: *You mustn't bring animals into England.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "can't": "❌ \"can't\" means impossibility, not prohibition. Example: *You mustn't bring animals into England.*.",
+                    "mustn't": "✅ \"mustn't\" expresses a strict prohibition. Example: *You mustn't bring animals into England.*.",
+                    "shouldn't": "❌ \"shouldn't\" — this is advice, not a strict prohibition. Example: *You mustn't bring animals into England.*.",
+                    "may not": "❌ The option does not express a strict prohibition. Example: *You mustn't bring animals into England.*."
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "{a1} Formula: **won't + base verb**. Usage: we express refusal or unwillingness. Markers: refusal, unwilling, resistance. Example: *The piano is so heavy. It won't move.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "can't": "❌ The option does not show refusal or unwillingness. Example: *The piano is so heavy. It won't move.*.",
+                    "won't": "✅ \"won't\" shows refusal or unwillingness. Example: *The piano is so heavy. It won't move.*.",
+                    "mustn't": "❌ The option does not show refusal or unwillingness. Example: *The piano is so heavy. It won't move.*.",
+                    "shouldn't": "❌ The option does not show refusal or unwillingness. Example: *The piano is so heavy. It won't move.*."
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "{a1} Formula: **shall we + base verb**. Usage: we make a suggestion or ask for an opinion. Markers: suggestion, proposal, invite. Example: *Shall we invite the Smiths for the party?*."
+            ],
+            "explanations": {
+                "a1": {
+                    "should": "❌ The option is not suitable for a suggestion. Example: *Shall we invite the Smiths for the party?*.",
+                    "will": "❌ The option is not suitable for a suggestion. Example: *Shall we invite the Smiths for the party?*.",
+                    "shall": "✅ \"shall\" makes a suggestion or asks for an opinion. Example: *Shall we invite the Smiths for the party?*.",
+                    "must": "❌ The option is not suitable for a suggestion. Example: *Shall we invite the Smiths for the party?*."
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "{a1} Formula: **can't / cannot + base verb**. Usage: we express impossibility or inability. Markers: unable, impossible, cannot. Example: *I'm afraid I can't go with you.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "won't": "❌ \"won't\" expresses refusal, not impossibility. Example: *I'm afraid I can't go with you.*.",
+                    "mustn't": "❌ \"mustn't\" means prohibition, not impossibility. Example: *I'm afraid I can't go with you.*.",
+                    "can't": "✅ \"can't\" expresses impossibility. Example: *I'm afraid I can't go with you.*.",
+                    "shouldn't": "❌ The option does not express impossibility. Example: *I'm afraid I can't go with you.*."
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "{a1} Formula: **should (have) + base verb / V3**. Usage: we give advice or criticize a past action. Markers: advice, should have, criticism. Example: *My parents say I shouldn't eat so many sweets.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "mustn't": "❌ The option does not convey advice properly. Example: *My parents say I shouldn't eat so many sweets.*.",
+                    "can't": "❌ The option does not convey advice properly. Example: *My parents say I shouldn't eat so many sweets.*.",
+                    "shouldn't": "✅ «shouldn't» expresses advice or criticism. Example: *My parents say I shouldn't eat so many sweets.*.",
+                    "won't": "❌ The option does not convey advice properly. Example: *My parents say I shouldn't eat so many sweets.*."
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "{a1} Formula: **must / have to + base verb**. Usage: we express necessity or obligation. Markers: necessary, must, have to. Example: *I have a wedding party at the weekend. I must buy a new dress and a pair of shoes.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "must": "✅ «must» indicates necessity. Example: *I have a wedding party at the weekend. I must buy a new dress and a pair of shoes.*.",
+                    "should": "❌ The option does not show necessity properly. Example: *I have a wedding party at the weekend. I must buy a new dress and a pair of shoes.*.",
+                    "might": "❌ The option does not show necessity properly. Example: *I have a wedding party at the weekend. I must buy a new dress and a pair of shoes.*.",
+                    "may": "❌ The option does not show necessity properly. Example: *I have a wedding party at the weekend. I must buy a new dress and a pair of shoes.*."
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "{a1} Formula: **may / might / could + base verb**. Usage: we politely ask for permission. Markers: permission, polite, formal. Example: *I was wondering if I may ask you for a favour.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "may": "✅ «may» is a polite form for asking for permission. Example: *I was wondering if I may ask you for a favour.*.",
+                    "might": "❌ The option is less polite for asking for permission. Example: *I was wondering if I may ask you for a favour.*.",
+                    "could": "❌ The option is less polite for asking for permission. Example: *I was wondering if I may ask you for a favour.*.",
+                    "can": "❌ The option is less polite for asking for permission. Example: *I was wondering if I may ask you for a favour.*."
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "{a1} Formula: **must + base verb**. Usage: we give strong advice or recommendation. Markers: strong advice, recommendation, must see. Example: *Ariel: Ethan, Clint Eastwood's *Hereafter* is at the Odeon this weekend. We must see it.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "must": "✅ «must» gives strong advice or recommendation. Example: *Ariel: Ethan, Clint Eastwood's *Hereafter* is at the Odeon this weekend. We must see it.*.",
+                    "can": "❌ The option does not convey the strength of the recommendation. Example: *Ariel: Ethan, Clint Eastwood's *Hereafter* is at the Odeon this weekend. We must see it.*.",
+                    "might": "❌ The option does not convey the strength of the recommendation. Example: *Ariel: Ethan, Clint Eastwood's *Hereafter* is at the Odeon this weekend. We must see it.*.",
+                    "should": "❌ The option does not convey the strength of the recommendation. Example: *Ariel: Ethan, Clint Eastwood's *Hereafter* is at the Odeon this weekend. We must see it.*."
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "{a1} Formula: **can't / cannot + base verb**. Usage: we express impossibility or inability. Markers: unable, impossible, cannot. Example: *Ethan: Yeah, but I'm afraid I can't this weekend. I must go to Ipswich. It's my grandmother's birthday.*.\n{a2} Formula: **must / have to + base verb**. Usage: we express obligation or forced necessity. Markers: obligation, duty, required. Example: *Ethan: Yeah, but I'm afraid I can't this weekend. I must go to Ipswich. It's my grandmother's birthday.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "can't": "✅ «can't» expresses impossibility. Example: *Ethan: Yeah, but I'm afraid I can't this weekend. I must go to Ipswich. It's my grandmother's birthday.*.",
+                    "mustn't": "❌ «mustn't» means prohibition, not impossibility. Example: *Ethan: Yeah, but I'm afraid I can't this weekend. I must go to Ipswich. It's my grandmother's birthday.*.",
+                    "shouldn't": "❌ The option does not express impossibility. Example: *Ethan: Yeah, but I'm afraid I can't this weekend. I must go to Ipswich. It's my grandmother's birthday.*.",
+                    "won't": "❌ «won't» expresses refusal, not impossibility. Example: *Ethan: Yeah, but I'm afraid I can't this weekend. I must go to Ipswich. It's my grandmother's birthday.*."
+                },
+                "a2": {
+                    "must": "✅ «must» expresses obligation. Example: *Ethan: Yeah, but I'm afraid I can't this weekend. I must go to Ipswich. It's my grandmother's birthday.*.",
+                    "should": "❌ The option does not express obligation. Example: *Ethan: Yeah, but I'm afraid I can't this weekend. I must go to Ipswich. It's my grandmother's birthday.*.",
+                    "may": "❌ The option does not express obligation. Example: *Ethan: Yeah, but I'm afraid I can't this weekend. I must go to Ipswich. It's my grandmother's birthday.*.",
+                    "will": "❌ The option does not express obligation. Example: *Ethan: Yeah, but I'm afraid I can't this weekend. I must go to Ipswich. It's my grandmother's birthday.*."
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "{a1} Formula: **will + base verb**. Usage: we express a spontaneous decision or intention. Markers: decision, intention, spontaneous. Example: *Ariel: Well, I will call David. I'm sure he wants to see it.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "will": "✅ «will» shows a spontaneous decision. Example: *Ariel: Well, I will call David. I'm sure he wants to see it.*.",
+                    "shall": "❌ The option does not show a spontaneous decision. Example: *Ariel: Well, I will call David. I'm sure he wants to see it.*.",
+                    "must": "❌ The option does not show a spontaneous decision. Example: *Ariel: Well, I will call David. I'm sure he wants to see it.*.",
+                    "can": "❌ The option does not show a spontaneous decision. Example: *Ariel: Well, I will call David. I'm sure he wants to see it.*."
+                }
+            }
+        },
+        {
+            "id": 16,
+            "hints": [
+                "{a1} Formula: **should + base verb**. Usage: we give advice or recommendation. Markers: recommendation, advice, better. Example: *Ethan: Yeah, but you should call him right away. You know how busy he is at the weekends.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "must": "❌ The option is not suitable for a recommendation. Example: *Ethan: Yeah, but you should call him right away. You know how busy he is at the weekends.*.",
+                    "should": "✅ «should» gives advice or recommendation. Example: *Ethan: Yeah, but you should call him right away. You know how busy he is at the weekends.*.",
+                    "may": "❌ The option is not suitable for a recommendation. Example: *Ethan: Yeah, but you should call him right away. You know how busy he is at the weekends.*.",
+                    "can": "❌ The option is not suitable for a recommendation. Example: *Ethan: Yeah, but you should call him right away. You know how busy he is at the weekends.*."
+                }
+            }
+        },
+        {
+            "id": 17,
+            "hints": [
+                "{a1} Formula: **can + base verb**. Usage: we express ability or skill. Markers: speak, ability, skill. Example: *Ariel: Ahh! You're right, but I can talk to him tonight at Chris's birthday party.*."
+            ],
+            "explanations": {
+                "a1": {
+                    "can": "✅ «can» expresses ability or skill. Example: *Ariel: Ahh! You're right, but I can talk to him tonight at Chris's birthday party.*.",
+                    "must": "❌ «must» shows obligation, not ability. Example: *Ariel: Ahh! You're right, but I can talk to him tonight at Chris's birthday party.*.",
+                    "should": "❌ The option does not express ability. Example: *Ariel: Ahh! You're right, but I can talk to him tonight at Chris's birthday party.*.",
+                    "might": "❌ «might» expresses permission or possibility, not ability. Example: *Ariel: Ahh! You're right, but I can talk to him tonight at Chris's birthday party.*."
+                }
+            }
+        },
+        {
+            "id": 18,
+            "hints": [
+                "{a1} Formula: **will + base verb**. Usage: we make a promise. Markers: promise, assurance, will do. Example: *Ariel: Thanks! I will be right back. Hey, you won't eat my biscuits, will you?*.\n{a2} Formula: **won't + base verb, will you?**. Usage: we ask someone not to do something. Markers: request, negative, please don't. Example: *Ariel: Thanks! I will be right back. Hey, you won't eat my biscuits, will you?*."
+            ],
+            "explanations": {
+                "a1": {
+                    "will": "✅ «will» expresses a promise. Example: *Ariel: Thanks! I will be right back. Hey, you won't eat my biscuits, will you?*.",
+                    "might": "❌ The option does not express a promise. Example: *Ariel: Thanks! I will be right back. Hey, you won't eat my biscuits, will you?*.",
+                    "can": "❌ The option does not express a promise. Example: *Ariel: Thanks! I will be right back. Hey, you won't eat my biscuits, will you?*.",
+                    "must": "❌ The option does not express a promise. Example: *Ariel: Thanks! I will be right back. Hey, you won't eat my biscuits, will you?*."
+                },
+                "a2": {
+                    "won't": "✅ «won't» asks someone not to do something. Example: *Ariel: Thanks! I will be right back. Hey, you won't eat my biscuits, will you?*.",
+                    "can't": "❌ The option is not suitable for a negative request. Example: *Ariel: Thanks! I will be right back. Hey, you won't eat my biscuits, will you?*.",
+                    "shouldn't": "❌ The option is not suitable for a negative request. Example: *Ariel: Thanks! I will be right back. Hey, you won't eat my biscuits, will you?*.",
+                    "mustn't": "❌ The option is not suitable for a negative request. Example: *Ariel: Thanks! I will be right back. Hey, you won't eat my biscuits, will you?*."
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,821 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\V2\\FirstConditionalPracticeV3Seeder",
+        "uuid_namespace": "FirstConditionalPracticeV2Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": "0",
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "custom_first_conditional_practice_v2": {
+            "name": "Custom: First Conditional Practice V2"
+        }
+    },
+    "tags": {
+        "first_conditional_sentences": {
+            "name": "First Conditional Sentences",
+            "category": "English Grammar Structure"
+        },
+        "first_conditional_practice": {
+            "name": "First Conditional Practice",
+            "category": "English Grammar Theme"
+        },
+        "first_conditional": {
+            "name": "First Conditional",
+            "category": "Tenses"
+        }
+    },
+    "default_tag_keys": [
+        "first_conditional",
+        "first_conditional_practice",
+        "first_conditional_sentences"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "fi-1-if-it-a1-tomorrow-we-a2-indoors",
+            "question": "If it {a1} tomorrow, we {a2} indoors.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "rains",
+                "a2": "will stay"
+            },
+            "options": [
+                "stays",
+                "will stay",
+                "rains",
+                "is raining",
+                "are staying",
+                "will rain"
+            ],
+            "verb_hints": {
+                "a1": "rain",
+                "a2": "stay"
+            },
+            "variants": [
+                "If it {a1} tomorrow, we {a2} indoors."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: rain. Приклад: *If it rains tomorrow, we will stay indoors.*.\nIf-clause → Present Simple (без will). Дієслово: stay. Приклад: *If it rains tomorrow, we will stay indoors.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "rains": "✅ «rains» — правильна форма Present Simple у частині з if. Приклад: *If it rains tomorrow, we will stay indoors.*.",
+                            "will rain": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If it rains tomorrow, we will stay indoors.*.",
+                            "is raining": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If it rains tomorrow, we will stay indoors.*."
+                        },
+                        "a2": {
+                            "will stay": "✅ «will stay» — правильна форма Present Simple у частині з if. Приклад: *If it rains tomorrow, we will stay indoors.*.",
+                            "stays": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If it rains tomorrow, we will stay indoors.*.",
+                            "are staying": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If it rains tomorrow, we will stay indoors.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "fir-2-if-she-a1-hard-she-a2-the-exam",
+            "question": "If she {a1} hard, she {a2} the exam.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "studies",
+                "a2": "will pass"
+            },
+            "options": [
+                "passes",
+                "studies",
+                "is studying",
+                "will pass",
+                "will study",
+                "is passing"
+            ],
+            "verb_hints": {
+                "a1": "study",
+                "a2": "pass"
+            },
+            "variants": [
+                "If she {a1} hard, she {a2} the exam."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: study. Приклад: *If she studies hard, she will pass the exam.*.\nIf-clause → Present Simple (без will). Дієслово: pass. Приклад: *If she studies hard, she will pass the exam.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "studies": "✅ «studies» — правильна форма Present Simple у частині з if. Приклад: *If she studies hard, she will pass the exam.*.",
+                            "will study": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If she studies hard, she will pass the exam.*.",
+                            "is studying": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If she studies hard, she will pass the exam.*."
+                        },
+                        "a2": {
+                            "will pass": "✅ «will pass» — правильна форма Present Simple у частині з if. Приклад: *If she studies hard, she will pass the exam.*.",
+                            "passes": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If she studies hard, she will pass the exam.*.",
+                            "is passing": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If she studies hard, she will pass the exam.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "3-i-will-call-you-if-i-a1-my-work-ea",
+            "question": "I will call you if I {a1} my work early.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "finish"
+            },
+            "options": [
+                "finish",
+                "will finish",
+                "am finishing"
+            ],
+            "verb_hints": {
+                "a1": "finish"
+            },
+            "variants": [
+                "I will call you if I {a1} my work early."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: finish. Приклад: *I will call you if I finish my work early.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "finish": "✅ «finish» — правильна форма Present Simple у частині з if. Приклад: *I will call you if I finish my work early.*.",
+                            "will finish": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *I will call you if I finish my work early.*.",
+                            "am finishing": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *I will call you if I finish my work early.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "4-if-they-a1-the-bus-they-a2-late-fo",
+            "question": "If they {a1} the bus, they {a2} late for school.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "miss",
+                "a2": "will be"
+            },
+            "options": [
+                "are",
+                "will be",
+                "miss",
+                "will miss",
+                "are missing",
+                "is being"
+            ],
+            "verb_hints": {
+                "a1": "miss",
+                "a2": "be"
+            },
+            "variants": [
+                "If they {a1} the bus, they {a2} late for school."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: miss. Приклад: *If they miss the bus, they will be late for school.*.\nIf-clause → Present Simple (без will). Дієслово: be. Приклад: *If they miss the bus, they will be late for school.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "miss": "✅ «miss» — правильна форма Present Simple у частині з if. Приклад: *If they miss the bus, they will be late for school.*.",
+                            "will miss": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If they miss the bus, they will be late for school.*.",
+                            "are missing": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If they miss the bus, they will be late for school.*."
+                        },
+                        "a2": {
+                            "will be": "✅ «will be» — правильна форма Present Simple у частині з if. Приклад: *If they miss the bus, they will be late for school.*.",
+                            "are": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If they miss the bus, they will be late for school.*.",
+                            "is being": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If they miss the bus, they will be late for school.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "fir-5-if-you-a1-too-much-you-a2-sick",
+            "question": "If you {a1} too much, you {a2} sick.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "eat",
+                "a2": "will feel"
+            },
+            "options": [
+                "eat",
+                "will eat",
+                "feel",
+                "will feel",
+                "are eating",
+                "are feeling"
+            ],
+            "verb_hints": {
+                "a1": "eat",
+                "a2": "feel"
+            },
+            "variants": [
+                "If you {a1} too much, you {a2} sick."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: eat. Приклад: *If you eat too much, you will feel sick.*.\nIf-clause → Present Simple (без will). Дієслово: feel. Приклад: *If you eat too much, you will feel sick.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "eat": "✅ «eat» — правильна форма Present Simple у частині з if. Приклад: *If you eat too much, you will feel sick.*.",
+                            "will eat": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If you eat too much, you will feel sick.*.",
+                            "are eating": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If you eat too much, you will feel sick.*."
+                        },
+                        "a2": {
+                            "will feel": "✅ «will feel» — правильна форма Present Simple у частині з if. Приклад: *If you eat too much, you will feel sick.*.",
+                            "feel": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If you eat too much, you will feel sick.*.",
+                            "are feeling": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If you eat too much, you will feel sick.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "f-6-we-a1-to-the-beach-if-it-a2-cold",
+            "question": "We {a1} to the beach if it {a2} cold.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "won't go",
+                "a2": "is"
+            },
+            "options": [
+                "is",
+                "will be",
+                "was",
+                "don't go",
+                "won't go",
+                "aren't going"
+            ],
+            "verb_hints": {
+                "a1": "not go",
+                "a2": "be"
+            },
+            "variants": [
+                "We {a1} to the beach if it {a2} cold."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Main clause → will + V1 / won't + V1 для результату. Дієслово: not go. Приклад: *We won't go to the beach if it is cold.*.\nIf-clause → Present Simple (без will). Дієслово: be. Приклад: *We won't go to the beach if it is cold.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't go": "✅ «won't go» — коректна форма Future Simple у головному реченні. Приклад: *We won't go to the beach if it is cold.*.",
+                            "don't go": "❌ Заперечення з do/does не підходить; потрібне will/won't. Подивись на приклад: *We won't go to the beach if it is cold.*.",
+                            "aren't going": "❌ Краще використати will/won't + be, як у прикладі: *We won't go to the beach if it is cold.*."
+                        },
+                        "a2": {
+                            "is": "✅ «is» — правильна форма Present Simple у частині з if. Приклад: *We won't go to the beach if it is cold.*.",
+                            "will be": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *We won't go to the beach if it is cold.*.",
+                            "was": "❌ Перший умовний після if використовує теперішній час, не минулий. Приклад: *We won't go to the beach if it is cold.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "fi-7-if-he-a1-late-he-a2-the-meeting",
+            "question": "If he {a1} late, he {a2} the meeting.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "works",
+                "a2": "won't attend"
+            },
+            "options": [
+                "works",
+                "is working",
+                "will work",
+                "won't attend",
+                "doesn't attend",
+                "is not attending"
+            ],
+            "verb_hints": {
+                "a1": "work",
+                "a2": "not attend"
+            },
+            "variants": [
+                "If he {a1} late, he {a2} the meeting."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: work. Приклад: *If he works late, he won't attend the meeting.*.\nIf-clause → Present Simple (без will). Дієслово: not attend. Приклад: *If he works late, he won't attend the meeting.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "works": "✅ «works» — правильна форма Present Simple у частині з if. Приклад: *If he works late, he won't attend the meeting.*.",
+                            "is working": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If he works late, he won't attend the meeting.*.",
+                            "will work": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If he works late, he won't attend the meeting.*."
+                        },
+                        "a2": {
+                            "won't attend": "✅ «won't attend» — правильна форма Present Simple у частині з if. Приклад: *If he works late, he won't attend the meeting.*.",
+                            "doesn't attend": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If he works late, he won't attend the meeting.*.",
+                            "is not attending": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If he works late, he won't attend the meeting.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "fir-8-if-the-price-a1-people-a2-less",
+            "question": "If the price {a1}, people {a2} less.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "rises",
+                "a2": "will buy"
+            },
+            "options": [
+                "buy",
+                "will buy",
+                "rises",
+                "will rise",
+                "is rising",
+                "are buying"
+            ],
+            "verb_hints": {
+                "a1": "rise",
+                "a2": "buy"
+            },
+            "variants": [
+                "If the price {a1}, people {a2} less."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: rise. Приклад: *If the price rises, people will buy less.*.\nIf-clause → Present Simple (без will). Дієслово: buy. Приклад: *If the price rises, people will buy less.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "rises": "✅ «rises» — правильна форма Present Simple у частині з if. Приклад: *If the price rises, people will buy less.*.",
+                            "will rise": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If the price rises, people will buy less.*.",
+                            "is rising": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If the price rises, people will buy less.*."
+                        },
+                        "a2": {
+                            "will buy": "✅ «will buy» — правильна форма Present Simple у частині з if. Приклад: *If the price rises, people will buy less.*.",
+                            "buy": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If the price rises, people will buy less.*.",
+                            "are buying": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If the price rises, people will buy less.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "firstcondit-9-she-a1-upset-if-you-a2",
+            "question": "She {a1} upset if you {a2}.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "won't be",
+                "a2": "apologize"
+            },
+            "options": [
+                "apologize",
+                "isn't",
+                "won't be",
+                "will not be",
+                "will apologize",
+                "are apologizing"
+            ],
+            "verb_hints": {
+                "a1": "not be",
+                "a2": "apologize"
+            },
+            "variants": [
+                "She {a1} upset if you {a2}."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Main clause → will + V1 / won't + V1 для результату. Дієслово: not be. Приклад: *She won't be upset if you apologize.*.\nIf-clause → Present Simple (без will). Дієслово: apologize. Приклад: *She won't be upset if you apologize.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't be": "✅ «won't be» — коректна форма Future Simple у головному реченні. Приклад: *She won't be upset if you apologize.*.",
+                            "isn't": "❌ Краще використати will/won't + be, як у прикладі: *She won't be upset if you apologize.*.",
+                            "will not be": "❌ «will not be» граматично можливо, але завдання очікує скорочення «won't be». Приклад: *She won't be upset if you apologize.*."
+                        },
+                        "a2": {
+                            "apologize": "✅ «apologize» — правильна форма Present Simple у частині з if. Приклад: *She won't be upset if you apologize.*.",
+                            "will apologize": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *She won't be upset if you apologize.*.",
+                            "are apologizing": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *She won't be upset if you apologize.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "10-if-you-a1-regularly-you-a2-health",
+            "question": "If you {a1} regularly, you {a2} healthier.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "exercise",
+                "a2": "will be"
+            },
+            "options": [
+                "are",
+                "be",
+                "will be",
+                "exercise",
+                "will exercise",
+                "are exercising"
+            ],
+            "verb_hints": {
+                "a1": "exercise",
+                "a2": "be"
+            },
+            "variants": [
+                "If you {a1} regularly, you {a2} healthier."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: exercise. Приклад: *If you exercise regularly, you will be healthier.*.\nIf-clause → Present Simple (без will). Дієслово: be. Приклад: *If you exercise regularly, you will be healthier.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "exercise": "✅ «exercise» — правильна форма Present Simple у частині з if. Приклад: *If you exercise regularly, you will be healthier.*.",
+                            "will exercise": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If you exercise regularly, you will be healthier.*.",
+                            "are exercising": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If you exercise regularly, you will be healthier.*."
+                        },
+                        "a2": {
+                            "will be": "✅ «will be» — правильна форма Present Simple у частині з if. Приклад: *If you exercise regularly, you will be healthier.*.",
+                            "are": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If you exercise regularly, you will be healthier.*.",
+                            "be": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If you exercise regularly, you will be healthier.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "11-if-the-traffic-a1-heavy-we-a2-a-d",
+            "question": "If the traffic {a1} heavy, we {a2} a different route.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "is",
+                "a2": "will take"
+            },
+            "options": [
+                "is",
+                "will be",
+                "was",
+                "take",
+                "will take",
+                "are taking"
+            ],
+            "verb_hints": {
+                "a1": "be",
+                "a2": "take"
+            },
+            "variants": [
+                "If the traffic {a1} heavy, we {a2} a different route."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: be. Приклад: *If the traffic is heavy, we will take a different route.*.\nIf-clause → Present Simple (без will). Дієслово: take. Приклад: *If the traffic is heavy, we will take a different route.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "✅ «is» — правильна форма Present Simple у частині з if. Приклад: *If the traffic is heavy, we will take a different route.*.",
+                            "will be": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If the traffic is heavy, we will take a different route.*.",
+                            "was": "❌ Перший умовний після if використовує теперішній час, не минулий. Приклад: *If the traffic is heavy, we will take a different route.*."
+                        },
+                        "a2": {
+                            "will take": "✅ «will take» — правильна форма Present Simple у частині з if. Приклад: *If the traffic is heavy, we will take a different route.*.",
+                            "take": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If the traffic is heavy, we will take a different route.*.",
+                            "are taking": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If the traffic is heavy, we will take a different route.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "firs-12-if-they-a1-they-a2-the-train",
+            "question": "If they {a1}, they {a2} the train.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "don't hurry",
+                "a2": "will miss"
+            },
+            "options": [
+                "miss",
+                "will miss",
+                "are missing",
+                "don't hurry",
+                "won't hurry",
+                "aren't hurrying"
+            ],
+            "verb_hints": {
+                "a1": "not hurry",
+                "a2": "miss"
+            },
+            "variants": [
+                "If they {a1}, they {a2} the train."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: not hurry. Приклад: *If they don't hurry, they will miss the train.*.\nIf-clause → Present Simple (без will). Дієслово: miss. Приклад: *If they don't hurry, they will miss the train.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "don't hurry": "✅ «don't hurry» — правильна форма Present Simple у частині з if. Приклад: *If they don't hurry, they will miss the train.*.",
+                            "won't hurry": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If they don't hurry, they will miss the train.*.",
+                            "aren't hurrying": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If they don't hurry, they will miss the train.*."
+                        },
+                        "a2": {
+                            "will miss": "✅ «will miss» — правильна форма Present Simple у частині з if. Приклад: *If they don't hurry, they will miss the train.*.",
+                            "miss": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If they don't hurry, they will miss the train.*.",
+                            "are missing": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If they don't hurry, they will miss the train.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "fir-13-if-i-a1-her-i-a2-her-the-news",
+            "question": "If I {a1} her, I {a2} her the news.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "see",
+                "a2": "will tell"
+            },
+            "options": [
+                "will see",
+                "see",
+                "tell",
+                "will tell",
+                "am telling",
+                "am seeing"
+            ],
+            "verb_hints": {
+                "a1": "see",
+                "a2": "tell"
+            },
+            "variants": [
+                "If I {a1} her, I {a2} her the news."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: see. Приклад: *If I see her, I will tell her the news.*.\nIf-clause → Present Simple (без will). Дієслово: tell. Приклад: *If I see her, I will tell her the news.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "see": "✅ «see» — правильна форма Present Simple у частині з if. Приклад: *If I see her, I will tell her the news.*.",
+                            "will see": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If I see her, I will tell her the news.*.",
+                            "am seeing": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If I see her, I will tell her the news.*."
+                        },
+                        "a2": {
+                            "will tell": "✅ «will tell» — правильна форма Present Simple у частині з if. Приклад: *If I see her, I will tell her the news.*.",
+                            "tell": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If I see her, I will tell her the news.*.",
+                            "am telling": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If I see her, I will tell her the news.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "14-if-the-car-a1-down-we-a2-for-help",
+            "question": "If the car {a1} down, we {a2} for help.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "breaks",
+                "a2": "will call"
+            },
+            "options": [
+                "call",
+                "breaks",
+                "will call",
+                "will break",
+                "is breaking",
+                "are calling"
+            ],
+            "verb_hints": {
+                "a1": "break",
+                "a2": "call"
+            },
+            "variants": [
+                "If the car {a1} down, we {a2} for help."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: break. Приклад: *If the car breaks down, we will call for help.*.\nIf-clause → Present Simple (без will). Дієслово: call. Приклад: *If the car breaks down, we will call for help.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "breaks": "✅ «breaks» — правильна форма Present Simple у частині з if. Приклад: *If the car breaks down, we will call for help.*.",
+                            "will break": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If the car breaks down, we will call for help.*.",
+                            "is breaking": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If the car breaks down, we will call for help.*."
+                        },
+                        "a2": {
+                            "will call": "✅ «will call» — правильна форма Present Simple у частині з if. Приклад: *If the car breaks down, we will call for help.*.",
+                            "call": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If the car breaks down, we will call for help.*.",
+                            "are calling": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If the car breaks down, we will call for help.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "first-15-we-a1-for-a-picnic-if-it-a2",
+            "question": "We {a1} for a picnic if it {a2}.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "won't go",
+                "a2": "rains"
+            },
+            "options": [
+                "rains",
+                "is raining",
+                "don't go",
+                "will rain",
+                "won't go",
+                "aren't going"
+            ],
+            "verb_hints": {
+                "a1": "not go",
+                "a2": "rain"
+            },
+            "variants": [
+                "We {a1} for a picnic if it {a2}."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Main clause → will + V1 / won't + V1 для результату. Дієслово: not go. Приклад: *We won't go for a picnic if it rains.*.\nIf-clause → Present Simple (без will). Дієслово: rain. Приклад: *We won't go for a picnic if it rains.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't go": "✅ «won't go» — коректна форма Future Simple у головному реченні. Приклад: *We won't go for a picnic if it rains.*.",
+                            "don't go": "❌ Заперечення з do/does не підходить; потрібне will/won't. Подивись на приклад: *We won't go for a picnic if it rains.*.",
+                            "aren't going": "❌ Краще використати will/won't + be, як у прикладі: *We won't go for a picnic if it rains.*."
+                        },
+                        "a2": {
+                            "rains": "✅ «rains» — правильна форма Present Simple у частині з if. Приклад: *We won't go for a picnic if it rains.*.",
+                            "will rain": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *We won't go for a picnic if it rains.*.",
+                            "is raining": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *We won't go for a picnic if it rains.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "16-if-he-a1-more-he-a2-better-grades",
+            "question": "If he {a1} more, he {a2} better grades.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "studies",
+                "a2": "will get"
+            },
+            "options": [
+                "gets",
+                "will get",
+                "studies",
+                "is studying",
+                "will study",
+                "is getting"
+            ],
+            "verb_hints": {
+                "a1": "study",
+                "a2": "get"
+            },
+            "variants": [
+                "If he {a1} more, he {a2} better grades."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: study. Приклад: *If he studies more, he will get better grades.*.\nIf-clause → Present Simple (без will). Дієслово: get. Приклад: *If he studies more, he will get better grades.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "studies": "✅ «studies» — правильна форма Present Simple у частині з if. Приклад: *If he studies more, he will get better grades.*.",
+                            "will study": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If he studies more, he will get better grades.*.",
+                            "is studying": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If he studies more, he will get better grades.*."
+                        },
+                        "a2": {
+                            "will get": "✅ «will get» — правильна форма Present Simple у частині з if. Приклад: *If he studies more, he will get better grades.*.",
+                            "gets": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If he studies more, he will get better grades.*.",
+                            "is getting": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If he studies more, he will get better grades.*."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "firs-17-if-you-a1-the-plants-they-a2",
+            "question": "If you {a1} the plants, they {a2}.",
+            "source": "custom_first_conditional_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "don't water",
+                "a2": "will die"
+            },
+            "options": [
+                "die",
+                "don't water",
+                "will die",
+                "won't water",
+                "aren't watering",
+                "are dying"
+            ],
+            "verb_hints": {
+                "a1": "not water",
+                "a2": "die"
+            },
+            "variants": [
+                "If you {a1} the plants, they {a2}."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "If-clause → Present Simple (без will). Дієслово: not water. Приклад: *If you don't water the plants, they will die.*.\nIf-clause → Present Simple (без will). Дієслово: die. Приклад: *If you don't water the plants, they will die.*."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "don't water": "✅ «don't water» — правильна форма Present Simple у частині з if. Приклад: *If you don't water the plants, they will die.*.",
+                            "won't water": "❌ У підрядній частині першого умовного не вживаємо will/won't. Дивись приклад: *If you don't water the plants, they will die.*.",
+                            "aren't watering": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If you don't water the plants, they will die.*."
+                        },
+                        "a2": {
+                            "will die": "✅ «will die» — правильна форма Present Simple у частині з if. Приклад: *If you don't water the plants, they will die.*.",
+                            "die": "❌ Спробуй Present Simple у частині з if. Правильний приклад: *If you don't water the plants, they will die.*.",
+                            "are dying": "❌ If-clause вимагає Present Simple, а не тривалий час. Правильний приклад: *If you don't water the plants, they will die.*."
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Page_v2\Adjectives;
 
-use Database\Seeders\Pages\Adjectives\AdjectivePageSeeder;
+use Database\Seeders\Page_v2\Adjectives\AdjectivePageSeeder;
 
 class AdjectivesVsAdverbsTheorySeeder extends AdjectivePageSeeder
 {

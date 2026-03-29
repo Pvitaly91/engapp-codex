@@ -1,0 +1,352 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\Pl\\V2\\ComparativesSuperlativesV2LocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\V2\\ComparativesSuperlativesV3Seeder",
+        "definition": "comparatives_superlatives_v2",
+        "definition_path": "V2/comparatives_superlatives_v2.json"
+    },
+    "locale": "pl",
+    "hint_provider": "chatgpt",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "Formuła porównawcza: **przymiotnik/przysłówek + -er/więcej + niż** (hot → hotter than; dry → drier than).\nFormuła równości: **not (the) same + as** oraz **not as + przymiotnik + as** dla zaprzeczenia równości.\nFormuła superlatywu: **the + most/least + przymiotnik** dla najwyższego lub najniższego stopnia jakości."
+            ],
+            "explanations": {
+                "a1": {
+                    "hotter": "Comparative tworzy się według schematu podstawowy przymiotnik + -er + niż, więc hot → hotter + than.",
+                    "hottest": "Superlative wymaga formuły the + przymiotnik-est lub the most + przymiotnik, a nie porównania z than.",
+                    "hoter": "Przy tworzeniu hotter podwajamy końcową spółgłoskę przed -er: hot → hotter."
+                },
+                "a2": {
+                    "than": "Po comparative używa się spójnika than: comparative + than + obiekt.",
+                    "that": "Spójnik that nie wchodzi w skład formuły comparative + than.",
+                    "as": "As używa się w strukturze as + przymiotnik + as dla równych porównań, nie po comparative."
+                },
+                "a3": {
+                    "us": "Po than w porównaniach stawiamy obiektowy przypadek (me/us/them).",
+                    "our": "Zaimek dzierżawczy nie odpowiada formule than + zaimek obiektowy.",
+                    "we": "Zaimek podmiotowy bez czasownika pomocniczego nie pasuje w schemacie comparative + than + obiekt."
+                },
+                "a4": {
+                    "as": "Porównania równości formułuje się przez strukturę (not) the same as / as + przymiotnik + as.",
+                    "that": "Same + that nie tworzy standardowej konstrukcji podobieństwa.",
+                    "than": "Than wchodzi w formułę comparative + than, a nie the same as."
+                },
+                "a5": {
+                    "least": "Superlative niższego stopnia ma strukturę the + least + przymiotnik.",
+                    "more": "Więcej tworzy porównawczy (więcej + przymiotnik + niż), co nie przekazuje najwyższego/najniższego stopnia.",
+                    "less": "Mniej — zwykły porównawczy bez the; dla najniższego stopnia potrzebna jest formuła the least + przymiotnik."
+                },
+                "a6": {
+                    "ever": "Kolokacja the + superlatywny + ever podkreśla najlepsze/najgorsze doświadczenie w życiu.",
+                    "never": "Nigdy nie zmienia znaczenia konstrukcji ever + present perfect, która opisuje doświadczenie.",
+                    "before": "Before bez ever nie daje formuły superlatywnego doświadczenia (the best ... ever)."
+                },
+                "a7": {
+                    "nice as": "Struktura not as + przymiotnik + as używa podstawowej formy przymiotnika między dwoma as.",
+                    "nicer as": "Porównawczy z as narusza formułę; po porównawczym stoi than.",
+                    "nicer than": "Formuła not as ... as nie wymaga porównawczego, tylko podstawowej formy przymiotnika.",
+                    "as nice as": "Pełny model as + przymiotnik + as pokazuje równość, gdy oba elementy as są obecne."
+                },
+                "a8": {
+                    "much more": "Wzmocniony porównawczy: intensyfikator (dużo) + więcej + przymiotnik.",
+                    "lot more": "Powszechny model rozmowny — a lot more + przymiotnik; bez artykułu narusza formułę.",
+                    "most": "Most + przymiotnik tworzy superlatyw (the most ...), a nie porównanie z than/as.",
+                    "far more": "Inny wzmocniacz w schemacie far + more + przymiotnik."
+                },
+                "a9": {
+                    "in": "Fraza one of the + superlatywny + rzeczownik w liczbie mnogiej + in the world używa przyimka in.",
+                    "of": "Przyimek of w tej pozycji nie wchodzi w standardową formułę one of the most + rzeczownik + in the world.",
+                    "from": "From oznacza pochodzenie i nie łączy się z superlatywną ramką one of the most ... in the world."
+                },
+                "a10": {
+                    "as much": "Struktura ilości dla niepoliczalnych: as much + rzeczownik niepoliczalny + as.",
+                    "as many": "Formuła as many + rzeczownik policzalny + as stosuje się tylko do rzeczowników policzalnych.",
+                    "more": "Porównawczy ilości more + rzeczownik + than nie odpowiada modelowi as much ... as."
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "Formuła porównania dwóch przedmiotów: porównawczy (więcej + przymiotnik) + niż + obiekt."
+            ],
+            "explanations": {
+                "a1": {
+                    "more bitter than": "Wielosylabowe przymiotniki tworzą porównawczy według schematu więcej + przymiotnik + niż.",
+                    "bitterest than": "Superlatyw przymiotnik-est używa się z the i bez than.",
+                    "more bitter that": "Spójnik w formule porównawczej — than, nie that.",
+                    "far more bitter than": "Wzmocniacz far może stać przed more: far + more + przymiotnik + niż."
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "Zasada: jednosylabowe i niektóre dwusylabowe przymiotniki → podstawowy przymiotnik + -er + niż."
+            ],
+            "explanations": {
+                "a1": {
+                    "happier": "Słowa na -y zmieniają -y → -ier w stopniu porównawczym: happy → happier.",
+                    "more happy": "Dla krótkich przymiotników stosuje się sufiks -er, a nie konstrukcję more + przymiotnik.",
+                    "more happier": "Podwójny stopień porównawczy (more + -er) jest sprzeczny z formułą stopniowania.",
+                    "far happier": "Wzmocnienie far dodaje się przed gotowym stopniem porównawczym: far + comparative + than."
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "Formuła dla przysłówków na -ly: more/less + przysłówek + than do porównania szybkości lub intensywności."
+            ],
+            "explanations": {
+                "a1": {
+                    "more slowly": "Przysłówki tworzą stopień porównawczy przez more + przysłówek: more slowly + than ...",
+                    "slowlier": "Dodanie -er do przysłówków na -ly nie odpowiada regule stopniowania.",
+                    "most slowly": "Most + przysłówek tworzy superlatyw, a nie stopień porównawczy.",
+                    "a bit more slowly": "Wzmocnienia (a bit, slightly) mogą występować przed more + przysłówek."
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "Szablon braku różnicy: any/no + comparative + than, bez konstrukcji as + comparative.\nZdania z dwoma poprawnymi wariantami odzwierciedlają ten sam sens przez różne wzmocnienia (any/no)."
+            ],
+            "explanations": {
+                "a1": {
+                    "Your car isn't any cheaper than ours.": "Model any + comparative + than wskazuje, że różnicy faktycznie nie ma.",
+                    "Your car is no cheaper than ours.": "No + comparative + than oznacza równość w cechach (cena jest taka sama).",
+                    "Your car isn't as cheaper as ours.": "As ... as wymaga podstawowej formy przymiotnika: as + przymiotnik + as."
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "Struktura stopniowej zmiany: comparative and comparative (worse and worse) do oznaczenia trendu."
+            ],
+            "explanations": {
+                "a1": {
+                    "worse and worse": "Utrwalony wzór comparative and comparative podkreśla stopniowe pogorszenie.",
+                    "more and more worse": "Kombinacja more + worse narusza zasadę: nieregularny przymiotnik bad → worse (bez more).",
+                    "every day badder": "Bad ma nieregularny stopień porównawczy worse; forma badder nie jest używana.",
+                    "steadily worse": "Inny sposób na przekazanie trendu: steadily + comparative."
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "Negatywna konstrukcja not as ... as ma to samo znaczenie, co porównanie z than w odwrotnej kolejności."
+            ],
+            "explanations": {
+                "a1": {
+                    "Tom is more intelligent than David.": "Bezpośrednia forma comparative: subject + verb + more + przymiotnik + than + object.",
+                    "David is more intelligent than Tom.": "Zdanie lustrzanie zmienia logikę porównania i czyni Dawida mądrzejszym.",
+                    "David isn't as intelligent as Tom.": "Not as + przymiotnik + as przekazuje, że podmiot ma niższy wskaźnik cechy niż obiekt."
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "Szablon as + przymiotnik/przysłówek + as dla maksymalnego wysiłku lub równości."
+            ],
+            "explanations": {
+                "a1": {
+                    "as fast as": "Standardowy szablon as + przysłówek + as dla maksymalnej szybkości.",
+                    "as faster as": "Konstrukcja as ... as nie zawiera comparative wewnątrz; potrzebna jest podstawowa forma.",
+                    "faster as": "Zaburzony porządek elementów: formuła wymaga dwóch as po bokach i podstawowej formy między nimi.",
+                    "as quickly as": "Synonimiczna wersja z quickly odpowiada tej samej formule as + przysłówek + as."
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "Po than można postawić zaimek obiektowy (me) lub skrócone powtórzenie czasownika (I do)."
+            ],
+            "explanations": {
+                "a1": {
+                    "me": "W formule comparative + than + zaimek obiektowy po than używa się zaimka obiektowego.",
+                    "I do": "Krótka odpowiedź po than może powtarzać czasownik pomocniczy: than I do.",
+                    "I have": "Powtórzenie czasownika have tworzy ciężką strukturę i nie wpisuje się w zwykły wzór than + auxiliary."
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "Ever + present perfect podkreśla doświadczenie; superlative: the most + przymiotnik."
+            ],
+            "explanations": {
+                "a1": {
+                    "the most boring teacher I've ever met": "Superlatyw według formuły the + most + przymiotnik z doprecyzowaniem doświadczenia ever + present perfect.",
+                    "the most boring teacher I've never met": "Never met sprzeciwia się aplikacji o spotkanie: konstrukcja zaprzecza samemu faktowi doświadczenia.",
+                    "The boringest teacher I've never met": "Forma boringest stylistycznie marginalna, a never met usuwa doświadczenie.",
+                    "the very boringest teacher": "Bez doprecyzowania doświadczenia (ever met) i ze uproszczonym boringest wyrażenie wygląda na nieustalone."
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "Ustalone kolokacje: the best/worst day **of** my life."
+            ],
+            "explanations": {
+                "a1": {
+                    "of": "Kolokacja the + superlative + rzeczownik + of my life używa przyimka of.",
+                    "in": "In my life jest możliwe, ale w ustalonym wyrażeniu the best day of my life tradycyjnie stawia się of.",
+                    "than": "Spójnik than należy do formuły comparative + than i nie pasuje po superlative.",
+                    "during": "During my life nie łączy się z jednorazowym wydarzeniem the best day."
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "Jednosylabowe przymiotniki dodają -er; porównanie z than."
+            ],
+            "explanations": {
+                "a1": {
+                    "easier": "Przymiotniki na -y przechodzą w -ier w comparative: easy → easier + than ...",
+                    "more easy": "Krótkie przymiotniki korzystają z sufiksu -er zamiast konstrukcji more + przymiotnik.",
+                    "the easiest": "Formuła the + przymiotnik-est tworzy superlatyw, a nie porównanie dwóch przedmiotów.",
+                    "far easier": "Wzmacniacz far może stać przed comparative: far + comparative + than."
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "Przysłówki na -ly: comparative przez more + przysłówek."
+            ],
+            "explanations": {
+                "a1": {
+                    "more slowly": "Przysłówki stopniują się modelem more/less + przysłówek + than.",
+                    "slower": "Slower — forma przymiotnika slow; dla przysłówka potrzebne jest more slowly.",
+                    "slowliest": "Superlatyw przysłówka tworzy się jako the most slowly, a nie przez dodawanie -est.",
+                    "a lot more slowly": "Dużo / wiele mogą wzmacniać stopień porównawczy: dużo wolniej niż ..."
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "Near → nearer/farther dla zwykłego porównania odległości."
+            ],
+            "explanations": {
+                "a1": {
+                    "nearer": "Jednosylabowy near tworzy stopień porównawczy według zasady przymiotnik + -er + niż: near → nearer.",
+                    "more near": "Dla krótkich przymiotników nie stosuje się more + przymiotnik.",
+                    "nearest": "The nearest — superlatyw do wyboru z grupy, nie do porównania dwóch domów.",
+                    "far nearer": "Far może wzmacniać stopień: far + comparative + than."
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "W konstrukcji not as ... as używa się podstawowej formy przymiotnika."
+            ],
+            "explanations": {
+                "a1": {
+                    "difficult": "Szablon not as + przymiotnik + as używa podstawowej formy bez sufiksów czy more/most.",
+                    "more difficult": "Comparative + than nie wchodzi w konstrukcję not as ... as.",
+                    "most difficult": "Superlative (the most + przymiotnik) nie łączy się ze schematem not as ... as.",
+                    "so difficult": "So + przymiotnik zazwyczaj kontynuuje that + clause; w tej konstrukcji potrzebne jest as ... as."
+                }
+            }
+        },
+        {
+            "id": 16,
+            "hints": [
+                "Superlative dla odległości: the farthest/the furthest (w podróżach najczęściej farthest)."
+            ],
+            "explanations": {
+                "a1": {
+                    "farthest": "Superlatyw od far: the + farthest/furthest + noun, szczególnie z ever + present perfect.",
+                    "farther": "Farther — forma porównawcza (farther than ...), a nie superlatyw.",
+                    "more far": "Far ma nieregularne stopnie (farther/farthest lub further/furthest), nie formę z more.",
+                    "most far": "Standardowy model superlatywu dla far — farthest/furthest, a nie most far."
+                }
+            }
+        },
+        {
+            "id": 17,
+            "hints": [
+                "Thin → thinner dla zwykłego porównania; much + comparative dla wzmocnienia."
+            ],
+            "explanations": {
+                "a1": {
+                    "thinner": "Thin → thinner tworzy się przez podwojenie n i sufiks -er w comparative.",
+                    "more thin": "Krótkie przymiotniki stopniuje się sufiksem -er, a nie konstrukcją more + przymiotnik.",
+                    "thinnest": "The thinnest — superlatyw, który używa się dla grupy, a nie do porównania dwóch stanów.",
+                    "a lot thinner": "Dużo służy jako wzmacniacz przed comparative: a lot + comparative + than."
+                }
+            }
+        },
+        {
+            "id": 18,
+            "hints": [
+                "Nieregularne porównanie good → better → the best."
+            ],
+            "explanations": {
+                "a1": {
+                    "better": "Nieregularna para stopni: good → better → the best; comparative nie tworzy się przez more.",
+                    "more good": "Good nie łączy się z more do stopniowania, używa się formy better.",
+                    "gooder": "Dla good nie dodaje się sufiksu -er; istnieje tylko nieregularna forma better.",
+                    "much better": "Wzmacniacz much znajduje się przed irregular comparative: much better than ..."
+                }
+            }
+        },
+        {
+            "id": 19,
+            "hints": [
+                "Superlatyw dla busy: the busiest. Podwajamy spółgłoskę y → iest."
+            ],
+            "explanations": {
+                "a1": {
+                    "busiest": "Busy → busiest: y → iest w superlatywie z artykułem the.",
+                    "more busy": "More + adjective + than tworzy comparative, ale obecność the sygnalizuje superlatyw.",
+                    "busyest": "Ortografia superlatywu: y zmienia się na i przed sufiksem -est → busiest.",
+                    "most busy": "Forma most busy jest mniej używana; typowa formuła — the busiest."
+                }
+            }
+        },
+        {
+            "id": 20,
+            "hints": [
+                "Few → fewer (z policzalnymi rzeczownikami), fewest — superlatyw."
+            ],
+            "explanations": {
+                "a1": {
+                    "fewer": "Z policzalnymi rzeczownikami używa się comparative fewer + rzeczownik w liczbie mnogiej.",
+                    "less": "Less typowo używa się z niepoliczalnymi; dla liczby ludzi poprawniejszy jest fewer.",
+                    "fewest": "The fewest — forma superlatywna, a w zdaniu potrzebny jest comparative.",
+                    "a lot fewer": "A lot działa jako wzmacniacz w modelu a lot + comparative."
+                }
+            }
+        },
+        {
+            "id": 21,
+            "hints": [
+                "Superlatyw z the: the trickiest. Comparative: trickier."
+            ],
+            "explanations": {
+                "a1": {
+                    "trickiest": "The + adjective-est tworzy superlatyw: the trickiest part.",
+                    "more tricky": "More + adjective tworzy comparative, które nie łączy się z artykułem the w tym zdaniu.",
+                    "trickier": "Comparative (adjective + -er) nie używa się z the do opisu jednego elementu z grupy.",
+                    "most tricky": "Most + adjective — alternatywny superlatyw, ale standardowa forma dla tricky — trickiest."
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,141 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\Pl\\V2\\PastTimeClausesMixedTestLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\V2\\PastTimeClausesMixedTestV3Seeder",
+        "definition": "past_time_clauses_mixed_test",
+        "definition_path": "V2/past_time_clauses_mixed_test.json"
+    },
+    "locale": "pl",
+    "hint_provider": "chatgpt",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "{a1} Czas: Past Perfect.  \nFormuła: **had + V3**.  \nPrzykład: *By the time she was 18, she had finished school.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "made": "❌ Past Simple (V2). Używa się dla wydarzenia w przeszłości, ale tutaj ważna jest akcja, która zakończyła się przed tym wiekiem.",
+                    "was making": "❌ Past Continuous = was/were + V-ing. Pokazuje proces, a nie zakończony fakt.",
+                    "has made": "❌ Present Perfect. Mówimy o przeszłości, więc ta forma jest niepoprawna.",
+                    "had made": "✅ Past Perfect = had + V3. Poprawnie, bo akcja zakończyła się przed konkretnym momentem w przeszłości (25 lat)."
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "{a1} Czas: Past Perfect.  \nFormuła: **had + V3**.  \nPrzykład: *After he had eaten, he left the house.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "finished": "❌ Past Simple. Możliwe użycie, ale lepiej pokazać akcję wcześniej niż inną.",
+                    "had finished": "✅ Past Perfect. Pokazuje, że ukończył kurs przed wyjazdem.",
+                    "has finished": "❌ Present Perfect. Niepoprawny czas dla przeszłych wydarzeń.",
+                    "was finished": "❌ Passive voice, forma nie pasuje."
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "{a1} Czas: Past Perfect.  \nFormuła: **had + V3**.  \nPrzykład: *He didn’t watch the movie because he had seen it before.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "saw": "❌ Past Simple. Nie podkreśla, że akcja miała miejsce wcześniej niż inna.",
+                    "had seen": "✅ Past Perfect. On widział ten film wcześniej, więc nie przyszedł.",
+                    "has been seen": "❌ Present Perfect Passive. Niepoprawnie w tym kontekście.",
+                    "was seeing": "❌ Czas przeszły ciągły. Nie odpowiada treści."
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "{a1} Struktura: *No sooner had + subject + V3 … than …*.  \nPrzykład: *No sooner had I arrived than it started to rain.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "had she put": "✅ Inwersja z No sooner. Poprawna forma: *No sooner had + subject + V3 …*",
+                    "did she put": "❌ Czas przeszły prosty z czasownikiem pomocniczym. Nie pasuje.",
+                    "she had put": "❌ Brak inwersji po *No sooner*.",
+                    "she put": "❌ Czas przeszły prosty. Brak zgodności gramatycznej."
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "{a1} Czas: Czas przeszły prosty.  \nFormuła: **V2**.  \nPrzykład: *As soon as he saw me, he smiled.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "made": "✅ Czas przeszły prosty. Wydarzenie miało miejsce zaraz po tym, jak zobaczyła ogień.",
+                    "had finished": "❌ Czas przeszły perfektywny. Nie ma sensu.",
+                    "has finished": "❌ Czas przeszły dokonany. Wydarzenie miało miejsce w przeszłości.",
+                    "was finished": "❌ Strona bierna. Nie pasuje."
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "{a1} Czas: Czas przeszły prosty.  \nFormuła: **V2**.  \nPrzykład: *I was cooking when the phone rang.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "was ringing": "❌ Czas przeszły ciągły. Możliwa opcja, ale tutaj trzeba pokazać krótką akcję.",
+                    "had rung": "❌ Czas przeszły perfektywny. Nie ma sensu, ponieważ akcja miała miejsce jednocześnie.",
+                    "rang": "✅ Czas przeszły prosty. Telefon zadzwonił podczas procesu czytania.",
+                    "has rung": "❌ Czas przeszły dokonany. Niepoprawny czas."
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "{a1} Czas: Czas przeszły ciągły.  \nFormuła: **was/were + V-ing**.  \nPrzykład: *He fell while he was running.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "was riding": "✅ Czas przeszły ciągły = was/were + V-ing. Proces w momencie upadku.",
+                    "had ridden": "❌ Czas przeszły perfektywny. Nie pasuje, ponieważ akcje były jednoczesne.",
+                    "rid": "❌ Niepoprawna forma.",
+                    "has ridden": "❌ Czas przeszły dokonany. Niepoprawny czas."
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "{a1} Czas: Czas przeszły perfektywny.  \nFormuła: **had + V3**.  \nPrzykład: *When I arrived, the bus had left.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "had disappeared": "✅ Czas przeszły perfektywny. Samochód zniknął zanim wyszedłem.",
+                    "has disappeared": "❌ Czas przeszły dokonany. To już była przeszła akcja.",
+                    "disappeared": "❌ Czas przeszły prosty. Nie podkreśla „wcześniej innej akcji”.",
+                    "was disappearing": "❌ Czas przeszły ciągły. Nie pasuje."
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "{a1} Czas: Past Simple Passive.  \nFormuła: **was/were + V3**.  \nPrzykład: *Tysiące ludzi zostało zabitych w wojnie.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "was killing": "❌ Past Continuous. Niepoprawne dla pasywu.",
+                    "had killed": "❌ Past Perfect Active. Nie jest to forma pasywna.",
+                    "were killed": "✅ Past Simple Passive. Poprawna forma: to be (were) + V3.",
+                    "have been killed": "❌ Present Perfect Passive. Wydarzenie miało miejsce w przeszłości."
+                }
+            }
+        }
+    ]
+}
