@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\WordsExportController;
+use App\Http\Controllers\Admin\PageV3PromptGeneratorController;
+use App\Http\Controllers\Admin\V3PromptGeneratorController;
 use App\Http\Controllers\AiTestController;
 use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\DynamicPageController;
@@ -197,6 +199,17 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
             Route::post('/import', [WordsExportController::class, 'import'])->name('import');
             Route::post('/csv', [WordsExportController::class, 'exportCsv'])->name('csv');
             Route::post('/csv/import', [WordsExportController::class, 'importCsv'])->name('csv.import');
+        });
+
+        Route::prefix('v3-prompt-generator')->name('v3-prompt-generator.')->group(function () {
+            Route::get('/', [V3PromptGeneratorController::class, 'index'])->name('index');
+            Route::post('/', [V3PromptGeneratorController::class, 'generate'])->name('generate');
+            Route::get('/theory-pages/search', [V3PromptGeneratorController::class, 'searchTheoryPages'])->name('theory-pages.search');
+        });
+
+        Route::prefix('page-v3-prompt-generator')->name('page-v3-prompt-generator.')->group(function () {
+            Route::get('/', [PageV3PromptGeneratorController::class, 'index'])->name('index');
+            Route::post('/', [PageV3PromptGeneratorController::class, 'generate'])->name('generate');
         });
 
         Route::get('/ai-test', [AiTestController::class, 'form'])->name('ai-test.form');
