@@ -22,9 +22,31 @@
                 @endif
             </div>
 
-            @if(session('status'))
+            @php
+                $statusLinks = collect(session('status_links', []))
+                    ->filter(fn ($link) => filled($link['url'] ?? null));
+            @endphp
+
+            @if(session('status') || $statusLinks->isNotEmpty())
                 <div class="mb-4 rounded-md bg-green-50 border border-green-200 px-4 py-3 text-green-700">
-                    {{ session('status') }}
+                    @if(session('status'))
+                        <p>{{ session('status') }}</p>
+                    @endif
+
+                    @if($statusLinks->isNotEmpty())
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            @foreach($statusLinks as $link)
+                                <a href="{{ $link['url'] }}"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   title="{{ $link['title'] ?? ($link['label'] ?? 'Тест') }}"
+                                   class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-green-700 ring-1 ring-green-200 hover:bg-green-100 transition">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    {{ $link['title'] ?? ($link['label'] ?? 'Готовий тест') }}
+                                </a>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
             @endif
 

@@ -7,6 +7,7 @@ use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Models\TextBlock;
+use App\Services\SeederTestTargetResolver;
 use App\Services\QuestionDeletionService;
 use App\Support\Database\JsonPageLocalizationManager;
 use App\Support\Database\JsonPageSeeder;
@@ -33,6 +34,7 @@ class SeedRunsService
 
     public function __construct(
         private QuestionDeletionService $questionDeletionService,
+        private SeederTestTargetResolver $seederTestTargetResolver,
         private JsonPageLocalizationManager $jsonPageLocalizationManager,
     )
     {
@@ -196,6 +198,14 @@ class SeedRunsService
             return $seedRun;
         });
 
+        $testTargets = $this->seederTestTargetResolver->resolveForSeeders($executedClasses);
+
+        $executedSeeders = $executedSeeders->map(function ($seedRun) use ($testTargets) {
+            $seedRun->test_target = $testTargets->get($seedRun->class_name);
+
+            return $seedRun;
+        });
+
         $executedSeederHierarchy = $this->buildSeederHierarchy($executedSeeders);
 
         return [
@@ -211,7 +221,11 @@ class SeedRunsService
     public function runSeeder(string $className): array
     {
         if (! $this->ensureSeederClassIsLoaded($className)) {
-            return ['success' => false, 'message' => __('Seeder :class was not found.', ['class' => $className])];
+            return [
+                'success' => false,
+                'message' => __('Seeder :class was not found.', ['class' => $className]),
+                'test_targets' => [],
+            ];
         }
 
         if ($this->isVirtualLocalizationSeeder($className)) {
@@ -224,23 +238,35 @@ class SeedRunsService
                 return ['success' => false, 'message' => $exception->getMessage()];
             }
 
-            return ['success' => true, 'message' => __('Seeder :class executed successfully.', ['class' => $className])];
+            return [
+                'success' => true,
+                'message' => __('Seeder :class executed successfully.', ['class' => $className]),
+                'test_targets' => $this->resolveTestTargetsForClasses([$className]),
+            ];
         }
 
         $filePath = $this->resolveSeederFilePath($className);
 
         if (! $this->isInstantiableSeeder($className, $filePath)) {
-            return ['success' => false, 'message' => __('Seeder :class cannot be executed.', ['class' => $className])];
+            return [
+                'success' => false,
+                'message' => __('Seeder :class cannot be executed.', ['class' => $className]),
+                'test_targets' => [],
+            ];
         }
 
         try {
             Artisan::call('db:seed', ['--class' => $className]);
         } catch (\Throwable $exception) {
             report($exception);
-            return ['success' => false, 'message' => $exception->getMessage()];
+            return ['success' => false, 'message' => $exception->getMessage(), 'test_targets' => []];
         }
 
-        return ['success' => true, 'message' => __('Seeder :class executed successfully.', ['class' => $className])];
+        return [
+            'success' => true,
+            'message' => __('Seeder :class executed successfully.', ['class' => $className]),
+            'test_targets' => $this->resolveTestTargetsForClasses([$className]),
+        ];
     }
 
     public function runSeedersInFolder(array $classNames, ?string $folderLabel = null): array
@@ -252,7 +278,13 @@ class SeedRunsService
             ->values();
 
         if ($normalized->isEmpty()) {
-            return ['success' => false, 'message' => __('No seeders were selected.'), 'executed' => [], 'errors' => []];
+            return [
+                'success' => false,
+                'message' => __('No seeders were selected.'),
+                'executed' => [],
+                'errors' => [],
+                'test_targets' => [],
+            ];
         }
 
         $result = $this->executeSeedersInOrder($normalized);
@@ -270,13 +302,19 @@ class SeedRunsService
             'executed' => $result['ran']->all(),
             'ordered' => $result['ordered']->all(),
             'errors' => $result['errors']->all(),
+            'test_targets' => $this->resolveTestTargetsForClasses($result['ran']),
         ];
     }
 
     public function runMissingSeeders(): array
     {
         if (! Schema::hasTable('seed_runs')) {
-            return ['success' => false, 'message' => __('The seed_runs table does not exist.'), 'executed' => []];
+            return [
+                'success' => false,
+                'message' => __('The seed_runs table does not exist.'),
+                'executed' => [],
+                'test_targets' => [],
+            ];
         }
 
         $executedClasses = DB::table('seed_runs')
@@ -299,6 +337,7 @@ class SeedRunsService
             'message' => $message,
             'executed' => $ran->all(),
             'errors' => $errors->all(),
+            'test_targets' => $this->resolveTestTargetsForClasses($ran),
         ];
     }
 
@@ -618,11 +657,15 @@ class SeedRunsService
     public function markAsExecuted(string $className): array
     {
         if (! Schema::hasTable('seed_runs')) {
-            return ['success' => false, 'message' => __('The seed_runs table does not exist.')];
+            return ['success' => false, 'message' => __('The seed_runs table does not exist.'), 'test_targets' => []];
         }
 
         if (! $this->ensureSeederClassIsLoaded($className)) {
-            return ['success' => false, 'message' => __('Seeder :class was not found.', ['class' => $className])];
+            return [
+                'success' => false,
+                'message' => __('Seeder :class was not found.', ['class' => $className]),
+                'test_targets' => [],
+            ];
         }
 
         try {
@@ -632,10 +675,14 @@ class SeedRunsService
             );
         } catch (\Throwable $exception) {
             report($exception);
-            return ['success' => false, 'message' => $exception->getMessage()];
+            return ['success' => false, 'message' => $exception->getMessage(), 'test_targets' => []];
         }
 
-        return ['success' => true, 'message' => __('Seeder :class marked as executed.', ['class' => $className])];
+        return [
+            'success' => true,
+            'message' => __('Seeder :class marked as executed.', ['class' => $className]),
+            'test_targets' => $this->resolveTestTargetsForClasses([$className]),
+        ];
     }
 
     public function destroySeedRun(int $seedRunId): array
@@ -712,7 +759,7 @@ class SeedRunsService
             });
         } catch (\Throwable $exception) {
             report($exception);
-            return ['success' => false, 'message' => $exception->getMessage()];
+            return ['success' => false, 'message' => $exception->getMessage(), 'test_targets' => []];
         }
 
         $message = match ($profile['type']) {
@@ -731,6 +778,7 @@ class SeedRunsService
             'deleted_blocks' => $deletedBlocks,
             'deleted_pages' => $deletedPages,
             'deleted_categories' => $deletedCategories,
+            'test_targets' => $this->resolveTestTargetsForClasses([$className]),
         ];
     }
 
@@ -1269,6 +1317,7 @@ class SeedRunsService
                     'ran_at_formatted' => $seedRun->ran_at_formatted,
                     'question_count' => $seedRun->question_count ?? 0,
                     'theory_target' => $seedRun->theory_target ?? null,
+                    'test_target' => $seedRun->test_target ?? null,
                 ];
 
                 return [
@@ -1284,6 +1333,19 @@ class SeedRunsService
             });
 
         return $folders->values()->merge($seeders->values())->values();
+    }
+
+    /**
+     * @param  iterable<int, string>  $classNames
+     * @return array<int, array<string, mixed>>
+     */
+    protected function resolveTestTargetsForClasses(iterable $classNames): array
+    {
+        return $this->seederTestTargetResolver->resolveForSeeders($classNames)
+            ->filter(fn ($target) => filled($target['url'] ?? null))
+            ->unique(fn ($target) => (string) ($target['url'] ?? ''))
+            ->values()
+            ->all();
     }
 
     protected function resolveTheoryTargetForSeeder(

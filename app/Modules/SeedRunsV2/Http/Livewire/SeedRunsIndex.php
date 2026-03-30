@@ -15,6 +15,7 @@ class SeedRunsIndex extends Component
     public string $searchQuery = '';
     public string $statusMessage = '';
     public string $statusType = 'success';
+    public array $statusLinks = [];
     
     public bool $showConfirmModal = false;
     public string $confirmAction = '';
@@ -65,6 +66,7 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
+        $this->statusLinks = $result['test_targets'] ?? [];
         
         if ($result['success']) {
             $this->refreshOverview();
@@ -86,6 +88,7 @@ class SeedRunsIndex extends Component
 
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
+        $this->statusLinks = $result['test_targets'] ?? [];
 
         if ($result['success']) {
             $this->refreshOverview();
@@ -114,6 +117,7 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
+        $this->statusLinks = $result['test_targets'] ?? [];
         
         $this->refreshOverview();
     }
@@ -132,6 +136,7 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
+        $this->statusLinks = $result['test_targets'] ?? [];
         
         if ($result['success']) {
             $this->refreshOverview();
@@ -152,6 +157,7 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
+        $this->statusLinks = $result['test_targets'] ?? [];
         
         if ($result['success']) {
             $this->refreshOverview();
@@ -172,6 +178,7 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = ($result['status'] ?? '') === 'success' ? 'success' : 'error';
+        $this->statusLinks = $result['test_targets'] ?? [];
         
         $this->refreshOverview();
     }
@@ -193,6 +200,7 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
+        $this->statusLinks = $result['test_targets'] ?? [];
         
         if ($result['success']) {
             $this->refreshOverview();
@@ -213,6 +221,7 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
+        $this->statusLinks = $result['test_targets'] ?? [];
         
         if ($result['success']) {
             $this->refreshOverview();
@@ -289,6 +298,7 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
+        $this->statusLinks = $result['test_targets'] ?? [];
         
         if ($result['success']) {
             $this->fileModalLastModified = $result['last_modified'] ?? '';
@@ -325,6 +335,7 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
+        $this->statusLinks = $result['test_targets'] ?? [];
         
         if ($result['success']) {
             $this->closeCreateModal();
@@ -343,6 +354,7 @@ class SeedRunsIndex extends Component
     public function clearStatus(): void
     {
         $this->statusMessage = '';
+        $this->statusLinks = [];
     }
 
     protected function resolvePendingFolderClassNames(string $folderPath): array

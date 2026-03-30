@@ -7,6 +7,7 @@ use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Models\TextBlock;
+use App\Services\SeederTestTargetResolver;
 use App\Services\QuestionDeletionService;
 use App\Support\Database\JsonPageSeeder;
 use App\Support\Database\JsonPageLocalizationManager;
@@ -39,6 +40,7 @@ class SeedRunController extends Controller
 
     public function __construct(
         private QuestionDeletionService $questionDeletionService,
+        private SeederTestTargetResolver $seederTestTargetResolver,
         private JsonTestLocalizationManager $jsonTestLocalizationManager,
         private JsonPageLocalizationManager $jsonPageLocalizationManager,
     )
@@ -588,6 +590,14 @@ class SeedRunController extends Controller
                 $theoryPageTargets,
                 $theoryCategoryTargets
             );
+
+            return $seedRun;
+        });
+
+        $testTargets = $this->seederTestTargetResolver->resolveForSeeders($executedClasses);
+
+        $executedSeeders = $executedSeeders->map(function ($seedRun) use ($testTargets) {
+            $seedRun->test_target = $testTargets->get($seedRun->class_name);
 
             return $seedRun;
         });
@@ -1836,11 +1846,14 @@ class SeedRunController extends Controller
         }
 
         $message = __('Seeder :class executed successfully.', ['class' => $className]);
+        $testTargets = $this->resolveTestTargetsForClasses([$className]);
         
         if ($request->wantsJson()) {
             $overview = $this->assembleSeedRunOverview();
             return response()->json([
                 'message' => $message,
+                'test_target' => $testTargets[0] ?? null,
+                'test_targets' => $testTargets,
                 'seeder_moved' => true,
                 'class_name' => $className,
                 'overview' => [
@@ -1850,9 +1863,15 @@ class SeedRunController extends Controller
             ]);
         }
 
-        return redirect()
+        $redirect = redirect()
             ->route('seed-runs.index')
             ->with('status', $message);
+
+        if ($testTargets !== []) {
+            $redirect = $redirect->with('status_links', $testTargets);
+        }
+
+        return $redirect;
     }
 
     public function runFolder(Request $request): RedirectResponse|JsonResponse
@@ -1890,12 +1909,14 @@ class SeedRunController extends Controller
                 'folder' => $folderLabel,
             ])
             : __('No seeders were executed from folder :folder.', ['folder' => $folderLabel]);
+        $testTargets = $this->resolveTestTargetsForClasses($result['ran']);
 
         if ($request->wantsJson()) {
             $overview = $this->assembleSeedRunOverview();
 
             return response()->json([
                 'message' => $successMessage,
+                'test_targets' => $testTargets,
                 'errors' => $result['errors']->all(),
                 'folder_label' => $folderLabel,
                 'executed_count' => $result['ran']->count(),
@@ -1912,6 +1933,10 @@ class SeedRunController extends Controller
 
         if ($result['ran']->isNotEmpty()) {
             $redirect = $redirect->with('status', $successMessage);
+
+            if ($testTargets !== []) {
+                $redirect = $redirect->with('status_links', $testTargets);
+            }
         }
 
         if ($result['errors']->isNotEmpty()) {
@@ -2339,11 +2364,14 @@ class SeedRunController extends Controller
         }
 
         $message = __('Seeder :class marked as executed.', ['class' => $className]);
+        $testTargets = $this->resolveTestTargetsForClasses([$className]);
         
         if ($request->wantsJson()) {
             $overview = $this->assembleSeedRunOverview();
             return response()->json([
                 'message' => $message,
+                'test_target' => $testTargets[0] ?? null,
+                'test_targets' => $testTargets,
                 'seeder_moved' => true,
                 'class_name' => $className,
                 'overview' => [
@@ -2353,9 +2381,15 @@ class SeedRunController extends Controller
             ]);
         }
 
-        return redirect()
+        $redirect = redirect()
             ->route('seed-runs.index')
             ->with('status', $message);
+
+        if ($testTargets !== []) {
+            $redirect = $redirect->with('status_links', $testTargets);
+        }
+
+        return $redirect;
     }
 
     public function runMissing(Request $request): RedirectResponse|JsonResponse
@@ -2390,11 +2424,13 @@ class SeedRunController extends Controller
                 'classes' => $ran->implode(', '),
             ]);
         }
+        $testTargets = $this->resolveTestTargetsForClasses($ran);
 
         if ($request->wantsJson()) {
             $overview = $this->assembleSeedRunOverview();
             return response()->json([
                 'message' => $successMessage ?? __('No seeders were executed.'),
+                'test_targets' => $testTargets,
                 'errors' => $errors->all(),
                 'executed_count' => $ran->count(),
                 'executed_classes' => $ran->all(),
@@ -2409,6 +2445,10 @@ class SeedRunController extends Controller
 
         if ($successMessage) {
             $redirect = $redirect->with('status', $successMessage);
+
+            if ($testTargets !== []) {
+                $redirect = $redirect->with('status_links', $testTargets);
+            }
         }
 
         if ($errors->isNotEmpty()) {
@@ -2416,6 +2456,19 @@ class SeedRunController extends Controller
         }
 
         return $redirect;
+    }
+
+    /**
+     * @param  iterable<int, string>  $classNames
+     * @return array<int, array<string, mixed>>
+     */
+    protected function resolveTestTargetsForClasses(iterable $classNames): array
+    {
+        return $this->seederTestTargetResolver->resolveForSeeders($classNames)
+            ->filter(fn ($target) => filled($target['url'] ?? null))
+            ->unique(fn ($target) => (string) ($target['url'] ?? ''))
+            ->values()
+            ->all();
     }
 
     protected function executeSeedersInOrder(Collection $classNames): array

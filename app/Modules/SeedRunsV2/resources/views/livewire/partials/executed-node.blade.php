@@ -49,6 +49,7 @@
         $dataProfile = $node['data_profile'] ?? [];
         $recentOrdinal = $recentSeedRunOrdinals[$seedRunId] ?? null;
         $theoryTarget = $seedRun['theory_target'] ?? null;
+        $testTarget = $seedRun['test_target'] ?? null;
         
         // Get delete button text from data profile
         $deleteButtonText = $dataProfile['delete_button'] ?? __('Видалити з даними');
@@ -99,6 +100,19 @@
 
                 {{-- Action buttons --}}
                 <div class="flex flex-wrap gap-2">
+                    @if($testTarget)
+                        <a
+                            href="{{ $testTarget['url'] }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="{{ $testTarget['title'] ?? ($testTarget['label'] ?? 'Готовий тест') }}"
+                            class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition"
+                        >
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            {{ $testTarget['label'] ?? 'Готовий тест' }}
+                        </a>
+                    @endif
+
                     @if($theoryTarget)
                         <a
                             href="{{ $theoryTarget['url'] }}"

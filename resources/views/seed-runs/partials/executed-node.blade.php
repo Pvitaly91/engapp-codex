@@ -92,6 +92,7 @@
             'Category'
         );
         $theoryTarget = $seedRun->theory_target ?? null;
+        $testTarget = $seedRun->test_target ?? null;
         $executedLabelClasses = $isLocalizationSeeder
             ? 'inline-flex items-center px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-semibold ring-1 ring-sky-200'
             : ($isCategorySeeder
@@ -158,6 +159,17 @@
                                 @endunless
 
                                 <div class="mt-3 space-y-3" data-seeder-section data-seed-run-id="{{ $seedRun->id }}">
+                                    @if($testTarget)
+                                        <a href="{{ $testTarget['url'] }}"
+                                           target="_blank"
+                                           rel="noopener noreferrer"
+                                           title="{{ $testTarget['title'] ?? ($testTarget['label'] ?? 'Готовий тест') }}"
+                                           class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition w-full sm:w-auto">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                            {{ $testTarget['label'] ?? 'Готовий тест' }}
+                                        </a>
+                                    @endif
+
                                     @if($questionCount > 0)
                                         <button type="button"
                                                 class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 transition w-full sm:w-auto"

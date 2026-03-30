@@ -27,15 +27,37 @@
         </div>
 
         {{-- Status Messages --}}
-        @if($statusMessage)
+        @if($statusMessage || !empty($statusLinks))
             <div 
-                class="mb-4 rounded-md border px-4 py-3 text-sm flex items-center justify-between
+                class="mb-4 rounded-md border px-4 py-3 text-sm
                     {{ $statusType === 'success' ? 'bg-emerald-50 border-emerald-200 text-emerald-700' : 'bg-red-50 border-red-200 text-red-700' }}"
             >
-                <span>{{ $statusMessage }}</span>
-                <button type="button" wire:click="clearStatus" class="text-current opacity-60 hover:opacity-100">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+                <div class="flex items-start justify-between gap-4">
+                    <div class="min-w-0">
+                        @if($statusMessage)
+                            <p>{{ $statusMessage }}</p>
+                        @endif
+
+                        @if(!empty($statusLinks))
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                @foreach($statusLinks as $link)
+                                    <a href="{{ $link['url'] ?? '#' }}"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       title="{{ $link['title'] ?? ($link['label'] ?? 'Тест') }}"
+                                       class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200 hover:bg-emerald-100 transition">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        {{ $link['title'] ?? ($link['label'] ?? 'Готовий тест') }}
+                                    </a>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
+
+                    <button type="button" wire:click="clearStatus" class="shrink-0 text-current opacity-60 hover:opacity-100">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
             </div>
         @endif
 
