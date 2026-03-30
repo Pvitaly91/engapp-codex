@@ -17,12 +17,12 @@
     // Build URL with filters for virtual tests
     if ($isVirtual) {
         $encodedFilters = base64_encode(json_encode($filters));
-        $testUrl = route('test.show', $test->slug) . '?' . http_build_query([
+        $testUrl = localized_route('test.show', $test->slug) . '?' . http_build_query([
             'filters' => $encodedFilters,
             'name' => $test->name,
         ]);
     } else {
-        $testUrl = route('test.show', $test->slug);
+        $testUrl = localized_route('test.show', $test->slug);
     }
 @endphp
 
@@ -33,12 +33,12 @@
     
     @if(!empty($levels))
         <div class="text-xs text-muted-foreground mb-2">
-            <span class="font-semibold">Рівні:</span> {{ implode(', ', $levels) }}
+            <span class="font-semibold">{{ __('frontend.tests.related.levels') }}:</span> {{ implode(', ', $levels) }}
         </div>
     @endif
 
     <div class="text-xs text-muted-foreground mb-3">
-        <span class="font-semibold">Питань:</span> {{ $questionsCount }} / {{ $totalAvailable }} доступно
+        <span class="font-semibold">{{ __('frontend.catalog.questions') }}:</span> {{ $questionsCount }} / {{ $totalAvailable }}
     </div>
 
     @if(!empty($tags))
@@ -53,6 +53,6 @@
     @endif
 
     <a href="{{ $testUrl }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-xl text-sm font-semibold transition">
-        Пройти тест
+        {{ __('frontend.tests.related.take_test') }}
     </a>
 </div>

@@ -27,7 +27,7 @@
                     <div class="border-b border-blue-100 bg-blue-50/50 px-4 py-3">
                         <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
                             <span class="flex h-5 w-5 items-center justify-center rounded bg-blue-500 text-white text-[10px]">1</span>
-                            {{ $data['select_title'] ?? 'Обери правильне слово' }}
+                            {{ $data['select_title'] ?? __('theory_blocks.practice.select_title') }}
                         </h3>
                         @if(!empty($data['select_intro']))
                             <p class="text-xs text-muted-foreground mt-1">{!! $data['select_intro'] !!}</p>
@@ -44,7 +44,7 @@
                                         {!! $item['label'] ?? '' !!}
                                     </label>
                                     <select class="w-full sm:w-48 rounded-lg border-border bg-white px-3 py-1.5 text-sm focus:border-brand-500 focus:ring-1 focus:ring-brand-100 transition-all">
-                                        <option value="">— обери —</option>
+                                        <option value="">{{ __('theory_blocks.practice.select_placeholder') }}</option>
                                         @foreach($options as $option)
                                             <option>{{ $option }}</option>
                                         @endforeach
@@ -62,7 +62,7 @@
                     <div class="border-b border-emerald-100 bg-emerald-50/50 px-4 py-3">
                         <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
                             <span class="flex h-5 w-5 items-center justify-center rounded bg-emerald-500 text-white text-[10px]">2</span>
-                            {{ $data['input_title'] ?? 'Заповни пропуски' }}
+                            {{ $data['input_title'] ?? __('theory_blocks.practice.input_title') }}
                         </h3>
                         @if(!empty($data['input_intro']))
                             <p class="text-xs text-muted-foreground mt-1">{!! $data['input_intro'] !!}</p>
@@ -93,7 +93,7 @@
                     <div class="border-b border-purple-100 bg-purple-50/50 px-4 py-3">
                         <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
                             <span class="flex h-5 w-5 items-center justify-center rounded bg-purple-500 text-white text-[10px]">3</span>
-                            {{ $data['rephrase_title'] ?? 'Перефразуй' }}
+                            {{ $data['rephrase_title'] ?? __('theory_blocks.practice.rephrase_title') }}
                         </h3>
                         @if(!empty($data['rephrase_intro']))
                             <p class="text-xs text-muted-foreground mt-1">{!! $data['rephrase_intro'] !!}</p>
@@ -105,7 +105,7 @@
                                 {{-- Example --}}
                                 <div class="rounded-lg bg-purple-100/50 border border-purple-200/50 p-3">
                                     <span class="text-[10px] font-bold uppercase tracking-wider text-purple-600 mb-1.5 block">
-                                        {{ $item['example_label'] ?? 'Приклад:' }}
+                                        {{ $item['example_label'] ?? __('theory_blocks.practice.example_label') }}
                                     </span>
                                     <div class="space-y-1 font-mono text-xs">
                                         <p class="text-foreground/60">{{ $item['example_original'] }}</p>

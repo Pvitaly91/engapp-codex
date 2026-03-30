@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Page_v2\Articles\SomeAny;
 
-use Database\Seeders\Pages\Articles\ArticlePageSeeder;
+use Database\Seeders\Page_v2\Articles\ArticlePageSeeder;
 
 class SomeAnyPlacesTheorySeeder extends ArticlePageSeeder
 {

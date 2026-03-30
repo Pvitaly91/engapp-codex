@@ -8,8 +8,11 @@ use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Models\TextBlock;
 use App\Services\QuestionDeletionService;
-use Database\Seeders\Pages\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
-use Database\Seeders\Pages\Concerns\PageCategoryDescriptionSeeder as PageCategoryDescriptionSeederBase;
+use App\Support\Database\JsonPageSeeder;
+use App\Support\Database\JsonPageLocalizationManager;
+use App\Support\Database\JsonTestLocalizationManager;
+use Database\Seeders\Page_v2\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
+use Database\Seeders\Page_v2\Concerns\PageCategoryDescriptionSeeder as PageCategoryDescriptionSeederBase;
 use Database\Seeders\QuestionSeeder as QuestionSeederBase;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -34,8 +37,92 @@ class SeedRunController extends Controller
      */
     private ?array $seederClassMap = null;
 
-    public function __construct(private QuestionDeletionService $questionDeletionService)
+    public function __construct(
+        private QuestionDeletionService $questionDeletionService,
+        private JsonTestLocalizationManager $jsonTestLocalizationManager,
+        private JsonPageLocalizationManager $jsonPageLocalizationManager,
+    )
     {
+    }
+
+    protected function isVirtualLocalizationSeeder(string $className): bool
+    {
+        return $this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)
+            || $this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className);
+    }
+
+    protected function virtualLocalizationType(string $className): ?string
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return 'question_localizations';
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return 'page_localizations';
+        }
+
+        return null;
+    }
+
+    protected function virtualLocalizationClasses(): array
+    {
+        return collect($this->jsonTestLocalizationManager->virtualSeederClasses())
+            ->merge($this->jsonPageLocalizationManager->virtualSeederClasses())
+            ->unique()
+            ->values()
+            ->all();
+    }
+
+    protected function virtualLocalizationFilePath(string $className): ?string
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->filePathForClass($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->filePathForClass($className);
+        }
+
+        return null;
+    }
+
+    protected function applyVirtualLocalizationSeeder(string $className): array
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->applyVirtualSeeder($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->applyVirtualSeeder($className);
+        }
+
+        throw new \RuntimeException(__('Localization seeder :class was not found.', ['class' => $className]));
+    }
+
+    protected function removeVirtualLocalizationSeederData(string $className): array
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->removeVirtualSeederData($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->removeVirtualSeederData($className);
+        }
+
+        return [];
+    }
+
+    protected function buildVirtualLocalizationPreview(string $className): array
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->buildVirtualSeederPreview($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->buildVirtualSeederPreview($className);
+        }
+
+        throw new \RuntimeException(__('Localization seeder :class was not found.', ['class' => $className]));
     }
 
     public function index(): View
@@ -425,6 +512,9 @@ class SeedRunController extends Controller
             ->map(function ($seedRun) {
                 $seedRun->ran_at = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
                 $seedRun->display_class_name = $this->formatSeederClassName($seedRun->class_name);
+                [$namespace, $baseName] = $this->splitSeederDisplayName($seedRun->display_class_name);
+                $seedRun->display_class_namespace = $namespace;
+                $seedRun->display_class_basename = $baseName;
 
                 return $seedRun;
             });
@@ -446,6 +536,7 @@ class SeedRunController extends Controller
             ->map(function (string $class) {
                 $displayName = $this->formatSeederClassName($class);
                 [$namespace, $baseName] = $this->splitSeederDisplayName($displayName);
+                $dataProfile = $this->describeSeederData($class);
 
                 return (object) [
                     'class_name' => $class,
@@ -453,6 +544,7 @@ class SeedRunController extends Controller
                     'display_class_namespace' => $namespace,
                     'display_class_basename' => $baseName,
                     'supports_preview' => $this->seederSupportsPreview($class),
+                    'data_type' => $dataProfile['type'] ?? 'unknown',
                 ];
             })
             ->values();
@@ -469,9 +561,33 @@ class SeedRunController extends Controller
                 ->pluck('aggregate', 'seeder');
         }
 
-        $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionCounts) {
-            $seedRun->question_count = (int) ($questionCounts[$seedRun->class_name] ?? 0);
+        $theoryPageTargets = $executedClasses === []
+            ? collect()
+            : Page::query()
+                ->with('category')
+                ->whereIn('seeder', $executedClasses)
+                ->where('type', 'theory')
+                ->get()
+                ->keyBy('seeder');
+
+        $theoryCategoryTargets = $executedClasses === []
+            ? collect()
+            : PageCategory::query()
+                ->whereIn('seeder', $executedClasses)
+                ->where('type', 'theory')
+                ->get()
+                ->keyBy('seeder');
+
+        $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionCounts, $theoryPageTargets, $theoryCategoryTargets) {
             $seedRun->data_profile = $this->describeSeederData($seedRun->class_name);
+            $seedRun->question_count = ($seedRun->data_profile['type'] ?? 'unknown') === 'questions'
+                ? (int) ($questionCounts[$seedRun->class_name] ?? 0)
+                : 0;
+            $seedRun->theory_target = $this->resolveTheoryTargetForSeeder(
+                $seedRun->class_name,
+                $theoryPageTargets,
+                $theoryCategoryTargets
+            );
 
             return $seedRun;
         });
@@ -534,6 +650,10 @@ class SeedRunController extends Controller
 
     protected function seederSupportsPreview(string $className): bool
     {
+        if ($this->isVirtualLocalizationSeeder($className)) {
+            return true;
+        }
+
         if (! $this->ensureSeederClassIsLoaded($className)) {
             return false;
         }
@@ -737,8 +857,172 @@ class SeedRunController extends Controller
         return $folders->values()->merge($seeders->values())->values();
     }
 
+    protected function resolveTheoryTargetForSeeder(
+        string $className,
+        ?Collection $theoryPageTargets = null,
+        ?Collection $theoryCategoryTargets = null,
+    ): ?array {
+        if (! $this->isTheorySiteSeeder($className)) {
+            return null;
+        }
+
+        $page = $theoryPageTargets?->get($className);
+
+        if (! $page instanceof Page) {
+            $page = $this->findTheoryPageForSeeder($className);
+        }
+
+        if ($page instanceof Page && filled($page->slug) && filled($page->category?->slug)) {
+            return [
+                'type' => 'page',
+                'label' => __('Сторінка теорії'),
+                'url' => localized_route('theory.show', [$page->category->slug, $page->slug]),
+                'title' => $page->title,
+            ];
+        }
+
+        $category = $theoryCategoryTargets?->get($className);
+
+        if (! $category instanceof PageCategory) {
+            $category = $this->findTheoryCategoryForSeeder($className);
+        }
+
+        if ($category instanceof PageCategory && filled($category->slug)) {
+            return [
+                'type' => 'category',
+                'label' => __('Категорія теорії'),
+                'url' => localized_route('theory.category', $category->slug),
+                'title' => $category->title,
+            ];
+        }
+
+        return null;
+    }
+
+    protected function findTheoryPageForSeeder(string $className): ?Page
+    {
+        $page = Page::query()
+            ->with('category')
+            ->where('seeder', $className)
+            ->where('type', 'theory')
+            ->orderBy('id')
+            ->first();
+
+        if ($page instanceof Page && filled($page->slug) && filled($page->category?->slug)) {
+            return $page;
+        }
+
+        $slug = $this->resolvePageSlugForSeeder($className);
+
+        if (! filled($slug)) {
+            return null;
+        }
+
+        $page = Page::query()
+            ->with('category')
+            ->where('slug', $slug)
+            ->where('type', 'theory')
+            ->orderBy('id')
+            ->first();
+
+        return $page instanceof Page && filled($page->slug) && filled($page->category?->slug)
+            ? $page
+            : null;
+    }
+
+    protected function findTheoryCategoryForSeeder(string $className): ?PageCategory
+    {
+        $category = PageCategory::query()
+            ->where('seeder', $className)
+            ->where('type', 'theory')
+            ->orderBy('id')
+            ->first();
+
+        if ($category instanceof PageCategory && filled($category->slug)) {
+            return $category;
+        }
+
+        $slug = $this->resolveCategorySlugForSeeder($className);
+
+        if (! filled($slug)) {
+            return null;
+        }
+
+        $category = PageCategory::query()
+            ->where('slug', $slug)
+            ->where('type', 'theory')
+            ->orderBy('id')
+            ->first();
+
+        return $category instanceof PageCategory && filled($category->slug)
+            ? $category
+            : null;
+    }
+
+    protected function isTheorySiteSeeder(string $className): bool
+    {
+        return Str::startsWith($className, [
+            'Database\\Seeders\\Page_v2\\',
+            'Database\\Seeders\\Page_V3\\',
+        ]);
+    }
+
+    protected function resolveCategorySlugForSeeder(string $className): ?string
+    {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
+            return null;
+        }
+
+        if (is_subclass_of($className, JsonPageSeeder::class)) {
+            $definition = $this->loadJsonSeederDefinition($className);
+            $contentType = Str::lower(trim((string) ($definition['content_type'] ?? '')));
+
+            if ($definition && ($contentType === 'category' || (is_array($definition['category'] ?? null) && ! is_array($definition['page'] ?? null)))) {
+                $slug = trim((string) ($definition['slug'] ?? data_get($definition, 'category.slug', '')));
+
+                return $slug !== '' ? $slug : null;
+            }
+
+            return null;
+        }
+
+        if (is_subclass_of($className, PageCategoryDescriptionSeederBase::class) || Str::contains(class_basename($className), 'Category')) {
+            $slug = $this->invokeSeederMethod($className, 'previewCategorySlug');
+
+            return is_string($slug) && $slug !== '' ? $slug : null;
+        }
+
+        return null;
+    }
+
+    protected function invokeSeederMethod(string $className, string $method): mixed
+    {
+        try {
+            $reflection = new \ReflectionClass($className);
+
+            if ($reflection->isAbstract() || ! $reflection->isInstantiable() || ! $reflection->hasMethod($method)) {
+                return null;
+            }
+
+            $instance = app()->make($className);
+            $methodReflection = $reflection->getMethod($method);
+
+            if (method_exists($methodReflection, 'setAccessible')) {
+                $methodReflection->setAccessible(true);
+            }
+
+            return $methodReflection->invoke($instance);
+        } catch (\Throwable) {
+            return null;
+        }
+    }
+
     protected function buildSeederPreview(string $className): array
     {
+        if ($this->isVirtualLocalizationSeeder($className)) {
+            return $this->buildVirtualLocalizationPreview($className);
+        }
+
         if (is_subclass_of($className, QuestionSeederBase::class)) {
             return $this->buildQuestionSeederPreview($className);
         }
@@ -998,14 +1282,14 @@ class SeedRunController extends Controller
             }
 
             $breadcrumbs = [
-                ['label' => 'Home', 'url' => route('home')],
-                ['label' => 'Теорія', 'url' => route('pages.index')],
+                ['label' => 'Home', 'url' => localized_route('home')],
+                ['label' => 'Теорія', 'url' => localized_route('pages.index')],
             ];
 
             if ($selectedCategory) {
                 $breadcrumbs[] = [
                     'label' => $selectedCategory->title,
-                    'url' => route('pages.category', $selectedCategory->slug),
+                    'url' => localized_route('pages.category', $selectedCategory->slug),
                 ];
             }
 
@@ -1115,7 +1399,7 @@ class SeedRunController extends Controller
                 'locale' => $locale,
                 'page_count' => $categoryPages->count(),
                 'text_block_count' => $blocks->count(),
-                'url' => route('pages.category', $category->slug),
+                'url' => localized_route('pages.category', $category->slug),
                 'html' => $categoryHtml,
             ];
         } finally {
@@ -1515,22 +1799,30 @@ class SeedRunController extends Controller
                 ->withErrors(['run' => $message]);
         }
 
-        $filePath = $this->resolveSeederFilePath($className);
-
-        if (! $this->isInstantiableSeeder($className, $filePath)) {
-            $message = __('Seeder :class cannot be executed.', ['class' => $className]);
-            
-            if ($request->wantsJson()) {
-                return response()->json(['message' => $message], 422);
-            }
-
-            return redirect()
-                ->route('seed-runs.index')
-                ->withErrors(['run' => $message]);
-        }
-
         try {
-            Artisan::call('db:seed', ['--class' => $className]);
+            if ($this->isVirtualLocalizationSeeder($className)) {
+                $this->applyVirtualLocalizationSeeder($className);
+                DB::table('seed_runs')->updateOrInsert(
+                    ['class_name' => $className],
+                    ['ran_at' => now()]
+                );
+            } else {
+                $filePath = $this->resolveSeederFilePath($className);
+
+                if (! $this->isInstantiableSeeder($className, $filePath)) {
+                    $message = __('Seeder :class cannot be executed.', ['class' => $className]);
+
+                    if ($request->wantsJson()) {
+                        return response()->json(['message' => $message], 422);
+                    }
+
+                    return redirect()
+                        ->route('seed-runs.index')
+                        ->withErrors(['run' => $message]);
+                }
+
+                Artisan::call('db:seed', ['--class' => $className]);
+            }
         } catch (\Throwable $exception) {
             report($exception);
 
@@ -1561,6 +1853,72 @@ class SeedRunController extends Controller
         return redirect()
             ->route('seed-runs.index')
             ->with('status', $message);
+    }
+
+    public function runFolder(Request $request): RedirectResponse|JsonResponse
+    {
+        $validated = $request->validate([
+            'class_names' => ['required', 'array', 'min:1'],
+            'class_names.*' => ['string'],
+            'folder_label' => ['nullable', 'string'],
+        ]);
+
+        $classNames = collect($validated['class_names'] ?? [])
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($classNames->isEmpty()) {
+            $message = __('No seeders were selected.');
+
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $message], 422);
+            }
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => $message]);
+        }
+
+        $folderLabel = $this->resolveFolderLabel($validated['folder_label'] ?? null);
+        $result = $this->executeSeedersInOrder($classNames);
+
+        $successMessage = $result['ran']->isNotEmpty()
+            ? __('Executed :count seeder(s) from folder :folder.', [
+                'count' => $result['ran']->count(),
+                'folder' => $folderLabel,
+            ])
+            : __('No seeders were executed from folder :folder.', ['folder' => $folderLabel]);
+
+        if ($request->wantsJson()) {
+            $overview = $this->assembleSeedRunOverview();
+
+            return response()->json([
+                'message' => $successMessage,
+                'errors' => $result['errors']->all(),
+                'folder_label' => $folderLabel,
+                'executed_count' => $result['ran']->count(),
+                'executed_classes' => $result['ran']->all(),
+                'ordered_classes' => $result['ordered']->all(),
+                'overview' => [
+                    'pending_count' => $overview['pendingSeeders']->count(),
+                    'executed_count' => $overview['executedSeeders']->count(),
+                ],
+            ], $result['ran']->isNotEmpty() ? 200 : 422);
+        }
+
+        $redirect = redirect()->route('seed-runs.index');
+
+        if ($result['ran']->isNotEmpty()) {
+            $redirect = $redirect->with('status', $successMessage);
+        }
+
+        if ($result['errors']->isNotEmpty()) {
+            $redirect = $redirect->withErrors(['run' => $result['errors']->implode(' ')]);
+        }
+
+        return $redirect;
     }
 
     public function destroySeederFile(Request $request): RedirectResponse|JsonResponse
@@ -1835,6 +2193,10 @@ class SeedRunController extends Controller
     {
         $candidatePaths = collect();
 
+        if ($this->isVirtualLocalizationSeeder($className)) {
+            $candidatePaths->push($this->virtualLocalizationFilePath($className));
+        }
+
         $map = $this->getSeederClassMap();
 
         if ($map->has($className)) {
@@ -2017,31 +2379,9 @@ class SeedRunController extends Controller
         $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
             ->reject(fn (string $class) => in_array($class, $executedClasses, true))
             ->values();
-
-        $ran = collect();
-        $errors = collect();
-
-        foreach ($pendingSeeders as $className) {
-            if (! $this->ensureSeederClassIsLoaded($className)) {
-                $errors->push(__('Seeder :class is not autoloadable.', ['class' => $className]));
-                continue;
-            }
-
-            $filePath = $this->resolveSeederFilePath($className);
-
-            if (! $this->isInstantiableSeeder($className, $filePath)) {
-                $errors->push(__('Seeder :class cannot be executed.', ['class' => $className]));
-                continue;
-            }
-
-            try {
-                Artisan::call('db:seed', ['--class' => $className]);
-                $ran->push($className);
-            } catch (\Throwable $exception) {
-                report($exception);
-                $errors->push($exception->getMessage());
-            }
-        }
+        $result = $this->executeSeedersInOrder($pendingSeeders);
+        $ran = $result['ran'];
+        $errors = $result['errors'];
 
         $successMessage = null;
         if ($ran->isNotEmpty()) {
@@ -2076,6 +2416,310 @@ class SeedRunController extends Controller
         }
 
         return $redirect;
+    }
+
+    protected function executeSeedersInOrder(Collection $classNames): array
+    {
+        $orderedClassNames = $this->orderSeedersForExecution($classNames);
+        $ran = collect();
+        $errors = collect();
+
+        foreach ($orderedClassNames as $className) {
+            if (! $this->ensureSeederClassIsLoaded($className)) {
+                $errors->push(__('Seeder :class is not autoloadable.', ['class' => $className]));
+                continue;
+            }
+
+            try {
+                if ($this->isVirtualLocalizationSeeder($className)) {
+                    $this->applyVirtualLocalizationSeeder($className);
+                    DB::table('seed_runs')->updateOrInsert(
+                        ['class_name' => $className],
+                        ['ran_at' => now()]
+                    );
+                } else {
+                    $filePath = $this->resolveSeederFilePath($className);
+
+                    if (! $this->isInstantiableSeeder($className, $filePath)) {
+                        $errors->push(__('Seeder :class cannot be executed.', ['class' => $className]));
+                        continue;
+                    }
+
+                    Artisan::call('db:seed', ['--class' => $className]);
+                }
+
+                $ran->push($className);
+            } catch (\Throwable $exception) {
+                report($exception);
+                $errors->push($exception->getMessage());
+            }
+        }
+
+        return [
+            'ordered' => $orderedClassNames,
+            'ran' => $ran,
+            'errors' => $errors,
+        ];
+    }
+
+    protected function orderSeedersForExecution(Collection $classNames): Collection
+    {
+        $normalized = $classNames
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($normalized->isEmpty()) {
+            return collect();
+        }
+
+        $metadataByClass = $normalized->mapWithKeys(fn (string $className) => [
+            $className => $this->buildSeederExecutionMetadata($className),
+        ]);
+
+        $categoryProviders = $metadataByClass
+            ->filter(fn (array $metadata) => filled($metadata['provided_category_slug'] ?? null))
+            ->mapWithKeys(fn (array $metadata, string $className) => [
+                (string) $metadata['provided_category_slug'] => $className,
+            ]);
+
+        $dependencies = [];
+        $dependents = [];
+        $inDegree = [];
+
+        foreach ($normalized as $className) {
+            $metadata = $metadataByClass->get($className, []);
+            $dependentClasses = collect();
+
+            $parentSlug = trim((string) ($metadata['parent_category_slug'] ?? ''));
+            if ($parentSlug !== '' && $categoryProviders->has($parentSlug)) {
+                $dependentClasses->push($categoryProviders->get($parentSlug));
+            }
+
+            $targetSlug = trim((string) ($metadata['target_category_slug'] ?? ''));
+            if ($targetSlug !== '' && $categoryProviders->has($targetSlug)) {
+                $dependentClasses->push($categoryProviders->get($targetSlug));
+            }
+
+            $resolvedDependencies = $dependentClasses
+                ->filter(fn ($dependency) => is_string($dependency) && $dependency !== '' && $dependency !== $className)
+                ->unique()
+                ->values()
+                ->all();
+
+            $dependencies[$className] = $resolvedDependencies;
+            $inDegree[$className] = count($resolvedDependencies);
+
+            foreach ($resolvedDependencies as $dependencyClass) {
+                $dependents[$dependencyClass] ??= [];
+                $dependents[$dependencyClass][] = $className;
+            }
+        }
+
+        $ready = $this->sortSeedersByExecutionPriority(
+            array_keys(array_filter($inDegree, fn (int $degree) => $degree === 0)),
+            $metadataByClass
+        );
+
+        $ordered = [];
+
+        while ($ready !== []) {
+            $currentClass = array_shift($ready);
+            $ordered[] = $currentClass;
+
+            foreach ($dependents[$currentClass] ?? [] as $dependentClass) {
+                $inDegree[$dependentClass]--;
+
+                if ($inDegree[$dependentClass] === 0) {
+                    $ready[] = $dependentClass;
+                }
+            }
+
+            $ready = $this->sortSeedersByExecutionPriority(array_values(array_unique($ready)), $metadataByClass);
+        }
+
+        $remaining = array_values(array_diff($normalized->all(), $ordered));
+
+        if ($remaining !== []) {
+            $ordered = array_merge(
+                $ordered,
+                $this->sortSeedersByExecutionPriority($remaining, $metadataByClass)
+            );
+        }
+
+        return collect($ordered)->values();
+    }
+
+    /**
+     * @param  array<int, string>  $classNames
+     * @param  Collection<string, array<string, mixed>>  $metadataByClass
+     * @return array<int, string>
+     */
+    protected function sortSeedersByExecutionPriority(array $classNames, Collection $metadataByClass): array
+    {
+        usort($classNames, function (string $leftClass, string $rightClass) use ($metadataByClass) {
+            $left = $metadataByClass->get($leftClass, []);
+            $right = $metadataByClass->get($rightClass, []);
+
+            $groupOrder = [
+                'category' => 0,
+                'page' => 1,
+                'other' => 2,
+                'localization' => 3,
+            ];
+
+            $leftGroup = $groupOrder[$left['group'] ?? 'other'] ?? 99;
+            $rightGroup = $groupOrder[$right['group'] ?? 'other'] ?? 99;
+
+            if ($leftGroup !== $rightGroup) {
+                return $leftGroup <=> $rightGroup;
+            }
+
+            $leftHasParent = filled($left['parent_category_slug'] ?? null) ? 1 : 0;
+            $rightHasParent = filled($right['parent_category_slug'] ?? null) ? 1 : 0;
+
+            if ($leftHasParent !== $rightHasParent) {
+                return $leftHasParent <=> $rightHasParent;
+            }
+
+            $leftDepth = (int) ($left['folder_depth'] ?? 0);
+            $rightDepth = (int) ($right['folder_depth'] ?? 0);
+
+            if ($leftDepth !== $rightDepth) {
+                return $leftDepth <=> $rightDepth;
+            }
+
+            return strcmp(
+                (string) ($left['sort_key'] ?? $leftClass),
+                (string) ($right['sort_key'] ?? $rightClass)
+            );
+        });
+
+        return $classNames;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function buildSeederExecutionMetadata(string $className): array
+    {
+        $displayName = $this->formatSeederClassName($className);
+        $segments = array_values(array_filter(explode('\\', $displayName), 'strlen'));
+
+        $metadata = [
+            'group' => 'other',
+            'folder_depth' => max(0, count($segments) - 1),
+            'sort_key' => Str::lower($displayName),
+            'provided_category_slug' => null,
+            'parent_category_slug' => null,
+            'target_category_slug' => null,
+        ];
+
+        if ($this->isVirtualLocalizationSeeder($className)) {
+            $metadata['group'] = 'localization';
+
+            return $metadata;
+        }
+
+        if (! $this->ensureSeederClassIsLoaded($className)) {
+            return $metadata;
+        }
+
+        if (is_subclass_of($className, JsonPageSeeder::class)) {
+            return array_merge($metadata, $this->buildJsonSeederExecutionMetadata($className));
+        }
+
+        $categorySlug = $this->resolveCategorySlugForSeeder($className);
+
+        if (
+            is_subclass_of($className, PageCategoryDescriptionSeederBase::class)
+            || ($categorySlug !== null && Str::contains(class_basename($className), 'Category'))
+        ) {
+            $metadata['group'] = 'category';
+            $metadata['provided_category_slug'] = $categorySlug;
+
+            return $metadata;
+        }
+
+        if (is_subclass_of($className, GrammarPageSeederBase::class)) {
+            $metadata['group'] = 'page';
+            $metadata['target_category_slug'] = $this->resolveGrammarPageCategorySlug($className);
+
+            return $metadata;
+        }
+
+        return $metadata;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function buildJsonSeederExecutionMetadata(string $className): array
+    {
+        $definition = $this->loadJsonSeederDefinition($className);
+
+        if ($definition === null) {
+            return [];
+        }
+
+        $contentType = Str::lower(trim((string) ($definition['content_type'] ?? '')));
+
+        if ($contentType === '') {
+            $contentType = is_array($definition['page'] ?? null) ? 'page' : 'category';
+        }
+
+        if ($contentType === 'category') {
+            return [
+                'group' => 'category',
+                'provided_category_slug' => trim((string) ($definition['slug'] ?? data_get($definition, 'category.slug', ''))) ?: null,
+                'parent_category_slug' => trim((string) data_get($definition, 'category.parent_slug', '')) ?: null,
+                'target_category_slug' => null,
+            ];
+        }
+
+        return [
+            'group' => 'page',
+            'provided_category_slug' => null,
+            'parent_category_slug' => null,
+            'target_category_slug' => trim((string) data_get($definition, 'page.category.slug', '')) ?: null,
+        ];
+    }
+
+    protected function loadJsonSeederDefinition(string $className): ?array
+    {
+        $definitionPath = $this->invokeSeederMethod($className, 'definitionPath');
+
+        if (! is_string($definitionPath) || $definitionPath === '' || ! File::exists($definitionPath)) {
+            return null;
+        }
+
+        $decoded = json_decode((string) File::get($definitionPath), true);
+
+        return is_array($decoded) ? $decoded : null;
+    }
+
+    protected function resolveGrammarPageCategorySlug(string $className): ?string
+    {
+        $pageConfig = $this->invokeSeederMethod($className, 'page');
+
+        if (is_array($pageConfig)) {
+            $categorySlug = trim((string) data_get($pageConfig, 'category.slug', ''));
+
+            if ($categorySlug !== '') {
+                return $categorySlug;
+            }
+        }
+
+        $categoryConfig = $this->invokeSeederMethod($className, 'category');
+
+        if (! is_array($categoryConfig)) {
+            return null;
+        }
+
+        $categorySlug = trim((string) ($categoryConfig['slug'] ?? ''));
+
+        return $categorySlug !== '' ? $categorySlug : null;
     }
 
     public function destroy(Request $request, int $seedRunId): RedirectResponse|JsonResponse
@@ -2186,34 +2830,67 @@ class SeedRunController extends Controller
         $deletedQuestions = 0;
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedCategories = 0;
+        $deletedHints = 0;
+        $deletedExplanations = 0;
         $profile = $this->describeSeederData($seedRun->class_name);
 
-        DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, $profile) {
+        DB::transaction(function () use (
+            $seedRun,
+            &$deletedQuestions,
+            &$deletedBlocks,
+            &$deletedPages,
+            &$deletedCategories,
+            &$deletedHints,
+            &$deletedExplanations,
+            $profile
+        ) {
             $classNames = collect([$seedRun->class_name]);
 
-            if ($profile['type'] === 'questions') {
+            if ($profile['type'] === 'question_localizations') {
+                $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
+                $deletedHints = (int) ($result['deleted_hints'] ?? 0);
+                $deletedExplanations = (int) ($result['deleted_explanations'] ?? 0);
+            } elseif ($profile['type'] === 'page_localizations') {
+                $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
+                $deletedBlocks = (int) ($result['deleted_blocks'] ?? 0);
+            } elseif ($profile['type'] === 'questions') {
                 $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
             } elseif ($profile['type'] === 'pages') {
                 $pageResult = $this->deletePageContentForSeeders($classNames);
                 $deletedBlocks = $pageResult['blocks'];
                 $deletedPages = $pageResult['pages_deleted'];
+                $deletedCategories = $pageResult['categories_deleted'];
             } else {
                 $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
                 $pageResult = $this->deletePageContentForSeeders($classNames);
                 $deletedBlocks = $pageResult['blocks'];
                 $deletedPages = $pageResult['pages_deleted'];
+                $deletedCategories = $pageResult['categories_deleted'];
             }
 
             DB::table('seed_runs')->where('id', $seedRun->id)->delete();
         });
 
         $status = match ($profile['type']) {
+            'question_localizations' => __('Removed localization seeder :class and deleted :hints hint(s), :explanations explanation(s).', [
+                'class' => $seedRun->class_name,
+                'hints' => $deletedHints,
+                'explanations' => $deletedExplanations,
+            ]),
+            'page_localizations' => __('Removed page localization seeder :class and deleted :blocks localized text block(s).', [
+                'class' => $seedRun->class_name,
+                'blocks' => $deletedBlocks,
+            ]),
             'pages' => __('Removed seeder :class and deleted :blocks related text block(s).', [
                 'class' => $seedRun->class_name,
                 'blocks' => $deletedBlocks,
             ]) . ($deletedPages > 0
                 ? ' ' . __('Deleted :count related page record(s).', ['count' => $deletedPages])
-                : ''),
+                : '')
+                . ($deletedCategories > 0
+                    ? ' ' . __('Deleted :count related category record(s).', ['count' => $deletedCategories])
+                    : ''),
             'questions' => __('Removed seeder :class and deleted :count related question(s).', [
                 'class' => $seedRun->class_name,
                 'count' => $deletedQuestions,
@@ -2246,6 +2923,9 @@ class SeedRunController extends Controller
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,
+                'categories_deleted' => $deletedCategories,
+                'hints_deleted' => $deletedHints,
+                'explanations_deleted' => $deletedExplanations,
                 'overview' => [
                     'pending_count' => $overview['pendingSeeders']->count(),
                     'executed_count' => $overview['executedSeeders']->count(),
@@ -2300,49 +2980,74 @@ class SeedRunController extends Controller
                 ->withErrors(['refresh' => $errorMessage]);
         }
 
-        $filePath = $this->resolveSeederFilePath($className);
-
-        if (! $this->isInstantiableSeeder($className, $filePath)) {
-            $errorMessage = __('Seeder :class cannot be executed.', ['class' => $className]);
-            
-            if ($request->wantsJson()) {
-                return response()->json(['message' => $errorMessage], 422);
-            }
-
-            return redirect()
-                ->route('seed-runs.index')
-                ->withErrors(['refresh' => $errorMessage]);
-        }
-
         $deletedQuestions = 0;
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedCategories = 0;
+        $deletedHints = 0;
+        $deletedExplanations = 0;
         $profile = $this->describeSeederData($seedRun->class_name);
 
         try {
-            // Delete old data in a transaction
-            DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, $profile) {
+            $isLocalizationSeeder = $this->isVirtualLocalizationSeeder($className);
+
+            if (! $isLocalizationSeeder) {
+                $filePath = $this->resolveSeederFilePath($className);
+
+                if (! $this->isInstantiableSeeder($className, $filePath)) {
+                    $errorMessage = __('Seeder :class cannot be executed.', ['class' => $className]);
+
+                    if ($request->wantsJson()) {
+                        return response()->json(['message' => $errorMessage], 422);
+                    }
+
+                    return redirect()
+                        ->route('seed-runs.index')
+                        ->withErrors(['refresh' => $errorMessage]);
+                }
+            }
+
+            DB::transaction(function () use (
+                $seedRun,
+                &$deletedQuestions,
+                &$deletedBlocks,
+                &$deletedPages,
+                &$deletedCategories,
+                &$deletedHints,
+                &$deletedExplanations,
+                $profile
+            ) {
                 $classNames = collect([$seedRun->class_name]);
 
-                // Delete old data
-                if ($profile['type'] === 'questions') {
+                if ($profile['type'] === 'question_localizations') {
+                    $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
+                    $deletedHints = (int) ($result['deleted_hints'] ?? 0);
+                    $deletedExplanations = (int) ($result['deleted_explanations'] ?? 0);
+                } elseif ($profile['type'] === 'page_localizations') {
+                    $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
+                    $deletedBlocks = (int) ($result['deleted_blocks'] ?? 0);
+                } elseif ($profile['type'] === 'questions') {
                     $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
                 } elseif ($profile['type'] === 'pages') {
                     $pageResult = $this->deletePageContentForSeeders($classNames);
                     $deletedBlocks = $pageResult['blocks'];
                     $deletedPages = $pageResult['pages_deleted'];
+                    $deletedCategories = $pageResult['categories_deleted'];
                 } else {
                     $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
                     $pageResult = $this->deletePageContentForSeeders($classNames);
                     $deletedBlocks = $pageResult['blocks'];
                     $deletedPages = $pageResult['pages_deleted'];
+                    $deletedCategories = $pageResult['categories_deleted'];
                 }
             });
 
-            // Re-run the seeder outside the transaction
-            Artisan::call('db:seed', ['--class' => $className]);
+            if ($isLocalizationSeeder) {
+                $this->applyVirtualLocalizationSeeder($className);
+            } else {
+                Artisan::call('db:seed', ['--class' => $className]);
+            }
 
-            // Update the ran_at timestamp
             DB::table('seed_runs')
                 ->where('id', $seedRun->id)
                 ->update(['ran_at' => now()]);
@@ -2359,12 +3064,24 @@ class SeedRunController extends Controller
         }
 
         $status = match ($profile['type']) {
+            'question_localizations' => __('Refreshed localization seeder :class. Deleted :hints hint(s) and :explanations explanation(s), then re-applied localization.', [
+                'class' => $seedRun->class_name,
+                'hints' => $deletedHints,
+                'explanations' => $deletedExplanations,
+            ]),
+            'page_localizations' => __('Refreshed page localization seeder :class. Deleted :blocks localized text block(s) and regenerated them.', [
+                'class' => $seedRun->class_name,
+                'blocks' => $deletedBlocks,
+            ]),
             'pages' => __('Refreshed seeder :class. Deleted :blocks text block(s) and regenerated content.', [
                 'class' => $seedRun->class_name,
                 'blocks' => $deletedBlocks,
             ]) . ($deletedPages > 0
                 ? ' ' . __('Deleted :count page record(s).', ['count' => $deletedPages])
-                : ''),
+                : '')
+                . ($deletedCategories > 0
+                    ? ' ' . __('Deleted :count category record(s).', ['count' => $deletedCategories])
+                    : ''),
             'questions' => __('Refreshed seeder :class. Deleted :count question(s) and regenerated them.', [
                 'class' => $seedRun->class_name,
                 'count' => $deletedQuestions,
@@ -2384,6 +3101,9 @@ class SeedRunController extends Controller
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,
+                'categories_deleted' => $deletedCategories,
+                'hints_deleted' => $deletedHints,
+                'explanations_deleted' => $deletedExplanations,
                 'overview' => [
                     'pending_count' => $overview['pendingSeeders']->count(),
                     'executed_count' => $overview['executedSeeders']->count(),
@@ -2533,23 +3253,44 @@ class SeedRunController extends Controller
             return [$className => $profile['type']];
         });
 
+        $questionLocalizationClasses = $typeMap->filter(fn ($type) => $type === 'question_localizations')->keys()->values();
+        $pageLocalizationClasses = $typeMap->filter(fn ($type) => $type === 'page_localizations')->keys()->values();
         $questionClasses = $typeMap->filter(fn ($type) => $type === 'questions')->keys()->values();
         $pageClasses = $typeMap->filter(fn ($type) => $type === 'pages')->keys()->values();
-        $unknownClasses = $typeMap->filter(fn ($type) => ! in_array($type, ['questions', 'pages'], true))->keys()->values();
+        $unknownClasses = $typeMap->filter(fn ($type) => ! in_array($type, ['question_localizations', 'page_localizations', 'questions', 'pages'], true))->keys()->values();
 
         $deletedQuestions = 0;
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedCategories = 0;
+        $deletedHints = 0;
+        $deletedExplanations = 0;
 
         DB::transaction(function () use (
             $seedRunIdsToDelete,
+            $questionLocalizationClasses,
+            $pageLocalizationClasses,
             $questionClasses,
             $pageClasses,
             $unknownClasses,
             &$deletedQuestions,
             &$deletedBlocks,
-            &$deletedPages
+            &$deletedPages,
+            &$deletedCategories,
+            &$deletedHints,
+            &$deletedExplanations
         ) {
+            foreach ($questionLocalizationClasses as $className) {
+                $result = $this->removeVirtualLocalizationSeederData($className);
+                $deletedHints += (int) ($result['deleted_hints'] ?? 0);
+                $deletedExplanations += (int) ($result['deleted_explanations'] ?? 0);
+            }
+
+            foreach ($pageLocalizationClasses as $className) {
+                $result = $this->removeVirtualLocalizationSeederData($className);
+                $deletedBlocks += (int) ($result['deleted_blocks'] ?? 0);
+            }
+
             if ($questionClasses->isNotEmpty()) {
                 $deletedQuestions += $this->deleteQuestionsForSeeders($questionClasses);
             }
@@ -2558,6 +3299,7 @@ class SeedRunController extends Controller
                 $pageResult = $this->deletePageContentForSeeders($pageClasses);
                 $deletedBlocks += $pageResult['blocks'];
                 $deletedPages += $pageResult['pages_deleted'];
+                $deletedCategories += $pageResult['categories_deleted'];
             }
 
             if ($unknownClasses->isNotEmpty()) {
@@ -2565,6 +3307,7 @@ class SeedRunController extends Controller
                 $pageResult = $this->deletePageContentForSeeders($unknownClasses);
                 $deletedBlocks += $pageResult['blocks'];
                 $deletedPages += $pageResult['pages_deleted'];
+                $deletedCategories += $pageResult['categories_deleted'];
             }
 
             DB::table('seed_runs')
@@ -2589,6 +3332,18 @@ class SeedRunController extends Controller
             $statusMessage .= ' ' . __('Deleted :count related page record(s).', ['count' => $deletedPages]);
         }
 
+        if ($deletedCategories > 0) {
+            $statusMessage .= ' ' . __('Deleted :count related category record(s).', ['count' => $deletedCategories]);
+        }
+
+        if ($deletedHints > 0) {
+            $statusMessage .= ' ' . __('Deleted :count related hint(s).', ['count' => $deletedHints]);
+        }
+
+        if ($deletedExplanations > 0) {
+            $statusMessage .= ' ' . __('Deleted :count related explanation(s).', ['count' => $deletedExplanations]);
+        }
+
         if ($request->wantsJson()) {
             $overview = $this->assembleSeedRunOverview();
             return response()->json([
@@ -2597,6 +3352,9 @@ class SeedRunController extends Controller
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,
+                'categories_deleted' => $deletedCategories,
+                'hints_deleted' => $deletedHints,
+                'explanations_deleted' => $deletedExplanations,
                 'folder_label' => $folderLabel,
                 'overview' => [
                     'pending_count' => $overview['pendingSeeders']->count(),
@@ -2664,6 +3422,28 @@ class SeedRunController extends Controller
 
         if (! $this->ensureSeederClassIsLoaded($className)) {
             return $default;
+        }
+
+        $localizationType = $this->virtualLocalizationType($className);
+
+        if ($localizationType === 'question_localizations') {
+            return [
+                'type' => 'question_localizations',
+                'delete_button' => __('Видалити локалізації'),
+                'delete_confirm' => __('Видалити лог та пов’язані локалізації?'),
+                'folder_delete_button' => __('Видалити локалізації'),
+                'folder_delete_confirm' => __('Видалити всі локалізаційні сидери в папці «:folder» разом із локалізаціями?'),
+            ];
+        }
+
+        if ($localizationType === 'page_localizations') {
+            return [
+                'type' => 'page_localizations',
+                'delete_button' => __('Видалити локалізації сторінок'),
+                'delete_confirm' => __('Видалити лог та пов’язані локалізовані блоки сторінок?'),
+                'folder_delete_button' => __('Видалити локалізації сторінок'),
+                'folder_delete_confirm' => __('Видалити всі локалізаційні сидери сторінок у папці «:folder» разом із локалізованими блоками?'),
+            ];
         }
 
         if (is_subclass_of($className, QuestionSeederBase::class)) {
@@ -2745,16 +3525,20 @@ class SeedRunController extends Controller
     {
         $hasTextBlockTable = Schema::hasTable('text_blocks');
         $hasPagesTable = Schema::hasTable('pages');
+        $hasPageCategoriesTable = Schema::hasTable('page_categories');
 
-        if ($classNames->isEmpty() || (! $hasTextBlockTable && ! $hasPagesTable)) {
-            return ['blocks' => 0, 'pages_deleted' => 0];
+        if ($classNames->isEmpty() || (! $hasTextBlockTable && ! $hasPagesTable && ! $hasPageCategoriesTable)) {
+            return ['blocks' => 0, 'pages_deleted' => 0, 'categories_deleted' => 0];
         }
 
         $classNames = $this->expandGrammarPageSeederClasses($classNames);
 
         $deletedBlocks = 0;
         $deletedPages = 0;
+        $deletedCategories = 0;
         $processedPageIds = collect();
+        $explicitCategoryIds = collect();
+        $categoriesToEvaluate = collect();
 
         foreach ($classNames as $className) {
             if ($hasTextBlockTable) {
@@ -2769,48 +3553,162 @@ class SeedRunController extends Controller
                     });
             }
 
-            if (! $hasPagesTable) {
+            if ($hasPagesTable) {
+                $pages = Page::query()
+                    ->where('seeder', $className)
+                    ->get();
+
+                if ($pages->isEmpty()) {
+                    $slug = $this->resolvePageSlugForSeeder($className);
+
+                    if ($slug !== null) {
+                        $page = Page::query()->where('slug', $slug)->first();
+
+                        if ($page) {
+                            $pages = collect([$page]);
+                        }
+                    }
+                }
+
+                foreach ($pages as $page) {
+                    if ($processedPageIds->contains($page->id)) {
+                        continue;
+                    }
+
+                    $processedPageIds->push($page->id);
+
+                    if ($hasPageCategoriesTable && ! is_null($page->page_category_id)) {
+                        $categoriesToEvaluate->put((int) $page->page_category_id, $page->page_category_id);
+                    }
+
+                    if ($hasTextBlockTable) {
+                        $deletedBlocks += TextBlock::query()
+                            ->where('page_id', $page->id)
+                            ->delete();
+                    }
+
+                    $page->delete();
+                    $deletedPages++;
+                }
+            }
+
+            if (! $hasPageCategoriesTable) {
                 continue;
             }
 
-            $pages = Page::query()
+            $categories = PageCategory::query()
                 ->where('seeder', $className)
                 ->get();
 
-            if ($pages->isEmpty()) {
-                $slug = $this->resolvePageSlugForSeeder($className);
-
-                if ($slug !== null) {
-                    $page = Page::query()->where('slug', $slug)->first();
-
-                    if ($page) {
-                        $pages = collect([$page]);
-                    }
-                }
+            foreach ($categories as $category) {
+                $categoriesToEvaluate->put($category->id, $category->id);
+                $explicitCategoryIds->push($category->id);
             }
+        }
 
-            foreach ($pages as $page) {
-                if ($processedPageIds->contains($page->id)) {
-                    continue;
-                }
+        if ($hasPageCategoriesTable && $categoriesToEvaluate->isNotEmpty()) {
+            $categoryIds = $categoriesToEvaluate->keys()->map(fn ($id) => (int) $id)->unique()->values();
+            $explicitCategoryIds = $explicitCategoryIds->map(fn ($id) => (int) $id)->unique()->values();
 
-                $processedPageIds->push($page->id);
+            $categories = PageCategory::query()
+                ->whereIn('id', $categoryIds)
+                ->get()
+                ->sortByDesc(fn (PageCategory $category) => $this->resolvePageCategoryDepth($category));
 
-                if ($hasTextBlockTable) {
-                    $deletedBlocks += TextBlock::query()
-                        ->where('page_id', $page->id)
-                        ->delete();
-                }
+            foreach ($categories as $category) {
+                $result = $this->deletePageCategoryRecord(
+                    $category,
+                    $explicitCategoryIds->contains($category->id),
+                    $hasTextBlockTable,
+                    $hasPagesTable,
+                    $hasPageCategoriesTable
+                );
 
-                $page->delete();
-                $deletedPages++;
+                $deletedBlocks += $result['blocks'];
+                $deletedCategories += $result['categories_deleted'];
             }
         }
 
         return [
             'blocks' => $deletedBlocks,
             'pages_deleted' => $deletedPages,
+            'categories_deleted' => $deletedCategories,
         ];
+    }
+
+    protected function deletePageCategoryRecord(
+        PageCategory $category,
+        bool $forceDelete,
+        bool $hasTextBlockTable,
+        bool $hasPagesTable,
+        bool $hasPageCategoriesTable,
+    ): array {
+        $category = PageCategory::query()->find($category->id);
+
+        if (! $category) {
+            return ['blocks' => 0, 'categories_deleted' => 0];
+        }
+
+        if (! $forceDelete) {
+            $hasRemainingPages = $hasPagesTable
+                && Page::query()->where('page_category_id', $category->id)->exists();
+            $hasRemainingChildren = $hasPageCategoriesTable
+                && PageCategory::query()->where('parent_id', $category->id)->exists();
+
+            if ($hasRemainingPages || $hasRemainingChildren) {
+                return ['blocks' => 0, 'categories_deleted' => 0];
+            }
+        }
+
+        $deletedBlocks = 0;
+
+        if ($hasTextBlockTable) {
+            TextBlock::query()
+                ->where('page_category_id', $category->id)
+                ->whereNotNull('page_id')
+                ->update(['page_category_id' => null]);
+
+            $deletedBlocks += TextBlock::query()
+                ->where('page_category_id', $category->id)
+                ->whereNull('page_id')
+                ->delete();
+        }
+
+        if ($hasPagesTable) {
+            Page::query()
+                ->where('page_category_id', $category->id)
+                ->update(['page_category_id' => null]);
+        }
+
+        if ($hasPageCategoriesTable) {
+            PageCategory::query()
+                ->where('parent_id', $category->id)
+                ->update(['parent_id' => null]);
+        }
+
+        $category->delete();
+
+        return [
+            'blocks' => $deletedBlocks,
+            'categories_deleted' => 1,
+        ];
+    }
+
+    protected function resolvePageCategoryDepth(PageCategory $category): int
+    {
+        $depth = 0;
+        $parentId = $category->parent_id;
+        $visited = [];
+
+        while ($parentId && ! in_array($parentId, $visited, true)) {
+            $visited[] = $parentId;
+            $depth++;
+            $parentId = PageCategory::query()
+                ->whereKey($parentId)
+                ->value('parent_id');
+        }
+
+        return $depth;
     }
 
     protected function expandGrammarPageSeederClasses(Collection $classNames): Collection
@@ -2857,13 +3755,7 @@ class SeedRunController extends Controller
                 return null;
             }
 
-            $instance = app()->make($className);
-
-            if (! method_exists($instance, 'slug')) {
-                return null;
-            }
-
-            $slug = $instance->slug();
+            $slug = $this->invokeSeederMethod($className, 'slug');
 
             return is_string($slug) ? $slug : null;
         } catch (\Throwable) {
@@ -2920,12 +3812,13 @@ class SeedRunController extends Controller
     private function discoverSeederClasses(string $directory): array
     {
         if (! is_dir($directory)) {
-            return [];
+            return $this->virtualLocalizationClasses();
         }
 
         return $this->getSeederClassMap()
             ->filter(fn (string $path, string $class) => $this->isInstantiableSeeder($class, $path))
             ->keys()
+            ->merge($this->virtualLocalizationClasses())
             ->unique()
             ->sort()
             ->values()
@@ -3042,6 +3935,10 @@ class SeedRunController extends Controller
 
     private function ensureSeederClassIsLoaded(string $className): bool
     {
+        if ($this->isVirtualLocalizationSeeder($className)) {
+            return true;
+        }
+
         if ($this->classExistsSafely($className)) {
             return true;
         }

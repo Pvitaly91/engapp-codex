@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Page_v2\QuestionsNegations\TypesOfQuestions;
 
-use Database\Seeders\Pages\QuestionsNegations\QuestionsNegationsPageSeeder;
+use Database\Seeders\Page_v2\QuestionsNegations\QuestionsNegationsPageSeeder;
 
 class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPageSeeder
 {

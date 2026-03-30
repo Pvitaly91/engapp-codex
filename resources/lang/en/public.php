@@ -13,7 +13,11 @@ return [
         'theory' => 'Theory',
         'words_test' => 'Words Test',
         'verbs_test' => 'Verbs Test',
+        'explore' => 'Explore',
+        'practice' => 'Practice',
         'menu' => 'Menu',
+        'open_menu' => 'Open menu',
+        'close_menu' => 'Close menu',
     ],
 
     // Search
@@ -42,9 +46,12 @@ return [
 
     // Common
     'common' => [
+        'home' => 'Home',
+        'breadcrumb' => 'Breadcrumb',
         'go_to' => 'Go to',
         'collapse' => 'Collapse',
         'expand' => 'Expand',
+        'level' => 'Level',
         'type_theory' => 'Theory',
         'type_test' => 'Test',
         'no_lessons' => 'No lessons',
@@ -56,6 +63,7 @@ return [
         'category_tags' => 'Category Tags',
         'tests_on_topic' => 'Tests on this topic',
         'related_tests' => 'Related Tests',
+        'quick_links' => 'Quick links',
     ],
 
     // Slider (JS aria-labels)
@@ -101,6 +109,7 @@ return [
         'in_ukrainian' => 'In Ukrainian',
         'mobile_categories' => 'Categories',
         'theory_categories_mobile' => 'Theory Categories',
+        'sections' => 'Sections',
     ],
 
     // Home page
@@ -121,13 +130,18 @@ return [
         'dictionary_cta' => 'Supports many languages — start typing to see translations.',
         'sections' => 'Navigation',
         'pick_path' => 'Pick your path',
+        'catalog_title' => 'Test collections',
         'catalog_desc' => 'Browse curated test cards grouped by topic and difficulty.',
+        'theory_title' => 'Grammar by topic',
         'theory_desc' => 'Structured explanations for grammar topics with friendly URLs.',
+        'words_title' => 'Vocabulary trainer',
         'words_desc' => 'Train vocabulary with adaptive difficulty levels.',
+        'verbs_title' => 'Verb form practice',
         'verbs_desc' => 'Polish irregular verbs with focused practice.',
         'how_it_works' => 'How it works',
         'steps_title' => 'Study flow',
         'steps_intro' => 'Move between catalog, theory and trainers without losing context.',
+        'new_design' => 'New design',
         'step_find' => 'Search the library',
         'step_find_desc' => 'Use the global search to jump to theory or tests.',
         'step_start' => 'Start practising',
@@ -135,6 +149,7 @@ return [
         'step_share' => 'Continue anywhere',
         'step_share_desc' => 'Light/dark themes and responsive layout keep everything readable.',
         'search_block_title' => 'Search the site',
+        'search_block_heading' => 'Find a topic or test',
         'search_block_desc' => 'Find tests, grammar pages and cards with one query.',
         'search_block_hint' => 'Suggestions appear after two characters.',
     ],
@@ -143,8 +158,10 @@ return [
     'language' => [
         'uk' => 'UK',
         'en' => 'EN',
+        'pl' => 'PL',
         'ukrainian' => 'Ukrainian',
         'english' => 'English',
+        'polish' => 'Polish',
         'search' => 'Find language',
         'current' => 'Current',
     ],

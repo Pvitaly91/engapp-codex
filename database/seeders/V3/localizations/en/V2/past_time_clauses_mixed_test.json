@@ -1,0 +1,141 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\En\\V2\\PastTimeClausesMixedTestLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\V2\\PastTimeClausesMixedTestV3Seeder",
+        "definition": "past_time_clauses_mixed_test",
+        "definition_path": "V2/past_time_clauses_mixed_test.json"
+    },
+    "locale": "en",
+    "hint_provider": "chatgpt",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "{a1} Time: Past Perfect.  \nFormula: **had + V3**.  \nExample: *By the time she was 18, she had finished school.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "made": "❌ Past Simple (V2). Used for an event in the past, but here the action that finished before this age is important.",
+                    "was making": "❌ Past Continuous = was/were + V-ing. Shows a process, not a completed fact.",
+                    "has made": "❌ Present Perfect. We are talking about the past, so this form is incorrect.",
+                    "had made": "✅ Past Perfect = had + V3. Correct, because the action was completed before a specific moment in the past (25 years)."
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "{a1} Time: Past Perfect.  \nFormula: **had + V3**.  \nExample: *After he had eaten, he left the house.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "finished": "❌ Past Simple. Possible usage, but better to show the action earlier than another.",
+                    "had finished": "✅ Past Perfect. Shows that he finished the course before he left.",
+                    "has finished": "❌ Present Perfect. Incorrect tense for past events.",
+                    "was finished": "❌ Passive voice, the form is not suitable."
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "{a1} Time: Past Perfect.  \nFormula: **had + V3**.  \nExample: *He didn’t watch the movie because he had seen it before.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "saw": "❌ Past Simple. Does not emphasize that the action occurred earlier than another.",
+                    "had seen": "✅ Past Perfect. He had seen this movie earlier, so he didn't come.",
+                    "has been seen": "❌ Present Perfect Passive. Incorrect in this context.",
+                    "was seeing": "❌ Past Continuous. Does not match the content."
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "{a1} Structure: *No sooner had + subject + V3 … than …*.  \nExample: *No sooner had I arrived than it started to rain.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "had she put": "✅ Inversion with No sooner. Correct form: *No sooner had + subject + V3 …*",
+                    "did she put": "❌ Past Simple with auxiliary verb. Not suitable.",
+                    "she had put": "❌ No inversion after *No sooner*.",
+                    "she put": "❌ Past Simple. No grammatical correspondence."
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "{a1} Tense: Past Simple.  \nFormula: **V2**.  \nExample: *As soon as he saw me, he smiled.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "made": "✅ Past Simple. The event occurred immediately after she saw the fire.",
+                    "had finished": "❌ Past Perfect. Does not make sense.",
+                    "has finished": "❌ Present Perfect. The event occurred in the past.",
+                    "was finished": "❌ Passive voice. Not suitable."
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "{a1} Tense: Past Simple.  \nFormula: **V2**.  \nExample: *I was cooking when the phone rang.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "was ringing": "❌ Past Continuous. Possible option, but here a short action needs to be shown.",
+                    "had rung": "❌ Past Perfect. Does not make sense, as the actions occurred simultaneously.",
+                    "rang": "✅ Past Simple. The phone rang during the reading process.",
+                    "has rung": "❌ Present Perfect. Incorrect tense."
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "{a1} Tense: Past Continuous.  \nFormula: **was/were + V-ing**.  \nExample: *He fell while he was running.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "was riding": "✅ Past Continuous = was/were + V-ing. Process at the moment of falling.",
+                    "had ridden": "❌ Past Perfect. Not suitable, as the actions were simultaneous.",
+                    "rid": "❌ Incorrect form.",
+                    "has ridden": "❌ Present Perfect. Incorrect tense."
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "{a1} Tense: Past Perfect.  \nFormula: **had + V3**.  \nExample: *When I arrived, the bus had left.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "had disappeared": "✅ Past Perfect. The car disappeared before I left.",
+                    "has disappeared": "❌ Present Perfect. This is already a past action.",
+                    "disappeared": "❌ Past Simple. Does not emphasize \"earlier than another action.\"",
+                    "was disappearing": "❌ Past Continuous. Not suitable."
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "{a1} Time: Past Simple Passive.  \nFormula: **was/were + V3**.  \nExample: *Thousands of people were killed in the war.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "was killing": "❌ Past Continuous. Incorrect for passive.",
+                    "had killed": "❌ Past Perfect Active. Not a passive form.",
+                    "were killed": "✅ Past Simple Passive. Correct form: to be (were) + V3.",
+                    "have been killed": "❌ Present Perfect Passive. The event occurred in the past."
+                }
+            }
+        }
+    ]
+}

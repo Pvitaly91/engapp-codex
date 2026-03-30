@@ -1,0 +1,97 @@
+{
+    "schema_version": 1,
+    "content_type": "category",
+    "slug": "imennyky-artykli-ta-kilkist",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityCategorySeeder"
+    },
+    "category": {
+        "slug": "imennyky-artykli-ta-kilkist",
+        "title": "Іменники, артиклі та кількість",
+        "language": "uk",
+        "type": "theory"
+    },
+    "description": {
+        "title": "Іменники, артиклі та кількість",
+        "subtitle_html": "<p><strong>Іменники, артиклі та кількість</strong> — це розділ теорії, де зібрані сторінки про форми іменників, артиклі та способи вираження кількості в англійській мові: <strong>singular/plural</strong>, <strong>countable/uncountable</strong>, <strong>a/an/the</strong>, <strong>some/any</strong>, <strong>much/many</strong>, <strong>few/little</strong> та споріднені теми.</p>",
+        "subtitle_text": "Категорія теорії про іменники, артиклі та кількість: форми singular/plural, countable/uncountable nouns, articles та quantity words.",
+        "locale": "uk",
+        "tags": [
+            "Nouns",
+            "Articles",
+            "Quantity",
+            "Countable Nouns",
+            "Uncountable Nouns",
+            "Plural Nouns",
+            "Grammar",
+            "Theory",
+            "A1",
+            "A2",
+            "B1"
+        ],
+        "base_tags": [
+            "Nouns",
+            "Articles",
+            "Quantity",
+            "Grammar",
+            "Theory"
+        ],
+        "blocks": [
+            {
+                "type": "hero",
+                "column": "header",
+                "uuid_key": "category-hero",
+                "tags": [
+                    "overview",
+                    "category"
+                ],
+                "inherit_base_tags": true,
+                "body": "{\n    \"level\": \"A1–B1\",\n    \"intro\": \"У цьому розділі зібрано теми, які допомагають правильно працювати з <strong>іменниками<\\/strong>, <strong>артиклями<\\/strong> та <strong>вираженням кількості<\\/strong> в англійській мові.\",\n    \"rules\": [\n        {\n            \"label\": \"NOUNS\",\n            \"color\": \"emerald\",\n            \"text\": \"<strong>Форми іменників<\\/strong> — singular\\/plural, regular та irregular forms.\",\n            \"example\": \"Plural Nouns, Irregular Plurals\"\n        },\n        {\n            \"label\": \"ARTICLES\",\n            \"color\": \"blue\",\n            \"text\": \"<strong>Артиклі<\\/strong> — a\\/an\\/the та нульовий артикль.\",\n            \"example\": \"Articles A \\/ An \\/ The\"\n        },\n        {\n            \"label\": \"QUANTITY\",\n            \"color\": \"amber\",\n            \"text\": \"<strong>Кількість<\\/strong> — some, any, much, many, few, little, a lot of.\",\n            \"example\": \"Some \\/ Any, Much \\/ Many, Few \\/ Little\"\n        }\n    ]\n}"
+            },
+            {
+                "type": "forms-grid",
+                "column": "left",
+                "uuid_key": "category-sections",
+                "tags": [
+                    "sections",
+                    "navigation"
+                ],
+                "inherit_base_tags": true,
+                "body": "{\n    \"title\": \"Що входить до категорії\",\n    \"intro\": \"Основні підтеми, які логічно об’єднує ця категорія:\",\n    \"items\": [\n        {\n            \"label\": \"PLURAL\",\n            \"title\": \"Множина іменників\",\n            \"subtitle\": \"Правила -s, -es, -ies, -ves, irregular plurals, singular-only та plural-only nouns.\"\n        },\n        {\n            \"label\": \"ARTICLES\",\n            \"title\": \"Артиклі\",\n            \"subtitle\": \"Вживання a\\/an\\/the, zero article, типові помилки й винятки.\"\n        },\n        {\n            \"label\": \"QUANTITY\",\n            \"title\": \"Кількість\",\n            \"subtitle\": \"Countable vs uncountable nouns, some\\/any, much\\/many, few\\/little та споріднені конструкції.\"\n        }\n    ]\n}"
+            },
+            {
+                "type": "usage-panels",
+                "column": "left",
+                "uuid_key": "category-when-to-open",
+                "tags": [
+                    "study-guide",
+                    "usage"
+                ],
+                "inherit_base_tags": true,
+                "body": "{\n    \"title\": \"Коли відкривати цей розділ\",\n    \"sections\": [\n        {\n            \"label\": \"Форма слова\",\n            \"color\": \"emerald\",\n            \"description\": \"Коли потрібно визначити, яку форму іменника використовувати: <strong>singular<\\/strong> чи <strong>plural<\\/strong>.\",\n            \"examples\": [\n                {\n                    \"en\": \"one child \\/ two children\",\n                    \"ua\": \"одна дитина \\/ двоє дітей\"\n                },\n                {\n                    \"en\": \"a box \\/ three boxes\",\n                    \"ua\": \"одна коробка \\/ три коробки\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Артикль\",\n            \"color\": \"blue\",\n            \"description\": \"Коли треба зрозуміти, чи ставити <strong>a\\/an\\/the<\\/strong>, чи залишати іменник без артикля.\",\n            \"examples\": [\n                {\n                    \"en\": \"a book\",\n                    \"ua\": \"будь-яка книга\"\n                },\n                {\n                    \"en\": \"the book\",\n                    \"ua\": \"конкретна книга\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Кількість\",\n            \"color\": \"amber\",\n            \"description\": \"Коли потрібно вибрати слово кількості: <strong>some, any, much, many, few, little<\\/strong>.\",\n            \"examples\": [\n                {\n                    \"en\": \"many books\",\n                    \"ua\": \"багато книжок\"\n                },\n                {\n                    \"en\": \"little water\",\n                    \"ua\": \"мало води\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+                "type": "summary-list",
+                "column": "left",
+                "uuid_key": "category-skills",
+                "tags": [
+                    "skills",
+                    "outcomes"
+                ],
+                "inherit_base_tags": true,
+                "body": "{\n    \"title\": \"Що має вміти учень після цього розділу\",\n    \"items\": [\n        \"утворювати <strong>regular plural forms<\\/strong>: <em>-s, -es, -ies, -ves<\\/em>;\",\n        \"розпізнавати та запам’ятовувати <strong>irregular plurals<\\/strong>;\",\n        \"розрізняти <strong>countable<\\/strong> і <strong>uncountable nouns<\\/strong>;\",\n        \"правильно обирати <strong>a \\/ an \\/ the \\/ zero article<\\/strong>;\",\n        \"вживати <strong>some \\/ any \\/ much \\/ many \\/ few \\/ little<\\/strong> без типових помилок;\",\n        \"бачити зв’язок між формою іменника, артиклем і словом кількості в одному реченні.\"\n    ]\n}"
+            },
+            {
+                "type": "navigation-chips",
+                "column": "footer",
+                "uuid_key": "category-pages",
+                "tags": [
+                    "related-pages",
+                    "navigation"
+                ],
+                "inherit_base_tags": true,
+                "body": "{\n    \"title\": \"Рекомендовані сторінки в цій категорії\",\n    \"items\": [\n        {\n            \"label\": \"Plural Nouns — Множина іменників\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Articles A \\/ An \\/ The — Артиклі\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Countable vs Uncountable Nouns\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Some \\/ Any — Кількість\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Much \\/ Many — Кількість\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Few \\/ Little — Кількість\",\n            \"current\": false\n        }\n    ]\n}"
+            }
+        ]
+    }
+}

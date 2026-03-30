@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\QuestionHint;
 use Tests\TestCase;
 use App\Models\{Category, Question};
 use Illuminate\Support\Facades\Artisan;
@@ -10,19 +11,18 @@ use App\Services\{ChatGPTService, GeminiService};
 
 class QuestionHintCacheTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->withoutMiddleware();
+        app()->setLocale('uk');
+    }
+
     /** @test */
     public function hints_are_cached_and_can_be_refreshed()
     {
-        $migrations = [
-            '2025_07_20_143201_create_categories_table.php',
-            '2025_07_20_143210_create_quastion_table.php',
-            '2025_07_20_143243_create_quastion_answers_table.php',
-            '2025_07_31_000002_add_uuid_to_questions_table.php',
-            '2025_08_05_000001_create_question_hints_table.php',
-        ];
-        foreach ($migrations as $file) {
-            Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
-        }
+        $this->migrateHintTables();
 
         $category = Category::create(['name' => 'Dummy']);
         $question = Question::create([
@@ -76,6 +76,62 @@ class QuestionHintCacheTest extends TestCase
     }
 
     /** @test */
+    public function localized_hint_requests_prefer_current_locale_cache(): void
+    {
+        $this->migrateHintTables();
+
+        $category = Category::create(['name' => 'Dummy']);
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Test sentence?',
+            'category_id' => $category->id,
+        ]);
+
+        QuestionHint::create([
+            'question_id' => $question->id,
+            'provider' => 'chatgpt',
+            'locale' => 'uk',
+            'hint' => 'uk-gpt',
+        ]);
+
+        QuestionHint::create([
+            'question_id' => $question->id,
+            'provider' => 'chatgpt',
+            'locale' => 'pl',
+            'hint' => 'pl-gpt',
+        ]);
+
+        QuestionHint::create([
+            'question_id' => $question->id,
+            'provider' => 'gemini',
+            'locale' => 'uk',
+            'hint' => 'uk-gemini',
+        ]);
+
+        QuestionHint::create([
+            'question_id' => $question->id,
+            'provider' => 'gemini',
+            'locale' => 'pl',
+            'hint' => 'pl-gemini',
+        ]);
+
+        app()->setLocale('pl');
+
+        $this->mock(ChatGPTService::class, function ($mock) {
+            $mock->shouldNotReceive('hintSentenceStructure');
+        });
+        $this->mock(GeminiService::class, function ($mock) {
+            $mock->shouldNotReceive('hintSentenceStructure');
+        });
+
+        $this->postJson(route('question.hint'), ['question_id' => $question->id, 'locale' => 'pl'])
+            ->assertJson([
+                'chatgpt' => 'pl-gpt',
+                'gemini' => 'pl-gemini',
+            ]);
+    }
+
+    /** @test */
     public function hints_can_be_generated_from_question_text()
     {
         $this->mock(ChatGPTService::class, function ($mock) {
@@ -94,5 +150,20 @@ class QuestionHintCacheTest extends TestCase
                 'chatgpt' => 'text-gpt',
                 'gemini' => 'text-gemini',
             ]);
+    }
+
+    private function migrateHintTables(): void
+    {
+        $migrations = [
+            '2025_07_20_143201_create_categories_table.php',
+            '2025_07_20_143210_create_quastion_table.php',
+            '2025_07_20_143243_create_quastion_answers_table.php',
+            '2025_07_31_000002_add_uuid_to_questions_table.php',
+            '2025_08_05_000001_create_question_hints_table.php',
+        ];
+
+        foreach ($migrations as $file) {
+            Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
+        }
     }
 }

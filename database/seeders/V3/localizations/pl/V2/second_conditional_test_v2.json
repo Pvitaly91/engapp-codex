@@ -1,0 +1,335 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\Pl\\V2\\SecondConditionalTestV2LocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\V2\\SecondConditionalTestV3Seeder",
+        "definition": "second_conditional_test_v2",
+        "definition_path": "V2/second_conditional_test_v2.json"
+    },
+    "locale": "pl",
+    "hint_provider": "chatgpt",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od „get” bierzemy formę przeszłą).\nPrzykład: *If I got a new job, I would be very happy.*\nCzas: Second Conditional.\nFormuła: **would + V1** (na przykład, „would + be”).\nWyjaśnienie: Wynik opisujemy modalnym would oraz podstawowym czasownikiem bez to.\nPrzykład: *If I got a new job, I would be very happy.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "got": "✅ «got» poprawnie, bo w if-klausa drugiego warunkowego dla zaimka «I» potrzebna jest forma Past Simple od «get».\nPrzykład: *If I got a new job, I would be very happy.*",
+                    "get": "❌ «get» — Present Simple; warunek drugiego warunkowego wymaga Past Simple.\nPrzykład: *If I got a new job, I would be very happy.*",
+                    "gets": "❌ «gets» — Present Simple z -s; potrzebna forma Past Simple dla wyimaginowanego warunku.\nPrzykład: *If I got a new job, I would be very happy.*",
+                    "had got": "❌ «had got» — Past Perfect; tę formę używa się w Third Conditional, nie tutaj.\nPrzykład: *If I got a new job, I would be very happy.*"
+                },
+                "a2": {
+                    "would be": "✅ «would be» poprawnie, bo wynik drugiego warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If I got a new job, I would be very happy.*",
+                    "will be": "❌ «will be» z «will» tworzy First Conditional o rzeczywistych zdarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If I got a new job, I would be very happy.*",
+                    "am": "❌ «am» — Present Simple; wyimaginowany wynik wymaga would + V1.\nPrzykład: *If I got a new job, I would be very happy.*",
+                    "was": "❌ «was» — forma bez «would», dlatego nie pokazuje warunkowego wyniku.\nPrzykład: *If I got a new job, I would be very happy.*"
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + were** dla wszystkich osób.\nWyjaśnienie: Z czasownikiem to be w drugim warunkowym używamy «were», nawet z «I» lub «she».\nPrzykład: *If I were younger, I would travel more.*\nCzas: Second Conditional.\nFormuła: **would + V1** (na przykład, „would + travel”).\nWyjaśnienie: Wynik opisujemy modalnym would oraz podstawowym czasownikiem bez to.\nPrzykład: *If I were younger, I would travel more.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "were": "✅ «were» poprawnie, bo z czasownikiem to be w drugim warunkowym dla zaimka «I» używamy «were».\nPrzykład: *If I were younger, I would travel more.*",
+                    "was": "❌ «was» — forma potoczna; gramatycznie w drugim warunkowym należy używać «were» dla wszystkich osób.\nPrzykład: *If I were younger, I would travel more.*",
+                    "are": "❌ «are» pokazuje czas teraźniejszy; w klauzuli if potrzebny jest Past Simple.\nPrzykład: *If I were younger, I would travel more.*",
+                    "would be": "❌ «would be» należy do części z would, a nie do części warunkowej.\nPrzykład: *If I were younger, I would travel more.*"
+                },
+                "a2": {
+                    "would travel": "✅ «would travel» poprawnie, ponieważ wynik drugiego warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If I were younger, I would travel more.*",
+                    "will travel": "❌ «will travel» z «will» tworzy First Conditional o rzeczywistych wydarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If I were younger, I would travel more.*",
+                    "travel": "❌ «travel» — Present Simple; wyimaginowany wynik wymaga would + V1.\nPrzykład: *If I were younger, I would travel more.*",
+                    "would be travelling": "❌ «would be travelling» — forma Continuous; ćwiczenie trenuje prosty model would + V1.\nPrzykład: *If I were younger, I would travel more.*"
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od «study» bierzemy formę przeszłą).\nPrzykład: *If Sally studied more, she would have a better grade.*\nCzas: Second Conditional.\nFormuła: **would + V1** (na przykład, «would + have»).\nWyjaśnienie: Wynik opisujemy modalnym would i podstawowym czasownikiem bez to.\nPrzykład: *If Sally studied more, she would have a better grade.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "studied": "✅ «studied» poprawnie, ponieważ w klauzuli if drugiego warunkowego dla podmiotu «Sally» potrzebna jest forma Past Simple od «study».\nPrzykład: *If Sally studied more, she would have a better grade.*",
+                    "study": "❌ «study» — Present Simple; warunek drugiego warunkowego wymaga Past Simple.\nPrzykład: *If Sally studied more, she would have a better grade.*",
+                    "studies": "❌ «studies» — Present Simple z -s; potrzebna forma Past Simple dla wyimaginowanego warunku.\nPrzykład: *If Sally studied more, she would have a better grade.*",
+                    "had studied": "❌ «had studied» — Past Perfect; tę formę używa się w Third Conditional, nie tutaj.\nPrzykład: *If Sally studied more, she would have a better grade.*"
+                },
+                "a2": {
+                    "would have": "✅ «would have» poprawnie, ponieważ wynik drugiego warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If Sally studied more, she would have a better grade.*",
+                    "will have": "❌ «will have» z «will» tworzy First Conditional o rzeczywistych wydarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If Sally studied more, she would have a better grade.*",
+                    "have": "❌ «have» — Present Simple; wyimaginowany wynik wymaga would + V1.\nPrzykład: *If Sally studied more, she would have a better grade.*",
+                    "would be having": "❌ «would be having» — forma Continuous; ćwiczenie trenuje prosty model would + V1.\nPrzykład: *If Sally studied more, she would have a better grade.*"
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od «buy» bierzemy formę przeszłą).\nPrzykład: *If I bought a new car, I would buy a bigger one.*\nCzas: Second Conditional.\nFormuła: **would + V1** (na przykład, «would + buy»).\nWyjaśnienie: Wynik opisujemy modalnym would i podstawowym czasownikiem bez to.\nPrzykład: *If I bought a new car, I would buy a bigger one.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "bought": "✅ «bought» poprawnie, ponieważ w klauzuli if drugiego warunkowego dla zaimka «I» potrzebna jest forma Past Simple od «buy».\nPrzykład: *If I bought a new car, I would buy a bigger one.*",
+                    "buy": "❌ «buy» — Present Simple; warunek drugiego warunkowego wymaga Past Simple.\nPrzykład: *If I bought a new car, I would buy a bigger one.*",
+                    "buys": "❌ «buys» — Present Simple z -s; potrzebna forma Past Simple dla wyimaginowanego warunku.\nPrzykład: *If I bought a new car, I would buy a bigger one.*",
+                    "had bought": "❌ «had bought» — Past Perfect; tę formę używa się w Third Conditional, nie tutaj.\nPrzykład: *If I bought a new car, I would buy a bigger one.*"
+                },
+                "a2": {
+                    "would buy": "✅ «would buy» poprawnie, ponieważ wynik drugiego warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If I bought a new car, I would buy a bigger one.*",
+                    "will buy": "❌ «will buy» z «will» tworzy First Conditional o realnych wydarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If I bought a new car, I would buy a bigger one.*",
+                    "would be buying": "❌ «would be buying» — forma Continuous; ćwiczenie trenuje prosty model would + V1.\nPrzykład: *If I bought a new car, I would buy a bigger one.*",
+                    "would have bought": "❌ «would have bought» — struktura Third Conditional (would have + V3), a my pracujemy z Second Conditional.\nPrzykład: *If I bought a new car, I would buy a bigger one.*"
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + could + V1** (na przykład, «could buy»).\nWyjaśnienie: «could» — przeszła forma od «can», którą bierzemy, aby pokazać wyimaginowaną możliwość.\nPrzykład: *If Amélie could buy a new super power, she would have super human strength.*\nCzas: Second Conditional.\nFormuła: **would + V1** (na przykład, «would + have»).\nWyjaśnienie: Wynik opisujemy modalnym would oraz podstawowym czasownikiem bez to.\nPrzykład: *If Amélie could buy a new super power, she would have super human strength.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "could": "✅ «could» poprawnie, bo wyimaginowaną możliwość w drugim warunkowym przekazujemy «could» + V1.\nPrzykład: *If Amélie could buy a new super power, she would have super human strength.*",
+                    "can": "❌ «can» — teraźniejsza forma «can»; potrzebne Past Simple «could».\nPrzykład: *If Amélie could buy a new super power, she would have super human strength.*",
+                    "was able": "❌ «was able» brzmi jak przeszły fakt «was able» i jeszcze wymaga «to» przed czasownikiem; potrzebne nam modalne «could».\nPrzykład: *If Amélie could buy a new super power, she would have super human strength.*",
+                    "would can": "❌ «would can» błędnie łączy dwa modalne czasowniki razem.\nPrzykład: *If Amélie could buy a new super power, she would have super human strength.*"
+                },
+                "a2": {
+                    "would have": "✅ «would have» poprawnie, bo wynik drugiego warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If Amélie could buy a new super power, she would have super human strength.*",
+                    "will have": "❌ «will have» z «will» tworzy First Conditional o realnych wydarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If Amélie could buy a new super power, she would have super human strength.*",
+                    "has": "❌ «has» — Present Simple z -s; po would czasownik nie otrzymuje końcówek.\nPrzykład: *If Amélie could buy a new super power, she would have super human strength.*",
+                    "would has": "❌ «would has» ma końcówkę -s po would, co jest gramatycznie błędne.\nPrzykład: *If Amélie could buy a new super power, she would have super human strength.*"
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od «win» bierzemy przeszłą formę).\nPrzykład: *If he won the lottery, he would travel the world.*\nCzas: Second Conditional.\nFormuła: **would + V1** (na przykład, «would + travel»).\nWyjaśnienie: Wynik opisujemy modalnym would oraz podstawowym czasownikiem bez to.\nPrzykład: *If he won the lottery, he would travel the world.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "won": "✅ «won» poprawnie, bo w if-klauzuli drugiego warunkowego dla zaimka «he» potrzebna jest forma Past Simple od «win».\nPrzykład: *If he won the lottery, he would travel the world.*",
+                    "win": "❌ «win» — Present Simple; warunek drugiego warunkowego wymaga Past Simple.\nPrzykład: *If he won the lottery, he would travel the world.*",
+                    "wins": "❌ «wins» — Present Simple z -s; potrzebna forma Past Simple dla wyimaginowanego warunku.\nPrzykład: *If he won the lottery, he would travel the world.*",
+                    "had won": "❌ «had won» — Past Perfect; tę formę używa się w Third Conditional, nie tutaj.\nPrzykład: *If he won the lottery, he would travel the world.*"
+                },
+                "a2": {
+                    "would travel": "✅ «would travel» poprawnie, bo wynik drugiego warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If he won the lottery, he would travel the world.*",
+                    "will travel": "❌ «will travel» z «will» tworzy First Conditional o realnych wydarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If he won the lottery, he would travel the world.*",
+                    "travels": "❌ «travels» — Present Simple z -s; po would czasownik nie otrzymuje końcówek.\nPrzykład: *If he won the lottery, he would travel the world.*",
+                    "would be travelling": "❌ «would be travelling» — forma Continuous; ćwiczenie trenuje prosty model would + V1.\nPrzykład: *If he won the lottery, he would travel the world.*"
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od «have» bierzemy formę przeszłą).\nPrzykład: *If we had a new car, we would be able to drive to the beach every day.*\nCzas: Second Conditional.\nFormuła: **would + be able to + V1** (na przykład, «would be able to drive»).\nWyjaśnienie: Aby mówić o możliwości jako wyniku, używamy be able to po would.\nPrzykład: *If we had a new car, we would be able to drive to the beach every day.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "had": "✅ «had» poprawnie, bo w if-klauzuli drugiego warunkowego dla zaimka «we» potrzebna jest forma Past Simple od «have».\nPrzykład: *If we had a new car, we would be able to drive to the beach every day.*",
+                    "have": "❌ «have» — Present Simple; warunek drugiego warunkowego wymaga Past Simple.\nPrzykład: *If we had a new car, we would be able to drive to the beach every day.*",
+                    "has": "❌ «has» — Present Simple z -s; potrzebna forma Past Simple dla wyimaginowanego warunku.\nPrzykład: *If we had a new car, we would be able to drive to the beach every day.*",
+                    "would have": "❌ «would have» należy do wyniku z would, a w if-klauzuli używamy Past Simple.\nPrzykład: *If we had a new car, we would be able to drive to the beach every day.*"
+                },
+                "a2": {
+                    "would be able": "✅ «would be able» poprawnie, bo konstrukcja możliwości w drugim warunkowym — would + be able to + V1.\nPrzykład: *If we had a new car, we would be able to drive to the beach every day.*",
+                    "will be able": "❌ «will be able» z «will» tworzy First Conditional o realnej przyszłości.\nPrzykład: *If we had a new car, we would be able to drive to the beach every day.*",
+                    "are able": "❌ «are able» — czas teraźniejszy; wynik drugiego warunkowego ma would + be able to.\nPrzykład: *If we had a new car, we would be able to drive to the beach every day.*",
+                    "would have been able": "❌ «would have been able» — forma Third Conditional (would have been able).\nPrzykład: *If we had a new car, we would be able to drive to the beach every day.*"
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od «speak» bierzemy formę przeszłą).\nPrzykład: *If they spoke perfect English, they would have a good job.*\nCzas: Second Conditional.\nFormuła: **would + V1** (na przykład, «would + have»).\nWyjaśnienie: Wynik opisujemy modalnym would oraz podstawowym czasownikiem bez to.\nPrzykład: *If they spoke perfect English, they would have a good job.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "spoke": "✅ «spoke» poprawnie, bo w if-klauzuli drugiego warunkowego dla zaimka «they» potrzebna jest forma Past Simple od «speak».\nPrzykład: *If they spoke perfect English, they would have a good job.*",
+                    "speak": "❌ «speak» — Present Simple; warunek drugiego warunkowego wymaga Past Simple.\nPrzykład: *If they spoke perfect English, they would have a good job.*",
+                    "speaks": "❌ «speaks» — Present Simple z -s; potrzebna forma Past Simple dla wyimaginowanego warunku.\nPrzykład: *If they spoke perfect English, they would have a good job.*",
+                    "had spoken": "❌ «had spoken» — Past Perfect; tę formę używa się w Third Conditional, nie tutaj.\nPrzykład: *If they spoke perfect English, they would have a good job.*"
+                },
+                "a2": {
+                    "would have": "✅ «would have» poprawnie, bo wynik drugiego warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If they spoke perfect English, they would have a good job.*",
+                    "will have": "❌ «will have» z «will» tworzy First Conditional o realnych wydarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If they spoke perfect English, they would have a good job.*",
+                    "have": "❌ «have» — Present Simple; wyimaginowany wynik wymaga would + V1.\nPrzykład: *If they spoke perfect English, they would have a good job.*",
+                    "would be having": "❌ «would be having» — forma Continuous; ćwiczenie trenuje prosty model would + V1.\nPrzykład: *If they spoke perfect English, they would have a good job.*"
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od „live” bierzemy formę przeszłą).\nPrzykład: *If I lived in Mexico, I would speak Spanish.*\nCzas: Second Conditional.\nFormuła: **would + V1** (na przykład, „would + speak”).\nWyjaśnienie: Wynik opisujemy modalnym would i podstawowym czasownikiem bez to.\nPrzykład: *If I lived in Mexico, I would speak Spanish.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "lived": "✅ «lived» poprawnie, bo w if-klauzuli drugiego warunkowego dla zaimka „I” potrzebna jest forma Past Simple od „live”.\nPrzykład: *If I lived in Mexico, I would speak Spanish.*",
+                    "live": "❌ «live» — Present Simple; warunek drugiego warunkowego wymaga Past Simple.\nPrzykład: *If I lived in Mexico, I would speak Spanish.*",
+                    "lives": "❌ «lives» — Present Simple z -s; potrzebna forma Past Simple dla wyimaginowanego warunku.\nPrzykład: *If I lived in Mexico, I would speak Spanish.*",
+                    "had lived": "❌ «had lived» — Past Perfect; tę formę używa się w Third Conditional, nie tutaj.\nPrzykład: *If I lived in Mexico, I would speak Spanish.*"
+                },
+                "a2": {
+                    "would speak": "✅ «would speak» poprawnie, bo wynik drugiego warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If I lived in Mexico, I would speak Spanish.*",
+                    "will speak": "❌ «will speak» z „will” tworzy First Conditional o rzeczywistych wydarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If I lived in Mexico, I would speak Spanish.*",
+                    "speak": "❌ «speak» — Present Simple; wyimaginowany wynik wymaga would + V1.\nPrzykład: *If I lived in Mexico, I would speak Spanish.*",
+                    "would be speaking": "❌ «would be speaking» — forma Continuous; ćwiczenie trenuje prosty model would + V1.\nPrzykład: *If I lived in Mexico, I would speak Spanish.*"
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "Czas: Second Conditional.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od „go” bierzemy formę przeszłą).\nPrzykład: *If she went to the party, she would meet some friends.*\nCzas: Second Conditional.\nFormuła: **would + V1** (na przykład, „would + meet”).\nWyjaśnienie: Wynik opisujemy modalnym would i podstawowym czasownikiem bez to.\nPrzykład: *If she went to the party, she would meet some friends.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "went": "✅ «went» poprawnie, bo w if-klauzuli drugiego warunkowego dla zaimka „she” potrzebna jest forma Past Simple od „go”.\nPrzykład: *If she went to the party, she would meet some friends.*",
+                    "go": "❌ «go» — Present Simple; warunek drugiego warunkowego wymaga Past Simple.\nPrzykład: *If she went to the party, she would meet some friends.*",
+                    "goes": "❌ «goes» — Present Simple z -s; potrzebna forma Past Simple dla wyimaginowanego warunku.\nPrzykład: *If she went to the party, she would meet some friends.*",
+                    "had gone": "❌ «had gone» — Past Perfect; tę formę używa się w Third Conditional, nie tutaj.\nPrzykład: *If she went to the party, she would meet some friends.*"
+                },
+                "a2": {
+                    "would meet": "✅ «would meet» poprawnie, bo wynik drugiego warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If she went to the party, she would meet some friends.*",
+                    "will meet": "❌ «will meet» z „will” tworzy First Conditional o rzeczywistych wydarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If she went to the party, she would meet some friends.*",
+                    "meets": "❌ «meets» — Present Simple z -s; po would czasownik nie otrzymuje końcówek.\nPrzykład: *If she went to the party, she would meet some friends.*",
+                    "would be meeting": "❌ «would be meeting» — forma Continuous; ćwiczenie trenuje prosty model would + V1.\nPrzykład: *If she went to the party, she would meet some friends.*"
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "Czas: Drugi tryb warunkowy.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od „study” bierzemy formę przeszłą).\nPrzykład: *If they studied more, they would be more intelligent.*\nCzas: Drugi tryb warunkowy.\nFormuła: **would + V1** (na przykład, „would + be”).\nWyjaśnienie: Wynik opisujemy modalnym would i podstawowym czasownikiem bez to.\nPrzykład: *If they studied more, they would be more intelligent.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "studied": "✅ „studied” poprawnie, bo w if-klauzuli drugiego trybu warunkowego dla zaimka „they” potrzebna jest forma Past Simple od „study”.\nPrzykład: *If they studied more, they would be more intelligent.*",
+                    "study": "❌ „study” — Present Simple; warunek drugiego trybu warunkowego wymaga Past Simple.\nPrzykład: *If they studied more, they would be more intelligent.*",
+                    "studies": "❌ „studies” — Present Simple z -s; potrzebna forma Past Simple dla wyimaginowanego warunku.\nPrzykład: *If they studied more, they would be more intelligent.*",
+                    "had studied": "❌ „had studied” — Past Perfect; tej formy używa się w Third Conditional, nie tutaj.\nPrzykład: *If they studied more, they would be more intelligent.*"
+                },
+                "a2": {
+                    "would be": "✅ „would be” poprawnie, bo wynik drugiego trybu warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If they studied more, they would be more intelligent.*",
+                    "will be": "❌ „will be” z „will” tworzy First Conditional o rzeczywistych wydarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If they studied more, they would be more intelligent.*",
+                    "are": "❌ „are” — Present Simple; wyimaginowany wynik wymaga would + V1.\nPrzykład: *If they studied more, they would be more intelligent.*",
+                    "were": "❌ „were” — forma bez „would”, dlatego nie pokazuje warunkowego wyniku.\nPrzykład: *If they studied more, they would be more intelligent.*"
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "Czas: Drugi tryb warunkowy.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od „buy” bierzemy formę przeszłą).\nPrzykład: *If we bought a house, we would buy a bigger one.*\nCzas: Drugi tryb warunkowy.\nFormuła: **would + V1** (na przykład, „would + buy”).\nWyjaśnienie: Wynik opisujemy modalnym would i podstawowym czasownikiem bez to.\nPrzykład: *If we bought a house, we would buy a bigger one.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "bought": "✅ „bought” poprawnie, bo w if-klauzuli drugiego trybu warunkowego dla zaimka „we” potrzebna jest forma Past Simple od „buy”.\nPrzykład: *If we bought a house, we would buy a bigger one.*",
+                    "buy": "❌ „buy” — Present Simple; warunek drugiego trybu warunkowego wymaga Past Simple.\nPrzykład: *If we bought a house, we would buy a bigger one.*",
+                    "buys": "❌ „buys” — Present Simple z -s; potrzebna forma Past Simple dla wyimaginowanego warunku.\nPrzykład: *If we bought a house, we would buy a bigger one.*",
+                    "had bought": "❌ „had bought” — Past Perfect; tej formy używa się w Third Conditional, nie tutaj.\nPrzykład: *If we bought a house, we would buy a bigger one.*"
+                },
+                "a2": {
+                    "would buy": "✅ „would buy” poprawnie, bo wynik drugiego trybu warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If we bought a house, we would buy a bigger one.*",
+                    "will buy": "❌ „will buy” z „will” tworzy First Conditional o rzeczywistych wydarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If we bought a house, we would buy a bigger one.*",
+                    "would keep buying": "❌ „would keep buying” zawiera zbędny element i nie odpowiada prostej formule would + V1.\nPrzykład: *If we bought a house, we would buy a bigger one.*",
+                    "would be buying": "❌ „would be buying” — forma Continuous; ćwiczenie trenuje prosty model would + V1.\nPrzykład: *If we bought a house, we would buy a bigger one.*"
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "Czas: Drugi tryb warunkowy.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od „come” bierzemy formę przeszłą).\nPrzykład: *If my parents came to dinner, we would have a good time.*\nCzas: Drugi tryb warunkowy.\nFormuła: **would + V1** (na przykład, „would + have”).\nWyjaśnienie: Wynik opisujemy modalnym would oraz podstawowym czasownikiem bez to.\nPrzykład: *If my parents came to dinner, we would have a good time.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "came": "✅ „came” poprawnie, bo w if-klauzuli drugiego trybu warunkowego dla podmiotu „my parents” potrzebna jest forma Past Simple od „come”.\nPrzykład: *If my parents came to dinner, we would have a good time.*",
+                    "come": "❌ „come” — Present Simple; warunek drugiego trybu warunkowego wymaga Past Simple.\nPrzykład: *If my parents came to dinner, we would have a good time.*",
+                    "comes": "❌ „comes” — Present Simple z -s; potrzebna forma Past Simple dla wyimaginowanego warunku.\nPrzykład: *If my parents came to dinner, we would have a good time.*",
+                    "had come": "❌ „had come” — Past Perfect; tę formę używa się w Third Conditional, nie tutaj.\nPrzykład: *If my parents came to dinner, we would have a good time.*"
+                },
+                "a2": {
+                    "would have": "✅ „would have” poprawnie, bo wynik drugiego trybu warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If my parents came to dinner, we would have a good time.*",
+                    "will have": "❌ „will have” z „will” tworzy First Conditional o rzeczywistych zdarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If my parents came to dinner, we would have a good time.*",
+                    "have": "❌ „have” — Present Simple; wyimaginowany wynik wymaga would + V1.\nPrzykład: *If my parents came to dinner, we would have a good time.*",
+                    "would be having": "❌ „would be having” — forma Continuous; ćwiczenie trenuje prostą modelę would + V1.\nPrzykład: *If my parents came to dinner, we would have a good time.*"
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "Czas: Drugi tryb warunkowy.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od „know” bierzemy formę przeszłą).\nPrzykład: *If he knew his number, he would phone her.*\nCzas: Drugi tryb warunkowy.\nFormuła: **would + V1** (na przykład, „would + phone”).\nWyjaśnienie: Wynik opisujemy modalnym would oraz podstawowym czasownikiem bez to.\nPrzykład: *If he knew his number, he would phone her.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "knew": "✅ „knew” poprawnie, bo w if-klauzuli drugiego trybu warunkowego dla zaimka „he” potrzebna jest forma Past Simple od „know”.\nPrzykład: *If he knew his number, he would phone her.*",
+                    "know": "❌ „know” — Present Simple; warunek drugiego trybu warunkowego wymaga Past Simple.\nPrzykład: *If he knew his number, he would phone her.*",
+                    "knows": "❌ „knows” — Present Simple z -s; potrzebna forma Past Simple dla wyimaginowanego warunku.\nPrzykład: *If he knew his number, he would phone her.*",
+                    "had known": "❌ „had known” — Past Perfect; tę formę używa się w Third Conditional, nie tutaj.\nPrzykład: *If he knew his number, he would phone her.*"
+                },
+                "a2": {
+                    "would phone": "✅ „would phone” poprawnie, bo wynik drugiego trybu warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *If he knew his number, he would phone her.*",
+                    "will phone": "❌ „will phone” z „will” tworzy First Conditional o rzeczywistych zdarzeniach, a tutaj potrzebny jest Second Conditional.\nPrzykład: *If he knew his number, he would phone her.*",
+                    "phones": "❌ „phones” — Present Simple z -s; po would czasownik nie otrzymuje końcówek.\nPrzykład: *If he knew his number, he would phone her.*",
+                    "would be phoning": "❌ „would be phoning” — forma Continuous; ćwiczenie trenuje prostą modelę would + V1.\nPrzykład: *If he knew his number, he would phone her.*"
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "Czas: Drugi tryb warunkowy.\nFormuła: **would + V1** (na przykład, «would + go»).\nWyjaśnienie: Wynik opisujemy modalnym would i podstawowym czasownikiem bez to.\nPrzykład: *I would go to Spain on holiday if they had cheap flights.*\nCzas: Drugi tryb warunkowy.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od «have» bierzemy formę przeszłą).\nPrzykład: *I would go to Spain on holiday if they had cheap flights.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "would go": "✅ «would go» poprawnie, bo wynik drugiego trybu warunkowego budujemy jako would + podstawowy czasownik.\nPrzykład: *I would go to Spain on holiday if they had cheap flights.*",
+                    "go": "❌ «go» — Present Simple; wyimaginowany wynik wymaga would + V1.\nPrzykład: *I would go to Spain on holiday if they had cheap flights.*",
+                    "will go": "❌ «will go» z «will» tworzy pierwszy tryb warunkowy o realnych wydarzeniach, a tutaj potrzebny jest drugi tryb warunkowy.\nPrzykład: *I would go to Spain on holiday if they had cheap flights.*",
+                    "went": "❌ «went» — Past Simple, a trzeba would + V1 dla wyniku.\nPrzykład: *I would go to Spain on holiday if they had cheap flights.*"
+                },
+                "a2": {
+                    "had": "✅ «had» poprawnie, bo w if-klauzuli drugiego trybu warunkowego dla zaimka «they» potrzebna jest forma Past Simple od «have».\nPrzykład: *I would go to Spain on holiday if they had cheap flights.*",
+                    "have": "❌ «have» — Present Simple; warunek drugiego trybu warunkowego wymaga Past Simple.\nPrzykład: *I would go to Spain on holiday if they had cheap flights.*",
+                    "would have": "❌ «would have» należy do wyniku z would, a w if-klauzuli używamy Past Simple.\nPrzykład: *I would go to Spain on holiday if they had cheap flights.*",
+                    "will have": "❌ Niepoprawna wersja.\nPrzykład: *I would go to Spain on holiday if they had cheap flights.*"
+                }
+            }
+        },
+        {
+            "id": 16,
+            "hints": [
+                "Czas: Drugi tryb warunkowy.\nFormuła: **would not + V1** (na przykład, «would not go»).\nWyjaśnienie: Zaprzeczenie wyniku tworzymy przez would not (wouldn't) i podstawowy czasownik.\nPrzykład: *They wouldn't go to the party if they had too much homework.*\nCzas: Drugi tryb warunkowy.\nFormuła: **if + Past Simple**.\nWyjaśnienie: Część warunkowa opisuje nierealną sytuację, dlatego czasownik stawiamy w Past Simple (na przykład, od «have» bierzemy formę przeszłą).\nPrzykład: *They wouldn't go to the party if they had too much homework.*"
+            ],
+            "explanations": {
+                "a1": {
+                    "wouldn't go": "✅ «wouldn't go» poprawnie, bo zaprzeczenie tworzymy jako would not + V1.\nPrzykład: *They wouldn't go to the party if they had too much homework.*",
+                    "won't go": "❌ «won't go» z «will not» mówi o realnej przyszłości (pierwszy tryb warunkowy).\nPrzykład: *They wouldn't go to the party if they had too much homework.*",
+                    "don't go": "❌ «don't go» — Present Simple; wyimaginowany wynik wymaga would + V1.\nPrzykład: *They wouldn't go to the party if they had too much homework.*",
+                    "wouldn't be going": "❌ «wouldn't be going» — forma ciągła; w ćwiczeniu potrzebna jest prosta konstrukcja would + V1.\nPrzykład: *They wouldn't go to the party if they had too much homework.*"
+                },
+                "a2": {
+                    "had": "✅ «had» poprawnie, bo w if-klauzuli drugiego trybu warunkowego dla zaimka «they» potrzebna jest forma Past Simple od «have».\nPrzykład: *They wouldn't go to the party if they had too much homework.*",
+                    "have": "❌ «have» — Present Simple; warunek drugiego trybu warunkowego wymaga Past Simple.\nPrzykład: *They wouldn't go to the party if they had too much homework.*",
+                    "would have": "❌ «would have» należy do wyniku z would, a w if-klauzuli używamy Past Simple.\nPrzykład: *They wouldn't go to the party if they had too much homework.*",
+                    "will have": "❌ Niepoprawna wersja.\nPrzykład: *They wouldn't go to the party if they had too much homework.*"
+                }
+            }
+        }
+    ]
+}

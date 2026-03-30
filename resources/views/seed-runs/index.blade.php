@@ -446,6 +446,16 @@
                 setFileEditorDisabledState(true);
             };
 
+            const detectEditorMode = function (path) {
+                const normalizedPath = (path || '').toLowerCase();
+
+                if (normalizedPath.endsWith('.json')) {
+                    return { name: 'javascript', json: true };
+                }
+
+                return 'application/x-httpd-php';
+            };
+
             const updateFileModalStatus = function (message, type = 'info') {
                 if (!fileModalStatus) {
                     return;
@@ -1029,8 +1039,10 @@
                     }
 
                     const contents = payload && typeof payload.contents === 'string' ? payload.contents : '';
+                    const filePath = payload && typeof payload.path === 'string' ? payload.path : '';
 
                     if (fileModalEditorInstance) {
+                        fileModalEditorInstance.setOption('mode', detectEditorMode(filePath));
                         fileModalEditorInstance.setValue(contents);
                         fileModalEditorInstance.clearHistory();
                     }
@@ -1903,10 +1915,13 @@
                 const actionsId = checkboxId + '-actions';
                 const displayNamespace = seeder.display_class_namespace || '';
                 const displayBasename = seeder.display_class_basename || seeder.display_class_name;
+                const isLocalizationSeeder = ['question_localizations', 'page_localizations'].includes(seeder.data_type || '');
                 const isCategorySeeder = (displayBasename || '').includes('Category');
-                const labelClasses = isCategorySeeder
+                const labelClasses = isLocalizationSeeder
+                    ? 'inline-flex items-center px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-semibold ring-1 ring-sky-200'
+                    : (isCategorySeeder
                     ? 'inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold ring-1 ring-emerald-200'
-                    : 'inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold';
+                    : 'inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold');
                 const wrapper = document.createElement('div');
                 wrapper.className = 'flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between';
                 wrapper.style.marginLeft = (Math.max(0, depth) * 1.5) + 'rem';

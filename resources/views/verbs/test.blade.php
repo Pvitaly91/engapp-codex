@@ -1,14 +1,14 @@
-@extends('layouts.engram')
+@extends('layouts.catalog-public')
 
 @section('title', __('verbs.title'))
 
 @section('content')
-  <div class="space-y-8">
+  <div class="nd-page space-y-6 verbs-page">
     {{-- Hero Section --}}
     <section class="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 md:p-8 shadow-card">
       <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div class="space-y-2">
-          <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700">{{ __('verbs.subtitle') }}</span>
+          <span class="verb-pill inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700">{{ __('verbs.subtitle') }}</span>
           <h1 class="text-3xl md:text-4xl font-bold">{{ __('verbs.title') }}</h1>
           <p class="text-[var(--muted)] max-w-3xl">{{ __('verbs.description') }}</p>
         </div>
@@ -21,14 +21,14 @@
           <div class="flex items-center justify-between gap-3 mb-5">
             <div>
               <h2 class="text-lg font-semibold">{{ __('verbs.settings') }}</h2>
-              <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 mt-2" id="verbs-count-badge">
+              <span class="verb-pill inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 mt-2" id="verbs-count-badge">
                 <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
                 {{ count($verbs) }} {{ __('verbs.verbs_total') }}
               </span>
             </div>
-            <button id="settingsToggle" class="inline-flex items-center gap-2 rounded-xl border border-brand-500 bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+            <button id="settingsToggle" class="verb-button-secondary inline-flex items-center gap-2 rounded-xl border border-brand-500 bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow">
               <span class="h-2 w-2 rounded-full bg-brand-600 shadow-inner"></span>
               <span id="settingsToggleText" class="uppercase tracking-[0.08em]">{{ __('verbs.settings_hide') }}</span>
             </button>
@@ -37,19 +37,19 @@
             <div class="space-y-3">
               <p class="text-sm font-semibold text-brand-600">{{ __('verbs.mode') }}</p>
               <div id="modeButtons" class="grid grid-cols-2 gap-2">
-                <button type="button" data-mode-button value="hard" class="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.mode_typing') }}</button>
-                <button type="button" data-mode-button value="medium" class="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.mode_medium') }}</button>
-                <button type="button" data-mode-button value="easy" class="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.mode_choice') }}</button>
+                <button type="button" data-mode-button value="hard" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.mode_typing') }}</button>
+                <button type="button" data-mode-button value="medium" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.mode_medium') }}</button>
+                <button type="button" data-mode-button value="easy" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.mode_choice') }}</button>
               </div>
             </div>
             <div class="space-y-3">
               <p class="text-sm font-semibold text-brand-600">{{ __('verbs.ask_what') }}</p>
               <div id="askButtons" class="grid grid-cols-2 gap-2 md:grid-cols-3">
-                <button type="button" data-ask-button value="random" class="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_random') }}</button>
-                <button type="button" data-ask-button value="f1" class="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_f1') }}</button>
-                <button type="button" data-ask-button value="f2" class="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_f2') }}</button>
-                <button type="button" data-ask-button value="f3" class="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_f3') }}</button>
-                <button type="button" data-ask-button value="f4" class="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_f4') }}</button>
+                <button type="button" data-ask-button value="random" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_random') }}</button>
+                <button type="button" data-ask-button value="f1" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_f1') }}</button>
+                <button type="button" data-ask-button value="f2" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_f2') }}</button>
+                <button type="button" data-ask-button value="f3" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_f3') }}</button>
+                <button type="button" data-ask-button value="f4" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_f4') }}</button>
               </div>
             </div>
             <div class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-brand-50/50 px-4 py-3">
@@ -58,14 +58,14 @@
             </div>
           </div>
           <div class="mt-5 flex flex-wrap gap-3">
-            <button id="startBtn" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+            <button id="startBtn" class="verb-button-primary inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
               {{ __('verbs.start') }}
             </button>
-            <button id="restartBtn" class="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">
+            <button id="restartBtn" class="verb-button-secondary inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
               </svg>
@@ -78,7 +78,7 @@
           <div class="flex items-center justify-between gap-3">
             <div class="space-y-2">
               <p class="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">{{ __('verbs.question') }}</p>
-              <span id="askLabel" class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1.5 text-sm font-semibold text-brand-700 shadow-sm ring-1 ring-brand-200"></span>
+              <span id="askLabel" class="verb-pill inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1.5 text-sm font-semibold text-brand-700 shadow-sm ring-1 ring-brand-200"></span>
             </div>
             <div class="text-sm text-[var(--muted)]">
               <span id="progressText">0 / 0</span>
@@ -107,20 +107,20 @@
           <div id="choiceBox" class="grid gap-3 md:grid-cols-2"></div>
 
           <div id="controlButtons" class="flex flex-wrap items-center gap-3">
-            <button id="checkBtn" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+            <button id="checkBtn" class="verb-button-primary inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
               </svg>
               {{ __('verbs.check') }}
             </button>
-            <button id="revealBtn" class="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">
+            <button id="revealBtn" class="verb-button-secondary inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
               </svg>
               {{ __('verbs.reveal') }}
             </button>
-            <button id="nextBtn" class="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">
+            <button id="nextBtn" class="verb-button-secondary inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">
               {{ __('verbs.next') }}
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -192,16 +192,16 @@
     <div class="absolute inset-0 bg-background/80 backdrop-blur-sm animate-fade"></div>
     <div class="relative mx-4 w-full max-w-md rounded-2xl border border-destructive/40 bg-card p-6 shadow-2xl space-y-3 animate-bounce-in">
       <div class="flex items-start gap-3">
-        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10 text-destructive">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-red-600 dark:bg-red-500/15 dark:text-red-100">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/><circle cx="12" cy="12" r="9"/></svg>
         </div>
         <div class="space-y-2">
-          <p class="text-sm font-semibold text-destructive">{{ __('verbs.failed_title') }}</p>
+          <p class="text-sm font-semibold text-red-600 dark:text-red-200">{{ __('verbs.failed_title') }}</p>
           <p class="text-muted-foreground">{{ __('verbs.failed_message') }}</p>
         </div>
       </div>
       <div class="flex justify-end">
-        <button id="retryBtn" class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
+        <button id="retryBtn" class="verb-button-primary inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
           {{ __('verbs.restart') }}
         </button>
       </div>
@@ -209,6 +209,129 @@
   </div>
 
   <style>
+    .verbs-page > section:first-child {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 1.9rem;
+      padding: 1.75rem;
+      background:
+        radial-gradient(circle at top right, rgba(245, 155, 47, 0.12), transparent 24%),
+        radial-gradient(circle at top left, rgba(47, 103, 177, 0.10), transparent 22%),
+        var(--surface-strong);
+      box-shadow: 0 12px 28px rgba(17, 38, 63, 0.10);
+    }
+
+    .verbs-page > section:first-child h1,
+    .verbs-page h2 {
+      font-family: Archivo, sans-serif;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+
+    .verb-pill {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      background: var(--accent-soft) !important;
+      color: var(--accent) !important;
+      border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--line));
+    }
+
+    .verb-button-primary {
+      background: var(--accent) !important;
+      color: #fff !important;
+      border-color: var(--accent) !important;
+      box-shadow: 0 16px 32px rgba(47, 103, 177, 0.22);
+    }
+
+    .verb-button-primary:hover {
+      background: #245592 !important;
+    }
+
+    .verb-button-secondary,
+    .verb-toggle-button {
+      border-color: var(--line) !important;
+      background: var(--surface-strong) !important;
+      color: var(--text) !important;
+    }
+
+    .verb-toggle-button.active {
+      background: var(--accent-soft) !important;
+      color: var(--accent) !important;
+      border-color: color-mix(in srgb, var(--accent) 38%, var(--line)) !important;
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent);
+    }
+
+    #questionCard,
+    #failureModal .relative,
+    .verbs-page > div > div:first-child > div:first-child,
+    .verbs-page > div > div:nth-child(2) > div {
+      border-color: var(--line) !important;
+      background: var(--surface-strong) !important;
+      box-shadow: 0 12px 28px rgba(17, 38, 63, 0.10) !important;
+    }
+
+    #questionCard > div:nth-child(2),
+    #questionCard > .rounded-xl,
+    #questionCard #typingBox,
+    #questionCard #suggestionsBox,
+    #settingsBody > div,
+    #doneBox {
+      border-color: var(--line) !important;
+      background: var(--surface) !important;
+    }
+
+    #questionCard #baseVerb {
+      font-family: Archivo, sans-serif;
+      font-weight: 800;
+      color: var(--text) !important;
+    }
+
+    #questionCard #answerInput {
+      border-color: var(--line) !important;
+      background: var(--surface-strong) !important;
+      color: var(--text) !important;
+      box-shadow: 0 10px 24px rgba(17, 38, 63, 0.08);
+    }
+
+    #questionCard #answerInput:focus {
+      border-color: color-mix(in srgb, var(--accent) 44%, var(--line)) !important;
+      box-shadow: 0 0 0 4px rgba(47, 103, 177, 0.12);
+    }
+
+    .verb-feedback-positive { color: #166534 !important; }
+    .verb-feedback-negative { color: #b91c1c !important; }
+    .dark .verb-feedback-positive { color: #bbf7d0 !important; }
+    .dark .verb-feedback-negative { color: #fecaca !important; }
+
+    .verb-choice-button {
+      border-color: var(--line) !important;
+      background: var(--surface) !important;
+      color: var(--text) !important;
+      box-shadow: 0 12px 28px rgba(17, 38, 63, 0.08);
+    }
+
+    .verb-choice-correct {
+      border-color: rgba(22, 163, 74, 0.35) !important;
+      background: linear-gradient(135deg, rgba(22, 163, 74, 0.12), rgba(22, 163, 74, 0.04)) !important;
+      color: #166534 !important;
+    }
+
+    .verb-choice-wrong {
+      border-color: rgba(220, 38, 38, 0.35) !important;
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.12), rgba(220, 38, 38, 0.04)) !important;
+      color: #b91c1c !important;
+    }
+
+    .dark .verb-choice-correct { color: #bbf7d0 !important; }
+    .dark .verb-choice-wrong { color: #fecaca !important; }
+
+    #failureModal > .absolute {
+      background: radial-gradient(circle at center, rgba(15, 23, 42, 0.16), rgba(15, 23, 42, 0.58));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
     @keyframes fade-in-soft {
       0% { opacity: 0; }
       100% { opacity: 1; }
@@ -266,8 +389,8 @@
       const i18n = window.__VERBS_I18N__ || {};
       const storageKey = 'verbs_test_state_v1';
       const signature = createSignature(verbs);
-      const choiceSuccessClasses = ['border-success', 'bg-success/10', 'text-success'];
-      const choiceErrorClasses = ['border-destructive', 'bg-destructive/10', 'text-destructive'];
+      const choiceSuccessClasses = ['verb-choice-correct'];
+      const choiceErrorClasses = ['verb-choice-wrong'];
       const suggestionsByForm = buildSuggestionsByForm(verbs);
       const maxMistakes = 3;
 
@@ -435,14 +558,10 @@
           Array.from(els.modeButtons || []).forEach((btn) => {
               const isActive = btn.value === settings.mode;
               btn.classList.toggle('active', isActive);
-              btn.classList.toggle('border-primary', isActive);
-              btn.classList.toggle('bg-primary/10', isActive);
           });
           Array.from(els.askButtons || []).forEach((btn) => {
               const isActive = btn.value === settings.askWhat;
               btn.classList.toggle('active', isActive);
-              btn.classList.toggle('border-primary', isActive);
-              btn.classList.toggle('bg-primary/10', isActive);
           });
           if (els.showUk) els.showUk.checked = settings.showTranslation;
           toggleSettingsBody(Boolean(settings.settingsCollapsed));
@@ -467,9 +586,9 @@
       function setFeedback(message, isPositive = false) {
           if (!els.feedback) return;
           els.feedback.textContent = message || '';
-          els.feedback.classList.remove('text-success', 'text-destructive');
+          els.feedback.classList.remove('verb-feedback-positive', 'verb-feedback-negative');
           if (message) {
-              els.feedback.classList.add(isPositive ? 'text-success' : 'text-destructive');
+              els.feedback.classList.add(isPositive ? 'verb-feedback-positive' : 'verb-feedback-negative');
           }
       }
 
@@ -663,7 +782,7 @@
           options.forEach((option, idx) => {
               const btn = document.createElement('button');
               btn.type = 'button';
-              btn.className = 'w-full rounded-xl border border-border/70 bg-background px-4 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow';
+              btn.className = 'verb-choice-button w-full rounded-xl border border-border/70 bg-background px-4 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow';
               btn.textContent = option.label;
               btn.dataset.index = idx.toString();
               btn.dataset.value = option.normalized;

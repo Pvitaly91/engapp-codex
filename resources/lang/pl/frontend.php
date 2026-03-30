@@ -1,0 +1,225 @@
+<?php
+
+return [
+    'catalog' => [
+        'title' => 'Katalog testów',
+        'description' => 'Wybieraj testy według zagregowanych tematów i poziomów. Filtry, poziomy, karty testów i przejścia działają tak samo jak w obecnym katalogu publicznym.',
+        'filter' => 'Filtr',
+        'filters' => 'Filtry',
+        'close' => 'Zamknij',
+        'level' => 'Poziom',
+        'show' => 'Pokaż',
+        'hide' => 'Ukryj',
+        'reset' => 'Resetuj filtr',
+        'reset_short' => 'Resetuj',
+        'map_title' => 'Mapa katalogu',
+        'tests_label' => 'Testy',
+        'tests_count_hint' => 'Liczba testów po zastosowaniu bieżących filtrów',
+        'tags_label' => 'Tagi',
+        'tags_count_hint' => 'Zagregowane tagi katalogu',
+        'other_tags' => 'Inne',
+        'created' => 'Utworzono',
+        'questions' => 'Pytań',
+        'levels' => 'Poziomy',
+        'take_test' => 'Rozpocznij test',
+        'empty' => 'Nie znaleziono testów.',
+        'empty_title' => 'Nie znaleziono testów',
+        'empty_description' => 'Spróbuj zmienić bieżące filtry albo je zresetować.',
+    ],
+
+    'search' => [
+        'live' => 'AKTYW.',
+        'wait' => 'CZEKA',
+    ],
+
+    'tests' => [
+        'mode' => [
+            'view' => 'Tryb widoku',
+            'card' => 'Karty',
+            'step' => 'Kroki',
+            'difficulty' => 'Poziom trudności',
+            'games' => 'Gry',
+            'easy' => 'Łatwy',
+            'medium' => 'Średni',
+            'hard' => 'Trudny',
+            'expert' => 'Ekspert',
+            'drag_drop' => 'Przeciągnij i upuść',
+            'match' => 'Dopasowanie',
+            'dialogue' => 'Dialog',
+        ],
+
+        'templates' => [
+            'card_easy' => [
+                'badge' => 'Test interaktywny',
+                'description' => 'Odpowiadaj natychmiast za pomocą klawiszy 1-4 albo klikaj odpowiedzi poniżej.',
+            ],
+            'card_medium' => [
+                'badge' => 'Tryb wyboru',
+                'description' => 'Wybieraj poprawne odpowiedzi z list rozwijanych dla wszystkich pytań.',
+            ],
+            'card_hard' => [
+                'badge' => 'Tryb wpisywania',
+                'description' => 'Wpisuj odpowiedzi z podpowiedziami autouzupełniania dla wszystkich pytań.',
+            ],
+            'card_expert' => [
+                'badge' => 'Tryb ręczny',
+                'description' => 'Wpisuj odpowiedzi bez podpowiedzi dla wszystkich pytań.',
+            ],
+            'step_easy' => [
+                'badge' => 'Test krok po kroku',
+                'description' => 'Odpowiadaj na pytania jedno po drugim za pomocą klawiszy 1-4 albo klikaj odpowiedzi poniżej.',
+            ],
+            'step_medium' => [
+                'badge' => 'Tryb wyboru',
+                'description' => 'Wybierz poprawną odpowiedź z listy rozwijanej.',
+            ],
+            'step_hard' => [
+                'badge' => 'Tryb wpisywania',
+                'description' => 'Wpisuj odpowiedzi z podpowiedziami i autouzupełnianiem.',
+            ],
+            'step_expert' => [
+                'badge' => 'Ręczne wpisywanie',
+                'description' => 'Wpisuj odpowiedzi bez podpowiedzi.',
+            ],
+        ],
+
+        'hero' => [
+            'interactive' => 'Test interaktywny',
+            'card_description' => 'Odpowiadaj na pytania w trybie kart, korzystaj z klawiszy `1-4`, podpowiedzi, wyszukiwania słów i wracaj do katalogu bez utraty stanu strony.',
+            'questions' => 'Pytania',
+            'questions_count' => 'Liczba zadań w teście',
+            'levels' => 'Poziomy',
+            'na' => 'Brak',
+        ],
+
+        'word_search' => [
+            'label' => 'Wyszukiwanie słowa',
+            'hint' => 'Szybka pomoc podczas testu',
+            'placeholder' => 'Wpisz słowo',
+        ],
+
+        'progress' => [
+            'label' => 'Postęp',
+            'accuracy' => 'Dokładność',
+            'default_progress' => '0 / 0',
+            'accuracy_value' => 'Dokładność: :value%',
+        ],
+
+        'question' => [
+            'label' => 'P',
+            'grammar' => 'Gramatyka',
+            'show_help' => 'Pokaż pomoc',
+            'show_theory' => 'Pokaż teorię',
+            'theory' => 'Teoria',
+            'active_marker' => 'Aktywny znacznik: :marker',
+            'gap' => 'Luka :label (:current / :total)',
+            'answer_options' => 'Opcje odpowiedzi',
+            'hotkey' => 'Naciśnij :key',
+            'drop_zone' => 'Pole odpowiedzi :index:slot',
+        ],
+
+        'actions' => [
+            'restart' => 'Rozpocznij test od nowa',
+            'check' => 'Sprawdź',
+            'check_answer' => 'Sprawdź odpowiedź',
+            'check_all' => 'Sprawdź wszystkie odpowiedzi',
+            'try_again' => 'Spróbuj ponownie',
+            'review_mistakes' => 'Przejrzyj błędy',
+            'previous' => 'Wstecz',
+            'next' => 'Następne',
+            'reset' => 'Resetuj',
+            'show_answers' => 'Pokaż odpowiedzi',
+            'back_to_test' => 'Wróć do testu',
+        ],
+
+        'status' => [
+            'completed' => 'Test zakończony',
+            'completed_celebration' => 'Test zakończony!',
+            'loading' => 'Ładowanie...',
+            'correct' => 'Poprawnie!',
+            'correct_long' => 'Poprawnie! Świetna robota!',
+            'incorrect' => 'Niepoprawnie.',
+            'incorrect_try_again' => 'Niepoprawnie. Spróbuj ponownie!',
+            'correct_answer' => 'Poprawna odpowiedź: :answer',
+            'incorrect_with_answer' => 'Niepoprawnie. Poprawna odpowiedź: :answer',
+            'fill_all_fields' => 'Uzupełnij wszystkie pola przed sprawdzeniem.',
+        ],
+
+        'summary' => [
+            'score' => 'Masz :correct poprawnych odpowiedzi z :total (:percent%)!',
+        ],
+
+        'hint' => [
+            'chatgpt' => 'Podpowiedź ChatGPT',
+            'gemini' => 'Podpowiedź Gemini',
+            'refresh' => 'Odśwież podpowiedź',
+        ],
+
+        'dialogue' => [
+            'intro' => 'Uzupełnij dialog, wpisując brakujące elementy. Naciśnij Enter lub przycisk „Sprawdź”, aby przejść do kolejnej wypowiedzi.',
+            'empty' => 'Dla tego testu nie ma jeszcze dialogów z lukami.',
+            'completed' => 'Świetnie! Udało Ci się ukończyć dialog.',
+        ],
+
+        'match' => [
+            'intro' => 'Połącz zdanie z odpowiednim wyjaśnieniem. Na urządzeniach mobilnych możesz kliknąć element po lewej, a potem odpowiadający mu element po prawej.',
+            'title' => 'Dopasuj zdania do ich znaczeń',
+            'search_left' => 'Szukaj zdań...',
+            'search_right' => 'Szukaj wyjaśnień...',
+            'empty' => 'Dla tego testu nie ma jeszcze pytań, które można dopasować w formacie „zdanie → wyjaśnienie”.',
+            'result' => 'Poprawne: :correct / :total',
+            'instructions' => [
+                'left_right' => 'Po lewej są zdania (1…n), po prawej wyjaśnienia (a…n).',
+                'connect' => 'Przeciągnij lub kliknij, aby połączyć pasujące pary.',
+                'highlight' => 'Kliknij połączony element, aby podświetlić połączenie.',
+                'single' => 'Każdy element może mieć tylko jedno połączenie.',
+                'check' => '„Sprawdź” aktywuje się, gdy wszystkie pary są połączone.',
+                'reset' => '„Resetuj” usuwa połączenia i miesza elementy.',
+            ],
+        ],
+
+        'drag_drop' => [
+            'intro' => 'Przeciągnij poprawne słowo do luki. Możesz też kliknąć słowo, a potem lukę — to wygodne na urządzeniach mobilnych.',
+            'score' => '0 / :total',
+            'score_value' => ':current / :total',
+            'hint' => 'Podświetlenie: zielony oznacza poprawnie, czerwony oznacza błąd.',
+            'word_bank' => 'Bank słów',
+            'legend' => 'Przeciągnij lub kliknij, aby wybrać słowo.',
+            'word_bank_aria' => 'Bank słów',
+            'remove_word' => 'Usuń słowo',
+        ],
+
+        'related' => [
+            'levels' => 'Poziomy',
+            'take_test' => 'Rozpocznij test',
+        ],
+    ],
+
+    'copilot_theory' => [
+        'category' => 'Kategoria',
+        'category_overview' => 'Przegląd kategorii',
+        'pages_count' => ':count stron',
+        'materials_in_category' => 'Materiały z kategorii „:category”. Wybierz stronę, aby rozpocząć naukę.',
+        'all_categories' => 'Wszystkie kategorie',
+        'categories' => 'Kategorie',
+        'map' => 'Mapa',
+        'tags' => 'Tagi (:count)',
+        'quick_actions' => 'Szybkie akcje',
+        'materials_for_learning' => 'Materiały do nauki',
+        'materials_for_learning_hint' => 'Wybierz temat i zacznij uczyć się materiałów z kategorii „:category”.',
+        'page' => 'Strona',
+        'page_number' => 'Strona :number',
+        'items_in_category' => ':count w kategorii',
+        'view_material' => 'Zobacz materiał',
+        'empty_category' => 'W tej kategorii nie ma jeszcze stron teorii.',
+        'practice_tests' => 'Testy praktyczne',
+        'check_category_knowledge' => 'Sprawdź swoją wiedzę z tej kategorii',
+        'check_topic_knowledge' => 'Sprawdź swoją wiedzę z tego tematu',
+        'related_tests' => 'Powiązane testy',
+        'tests_by_tags' => ':count testów według tagów',
+        'menu' => 'Menu',
+        'theory_categories' => 'Kategorie teorii',
+        'contents' => 'Spis treści',
+        'theory' => 'Teoria',
+    ],
+];

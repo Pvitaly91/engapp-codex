@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Page_v2\BasicGrammar;
 
-use Database\Seeders\Pages\Concerns\PageCategoryDescriptionSeeder;
+use Database\Seeders\Page_v2\Concerns\PageCategoryDescriptionSeeder;
 
 class BasicGrammarCategoryV2Seeder extends PageCategoryDescriptionSeeder
 {

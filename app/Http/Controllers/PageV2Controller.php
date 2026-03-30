@@ -40,7 +40,7 @@ class PageV2Controller extends Controller
             ?? 'uk';
 
         $breadcrumbs = [
-            ['label' => 'Home', 'url' => route('home')],
+            ['label' => 'Home', 'url' => localized_route('home')],
             ['label' => 'Pages', 'url' => route('pages-v2.index')],
             ['label' => $page->title],
         ];

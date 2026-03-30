@@ -2,6 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Modules\LanguageManager\Services\LocaleService;
+use Illuminate\Support\Facades\Schema;
+use RuntimeException;
 use Tests\TestCase;
 
 class AdminLocaleRoutingTest extends TestCase
@@ -23,5 +26,50 @@ class AdminLocaleRoutingTest extends TestCase
 
         $response->assertStatus(301);
         $response->assertRedirect('/admin/words?filter=1');
+    }
+
+    /** @test */
+    public function default_locale_public_routes_have_no_locale_prefix_when_generated_via_localized_helper(): void
+    {
+        config([
+            'app.locale' => 'uk',
+            'app.supported_locales' => ['uk', 'en', 'pl'],
+        ]);
+
+        LocaleService::clearCache();
+        app()->setLocale('uk');
+
+        $url = localized_route('pages.show', [
+            'category' => 'grammar',
+            'pageSlug' => 'present-simple',
+        ]);
+
+        $this->assertStringEndsWith('/pages/grammar/present-simple', $url);
+        $this->assertStringNotContainsString('/pl/pages/grammar/present-simple', $url);
+        $this->assertStringNotContainsString('/en/pages/grammar/present-simple', $url);
+    }
+
+    /** @test */
+    public function locale_switch_route_falls_back_to_config_when_language_database_is_unavailable(): void
+    {
+        config([
+            'app.locale' => 'uk',
+            'app.supported_locales' => ['uk', 'en', 'pl'],
+        ]);
+
+        LocaleService::clearCache();
+
+        Schema::partialMock()
+            ->shouldReceive('hasTable')
+            ->with('languages')
+            ->andThrow(new RuntimeException('Database unavailable'));
+
+        $response = $this->get('/set-locale?lang=pl', [
+            'HTTP_REFERER' => 'http://localhost/',
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertSessionHas('locale', 'pl');
+        $this->assertStringEndsWith('/pl', (string) $response->headers->get('Location'));
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Page_v2\BasicGrammar;
 
-use Database\Seeders\Pages\BasicGrammar\BasicGrammarPageSeeder;
+use Database\Seeders\Page_v2\BasicGrammar\BasicGrammarPageSeeder;
 
 class BasicGrammarSentenceTypesTheorySeeder extends BasicGrammarPageSeeder
 {

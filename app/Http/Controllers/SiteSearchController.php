@@ -30,7 +30,7 @@ class SiteSearchController extends Controller
                 ->map(fn ($page) => [
                     'title' => $page->title,
                     'type' => 'page',
-                    'url' => route('theory.show', [$page->category->slug, $page->slug]),
+                    'url' => localized_route('theory.show', [$page->category->slug, $page->slug]),
                 ]);
 
             $tests = Test::query()
@@ -41,7 +41,7 @@ class SiteSearchController extends Controller
                 ->map(fn ($t) => [
                     'title' => $t->name,
                     'type' => 'test',
-                    'url' => route('test.show', $t->slug),
+                    'url' => localized_route('test.show', $t->slug),
                 ]);
         }
 

@@ -7,6 +7,7 @@ use App\Models\ChatGPTExplanation;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
+use App\Services\ChatGPTService;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -19,8 +20,10 @@ class QuestionExplainStoredExplanationTest extends TestCase
     {
         parent::setUp();
 
+        $this->withoutMiddleware();
         $this->ensureSchema();
         $this->resetData();
+        app()->setLocale('uk');
     }
 
     public function test_it_returns_stored_explanation_for_wrong_answer(): void
@@ -69,6 +72,45 @@ class QuestionExplainStoredExplanationTest extends TestCase
         $response->assertJson([
             'correct' => true,
             'explanation' => 'Правильно, "you" узгоджується з дієсловом у питанні.',
+        ]);
+    }
+
+    public function test_it_prefers_current_locale_explanation_when_multiple_localizations_exist(): void
+    {
+        $question = $this->createQuestion('Where {a1} my shoes?', 'are', ['is']);
+
+        ChatGPTExplanation::create([
+            'question' => $question->question,
+            'wrong_answer' => 'is',
+            'correct_answer' => 'are',
+            'language' => 'ua',
+            'explanation' => 'Українське пояснення.',
+        ]);
+
+        ChatGPTExplanation::create([
+            'question' => $question->question,
+            'wrong_answer' => 'is',
+            'correct_answer' => 'are',
+            'language' => 'pl',
+            'explanation' => 'Polskie wyjasnienie.',
+        ]);
+
+        app()->setLocale('pl');
+
+        $this->mock(ChatGPTService::class, function ($mock) {
+            $mock->shouldNotReceive('explainWrongAnswer');
+        });
+
+        $response = $this->postJson(route('question.explain'), [
+            'question_id' => $question->id,
+            'answer' => 'is',
+            'language' => 'pl',
+        ]);
+
+        $response->assertOk();
+        $response->assertJson([
+            'correct' => false,
+            'explanation' => 'Polskie wyjasnienie.',
         ]);
     }
 

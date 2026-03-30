@@ -9,19 +9,32 @@
         class="space-y-2"
         style="margin-left: {{ max(0, $depth) * 1.5 }}rem"
     >
-        <button 
-            type="button"
-            class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition"
-            @click="expandedFolders['{{ $nodeKey }}'] = !expandedFolders['{{ $nodeKey }}']"
-        >
-            <i 
-                class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"
-                :class="{ '-rotate-90': !expandedFolders['{{ $nodeKey }}'] }"
-            ></i>
-            <i class="fa-solid fa-folder-tree text-slate-500"></i>
-            <span>{{ $node['name'] ?? 'Unknown' }}</span>
-            <span class="text-xs font-normal text-slate-500">({{ $node['seeder_count'] ?? 0 }})</span>
-        </button>
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <button 
+                type="button"
+                class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition text-left"
+                @click="expandedFolders['{{ $nodeKey }}'] = !expandedFolders['{{ $nodeKey }}']"
+            >
+                <i 
+                    class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"
+                    :class="{ '-rotate-90': !expandedFolders['{{ $nodeKey }}'] }"
+                ></i>
+                <i class="fa-solid fa-folder-tree text-slate-500"></i>
+                <span>{{ $node['name'] ?? 'Unknown' }}</span>
+                <span class="text-xs font-normal text-slate-500">({{ $node['seeder_count'] ?? 0 }})</span>
+            </button>
+
+            @if(!empty($node['class_names']))
+                <button
+                    type="button"
+                    wire:click="confirmRunFolder('{{ addslashes($node['path'] ?? '') }}', '{{ addslashes($node['path'] ?? ($node['name'] ?? 'Unknown')) }}')"
+                    class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition w-full sm:w-auto"
+                >
+                    <i class="fa-solid fa-play"></i>
+                    Виконати все
+                </button>
+            @endif
+        </div>
         <div class="space-y-3" x-show="expandedFolders['{{ $nodeKey }}']" x-collapse>
             @foreach(($node['children'] ?? []) as $childNode)
                 @include('seed-runs-v2::livewire.partials.pending-node', ['node' => $childNode, 'depth' => $depth + 1])

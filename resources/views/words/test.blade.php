@@ -1,14 +1,14 @@
-@extends('layouts.engram')
+@extends('layouts.catalog-public')
 
 @section('title', __('words_test.title'))
 
 @section('content')
-  @php
+@php
     $difficulty = $difficulty ?? 'easy';
     $tabs = [
-        ['label' => 'Easy', 'difficulty' => 'easy', 'href' => route('words.test')],
-        ['label' => 'Medium', 'difficulty' => 'medium', 'href' => route('words.test.medium')],
-        ['label' => 'Hard', 'difficulty' => 'hard', 'href' => route('words.test.hard')],
+        ['label' => 'Easy', 'difficulty' => 'easy', 'href' => localized_route('words.test')],
+        ['label' => 'Medium', 'difficulty' => 'medium', 'href' => localized_route('words.test.medium')],
+        ['label' => 'Hard', 'difficulty' => 'hard', 'href' => localized_route('words.test.hard')],
     ];
 
     $heroDescriptionKey = [
@@ -16,252 +16,432 @@
         'medium' => 'words_test.description_medium',
         'hard' => 'words_test.description_hard',
     ][$difficulty] ?? 'words_test.description_easy';
+
     $heroDescription = __($heroDescriptionKey);
 
-    // $studyLangOptions is now passed from controller based on LanguageManager
-  @endphp
+    $modeCards = [
+        ['label' => 'Mode', 'value' => ucfirst($difficulty), 'tone' => 'bg-ocean'],
+        ['label' => __('words_test.active_lang'), 'value' => strtoupper($siteLocale), 'tone' => 'bg-amber'],
+        ['label' => __('words_test.study_lang'), 'value' => $singleStudyLangName ?: ($studyLangOptions[$studyLang] ?? __('words_test.select_study_lang')), 'tone' => 'bg-emerald-500'],
+        ['label' => __('words_test.errors'), 'value' => '3 max', 'tone' => 'bg-slate-800 dark:bg-slate-200'],
+    ];
+@endphp
 
-  <div class="space-y-8" x-data>
+<div class="nd-page">
     <style>
-      @keyframes fade-in-soft {
-        from { opacity: 0; transform: translateY(6px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
+        @keyframes fade-in-soft {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-      @keyframes pop-in {
-        0% { transform: scale(0.97); opacity: 0; }
-        60% { transform: scale(1.02); opacity: 1; }
-        100% { transform: scale(1); }
-      }
+        @keyframes pop-in {
+            0% { transform: scale(0.97); opacity: 0; }
+            60% { transform: scale(1.015); opacity: 1; }
+            100% { transform: scale(1); }
+        }
 
-      @keyframes choice-glow {
-        0% { transform: scale(1); box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.25); }
-        50% { transform: scale(1.02); box-shadow: 0 14px 40px -16px rgba(0, 0, 0, 0.3); }
-        100% { transform: scale(1); box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.25); }
-      }
+        @keyframes choice-glow {
+            0% { transform: scale(1); box-shadow: 0 12px 28px rgba(17, 38, 63, 0.10); }
+            50% { transform: scale(1.015); box-shadow: 0 16px 34px rgba(17, 38, 63, 0.18); }
+            100% { transform: scale(1); box-shadow: 0 12px 28px rgba(17, 38, 63, 0.10); }
+        }
 
-      @keyframes choice-shake {
-        0%, 100% { transform: translateX(0); }
-        15% { transform: translateX(-6px); }
-        30% { transform: translateX(6px); }
-        45% { transform: translateX(-5px); }
-        60% { transform: translateX(5px); }
-        75% { transform: translateX(-3px); }
-        90% { transform: translateX(3px); }
-      }
+        @keyframes choice-shake {
+            0%, 100% { transform: translateX(0); }
+            15% { transform: translateX(-6px); }
+            30% { transform: translateX(6px); }
+            45% { transform: translateX(-5px); }
+            60% { transform: translateX(5px); }
+            75% { transform: translateX(-3px); }
+            90% { transform: translateX(3px); }
+        }
 
-      .animate-soft { animation: fade-in-soft 280ms ease; }
-      .animate-pop { animation: pop-in 220ms ease; }
-      .animate-choice { animation: choice-glow 1s ease; }
-      .animate-shake { animation: choice-shake 600ms ease; }
-      .animate-fade { animation: fade-in-soft 240ms ease; }
-      .animate-bounce { animation: pop-in 240ms ease; }
+        .wt-animate-soft { animation: fade-in-soft 280ms ease; }
+        .wt-animate-pop { animation: pop-in 220ms ease; }
+        .wt-animate-choice { animation: choice-glow 700ms ease; }
+        .wt-animate-shake { animation: choice-shake 520ms ease; }
 
-      .choice-correct {
-        border-color: rgba(34, 197, 94, 0.35);
-        background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(34, 197, 94, 0.04));
-        color: rgb(21, 128, 61);
-      }
+        .wt-option {
+            border: 1px solid var(--line);
+            background: var(--surface);
+            color: var(--text);
+            border-radius: 1.35rem;
+            padding: 1rem 1.1rem;
+            text-align: left;
+            font-size: 0.98rem;
+            font-weight: 700;
+            line-height: 1.45;
+            transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
+            box-shadow: 0 12px 28px rgba(17, 38, 63, 0.08);
+        }
 
-      .choice-wrong {
-        border-color: rgba(239, 68, 68, 0.35);
-        background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.04));
-        color: rgb(185, 28, 28);
-      }
+        .wt-option:hover {
+            transform: translateY(-2px);
+            border-color: color-mix(in srgb, var(--accent) 36%, var(--line));
+            background: color-mix(in srgb, var(--surface-strong) 88%, #eef5ff);
+        }
 
-      .modal-backdrop {
-        background: radial-gradient(circle at center, rgba(15, 23, 42, 0.16), rgba(15, 23, 42, 0.55));
-        backdrop-filter: blur(8px);
-      }
+        .wt-option:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .wt-option-correct {
+            border-color: rgba(22, 163, 74, 0.35);
+            background: linear-gradient(135deg, rgba(22, 163, 74, 0.12), rgba(22, 163, 74, 0.04));
+            color: #166534;
+        }
+
+        .dark .wt-option-correct {
+            color: #bbf7d0;
+        }
+
+        .wt-option-wrong {
+            border-color: rgba(220, 38, 38, 0.35);
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.12), rgba(220, 38, 38, 0.04));
+            color: #b91c1c;
+        }
+
+        .dark .wt-option-wrong {
+            color: #fecaca;
+        }
+
+        .wt-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-radius: 999px;
+            padding: 0.6rem 0.95rem;
+            font-size: 0.73rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .wt-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            border-radius: 999px;
+            padding: 0.55rem 0.95rem;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .wt-chip-positive {
+            background: rgba(22, 163, 74, 0.12);
+            color: #166534;
+        }
+
+        .wt-chip-negative {
+            background: rgba(220, 38, 38, 0.12);
+            color: #b91c1c;
+        }
+
+        .dark .wt-chip-positive { color: #bbf7d0; }
+        .dark .wt-chip-negative { color: #fecaca; }
+
+        .wt-primary-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            border-radius: 1.15rem;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.95rem 1.3rem;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+            box-shadow: 0 16px 32px rgba(47, 103, 177, 0.22);
+        }
+
+        .wt-primary-btn:hover {
+            transform: translateY(-1px);
+            background: #245592;
+        }
+
+        .wt-secondary-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            border-radius: 1.1rem;
+            border: 1px solid var(--line);
+            background: var(--surface-strong);
+            color: var(--text);
+            padding: 0.85rem 1.15rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+        }
+
+        .wt-secondary-btn:hover {
+            transform: translateY(-1px);
+            border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+        }
+
+        .wt-modal-backdrop {
+            background: radial-gradient(circle at center, rgba(15, 23, 42, 0.16), rgba(15, 23, 42, 0.58));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
     </style>
-    
-    {{-- Hero Section --}}
-    <section class="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 md:p-8 shadow-card mb-6">
-      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div class="space-y-2">
-          <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700">{{ __('words_test.subtitle') }}</span>
-          <h1 class="text-3xl md:text-4xl font-bold">{{ __('words_test.quick_test') }}</h1>
-          <p class="text-[var(--muted)] max-w-2xl">{{ $heroDescription }}</p>
-          <p class="text-sm text-[var(--muted)]">{{ __('words_test.active_lang') }}: <span class="font-semibold text-brand-600">{{ strtoupper($siteLocale) }}</span></p>
+
+    <section class="nd-section-tight relative border-b" style="border-color: var(--line);">
+        <div class="absolute left-[12%] top-10 hidden h-24 w-24 rounded-full border-[16px] border-ocean/40 lg:block"></div>
+        <div class="absolute right-[10%] top-10 hidden h-20 w-20 rounded-full bg-amber/80 lg:block"></div>
+        <div class="absolute bottom-0 right-0 hidden h-56 w-16 rounded-tl-[2.5rem] bg-ocean lg:block"></div>
+
+        <div class="relative grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+            <div class="max-w-3xl">
+                <span class="wt-pill soft-accent border" style="border-color: var(--line); color: var(--accent);">
+                    {{ __('public.nav.words_test') }}
+                </span>
+                <h1 class="mt-6 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">
+                    {{ __('words_test.quick_test') }}
+                </h1>
+                <p class="mt-5 max-w-2xl text-lg leading-8 sm:text-xl" style="color: var(--muted);">
+                    {{ $heroDescription }}
+                </p>
+
+                <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+                    <button id="reset-btn" class="wt-primary-btn" type="button">
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                        <span>{{ __('words_test.restart') }}</span>
+                    </button>
+                    <a href="#words-test-panel" class="wt-secondary-btn">
+                        <span>{{ __('public.common.go_to') }}</span>
+                        <span>+</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+                @foreach($modeCards as $card)
+                    <article class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ $card['label'] }}</p>
+                                <p class="mt-3 font-display text-2xl font-extrabold leading-tight break-words">{{ $card['value'] }}</p>
+                            </div>
+                            <span class="inline-flex h-12 w-12 items-center justify-center rounded-[18px] {{ $card['tone'] }} text-sm font-extrabold text-white dark:text-slate-950">
+                                {{ strtoupper(mb_substr((string) $card['value'], 0, 2)) }}
+                            </span>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
         </div>
-        <div class="flex flex-wrap gap-3">
-          <button id="reset-btn" class="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-            </svg>
-            <span>{{ __('words_test.restart') }}</span>
-          </button>
-        </div>
-      </div>
     </section>
 
-    <div class="flex flex-col gap-4 md:grid md:grid-cols-[1.6fr_1fr]">
-      <div class="rounded-2xl bg-[var(--card)] p-6 shadow-card border border-[var(--border)] order-2 md:order-1" id="question-card">
-        <div class="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="{{ __('words_test.difficulty_modes') }}">
-          @foreach ($tabs as $tab)
-            <a
-              href="{{ $tab['href'] }}"
-              role="tab"
-              aria-selected="{{ $tab['difficulty'] === $difficulty ? 'true' : 'false' }}"
-              class="px-4 py-2 rounded-full transition {{ $tab['difficulty'] === $difficulty ? 'bg-brand-600 text-white shadow-sm' : 'border border-[var(--border)] text-[var(--muted)] hover:border-brand-500 hover:text-brand-600' }}"
-            >
-              {{ $tab['label'] }}
-            </a>
-          @endforeach
-        </div>
+    <section class="nd-section">
+        <div class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px] xl:items-start">
+            <div id="words-test-panel" class="min-w-0">
+                <article class="rounded-[30px] border shadow-card surface-card-strong" style="border-color: var(--line);" x-data>
+                    <div class="border-b p-6 sm:p-7" style="border-color: var(--line);">
+                        <div class="flex flex-col gap-5">
+                            <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                                <div>
+                                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('words_test.subtitle') }}</p>
+                                    <h2 class="mt-2 font-display text-2xl font-extrabold leading-tight">{{ __('words_test.title') }}</h2>
+                                </div>
+                                <div class="flex flex-wrap gap-2" role="tablist" aria-label="{{ __('words_test.difficulty_modes') }}">
+                                    @foreach ($tabs as $tab)
+                                        <a
+                                            href="{{ $tab['href'] }}"
+                                            role="tab"
+                                            aria-selected="{{ $tab['difficulty'] === $difficulty ? 'true' : 'false' }}"
+                                            class="inline-flex items-center rounded-full border px-4 py-2.5 text-sm font-bold transition {{ $tab['difficulty'] === $difficulty ? 'bg-ocean text-white shadow-card border-ocean' : 'surface-card text-[var(--text)] hover:-translate-y-0.5' }}"
+                                            style="{{ $tab['difficulty'] === $difficulty ? '' : 'border-color: var(--line);' }}"
+                                        >
+                                            {{ $tab['label'] }}
+                                        </a>
+                                    @endforeach
+                                </div>
+                            </div>
 
-        <!-- Study Language Selector -->
-        <div class="mb-4 p-4 rounded-xl bg-brand-50/50 border border-brand-100" id="study-lang-selector">
-          <div class="flex flex-wrap items-center gap-3">
-            <label for="study-lang" class="text-sm font-semibold text-brand-700">{{ __('words_test.study_lang') }}:</label>
-            @if ($singleStudyLangName)
-              <span class="text-sm font-semibold text-brand-900">{{ $singleStudyLangName }}</span>
-            @elseif (count($studyLangOptions) > 1)
-              <select id="study-lang" class="rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-sm font-medium shadow-sm transition focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
-                @foreach ($studyLangOptions as $langCode => $langName)
-                  <option value="{{ $langCode }}" {{ $studyLang === $langCode ? 'selected' : '' }}>{{ $langName }}</option>
-                @endforeach
-              </select>
-              <p class="text-xs text-muted-foreground">{{ __('words_test.study_lang_hint') }}</p>
-            @endif
-          </div>
-          <!-- Warning when site locale is English and no study language selected -->
-          <div id="study-lang-warning" class="mt-3 p-3 rounded-lg bg-warning/10 border border-warning/30 text-warning text-sm {{ (!$studyLang && $siteLocale === 'en' && count($studyLangOptions) > 1) ? '' : 'hidden' }}">
-            <span class="font-semibold">⚠️</span> {{ __('words_test.select_study_lang_warning') }}
-          </div>
-          <!-- Info when no languages available -->
-          @if(empty($studyLangOptions))
-          <div class="mt-3 p-3 rounded-lg bg-destructive/10 border border-destructive/30 text-destructive text-sm">
-            <span class="font-semibold">⚠️</span> {{ __('words_test.no_langs_available') }}
-          </div>
-          @endif
-        </div>
+                            <div class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);" id="study-lang-selector">
+                                <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                                    <div>
+                                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('words_test.study_lang') }}</p>
+                                        <p class="mt-2 text-sm leading-6" style="color: var(--muted);">{{ __('words_test.study_lang_hint') }}</p>
+                                    </div>
+                                    <div class="flex flex-wrap items-center gap-3">
+                                        @if ($singleStudyLangName)
+                                            <span class="inline-flex rounded-full bg-emerald-500/12 px-4 py-2 text-sm font-bold text-emerald-700 dark:text-emerald-200">{{ $singleStudyLangName }}</span>
+                                        @elseif (count($studyLangOptions) > 1)
+                                            <select id="study-lang" class="rounded-full border px-4 py-3 text-sm font-bold shadow-sm transition focus:outline-none focus:ring-4" style="border-color: var(--line); background: var(--surface-strong); color: var(--text); box-shadow: 0 10px 24px rgba(17, 38, 63, 0.08);">
+                                                @foreach ($studyLangOptions as $langCode => $langName)
+                                                    <option value="{{ $langCode }}" {{ $studyLang === $langCode ? 'selected' : '' }}>{{ $langName }}</option>
+                                                @endforeach
+                                            </select>
+                                        @endif
+                                    </div>
+                                </div>
 
-        <div class="flex items-center justify-between gap-3">
-          <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-            <span class="h-2 w-2 rounded-full bg-primary"></span>
-            <span id="question-label">{{ __('words_test.loading') }}</span>
-          </div>
-          <div class="text-sm text-muted-foreground" id="queue-counter"></div>
-        </div>
+                                <div id="study-lang-warning" class="mt-4 rounded-[18px] border border-amber-300/70 bg-amber-50/90 px-4 py-3 text-sm text-amber-900 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-100 {{ (!$studyLang && $siteLocale === 'en' && count($studyLangOptions) > 1) ? '' : 'hidden' }}">
+                                    {{ __('words_test.select_study_lang_warning') }}
+                                </div>
 
-        <div class="mt-6 space-y-6" id="question-wrapper">
-          <div class="space-y-2">
-            <p class="text-sm uppercase tracking-[0.08em] text-muted-foreground">{{ __('words_test.translation') }}</p>
-            <div id="question-prompt" class="text-3xl font-semibold text-foreground">{{ __('words_test.wait') }}</div>
-            <p id="question-tags" class="text-sm text-muted-foreground"></p>
-          </div>
+                                @if(empty($studyLangOptions))
+                                    <div class="mt-4 rounded-[18px] border border-red-300/70 bg-red-50/90 px-4 py-3 text-sm text-red-700 dark:border-red-500/30 dark:bg-red-500/10 dark:text-red-100">
+                                        {{ __('words_test.no_langs_available') }}
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
 
-          <div class="grid gap-3 md:grid-cols-2" id="options"></div>
+                    <div class="p-6 sm:p-7">
+                        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                            <div id="question-label-wrap" class="wt-chip soft-accent" style="color: var(--accent);">
+                                <span class="inline-flex h-2.5 w-2.5 rounded-full bg-ocean"></span>
+                                <span id="question-label">{{ __('words_test.loading') }}</span>
+                            </div>
+                            <div class="text-sm font-semibold" style="color: var(--muted);" id="queue-counter"></div>
+                        </div>
 
-          <div id="input-wrapper" class="hidden space-y-3">
-            <form id="answer-form" class="space-y-3">
-              <div class="space-y-2">
-                <label for="answer-input" class="text-sm font-semibold text-muted-foreground">{{ __('words_test.your_answer') }}</label>
-                <div class="relative">
-                  <input
-                    id="answer-input"
-                    type="text"
-                    name="answer"
-                    autocomplete="off"
-                    class="w-full rounded-xl border border-border/80 bg-muted px-4 py-3 text-lg font-semibold text-foreground shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                    placeholder="{{ __('words_test.enter_word') }}"
-                  >
-                  <ul id="suggestions" class="absolute left-0 top-full z-10 mt-2 hidden max-h-60 w-full overflow-auto rounded-xl border border-border/80 bg-card shadow-lg"></ul>
+                        <div class="mt-7 space-y-7" id="question-wrapper">
+                            <div class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
+                                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('words_test.translation') }}</p>
+                                <div id="question-prompt" class="mt-3 font-display text-3xl font-extrabold leading-tight text-[var(--text)] sm:text-[2.2rem]">{{ __('words_test.wait') }}</div>
+                                <p id="question-tags" class="mt-3 text-sm leading-6" style="color: var(--muted);"></p>
+                            </div>
+
+                            <div class="grid gap-3 md:grid-cols-2" id="options"></div>
+
+                            <div id="input-wrapper" class="hidden space-y-4">
+                                <form id="answer-form" class="space-y-4">
+                                    <div class="space-y-2">
+                                        <label for="answer-input" class="text-sm font-bold" style="color: var(--muted);">{{ __('words_test.your_answer') }}</label>
+                                        <div class="relative">
+                                            <input
+                                                id="answer-input"
+                                                type="text"
+                                                name="answer"
+                                                autocomplete="off"
+                                                class="w-full rounded-[22px] border px-4 py-4 text-base font-bold shadow-sm transition focus:outline-none focus:ring-4"
+                                                style="border-color: var(--line); background: var(--surface); color: var(--text); box-shadow: 0 10px 24px rgba(17, 38, 63, 0.08);"
+                                                placeholder="{{ __('words_test.enter_word') }}"
+                                            >
+                                            <ul id="suggestions" class="absolute left-0 top-full z-10 mt-2 hidden max-h-60 w-full overflow-auto rounded-[20px] border shadow-card surface-card-strong" style="border-color: var(--line);"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap items-center gap-3">
+                                        <button id="submit-answer" type="submit" class="wt-primary-btn">
+                                            {{ __('words_test.check') }}
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="empty-state" class="hidden rounded-[24px] border border-dashed p-8 text-center surface-card" style="border-color: var(--line); color: var(--muted);">
+                            <p class="font-display text-2xl font-extrabold text-[var(--text)]">{{ __('words_test.no_questions') }}</p>
+                            <p class="mt-3 text-sm leading-6">{{ __('words_test.no_questions_msg') }}</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <aside class="min-w-0">
+                <div class="sticky top-24 space-y-6">
+                    <section class="rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
+                        <div class="flex items-center justify-between gap-3">
+                            <div>
+                                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('words_test.progress') }}</p>
+                                <h2 class="mt-2 font-display text-xl font-extrabold leading-none">{{ __('words_test.title') }}</h2>
+                            </div>
+                            <span class="rounded-full px-3 py-1 text-xs font-extrabold uppercase tracking-[0.16em] soft-accent" style="color: var(--accent);" id="percentage">0%</span>
+                        </div>
+
+                        <div class="mt-5 h-3 rounded-full bg-slate-200/80 dark:bg-slate-700/70">
+                            <div id="progress-bar" class="h-3 rounded-full bg-ocean transition-all duration-500" style="width: 0%"></div>
+                        </div>
+
+                        <dl class="mt-5 grid gap-3">
+                            <div class="rounded-[20px] border px-4 py-4 surface-card" style="border-color: var(--line);">
+                                <dt class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--muted);">{{ __('words_test.total') }}</dt>
+                                <dd id="stat-total" class="mt-2 font-display text-2xl font-extrabold">0</dd>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="rounded-[20px] border border-emerald-200/80 bg-emerald-50/80 px-4 py-4 dark:border-emerald-500/20 dark:bg-emerald-500/10">
+                                    <dt class="text-[11px] font-extrabold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-200">{{ __('words_test.correct') }}</dt>
+                                    <dd id="stat-correct" class="mt-2 font-display text-2xl font-extrabold text-emerald-700 dark:text-emerald-200">0</dd>
+                                </div>
+                                <div class="rounded-[20px] border border-red-200/80 bg-red-50/80 px-4 py-4 dark:border-red-500/20 dark:bg-red-500/10">
+                                    <dt class="text-[11px] font-extrabold uppercase tracking-[0.22em] text-red-700 dark:text-red-200">{{ __('words_test.errors') }}</dt>
+                                    <dd id="stat-wrong" class="mt-2 font-display text-2xl font-extrabold text-red-700 dark:text-red-200">0</dd>
+                                </div>
+                            </div>
+                        </dl>
+                    </section>
+
+                    <section class="rounded-[28px] border p-5 shadow-card surface-card" style="border-color: var(--line);" id="feedback" hidden>
+                        <div id="feedback-chip" class="wt-chip"></div>
+                        <div class="mt-4 space-y-2">
+                            <p id="feedback-title" class="font-display text-2xl font-extrabold leading-tight"></p>
+                            <p id="feedback-body" class="text-sm leading-6" style="color: var(--muted);"></p>
+                        </div>
+                    </section>
+
+                    <section class="rounded-[28px] border border-emerald-200/80 bg-[linear-gradient(135deg,rgba(16,185,129,0.10),rgba(255,255,255,0.92))] p-6 shadow-card dark:border-emerald-500/20 dark:bg-[linear-gradient(135deg,rgba(16,185,129,0.18),rgba(22,37,61,0.95))]" id="completion" hidden>
+                        <div class="flex items-center gap-3">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-[18px] bg-emerald-500 text-white shadow-card">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-200">{{ __('words_test.test_completed') }}</p>
+                                <p class="mt-1 font-display text-xl font-extrabold text-emerald-900 dark:text-emerald-50">{{ __('words_test.all_words_done') }}</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-sm leading-6 text-emerald-800 dark:text-emerald-100">{{ __('words_test.can_restart') }}</p>
+                    </section>
                 </div>
-              </div>
-              <div class="flex flex-wrap items-center gap-3">
-                <button id="submit-answer" type="submit" class="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
-                  {{ __('words_test.check') }}
-                </button>
-              </div>
-            </form>
-          </div>
+            </aside>
         </div>
+    </section>
 
-        <div id="empty-state" class="hidden text-muted-foreground">
-          <p class="text-lg font-semibold text-foreground">{{ __('words_test.no_questions') }}</p>
-          <p>{{ __('words_test.no_questions_msg') }}</p>
+    <div id="failure-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+        <div class="absolute inset-0 wt-modal-backdrop wt-animate-soft"></div>
+        <div id="failure-card" class="relative w-full max-w-xl rounded-[30px] border border-red-300/70 p-6 shadow-[0_26px_80px_rgba(15,23,42,0.28)] surface-card-strong wt-animate-pop dark:border-red-500/30 sm:p-8">
+            <div class="flex items-start gap-4">
+                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-[20px] bg-red-50 text-red-600 dark:bg-red-500/15 dark:text-red-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14" />
+                    </svg>
+                </div>
+                <div class="space-y-3">
+                    <div>
+                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em] text-red-600 dark:text-red-200">{{ __('words_test.test_failed') }}</p>
+                        <p class="mt-2 font-display text-3xl font-extrabold leading-tight">{{ __('words_test.error_limit') }}</p>
+                    </div>
+                    <p class="text-sm leading-6" style="color: var(--muted);">{{ __('words_test.error_limit_msg') }}</p>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <button id="retry-btn" class="wt-primary-btn !bg-red-600 hover:!bg-red-700" type="button">
+                            {{ __('words_test.retry') }}
+                        </button>
+                        <button id="close-failure" class="wt-secondary-btn" type="button">
+                            {{ __('words_test.close') }}
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="space-y-4 order-1 md:order-2 md:static sticky top-2 z-20">
-        <div class="rounded-2xl bg-card p-5 shadow-soft border border-border/70">
-          <div class="flex items-center justify-between">
-            <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.progress') }}</p>
-            <span class="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground" id="percentage">0%</span>
-          </div>
-          <div class="mt-3 h-3 rounded-full bg-muted">
-            <div id="progress-bar" class="h-3 rounded-full bg-primary transition-all duration-500" style="width: 0%"></div>
-          </div>
-          <dl class="mt-4 grid grid-cols-3 gap-3 text-sm">
-            <div class="rounded-xl bg-muted px-3 py-2">
-              <dt class="text-muted-foreground">{{ __('words_test.total') }}</dt>
-              <dd id="stat-total" class="text-lg font-semibold text-foreground">0</dd>
-            </div>
-            <div class="rounded-xl bg-success/10 px-3 py-2 text-success">
-              <dt class="text-sm">{{ __('words_test.correct') }}</dt>
-              <dd id="stat-correct" class="text-lg font-semibold">0</dd>
-            </div>
-            <div class="rounded-xl bg-destructive/10 px-3 py-2 text-destructive">
-              <dt class="text-sm">{{ __('words_test.errors') }}</dt>
-              <dd id="stat-wrong" class="text-lg font-semibold">0</dd>
-            </div>
-          </dl>
-        </div>
-
-        <div class="rounded-2xl bg-[var(--card)] p-5 shadow-card border border-[var(--border)]" id="feedback" hidden>
-          <div id="feedback-chip" class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold"></div>
-          <div class="mt-3 space-y-2">
-            <p id="feedback-title" class="text-xl font-semibold"></p>
-            <p id="feedback-body" class="text-[var(--muted)]"></p>
-          </div>
-        </div>
-
-        <div class="rounded-2xl bg-gradient-to-br from-brand-50 to-white border border-brand-200 p-6 shadow-sm" id="completion" hidden>
-          <div class="flex items-center gap-3 mb-3">
-            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-600 text-white shadow-sm">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-            </div>
-            <div>
-              <p class="text-xs font-semibold text-brand-600 uppercase tracking-wide">{{ __('words_test.test_completed') }}</p>
-              <p class="text-lg font-bold text-brand-900">{{ __('words_test.all_words_done') }}</p>
-            </div>
-          </div>
-          <p class="text-sm text-brand-700">{{ __('words_test.can_restart') }}</p>
-        </div>
-      </div>
     </div>
-
-    <div id="failure-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
-      <div class="modal-backdrop absolute inset-0 animate-fade"></div>
-      <div id="failure-card" class="relative mx-4 w-full max-w-xl rounded-2xl border border-destructive/30 bg-card p-6 shadow-2xl animate-bounce">
-        <div class="flex items-start gap-4">
-          <div class="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10 text-destructive">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/></svg>
-          </div>
-          <div class="space-y-2">
-            <div>
-              <p class="text-sm font-semibold text-muted-foreground">{{ __('words_test.test_failed') }}</p>
-              <p class="text-2xl font-semibold text-foreground">{{ __('words_test.error_limit') }}</p>
-            </div>
-            <p class="text-muted-foreground">{{ __('words_test.error_limit_msg') }}</p>
-            <div class="flex flex-wrap gap-3 pt-2">
-              <button id="retry-btn" class="inline-flex items-center gap-2 rounded-xl border border-destructive/50 bg-destructive/10 px-4 py-2 text-sm font-semibold text-destructive shadow-sm transition hover:-translate-y-0.5 hover:shadow">
-                {{ __('words_test.retry') }}
-              </button>
-              <button id="close-failure" class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow">
-                {{ __('words_test.close') }}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Localization strings for JavaScript
+</div>
+<script>
     window.wordsTestI18n = @json(__('words_test'));
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -313,7 +493,7 @@
       let currentSiteLocale = "{{ $siteLocale }}";
       let availableStudyLangs = @json($availableStudyLangs ?? []);
 
-      function animate(el, className = 'animate-soft') {
+      function animate(el, className = 'wt-animate-soft') {
         if (!el) return;
         el.classList.remove(className);
         void el.offsetWidth;
@@ -324,12 +504,10 @@
         currentStudyLang = studyLang;
         currentSiteLocale = siteLocale;
 
-        // Update select value
         if (studyLangSelect && studyLang) {
           studyLangSelect.value = studyLang;
         }
 
-        // Show/hide warning based on current state computed by caller
         if (studyLangWarning) {
           studyLangWarning.classList.toggle('hidden', !showWarning);
         }
@@ -362,7 +540,6 @@
           const data = await response.json();
           if (data.ok) {
             updateStudyLangUI(data.studyLang, data.siteLocale, false);
-            // Fetch new state after language change
             await fetchState();
           }
         } catch (e) {
@@ -384,10 +561,8 @@
       function updateState(data) {
         availableStudyLangs = Array.isArray(data.availableStudyLangs) ? data.availableStudyLangs : [];
         const shouldShowWarning = data.needsStudyLanguage && data.siteLocale === 'en' && availableStudyLangs.length >= 2;
-        // Update study language UI
         updateStudyLangUI(data.studyLang, data.siteLocale, shouldShowWarning);
 
-        // If needs study language selection, show warning and disable test
         if (data.needsStudyLanguage) {
           currentQuestion = null;
           questionWrapper.classList.add('hidden');
@@ -440,16 +615,8 @@
       }
 
       function renderQuestion(question, totalCount, totalAnswered) {
-        // Determine label based on question type
-        let label;
-        if (isEasy) {
-          label = i18n.choose_translation;
-        } else {
-          label = i18n.enter_word;
-        }
-        questionLabel.textContent = label;
+        questionLabel.textContent = isEasy ? i18n.choose_translation : i18n.enter_word;
 
-        // Use translation string for question counter
         const questionOfText = i18n.question_of
           .replace(':current', totalAnswered + 1)
           .replace(':total', totalCount);
@@ -465,12 +632,12 @@
           question.options.forEach((option) => {
             const btn = document.createElement('button');
             btn.type = 'button';
-            btn.className = 'flex items-center justify-between gap-3 rounded-xl border border-border/80 bg-muted px-4 py-3 text-left text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
+            btn.className = 'wt-option';
             btn.textContent = option;
             btn.dataset.value = option;
             btn.addEventListener('click', () => submitAnswer(option, btn));
             optionsWrapper.appendChild(btn);
-            animate(btn, 'animate-soft');
+            animate(btn, 'wt-animate-soft');
           });
         } else {
           optionsWrapper.innerHTML = '';
@@ -580,41 +747,35 @@
       function toggleFailureModal(show) {
         failureModal.classList.toggle('hidden', !show);
         if (show) {
-          failureModal.classList.add('flex', 'items-center', 'justify-center');
-          failureCard.classList.remove('animate-bounce');
+          failureModal.classList.add('flex');
+          failureCard.classList.remove('wt-animate-pop');
           void failureCard.offsetWidth;
-          failureCard.classList.add('animate-bounce');
-          const backdrop = failureModal.querySelector('.animate-fade');
-          if (backdrop) {
-            backdrop.classList.remove('animate-fade');
-            void backdrop.offsetWidth;
-            backdrop.classList.add('animate-fade');
-          }
+          failureCard.classList.add('wt-animate-pop');
         } else {
-          failureModal.classList.remove('flex', 'items-center', 'justify-center');
+          failureModal.classList.remove('flex');
         }
       }
 
       function highlightSelection(button, isCorrect) {
         if (!button) return;
-        button.classList.remove('choice-correct', 'choice-wrong', 'animate-choice', 'animate-shake');
+        button.classList.remove('wt-option-correct', 'wt-option-wrong', 'wt-animate-choice', 'wt-animate-shake');
         void button.offsetWidth;
         if (isCorrect) {
-          button.classList.add('choice-correct', 'animate-choice');
+          button.classList.add('wt-option-correct', 'wt-animate-choice');
         } else {
-          button.classList.add('choice-wrong', 'animate-choice', 'animate-shake');
+          button.classList.add('wt-option-wrong', 'wt-animate-choice', 'wt-animate-shake');
         }
         setTimeout(() => {
-          button.classList.remove('choice-correct', 'choice-wrong', 'animate-choice', 'animate-shake');
+          button.classList.remove('wt-option-correct', 'wt-option-wrong', 'wt-animate-choice', 'wt-animate-shake');
         }, 1000);
       }
 
       function showFeedback(result) {
         feedback.hidden = false;
-        animate(feedback, 'animate-pop');
+        animate(feedback, 'wt-animate-pop');
         const isCorrect = result.isCorrect;
+        feedbackChip.className = `wt-chip ${isCorrect ? 'wt-chip-positive' : 'wt-chip-negative'}`;
         feedbackChip.textContent = isCorrect ? i18n.feedback_correct : i18n.feedback_error;
-        feedbackChip.className = `inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold ${isCorrect ? 'bg-success/10 text-success' : 'bg-destructive/10 text-destructive'}`;
 
         if (result.questionType === 'en_to_translation') {
           feedbackTitle.textContent = `${result.word} → ${result.correctAnswer}`;
@@ -632,6 +793,7 @@
           button.disabled = true;
           button.classList.add('opacity-60');
         }
+
         const response = await fetch(resetUrl, {
           method: 'POST',
           headers: {
@@ -643,6 +805,7 @@
         const data = await response.json();
         hideSuggestions();
         updateState(data);
+
         if (button) {
           button.disabled = false;
           button.classList.remove('opacity-60');
@@ -674,10 +837,12 @@
               hideSuggestions();
               return;
             }
+
             const data = await response.json();
             if (answerInput.value.trim() !== term) {
               return;
             }
+
             suggestionsList.innerHTML = '';
             if (!Array.isArray(data) || data.length === 0) {
               hideSuggestions();
@@ -689,7 +854,8 @@
               if (!value) return;
               const li = document.createElement('li');
               li.textContent = value;
-              li.className = 'cursor-pointer px-4 py-2 text-sm hover:bg-muted';
+              li.className = 'cursor-pointer border-b px-4 py-3 text-sm font-semibold transition last:border-b-0 hover:bg-blue-50/80 dark:hover:bg-slate-800/70';
+              li.style.borderColor = 'var(--line)';
               li.addEventListener('click', () => {
                 answerInput.value = value;
                 hideSuggestions();
@@ -709,7 +875,6 @@
         }, 200);
       }
 
-      // Study language change handler
       if (studyLangSelect) {
         studyLangSelect.addEventListener('change', (event) => {
           const newLang = event.target.value;
@@ -752,5 +917,5 @@
 
       fetchState();
     });
-  </script>
+</script>
 @endsection

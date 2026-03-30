@@ -47,10 +47,10 @@ class SiteTreeController extends Controller
             ->get();
 
         foreach ($categories as $category) {
-            $items[$category->title] = route('theory.category', $category->slug);
+            $items[$category->title] = localized_route('theory.category', $category->slug);
 
             foreach ($category->pages as $page) {
-                $items[$page->title] = route('theory.show', [$category->slug, $page->slug]);
+                $items[$page->title] = localized_route('theory.show', [$category->slug, $page->slug]);
             }
         }
 

@@ -1,0 +1,1060 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoiceAllTensesV3Seeder",
+        "uuid_namespace": "PassiveVoiceAllTensesV2Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "page1": {
+            "name": "test-english.com: Passive Voice All Tenses (Page 1)"
+        },
+        "page2": {
+            "name": "test-english.com: Passive Voice All Tenses (Page 2)"
+        },
+        "page3": {
+            "name": "test-english.com: Passive Voice All Tenses (Page 3)"
+        }
+    },
+    "tags": {
+        "theme": {
+            "name": "Passive Voice Practice",
+            "category": "English Grammar Theme"
+        },
+        "detail": {
+            "name": "Passive Voice All Tenses",
+            "category": "English Grammar Detail"
+        },
+        "structure": {
+            "name": "Passive Construction",
+            "category": "English Grammar Structure"
+        },
+        "tenses": {
+            "name": "Mixed Tenses",
+            "category": "English Grammar Focus"
+        }
+    },
+    "default_tag_keys": [
+        "theme",
+        "detail",
+        "structure",
+        "tenses"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "The new chemical {a1} when it exploded.",
+            "source": "page1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was being tested",
+                    "options": [
+                        "was being tested",
+                        "had being tested",
+                        "was testing"
+                    ],
+                    "verb_hint": "test"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Past Continuous Passive** (was/were being + past participle) вживається для дії, що тривала в момент у минулому.",
+                        "Слово \"when\" вказує на момент, коли щось відбувалося."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was being tested": "✅ Past Continuous Passive (was being tested) правильно описує дію, що тривала в певний момент у минулому. Формула: was/were + being + past participle.",
+                            "had being tested": "❌ Неправильна форма. \"Had being\" не існує в англійській мові. Past Perfect Passive має форму: had been + past participle.",
+                            "was testing": "❌ Це активний стан (Active Voice), а потрібен пасивний (Passive Voice). Хімічну речовину тестували, а не вона тестувала щось."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "question": "How could you insult the manager? You {a1} fired.",
+            "source": "page1",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "might have been",
+                    "options": [
+                        "might have been",
+                        "might have",
+                        "might have being"
+                    ],
+                    "verb_hint": "fire (звільнити)"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Modal Perfect Passive** (modal + have been + past participle) виражає можливість або припущення про минулу дію в пасивному стані.",
+                        "Після модального дієслова (might, could, should) в пасиві: have been + past participle."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "might have been": "✅ Modal Perfect Passive (might have been fired) правильно виражає можливість звільнення в минулому. Формула: modal + have been + past participle.",
+                            "might have": "❌ Не вистачає \"been\" для утворення пасивного стану. \"Might have\" потребує past participle для активного стану.",
+                            "might have being": "❌ Неправильна форма. \"Being\" не використовується після \"have\". Правильно: might have been."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 3,
+            "question": "She {a1} of everything.",
+            "source": "page1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "has been informed",
+                    "options": [
+                        "has been informed",
+                        "had been inform",
+                        "has being informed"
+                    ],
+                    "verb_hint": "inform"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Present Perfect Passive** (has/have been + past participle) виражає дію, завершену до теперішнього моменту.",
+                        "Формула: has/have + been + past participle."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "has been informed": "✅ Present Perfect Passive (has been informed) правильно показує, що її проінформували про все. Формула: has/have + been + past participle.",
+                            "had been inform": "❌ Неправильна форма. Past Perfect потребує past participle (informed, not inform). Також \"had\" вказує на минулий час, а тут потрібен Present Perfect.",
+                            "has being informed": "❌ Неправильна форма. \"Being\" не використовується після \"has/have\". Правильно: has been."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 4,
+            "question": "When I opened the cupboard, I saw that all the cookies {a1}.",
+            "source": "page1",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had been eaten",
+                    "options": [
+                        "had been eaten",
+                        "had eaten",
+                        "were eaten"
+                    ],
+                    "verb_hint": "eat"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Past Perfect Passive** (had been + past participle) виражає дію, що сталася до іншої дії в минулому.",
+                        "Печиво з'їли ДО того, як відкрили шафу."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had been eaten": "✅ Past Perfect Passive (had been eaten) правильно показує, що печиво з'їли до моменту відкриття шафи. Формула: had + been + past participle.",
+                            "had eaten": "❌ Це активний стан. Печиво не може їсти, його з'їли (пасивний стан).",
+                            "were eaten": "❌ Past Simple Passive не показує, що одна дія відбулася раніше за іншу. Потрібен Past Perfect Passive."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 5,
+            "question": "You {a1} to be so late if you worked for me.",
+            "source": "page1",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "wouldn't be allowed",
+                    "options": [
+                        "wouldn't be allowed",
+                        "wouldn't allow",
+                        "wouldn't have allowed"
+                    ],
+                    "verb_hint": "allow"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Conditional Passive** (would/wouldn't be + past participle) в умовних реченнях.",
+                        "Тебе не дозволили б (пасив), а не ти не дозволив би (актив)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wouldn't be allowed": "✅ Second Conditional Passive (wouldn't be allowed) правильно виражає гіпотетичну ситуацію. Формула: would/wouldn't + be + past participle.",
+                            "wouldn't allow": "❌ Це активний стан. Тут потрібен пасивний стан: тебе не дозволили б (пасив).",
+                            "wouldn't have allowed": "❌ Це Third Conditional про минуле. Тут Second Conditional про гіпотетичну теперішню/майбутню ситуацію."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 6,
+            "question": "After {a1}, he insulted the referee.",
+            "source": "page1",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "being sent off",
+                    "options": [
+                        "being sent off",
+                        "be sending off",
+                        "sending off"
+                    ],
+                    "verb_hint": "send off (видалити з поля)"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Gerund Passive** (being + past participle) після прийменників (after, before, without).",
+                        "Його вислали з поля (пасив), а не він когось висилав (актив)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "being sent off": "✅ Gerund Passive (being sent off) правильно використовується після прийменника \"after\". Формула: being + past participle.",
+                            "be sending off": "❌ Неправильна форма. Після прийменника використовується герундій (being), а не інфінітив (be).",
+                            "sending off": "❌ Це активний стан. Його вислали (пасив), а не він когось висилав (актив)."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 7,
+            "question": "A new restaurant {a1} in our street next week.",
+            "source": "page1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is going to be opened",
+                    "options": [
+                        "is going to be opened",
+                        "is going to been opened",
+                        "will being opened"
+                    ],
+                    "verb_hint": "open"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Future Passive (going to)** = is/are going to be + past participle.",
+                        "Виражає заплановану майбутню дію в пасивному стані."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to be opened": "✅ Future Passive з \"going to\" (is going to be opened) правильно виражає заплановану дію. Формула: is/are going to + be + past participle.",
+                            "is going to been opened": "❌ Неправильна форма. Після \"going to\" використовується інфінітив \"be\", а не \"been\".",
+                            "will being opened": "❌ Неправильна форма. Після \"will\" використовується \"be\", а не \"being\". Правильно: will be opened."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 8,
+            "question": "The question {a1} at the meeting.",
+            "source": "page1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is still being discussed",
+                    "options": [
+                        "is still being discussed",
+                        "is still discussing",
+                        "is still been discussed"
+                    ],
+                    "verb_hint": "discuss"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Present Continuous Passive** (is/are being + past participle) для дії, що відбувається зараз.",
+                        "Питання обговорюють (пасив), а не питання обговорює щось (актив)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is still being discussed": "✅ Present Continuous Passive (is being discussed) правильно показує, що питання все ще обговорюється. Формула: is/are + being + past participle.",
+                            "is still discussing": "❌ Це активний стан. Питання не може обговорювати, його обговорюють (пасив).",
+                            "is still been discussed": "❌ Неправильна форма. Після \"is\" для Continuous потрібен \"being\", а не \"been\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 9,
+            "question": "The car isn't there anymore. It {a1} stolen.",
+            "source": "page1",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must have been",
+                    "options": [
+                        "must have been",
+                        "must be",
+                        "must have being"
+                    ],
+                    "verb_hint": "steal"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Modal Perfect Passive** (must have been + past participle) виражає впевнене припущення про минулу дію.",
+                        "\"Must have been\" = напевно, мабуть (про минуле)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "must have been": "✅ Modal Perfect Passive (must have been stolen) виражає впевнене припущення про те, що сталося в минулому. Формула: modal + have been + past participle.",
+                            "must be": "❌ \"Must be\" стосується теперішнього часу, а машина вже зникла (минулий час). Потрібен Perfect.",
+                            "must have being": "❌ Неправильна форма. \"Being\" не використовується після \"have\". Правильно: must have been."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 10,
+            "question": "He {a1} about the decision and got angry.",
+            "source": "page1",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "hadn't been told",
+                    "options": [
+                        "hadn't been told",
+                        "wasn't being told",
+                        "hadn't told"
+                    ],
+                    "verb_hint": "tell"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Past Perfect Passive** (hadn't been + past participle) показує, що йому не сказали до того, як він розізлився.",
+                        "Одна дія (не сказали) відбулася раніше за іншу (розізлився)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "hadn't been told": "✅ Past Perfect Passive (hadn't been told) правильно показує, що йому не розповіли до моменту, коли він розізлився. Формула: hadn't + been + past participle.",
+                            "wasn't being told": "❌ Past Continuous Passive показує процес у певний момент, а не завершену дію до іншої дії в минулому.",
+                            "hadn't told": "❌ Це активний стан. Він не розповів (актив), а йому не розповіли (пасив)."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 11,
+            "question": "The report {a1} two days ago.",
+            "source": "page2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "should have been finished",
+                    "options": [
+                        "should have been finished",
+                        "should been finished",
+                        "should finish",
+                        "should have being finished"
+                    ],
+                    "verb_hint": "finish"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Modal Perfect Passive** (should have been + past participle) виражає, що щось мало б бути зроблено в минулому.",
+                        "\"Should have been finished\" = мав би бути завершений."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "should have been finished": "✅ Modal Perfect Passive (should have been finished) правильно виражає, що звіт мав би бути завершений раніше. Формула: modal + have been + past participle.",
+                            "should been finished": "❌ Не вистачає \"have\". Правильно: should have been finished.",
+                            "should finish": "❌ Це активний стан і теперішній час. Потрібен пасив і Perfect для минулої дії.",
+                            "should have being finished": "❌ Неправильна форма. \"Being\" не використовується після \"have\". Правильно: should have been."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 12,
+            "question": "This kind of job used {a1} only by professionals in the past.",
+            "source": "page2",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "to be done",
+                    "options": [
+                        "to be done",
+                        "to being done",
+                        "to do",
+                        "to been done"
+                    ],
+                    "verb_hint": "do"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Infinitive Passive** після \"used to\" = used to be + past participle.",
+                        "\"Used to be done\" = раніше виконувалося (в минулому)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "to be done": "✅ Infinitive Passive (to be done) правильно використовується після \"used\". Формула: to be + past participle.",
+                            "to being done": "❌ Неправильна форма. Після \"to\" використовується інфінітив \"be\", а не герундій \"being\".",
+                            "to do": "❌ Це активний стан. Роботу робили (пасив), а не робота робила щось (актив).",
+                            "to been done": "❌ Неправильна форма. \"Been\" не може стояти після \"to\". Правильно: to be done."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 13,
+            "question": "They hated {a1} mercenaries, but that's what they were.",
+            "source": "page2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "being called",
+                    "options": [
+                        "being called",
+                        "to being called",
+                        "be called",
+                        "been called"
+                    ],
+                    "verb_hint": "call"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Gerund Passive** (being + past participle) після дієслів типу hate, like, love.",
+                        "Після \"hate\" використовується герундій (being called)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "being called": "✅ Gerund Passive (being called) правильно використовується після дієслова \"hated\". Формула: being + past participle.",
+                            "to being called": "❌ Неправильна форма. Після \"to\" не може стояти \"being\". Може бути \"to be called\" або \"being called\" (без to).",
+                            "be called": "❌ Після \"hated\" потрібен герундій (being called), а не інфінітив (be called).",
+                            "been called": "❌ \"Been\" без допоміжного дієслова не може утворити правильну форму. Потрібен герундій \"being called\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 14,
+            "question": "The new product {a1} by the FDA.",
+            "source": "page2",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is now being examined",
+                    "options": [
+                        "is now being examined",
+                        "is now examined",
+                        "is now examining",
+                        "is now been examined"
+                    ],
+                    "verb_hint": "examine"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Present Continuous Passive** (is/are being + past participle) для дії, що відбувається зараз.",
+                        "\"Is being examined\" = перевіряється зараз."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is now being examined": "✅ Present Continuous Passive (is being examined) правильно показує, що продукт перевіряється зараз. Формула: is/are + being + past participle.",
+                            "is now examined": "❌ Present Simple Passive не показує, що дія відбувається зараз. Потрібен Continuous.",
+                            "is now examining": "❌ Це активний стан. Продукт не може перевіряти, його перевіряють (пасив).",
+                            "is now been examined": "❌ Неправильна форма. Після \"is\" для Continuous потрібен \"being\", а не \"been\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 15,
+            "question": "Why {a1} about the meeting yesterday?",
+            "source": "page2",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "wasn't I told",
+                    "options": [
+                        "wasn't I told",
+                        "didn't I tell",
+                        "hasn't I being told",
+                        "wasn't I been told"
+                    ],
+                    "verb_hint": "tell"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Past Simple Passive** (was/wasn't told) для питань про минулу дію.",
+                        "\"Wasn't I told\" = мені не сказали?"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wasn't I told": "✅ Past Simple Passive (wasn't I told) правильно утворює питання про минулу дію. Формула: was/were + past participle.",
+                            "didn't I tell": "❌ Це активний стан. Мені не сказали (пасив), а не я не сказав (актив).",
+                            "hasn't I being told": "❌ Неправильні час і форма. \"Yesterday\" вимагає Past Simple, а не Present Perfect. Також \"being\" неправильно.",
+                            "wasn't I been told": "❌ Неправильна форма. \"Been\" не використовується з \"was\" для Simple Passive. Правильно: wasn't I told."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 16,
+            "question": "When we arrived, the car {a1}.",
+            "source": "page2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had disappeared",
+                    "options": [
+                        "had disappeared",
+                        "had been disappeared",
+                        "was being disappeared",
+                        "was disappear"
+                    ],
+                    "verb_hint": "disappear"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Увага!** \"Disappear\" — неперехідне дієслово, не має пасивного стану.",
+                        "Використовуємо Past Perfect Active (had disappeared) для дії, що сталася до іншої дії в минулому."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had disappeared": "✅ Past Perfect Active (had disappeared) правильний, бо \"disappear\" — неперехідне дієслово, не має пасиву. Машина зникла сама.",
+                            "had been disappeared": "❌ \"Disappear\" не має пасивного стану, бо це неперехідне дієслово. Машина зникла сама, її не зникали.",
+                            "was being disappeared": "❌ Неправильна форма. \"Disappear\" не має пасиву.",
+                            "was disappear": "❌ Неправильна граматична форма. Після \"was\" потрібен past participle або -ing форма."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 17,
+            "question": "{a1} soon? Do you think you'll get the job?",
+            "source": "page2",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be interviewed",
+                    "options": [
+                        "Will you be interviewed",
+                        "Will you been interviewed",
+                        "Will you interview",
+                        "Will you being interviewed"
+                    ],
+                    "verb_hint": "interview"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Future Simple Passive** (will be + past participle) для питань про майбутню дію.",
+                        "\"Will you be interviewed\" = тебе будуть інтерв'ювати?"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will you be interviewed": "✅ Future Simple Passive (will be interviewed) правильно утворює питання про майбутню дію. Формула: will + be + past participle.",
+                            "Will you been interviewed": "❌ Неправильна форма. Після \"will\" використовується інфінітив \"be\", а не \"been\".",
+                            "Will you interview": "❌ Це активний стан. Тебе будуть інтерв'ювати (пасив), а не ти будеш інтерв'ювати (актив).",
+                            "Will you being interviewed": "❌ Неправильна форма. Після \"will\" використовується \"be\", а не \"being\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 18,
+            "question": "Lots of free gifts {a1} away among the participants.",
+            "source": "page2",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are being given",
+                    "options": [
+                        "are being given",
+                        "will been given",
+                        "are give",
+                        "are giving"
+                    ],
+                    "verb_hint": "give"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Present Continuous Passive** (are being + past participle) для дії, що відбувається зараз.",
+                        "\"Are being given\" = роздаються зараз."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are being given": "✅ Present Continuous Passive (are being given) правильно показує, що подарунки роздаються зараз. Формула: is/are + being + past participle.",
+                            "will been given": "❌ Неправильна форма. Після \"will\" використовується \"be\", а не \"been\". Також не підходить за часом.",
+                            "are give": "❌ Неправильна граматична форма. Після \"are\" потрібен \"being given\" для пасиву.",
+                            "are giving": "❌ Це активний стан. Подарунки роздають (пасив), а не подарунки роздають щось (актив)."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 19,
+            "question": "The school {a1} accommodation for the students.",
+            "source": "page2",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "doesn't normally provide",
+                    "options": [
+                        "doesn't normally provide",
+                        "isn't normally been provided",
+                        "isn't normally being provided",
+                        "isn't normally provide"
+                    ],
+                    "verb_hint": "provide"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Увага!** Тут потрібен активний стан, а не пасивний.",
+                        "Школа (суб'єкт) надає (активна дія) житло (об'єкт)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "doesn't normally provide": "✅ Active Voice (doesn't provide) правильний, бо школа (суб'єкт) сама надає житло. Це активна дія, не пасивна.",
+                            "isn't normally been provided": "❌ Неправильна форма і неправильний стан. Тут потрібен активний стан, не пасивний.",
+                            "isn't normally being provided": "❌ Неправильний стан. Школа надає (активно), а не школу надають (пасивно).",
+                            "isn't normally provide": "❌ Неправильна граматична форма. Після \"isn't\" потрібен past participle або -ing форма."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 20,
+            "question": "She {a1} of the accident yet.",
+            "source": "page2",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "hasn't been informed",
+                    "options": [
+                        "hasn't been informed",
+                        "hasn't informed",
+                        "hasn't being informed",
+                        "wasn't been informed"
+                    ],
+                    "verb_hint": "inform"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Present Perfect Passive** (hasn't been + past participle) з \"yet\" для дії, що ще не відбулася.",
+                        "\"Hasn't been informed\" = її ще не проінформували."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "hasn't been informed": "✅ Present Perfect Passive (hasn't been informed) правильно виражає дію, яка ще не відбулася до теперішнього моменту. Формула: has/have + been + past participle.",
+                            "hasn't informed": "❌ Це активний стан. Її не проінформували (пасив), а не вона не проінформувала (актив).",
+                            "hasn't being informed": "❌ Неправильна форма. \"Being\" не використовується після \"has/have\". Правильно: hasn't been.",
+                            "wasn't been informed": "❌ Неправильна форма. \"Wasn't been\" не існує. Правильно: wasn't informed або hasn't been informed."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 21,
+            "question": "I don't like {a1} what to do.",
+            "source": "page3",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "being told",
+                    "options": [
+                        "being told",
+                        "to be told",
+                        "been told",
+                        "be told"
+                    ],
+                    "verb_hint": "tell"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Gerund Passive** (being + past participle) після дієслів типу like, love, hate.",
+                        "Після \"like/don't like\" можна використати герундій (being told) або інфінітив (to be told)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "being told": "✅ Gerund Passive (being told) правильно використовується після \"like/don't like\". Формула: being + past participle.",
+                            "to be told": "⚠️ Також можливий варіант. Після \"like\" можна використати інфінітив \"to be told\" або герундій \"being told\".",
+                            "been told": "❌ \"Been\" без допоміжного дієслова не може утворити правильну форму після \"like\".",
+                            "be told": "❌ Після \"like\" потрібен герундій (being told) або інфінітив з \"to\" (to be told), а не чистий інфінітив."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 22,
+            "question": "The hotel was closed because it {a1}.",
+            "source": "page3",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was being renovated",
+                    "options": [
+                        "was being renovated",
+                        "was renovated",
+                        "had been renovated",
+                        "is being renovated"
+                    ],
+                    "verb_hint": "renovate"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Past Continuous Passive** (was being + past participle) для дії, що тривала в певний період у минулому.",
+                        "Готель ремонтували в той період, коли він був закритий."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was being renovated": "✅ Past Continuous Passive (was being renovated) правильно показує, що ремонт тривав у момент закриття. Формула: was/were + being + past participle.",
+                            "was renovated": "❌ Past Simple Passive показує завершену дію, а не процес, що тривав.",
+                            "had been renovated": "❌ Past Perfect показує завершену дію до іншої дії. Але готель закрили ПІД ЧАС ремонту, а не після.",
+                            "is being renovated": "❌ Неправильний час. \"Was closed\" (минулий час) вимагає минулого часу в другій частині речення."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 23,
+            "question": "I went to the doctor yesterday and I {a1} some medicine for my cough.",
+            "source": "page3",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was prescribed",
+                    "options": [
+                        "was prescribed",
+                        "have been prescribed",
+                        "am prescribed",
+                        "had been prescribed"
+                    ],
+                    "verb_hint": "prescribe"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Past Simple Passive** (was prescribed) для дії, що відбулася в конкретний момент у минулому.",
+                        "\"Yesterday\" вказує на конкретний час у минулому — Past Simple."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was prescribed": "✅ Past Simple Passive (was prescribed) правильний для конкретної дії вчора. Формула: was/were + past participle.",
+                            "have been prescribed": "❌ Present Perfect не вживається з \"yesterday\". Past Simple потрібен для конкретного часу в минулому.",
+                            "am prescribed": "❌ Неправильний час. Present Simple не підходить для дії, що відбулася вчора.",
+                            "had been prescribed": "❌ Past Perfect показує дію до іншої дії в минулому. Тут немає такої послідовності."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 24,
+            "question": "My car {a1} yet, and I need it for tomorrow.",
+            "source": "page3",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "has not been fixed",
+                    "options": [
+                        "has not been fixed",
+                        "was not fixed",
+                        "is not being fixed",
+                        "will not be fixed"
+                    ],
+                    "verb_hint": "fix"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Present Perfect Passive** (hasn't been + past participle) з \"yet\" для дії, що ще не відбулася.",
+                        "\"Yet\" зазвичай вживається з Present Perfect."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "has not been fixed": "✅ Present Perfect Passive (has not been fixed) правильний з \"yet\" для дії, що ще не відбулася. Формула: has/have + been + past participle.",
+                            "was not fixed": "❌ Past Simple не вживається з \"yet\". Present Perfect потрібен.",
+                            "is not being fixed": "❌ Present Continuous показує процес зараз, а \"yet\" вказує на незавершену дію до теперішнього моменту.",
+                            "will not be fixed": "❌ Future Simple не вживається з \"yet\". \"Yet\" вимагає Present Perfect."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 25,
+            "question": "If she hadn't insulted the police officer, she wouldn't {a1}.",
+            "source": "page3",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "have been arrested",
+                    "options": [
+                        "have been arrested",
+                        "be arrested",
+                        "been arrested",
+                        "have arrested"
+                    ],
+                    "verb_hint": "arrest"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Third Conditional Passive** у головній частині: wouldn't have been + past participle.",
+                        "Виражає нереальну ситуацію в минулому (її заарештували, бо образила)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "have been arrested": "✅ Third Conditional Passive (wouldn't have been arrested) правильно виражає нереальну ситуацію в минулому. Формула: would/wouldn't + have been + past participle.",
+                            "be arrested": "❌ Second Conditional про теперішнє/майбутнє. Тут Third Conditional про минуле (hadn't insulted).",
+                            "been arrested": "❌ Не вистачає \"have\". Правильно: wouldn't have been arrested.",
+                            "have arrested": "❌ Це активний стан. Її заарештували (пасив), а не вона когось заарештувала (актив)."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 26,
+            "question": "She is hoping {a1} president.",
+            "source": "page3",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "to be elected",
+                    "options": [
+                        "to be elected",
+                        "being elected",
+                        "to elect",
+                        "been elected"
+                    ],
+                    "verb_hint": "elect"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Infinitive Passive** (to be + past participle) після дієслова \"hope\".",
+                        "\"Hope to be elected\" = сподівається бути обраною."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "to be elected": "✅ Infinitive Passive (to be elected) правильно використовується після \"hoping\". Формула: to be + past participle.",
+                            "being elected": "❌ Після \"hope\" використовується інфінітив (to be elected), а не герундій (being elected).",
+                            "to elect": "❌ Це активний стан. Її оберуть (пасив), а не вона обере (актив).",
+                            "been elected": "❌ \"Been\" не може стояти після \"hope\" без \"to have\". Правильно: to be elected."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 27,
+            "question": "Last night's fire might {a1} by lightning.",
+            "source": "page3",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "have been caused",
+                    "options": [
+                        "have been caused",
+                        "be caused",
+                        "been caused",
+                        "have caused"
+                    ],
+                    "verb_hint": "cause"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Modal Perfect Passive** (might have been + past participle) для припущення про минулу подію.",
+                        "\"Might have been caused\" = можливо, була спричинена."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "have been caused": "✅ Modal Perfect Passive (might have been caused) правильно виражає припущення про причину минулої події. Формула: modal + have been + past participle.",
+                            "be caused": "❌ \"Might be\" стосується теперішнього/майбутнього. \"Last night\" вимагає Perfect (might have been).",
+                            "been caused": "❌ Не вистачає \"have\". Правильно: might have been caused.",
+                            "have caused": "❌ Це активний стан. Пожежа не спричинила блискавку, її спричинила блискавка (пасив)."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 28,
+            "question": "Our house {a1} so we are staying at my parents'.",
+            "source": "page3",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is being painted",
+                    "options": [
+                        "is being painted",
+                        "is painted",
+                        "has been painted",
+                        "was being painted"
+                    ],
+                    "verb_hint": "paint"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Present Continuous Passive** (is being + past participle) для дії, що відбувається зараз.",
+                        "Будинок фарбують зараз, тому ми у батьків."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is being painted": "✅ Present Continuous Passive (is being painted) правильно показує, що будинок фарбують зараз. Формула: is/are + being + past participle.",
+                            "is painted": "❌ Present Simple не показує, що дія відбувається зараз. Потрібен Continuous.",
+                            "has been painted": "❌ Present Perfect показує завершену дію. Якщо б пофарбували, ми б вже повернулися додому.",
+                            "was being painted": "❌ Неправильний час. \"Are staying\" (теперішній час) вимагає теперішнього часу: is being painted."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 29,
+            "question": "The museum {a1} by millions of people next year.",
+            "source": "page3",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be visited",
+                    "options": [
+                        "will be visited",
+                        "is visited",
+                        "is being visited",
+                        "was visited"
+                    ],
+                    "verb_hint": "visit"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Future Simple Passive** (will be + past participle) для дії в майбутньому.",
+                        "\"Next year\" вказує на майбутній час."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be visited": "✅ Future Simple Passive (will be visited) правильний для дії в наступному році. Формула: will + be + past participle.",
+                            "is visited": "❌ Present Simple не підходить для дії в майбутньому. \"Next year\" вимагає Future.",
+                            "is being visited": "❌ Present Continuous стосується теперішнього моменту, а не майбутнього року.",
+                            "was visited": "❌ Past Simple стосується минулого, а \"next year\" — майбутнє."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 30,
+            "question": "The suspect {a1} by the police at the moment.",
+            "source": "page3",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is being questioned",
+                    "options": [
+                        "is being questioned",
+                        "is questioned",
+                        "has been questioned",
+                        "was questioned"
+                    ],
+                    "verb_hint": "question (допитувати)"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "**Present Continuous Passive** (is being + past participle) для дії, що відбувається зараз.",
+                        "\"At the moment\" вказує на дію, що відбувається прямо зараз."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is being questioned": "✅ Present Continuous Passive (is being questioned) правильний для дії, що відбувається прямо зараз. Формула: is/are + being + past participle.",
+                            "is questioned": "❌ Present Simple не показує, що дія відбувається саме зараз. \"At the moment\" вимагає Continuous.",
+                            "has been questioned": "❌ Present Perfect показує завершену дію, а \"at the moment\" вказує на дію, що триває зараз.",
+                            "was questioned": "❌ Past Simple стосується минулого, а \"at the moment\" — теперішнього."
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

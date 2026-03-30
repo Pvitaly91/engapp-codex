@@ -40,7 +40,8 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
     ? window.__INITIAL_JS_TEST_QUESTIONS__
     : [];
 const CSRF_TOKEN = '{{ csrf_token() }}';
-const EXPLAIN_URL = '{{ route('question.explain') }}';
+const TEST_LOCALE = @json(app()->getLocale());
+const EXPLAIN_URL = '{{ localized_route('question.explain') }}';
 const TEST_SLUG = @json($test->slug);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
@@ -356,6 +357,7 @@ function ensureExplanation(item, idx, selected, expected, key, slotIndex) {
     question_id: item.id,
     answer: selected,
     correct_answer: expected,
+    language: TEST_LOCALE,
   };
 
   if (typeof slotIndex === 'number') {

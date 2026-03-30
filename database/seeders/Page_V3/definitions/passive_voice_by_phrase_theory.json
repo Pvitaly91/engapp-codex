@@ -1,0 +1,74 @@
+{
+    "schema_version": 1,
+    "content_type": "page",
+    "slug": "theory-passive-voice-by-phrase",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\PassiveVoice\\SpecialCases\\PassiveVoiceByPhraseTheorySeeder"
+    },
+    "page": {
+        "title": "By-phrase: коли додавати \"by …\", а коли ні",
+        "subtitle_html": "<p><strong>By-phrase</strong> — вказує на виконавця дії в пасивному реченні. Але не завжди \"by\" потрібен: часто виконавець очевидний, невідомий або неважливий. У цій темі ти навчишся правильно використовувати \"by\" та уникати типових помилок.</p>",
+        "subtitle_text": "Коли вживати by + agent у пасиві, коли опускати, різниця між by та with, типові помилки.",
+        "locale": "uk",
+        "category": {
+            "slug": "passive-voice",
+            "title": "Пасивний стан",
+            "language": "uk"
+        },
+        "tags": [
+            "Passive Voice",
+            "Пасивний стан",
+            "By-phrase",
+            "Agent",
+            "by vs with",
+            "B1",
+            "B2",
+            "Theory"
+        ],
+        "blocks": [
+            {
+                "type": "hero",
+                "column": "header",
+                "level": "B1",
+                "body": "{\n    \"level\": \"B1\",\n    \"intro\": \"У цій темі ти дізнаєшся, <strong>коли додавати \\\"by + agent\\\"<\\/strong> у пасивних реченнях, коли його краще опустити, та яка різниця між <strong>by<\\/strong> та <strong>with<\\/strong>.\",\n    \"rules\": [\n        {\n            \"label\": \"Додавай by\",\n            \"color\": \"emerald\",\n            \"text\": \"Коли виконавець <strong>важливий або новий<\\/strong>:\",\n            \"example\": \"The book was written by J.K. Rowling.\"\n        },\n        {\n            \"label\": \"Опускай by\",\n            \"color\": \"blue\",\n            \"text\": \"Коли виконавець <strong>очевидний або невідомий<\\/strong>:\",\n            \"example\": \"He was arrested. (поліцією — очевидно)\"\n        },\n        {\n            \"label\": \"by vs with\",\n            \"color\": \"rose\",\n            \"text\": \"<strong>by<\\/strong> — виконавець, <strong>with<\\/strong> — інструмент:\",\n            \"example\": \"The letter was written by Tom with a pen.\"\n        }\n    ]\n}"
+            },
+            {
+                "type": "usage-panels",
+                "column": "left",
+                "level": "B1",
+                "body": "{\n    \"title\": \"1. Коли ДОДАВАТИ \\\"by + agent\\\"\",\n    \"sections\": [\n        {\n            \"label\": \"Виконавець важливий\",\n            \"color\": \"emerald\",\n            \"description\": \"Якщо виконавець — <strong>ключова інформація<\\/strong>, його потрібно вказати.\",\n            \"examples\": [\n                {\n                    \"en\": \"The Mona Lisa was painted by Leonardo da Vinci.\",\n                    \"ua\": \"«Мона Ліза» була намальована Леонардо да Вінчі.\"\n                },\n                {\n                    \"en\": \"This song was performed by Adele.\",\n                    \"ua\": \"Ця пісня була виконана Адель.\"\n                },\n                {\n                    \"en\": \"The company was founded by Steve Jobs.\",\n                    \"ua\": \"Компанію заснував Стів Джобс.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Нова інформація\",\n            \"color\": \"sky\",\n            \"description\": \"Коли виконавець — <strong>нова, несподівана інформація<\\/strong> для слухача.\",\n            \"examples\": [\n                {\n                    \"en\": \"I was helped by a stranger.\",\n                    \"ua\": \"Мені допоміг незнайомець.\"\n                },\n                {\n                    \"en\": \"The window was broken by the kids next door.\",\n                    \"ua\": \"Вікно розбили сусідські діти.\"\n                },\n                {\n                    \"en\": \"The project was completed by our junior team.\",\n                    \"ua\": \"Проєкт завершила наша молодша команда.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Контраст \\/ акцент\",\n            \"color\": \"amber\",\n            \"description\": \"Коли хочемо <strong>підкреслити, хто саме<\\/strong> виконав дію.\",\n            \"examples\": [\n                {\n                    \"en\": \"The report was written by me, not by Tom.\",\n                    \"ua\": \"Звіт написав я, а не Том.\"\n                },\n                {\n                    \"en\": \"The cake was made by my grandmother.\",\n                    \"ua\": \"Торт спекла моя бабуся. (акцент)\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+                "type": "usage-panels",
+                "column": "left",
+                "level": "B1",
+                "body": "{\n    \"title\": \"2. Коли ОПУСКАТИ \\\"by + agent\\\"\",\n    \"sections\": [\n        {\n            \"label\": \"Виконавець очевидний\",\n            \"color\": \"emerald\",\n            \"description\": \"Коли з контексту <strong>зрозуміло<\\/strong>, хто виконує дію.\",\n            \"examples\": [\n                {\n                    \"en\": \"He was arrested.\",\n                    \"ua\": \"Його заарештували. (поліція — очевидно)\"\n                },\n                {\n                    \"en\": \"The patient was operated on.\",\n                    \"ua\": \"Пацієнта прооперували. (лікарі — очевидно)\"\n                },\n                {\n                    \"en\": \"The letter was delivered.\",\n                    \"ua\": \"Листа доставили. (пошта — очевидно)\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Виконавець невідомий\",\n            \"color\": \"sky\",\n            \"description\": \"Ми <strong>не знаємо<\\/strong>, хто виконав дію.\",\n            \"examples\": [\n                {\n                    \"en\": \"My car was stolen.\",\n                    \"ua\": \"Мою машину вкрали. (хто — невідомо)\"\n                },\n                {\n                    \"en\": \"The building was constructed in 1920.\",\n                    \"ua\": \"Будівлю зведено в 1920 році.\"\n                },\n                {\n                    \"en\": \"The window was broken last night.\",\n                    \"ua\": \"Вікно розбили вчора ввечері.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Виконавець неважливий\",\n            \"color\": \"amber\",\n            \"description\": \"Нам <strong>байдуже<\\/strong>, хто виконує дію. Важливий результат.\",\n            \"examples\": [\n                {\n                    \"en\": \"English is spoken here.\",\n                    \"ua\": \"Тут розмовляють англійською.\"\n                },\n                {\n                    \"en\": \"The rules must be followed.\",\n                    \"ua\": \"Правила треба дотримуватися.\"\n                },\n                {\n                    \"en\": \"The work will be finished tomorrow.\",\n                    \"ua\": \"Робота буде закінчена завтра.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Загальний виконавець\",\n            \"color\": \"rose\",\n            \"description\": \"Коли виконавець — <strong>люди загалом<\\/strong>: people, someone, they.\",\n            \"examples\": [\n                {\n                    \"en\": \"It is believed that... (people believe)\",\n                    \"ua\": \"Вважається, що... (люди вважають)\"\n                },\n                {\n                    \"en\": \"The meeting was cancelled.\",\n                    \"ua\": \"Зустріч скасували. (хтось)\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+                "type": "usage-panels",
+                "column": "left",
+                "level": "B2",
+                "body": "{\n    \"title\": \"3. \\\"by\\\" vs \\\"with\\\" — виконавець vs інструмент\",\n    \"sections\": [\n        {\n            \"label\": \"by — виконавець\",\n            \"color\": \"emerald\",\n            \"description\": \"<strong>by<\\/strong> вказує на <strong>того, хто виконує<\\/strong> дію (людина, організація, сила).\",\n            \"examples\": [\n                {\n                    \"en\": \"The letter was written by Tom.\",\n                    \"ua\": \"Лист написав Том. (виконавець)\"\n                },\n                {\n                    \"en\": \"The house was destroyed by the earthquake.\",\n                    \"ua\": \"Будинок зруйнувало землетрусом. (сила)\"\n                },\n                {\n                    \"en\": \"The decision was made by the committee.\",\n                    \"ua\": \"Рішення ухвалив комітет. (організація)\"\n                }\n            ]\n        },\n        {\n            \"label\": \"with — інструмент\",\n            \"color\": \"blue\",\n            \"description\": \"<strong>with<\\/strong> вказує на <strong>інструмент або засіб<\\/strong>, яким виконано дію.\",\n            \"examples\": [\n                {\n                    \"en\": \"The letter was written with a pen.\",\n                    \"ua\": \"Лист написано ручкою. (інструмент)\"\n                },\n                {\n                    \"en\": \"The cake was decorated with cream.\",\n                    \"ua\": \"Торт прикрашено кремом. (матеріал)\"\n                },\n                {\n                    \"en\": \"The door was locked with a key.\",\n                    \"ua\": \"Двері замкнуто ключем.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Поєднання by + with\",\n            \"color\": \"amber\",\n            \"description\": \"Можна використати <strong>обидва<\\/strong> в одному реченні.\",\n            \"examples\": [\n                {\n                    \"en\": \"The picture was painted by Monet with oil paints.\",\n                    \"ua\": \"Картину намалював Моне олійними фарбами.\"\n                },\n                {\n                    \"en\": \"The document was signed by the manager with a fountain pen.\",\n                    \"ua\": \"Документ підписав менеджер перовою ручкою.\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+                "type": "comparison-table",
+                "column": "left",
+                "level": "B1",
+                "body": "{\n    \"title\": \"4. Порівняння: by vs with\",\n    \"intro\": \"Ключова різниця між by та with у пасивних реченнях:\",\n    \"rows\": [\n        {\n            \"en\": \"by + agent\",\n            \"ua\": \"Виконавець дії\",\n            \"note\": \"The book was written by J.K. Rowling.\"\n        },\n        {\n            \"en\": \"with + instrument\",\n            \"ua\": \"Інструмент, засіб\",\n            \"note\": \"The book was written with a pencil.\"\n        },\n        {\n            \"en\": \"by + natural force\",\n            \"ua\": \"Природна сила\",\n            \"note\": \"The tree was struck by lightning.\"\n        },\n        {\n            \"en\": \"with + material\",\n            \"ua\": \"Матеріал\",\n            \"note\": \"The house was built with bricks.\"\n        }\n    ],\n    \"warning\": \"📌 <strong>by<\\/strong> = хто\\/що спричинило дію. <strong>with<\\/strong> = чим виконано дію.\"\n}"
+            },
+            {
+                "type": "mistakes-grid",
+                "column": "left",
+                "level": "B1",
+                "body": "{\n    \"title\": \"5. Типові помилки\",\n    \"items\": [\n        {\n            \"label\": \"Помилка 1\",\n            \"color\": \"rose\",\n            \"title\": \"Зайвий \\\"by\\\" з очевидним виконавцем.\",\n            \"wrong\": \"He was arrested by police.\",\n            \"right\": \"✅ He was arrested. (поліція очевидна)\"\n        },\n        {\n            \"label\": \"Помилка 2\",\n            \"color\": \"amber\",\n            \"title\": \"Плутанина by та with.\",\n            \"wrong\": \"The letter was written with Tom.\",\n            \"right\": \"✅ The letter was written by Tom.\"\n        },\n        {\n            \"label\": \"Помилка 3\",\n            \"color\": \"sky\",\n            \"title\": \"Використання by замість with для інструменту.\",\n            \"wrong\": \"The cake was cut by a knife.\",\n            \"right\": \"✅ The cake was cut with a knife.\"\n        },\n        {\n            \"label\": \"Помилка 4\",\n            \"color\": \"rose\",\n            \"title\": \"Додавання \\\"by someone\\/people\\\" без потреби.\",\n            \"wrong\": \"English is spoken by people here.\",\n            \"right\": \"✅ English is spoken here.\"\n        }\n    ]\n}"
+            },
+            {
+                "type": "summary-list",
+                "column": "left",
+                "level": "B1",
+                "body": "{\n    \"title\": \"6. Короткий конспект\",\n    \"items\": [\n        \"<strong>Додавай \\\"by\\\"<\\/strong>: коли виконавець важливий, несподіваний, або для контрасту.\",\n        \"<strong>Опускай \\\"by\\\"<\\/strong>: коли виконавець очевидний, невідомий, неважливий, або загальний (people, they).\",\n        \"<strong>by<\\/strong> = виконавець дії (хто\\/що спричинило).\",\n        \"<strong>with<\\/strong> = інструмент, засіб, матеріал (чим виконано).\",\n        \"Можна поєднувати: \\\"painted <strong>by<\\/strong> Monet <strong>with<\\/strong> oil paints\\\".\",\n        \"Уникай зайвого \\\"by\\\" з очевидними виконавцями.\"\n    ]\n}"
+            }
+        ]
+    },
+    "type": "theory"
+}

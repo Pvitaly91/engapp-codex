@@ -1,0 +1,356 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\Pl\\V2\\BasicWordOrderPracticeV2LocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\V2\\BasicWordOrderPracticeV3Seeder",
+        "definition": "basic_word_order_practice_v2",
+        "definition_path": "V2/basic_word_order_practice_v2.json"
+    },
+    "locale": "pl",
+    "hint_provider": "chatgpt",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "Najpierw nazywamy dopełnienie, potem przysłówek miary (na przykład, very much)."
+            ],
+            "explanations": {
+                "a1": {
+                    "very much the food": "❌ Przysłówek miary nie stawiamy przed głównym dopełnieniem w takim zdaniu.",
+                    "the food very much": "✅ Bezpośrednie dopełnienie idzie przed przysłówkiem miary, więc kolejność jest naturalna."
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "Miejsce po czasowniku, potem okoliczność czasu/sposobu (np. very late)."
+            ],
+            "explanations": {
+                "a1": {
+                    "home very late": "✅ Najpierw miejsce (home), a potem okoliczność czasu/sposobu.",
+                    "very late home": "❌ Okoliczność very late przed miejscem brzmi nienaturalnie."
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "Bezpośrednie dopełnienie (co?) przed przysłówkiem sposobu (how?)."
+            ],
+            "explanations": {
+                "a1": {
+                    "very well English": "❌ Przysłówek sposobu nie stawiamy przed obiektem w takiej konstrukcji.",
+                    "English very well": "✅ Obiekt (English) stoi przed przysłówkiem sposobu, co odpowiada zwykłej kolejności."
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "Najpierw dopełnienie, potem okoliczność miejsca."
+            ],
+            "explanations": {
+                "a1": {
+                    "in the corner that box": "❌ Okoliczność miejsca nie może wyprzedzać bezpośredniego dopełnienia w tym zdaniu.",
+                    "that box in the corner": "✅ Przedmiot nazywamy pierwszy, a doprecyzowanie miejsca dodajemy po nim."
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "Okoliczność miejsca zazwyczaj przed długością czasu."
+            ],
+            "explanations": {
+                "a1": {
+                    "for a week in hospital": "❌ Długość czasu stawiana przed miejscem brzmi nienaturalnie.",
+                    "in hospital for a week": "✅ Najpierw wskazujemy miejsce, a potem długość pobytu."
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "Dodatek (co?) przed przysłówkiem miary a lot."
+            ],
+            "explanations": {
+                "a1": {
+                    "this music a lot": "✅ Obiekt stawiany jest przed krótkim przysłówkiem miary.",
+                    "a lot this music": "❌ Przesunięcie a lot do przodu narusza standardowy porządek."
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "Najpierw konkretniej miejsce, potem szerszy kontekst czasu/wydarzenia."
+            ],
+            "explanations": {
+                "a1": {
+                    "at a friend's house after a party": "✅ Konkretne miejsce przed okolicznością czasu/wydarzenia brzmi naturalnie.",
+                    "after a party at a friend's house": "❌ Zaczynanie od after a party przesuwa logikę opisu miejsca."
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "Dodatek przed przysłówkiem sposobu."
+            ],
+            "explanations": {
+                "a1": {
+                    "their victims very slowly": "✅ Obiekt stawiany jest przed opisem sposobu działania.",
+                    "very slowly their victims": "❌ Przesunięcie very slowly do przodu narusza typowy porządek."
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "Najpierw kto/co widzieli, potem gdzie."
+            ],
+            "explanations": {
+                "a1": {
+                    "Hellen at the library": "✅ Najpierw nazywamy osobę, a miejsce dodajemy później.",
+                    "at the library Hellen": "❌ Zaczynanie od miejsca w tak prostym zdaniu jest nienaturalne."
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "Dodatek przed przysłówkiem szybkości/sposobu."
+            ],
+            "explanations": {
+                "a1": {
+                    "very quickly the exam": "❌ Przysłówka nie stawiamy przed bezpośrednim dodatkiem w tej konstrukcji.",
+                    "the exam very quickly": "✅ Obiekt idzie pierwszy, a opis szybkości dodawany jest później."
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "Porządek: obiekt → miejsce → częstotliwość/czas."
+            ],
+            "explanations": {
+                "a1": {
+                    "my dog in the park every day": "✅ Bezpośredni dodatek, potem miejsce, dalej częstotliwość — naturalny porządek.",
+                    "my dog every day in the park": "❌ Częstotliwość przed miejscem czyni zdanie mniej naturalnym.",
+                    "every day my dog in the park": "❌ Zaczynanie od częstotliwości i od razu stawianie obiektu narusza typowy porządek."
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "Najpierw obiekt, potem kierunek/miejsce, potem czas."
+            ],
+            "explanations": {
+                "a1": {
+                    "her son to the doctor this morning": "✅ Dziecko jako obiekt, miejsce przeznaczenia potem, czas na końcu.",
+                    "to the doctor her son this morning": "❌ Zdanie zaczyna się od okoliczności kierunku, co czyni porządek niezgrabnym.",
+                    "this morning her son to the doctor": "❌ Czas przed obiektem i miejscem narusza standardowy porządek."
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "Obiekt → miejsce docelowe → czas."
+            ],
+            "explanations": {
+                "a1": {
+                    "home me after the concert": "❌ Zaczynanie od miejsca, a następnie umieszczanie obiektu w takim zdaniu jest nietypowe.",
+                    "me after the concert home": "❌ Czas między obiektem a miejscem łamie naturalny porządek.",
+                    "me home after the concert": "✅ Obiekt najpierw, potem dokąd, a dopiero potem czas."
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "Zwykły przysłówek częstotliwości stawiamy przed głównym czasownikiem."
+            ],
+            "explanations": {
+                "a1": {
+                    "always finish school at 3.30 pm": "✅ Przysłówek częstotliwości stoi przed czasownikiem, czas na końcu.",
+                    "finish always school at 3.30 pm": "❌ Rozdzielanie czasownika i obiektu przysłówkiem częstotliwości jest niepożądane.",
+                    "finish school at 3.30 pm always": "❌ Częstotliwości na końcu takiego zdania używa się rzadko."
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "Po czasowniku like od razu idzie obiekt, wzmacniacz na końcu."
+            ],
+            "explanations": {
+                "a1": {
+                    "don't play very often tennis": "❌ Inny czasownik (play) nie pasuje do treści o sympatii.",
+                    "don't like tennis very much": "✅ Obiekt od razu po like, przysłówek miary na końcu.",
+                    "don't like very much tennis": "❌ Przysłówek miary nie stawiamy przed obiektem."
+                }
+            }
+        },
+        {
+            "id": 16,
+            "hints": [
+                "Dopełnienie po czasowniku, przysłówek miary po dopełnieniu."
+            ],
+            "explanations": {
+                "a1": {
+                    "very much loves his children": "❌ Zaczynanie od very much nie jest konieczne.",
+                    "loves his children very much": "✅ Obiekt od razu po czasowniku, wzmacniacz uczucia na końcu.",
+                    "loves very much his children": "❌ Przysłówek wewnątrz frazy narusza kolejność."
+                }
+            }
+        },
+        {
+            "id": 17,
+            "hints": [
+                "Obiekt → miejsce → okoliczność czasu/wydarzenia na końcu."
+            ],
+            "explanations": {
+                "a1": {
+                    "Italian in Rome during a student exchange program": "✅ Po obiekcie idzie miejsce, a potem opis programu/czasu.",
+                    "Italian during a student exchange program in Rome": "❌ Czas/wydarzenie przed doprecyzowaniem miejsca czyni porządek mniej logicznym.",
+                    "in Rome Italian during a student exchange program": "❌ Zaczynanie od miejsca przed obiektem tutaj nie jest wskazane."
+                }
+            }
+        },
+        {
+            "id": 18,
+            "hints": [
+                "Porządek: czasownik → obiekt → miejsce → czas."
+            ],
+            "explanations": {
+                "a1": {
+                    "had a nice lunch at a restaurant today": "✅ Po czasowniku idzie pełny obiekt, następnie miejsce i czas.",
+                    "had a nice lunch today at a restaurant": "❌ Czas przed miejscem na końcu brzmi mniej naturalnie.",
+                    "had at a restaurant a nice lunch today": "❌ Wstawianie miejsca wewnątrz obiektu jest niestosowne."
+                }
+            }
+        },
+        {
+            "id": 19,
+            "hints": [
+                "Obiekt po czasowniku, miejsce dalej, czas na końcu."
+            ],
+            "explanations": {
+                "a1": {
+                    "forgot the keys in the car last night": "✅ Klucze jako obiekt, miejsce po, czas na końcu.",
+                    "forgot in the car the keys last night": "❌ Miejsce przed obiektem sprawia, że zdanie jest niezgrabne.",
+                    "forgot the keys last night in the car": "❌ Czas przed doprecyzowaniem miejsca na końcu jest mniej logiczny."
+                }
+            }
+        },
+        {
+            "id": 20,
+            "hints": [
+                "Przysłówek częstotliwości przed czasownikiem, obiekt od razu po nim."
+            ],
+            "explanations": {
+                "a1": {
+                    "often takes a taxi to work": "✅ Częstotliwość przed głównym czasownikiem, dalej obiekt i miejsce.",
+                    "takes often a taxi to work": "❌ Wstawianie often po czasowniku i przed obiektem jest niepożądane.",
+                    "takes a taxi often to work": "❌ Przerwanie obiektu przysłówkiem częstotliwości sprawia, że fraza jest niewygodna."
+                }
+            }
+        },
+        {
+            "id": 21,
+            "hints": [
+                "Po modalnej części stawiamy obiekt, dalej miejsce, potem czas."
+            ],
+            "explanations": {
+                "a1": {
+                    "have to return the book to the library today": "✅ Obiekt po return, miejsce dalej, czas na końcu.",
+                    "have to return today the book to the library": "❌ Czas w środku frazy sprawia, że jest ona trudna.",
+                    "have to return to the library the book today": "❌ Miejsce przed obiektem utrudnia percepcję."
+                }
+            }
+        },
+        {
+            "id": 22,
+            "hints": [
+                "Przysłówek częstotliwości po czasowniku pomocniczym, miejsce przed okolicznikiem czasu."
+            ],
+            "explanations": {
+                "a1": {
+                    "are never at home at lunchtime": "✅ Never po are, miejsce dalej, czas na końcu.",
+                    "are never at lunchtime at home": "❌ Czas przed miejscem wygląda niezgrabnie.",
+                    "never are at home at lunchtime": "❌ Zaczynanie od never przed formą be nie jest naturalne w zdaniu."
+                }
+            }
+        },
+        {
+            "id": 23,
+            "hints": [
+                "Po czasowniku be stawiamy przysłówek częstotliwości, miejsce i czas na końcu."
+            ],
+            "explanations": {
+                "a1": {
+                    "is always very hot here in July": "✅ Always po is, dalej przymiotnik, potem miejsce i czas.",
+                    "is very hot always here in July": "❌ Przysłówek w środku opisu sprawia, że kolejność jest niewygodna.",
+                    "is always very hot in July here": "❌ Umieszczanie miejsca po czasie brzmi mniej naturalnie."
+                }
+            }
+        },
+        {
+            "id": 24,
+            "hints": [
+                "Po czasowniku obiekt, potem miejsce, a dalej czas."
+            ],
+            "explanations": {
+                "a1": {
+                    "play football in the park after school": "✅ Obiekt football po czasowniku, miejsce dalej, czas na końcu.",
+                    "play football after school in the park": "❌ Czas przed miejscem wygląda mniej naturalnie.",
+                    "play in the park football after school": "❌ Miejsce między czasownikiem a obiektem tworzy niewygodną kolejność."
+                }
+            }
+        },
+        {
+            "id": 25,
+            "hints": [
+                "Przysłówek częstotliwości przed głównym czasownikiem have."
+            ],
+            "explanations": {
+                "a1": {
+                    "usually has cereal for breakfast": "✅ Zwykle przed has, dalej obiekt i okoliczność przyjmowania jedzenia.",
+                    "has usually cereal for breakfast": "❌ Wstawienie zwykle po has narusza płynność.",
+                    "has cereal usually for breakfast": "❌ Przysłówek w środku grupy obiektowej brzmi nienaturalnie."
+                }
+            }
+        },
+        {
+            "id": 26,
+            "hints": [
+                "Po czasowniku obiekt, potem miejsce, czas na końcu."
+            ],
+            "explanations": {
+                "a1": {
+                    "met her husband at a nightclub in 2006": "✅ Obiekt zaraz po czasowniku, miejsce dalej, czas na końcu.",
+                    "met her husband in 2006 at a nightclub": "❌ Czas przed miejscem na końcu jest mniej naturalny.",
+                    "met at a nightclub her husband in 2006": "❌ Miejsce przed obiektem sprawia, że zdanie jest niezgrabne."
+                }
+            }
+        },
+        {
+            "id": 27,
+            "hints": [
+                "Przysłówek częstotliwości przed czasownikiem work, okoliczność miejsca i czasu dalej."
+            ],
+            "explanations": {
+                "a1": {
+                    "always work from home on Tuesdays": "✅ Częstotliwość przed czasownikiem, potem miejsce i czas.",
+                    "work from home always on Tuesdays": "❌ Umiejscowienie always po miejscu czyni frazę mniej naturalną.",
+                    "work always from home on Tuesdays": "❌ Wstawienie always między czasownikiem a miejscem narusza porządek."
+                }
+            }
+        }
+    ]
+}

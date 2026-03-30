@@ -66,7 +66,7 @@ class MarkerTheoryMatcherService
         if ($block->page) {
             $blockAnchor = 'block-' . $block->id;
             if ($block->page->category) {
-                $pageUrl = route('theory.show', [
+                $pageUrl = localized_route('theory.show', [
                     'category' => $block->page->category->slug,
                     'pageSlug' => $block->page->slug,
                 ]) . '#' . $blockAnchor;

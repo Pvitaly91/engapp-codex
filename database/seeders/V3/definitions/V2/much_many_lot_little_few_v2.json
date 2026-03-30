@@ -1,0 +1,1055 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\V2\\MuchManyLotLittleFewV3Seeder",
+        "uuid_namespace": "MuchManyLotLittleFewV2Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": "0",
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Quantifiers"
+    },
+    "sources": {
+        "custom_much_many_lot_little_few_v2_page1": {
+            "name": "Custom: Much Many Lot Little Few V2 (Page 1)"
+        },
+        "custom_much_many_lot_little_few_v2_page2": {
+            "name": "Custom: Much Many Lot Little Few V2 (Page 2)"
+        },
+        "custom_much_many_lot_little_few_v2_page3": {
+            "name": "Custom: Much Many Lot Little Few V2 (Page 3)"
+        }
+    },
+    "tags": {
+        "much_many_lot_little_few": {
+            "name": "Much / Many / Lot / Little / Few",
+            "category": "English Grammar Detail"
+        },
+        "countable_vs_uncountable": {
+            "name": "Countable vs Uncountable",
+            "category": "English Grammar Focus"
+        },
+        "negative_forms_nononeany": {
+            "name": "Negative Forms (no/none/any)",
+            "category": "English Grammar Pattern"
+        },
+        "quantifier_choice": {
+            "name": "Quantifier Choice",
+            "category": "English Grammar Structure"
+        },
+        "quantifiers_practice": {
+            "name": "Quantifiers Practice",
+            "category": "English Grammar Theme"
+        }
+    },
+    "default_tag_keys": [
+        "countable_vs_uncountable",
+        "much_many_lot_little_few",
+        "negative_forms_nononeany",
+        "quantifier_choice",
+        "quantifiers_practice"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "1-if-i-want-to-pass-the-exam-i-need-",
+            "question": "If I want to pass the exam, I need to study _____.",
+            "source": "custom_much_many_lot_little_few_v2_page1",
+            "level": "A1",
+            "answers": {
+                "a1": "a lot"
+            },
+            "options": [
+                "many",
+                "a lot",
+                "a lot of"
+            ],
+            "variants": [
+                "If I want to pass the exam, I need to study _____."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A lot** без of використовується наприкінці речення або після дієслова.\n**A lot of** + іменник (злічуваний або незлічуваний).\n**Many** + злічуваний іменник у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a lot": "✅ A lot стоїть наприкінці речення без додавання іменника. Приклад: *I need to study a lot*.",
+                            "a lot of": "❌ A lot of потребує іменника після себе (a lot of books, a lot of time). Тут іменника немає.",
+                            "many": "❌ Many вживається тільки перед злічуваними іменниками у множині (many books, many hours)."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "2-there-arent-things-to-do-in-this-v",
+            "question": "There aren't _____ things to do in this village.",
+            "source": "custom_much_many_lot_little_few_v2_page1",
+            "level": "A1",
+            "answers": {
+                "a1": "many"
+            },
+            "options": [
+                "many",
+                "much",
+                "a lot"
+            ],
+            "variants": [
+                "There aren't _____ things to do in this village."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**Many** + злічуваний іменник у множині в запереченнях і питаннях.\n**Much** + незлічуваний іменник в запереченнях і питаннях.\n**A lot** стоїть окремо, без іменника після нього."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "many": "✅ Many використовується з злічуваними іменниками у множині: many things. Приклад: *There aren't many things to do*.",
+                            "a lot": "❌ A lot не може стояти між \"aren't\" та іменником; потрібно a lot of things або many things.",
+                            "much": "❌ Much вживається з незлічуваними іменниками (much water, much time), а \"things\" — злічуваний іменник."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "much-3-sugar-do-you-take-in-your-tea",
+            "question": "_____ sugar do you take in your tea?",
+            "source": "custom_much_many_lot_little_few_v2_page1",
+            "level": "A1",
+            "answers": {
+                "a1": "How much"
+            },
+            "options": [
+                "How many",
+                "How much",
+                "How little"
+            ],
+            "variants": [
+                "_____ sugar do you take in your tea?"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**How much** + незлічуваний іменник у питаннях про кількість.\n**How many** + злічуваний іменник у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "How much": "✅ How much використовується з незлічуваними іменниками: How much sugar/water/time. Приклад: *How much sugar do you take?*",
+                            "How many": "❌ How many вживається зі злічуваними іменниками у множині (How many cups, How many spoons).",
+                            "How little": "❌ How little не є стандартною конструкцією для питань про кількість."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "m-4-there-was-tension-at-the-meeting",
+            "question": "There was _____ tension at the meeting.",
+            "source": "custom_much_many_lot_little_few_v2_page1",
+            "level": "A1",
+            "answers": {
+                "a1": "a lot of"
+            },
+            "options": [
+                "many",
+                "much",
+                "a lot of"
+            ],
+            "variants": [
+                "There was _____ tension at the meeting."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A lot of** + будь-який іменник (злічуваний або незлічуваний) у стверджувальних реченнях.\n**Much** + незлічуваний іменник, але рідко у стверджувальних реченнях.\n**Many** + злічуваний іменник у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a lot of": "✅ A lot of використовується з будь-якими іменниками у стверджувальних реченнях. Приклад: *There was a lot of tension*.",
+                            "much": "❌ Much рідко використовується у стверджувальних реченнях; звичайно в запереченнях і питаннях.",
+                            "many": "❌ Many вживається зі злічуваними іменниками у множині, а \"tension\" — незлічуваний іменник."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "muchma-5-dad-i-need-money-for-school",
+            "question": "Dad, I need _____ money for school.",
+            "source": "custom_much_many_lot_little_few_v2_page1",
+            "level": "A1",
+            "answers": {
+                "a1": "a little"
+            },
+            "options": [
+                "many",
+                "a little",
+                "a few"
+            ],
+            "variants": [
+                "Dad, I need _____ money for school."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A little** + незлічуваний іменник (невелика кількість).\n**A few** + злічуваний іменник у множині (невелика кількість)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a little": "✅ A little використовується з незлічуваними іменниками: a little money/time/water. Приклад: *I need a little money*.",
+                            "many": "❌ Many вживається зі злічуваними іменниками у множині, а \"money\" — незлічуваний іменник.",
+                            "a few": "❌ A few використовується зі злічуваними іменниками у множині (a few books, a few dollars)."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "6-there-are-things-that-you-can-do-t",
+            "question": "There are _____ things that you can do to improve your writing.",
+            "source": "custom_much_many_lot_little_few_v2_page1",
+            "level": "A1",
+            "answers": {
+                "a1": "a few"
+            },
+            "options": [
+                "any",
+                "a little",
+                "a few"
+            ],
+            "variants": [
+                "There are _____ things that you can do to improve your writing."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A few** + злічуваний іменник у множині (невелика кількість у стверджувальному реченні).\n**A little** + незлічуваний іменник."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a few": "✅ A few використовується зі злічуваними іменниками у множині: a few things. Приклад: *There are a few things you can do*.",
+                            "any": "❌ Any зазвичай вживається в запереченнях і питаннях, не у стверджувальних реченнях.",
+                            "a little": "❌ A little використовується з незлічуваними іменниками, а \"things\" — злічуваний іменник у множині."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "7-there-is-milk-in-the-fridge-we-nee",
+            "question": "There is _____ milk in the fridge. We need to buy some.",
+            "source": "custom_much_many_lot_little_few_v2_page1",
+            "level": "A1",
+            "answers": {
+                "a1": "no"
+            },
+            "options": [
+                "any",
+                "none",
+                "no"
+            ],
+            "variants": [
+                "There is _____ milk in the fridge. We need to buy some."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**No** + іменник = відсутність чогось (no milk, no time).\n**None** стоїть окремо, без іменника після нього.\n**Any** використовується в запереченнях з \"not\" (not any)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "no": "✅ No + іменник означає відсутність: no milk, no books. Приклад: *There is no milk in the fridge*.",
+                            "none": "❌ None стоїть окремо як відповідь або наприкінці речення, без іменника після нього.",
+                            "any": "❌ Any вживається з \"not\" у запереченнях (There isn't any milk), а не з дієсловом \"is\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "muchmanylot-8-he-doesnt-have-hobbies",
+            "question": "He doesn't have _____ hobbies.",
+            "source": "custom_much_many_lot_little_few_v2_page1",
+            "level": "A1",
+            "answers": {
+                "a1": "any"
+            },
+            "options": [
+                "any",
+                "none",
+                "no"
+            ],
+            "variants": [
+                "He doesn't have _____ hobbies."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**Any** + іменник у запереченнях з \"not\" (doesn't/don't/isn't + any).\n**No** + іменник без \"not\" у дієслові."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "any": "✅ Any використовується з \"not\" у запереченнях: doesn't have any hobbies. Приклад: *He doesn't have any hobbies*.",
+                            "none": "❌ None стоїть окремо без іменника: \"He has none\" (а не \"none hobbies\").",
+                            "no": "❌ No + іменник потребує стверджувальної форми дієслова: \"He has no hobbies\", а не \"doesn't have no\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "muc-9-how-many-computers-do-you-have",
+            "question": "\"How many computers do you have?\" \"_____.\"",
+            "source": "custom_much_many_lot_little_few_v2_page1",
+            "level": "A1",
+            "answers": {
+                "a1": "none"
+            },
+            "options": [
+                "any",
+                "none",
+                "no"
+            ],
+            "variants": [
+                "\"How many computers do you have?\" \"_____.\""
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**None** — самостійна відповідь на питання \"How many...\" (жодного).\n**No** потребує іменника після себе (no computers)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "None": "✅ None — самостійна відповідь, що означає \"жодного\": How many computers? None. Приклад: *\"None.\"*",
+                            "Any": "❌ Any не є відповіддю на питання про кількість; це означає \"будь-який\" або використовується у запереченнях.",
+                            "No": "❌ No потребує іменника після себе (No computers), не може стояти окремо як відповідь."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "10-i-can-help-you-i-have-time-today",
+            "question": "I can help you; I have _____ time today.",
+            "source": "custom_much_many_lot_little_few_v2_page1",
+            "level": "A1",
+            "answers": {
+                "a1": "a lot of"
+            },
+            "options": [
+                "many",
+                "much",
+                "a lot of"
+            ],
+            "variants": [
+                "I can help you; I have _____ time today."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A lot of** + будь-який іменник у стверджувальних реченнях.\n**Much** рідко вживається у стверджувальних реченнях."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a lot of": "✅ A lot of використовується з будь-якими іменниками у стверджувальних реченнях. Приклад: *I have a lot of time*.",
+                            "much": "❌ Much зазвичай вживається в запереченнях і питаннях, рідко у стверджувальних реченнях.",
+                            "many": "❌ Many вживається зі злічуваними іменниками у множині, а \"time\" — незлічуваний іменник."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "muchm-11-how-much-water-do-you-drink",
+            "question": "\"How much water do you drink?\" \"_____.\"",
+            "source": "custom_much_many_lot_little_few_v2_page2",
+            "level": "A1",
+            "answers": {
+                "a1": "a lot"
+            },
+            "options": [
+                "much",
+                "a lot",
+                "a lot of"
+            ],
+            "variants": [
+                "\"How much water do you drink?\" \"_____.\""
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A lot** — самостійна відповідь наприкінці речення, без іменника.\n**A lot of** потребує іменника після себе."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "A lot": "✅ A lot стоїть окремо як відповідь на питання про кількість. Приклад: *\"How much?\" \"A lot.\"*",
+                            "A lot of": "❌ A lot of потребує іменника після себе (a lot of water), не може стояти окремо.",
+                            "Much": "❌ Much зазвичай не використовується у коротких стверджувальних відповідях."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "muchmanylotl-12-goals-did-they-score",
+            "question": "_____ goals did they score?",
+            "source": "custom_much_many_lot_little_few_v2_page2",
+            "level": "A1",
+            "answers": {
+                "a1": "How many"
+            },
+            "options": [
+                "How many",
+                "How much",
+                "How little"
+            ],
+            "variants": [
+                "_____ goals did they score?"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**How many** + злічуваний іменник у множині для питань про кількість.\n**How much** + незлічуваний іменник."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "How many": "✅ How many використовується зі злічуваними іменниками у множині: How many goals/books/people. Приклад: *How many goals did they score?*",
+                            "How much": "❌ How much вживається з незлічуваними іменниками (How much water, How much time).",
+                            "How little": "❌ How little не є стандартною конструкцією для питань про кількість."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "13-nowadays-we-dont-use-cash-because",
+            "question": "Nowadays we don't use _____ cash, because we use our credit cards.",
+            "source": "custom_much_many_lot_little_few_v2_page2",
+            "level": "A1",
+            "answers": {
+                "a1": "much"
+            },
+            "options": [
+                "many",
+                "much",
+                "a lot"
+            ],
+            "variants": [
+                "Nowadays we don't use _____ cash, because we use our credit cards."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**Much** + незлічуваний іменник у запереченнях і питаннях.\n**Many** + злічуваний іменник у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "much": "✅ Much використовується з незлічуваними іменниками у запереченнях: don't use much cash. Приклад: *We don't use much cash*.",
+                            "many": "❌ Many вживається зі злічуваними іменниками у множині, а \"cash\" — незлічуваний іменник.",
+                            "a lot": "❌ A lot не може стояти між \"don't use\" та іменником; можна \"don't use a lot of cash\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "mu-14-theres-pressure-on-the-players",
+            "question": "There's _____ pressure on the players.",
+            "source": "custom_much_many_lot_little_few_v2_page2",
+            "level": "A1",
+            "answers": {
+                "a1": "a lot of"
+            },
+            "options": [
+                "many",
+                "much",
+                "a lot of"
+            ],
+            "variants": [
+                "There's _____ pressure on the players."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A lot of** + будь-який іменник у стверджувальних реченнях.\n**Much** рідко вживається у стверджувальних реченнях."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a lot of": "✅ A lot of використовується у стверджувальних реченнях з будь-якими іменниками. Приклад: *There's a lot of pressure*.",
+                            "much": "❌ Much зазвичай вживається в запереченнях і питаннях, не у стверджувальних реченнях.",
+                            "many": "❌ Many вживається зі злічуваними іменниками у множині, а \"pressure\" — незлічуваний іменник."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "15-they-got-married-months-after-the",
+            "question": "They got married _____ months after they met for the first time.",
+            "source": "custom_much_many_lot_little_few_v2_page2",
+            "level": "A1",
+            "answers": {
+                "a1": "a few"
+            },
+            "options": [
+                "much",
+                "a little",
+                "a few"
+            ],
+            "variants": [
+                "They got married _____ months after they met for the first time."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A few** + злічуваний іменник у множині (невелика кількість).\n**A little** + незлічуваний іменник."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a few": "✅ A few використовується зі злічуваними іменниками у множині: a few months/days/years. Приклад: *They got married a few months after*.",
+                            "much": "❌ Much вживається з незлічуваними іменниками, а \"months\" — злічуваний іменник у множині.",
+                            "a little": "❌ A little використовується з незлічуваними іменниками (a little time, a little money)."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "16-how-much-milk-do-you-want-in-your",
+            "question": "\"How much milk do you want in your coffee?\" \"Only _____.\"",
+            "source": "custom_much_many_lot_little_few_v2_page2",
+            "level": "A1",
+            "answers": {
+                "a1": "a little"
+            },
+            "options": [
+                "much",
+                "a little",
+                "a few"
+            ],
+            "variants": [
+                "\"How much milk do you want in your coffee?\" \"Only _____.\""
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A little** — невелика кількість незлічуваного іменника.\n**A few** — невелика кількість злічуваного іменника у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a little": "✅ A little використовується з незлічуваними іменниками як відповідь: a little milk. Приклад: *\"Only a little.\"*",
+                            "a few": "❌ A few вживається зі злічуваними іменниками у множині, а \"milk\" — незлічуваний іменник.",
+                            "much": "❌ Much не використовується у коротких стверджувальних відповідях з \"only\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "17-there-were-problems-during-the-fe",
+            "question": "There were _____ problems during the festival.",
+            "source": "custom_much_many_lot_little_few_v2_page2",
+            "level": "A1",
+            "answers": {
+                "a1": "no"
+            },
+            "options": [
+                "any",
+                "none",
+                "no"
+            ],
+            "variants": [
+                "There were _____ problems during the festival."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**No** + іменник = відсутність чогось (стверджувальна форма дієслова).\n**None** стоїть окремо без іменника."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "no": "✅ No + іменник означає відсутність: no problems, no issues. Приклад: *There were no problems*.",
+                            "any": "❌ Any вживається з \"not\" у запереченнях (There weren't any problems), не зі стверджувальною формою \"were\".",
+                            "none": "❌ None стоїть окремо без іменника: \"There were none\" (а не \"none problems\")."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "muchmanylotlitt-18-i-dont-want-gifts",
+            "question": "I don't want _____ gifts.",
+            "source": "custom_much_many_lot_little_few_v2_page2",
+            "level": "A1",
+            "answers": {
+                "a1": "any"
+            },
+            "options": [
+                "any",
+                "none",
+                "no"
+            ],
+            "variants": [
+                "I don't want _____ gifts."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**Any** + іменник у запереченнях з \"not\" (don't want any).\n**No** потребує стверджувальної форми дієслова (I want no gifts)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "any": "✅ Any використовується з \"not\" у запереченнях: don't want any gifts. Приклад: *I don't want any gifts*.",
+                            "none": "❌ None стоїть окремо без іменника, не може використовуватись з \"don't want\".",
+                            "no": "❌ No потребує стверджувальної форми: \"I want no gifts\", а не \"don't want no\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "muchma-19-how-many-gifts-do-you-want",
+            "question": "\"How many gifts do you want?\" \"_____.\"",
+            "source": "custom_much_many_lot_little_few_v2_page2",
+            "level": "A1",
+            "answers": {
+                "a1": "none"
+            },
+            "options": [
+                "any",
+                "none",
+                "no"
+            ],
+            "variants": [
+                "\"How many gifts do you want?\" \"_____.\""
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**None** — самостійна відповідь на \"How many...\" (жодного).\n**No** потребує іменника після себе."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "None": "✅ None — самостійна відповідь, що означає \"жодного\": How many gifts? None. Приклад: *\"None.\"*",
+                            "Any": "❌ Any означає \"будь-який\" і не відповідає на питання про кількість у такому контексті.",
+                            "No": "❌ No потребує іменника після себе (No gifts), не може стояти окремо."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "muchmanylotlittl-20-i-eat-vegetables",
+            "question": "I eat _____ vegetables.",
+            "source": "custom_much_many_lot_little_few_v2_page2",
+            "level": "A1",
+            "answers": {
+                "a1": "a lot of"
+            },
+            "options": [
+                "many",
+                "much",
+                "a lot of"
+            ],
+            "variants": [
+                "I eat _____ vegetables."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A lot of** — найкраще для стверджувальних речень з будь-якими іменниками.\n**Many** також можливо зі злічуваними, але a lot of — природніше."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a lot of": "✅ A lot of — найприродніший вибір для стверджувальних речень. Приклад: *I eat a lot of vegetables*.",
+                            "much": "❌ Much вживається з незлічуваними іменниками, а \"vegetables\" — злічуваний іменник у множині.",
+                            "many": "❌ Many можливо, але у стверджувальних реченнях a lot of звучить природніше та частіше використовується."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "21-he-has-paintings-its-a-really-big",
+            "question": "He has _____ paintings. It's a really big collection.",
+            "source": "custom_much_many_lot_little_few_v2_page3",
+            "level": "A1",
+            "answers": {
+                "a1": "a lot of"
+            },
+            "options": [
+                "many",
+                "a lot of",
+                "a few"
+            ],
+            "variants": [
+                "He has _____ paintings. It's a really big collection."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A lot of** — для великої кількості у стверджувальних реченнях.\nКонтекст: \"really big collection\" вказує на велику кількість."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a lot of": "✅ A lot of вказує на велику кількість: He has a lot of paintings. Контекст підтверджує: \"big collection\". Приклад: *He has a lot of paintings*.",
+                            "many": "❌ Many можливо, але у стверджувальних реченнях a lot of — природніше для великої кількості.",
+                            "a few": "❌ A few означає \"кілька, небагато\", що суперечить контексту \"really big collection\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "much-22-salt-do-you-put-in-your-food",
+            "question": "_____ salt do you put in your food?",
+            "source": "custom_much_many_lot_little_few_v2_page3",
+            "level": "A1",
+            "answers": {
+                "a1": "How much"
+            },
+            "options": [
+                "How many",
+                "How much",
+                "How little"
+            ],
+            "variants": [
+                "_____ salt do you put in your food?"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**How much** + незлічуваний іменник у питаннях.\nSalt — незлічуваний іменник."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "How much": "✅ How much використовується з незлічуваними іменниками: How much salt/sugar/water. Приклад: *How much salt do you put?*",
+                            "How many": "❌ How many вживається зі злічуваними іменниками у множині, а \"salt\" — незлічуваний іменник.",
+                            "How little": "❌ How little не є стандартною конструкцією для питань про кількість."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "23-i-normally-use-makeup-but-not-muc",
+            "question": "I normally use _____ makeup, but not much, only some lipstick.",
+            "source": "custom_much_many_lot_little_few_v2_page3",
+            "level": "A1",
+            "answers": {
+                "a1": "a little"
+            },
+            "options": [
+                "much",
+                "a little",
+                "a few"
+            ],
+            "variants": [
+                "I normally use _____ makeup, but not much, only some lipstick."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A little** — невелика кількість незлічуваного іменника.\nMakeup — незлічуваний іменник."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a little": "✅ A little використовується з незлічуваними іменниками: a little makeup/water/time. Контекст: \"not much\". Приклад: *I use a little makeup*.",
+                            "a few": "❌ A few вживається зі злічуваними іменниками у множині, а \"makeup\" — незлічуваний іменник.",
+                            "much": "❌ Much не вживається у стверджувальних реченнях такого типу; зазвичай у запереченнях і питаннях."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "24-it-rained-last-week-it-rained-eve",
+            "question": "It rained _____ last week; it rained every day.",
+            "source": "custom_much_many_lot_little_few_v2_page3",
+            "level": "A1",
+            "answers": {
+                "a1": "a lot"
+            },
+            "options": [
+                "much",
+                "a lot",
+                "a few"
+            ],
+            "variants": [
+                "It rained _____ last week; it rained every day."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A lot** наприкінці речення без іменника.\nКонтекст: \"every day\" вказує на велику кількість."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a lot": "✅ A lot стоїть наприкінці речення без іменника: It rained a lot. Контекст: \"every day\". Приклад: *It rained a lot*.",
+                            "much": "❌ Much не вживається у стверджувальних реченнях такого типу без іменника.",
+                            "a few": "❌ A few вживається тільки з іменниками (a few days), не може стояти окремо після дієслова."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "25-they-only-scored-one-goal-they-di",
+            "question": "They only scored one goal. They didn't have _____ opportunities to score; maybe two or three.",
+            "source": "custom_much_many_lot_little_few_v2_page3",
+            "level": "A1",
+            "answers": {
+                "a1": "many"
+            },
+            "options": [
+                "many",
+                "much",
+                "a lot"
+            ],
+            "variants": [
+                "They only scored one goal. They didn't have _____ opportunities to score; maybe two or three."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**Many** + злічуваний іменник у запереченнях.\nOpportunities — злічуваний іменник у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "many": "✅ Many використовується зі злічуваними іменниками у запереченнях: didn't have many opportunities. Приклад: *They didn't have many opportunities*.",
+                            "much": "❌ Much вживається з незлічуваними іменниками, а \"opportunities\" — злічуваний іменник у множині.",
+                            "a lot": "❌ A lot не може стояти між \"didn't have\" та іменником; можливо \"didn't have a lot of opportunities\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "26-please-i-just-need-5-minutes-of-y",
+            "question": "Please, I just need 5 minutes of your time. I only have _____ questions.",
+            "source": "custom_much_many_lot_little_few_v2_page3",
+            "level": "A1",
+            "answers": {
+                "a1": "a few"
+            },
+            "options": [
+                "many",
+                "a little",
+                "a few"
+            ],
+            "variants": [
+                "Please, I just need 5 minutes of your time. I only have _____ questions."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**A few** — невелика кількість злічуваного іменника у множині.\nQuestions — злічуваний іменник у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "a few": "✅ A few використовується зі злічуваними іменниками у множині: a few questions. Контекст: \"only\". Приклад: *I have a few questions*.",
+                            "a little": "❌ A little вживається з незлічуваними іменниками, а \"questions\" — злічуваний іменник у множині.",
+                            "many": "❌ Many не поєднується з \"only\" у такому контексті; \"only a few\" — правильна комбінація."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "27-we-had-problems-it-was-100-perfec",
+            "question": "We had _____ problems. It was 100% perfect.",
+            "source": "custom_much_many_lot_little_few_v2_page3",
+            "level": "A1",
+            "answers": {
+                "a1": "no"
+            },
+            "options": [
+                "any",
+                "none",
+                "no"
+            ],
+            "variants": [
+                "We had _____ problems. It was 100% perfect."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**No** + іменник = повна відсутність (стверджувальна форма дієслова).\nКонтекст: \"100% perfect\" підтверджує відсутність проблем."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "no": "✅ No + іменник означає повну відсутність: We had no problems. Контекст: \"100% perfect\". Приклад: *We had no problems*.",
+                            "none": "❌ None стоїть окремо без іменника: \"We had none\" (а не \"none problems\").",
+                            "any": "❌ Any вживається з \"not\": \"We didn't have any problems\", не зі стверджувальною формою \"had\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "28-we-need-to-be-fast-we-havent-got-",
+            "question": "We need to be fast; we haven't got _____ time, only 20 minutes.",
+            "source": "custom_much_many_lot_little_few_v2_page3",
+            "level": "A1",
+            "answers": {
+                "a1": "much"
+            },
+            "options": [
+                "many",
+                "much",
+                "a lot of"
+            ],
+            "variants": [
+                "We need to be fast; we haven't got _____ time, only 20 minutes."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**Much** + незлічуваний іменник у запереченнях.\nTime — незлічуваний іменник."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "much": "✅ Much використовується з незлічуваними іменниками у запереченнях: haven't got much time. Приклад: *We haven't got much time*.",
+                            "many": "❌ Many вживається зі злічуваними іменниками у множині, а \"time\" — незлічуваний іменник.",
+                            "a lot of": "❌ A lot of можливо, але much природніше у запереченнях з незлічуваними іменниками."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "29-i-didnt-see-people-in-the-room-it",
+            "question": "I didn't see _____ people in the room. It was completely empty.",
+            "source": "custom_much_many_lot_little_few_v2_page3",
+            "level": "A1",
+            "answers": {
+                "a1": "any"
+            },
+            "options": [
+                "any",
+                "none",
+                "no"
+            ],
+            "variants": [
+                "I didn't see _____ people in the room. It was completely empty."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**Any** + іменник у запереченнях з \"not\" (didn't see any).\nКонтекст: \"completely empty\" підтверджує відсутність."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "any": "✅ Any використовується з \"not\" у запереченнях: didn't see any people. Контекст: \"empty\". Приклад: *I didn't see any people*.",
+                            "no": "❌ No потребує стверджувальної форми дієслова: \"I saw no people\", а не \"didn't see no\".",
+                            "none": "❌ None стоїть окремо без іменника, не може використовуватись з \"didn't see\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "30-how-many-cups-of-coffee-did-you-h",
+            "question": "\"How many cups of coffee did you have?\" \"_____. I don't drink coffee.\"",
+            "source": "custom_much_many_lot_little_few_v2_page3",
+            "level": "A1",
+            "answers": {
+                "a1": "none"
+            },
+            "options": [
+                "any",
+                "none",
+                "no"
+            ],
+            "variants": [
+                "\"How many cups of coffee did you have?\" \"_____. I don't drink coffee.\""
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "**None** — самостійна відповідь на \"How many...\" (жодного).\nКонтекст підтверджує: \"I don't drink coffee\"."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "none": "✅ None — самостійна відповідь, що означає \"жодного\": How many cups? None. Контекст: \"I don't drink coffee\". Приклад: *\"None.\"*",
+                            "no": "❌ No потребує іменника після себе (No cups), не може стояти окремо як відповідь.",
+                            "any": "❌ Any не є відповіддю на питання про кількість; використовується у запереченнях з \"not\"."
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

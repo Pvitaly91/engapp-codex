@@ -1,12 +1,12 @@
 @extends('layouts.engram')
 
-@section('title', 'Збережені тести')
+@section('title', __('frontend.catalog.title'))
 
 @section('content')
 <div class="flex flex-col md:flex-row gap-6">
     <div class="md:hidden">
         <button type="button" id="filter-toggle" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border text-sm font-medium">
-            <span>Фільтр</span>
+            <span>{{ __('frontend.catalog.filter') }}</span>
             <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M3.5 5a.75.75 0 01.75-.75h11.5a.75.75 0 01.53 1.28L12 10.06v4.19a.75.75 0 01-1.13.65l-2.5-1.5a.75.75 0 01-.37-.65v-2.69L3.97 5.53A.75.75 0 013.5 5z" clip-rule="evenodd" />
             </svg>
@@ -14,15 +14,15 @@
     </div>
     <aside id="filters" class="md:w-48 w-full md:shrink-0 hidden md:block md:sticky md:top-20 md:self-start bg-card md:bg-transparent md:p-0 p-4 rounded-2xl shadow-soft md:shadow-none">
         <div class="flex justify-between items-center md:hidden mb-4">
-            <h2 class="text-base font-semibold">Фільтр</h2>
+            <h2 class="text-base font-semibold">{{ __('frontend.catalog.filter') }}</h2>
             <button type="button" id="filter-close" class="text-sm text-primary underline">
-                Закрити
+                {{ __('frontend.catalog.close') }}
             </button>
         </div>
         <form id="tag-filter" action="{{ localized_route('catalog.tests-cards') }}" method="GET">
             @if(isset($availableLevels) && $availableLevels->count())
                 <div class="mb-4">
-                    <label class="block text-sm mb-1">Level:</label>
+                    <label class="block text-sm mb-1">{{ __('frontend.catalog.level') }}:</label>
                     <div class="flex flex-wrap gap-2">
                         @foreach($availableLevels as $lvl)
                             @php $id = 'level-' . md5($lvl); @endphp
@@ -40,7 +40,7 @@
                     <div class="mb-4" id="others-filter" data-open="false">
                         <h3 class="text-lg font-bold mb-2 flex justify-between items-center">
                             <span>{{ $category }}</span>
-                            <button type="button" id="toggle-others-btn" class="text-xs text-primary underline">Show</button>
+                            <button type="button" id="toggle-others-btn" class="text-xs text-primary underline">{{ __('frontend.catalog.show') }}</button>
                         </h3>
                         <div id="others-tags" class="flex flex-wrap gap-2" style="display:none;">
                             @foreach($tagNames as $tag)
@@ -68,7 +68,7 @@
         </form>
         @if(!empty($selectedTags) || !empty($selectedLevels))
             <div class="mt-2">
-                <a href="{{ localized_route('catalog.tests-cards') }}" class="text-xs text-muted-foreground hover:underline">Скинути фільтр</a>
+                <a href="{{ localized_route('catalog.tests-cards') }}" class="text-xs text-muted-foreground hover:underline">{{ __('frontend.catalog.reset') }}</a>
             </div>
         @endif
     </aside>
@@ -79,15 +79,15 @@
                     <div class="bg-card text-card-foreground p-4 rounded-2xl shadow-soft flex flex-col">
                         <div class="font-bold text-lg mb-1">{{ $test->name }}</div>
                         <div class="text-xs text-muted-foreground mb-2">
-                            Створено: {{ $test->created_at->format('d.m.Y') }}<br>
-                            Питань: {{ count($test->questions) }}<br>
+                            {{ __('frontend.catalog.created') }}: {{ $test->created_at->format('d.m.Y') }}<br>
+                            {{ __('frontend.catalog.questions') }}: {{ count($test->questions) }}<br>
                             @php
                                 $order = array_flip(['A1','A2','B1','B2','C1','C2']);
                                 $levels = $test->levels
                                     ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
-                                    ->map(fn($lvl) => $lvl ?? 'N/A');
+                                    ->map(fn($lvl) => $lvl ?? __('frontend.tests.hero.na'));
                             @endphp
-                            Рівні: {{ $levels->join(', ') }}
+                            {{ __('frontend.catalog.levels') }}: {{ $levels->join(', ') }}
                         </div>
                         <div class="mb-3 text-xs">
                             @foreach($test->tag_names as $t)
@@ -100,19 +100,21 @@
                         @php
                             $preferredView = data_get($test->filters, 'preferred_view');
                             if ($preferredView === 'drag-drop') {
-                                $testRoute = localized_route('saved-test.js.drag-drop', $test->slug);
+                                $testRoute = localized_route('test.drag-drop', $test->slug);
                             } elseif ($preferredView === 'match') {
-                                $testRoute = localized_route('saved-test.js.match', $test->slug);
+                                $testRoute = localized_route('test.match', $test->slug);
+                            } elseif ($preferredView === 'dialogue') {
+                                $testRoute = localized_route('test.dialogue', $test->slug);
                             } else {
                                 $testRoute = localized_route('test.show', $test->slug);
                             }
                         @endphp
-                        <a href="{{ $testRoute }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-2xl text-sm font-semibold">Пройти тест</a>
+                        <a href="{{ $testRoute }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-2xl text-sm font-semibold">{{ __('frontend.catalog.take_test') }}</a>
                     </div>
                 @endforeach
             </div>
         @else
-            <div class="text-muted-foreground">Ще немає збережених тестів.</div>
+            <div class="text-muted-foreground">{{ __('frontend.catalog.empty') }}</div>
         @endif
 </div>
 </div>
@@ -126,7 +128,7 @@
             const tags = document.getElementById('others-tags');
             const hidden = tags.style.display === 'none';
             tags.style.display = hidden ? '' : 'none';
-            toggleBtn.textContent = hidden ? 'Hide' : 'Show';
+            toggleBtn.textContent = hidden ? @json(__('frontend.catalog.hide')) : @json(__('frontend.catalog.show'));
         });
     }
     const filterToggle = document.getElementById('filter-toggle');

@@ -58,7 +58,7 @@
 <body class="min-h-full font-sans antialiased bg-[var(--bg)] text-[var(--fg)]">
     <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.6),transparent_20%),radial-gradient(circle_at_90%_10%,rgba(90,107,255,0.12),transparent_20%)]"></div>
     <div class="relative">
-        <header class="sticky top-0 z-40 border-b border-[var(--border)]/80 backdrop-blur bg-[color-mix(in_srgb,var(--card)_90%,transparent)]">
+        <header id="site-header" class="sticky top-0 z-40 border-b border-[var(--border)]/80 backdrop-blur bg-[color-mix(in_srgb,var(--card)_90%,transparent)]">
             <div class="mx-auto max-w-6xl px-4">
                 <div class="flex items-center justify-between gap-4 py-4">
                     <a href="{{ localized_route('home') }}" class="flex items-center gap-3" aria-label="Gramlyze">
@@ -96,7 +96,7 @@
                         <div x-data="languageSwitcher()" class="relative">
                             <button @click="toggle" :aria-expanded="open" class="flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-sm font-semibold shadow-sm hover:border-brand-500" aria-haspopup="listbox">
                                 <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-100 text-brand-600 text-xs" x-text="active.code.toUpperCase()"></span>
-                                <span class="hidden sm:inline" x-text="active.native_name || active.name"></span>
+                                <span class="hidden sm:inline" x-text="active.localized_name || active.native_name || active.name"></span>
                                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
                             <div x-show="open" @click.outside="open=false" x-transition class="absolute right-0 mt-2 w-72 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-card">
@@ -110,7 +110,7 @@
                                             <div class="flex items-center gap-3">
                                                 <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand-100 text-brand-600 text-xs" x-text="lang.code.toUpperCase()"></span>
                                                 <div>
-                                                    <p class="font-semibold" x-text="lang.native_name || lang.name"></p>
+                                                    <p class="font-semibold" x-text="lang.localized_name || lang.native_name || lang.name"></p>
                                                     <p class="text-xs text-[var(--muted)]" x-text="lang.name"></p>
                                                 </div>
                                             </div>
@@ -128,7 +128,7 @@
                                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m17.657-7.657l-1.414 1.414M6.757 17.243l-1.414 1.414m0-13.414l1.414 1.414M17.243 17.243l1.414 1.414"/></svg>
                             </template>
                         </button>
-                        <button @click="mobile = true" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] shadow-sm lg:hidden" aria-label="Open menu">
+                        <button @click="mobile = true" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] shadow-sm lg:hidden" aria-label="{{ __('public.nav.open_menu') }}">
                             <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                         </button>
                     </div>
@@ -159,12 +159,12 @@
                         <div class="flex items-center gap-3">
                             <div x-data="languageSwitcher()" class="flex-1 relative">
                                 <button @click="toggle" class="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-semibold flex items-center justify-between">
-                                    <span x-text="active.native_name || active.name"></span>
+                                    <span x-text="active.localized_name || active.native_name || active.name"></span>
                                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                                 </button>
                                 <div x-show="open" @click.outside="open=false" class="absolute left-0 right-0 mt-2 rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-card max-h-56 overflow-y-auto">
                                     <template x-for="lang in filtered" :key="lang.code">
-                                        <a :href="lang.url" class="block px-4 py-3 text-sm hover:bg-brand-50/80" x-text="lang.native_name || lang.name"></a>
+                                        <a :href="lang.url" class="block px-4 py-3 text-sm hover:bg-brand-50/80" x-text="lang.localized_name || lang.native_name || lang.name"></a>
                                     </template>
                                 </div>
                             </div>
@@ -172,7 +172,7 @@
                                 <span x-show="isDark">🌙</span>
                                 <span x-show="!isDark">☀️</span>
                             </button>
-                            <button @click="mobile=false" class="h-10 w-10 rounded-xl border border-[var(--border)] bg-[var(--card)] flex items-center justify-center" aria-label="Close menu">✕</button>
+                            <button @click="mobile=false" class="h-10 w-10 rounded-xl border border-[var(--border)] bg-[var(--card)] flex items-center justify-center" aria-label="{{ __('public.nav.close_menu') }}">✕</button>
                         </div>
                     </div>
                 </div>
@@ -262,7 +262,7 @@
                 toggle() { this.open = !this.open; },
                 get filtered() {
                     const term = this.filter.toLowerCase();
-                    return this.languages.filter(l => !term || (l.name && l.name.toLowerCase().includes(term)) || (l.native_name && l.native_name.toLowerCase().includes(term)) || l.code.toLowerCase().includes(term));
+                    return this.languages.filter(l => !term || (l.localized_name && l.localized_name.toLowerCase().includes(term)) || (l.name && l.name.toLowerCase().includes(term)) || (l.native_name && l.native_name.toLowerCase().includes(term)) || l.code.toLowerCase().includes(term));
                 }
             }
         }

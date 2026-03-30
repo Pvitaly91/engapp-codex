@@ -1,0 +1,1476 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\V2\\MixedConditionalsBridgePracticeV3Seeder",
+        "uuid_namespace": "MixedConditionalsBridgePracticeV2Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": "0",
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "custom_mixed_conditionals_bridge_practice_v2": {
+            "name": "Custom: Mixed Conditionals Bridge Practice V2"
+        }
+    },
+    "tags": {
+        "mixed_conditional_sentence_completion": {
+            "name": "Mixed Conditional Sentence Completion",
+            "category": "English Grammar Detail"
+        },
+        "mixed_conditional_sentences": {
+            "name": "Mixed Conditional Sentences",
+            "category": "English Grammar Structure"
+        },
+        "second_conditional": {
+            "name": "Second Conditional",
+            "category": "English Grammar Tense"
+        },
+        "mixed_conditionals_practice": {
+            "name": "Mixed Conditionals Practice",
+            "category": "English Grammar Theme"
+        },
+        "mixed_conditional": {
+            "name": "Mixed Conditional",
+            "category": "Tenses"
+        },
+        "third_conditional": {
+            "name": "Third Conditional",
+            "category": "Tenses"
+        }
+    },
+    "default_tag_keys": [
+        "mixed_conditional",
+        "mixed_conditional_sentence_completion",
+        "mixed_conditional_sentences",
+        "mixed_conditionals_practice"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "1-if-i-hadnt-fought-for-our-relation",
+            "question": "If I hadn't fought for our relationship, we {a1} together now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "wouldn't be"
+            },
+            "options": [
+                "weren't",
+                "would be",
+                "wouldn't be",
+                "wouldn't have been"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "second_conditional",
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second / Mixed Conditional.\nФормула: **would not (wouldn't) + base verb**.\nПояснення: заперечний результат у теперішньому утворюємо через would not + базову форму дієслова «be».\nПриклад: *If I hadn't fought for our relationship, we wouldn't be together now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wouldn't be": "✅ «wouldn't be» правильно, бо заперечний теперішній результат утворюємо як would not (wouldn't) + базова форма «be».\nПриклад: *If I hadn't fought for our relationship, we wouldn't be together now.*",
+                            "wouldn't have been": "❌ «wouldn't have been» — would not have, тобто результат у минулому. Тут потрібна теперішня форма would not + V1.\nПриклад: *If I hadn't fought for our relationship, we wouldn't be together now.*",
+                            "weren't": "❌ «weren't» — Past Simple. Ми описуємо гіпотетичний теперішній результат, тому потрібне would not.\nПриклад: *If I hadn't fought for our relationship, we wouldn't be together now.*",
+                            "would be": "❌ «would be» — ствердна форма. У реченні потрібне заперечення would not.\nПриклад: *If I hadn't fought for our relationship, we wouldn't be together now.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "2-i-would-be-happier-if-i-a1-yes-whe",
+            "question": "I would be happier if I {a1} 'yes' when she asked me to marry her.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "had said"
+            },
+            "options": [
+                "had said",
+                "said",
+                "have said",
+                "would say"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «say».\nПриклад: *I would be happier if I had said 'yes' when she asked me to marry her.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had said": "✅ «had said» правильно, бо в if-клаузі Third Conditional для I потрібна форма **had + V3** (або had not + V3).\nПриклад: *I would be happier if I had said 'yes' when she asked me to marry her.*",
+                            "said": "❌ «said» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *I would be happier if I had said 'yes' when she asked me to marry her.*",
+                            "have said": "❌ «have said» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *I would be happier if I had said 'yes' when she asked me to marry her.*",
+                            "would say": "❌ «would say» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *I would be happier if I had said 'yes' when she asked me to marry her.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "3-if-you-werent-such-a-jerk-they-a1-",
+            "question": "If you weren\\'t such a jerk, they {a1} you to yesterday's party.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "would have invited"
+            },
+            "options": [
+                "invited",
+                "would have invited",
+                "would invite",
+                "will have invited"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **would have + V3**.\nПояснення: головна частина показує результат у минулому, тому використовуємо would have + третю форму дієслова «invite».\nПриклад: *If you weren\\'t such a jerk, they would have invited you to yesterday's party.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would have invited": "✅ «would have invited» правильно, бо результат Third Conditional будується як would have + V3 для they.\nПриклад: *If you weren\\'t such a jerk, they would have invited you to yesterday's party.*",
+                            "would invite": "❌ «would invite» — Second Conditional (would + V1) для теперішніх/майбутніх гіпотез. Тут потрібне would have + V3.\nПриклад: *If you weren\\'t such a jerk, they would have invited you to yesterday's party.*",
+                            "invited": "❌ «invited» — Past Simple. У головній частині Third Conditional слід ужити would have + V3.\nПриклад: *If you weren\\'t such a jerk, they would have invited you to yesterday's party.*",
+                            "will have invited": "❌ «will have invited» — модель First Conditional з will. Нам потрібна форма would have + V3 про минулий результат.\nПриклад: *If you weren\\'t such a jerk, they would have invited you to yesterday's party.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "4-if-you-a1-a-map-as-i-told-you-we-w",
+            "question": "If you {a1} a map, as I told you, we wouldn't be lost now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "had taken"
+            },
+            "options": [
+                "take",
+                "took",
+                "had taken",
+                "would have taken"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «take».\nПриклад: *If you had taken a map, as I told you, we wouldn't be lost now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had taken": "✅ «had taken» правильно, бо в if-клаузі Third Conditional для you потрібна форма **had + V3** (або had not + V3).\nПриклад: *If you had taken a map, as I told you, we wouldn't be lost now.*",
+                            "took": "❌ «took» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *If you had taken a map, as I told you, we wouldn't be lost now.*",
+                            "would have taken": "❌ «would have taken» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *If you had taken a map, as I told you, we wouldn't be lost now.*",
+                            "take": "❌ «take» — Present Simple. Третій умовний описує минуле й потребує **had + V3**.\nПриклад: *If you had taken a map, as I told you, we wouldn't be lost now.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "5-if-i-didnt-love-you-i-a1-you-last-",
+            "question": "If I didn't love you, I {a1} you last year.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "wouldn't have married"
+            },
+            "options": [
+                "wouldn't have married",
+                "wouldn't marry",
+                "hadn't married",
+                "didn't marry"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **would not have + V3** (wouldn't have + V3).\nПояснення: заперечний результат утворюємо через would not have + третю форму дієслова «marry».\nПриклад: *If I didn't love you, I wouldn't have married you last year.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wouldn't have married": "✅ «wouldn't have married» правильно, бо заперечення Third Conditional утворюємо як would not have + V3.\nПриклад: *If I didn't love you, I wouldn't have married you last year.*",
+                            "wouldn't marry": "❌ «wouldn't marry» — Present Simple. Результат третього умовного описує минуле через would not have + V3.\nПриклад: *If I didn't love you, I wouldn't have married you last year.*",
+                            "hadn't married": "❌ «hadn't married» пропускає have після would not, тож не утворює Third Conditional.\nПриклад: *If I didn't love you, I wouldn't have married you last year.*",
+                            "didn't marry": "❌ «didn't marry» — Past Simple. Третій умовний вимагає would not have + V3.\nПриклад: *If I didn't love you, I wouldn't have married you last year.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "6-if-i-had-more-time-i-a1-you-last-n",
+            "question": "If I had more time, I {a1} you last night.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "would have called"
+            },
+            "options": [
+                "called",
+                "would call",
+                "would have called",
+                "will have called"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **would have + V3**.\nПояснення: головна частина показує результат у минулому, тому використовуємо would have + третю форму дієслова «call».\nПриклад: *If I had more time, I would have called you last night.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would have called": "✅ «would have called» правильно, бо результат Third Conditional будується як would have + V3 для I.\nПриклад: *If I had more time, I would have called you last night.*",
+                            "would call": "❌ «would call» — Second Conditional (would + V1) для теперішніх/майбутніх гіпотез. Тут потрібне would have + V3.\nПриклад: *If I had more time, I would have called you last night.*",
+                            "called": "❌ «called» — Past Simple. У головній частині Third Conditional слід ужити would have + V3.\nПриклад: *If I had more time, I would have called you last night.*",
+                            "will have called": "❌ «will have called» — модель First Conditional з will. Нам потрібна форма would have + V3 про минулий результат.\nПриклад: *If I had more time, I would have called you last night.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "7-if-you-a1-that-job-you-would-be-mi",
+            "question": "If you {a1} that job, you would be miserable now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "had accepted"
+            },
+            "options": [
+                "accepted",
+                "had accepted",
+                "would have accepted",
+                "would accept"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «accept».\nПриклад: *If you had accepted that job, you would be miserable now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had accepted": "✅ «had accepted» правильно, бо в if-клаузі Third Conditional для you потрібна форма **had + V3** (або had not + V3).\nПриклад: *If you had accepted that job, you would be miserable now.*",
+                            "would have accepted": "❌ «would have accepted» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *If you had accepted that job, you would be miserable now.*",
+                            "accepted": "❌ «accepted» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *If you had accepted that job, you would be miserable now.*",
+                            "would accept": "❌ Неправильна форма для if-клауза Third Conditional.\nПриклад: *If you had accepted that job, you would be miserable now.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "8-if-i-a1-afraid-of-flying-wed-have-",
+            "question": "If I {a1} afraid of flying, we'd have travelled by plane.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "weren't"
+            },
+            "options": [
+                "wasn't",
+                "weren't",
+                "am not",
+                "had been"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "second_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second Conditional.\nФормула: **if + were** з усіма особами.\nПояснення: для нереальних теперішніх умов із дієсловом to be використовуємо were навіть із I/he/she/it.\nПриклад: *If I weren't afraid of flying, we'd have travelled by plane.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "weren't": "✅ «weren't» правильно, бо в Second Conditional для дієслова to be після if використовуємо were з усіма особами.\nПриклад: *If I weren't afraid of flying, we'd have travelled by plane.*",
+                            "wasn't": "❌ «wasn't» виглядає граматично, але в гіпотетичному if-реченні потрібно were навіть із I/he/she/it.\nПриклад: *If I weren't afraid of flying, we'd have travelled by plane.*",
+                            "had been": "❌ «had been» — Past Perfect. Для теперішньої нереальної умови потрібен Past Simple (were).\nПриклад: *If I weren't afraid of flying, we'd have travelled by plane.*",
+                            "am not": "❌ «am not» — Present Simple. Другий умовний вимагає Past Simple (were).\nПриклад: *If I weren't afraid of flying, we'd have travelled by plane.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "9-if-you-a1-dads-car-without-permiss",
+            "question": "If you {a1} Dad's car without permission last night, you might be in trouble.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "had taken"
+            },
+            "options": [
+                "took",
+                "had taken",
+                "have taken",
+                "would have taken"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «take».\nПриклад: *If you had taken Dad's car without permission last night, you might be in trouble.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had taken": "✅ «had taken» правильно, бо в if-клаузі Third Conditional для you потрібна форма **had + V3** (або had not + V3).\nПриклад: *If you had taken Dad's car without permission last night, you might be in trouble.*",
+                            "took": "❌ «took» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *If you had taken Dad's car without permission last night, you might be in trouble.*",
+                            "would have taken": "❌ «would have taken» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *If you had taken Dad's car without permission last night, you might be in trouble.*",
+                            "have taken": "❌ «have taken» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *If you had taken Dad's car without permission last night, you might be in trouble.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "10-you-wouldnt-have-this-job-if-i-ha",
+            "question": "You wouldn't have this job if I hadn't {a1} you for the interview.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "prepared"
+            },
+            "options": [
+                "prepare",
+                "prepared",
+                "have prepared",
+                "would have prepared"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «prepare».\nПриклад: *You wouldn't have this job if I hadn't prepared you for the interview.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "prepared": "✅ «prepared» правильно, бо в if-клаузі Third Conditional для I потрібна форма **had + V3** (або had not + V3).\nПриклад: *You wouldn't have this job if I hadn't prepared you for the interview.*",
+                            "prepare": "❌ «prepare» — Present Simple. Третій умовний описує минуле й потребує **had + V3**.\nПриклад: *You wouldn't have this job if I hadn't prepared you for the interview.*",
+                            "have prepared": "❌ «have prepared» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *You wouldn't have this job if I hadn't prepared you for the interview.*",
+                            "would have prepared": "❌ «would have prepared» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *You wouldn't have this job if I hadn't prepared you for the interview.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "11-he-says-hes-your-friend-but-he-di",
+            "question": "He says he's your friend, but he didn't help you. If he were your friend, he {a1} you.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "would have helped"
+            },
+            "options": [
+                "helped",
+                "would help",
+                "would have helped",
+                "will have helped"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **would have + V3**.\nПояснення: головна частина показує результат у минулому, тому використовуємо would have + третю форму дієслова «help».\nПриклад: *He says he's your friend, but he didn't help you. If he were your friend, he would have helped you.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would have helped": "✅ «would have helped» правильно, бо результат Third Conditional будується як would have + V3 для he.\nПриклад: *He says he's your friend, but he didn't help you. If he were your friend, he would have helped you.*",
+                            "would help": "❌ «would help» — Second Conditional (would + V1) для теперішніх/майбутніх гіпотез. Тут потрібне would have + V3.\nПриклад: *He says he's your friend, but he didn't help you. If he were your friend, he would have helped you.*",
+                            "helped": "❌ «helped» — Past Simple. У головній частині Third Conditional слід ужити would have + V3.\nПриклад: *He says he's your friend, but he didn't help you. If he were your friend, he would have helped you.*",
+                            "will have helped": "❌ «will have helped» — модель First Conditional з will. Нам потрібна форма would have + V3 про минулий результат.\nПриклад: *He says he's your friend, but he didn't help you. If he were your friend, he would have helped you.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "12-i-feel-fine-because-i-took-the-me",
+            "question": "I feel fine because I took the medicine. If I {a1} the medicine, I would still be in pain.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "hadn't taken"
+            },
+            "options": [
+                "didn't take",
+                "hadn't taken",
+                "wouldn't have taken",
+                "haven't taken"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «take».\nПриклад: *I feel fine because I took the medicine. If I hadn't taken the medicine, I would still be in pain.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "hadn't taken": "✅ «hadn't taken» правильно, бо в if-клаузі Third Conditional для I потрібна форма **had + V3** (або had not + V3).\nПриклад: *I feel fine because I took the medicine. If I hadn't taken the medicine, I would still be in pain.*",
+                            "didn't take": "❌ «didn't take» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *I feel fine because I took the medicine. If I hadn't taken the medicine, I would still be in pain.*",
+                            "wouldn't have taken": "❌ «wouldn't have taken» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *I feel fine because I took the medicine. If I hadn't taken the medicine, I would still be in pain.*",
+                            "haven't taken": "❌ «haven't taken» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *I feel fine because I took the medicine. If I hadn't taken the medicine, I would still be in pain.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "13-im-not-patient-and-i-didnt-wait-f",
+            "question": "I'm not patient, and I didn't wait for them. If I were more patient, I {a1} for them.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "would have waited"
+            },
+            "options": [
+                "waited",
+                "will have waited",
+                "would wait",
+                "would have waited"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **would have + V3**.\nПояснення: головна частина показує результат у минулому, тому використовуємо would have + третю форму дієслова «wait».\nПриклад: *I'm not patient, and I didn't wait for them. If I were more patient, I would have waited for them.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would have waited": "✅ «would have waited» правильно, бо результат Third Conditional будується як would have + V3 для I.\nПриклад: *I'm not patient, and I didn't wait for them. If I were more patient, I would have waited for them.*",
+                            "would wait": "❌ «would wait» — Second Conditional (would + V1) для теперішніх/майбутніх гіпотез. Тут потрібне would have + V3.\nПриклад: *I'm not patient, and I didn't wait for them. If I were more patient, I would have waited for them.*",
+                            "waited": "❌ «waited» — Past Simple. У головній частині Third Conditional слід ужити would have + V3.\nПриклад: *I'm not patient, and I didn't wait for them. If I were more patient, I would have waited for them.*",
+                            "will have waited": "❌ «will have waited» — модель First Conditional з will. Нам потрібна форма would have + V3 про минулий результат.\nПриклад: *I'm not patient, and I didn't wait for them. If I were more patient, I would have waited for them.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "14-i-didnt-know-that-you-were-there-",
+            "question": "I didn't know that you were there because I'm not a psychic. I {a1} that you were there if I were a psychic.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "would have known"
+            },
+            "options": [
+                "knew",
+                "will know",
+                "would know",
+                "would have known"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **would have + V3**.\nПояснення: головна частина показує результат у минулому, тому використовуємо would have + третю форму дієслова «know».\nПриклад: *I didn't know that you were there because I'm not a psychic. I would have known that you were there if I were a psychic.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would have known": "✅ «would have known» правильно, бо результат Third Conditional будується як would have + V3 для I.\nПриклад: *I didn't know that you were there because I'm not a psychic. I would have known that you were there if I were a psychic.*",
+                            "would know": "❌ «would know» — Second Conditional (would + V1) для теперішніх/майбутніх гіпотез. Тут потрібне would have + V3.\nПриклад: *I didn't know that you were there because I'm not a psychic. I would have known that you were there if I were a psychic.*",
+                            "knew": "❌ «knew» — Past Simple. У головній частині Third Conditional слід ужити would have + V3.\nПриклад: *I didn't know that you were there because I'm not a psychic. I would have known that you were there if I were a psychic.*",
+                            "will know": "❌ «will know» — модель First Conditional з will. Нам потрібна форма would have + V3 про минулий результат.\nПриклад: *I didn't know that you were there because I'm not a psychic. I would have known that you were there if I were a psychic.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "15-i-am-where-i-am-today-because-you",
+            "question": "I am where I am today because you helped me. I {a1} where I am today if you hadn't helped me.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "wouldn't be"
+            },
+            "options": [
+                "wasn't",
+                "will not be",
+                "wouldn't be",
+                "wouldn't have been"
+            ],
+            "variants": [],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second / Mixed Conditional.\nФормула: **would + base verb**.\nПояснення: головна частина описує нереальний теперішній результат, тому вживаємо would + початкову форму дієслова «be».\nПриклад: *I am where I am today because you helped me. I wouldn't be where I am today if you hadn't helped me.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wouldn't be": "✅ «wouldn't be» правильно, бо результат нереальної теперішньої ситуації виражаємо як would + базова форма дієслова «be».\nПриклад: *I am where I am today because you helped me. I wouldn't be where I am today if you hadn't helped me.*",
+                            "wouldn't have been": "❌ «wouldn't have been» — форма would have, що підходить для минулого результату. Тут потрібен простий would + V1.\nПриклад: *I am where I am today because you helped me. I wouldn't be where I am today if you hadn't helped me.*",
+                            "wasn't": "❌ «wasn't» — Past Simple. Результат Mixed/Second Conditional має містити would.\nПриклад: *I am where I am today because you helped me. I wouldn't be where I am today if you hadn't helped me.*",
+                            "will not be": "❌ «will not be» — майбутня форма з will. Ми говоримо про нереальний теперішній результат, тому потрібен would.\nПриклад: *I am where I am today because you helped me. I wouldn't be where I am today if you hadn't helped me.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "16-i-should-be-your-coach-if-i-a1-yo",
+            "question": "I should be your coach. If I {a1} your coach, you would have won many more trophies.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "had been"
+            },
+            "options": [
+                "Were",
+                "have been",
+                "had been",
+                "would be"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «be».\nПриклад: *I should be your coach. If I had been your coach, you would have won many more trophies.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had been": "✅ «had been» правильно, бо в if-клаузі Third Conditional для I потрібна форма **had + V3** (або had not + V3).\nПриклад: *I should be your coach. If I had been your coach, you would have won many more trophies.*",
+                            "were": "❌ «were» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *I should be your coach. If I had been your coach, you would have won many more trophies.*",
+                            "have been": "❌ «have been» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *I should be your coach. If I had been your coach, you would have won many more trophies.*",
+                            "would be": "❌ «would be» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *I should be your coach. If I had been your coach, you would have won many more trophies.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "17-if-i-were-ill-i-a1-to-work-yester",
+            "question": "If I were ill, I {a1} to work yesterday.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "wouldn't have gone"
+            },
+            "options": [
+                "hadn't gone",
+                "didn't go",
+                "wouldn't go",
+                "wouldn't have gone"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **would not have + V3** (wouldn't have + V3).\nПояснення: заперечний результат утворюємо через would not have + третю форму дієслова «go».\nПриклад: *If I were ill, I wouldn't have gone to work yesterday.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wouldn't have gone": "✅ «wouldn't have gone» правильно, бо заперечення Third Conditional утворюємо як would not have + V3.\nПриклад: *If I were ill, I wouldn't have gone to work yesterday.*",
+                            "wouldn't go": "❌ «wouldn't go» — Present Simple. Результат третього умовного описує минуле через would not have + V3.\nПриклад: *If I were ill, I wouldn't have gone to work yesterday.*",
+                            "hadn't gone": "❌ «hadn't gone» пропускає have після would not, тож не утворює Third Conditional.\nПриклад: *If I were ill, I wouldn't have gone to work yesterday.*",
+                            "didn't go": "❌ «didn't go» — Past Simple. Третій умовний вимагає would not have + V3.\nПриклад: *If I were ill, I wouldn't have gone to work yesterday.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "18-if-he-hadnt-been-wearing-a-helmet",
+            "question": "If he hadn't been wearing a helmet, he {a1} dead now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "might be"
+            },
+            "options": [
+                "Were",
+                "had been",
+                "might be",
+                "might have been"
+            ],
+            "variants": [],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Mixed Conditional.\nФормула: **might + base verb**.\nПояснення: модальний результат у теперішньому/майбутньому виражаємо через might + базову форму «be».\nПриклад: *If he hadn't been wearing a helmet, he might be dead now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "might be": "✅ «might be» правильно, бо модальний результат у змішаному умовному виражається як might + базова форма «be».\nПриклад: *If he hadn't been wearing a helmet, he might be dead now.*",
+                            "might have been": "❌ «might have been» — форма might have, що описує минулий результат. Ми говоримо про теперішній наслідок.\nПриклад: *If he hadn't been wearing a helmet, he might be dead now.*",
+                            "were": "❌ «were» — Past Simple. Потрібна модальна конструкція з might.\nПриклад: *If he hadn't been wearing a helmet, he might be dead now.*",
+                            "had been": "❌ Невірна форма для модального результату в змішаному умовному.\nПриклад: *If he hadn't been wearing a helmet, he might be dead now.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "19-i-didnt-understand-his-letter-bec",
+            "question": "I didn't understand his letter because I don't speak Russian. If I {a1} Russian, I would have understood his letter.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "had spoken"
+            },
+            "options": [
+                "spoke",
+                "had spoken",
+                "would speak",
+                "have spoken"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «speak».\nПриклад: *I didn't understand his letter because I don't speak Russian. If I had spoken Russian, I would have understood his letter.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had spoken": "✅ «had spoken» правильно, бо в if-клаузі Third Conditional для I потрібна форма **had + V3** (або had not + V3).\nПриклад: *I didn't understand his letter because I don't speak Russian. If I had spoken Russian, I would have understood his letter.*",
+                            "spoke": "❌ «spoke» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *I didn't understand his letter because I don't speak Russian. If I had spoken Russian, I would have understood his letter.*",
+                            "have spoken": "❌ «have spoken» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *I didn't understand his letter because I don't speak Russian. If I had spoken Russian, I would have understood his letter.*",
+                            "would speak": "❌ Неправильна форма для if-клауза Third Conditional.\nПриклад: *I didn't understand his letter because I don't speak Russian. If I had spoken Russian, I would have understood his letter.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "20-im-tired-because-i-went-to-bed-la",
+            "question": "I'm tired because I went to bed late. If I hadn't gone to bed so late, I {a1} tired now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "wouldn't be"
+            },
+            "options": [
+                "wasn't",
+                "will not be",
+                "wouldn't be",
+                "wouldn't have been"
+            ],
+            "variants": [],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second / Mixed Conditional.\nФормула: **would + base verb**.\nПояснення: головна частина описує нереальний теперішній результат, тому вживаємо would + початкову форму дієслова «be».\nПриклад: *I'm tired because I went to bed late. If I hadn't gone to bed so late, I wouldn't be tired now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wouldn't be": "✅ «wouldn't be» правильно, бо результат нереальної теперішньої ситуації виражаємо як would + базова форма дієслова «be».\nПриклад: *I'm tired because I went to bed late. If I hadn't gone to bed so late, I wouldn't be tired now.*",
+                            "wouldn't have been": "❌ «wouldn't have been» — форма would have, що підходить для минулого результату. Тут потрібен простий would + V1.\nПриклад: *I'm tired because I went to bed late. If I hadn't gone to bed so late, I wouldn't be tired now.*",
+                            "wasn't": "❌ «wasn't» — Past Simple. Результат Mixed/Second Conditional має містити would.\nПриклад: *I'm tired because I went to bed late. If I hadn't gone to bed so late, I wouldn't be tired now.*",
+                            "will not be": "❌ «will not be» — майбутня форма з will. Ми говоримо про нереальний теперішній результат, тому потрібен would.\nПриклад: *I'm tired because I went to bed late. If I hadn't gone to bed so late, I wouldn't be tired now.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "21-if-you-a1-so-much-you-wouldnt-be-",
+            "question": "If you {a1} so much, you wouldn't be feeling sick now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "hadn't eaten"
+            },
+            "options": [
+                "didn't eat",
+                "don't eat",
+                "hadn't eaten",
+                "weren't eating"
+            ],
+            "verb_hints": {
+                "a1": "not eat"
+            },
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «eat».\nПриклад: *If you hadn't eaten so much, you wouldn't be feeling sick now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "hadn't eaten": "✅ «hadn't eaten» правильно, бо в if-клаузі Third Conditional для you потрібна форма **had + V3** (або had not + V3).\nПриклад: *If you hadn't eaten so much, you wouldn't be feeling sick now.*",
+                            "didn't eat": "❌ «didn't eat» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *If you hadn't eaten so much, you wouldn't be feeling sick now.*",
+                            "don't eat": "❌ «don't eat» — Present Simple. Третій умовний описує минуле й потребує **had + V3**.\nПриклад: *If you hadn't eaten so much, you wouldn't be feeling sick now.*",
+                            "weren't eating": "❌ «weren't eating» — форма Continuous. Для умовної частини Third Conditional необхідний простий Past Perfect.\nПриклад: *If you hadn't eaten so much, you wouldn't be feeling sick now.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "22-if-we-a1-money-we-would-have-move",
+            "question": "If we {a1} money, we would have moved to a bigger house years ago.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "had"
+            },
+            "options": [
+                "had",
+                "have had",
+                "had had",
+                "would have"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second / Mixed Conditional.\nФормула: **if + Past Simple** (або **did + not + base verb**).\nПояснення: умовна частина показує гіпотетичну ситуацію, тому дієслово «have» ставимо у Past Simple.\nПриклад: *If we had money, we would have moved to a bigger house years ago.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had": "✅ «had» правильно, бо в другому/мішаному умовному в if-клаузі ставимо Past Simple для we із дієсловом «have».\nПриклад: *If we had money, we would have moved to a bigger house years ago.*",
+                            "have had": "❌ Форма не підходить для if-клауза Second/Mixed Conditional.\nПриклад: *If we had money, we would have moved to a bigger house years ago.*",
+                            "had had": "❌ «had had» — Past Perfect. Тут треба простий Past Simple без had.\nПриклад: *If we had money, we would have moved to a bigger house years ago.*",
+                            "would have": "❌ «would have» — форма з will. Умовні речення після if не використовують will.\nПриклад: *If we had money, we would have moved to a bigger house years ago.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "23-if-i-a1-you-i-would-have-acted-di",
+            "question": "If I {a1} you, I would have acted differently. Your behaviour was unacceptable.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "Were"
+            },
+            "options": [
+                "am",
+                "was",
+                "Were",
+                "had been"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second Conditional.\nФормула: **if + were** з усіма особами.\nПояснення: для нереальних теперішніх умов із дієсловом to be використовуємо were навіть із I/he/she/it.\nПриклад: *If I were you, I would have acted differently. Your behaviour was unacceptable.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "were": "✅ «were» правильно, бо в Second Conditional для дієслова to be після if використовуємо were з усіма особами.\nПриклад: *If I were you, I would have acted differently. Your behaviour was unacceptable.*",
+                            "was": "❌ «was» виглядає граматично, але в гіпотетичному if-реченні потрібно were навіть із I/he/she/it.\nПриклад: *If I were you, I would have acted differently. Your behaviour was unacceptable.*",
+                            "had been": "❌ «had been» — Past Perfect. Для теперішньої нереальної умови потрібен Past Simple (were).\nПриклад: *If I were you, I would have acted differently. Your behaviour was unacceptable.*",
+                            "am": "❌ «am» — Present Simple. Другий умовний вимагає Past Simple (were).\nПриклад: *If I were you, I would have acted differently. Your behaviour was unacceptable.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "24-we-are-second-now-we-a1-top-of-th",
+            "question": "We are second now. We {a1} top of the league if we hadn't lost our last match.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "would be"
+            },
+            "options": [
+                "will be",
+                "Were",
+                "would be",
+                "would have been"
+            ],
+            "variants": [],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second / Mixed Conditional.\nФормула: **would + base verb**.\nПояснення: головна частина описує нереальний теперішній результат, тому вживаємо would + початкову форму дієслова «be».\nПриклад: *We are second now. We would be top of the league if we hadn't lost our last match.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would be": "✅ «would be» правильно, бо результат нереальної теперішньої ситуації виражаємо як would + базова форма дієслова «be».\nПриклад: *We are second now. We would be top of the league if we hadn't lost our last match.*",
+                            "would have been": "❌ «would have been» — форма would have, що підходить для минулого результату. Тут потрібен простий would + V1.\nПриклад: *We are second now. We would be top of the league if we hadn't lost our last match.*",
+                            "were": "❌ «were» — Past Simple. Результат Mixed/Second Conditional має містити would.\nПриклад: *We are second now. We would be top of the league if we hadn't lost our last match.*",
+                            "will be": "❌ «will be» — майбутня форма з will. Ми говоримо про нереальний теперішній результат, тому потрібен would.\nПриклад: *We are second now. We would be top of the league if we hadn't lost our last match.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "25-if-he-a1-so-lazy-he-would-have-fi",
+            "question": "If he {a1} so lazy, he would have finished the assignment when it was due.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "weren't"
+            },
+            "options": [
+                "wasn't",
+                "weren't",
+                "isn't",
+                "hadn't been"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second Conditional.\nФормула: **if + were** з усіма особами.\nПояснення: для нереальних теперішніх умов із дієсловом to be використовуємо were навіть із I/he/she/it.\nПриклад: *If he weren't so lazy, he would have finished the assignment when it was due.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "weren't": "✅ «weren't» правильно, бо в Second Conditional для дієслова to be після if використовуємо were з усіма особами.\nПриклад: *If he weren't so lazy, he would have finished the assignment when it was due.*",
+                            "wasn't": "❌ «wasn't» виглядає граматично, але в гіпотетичному if-реченні потрібно were навіть із I/he/she/it.\nПриклад: *If he weren't so lazy, he would have finished the assignment when it was due.*",
+                            "hadn't been": "❌ «hadn't been» — Past Perfect. Для теперішньої нереальної умови потрібен Past Simple (were).\nПриклад: *If he weren't so lazy, he would have finished the assignment when it was due.*",
+                            "isn't": "❌ «isn't» — Present Simple. Другий умовний вимагає Past Simple (were).\nПриклад: *If he weren't so lazy, he would have finished the assignment when it was due.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "26-i-would-be-equally-proud-of-you-i",
+            "question": "I would be equally proud of you if you {a1} so many things in your life.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "hadn't achieved"
+            },
+            "options": [
+                "hadn't achieved",
+                "didn't achieve",
+                "haven't achieved",
+                "wouldn't have achieved"
+            ],
+            "variants": [],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «achieve».\nПриклад: *I would be equally proud of you if you hadn't achieved so many things in your life.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "hadn't achieved": "✅ «hadn't achieved» правильно, бо в if-клаузі Third Conditional для you потрібна форма **had + V3** (або had not + V3).\nПриклад: *I would be equally proud of you if you hadn't achieved so many things in your life.*",
+                            "didn't achieve": "❌ «didn't achieve» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *I would be equally proud of you if you hadn't achieved so many things in your life.*",
+                            "haven't achieved": "❌ «haven't achieved» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *I would be equally proud of you if you hadn't achieved so many things in your life.*",
+                            "wouldn't have achieved": "❌ «wouldn't have achieved» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *I would be equally proud of you if you hadn't achieved so many things in your life.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "27-if-i-a1-so-hard-i-wouldnt-have-go",
+            "question": "If I {a1} so hard, I wouldn't have got the job I have.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "didn't work"
+            },
+            "options": [
+                "hadn't worked",
+                "didn't work",
+                "wasn't working",
+                "don't work"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "second_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second / Mixed Conditional.\nФормула: **if + Past Simple** (або **did + not + base verb**).\nПояснення: умовна частина показує гіпотетичну ситуацію, тому дієслово «work» ставимо у Past Simple.\nПриклад: *If I didn't work so hard, I wouldn't have got the job I have.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "didn't work": "✅ «didn't work» правильно, бо в другому/мішаному умовному в if-клаузі ставимо Past Simple для I із дієсловом «work».\nПриклад: *If I didn't work so hard, I wouldn't have got the job I have.*",
+                            "don't work": "❌ «don't work» — Present Simple. Нереальна теперішня умова потребує Past Simple.\nПриклад: *If I didn't work so hard, I wouldn't have got the job I have.*",
+                            "hadn't worked": "❌ «hadn't worked» — Past Perfect. Тут треба простий Past Simple без had.\nПриклад: *If I didn't work so hard, I wouldn't have got the job I have.*",
+                            "wasn't working": "❌ Форма не підходить для if-клауза Second/Mixed Conditional.\nПриклад: *If I didn't work so hard, I wouldn't have got the job I have.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "28-if-he-a1-anything-wrong-we-would-",
+            "question": "If he {a1} anything wrong, we would know it by now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "had done"
+            },
+            "options": [
+                "did",
+                "had done",
+                "would do",
+                "has done"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «do».\nПриклад: *If he had done anything wrong, we would know it by now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had done": "✅ «had done» правильно, бо в if-клаузі Third Conditional для he потрібна форма **had + V3** (або had not + V3).\nПриклад: *If he had done anything wrong, we would know it by now.*",
+                            "did": "❌ «did» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *If he had done anything wrong, we would know it by now.*",
+                            "has done": "❌ «has done» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *If he had done anything wrong, we would know it by now.*",
+                            "would do": "❌ «would do» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *If he had done anything wrong, we would know it by now.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "29-hed-still-be-here-if-you-a1-him-a",
+            "question": "He'd still be here if you {a1} him away.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "hadn't scared"
+            },
+            "options": [
+                "hadn't scared",
+                "didn't scare",
+                "haven't scared",
+                "wouldn't have scared"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «scare».\nПриклад: *He'd still be here if you hadn't scared him away.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "hadn't scared": "✅ «hadn't scared» правильно, бо в if-клаузі Third Conditional для you потрібна форма **had + V3** (або had not + V3).\nПриклад: *He'd still be here if you hadn't scared him away.*",
+                            "didn't scare": "❌ «didn't scare» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *He'd still be here if you hadn't scared him away.*",
+                            "haven't scared": "❌ «haven't scared» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *He'd still be here if you hadn't scared him away.*",
+                            "wouldn't have scared": "❌ «wouldn't have scared» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *He'd still be here if you hadn't scared him away.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "30-i-would-have-a-better-job-if-i-a1",
+            "question": "I would have a better job if I {a1} to university.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "had gone"
+            },
+            "options": [
+                "went",
+                "had gone",
+                "would go",
+                "have gone"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «go».\nПриклад: *I would have a better job if I had gone to university.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had gone": "✅ «had gone» правильно, бо в if-клаузі Third Conditional для I потрібна форма **had + V3** (або had not + V3).\nПриклад: *I would have a better job if I had gone to university.*",
+                            "went": "❌ «went» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *I would have a better job if I had gone to university.*",
+                            "have gone": "❌ «have gone» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *I would have a better job if I had gone to university.*",
+                            "would go": "❌ «would go» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *I would have a better job if I had gone to university.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "31-if-she-had-listened-to-my-advice-",
+            "question": "If she had listened to my advice, she {a1} in such a mess now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "wouldn't be"
+            },
+            "options": [
+                "wasn't",
+                "would be",
+                "wouldn't be",
+                "wouldn't have been"
+            ],
+            "variants": [],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second / Mixed Conditional.\nФормула: **would not (wouldn't) + base verb**.\nПояснення: заперечний результат у теперішньому утворюємо через would not + базову форму дієслова «be».\nПриклад: *If she had listened to my advice, she wouldn't be in such a mess now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wouldn't be": "✅ «wouldn't be» правильно, бо заперечний теперішній результат утворюємо як would not (wouldn't) + базова форма «be».\nПриклад: *If she had listened to my advice, she wouldn't be in such a mess now.*",
+                            "wouldn't have been": "❌ «wouldn't have been» — would not have, тобто результат у минулому. Тут потрібна теперішня форма would not + V1.\nПриклад: *If she had listened to my advice, she wouldn't be in such a mess now.*",
+                            "wasn't": "❌ «wasn't» — Past Simple. Ми описуємо гіпотетичний теперішній результат, тому потрібне would not.\nПриклад: *If she had listened to my advice, she wouldn't be in such a mess now.*",
+                            "would be": "❌ «would be» — ствердна форма. У реченні потрібне заперечення would not.\nПриклад: *If she had listened to my advice, she wouldn't be in such a mess now.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "32-if-they-a1-earlier-they-would-hav",
+            "question": "If they {a1} earlier, they would have caught the first train.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "had left"
+            },
+            "options": [
+                "left",
+                "had left",
+                "have left",
+                "would leave"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «leave».\nПриклад: *If they had left earlier, they would have caught the first train.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had left": "✅ «had left» правильно, бо в if-клаузі Third Conditional для they потрібна форма **had + V3** (або had not + V3).\nПриклад: *If they had left earlier, they would have caught the first train.*",
+                            "left": "❌ «left» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *If they had left earlier, they would have caught the first train.*",
+                            "have left": "❌ «have left» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *If they had left earlier, they would have caught the first train.*",
+                            "would leave": "❌ «would leave» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *If they had left earlier, they would have caught the first train.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "33-if-i-a1-your-phone-number-i-would",
+            "question": "If I {a1} your phone number, I would have called you last night.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "had known"
+            },
+            "options": [
+                "knew",
+                "have known",
+                "had known",
+                "would know"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «know».\nПриклад: *If I had known your phone number, I would have called you last night.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had known": "✅ «had known» правильно, бо в if-клаузі Third Conditional для I потрібна форма **had + V3** (або had not + V3).\nПриклад: *If I had known your phone number, I would have called you last night.*",
+                            "knew": "❌ «knew» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *If I had known your phone number, I would have called you last night.*",
+                            "have known": "❌ «have known» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *If I had known your phone number, I would have called you last night.*",
+                            "would know": "❌ «would know» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *If I had known your phone number, I would have called you last night.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "34-if-we-a1-so-tired-we-would-have-s",
+            "question": "If we {a1} so tired, we would have solved this problem by now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "weren't"
+            },
+            "options": [
+                "wasn't",
+                "weren't",
+                "aren't",
+                "hadn't been"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second Conditional.\nФормула: **if + were** з усіма особами.\nПояснення: для нереальних теперішніх умов із дієсловом to be використовуємо were навіть із I/he/she/it.\nПриклад: *If we weren't so tired, we would have solved this problem by now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "weren't": "✅ «weren't» правильно, бо в Second Conditional для дієслова to be після if використовуємо were з усіма особами.\nПриклад: *If we weren't so tired, we would have solved this problem by now.*",
+                            "wasn't": "❌ «wasn't» виглядає граматично, але в гіпотетичному if-реченні потрібно were навіть із I/he/she/it.\nПриклад: *If we weren't so tired, we would have solved this problem by now.*",
+                            "hadn't been": "❌ «hadn't been» — Past Perfect. Для теперішньої нереальної умови потрібен Past Simple (were).\nПриклад: *If we weren't so tired, we would have solved this problem by now.*",
+                            "aren't": "❌ «aren't» — Present Simple. Другий умовний вимагає Past Simple (were).\nПриклад: *If we weren't so tired, we would have solved this problem by now.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "35-if-you-had-taken-the-medicine-you",
+            "question": "If you had taken the medicine, you {a1} better now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "would feel"
+            },
+            "options": [
+                "felt",
+                "will feel",
+                "would feel",
+                "would have felt"
+            ],
+            "variants": [],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second / Mixed Conditional.\nФормула: **would + base verb**.\nПояснення: головна частина описує нереальний теперішній результат, тому вживаємо would + початкову форму дієслова «feel».\nПриклад: *If you had taken the medicine, you would feel better now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would feel": "✅ «would feel» правильно, бо результат нереальної теперішньої ситуації виражаємо як would + базова форма дієслова «feel».\nПриклад: *If you had taken the medicine, you would feel better now.*",
+                            "would have felt": "❌ «would have felt» — форма would have, що підходить для минулого результату. Тут потрібен простий would + V1.\nПриклад: *If you had taken the medicine, you would feel better now.*",
+                            "felt": "❌ «felt» — Past Simple. Результат Mixed/Second Conditional має містити would.\nПриклад: *If you had taken the medicine, you would feel better now.*",
+                            "will feel": "❌ «will feel» — майбутня форма з will. Ми говоримо про нереальний теперішній результат, тому потрібен would.\nПриклад: *If you had taken the medicine, you would feel better now.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "36-if-he-hadnt-spent-all-his-savings",
+            "question": "If he hadn't spent all his savings, he {a1} to buy a new car now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "would be able"
+            },
+            "options": [
+                "was able",
+                "would be able",
+                "will be able",
+                "would have been able"
+            ],
+            "variants": [],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second / Mixed Conditional.\nФормула: **would + base verb**.\nПояснення: головна частина описує нереальний теперішній результат, тому вживаємо would + початкову форму дієслова «be able to».\nПриклад: *If he hadn't spent all his savings, he would be able to buy a new car now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would be able": "✅ «would be able» правильно, бо результат нереальної теперішньої ситуації виражаємо як would + базова форма дієслова «be able to».\nПриклад: *If he hadn't spent all his savings, he would be able to buy a new car now.*",
+                            "would have been able": "❌ «would have been able» — форма would have, що підходить для минулого результату. Тут потрібен простий would + V1.\nПриклад: *If he hadn't spent all his savings, he would be able to buy a new car now.*",
+                            "was able": "❌ «was able» — Past Simple. Результат Mixed/Second Conditional має містити would.\nПриклад: *If he hadn't spent all his savings, he would be able to buy a new car now.*",
+                            "will be able": "❌ «will be able» — майбутня форма з will. Ми говоримо про нереальний теперішній результат, тому потрібен would.\nПриклад: *If he hadn't spent all his savings, he would be able to buy a new car now.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "37-if-the-team-a1-the-final-the-city",
+            "question": "If the team {a1} the final, the city would be celebrating now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "had won"
+            },
+            "options": [
+                "won",
+                "had won",
+                "would win",
+                "have won"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «win».\nПриклад: *If the team had won the final, the city would be celebrating now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had won": "✅ «had won» правильно, бо в if-клаузі Third Conditional для the team потрібна форма **had + V3** (або had not + V3).\nПриклад: *If the team had won the final, the city would be celebrating now.*",
+                            "won": "❌ «won» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *If the team had won the final, the city would be celebrating now.*",
+                            "have won": "❌ «have won» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *If the team had won the final, the city would be celebrating now.*",
+                            "would win": "❌ «would win» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *If the team had won the final, the city would be celebrating now.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "38-if-you-werent-allergic-to-nuts-yo",
+            "question": "If you weren't allergic to nuts, you {a1} the cake at the party.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "would eat"
+            },
+            "options": [
+                "ate",
+                "will eat",
+                "would eat",
+                "would have eaten"
+            ],
+            "variants": [],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second / Mixed Conditional.\nФормула: **would + base verb**.\nПояснення: головна частина описує нереальний теперішній результат, тому вживаємо would + початкову форму дієслова «eat».\nПриклад: *If you weren't allergic to nuts, you would eat the cake at the party.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would eat": "✅ «would eat» правильно, бо результат нереальної теперішньої ситуації виражаємо як would + базова форма дієслова «eat».\nПриклад: *If you weren't allergic to nuts, you would eat the cake at the party.*",
+                            "would have eaten": "❌ «would have eaten» — форма would have, що підходить для минулого результату. Тут потрібен простий would + V1.\nПриклад: *If you weren't allergic to nuts, you would eat the cake at the party.*",
+                            "ate": "❌ «ate» — Past Simple. Результат Mixed/Second Conditional має містити would.\nПриклад: *If you weren't allergic to nuts, you would eat the cake at the party.*",
+                            "will eat": "❌ «will eat» — майбутня форма з will. Ми говоримо про нереальний теперішній результат, тому потрібен would.\nПриклад: *If you weren't allergic to nuts, you would eat the cake at the party.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "39-if-you-werent-so-stubborn-you-a1-",
+            "question": "If you weren't so stubborn, you {a1} to apologise yesterday.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "would have agreed"
+            },
+            "options": [
+                "would have agreed",
+                "would agree",
+                "agreed",
+                "will have agreed"
+            ],
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **would have + V3**.\nПояснення: головна частина показує результат у минулому, тому використовуємо would have + третю форму дієслова «agree».\nПриклад: *If you weren't so stubborn, you would have agreed to apologise yesterday.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would have agreed": "✅ «would have agreed» правильно, бо результат Third Conditional будується як would have + V3 для you.\nПриклад: *If you weren't so stubborn, you would have agreed to apologise yesterday.*",
+                            "would agree": "❌ «would agree» — Second Conditional (would + V1) для теперішніх/майбутніх гіпотез. Тут потрібне would have + V3.\nПриклад: *If you weren't so stubborn, you would have agreed to apologise yesterday.*",
+                            "agreed": "❌ «agreed» — Past Simple. У головній частині Third Conditional слід ужити would have + V3.\nПриклад: *If you weren't so stubborn, you would have agreed to apologise yesterday.*",
+                            "will have agreed": "❌ «will have agreed» — модель First Conditional з will. Нам потрібна форма would have + V3 про минулий результат.\nПриклад: *If you weren't so stubborn, you would have agreed to apologise yesterday.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "40-if-the-storm-had-been-stronger-th",
+            "question": "If the storm had been stronger, the town {a1} without power now.",
+            "source": "custom_mixed_conditionals_bridge_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "might be"
+            },
+            "options": [
+                "was",
+                "had been",
+                "might be",
+                "might have been"
+            ],
+            "variants": [],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Mixed Conditional.\nФормула: **might + base verb**.\nПояснення: модальний результат у теперішньому/майбутньому виражаємо через might + базову форму «be».\nПриклад: *If the storm had been stronger, the town might be without power now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "might be": "✅ «might be» правильно, бо модальний результат у змішаному умовному виражається як might + базова форма «be».\nПриклад: *If the storm had been stronger, the town might be without power now.*",
+                            "might have been": "❌ «might have been» — форма might have, що описує минулий результат. Ми говоримо про теперішній наслідок.\nПриклад: *If the storm had been stronger, the town might be without power now.*",
+                            "was": "❌ «was» — Past Simple. Потрібна модальна конструкція з might.\nПриклад: *If the storm had been stronger, the town might be without power now.*",
+                            "had been": "❌ Невірна форма для модального результату в змішаному умовному.\nПриклад: *If the storm had been stronger, the town might be without power now.*"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

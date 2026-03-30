@@ -1,0 +1,999 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\V2\\FutureTensesPracticeV3Seeder",
+        "uuid_namespace": "FutureTensesPracticeV2Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": "0",
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Future Tenses Practice V2"
+    },
+    "sources": {
+        "custom_future_tenses_practice_v2": {
+            "name": "Custom: Future Tenses Practice V2"
+        }
+    },
+    "tags": {
+        "future_continuous_focus": {
+            "name": "Future Continuous Focus",
+            "category": "English Grammar Detail"
+        },
+        "future_perfect_continuous_focus": {
+            "name": "Future Perfect Continuous Focus",
+            "category": "English Grammar Detail"
+        },
+        "future_perfect_focus": {
+            "name": "Future Perfect Focus",
+            "category": "English Grammar Detail"
+        },
+        "future_simple_focus": {
+            "name": "Future Simple Focus",
+            "category": "English Grammar Detail"
+        },
+        "future_tenses_practice": {
+            "name": "Future Tenses Practice",
+            "category": "English Grammar Theme"
+        },
+        "future_continuous": {
+            "name": "Future Continuous",
+            "category": "Tenses"
+        },
+        "future_perfect": {
+            "name": "Future Perfect",
+            "category": "Tenses"
+        },
+        "future_perfect_continuous": {
+            "name": "Future Perfect Continuous",
+            "category": "Tenses"
+        },
+        "future_simple": {
+            "name": "Future Simple",
+            "category": "Tenses"
+        }
+    },
+    "default_tag_keys": [
+        "future_tenses_practice"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "1-john-a1-the-whole-house-by-the-tim",
+            "question": "John {a1} the whole house by the time the guests arrive.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "will have tidied up"
+            },
+            "options": [
+                "will have tidied up",
+                "will tidy up",
+                "will be tidying up",
+                "will have been tidying up"
+            ],
+            "verb_hints": {
+                "a1": "tidy up"
+            },
+            "variants": [
+                "John {a1} the whole house by the time the guests arrive."
+            ],
+            "tag_keys": [
+                "future_perfect",
+                "future_perfect_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect = **will + have + V3**.  \r\nВикористовуємо, коли дія завершиться до іншої у майбутньому.  \r\nМаркери: *by, by the time, before*.  \r\nПриклад: *By next week, I will have finished the project.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have tidied up": "✅ Future Perfect – дія завершиться до приходу гостей.  \r\nФормула: **will + have + V3**.  \r\nПриклад: *By the evening, she will have tidied up the room.*",
+                            "will be tidying up": "❌ Future Continuous – дія у процесі, не результат.  \r\nПриклад: *At 5 pm, she will be tidying up.*",
+                            "will have been tidying up": "❌ Future Perfect Continuous – тривалість, тут не підходить.  \r\nПриклад: *By the time you arrive, she will have been tidying up for an hour.*",
+                            "will tidy up": "❌ Future Simple – просто план, без зв’язку «раніше/пізніше».  \r\nПриклад: *She will tidy up tomorrow.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "2-how-long-a1-here-by-the-end-of-nex",
+            "question": "How long {a1} here by the end of next year?",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "will you have been working"
+            },
+            "options": [
+                "will you have been working",
+                "will you be working",
+                "will you have worked",
+                "will you work"
+            ],
+            "verb_hints": {
+                "a1": "work"
+            },
+            "variants": [
+                "How long {a1} here by the end of next year?"
+            ],
+            "tag_keys": [
+                "future_perfect_continuous",
+                "future_perfect_continuous_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect Continuous = **will + have + been + V-ing**.  \r\nМаркери: *for, since, by the end of…*.  \r\nПриклад: *By the end of 2025, I will have been studying English for 10 years.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will you have been working": "✅ Future Perfect Continuous – тривалість до майбутнього моменту.  \r\nФормула: **will + have + been + V-ing**.  \r\nПриклад: *How long will you have been working here by 2030?*",
+                            "will you be working": "❌ Future Continuous – процес у моменті, без тривалості.  \r\nПриклад: *Will you be working at 5 pm tomorrow?*",
+                            "will you have worked": "❌ Future Perfect – результат, не тривалість.  \r\nПриклад: *By next year, you will have worked here for 2 years.*",
+                            "will you work": "❌ Future Simple – загальний факт у майбутньому.  \r\nПриклад: *Will you work here next year?*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "future-3-i-a1-the-work-by-ten-oclock",
+            "question": "I {a1} the work by ten o’clock.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "will have done"
+            },
+            "options": [
+                "will do",
+                "will be doing",
+                "will have done",
+                "will have been doing"
+            ],
+            "verb_hints": {
+                "a1": "do"
+            },
+            "variants": [
+                "I {a1} the work by ten o’clock."
+            ],
+            "tag_keys": [
+                "future_perfect",
+                "future_perfect_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect = **will + have + V3**.  \r\nМаркери: *by 10 o’clock, by tomorrow*.  \r\nПриклад: *By the end of the day, she will have finished the report.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have done": "✅ Future Perfect – дія завершиться до 10-ї години.  \r\nФормула: **will + have + V3**.  \r\nПриклад: *By 9 pm, I will have done my homework.*",
+                            "will have been doing": "❌ Future Perfect Continuous – наголошує на процесі, не результаті.  \r\nПриклад: *By 10 pm, I will have been doing this task for two hours.*",
+                            "will do": "❌ Future Simple – загальний факт.  \r\nПриклад: *I will do it tomorrow.*",
+                            "will be doing": "❌ Future Continuous – процес у моменті.  \r\nПриклад: *At 10 pm, I will be doing my homework.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "4-im-sure-you-a1-me-what-i-need-to-k",
+            "question": "I’m sure you {a1} me what I need to know.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "will tell"
+            },
+            "options": [
+                "will tell",
+                "will be telling",
+                "will have told",
+                "will have been telling"
+            ],
+            "verb_hints": {
+                "a1": "tell"
+            },
+            "variants": [
+                "I’m sure you {a1} me what I need to know."
+            ],
+            "tag_keys": [
+                "future_simple",
+                "future_simple_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Simple = **will + V1**.  \r\nВикористовується для простих майбутніх дій.  \r\nПриклад: *I will help you tomorrow.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will tell": "✅ Future Simple – проста дія в майбутньому.  \r\nФормула: **will + V1**.  \r\nПриклад: *She will tell me the truth.*",
+                            "will be telling": "❌ Future Continuous – процес.  \r\nПриклад: *At 5 pm, she will be telling a story.*",
+                            "will have told": "❌ Future Perfect – результат у майбутньому.  \r\nПриклад: *By 6 pm, she will have told the news.*",
+                            "will have been telling": "❌ Future Perfect Continuous – дія у тривалості.  \r\nПриклад: *By 6 pm, she will have been telling stories for an hour.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "f-5-i-a1-tv-about-this-time-tomorrow",
+            "question": "I {a1} TV about this time tomorrow.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "will be watching"
+            },
+            "options": [
+                "will watch",
+                "will be watching",
+                "will have watched",
+                "will have been watching"
+            ],
+            "verb_hints": {
+                "a1": "watch"
+            },
+            "variants": [
+                "I {a1} TV about this time tomorrow."
+            ],
+            "tag_keys": [
+                "future_continuous",
+                "future_continuous_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Continuous = **will + be + V-ing**.  \r\nМаркери: *this time tomorrow, at 5 pm tomorrow*.  \r\nПриклад: *This time tomorrow, I will be working.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be watching": "✅ Future Continuous – дія у процесі в конкретний час.  \r\nФормула: **will + be + V-ing**.  \r\nПриклад: *At 8 pm tomorrow, I will be watching TV.*",
+                            "will have watched": "❌ Future Perfect – завершена дія.  \r\nПриклад: *By 9 pm, I will have watched two films.*",
+                            "will have been watching": "❌ Future Perfect Continuous – дія у тривалості.  \r\nПриклад: *By 9 pm, I will have been watching TV for 2 hours.*",
+                            "will watch": "❌ Future Simple – план.  \r\nПриклад: *I will watch TV tomorrow.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "6-by-september-i-a1-her-for-a-whole-",
+            "question": "By September I {a1} her for a whole year.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "will have known"
+            },
+            "options": [
+                "will know",
+                "will have known",
+                "will have been knowing",
+                "will be knowing"
+            ],
+            "verb_hints": {
+                "a1": "know"
+            },
+            "variants": [
+                "By September I {a1} her for a whole year."
+            ],
+            "tag_keys": [
+                "future_perfect",
+                "future_perfect_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect = **will + have + V3**.  \r\nМаркери: *by, before*.  \r\nПриклад: *By 2025, I will have known him for 10 years.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have known": "✅ Future Perfect – результат до певного моменту.  \r\nФормула: **will + have + V3**.  \r\nПриклад: *By next year, I will have known her for a year.*",
+                            "will have been knowing": "❌ Неправильна форма – дієслово *know* не використовується у Continuous.",
+                            "will be knowing": "❌ Future Continuous – некоректне з *know*.",
+                            "will know": "❌ Future Simple – загальний факт, не акцент на завершенні.  \r\nПриклад: *I will know her tomorrow.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "futur-7-he-a1-for-five-hours-by-noon",
+            "question": "He {a1} for five hours by noon.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "will have been working"
+            },
+            "options": [
+                "will be working",
+                "will work",
+                "will have worked",
+                "will have been working"
+            ],
+            "verb_hints": {
+                "a1": "work"
+            },
+            "variants": [
+                "He {a1} for five hours by noon."
+            ],
+            "tag_keys": [
+                "future_perfect_continuous",
+                "future_perfect_continuous_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect Continuous = **will + have + been + V-ing**.  \r\nМаркери: *for two hours, by noon, since morning*.  \r\nПриклад: *By the evening, I will have been studying for 6 hours.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been working": "✅ Future Perfect Continuous – дія триває певний час до моменту.  \r\nФормула: **will + have + been + V-ing**.  \r\nПриклад: *By noon, he will have been working for 5 hours.*",
+                            "will have worked": "❌ Future Perfect – акцент на завершенні, не на тривалості.  \r\nПриклад: *By noon, he will have worked here for 5 years.*",
+                            "will work": "❌ Future Simple – загальний факт.  \r\nПриклад: *He will work tomorrow.*",
+                            "will be working": "❌ Future Continuous – процес у певний момент.  \r\nПриклад: *At 10 am, he will be working.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "8-i-a1-harry-potter-three-times-if-i",
+            "question": "I {a1} Harry Potter three times if I read it again.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "will have read"
+            },
+            "options": [
+                "will read",
+                "will have read",
+                "will be reading",
+                "will have been reading"
+            ],
+            "verb_hints": {
+                "a1": "read"
+            },
+            "variants": [
+                "I {a1} Harry Potter three times if I read it again."
+            ],
+            "tag_keys": [
+                "future_perfect",
+                "future_perfect_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect = **will + have + V3**.  \r\nПриклад: *By tomorrow, I will have read this article.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have read": "✅ Future Perfect – дія буде завершена у майбутньому (три рази).  \r\nФормула: **will + have + V3**.  \r\nПриклад: *By next month, I will have read this book twice.*",
+                            "will have been reading": "❌ Future Perfect Continuous – наголошує на тривалості.  \r\nПриклад: *By evening, I will have been reading for 2 hours.*",
+                            "will be reading": "❌ Future Continuous – процес.  \r\nПриклад: *Tomorrow evening, I will be reading.*",
+                            "will read": "❌ Future Simple – загальний факт.  \r\nПриклад: *I will read this book tomorrow.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "9-the-time-may-come-when-people-a1-a",
+            "question": "The time may come when people {a1} all the oil.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "will have used up"
+            },
+            "options": [
+                "will have used up",
+                "will be using",
+                "will use",
+                "will have been using"
+            ],
+            "verb_hints": {
+                "a1": "use up"
+            },
+            "variants": [
+                "The time may come when people {a1} all the oil."
+            ],
+            "tag_keys": [
+                "future_perfect",
+                "future_perfect_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect = **will + have + V3**.  \r\nПриклад: *By the time he arrives, I will have finished my work.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have used up": "✅ Future Perfect – до певного моменту все буде використано.  \r\nФормула: **will + have + V3**.  \r\nПриклад: *By 2050, people will have used up most of the resources.*",
+                            "will be using": "❌ Future Continuous – процес.  \r\nПриклад: *At 5 pm, they will be using oil.*",
+                            "will use": "❌ Future Simple – загальний факт.  \r\nПриклад: *People will use more energy in the future.*",
+                            "will have been using": "❌ Future Perfect Continuous – тривалість, не завершення.  \r\nПриклад: *By 2050, people will have been using oil for 200 years.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "10-i-a1-english-for-six-years-by-the",
+            "question": "I {a1} English for six years by the end of next month.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "will have been studying"
+            },
+            "options": [
+                "will be studying",
+                "will study",
+                "will have been studying",
+                "will have studied"
+            ],
+            "verb_hints": {
+                "a1": "study"
+            },
+            "variants": [
+                "I {a1} English for six years by the end of next month."
+            ],
+            "tag_keys": [
+                "future_perfect_continuous",
+                "future_perfect_continuous_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect Continuous = **will + have + been + V-ing**.  \r\nПриклад: *By 2026, I will have been studying for 10 years.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been studying": "✅ Future Perfect Continuous – дія триватиме шість років.  \r\nФормула: **will + have + been + V-ing**.  \r\nПриклад: *By next year, I will have been studying English for 7 years.*",
+                            "will study": "❌ Future Simple – план.  \r\nПриклад: *I will study English tomorrow.*",
+                            "will be studying": "❌ Future Continuous – процес.  \r\nПриклад: *At 5 pm, I will be studying.*",
+                            "will have studied": "❌ Future Perfect – результат, не тривалість.  \r\nПриклад: *By June, I will have studied here for 2 years.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "11-you-a1-your-house-off-by-the-time",
+            "question": "______ you {a1} your house off by the time you’re fifty?",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "Will you have paid"
+            },
+            "options": [
+                "Will you have paid",
+                "Will you pay",
+                "Will you be paying",
+                "Will you have been paying"
+            ],
+            "verb_hints": {
+                "a1": "pay"
+            },
+            "variants": [
+                "______ you {a1} your house off by the time you’re fifty?"
+            ],
+            "tag_keys": [
+                "future_perfect",
+                "future_perfect_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect = **will + have + V3**.  \r\nПриклад: *By 2025, will you have finished school?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will you have paid": "✅ Future Perfect – завершення до певного віку.  \r\nФормула: **will + have + V3**.  \r\nПриклад: *Will you have paid the debt by 2030?*",
+                            "Will you pay": "❌ Future Simple – загальне питання про майбутнє.  \r\nПриклад: *Will you pay for it tomorrow?*",
+                            "Will you be paying": "❌ Future Continuous – процес.  \r\nПриклад: *Will you be paying at 5 pm?*",
+                            "Will you have been paying": "❌ Future Perfect Continuous – тривалість.  \r\nПриклад: *By 2030, will you have been paying for 20 years?*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "12-i-a1-over-the-pacific-about-this-",
+            "question": "I {a1} over the Pacific about this time tomorrow.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "will be flying"
+            },
+            "options": [
+                "will be flying",
+                "will fly",
+                "will have flown",
+                "will have been flying"
+            ],
+            "verb_hints": {
+                "a1": "fly"
+            },
+            "variants": [
+                "I {a1} over the Pacific about this time tomorrow."
+            ],
+            "tag_keys": [
+                "future_continuous",
+                "future_continuous_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Continuous = **will + be + V-ing**.  \r\nМаркери: *this time tomorrow*.  \r\nПриклад: *Tomorrow at 5 pm, I will be flying.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be flying": "✅ Future Continuous – процес у певний момент.  \r\nФормула: **will + be + V-ing**.  \r\nПриклад: *This time tomorrow, I will be flying over the ocean.*",
+                            "will have been flying": "❌ Future Perfect Continuous – тривалість польоту.  \r\nПриклад: *By 6 pm, I will have been flying for 2 hours.*",
+                            "will fly": "❌ Future Simple – план.  \r\nПриклад: *I will fly to Paris next week.*",
+                            "will have flown": "❌ Future Perfect – результат.  \r\nПриклад: *By 6 pm, I will have flown 500 miles.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "13-john-is-very-upset-today-i-a1-to-",
+            "question": "John is very upset today. I {a1} to talk to him.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "will try"
+            },
+            "options": [
+                "will try",
+                "will be trying",
+                "will have tried",
+                "will have been trying"
+            ],
+            "verb_hints": {
+                "a1": "try"
+            },
+            "variants": [
+                "John is very upset today. I {a1} to talk to him."
+            ],
+            "tag_keys": [
+                "future_simple",
+                "future_simple_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Simple = **will + V1**.  \r\nПриклад: *I will try again tomorrow.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will try": "✅ Future Simple – просте рішення у майбутньому.  \r\nФормула: **will + V1**.  \r\nПриклад: *I will try to help him tomorrow.*",
+                            "will be trying": "❌ Future Continuous – процес.  \r\nПриклад: *At 5 pm, I will be trying to call him.*",
+                            "will have tried": "❌ Future Perfect – завершена дія.  \r\nПриклад: *By tomorrow, I will have tried to fix it.*",
+                            "will have been trying": "❌ Future Perfect Continuous – тривалість.  \r\nПриклад: *By evening, I will have been trying for hours.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "14-he-a1-overtime-every-day-next-wee",
+            "question": "He {a1} overtime every day next week.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "will be working"
+            },
+            "options": [
+                "will be working",
+                "will work",
+                "will have worked",
+                "will have been working"
+            ],
+            "verb_hints": {
+                "a1": "work"
+            },
+            "variants": [
+                "He {a1} overtime every day next week."
+            ],
+            "tag_keys": [
+                "future_continuous",
+                "future_continuous_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Continuous = **will + be + V-ing**.  \r\nПриклад: *This time tomorrow, I will be working.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be working": "✅ Future Continuous – дія у процесі.  \r\nФормула: **will + be + V-ing**.  \r\nПриклад: *Next week, he will be working overtime.*",
+                            "will work": "❌ Future Simple – загальний факт.  \r\nПриклад: *He will work next week.*",
+                            "will have worked": "❌ Future Perfect – результат.  \r\nПриклад: *By Friday, he will have worked 40 hours.*",
+                            "will have been working": "❌ Future Perfect Continuous – тривалість.  \r\nПриклад: *By Friday, he will have been working all week.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "15-dont-call-me-between-3-and-4-beca",
+            "question": "Don’t call me between 3 and 4 because I {a1} a meeting then.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "will be having"
+            },
+            "options": [
+                "will have",
+                "will be having",
+                "will have had",
+                "will have been having"
+            ],
+            "verb_hints": {
+                "a1": "have"
+            },
+            "variants": [
+                "Don’t call me between 3 and 4 because I {a1} a meeting then."
+            ],
+            "tag_keys": [
+                "future_continuous",
+                "future_continuous_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Continuous = **will + be + V-ing**.  \r\nПриклад: *Tomorrow at 3 pm, I will be having a lesson.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be having": "✅ Future Continuous – процес у конкретний час.  \r\nФормула: **will + be + V-ing**.  \r\nПриклад: *At 3 pm, I will be having a meeting.*",
+                            "will have": "❌ Future Simple – факт.  \r\nПриклад: *I will have a meeting tomorrow.*",
+                            "will have been having": "❌ Future Perfect Continuous – тривалість.  \r\nПриклад: *By 4 pm, I will have been having a meeting for an hour.*",
+                            "will have had": "❌ Future Perfect – результат.  \r\nПриклад: *By 4 pm, I will have had a meeting.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "16-by-2060-the-earth-a1-electricity-",
+            "question": "By 2060 the Earth {a1} electricity generated by powerstations on the Moon.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "will be using"
+            },
+            "options": [
+                "will be using",
+                "will use",
+                "will have been using",
+                "will have used"
+            ],
+            "verb_hints": {
+                "a1": "use"
+            },
+            "variants": [
+                "By 2060 the Earth {a1} electricity generated by powerstations on the Moon."
+            ],
+            "tag_keys": [
+                "future_continuous",
+                "future_continuous_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Continuous = **will + be + V-ing**.  \r\nПриклад: *In 20 years, we will be using new sources of energy.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be using": "✅ Future Continuous – процес використання.  \r\nФормула: **will + be + V-ing**.  \r\nПриклад: *By 2060, people will be using new technologies.*",
+                            "will have used": "❌ Future Perfect – завершення, не процес.  \r\nПриклад: *By 2060, people will have used all oil.*",
+                            "will have been using": "❌ Future Perfect Continuous – тривалість.  \r\nПриклад: *By 2060, they will have been using solar power for decades.*",
+                            "will use": "❌ Future Simple – загальний факт.  \r\nПриклад: *In the future, people will use more solar energy.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "17-sorry-but-i-cant-come-at-5-i-a1-f",
+            "question": "Sorry, but I can’t come at 5. I {a1} football with my mates for the whole day.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "will have been playing"
+            },
+            "options": [
+                "will play",
+                "will be playing",
+                "will have played",
+                "will have been playing"
+            ],
+            "verb_hints": {
+                "a1": "play"
+            },
+            "variants": [
+                "Sorry, but I can’t come at 5. I {a1} football with my mates for the whole day."
+            ],
+            "tag_keys": [
+                "future_perfect_continuous",
+                "future_perfect_continuous_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect Continuous = **will + have + been + V-ing**.  \r\nПриклад: *By evening, we will have been playing all day.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been playing": "✅ Future Perfect Continuous – дія триватиме увесь день.  \r\nФормула: **will + have + been + V-ing**.  \r\nПриклад: *By evening, I will have been playing football for 5 hours.*",
+                            "will be playing": "❌ Future Continuous – процес у моменті.  \r\nПриклад: *At 5 pm, I will be playing football.*",
+                            "will have played": "❌ Future Perfect – завершення.  \r\nПриклад: *By 5 pm, I will have played two matches.*",
+                            "will play": "❌ Future Simple – загальний факт.  \r\nПриклад: *I will play football tomorrow.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "18-by-11-am-tomorrow-i-a1-an-exam-fo",
+            "question": "By 11 a.m. tomorrow, I {a1} an exam for sixty minutes.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "will have been doing"
+            },
+            "options": [
+                "will do",
+                "will be doing",
+                "will have done",
+                "will have been doing"
+            ],
+            "verb_hints": {
+                "a1": "do"
+            },
+            "variants": [
+                "By 11 a.m. tomorrow, I {a1} an exam for sixty minutes."
+            ],
+            "tag_keys": [
+                "future_perfect_continuous",
+                "future_perfect_continuous_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect Continuous = **will + have + been + V-ing**.  \r\nПриклад: *By tomorrow, I will have been working for 5 hours.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been doing": "✅ Future Perfect Continuous – дія триватиме годину.  \r\nФормула: **will + have + been + V-ing**.  \r\nПриклад: *By 11 am, I will have been doing the exam for an hour.*",
+                            "will have done": "❌ Future Perfect – завершення.  \r\nПриклад: *By 11 am, I will have done the exam.*",
+                            "will do": "❌ Future Simple – загальний факт.  \r\nПриклад: *I will do the exam tomorrow.*",
+                            "will be doing": "❌ Future Continuous – процес у моменті.  \r\nПриклад: *At 11 am, I will be doing the exam.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "futuretens-19-he-a1-for-lunch-by-130",
+            "question": "He {a1} for lunch by 1.30.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "will have left"
+            },
+            "options": [
+                "will have left",
+                "will have been lefting",
+                "will leave",
+                "will be leaving"
+            ],
+            "verb_hints": {
+                "a1": "leave"
+            },
+            "variants": [
+                "He {a1} for lunch by 1.30."
+            ],
+            "tag_keys": [
+                "future_perfect",
+                "future_perfect_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect = **will + have + V3**.  \r\nПриклад: *By 8 pm, she will have left home.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have left": "✅ Future Perfect – дія завершиться до 1:30.  \r\nФормула: **will + have + V3**.  \r\nПриклад: *By 2 pm, he will have left the office.*",
+                            "will have been lefting": "❌ Некоректна форма – *leave* не утворює *lefting*.",
+                            "will leave": "❌ Future Simple – факт.  \r\nПриклад: *He will leave at 2 pm.*",
+                            "will be leaving": "❌ Future Continuous – процес.  \r\nПриклад: *At 1.30, he will be leaving.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "20-im-worried-that-i-a1-with-work-by",
+            "question": "I’m worried that I {a1} with work by six.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "won’t have finished"
+            },
+            "options": [
+                "won’t have finished",
+                "won’t be finishing",
+                "won’t have been finishing",
+                "won’t finish"
+            ],
+            "verb_hints": {
+                "a1": "not finish"
+            },
+            "variants": [
+                "I’m worried that I {a1} with work by six."
+            ],
+            "tag_keys": [
+                "future_perfect",
+                "future_perfect_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect = **will (not) + have + V3**.  \r\nПриклад: *By the deadline, I won’t have finished the task.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won’t have finished": "✅ Future Perfect (negative) – дія не завершиться.  \r\nФормула: **will not + have + V3**.  \r\nПриклад: *I won’t have finished the report by 5 pm.*",
+                            "won’t be finishing": "❌ Future Continuous (negative) – процес.  \r\nПриклад: *At 5 pm, I won’t be finishing the report.*",
+                            "won’t have been finishing": "❌ Future Perfect Continuous (negative) – рідко вживається.",
+                            "won’t finish": "❌ Future Simple (negative) – просто факт.  \r\nПриклад: *I won’t finish it tomorrow.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "21-by-the-time-harry-a1-his-friend-a",
+            "question": "By the time Harry {a1}, his friend {a2} his presents.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "will have woken up",
+                "a2": "will have opened"
+            },
+            "options": [
+                "will have woken up",
+                "will have opened",
+                "will have been opening",
+                "will be opening"
+            ],
+            "verb_hints": {
+                "a1": "wake up",
+                "a2": "open"
+            },
+            "variants": [
+                "By the time Harry {a1}, his friend {a2} his presents."
+            ],
+            "tag_keys": [
+                "future_perfect",
+                "future_perfect_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect = **will + have + V3**.  \r\nПриклад: *By next week, I will have woken up earlier every day.*\n{a2} Future Perfect = **will + have + V3**.  \r\nПриклад: *By the time you come, I will have opened the book.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have woken up": "✅ Future Perfect – дія завершиться.  \r\nФормула: **will + have + V3**.  \r\nПриклад: *By 8 am, he will have woken up.*"
+                        },
+                        "a2": {
+                            "will have opened": "✅ Future Perfect – подарунки вже відкриті.  \r\nПриклад: *By the time you arrive, I will have opened the gift.*",
+                            "will have been opening": "❌ Future Perfect Continuous – тривалість, тут не потрібна.",
+                            "will be opening": "❌ Future Continuous – процес.  \r\nПриклад: *At 9 am, he will be opening his presents.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "22-ron-a1-sweets-for-some-time-when-",
+            "question": "Ron {a1} sweets for some time when Harry finds a postcard.",
+            "source": "custom_future_tenses_practice_v2",
+            "level": "B2",
+            "answers": {
+                "a1": "will have been eating"
+            },
+            "options": [
+                "will eat",
+                "will have been eating",
+                "will have eaten",
+                "will be eating"
+            ],
+            "verb_hints": {
+                "a1": "eat"
+            },
+            "variants": [
+                "Ron {a1} sweets for some time when Harry finds a postcard."
+            ],
+            "tag_keys": [
+                "future_perfect_continuous",
+                "future_perfect_continuous_focus"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "{a1} Future Perfect Continuous = **will + have + been + V-ing**.  \r\nПриклад: *By the time you come, he will have been eating for an hour.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been eating": "✅ Future Perfect Continuous – дія тривала певний час.  \r\nФормула: **will + have + been + V-ing**.  \r\nПриклад: *He will have been eating for an hour when she arrives.*",
+                            "will have eaten": "❌ Future Perfect – завершення, а не тривалість.  \r\nПриклад: *By 6 pm, he will have eaten dinner.*",
+                            "will eat": "❌ Future Simple – загальний факт.  \r\nПриклад: *He will eat sweets tomorrow.*",
+                            "will be eating": "❌ Future Continuous – процес у моменті.  \r\nПриклад: *At 5 pm, he will be eating.*"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

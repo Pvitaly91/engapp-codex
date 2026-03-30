@@ -8,11 +8,11 @@ class TheoryController extends PageController
 
     protected string $routePrefix = 'theory';
 
-    protected string $showView = 'engram.theory.show-v3';
+    protected string $showView = 'theory.show';
 
-    protected string $indexView = 'engram.theory.index';
+    protected string $indexView = 'theory.index';
 
-    protected ?string $categoryView = 'engram.theory.category';
+    protected ?string $categoryView = 'theory.category';
 
     protected string $sectionTitle = 'Теорія';
 }

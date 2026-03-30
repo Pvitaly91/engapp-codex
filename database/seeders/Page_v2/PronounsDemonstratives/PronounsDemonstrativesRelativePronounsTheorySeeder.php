@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Page_v2\PronounsDemonstratives;
 
-use Database\Seeders\Pages\PronounsDemonstratives\PronounsDemonstrativesPageSeeder;
+use Database\Seeders\Page_v2\PronounsDemonstratives\PronounsDemonstrativesPageSeeder;
 
 class PronounsDemonstrativesRelativePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
 {

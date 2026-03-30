@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Page_v2\QuestionsNegations;
 
-use Database\Seeders\Pages\Concerns\PageCategoryDescriptionSeeder;
+use Database\Seeders\Page_v2\Concerns\PageCategoryDescriptionSeeder;
 
 class QuestionsNegationsCategorySeeder extends PageCategoryDescriptionSeeder
 {

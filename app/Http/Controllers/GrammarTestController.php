@@ -1613,13 +1613,18 @@ class GrammarTestController extends Controller
             'availableLevels' => $availableLevels,
             'selectedLevels' => $selectedLevels,
             'breadcrumbs' => [
-                ['label' => 'Home', 'url' => route('home')],
+                ['label' => 'Home', 'url' => localized_route('home')],
                 ['label' => 'Tests Catalog'],
             ],
         ]);
     }
 
     public function catalogAggregated(Request $request)
+    {
+        return view('catalog-tests-cards', $this->catalogAggregatedViewData($request));
+    }
+
+    protected function catalogAggregatedViewData(Request $request): array
     {
         $selectedTags = (array) $request->input('tags', []);
         $selectedLevels = (array) $request->input('levels', []);
@@ -1723,17 +1728,17 @@ class GrammarTestController extends Controller
             })->values();
         }
 
-        return view('engram.catalog-tests-cards-aggregated', [
+        return [
             'tests' => $tests,
             'tags' => $tagsByCategory,
             'selectedTags' => $selectedTags,
             'availableLevels' => $availableLevels,
             'selectedLevels' => $selectedLevels,
             'breadcrumbs' => [
-                ['label' => 'Home', 'url' => route('home')],
+                ['label' => 'Home', 'url' => localized_route('home')],
                 ['label' => 'Tests Catalog (Aggregated)'],
             ],
-        ]);
+        ];
     }
 
     private function defaultFormState(): array

@@ -29,7 +29,7 @@
         </nav>
         @if($level)
             <span class="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 border border-emerald-100">
-                Рівень {{ $level }}
+                {{ __('theory_blocks.hero.level', ['level' => $level]) }}
             </span>
         @endif
     </div>

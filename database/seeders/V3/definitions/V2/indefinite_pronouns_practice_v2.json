@@ -1,0 +1,1067 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\V2\\IndefinitePronounsPracticeV3Seeder",
+        "uuid_namespace": "IndefinitePronounsPracticeV2Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": "0",
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Pronouns"
+    },
+    "sources": {
+        "custom_indefinite_pronouns_practice_v2_page1": {
+            "name": "Custom: Indefinite Pronouns Practice V2 (Page 1)"
+        },
+        "custom_indefinite_pronouns_practice_v2_page2": {
+            "name": "Custom: Indefinite Pronouns Practice V2 (Page 2)"
+        },
+        "custom_indefinite_pronouns_practice_v2_page3": {
+            "name": "Custom: Indefinite Pronouns Practice V2 (Page 3)"
+        }
+    },
+    "tags": {
+        "something_anything_nothing_exercises": {
+            "name": "Something / Anything / Nothing Exercises",
+            "category": "English Grammar Detail"
+        },
+        "indefinite_pronoun_compounds": {
+            "name": "Indefinite Pronoun Compounds",
+            "category": "English Grammar Structure"
+        },
+        "indefinite_pronouns_practice": {
+            "name": "Indefinite Pronouns Practice",
+            "category": "English Grammar Theme"
+        }
+    },
+    "default_tag_keys": [
+        "indefinite_pronoun_compounds",
+        "indefinite_pronouns_practice",
+        "something_anything_nothing_exercises"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "indefinitep-1-i-cant-find-my-keys-a1",
+            "question": "I can't find my keys {a1}.",
+            "source": "custom_indefinite_pronouns_practice_v2_page1",
+            "level": "A2",
+            "answers": {
+                "a1": "anywhere"
+            },
+            "options": [
+                "anywhere",
+                "somewhere",
+                "nowhere"
+            ],
+            "variants": [
+                "I can't find my keys {a1}."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Заперечення *can't find* вимагає any-слова: шукаємо **anywhere**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "somewhere": "❌ *Somewhere* доречне у ствердженнях або запрошеннях, а не після заперечення.",
+                            "anywhere": "✅ **Anywhere** використовуємо після *can't* і *don't* для позначення «деінде/ніде».",
+                            "nowhere": "❌ *Nowhere* уже несе заперечення і разом з *can't* створює подвійну негативну конструкцію."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "2-what-did-you-have-to-drink-i-didnt",
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "source": "custom_indefinite_pronouns_practice_v2_page1",
+            "level": "A2",
+            "answers": {
+                "a1": "anything"
+            },
+            "options": [
+                "anything",
+                "something",
+                "nothing"
+            ],
+            "variants": [
+                "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\""
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Після \"didn't\" обираємо any-слово для заперечення."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "something": "❌ *Something* звучить як ствердження, а не як заперечення.",
+                            "anything": "✅ **Anything** логічно завершує речення після \"didn't\".",
+                            "nothing": "❌ *Nothing* зробило б конструкцію подвійнозаперечною."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "3-a1-was-at-the-party-all-our-friend",
+            "question": "{a1} was at the party; all our friends and family were there.",
+            "source": "custom_indefinite_pronouns_practice_v2_page1",
+            "level": "A2",
+            "answers": {
+                "a1": "Everybody"
+            },
+            "options": [
+                "Everybody",
+                "Anybody",
+                "Nobody"
+            ],
+            "variants": [
+                "{a1} was at the party; all our friends and family were there."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Фраза «all our friends and family» підказує тотальність → **Everybody**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Everybody": "✅ **Everybody** означає всіх без винятку, що й описано в реченні.",
+                            "Anybody": "❌ *Anybody* частіше вживається у питаннях/запереченнях і не підкреслює «всі».",
+                            "Nobody": "❌ *Nobody* суперечить твердженню, що вечірка була заповнена людьми."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "4-did-you-see-a1-interesting-at-the-",
+            "question": "\"Did you see {a1} interesting at the party?\" \"{a2}. Only boring people.\"",
+            "source": "custom_indefinite_pronouns_practice_v2_page1",
+            "level": "A2",
+            "answers": {
+                "a1": "Anybody",
+                "a2": "Nobody"
+            },
+            "options": [
+                "Anybody",
+                "Nobody",
+                "somebody"
+            ],
+            "variants": [
+                "\"Did you see {a1} interesting at the party?\" \"{a2}. Only boring people.\""
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Загальне питання (Did you...?) потребує any-слова → **anybody**.\nВідповідь описує повну відсутність цікавих людей → **nobody**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "somebody": "❌ Це б означало, що хтось цікавий був, але фраза каже протилежне.",
+                            "anybody": "❌ *Anybody* звучить невизначено й не передає «жодного».",
+                            "nobody": "✅ **Nobody** підкреслює відсутність цікавих людей."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "5-a1-robbed-a-bank-yesterday-they-to",
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "source": "custom_indefinite_pronouns_practice_v2_page1",
+            "level": "A2",
+            "answers": {
+                "a1": "somebody"
+            },
+            "options": [
+                "Anybody",
+                "Nobody",
+                "somebody"
+            ],
+            "variants": [
+                "{a1} robbed a bank yesterday. They took a lot of money."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Подія точно сталася, але особа невідома → використовуємо some-слово."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Somebody": "✅ **Somebody** підходить для ствердження про невідомого злочинця.",
+                            "Anybody": "❌ *Anybody* частіше стоїть у питаннях або запереченнях.",
+                            "Nobody": "❌ *Nobody* суперечить факту пограбування."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "6-the-police-think-the-robber-is-hid",
+            "question": "The police think the robber is hiding {a1} in the neighbourhood.",
+            "source": "custom_indefinite_pronouns_practice_v2_page1",
+            "level": "A2",
+            "answers": {
+                "a1": "somewhere"
+            },
+            "options": [
+                "anywhere",
+                "somewhere",
+                "nowhere"
+            ],
+            "variants": [
+                "The police think the robber is hiding {a1} in the neighbourhood."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Це ствердження з припущенням → потрібне **somewhere**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "somewhere": "✅ **Somewhere** вживаємо, коли впевнені, що місце існує, але не знаємо яке.",
+                            "anywhere": "❌ *Anywhere* використовують у запереченнях або для «будь-де».",
+                            "nowhere": "❌ *Nowhere* означає, що ніхто не ховається, що суперечить припущенню поліції."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "7-have-you-eaten-a1-a2-im-very-hungr",
+            "question": "\"Have you eaten {a1}?\" \"{a2}: I'm very hungry.\"",
+            "source": "custom_indefinite_pronouns_practice_v2_page1",
+            "level": "A2",
+            "answers": {
+                "a1": "anything",
+                "a2": "nothing"
+            },
+            "options": [
+                "anything",
+                "something",
+                "nothing"
+            ],
+            "variants": [
+                "\"Have you eaten {a1}?\" \"{a2}: I'm very hungry.\""
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Так/ні питання про досвід → ставимо **anything**.\nВін голодний, тож нічого не їв → **nothing**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "something": "❌ *Something* підходить для пропозицій, а не для нейтрального питання.",
+                            "anything": "✅ **Anything** – стандарт для загальних питань.",
+                            "nothing": "❌ *Nothing* не вживається у питальній частині."
+                        },
+                        "a2": {
+                            "something": "❌ Якщо б він щось їв, то не був би «дуже голодний».",
+                            "anything": "❌ *Anything* означає «що-небудь», а потрібно підкреслити відсутність їжі.",
+                            "nothing": "✅ **Nothing** показує, що їжі не було зовсім."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "8-can-i-stay-here-tonight-i-have-a1-",
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "source": "custom_indefinite_pronouns_practice_v2_page1",
+            "level": "A2",
+            "answers": {
+                "a1": "nowhere"
+            },
+            "options": [
+                "anywhere",
+                "somewhere",
+                "nowhere"
+            ],
+            "variants": [
+                "Can I stay here tonight? I have {a1} to go."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Коли немає жодного місця, кажемо **nowhere**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "somewhere": "❌ *Somewhere* означає, що місце є, але невідоме.",
+                            "anywhere": "❌ *Anywhere* означає «де завгодно», але герою нема куди йти.",
+                            "nowhere": "✅ **Nowhere** чітко передає повну відсутність місця."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "9-i-think-a1-bad-has-happened-becaus",
+            "question": "I think {a1} bad has happened, because there are police officers {a2}.",
+            "source": "custom_indefinite_pronouns_practice_v2_page1",
+            "level": "A2",
+            "answers": {
+                "a1": "something",
+                "a2": "everywhere"
+            },
+            "options": [
+                "anything",
+                "something",
+                "nothing",
+                "anywhere",
+                "nowhere",
+                "everywhere"
+            ],
+            "variants": [
+                "I think {a1} bad has happened, because there are police officers {a2}."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Є підозра на подію → уживаємо **something**.\nОфіцери скрізь навколо → потрібне **everywhere**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "something": "✅ **Something** позначає невідому, але реальну подію.",
+                            "anything": "❌ *Anything* вказує на байдужість до вибору, а не на підозру.",
+                            "nothing": "❌ *Nothing* суперечить тому, що відбувається."
+                        },
+                        "a2": {
+                            "everywhere": "✅ **Everywhere** показує, що поліція всюди.",
+                            "anywhere": "❌ *Anywhere* звучить як «де-небудь», без наголосу на масштаб.",
+                            "nowhere": "❌ *Nowhere* означало б, що поліції немає, а це неправда."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "10-a1-is-big-in-new-york-the-streets",
+            "question": "{a1} is big in New York; the streets, the buildings, the cars, even the hamburgers.",
+            "source": "custom_indefinite_pronouns_practice_v2_page1",
+            "level": "A2",
+            "answers": {
+                "a1": "Everything"
+            },
+            "options": [
+                "anything",
+                "something",
+                "Everything"
+            ],
+            "variants": [
+                "{a1} is big in New York; the streets, the buildings, the cars, even the hamburgers."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Перелік «вулиці, будинки, машини…» = всі речі → **Everything**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Something": "❌ *Something* означає лише одну річ, а не весь список.",
+                            "Everything": "✅ **Everything** охоплює всі названі предмети.",
+                            "Anything": "❌ *Anything* означає «будь-що», але не «все підряд»."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "11-a1-used-my-computer-yesterday-i-n",
+            "question": "{a1} used my computer yesterday. I need to know who did it.",
+            "source": "custom_indefinite_pronouns_practice_v2_page2",
+            "level": "A2",
+            "answers": {
+                "a1": "somebody"
+            },
+            "options": [
+                "Anybody",
+                "Nobody",
+                "somebody"
+            ],
+            "variants": [
+                "{a1} used my computer yesterday. I need to know who did it."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Факт використання був → потрібне позитивне some-слово."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Somebody": "✅ **Somebody** передає невідомого, але реального користувача.",
+                            "Nobody": "❌ *Nobody* заперечує факт.",
+                            "Anybody": "❌ *Anybody* доречне у питаннях/запереченнях."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "12-it-happened-very-quickly-and-i-co",
+            "question": "It happened very quickly and I couldn't see {a1}.",
+            "source": "custom_indefinite_pronouns_practice_v2_page2",
+            "level": "A2",
+            "answers": {
+                "a1": "anything"
+            },
+            "options": [
+                "anything",
+                "something",
+                "nothing"
+            ],
+            "variants": [
+                "It happened very quickly and I couldn't see {a1}."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Після \"couldn't\" ставимо **anything**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "anything": "✅ **Anything** відповідає заперечному дієслову.",
+                            "something": "❌ *Something* звучить як твердження.",
+                            "nothing": "❌ *Nothing* створило б подвійну негативну форму."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "13-have-you-talked-to-a1-about-your-",
+            "question": "Have you talked to {a1} about your problem?",
+            "source": "custom_indefinite_pronouns_practice_v2_page2",
+            "level": "A2",
+            "answers": {
+                "a1": "Anybody"
+            },
+            "options": [
+                "Anybody",
+                "Nobody",
+                "somebody"
+            ],
+            "variants": [
+                "Have you talked to {a1} about your problem?"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Нейтральне питання вимагає **anybody**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "somebody": "❌ *Somebody* звучить як очікування позитивної відповіді.",
+                            "anybody": "✅ **Anybody** підходить для загального питання.",
+                            "nobody": "❌ *Nobody* є запереченням і не ставиться у питальній формі."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "ind-14-im-bored-i-dont-have-a1-to-do",
+            "question": "I'm bored. I don't have {a1} to do.",
+            "source": "custom_indefinite_pronouns_practice_v2_page2",
+            "level": "A2",
+            "answers": {
+                "a1": "anything"
+            },
+            "options": [
+                "anything",
+                "something",
+                "nothing"
+            ],
+            "variants": [
+                "I'm bored. I don't have {a1} to do."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Після \"don't have\" ставимо any-слово."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "something": "❌ *Something* суперечить запереченню.",
+                            "anything": "✅ **Anything** логічно завершує заперечну фразу.",
+                            "nothing": "❌ *Nothing* створило б подвійну негативну конструкцію."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "15-he-lost-his-house-and-now-he-has-",
+            "question": "He lost his house and now he has {a1} to live.",
+            "source": "custom_indefinite_pronouns_practice_v2_page2",
+            "level": "A2",
+            "answers": {
+                "a1": "nowhere"
+            },
+            "options": [
+                "anywhere",
+                "somewhere",
+                "nowhere"
+            ],
+            "variants": [
+                "He lost his house and now he has {a1} to live."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Коли житла немає зовсім, обираємо **nowhere**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "somewhere": "❌ *Somewhere* означало б наявність місця.",
+                            "anywhere": "❌ *Anywhere* = «будь-де», а не «ніде».",
+                            "nowhere": "✅ **Nowhere** підкреслює повну відсутність житла."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "16-she-doesnt-have-a1-in-her-life-sh",
+            "question": "She doesn't have {a1} in her life. She's very lonely.",
+            "source": "custom_indefinite_pronouns_practice_v2_page2",
+            "level": "A2",
+            "answers": {
+                "a1": "Anybody"
+            },
+            "options": [
+                "Anybody",
+                "Nobody",
+                "somebody"
+            ],
+            "variants": [
+                "She doesn't have {a1} in her life. She's very lonely."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Після заперечення \"doesn't have\" використовуємо **anybody**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "somebody": "❌ *Somebody* означає, що хтось є, що суперечить запереченню.",
+                            "anybody": "✅ **Anybody** правильно поєднується з \"doesn't have\" для вираження самотності.",
+                            "nobody": "❌ *Nobody* створює подвійне заперечення з \"doesn't have\"."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "indefini-17-would-you-like-a1-to-eat",
+            "question": "Would you like {a1} to eat?",
+            "source": "custom_indefinite_pronouns_practice_v2_page2",
+            "level": "A2",
+            "answers": {
+                "a1": "something"
+            },
+            "options": [
+                "anything",
+                "something",
+                "nothing"
+            ],
+            "variants": [
+                "Would you like {a1} to eat?"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "У ввічливих пропозиціях Would you like…? вживаємо **something**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "something": "✅ **Something** звучить тепло в пропозиції.",
+                            "anything": "❌ *Anything* робить пропозицію занадто байдужою.",
+                            "nothing": "❌ *Nothing* заперечує пропозицію."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "18-do-you-know-a1-in-dublin-yes-i-kn",
+            "question": "\"Do you know {a1} in Dublin?\" \"Yes, I know a few people.\"",
+            "source": "custom_indefinite_pronouns_practice_v2_page2",
+            "level": "A2",
+            "answers": {
+                "a1": "anyone"
+            },
+            "options": [
+                "anyone",
+                "someone",
+                "no one"
+            ],
+            "variants": [
+                "\"Do you know {a1} in Dublin?\" \"Yes, I know a few people.\""
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Загальне питання → **anyone**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "someone": "❌ *Someone* звучить як відповідь, а не запитання.",
+                            "anyone": "✅ **Anyone** стандарт для нейтральних питань.",
+                            "no one": "❌ *No one* суперечить позитивній відповіді."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "19-sarah-told-a1-that-she-broke-up-w",
+            "question": "Sarah told {a1} that she broke up with you. Now we all know.",
+            "source": "custom_indefinite_pronouns_practice_v2_page2",
+            "level": "A2",
+            "answers": {
+                "a1": "everyone"
+            },
+            "options": [
+                "anyone",
+                "no one",
+                "everyone"
+            ],
+            "variants": [
+                "Sarah told {a1} that she broke up with you. Now we all know."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Фраза \"Now we all know\" означає, що вона розповіла всім → **everyone**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "anyone": "❌ *Anyone* звучить невизначено, а контекст говорить про «всіх».",
+                            "no one": "❌ *No one* суперечить твердженню \"Now we all know\".",
+                            "everyone": "✅ **Everyone** логічно пояснює, чому всі тепер знають."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "20-im-going-to-bed-theres-a1-interes",
+            "question": "I'm going to bed. There's {a1} interesting on TV.",
+            "source": "custom_indefinite_pronouns_practice_v2_page2",
+            "level": "A2",
+            "answers": {
+                "a1": "nothing"
+            },
+            "options": [
+                "anything",
+                "something",
+                "nothing"
+            ],
+            "variants": [
+                "I'm going to bed. There's {a1} interesting on TV."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Форма \"There is ...\" + негативний зміст → **nothing**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "something": "❌ *Something* суперечить ідеї «йду спати».",
+                            "anything": "❌ *Anything* не дає відчуття повної відсутності інтересу.",
+                            "nothing": "✅ **Nothing** означає, що на ТВ немає цікавого."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "21-we-have-looked-for-mike-but-we-ca",
+            "question": "We have looked for Mike but we can't find him {a1}.",
+            "source": "custom_indefinite_pronouns_practice_v2_page3",
+            "level": "A2",
+            "answers": {
+                "a1": "anywhere"
+            },
+            "options": [
+                "anywhere",
+                "somewhere",
+                "nowhere"
+            ],
+            "variants": [
+                "We have looked for Mike but we can't find him {a1}."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Заперечення *can't find* → **anywhere**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "anywhere": "✅ **Anywhere** поєднується з *can't* і показує відсутність результату.",
+                            "nowhere": "❌ *Nowhere* уже містить заперечення, що звучало б дивно.",
+                            "somewhere": "❌ *Somewhere* означає, що знайшли місце."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "22-a1-called-you-this-morning-but-i-",
+            "question": "{a1} called you this morning, but I do not know who.",
+            "source": "custom_indefinite_pronouns_practice_v2_page3",
+            "level": "A2",
+            "answers": {
+                "a1": "someone"
+            },
+            "options": [
+                "someone",
+                "no one",
+                "Anybody"
+            ],
+            "variants": [
+                "{a1} called you this morning, but I do not know who."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Телефонний дзвінок був → використовуємо **Someone**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Someone": "✅ **Someone** передає, що дзвонив невідомий.",
+                            "Anybody": "❌ *Anybody* використовується у питаннях/запереченнях.",
+                            "No one": "❌ *No one* суперечить факту дзвінка."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "23-i-didnt-go-a1-yesterday-i-stayed-",
+            "question": "I didn't go {a1} yesterday. I stayed home all day.",
+            "source": "custom_indefinite_pronouns_practice_v2_page3",
+            "level": "A2",
+            "answers": {
+                "a1": "anywhere"
+            },
+            "options": [
+                "anywhere",
+                "somewhere",
+                "nowhere"
+            ],
+            "variants": [
+                "I didn't go {a1} yesterday. I stayed home all day."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Після \"didn't\" ставимо **anywhere**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "anywhere": "✅ **Anywhere** – найприродніший вибір у запереченні.",
+                            "somewhere": "❌ *Somewhere* означало б, що він кудись ходив.",
+                            "nowhere": "❌ *Nowhere* повторює заперечення і звучить важкувато."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "24-i-dont-know-a1-in-the-class-yet-b",
+            "question": "I don't know {a1} in the class yet, but I know most of them.",
+            "source": "custom_indefinite_pronouns_practice_v2_page3",
+            "level": "A2",
+            "answers": {
+                "a1": "anyone"
+            },
+            "options": [
+                "anyone",
+                "someone",
+                "everyone"
+            ],
+            "variants": [
+                "I don't know {a1} in the class yet, but I know most of them."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Заперечення *don't know* + загальне посилання → **anyone**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "anyone": "✅ **Anyone** показує, що не вистачає знайомств із рештою людей.",
+                            "someone": "❌ *Someone* означало б, що невідома лише одна людина.",
+                            "everyone": "❌ *Everyone* говорить про всіх, а тут потрібна група «ще незнайомих»."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "25-im-sorry-but-i-cant-help-you-i-do",
+            "question": "I'm sorry but I can't help you. I don't know {a1} about Napoleon.",
+            "source": "custom_indefinite_pronouns_practice_v2_page3",
+            "level": "A2",
+            "answers": {
+                "a1": "anything"
+            },
+            "options": [
+                "anything",
+                "something",
+                "nothing"
+            ],
+            "variants": [
+                "I'm sorry but I can't help you. I don't know {a1} about Napoleon."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Після \"don't know\" – **anything**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "anything": "✅ **Anything** підтримує заперечення.",
+                            "something": "❌ *Something* означало б, що знання є.",
+                            "nothing": "❌ *Nothing* зробило б речення подвійно негативним."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "26-hes-behaving-very-strangely-a1-is",
+            "question": "He's behaving very strangely. {a1} is wrong with him, but I don't know what.",
+            "source": "custom_indefinite_pronouns_practice_v2_page3",
+            "level": "A2",
+            "answers": {
+                "a1": "something"
+            },
+            "options": [
+                "anything",
+                "something",
+                "nothing"
+            ],
+            "variants": [
+                "He's behaving very strangely. {a1} is wrong with him, but I don't know what."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Є очевидна проблема, хоч і невідома → **Something**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Something": "✅ **Something** вказує на конкретну, хоч і не названу проблему.",
+                            "Anything": "❌ *Anything* звучить як байдужість, а не як факт.",
+                            "Nothing": "❌ *Nothing* суперечить дивній поведінці."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "27-a1-was-there-when-i-arrived-i-was",
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "source": "custom_indefinite_pronouns_practice_v2_page3",
+            "level": "A2",
+            "answers": {
+                "a1": "Nobody"
+            },
+            "options": [
+                "everyone",
+                "Anybody",
+                "Nobody"
+            ],
+            "variants": [
+                "{a1} was there when I arrived. I was the only person there."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Я був сам → **Nobody**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Nobody": "✅ **Nobody** означає повну відсутність людей.",
+                            "Anybody": "❌ *Anybody* не дає чіткого відчуття, що нікого не було.",
+                            "Everyone": "❌ *Everyone* суперечить твердженню."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "28-have-you-seen-my-wallet-i-cant-fi",
+            "question": "Have you seen my wallet? I can't find it {a1}.",
+            "source": "custom_indefinite_pronouns_practice_v2_page3",
+            "level": "A2",
+            "answers": {
+                "a1": "anywhere"
+            },
+            "options": [
+                "anywhere",
+                "nowhere",
+                "everywhere"
+            ],
+            "variants": [
+                "Have you seen my wallet? I can't find it {a1}."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Заперечення *can't find* → **anywhere**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "anywhere": "✅ **Anywhere** природно звучить у запереченні.",
+                            "nowhere": "❌ *Nowhere* дублює заперечення.",
+                            "everywhere": "❌ *Everywhere* означає «усюди», але краще використовувати його, коли щось знаходиш."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "29-we-lost-so-there-is-a1-to-celebra",
+            "question": "We lost, so there is {a1} to celebrate today. Let's go home.",
+            "source": "custom_indefinite_pronouns_practice_v2_page3",
+            "level": "A2",
+            "answers": {
+                "a1": "nothing"
+            },
+            "options": [
+                "anything",
+                "nothing",
+                "Everything"
+            ],
+            "variants": [
+                "We lost, so there is {a1} to celebrate today. Let's go home."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Поразка = нуль причин для свята → **nothing**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "nothing": "✅ **Nothing** підкреслює відсутність приводу.",
+                            "anything": "❌ *Anything* звучало б як можливість святкувати.",
+                            "everything": "❌ *Everything* означає протилежне змісту."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "30-the-police-thought-they-were-hidi",
+            "question": "The police thought they were hiding {a1} in the house, but they did not find {a2} hiding there.",
+            "source": "custom_indefinite_pronouns_practice_v2_page3",
+            "level": "A2",
+            "answers": {
+                "a1": "someone",
+                "a2": "anyone"
+            },
+            "options": [
+                "anyone",
+                "someone",
+                "no one"
+            ],
+            "variants": [
+                "The police thought they were hiding {a1} in the house, but they did not find {a2} hiding there."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Поліція думала, що хтось ховається → потрібне **someone**.\nПісля заперечення \"did not find\" використовуємо **anyone**."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "anyone": "❌ *Anyone* частіше для питань, а тут ствердження про підозру.",
+                            "someone": "✅ **Someone** підходить для ствердження, що поліція думала про конкретну людину.",
+                            "no one": "❌ *No one* суперечить припущенню поліції."
+                        },
+                        "a2": {
+                            "anyone": "✅ **Anyone** правильно використовується після заперечення \"did not find\".",
+                            "someone": "❌ *Someone* означало б, що когось знайшли.",
+                            "no one": "❌ *No one* створює подвійне заперечення з \"did not find\"."
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
