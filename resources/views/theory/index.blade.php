@@ -1,6 +1,7 @@
 @extends('layouts.catalog-public')
 
 @section('title', $sectionTitle ?? __('public.theory.title'))
+@section('body_class', 'scroll-optimized')
 
 @section('content')
 @php
@@ -64,7 +65,7 @@
         </div>
     </section>
 
-    <section id="theory-categories" class="nd-section border-b" style="border-color: var(--line);">
+    <section id="theory-categories" class="theory-lazy-section nd-section border-b" style="border-color: var(--line);">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.topics_to_learn') }}</p>
@@ -141,7 +142,7 @@
         </div>
     </section>
 
-    <section class="nd-section">
+    <section class="theory-lazy-section nd-section">
         <div class="grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
             <article class="rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.recommended_path') }}</p>

@@ -136,7 +136,6 @@
                 linear-gradient(180deg, var(--shell-bg) 0%, color-mix(in srgb, var(--shell-bg) 92%, white) 100%);
             border-color: var(--shell-border);
             border-radius: var(--shell-radius);
-            transition: border-top-left-radius 160ms ease, border-top-right-radius 160ms ease;
         }
 
         .site-header {
@@ -151,7 +150,7 @@
             overflow: visible;
             transform: translateZ(0);
             backface-visibility: hidden;
-            transition: border-top-left-radius 160ms ease, border-top-right-radius 160ms ease, background-color 160ms ease;
+            transition: border-top-left-radius 160ms ease, border-top-right-radius 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
         }
 
         .site-header > div {
@@ -164,31 +163,21 @@
             inset: 0;
             z-index: -1;
             pointer-events: none;
-            background: color-mix(in srgb, var(--surface) 94%, transparent);
-            backdrop-filter: blur(10px) saturate(1.02);
-            -webkit-backdrop-filter: blur(10px) saturate(1.02);
+            background: color-mix(in srgb, var(--surface-strong) 94%, var(--surface));
             border-top-left-radius: inherit;
             border-top-right-radius: inherit;
-            clip-path: inset(0 round var(--shell-radius) var(--shell-radius) 0 0);
-            transition: inherit;
-            will-change: opacity, background-color;
-        }
-
-        .catalog-shell.is-header-stuck {
-            border-top-left-radius: 0 !important;
-            border-top-right-radius: 0 !important;
+            transition: opacity 160ms ease, background-color 160ms ease;
+            will-change: opacity;
         }
 
         .catalog-shell.is-header-stuck .site-header {
             border-top-left-radius: 0 !important;
             border-top-right-radius: 0 !important;
+            box-shadow: 0 16px 36px rgba(17, 38, 63, 0.12);
         }
 
         .catalog-shell.is-header-stuck .site-header::before {
-            background: color-mix(in srgb, var(--surface-strong) 97%, var(--surface));
-            backdrop-filter: blur(8px) saturate(1.01);
-            -webkit-backdrop-filter: blur(8px) saturate(1.01);
-            clip-path: inset(0);
+            background: color-mix(in srgb, var(--surface-strong) 98%, var(--surface));
         }
 
         .surface-card {
@@ -229,21 +218,32 @@
         }
 
         .decorated-content .surface-card {
-            background: color-mix(in srgb, var(--surface) 82%, transparent);
-            backdrop-filter: blur(12px) saturate(1.05);
-            -webkit-backdrop-filter: blur(12px) saturate(1.05);
+            background: color-mix(in srgb, var(--surface) 92%, var(--surface-strong));
         }
 
         .decorated-content .surface-card-strong {
-            background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
-            backdrop-filter: blur(14px) saturate(1.04);
-            -webkit-backdrop-filter: blur(14px) saturate(1.04);
+            background: color-mix(in srgb, var(--surface-strong) 96%, var(--surface));
         }
 
         .decorated-content .soft-accent {
-            background: color-mix(in srgb, var(--accent-soft) 72%, transparent);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: color-mix(in srgb, var(--accent-soft) 84%, var(--surface-strong));
+        }
+
+        body.scroll-optimized .theory-lazy-section {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 720px;
+        }
+
+        body.scroll-optimized .decorated-content .surface-card {
+            background: color-mix(in srgb, var(--surface) 96%, var(--surface-strong));
+        }
+
+        body.scroll-optimized .decorated-content .surface-card-strong {
+            background: color-mix(in srgb, var(--surface-strong) 98%, var(--surface));
+        }
+
+        body.scroll-optimized .decorated-content .soft-accent {
+            background: color-mix(in srgb, var(--accent-soft) 90%, var(--surface-strong));
         }
 
         .nd-page {
@@ -358,12 +358,13 @@
     @livewireStyles
     @yield('head')
 </head>
-<body class="min-h-full font-body antialiased">
+<body class="min-h-full font-body antialiased @yield('body_class')">
     <div class="app-fixed-background" aria-hidden="true"></div>
     <div class="catalog-frame relative mx-auto max-w-[1440px] px-0 py-0 lg:px-8 lg:py-6">
         <div id="catalog-shell" class="catalog-shell rounded-none border-0 shadow-none lg:rounded-[30px] lg:border lg:shadow-panel">
             <div id="shell-random-shapes" class="pointer-events-none" aria-hidden="true"></div>
             @yield('shell_background')
+            <div id="site-header-sentinel" class="pointer-events-none absolute inset-x-0 top-0 h-px" aria-hidden="true"></div>
             <header id="site-header" class="site-header border-b px-0 py-4 lg:px-8 surface-card" style="border-color: var(--line);">
                 <div class="flex flex-col gap-4 px-4 xl:flex-row xl:items-center xl:justify-between lg:px-0">
                     <div class="flex items-center justify-between gap-4">
@@ -623,41 +624,79 @@
 
         function initStickyShellHeader() {
             const shell = document.getElementById('catalog-shell');
-            const header = document.getElementById('site-header');
+            const sentinel = document.getElementById('site-header-sentinel');
+            const desktopQuery = window.matchMedia('(min-width: 1024px)');
 
-            if (!shell || !header) {
+            if (!shell || !sentinel) {
                 return;
             }
 
-            let ticking = false;
-            let triggerY = 0;
+            let observer = null;
+            let fallbackBound = false;
+            let lastState = null;
 
-            const measureTrigger = () => {
-                triggerY = Math.max(0, Math.round(header.getBoundingClientRect().top + window.scrollY));
-            };
+            const applyStickyState = (isStuck) => {
+                const nextState = desktopQuery.matches && Boolean(isStuck);
 
-            const syncStickyState = () => {
-                ticking = false;
-                const isStuck = window.scrollY > 0 && window.scrollY >= triggerY;
-                shell.classList.toggle('is-header-stuck', isStuck);
-            };
-
-            const requestSync = () => {
-                if (ticking) {
+                if (lastState === nextState) {
                     return;
                 }
 
-                ticking = true;
-                window.requestAnimationFrame(syncStickyState);
+                lastState = nextState;
+                shell.classList.toggle('is-header-stuck', nextState);
             };
 
-            measureTrigger();
-            requestSync();
-            window.addEventListener('scroll', requestSync, { passive: true });
-            window.addEventListener('resize', () => {
-                measureTrigger();
+            const syncStickyFallback = () => {
+                applyStickyState(Math.round(sentinel.getBoundingClientRect().top) < 0);
+            };
+
+            const bindFallback = () => {
+                if (fallbackBound) {
+                    return;
+                }
+
+                fallbackBound = true;
+
+                const requestSync = () => window.requestAnimationFrame(syncStickyFallback);
                 requestSync();
-            });
+                window.addEventListener('scroll', requestSync, { passive: true });
+                window.addEventListener('resize', requestSync, { passive: true });
+            };
+
+            const connectObserver = () => {
+                if (observer) {
+                    observer.disconnect();
+                    observer = null;
+                }
+
+                applyStickyState(false);
+
+                if (!desktopQuery.matches) {
+                    return;
+                }
+
+                if (typeof IntersectionObserver !== 'function') {
+                    bindFallback();
+                    return;
+                }
+
+                observer = new IntersectionObserver(([entry]) => {
+                    applyStickyState(!entry.isIntersecting && entry.boundingClientRect.top < 0);
+                }, {
+                    threshold: [0, 1],
+                });
+
+                observer.observe(sentinel);
+                window.requestAnimationFrame(syncStickyFallback);
+            };
+
+            connectObserver();
+
+            if (typeof desktopQuery.addEventListener === 'function') {
+                desktopQuery.addEventListener('change', connectObserver);
+            } else if (typeof desktopQuery.addListener === 'function') {
+                desktopQuery.addListener(connectObserver);
+            }
         }
 
         function buildShellRandomShapes() {
