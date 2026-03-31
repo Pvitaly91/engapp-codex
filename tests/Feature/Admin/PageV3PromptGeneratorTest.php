@@ -111,6 +111,8 @@ class PageV3PromptGeneratorTest extends TestCase
         $response->assertSee('Prompt for LLM JSON generation');
         $response->assertSee('Prompt for Codex seeder generation');
         $response->assertSee('Prompt буде згенеровано тільки на основі URL');
+        $response->assertSee('separate downloadable `.json` file');
+        $response->assertSee('Attachment filenames may be arbitrary');
         $response->assertSee('database/seeders/Page_V3/definitions/types_of_questions_category.json');
         $response->assertSee('database/seeders/Page_V3/definitions/alternative_questions_theory.json');
     }

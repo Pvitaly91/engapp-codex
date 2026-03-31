@@ -122,6 +122,10 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('PassiveVoiceOverviewV3QuestionsOnlySeeder');
         $response->assertSee('database/seeders/V3/definitions/IA/ChatGptPro/passive_voice_overview_v3_questions_only.json');
         $response->assertSee('https://gramlyze.com/theory/voice/passive-voice-overview');
+        $response->assertSee('prompt_generator');
+        $response->assertSee('theory_page_id=' . $page->id);
+        $response->assertSee('saved_test.uuid');
+        $response->assertSee('at most 36 characters');
         $response->assertSee('A1: 4 question(s)');
         $response->assertSee('B1: 4 question(s)');
     }
@@ -147,6 +151,10 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('Prompt for Codex seeder generation');
         $response->assertSee('Prompt буде згенеровано тільки на основі URL');
         $response->assertSee('Passive Voice');
+        $response->assertSee('downloadable `.json` file');
+        $response->assertSee('uploaded filename may be arbitrary');
+        $response->assertSee('saved_test.uuid');
+        $response->assertSee('at most 36 characters');
         $response->assertSee('database/seeders/V3/definitions/IA/ChatGptPro/passive_voice_v3_questions_only.json');
     }
 

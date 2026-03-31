@@ -193,13 +193,16 @@ class V3PromptGeneratorService
             '',
             'Hard requirements',
             '- Before generating files, inspect the real V3 implementation already present in `database/seeders/V3`.',
-            '- Treat `app/Support/Database/JsonTestSeeder.php` and nearby V3 definition files as the compatibility contract.',
+            '- Treat `database/seeders/V3/Concerns/JsonTestSeeder.php`, `app/Support/Database/JsonTestSeeder.php`, and nearby V3 definition files as the compatibility contract.',
             '- Do not invent a new schema, new file layout, or new naming convention.',
             '- Follow the existing namespace, path, wrapper seeder, JSON definition, and localization pattern used by neighboring V3 seeders.',
             '- Generate exactly the requested number of questions for every selected CEFR level.',
             '- Make the difficulty progression feel natural from the lowest selected level to the highest selected level.',
+            '- The generated result must persist a real `SavedGrammarTest` entry with ordered question links, not only raw question data.',
+            $this->savedTestUuidRequirement(),
             '- If this namespace pattern uses a thin PHP wrapper seeder plus a JSON definition file, create both.',
             '- If nearby V3 seeders also rely on localization JSON files under `database/seeders/V3/localizations/...`, create or update the correct companion files instead of inventing custom runtime logic.',
+            $this->formatTheoryPageLinkageRequirement($source),
             '- Keep the final result fully compatible with the current Laravel V3 seeding system.',
             '',
             'Useful nearby references',
@@ -281,7 +284,12 @@ class V3PromptGeneratorService
 TEXT;
 
         $lines = [
-            'Generate one JSON object only. Do not add markdown fences. Do not add commentary before or after the JSON.',
+            'Generate one standalone `.json` file for the Laravel project `Pvitaly91/engapp-codex`.',
+            '',
+            'Preferred output mode',
+            '- If your chat interface can generate downloadable files, return exactly one downloadable `.json` file and nothing else.',
+            '- The attachment filename may be arbitrary. The JSON content must be correct.',
+            '- If your chat interface cannot generate files, return only one fenced `json` code block with no commentary before or after it.',
             '',
             'This JSON must match the real V3 definition style used by the Laravel project `Pvitaly91/engapp-codex` in `database/seeders/V3/definitions`.',
             '',
@@ -306,10 +314,13 @@ TEXT;
             'Rules',
             '- Use the exact top-level keys shown above: `schema_version`, `seeder`, `defaults`, `category`, `sources`, `tags`, `default_tag_keys`, `questions`.',
             '- Use the real V3 pattern already used in this project. Do not invent another schema.',
+            '- The final seeder built from this JSON must be able to persist a real `SavedGrammarTest` entry; include any saved-test metadata required by the neighboring V3 pattern.',
+            $this->savedTestUuidRequirement(),
             '- Generate exactly the requested number of questions for every selected CEFR level.',
             '- Ensure every marker answer is present in its options list.',
             '- Keep source keys and tag keys stable and reusable.',
             '- Keep hints concise and explanations useful.',
+            $this->formatTheoryPageLinkageRequirement($source, true),
             '- Make the JSON self-consistent and ready to be saved as a V3 definition file.',
         ];
 
@@ -332,7 +343,12 @@ TEXT;
         $lines = [
             'You are working in repository `Pvitaly91/engapp-codex` on branch `main`.',
             '',
-            'Take the JSON definition provided after this prompt and integrate it into the project as a fully compatible V3 seeder.',
+            'Take the attached or pasted JSON definition and integrate it into the project as a fully compatible V3 seeder.',
+            '',
+            'Input handling',
+            '- One JSON file may be attached in Codex or pasted inline.',
+            '- The uploaded filename may be arbitrary. Do not use the attachment name as the target repository filename.',
+            '- Determine the final repository paths from the topic, target namespace, JSON contents, and the neighboring V3 seeders in this repo.',
             '',
             'Target',
             '- Target namespace: `' . $preview['target_namespace'] . '`',
@@ -351,11 +367,14 @@ TEXT;
             $this->formatSourceSection($source),
             '',
             'Hard requirements',
-            '- First inspect the real V3 implementation in `database/seeders/V3` and the JSON contract in `app/Support/Database/JsonTestSeeder.php`.',
+            '- First inspect the real V3 implementation in `database/seeders/V3`, especially `database/seeders/V3/Concerns/JsonTestSeeder.php`, and compare it with the JSON contract in `app/Support/Database/JsonTestSeeder.php`.',
             '- Do not invent a new schema, new loader logic, or a custom one-off seeder implementation.',
             '- Preserve the provided JSON question set as the canonical content. Do not rewrite or rebalance it unless a small technical compatibility fix is required.',
             '- Ensure the final `seeder.class`, namespace, wrapper seeder file path, and JSON definition path are all consistent.',
+            '- The final integrated result must persist a real `SavedGrammarTest` entry with ordered question links so the public theory page can surface this test.',
+            $this->savedTestUuidRequirement(true),
             '- If neighboring V3 seeders in this namespace also use localization JSON files, wire them correctly instead of introducing ad-hoc logic.',
+            $this->formatTheoryPageLinkageRequirement($source),
             '- Verify the per-level counts before finishing.',
             '',
             'Useful nearby references',
@@ -381,6 +400,7 @@ TEXT;
         ];
 
         if (($source['source_type'] ?? null) === 'theory_page') {
+            $lines[] = '- Page id: `' . ($source['id'] ?? '') . '`';
             $lines[] = '- Page title: `' . ($source['title'] ?? '') . '`';
             $lines[] = '- Page slug: `' . ($source['slug'] ?? '') . '`';
 
@@ -420,6 +440,33 @@ TEXT;
     }
 
     /**
+     * @param  array<string, mixed>  $source
+     */
+    protected function formatTheoryPageLinkageRequirement(array $source, bool $llmJsonMode = false): ?string
+    {
+        if (($source['source_type'] ?? null) !== 'theory_page' || empty($source['id'])) {
+            return null;
+        }
+
+        $prefix = $llmJsonMode
+            ? '- If the real neighboring V3 pattern persists a saved test payload, include source linkage in `saved_test.filters.prompt_generator`'
+            : '- Because this test is sourced from an existing local theory page, ensure the persisted saved test filters carry source linkage in `prompt_generator`';
+
+        $details = [
+            'source_type=theory_page',
+            'theory_page_id=' . (int) $source['id'],
+            'theory_page_ids=[' . (int) $source['id'] . ']',
+            'theory_page.id=' . (int) $source['id'],
+            'theory_page.slug=' . ($source['slug'] ?? ''),
+            'theory_page.title=' . ($source['title'] ?? ''),
+            'theory_page.category_slug_path=' . ($source['category_slug_path'] ?? ''),
+            'theory_page.url=' . ($source['url'] ?? ''),
+        ];
+
+        return $prefix . ': `' . implode('; ', $details) . '`.';
+    }
+
+    /**
      * @param  array<int, string>  $referenceFiles
      */
     protected function formatReferenceLines(array $referenceFiles): string
@@ -440,5 +487,12 @@ TEXT;
             array_keys($distribution),
             array_values($distribution)
         ));
+    }
+
+    protected function savedTestUuidRequirement(bool $integrationMode = false): string
+    {
+        return $integrationMode
+            ? '- Validate `saved_test` identifiers against database limits: `saved_test.uuid` must be at most 36 characters because it is stored in `saved_grammar_tests.uuid`. If it is longer, shorten only the UUID and keep the saved-test slug stable.'
+            : '- Any generated `saved_test.uuid` must fit the database limit for `saved_grammar_tests.uuid`: at most 36 characters. Prefer a short slug-like UUID such as `<short-topic>-saved-test`.';
     }
 }

@@ -4,12 +4,15 @@ namespace Tests\Feature;
 
 use App\Http\Controllers\SeedRunController;
 use App\Support\Database\JsonPageLocalizationManager;
+use App\Models\SavedGrammarTest;
 use App\Models\ChatGPTExplanation;
 use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Support\Database\JsonTestDirectorySeeder;
 use App\Support\Database\JsonTestLocalizationManager;
+use App\Support\Database\JsonRuntimeSeeder;
 use App\Services\QuestionDeletionService;
+use App\Services\SeederTestTargetResolver;
 use Database\Seeders\V2\PassiveVoiceAllTensesV2Seeder;
 use Database\Seeders\V3\PassiveVoiceAllTensesV3Seeder;
 use Illuminate\Database\Schema\Blueprint;
@@ -53,6 +56,15 @@ class V3JsonTestSeederTest extends TestCase
             'chatgpt_explanations',
             'question_hints',
             'question_variants',
+            'saved_grammar_test_questions',
+            'saved_grammar_tests',
+            'tests',
+            'tag_text_block',
+            'page_tag',
+            'page_category_tag',
+            'text_blocks',
+            'pages',
+            'page_categories',
             'question_tag',
             'question_option_question',
             'verb_hints',
@@ -84,6 +96,45 @@ class V3JsonTestSeederTest extends TestCase
             $table->id();
             $table->string('name')->unique();
             $table->string('category')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('page_categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('language')->nullable();
+            $table->string('type')->nullable();
+            $table->foreignId('parent_id')->nullable()->constrained('page_categories')->nullOnDelete();
+            $table->string('seeder')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('pages', function (Blueprint $table) {
+            $table->id();
+            $table->string('slug')->unique();
+            $table->string('title');
+            $table->text('text')->nullable();
+            $table->string('type')->nullable();
+            $table->string('seeder')->nullable();
+            $table->foreignId('page_category_id')->nullable()->constrained('page_categories')->nullOnDelete();
+            $table->timestamps();
+        });
+
+        Schema::create('text_blocks', function (Blueprint $table) {
+            $table->id();
+            $table->uuid('uuid')->nullable();
+            $table->foreignId('page_id')->nullable()->constrained('pages')->cascadeOnDelete();
+            $table->foreignId('page_category_id')->nullable()->constrained('page_categories')->cascadeOnDelete();
+            $table->string('locale', 5)->nullable();
+            $table->string('type')->nullable();
+            $table->string('column')->nullable();
+            $table->string('heading')->nullable();
+            $table->string('css_class')->nullable();
+            $table->integer('sort_order')->default(0);
+            $table->text('body')->nullable();
+            $table->string('level')->nullable();
+            $table->string('seeder')->nullable();
             $table->timestamps();
         });
 
@@ -145,6 +196,27 @@ class V3JsonTestSeederTest extends TestCase
             $table->unique(['tag_id', 'question_id']);
         });
 
+        Schema::create('page_tag', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('page_id')->constrained('pages')->cascadeOnDelete();
+            $table->foreignId('tag_id')->constrained('tags')->cascadeOnDelete();
+            $table->unique(['page_id', 'tag_id']);
+        });
+
+        Schema::create('page_category_tag', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('page_category_id')->constrained('page_categories')->cascadeOnDelete();
+            $table->foreignId('tag_id')->constrained('tags')->cascadeOnDelete();
+            $table->unique(['page_category_id', 'tag_id']);
+        });
+
+        Schema::create('tag_text_block', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('text_block_id')->constrained('text_blocks')->cascadeOnDelete();
+            $table->foreignId('tag_id')->constrained('tags')->cascadeOnDelete();
+            $table->unique(['text_block_id', 'tag_id']);
+        });
+
         Schema::create('question_variants', function (Blueprint $table) {
             $table->id();
             $table->foreignId('question_id')->constrained('questions')->cascadeOnDelete();
@@ -174,6 +246,36 @@ class V3JsonTestSeederTest extends TestCase
                 ['question', 'wrong_answer', 'correct_answer', 'language'],
                 'chatgpt_explanations_unique'
             );
+        });
+
+        Schema::create('saved_grammar_tests', function (Blueprint $table) {
+            $table->id();
+            $table->uuid('uuid')->unique();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->json('filters');
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('saved_grammar_test_questions', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('saved_grammar_test_id')->constrained('saved_grammar_tests')->cascadeOnDelete();
+            $table->uuid('question_uuid');
+            $table->unsignedInteger('position')->default(0);
+            $table->timestamps();
+
+            $table->index('question_uuid');
+        });
+
+        Schema::create('tests', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->json('filters');
+            $table->json('questions');
+            $table->text('description')->nullable();
+            $table->timestamps();
         });
 
         Schema::create('seed_runs', function (Blueprint $table) {
@@ -393,10 +495,114 @@ class V3JsonTestSeederTest extends TestCase
         );
     }
 
+    public function test_runtime_seeder_can_persist_saved_test_with_ordered_question_links(): void
+    {
+        File::ensureDirectoryExists($this->tempDefinitionsDirectory);
+
+        $definitionPath = $this->tempDefinitionsDirectory . DIRECTORY_SEPARATOR . 'json_saved_test_sample.json';
+
+        File::put($definitionPath, json_encode([
+            'schema_version' => 1,
+            'seeder' => [
+                'class' => 'Database\\Seeders\\V3\\IA\\ChatGptPro\\JsonSavedTestSampleSeeder',
+                'uuid_namespace' => 'JsonSavedTestSampleSeeder',
+            ],
+            'defaults' => [
+                'default_locale' => 'uk',
+            ],
+            'category' => [
+                'name' => 'JSON Saved Test Category',
+            ],
+            'saved_test' => [
+                'uuid' => 'json-saved-test-sample',
+                'slug' => 'json-saved-test-sample',
+                'name' => 'JSON Saved Test Sample',
+                'description' => 'Sample saved-test payload for the legacy JSON seeder contract.',
+                'filters' => [
+                    'levels' => ['A1'],
+                    'prompt_generator' => [
+                        'source_type' => 'theory_page',
+                        'theory_page_id' => 712,
+                        'theory_page_ids' => [712],
+                        'theory_page' => [
+                            'id' => 712,
+                            'slug' => 'plural-nouns-s-es-ies',
+                            'title' => 'Plural Nouns — Множина іменників: правила, винятки, приклади',
+                            'category_slug_path' => 'imennyky-artykli-ta-kilkist',
+                            'url' => 'https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies',
+                        ],
+                    ],
+                ],
+                'question_uuids' => [
+                    'json-saved-test-question-2',
+                    'json-saved-test-question-1',
+                ],
+            ],
+            'questions' => [
+                [
+                    'uuid' => 'json-saved-test-question-1',
+                    'question' => 'Sample saved test {a1}.',
+                    'level' => 'A1',
+                    'markers' => [
+                        'a1' => [
+                            'answer' => 'works',
+                            'options' => ['works', 'fails'],
+                        ],
+                    ],
+                ],
+                [
+                    'uuid' => 'json-saved-test-question-2',
+                    'question' => 'Ordered links {a1}.',
+                    'level' => 'A1',
+                    'markers' => [
+                        'a1' => [
+                            'answer' => 'matter',
+                            'options' => ['matter', 'break'],
+                        ],
+                    ],
+                ],
+            ],
+        ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
+
+        (new JsonRuntimeSeeder($definitionPath))->seedFile();
+
+        $savedTest = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'json-saved-test-sample')
+            ->first();
+
+        $this->assertNotNull($savedTest);
+        $this->assertSame('json-saved-test-sample', $savedTest->uuid);
+        $this->assertSame('JSON Saved Test Sample', $savedTest->name);
+        $this->assertSame(
+            [
+                'json-saved-test-question-2',
+                'json-saved-test-question-1',
+            ],
+            $savedTest->questionLinks
+                ->sortBy('position')
+                ->pluck('question_uuid')
+                ->values()
+                ->all()
+        );
+        $this->assertSame(
+            712,
+            data_get($savedTest->filters, 'prompt_generator.theory_page_id')
+        );
+        $this->assertSame(
+            [
+                'Database\\Seeders\\V3\\IA\\ChatGptPro\\JsonSavedTestSampleSeeder',
+            ],
+            data_get($savedTest->filters, 'seeder_classes')
+        );
+        $this->assertSame(2, (int) data_get($savedTest->filters, 'num_questions'));
+    }
+
     public function test_seed_runs_supports_virtual_localization_seeders_for_preview_and_execution(): void
     {
         $controller = new class(
             app(QuestionDeletionService::class),
+            app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),
         ) extends SeedRunController {

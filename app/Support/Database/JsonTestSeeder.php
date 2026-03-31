@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\ChatGPTExplanation;
 use App\Models\Question;
 use App\Models\QuestionHint;
+use App\Models\SavedGrammarTest;
 use App\Models\Source;
 use App\Models\Tag;
 use Database\Seeders\QuestionSeeder;
@@ -152,6 +153,11 @@ abstract class JsonTestSeeder extends QuestionSeeder
 
         $this->seedQuestionData($items, []);
         $this->persistLocalizations($localizedPayloads);
+        $this->syncSavedTestFromDefinition(
+            Arr::get($definition, 'saved_test'),
+            $seederClass,
+            array_column($items, 'uuid')
+        );
     }
 
     protected function resolveSeederClassName(array $definition): string
@@ -901,6 +907,116 @@ abstract class JsonTestSeeder extends QuestionSeeder
         }
     }
 
+    protected function syncSavedTestFromDefinition(
+        mixed $payload,
+        string $seederClass,
+        array $questionUuids,
+    ): ?SavedGrammarTest {
+        if (! is_array($payload) || $payload === []) {
+            return null;
+        }
+
+        $uuid = trim((string) ($payload['uuid'] ?? ''));
+        $slug = trim((string) ($payload['slug'] ?? ''));
+        $name = trim((string) ($payload['name'] ?? ''));
+
+        if ($uuid === '' || $slug === '' || $name === '') {
+            throw new RuntimeException('saved_test must define uuid, slug and name.');
+        }
+
+        if (strlen($uuid) > self::UUID_LENGTH) {
+            throw new RuntimeException(sprintf(
+                'saved_test.uuid must be at most %d characters.',
+                self::UUID_LENGTH
+            ));
+        }
+
+        $orderedQuestionUuids = $this->normalizeSavedTestQuestionUuids(
+            $payload['question_uuids'] ?? [],
+            $questionUuids
+        );
+
+        $missingQuestionUuids = array_values(array_diff($questionUuids, $orderedQuestionUuids));
+        $unknownQuestionUuids = array_values(array_diff($orderedQuestionUuids, $questionUuids));
+
+        if ($missingQuestionUuids !== [] || $unknownQuestionUuids !== []) {
+            throw new RuntimeException('saved_test.question_uuids must contain the same UUID set as questions.');
+        }
+
+        $filters = is_array($payload['filters'] ?? null) ? $payload['filters'] : [];
+        $seederClasses = $this->normalizeStringList($filters['seeder_classes'] ?? []);
+
+        if (! in_array($seederClass, $seederClasses, true)) {
+            $seederClasses[] = $seederClass;
+        }
+
+        $filters['seeder_classes'] = $seederClasses;
+        $filters['num_questions'] = (int) ($filters['num_questions'] ?? count($orderedQuestionUuids));
+
+        $savedTest = SavedGrammarTest::query()
+            ->where('uuid', $uuid)
+            ->orWhere('slug', $slug)
+            ->first();
+
+        if (! $savedTest) {
+            $savedTest = new SavedGrammarTest;
+        }
+
+        $savedTest->fill([
+            'uuid' => $uuid,
+            'slug' => $slug,
+            'name' => $name,
+            'description' => $this->nullableString($payload['description'] ?? null),
+            'filters' => $filters,
+        ]);
+        $savedTest->save();
+
+        $existingCount = Question::query()
+            ->whereIn('uuid', $orderedQuestionUuids)
+            ->count();
+
+        if ($existingCount !== count($orderedQuestionUuids)) {
+            throw new RuntimeException('saved_test.question_uuids references questions that were not seeded.');
+        }
+
+        $savedTest->questionLinks()->delete();
+
+        $linkPayloads = [];
+        foreach ($orderedQuestionUuids as $position => $questionUuid) {
+            $linkPayloads[] = [
+                'question_uuid' => $questionUuid,
+                'position' => $position + 1,
+            ];
+        }
+
+        if ($linkPayloads !== []) {
+            $savedTest->questionLinks()->createMany($linkPayloads);
+        }
+
+        return $savedTest;
+    }
+
+    protected function normalizeSavedTestQuestionUuids(mixed $payload, array $fallback): array
+    {
+        if (! is_array($payload) || $payload === []) {
+            return $fallback;
+        }
+
+        $normalized = [];
+
+        foreach ($payload as $questionUuid) {
+            $uuid = trim((string) $questionUuid);
+
+            if ($uuid === '' || in_array($uuid, $normalized, true)) {
+                continue;
+            }
+
+            $normalized[] = $uuid;
+        }
+
+        return $normalized === [] ? $fallback : $normalized;
+    }
+
     protected function explanationLanguagesForLocale(string $locale): array
     {
         $normalized = $this->normalizeLocale($locale);
@@ -921,6 +1037,13 @@ abstract class JsonTestSeeder extends QuestionSeeder
         }
 
         return $normalized;
+    }
+
+    protected function nullableString(mixed $value): ?string
+    {
+        $value = trim((string) $value);
+
+        return $value === '' ? null : $value;
     }
 
     protected function selectLocalizedText(mixed $value, string $locale): ?string
