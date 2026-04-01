@@ -18,6 +18,7 @@
                     class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition"
                     data-folder-toggle
                     data-folder-path="{{ $node['path'] }}"
+                    data-folder-tab="{{ $activeSeederTab ?? 'main' }}"
                     data-load-url="{{ route('seed-runs.folders.children') }}"
                     aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -36,7 +37,7 @@
             @if(!empty($folderSeedRunIds))
                 <div class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-end gap-2 sm:items-center w-full lg:ml-auto xl:flex-nowrap" data-folder-actions>
                     <form method="POST"
-                          action="{{ route('seed-runs.folders.destroy-with-questions') }}"
+                          action="{{ route('seed-runs.folders.destroy-with-questions', ['tab' => $activeSeederTab ?? 'main']) }}"
                           data-preloader
                           data-confirm="{{ __($folderDeleteConfirm, ['folder' => $folderLabel]) }}"
                           class="w-full sm:w-auto lg:w-auto">
@@ -52,7 +53,7 @@
                         </button>
                     </form>
                     <form method="POST"
-                          action="{{ route('seed-runs.folders.destroy') }}"
+                          action="{{ route('seed-runs.folders.destroy', ['tab' => $activeSeederTab ?? 'main']) }}"
                           data-preloader
                           data-confirm="Видалити записи про виконання для папки «{{ e($folderLabel) }}»?"
                           class="w-full sm:w-auto lg:w-auto">
@@ -82,6 +83,7 @@
         $seedRunOrdinal = $recentSeedRunOrdinals->get($seedRun->id);
         $seedRunIsRecent = !is_null($seedRunOrdinal);
         $isLocalizationSeeder = in_array(($dataProfile['type'] ?? null), ['question_localizations', 'page_localizations'], true);
+        $relatedLocalizations = collect($seedRun->related_localizations ?? []);
         $questionCount = (int) ($seedRun->question_count ?? 0);
         $executedCheckboxId = 'executed-seeder-' . $seedRun->id;
         $deleteQuestionsCheckboxId = 'executed-delete-questions-' . $seedRun->id;
@@ -170,6 +172,77 @@
                                         </a>
                                     @endif
 
+                                    @if($relatedLocalizations->isNotEmpty())
+                                        <div class="rounded-lg border border-sky-200 bg-sky-50/80 p-3 space-y-3">
+                                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                                <div>
+                                                    <p class="text-xs font-semibold uppercase tracking-wide text-sky-800">
+                                                        Виконані локалізації
+                                                    </p>
+                                                    <p class="text-[11px] text-sky-700">
+                                                        Доступно {{ $relatedLocalizations->count() }} записів локалізацій.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="space-y-2">
+                                                @foreach($relatedLocalizations as $localization)
+                                                    <div class="rounded-md border border-sky-100 bg-white/90 px-3 py-2">
+                                                        <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                                                            <div class="min-w-0">
+                                                                <div class="flex flex-wrap items-center gap-2 text-xs">
+                                                                    <span class="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 font-semibold text-sky-800">
+                                                                        {{ $localization['locale_label'] ?? 'N/A' }}
+                                                                    </span>
+                                                                    <span class="font-medium text-slate-700">
+                                                                        {{ $localization['type_label'] ?? 'Локалізація' }}
+                                                                    </span>
+                                                                </div>
+                                                                <p class="mt-1 break-all text-xs text-slate-600">
+                                                                    {{ $localization['display_name'] ?? ($localization['class_name'] ?? '') }}
+                                                                </p>
+                                                                @if(!empty($localization['ran_at']))
+                                                                    <p class="mt-1 text-[11px] text-slate-500">
+                                                                        Останній запуск: {{ $localization['ran_at'] }}
+                                                                    </p>
+                                                                @endif
+                                                            </div>
+
+                                                            <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap lg:justify-end">
+                                                                <form method="POST"
+                                                                      action="{{ route('seed-runs.refresh', ['seedRun' => $localization['seed_run_id'], 'tab' => $activeSeederTab ?? 'main']) }}"
+                                                                      data-preloader
+                                                                      data-reload-after-success="true"
+                                                                      data-confirm="Оновити дані локалізації «{{ e($localization['display_name'] ?? ($localization['class_name'] ?? '')) }}»?"
+                                                                      class="w-full sm:w-auto">
+                                                                    @csrf
+                                                                    <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-blue-500">
+                                                                        <i class="fa-solid fa-rotate"></i>
+                                                                        Оновити
+                                                                    </button>
+                                                                </form>
+
+                                                                <form method="POST"
+                                                                      action="{{ route('seed-runs.destroy-with-questions', ['seedRun' => $localization['seed_run_id'], 'tab' => $activeSeederTab ?? 'main']) }}"
+                                                                      data-preloader
+                                                                      data-reload-after-success="true"
+                                                                      data-confirm="Видалити локалізацію «{{ e($localization['display_name'] ?? ($localization['class_name'] ?? '')) }}» з БД?"
+                                                                      class="w-full sm:w-auto">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md bg-red-600 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-red-500">
+                                                                        <i class="fa-solid fa-database"></i>
+                                                                        Видалити з БД
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
+
                                     @if($questionCount > 0)
                                         <button type="button"
                                                 class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 transition w-full sm:w-auto"
@@ -223,7 +296,7 @@
                                                     Код
                                                 </button>
                                                 <form method="POST"
-                                                      action="{{ route('seed-runs.destroy-seeder-file') }}"
+                                                      action="{{ route('seed-runs.destroy-seeder-file', ['tab' => $activeSeederTab ?? 'main']) }}"
                                                       data-preloader
                                                       data-confirm="{{ $deleteFileConfirm }}"
                                                       data-confirm-regular="{{ $deleteFileConfirm }}"
@@ -241,14 +314,14 @@
                                                         Видалити файл
                                                     </button>
                                                 </form>
-                                                <form method="POST" action="{{ route('seed-runs.refresh', $seedRun->id) }}" data-preloader data-confirm="Оновити дані сидера «{{ e($seedRun->display_class_name) }}»? Всі поточні дані будуть видалені та створені заново." class="w-full sm:w-auto lg:w-auto">
+                                                <form method="POST" action="{{ route('seed-runs.refresh', ['seedRun' => $seedRun->id, 'tab' => $activeSeederTab ?? 'main']) }}" data-preloader data-confirm="Оновити дані сидера «{{ e($seedRun->display_class_name) }}»? Всі поточні дані будуть видалені та створені заново." class="w-full sm:w-auto lg:w-auto">
                                                     @csrf
                                                     <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-md hover:bg-blue-500 transition">
                                                         <i class="fa-solid fa-rotate"></i>
                                                         Оновити дані
                                                     </button>
                                                 </form>
-                                                <form method="POST" action="{{ route('seed-runs.destroy-with-questions', $seedRun->id) }}" data-preloader data-confirm="{{ __($seederDeleteConfirm) }}" class="w-full sm:w-auto lg:w-auto">
+                                                <form method="POST" action="{{ route('seed-runs.destroy-with-questions', ['seedRun' => $seedRun->id, 'tab' => $activeSeederTab ?? 'main']) }}" data-preloader data-confirm="{{ __($seederDeleteConfirm) }}" class="w-full sm:w-auto lg:w-auto">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
@@ -256,7 +329,7 @@
                                                         {{ $seederDeleteButton }}
                                                     </button>
                                                 </form>
-                                                <form method="POST" action="{{ route('seed-runs.destroy', $seedRun->id) }}" data-preloader data-confirm="Видалити лише запис про виконання?" class="w-full sm:w-auto lg:w-auto">
+                                                <form method="POST" action="{{ route('seed-runs.destroy', ['seedRun' => $seedRun->id, 'tab' => $activeSeederTab ?? 'main']) }}" data-preloader data-confirm="Видалити лише запис про виконання?" class="w-full sm:w-auto lg:w-auto">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">

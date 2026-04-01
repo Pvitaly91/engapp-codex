@@ -5,5 +5,6 @@
         'node' => $node,
         'depth' => $depth,
         'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
+        'activeSeederTab' => $activeSeederTab ?? 'main',
     ])
 @endforeach

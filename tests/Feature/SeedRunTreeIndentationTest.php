@@ -77,4 +77,27 @@ class SeedRunTreeIndentationTest extends TestCase
         $this->assertStringNotContainsString('margin-left: 6rem;', $nestedHtml);
         $this->assertStringContainsString('margin-left: 0rem;', $rootHtml);
     }
+
+    public function test_executed_folder_lazy_load_url_keeps_tab_outside_base_route(): void
+    {
+        $html = view('seed-runs.partials.executed-node', [
+            'node' => [
+                'type' => 'folder',
+                'name' => 'Page_V3',
+                'path' => 'Page_V3',
+                'children' => [],
+                'seeder_count' => 77,
+                'seed_run_ids' => [],
+                'class_names' => [],
+                'folder_profile' => [],
+            ],
+            'depth' => 0,
+            'recentSeedRunOrdinals' => collect(),
+            'activeSeederTab' => 'main',
+        ])->render();
+
+        $this->assertStringContainsString('data-folder-tab="main"', $html);
+        $this->assertStringContainsString('data-load-url="' . route('seed-runs.folders.children') . '"', $html);
+        $this->assertStringNotContainsString(route('seed-runs.folders.children', ['tab' => 'main']), $html);
+    }
 }

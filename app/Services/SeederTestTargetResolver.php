@@ -39,7 +39,7 @@ class SeederTestTargetResolver
 
         $questionsBySeeder = collect();
 
-        if (Schema::hasColumn('questions', 'seeder')) {
+        if (Schema::hasTable('questions') && Schema::hasColumn('questions', 'seeder')) {
             $questionsBySeeder = Question::query()
                 ->select(['id', 'uuid', 'seeder'])
                 ->whereIn('seeder', $normalizedClassNames->all())
@@ -68,6 +68,10 @@ class SeederTestTargetResolver
     {
         if ($this->preparedSavedTests instanceof Collection) {
             return $this->preparedSavedTests;
+        }
+
+        if (! Schema::hasTable('saved_grammar_tests') || ! Schema::hasTable('saved_grammar_test_questions')) {
+            return $this->preparedSavedTests = collect();
         }
 
         $this->preparedSavedTests = SavedGrammarTest::query()
@@ -101,6 +105,10 @@ class SeederTestTargetResolver
     {
         if ($this->preparedLegacyTests instanceof Collection) {
             return $this->preparedLegacyTests;
+        }
+
+        if (! Schema::hasTable('tests')) {
+            return $this->preparedLegacyTests = collect();
         }
 
         $this->preparedLegacyTests = Test::query()

@@ -43,6 +43,31 @@ class JsonTestLocalizationManager
         return $this->descriptorForClass($className)['path'] ?? null;
     }
 
+    public function targetSeederClassForVirtualSeeder(string $className): ?string
+    {
+        $descriptor = $this->descriptorForClass($className);
+
+        if (! is_array($descriptor)) {
+            return null;
+        }
+
+        $configured = trim((string) ($descriptor['target_seeder_class'] ?? ''));
+
+        if ($configured !== '') {
+            return $configured;
+        }
+
+        try {
+            $definition = $this->loadVirtualSeederDefinition($className);
+            $baseIndex = $this->targetDefinitionIndex($definition);
+            $resolved = trim((string) ($baseIndex['seeder_class'] ?? ''));
+
+            return $resolved !== '' ? $resolved : null;
+        } catch (\Throwable) {
+            return null;
+        }
+    }
+
     public function mergeDefinitionLocalizations(
         array $definition,
         ?string $definitionPath = null,

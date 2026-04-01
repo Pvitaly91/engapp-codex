@@ -11,6 +11,7 @@ use App\Services\SeederTestTargetResolver;
 use App\Services\QuestionDeletionService;
 use App\Support\Database\JsonPageLocalizationManager;
 use App\Support\Database\JsonPageSeeder;
+use App\Support\Database\JsonTestLocalizationManager;
 use Database\Seeders\Page_v2\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
 use Database\Seeders\Page_v2\Concerns\PageCategoryDescriptionSeeder as PageCategoryDescriptionSeederBase;
 use Database\Seeders\QuestionSeeder as QuestionSeederBase;
@@ -35,6 +36,7 @@ class SeedRunsService
     public function __construct(
         private QuestionDeletionService $questionDeletionService,
         private SeederTestTargetResolver $seederTestTargetResolver,
+        private JsonTestLocalizationManager $jsonTestLocalizationManager,
         private JsonPageLocalizationManager $jsonPageLocalizationManager,
     )
     {
@@ -42,19 +44,27 @@ class SeedRunsService
 
     protected function isVirtualLocalizationSeeder(string $className): bool
     {
-        return $this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className);
+        return $this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)
+            || $this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className);
     }
 
     protected function virtualLocalizationType(string $className): ?string
     {
-        return $this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)
-            ? 'page_localizations'
-            : null;
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return 'question_localizations';
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return 'page_localizations';
+        }
+
+        return null;
     }
 
     protected function virtualLocalizationClasses(): array
     {
-        return collect($this->jsonPageLocalizationManager->virtualSeederClasses())
+        return collect($this->jsonTestLocalizationManager->virtualSeederClasses())
+            ->merge($this->jsonPageLocalizationManager->virtualSeederClasses())
             ->unique()
             ->values()
             ->all();
@@ -62,27 +72,197 @@ class SeedRunsService
 
     protected function virtualLocalizationFilePath(string $className): ?string
     {
-        return $this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)
-            ? $this->jsonPageLocalizationManager->filePathForClass($className)
-            : null;
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->filePathForClass($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->filePathForClass($className);
+        }
+
+        return null;
     }
 
     protected function applyVirtualLocalizationSeeder(string $className): array
     {
-        if (! $this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
-            throw new \RuntimeException(__('Localization seeder :class was not found.', ['class' => $className]));
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->applyVirtualSeeder($className);
         }
 
-        return $this->jsonPageLocalizationManager->applyVirtualSeeder($className);
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->applyVirtualSeeder($className);
+        }
+
+        throw new \RuntimeException(__('Localization seeder :class was not found.', ['class' => $className]));
     }
 
     protected function removeVirtualLocalizationSeederData(string $className): array
     {
-        if (! $this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
-            return [];
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->removeVirtualSeederData($className);
         }
 
-        return $this->jsonPageLocalizationManager->removeVirtualSeederData($className);
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->removeVirtualSeederData($className);
+        }
+
+        return [];
+    }
+
+    protected function localizationTargetSeederClass(string $className): ?string
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->targetSeederClassForVirtualSeeder($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->targetSeederClassForVirtualSeeder($className);
+        }
+
+        return null;
+    }
+
+    protected function localizationDescriptorForClass(string $className): ?array
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->descriptorForClass($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->descriptorForClass($className);
+        }
+
+        return null;
+    }
+
+    protected function normalizeLocalizationLocale(?string $locale): string
+    {
+        $normalized = strtolower(trim((string) $locale));
+
+        return $normalized === 'ua' ? 'uk' : $normalized;
+    }
+
+    protected function localizationLocaleLabel(?string $locale): string
+    {
+        $normalized = $this->normalizeLocalizationLocale($locale);
+
+        return $normalized !== '' ? Str::upper($normalized) : __('N/A');
+    }
+
+    protected function localizationTypeLabel(?string $type): string
+    {
+        return match ($type) {
+            'question_localizations' => __('Локалізація питань'),
+            'page_localizations' => __('Локалізація сторінки'),
+            default => __('Локалізація'),
+        };
+    }
+
+    protected function buildRelatedLocalizationMap(Collection $executedSeeders): Collection
+    {
+        return $executedSeeders
+            ->map(function ($seedRun) {
+                $className = (string) ($seedRun->class_name ?? '');
+                $profileType = (string) data_get($seedRun, 'data_profile.type', '');
+
+                if (! in_array($profileType, ['question_localizations', 'page_localizations'], true)) {
+                    return null;
+                }
+
+                $targetClassName = $this->localizationTargetSeederClass($className);
+
+                if (! filled($targetClassName)) {
+                    return null;
+                }
+
+                $descriptor = $this->localizationDescriptorForClass($className);
+                $locale = $this->normalizeLocalizationLocale($descriptor['locale'] ?? null);
+
+                return [
+                    'seed_run_id' => (int) ($seedRun->id ?? 0),
+                    'class_name' => $className,
+                    'display_name' => (string) ($seedRun->display_class_name ?? $this->formatSeederClassName($className)),
+                    'display_basename' => (string) ($seedRun->display_class_basename ?? class_basename($className)),
+                    'target_class_name' => $targetClassName,
+                    'locale' => $locale,
+                    'locale_label' => $this->localizationLocaleLabel($locale),
+                    'type' => $profileType,
+                    'type_label' => $this->localizationTypeLabel($profileType),
+                    'ran_at' => $seedRun->ran_at_formatted
+                        ?? optional($seedRun->ran_at)->format('Y-m-d H:i:s'),
+                ];
+            })
+            ->filter()
+            ->groupBy('target_class_name')
+            ->map(function (Collection $items) {
+                return $items
+                    ->sortBy(fn (array $item) => sprintf(
+                        '%s|%s|%010d',
+                        $item['locale'] ?? '',
+                        $item['display_name'] ?? '',
+                        (int) ($item['seed_run_id'] ?? 0)
+                    ))
+                    ->values();
+            });
+    }
+
+    protected function buildAvailableLocalizationMap(iterable $targetSeeders): Collection
+    {
+        $targetLookup = collect($targetSeeders)
+            ->map(function ($seeder) {
+                if (is_string($seeder)) {
+                    return trim($seeder);
+                }
+
+                return trim((string) data_get($seeder, 'class_name', ''));
+            })
+            ->filter()
+            ->flip();
+
+        if ($targetLookup->isEmpty()) {
+            return collect();
+        }
+
+        return collect($this->virtualLocalizationClasses())
+            ->map(function (string $className) {
+                $type = $this->virtualLocalizationType($className);
+
+                if (! in_array($type, ['question_localizations', 'page_localizations'], true)) {
+                    return null;
+                }
+
+                $targetClassName = $this->localizationTargetSeederClass($className);
+
+                if (! filled($targetClassName)) {
+                    return null;
+                }
+
+                $descriptor = $this->localizationDescriptorForClass($className);
+                $locale = $this->normalizeLocalizationLocale($descriptor['locale'] ?? null);
+
+                return [
+                    'class_name' => $className,
+                    'display_name' => $this->formatSeederClassName($className),
+                    'display_basename' => class_basename($className),
+                    'target_class_name' => $targetClassName,
+                    'locale' => $locale,
+                    'locale_label' => $this->localizationLocaleLabel($locale),
+                    'type' => $type,
+                    'type_label' => $this->localizationTypeLabel($type),
+                ];
+            })
+            ->filter(fn (?array $item) => $item !== null && $targetLookup->has($item['target_class_name'] ?? ''))
+            ->groupBy('target_class_name')
+            ->map(function (Collection $items) {
+                return $items
+                    ->sortBy(fn (array $item) => sprintf(
+                        '%s|%s|%s',
+                        $item['locale'] ?? '',
+                        $item['display_name'] ?? '',
+                        $item['class_name'] ?? ''
+                    ))
+                    ->values();
+            });
     }
 
     protected function logVirtualSeederRun(string $className): void
@@ -97,14 +277,121 @@ class SeedRunsService
         );
     }
 
-    public function assembleSeedRunOverview(): array
+    public function normalizeSeederTab(?string $tab): string
     {
+        return $tab === 'localizations' ? 'localizations' : 'main';
+    }
+
+    protected function seederTabForClass(string $className): string
+    {
+        return in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true)
+            ? 'localizations'
+            : 'main';
+    }
+
+    protected function filterSeedersForTab(Collection $seeders, string $tab): Collection
+    {
+        $normalizedTab = $this->normalizeSeederTab($tab);
+
+        return $seeders
+            ->filter(function ($seeder) use ($normalizedTab) {
+                $className = (string) data_get($seeder, 'class_name', '');
+                $seederTab = (string) data_get($seeder, 'seeder_tab', '');
+
+                if ($seederTab === '' && $className !== '') {
+                    $seederTab = $this->seederTabForClass($className);
+                }
+
+                return $this->normalizeSeederTab($seederTab) === $normalizedTab;
+            })
+            ->values();
+    }
+
+    protected function buildSeederTabCounts(Collection $pendingSeeders, Collection $executedSeeders): array
+    {
+        $counts = [];
+
+        foreach (['main', 'localizations'] as $tab) {
+            $pendingCount = $this->filterSeedersForTab($pendingSeeders, $tab)->count();
+            $executedCount = $this->filterSeedersForTab($executedSeeders, $tab)->count();
+
+            $counts[$tab] = [
+                'pending' => $pendingCount,
+                'executed' => $executedCount,
+                'total' => $pendingCount + $executedCount,
+            ];
+        }
+
+        return $counts;
+    }
+
+    protected function buildPendingSeederState(string $className, iterable $executedClassNames): array
+    {
+        $localizationType = $this->virtualLocalizationType($className);
+        $requiredBaseSeeder = $this->localizationTargetSeederClass($className);
+        $executedLookup = collect($executedClassNames)
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->flip();
+
+        $canExecute = true;
+        $blockedReason = null;
+
+        if (
+            in_array($localizationType, ['question_localizations', 'page_localizations'], true)
+            && filled($requiredBaseSeeder)
+            && ! $executedLookup->has($requiredBaseSeeder)
+        ) {
+            $canExecute = false;
+            $blockedReason = __('Спочатку виконайте основний сидер :seeder.', [
+                'seeder' => $this->formatSeederClassName($requiredBaseSeeder),
+            ]);
+        }
+
+        return [
+            'seeder_tab' => $this->seederTabForClass($className),
+            'required_base_seeder' => $requiredBaseSeeder,
+            'required_base_display_name' => filled($requiredBaseSeeder)
+                ? $this->formatSeederClassName($requiredBaseSeeder)
+                : null,
+            'can_execute' => $canExecute,
+            'execution_block_reason' => $blockedReason,
+        ];
+    }
+
+    protected function executionBlockedMessageForSeeder(string $className, iterable $executedClassNames): ?string
+    {
+        $state = $this->buildPendingSeederState($className, $executedClassNames);
+
+        return ($state['can_execute'] ?? true)
+            ? null
+            : (string) ($state['execution_block_reason'] ?? __('Сидер тимчасово недоступний для виконання.'));
+    }
+
+    protected function executedSeederClasses(): Collection
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            return collect();
+        }
+
+        return DB::table('seed_runs')
+            ->pluck('class_name')
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->values();
+    }
+
+    public function assembleSeedRunOverview(?string $activeTab = null): array
+    {
+        $activeTab = $this->normalizeSeederTab($activeTab);
         $tableExists = Schema::hasTable('seed_runs');
         $executedSeeders = collect();
         $pendingSeeders = collect();
         $executedSeederHierarchy = collect();
         $recentSeedRunOrdinals = collect();
         $recentThreshold = now()->subDay();
+        $seederTabCounts = $this->buildSeederTabCounts($pendingSeeders, $executedSeeders);
+        $runnablePendingCount = 0;
 
         if (! $tableExists) {
             return [
@@ -114,6 +401,9 @@ class SeedRunsService
                 'pendingSeederHierarchy' => collect(),
                 'executedSeederHierarchy' => $executedSeederHierarchy,
                 'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
+                'activeSeederTab' => $activeTab,
+                'seederTabCounts' => $seederTabCounts,
+                'runnablePendingCount' => $runnablePendingCount,
             ];
         }
 
@@ -125,6 +415,10 @@ class SeedRunsService
                 $seedRun->ran_at = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
                 $seedRun->ran_at_formatted = $seedRun->ran_at?->format('Y-m-d H:i:s');
                 $seedRun->display_class_name = $this->formatSeederClassName($seedRun->class_name);
+                [$namespace, $baseName] = $this->splitSeederDisplayName($seedRun->display_class_name);
+                $seedRun->display_class_namespace = $namespace;
+                $seedRun->display_class_basename = $baseName;
+                $seedRun->seeder_tab = $this->seederTabForClass($seedRun->class_name);
 
                 return $seedRun;
             });
@@ -139,56 +433,72 @@ class SeedRunsService
 
         $executedClasses = $executedSeeders
             ->pluck('class_name')
-            ->all();
+            ->filter()
+            ->values();
 
         $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
-            ->reject(fn (string $class) => in_array($class, $executedClasses, true))
-            ->map(function (string $class) {
+            ->reject(fn (string $class) => $executedClasses->contains($class))
+            ->map(function (string $class) use ($executedClasses) {
                 $displayName = $this->formatSeederClassName($class);
                 [$namespace, $baseName] = $this->splitSeederDisplayName($displayName);
+                $dataProfile = $this->describeSeederData($class);
+                $dependencyState = $this->buildPendingSeederState($class, $executedClasses);
 
-                return (object) [
+                return (object) array_merge([
                     'class_name' => $class,
                     'display_class_name' => $displayName,
                     'display_class_namespace' => $namespace,
                     'display_class_basename' => $baseName,
                     'supports_preview' => $this->seederSupportsPreview($class),
-                ];
+                    'data_type' => $dataProfile['type'] ?? 'unknown',
+                ], $dependencyState);
             })
             ->values();
 
-        $pendingSeederHierarchy = $this->buildPendingSeederHierarchy($pendingSeeders);
+        $availableLocalizationMap = $this->buildAvailableLocalizationMap($pendingSeeders);
+
+        $pendingSeeders = $pendingSeeders->map(function ($pendingSeeder) use ($availableLocalizationMap) {
+            $availableLocalizations = $availableLocalizationMap->get($pendingSeeder->class_name, collect());
+            $pendingSeeder->available_localizations = $availableLocalizations instanceof Collection
+                ? $availableLocalizations->all()
+                : [];
+            $pendingSeeder->available_localizations_count = count($pendingSeeder->available_localizations);
+
+            return $pendingSeeder;
+        });
 
         $questionCounts = collect();
 
         if (Schema::hasColumn('questions', 'seeder') && $executedSeeders->isNotEmpty()) {
             $questionCounts = Question::query()
                 ->select('seeder', DB::raw('COUNT(*) as aggregate'))
-                ->whereIn('seeder', $executedClasses)
+                ->whereIn('seeder', $executedClasses->all())
                 ->groupBy('seeder')
                 ->pluck('aggregate', 'seeder');
         }
 
-        $theoryPageTargets = $executedClasses === []
+        $theoryPageTargets = $executedClasses->isEmpty()
             ? collect()
             : Page::query()
                 ->with('category')
-                ->whereIn('seeder', $executedClasses)
+                ->whereIn('seeder', $executedClasses->all())
                 ->where('type', 'theory')
                 ->get()
                 ->keyBy('seeder');
 
-        $theoryCategoryTargets = $executedClasses === []
+        $theoryCategoryTargets = $executedClasses->isEmpty()
             ? collect()
             : PageCategory::query()
-                ->whereIn('seeder', $executedClasses)
+                ->whereIn('seeder', $executedClasses->all())
                 ->where('type', 'theory')
                 ->get()
                 ->keyBy('seeder');
 
         $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionCounts, $theoryPageTargets, $theoryCategoryTargets) {
-            $seedRun->question_count = (int) ($questionCounts[$seedRun->class_name] ?? 0);
             $seedRun->data_profile = $this->describeSeederData($seedRun->class_name);
+            $seedRun->question_count = ($seedRun->data_profile['type'] ?? 'unknown') === 'questions'
+                ? (int) ($questionCounts[$seedRun->class_name] ?? 0)
+                : 0;
             $seedRun->theory_target = $this->resolveTheoryTargetForSeeder(
                 $seedRun->class_name,
                 $theoryPageTargets,
@@ -198,7 +508,7 @@ class SeedRunsService
             return $seedRun;
         });
 
-        $testTargets = $this->seederTestTargetResolver->resolveForSeeders($executedClasses);
+        $testTargets = $this->seederTestTargetResolver->resolveForSeeders($executedClasses->all());
 
         $executedSeeders = $executedSeeders->map(function ($seedRun) use ($testTargets) {
             $seedRun->test_target = $testTargets->get($seedRun->class_name);
@@ -206,6 +516,25 @@ class SeedRunsService
             return $seedRun;
         });
 
+        $relatedLocalizationMap = $this->buildRelatedLocalizationMap($executedSeeders);
+
+        $executedSeeders = $executedSeeders->map(function ($seedRun) use ($relatedLocalizationMap) {
+            $relatedLocalizations = $relatedLocalizationMap->get($seedRun->class_name, collect());
+            $seedRun->related_localizations = $relatedLocalizations instanceof Collection
+                ? $relatedLocalizations->all()
+                : [];
+            $seedRun->related_localizations_count = count($seedRun->related_localizations);
+
+            return $seedRun;
+        });
+
+        $seederTabCounts = $this->buildSeederTabCounts($pendingSeeders, $executedSeeders);
+        $pendingSeeders = $this->filterSeedersForTab($pendingSeeders, $activeTab);
+        $executedSeeders = $this->filterSeedersForTab($executedSeeders, $activeTab);
+        $runnablePendingCount = $pendingSeeders
+            ->filter(fn ($seeder) => (bool) data_get($seeder, 'can_execute', true))
+            ->count();
+        $pendingSeederHierarchy = $this->buildPendingSeederHierarchy($pendingSeeders);
         $executedSeederHierarchy = $this->buildSeederHierarchy($executedSeeders);
 
         return [
@@ -215,6 +544,9 @@ class SeedRunsService
             'pendingSeederHierarchy' => $pendingSeederHierarchy,
             'executedSeederHierarchy' => $executedSeederHierarchy,
             'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
+            'activeSeederTab' => $activeTab,
+            'seederTabCounts' => $seederTabCounts,
+            'runnablePendingCount' => $runnablePendingCount,
         ];
     }
 
@@ -224,6 +556,16 @@ class SeedRunsService
             return [
                 'success' => false,
                 'message' => __('Seeder :class was not found.', ['class' => $className]),
+                'test_targets' => [],
+            ];
+        }
+
+        $blockedMessage = $this->executionBlockedMessageForSeeder($className, $this->executedSeederClasses());
+
+        if ($blockedMessage !== null) {
+            return [
+                'success' => false,
+                'message' => $blockedMessage,
                 'test_targets' => [],
             ];
         }
@@ -306,7 +648,7 @@ class SeedRunsService
         ];
     }
 
-    public function runMissingSeeders(): array
+    public function runMissingSeeders(?string $activeTab = null): array
     {
         if (! Schema::hasTable('seed_runs')) {
             return [
@@ -317,12 +659,12 @@ class SeedRunsService
             ];
         }
 
-        $executedClasses = DB::table('seed_runs')
-            ->pluck('class_name')
-            ->all();
+        $activeTab = $this->normalizeSeederTab($activeTab);
+        $executedClasses = $this->executedSeederClasses();
 
         $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
-            ->reject(fn (string $class) => in_array($class, $executedClasses, true))
+            ->reject(fn (string $class) => $executedClasses->contains($class))
+            ->filter(fn (string $class) => $this->seederTabForClass($class) === $activeTab)
             ->values();
         $result = $this->executeSeedersInOrder($pendingSeeders);
         $ran = $result['ran'];
@@ -346,10 +688,18 @@ class SeedRunsService
         $orderedClassNames = $this->orderSeedersForExecution($classNames);
         $ran = collect();
         $errors = collect();
+        $executedClasses = $this->executedSeederClasses();
 
         foreach ($orderedClassNames as $className) {
             if (! $this->ensureSeederClassIsLoaded($className)) {
                 $errors->push(__('Seeder :class is not autoloadable.', ['class' => $className]));
+                continue;
+            }
+
+            $blockedMessage = $this->executionBlockedMessageForSeeder($className, $executedClasses);
+
+            if ($blockedMessage !== null) {
+                $errors->push($blockedMessage);
                 continue;
             }
 
@@ -358,6 +708,7 @@ class SeedRunsService
                     $this->applyVirtualLocalizationSeeder($className);
                     $this->logVirtualSeederRun($className);
                     $ran->push($className);
+                    $executedClasses->push($className);
                 } catch (\Throwable $exception) {
                     report($exception);
                     $errors->push($exception->getMessage());
@@ -376,6 +727,7 @@ class SeedRunsService
             try {
                 Artisan::call('db:seed', ['--class' => $className]);
                 $ran->push($className);
+                $executedClasses->push($className);
             } catch (\Throwable $exception) {
                 report($exception);
                 $errors->push($exception->getMessage());
@@ -426,6 +778,11 @@ class SeedRunsService
             $targetSlug = trim((string) ($metadata['target_category_slug'] ?? ''));
             if ($targetSlug !== '' && $categoryProviders->has($targetSlug)) {
                 $dependencies->push($categoryProviders->get($targetSlug));
+            }
+
+            $requiredBaseSeeder = trim((string) ($metadata['required_base_seeder'] ?? ''));
+            if ($requiredBaseSeeder !== '' && $normalized->contains($requiredBaseSeeder)) {
+                $dependencies->push($requiredBaseSeeder);
             }
 
             $resolvedDependencies = $dependencies
@@ -543,6 +900,7 @@ class SeedRunsService
 
         if ($this->isVirtualLocalizationSeeder($className)) {
             $metadata['group'] = 'localization';
+            $metadata['required_base_seeder'] = $this->localizationTargetSeederClass($className);
 
             return $metadata;
         }
@@ -668,6 +1026,16 @@ class SeedRunsService
             ];
         }
 
+        $blockedMessage = $this->executionBlockedMessageForSeeder($className, $this->executedSeederClasses());
+
+        if ($blockedMessage !== null) {
+            return [
+                'success' => false,
+                'message' => $blockedMessage,
+                'test_targets' => [],
+            ];
+        }
+
         try {
             DB::table('seed_runs')->updateOrInsert(
                 ['class_name' => $className],
@@ -731,13 +1099,28 @@ class SeedRunsService
         $deletedBlocks = 0;
         $deletedPages = 0;
         $deletedCategories = 0;
+        $deletedHints = 0;
+        $deletedExplanations = 0;
         $profile = $this->describeSeederData($seedRun->class_name);
 
         try {
-            DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, &$deletedCategories, $profile) {
+            DB::transaction(function () use (
+                $seedRun,
+                &$deletedQuestions,
+                &$deletedBlocks,
+                &$deletedPages,
+                &$deletedCategories,
+                &$deletedHints,
+                &$deletedExplanations,
+                $profile
+            ) {
                 $classNames = collect([$seedRun->class_name]);
 
-                if ($profile['type'] === 'questions') {
+                if ($profile['type'] === 'question_localizations') {
+                    $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
+                    $deletedHints = (int) ($result['deleted_hints'] ?? 0);
+                    $deletedExplanations = (int) ($result['deleted_explanations'] ?? 0);
+                } elseif ($profile['type'] === 'questions') {
                     $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
                 } elseif ($profile['type'] === 'page_localizations') {
                     $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
@@ -763,6 +1146,10 @@ class SeedRunsService
         }
 
         $message = match ($profile['type']) {
+            'question_localizations' => __('Deleted seed run and :hints hint(s), :explanations explanation(s).', [
+                'hints' => $deletedHints,
+                'explanations' => $deletedExplanations,
+            ]),
             'page_localizations' => __('Deleted seed run and :count localization block(s).', ['count' => $deletedBlocks]),
             'pages' => __('Deleted seed run and :blocks text block(s).', ['blocks' => $deletedBlocks])
                 . ($deletedPages > 0 ? ' ' . __('Deleted :count page(s).', ['count' => $deletedPages]) : '')
@@ -778,7 +1165,9 @@ class SeedRunsService
             'deleted_blocks' => $deletedBlocks,
             'deleted_pages' => $deletedPages,
             'deleted_categories' => $deletedCategories,
-            'test_targets' => $this->resolveTestTargetsForClasses([$className]),
+            'deleted_hints' => $deletedHints,
+            'deleted_explanations' => $deletedExplanations,
+            'test_targets' => $this->resolveTestTargetsForClasses([$seedRun->class_name]),
         ];
     }
 
@@ -800,6 +1189,12 @@ class SeedRunsService
             return ['success' => false, 'message' => __('Seeder :class was not found.', ['class' => $className])];
         }
 
+        $blockedMessage = $this->executionBlockedMessageForSeeder($className, $this->executedSeederClasses());
+
+        if ($blockedMessage !== null) {
+            return ['success' => false, 'message' => $blockedMessage];
+        }
+
         $isLocalizationSeeder = $this->isVirtualLocalizationSeeder($className);
         $filePath = $this->resolveSeederFilePath($className);
 
@@ -811,14 +1206,29 @@ class SeedRunsService
         $deletedBlocks = 0;
         $deletedPages = 0;
         $deletedCategories = 0;
+        $deletedHints = 0;
+        $deletedExplanations = 0;
         $profile = $this->describeSeederData($seedRun->class_name);
 
         try {
             // Delete old data in a transaction
-            DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, &$deletedCategories, $profile) {
+            DB::transaction(function () use (
+                $seedRun,
+                &$deletedQuestions,
+                &$deletedBlocks,
+                &$deletedPages,
+                &$deletedCategories,
+                &$deletedHints,
+                &$deletedExplanations,
+                $profile
+            ) {
                 $classNames = collect([$seedRun->class_name]);
 
-                if ($profile['type'] === 'questions') {
+                if ($profile['type'] === 'question_localizations') {
+                    $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
+                    $deletedHints = (int) ($result['deleted_hints'] ?? 0);
+                    $deletedExplanations = (int) ($result['deleted_explanations'] ?? 0);
+                } elseif ($profile['type'] === 'questions') {
                     $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
                 } elseif ($profile['type'] === 'page_localizations') {
                     $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
@@ -855,6 +1265,11 @@ class SeedRunsService
         }
 
         $message = match ($profile['type']) {
+            'question_localizations' => __('Refreshed localization seeder :class. Deleted :hints hint(s) and :explanations explanation(s), then re-applied localization.', [
+                'class' => $this->formatSeederClassName($seedRun->class_name),
+                'hints' => $deletedHints,
+                'explanations' => $deletedExplanations,
+            ]),
             'page_localizations' => __('Refreshed localization seeder :class. Rebuilt :count localized block(s).', [
                 'class' => $this->formatSeederClassName($seedRun->class_name),
                 'count' => $deletedBlocks,
@@ -878,6 +1293,8 @@ class SeedRunsService
             'deleted_blocks' => $deletedBlocks,
             'deleted_pages' => $deletedPages,
             'deleted_categories' => $deletedCategories,
+            'deleted_hints' => $deletedHints,
+            'deleted_explanations' => $deletedExplanations,
         ];
     }
 
@@ -1056,13 +1473,19 @@ class SeedRunsService
             'message' => __('Файл сидера успішно створено.'),
             'class_name' => $fullClassName,
             'path' => $this->makeSeederFileDisplayPath($filePath),
-            'pending_seeder' => (object) [
+            'pending_seeder' => tap((object) [
                 'class_name' => $fullClassName,
                 'display_class_name' => $displayName,
                 'display_class_namespace' => $displayNamespace,
                 'display_class_basename' => $baseName,
                 'supports_preview' => false,
-            ],
+            ], function ($pendingSeeder) use ($fullClassName) {
+                $availableLocalizations = $this->buildAvailableLocalizationMap([$fullClassName])->get($fullClassName, collect());
+                $pendingSeeder->available_localizations = $availableLocalizations instanceof Collection
+                    ? $availableLocalizations->all()
+                    : [];
+                $pendingSeeder->available_localizations_count = count($pendingSeeder->available_localizations);
+            }),
         ];
     }
 
@@ -1182,6 +1605,10 @@ class SeedRunsService
                 $classNames = $children->flatMap(function ($child) {
                     return collect($child['class_names'] ?? []);
                 })->unique()->values();
+                $runnableClassNames = $children->flatMap(function ($child) {
+                    return collect($child['runnable_class_names'] ?? []);
+                })->unique()->values();
+                $blockedSeederCount = $children->sum(fn ($child) => (int) ($child['blocked_seeder_count'] ?? 0));
 
                 return [
                     'type' => 'folder',
@@ -1190,6 +1617,8 @@ class SeedRunsService
                     'children' => $children->all(),
                     'seeder_count' => $seederCount,
                     'class_names' => $classNames->all(),
+                    'runnable_class_names' => $runnableClassNames->all(),
+                    'blocked_seeder_count' => $blockedSeederCount,
                     'path' => $folderPath,
                 ];
             });
@@ -1208,7 +1637,16 @@ class SeedRunsService
                     'display_class_namespace' => $pendingSeeder->display_class_namespace ?? null,
                     'display_class_basename' => $pendingSeeder->display_class_basename ?? '',
                     'supports_preview' => $pendingSeeder->supports_preview ?? false,
+                    'data_type' => $pendingSeeder->data_type ?? 'unknown',
+                    'seeder_tab' => $pendingSeeder->seeder_tab ?? 'main',
+                    'required_base_seeder' => $pendingSeeder->required_base_seeder ?? null,
+                    'required_base_display_name' => $pendingSeeder->required_base_display_name ?? null,
+                    'can_execute' => $pendingSeeder->can_execute ?? true,
+                    'execution_block_reason' => $pendingSeeder->execution_block_reason ?? null,
+                    'available_localizations' => $pendingSeeder->available_localizations ?? [],
+                    'available_localizations_count' => $pendingSeeder->available_localizations_count ?? 0,
                 ];
+                $canExecute = (bool) ($pendingSeeder->can_execute ?? true);
 
                 return [
                     'type' => 'seeder',
@@ -1216,6 +1654,8 @@ class SeedRunsService
                     'pending_seeder' => $pendingSeederArray,
                     'seeder_count' => 1,
                     'class_names' => [$className],
+                    'runnable_class_names' => $canExecute ? [$className] : [],
+                    'blocked_seeder_count' => $canExecute ? 0 : 1,
                     'path' => $fullPath,
                 ];
             });
@@ -1314,10 +1754,15 @@ class SeedRunsService
                     'id' => $seedRun->id,
                     'class_name' => $seedRun->class_name,
                     'display_class_name' => $seedRun->display_class_name,
+                    'display_class_namespace' => $seedRun->display_class_namespace ?? null,
+                    'display_class_basename' => $seedRun->display_class_basename ?? $seedRun->display_class_name,
                     'ran_at_formatted' => $seedRun->ran_at_formatted,
                     'question_count' => $seedRun->question_count ?? 0,
                     'theory_target' => $seedRun->theory_target ?? null,
                     'test_target' => $seedRun->test_target ?? null,
+                    'seeder_tab' => $seedRun->seeder_tab ?? 'main',
+                    'related_localizations' => $seedRun->related_localizations ?? [],
+                    'related_localizations_count' => $seedRun->related_localizations_count ?? 0,
                 ];
 
                 return [
@@ -1520,6 +1965,16 @@ class SeedRunsService
 
         if (! $this->ensureSeederClassIsLoaded($className)) {
             return $default;
+        }
+
+        if ($this->virtualLocalizationType($className) === 'question_localizations') {
+            return [
+                'type' => 'question_localizations',
+                'delete_button' => __('Видалити локалізації'),
+                'delete_confirm' => __('Видалити лог та пов\'язані локалізації?'),
+                'folder_delete_button' => __('Видалити локалізації'),
+                'folder_delete_confirm' => __('Видалити всі локалізаційні сидери в папці «:folder» разом із локалізаціями?'),
+            ];
         }
 
         if ($this->virtualLocalizationType($className) === 'page_localizations') {

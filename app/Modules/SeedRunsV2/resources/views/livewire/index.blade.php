@@ -18,12 +18,44 @@
                 <button 
                     type="button" 
                     wire:click="confirmRunMissing"
-                    class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow hover:bg-blue-500 transition"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow hover:bg-blue-500 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    @disabled($runnablePendingCount === 0)
                 >
                     <i class="fa-solid fa-play"></i>
-                    Виконати всі невиконані
+                    {{ $activeSeederTab === 'localizations' ? 'Виконати доступні локалізації' : 'Виконати всі невиконані' }}
                 </button>
             @endif
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-4">
+            @php
+                $mainCount = (int) data_get($seederTabCounts, 'main.total', 0);
+                $localizationsCount = (int) data_get($seederTabCounts, 'localizations.total', 0);
+            @endphp
+            <button
+                type="button"
+                wire:click="setActiveSeederTab('main')"
+                @class([
+                    'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition',
+                    'bg-slate-900 text-white shadow-sm' => $activeSeederTab === 'main',
+                    'bg-slate-100 text-slate-700 hover:bg-slate-200' => $activeSeederTab !== 'main',
+                ])
+            >
+                <span>Основні сидери</span>
+                <span class="rounded-full bg-white/15 px-2 py-0.5 text-xs">{{ $mainCount }}</span>
+            </button>
+            <button
+                type="button"
+                wire:click="setActiveSeederTab('localizations')"
+                @class([
+                    'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition',
+                    'bg-sky-600 text-white shadow-sm' => $activeSeederTab === 'localizations',
+                    'bg-slate-100 text-slate-700 hover:bg-slate-200' => $activeSeederTab !== 'localizations',
+                ])
+            >
+                <span>Локалізації</span>
+                <span class="rounded-full bg-white/15 px-2 py-0.5 text-xs">{{ $localizationsCount }}</span>
+            </button>
         </div>
 
         {{-- Status Messages --}}
@@ -69,14 +101,16 @@
     </div>
 
     @if($tableExists)
-        <div class="space-y-6">
-            {{-- Pending Seeders --}}
-            <div class="bg-white shadow rounded-lg p-6">
-                <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
-                    <h2 class="text-xl font-semibold text-gray-800">Невиконані сидери</h2>
-                    <button 
-                        type="button"
-                        wire:click="openCreateModal"
+            <div class="space-y-6">
+                {{-- Pending Seeders --}}
+                <div class="bg-white shadow rounded-lg p-6">
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+                        <h2 class="text-xl font-semibold text-gray-800">
+                            {{ $activeSeederTab === 'localizations' ? 'Невиконані локалізації' : 'Невиконані сидери' }}
+                        </h2>
+                        <button 
+                            type="button"
+                            wire:click="openCreateModal"
                         class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition"
                     >
                         <i class="fa-solid fa-plus"></i>
@@ -87,6 +121,11 @@
                 @if(empty($pendingSeederHierarchy))
                     <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
                 @else
+                    @if($runnablePendingCount === 0 && $activeSeederTab === 'localizations')
+                        <div class="mb-4 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                            Усі локалізації в цій вкладці заблоковані. Спочатку виконайте їхні основні сидери.
+                        </div>
+                    @endif
                     <div
                         class="space-y-3"
                         x-data="{ expandedFolders: {} }"
@@ -98,10 +137,12 @@
                 @endif
             </div>
 
-            {{-- Executed Seeders --}}
-            <div class="bg-white shadow rounded-lg p-6">
-                <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between mb-4">
-                    <h2 class="text-xl font-semibold text-gray-800">Виконані сидери</h2>
+                {{-- Executed Seeders --}}
+                <div class="bg-white shadow rounded-lg p-6">
+                    <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between mb-4">
+                        <h2 class="text-xl font-semibold text-gray-800">
+                            {{ $activeSeederTab === 'localizations' ? 'Виконані локалізації' : 'Виконані сидери' }}
+                        </h2>
                     <div class="relative w-full sm:max-w-xs">
                         <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 pointer-events-none">
                             <i class="fa-solid fa-magnifying-glass text-sm"></i>

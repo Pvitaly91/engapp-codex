@@ -127,9 +127,289 @@ class SeedRunController extends Controller
         throw new \RuntimeException(__('Localization seeder :class was not found.', ['class' => $className]));
     }
 
-    public function index(): View
+    protected function localizationTargetSeederClass(string $className): ?string
     {
-        $overview = $this->assembleSeedRunOverview();
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->targetSeederClassForVirtualSeeder($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->targetSeederClassForVirtualSeeder($className);
+        }
+
+        return null;
+    }
+
+    protected function localizationDescriptorForClass(string $className): ?array
+    {
+        if ($this->jsonTestLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonTestLocalizationManager->descriptorForClass($className);
+        }
+
+        if ($this->jsonPageLocalizationManager->isVirtualLocalizationSeeder($className)) {
+            return $this->jsonPageLocalizationManager->descriptorForClass($className);
+        }
+
+        return null;
+    }
+
+    protected function normalizeLocalizationLocale(?string $locale): string
+    {
+        $normalized = strtolower(trim((string) $locale));
+
+        return $normalized === 'ua' ? 'uk' : $normalized;
+    }
+
+    protected function localizationLocaleLabel(?string $locale): string
+    {
+        $normalized = $this->normalizeLocalizationLocale($locale);
+
+        return $normalized !== '' ? Str::upper($normalized) : __('N/A');
+    }
+
+    protected function localizationTypeLabel(?string $type): string
+    {
+        return match ($type) {
+            'question_localizations' => __('Локалізація питань'),
+            'page_localizations' => __('Локалізація сторінки'),
+            default => __('Локалізація'),
+        };
+    }
+
+    protected function buildRelatedLocalizationMap(Collection $executedSeeders): Collection
+    {
+        return $executedSeeders
+            ->map(function ($seedRun) {
+                $className = (string) ($seedRun->class_name ?? '');
+                $profileType = (string) data_get($seedRun, 'data_profile.type', '');
+
+                if (! in_array($profileType, ['question_localizations', 'page_localizations'], true)) {
+                    return null;
+                }
+
+                $targetClassName = $this->localizationTargetSeederClass($className);
+
+                if (! filled($targetClassName)) {
+                    return null;
+                }
+
+                $descriptor = $this->localizationDescriptorForClass($className);
+                $locale = $this->normalizeLocalizationLocale($descriptor['locale'] ?? null);
+
+                return [
+                    'seed_run_id' => (int) ($seedRun->id ?? 0),
+                    'class_name' => $className,
+                    'display_name' => (string) ($seedRun->display_class_name ?? $this->formatSeederClassName($className)),
+                    'display_basename' => (string) ($seedRun->display_class_basename ?? class_basename($className)),
+                    'target_class_name' => $targetClassName,
+                    'locale' => $locale,
+                    'locale_label' => $this->localizationLocaleLabel($locale),
+                    'type' => $profileType,
+                    'type_label' => $this->localizationTypeLabel($profileType),
+                    'ran_at' => optional($seedRun->ran_at)->format('Y-m-d H:i:s'),
+                ];
+            })
+            ->filter()
+            ->groupBy('target_class_name')
+            ->map(function (Collection $items) {
+                return $items
+                    ->sortBy(fn (array $item) => sprintf(
+                        '%s|%s|%010d',
+                        $item['locale'] ?? '',
+                        $item['display_name'] ?? '',
+                        (int) ($item['seed_run_id'] ?? 0)
+                    ))
+                    ->values();
+            });
+    }
+
+    protected function buildAvailableLocalizationMap(iterable $targetSeeders): Collection
+    {
+        $targetLookup = collect($targetSeeders)
+            ->map(function ($seeder) {
+                if (is_string($seeder)) {
+                    return trim($seeder);
+                }
+
+                return trim((string) data_get($seeder, 'class_name', ''));
+            })
+            ->filter()
+            ->flip();
+
+        if ($targetLookup->isEmpty()) {
+            return collect();
+        }
+
+        return collect($this->virtualLocalizationClasses())
+            ->map(function (string $className) {
+                $type = $this->virtualLocalizationType($className);
+
+                if (! in_array($type, ['question_localizations', 'page_localizations'], true)) {
+                    return null;
+                }
+
+                $targetClassName = $this->localizationTargetSeederClass($className);
+
+                if (! filled($targetClassName)) {
+                    return null;
+                }
+
+                $descriptor = $this->localizationDescriptorForClass($className);
+                $locale = $this->normalizeLocalizationLocale($descriptor['locale'] ?? null);
+
+                return [
+                    'class_name' => $className,
+                    'display_name' => $this->formatSeederClassName($className),
+                    'display_basename' => class_basename($className),
+                    'target_class_name' => $targetClassName,
+                    'locale' => $locale,
+                    'locale_label' => $this->localizationLocaleLabel($locale),
+                    'type' => $type,
+                    'type_label' => $this->localizationTypeLabel($type),
+                ];
+            })
+            ->filter(fn (?array $item) => $item !== null && $targetLookup->has($item['target_class_name'] ?? ''))
+            ->groupBy('target_class_name')
+            ->map(function (Collection $items) {
+                return $items
+                    ->sortBy(fn (array $item) => sprintf(
+                        '%s|%s|%s',
+                        $item['locale'] ?? '',
+                        $item['display_name'] ?? '',
+                        $item['class_name'] ?? ''
+                    ))
+                    ->values();
+            });
+    }
+
+    protected function normalizeSeederTab(?string $tab): string
+    {
+        return $tab === 'localizations' ? 'localizations' : 'main';
+    }
+
+    protected function seederTabForClass(string $className): string
+    {
+        return in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true)
+            ? 'localizations'
+            : 'main';
+    }
+
+    protected function currentSeederTab(?Request $request = null): string
+    {
+        $request ??= request();
+
+        return $this->normalizeSeederTab((string) $request->input('tab', $request->query('tab', 'main')));
+    }
+
+    protected function routeParametersForSeederTab(string $tab): array
+    {
+        $tab = $this->normalizeSeederTab($tab);
+
+        return $tab === 'localizations' ? ['tab' => $tab] : [];
+    }
+
+    protected function redirectToIndexWithTab(Request $request): RedirectResponse
+    {
+        return redirect()->route('seed-runs.index', $this->routeParametersForSeederTab(
+            $this->currentSeederTab($request)
+        ));
+    }
+
+    protected function filterSeedersForTab(Collection $seeders, string $tab): Collection
+    {
+        $normalizedTab = $this->normalizeSeederTab($tab);
+
+        return $seeders
+            ->filter(function ($seeder) use ($normalizedTab) {
+                $className = (string) data_get($seeder, 'class_name', '');
+                $seederTab = (string) data_get($seeder, 'seeder_tab', '');
+
+                if ($seederTab === '' && $className !== '') {
+                    $seederTab = $this->seederTabForClass($className);
+                }
+
+                return $this->normalizeSeederTab($seederTab) === $normalizedTab;
+            })
+            ->values();
+    }
+
+    protected function buildSeederTabCounts(Collection $pendingSeeders, Collection $executedSeeders): array
+    {
+        $counts = [];
+
+        foreach (['main', 'localizations'] as $tab) {
+            $pendingCount = $this->filterSeedersForTab($pendingSeeders, $tab)->count();
+            $executedCount = $this->filterSeedersForTab($executedSeeders, $tab)->count();
+
+            $counts[$tab] = [
+                'pending' => $pendingCount,
+                'executed' => $executedCount,
+                'total' => $pendingCount + $executedCount,
+            ];
+        }
+
+        return $counts;
+    }
+
+    protected function buildPendingSeederState(string $className, iterable $executedClassNames): array
+    {
+        $localizationType = $this->virtualLocalizationType($className);
+        $requiredBaseSeeder = $this->localizationTargetSeederClass($className);
+        $executedLookup = collect($executedClassNames)
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->flip();
+
+        $canExecute = true;
+        $blockedReason = null;
+
+        if (
+            in_array($localizationType, ['question_localizations', 'page_localizations'], true)
+            && filled($requiredBaseSeeder)
+            && ! $executedLookup->has($requiredBaseSeeder)
+        ) {
+            $canExecute = false;
+            $blockedReason = __('Спочатку виконайте основний сидер :seeder.', [
+                'seeder' => $this->formatSeederClassName($requiredBaseSeeder),
+            ]);
+        }
+
+        return [
+            'seeder_tab' => $this->seederTabForClass($className),
+            'required_base_seeder' => $requiredBaseSeeder,
+            'required_base_display_name' => filled($requiredBaseSeeder)
+                ? $this->formatSeederClassName($requiredBaseSeeder)
+                : null,
+            'can_execute' => $canExecute,
+            'execution_block_reason' => $blockedReason,
+        ];
+    }
+
+    protected function executionBlockedMessageForSeeder(string $className, iterable $executedClassNames): ?string
+    {
+        $state = $this->buildPendingSeederState($className, $executedClassNames);
+
+        return ($state['can_execute'] ?? true)
+            ? null
+            : (string) ($state['execution_block_reason'] ?? __('Сидер тимчасово недоступний для виконання.'));
+    }
+
+    protected function executedSeederClasses(): Collection
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            return collect();
+        }
+
+        return DB::table('seed_runs')
+            ->pluck('class_name')
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->values();
+    }
+
+    public function index(Request $request): View
+    {
+        $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
 
         return view('seed-runs.index', [
             'tableExists' => $overview['tableExists'],
@@ -138,6 +418,9 @@ class SeedRunController extends Controller
             'pendingSeederHierarchy' => $overview['pendingSeederHierarchy'],
             'executedSeederHierarchy' => $overview['executedSeederHierarchy'],
             'recentSeedRunOrdinals' => $overview['recentSeedRunOrdinals'],
+            'activeSeederTab' => $overview['activeSeederTab'],
+            'seederTabCounts' => $overview['seederTabCounts'],
+            'runnablePendingCount' => $overview['runnablePendingCount'],
         ]);
     }
 
@@ -444,6 +727,12 @@ class SeedRunController extends Controller
             'supports_preview' => false,
         ];
 
+        $availableLocalizations = $this->buildAvailableLocalizationMap([$fullClassName])->get($fullClassName, collect());
+        $pendingSeeder->available_localizations = $availableLocalizations instanceof Collection
+            ? $availableLocalizations->all()
+            : [];
+        $pendingSeeder->available_localizations_count = count($pendingSeeder->available_localizations);
+
         return response()->json([
             'message' => __('Файл сидера успішно створено.'),
             'class_name' => $fullClassName,
@@ -489,22 +778,29 @@ class SeedRunController extends Controller
         return $folders;
     }
 
-    protected function assembleSeedRunOverview(): array
+    protected function assembleSeedRunOverview(?string $activeTab = null): array
     {
+        $activeTab = $this->normalizeSeederTab($activeTab);
         $tableExists = Schema::hasTable('seed_runs');
         $executedSeeders = collect();
         $pendingSeeders = collect();
         $executedSeederHierarchy = collect();
         $recentSeedRunOrdinals = collect();
         $recentThreshold = now()->subDay();
+        $seederTabCounts = $this->buildSeederTabCounts($pendingSeeders, $executedSeeders);
+        $runnablePendingCount = 0;
 
         if (! $tableExists) {
             return [
                 'tableExists' => false,
                 'executedSeeders' => $executedSeeders,
                 'pendingSeeders' => $pendingSeeders,
+                'pendingSeederHierarchy' => collect(),
                 'executedSeederHierarchy' => $executedSeederHierarchy,
                 'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
+                'activeSeederTab' => $activeTab,
+                'seederTabCounts' => $seederTabCounts,
+                'runnablePendingCount' => $runnablePendingCount,
             ];
         }
 
@@ -517,6 +813,7 @@ class SeedRunController extends Controller
                 [$namespace, $baseName] = $this->splitSeederDisplayName($seedRun->display_class_name);
                 $seedRun->display_class_namespace = $namespace;
                 $seedRun->display_class_basename = $baseName;
+                $seedRun->seeder_tab = $this->seederTabForClass($seedRun->class_name);
 
                 return $seedRun;
             });
@@ -531,51 +828,63 @@ class SeedRunController extends Controller
 
         $executedClasses = $executedSeeders
             ->pluck('class_name')
-            ->all();
+            ->filter()
+            ->values();
 
         $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
-            ->reject(fn (string $class) => in_array($class, $executedClasses, true))
-            ->map(function (string $class) {
+            ->reject(fn (string $class) => $executedClasses->contains($class))
+            ->map(function (string $class) use ($executedClasses) {
                 $displayName = $this->formatSeederClassName($class);
                 [$namespace, $baseName] = $this->splitSeederDisplayName($displayName);
                 $dataProfile = $this->describeSeederData($class);
+                $dependencyState = $this->buildPendingSeederState($class, $executedClasses);
 
-                return (object) [
+                return (object) array_merge([
                     'class_name' => $class,
                     'display_class_name' => $displayName,
                     'display_class_namespace' => $namespace,
                     'display_class_basename' => $baseName,
                     'supports_preview' => $this->seederSupportsPreview($class),
                     'data_type' => $dataProfile['type'] ?? 'unknown',
-                ];
+                ], $dependencyState);
             })
             ->values();
 
-        $pendingSeederHierarchy = $this->buildPendingSeederHierarchy($pendingSeeders);
+        $availableLocalizationMap = $this->buildAvailableLocalizationMap($pendingSeeders);
+
+        $pendingSeeders = $pendingSeeders->map(function ($pendingSeeder) use ($availableLocalizationMap) {
+            $availableLocalizations = $availableLocalizationMap->get($pendingSeeder->class_name, collect());
+            $pendingSeeder->available_localizations = $availableLocalizations instanceof Collection
+                ? $availableLocalizations->all()
+                : [];
+            $pendingSeeder->available_localizations_count = count($pendingSeeder->available_localizations);
+
+            return $pendingSeeder;
+        });
 
         $questionCounts = collect();
 
         if (Schema::hasColumn('questions', 'seeder') && $executedSeeders->isNotEmpty()) {
             $questionCounts = Question::query()
                 ->select('seeder', DB::raw('COUNT(*) as aggregate'))
-                ->whereIn('seeder', $executedClasses)
+                ->whereIn('seeder', $executedClasses->all())
                 ->groupBy('seeder')
                 ->pluck('aggregate', 'seeder');
         }
 
-        $theoryPageTargets = $executedClasses === []
+        $theoryPageTargets = $executedClasses->isEmpty()
             ? collect()
             : Page::query()
                 ->with('category')
-                ->whereIn('seeder', $executedClasses)
+                ->whereIn('seeder', $executedClasses->all())
                 ->where('type', 'theory')
                 ->get()
                 ->keyBy('seeder');
 
-        $theoryCategoryTargets = $executedClasses === []
+        $theoryCategoryTargets = $executedClasses->isEmpty()
             ? collect()
             : PageCategory::query()
-                ->whereIn('seeder', $executedClasses)
+                ->whereIn('seeder', $executedClasses->all())
                 ->where('type', 'theory')
                 ->get()
                 ->keyBy('seeder');
@@ -594,7 +903,7 @@ class SeedRunController extends Controller
             return $seedRun;
         });
 
-        $testTargets = $this->seederTestTargetResolver->resolveForSeeders($executedClasses);
+        $testTargets = $this->seederTestTargetResolver->resolveForSeeders($executedClasses->all());
 
         $executedSeeders = $executedSeeders->map(function ($seedRun) use ($testTargets) {
             $seedRun->test_target = $testTargets->get($seedRun->class_name);
@@ -602,6 +911,25 @@ class SeedRunController extends Controller
             return $seedRun;
         });
 
+        $relatedLocalizationMap = $this->buildRelatedLocalizationMap($executedSeeders);
+
+        $executedSeeders = $executedSeeders->map(function ($seedRun) use ($relatedLocalizationMap) {
+            $relatedLocalizations = $relatedLocalizationMap->get($seedRun->class_name, collect());
+            $seedRun->related_localizations = $relatedLocalizations instanceof Collection
+                ? $relatedLocalizations->all()
+                : [];
+            $seedRun->related_localizations_count = count($seedRun->related_localizations);
+
+            return $seedRun;
+        });
+
+        $seederTabCounts = $this->buildSeederTabCounts($pendingSeeders, $executedSeeders);
+        $pendingSeeders = $this->filterSeedersForTab($pendingSeeders, $activeTab);
+        $executedSeeders = $this->filterSeedersForTab($executedSeeders, $activeTab);
+        $runnablePendingCount = $pendingSeeders
+            ->filter(fn ($seeder) => (bool) data_get($seeder, 'can_execute', true))
+            ->count();
+        $pendingSeederHierarchy = $this->buildPendingSeederHierarchy($pendingSeeders);
         $executedSeederHierarchy = $this->buildSeederHierarchy($executedSeeders);
 
         return [
@@ -611,6 +939,9 @@ class SeedRunController extends Controller
             'pendingSeederHierarchy' => $pendingSeederHierarchy,
             'executedSeederHierarchy' => $executedSeederHierarchy,
             'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
+            'activeSeederTab' => $activeTab,
+            'seederTabCounts' => $seederTabCounts,
+            'runnablePendingCount' => $runnablePendingCount,
         ];
     }
 
@@ -786,6 +1117,10 @@ class SeedRunController extends Controller
                 $classNames = $children->flatMap(function ($child) {
                     return collect($child['class_names'] ?? []);
                 })->unique()->values();
+                $runnableClassNames = $children->flatMap(function ($child) {
+                    return collect($child['runnable_class_names'] ?? []);
+                })->unique()->values();
+                $blockedSeederCount = $children->sum(fn ($child) => (int) ($child['blocked_seeder_count'] ?? 0));
 
                 return [
                     'type' => 'folder',
@@ -793,6 +1128,8 @@ class SeedRunController extends Controller
                     'children' => $children,
                     'seeder_count' => $seederCount,
                     'class_names' => $classNames->all(),
+                    'runnable_class_names' => $runnableClassNames->all(),
+                    'blocked_seeder_count' => $blockedSeederCount,
                     'path' => $folderPath,
                 ];
             });
@@ -803,6 +1140,7 @@ class SeedRunController extends Controller
                 $pendingSeeder = $seeder['seeder'];
                 $className = $pendingSeeder->class_name ?? '';
                 $fullPath = ltrim(($path !== '' ? $path . '/' : '') . $seeder['name'], '/');
+                $canExecute = (bool) ($pendingSeeder->can_execute ?? true);
 
                 return [
                     'type' => 'seeder',
@@ -810,6 +1148,8 @@ class SeedRunController extends Controller
                     'pending_seeder' => $pendingSeeder,
                     'seeder_count' => 1,
                     'class_names' => [$className],
+                    'runnable_class_names' => $canExecute ? [$className] : [],
+                    'blocked_seeder_count' => $canExecute ? 0 : 1,
                     'path' => $fullPath,
                 ];
             });
@@ -1428,7 +1768,7 @@ class SeedRunController extends Controller
 
     public function loadFolderChildren(Request $request): JsonResponse
     {
-        $overview = $this->assembleSeedRunOverview();
+        $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
         $path = trim((string) $request->query('path', ''), '/');
         $depth = max(0, (int) $request->query('depth', 0));
 
@@ -1458,6 +1798,7 @@ class SeedRunController extends Controller
             'nodes' => $children,
             'depth' => $targetDepth,
             'recentSeedRunOrdinals' => $overview['recentSeedRunOrdinals'],
+            'activeSeederTab' => $overview['activeSeederTab'],
         ])->render();
 
         return response()->json(['html' => $html]);
@@ -1804,9 +2145,19 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $message], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['run' => $message]);
+        }
+
+        $blockedMessage = $this->executionBlockedMessageForSeeder($className, $this->executedSeederClasses());
+
+        if ($blockedMessage !== null) {
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $blockedMessage], 422);
+            }
+
+            return $this->redirectToIndexWithTab($request)
+                ->withErrors(['run' => $blockedMessage]);
         }
 
         try {
@@ -1826,8 +2177,7 @@ class SeedRunController extends Controller
                         return response()->json(['message' => $message], 422);
                     }
 
-                    return redirect()
-                        ->route('seed-runs.index')
+                    return $this->redirectToIndexWithTab($request)
                         ->withErrors(['run' => $message]);
                 }
 
@@ -1840,8 +2190,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $exception->getMessage()], 500);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['run' => $exception->getMessage()]);
         }
 
@@ -1849,7 +2198,7 @@ class SeedRunController extends Controller
         $testTargets = $this->resolveTestTargetsForClasses([$className]);
         
         if ($request->wantsJson()) {
-            $overview = $this->assembleSeedRunOverview();
+            $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
             return response()->json([
                 'message' => $message,
                 'test_target' => $testTargets[0] ?? null,
@@ -1863,9 +2212,7 @@ class SeedRunController extends Controller
             ]);
         }
 
-        $redirect = redirect()
-            ->route('seed-runs.index')
-            ->with('status', $message);
+        $redirect = $this->redirectToIndexWithTab($request)->with('status', $message);
 
         if ($testTargets !== []) {
             $redirect = $redirect->with('status_links', $testTargets);
@@ -1895,8 +2242,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $message], 422);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['run' => $message]);
         }
 
@@ -1912,7 +2258,7 @@ class SeedRunController extends Controller
         $testTargets = $this->resolveTestTargetsForClasses($result['ran']);
 
         if ($request->wantsJson()) {
-            $overview = $this->assembleSeedRunOverview();
+            $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
 
             return response()->json([
                 'message' => $successMessage,
@@ -1929,7 +2275,7 @@ class SeedRunController extends Controller
             ], $result['ran']->isNotEmpty() ? 200 : 422);
         }
 
-        $redirect = redirect()->route('seed-runs.index');
+        $redirect = $this->redirectToIndexWithTab($request);
 
         if ($result['ran']->isNotEmpty()) {
             $redirect = $redirect->with('status', $successMessage);
@@ -1959,7 +2305,7 @@ class SeedRunController extends Controller
 
         if (($result['status'] ?? null) === 'success') {
             if ($request->wantsJson()) {
-                $overview = $this->assembleSeedRunOverview();
+                $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
                 return response()->json([
                     'message' => $result['message'],
                     'seeder_removed' => true,
@@ -1973,8 +2319,7 @@ class SeedRunController extends Controller
                 ]);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->with('status', $result['message']);
         }
 
@@ -1984,8 +2329,7 @@ class SeedRunController extends Controller
             return response()->json(['message' => $errorMessage], 500);
         }
 
-        return redirect()
-            ->route('seed-runs.index')
+        return $this->redirectToIndexWithTab($request)
             ->withErrors(['run' => $errorMessage]);
     }
 
@@ -2017,8 +2361,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 422);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['run' => $errorMessage]);
         }
 
@@ -2082,7 +2425,7 @@ class SeedRunController extends Controller
         }
 
         if ($request->wantsJson()) {
-            $overview = $this->assembleSeedRunOverview();
+            $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
             return response()->json([
                 'message' => implode(' ', $statusMessages),
                 'errors' => $errorMessages,
@@ -2097,7 +2440,7 @@ class SeedRunController extends Controller
             ], empty($errorMessages) && $successCount > 0 ? 200 : 500);
         }
 
-        $redirect = redirect()->route('seed-runs.index');
+        $redirect = $this->redirectToIndexWithTab($request);
 
         if (! empty($statusMessages)) {
             $redirect = $redirect->with('status', implode(' ', $statusMessages));
@@ -2323,8 +2666,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['run' => $errorMessage]);
         }
 
@@ -2341,9 +2683,19 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['run' => $errorMessage]);
+        }
+
+        $blockedMessage = $this->executionBlockedMessageForSeeder($className, $this->executedSeederClasses());
+
+        if ($blockedMessage !== null) {
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $blockedMessage], 422);
+            }
+
+            return $this->redirectToIndexWithTab($request)
+                ->withErrors(['run' => $blockedMessage]);
         }
 
         try {
@@ -2358,8 +2710,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $exception->getMessage()], 500);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['run' => $exception->getMessage()]);
         }
 
@@ -2367,7 +2718,7 @@ class SeedRunController extends Controller
         $testTargets = $this->resolveTestTargetsForClasses([$className]);
         
         if ($request->wantsJson()) {
-            $overview = $this->assembleSeedRunOverview();
+            $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
             return response()->json([
                 'message' => $message,
                 'test_target' => $testTargets[0] ?? null,
@@ -2381,9 +2732,7 @@ class SeedRunController extends Controller
             ]);
         }
 
-        $redirect = redirect()
-            ->route('seed-runs.index')
-            ->with('status', $message);
+        $redirect = $this->redirectToIndexWithTab($request)->with('status', $message);
 
         if ($testTargets !== []) {
             $redirect = $redirect->with('status_links', $testTargets);
@@ -2401,17 +2750,16 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['run' => $errorMessage]);
         }
 
-        $executedClasses = DB::table('seed_runs')
-            ->pluck('class_name')
-            ->all();
+        $activeTab = $this->currentSeederTab($request);
+        $executedClasses = $this->executedSeederClasses();
 
         $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
-            ->reject(fn (string $class) => in_array($class, $executedClasses, true))
+            ->reject(fn (string $class) => $executedClasses->contains($class))
+            ->filter(fn (string $class) => $this->seederTabForClass($class) === $activeTab)
             ->values();
         $result = $this->executeSeedersInOrder($pendingSeeders);
         $ran = $result['ran'];
@@ -2427,7 +2775,7 @@ class SeedRunController extends Controller
         $testTargets = $this->resolveTestTargetsForClasses($ran);
 
         if ($request->wantsJson()) {
-            $overview = $this->assembleSeedRunOverview();
+            $overview = $this->assembleSeedRunOverview($activeTab);
             return response()->json([
                 'message' => $successMessage ?? __('No seeders were executed.'),
                 'test_targets' => $testTargets,
@@ -2441,7 +2789,7 @@ class SeedRunController extends Controller
             ], $ran->isNotEmpty() ? 200 : 422);
         }
 
-        $redirect = redirect()->route('seed-runs.index');
+        $redirect = $this->redirectToIndexWithTab($request);
 
         if ($successMessage) {
             $redirect = $redirect->with('status', $successMessage);
@@ -2476,10 +2824,18 @@ class SeedRunController extends Controller
         $orderedClassNames = $this->orderSeedersForExecution($classNames);
         $ran = collect();
         $errors = collect();
+        $executedClasses = $this->executedSeederClasses();
 
         foreach ($orderedClassNames as $className) {
             if (! $this->ensureSeederClassIsLoaded($className)) {
                 $errors->push(__('Seeder :class is not autoloadable.', ['class' => $className]));
+                continue;
+            }
+
+            $blockedMessage = $this->executionBlockedMessageForSeeder($className, $executedClasses);
+
+            if ($blockedMessage !== null) {
+                $errors->push($blockedMessage);
                 continue;
             }
 
@@ -2502,6 +2858,7 @@ class SeedRunController extends Controller
                 }
 
                 $ran->push($className);
+                $executedClasses->push($className);
             } catch (\Throwable $exception) {
                 report($exception);
                 $errors->push($exception->getMessage());
@@ -2553,6 +2910,11 @@ class SeedRunController extends Controller
             $targetSlug = trim((string) ($metadata['target_category_slug'] ?? ''));
             if ($targetSlug !== '' && $categoryProviders->has($targetSlug)) {
                 $dependentClasses->push($categoryProviders->get($targetSlug));
+            }
+
+            $requiredBaseSeeder = trim((string) ($metadata['required_base_seeder'] ?? ''));
+            if ($requiredBaseSeeder !== '' && $normalized->contains($requiredBaseSeeder)) {
+                $dependentClasses->push($requiredBaseSeeder);
             }
 
             $resolvedDependencies = $dependentClasses
@@ -2671,6 +3033,7 @@ class SeedRunController extends Controller
 
         if ($this->isVirtualLocalizationSeeder($className)) {
             $metadata['group'] = 'localization';
+            $metadata['required_base_seeder'] = $this->localizationTargetSeederClass($className);
 
             return $metadata;
         }
@@ -2784,8 +3147,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['delete' => $errorMessage]);
         }
 
@@ -2798,8 +3160,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['delete' => $errorMessage]);
         }
 
@@ -2813,15 +3174,14 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['delete' => $errorMessage]);
         }
 
         $message = __('Seed run entry removed.');
         
         if ($request->wantsJson()) {
-            $overview = $this->assembleSeedRunOverview();
+            $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
             
             // Check if seeder file still exists and should appear in pending
             $filePath = $this->resolveSeederFilePath($className);
@@ -2847,8 +3207,7 @@ class SeedRunController extends Controller
             ]);
         }
 
-        return redirect()
-            ->route('seed-runs.index')
+        return $this->redirectToIndexWithTab($request)
             ->with('status', $message);
     }
 
@@ -2861,8 +3220,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['delete' => $errorMessage]);
         }
 
@@ -2875,8 +3233,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['delete' => $errorMessage]);
         }
 
@@ -2954,7 +3311,7 @@ class SeedRunController extends Controller
         };
 
         if ($request->wantsJson()) {
-            $overview = $this->assembleSeedRunOverview();
+            $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
             
             // Check if seeder file still exists and should appear in pending
             $filePath = $this->resolveSeederFilePath($seedRun->class_name);
@@ -2986,8 +3343,7 @@ class SeedRunController extends Controller
             ]);
         }
 
-        return redirect()
-            ->route('seed-runs.index')
+        return $this->redirectToIndexWithTab($request)
             ->with('status', $status);
     }
 
@@ -3000,8 +3356,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['refresh' => $errorMessage]);
         }
 
@@ -3014,8 +3369,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['refresh' => $errorMessage]);
         }
 
@@ -3028,8 +3382,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['refresh' => $errorMessage]);
         }
 
@@ -3040,6 +3393,17 @@ class SeedRunController extends Controller
         $deletedHints = 0;
         $deletedExplanations = 0;
         $profile = $this->describeSeederData($seedRun->class_name);
+
+        $blockedMessage = $this->executionBlockedMessageForSeeder($className, $this->executedSeederClasses());
+
+        if ($blockedMessage !== null) {
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $blockedMessage], 422);
+            }
+
+            return $this->redirectToIndexWithTab($request)
+                ->withErrors(['refresh' => $blockedMessage]);
+        }
 
         try {
             $isLocalizationSeeder = $this->isVirtualLocalizationSeeder($className);
@@ -3054,8 +3418,7 @@ class SeedRunController extends Controller
                         return response()->json(['message' => $errorMessage], 422);
                     }
 
-                    return redirect()
-                        ->route('seed-runs.index')
+                    return $this->redirectToIndexWithTab($request)
                         ->withErrors(['refresh' => $errorMessage]);
                 }
             }
@@ -3111,8 +3474,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $exception->getMessage()], 500);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['refresh' => $exception->getMessage()]);
         }
 
@@ -3145,7 +3507,7 @@ class SeedRunController extends Controller
         };
 
         if ($request->wantsJson()) {
-            $overview = $this->assembleSeedRunOverview();
+            $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
             
             return response()->json([
                 'message' => $status,
@@ -3164,8 +3526,7 @@ class SeedRunController extends Controller
             ]);
         }
 
-        return redirect()
-            ->route('seed-runs.index')
+        return $this->redirectToIndexWithTab($request)
             ->with('status', $status);
     }
 
@@ -3178,8 +3539,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['delete' => $errorMessage]);
         }
 
@@ -3198,8 +3558,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 422);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['delete' => $errorMessage]);
         }
 
@@ -3214,8 +3573,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['delete' => $errorMessage]);
         }
 
@@ -3230,7 +3588,7 @@ class SeedRunController extends Controller
         ]);
 
         if ($request->wantsJson()) {
-            $overview = $this->assembleSeedRunOverview();
+            $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
             return response()->json([
                 'message' => $message,
                 'deleted_count' => $seedRuns->count(),
@@ -3242,8 +3600,7 @@ class SeedRunController extends Controller
             ]);
         }
 
-        return redirect()
-            ->route('seed-runs.index')
+        return $this->redirectToIndexWithTab($request)
             ->with('status', $message);
     }
 
@@ -3256,8 +3613,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['delete' => $errorMessage]);
         }
 
@@ -3276,8 +3632,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 422);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['delete' => $errorMessage]);
         }
 
@@ -3292,8 +3647,7 @@ class SeedRunController extends Controller
                 return response()->json(['message' => $errorMessage], 404);
             }
 
-            return redirect()
-                ->route('seed-runs.index')
+            return $this->redirectToIndexWithTab($request)
                 ->withErrors(['delete' => $errorMessage]);
         }
 
@@ -3398,7 +3752,7 @@ class SeedRunController extends Controller
         }
 
         if ($request->wantsJson()) {
-            $overview = $this->assembleSeedRunOverview();
+            $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
             return response()->json([
                 'message' => $statusMessage,
                 'deleted_count' => $seedRuns->count(),
@@ -3416,8 +3770,7 @@ class SeedRunController extends Controller
             ]);
         }
 
-        return redirect()
-            ->route('seed-runs.index')
+        return $this->redirectToIndexWithTab($request)
             ->with('status', $statusMessage);
     }
 

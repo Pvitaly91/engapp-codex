@@ -5,7 +5,9 @@ namespace Tests\Feature;
 use App\Http\Controllers\SeedRunController;
 use App\Modules\SeedRunsV2\Services\SeedRunsService;
 use App\Services\QuestionDeletionService;
+use App\Services\SeederTestTargetResolver;
 use App\Support\Database\JsonPageLocalizationManager;
+use App\Support\Database\JsonTestLocalizationManager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
@@ -126,6 +128,8 @@ class SeederFolderExecutionOrderTest extends TestCase
 
         $service = new class(
             app(QuestionDeletionService::class),
+            app(SeederTestTargetResolver::class),
+            app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),
         ) extends SeedRunsService {
             public array $appliedLocalizations = [];
@@ -160,5 +164,32 @@ class SeederFolderExecutionOrderTest extends TestCase
             [$localizationSeeder],
             $service->appliedLocalizations
         );
+    }
+
+    public function test_seed_runs_service_blocks_localization_until_base_seeder_is_executed(): void
+    {
+        $localizationSeeder = 'Database\\Seeders\\Page_V3\\Localizations\\En\\PassiveVoiceCategoryLocalizationSeeder';
+
+        $service = new class(
+            app(QuestionDeletionService::class),
+            app(SeederTestTargetResolver::class),
+            app(JsonTestLocalizationManager::class),
+            app(JsonPageLocalizationManager::class),
+        ) extends SeedRunsService {
+            public array $appliedLocalizations = [];
+
+            protected function applyVirtualLocalizationSeeder(string $className): array
+            {
+                $this->appliedLocalizations[] = $className;
+
+                return ['localized_blocks' => 1];
+            }
+        };
+
+        $result = $service->runSeeder($localizationSeeder);
+
+        $this->assertFalse($result['success']);
+        $this->assertStringContainsString('Спочатку виконайте основний сидер', $result['message']);
+        $this->assertSame([], $service->appliedLocalizations);
     }
 }

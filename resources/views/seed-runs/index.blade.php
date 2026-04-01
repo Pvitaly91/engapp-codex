@@ -12,14 +12,39 @@
                     <p class="text-sm text-gray-500">Керуйте виконаними та невиконаними сидарами.</p>
                 </div>
                 @if($tableExists)
-                    <form method="POST" action="{{ route('seed-runs.run-missing') }}" data-preloader>
+                    <form method="POST" action="{{ route('seed-runs.run-missing', ['tab' => $activeSeederTab]) }}" data-preloader>
                         @csrf
-                        <button type="submit" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow hover:bg-blue-500 transition disabled:opacity-50" @if($pendingSeeders->isEmpty()) disabled @endif>
+                        <button type="submit" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow hover:bg-blue-500 transition disabled:opacity-50 disabled:cursor-not-allowed" @if(($runnablePendingCount ?? 0) === 0) disabled @endif>
                             <i class="fa-solid fa-play"></i>
-                            Виконати всі невиконані
+                            {{ $activeSeederTab === 'localizations' ? 'Виконати доступні локалізації' : 'Виконати всі невиконані' }}
                         </button>
                     </form>
                 @endif
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-4">
+                @php
+                    $mainCount = (int) data_get($seederTabCounts ?? [], 'main.total', 0);
+                    $localizationsCount = (int) data_get($seederTabCounts ?? [], 'localizations.total', 0);
+                @endphp
+                <a href="{{ route('seed-runs.index') }}"
+                   @class([
+                       'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition',
+                       'bg-slate-900 text-white shadow-sm' => $activeSeederTab === 'main',
+                       'bg-slate-100 text-slate-700 hover:bg-slate-200' => $activeSeederTab !== 'main',
+                   ])>
+                    <span>Основні сидери</span>
+                    <span class="rounded-full bg-white/15 px-2 py-0.5 text-xs">{{ $mainCount }}</span>
+                </a>
+                <a href="{{ route('seed-runs.index', ['tab' => 'localizations']) }}"
+                   @class([
+                       'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition',
+                       'bg-sky-600 text-white shadow-sm' => $activeSeederTab === 'localizations',
+                       'bg-slate-100 text-slate-700 hover:bg-slate-200' => $activeSeederTab !== 'localizations',
+                   ])>
+                    <span>Локалізації</span>
+                    <span class="rounded-full bg-white/15 px-2 py-0.5 text-xs">{{ $localizationsCount }}</span>
+                </a>
             </div>
 
             @php
@@ -73,7 +98,7 @@
             <div class="space-y-6">
                 <form id="pending-bulk-delete-form"
                       method="POST"
-                      action="{{ route('seed-runs.destroy-seeder-files') }}"
+                      action="{{ route('seed-runs.destroy-seeder-files', ['tab' => $activeSeederTab]) }}"
                       data-preloader
                       data-bulk-delete-form
                       data-bulk-scope="pending"
@@ -85,7 +110,7 @@
 
                 <form id="executed-bulk-delete-form"
                       method="POST"
-                      action="{{ route('seed-runs.destroy-seeder-files') }}"
+                      action="{{ route('seed-runs.destroy-seeder-files', ['tab' => $activeSeederTab]) }}"
                       data-preloader
                       data-bulk-delete-form
                       data-bulk-scope="executed"
@@ -97,7 +122,9 @@
 
                 <div class="bg-white shadow rounded-lg p-6">
                     <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
-                        <h2 class="text-xl font-semibold text-gray-800">Невиконані сидери</h2>
+                        <h2 class="text-xl font-semibold text-gray-800">
+                            {{ $activeSeederTab === 'localizations' ? 'Невиконані локалізації' : 'Невиконані сидери' }}
+                        </h2>
                         <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
                             <button type="button"
                                     class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition"
@@ -122,11 +149,17 @@
                         @if(($pendingSeederHierarchy ?? collect())->isEmpty())
                             <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
                         @else
+                            @if(($runnablePendingCount ?? 0) === 0 && $activeSeederTab === 'localizations')
+                                <div class="mb-4 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                                    Усі локалізації в цій вкладці заблоковані. Спочатку виконайте їхні основні сидери.
+                                </div>
+                            @endif
                             <div class="space-y-3" id="pending-seeders-tree" data-pending-tree>
                                 @foreach($pendingSeederHierarchy as $node)
                                     @include('seed-runs.partials.pending-node', [
                                         'node' => $node,
                                         'depth' => 0,
+                                        'activeSeederTab' => $activeSeederTab,
                                     ])
                                 @endforeach
                             </div>
@@ -136,7 +169,9 @@
 
                 <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
                     <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between mb-4">
-                        <h2 class="text-xl font-semibold text-gray-800">Виконані сидери</h2>
+                        <h2 class="text-xl font-semibold text-gray-800">
+                            {{ $activeSeederTab === 'localizations' ? 'Виконані локалізації' : 'Виконані сидери' }}
+                        </h2>
                         <div class="flex flex-col gap-3 w-full sm:flex-row sm:items-center sm:justify-end">
                             <div class="relative w-full sm:max-w-xs">
                                 <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 pointer-events-none">
@@ -168,12 +203,13 @@
                     @else
                         <div class="space-y-4" data-executed-nodes>
                             @foreach($executedSeederHierarchy as $node)
-                                @include('seed-runs.partials.executed-node', [
-                                    'node' => $node,
-                                    'depth' => 0,
-                                    'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
-                                ])
-                            @endforeach
+                            @include('seed-runs.partials.executed-node', [
+                                'node' => $node,
+                                'depth' => 0,
+                                'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
+                                'activeSeederTab' => $activeSeederTab,
+                            ])
+                        @endforeach
                         </div>
                         <p class="text-sm text-slate-500 hidden" data-executed-search-empty>
                             Сидери з такою назвою не знайдено.
@@ -982,16 +1018,9 @@
 
                         updateCreateSeederStatus(successMessage, 'success');
                         showFeedback(successMessage, 'success');
-
-                        // Add the new seeder to the pending list
-                        if (payload.pending_seeder) {
-                            addToPendingList(payload.pending_seeder);
-                        }
-
-                        // Close the modal after a short delay
                         window.setTimeout(function () {
-                            closeCreateSeederModal();
-                        }, 500);
+                            window.location.reload();
+                        }, 250);
                     } catch (error) {
                         const message = error && typeof error.message === 'string' && error.message
                             ? error.message
@@ -1350,6 +1379,23 @@
             updateAllBulkButtonStates();
 
             const folderLoadingPromises = new WeakMap();
+            const buildUrlWithParams = function (baseUrl, params = {}) {
+                if (!baseUrl) {
+                    return '';
+                }
+
+                const url = new URL(baseUrl, window.location.origin);
+
+                Object.entries(params).forEach(function ([key, value]) {
+                    if (value === null || typeof value === 'undefined') {
+                        return;
+                    }
+
+                    url.searchParams.set(key, String(value));
+                });
+
+                return url.toString();
+            };
 
             const loadFolderChildrenContent = function (folderNode, options = {}) {
                 if (!folderNode) {
@@ -1393,13 +1439,15 @@
 
                     const depth = children.dataset.depth || '0';
                     const path = button.dataset.folderPath || '';
-                    const params = new URLSearchParams({
+                    const tab = button.dataset.folderTab || 'main';
+                    const requestUrl = buildUrlWithParams(baseUrl, {
+                        tab: tab,
                         path: path,
                         depth: depth,
                     });
 
                     try {
-                        const response = await fetch(baseUrl + '?' + params.toString(), {
+                        const response = await fetch(requestUrl, {
                             headers: {
                                 'Accept': 'application/json',
                             },
@@ -1697,6 +1745,14 @@
 
                     showFeedback(successMessage, 'success');
 
+                    if (form.dataset.reloadAfterSuccess === 'true') {
+                        window.setTimeout(function () {
+                            window.location.reload();
+                        }, 200);
+
+                        return;
+                    }
+
                     // Update UI dynamically based on operation type
                     handleUIUpdate(form, payload);
                 } catch (error) {
@@ -1713,6 +1769,14 @@
             };
 
             const handleUIUpdate = function (form, payload) {
+                if (payload && payload.overview) {
+                    window.setTimeout(function () {
+                        window.location.reload();
+                    }, 200);
+
+                    return;
+                }
+
                 // Get the class name from form if available
                 const classNameInput = form.querySelector('[name="class_name"]');
                 const className = classNameInput ? classNameInput.value : null;
@@ -1920,13 +1984,13 @@
                 wrapper.setAttribute('data-folder-name', name);
                 wrapper.setAttribute('data-seeder-count', '0');
                 wrapper.innerHTML = `
-                    <button type="button" class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition" data-pending-folder-toggle data-folder-path="${escapeHtml(path)}" aria-expanded="true">
-                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform" data-pending-folder-icon></i>
+                    <button type="button" class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition" data-pending-folder-toggle data-folder-path="${escapeHtml(path)}" aria-expanded="false">
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform -rotate-90" data-pending-folder-icon></i>
                         <i class="fa-solid fa-folder-tree text-slate-500"></i>
                         <span data-folder-name>${escapeHtml(name)}</span>
                         <span class="text-xs font-normal text-slate-500" data-folder-count>(0)</span>
                     </button>
-                    <div class="space-y-3" data-pending-folder-children data-depth="${depth + 1}"></div>
+                    <div class="space-y-3 hidden" data-pending-folder-children data-depth="${depth + 1}"></div>
                 `;
 
                 return wrapper;
@@ -1937,6 +2001,7 @@
                 const actionsId = checkboxId + '-actions';
                 const displayNamespace = seeder.display_class_namespace || '';
                 const displayBasename = seeder.display_class_basename || seeder.display_class_name;
+                const availableLocalizations = Array.isArray(seeder.available_localizations) ? seeder.available_localizations : [];
                 const isLocalizationSeeder = ['question_localizations', 'page_localizations'].includes(seeder.data_type || '');
                 const isCategorySeeder = (displayBasename || '').includes('Category');
                 const labelClasses = isLocalizationSeeder
@@ -1944,20 +2009,60 @@
                     : (isCategorySeeder
                     ? 'inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold ring-1 ring-emerald-200'
                     : 'inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold');
+                const localizationsMarkup = availableLocalizations.length
+                    ? `
+                        <div class="rounded-lg border border-sky-200 bg-sky-50/80 p-3 space-y-3">
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-wide text-sky-800">
+                                    Існуючі локалізації
+                                </p>
+                                <p class="text-[11px] text-sky-700">
+                                    Знайдено ${availableLocalizations.length} файлів локалізацій.
+                                </p>
+                            </div>
+                            <div class="space-y-2">
+                                ${availableLocalizations.map(function (localization) {
+                                    const localeLabel = localization.locale_label || 'N/A';
+                                    const typeLabel = localization.type_label || 'Локалізація';
+                                    const displayName = localization.display_name || localization.class_name || '';
+
+                                    return `
+                                        <div class="rounded-md border border-sky-100 bg-white/90 px-3 py-2">
+                                            <div class="flex flex-wrap items-center gap-2 text-xs">
+                                                <span class="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 font-semibold text-sky-800">
+                                                    ${escapeHtml(localeLabel)}
+                                                </span>
+                                                <span class="font-medium text-slate-700">
+                                                    ${escapeHtml(typeLabel)}
+                                                </span>
+                                            </div>
+                                            <p class="mt-1 break-all text-xs text-slate-600">
+                                                ${escapeHtml(displayName)}
+                                            </p>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    `
+                    : '';
                 const wrapper = document.createElement('div');
-                wrapper.className = 'flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between';
+                wrapper.className = 'flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between';
                 wrapper.style.marginLeft = (depth > 0 ? 1.5 : 0) + 'rem';
                 wrapper.setAttribute('data-pending-seeder', '');
                 wrapper.setAttribute('data-class-name', seeder.class_name);
                 wrapper.style.opacity = '0';
 
                 wrapper.innerHTML = `
-                    <div class="flex items-center gap-3 sm:flex-1">
-                        <input type="checkbox" id="${checkboxId}" name="class_names[]" value="${escapeHtml(seeder.class_name)}" form="pending-bulk-delete-form" class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500" data-bulk-delete-checkbox data-bulk-scope="pending">
-                        <label for="${checkboxId}" class="inline-flex text-sm font-mono text-gray-700 break-all cursor-pointer min-w-[12rem] sm:min-w-[15rem]">
-                            ${displayNamespace ? '<span class="text-gray-500">' + escapeHtml(displayNamespace) + '</span><span class="text-gray-400">\\</span>' : ''}
-                            <span class="${labelClasses}">${escapeHtml(displayBasename)}</span>
-                        </label>
+                    <div class="flex flex-col gap-3 sm:flex-1">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <input type="checkbox" id="${checkboxId}" name="class_names[]" value="${escapeHtml(seeder.class_name)}" form="pending-bulk-delete-form" class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500" data-bulk-delete-checkbox data-bulk-scope="pending">
+                            <label for="${checkboxId}" class="inline-flex text-sm font-mono text-gray-700 break-all cursor-pointer min-w-[12rem] sm:min-w-[15rem]">
+                                ${displayNamespace ? '<span class="text-gray-500">' + escapeHtml(displayNamespace) + '</span><span class="text-gray-400">\\</span>' : ''}
+                                <span class="${labelClasses}">${escapeHtml(displayBasename)}</span>
+                            </label>
+                        </div>
+                        ${localizationsMarkup}
                     </div>
                     <div class="sm:hidden">
                         <button type="button" class="inline-flex items-center justify-between gap-2 w-full px-3 py-1.5 bg-slate-100 text-slate-700 text-xs font-medium rounded-md hover:bg-slate-200 transition" data-pending-actions-toggle data-target="${actionsId}" aria-expanded="false" aria-controls="${actionsId}">

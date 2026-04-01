@@ -669,9 +669,9 @@ class V3JsonTestSeederTest extends TestCase
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),
         ) extends SeedRunController {
-            public function overviewData(): array
+            public function overviewData(?string $activeTab = null): array
             {
-                return $this->assembleSeedRunOverview();
+                return $this->assembleSeedRunOverview($activeTab);
             }
 
             public function previewData(string $className): array
@@ -682,11 +682,13 @@ class V3JsonTestSeederTest extends TestCase
 
         $localizationSeederClass = 'Database\\Seeders\\V3\\Localizations\\En\\PassiveVoiceAllTensesV3LocalizationSeeder';
 
-        $overviewBeforeBaseRun = $controller->overviewData();
+        $overviewBeforeBaseRun = $controller->overviewData('localizations');
+        $pendingLocalizationSeeder = $overviewBeforeBaseRun['pendingSeeders']
+            ->firstWhere('class_name', $localizationSeederClass);
 
-        $this->assertTrue(
-            $overviewBeforeBaseRun['pendingSeeders']->pluck('class_name')->contains($localizationSeederClass)
-        );
+        $this->assertNotNull($pendingLocalizationSeeder);
+        $this->assertFalse((bool) data_get($pendingLocalizationSeeder, 'can_execute', true));
+        $this->assertNotNull(data_get($pendingLocalizationSeeder, 'execution_block_reason'));
 
         $previewBeforeBaseRun = $controller->previewData($localizationSeederClass);
 
@@ -695,9 +697,27 @@ class V3JsonTestSeederTest extends TestCase
         $this->assertSame(30, $previewBeforeBaseRun['localizedQuestionCount']);
         $this->assertSame(0, $previewBeforeBaseRun['existingQuestionCount']);
 
+        $blockedRequest = Request::create('/admin/seed-runs/run?tab=localizations', 'POST', [
+            'class_name' => $localizationSeederClass,
+        ]);
+        $blockedRequest->headers->set('Accept', 'application/json');
+
+        $blockedResponse = $controller->run($blockedRequest);
+
+        $this->assertInstanceOf(JsonResponse::class, $blockedResponse);
+        $this->assertSame(422, $blockedResponse->getStatusCode());
+
         (new PassiveVoiceAllTensesV3Seeder())->__invoke();
 
-        $request = Request::create('/admin/seed-runs/run', 'POST', [
+        $overviewAfterBaseRun = $controller->overviewData('localizations');
+        $pendingLocalizationSeeder = $overviewAfterBaseRun['pendingSeeders']
+            ->firstWhere('class_name', $localizationSeederClass);
+
+        $this->assertNotNull($pendingLocalizationSeeder);
+        $this->assertTrue((bool) data_get($pendingLocalizationSeeder, 'can_execute', false));
+        $this->assertNull(data_get($pendingLocalizationSeeder, 'execution_block_reason'));
+
+        $request = Request::create('/admin/seed-runs/run?tab=localizations', 'POST', [
             'class_name' => $localizationSeederClass,
         ]);
         $request->headers->set('Accept', 'application/json');
@@ -713,7 +733,7 @@ class V3JsonTestSeederTest extends TestCase
             'class_name' => $localizationSeederClass,
         ]);
 
-        $overviewAfterRun = $controller->overviewData();
+        $overviewAfterRun = $controller->overviewData('localizations');
         $this->assertTrue(
             $overviewAfterRun['executedSeeders']->pluck('class_name')->contains($localizationSeederClass)
         );

@@ -11,6 +11,9 @@ class SeedRunsIndex extends Component
     public $pendingSeederHierarchy = [];
     public $executedSeederHierarchy = [];
     public $recentSeedRunOrdinals = [];
+    public string $activeSeederTab = 'main';
+    public array $seederTabCounts = [];
+    public int $runnablePendingCount = 0;
     
     public string $searchQuery = '';
     public string $statusMessage = '';
@@ -39,6 +42,10 @@ class SeedRunsIndex extends Component
     public array $selectedExecutedSeeders = [];
     
     protected SeedRunsService $seedRunsService;
+    protected $queryString = [
+        'activeSeederTab' => ['except' => 'main', 'as' => 'tab'],
+        'searchQuery' => ['except' => ''],
+    ];
 
     public function boot(SeedRunsService $seedRunsService): void
     {
@@ -47,17 +54,21 @@ class SeedRunsIndex extends Component
 
     public function mount(): void
     {
+        $this->activeSeederTab = $this->normalizeSeederTab($this->activeSeederTab);
         $this->refreshOverview();
     }
 
     public function refreshOverview(): void
     {
-        $overview = $this->seedRunsService->assembleSeedRunOverview();
+        $overview = $this->seedRunsService->assembleSeedRunOverview($this->activeSeederTab);
         
         $this->tableExists = $overview['tableExists'];
         $this->pendingSeederHierarchy = $overview['pendingSeederHierarchy']->toArray();
         $this->executedSeederHierarchy = $overview['executedSeederHierarchy']->toArray();
         $this->recentSeedRunOrdinals = $overview['recentSeedRunOrdinals']->toArray();
+        $this->activeSeederTab = $this->normalizeSeederTab($overview['activeSeederTab'] ?? $this->activeSeederTab);
+        $this->seederTabCounts = $overview['seederTabCounts'] ?? [];
+        $this->runnablePendingCount = (int) ($overview['runnablePendingCount'] ?? 0);
     }
 
     public function runSeeder(string $className): void
@@ -113,7 +124,7 @@ class SeedRunsIndex extends Component
 
     public function runMissingSeeders(): void
     {
-        $result = $this->seedRunsService->runMissingSeeders();
+        $result = $this->seedRunsService->runMissingSeeders($this->activeSeederTab);
         
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
@@ -125,9 +136,17 @@ class SeedRunsIndex extends Component
     public function confirmRunMissing(): void
     {
         $this->confirmAction = 'runMissingSeeders';
-        $this->confirmMessage = __('Виконати всі невиконані сидери?');
+        $this->confirmMessage = $this->activeSeederTab === 'localizations'
+            ? __('Виконати всі доступні невиконані локалізації?')
+            : __('Виконати всі невиконані сидери?');
         $this->confirmData = null;
         $this->showConfirmModal = true;
+    }
+
+    public function setActiveSeederTab(string $tab): void
+    {
+        $this->activeSeederTab = $this->normalizeSeederTab($tab);
+        $this->refreshOverview();
     }
 
     public function markAsExecuted(string $className): void
@@ -232,6 +251,14 @@ class SeedRunsIndex extends Component
     {
         $this->confirmAction = 'deleteSeedRunWithData';
         $this->confirmMessage = __('Видалити запис та дані сидера «:name»?', ['name' => $displayName]);
+        $this->confirmData = $seedRunId;
+        $this->showConfirmModal = true;
+    }
+
+    public function confirmDeleteLocalizationFromDatabase(int $seedRunId, string $displayName): void
+    {
+        $this->confirmAction = 'deleteSeedRunWithData';
+        $this->confirmMessage = __('Видалити локалізацію «:name» з БД?', ['name' => $displayName]);
         $this->confirmData = $seedRunId;
         $this->showConfirmModal = true;
     }
@@ -357,12 +384,19 @@ class SeedRunsIndex extends Component
         $this->statusLinks = [];
     }
 
+    protected function normalizeSeederTab(?string $tab): string
+    {
+        return $tab === 'localizations' ? 'localizations' : 'main';
+    }
+
     protected function resolvePendingFolderClassNames(string $folderPath): array
     {
         $node = $this->findPendingFolderNodeByPath($this->pendingSeederHierarchy, $folderPath);
 
-        return is_array($node['class_names'] ?? null)
-            ? array_values(array_filter(array_map('strval', $node['class_names'])))
+        $classNames = $node['runnable_class_names'] ?? $node['class_names'] ?? null;
+
+        return is_array($classNames)
+            ? array_values(array_filter(array_map('strval', $classNames)))
             : [];
     }
 

@@ -31,11 +31,7 @@ class SeedRunCategoryDeletionTest extends TestCase
     {
         $fixture = $this->createCategoryDeletionFixture('Tests\\Seeders\\FakeTheoryCategorySeeder');
 
-        $controller = new SeedRunController(
-            app(QuestionDeletionService::class),
-            app(JsonTestLocalizationManager::class),
-            app(JsonPageLocalizationManager::class),
-        );
+        $controller = app(SeedRunController::class);
 
         $request = Request::create('/admin/seed-runs/' . $fixture['seed_run_id'] . '/with-questions', 'DELETE');
         $request->headers->set('Accept', 'application/json');
@@ -63,11 +59,7 @@ class SeedRunCategoryDeletionTest extends TestCase
     {
         $fixture = $this->createFolderDeletionFixture();
 
-        $controller = new SeedRunController(
-            app(QuestionDeletionService::class),
-            app(JsonTestLocalizationManager::class),
-            app(JsonPageLocalizationManager::class),
-        );
+        $controller = app(SeedRunController::class);
 
         $request = Request::create('/admin/seed-runs/folders/delete-with-questions', 'DELETE', [
             'seed_run_ids' => array_values($fixture['seed_run_ids']),
@@ -99,6 +91,50 @@ class SeedRunCategoryDeletionTest extends TestCase
         $this->assertSame(1, $result['deleted_pages']);
         $this->assertSame(1, $result['deleted_categories']);
         $this->assertLinkedPageCategoryFixtureWasDeleted($fixture);
+    }
+
+    /** @test */
+    public function seed_runs_service_deletes_question_localizations_with_seed_run_data(): void
+    {
+        $seedRunId = (int) DB::table('seed_runs')->insertGetId([
+            'class_name' => 'Database\\Seeders\\V3\\Localizations\\En\\FakeLocalizationSeeder',
+            'ran_at' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $service = new class(
+            app(QuestionDeletionService::class),
+            app(\App\Services\SeederTestTargetResolver::class),
+            app(JsonTestLocalizationManager::class),
+            app(JsonPageLocalizationManager::class),
+        ) extends SeedRunsService {
+            public function describeSeederData(string $className): array
+            {
+                return [
+                    'type' => 'question_localizations',
+                    'delete_button' => 'Delete',
+                    'delete_confirm' => 'Delete',
+                    'folder_delete_button' => 'Delete',
+                    'folder_delete_confirm' => 'Delete',
+                ];
+            }
+
+            protected function removeVirtualLocalizationSeederData(string $className): array
+            {
+                return [
+                    'deleted_hints' => 3,
+                    'deleted_explanations' => 5,
+                ];
+            }
+        };
+
+        $result = $service->destroySeedRunWithData($seedRunId);
+
+        $this->assertTrue($result['success']);
+        $this->assertSame(3, $result['deleted_hints']);
+        $this->assertSame(5, $result['deleted_explanations']);
+        $this->assertDatabaseMissing('seed_runs', ['id' => $seedRunId]);
     }
 
     private function rebuildMinimalSchema(): void
