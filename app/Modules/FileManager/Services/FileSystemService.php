@@ -361,6 +361,12 @@ class FileSystemService
      */
     protected function isTextFile(string $path): bool
     {
+        $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+
+        if (in_array($extension, $this->textFileExtensions(), true)) {
+            return true;
+        }
+
         $mimeType = mime_content_type($path);
 
         if (! $mimeType) {
@@ -371,10 +377,16 @@ class FileSystemService
         return str_starts_with($mimeType, 'text/') ||
                in_array($mimeType, [
                    'application/json',
+                   'application/ld+json',
                    'application/xml',
                    'application/javascript',
                    'application/x-httpd-php',
                    'application/x-sh',
+                   'application/sql',
+                   'application/toml',
+                   'application/x-yaml',
+                   'application/yaml',
+                   'image/svg+xml',
                ]);
     }
 
@@ -457,5 +469,78 @@ class FileSystemService
 
         return $normalizedPath === $normalizedBasePath
             || str_starts_with($normalizedPath, $normalizedBasePath.'/');
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    protected function textFileExtensions(): array
+    {
+        return [
+            'php',
+            'phtml',
+            'js',
+            'jsx',
+            'ts',
+            'tsx',
+            'mjs',
+            'cjs',
+            'json',
+            'json5',
+            'map',
+            'html',
+            'htm',
+            'xhtml',
+            'xml',
+            'svg',
+            'css',
+            'scss',
+            'sass',
+            'less',
+            'md',
+            'markdown',
+            'txt',
+            'log',
+            'sql',
+            'yml',
+            'yaml',
+            'ini',
+            'env',
+            'conf',
+            'config',
+            'toml',
+            'properties',
+            'gitignore',
+            'gitattributes',
+            'editorconfig',
+            'npmrc',
+            'sh',
+            'bash',
+            'zsh',
+            'bat',
+            'cmd',
+            'ps1',
+            'py',
+            'rb',
+            'java',
+            'kt',
+            'kts',
+            'c',
+            'cc',
+            'cpp',
+            'cxx',
+            'h',
+            'hpp',
+            'cs',
+            'go',
+            'rs',
+            'vue',
+            'svelte',
+            'lock',
+            'csv',
+            'tsv',
+            'graphql',
+            'gql',
+        ];
     }
 }

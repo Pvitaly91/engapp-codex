@@ -119,6 +119,35 @@ class FileManagerController extends Controller
     }
 
     /**
+     * Display the embeddable file editor page without the admin layout.
+     */
+    public function embed(Request $request, ?string $path = null): View
+    {
+        return $this->renderEmbedView('file-manager::embed-page', $request, $path);
+    }
+
+    /**
+     * Display the embeddable file editor fragment for AJAX insertion.
+     */
+    public function embedFragment(Request $request, ?string $path = null): View
+    {
+        return $this->renderEmbedView('file-manager::embed-fragment', $request, $path);
+    }
+
+    /**
+     * Serve the embeddable file editor bootstrap script.
+     */
+    public function embedBootstrap(): Response
+    {
+        return response()
+            ->view('file-manager::partials.embed-bootstrap-js', [
+                'fragmentUrl' => route('file-manager.embed.fragment'),
+                'standaloneUrl' => route('file-manager.embed'),
+            ])
+            ->header('Content-Type', 'application/javascript; charset=UTF-8');
+    }
+
+    /**
      * Display the V2 file manager interface.
      */
     public function v2(Request $request, ?string $path = null): View
@@ -624,6 +653,35 @@ class FileManagerController extends Controller
             'initialSelection' => $initialSelection,
             'initialTarget' => $initialSelection ?: $initialPath,
             'initialMissingTarget' => $initialMissingTarget,
+        ]);
+    }
+
+    private function renderEmbedView(string $view, Request $request, ?string $targetPath = null): View
+    {
+        $requestedPath = $this->sanitizePath($targetPath);
+
+        if ($requestedPath === '') {
+            $requestedPath = $this->sanitizePath($request->query('path'));
+        }
+
+        $requestedPath = $this->sanitizePath($requestedPath);
+        $targetInfo = $requestedPath !== ''
+            ? $this->fileSystemService->getFileInfo($requestedPath)
+            : null;
+
+        $missingTarget = $requestedPath !== '' && ! $targetInfo;
+        $directoryTarget = (bool) ($targetInfo && $targetInfo['type'] === 'directory');
+        $initialFilePath = $targetInfo && $targetInfo['type'] === 'file'
+            ? $requestedPath
+            : '';
+
+        return view($view, [
+            'basePath' => $this->fileSystemService->getBasePath(),
+            'initialFilePath' => $initialFilePath,
+            'requestedPath' => $requestedPath,
+            'initialMissingTarget' => $missingTarget ? $requestedPath : '',
+            'directoryTarget' => $directoryTarget,
+            'targetInfo' => $targetInfo,
         ]);
     }
 

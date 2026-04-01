@@ -7,6 +7,15 @@ Route::get('/', [FileManagerController::class, 'index'])->name('index');
 Route::get('/open/{path?}', [FileManagerController::class, 'index'])
     ->where('path', '.*')
     ->name('show');
+Route::get('/embed', [FileManagerController::class, 'embed'])->name('embed');
+Route::get('/embed/bootstrap.js', [FileManagerController::class, 'embedBootstrap'])->name('embed.bootstrap');
+Route::get('/embed/open/{path?}', [FileManagerController::class, 'embed'])
+    ->where('path', '.*')
+    ->name('embed.show');
+Route::get('/embed/fragment', [FileManagerController::class, 'embedFragment'])->name('embed.fragment');
+Route::get('/embed/fragment/open/{path?}', [FileManagerController::class, 'embedFragment'])
+    ->where('path', '.*')
+    ->name('embed.fragment.show');
 Route::get('/ide', [FileManagerController::class, 'ide'])->name('ide');
 Route::get('/assets/{path}', [FileManagerController::class, 'asset'])
     ->where('path', '.*')

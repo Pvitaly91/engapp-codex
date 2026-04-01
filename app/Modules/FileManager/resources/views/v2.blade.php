@@ -553,6 +553,8 @@
 @endphp
 
 <script>
+@include('file-manager::partials.modal-helper-js-code')
+
 const FILE_MANAGER_V2_ROUTES = @js($v2Routes);
 const FILE_MANAGER_V2_OPEN_BASE_URL = @js($v2OpenBaseUrl);
 const FILE_MANAGER_V2_CODEMIRROR_SOURCES = @js($codeMirrorSources);
@@ -759,7 +761,7 @@ function fileManagerV2(initialPath = '', initialSelection = '', initialTarget = 
         async openTarget(path = '', options = {}) {
             const normalizedPath = this.normalizePath(path);
 
-            if (options.warnOnUnsaved !== false && !this.confirmDiscardChanges()) {
+            if (options.warnOnUnsaved !== false && !(await this.confirmDiscardChanges())) {
                 return;
             }
 
@@ -1234,7 +1236,7 @@ function fileManagerV2(initialPath = '', initialSelection = '', initialTarget = 
                 return;
             }
 
-            if (!this.confirmDiscardChanges()) {
+            if (!(await this.confirmDiscardChanges())) {
                 return;
             }
 
@@ -1335,7 +1337,13 @@ function fileManagerV2(initialPath = '', initialSelection = '', initialTarget = 
             const itemTypeLabel = item.type === 'directory'
                 ? 'папку разом з усім вмістом'
                 : 'файл';
-            const confirmed = window.confirm(`Видалити ${itemTypeLabel} "${item.path}"?`);
+            const confirmed = await this.confirmAction({
+                title: 'Підтвердження видалення',
+                message: `Видалити ${itemTypeLabel} "${item.path}"?`,
+                confirmLabel: 'Видалити',
+                cancelLabel: 'Скасувати',
+                variant: 'danger',
+            });
 
             if (!confirmed) {
                 return;
@@ -1618,12 +1626,26 @@ function fileManagerV2(initialPath = '', initialSelection = '', initialTarget = 
             return this.currentEditorValue() !== this.originalContent;
         },
 
-        confirmDiscardChanges() {
+        async confirmAction(options = {}) {
+            if (window.FileManagerModal?.confirm) {
+                return window.FileManagerModal.confirm(options);
+            }
+
+            return false;
+        },
+
+        async confirmDiscardChanges() {
             if (!this.hasUnsavedChanges()) {
                 return true;
             }
 
-            return window.confirm('Є незбережені зміни. Втратити їх?');
+            return this.confirmAction({
+                title: 'Незбережені зміни',
+                message: 'Є незбережені зміни. Втратити їх?',
+                confirmLabel: 'Втратити зміни',
+                cancelLabel: 'Скасувати',
+                variant: 'danger',
+            });
         },
 
         async ensureEditorAssets() {

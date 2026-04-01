@@ -213,6 +213,8 @@
 @endphp
 
 <script>
+@include('file-manager::partials.modal-helper-js-code')
+
 const FILE_MANAGER_CODEMIRROR_SOURCES = {!! json_encode($codeMirrorSources) !!};
 
 const FILE_MANAGER_FALLBACK_KEYWORDS = {
@@ -357,6 +359,14 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
             if (this.initialSelection) {
                 this.openFile(this.initialSelection);
             }
+        },
+
+        async confirmAction(options = {}) {
+            if (window.FileManagerModal?.confirm) {
+                return window.FileManagerModal.confirm(options);
+            }
+
+            return false;
         },
 
         async loadTree(path) {
@@ -739,9 +749,17 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
             }
         },
 
-        closeEditor() {
+        async closeEditor() {
             if (this.editorModified) {
-                if (!confirm('Є незбережені зміни. Все одно закрити?')) {
+                const confirmed = await this.confirmAction({
+                    title: 'Незбережені зміни',
+                    message: 'Є незбережені зміни. Закрити редактор і втратити їх?',
+                    confirmLabel: 'Закрити редактор',
+                    cancelLabel: 'Скасувати',
+                    variant: 'danger',
+                });
+
+                if (!confirmed) {
                     return;
                 }
             }
