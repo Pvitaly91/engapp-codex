@@ -598,6 +598,69 @@ class V3JsonTestSeederTest extends TestCase
         $this->assertSame(2, (int) data_get($savedTest->filters, 'num_questions'));
     }
 
+    public function test_runtime_seeder_normalizes_legacy_string_prompt_generator_into_structured_filters(): void
+    {
+        File::ensureDirectoryExists($this->tempDefinitionsDirectory);
+
+        $definitionPath = $this->tempDefinitionsDirectory . DIRECTORY_SEPARATOR . 'json_saved_test_string_prompt_generator.json';
+
+        File::put($definitionPath, json_encode([
+            'schema_version' => 1,
+            'seeder' => [
+                'class' => 'Database\\Seeders\\V3\\IA\\ChatGptPro\\JsonSavedTestStringPromptGeneratorSeeder',
+                'uuid_namespace' => 'JsonSavedTestStringPromptGeneratorSeeder',
+            ],
+            'defaults' => [
+                'default_locale' => 'uk',
+            ],
+            'category' => [
+                'name' => 'JSON Saved Test Category',
+            ],
+            'saved_test' => [
+                'uuid' => 'json-saved-test-string-prompt',
+                'slug' => 'json-saved-test-string-prompt',
+                'name' => 'JSON Saved Test String Prompt',
+                'filters' => [
+                    'levels' => ['A1'],
+                    'prompt_generator' => 'source_type=theory_page; theory_page_id=712; theory_page_ids=[712]; theory_page.id=712; theory_page.slug=plural-nouns-s-es-ies; theory_page.title=Plural Nouns — Множина іменників: правила, винятки, приклади; theory_page.category_slug_path=imennyky-artykli-ta-kilkist; theory_page.url=https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies',
+                ],
+            ],
+            'questions' => [
+                [
+                    'uuid' => 'json-string-prompt-question-1',
+                    'question' => 'String prompt generator {a1}.',
+                    'level' => 'A1',
+                    'markers' => [
+                        'a1' => [
+                            'answer' => 'works',
+                            'options' => ['works', 'fails'],
+                        ],
+                    ],
+                ],
+            ],
+        ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
+
+        (new JsonRuntimeSeeder($definitionPath))->seedFile();
+
+        $savedTest = SavedGrammarTest::query()
+            ->where('slug', 'json-saved-test-string-prompt')
+            ->first();
+
+        $this->assertNotNull($savedTest);
+        $this->assertSame(
+            712,
+            data_get($savedTest->filters, 'prompt_generator.theory_page_id')
+        );
+        $this->assertSame(
+            [712],
+            data_get($savedTest->filters, 'prompt_generator.theory_page_ids')
+        );
+        $this->assertSame(
+            'plural-nouns-s-es-ies',
+            data_get($savedTest->filters, 'prompt_generator.theory_page.slug')
+        );
+    }
+
     public function test_seed_runs_supports_virtual_localization_seeders_for_preview_and_execution(): void
     {
         $controller = new class(

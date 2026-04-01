@@ -8,6 +8,7 @@ use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Models\SavedGrammarTest;
 use App\Models\Source;
+use App\Support\PromptGeneratorFilterNormalizer;
 use App\Models\Tag;
 use Database\Seeders\QuestionSeeder;
 use Illuminate\Support\Arr;
@@ -944,6 +945,14 @@ abstract class JsonTestSeeder extends QuestionSeeder
         }
 
         $filters = is_array($payload['filters'] ?? null) ? $payload['filters'] : [];
+        $normalizedPromptGenerator = PromptGeneratorFilterNormalizer::normalize(
+            $filters['prompt_generator'] ?? null
+        );
+
+        if ($normalizedPromptGenerator !== null || array_key_exists('prompt_generator', $filters)) {
+            $filters['prompt_generator'] = $normalizedPromptGenerator;
+        }
+
         $seederClasses = $this->normalizeStringList($filters['seeder_classes'] ?? []);
 
         if (! in_array($seederClass, $seederClasses, true)) {

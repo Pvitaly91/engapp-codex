@@ -75,6 +75,10 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertOk();
         $response->assertSee('V3 Prompt Generator');
         $response->assertSee('/admin/v3-prompt-generator');
+        $response->assertSee('AI\\ChatGptPro');
+        $response->assertSee('Additional folders inside selected namespace');
+        $response->assertSee('Mode A1 / repository-connected');
+        $response->assertSee('Mode A2 / no-repository fallback');
     }
 
     public function test_theory_page_search_returns_page_metadata(): void
@@ -110,7 +114,7 @@ class V3PromptGeneratorTest extends TestCase
                 'source_type' => 'theory_page',
                 'theory_page_id' => $page->id,
                 'site_domain' => 'gramlyze.com',
-                'target_namespace' => 'IA\\ChatGptPro',
+                'target_namespace' => 'AI\\ChatGptPro',
                 'levels' => ['A1', 'B1'],
                 'questions_per_level' => 4,
                 'generation_mode' => 'single',
@@ -120,14 +124,38 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('Prompt for Codex');
         $response->assertSee('Passive Voice Overview');
         $response->assertSee('PassiveVoiceOverviewV3QuestionsOnlySeeder');
-        $response->assertSee('database/seeders/V3/definitions/IA/ChatGptPro/passive_voice_overview_v3_questions_only.json');
+        $response->assertSee('database/seeders/V3/definitions/AI/ChatGptPro/passive_voice_overview_v3_questions_only.json');
         $response->assertSee('https://gramlyze.com/theory/voice/passive-voice-overview');
         $response->assertSee('prompt_generator');
-        $response->assertSee('theory_page_id=' . $page->id);
+        $response->assertSee('theory_page_id');
+        $response->assertSee((string) $page->id);
+        $response->assertSee('theory_page_ids');
         $response->assertSee('saved_test.uuid');
         $response->assertSee('at most 36 characters');
+        $response->assertSee('Keep every learner-facing `question` and every `variants` entry in English only.');
+        $response->assertSee('Make `localizations.uk.hints` and `localizations.uk.explanations` genuinely instructional');
         $response->assertSee('A1: 4 question(s)');
         $response->assertSee('B1: 4 question(s)');
+    }
+
+    public function test_supports_nested_ai_namespace_targets(): void
+    {
+        $page = $this->createTheoryPage();
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->post(route('v3-prompt-generator.generate'), [
+                'source_type' => 'theory_page',
+                'theory_page_id' => $page->id,
+                'site_domain' => 'gramlyze.com',
+                'target_namespace' => 'AI\\ChatGptPro\\Grammar\\PluralNouns',
+                'levels' => ['A2'],
+                'questions_per_level' => 3,
+                'generation_mode' => 'single',
+            ]);
+
+        $response->assertOk();
+        $response->assertSee('Database\\Seeders\\V3\\AI\\ChatGptPro\\Grammar\\PluralNouns\\PassiveVoiceOverviewV3QuestionsOnlySeeder');
+        $response->assertSee('database/seeders/V3/definitions/AI/ChatGptPro/Grammar/PluralNouns/passive_voice_overview_v3_questions_only.json');
     }
 
     public function test_generates_split_mode_prompts_for_external_url_even_when_fetch_fails(): void
@@ -140,10 +168,11 @@ class V3PromptGeneratorTest extends TestCase
             ->post(route('v3-prompt-generator.generate'), [
                 'source_type' => 'external_url',
                 'external_url' => 'https://93.184.216.34/grammar/passive-voice',
-                'target_namespace' => 'IA\\ChatGptPro',
+                'target_namespace' => 'AI\\ChatGptPro',
                 'levels' => ['B2'],
                 'questions_per_level' => 3,
                 'generation_mode' => 'split',
+                'prompt_a_mode' => 'no_repository',
             ]);
 
         $response->assertOk();
@@ -153,9 +182,16 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('Passive Voice');
         $response->assertSee('downloadable `.json` file');
         $response->assertSee('uploaded filename may be arbitrary');
+        $response->assertSee('Selected Prompt A mode: Mode A2 / no-repository fallback');
+        $response->assertSee('This prompt must work without a connected repository. Do not assume live repo access.');
+        $response->assertSee('Embedded compatibility reference');
+        $response->assertSee('Neighbor reference filenames embedded for offline use');
+        $response->assertSee('filters.seeder_classes');
         $response->assertSee('saved_test.uuid');
         $response->assertSee('at most 36 characters');
-        $response->assertSee('database/seeders/V3/definitions/IA/ChatGptPro/passive_voice_v3_questions_only.json');
+        $response->assertSee('Write every `question` and every `variants` entry in English only.');
+        $response->assertSee('Make `localizations.uk.explanations` more detailed for every option');
+        $response->assertSee('database/seeders/V3/definitions/AI/ChatGptPro/passive_voice_v3_questions_only.json');
     }
 
     public function test_rejects_unsafe_external_url_hosts(): void
@@ -165,7 +201,7 @@ class V3PromptGeneratorTest extends TestCase
             ->post(route('v3-prompt-generator.generate'), [
                 'source_type' => 'external_url',
                 'external_url' => 'http://127.0.0.1/internal/theory',
-                'target_namespace' => 'IA\\ChatGptPro',
+                'target_namespace' => 'AI\\ChatGptPro',
                 'levels' => ['A2'],
                 'questions_per_level' => 2,
                 'generation_mode' => 'split',
@@ -182,7 +218,7 @@ class V3PromptGeneratorTest extends TestCase
             ->post(route('v3-prompt-generator.generate'), [
                 'source_type' => 'manual_topic',
                 'manual_topic' => 'Plural nouns',
-                'target_namespace' => 'IA\\ChatGptPro',
+                'target_namespace' => 'AI\\ChatGptPro',
                 'levels' => [],
                 'questions_per_level' => 0,
                 'generation_mode' => 'single',
