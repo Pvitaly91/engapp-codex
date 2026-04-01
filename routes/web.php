@@ -111,6 +111,8 @@ Route::get('/copilot/theory/{category:slug}/{pageSlug}', [CopilotTheoryControlle
 Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
 
 Route::prefix('test')->group(function () {
+    Route::post('/{slug}/state', [GrammarTestController::class, 'storeSavedTestJsState'])->name('test.js.state');
+    Route::get('/{slug}/questions', [GrammarTestController::class, 'fetchSavedTestJsQuestions'])->name('test.js.questions');
     Route::get('/{slug}', [NewDesignTestController::class, 'showSavedTestJsNewDesign'])->name('test.show');
     Route::get('/{slug}/step', [NewDesignTestController::class, 'showSavedTestJsStepNewDesign'])->name('test.step');
     Route::get('/{slug}/step/input', [NewDesignTestController::class, 'showSavedTestJsStepInputNewDesign'])->name('test.step-input');

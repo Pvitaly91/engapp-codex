@@ -1,5 +1,5 @@
 @php
-    $indent = max(0, $depth) * 1.5;
+    $indent = $depth > 0 ? 1.5 : 0;
     $isCategorySeeder = false;
 @endphp
 

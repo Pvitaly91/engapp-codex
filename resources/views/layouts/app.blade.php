@@ -49,6 +49,7 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @livewireStyles
+    @stack('styles')
     @stack('head-scripts')
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col" style="background-attachment: fixed;">
@@ -110,6 +111,7 @@
                     <a href="{{ route('seed-runs.v2.index') }}" class="hover:text-blue-500 transition">Seed Runs (V2)</a>
                     <a href="{{ route('database-structure.index') }}" class="hover:text-blue-500 transition">Структура БД</a>
                     <a href="{{ route('file-manager.index') }}" class="hover:text-blue-500 transition" >Файловий менеджер</a>
+                    <a href="{{ route('file-manager.v2.index') }}" class="hover:text-blue-500 transition" >Файловий менеджер V2</a>
                     <div
                         x-data="{ open: false }"
                         class="relative"
@@ -183,6 +185,7 @@
                 <a href="{{ route('seed-runs.v2.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Seed Runs (V2)</a>
                 <a href="{{ route('database-structure.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Структура БД</a>
                 <a href="{{ route('file-manager.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50" >Файловий менеджер</a>
+                <a href="{{ route('file-manager.v2.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50" >Файловий менеджер V2</a>
                 <div x-data="{ openDeployment: false }" class="space-y-1">
                     <button
                         type="button"

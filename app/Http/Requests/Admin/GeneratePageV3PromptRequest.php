@@ -22,6 +22,7 @@ class GeneratePageV3PromptRequest extends FormRequest
             'existing_category_id' => $this->filled('existing_category_id') ? (int) $this->input('existing_category_id') : null,
             'new_category_title' => $this->filled('new_category_title') ? trim((string) $this->input('new_category_title')) : null,
             'generation_mode' => trim((string) $this->input('generation_mode', 'single')),
+            'prompt_a_mode' => trim((string) $this->input('prompt_a_mode', 'repository_connected')),
         ]);
     }
 
@@ -56,6 +57,7 @@ class GeneratePageV3PromptRequest extends FormRequest
                 'max:160',
             ],
             'generation_mode' => ['required', Rule::in(['single', 'split'])],
+            'prompt_a_mode' => ['required', Rule::in(['repository_connected', 'no_repository'])],
         ];
     }
 
@@ -77,6 +79,8 @@ class GeneratePageV3PromptRequest extends FormRequest
             'new_category_title.max' => 'Назва нової категорії не може бути довшою за 160 символів.',
             'generation_mode.required' => 'Оберіть режим генерації prompt-ів.',
             'generation_mode.in' => 'Обраний режим генерації не підтримується.',
+            'prompt_a_mode.required' => 'Оберіть режим Prompt A для split mode.',
+            'prompt_a_mode.in' => 'Обраний режим Prompt A не підтримується.',
         ];
     }
 

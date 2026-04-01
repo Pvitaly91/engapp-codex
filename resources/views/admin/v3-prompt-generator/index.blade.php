@@ -9,6 +9,7 @@
             'form' => $form,
             'selectedTheoryPage' => $selectedTheoryPage,
             'searchRoute' => $searchRoute,
+            'namespaceSuggestions' => $namespaceSuggestions,
         ]))"
         x-init="init()"
     >
@@ -201,20 +202,40 @@
 
                         <div class="grid gap-5 md:grid-cols-2">
                             <div class="md:col-span-2">
-                                <label for="target_namespace" class="mb-2 block text-sm font-medium text-slate-700">Target namespace inside <code>database/seeders/V3</code></label>
-                                <input
-                                    id="target_namespace"
-                                    name="target_namespace"
-                                    list="namespace-suggestions"
-                                    x-model="targetNamespace"
-                                    placeholder="IA\\ChatGptPro"
-                                    class="w-full rounded-xl border-slate-300 text-sm shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                                >
-                                <datalist id="namespace-suggestions">
-                                    @foreach ($namespaceSuggestions as $namespaceSuggestion)
-                                        <option value="{{ $namespaceSuggestion }}"></option>
-                                    @endforeach
-                                </datalist>
+                                <label for="namespace_base" class="mb-2 block text-sm font-medium text-slate-700">Target namespace inside <code>database/seeders/V3</code></label>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label for="namespace_base" class="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-500">Base namespace</label>
+                                        <select
+                                            id="namespace_base"
+                                            x-model="selectedNamespaceBase"
+                                            class="w-full rounded-xl border-slate-300 text-sm shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                        >
+                                            <template x-for="option in namespaceBaseOptions()" :key="option">
+                                                <option :value="option" x-text="option"></option>
+                                            </template>
+                                        </select>
+                                        <p class="mt-2 text-xs text-slate-500">За замовчуванням доступні AI-папки: <code>AI\ChatGpt</code>, <code>AI\ChatGptPro</code>, <code>AI\Gemini</code>, <code>AI\Claude</code>. Також у списку є поточні namespace з репозиторію.</p>
+                                    </div>
+
+                                    <div>
+                                        <label for="namespace_suffix" class="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-500">Additional folders inside selected namespace</label>
+                                        <input
+                                            id="namespace_suffix"
+                                            type="text"
+                                            x-model="namespaceSuffix"
+                                            placeholder="Наприклад: Grammar\\PluralNouns"
+                                            class="w-full rounded-xl border-slate-300 text-sm shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                        >
+                                        <p class="mt-2 text-xs text-slate-500">Опційно. Наприклад, suffix <code>Grammar\PluralNouns</code> перетворить <code>AI\ChatGptPro</code> на <code>AI\ChatGptPro\Grammar\PluralNouns</code>.</p>
+                                    </div>
+
+                                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                                        <div class="text-xs font-semibold uppercase tracking-wide text-slate-500">Resolved target namespace</div>
+                                        <div class="mt-2 break-all font-mono text-sm text-slate-900" x-text="normalizedNamespace()"></div>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="target_namespace" name="target_namespace" :value="normalizedNamespace()">
                                 @error('target_namespace')
                                     <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -262,6 +283,27 @@
                                     @endforeach
                                 </div>
                                 @error('generation_mode')
+                                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="md:col-span-2" x-show="generationMode === 'split'" x-cloak>
+                                <div class="mb-2 block text-sm font-medium text-slate-700">Prompt A mode for split mode</div>
+                                <p class="mb-3 text-xs leading-5 text-slate-500">
+                                    `Mode A1` працює з live reference-файлами підключеного репозиторію. `Mode A2` вбудовує compatibility contract прямо в Prompt A для роботи без repo access.
+                                </p>
+                                <div class="grid gap-3 md:grid-cols-2">
+                                    @foreach ($promptAModes as $modeValue => $modeLabel)
+                                        <label class="rounded-xl border px-4 py-3 transition" :class="promptAMode === '{{ $modeValue }}' ? 'border-blue-400 bg-blue-50' : 'border-slate-200 bg-slate-50 hover:border-slate-300'">
+                                            <input type="radio" name="prompt_a_mode" value="{{ $modeValue }}" x-model="promptAMode" class="sr-only">
+                                            <div class="font-medium text-slate-900">{{ $modeLabel }}</div>
+                                            <div class="mt-1 text-sm text-slate-500">
+                                                {{ $modeValue === 'repository_connected' ? 'Prompt A requires repository-connected references.' : 'Prompt A carries embedded references and can work offline.' }}
+                                            </div>
+                                        </label>
+                                    @endforeach
+                                </div>
+                                @error('prompt_a_mode')
                                     <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -333,6 +375,7 @@
                             <li>Реальний reference на існуючі V3 seeders і `JsonTestSeeder` контракт.</li>
                             <li>Вибрані CEFR рівні, counts per level і total questions.</li>
                             <li>Target namespace, class preview, seeder path і JSON path.</li>
+                            <li>Для split mode можна окремо перемкнути Prompt A між `repository-connected` і `no-repository fallback`.</li>
                             <li>Контекст з local theory page або external URL snippet, якщо він доступний.</li>
                         </ul>
                     </div>
@@ -360,6 +403,10 @@
                 <div class="rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm text-emerald-800">
                     Prompt-и згенеровано. Режим:
                     <span class="font-semibold">{{ $result['generation_mode'] === 'single' ? 'Mode 1 / one prompt' : 'Mode 2 / two prompts' }}</span>,
+                    @if (($result['generation_mode'] ?? null) === 'split')
+                        Prompt A:
+                        <span class="font-semibold">{{ $result['prompt_a_mode_label'] ?? '' }}</span>,
+                    @endif
                     всього питань:
                     <span class="font-semibold">{{ $result['total_questions'] }}</span>.
                 </div>
@@ -400,7 +447,12 @@
             return {
                 sourceType: config.form.source_type || 'theory_page',
                 generationMode: config.form.generation_mode || 'single',
-                targetNamespace: config.form.target_namespace || 'IA\\ChatGptPro',
+                promptAMode: config.form.prompt_a_mode || 'repository_connected',
+                targetNamespace: config.form.target_namespace || 'AI\\ChatGptPro',
+                namespaceSuggestions: Array.isArray(config.namespaceSuggestions) ? config.namespaceSuggestions : [],
+                namespacePresets: ['AI\\ChatGpt', 'AI\\ChatGptPro', 'AI\\Gemini', 'AI\\Claude'],
+                selectedNamespaceBase: 'AI\\ChatGptPro',
+                namespaceSuffix: '',
                 siteDomain: config.form.site_domain || 'gramlyze.com',
                 manualTopic: config.form.manual_topic || '',
                 externalUrl: config.form.external_url || '',
@@ -417,7 +469,64 @@
                 copyStates: {},
 
                 init() {
+                    this.syncNamespaceSelection();
                     this.reconcileLevels();
+                },
+
+                namespaceBaseCandidates() {
+                    const options = [];
+                    const pushUnique = (value) => {
+                        const normalized = this.normalizeNamespaceValue(value);
+
+                        if (!normalized || options.includes(normalized)) {
+                            return;
+                        }
+
+                        options.push(normalized);
+                    };
+
+                    this.namespacePresets.forEach(pushUnique);
+                    this.namespaceSuggestions.forEach(pushUnique);
+
+                    return options;
+                },
+
+                namespaceBaseOptions() {
+                    const options = this.namespaceBaseCandidates();
+                    const currentBase = this.normalizeNamespaceValue(this.selectedNamespaceBase || this.targetNamespace);
+
+                    if (currentBase && !options.includes(currentBase)) {
+                        options.push(currentBase);
+                    }
+
+                    return options;
+                },
+
+                syncNamespaceSelection() {
+                    const normalized = this.normalizeNamespaceValue(this.targetNamespace || 'AI\\ChatGptPro');
+                    const match = [...this.namespaceBaseCandidates()]
+                        .sort((left, right) => right.length - left.length)
+                        .find((option) => normalized === option || normalized.startsWith(`${option}\\`));
+
+                    if (match) {
+                        this.selectedNamespaceBase = match;
+                        this.namespaceSuffix = normalized === match
+                            ? ''
+                            : normalized.slice(match.length + 1);
+
+                        return;
+                    }
+
+                    this.selectedNamespaceBase = normalized || 'AI\\ChatGptPro';
+                    this.namespaceSuffix = '';
+                },
+
+                normalizeNamespaceValue(namespace) {
+                    return (namespace || '')
+                        .replace(/\//g, '\\')
+                        .replace(/\\+/g, '\\')
+                        .replace(/^\\+|\\+$/g, '')
+                        .trim();
                 },
 
                 openSearch() {
@@ -524,11 +633,14 @@
                 },
 
                 normalizedNamespace() {
-                    return (this.targetNamespace || '')
-                        .replace(/\//g, '\\')
-                        .replace(/\\+/g, '\\')
-                        .replace(/^\\+|\\+$/g, '')
-                        .trim();
+                    const base = this.normalizeNamespaceValue(this.selectedNamespaceBase || 'AI\\ChatGptPro');
+                    const suffix = this.normalizeNamespaceValue(this.namespaceSuffix);
+
+                    if (!suffix) {
+                        return base;
+                    }
+
+                    return `${base}\\${suffix}`;
                 },
 
                 usesQuestionsOnlySuffix() {

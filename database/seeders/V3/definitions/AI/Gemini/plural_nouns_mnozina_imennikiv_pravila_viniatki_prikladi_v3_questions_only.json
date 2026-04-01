@@ -1,0 +1,3968 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\AI\\Gemini\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+    "uuid_namespace": "PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder"
+  },
+  "defaults": {
+    "default_locale": "uk",
+    "flag": 0,
+    "type": 0,
+    "level_difficulty": {
+      "A1": 1,
+      "A2": 2,
+      "B1": 3,
+      "B2": 4,
+      "C1": 5,
+      "C2": 5
+    }
+  },
+  "category": {
+    "name": "Іменники, артиклі та кількість"
+  },
+  "sources": {
+    "theory_page_712": {
+      "name": "Plural Nouns — Множина іменників: правила, винятки, приклади (Page 712)"
+    }
+  },
+  "tags": {
+    "grammar_plural": {
+      "name": "Множина іменників",
+      "category": "grammar"
+    },
+    "irregular_plurals": {
+      "name": "Неправильні форми",
+      "category": "grammar"
+    },
+    "latin_greek_roots": {
+      "name": "Латинські та грецькі корені",
+      "category": "grammar"
+    }
+  },
+  "default_tag_keys": [
+    "grammar_plural"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "I have two {a1} in my bag.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "apples",
+          "options": [
+            "apples",
+            "apple",
+            "appleses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Використовуйте стандартне закінчення -s для більшості іменників у множині."
+          ],
+          "explanations": {
+            "a1": {
+              "apples": "Правильно. Для утворення множини більшості іменників достатньо додати закінчення -s.",
+              "apple": "Неправильно. Це форма однини, а нам потрібно 'двоє' (two).",
+              "appleses": "Неправильно. Такого закінчення в англійській мові не існує для цього слова."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "I have two {a1} in my bag."
+      ]
+    },
+    {
+      "id": 2,
+      "question": "She sees three {a1} at the bus stop.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "buses",
+          "options": [
+            "buses",
+            "buss",
+            "bus"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Якщо іменник закінчується на -s, додавайте -es для зручності вимови."
+          ],
+          "explanations": {
+            "a1": {
+              "buses": "Правильно. Іменники на -s потребують закінчення -es у множині.",
+              "buss": "Неправильно. Хоча закінчення -s є, подвоєння без -e помилкове.",
+              "bus": "Неправильно. Це форма однини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "She sees three {a1} at the bus stop."
+      ]
+    },
+    {
+      "id": 3,
+      "question": "The {a1} are on the table.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "books",
+          "options": [
+            "books",
+            "bookes",
+            "book"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Для слова 'book' використовується стандартне правило множини."
+          ],
+          "explanations": {
+            "a1": {
+              "books": "Правильно. Стандартна множина з закінченням -s.",
+              "bookes": "Неправильно. Закінчення -es не потрібне, оскільки слово не закінчується на шиплячий звук.",
+              "book": "Неправильно. Артикль 'The' та дієслово 'are' вказують на множину."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are on the table."
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Look at those big {a1}.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "boxes",
+          "options": [
+            "boxes",
+            "boxs",
+            "box"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слова, що закінчуються на -x, вимагають закінчення -es."
+          ],
+          "explanations": {
+            "a1": {
+              "boxes": "Правильно. Іменники на -x у множині мають закінчення -es.",
+              "boxs": "Неправильно. Після -x обов'язково має бути -es.",
+              "box": "Неправильно. Вказівний займенник 'those' вказує на множину."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "Look at those big {a1}."
+      ]
+    },
+    {
+      "id": 5,
+      "question": "There are many {a1} in the park.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "dogs",
+          "options": [
+            "dogs",
+            "doges",
+            "dog"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Додайте -s до слова 'dog', щоб утворити множину."
+          ],
+          "explanations": {
+            "a1": {
+              "dogs": "Правильно. Звичайна форма множини.",
+              "doges": "Неправильно. Закінчення -es тут не використовується.",
+              "dog": "Неправильно. Слово 'many' потребує іменника у множині."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "There are many {a1} in the park."
+      ]
+    },
+    {
+      "id": 6,
+      "question": "I like to eat {a1} for lunch.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "sandwiches",
+          "options": [
+            "sandwiches",
+            "sandwichs",
+            "sandwich"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слова на -ch закінчуються на -es у множині."
+          ],
+          "explanations": {
+            "a1": {
+              "sandwiches": "Правильно. Закінчення -ch потребує -es.",
+              "sandwichs": "Неправильно. Не вистачає голосної 'e' для правильної вимови та написання.",
+              "sandwich": "Неправильно. У загальному значенні ми зазвичай вживаємо множину або артикль."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "I like to eat {a1} for lunch."
+      ]
+    },
+    {
+      "id": 7,
+      "question": "He has four {a1}.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "pens",
+          "options": [
+            "pens",
+            "penes",
+            "pen"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Більшість іменників просто додають -s."
+          ],
+          "explanations": {
+            "a1": {
+              "pens": "Правильно. Звичайна форма множини.",
+              "penes": "Неправильно. Такої форми не існує для цього слова.",
+              "pen": "Неправильно. Число 'four' вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "He has four {a1}."
+      ]
+    },
+    {
+      "id": 8,
+      "question": "How many {a1} do you see?",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "cups",
+          "options": [
+            "cups",
+            "cuppes",
+            "cup"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Використовуйте стандартне правило для іменника 'cup'."
+          ],
+          "explanations": {
+            "a1": {
+              "cups": "Правильно. Стандартна множина.",
+              "cuppes": "Неправильно. Непотрібне подвоєння та закінчення -es.",
+              "cup": "Неправильно. Після 'How many' завжди йде іменник у множині."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "How many {a1} do you see?"
+      ]
+    },
+    {
+      "id": 9,
+      "question": "The {a1} are very fast.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "cars",
+          "options": [
+            "cars",
+            "cares",
+            "car"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Звичайна форма множини для слова 'car'."
+          ],
+          "explanations": {
+            "a1": {
+              "cars": "Правильно. Додаємо -s.",
+              "cares": "Неправильно. Це слово означає 'турботи', зовсім інше значення.",
+              "car": "Неправильно. Дієслово 'are' вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are very fast."
+      ]
+    },
+    {
+      "id": 10,
+      "question": "Please wash the {a1}.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "dishes",
+          "options": [
+            "dishes",
+            "dishs",
+            "dish"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слова на -sh вимагають закінчення -es."
+          ],
+          "explanations": {
+            "a1": {
+              "dishes": "Правильно. Іменники, що закінчуються на -sh, мають закінчення -es.",
+              "dishs": "Неправильно. Бракує голосної 'e' для правильного утворення множини.",
+              "dish": "Неправильно. В контексті миття посуду зазвичай мається на увазі множина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "Please wash the {a1}."
+      ]
+    },
+    {
+      "id": 11,
+      "question": "The {a1} are playing outside.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "cats",
+          "options": [
+            "cats",
+            "cat",
+            "catses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Додайте -s для утворення множини слова 'cat'."
+          ],
+          "explanations": {
+            "a1": {
+              "cats": "Правильно. Стандартне правило.",
+              "cat": "Неправильно. 'are' вказує на множину.",
+              "catses": "Неправильно. Зайве закінчення."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are playing outside."
+      ]
+    },
+    {
+      "id": 12,
+      "question": "These {a1} are red.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "chairs",
+          "options": [
+            "chairs",
+            "chair",
+            "chaires"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина для 'chair' утворюється звичайним додаванням -s."
+          ],
+          "explanations": {
+            "a1": {
+              "chairs": "Правильно. Додаємо -s до основи.",
+              "chair": "Неправильно. 'These' вживається з множиною.",
+              "chaires": "Неправильно. Закінчення -es тут не потрібне."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "These {a1} are red."
+      ]
+    },
+    {
+      "id": 13,
+      "question": "My {a1} are cold.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "hands",
+          "options": [
+            "hands",
+            "hand",
+            "handes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Для слова 'hand' використовується стандартне закінчення."
+          ],
+          "explanations": {
+            "a1": {
+              "hands": "Правильно. Стандартна множина.",
+              "hand": "Неправильно. 'are' вказує на обидві руки.",
+              "handes": "Неправильно. Закінчення -es не використовується з цим словом."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "My {a1} are cold."
+      ]
+    },
+    {
+      "id": 14,
+      "question": "There are five {a1} in the tree.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "birds",
+          "options": [
+            "birds",
+            "bird",
+            "birdes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Додайте -s для утворення множини 'bird'."
+          ],
+          "explanations": {
+            "a1": {
+              "birds": "Правильно. Звичайна форма.",
+              "bird": "Неправильно. Число 'five' вимагає множини.",
+              "birdes": "Неправильно. Неправильне закінчення."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "There are five {a1} in the tree."
+      ]
+    },
+    {
+      "id": 15,
+      "question": "I see many {a1} on the street.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "buses",
+          "options": [
+            "buses",
+            "bus",
+            "buss"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Пам'ятайте правило для іменників, що закінчуються на -s."
+          ],
+          "explanations": {
+            "a1": {
+              "buses": "Правильно. -s перетворюється на -es.",
+              "bus": "Неправильно. 'many' вимагає множини.",
+              "buss": "Неправильно. Некоректне подвоєння."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "I see many {a1} on the street."
+      ]
+    },
+    {
+      "id": 16,
+      "question": "We have two {a1} at home.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "televisions",
+          "options": [
+            "televisions",
+            "television",
+            "televisionses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Стандартна множина для довгих іменників."
+          ],
+          "explanations": {
+            "a1": {
+              "televisions": "Правильно. Додаємо -s.",
+              "television": "Неправильно. Потрібна множина для 'two'.",
+              "televisionses": "Неправильно. Неіснуюче закінчення."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "We have two {a1} at home."
+      ]
+    },
+    {
+      "id": 17,
+      "question": "The {a1} are on the wall.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "clocks",
+          "options": [
+            "clocks",
+            "clock",
+            "clockes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Використовуйте -s для слова 'clock'."
+          ],
+          "explanations": {
+            "a1": {
+              "clocks": "Правильно. Звичайна множина.",
+              "clock": "Неправильно. 'are' вказує на множину.",
+              "clockes": "Неправильно. Закінчення -es тут не потрібне."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are on the wall."
+      ]
+    },
+    {
+      "id": 18,
+      "question": "There are some {a1} in the kitchen.",
+      "source": "theory_page_712",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "glasses",
+          "options": [
+            "glasses",
+            "glass",
+            "glasss"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слова на -ss вимагають закінчення -es."
+          ],
+          "explanations": {
+            "a1": {
+              "glasses": "Правильно. Для слів на -ss додаємо -es.",
+              "glass": "Неправильно. 'some' з обчислювальними іменниками вимагає множини.",
+              "glasss": "Неправильно. Потрібно розділити свистячі звуки голосною 'e'."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "There are some {a1} in the kitchen."
+      ]
+    },
+    {
+      "id": 19,
+      "question": "The {a1} are crying.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "babies",
+          "options": [
+            "babies",
+            "babys",
+            "baby"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Якщо слово закінчується на -y з попередньою приголосною, змінюйте -y на -ies."
+          ],
+          "explanations": {
+            "a1": {
+              "babies": "Правильно. Буква 'y' після приголосної 'b' змінюється на 'i' + -es.",
+              "babys": "Неправильно. Порушено правило зміни 'y' на 'i'.",
+              "baby": "Неправильно. Форма однини не узгоджується з 'are'."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are crying."
+      ]
+    },
+    {
+      "id": 20,
+      "question": "Those {a1} are very tall.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "men",
+          "options": [
+            "men",
+            "mans",
+            "mens"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Це неправильний іменник (irregular noun). Змінюється корінь слова."
+          ],
+          "explanations": {
+            "a1": {
+              "men": "Правильно. Множина слова 'man' — 'men'.",
+              "mans": "Неправильно. 'Man' — неправильний іменник, він не додає -s.",
+              "mens": "Неправильно. До неправильної форми множини 'men' не додається -s (крім випадків присійності)."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "Those {a1} are very tall."
+      ]
+    },
+    {
+      "id": 21,
+      "question": "The {a1} are playing in the park.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "children",
+          "options": [
+            "children",
+            "childs",
+            "childrens"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина від 'child' утворюється особливим способом."
+          ],
+          "explanations": {
+            "a1": {
+              "children": "Правильно. 'Child' — неправильний іменник, множина — 'children'.",
+              "childs": "Неправильно. Стандартне правило тут не діє.",
+              "childrens": "Неправильно. Слово 'children' уже у множині, -s додавати не треба."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} are playing in the park."
+      ]
+    },
+    {
+      "id": 22,
+      "question": "We need three {a1} for the soup.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "potatoes",
+          "options": [
+            "potatoes",
+            "potatos",
+            "potato"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Більшість іменників на -o потребують закінчення -es."
+          ],
+          "explanations": {
+            "a1": {
+              "potatoes": "Правильно. Іменник на -o (з попередньою приголосною) вимагає -es.",
+              "potatos": "Неправильно. У цьому слові обов'язково має бути літера 'e' перед 's'.",
+              "potato": "Неправильно. Потрібна множина для 'three'."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "We need three {a1} for the soup."
+      ]
+    },
+    {
+      "id": 23,
+      "question": "Watch out! There are {a1} in the garden.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "mice",
+          "options": [
+            "mice",
+            "mouses",
+            "mices"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина слова 'mouse' — це виняток."
+          ],
+          "explanations": {
+            "a1": {
+              "mice": "Правильно. 'Mouse' змінюється на 'mice' у множині.",
+              "mouses": "Неправильно. Це стандартне правило, яке не застосовується до цього винятку.",
+              "mices": "Неправильно. Подвійна множина не потрібна."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "Watch out! There are {a1} in the garden."
+      ]
+    },
+    {
+      "id": 24,
+      "question": "The {a1} fell from the trees.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "leaves",
+          "options": [
+            "leaves",
+            "leafs",
+            "leaveses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Більшість іменників на -f або -fe змінюють закінчення на -ves."
+          ],
+          "explanations": {
+            "a1": {
+              "leaves": "Правильно. 'Leaf' змінює 'f' на 'v' + -es.",
+              "leafs": "Неправильно. За правилом 'f' має змінитись на 'v'.",
+              "leaveses": "Неправильно. Некоректне закінчення."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} fell from the trees."
+      ]
+    },
+    {
+      "id": 25,
+      "question": "How many {a1} are in your family?",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "people",
+          "options": [
+            "people",
+            "persons",
+            "peoples"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Найпоширеніша множина для слова 'person' — особливе слово."
+          ],
+          "explanations": {
+            "a1": {
+              "people": "Правильно. 'People' — стандартна форма множини для 'person'.",
+              "persons": "Хоча граматично можливо, 'people' є набагато природнішим у розмовній мові.",
+              "peoples": "Неправильно. Означає 'народи', що не підходить за контекстом."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "How many {a1} are in your family?"
+      ]
+    },
+    {
+      "id": 26,
+      "question": "I saw some {a1} on the farm.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "sheep",
+          "options": [
+            "sheep",
+            "sheeps",
+            "sheepes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'sheep' має однакову форму для однини та множини."
+          ],
+          "explanations": {
+            "a1": {
+              "sheep": "Правильно. 'Sheep' не змінюється у множині.",
+              "sheeps": "Неправильно. Це слово ніколи не набуває закінчення -s у значенні тварин.",
+              "sheepes": "Неправильно. Такої форми не існує."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "I saw some {a1} on the farm."
+      ]
+    },
+    {
+      "id": 27,
+      "question": "The {a1} are sharp.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "knives",
+          "options": [
+            "knives",
+            "knifs",
+            "knifes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'knife' закінчується на -fe, тому 'f' змінюється на 'v'."
+          ],
+          "explanations": {
+            "a1": {
+              "knives": "Правильно. 'Knife' -> 'knives'.",
+              "knifs": "Неправильно. Неправильна орфографія.",
+              "knifes": "Неправильно. Не забувайте змінювати 'f' на 'v'."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are sharp."
+      ]
+    },
+    {
+      "id": 28,
+      "question": "I bought three {a1} of bread.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "loaves",
+          "options": [
+            "loaves",
+            "loafs",
+            "loaf"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'loaf' (буханець) змінює -f на -ves."
+          ],
+          "explanations": {
+            "a1": {
+              "loaves": "Правильно. Форма множини для 'loaf'.",
+              "loafs": "Неправильно. Виняток вимагає переходу f -> v.",
+              "loaf": "Неправильно. Потрібна множина для 'three'."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "I bought three {a1} of bread."
+      ]
+    },
+    {
+      "id": 29,
+      "question": "Brush your {a1} twice a day.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "teeth",
+          "options": [
+            "teeth",
+            "tooths",
+            "tooth"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина від 'tooth' змінює голосні в корені."
+          ],
+          "explanations": {
+            "a1": {
+              "teeth": "Правильно. 'Tooth' перетворюється на 'teeth'.",
+              "tooths": "Неправильно. Це неправильний іменник.",
+              "tooth": "Неправильно. Ми зазвичай чистимо всі зуби, а не один."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "Brush your {a1} twice a day."
+      ]
+    },
+    {
+      "id": 30,
+      "question": "The {a1} are swimming in the pond.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "geese",
+          "options": [
+            "geese",
+            "gooses",
+            "goose"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'goose' утворює множину шляхом зміни голосних."
+          ],
+          "explanations": {
+            "a1": {
+              "geese": "Правильно. Множина від 'goose' — 'geese'.",
+              "gooses": "Неправильно. Слово 'goose' не додає закінчення -s.",
+              "goose": "Неправильно. 'are' вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} are swimming in the pond."
+      ]
+    },
+    {
+      "id": 31,
+      "question": "How many {a1} did you buy?",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "toys",
+          "options": [
+            "toys",
+            "toies",
+            "toy"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Якщо перед -y стоїть голосна, просто додавайте -s."
+          ],
+          "explanations": {
+            "a1": {
+              "toys": "Правильно. Оскільки перед 'y' стоїть голосна 'o', буква 'y' не змінюється.",
+              "toies": "Неправильно. Правило зміни -y на -ies діє тільки якщо перед 'y' стоїть приголосна.",
+              "toy": "Неправильно. Конструкція 'How many' потребує множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "How many {a1} did you buy?"
+      ]
+    },
+    {
+      "id": 32,
+      "question": "They have two {a1} in the living room.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "shelves",
+          "options": [
+            "shelves",
+            "shelfs",
+            "shelve"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'shelf' змінює -f на -ves."
+          ],
+          "explanations": {
+            "a1": {
+              "shelves": "Правильно. Форма множини для 'shelf'.",
+              "shelfs": "Неправильно. Згідно з правилом, f -> v.",
+              "shelve": "Неправильно. Це дієслово або неправильна форма однини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "They have two {a1} in the living room."
+      ]
+    },
+    {
+      "id": 33,
+      "question": "My {a1} are hurting after the walk.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "feet",
+          "options": [
+            "feet",
+            "foots",
+            "foot"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина від 'foot' — це виняток."
+          ],
+          "explanations": {
+            "a1": {
+              "feet": "Правильно. 'Foot' змінюється на 'feet'.",
+              "foots": "Неправильно. Це слово є винятком і не додає -s.",
+              "foot": "Неправильно. Дієслово 'are' вказує на множину (обидві стопи)."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "My {a1} are hurting after the walk."
+      ]
+    },
+    {
+      "id": 34,
+      "question": "The {a1} are playing in the garden.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "puppies",
+          "options": [
+            "puppies",
+            "puppys",
+            "puppy"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Пам'ятайте про зміну -y на -ies після приголосної."
+          ],
+          "explanations": {
+            "a1": {
+              "puppies": "Правильно. 'Puppy' -> 'puppies'.",
+              "puppys": "Неправильно. Порушено орфографічне правило.",
+              "puppy": "Неправильно. 'are' вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are playing in the garden."
+      ]
+    },
+    {
+      "id": 35,
+      "question": "Those {a1} look very professional.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "women",
+          "options": [
+            "women",
+            "womans",
+            "womens"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина від 'woman' змінює вимову та написання голосної."
+          ],
+          "explanations": {
+            "a1": {
+              "women": "Правильно. Множина від 'woman'.",
+              "womans": "Неправильно. Це неправильний іменник.",
+              "womens": "Неправильно. Слово 'women' вже є формою множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "Those {a1} look very professional."
+      ]
+    },
+    {
+      "id": 36,
+      "question": "He has many {a1} in his collection.",
+      "source": "theory_page_712",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "watches",
+          "options": [
+            "watches",
+            "watchs",
+            "watch"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слова на -ch потребують закінчення -es."
+          ],
+          "explanations": {
+            "a1": {
+              "watches": "Правильно. -ch + -es.",
+              "watchs": "Неправильно. Бракує голосної 'e'.",
+              "watch": "Неправильно. 'many' потребує множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "He has many {a1} in his collection."
+      ]
+    },
+    {
+      "id": 37,
+      "question": "The {a1} are destroying the crops.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "deer",
+          "options": [
+            "deer",
+            "deers",
+            "deeres"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Назва цієї тварини не змінюється у множині."
+          ],
+          "explanations": {
+            "a1": {
+              "deer": "Правильно. 'Deer' має однакову форму для однини та множини.",
+              "deers": "Неправильно. В англійській мові стандартно не додається -s до цього слова.",
+              "deeres": "Неправильно. Некоректне закінчення."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} are destroying the crops."
+      ]
+    },
+    {
+      "id": 38,
+      "question": "All {a1} must be stored in the fridge.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "tomatoes",
+          "options": [
+            "tomatoes",
+            "tomatos",
+            "tomato"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Зверніть увагу на закінчення слів, що закінчуються на -o."
+          ],
+          "explanations": {
+            "a1": {
+              "tomatoes": "Правильно. 'Tomato' потребує -es у множині.",
+              "tomatos": "Неправильно. За традиційним правилом тут потрібна літера 'e'.",
+              "tomato": "Неправильно. Контекст вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "All {a1} must be stored in the fridge."
+      ]
+    },
+    {
+      "id": 39,
+      "question": "The {a1} of the crime are still unknown.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "thieves",
+          "options": [
+            "thieves",
+            "thiefs",
+            "thief"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'thief' (злодій) змінює -f на -ves."
+          ],
+          "explanations": {
+            "a1": {
+              "thieves": "Правильно. Множина від 'thief'.",
+              "thiefs": "Неправильно. Порушення правила зміни 'f' на 'v'.",
+              "thief": "Неправильно. 'are' вказує на множину."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} of the crime are still unknown."
+      ]
+    },
+    {
+      "id": 40,
+      "question": "We should protect our {a1}.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "lives",
+          "options": [
+            "lives",
+            "lifes",
+            "life"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина від 'life' утворюється за правилом зміни f/fe на v."
+          ],
+          "explanations": {
+            "a1": {
+              "lives": "Правильно. 'Life' -> 'lives'.",
+              "lifes": "Неправильно. Це граматична помилка.",
+              "life": "Неправильно. Займенник 'our' зазвичай передбачає множину життів."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "We should protect our {a1}."
+      ]
+    },
+    {
+      "id": 41,
+      "question": "There are several {a1} swimming in the river.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "fish",
+          "options": [
+            "fish",
+            "fishes",
+            "fishs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Зазвичай слово 'fish' не змінюється у множині, якщо йдеться про один вид."
+          ],
+          "explanations": {
+            "a1": {
+              "fish": "Правильно. Найбільш вживана форма множини.",
+              "fishes": "Можливо, якщо йдеться про різні види риб, але 'fish' — стандартний варіант.",
+              "fishs": "Неправильно. Такої форми не існує."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "There are several {a1} swimming in the river."
+      ]
+    },
+    {
+      "id": 42,
+      "question": "The {a1} are waiting for the results.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "alumni",
+          "options": [
+            "alumni",
+            "alumnis",
+            "alumnus"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Це слово латинського походження, закінчення -us змінюється на -i."
+          ],
+          "explanations": {
+            "a1": {
+              "alumni": "Правильно. Множина від латинського 'alumnus'.",
+              "alumnis": "Неправильно. Латинські слова мають власні правила множини.",
+              "alumnus": "Неправильно. Це форма однини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} are waiting for the results."
+      ]
+    },
+    {
+      "id": 43,
+      "question": "How many {a1} did you take?",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "photos",
+          "options": [
+            "photos",
+            "photoes",
+            "photo"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Деякі слова на -o (особливо скорочення) додають лише -s."
+          ],
+          "explanations": {
+            "a1": {
+              "photos": "Правильно. 'Photo' — це скорочення від 'photograph', тому додається лише -s.",
+              "photoes": "Неправильно. Це виняток з правила додавання -es до слів на -o.",
+              "photo": "Неправильно. Після 'How many' потрібна множина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "How many {a1} did you take?"
+      ]
+    },
+    {
+      "id": 44,
+      "question": "The {a1} are very helpful in this area.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "indices",
+          "options": [
+            "indices",
+            "indexes",
+            "indexs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Це слово має дві форми множини, але латинська форма часта в науці."
+          ],
+          "explanations": {
+            "a1": {
+              "indices": "Правильно. Технічна/латинська форма множини для 'index'.",
+              "indexes": "Також правильно в загальному значенні, але ми шукаємо більш складну форму.",
+              "indexs": "Неправильно. Такої форми не існує."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} are very helpful in this area."
+      ]
+    },
+    {
+      "id": 45,
+      "question": "Can you see the {a1} on the roof?",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "roofs",
+          "options": [
+            "roofs",
+            "rooves",
+            "roof"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'roof' — це виняток, воно не змінює 'f' на 'v'."
+          ],
+          "explanations": {
+            "a1": {
+              "roofs": "Правильно. 'Roof' — один із тих іменників на -f, що додають просто -s.",
+              "rooves": "Застаріла або рідковживана форма, 'roofs' є стандартною.",
+              "roof": "Неправильно. Потрібна множина (the ... are)."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "Can you see the {a1} on the roof?"
+      ]
+    },
+    {
+      "id": 46,
+      "question": "The {a1} were grazing in the field.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "oxen",
+          "options": [
+            "oxen",
+            "oxes",
+            "oxs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Це слово має дуже давню форму множини із закінченням -en."
+          ],
+          "explanations": {
+            "a1": {
+              "oxen": "Правильно. Множина від 'ox' — 'oxen'.",
+              "oxes": "Неправильно. Це слово є архаїчним винятком.",
+              "oxs": "Неправильно. Не відповідає правилам англійської мови."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} were grazing in the field."
+      ]
+    },
+    {
+      "id": 47,
+      "question": "The {a1} of the company were very friendly.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "staff",
+          "options": [
+            "staff",
+            "staffs",
+            "staves"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Це збірний іменник, який часто не змінює форму."
+          ],
+          "explanations": {
+            "a1": {
+              "staff": "Правильно. У значенні 'персонал' зазвичай вживається без змін.",
+              "staffs": "Може вживатися у значенні 'кілька різних колективів', але рідше.",
+              "staves": "Неправильно в контексті персоналу (це множина від 'staff' як палиці)."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} of the company were very friendly."
+      ]
+    },
+    {
+      "id": 48,
+      "question": "We visited many {a1} in Italy.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "cities",
+          "options": [
+            "cities",
+            "citys",
+            "city"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Пам'ятайте правило зміни -y на -ies після приголосної."
+          ],
+          "explanations": {
+            "a1": {
+              "cities": "Правильно. 'City' -> 'cities'.",
+              "citys": "Неправильно. Порушення орфографічного правила.",
+              "city": "Неправильно. 'Many' потребує множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "We visited many {a1} in Italy."
+      ]
+    },
+    {
+      "id": 49,
+      "question": "The {a1} are very beautiful.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "echoes",
+          "options": [
+            "echoes",
+            "echos",
+            "echo"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'echo' закінчується на -o і потребує -es."
+          ],
+          "explanations": {
+            "a1": {
+              "echoes": "Правильно. Для 'echo' характерне закінчення -es.",
+              "echos": "Неправильно. За стандартом потрібно -es.",
+              "echo": "Неправильно. 'are' вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are very beautiful."
+      ]
+    },
+    {
+      "id": 50,
+      "question": "You should check the {a1} of these words.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "meanings",
+          "options": [
+            "meanings",
+            "meaning",
+            "meaninges"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Герундії, що стали іменниками, зазвичай утворюють множину за допомогою -s."
+          ],
+          "explanations": {
+            "a1": {
+              "meanings": "Правильно. Звичайна множина.",
+              "meaning": "Неправильно. Контекст ('these words') вказує на декілька значень.",
+              "meaninges": "Неправильно. Неправильне закінчення."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "You should check the {a1} of these words."
+      ]
+    },
+    {
+      "id": 51,
+      "question": "The {a1} are very noisy tonight.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "wolves",
+          "options": [
+            "wolves",
+            "wolfs",
+            "wolf"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'wolf' (вовк) змінює f на v."
+          ],
+          "explanations": {
+            "a1": {
+              "wolves": "Правильно. 'Wolf' -> 'wolves'.",
+              "wolfs": "Неправильно. Порушення правила зміни f -> v.",
+              "wolf": "Неправильно. 'are' вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are very noisy tonight."
+      ]
+    },
+    {
+      "id": 52,
+      "question": "She has many {a1} about her journey.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "stories",
+          "options": [
+            "stories",
+            "storys",
+            "story"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Зверніть увагу на зміну -y на -ies після приголосної."
+          ],
+          "explanations": {
+            "a1": {
+              "stories": "Правильно. Множина від 'story'.",
+              "storys": "Неправильно. Неправильне написання.",
+              "story": "Неправильно. 'many' вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "She has many {a1} about her journey."
+      ]
+    },
+    {
+      "id": 53,
+      "question": "There are some {a1} on the floor.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "pennies",
+          "options": [
+            "pennies",
+            "pence",
+            "penny"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'penny' має дві форми множини; одна для монет, інша для вартості."
+          ],
+          "explanations": {
+            "a1": {
+              "pennies": "Правильно. Використовується, коли ми говоримо про фізичні монети.",
+              "pence": "Означає суму грошей (вартість), а не фізичні монети.",
+              "penny": "Неправильно. 'some' вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "There are some {a1} on the floor."
+      ]
+    },
+    {
+      "id": 54,
+      "question": "The {a1} are flying south.",
+      "source": "theory_page_712",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "geese",
+          "options": [
+            "geese",
+            "gooses",
+            "goose"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Пам'ятайте про чергування голосних у слові 'goose'."
+          ],
+          "explanations": {
+            "a1": {
+              "geese": "Правильно. Множина від 'goose'.",
+              "gooses": "Неправильно. Це слово є винятком.",
+              "goose": "Неправильно. 'are' вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} are flying south."
+      ]
+    },
+    {
+      "id": 55,
+      "question": "Both of my {a1} are lawyers.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "brothers-in-law",
+          "options": [
+            "brothers-in-law",
+            "brother-in-laws",
+            "brothers-in-laws"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "У складених іменниках закінчення множини додається до головного слова."
+          ],
+          "explanations": {
+            "a1": {
+              "brothers-in-law": "Правильно. 'Brother' — основне слово, до якого додається -s.",
+              "brother-in-laws": "Неправильно. Закінчення додається не до останнього слова, а до змістового центру.",
+              "brothers-in-laws": "Неправильно. Подвійне закінчення не потрібне."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "Both of my {a1} are lawyers."
+      ]
+    },
+    {
+      "id": 56,
+      "question": "The {a1} were very helpful during the project.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "editors-in-chief",
+          "options": [
+            "editors-in-chief",
+            "editor-in-chiefs",
+            "editors-in-chiefs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Визначте головне слово в цій складній конструкції."
+          ],
+          "explanations": {
+            "a1": {
+              "editors-in-chief": "Правильно. Закінчення додається до слова 'editor'.",
+              "editor-in-chiefs": "Неправильно. Закінчення має бути на основному слові.",
+              "editors-in-chiefs": "Неправильно. Лишнє закінчення в кінці."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} were very helpful during the project."
+      ]
+    },
+    {
+      "id": 57,
+      "question": "I need to buy a new pair of {a1}.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "trousers",
+          "options": [
+            "trousers",
+            "trouser",
+            "trouserses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Деякі іменники існують лише у формі множини."
+          ],
+          "explanations": {
+            "a1": {
+              "trousers": "Правильно. Це слово завжди вживається у множині.",
+              "trouser": "Неправильно. Це слово не вживається в однині (крім як частина складних прикметників).",
+              "trouserses": "Неправильно. Такої форми не існує."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "I need to buy a new pair of {a1}."
+      ]
+    },
+    {
+      "id": 58,
+      "question": "The {a1} are being analyzed by experts.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "data",
+          "options": [
+            "data",
+            "datas",
+            "datum"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Це слово латинського походження, де 'datum' — однина, а 'data' — множина."
+          ],
+          "explanations": {
+            "a1": {
+              "data": "Правильно. У сучасному контексті часто вважається множиною (або незлічуваним).",
+              "datas": "Неправильно. До цієї форми не додається -s.",
+              "datum": "Неправильно. Це форма однини (одиничний факт)."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} are being analyzed by experts."
+      ]
+    },
+    {
+      "id": 59,
+      "question": "There are many {a1} to consider.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "hypotheses",
+          "options": [
+            "hypotheses",
+            "hypothesis",
+            "hypothesiss"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Грецькі слова на -is змінюють закінчення на -es у множині."
+          ],
+          "explanations": {
+            "a1": {
+              "hypotheses": "Правильно. Множина від грецького 'hypothesis'.",
+              "hypothesis": "Неправильно. Форма однини.",
+              "hypothesiss": "Неправильно. Неправильна орфографія."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "There are many {a1} to consider."
+      ]
+    },
+    {
+      "id": 60,
+      "question": "The {a1} of the company are based in London.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "headquarters",
+          "options": [
+            "headquarters",
+            "headquarter",
+            "headquarterses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Це слово має однакову форму для однини та множини, що закінчується на -s."
+          ],
+          "explanations": {
+            "a1": {
+              "headquarters": "Правильно. Слово не змінюється.",
+              "headquarter": "Неправильно. Форма без -s не вживається як іменник.",
+              "headquarterses": "Неправильно. Такої форми не існує."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} of the company are based in London."
+      ]
+    },
+    {
+      "id": 61,
+      "question": "How many {a1} did you see in the water?",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "salmon",
+          "options": [
+            "salmon",
+            "salmons",
+            "salmones"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Назви деяких видів риб не змінюються у множині."
+          ],
+          "explanations": {
+            "a1": {
+              "salmon": "Правильно. 'Salmon' — нульова множина.",
+              "salmons": "Хоча іноді зустрічається, стандартна форма — без -s.",
+              "salmones": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "How many {a1} did you see in the water?"
+      ]
+    },
+    {
+      "id": 62,
+      "question": "These {a1} are really annoying.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "mosquitoes",
+          "options": [
+            "mosquitoes",
+            "mosquitos",
+            "mosquito"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'mosquito' зазвичай потребує -es, хоча обидва варіанти існують."
+          ],
+          "explanations": {
+            "a1": {
+              "mosquitoes": "Правильно. Стандартне закінчення -es.",
+              "mosquitos": "Також можливо, але варіант з 'e' вважається більш традиційним.",
+              "mosquito": "Неправильно. 'These' вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "These {a1} are really annoying."
+      ]
+    },
+    {
+      "id": 63,
+      "question": "The {a1} are trying to find a solution.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "chiefs",
+          "options": [
+            "chiefs",
+            "chieves",
+            "chief"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'chief' — це виняток, воно не змінює 'f' на 'v'."
+          ],
+          "explanations": {
+            "a1": {
+              "chiefs": "Правильно. Це виняток з правила f -> v.",
+              "chieves": "Неправильно. Незважаючи на правило, це слово додає просто -s.",
+              "chief": "Неправильно. 'are' вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are trying to find a solution."
+      ]
+    },
+    {
+      "id": 64,
+      "question": "He told many {a1} about his adventures.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "beliefs",
+          "options": [
+            "beliefs",
+            "believes",
+            "belief"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Будьте обережні з різницею між іменником та дієсловом."
+          ],
+          "explanations": {
+            "a1": {
+              "beliefs": "Правильно. Іменник 'belief' просто додає -s.",
+              "believes": "Неправильно. Це дієслово (він вірить).",
+              "belief": "Неправильно. 'many' потребує множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "He told many {a1} about his adventures."
+      ]
+    },
+    {
+      "id": 65,
+      "question": "The {a1} are quite large here.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "cargoes",
+          "options": [
+            "cargoes",
+            "cargos",
+            "cargo"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'cargo' у множині зазвичай має закінчення -es."
+          ],
+          "explanations": {
+            "a1": {
+              "cargoes": "Правильно. Форма множини з -es.",
+              "cargos": "Також можлива форма, але 'cargoes' є більш стандартною.",
+              "cargo": "Неправильно. 'are' вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are quite large here."
+      ]
+    },
+    {
+      "id": 66,
+      "question": "We bought two {a1} for the barbecue.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "shelves",
+          "options": [
+            "shelves",
+            "shelfs",
+            "shelf"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Звичайне правило f -> v для слова 'shelf'."
+          ],
+          "explanations": {
+            "a1": {
+              "shelves": "Правильно.",
+              "shelfs": "Неправильно.",
+              "shelf": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "We bought two {a1} for the barbecue."
+      ]
+    },
+    {
+      "id": 67,
+      "question": "The {a1} are very sharp.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "scissors",
+          "options": [
+            "scissors",
+            "scissor",
+            "scissorses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Цей предмет завжди складається з двох частин, тому він завжди у множині."
+          ],
+          "explanations": {
+            "a1": {
+              "scissors": "Правильно. Слово 'ножиці' не має форми однини.",
+              "scissor": "Неправильно. Не вживається як іменник.",
+              "scissorses": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are very sharp."
+      ]
+    },
+    {
+      "id": 68,
+      "question": "There are many {a1} in the area.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "species",
+          "options": [
+            "species",
+            "specie",
+            "specieses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Це слово має однакову форму для однини та множини."
+          ],
+          "explanations": {
+            "a1": {
+              "species": "Правильно. 'Species' — і однина, і множина.",
+              "specie": "Неправильно. У біології це слово не вживається (означає монету).",
+              "specieses": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "There are many {a1} in the area."
+      ]
+    },
+    {
+      "id": 69,
+      "question": "The {a1} were difficult to understand.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "criteria",
+          "options": [
+            "criteria",
+            "criterion",
+            "criterions"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Грецьке слово на -on змінюється на -a у множині."
+          ],
+          "explanations": {
+            "a1": {
+              "criteria": "Правильно. Множина від 'criterion'.",
+              "criterion": "Неправильно. Форма однини.",
+              "criterions": "Неправильно. Хоча зустрічається, класична форма — 'criteria'."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} were difficult to understand."
+      ]
+    },
+    {
+      "id": 70,
+      "question": "I have two {a1} in my room.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "radios",
+          "options": [
+            "radios",
+            "radioes",
+            "radio"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слова на -o з попередньою голосною додають просто -s."
+          ],
+          "explanations": {
+            "a1": {
+              "radios": "Правильно. Перед -o стоїть голосна 'i'.",
+              "radioes": "Неправильно. Правило -es тут не діє.",
+              "radio": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "I have two {a1} in my room."
+      ]
+    },
+    {
+      "id": 71,
+      "question": "The {a1} are being repaired.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "roofs",
+          "options": [
+            "roofs",
+            "rooves",
+            "roof"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Пам'ятайте, що 'roof' не підлягає правилу f -> v."
+          ],
+          "explanations": {
+            "a1": {
+              "roofs": "Правильно.",
+              "rooves": "Застаріле.",
+              "roof": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are being repaired."
+      ]
+    },
+    {
+      "id": 72,
+      "question": "We saw many {a1} in the park.",
+      "source": "theory_page_712",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "benches",
+          "options": [
+            "benches",
+            "benchs",
+            "bench"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово на -ch вимагає -es."
+          ],
+          "explanations": {
+            "a1": {
+              "benches": "Правильно.",
+              "benchs": "Неправильно.",
+              "bench": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "We saw many {a1} in the park."
+      ]
+    },
+    {
+      "id": 73,
+      "question": "The {a1} of the problem were analyzed deeply.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "phenomena",
+          "options": [
+            "phenomena",
+            "phenomenon",
+            "phenomenas"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Це грецьке слово, де закінчення -on змінюється на -a."
+          ],
+          "explanations": {
+            "a1": {
+              "phenomena": "Правильно. Форма множини від 'phenomenon'.",
+              "phenomenon": "Неправильно. Форма однини.",
+              "phenomenas": "Неправильно. Помилкове додавання -s до вже існуючої множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the problem were analyzed deeply."
+      ]
+    },
+    {
+      "id": 74,
+      "question": "Scientists are studying the {a1} of these species.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "nuclei",
+          "options": [
+            "nuclei",
+            "nucleuses",
+            "nucleus"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Латинські слова на -us часто змінюються на -i."
+          ],
+          "explanations": {
+            "a1": {
+              "nuclei": "Правильно. Наукова форма множини.",
+              "nucleuses": "Допустимо, але в академічному контексті 'nuclei' краще.",
+              "nucleus": "Неправильно. Форма однини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "Scientists are studying the {a1} of these species."
+      ]
+    },
+    {
+      "id": 75,
+      "question": "The {a1} for admission are quite strict.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "criteria",
+          "options": [
+            "criteria",
+            "criterions",
+            "criterion"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Використовуйте правильну грецьку множину для 'criterion'."
+          ],
+          "explanations": {
+            "a1": {
+              "criteria": "Правильно.",
+              "criterions": "Менш прийнятно.",
+              "criterion": "Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} for admission are quite strict."
+      ]
+    },
+    {
+      "id": 76,
+      "question": "Many {a1} were occurring simultaneously.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "crises",
+          "options": [
+            "crises",
+            "crisis",
+            "crisises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Зміна -is на -es є характерною для слів грецького походження."
+          ],
+          "explanations": {
+            "a1": {
+              "crises": "Правильно. Множина від 'crisis'.",
+              "crisis": "Неправильно. Форма однини.",
+              "crisises": "Неправильно. Некоректне закінчення."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "Many {a1} were occurring simultaneously."
+      ]
+    },
+    {
+      "id": 77,
+      "question": "The library contains many {a1}.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "appendices",
+          "options": [
+            "appendices",
+            "appendixes",
+            "appendix"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Латинське закінчення -ix/-ex змінюється на -ices."
+          ],
+          "explanations": {
+            "a1": {
+              "appendices": "Правильно. Академічна форма множини.",
+              "appendixes": "Також можливо, але менш формально.",
+              "appendix": "Неправильно. Форма однини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The library contains many {a1}."
+      ]
+    },
+    {
+      "id": 78,
+      "question": "We examined the {a1} of the flowers.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "stamina",
+          "options": [
+            "stamina",
+            "stamen",
+            "stamens"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Будьте уважні: деякі слова, що в однині є звичними, мають іншу форму множини в біології."
+          ],
+          "explanations": {
+            "a1": {
+              "stamina": "Правильно. У ботаніці це множина від 'stamen'.",
+              "stamen": "Неправильно. Однина.",
+              "stamens": "Також допустима форма, але 'stamina' цікавіша в контексті винятків."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "We examined the {a1} of the flowers."
+      ]
+    },
+    {
+      "id": 79,
+      "question": "The {a1} of the triangles must be equal.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "bases",
+          "options": [
+            "bases",
+            "basis",
+            "basises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина від 'basis' (основа) має таке саме написання, як і множина від 'base'."
+          ],
+          "explanations": {
+            "a1": {
+              "bases": "Правильно. Множина від 'basis' — 'bases'.",
+              "basis": "Неправильно. Форма однини.",
+              "basises": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the triangles must be equal."
+      ]
+    },
+    {
+      "id": 80,
+      "question": "The {a1} were drawn on the map.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "axes",
+          "options": [
+            "axes",
+            "axis",
+            "axises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'axis' змінює закінчення на -es."
+          ],
+          "explanations": {
+            "a1": {
+              "axes": "Правильно. Множина від 'axis'.",
+              "axis": "Неправильно. Форма однини.",
+              "axises": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} were drawn on the map."
+      ]
+    },
+    {
+      "id": 81,
+      "question": "The {a1} of the galaxy are numerous.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "nebulae",
+          "options": [
+            "nebulae",
+            "nebulas",
+            "nebula"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Латинські слова на -a часто мають множину на -ae."
+          ],
+          "explanations": {
+            "a1": {
+              "nebulae": "Правильно. Традиційна латинська форма.",
+              "nebulas": "Допустимо, але менш формально.",
+              "nebula": "Неправильно. Форма однини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the galaxy are numerous."
+      ]
+    },
+    {
+      "id": 82,
+      "question": "He has many {a1} about the future.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "theses",
+          "options": [
+            "theses",
+            "thesis",
+            "thesises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина від 'thesis' утворюється за грецьким правилом."
+          ],
+          "explanations": {
+            "a1": {
+              "theses": "Правильно. Множина від 'thesis'.",
+              "thesis": "Неправильно. Однина.",
+              "thesises": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "He has many {a1} about the future."
+      ]
+    },
+    {
+      "id": 83,
+      "question": "The {a1} of the rocks were analyzed.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "strata",
+          "options": [
+            "strata",
+            "stratum",
+            "stratas"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Латинське слово 'stratum' змінює -um на -a."
+          ],
+          "explanations": {
+            "a1": {
+              "strata": "Правильно. Множина.",
+              "stratum": "Неправильно. Однина.",
+              "stratas": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the rocks were analyzed."
+      ]
+    },
+    {
+      "id": 84,
+      "question": "The {a1} were clearly stated in the report.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "diagnoses",
+          "options": [
+            "diagnoses",
+            "diagnosis",
+            "diagnosises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Ще одне грецьке слово на -is."
+          ],
+          "explanations": {
+            "a1": {
+              "diagnoses": "Правильно.",
+              "diagnosis": "Неправильно. Однина.",
+              "diagnosises": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} were clearly stated in the report."
+      ]
+    },
+    {
+      "id": 85,
+      "question": "The {a1} are being reviewed.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "syllabi",
+          "options": [
+            "syllabi",
+            "syllabuses",
+            "syllabus"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Це слово має дві форми, латинська форма на -i вважається більш вишуканою."
+          ],
+          "explanations": {
+            "a1": {
+              "syllabi": "Правильно. Латинська множина.",
+              "syllabuses": "Також правильно, але 'syllabi' частіше вживається в академічних колах.",
+              "syllabus": "Неправильно. Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} are being reviewed."
+      ]
+    },
+    {
+      "id": 86,
+      "question": "Many {a1} were discussed at the conference.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "symposia",
+          "options": [
+            "symposia",
+            "symposiums",
+            "symposium"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'symposium' має латинське закінчення -um."
+          ],
+          "explanations": {
+            "a1": {
+              "symposia": "Правильно. Латинська множина.",
+              "symposiums": "Допустимо, але менш традиційно.",
+              "symposium": "Неправильно. Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "Many {a1} were discussed at the conference."
+      ]
+    },
+    {
+      "id": 87,
+      "question": "The {a1} of the study are valid.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "results",
+          "options": [
+            "results",
+            "resultes",
+            "result"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Звичайна форма множини."
+          ],
+          "explanations": {
+            "a1": {
+              "results": "Правильно.",
+              "resultes": "Неправильно.",
+              "result": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} of the study are valid."
+      ]
+    },
+    {
+      "id": 88,
+      "question": "We observed the {a1} in the petri dish.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "bacteria",
+          "options": [
+            "bacteria",
+            "bacterium",
+            "bacterias"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово 'bacteria' — це вже форма множини."
+          ],
+          "explanations": {
+            "a1": {
+              "bacteria": "Правильно. Множина від 'bacterium'.",
+              "bacterium": "Неправильно. Форма однини.",
+              "bacterias": "Неправильно. Помилкове додавання -s."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "We observed the {a1} in the petri dish."
+      ]
+    },
+    {
+      "id": 89,
+      "question": "The {a1} were very complex.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "formulae",
+          "options": [
+            "formulae",
+            "formulas",
+            "formula"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Латинська множина для 'formula'."
+          ],
+          "explanations": {
+            "a1": {
+              "formulae": "Правильно. Академічна форма.",
+              "formulas": "Також правильно, але 'formulae' більш академічне.",
+              "formula": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} were very complex."
+      ]
+    },
+    {
+      "id": 90,
+      "question": "The {a1} were discussed by the board.",
+      "source": "theory_page_712",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "agenda",
+          "options": [
+            "agenda",
+            "agendas",
+            "agendum"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Історично 'agenda' — це множина від 'agendum', але сьогодні використовується інакше."
+          ],
+          "explanations": {
+            "a1": {
+              "agenda": "Правильно. Хоча зараз це часто однина, в академічному сенсі це список справ (множина).",
+              "agendas": "Сучасна множина від 'agenda' як однини.",
+              "agendum": "Неправильно. Форма однини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} were discussed by the board."
+      ]
+    },
+    {
+      "id": 91,
+      "question": "The {a1} of the elite are often misunderstood.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "personae",
+          "options": [
+            "personae",
+            "personas",
+            "persona"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Латинська форма множини для слова 'persona' у значенні характерів або масок."
+          ],
+          "explanations": {
+            "a1": {
+              "personae": "Правильно. Традиційна латинська множина.",
+              "personas": "Допустимо в сучасному контексті, але 'personae' є більш витонченим.",
+              "persona": "Неправильно. Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the elite are often misunderstood."
+      ]
+    },
+    {
+      "id": 92,
+      "question": "We must consider the {a1} of the arguments.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "loci",
+          "options": [
+            "loci",
+            "locuses",
+            "locus"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина від латинського 'locus' (місце)."
+          ],
+          "explanations": {
+            "a1": {
+              "loci": "Правильно. Традиційна форма.",
+              "locuses": "Рідковживана форма.",
+              "locus": "Неправильно. Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "We must consider the {a1} of the arguments."
+      ]
+    },
+    {
+      "id": 93,
+      "question": "The {a1} of the company were very impressive.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "syllabuses",
+          "options": [
+            "syllabuses",
+            "syllabi",
+            "syllabus"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "У деяких випадках англізована множина є кращою за латинську в певному середовищі."
+          ],
+          "explanations": {
+            "a1": {
+              "syllabuses": "Правильно. Обидва варіанти (syllabi) вірні, але цей — англізований.",
+              "syllabi": "Також правильно.",
+              "syllabus": "Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the company were very impressive."
+      ]
+    },
+    {
+      "id": 94,
+      "question": "The {a1} of the insect are very sensitive.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "antennae",
+          "options": [
+            "antennae",
+            "antennas",
+            "antenna"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Біологічний термін 'antenna' має латинську множину."
+          ],
+          "explanations": {
+            "a1": {
+              "antennae": "Правильно в біологічному контексті.",
+              "antennas": "Вживається для радіоантен, а не біологічних вусиків.",
+              "antenna": "Неправильно. Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the insect are very sensitive."
+      ]
+    },
+    {
+      "id": 95,
+      "question": "The {a1} of the curve are difficult to calculate.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "radii",
+          "options": [
+            "radii",
+            "radiuses",
+            "radius"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Математичний термін 'radius' має специфічну множину."
+          ],
+          "explanations": {
+            "a1": {
+              "radii": "Правильно. Традиційна множина.",
+              "radiuses": "Також можливо, але менш науково.",
+              "radius": "Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the curve are difficult to calculate."
+      ]
+    },
+    {
+      "id": 96,
+      "question": "The {a1} of the virus were identified.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "genera",
+          "options": [
+            "genera",
+            "genuses",
+            "genus"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина від латинського 'genus'."
+          ],
+          "explanations": {
+            "a1": {
+              "genera": "Правильно. Специфічна латинська множина.",
+              "genuses": "Вкрай рідко вживається.",
+              "genus": "Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the virus were identified."
+      ]
+    },
+    {
+      "id": 97,
+      "question": "The {a1} were carefully prepared for the meeting.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "memoranda",
+          "options": [
+            "memoranda",
+            "memorandums",
+            "memorandum"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Латинська форма множини для 'memorandum'."
+          ],
+          "explanations": {
+            "a1": {
+              "memoranda": "Правильно. Традиційна форма.",
+              "memorandums": "Допустимо.",
+              "memorandum": "Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} were carefully prepared for the meeting."
+      ]
+    },
+    {
+      "id": 98,
+      "question": "The {a1} are essential for the survival of the species.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "larvae",
+          "options": [
+            "larvae",
+            "larvas",
+            "larva"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Ще одна латинська множина на -ae."
+          ],
+          "explanations": {
+            "a1": {
+              "larvae": "Правильно.",
+              "larvas": "Неправильно.",
+              "larva": "Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} are essential for the survival of the species."
+      ]
+    },
+    {
+      "id": 99,
+      "question": "The {a1} were presented in a clear format.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "data",
+          "options": [
+            "data",
+            "datum",
+            "datas"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Хоча 'data' часто вживається як однина, в академічному письмі це множина."
+          ],
+          "explanations": {
+            "a1": {
+              "data": "Правильно.",
+              "datum": "Однина.",
+              "datas": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} were presented in a clear format."
+      ]
+    },
+    {
+      "id": 100,
+      "question": "The {a1} were found in the old tomb.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "sarcophagi",
+          "options": [
+            "sarcophagi",
+            "sarcophaguses",
+            "sarcophagus"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Латинська множина для 'sarcophagus'."
+          ],
+          "explanations": {
+            "a1": {
+              "sarcophagi": "Правильно. Традиційна форма.",
+              "sarcophaguses": "Допустимо.",
+              "sarcophagus": "Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} were found in the old tomb."
+      ]
+    },
+    {
+      "id": 101,
+      "question": "The {a1} of the building are quite high.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "fasciae",
+          "options": [
+            "fasciae",
+            "fascias",
+            "fascia"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Ще одне слово на -a."
+          ],
+          "explanations": {
+            "a1": {
+              "fasciae": "Правильно. Традиційна форма.",
+              "fascias": "Допустимо.",
+              "fascia": "Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the building are quite high."
+      ]
+    },
+    {
+      "id": 102,
+      "question": "Several {a1} were analyzed in the laboratory.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "media",
+          "options": [
+            "media",
+            "medium",
+            "medias"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "У науковому контексті 'media' — це множина від 'medium'."
+          ],
+          "explanations": {
+            "a1": {
+              "media": "Правильно.",
+              "medium": "Однина.",
+              "medias": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "Several {a1} were analyzed in the laboratory."
+      ]
+    },
+    {
+      "id": 103,
+      "question": "The {a1} of the mountain are very steep.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "plateaux",
+          "options": [
+            "plateaux",
+            "plateaus",
+            "plateau"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Це слово запозичене з французької, воно має особливе закінчення множини."
+          ],
+          "explanations": {
+            "a1": {
+              "plateaux": "Правильно. Французька форма множини.",
+              "plateaus": "Також правильно і часто вживається в англійській.",
+              "plateau": "Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} of the mountain are very steep."
+      ]
+    },
+    {
+      "id": 104,
+      "question": "The {a1} of the flowers are very delicate.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "stigmata",
+          "options": [
+            "stigmata",
+            "stigmas",
+            "stigma"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Грецька множина для 'stigma'."
+          ],
+          "explanations": {
+            "a1": {
+              "stigmata": "Правильно. Традиційна грецька множина.",
+              "stigmas": "Допустимо.",
+              "stigma": "Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the flowers are very delicate."
+      ]
+    },
+    {
+      "id": 105,
+      "question": "Many {a1} were used in the decoration.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "vortices",
+          "options": [
+            "vortices",
+            "vortexes",
+            "vortex"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина від 'vortex' за латинським зразком."
+          ],
+          "explanations": {
+            "a1": {
+              "vortices": "Правильно.",
+              "vortexes": "Допустимо.",
+              "vortex": "Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "Many {a1} were used in the decoration."
+      ]
+    },
+    {
+      "id": 106,
+      "question": "The {a1} of the city are very diverse.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "fora",
+          "options": [
+            "fora",
+            "forums",
+            "forum"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Множина від 'forum' у класичному латинському варіанті."
+          ],
+          "explanations": {
+            "a1": {
+              "fora": "Правильно. Латинська множина.",
+              "forums": "Сьогодні набагато частіше вживається.",
+              "forum": "Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the city are very diverse."
+      ]
+    },
+    {
+      "id": 107,
+      "question": "The {a1} of the study are very interesting.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "hypotheses",
+          "options": [
+            "hypotheses",
+            "hypothesis",
+            "hypothesises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Ще одна грецька множина."
+          ],
+          "explanations": {
+            "a1": {
+              "hypotheses": "Правильно.",
+              "hypothesis": "Однина.",
+              "hypothesises": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the study are very interesting."
+      ]
+    },
+    {
+      "id": 108,
+      "question": "The {a1} were analyzed to find the cause.",
+      "source": "theory_page_712",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "bacteria",
+          "options": [
+            "bacteria",
+            "bacterium",
+            "bacterias"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Використовуйте правильну множину для 'bacterium'."
+          ],
+          "explanations": {
+            "a1": {
+              "bacteria": "Правильно.",
+              "bacterium": "Однина.",
+              "bacterias": "Неправильно."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} were analyzed to find the cause."
+      ]
+    }
+  ],
+  "saved_test": {
+    "uuid": "plural-nouns-v3-full-test",
+    "slug": "plural-nouns-mnozina-imennikiv-pravila-viniatki-prikladi",
+    "name": "Plural Nouns Comprehensive Practice",
+    "filters": {
+      "num_questions": 108,
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "seeder_classes": [
+        "Database\\Seeders\\V3\\AI\\Gemini\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder"
+      ],
+      "prompt_generator": {
+        "source_type": "theory_page",
+        "theory_page_id": 712,
+        "theory_page_ids": [
+          712
+        ],
+        "theory_page": {
+          "id": 712,
+          "slug": "plural-nouns-s-es-ies",
+          "title": "Plural Nouns — Множина іменників: правила, винятки, приклади",
+          "category_slug_path": "imennyky-artykli-ta-kilkist",
+          "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies"
+        }
+      }
+    }
+  }
+}

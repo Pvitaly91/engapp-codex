@@ -30,6 +30,17 @@ class PageV3PromptGeneratorService
     /**
      * @return array<string, string>
      */
+    public function promptAModes(): array
+    {
+        return [
+            'repository_connected' => 'Mode A1 / repository-connected',
+            'no_repository' => 'Mode A2 / no-repository fallback',
+        ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
     public function categoryModes(): array
     {
         return [
@@ -91,7 +102,7 @@ class PageV3PromptGeneratorService
                 [
                     'key' => 'llm_json_pack',
                     'title' => 'Prompt for LLM JSON generation',
-                    'text' => $this->buildLlmJsonPrompt($source, $category, $categoryCatalog, $preview),
+                    'text' => $this->buildLlmJsonPrompt($input, $source, $category, $categoryCatalog, $preview, $referenceFiles),
                 ],
                 [
                     'key' => 'codex_page_v3',
@@ -108,6 +119,8 @@ class PageV3PromptGeneratorService
             'reference_files' => $referenceFiles,
             'warnings' => $warnings,
             'generation_mode' => $input->generationMode,
+            'prompt_a_mode' => $input->promptAMode,
+            'prompt_a_mode_label' => $this->promptAModeLabel($input->promptAMode),
             'prompts' => $prompts,
         ];
     }
@@ -332,10 +345,12 @@ class PageV3PromptGeneratorService
      * @param  array<string, mixed>  $preview
      */
     protected function buildLlmJsonPrompt(
+        PagePromptGenerationInput $input,
         array $source,
         array $category,
         array $categoryCatalog,
         array $preview,
+        array $referenceFiles,
     ): string {
         $pageDefinitionBaseName = pathinfo((string) $preview['page_definition_relative_path'], PATHINFO_FILENAME);
         $pageLocalizationEnClass = $this->localizationSeederClass($pageDefinitionBaseName, 'en');
@@ -343,6 +358,21 @@ class PageV3PromptGeneratorService
         $categoryDefinitionBaseName = pathinfo((string) $preview['category_definition_relative_path'], PATHINFO_FILENAME);
         $categoryLocalizationEnClass = $this->localizationSeederClass($categoryDefinitionBaseName, 'en');
         $categoryLocalizationPlClass = $this->localizationSeederClass($categoryDefinitionBaseName, 'pl');
+
+        $promptModeLines = [
+            'Prompt A mode',
+            '- Selected Prompt A mode: ' . $this->promptAModeLabel($input->promptAMode),
+        ];
+
+        if ($input->promptAMode === 'no_repository') {
+            $promptModeLines[] = '- This prompt must work without a connected repository. Do not assume live repo access.';
+            $promptModeLines[] = '- Use the embedded compatibility reference below as the source of truth for Page_V3 schema, localizations, and target linkage.';
+        } else {
+            $promptModeLines[] = '- This prompt assumes the repository is connected. Inspect the real Page_V3 files first and follow the live project contract.';
+            $promptModeLines[] = '- Primary live repository references to inspect before generating JSON:';
+            $promptModeLines[] = $this->formatReferenceLines($referenceFiles);
+            $promptModeLines[] = '- If repository access is unavailable, switch this generator to Mode A2 / no-repository fallback instead of guessing.';
+        }
 
         $lines = [
             'Generate only the JSON file payloads for the Laravel project `Pvitaly91/engapp-codex` `Page_V3` system.',
@@ -354,17 +384,28 @@ class PageV3PromptGeneratorService
             '- If your chat interface cannot generate downloadable files, fall back to multiple `json` code blocks in this exact order: page base `uk`, page localization `en`, page localization `pl`, then category files only if required by the selected category mode.',
             '- In that fallback mode, place a short role label before each block, such as `PAGE_BASE_UK`, `PAGE_EN`, `PAGE_PL`, `CATEGORY_BASE_UK`, `CATEGORY_EN`, `CATEGORY_PL`. Do not print repository filenames or paths.',
             '',
+            ...$promptModeLines,
+            '',
             'Source topic',
             $this->formatSourceSection($source),
             '',
             'Category instructions',
             $this->formatCategorySection($category),
             '',
+        ];
+
+        if ($input->promptAMode === 'no_repository') {
+            $lines[] = 'Embedded compatibility reference';
+            $lines[] = $this->formatEmbeddedLlmCompatibilityReference($category, $preview, $referenceFiles);
+            $lines[] = '';
+        }
+
+        $lines = array_merge($lines, [
             'Target file expectations',
             '- Always output the base page definition JSON in `uk`: `' . $preview['page_definition_relative_path'] . '`',
             '- Always output the page localization JSON for `en`: `' . $preview['page_localization_en_relative_path'] . '`',
             '- Always output the page localization JSON for `pl`: `' . $preview['page_localization_pl_relative_path'] . '`',
-        ];
+        ]);
 
         if ($category['mode'] === 'new') {
             $lines[] = '- Also output the base category definition JSON in `uk`: `' . $preview['category_definition_relative_path'] . '`';
@@ -631,5 +672,48 @@ class PageV3PromptGeneratorService
         $classStem = Str::studly(str_replace('_', ' ', $definitionBaseName));
 
         return 'Database\\Seeders\\Page_V3\\Localizations\\' . $localeNamespace . '\\' . $classStem . 'LocalizationSeeder';
+    }
+
+    /**
+     * @param  array<string, mixed>  $category
+     * @param  array<string, mixed>  $preview
+     * @param  array<int, string>  $referenceFiles
+     */
+    protected function formatEmbeddedLlmCompatibilityReference(
+        array $category,
+        array $preview,
+        array $referenceFiles,
+    ): string {
+        $lines = [
+            '- Observed Page_V3 naming pattern: page wrapper `' . ($preview['page_fully_qualified_class_name'] ?? '') . '`, page definition `' . basename((string) ($preview['page_definition_relative_path'] ?? '')) . '`, page localizations in `database/seeders/Page_V3/localizations/en|pl` with the same basename.',
+            '- Real loader contract from `app/Support/Database/JsonPageSeeder.php`: base definitions are JSON-driven and use `content_type: page` or `content_type: category`, `type: theory`, and `seeder.class` for the base PHP wrapper.',
+            '- Real localization contract from `app/Support/Database/JsonPageLocalizationManager.php`: localization JSON uses top-level keys `locale`, `seeder`, `target`, `blocks`.',
+            '- Real localization targeting rules: `target.definition` must match the base definition filename without `.json`, and `target.seeder_class` must exactly match the corresponding base wrapper class.',
+            '- Real runtime directory contract from `app/Support/Database/JsonPageDirectorySeeder.php`: base definitions live under `database/seeders/Page_V3/definitions`; localization JSON files live under `database/seeders/Page_V3/localizations/<locale>`; localization PHP wrappers are virtual and do not require standalone PHP files.',
+            '- Base page content rules: write the base definition in locale `uk`; write companion `en` and `pl` localizations; keep page slug, category slug, and wrapper class linkage internally consistent.',
+        ];
+
+        if (($category['mode'] ?? null) === 'existing') {
+            $lines[] = '- Category mode rule: reuse the selected existing category and do not output duplicate category JSON files.';
+        } elseif (($category['mode'] ?? null) === 'new') {
+            $lines[] = '- Category mode rule: output both page JSON files and the new category JSON package (`uk`, `en`, `pl`) using the suggested category slug and wrapper naming.';
+        } else {
+            $lines[] = '- Category mode rule: choose the best existing category if it clearly fits; otherwise create a new category JSON package and keep the selected page attached to it.';
+        }
+
+        if ($referenceFiles !== []) {
+            $lines[] = '- Neighbor reference filenames embedded for offline use:';
+
+            foreach ($referenceFiles as $path) {
+                $lines[] = '  - `' . $path . '`';
+            }
+        }
+
+        return implode("\n", $lines);
+    }
+
+    protected function promptAModeLabel(string $promptAMode): string
+    {
+        return $this->promptAModes()[$promptAMode] ?? $this->promptAModes()['repository_connected'];
     }
 }

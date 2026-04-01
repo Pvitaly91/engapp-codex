@@ -42,6 +42,15 @@
             'expert' => 'test.manual',
         ];
 
+    $preservedQuery = request()->only(['filters', 'name', 'launch']);
+    $testRoute = static function (string $name) use ($test, $preservedQuery): string {
+        $url = localized_route($name, $test->slug);
+
+        return $preservedQuery === []
+            ? $url
+            : $url . '?' . http_build_query($preservedQuery);
+    };
+
     $pillClass = static function (bool $active, string $activeTheme = 'solid'): string {
         if ($active && $activeTheme === 'soft') {
             return 'border-color: var(--accent); background: var(--accent-soft); color: var(--text);';
@@ -61,12 +70,12 @@
             <div class="space-y-4">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.mode.view') }}</p>
                 <div class="flex flex-wrap gap-2">
-                    <a href="{{ localized_route($cardRouteName, $test->slug) }}"
+                    <a href="{{ $testRoute($cardRouteName) }}"
                        class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
                        style="{{ $pillClass(! $isStepMode && ! request()->routeIs('test.drag-drop', 'test.match', 'test.dialogue')) }}">
                         {{ __('frontend.tests.mode.card') }}
                     </a>
-                    <a href="{{ localized_route($stepRouteName, $test->slug) }}"
+                    <a href="{{ $testRoute($stepRouteName) }}"
                        class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
                        style="{{ $pillClass($isStepMode) }}">
                         {{ __('frontend.tests.mode.step') }}
@@ -77,22 +86,22 @@
             <div class="space-y-4">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.mode.difficulty') }}</p>
                 <div class="flex flex-wrap gap-2">
-                    <a href="{{ localized_route($difficultyRoutes['easy'], $test->slug) }}"
+                    <a href="{{ $testRoute($difficultyRoutes['easy']) }}"
                        class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
                        style="{{ $pillClass($routeName === $difficultyRoutes['easy'], 'soft') }}">
                         {{ __('frontend.tests.mode.easy') }}
                     </a>
-                    <a href="{{ localized_route($difficultyRoutes['medium'], $test->slug) }}"
+                    <a href="{{ $testRoute($difficultyRoutes['medium']) }}"
                        class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
                        style="{{ $pillClass($routeName === $difficultyRoutes['medium'], 'soft') }}">
                         {{ __('frontend.tests.mode.medium') }}
                     </a>
-                    <a href="{{ localized_route($difficultyRoutes['hard'], $test->slug) }}"
+                    <a href="{{ $testRoute($difficultyRoutes['hard']) }}"
                        class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
                        style="{{ $pillClass($routeName === $difficultyRoutes['hard'], 'soft') }}">
                         {{ __('frontend.tests.mode.hard') }}
                     </a>
-                    <a href="{{ localized_route($difficultyRoutes['expert'], $test->slug) }}"
+                    <a href="{{ $testRoute($difficultyRoutes['expert']) }}"
                        class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
                        style="{{ $pillClass($routeName === $difficultyRoutes['expert'], 'soft') }}">
                         {{ __('frontend.tests.mode.expert') }}
@@ -103,17 +112,17 @@
             <div class="space-y-4">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.mode.games') }}</p>
                 <div class="flex flex-wrap gap-2">
-                    <a href="{{ localized_route('test.drag-drop', $test->slug) }}"
+                    <a href="{{ $testRoute('test.drag-drop') }}"
                        class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
                        style="{{ $pillClass(request()->routeIs('test.drag-drop')) }}">
                         {{ __('frontend.tests.mode.drag_drop') }}
                     </a>
-                    <a href="{{ localized_route('test.match', $test->slug) }}"
+                    <a href="{{ $testRoute('test.match') }}"
                        class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
                        style="{{ $pillClass(request()->routeIs('test.match')) }}">
                         {{ __('frontend.tests.mode.match') }}
                     </a>
-                    <a href="{{ localized_route('test.dialogue', $test->slug) }}"
+                    <a href="{{ $testRoute('test.dialogue') }}"
                        class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
                        style="{{ $pillClass(request()->routeIs('test.dialogue')) }}">
                         {{ __('frontend.tests.mode.dialogue') }}

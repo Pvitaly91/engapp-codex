@@ -17,6 +17,7 @@ final readonly class PromptGenerationInput
         public array $levels,
         public int $questionsPerLevel,
         public string $generationMode,
+        public string $promptAMode,
     ) {
     }
 
@@ -28,13 +29,14 @@ final readonly class PromptGenerationInput
             manualTopic: self::normalizeNullableString($validated['manual_topic'] ?? null),
             externalUrl: self::normalizeNullableString($validated['external_url'] ?? null),
             siteDomain: trim((string) ($validated['site_domain'] ?? 'gramlyze.com')),
-            targetNamespace: trim((string) ($validated['target_namespace'] ?? '')),
+            targetNamespace: trim((string) ($validated['target_namespace'] ?? 'AI\\ChatGptPro')),
             levels: array_values(array_map(
                 static fn ($level) => strtoupper(trim((string) $level)),
                 $validated['levels'] ?? []
             )),
             questionsPerLevel: (int) ($validated['questions_per_level'] ?? 0),
             generationMode: (string) ($validated['generation_mode'] ?? 'single'),
+            promptAMode: (string) ($validated['prompt_a_mode'] ?? 'repository_connected'),
         );
     }
 

@@ -57,6 +57,8 @@ class PageV3PromptGeneratorTest extends TestCase
         $response->assertOk();
         $response->assertSee('Page_V3 Prompt Generator');
         $response->assertSee('/admin/page-v3-prompt-generator');
+        $response->assertSee('Mode A1 / repository-connected');
+        $response->assertSee('Mode A2 / no-repository fallback');
     }
 
     public function test_generates_single_mode_prompt_for_existing_category(): void
@@ -105,6 +107,7 @@ class PageV3PromptGeneratorTest extends TestCase
                 'category_mode' => 'new',
                 'new_category_title' => 'Types of Questions',
                 'generation_mode' => 'split',
+                'prompt_a_mode' => 'repository_connected',
             ]);
 
         $response->assertOk();
@@ -113,6 +116,9 @@ class PageV3PromptGeneratorTest extends TestCase
         $response->assertSee('Prompt буде згенеровано тільки на основі URL');
         $response->assertSee('separate downloadable `.json` file');
         $response->assertSee('Attachment filenames may be arbitrary');
+        $response->assertSee('Selected Prompt A mode: Mode A1 / repository-connected');
+        $response->assertSee('This prompt assumes the repository is connected. Inspect the real Page_V3 files first and follow the live project contract.');
+        $response->assertSee('Primary live repository references to inspect before generating JSON:');
         $response->assertSee('database/seeders/Page_V3/definitions/types_of_questions_category.json');
         $response->assertSee('database/seeders/Page_V3/definitions/alternative_questions_theory.json');
     }

@@ -243,6 +243,28 @@
                         @error('generation_mode')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                         @enderror
+
+                        <div class="mt-5" x-show="generationMode === 'split'" x-cloak>
+                            <div class="mb-2 block text-sm font-medium text-slate-700">Prompt A mode for split mode</div>
+                            <p class="mb-3 text-xs leading-5 text-slate-500">
+                                `Mode A1` очікує підключений репозиторій і живі reference-файли. `Mode A2` вбудовує Page_V3 compatibility reference прямо в Prompt A для роботи без repo access.
+                            </p>
+                            <div class="grid gap-3 md:grid-cols-2">
+                                @foreach ($promptAModes as $modeValue => $modeLabel)
+                                    <label class="rounded-xl border px-4 py-3 transition" :class="promptAMode === '{{ $modeValue }}' ? 'border-blue-400 bg-blue-50' : 'border-slate-200 bg-slate-50 hover:border-slate-300'">
+                                        <input type="radio" name="prompt_a_mode" value="{{ $modeValue }}" x-model="promptAMode" class="sr-only">
+                                        <div class="font-medium text-slate-900">{{ $modeLabel }}</div>
+                                        <div class="mt-1 text-sm text-slate-500">
+                                            {{ $modeValue === 'repository_connected' ? 'Prompt A uses live Page_V3 references from the repo.' : 'Prompt A uses embedded Page_V3 references and can work offline.' }}
+                                        </div>
+                                    </label>
+                                @endforeach
+                            </div>
+
+                            @error('prompt_a_mode')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
                 </div>
 
@@ -289,6 +311,7 @@
                             <li>Reference на реальні `Page_V3` seeders, definitions та localization files.</li>
                             <li>Чітка інструкція про reuse existing category або створення нового category seeder.</li>
                             <li>JSON pack format для split mode, сумісний із подальшою інтеграцією в Codex.</li>
+                            <li>У split mode Prompt A можна перемкнути між `repository-connected` і `no-repository fallback`.</li>
                             <li>Safe handling зовнішнього URL без сирих exception у UI.</li>
                         </ul>
                     </div>
@@ -315,7 +338,12 @@
             <section class="space-y-5">
                 <div class="rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm text-emerald-800">
                     Prompt-и згенеровано. Режим:
-                    <span class="font-semibold">{{ $result['generation_mode'] === 'single' ? 'Mode 1 / one prompt' : 'Mode 2 / two prompts' }}</span>.
+                    <span class="font-semibold">{{ $result['generation_mode'] === 'single' ? 'Mode 1 / one prompt' : 'Mode 2 / two prompts' }}</span>
+                    @if (($result['generation_mode'] ?? null) === 'split')
+                        , Prompt A:
+                        <span class="font-semibold">{{ $result['prompt_a_mode_label'] ?? '' }}</span>
+                    @endif
+                    .
                 </div>
 
                 @foreach ($result['prompts'] as $prompt)
@@ -357,6 +385,7 @@
                 externalUrl: config.form.external_url || '',
                 categoryMode: config.form.category_mode || 'existing',
                 generationMode: config.form.generation_mode || 'single',
+                promptAMode: config.form.prompt_a_mode || 'repository_connected',
                 categoryOptions: Array.isArray(config.categoryOptions) ? config.categoryOptions : [],
                 filteredCategoryOptions: [],
                 categorySearch: config.selectedCategory?.title || '',

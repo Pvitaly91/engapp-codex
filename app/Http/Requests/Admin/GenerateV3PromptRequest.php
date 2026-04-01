@@ -24,7 +24,7 @@ class GenerateV3PromptRequest extends FormRequest
             ->values()
             ->all();
 
-        $targetNamespace = trim((string) $this->input('target_namespace', ''));
+        $targetNamespace = trim((string) $this->input('target_namespace', 'AI\\ChatGptPro'));
         $targetNamespace = str_replace('/', '\\', $targetNamespace);
         $targetNamespace = preg_replace('/\\\\+/', '\\\\', $targetNamespace) ?? $targetNamespace;
         $targetNamespace = trim($targetNamespace, "\\ \t\n\r\0\x0B");
@@ -32,6 +32,7 @@ class GenerateV3PromptRequest extends FormRequest
         $this->merge([
             'source_type' => trim((string) $this->input('source_type', 'manual_topic')),
             'generation_mode' => trim((string) $this->input('generation_mode', 'single')),
+            'prompt_a_mode' => trim((string) $this->input('prompt_a_mode', 'repository_connected')),
             'theory_page_id' => $this->filled('theory_page_id') ? (int) $this->input('theory_page_id') : null,
             'manual_topic' => $this->filled('manual_topic') ? trim((string) $this->input('manual_topic')) : null,
             'external_url' => $this->filled('external_url') ? trim((string) $this->input('external_url')) : null,
@@ -49,6 +50,7 @@ class GenerateV3PromptRequest extends FormRequest
         return [
             'source_type' => ['required', Rule::in(['theory_page', 'manual_topic', 'external_url'])],
             'generation_mode' => ['required', Rule::in(['single', 'split'])],
+            'prompt_a_mode' => ['required', Rule::in(['repository_connected', 'no_repository'])],
             'theory_page_id' => [
                 Rule::requiredIf(fn () => $this->input('source_type') === 'theory_page'),
                 'nullable',
@@ -96,6 +98,8 @@ class GenerateV3PromptRequest extends FormRequest
             'source_type.in' => 'Обране джерело теми не підтримується.',
             'generation_mode.required' => 'Оберіть режим генерації prompt\'ів.',
             'generation_mode.in' => 'Обраний режим генерації не підтримується.',
+            'prompt_a_mode.required' => 'Оберіть режим Prompt A для split mode.',
+            'prompt_a_mode.in' => 'Обраний режим Prompt A не підтримується.',
             'theory_page_id.required' => 'Виберіть сторінку теорії зі списку.',
             'theory_page_id.exists' => 'Обрана theory page не знайдена або недоступна.',
             'manual_topic.required' => 'Введіть тему вручну.',

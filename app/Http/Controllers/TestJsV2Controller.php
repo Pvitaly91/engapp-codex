@@ -201,7 +201,10 @@ class TestJsV2Controller extends Controller
 
     protected function jsStateSessionKey($test, string $view): string
     {
-        return sprintf('saved_test_js_state:%s:%s', $test->slug, $view);
+        $key = sprintf('saved_test_js_state:%s:%s', $test->slug, $view);
+        $launchToken = $this->sanitizeJsLaunchToken(request()->query('launch'));
+
+        return $launchToken ? $key . ':' . $launchToken : $key;
     }
 
     protected function isAdminUser(): bool
@@ -244,5 +247,20 @@ class TestJsV2Controller extends Controller
         }
 
         return $clean;
+    }
+
+    protected function sanitizeJsLaunchToken(mixed $value): ?string
+    {
+        if (! is_string($value)) {
+            return null;
+        }
+
+        $token = trim($value);
+
+        if ($token === '' || strlen($token) > 80) {
+            return null;
+        }
+
+        return preg_match('/^[A-Za-z0-9_-]+$/', $token) === 1 ? $token : null;
     }
 }

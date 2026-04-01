@@ -66,11 +66,12 @@ class V3PromptGeneratorController extends Controller
         $form = [
             'source_type' => old('source_type', (string) $request->input('source_type', 'theory_page')),
             'generation_mode' => old('generation_mode', (string) $request->input('generation_mode', 'single')),
+            'prompt_a_mode' => old('prompt_a_mode', (string) $request->input('prompt_a_mode', 'repository_connected')),
             'theory_page_id' => old('theory_page_id', $request->input('theory_page_id')),
             'manual_topic' => old('manual_topic', (string) $request->input('manual_topic', '')),
             'external_url' => old('external_url', (string) $request->input('external_url', '')),
             'site_domain' => old('site_domain', (string) $request->input('site_domain', 'gramlyze.com')),
-            'target_namespace' => old('target_namespace', (string) $request->input('target_namespace', 'IA\\ChatGptPro')),
+            'target_namespace' => old('target_namespace', (string) $request->input('target_namespace', 'AI\\ChatGptPro')),
             'levels' => old('levels', $request->input('levels', ['A1'])),
             'questions_per_level' => old('questions_per_level', $request->input('questions_per_level', 5)),
         ];
@@ -96,6 +97,7 @@ class V3PromptGeneratorController extends Controller
                 'single' => 'Mode 1: One prompt for Codex',
                 'split' => 'Mode 2: Two prompts (LLM JSON + Codex seeder)',
             ],
+            'promptAModes' => $this->v3PromptGeneratorService->promptAModes(),
             'selectedTheoryPage' => $selectedTheoryPage,
             'preview' => $this->v3PromptGeneratorService->buildPreview((string) $form['target_namespace'], $previewTopic),
             'result' => $result,

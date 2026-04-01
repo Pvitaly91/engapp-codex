@@ -54,6 +54,7 @@ class PageV3PromptGeneratorController extends Controller
             'existing_category_id' => old('existing_category_id', $request->input('existing_category_id')),
             'new_category_title' => old('new_category_title', (string) $request->input('new_category_title', '')),
             'generation_mode' => old('generation_mode', (string) $request->input('generation_mode', 'single')),
+            'prompt_a_mode' => old('prompt_a_mode', (string) $request->input('prompt_a_mode', 'repository_connected')),
         ];
 
         $selectedCategory = null;
@@ -70,6 +71,7 @@ class PageV3PromptGeneratorController extends Controller
             'form' => $form,
             'categoryModes' => $this->pageV3PromptGeneratorService->categoryModes(),
             'generationModes' => $this->pageV3PromptGeneratorService->generationModes(),
+            'promptAModes' => $this->pageV3PromptGeneratorService->promptAModes(),
             'categoryOptions' => $this->pageV3PromptGeneratorService->categoryOptions(),
             'selectedCategory' => $selectedCategory,
             'preview' => $this->pageV3PromptGeneratorService->buildPreview(

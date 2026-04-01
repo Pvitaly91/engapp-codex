@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\\\Seeders\\\\V3\\\\Localizations\\\\Uk\\\\V2\\\\BasicWordOrderComprehensiveV2LocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\V2\\BasicWordOrderComprehensiveV3Seeder",
+    "definition": "V2/basic_word_order_comprehensive_v2",
+    "definition_path": "database/seeders/V3/definitions/V2/basic_word_order_comprehensive_v2.json"
+  },
+  "locale": "uk",
+  "hint_provider": "chatgpt",
+  "questions": [
+    {
+      "id": 1,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: спочатку називаємо додаток (the food), потім прислівник міри (very much). Прислівник міри зазвичай стоїть після прямого додатка."
+      ],
+      "explanations": {
+        "a1": {
+          "the food very much": "✅ «the food very much» — правильно. Прямий додаток (the food) завжди стоїть перед прислівником міри (very much). Приклад: *I didn't like the food very much last night.*",
+          "very much the food": "❌ Прислівник міри (very much) не ставиться перед прямим додатком (the food). Правильний порядок: об'єкт → прислівник."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: місце (home) після дієслова, потім обставина способу/часу (very late). Місце ближче до дієслова, ніж обставина часу."
+      ],
+      "explanations": {
+        "a1": {
+          "home very late": "✅ «home very late» — правильно. Спочатку вказуємо місце (home), потім обставину часу/способу (very late). Приклад: *We arrived home very late.*",
+          "very late home": "❌ Обставина (very late) не ставиться перед місцем (home). Місце ближче до дієслова."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: прямий додаток (English) перед прислівником способу (very well). Прислівник способу ставимо після об'єкта."
+      ],
+      "explanations": {
+        "a1": {
+          "English very well": "✅ «English very well» — правильно. Прямий додаток (English) стоїть перед прислівником способу (very well). Приклад: *Teresa speaks English very well.*",
+          "very well English": "❌ Прислівник способу (very well) не ставиться перед об'єктом (English). Правильний порядок: об'єкт → прислівник."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: спочатку додаток (that box), потім обставина місця (in the corner). Предмет називаємо першим."
+      ],
+      "explanations": {
+        "a1": {
+          "that box in the corner": "✅ «that box in the corner» — правильно. Спочатку називаємо додаток (that box), потім місце (in the corner). Приклад: *Can you put that box in the corner?*",
+          "in the corner that box": "❌ Обставина місця (in the corner) не передує прямому додатку (that box). Предмет називаємо першим."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: обставина місця (in hospital) перед обставиною часу/тривалості (for a week). Місце зазвичай передує часу."
+      ],
+      "explanations": {
+        "a1": {
+          "in hospital for a week": "✅ «in hospital for a week» — правильно. Обставина місця (in hospital) стоїть перед тривалістю (for a week). Приклад: *Jim was in hospital for a week.*",
+          "for a week in hospital": "❌ Тривалість часу (for a week) не ставиться перед місцем (in hospital). Спершу вказуємо місце."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: додаток (this music) перед прислівником міри (a lot). Об'єкт ставимо відразу після дієслова."
+      ],
+      "explanations": {
+        "a1": {
+          "this music a lot": "✅ «this music a lot» — правильно. Об'єкт (this music) стоїть перед прислівником міри (a lot). Приклад: *I like this music a lot.*",
+          "a lot this music": "❌ Прислівник міри (a lot) не ставиться перед об'єктом (this music). Об'єкт завжди після дієслова."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: конкретніше місце (at a friend's house) перед ширшим контекстом (after a party). Від конкретного до загального."
+      ],
+      "explanations": {
+        "a1": {
+          "at a friend's house after a party": "✅ «at a friend's house after a party» — правильно. Конкретне місце (at a friend's house) перед ширшим контекстом (after a party). Приклад: *They met at a friend's house after a party.*",
+          "after a party at a friend's house": "❌ Ширший контекст (after a party) не ставиться перед конкретним місцем. Логіка: від конкретного до загального."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: додаток (their victims) перед прислівником способу (very slowly). Об'єкт ближче до дієслова."
+      ],
+      "explanations": {
+        "a1": {
+          "their victims very slowly": "✅ «their victims very slowly» — правильно. Об'єкт (their victims) стоїть перед прислівником способу (very slowly). Приклад: *Tigers approach their victims very slowly.*",
+          "very slowly their victims": "❌ Прислівник способу (very slowly) не ставиться перед об'єктом (their victims). Об'єкт ближче до дієслова."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: спочатку хто/що (Hellen), потім де (at the library). Об'єкт передує обставині місця."
+      ],
+      "explanations": {
+        "a1": {
+          "Hellen at the library": "✅ «Hellen at the library» — правильно. Спочатку називаємо кого бачили (Hellen), потім де (at the library). Приклад: *I saw Hellen at the library.*",
+          "at the library Hellen": "❌ Місце (at the library) не ставиться перед об'єктом (Hellen). Особа названа першою."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: додаток (the exam) перед прислівником способу (very quickly). Прислівник способу після об'єкта."
+      ],
+      "explanations": {
+        "a1": {
+          "the exam very quickly": "✅ «the exam very quickly» — правильно. Додаток (the exam) стоїть перед прислівником способу (very quickly). Приклад: *He finished the exam very quickly.*",
+          "very quickly the exam": "❌ Прислівник способу (very quickly) не ставиться перед додатком (the exam). Об'єкт іде першим."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: об'єкт (my dog) → місце (in the park) → частота (every day). Стандартний порядок обставин."
+      ],
+      "explanations": {
+        "a1": {
+          "my dog in the park every day": "✅ «my dog in the park every day» — правильно. Порядок: об'єкт (my dog) → місце (in the park) → частота (every day). Приклад: *I walk my dog in the park every day.*",
+          "my dog every day in the park": "❌ Частота (every day) не ставиться перед місцем (in the park). Стандартний порядок: об'єкт → місце → час.",
+          "every day my dog in the park": "❌ Частота (every day) не починає фразу після дієслова. Об'єкт має бути одразу після дієслова."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: об'єкт (her son) → напрямок (to the doctor) → час (this morning). Об'єкт завжди після дієслова."
+      ],
+      "explanations": {
+        "a1": {
+          "her son to the doctor this morning": "✅ «her son to the doctor this morning» — правильно. Порядок: об'єкт (her son) → напрямок (to the doctor) → час (this morning). Приклад: *Lisa took her son to the doctor this morning.*",
+          "to the doctor her son this morning": "❌ Напрямок (to the doctor) не ставиться перед об'єктом (her son). Об'єкт завжди першим.",
+          "this morning her son to the doctor": "❌ Час (this morning) не починає фразу. Стандартний порядок: об'єкт → місце → час."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: об'єкт (me) → місце (home) → час (after the concert). Кого везти → куди → коли."
+      ],
+      "explanations": {
+        "a1": {
+          "me home after the concert": "✅ «me home after the concert» — правильно. Порядок: об'єкт (me) → місце (home) → час (after the concert). Приклад: *Can you drive me home after the concert?*",
+          "home me after the concert": "❌ Місце (home) не ставиться перед об'єктом (me). Кого везти — першим.",
+          "me after the concert home": "❌ Час (after the concert) між об'єктом і місцем порушує порядок. Куди — перед коли."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: прислівник частоти (always) перед дієсловом (finish), потім об'єкт (school) → час (at 3.30 pm)."
+      ],
+      "explanations": {
+        "a1": {
+          "always finish school at 3.30 pm": "✅ «always finish school at 3.30 pm» — правильно. Прислівник частоти (always) перед дієсловом, час наприкінці. Приклад: *We always finish school at 3.30 pm.*",
+          "finish always school at 3.30 pm": "❌ Прислівник частоти (always) не ставиться між дієсловом і об'єктом. Частота перед дієсловом.",
+          "finish school at 3.30 pm always": "❌ Прислівник частоти (always) зазвичай не стоїть наприкінці такого речення. Частота перед дієсловом."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: дієслово (like) → об'єкт (tennis) → прислівник міри (very much). Об'єкт перед прислівником."
+      ],
+      "explanations": {
+        "a1": {
+          "don't like tennis very much": "✅ «don't like tennis very much» — правильно. Дієслово → об'єкт → прислівник міри. Приклад: *I don't like tennis very much.*",
+          "don't play very often tennis": "❌ Це інше дієслово (play), а не like. Крім того, порядок слів неправильний.",
+          "don't like very much tennis": "❌ Прислівник міри (very much) не ставиться перед об'єктом (tennis). Об'єкт одразу після дієслова."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: дієслово (loves) → додаток (his children) → прислівник міри (very much). Прислівник міри наприкінці."
+      ],
+      "explanations": {
+        "a1": {
+          "loves his children very much": "✅ «loves his children very much» — правильно. Дієслово → об'єкт → прислівник міри. Приклад: *David loves his children very much.*",
+          "very much loves his children": "❌ Прислівник міри (very much) не ставиться перед дієсловом. Прислівник наприкінці.",
+          "loves very much his children": "❌ Прислівник міри (very much) не розділяє дієслово і об'єкт. Об'єкт одразу після дієслова."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: об'єкт (Italian) → місце (in Rome) → час/подія (during a student exchange program). Від головного до деталей."
+      ],
+      "explanations": {
+        "a1": {
+          "Italian in Rome during a student exchange program": "✅ «Italian in Rome during a student exchange program» — правильно. Порядок: об'єкт (Italian) → місце (in Rome) → час/подія (during...). Приклад: *I learnt Italian in Rome during a student exchange program.*",
+          "Italian during a student exchange program in Rome": "❌ Подія (during...) не ставиться перед місцем (in Rome). Місце ближче до об'єкта.",
+          "in Rome Italian during a student exchange program": "❌ Місце (in Rome) не передує об'єкту (Italian). Об'єкт завжди після дієслова."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: дієслово (had) → об'єкт (a nice lunch) → місце (at a restaurant) → час (today). Стандартна структура речення."
+      ],
+      "explanations": {
+        "a1": {
+          "had a nice lunch at a restaurant today": "✅ «had a nice lunch at a restaurant today» — правильно. Порядок: дієслово → об'єкт → місце → час. Приклад: *We had a nice lunch at a restaurant today.*",
+          "had a nice lunch today at a restaurant": "❌ Час (today) не ставиться перед місцем (at a restaurant). Місце перед часом.",
+          "had at a restaurant a nice lunch today": "❌ Місце (at a restaurant) не розділяє дієслово і об'єкт. Об'єкт одразу після дієслова."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: дієслово (forgot) → об'єкт (the keys) → місце (in the car) → час (last night). Предмет перед місцем."
+      ],
+      "explanations": {
+        "a1": {
+          "forgot the keys in the car last night": "✅ «forgot the keys in the car last night» — правильно. Порядок: дієслово → об'єкт → місце → час. Приклад: *He forgot the keys in the car last night.*",
+          "forgot in the car the keys last night": "❌ Місце (in the car) не передує об'єкту (the keys). Предмет називаємо першим.",
+          "forgot the keys last night in the car": "❌ Час (last night) не ставиться перед місцем (in the car). Місце перед часом."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: прислівник частоти (often) перед дієсловом (takes), потім об'єкт (a taxi) → напрямок (to work)."
+      ],
+      "explanations": {
+        "a1": {
+          "often takes a taxi to work": "✅ «often takes a taxi to work» — правильно. Прислівник частоти (often) перед дієсловом, потім об'єкт → напрямок. Приклад: *Susan often takes a taxi to work.*",
+          "takes often a taxi to work": "❌ Прислівник частоти (often) не ставиться між дієсловом і об'єктом. Частота перед дієсловом.",
+          "takes a taxi often to work": "❌ Прислівник частоти (often) не розділяє об'єкт і напрямок. Частота на початку."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: модальна фраза (have to return) → об'єкт (the book) → місце (to the library) → час (today)."
+      ],
+      "explanations": {
+        "a1": {
+          "have to return the book to the library today": "✅ «have to return the book to the library today» — правильно. Модальна фраза → об'єкт → місце → час. Приклад: *I have to return the book to the library today.*",
+          "have to return today the book to the library": "❌ Час (today) не ставиться між фразою і об'єктом. Час наприкінці.",
+          "have to return to the library the book today": "❌ Місце (to the library) не передує об'єкту (the book). Об'єкт після дієслова."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: дієслово be → прислівник частоти (never) → місце (at home) → час (at lunchtime)."
+      ],
+      "explanations": {
+        "a1": {
+          "are never at home at lunchtime": "✅ «are never at home at lunchtime» — правильно. Дієслово be → прислівник частоти → місце → час. Приклад: *They are never at home at lunchtime.*",
+          "are never at lunchtime at home": "❌ Час (at lunchtime) не ставиться перед місцем (at home). Місце перед часом.",
+          "never are at home at lunchtime": "❌ Прислівник частоти (never) ставиться після дієслова be, а не перед ним."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: дієслово (is) → прислівник частоти (always) → прикметник (very hot) → місце (here) → час (in July)."
+      ],
+      "explanations": {
+        "a1": {
+          "is always very hot here in July": "✅ «is always very hot here in July» — правильно. Be → прислівник частоти → прикметник → місце → час. Приклад: *It is always very hot here in July.*",
+          "is very hot always here in July": "❌ Прислівник частоти (always) має стояти одразу після дієслова be, не в середині.",
+          "is always very hot in July here": "❌ Місце (here) не ставиться після часу (in July). Місце перед часом."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: дієслово (play) → об'єкт (football) → місце (in the park) → час (after school)."
+      ],
+      "explanations": {
+        "a1": {
+          "play football in the park after school": "✅ «play football in the park after school» — правильно. Дієслово → об'єкт → місце → час. Приклад: *We play football in the park after school.*",
+          "play football after school in the park": "❌ Час (after school) не ставиться перед місцем (in the park). Місце перед часом.",
+          "play in the park football after school": "❌ Місце (in the park) не розділяє дієслово і об'єкт. Об'єкт одразу після дієслова."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: прислівник частоти (usually) перед дієсловом (has), потім об'єкт (cereal) → обставина (for breakfast)."
+      ],
+      "explanations": {
+        "a1": {
+          "usually has cereal for breakfast": "✅ «usually has cereal for breakfast» — правильно. Прислівник частоти перед дієсловом, потім об'єкт → обставина. Приклад: *She usually has cereal for breakfast.*",
+          "has usually cereal for breakfast": "❌ Прислівник частоти (usually) не ставиться між дієсловом і об'єктом. Частота перед дієсловом.",
+          "has cereal usually for breakfast": "❌ Прислівник частоти (usually) не розділяє об'єкт і обставину. Частота на початку."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: дієслово (met) → об'єкт (her husband) → місце (at a nightclub) → час (in 2006)."
+      ],
+      "explanations": {
+        "a1": {
+          "met her husband at a nightclub in 2006": "✅ «met her husband at a nightclub in 2006» — правильно. Дієслово → об'єкт → місце → час. Приклад: *Linda met her husband at a nightclub in 2006.*",
+          "met her husband in 2006 at a nightclub": "❌ Час (in 2006) не ставиться перед місцем (at a nightclub). Місце перед часом.",
+          "met at a nightclub her husband in 2006": "❌ Місце (at a nightclub) не передує об'єкту (her husband). Об'єкт після дієслова."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок слів: прислівник частоти (always) перед дієсловом (work), потім місце (from home) → час (on Tuesdays)."
+      ],
+      "explanations": {
+        "a1": {
+          "always work from home on Tuesdays": "✅ «always work from home on Tuesdays» — правильно. Прислівник частоти перед дієсловом, потім місце → час. Приклад: *I always work from home on Tuesdays.*",
+          "work from home always on Tuesdays": "❌ Прислівник частоти (always) має стояти перед дієсловом, не після місця.",
+          "work always from home on Tuesdays": "❌ Прислівник частоти (always) не ставиться між дієсловом і місцем. Частота перед дієсловом."
+        }
+      }
+    }
+  ]
+}

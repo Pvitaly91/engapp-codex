@@ -31,9 +31,9 @@ class FileSystemService
      */
     public function getFileTree(?string $path = null): array
     {
-        $fullPath = $path ? $this->basePath.'/'.$path : $this->basePath;
+        $fullPath = $this->resolveExistingPath($path ?? '');
 
-        if (! $this->isValidPath($fullPath)) {
+        if (! $fullPath || ! is_dir($fullPath)) {
             return [];
         }
 
@@ -109,9 +109,9 @@ class FileSystemService
      */
     public function getFileContent(string $path, bool $enforceSizeLimit = true): ?array
     {
-        $fullPath = $this->basePath.'/'.$path;
+        $fullPath = $this->resolveExistingPath($path);
 
-        if (! $this->isValidPath($fullPath) || ! is_file($fullPath)) {
+        if (! $fullPath || ! is_file($fullPath)) {
             return null;
         }
 
@@ -143,9 +143,9 @@ class FileSystemService
      */
     public function updateFileContent(string $path, string $content): array
     {
-        $fullPath = $this->basePath.'/'.$path;
+        $fullPath = $this->resolveExistingPath($path);
 
-        if (! $this->isValidPath($fullPath) || ! is_file($fullPath)) {
+        if (! $fullPath || ! is_file($fullPath)) {
             return ['success' => false, 'error' => 'Файл недоступний або не існує'];
         }
 
@@ -167,13 +167,136 @@ class FileSystemService
     }
 
     /**
+     * Create a new text file.
+     */
+    public function createFile(string $path, string $content = ''): array
+    {
+        $normalizedPath = $this->normalizeRelativePath($path);
+
+        if ($normalizedPath === '') {
+            return ['success' => false, 'error' => 'Шлях до файлу є обов’язковим'];
+        }
+
+        $fullPath = $this->resolveCreatablePath($normalizedPath);
+
+        if (! $fullPath) {
+            return ['success' => false, 'error' => 'Недійсний шлях до файлу'];
+        }
+
+        if (file_exists($fullPath)) {
+            return ['success' => false, 'error' => 'Файл уже існує'];
+        }
+
+        $parentDirectory = dirname($fullPath);
+
+        if (! is_dir($parentDirectory) || ! is_writable($parentDirectory)) {
+            return ['success' => false, 'error' => 'Немає прав на запис у директорію'];
+        }
+
+        $bytes = file_put_contents($fullPath, $content, LOCK_EX);
+
+        if ($bytes === false) {
+            return ['success' => false, 'error' => 'Не вдалося створити файл'];
+        }
+
+        return [
+            'success' => true,
+            'path' => $normalizedPath,
+            'size' => $bytes,
+        ];
+    }
+
+    /**
+     * Create a new directory.
+     */
+    public function createDirectory(string $path): array
+    {
+        $normalizedPath = $this->normalizeRelativePath($path);
+
+        if ($normalizedPath === '') {
+            return ['success' => false, 'error' => 'Шлях до директорії є обов’язковим'];
+        }
+
+        $fullPath = $this->resolveCreatablePath($normalizedPath);
+
+        if (! $fullPath) {
+            return ['success' => false, 'error' => 'Недійсний шлях до директорії'];
+        }
+
+        if (file_exists($fullPath)) {
+            return ['success' => false, 'error' => 'Директорія вже існує'];
+        }
+
+        $parentDirectory = dirname($fullPath);
+
+        if (! is_dir($parentDirectory) || ! is_writable($parentDirectory)) {
+            return ['success' => false, 'error' => 'Немає прав на створення директорії'];
+        }
+
+        if (! mkdir($fullPath, 0775, false) && ! is_dir($fullPath)) {
+            return ['success' => false, 'error' => 'Не вдалося створити директорію'];
+        }
+
+        return [
+            'success' => true,
+            'path' => $normalizedPath,
+        ];
+    }
+
+    /**
+     * Delete a file or directory recursively.
+     */
+    public function deletePath(string $path): array
+    {
+        $normalizedPath = $this->normalizeRelativePath($path);
+
+        if ($normalizedPath === '') {
+            return ['success' => false, 'error' => 'Кореневу директорію не можна видалити'];
+        }
+
+        $fullPath = $this->resolveExistingPath($normalizedPath);
+
+        if (! $fullPath || ! file_exists($fullPath)) {
+            return ['success' => false, 'error' => 'Файл або директорію не знайдено'];
+        }
+
+        $parentDirectory = dirname($fullPath);
+
+        if (! is_writable($parentDirectory)) {
+            return ['success' => false, 'error' => 'Немає прав на видалення'];
+        }
+
+        if (is_file($fullPath) || is_link($fullPath)) {
+            if (! @unlink($fullPath)) {
+                return ['success' => false, 'error' => 'Не вдалося видалити файл'];
+            }
+
+            return [
+                'success' => true,
+                'path' => $normalizedPath,
+                'type' => 'file',
+            ];
+        }
+
+        if (! File::deleteDirectory($fullPath)) {
+            return ['success' => false, 'error' => 'Не вдалося видалити директорію'];
+        }
+
+        return [
+            'success' => true,
+            'path' => $normalizedPath,
+            'type' => 'directory',
+        ];
+    }
+
+    /**
      * Get file information
      */
     public function getFileInfo(string $path): ?array
     {
-        $fullPath = $this->basePath.'/'.$path;
+        $fullPath = $this->resolveExistingPath($path);
 
-        if (! $this->isValidPath($fullPath)) {
+        if (! $fullPath) {
             return null;
         }
 
@@ -212,8 +335,7 @@ class FileSystemService
             return false;
         }
 
-        // Ensure path is within base path (prevent directory traversal)
-        return str_starts_with($realPath, $realBasePath);
+        return $this->isWithinBasePath($realPath, $realBasePath);
     }
 
     /**
@@ -280,5 +402,60 @@ class FileSystemService
     public function getBasePath(): string
     {
         return $this->basePath;
+    }
+
+    protected function resolveExistingPath(string $path): ?string
+    {
+        $relativePath = $this->normalizeRelativePath($path);
+        $fullPath = $relativePath !== ''
+            ? $this->basePath.'/'.$relativePath
+            : $this->basePath;
+
+        if (! $this->isValidPath($fullPath)) {
+            return null;
+        }
+
+        return realpath($fullPath) ?: null;
+    }
+
+    protected function resolveCreatablePath(string $path): ?string
+    {
+        $relativePath = $this->normalizeRelativePath($path);
+
+        if ($relativePath === '') {
+            return null;
+        }
+
+        $fullPath = $this->basePath.'/'.$relativePath;
+        $parentDirectory = dirname($fullPath);
+        $realParentDirectory = realpath($parentDirectory);
+        $realBasePath = realpath($this->basePath);
+
+        if (! $realParentDirectory || ! $realBasePath) {
+            return null;
+        }
+
+        if (! $this->isWithinBasePath($realParentDirectory, $realBasePath)) {
+            return null;
+        }
+
+        return $realParentDirectory.'/'.basename($fullPath);
+    }
+
+    protected function normalizeRelativePath(string $path): string
+    {
+        $normalized = str_replace('\\', '/', trim($path));
+        $normalized = preg_replace('#/+#', '/', $normalized) ?? $normalized;
+
+        return trim($normalized, '/');
+    }
+
+    protected function isWithinBasePath(string $path, string $basePath): bool
+    {
+        $normalizedPath = str_replace('\\', '/', $path);
+        $normalizedBasePath = rtrim(str_replace('\\', '/', $basePath), '/');
+
+        return $normalizedPath === $normalizedBasePath
+            || str_starts_with($normalizedPath, $normalizedBasePath.'/');
     }
 }

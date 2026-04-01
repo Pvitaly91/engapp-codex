@@ -16,7 +16,7 @@ class V3SeederBlueprintService
         $reservedSegments = ['Concerns', 'definitions', 'json', 'localizations'];
 
         if (! File::isDirectory($root)) {
-            return ['IA\\ChatGptPro', 'IA\\ChatGpt', 'V2'];
+            return ['AI\\ChatGptPro', 'AI\\ChatGpt', 'V2'];
         }
 
         $namespaces = collect(File::allFiles($root))
@@ -42,7 +42,7 @@ class V3SeederBlueprintService
             ->values()
             ->all();
 
-        return $namespaces !== [] ? $namespaces : ['IA\\ChatGptPro', 'IA\\ChatGpt', 'V2'];
+        return $namespaces !== [] ? $namespaces : ['AI\\ChatGptPro', 'AI\\ChatGpt', 'V2'];
     }
 
     public function normalizeNamespace(string $namespace): string
@@ -121,8 +121,8 @@ class V3SeederBlueprintService
         if ($files->isEmpty()) {
             $fallback = [
                 'app/Support/Database/JsonTestSeeder.php',
-                'database/seeders/V3/IA/ChatGptPro/PluralNounsSEsIesV3QuestionsOnlySeeder.php',
-                'database/seeders/V3/definitions/IA/ChatGptPro/plural_nouns_s_es_ies_v3_questions_only.json',
+                'database/seeders/V3/AI/ChatGptPro/PluralNounsSEsIesV3QuestionsOnlySeeder.php',
+                'database/seeders/V3/definitions/AI/ChatGptPro/plural_nouns_s_es_ies_v3_questions_only.json',
                 'database/seeders/V3/V2/BasicWordOrderPracticeV3Seeder.php',
                 'database/seeders/V3/definitions/V2/basic_word_order_practice_v2.json',
             ];

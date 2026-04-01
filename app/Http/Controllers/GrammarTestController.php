@@ -594,7 +594,10 @@ class GrammarTestController extends Controller
 
     private function jsStateSessionKey(Test|SavedGrammarTest|VirtualSavedTest $test, string $view): string
     {
-        return sprintf('saved_test_js_state:%s:%s', $test->slug, $view);
+        $key = sprintf('saved_test_js_state:%s:%s', $test->slug, $view);
+        $launchToken = $this->sanitizeJsLaunchToken(request()->input('launch', request()->query('launch')));
+
+        return $launchToken ? $key . ':' . $launchToken : $key;
     }
 
     public function showSavedTestStep(Request $request, $slug)
@@ -2100,6 +2103,21 @@ class GrammarTestController extends Controller
     {
         return Test::where('slug', $slug)->exists()
             || SavedGrammarTest::where('slug', $slug)->exists();
+    }
+
+    private function sanitizeJsLaunchToken(mixed $value): ?string
+    {
+        if (! is_string($value)) {
+            return null;
+        }
+
+        $token = trim($value);
+
+        if ($token === '' || strlen($token) > 80) {
+            return null;
+        }
+
+        return preg_match('/^[A-Za-z0-9_-]+$/', $token) === 1 ? $token : null;
     }
 
     private function paginateSavedTests(Request $request): LengthAwarePaginator

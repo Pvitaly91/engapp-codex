@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Question;
 use App\Models\QuestionHint;
-use Database\Seeders\V3\IA\ChatGpt\WillVsBeGoingToFutureFormsAllLevelsV3Seeder;
+use Database\Seeders\V3\AI\ChatGpt\WillVsBeGoingToFutureFormsAllLevelsV3Seeder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
@@ -45,7 +45,7 @@ class WillVsBeGoingToFutureFormsAllLevelsV3SeederTest extends TestCase
                 ->all()
         );
 
-        $a1Question = $seededQuestions->firstWhere('question', "It's cold in here. I {a1} close the window.");
+        $a1Question = $seededQuestions->firstWhere('question', "It's cold in here. I {a1} the window.");
         $this->assertNotNull($a1Question);
         $this->assertSame(1, $a1Question->difficulty);
         $this->assertSame(
@@ -61,7 +61,7 @@ class WillVsBeGoingToFutureFormsAllLevelsV3SeederTest extends TestCase
 
         $c2Question = $seededQuestions->firstWhere(
             'question',
-            "With liquidity evaporating and counterparties pulling back, the institution {a1} require emergency support within days."
+            "With liquidity evaporating and counterparties pulling back, the institution {a1} emergency support within days."
         );
         $this->assertNotNull($c2Question);
         $this->assertSame(5, $c2Question->difficulty);

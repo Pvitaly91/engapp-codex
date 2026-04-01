@@ -35,4 +35,10 @@ return [
 
     // Enable in-browser editing for writable text files
     'allow_edit' => true,
+
+    // Enable creating new files and directories
+    'allow_create' => true,
+
+    // Enable deleting files and directories
+    'allow_delete' => true,
 ];

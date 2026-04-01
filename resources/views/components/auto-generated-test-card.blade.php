@@ -13,6 +13,7 @@
     // Check if this is a virtual test (not persisted in the database)
     // Use isVirtual() method if available, otherwise check exists property
     $isVirtual = method_exists($test, 'isVirtual') ? $test->isVirtual() : (($test->exists ?? true) === false);
+    $launchPerClickHandler = "const url = new URL(this.href, window.location.origin); const token = (window.crypto && typeof window.crypto.randomUUID === 'function') ? window.crypto.randomUUID() : ('launch-' + Date.now() + '-' + Math.random().toString(16).slice(2)); url.searchParams.set('launch', token); window.location.href = url.toString(); return false;";
     
     // Build URL with filters for virtual tests
     if ($isVirtual) {
@@ -27,7 +28,7 @@
 @endphp
 
 <div class="bg-background border border-border/60 rounded-xl p-4 flex flex-col hover:border-primary/40 hover:shadow-md transition">
-    <a href="{{ $testUrl }}" class="font-medium text-foreground hover:text-primary mb-2">
+    <a href="{{ $testUrl }}" class="font-medium text-foreground hover:text-primary mb-2" @if($isVirtual) onclick="{{ $launchPerClickHandler }}" @endif>
         {{ $test->name }}
     </a>
     
@@ -52,7 +53,7 @@
         </div>
     @endif
 
-    <a href="{{ $testUrl }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-xl text-sm font-semibold transition">
+    <a href="{{ $testUrl }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-xl text-sm font-semibold transition" @if($isVirtual) onclick="{{ $launchPerClickHandler }}" @endif>
         {{ __('frontend.tests.related.take_test') }}
     </a>
 </div>

@@ -78,6 +78,18 @@ class FileManagerController extends Controller
             'type' => 'application/javascript',
             'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/shell/shell.min.js',
         ],
+        'codemirror/mode/yaml/yaml.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/yaml/yaml.min.js',
+        ],
+        'codemirror/mode/properties/properties.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/properties/properties.min.js',
+        ],
+        'codemirror/mode/python/python.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js',
+        ],
     ];
 
     /**
@@ -93,22 +105,9 @@ class FileManagerController extends Controller
     /**
      * Display the file manager interface
      */
-    public function index(Request $request): View
+    public function index(Request $request, ?string $path = null): View
     {
-        $basePath = $this->fileSystemService->getBasePath();
-        $requestedPath = $this->sanitizePath($request->query('path'));
-        $requestedSelection = $this->sanitizePath($request->query('select'));
-
-        [$initialPath, $initialSelection] = $this->resolveInitialTargets(
-            $requestedPath,
-            $requestedSelection
-        );
-
-        return view('file-manager::index', [
-            'basePath' => $basePath,
-            'initialPath' => $initialPath,
-            'initialSelection' => $initialSelection,
-        ]);
+        return $this->renderManagerView('file-manager::index', $request, $path);
     }
 
     /**
@@ -116,20 +115,15 @@ class FileManagerController extends Controller
      */
     public function ide(Request $request): View
     {
-        $basePath = $this->fileSystemService->getBasePath();
-        $requestedPath = $this->sanitizePath($request->query('path'));
-        $requestedSelection = $this->sanitizePath($request->query('select'));
+        return $this->renderManagerView('file-manager::ide', $request);
+    }
 
-        [$initialPath, $initialSelection] = $this->resolveInitialTargets(
-            $requestedPath,
-            $requestedSelection
-        );
-
-        return view('file-manager::ide', [
-            'basePath' => $basePath,
-            'initialPath' => $initialPath,
-            'initialSelection' => $initialSelection,
-        ]);
+    /**
+     * Display the V2 file manager interface.
+     */
+    public function v2(Request $request, ?string $path = null): View
+    {
+        return $this->renderManagerView('file-manager::v2', $request, $path);
     }
 
     /**
@@ -164,7 +158,7 @@ class FileManagerController extends Controller
      */
     public function info(Request $request): JsonResponse
     {
-        $path = $request->input('path', '');
+        $path = $this->sanitizePath($request->input('path', ''));
 
         if (empty($path)) {
             return response()->json([
@@ -205,7 +199,7 @@ class FileManagerController extends Controller
             ], 403);
         }
 
-        $path = $request->input('path', '');
+        $path = $this->sanitizePath($request->input('path', ''));
 
         if (empty($path)) {
             return response()->json([
@@ -289,6 +283,60 @@ class FileManagerController extends Controller
     }
 
     /**
+     * Read file contents for V2 without returning binary payloads.
+     */
+    public function read(Request $request): JsonResponse
+    {
+        $path = $this->sanitizePath($request->input('path', ''));
+
+        if ($path === '') {
+            return response()->json([
+                'success' => false,
+                'error' => 'Path is required',
+            ], 400);
+        }
+
+        $info = $this->fileSystemService->getFileInfo($path);
+
+        if (! $info || $info['type'] !== 'file') {
+            return response()->json([
+                'success' => false,
+                'error' => 'File not found or access denied',
+            ], 404);
+        }
+
+        $content = $this->fileSystemService->getFileContent($path, false);
+
+        if (! $content) {
+            return response()->json([
+                'success' => false,
+                'error' => 'File not found or access denied',
+            ], 404);
+        }
+
+        $payload = [
+            'path' => $info['path'],
+            'name' => $info['name'],
+            'size' => $info['size'],
+            'modified' => $info['modified'],
+            'readable' => $info['readable'],
+            'writable' => $info['writable'],
+            'extension' => $info['extension'] ?? '',
+            'mime_type' => $info['mime_type'] ?? 'application/octet-stream',
+            'is_text' => (bool) ($content['is_text'] ?? false),
+        ];
+
+        if ($payload['is_text']) {
+            $payload['content'] = $content['content'] ?? '';
+        }
+
+        return response()->json([
+            'success' => true,
+            'file' => $payload,
+        ]);
+    }
+
+    /**
      * Download file
      */
     public function download(Request $request): Response|JsonResponse
@@ -300,7 +348,7 @@ class FileManagerController extends Controller
             ], 403);
         }
 
-        $path = $request->input('path', '');
+        $path = $this->sanitizePath($request->input('path', ''));
 
         if (empty($path)) {
             return response()->json([
@@ -358,6 +406,120 @@ class FileManagerController extends Controller
             'success' => true,
             'size' => $result['size'] ?? null,
             'message' => 'Файл успішно оновлено',
+        ]);
+    }
+
+    /**
+     * Create a new file.
+     */
+    public function createFile(Request $request): JsonResponse
+    {
+        if (! config('file-manager.allow_create', true)) {
+            return response()->json([
+                'success' => false,
+                'error' => 'Створення файлів вимкнено',
+            ], 403);
+        }
+
+        $path = $this->sanitizePath($request->input('path'));
+        $content = (string) $request->input('content', '');
+
+        if ($path === '') {
+            return response()->json([
+                'success' => false,
+                'error' => 'Path is required',
+            ], 400);
+        }
+
+        $result = $this->fileSystemService->createFile($path, $content);
+
+        if (! $result['success']) {
+            return response()->json([
+                'success' => false,
+                'error' => $result['error'] ?? 'Не вдалося створити файл',
+            ], 400);
+        }
+
+        return response()->json([
+            'success' => true,
+            'path' => $result['path'] ?? $path,
+            'size' => $result['size'] ?? 0,
+            'message' => 'Файл успішно створено',
+        ]);
+    }
+
+    /**
+     * Create a new directory.
+     */
+    public function createDirectory(Request $request): JsonResponse
+    {
+        if (! config('file-manager.allow_create', true)) {
+            return response()->json([
+                'success' => false,
+                'error' => 'Створення директорій вимкнено',
+            ], 403);
+        }
+
+        $path = $this->sanitizePath($request->input('path'));
+
+        if ($path === '') {
+            return response()->json([
+                'success' => false,
+                'error' => 'Path is required',
+            ], 400);
+        }
+
+        $result = $this->fileSystemService->createDirectory($path);
+
+        if (! $result['success']) {
+            return response()->json([
+                'success' => false,
+                'error' => $result['error'] ?? 'Не вдалося створити директорію',
+            ], 400);
+        }
+
+        return response()->json([
+            'success' => true,
+            'path' => $result['path'] ?? $path,
+            'message' => 'Директорію успішно створено',
+        ]);
+    }
+
+    /**
+     * Delete a file or directory.
+     */
+    public function delete(Request $request): JsonResponse
+    {
+        if (! config('file-manager.allow_delete', true)) {
+            return response()->json([
+                'success' => false,
+                'error' => 'Видалення вимкнено',
+            ], 403);
+        }
+
+        $path = $this->sanitizePath($request->input('path'));
+
+        if ($path === '') {
+            return response()->json([
+                'success' => false,
+                'error' => 'Path is required',
+            ], 400);
+        }
+
+        $result = $this->fileSystemService->deletePath($path);
+
+        if (! $result['success']) {
+            return response()->json([
+                'success' => false,
+                'error' => $result['error'] ?? 'Не вдалося видалити елемент',
+            ], 400);
+        }
+
+        return response()->json([
+            'success' => true,
+            'path' => $result['path'] ?? $path,
+            'type' => $result['type'] ?? null,
+            'message' => 'Елемент успішно видалено',
         ]);
     }
 
@@ -432,6 +594,37 @@ class FileManagerController extends Controller
         }
 
         return [$initialPath, $initialSelection];
+    }
+
+    private function renderManagerView(string $view, Request $request, ?string $targetPath = null): View
+    {
+        $basePath = $this->fileSystemService->getBasePath();
+        $routeTarget = $this->sanitizePath($targetPath);
+        $requestedPath = $routeTarget !== ''
+            ? $routeTarget
+            : $this->sanitizePath($request->query('path'));
+        $requestedSelection = $routeTarget !== ''
+            ? ''
+            : $this->sanitizePath($request->query('select'));
+        $requestedTarget = $requestedSelection !== '' ? $requestedSelection : $requestedPath;
+        $initialMissingTarget = '';
+
+        if ($requestedTarget !== '' && ! $this->fileSystemService->getFileInfo($requestedTarget)) {
+            $initialMissingTarget = $requestedTarget;
+        }
+
+        [$initialPath, $initialSelection] = $this->resolveInitialTargets(
+            $requestedPath,
+            $requestedSelection
+        );
+
+        return view($view, [
+            'basePath' => $basePath,
+            'initialPath' => $initialPath,
+            'initialSelection' => $initialSelection,
+            'initialTarget' => $initialSelection ?: $initialPath,
+            'initialMissingTarget' => $initialMissingTarget,
+        ]);
     }
 
     private function sanitizePath(?string $value): string

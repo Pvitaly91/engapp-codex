@@ -913,6 +913,5 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
 
 @push('head-scripts')
 <link rel="stylesheet" href="{{ route('file-manager.asset', ['path' => 'codemirror/codemirror.min.css']) }}" />
-<script defer src="{{ route('file-manager.asset', ['path' => 'alpinejs/alpine.min.js']) }}"></script>
 @endpush
 @endsection

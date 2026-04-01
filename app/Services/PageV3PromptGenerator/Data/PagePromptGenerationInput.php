@@ -12,6 +12,7 @@ final readonly class PagePromptGenerationInput
         public ?int $existingCategoryId,
         public ?string $newCategoryTitle,
         public string $generationMode,
+        public string $promptAMode,
     ) {
     }
 
@@ -25,6 +26,7 @@ final readonly class PagePromptGenerationInput
             existingCategoryId: isset($validated['existing_category_id']) ? (int) $validated['existing_category_id'] : null,
             newCategoryTitle: self::normalizeNullableString($validated['new_category_title'] ?? null),
             generationMode: (string) ($validated['generation_mode'] ?? 'single'),
+            promptAMode: (string) ($validated['prompt_a_mode'] ?? 'repository_connected'),
         );
     }
 

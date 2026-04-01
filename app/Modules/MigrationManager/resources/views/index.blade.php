@@ -179,10 +179,10 @@
                         @php($paths = $executedMigrationPaths[$migration->migration] ?? null)
                         @if($paths)
                           <div class="flex flex-col gap-1">
-                            <a href="{{ route('file-manager.index', array_filter(['path' => $paths['directory'] ?? null, 'select' => $paths['file'] ?? null], fn ($value) => $value !== null)) }}" class="text-primary hover:text-primary/80" target="_blank">
+                            <a href="{{ route('file-manager.show', ['path' => $paths['file']]) }}" class="text-primary hover:text-primary/80" target="_blank">
                               Переглянути файл
                             </a>
-                            <a href="{{ route('file-manager.index', ['path' => $paths['directory']]) }}" class="text-primary hover:text-primary/80" target="_blank">
+                            <a href="{{ route('file-manager.show', ['path' => $paths['directory']]) }}" class="text-primary hover:text-primary/80" target="_blank">
                               Відкрити папку
                             </a>
                           </div>

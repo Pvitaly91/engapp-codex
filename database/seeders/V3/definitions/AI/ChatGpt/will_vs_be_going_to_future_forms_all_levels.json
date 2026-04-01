@@ -1,0 +1,2821 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\ChatGpt\\WillVsBeGoingToFutureFormsAllLevelsV3Seeder",
+        "uuid_namespace": "WillVsBeGoingToFutureFormsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Future"
+    },
+    "sources": {
+        "a1": {
+            "name": "Custom: Will vs Be Going To All Levels (A1)"
+        },
+        "a2": {
+            "name": "Custom: Will vs Be Going To All Levels (A2)"
+        },
+        "b1": {
+            "name": "Custom: Will vs Be Going To All Levels (B1)"
+        },
+        "b2": {
+            "name": "Custom: Will vs Be Going To All Levels (B2)"
+        },
+        "c1": {
+            "name": "Custom: Will vs Be Going To All Levels (C1)"
+        },
+        "c2": {
+            "name": "Custom: Will vs Be Going To All Levels (C2)"
+        }
+    },
+    "tags": {
+        "theme": {
+            "name": "Future Forms Practice",
+            "category": "English Grammar Theme"
+        },
+        "detail": {
+            "name": "Will vs Be Going To All Levels",
+            "category": "English Grammar Detail"
+        },
+        "structure": {
+            "name": "Future Form Choice",
+            "category": "English Grammar Structure"
+        },
+        "plans": {
+            "name": "Plans and Intentions",
+            "category": "English Grammar Focus"
+        },
+        "prediction": {
+            "name": "Predictions and Evidence",
+            "category": "English Grammar Focus"
+        },
+        "spontaneous": {
+            "name": "Spontaneous Decisions and Offers",
+            "category": "English Grammar Focus"
+        },
+        "future_simple": {
+            "name": "Future Simple",
+            "category": "Tenses"
+        },
+        "be_going_to": {
+            "name": "Be Going To",
+            "category": "Tenses"
+        }
+    },
+    "default_tag_keys": [
+        "theme",
+        "detail",
+        "structure"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "It's cold in here. I {a1} close the window.",
+            "source": "a1",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "'ll",
+                    "options": [
+                        "'m going to",
+                        "'ll",
+                        "will to"
+                    ],
+                    "verb_hint": "close"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *It's cold in here. I 'll close the window.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "'m going to": "❌ «'m going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *It's cold in here. I 'll close the window.*",
+                            "'ll": "✅ «'ll» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *It's cold in here. I 'll close the window.*",
+                            "will to": "❌ «will to» неправильно, бо після **will** вживаємо базову форму дієслова без **to**.\nПриклад: *It's cold in here. I 'll close the window.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "It's cold in here. I {a1} close the window."
+            ]
+        },
+        {
+            "id": 2,
+            "question": "Look at that baby! She {a1} cry.",
+            "source": "a1",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "'s going to",
+                    "options": [
+                        "'ll",
+                        "'s going to",
+                        "going to"
+                    ],
+                    "verb_hint": "cry"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли є теперішній знак, контекст або видимий доказ майбутньої події.\nПриклад: *Look at that baby! She 's going to cry.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "'ll": "❌ «'ll» не підходить, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. У такому разі вживаємо **be going to**.\nПриклад: *Look at that baby! She 's going to cry.*",
+                            "'s going to": "✅ «'s going to» правильно, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. Тут уживаємо **be going to**.\nПриклад: *Look at that baby! She 's going to cry.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *Look at that baby! She 's going to cry.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "prediction"
+            ],
+            "variants": [
+                "Look at that baby! She {a1} cry."
+            ]
+        },
+        {
+            "id": 3,
+            "question": "We bought the tickets yesterday. We {a1} visit the zoo on Saturday.",
+            "source": "a1",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "'re going to",
+                    "options": [
+                        "'ll",
+                        "'re going to",
+                        "going to"
+                    ],
+                    "verb_hint": "visit"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *We bought the tickets yesterday. We 're going to visit the zoo on Saturday.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "'ll": "❌ «'ll» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *We bought the tickets yesterday. We 're going to visit the zoo on Saturday.*",
+                            "'re going to": "✅ «'re going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *We bought the tickets yesterday. We 're going to visit the zoo on Saturday.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *We bought the tickets yesterday. We 're going to visit the zoo on Saturday.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "We bought the tickets yesterday. We {a1} visit the zoo on Saturday."
+            ]
+        },
+        {
+            "id": 4,
+            "question": "A: The phone is ringing.\nB: I {a1} answer it.",
+            "source": "a1",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "'ll",
+                    "options": [
+                        "'m going to",
+                        "'ll",
+                        "will to"
+                    ],
+                    "verb_hint": "answer"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *A: The phone is ringing.\nB: I 'll answer it.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "'m going to": "❌ «'m going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *A: The phone is ringing.\nB: I 'll answer it.*",
+                            "'ll": "✅ «'ll» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *A: The phone is ringing.\nB: I 'll answer it.*",
+                            "will to": "❌ «will to» неправильно, бо після **will** вживаємо базову форму дієслова без **to**.\nПриклад: *A: The phone is ringing.\nB: I 'll answer it.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "A: The phone is ringing.\nB: I {a1} answer it."
+            ]
+        },
+        {
+            "id": 5,
+            "question": "{a1} help me with this bag?",
+            "source": "a1",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Will you",
+                    "options": [
+                        "Are you going to",
+                        "Will you",
+                        "Do you"
+                    ],
+                    "verb_hint": "help"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **Will + subject + V1?**\nУ запрошеннях, проханнях і питаннях про готовність щось зробити природно вживаємо **will**.\nПриклад: *Will you help me with this bag?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Are you going to": "❌ «Are you going to» змінює зміст на питання про план. Тут потрібне запрошення або питання про готовність, тому обираємо **Will ...?**\nПриклад: *Will you help me with this bag?*",
+                            "Will you": "✅ «Will you» правильно, бо це запрошення або питання про готовність щось зробити. Для цього природно вживаємо **Will ...?**\nПриклад: *Will you help me with this bag?*",
+                            "Do you": "❌ «Do you» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Will you help me with this bag?*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "{a1} help me with this bag?"
+            ]
+        },
+        {
+            "id": 6,
+            "question": "The sky is very dark. It {a1} rain soon.",
+            "source": "a1",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is going to",
+                    "options": [
+                        "will",
+                        "is going to",
+                        "going to"
+                    ],
+                    "verb_hint": "rain"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли є теперішній знак, контекст або видимий доказ майбутньої події.\nПриклад: *The sky is very dark. It is going to rain soon.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. У такому разі вживаємо **be going to**.\nПриклад: *The sky is very dark. It is going to rain soon.*",
+                            "is going to": "✅ «is going to» правильно, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. Тут уживаємо **be going to**.\nПриклад: *The sky is very dark. It is going to rain soon.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *The sky is very dark. It is going to rain soon.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "prediction"
+            ],
+            "variants": [
+                "The sky is very dark. It {a1} rain soon."
+            ]
+        },
+        {
+            "id": 7,
+            "question": "We already decided. We {a1} make a cake for Tom.",
+            "source": "a1",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "'re going to",
+                    "options": [
+                        "'ll",
+                        "'re going to",
+                        "going to"
+                    ],
+                    "verb_hint": "make"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *We already decided. We 're going to make a cake for Tom.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "'ll": "❌ «'ll» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *We already decided. We 're going to make a cake for Tom.*",
+                            "'re going to": "✅ «'re going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *We already decided. We 're going to make a cake for Tom.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *We already decided. We 're going to make a cake for Tom.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "We already decided. We {a1} make a cake for Tom."
+            ]
+        },
+        {
+            "id": 8,
+            "question": "Don't touch that pan. You {a1} burn yourself.",
+            "source": "a1",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "burn"
+                    ],
+                    "verb_hint": "burn"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nУ попередженнях про ймовірний наслідок у цій моделі використовується **will**.\nПриклад: *Don't touch that pan. You will burn yourself.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are going to": "❌ «are going to» не підходить, бо це попередження про ймовірний наслідок. У цій моделі обираємо **will**.\nПриклад: *Don't touch that pan. You will burn yourself.*",
+                            "will": "✅ «will» правильно, бо це попередження про можливий наслідок. У цій моделі для такого значення вживаємо **will**.\nПриклад: *Don't touch that pan. You will burn yourself.*",
+                            "burn": "❌ «burn» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Don't touch that pan. You will burn yourself.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "Don't touch that pan. You {a1} burn yourself."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "I think our team {a1} win today.",
+            "source": "a1",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "wins"
+                    ],
+                    "verb_hint": "win"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will** для думки, припущення або нейтрального передбачення без прямого видимого доказу.\nПриклад: *I think our team will win today.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо це думка або передбачення без прямого доказу. Тут уживаємо **will**.\nПриклад: *I think our team will win today.*",
+                            "will": "✅ «will» правильно, бо це думка, припущення або нейтральне передбачення без прямого доказу. Тут уживаємо **will + V1**.\nПриклад: *I think our team will win today.*",
+                            "wins": "❌ «wins» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *I think our team will win today.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "I think our team {a1} win today."
+            ]
+        },
+        {
+            "id": 10,
+            "question": "A: I'm thirsty.\nB: I {a1} get you some water.",
+            "source": "a1",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "'ll",
+                    "options": [
+                        "'m going to",
+                        "'ll",
+                        "get to"
+                    ],
+                    "verb_hint": "get"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *A: I'm thirsty.\nB: I 'll get you some water.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "'m going to": "❌ «'m going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *A: I'm thirsty.\nB: I 'll get you some water.*",
+                            "'ll": "✅ «'ll» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *A: I'm thirsty.\nB: I 'll get you some water.*",
+                            "get to": "❌ «get to» неправильно, бо після **will** вживаємо базову форму дієслова без **to**.\nПриклад: *A: I'm thirsty.\nB: I 'll get you some water.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "A: I'm thirsty.\nB: I {a1} get you some water."
+            ]
+        },
+        {
+            "id": 11,
+            "question": "{a1} come to my birthday party tonight?",
+            "source": "a1",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Will you",
+                    "options": [
+                        "Are you going to",
+                        "Will you",
+                        "Do you"
+                    ],
+                    "verb_hint": "come"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **Will + subject + V1?**\nУ запрошеннях, проханнях і питаннях про готовність щось зробити природно вживаємо **will**.\nПриклад: *Will you come to my birthday party tonight?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Are you going to": "❌ «Are you going to» змінює зміст на питання про план. Тут потрібне запрошення або питання про готовність, тому обираємо **Will ...?**\nПриклад: *Will you come to my birthday party tonight?*",
+                            "Will you": "✅ «Will you» правильно, бо це запрошення або питання про готовність щось зробити. Для цього природно вживаємо **Will ...?**\nПриклад: *Will you come to my birthday party tonight?*",
+                            "Do you": "❌ «Do you» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Will you come to my birthday party tonight?*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "{a1} come to my birthday party tonight?"
+            ]
+        },
+        {
+            "id": 12,
+            "question": "She has her notebook and books. She {a1} study at the library.",
+            "source": "a1",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "'s going to",
+                    "options": [
+                        "'ll",
+                        "'s going to",
+                        "going to"
+                    ],
+                    "verb_hint": "study"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *She has her notebook and books. She 's going to study at the library.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "'ll": "❌ «'ll» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *She has her notebook and books. She 's going to study at the library.*",
+                            "'s going to": "✅ «'s going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *She has her notebook and books. She 's going to study at the library.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *She has her notebook and books. She 's going to study at the library.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "She has her notebook and books. She {a1} study at the library."
+            ]
+        },
+        {
+            "id": 13,
+            "question": "A: The bus is late again.\nB: Then I {a1} call a taxi.",
+            "source": "a2",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "am going to",
+                        "will",
+                        "call to"
+                    ],
+                    "verb_hint": "call"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *A: The bus is late again.\nB: Then I will call a taxi.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am going to": "❌ «am going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *A: The bus is late again.\nB: Then I will call a taxi.*",
+                            "will": "✅ «will» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *A: The bus is late again.\nB: Then I will call a taxi.*",
+                            "call to": "❌ «call to» неправильно, бо після **will** вживаємо базову форму дієслова без **to**.\nПриклад: *A: The bus is late again.\nB: Then I will call a taxi.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "A: The bus is late again.\nB: Then I {a1} call a taxi."
+            ]
+        },
+        {
+            "id": 14,
+            "question": "We saved enough money. We {a1} repaint the kitchen next month.",
+            "source": "a2",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "'re going to",
+                    "options": [
+                        "'ll",
+                        "'re going to",
+                        "going to"
+                    ],
+                    "verb_hint": "repaint"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *We saved enough money. We 're going to repaint the kitchen next month.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "'ll": "❌ «'ll» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *We saved enough money. We 're going to repaint the kitchen next month.*",
+                            "'re going to": "✅ «'re going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *We saved enough money. We 're going to repaint the kitchen next month.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *We saved enough money. We 're going to repaint the kitchen next month.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "We saved enough money. We {a1} repaint the kitchen next month."
+            ]
+        },
+        {
+            "id": 15,
+            "question": "Look at those waves. The boat {a1} tip over if they are not careful.",
+            "source": "a2",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is going to",
+                    "options": [
+                        "will",
+                        "is going to",
+                        "tips"
+                    ],
+                    "verb_hint": "tip over"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли є теперішній знак, контекст або видимий доказ майбутньої події.\nПриклад: *Look at those waves. The boat is going to tip over if they are not careful.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. У такому разі вживаємо **be going to**.\nПриклад: *Look at those waves. The boat is going to tip over if they are not careful.*",
+                            "is going to": "✅ «is going to» правильно, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. Тут уживаємо **be going to**.\nПриклад: *Look at those waves. The boat is going to tip over if they are not careful.*",
+                            "tips": "❌ «tips» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Look at those waves. The boat is going to tip over if they are not careful.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "prediction"
+            ],
+            "variants": [
+                "Look at those waves. The boat {a1} tip over if they are not careful."
+            ]
+        },
+        {
+            "id": 16,
+            "question": "I think she {a1} enjoy this course; it matches her interests.",
+            "source": "a2",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "enjoys"
+                    ],
+                    "verb_hint": "enjoy"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will** для думки, припущення або нейтрального передбачення без прямого видимого доказу.\nПриклад: *I think she will enjoy this course; it matches her interests.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо це думка або передбачення без прямого доказу. Тут уживаємо **will**.\nПриклад: *I think she will enjoy this course; it matches her interests.*",
+                            "will": "✅ «will» правильно, бо це думка, припущення або нейтральне передбачення без прямого доказу. Тут уживаємо **will + V1**.\nПриклад: *I think she will enjoy this course; it matches her interests.*",
+                            "enjoys": "❌ «enjoys» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *I think she will enjoy this course; it matches her interests.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "I think she {a1} enjoy this course; it matches her interests."
+            ]
+        },
+        {
+            "id": 17,
+            "question": "{a1} carry these files for me?",
+            "source": "a2",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will you",
+                    "options": [
+                        "Are you going to",
+                        "Will you",
+                        "Do you"
+                    ],
+                    "verb_hint": "carry"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **Will + subject + V1?**\nУ запрошеннях, проханнях і питаннях про готовність щось зробити природно вживаємо **will**.\nПриклад: *Will you carry these files for me?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Are you going to": "❌ «Are you going to» змінює зміст на питання про план. Тут потрібне запрошення або питання про готовність, тому обираємо **Will ...?**\nПриклад: *Will you carry these files for me?*",
+                            "Will you": "✅ «Will you» правильно, бо це запрошення або питання про готовність щось зробити. Для цього природно вживаємо **Will ...?**\nПриклад: *Will you carry these files for me?*",
+                            "Do you": "❌ «Do you» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Will you carry these files for me?*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "{a1} carry these files for me?"
+            ]
+        },
+        {
+            "id": 18,
+            "question": "He promised me he {a1} send the report tonight.",
+            "source": "a2",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "sends"
+                    ],
+                    "verb_hint": "send"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nКороткі обіцянки, запевнення та добровільні зобов'язання зазвичай виражаються через **will**.\nПриклад: *He promised me he will send the report tonight.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо тут є обіцянка або запевнення. Для такого значення вживаємо **will**.\nПриклад: *He promised me he will send the report tonight.*",
+                            "will": "✅ «will» правильно, бо це обіцянка, запевнення або добровільне зобов'язання. Тут доречно вжити **will**.\nПриклад: *He promised me he will send the report tonight.*",
+                            "sends": "❌ «sends» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *He promised me he will send the report tonight.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "He promised me he {a1} send the report tonight."
+            ]
+        },
+        {
+            "id": 19,
+            "question": "Why are you wearing running shoes? I {a1} join the club race after work.",
+            "source": "a2",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "'m going to",
+                    "options": [
+                        "'ll",
+                        "'m going to",
+                        "going to"
+                    ],
+                    "verb_hint": "join"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *Why are you wearing running shoes? I 'm going to join the club race after work.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "'ll": "❌ «'ll» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *Why are you wearing running shoes? I 'm going to join the club race after work.*",
+                            "'m going to": "✅ «'m going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *Why are you wearing running shoes? I 'm going to join the club race after work.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *Why are you wearing running shoes? I 'm going to join the club race after work.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "Why are you wearing running shoes? I {a1} join the club race after work."
+            ]
+        },
+        {
+            "id": 20,
+            "question": "If you keep driving that fast, you {a1} get a ticket.",
+            "source": "a2",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "gets"
+                    ],
+                    "verb_hint": "get"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nУ попередженнях про ймовірний наслідок у цій моделі використовується **will**.\nПриклад: *If you keep driving that fast, you will get a ticket.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are going to": "❌ «are going to» не підходить, бо це попередження про ймовірний наслідок. У цій моделі обираємо **will**.\nПриклад: *If you keep driving that fast, you will get a ticket.*",
+                            "will": "✅ «will» правильно, бо це попередження про можливий наслідок. У цій моделі для такого значення вживаємо **will**.\nПриклад: *If you keep driving that fast, you will get a ticket.*",
+                            "gets": "❌ «gets» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *If you keep driving that fast, you will get a ticket.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "If you keep driving that fast, you {a1} get a ticket."
+            ]
+        },
+        {
+            "id": 21,
+            "question": "{a1} stay at home this weekend, or do you have other plans?",
+            "source": "a2",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Are you going to",
+                    "options": [
+                        "Will you",
+                        "Are you going to",
+                        "Do you"
+                    ],
+                    "verb_hint": "stay"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be + subject + going to + V1**.\nПитаємо **be going to**, коли хочемо дізнатися про чийсь план або намір.\nПриклад: *Are you going to stay at home this weekend, or do you have other plans?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will you": "❌ «Will you» не підходить, бо питання стосується чиїхось планів або намірів. Тут потрібна форма **be going to**.\nПриклад: *Are you going to stay at home this weekend, or do you have other plans?*",
+                            "Are you going to": "✅ «Are you going to» правильно, бо питання стосується плану чи наміру. Для цього вживаємо **be going to**.\nПриклад: *Are you going to stay at home this weekend, or do you have other plans?*",
+                            "Do you": "❌ «Do you» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Are you going to stay at home this weekend, or do you have other plans?*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "{a1} stay at home this weekend, or do you have other plans?"
+            ]
+        },
+        {
+            "id": 22,
+            "question": "Those boxes are on the edge. They {a1} fall.",
+            "source": "a2",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "'re going to",
+                    "options": [
+                        "'ll",
+                        "'re going to",
+                        "fall"
+                    ],
+                    "verb_hint": "fall"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли є теперішній знак, контекст або видимий доказ майбутньої події.\nПриклад: *Those boxes are on the edge. They 're going to fall.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "'ll": "❌ «'ll» не підходить, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. У такому разі вживаємо **be going to**.\nПриклад: *Those boxes are on the edge. They 're going to fall.*",
+                            "'re going to": "✅ «'re going to» правильно, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. Тут уживаємо **be going to**.\nПриклад: *Those boxes are on the edge. They 're going to fall.*",
+                            "fall": "❌ «fall» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Those boxes are on the edge. They 're going to fall.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "prediction"
+            ],
+            "variants": [
+                "Those boxes are on the edge. They {a1} fall."
+            ]
+        },
+        {
+            "id": 23,
+            "question": "Don't worry about the email. I {a1} reply to it now.",
+            "source": "a2",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "am going to",
+                        "will",
+                        "reply to"
+                    ],
+                    "verb_hint": "reply"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *Don't worry about the email. I will reply to it now.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am going to": "❌ «am going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *Don't worry about the email. I will reply to it now.*",
+                            "will": "✅ «will» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *Don't worry about the email. I will reply to it now.*",
+                            "reply to": "❌ «reply to» неправильно, бо після **will** вживаємо базову форму дієслова без **to**.\nПриклад: *Don't worry about the email. I will reply to it now.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "Don't worry about the email. I {a1} reply to it now."
+            ]
+        },
+        {
+            "id": 24,
+            "question": "I think the meeting {a1} finish later than usual.",
+            "source": "a2",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "finishes"
+                    ],
+                    "verb_hint": "finish"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will** для думки, припущення або нейтрального передбачення без прямого видимого доказу.\nПриклад: *I think the meeting will finish later than usual.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо це думка або передбачення без прямого доказу. Тут уживаємо **will**.\nПриклад: *I think the meeting will finish later than usual.*",
+                            "will": "✅ «will» правильно, бо це думка, припущення або нейтральне передбачення без прямого доказу. Тут уживаємо **will + V1**.\nПриклад: *I think the meeting will finish later than usual.*",
+                            "finishes": "❌ «finishes» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *I think the meeting will finish later than usual.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "I think the meeting {a1} finish later than usual."
+            ]
+        },
+        {
+            "id": 25,
+            "question": "We've spoken to the landlord, so we {a1} move into the new flat in June.",
+            "source": "b1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "'re going to",
+                    "options": [
+                        "will",
+                        "'re going to",
+                        "going to"
+                    ],
+                    "verb_hint": "move into"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *We've spoken to the landlord, so we 're going to move into the new flat in June.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *We've spoken to the landlord, so we 're going to move into the new flat in June.*",
+                            "'re going to": "✅ «'re going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *We've spoken to the landlord, so we 're going to move into the new flat in June.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *We've spoken to the landlord, so we 're going to move into the new flat in June.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "We've spoken to the landlord, so we {a1} move into the new flat in June."
+            ]
+        },
+        {
+            "id": 26,
+            "question": "A: The projector has stopped working.\nB: I {a1} see if there is a spare one downstairs.",
+            "source": "b1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "am going to",
+                        "will",
+                        "will to"
+                    ],
+                    "verb_hint": "see"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *A: The projector has stopped working.\nB: I will see if there is a spare one downstairs.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am going to": "❌ «am going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *A: The projector has stopped working.\nB: I will see if there is a spare one downstairs.*",
+                            "will": "✅ «will» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *A: The projector has stopped working.\nB: I will see if there is a spare one downstairs.*",
+                            "will to": "❌ «will to» неправильно, бо після **will** вживаємо базову форму дієслова без **to**.\nПриклад: *A: The projector has stopped working.\nB: I will see if there is a spare one downstairs.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "A: The projector has stopped working.\nB: I {a1} see if there is a spare one downstairs."
+            ]
+        },
+        {
+            "id": 27,
+            "question": "Look at Marta's face. She {a1} ask for an explanation.",
+            "source": "b1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is going to",
+                    "options": [
+                        "will",
+                        "is going to",
+                        "asking"
+                    ],
+                    "verb_hint": "ask"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли є теперішній знак, контекст або видимий доказ майбутньої події.\nПриклад: *Look at Marta's face. She is going to ask for an explanation.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. У такому разі вживаємо **be going to**.\nПриклад: *Look at Marta's face. She is going to ask for an explanation.*",
+                            "is going to": "✅ «is going to» правильно, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. Тут уживаємо **be going to**.\nПриклад: *Look at Marta's face. She is going to ask for an explanation.*",
+                            "asking": "❌ «asking» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Look at Marta's face. She is going to ask for an explanation.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "prediction"
+            ],
+            "variants": [
+                "Look at Marta's face. She {a1} ask for an explanation."
+            ]
+        },
+        {
+            "id": 28,
+            "question": "I think the committee {a1} reject the first proposal unless we revise the budget.",
+            "source": "b1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "rejects"
+                    ],
+                    "verb_hint": "reject"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will** для думки, припущення або нейтрального передбачення без прямого видимого доказу.\nПриклад: *I think the committee will reject the first proposal unless we revise the budget.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо це думка або передбачення без прямого доказу. Тут уживаємо **will**.\nПриклад: *I think the committee will reject the first proposal unless we revise the budget.*",
+                            "will": "✅ «will» правильно, бо це думка, припущення або нейтральне передбачення без прямого доказу. Тут уживаємо **will + V1**.\nПриклад: *I think the committee will reject the first proposal unless we revise the budget.*",
+                            "rejects": "❌ «rejects» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *I think the committee will reject the first proposal unless we revise the budget.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "I think the committee {a1} reject the first proposal unless we revise the budget."
+            ]
+        },
+        {
+            "id": 29,
+            "question": "{a1} join us for dinner after the seminar, or are you heading straight home?",
+            "source": "b1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Will you",
+                    "options": [
+                        "Are you going to",
+                        "Will you",
+                        "Do you"
+                    ],
+                    "verb_hint": "join"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **Will + subject + V1?**\nУ запрошеннях, проханнях і питаннях про готовність щось зробити природно вживаємо **will**.\nПриклад: *Will you join us for dinner after the seminar, or are you heading straight home?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Are you going to": "❌ «Are you going to» змінює зміст на питання про план. Тут потрібне запрошення або питання про готовність, тому обираємо **Will ...?**\nПриклад: *Will you join us for dinner after the seminar, or are you heading straight home?*",
+                            "Will you": "✅ «Will you» правильно, бо це запрошення або питання про готовність щось зробити. Для цього природно вживаємо **Will ...?**\nПриклад: *Will you join us for dinner after the seminar, or are you heading straight home?*",
+                            "Do you": "❌ «Do you» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Will you join us for dinner after the seminar, or are you heading straight home?*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "{a1} join us for dinner after the seminar, or are you heading straight home?"
+            ]
+        },
+        {
+            "id": 30,
+            "question": "I've already arranged everything, so I {a1} present the opening slides tomorrow.",
+            "source": "b1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "'m going to",
+                    "options": [
+                        "will",
+                        "'m going to",
+                        "going to"
+                    ],
+                    "verb_hint": "present"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *I've already arranged everything, so I 'm going to present the opening slides tomorrow.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *I've already arranged everything, so I 'm going to present the opening slides tomorrow.*",
+                            "'m going to": "✅ «'m going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *I've already arranged everything, so I 'm going to present the opening slides tomorrow.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *I've already arranged everything, so I 'm going to present the opening slides tomorrow.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "I've already arranged everything, so I {a1} present the opening slides tomorrow."
+            ]
+        },
+        {
+            "id": 31,
+            "question": "Be careful with that joke; the client {a1} take it badly.",
+            "source": "b1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "takes"
+                    ],
+                    "verb_hint": "take"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nУ попередженнях про ймовірний наслідок у цій моделі використовується **will**.\nПриклад: *Be careful with that joke; the client will take it badly.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо це попередження про ймовірний наслідок. У цій моделі обираємо **will**.\nПриклад: *Be careful with that joke; the client will take it badly.*",
+                            "will": "✅ «will» правильно, бо це попередження про можливий наслідок. У цій моделі для такого значення вживаємо **will**.\nПриклад: *Be careful with that joke; the client will take it badly.*",
+                            "takes": "❌ «takes» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Be careful with that joke; the client will take it badly.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "Be careful with that joke; the client {a1} take it badly."
+            ]
+        },
+        {
+            "id": 32,
+            "question": "A: Who's going to tell Adam?\nB: I {a1} do it.",
+            "source": "b1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "am going to",
+                        "will",
+                        "do to"
+                    ],
+                    "verb_hint": "do"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nКороткі обіцянки, запевнення та добровільні зобов'язання зазвичай виражаються через **will**.\nПриклад: *A: Who's going to tell Adam?\nB: I will do it.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am going to": "❌ «am going to» не підходить, бо тут є обіцянка або запевнення. Для такого значення вживаємо **will**.\nПриклад: *A: Who's going to tell Adam?\nB: I will do it.*",
+                            "will": "✅ «will» правильно, бо це обіцянка, запевнення або добровільне зобов'язання. Тут доречно вжити **will**.\nПриклад: *A: Who's going to tell Adam?\nB: I will do it.*",
+                            "do to": "❌ «do to» неправильно, бо після **will** вживаємо базову форму дієслова без **to**.\nПриклад: *A: Who's going to tell Adam?\nB: I will do it.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "A: Who's going to tell Adam?\nB: I {a1} do it."
+            ]
+        },
+        {
+            "id": 33,
+            "question": "{a1} apply for the internship, or have you changed your mind?",
+            "source": "b1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Are you going to",
+                    "options": [
+                        "Will you",
+                        "Are you going to",
+                        "Do you"
+                    ],
+                    "verb_hint": "apply for"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be + subject + going to + V1**.\nПитаємо **be going to**, коли хочемо дізнатися про чийсь план або намір.\nПриклад: *Are you going to apply for the internship, or have you changed your mind?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will you": "❌ «Will you» не підходить, бо питання стосується чиїхось планів або намірів. Тут потрібна форма **be going to**.\nПриклад: *Are you going to apply for the internship, or have you changed your mind?*",
+                            "Are you going to": "✅ «Are you going to» правильно, бо питання стосується плану чи наміру. Для цього вживаємо **be going to**.\nПриклад: *Are you going to apply for the internship, or have you changed your mind?*",
+                            "Do you": "❌ «Do you» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Are you going to apply for the internship, or have you changed your mind?*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "{a1} apply for the internship, or have you changed your mind?"
+            ]
+        },
+        {
+            "id": 34,
+            "question": "With those numbers, the company {a1} miss its target this quarter.",
+            "source": "b1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is going to",
+                    "options": [
+                        "will",
+                        "is going to",
+                        "misses"
+                    ],
+                    "verb_hint": "miss"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли є теперішній знак, контекст або видимий доказ майбутньої події.\nПриклад: *With those numbers, the company is going to miss its target this quarter.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. У такому разі вживаємо **be going to**.\nПриклад: *With those numbers, the company is going to miss its target this quarter.*",
+                            "is going to": "✅ «is going to» правильно, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. Тут уживаємо **be going to**.\nПриклад: *With those numbers, the company is going to miss its target this quarter.*",
+                            "misses": "❌ «misses» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *With those numbers, the company is going to miss its target this quarter.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "prediction"
+            ],
+            "variants": [
+                "With those numbers, the company {a1} miss its target this quarter."
+            ]
+        },
+        {
+            "id": 35,
+            "question": "I think we {a1} need an extra hour to finish the analysis properly.",
+            "source": "b1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "need to"
+                    ],
+                    "verb_hint": "need"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will** для думки, припущення або нейтрального передбачення без прямого видимого доказу.\nПриклад: *I think we will need an extra hour to finish the analysis properly.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are going to": "❌ «are going to» не підходить, бо це думка або передбачення без прямого доказу. Тут уживаємо **will**.\nПриклад: *I think we will need an extra hour to finish the analysis properly.*",
+                            "will": "✅ «will» правильно, бо це думка, припущення або нейтральне передбачення без прямого доказу. Тут уживаємо **will + V1**.\nПриклад: *I think we will need an extra hour to finish the analysis properly.*",
+                            "need to": "❌ «need to» неправильно, бо після **will** вживаємо базову форму дієслова без **to**.\nПриклад: *I think we will need an extra hour to finish the analysis properly.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "I think we {a1} need an extra hour to finish the analysis properly."
+            ]
+        },
+        {
+            "id": 36,
+            "question": "A: I can't find the station on the map.\nB: I {a1} show you.",
+            "source": "b1",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "am going to",
+                        "will",
+                        "will to"
+                    ],
+                    "verb_hint": "show"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *A: I can't find the station on the map.\nB: I will show you.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am going to": "❌ «am going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *A: I can't find the station on the map.\nB: I will show you.*",
+                            "will": "✅ «will» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *A: I can't find the station on the map.\nB: I will show you.*",
+                            "will to": "❌ «will to» неправильно, бо після **will** вживаємо базову форму дієслова без **to**.\nПриклад: *A: I can't find the station on the map.\nB: I will show you.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "A: I can't find the station on the map.\nB: I {a1} show you."
+            ]
+        },
+        {
+            "id": 37,
+            "question": "Since the board approved the expansion yesterday, we {a1} open a regional office in Warsaw next spring.",
+            "source": "b2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "'re going to",
+                    "options": [
+                        "will",
+                        "'re going to",
+                        "going to"
+                    ],
+                    "verb_hint": "open"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *Since the board approved the expansion yesterday, we 're going to open a regional office in Warsaw next spring.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *Since the board approved the expansion yesterday, we 're going to open a regional office in Warsaw next spring.*",
+                            "'re going to": "✅ «'re going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *Since the board approved the expansion yesterday, we 're going to open a regional office in Warsaw next spring.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *Since the board approved the expansion yesterday, we 're going to open a regional office in Warsaw next spring.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "Since the board approved the expansion yesterday, we {a1} open a regional office in Warsaw next spring."
+            ]
+        },
+        {
+            "id": 38,
+            "question": "A: The moderator hasn't arrived.\nB: Then I {a1} start the discussion and brief everyone on the agenda.",
+            "source": "b2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "am going to",
+                        "will",
+                        "starting"
+                    ],
+                    "verb_hint": "start"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *A: The moderator hasn't arrived.\nB: Then I will start the discussion and brief everyone on the agenda.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am going to": "❌ «am going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *A: The moderator hasn't arrived.\nB: Then I will start the discussion and brief everyone on the agenda.*",
+                            "will": "✅ «will» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *A: The moderator hasn't arrived.\nB: Then I will start the discussion and brief everyone on the agenda.*",
+                            "starting": "❌ «starting» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *A: The moderator hasn't arrived.\nB: Then I will start the discussion and brief everyone on the agenda.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "A: The moderator hasn't arrived.\nB: Then I {a1} start the discussion and brief everyone on the agenda."
+            ]
+        },
+        {
+            "id": 39,
+            "question": "Look at the way the senator is avoiding the cameras; she {a1} make a statement later under pressure.",
+            "source": "b2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is going to",
+                    "options": [
+                        "will",
+                        "is going to",
+                        "making"
+                    ],
+                    "verb_hint": "make"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли є теперішній знак, контекст або видимий доказ майбутньої події.\nПриклад: *Look at the way the senator is avoiding the cameras; she is going to make a statement later under pressure.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. У такому разі вживаємо **be going to**.\nПриклад: *Look at the way the senator is avoiding the cameras; she is going to make a statement later under pressure.*",
+                            "is going to": "✅ «is going to» правильно, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. Тут уживаємо **be going to**.\nПриклад: *Look at the way the senator is avoiding the cameras; she is going to make a statement later under pressure.*",
+                            "making": "❌ «making» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Look at the way the senator is avoiding the cameras; she is going to make a statement later under pressure.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "prediction"
+            ],
+            "variants": [
+                "Look at the way the senator is avoiding the cameras; she {a1} make a statement later under pressure."
+            ]
+        },
+        {
+            "id": 40,
+            "question": "I think the court {a1} interpret that clause more narrowly than the company expects.",
+            "source": "b2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "interprets"
+                    ],
+                    "verb_hint": "interpret"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will** для думки, припущення або нейтрального передбачення без прямого видимого доказу.\nПриклад: *I think the court will interpret that clause more narrowly than the company expects.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо це думка або передбачення без прямого доказу. Тут уживаємо **will**.\nПриклад: *I think the court will interpret that clause more narrowly than the company expects.*",
+                            "will": "✅ «will» правильно, бо це думка, припущення або нейтральне передбачення без прямого доказу. Тут уживаємо **will + V1**.\nПриклад: *I think the court will interpret that clause more narrowly than the company expects.*",
+                            "interprets": "❌ «interprets» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *I think the court will interpret that clause more narrowly than the company expects.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "I think the court {a1} interpret that clause more narrowly than the company expects."
+            ]
+        },
+        {
+            "id": 41,
+            "question": "{a1} outline your objections now, or would you prefer to wait until the second round?",
+            "source": "b2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Will you",
+                    "options": [
+                        "Are you going to",
+                        "Will you",
+                        "Do you"
+                    ],
+                    "verb_hint": "outline"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **Will + subject + V1?**\nУ запрошеннях, проханнях і питаннях про готовність щось зробити природно вживаємо **will**.\nПриклад: *Will you outline your objections now, or would you prefer to wait until the second round?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Are you going to": "❌ «Are you going to» змінює зміст на питання про план. Тут потрібне запрошення або питання про готовність, тому обираємо **Will ...?**\nПриклад: *Will you outline your objections now, or would you prefer to wait until the second round?*",
+                            "Will you": "✅ «Will you» правильно, бо це запрошення або питання про готовність щось зробити. Для цього природно вживаємо **Will ...?**\nПриклад: *Will you outline your objections now, or would you prefer to wait until the second round?*",
+                            "Do you": "❌ «Do you» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Will you outline your objections now, or would you prefer to wait until the second round?*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "{a1} outline your objections now, or would you prefer to wait until the second round?"
+            ]
+        },
+        {
+            "id": 42,
+            "question": "I promise I {a1} disclose your name when I raise the issue.",
+            "source": "b2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "am going to",
+                        "will",
+                        "disclose to"
+                    ],
+                    "verb_hint": "disclose"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nКороткі обіцянки, запевнення та добровільні зобов'язання зазвичай виражаються через **will**.\nПриклад: *I promise I will disclose your name when I raise the issue.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am going to": "❌ «am going to» не підходить, бо тут є обіцянка або запевнення. Для такого значення вживаємо **will**.\nПриклад: *I promise I will disclose your name when I raise the issue.*",
+                            "will": "✅ «will» правильно, бо це обіцянка, запевнення або добровільне зобов'язання. Тут доречно вжити **will**.\nПриклад: *I promise I will disclose your name when I raise the issue.*",
+                            "disclose to": "❌ «disclose to» неправильно, бо після **will** вживаємо базову форму дієслова без **to**.\nПриклад: *I promise I will disclose your name when I raise the issue.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "I promise I {a1} disclose your name when I raise the issue."
+            ]
+        },
+        {
+            "id": 43,
+            "question": "We've already booked the venue and the speakers, so we {a1} launch the workshop series in September.",
+            "source": "b2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "'re going to",
+                    "options": [
+                        "will",
+                        "'re going to",
+                        "going to"
+                    ],
+                    "verb_hint": "launch"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *We've already booked the venue and the speakers, so we 're going to launch the workshop series in September.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *We've already booked the venue and the speakers, so we 're going to launch the workshop series in September.*",
+                            "'re going to": "✅ «'re going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *We've already booked the venue and the speakers, so we 're going to launch the workshop series in September.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *We've already booked the venue and the speakers, so we 're going to launch the workshop series in September.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "We've already booked the venue and the speakers, so we {a1} launch the workshop series in September."
+            ]
+        },
+        {
+            "id": 44,
+            "question": "If you keep interrupting him, he {a1} walk out of the negotiation.",
+            "source": "b2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "walks out of"
+                    ],
+                    "verb_hint": "walk out of"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nУ попередженнях про ймовірний наслідок у цій моделі використовується **will**.\nПриклад: *If you keep interrupting him, he will walk out of the negotiation.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо це попередження про ймовірний наслідок. У цій моделі обираємо **will**.\nПриклад: *If you keep interrupting him, he will walk out of the negotiation.*",
+                            "will": "✅ «will» правильно, бо це попередження про можливий наслідок. У цій моделі для такого значення вживаємо **will**.\nПриклад: *If you keep interrupting him, he will walk out of the negotiation.*",
+                            "walks out of": "❌ «walks out of» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *If you keep interrupting him, he will walk out of the negotiation.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "If you keep interrupting him, he {a1} walk out of the negotiation."
+            ]
+        },
+        {
+            "id": 45,
+            "question": "{a1} revise the methodology section before submission, or are you satisfied with it?",
+            "source": "b2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Are you going to",
+                    "options": [
+                        "Will you",
+                        "Are you going to",
+                        "Do you"
+                    ],
+                    "verb_hint": "revise"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be + subject + going to + V1**.\nПитаємо **be going to**, коли хочемо дізнатися про чийсь план або намір.\nПриклад: *Are you going to revise the methodology section before submission, or are you satisfied with it?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will you": "❌ «Will you» не підходить, бо питання стосується чиїхось планів або намірів. Тут потрібна форма **be going to**.\nПриклад: *Are you going to revise the methodology section before submission, or are you satisfied with it?*",
+                            "Are you going to": "✅ «Are you going to» правильно, бо питання стосується плану чи наміру. Для цього вживаємо **be going to**.\nПриклад: *Are you going to revise the methodology section before submission, or are you satisfied with it?*",
+                            "Do you": "❌ «Do you» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Are you going to revise the methodology section before submission, or are you satisfied with it?*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "{a1} revise the methodology section before submission, or are you satisfied with it?"
+            ]
+        },
+        {
+            "id": 46,
+            "question": "Given the speed of the sell-off, the market {a1} react badly at opening.",
+            "source": "b2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is going to",
+                    "options": [
+                        "will",
+                        "is going to",
+                        "reacts"
+                    ],
+                    "verb_hint": "react"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли є теперішній знак, контекст або видимий доказ майбутньої події.\nПриклад: *Given the speed of the sell-off, the market is going to react badly at opening.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. У такому разі вживаємо **be going to**.\nПриклад: *Given the speed of the sell-off, the market is going to react badly at opening.*",
+                            "is going to": "✅ «is going to» правильно, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. Тут уживаємо **be going to**.\nПриклад: *Given the speed of the sell-off, the market is going to react badly at opening.*",
+                            "reacts": "❌ «reacts» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Given the speed of the sell-off, the market is going to react badly at opening.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "prediction"
+            ],
+            "variants": [
+                "Given the speed of the sell-off, the market {a1} react badly at opening."
+            ]
+        },
+        {
+            "id": 47,
+            "question": "I think historians {a1} debate this treaty for decades because the archives are still incomplete.",
+            "source": "b2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "debates"
+                    ],
+                    "verb_hint": "debate"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will** для думки, припущення або нейтрального передбачення без прямого видимого доказу.\nПриклад: *I think historians will debate this treaty for decades because the archives are still incomplete.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are going to": "❌ «are going to» не підходить, бо це думка або передбачення без прямого доказу. Тут уживаємо **will**.\nПриклад: *I think historians will debate this treaty for decades because the archives are still incomplete.*",
+                            "will": "✅ «will» правильно, бо це думка, припущення або нейтральне передбачення без прямого доказу. Тут уживаємо **will + V1**.\nПриклад: *I think historians will debate this treaty for decades because the archives are still incomplete.*",
+                            "debates": "❌ «debates» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *I think historians will debate this treaty for decades because the archives are still incomplete.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "I think historians {a1} debate this treaty for decades because the archives are still incomplete."
+            ]
+        },
+        {
+            "id": 48,
+            "question": "A: We need a cleaner version of this paragraph.\nB: Fine, I {a1} rewrite it from scratch tonight.",
+            "source": "b2",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "am going to",
+                        "will",
+                        "rewriting"
+                    ],
+                    "verb_hint": "rewrite"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *A: We need a cleaner version of this paragraph.\nB: Fine, I will rewrite it from scratch tonight.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am going to": "❌ «am going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *A: We need a cleaner version of this paragraph.\nB: Fine, I will rewrite it from scratch tonight.*",
+                            "will": "✅ «will» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *A: We need a cleaner version of this paragraph.\nB: Fine, I will rewrite it from scratch tonight.*",
+                            "rewriting": "❌ «rewriting» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *A: We need a cleaner version of this paragraph.\nB: Fine, I will rewrite it from scratch tonight.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "A: We need a cleaner version of this paragraph.\nB: Fine, I {a1} rewrite it from scratch tonight."
+            ]
+        },
+        {
+            "id": 49,
+            "question": "We've mapped out the transition in detail, so we {a1} phase out the legacy system over the next two quarters.",
+            "source": "c1",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "'re going to",
+                    "options": [
+                        "will",
+                        "'re going to",
+                        "going to"
+                    ],
+                    "verb_hint": "phase out"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *We've mapped out the transition in detail, so we 're going to phase out the legacy system over the next two quarters.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *We've mapped out the transition in detail, so we 're going to phase out the legacy system over the next two quarters.*",
+                            "'re going to": "✅ «'re going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *We've mapped out the transition in detail, so we 're going to phase out the legacy system over the next two quarters.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *We've mapped out the transition in detail, so we 're going to phase out the legacy system over the next two quarters.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "We've mapped out the transition in detail, so we {a1} phase out the legacy system over the next two quarters."
+            ]
+        },
+        {
+            "id": 50,
+            "question": "A: The chair has just asked for volunteers.\nB: In that case, I {a1} draft the response memo before noon.",
+            "source": "c1",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "am going to",
+                        "will",
+                        "drafting"
+                    ],
+                    "verb_hint": "draft"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *A: The chair has just asked for volunteers.\nB: In that case, I will draft the response memo before noon.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am going to": "❌ «am going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *A: The chair has just asked for volunteers.\nB: In that case, I will draft the response memo before noon.*",
+                            "will": "✅ «will» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *A: The chair has just asked for volunteers.\nB: In that case, I will draft the response memo before noon.*",
+                            "drafting": "❌ «drafting» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *A: The chair has just asked for volunteers.\nB: In that case, I will draft the response memo before noon.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "A: The chair has just asked for volunteers.\nB: In that case, I {a1} draft the response memo before noon."
+            ]
+        },
+        {
+            "id": 51,
+            "question": "Look at the headlines and the investor sentiment; the minister {a1} face intense scrutiny by the afternoon.",
+            "source": "c1",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is going to",
+                    "options": [
+                        "will",
+                        "is going to",
+                        "facing"
+                    ],
+                    "verb_hint": "face"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли є теперішній знак, контекст або видимий доказ майбутньої події.\nПриклад: *Look at the headlines and the investor sentiment; the minister is going to face intense scrutiny by the afternoon.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. У такому разі вживаємо **be going to**.\nПриклад: *Look at the headlines and the investor sentiment; the minister is going to face intense scrutiny by the afternoon.*",
+                            "is going to": "✅ «is going to» правильно, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. Тут уживаємо **be going to**.\nПриклад: *Look at the headlines and the investor sentiment; the minister is going to face intense scrutiny by the afternoon.*",
+                            "facing": "❌ «facing» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Look at the headlines and the investor sentiment; the minister is going to face intense scrutiny by the afternoon.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "prediction"
+            ],
+            "variants": [
+                "Look at the headlines and the investor sentiment; the minister {a1} face intense scrutiny by the afternoon."
+            ]
+        },
+        {
+            "id": 52,
+            "question": "I suspect the reviewers {a1} question the sample size unless we justify it more explicitly.",
+            "source": "c1",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "questions"
+                    ],
+                    "verb_hint": "question"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will** для думки, припущення або нейтрального передбачення без прямого видимого доказу.\nПриклад: *I suspect the reviewers will question the sample size unless we justify it more explicitly.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are going to": "❌ «are going to» не підходить, бо це думка або передбачення без прямого доказу. Тут уживаємо **will**.\nПриклад: *I suspect the reviewers will question the sample size unless we justify it more explicitly.*",
+                            "will": "✅ «will» правильно, бо це думка, припущення або нейтральне передбачення без прямого доказу. Тут уживаємо **will + V1**.\nПриклад: *I suspect the reviewers will question the sample size unless we justify it more explicitly.*",
+                            "questions": "❌ «questions» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *I suspect the reviewers will question the sample size unless we justify it more explicitly.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "I suspect the reviewers {a1} question the sample size unless we justify it more explicitly."
+            ]
+        },
+        {
+            "id": 53,
+            "question": "{a1} walk the panel through your reasoning now, or shall I do it after the break?",
+            "source": "c1",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Will you",
+                    "options": [
+                        "Are you going to",
+                        "Will you",
+                        "Do you"
+                    ],
+                    "verb_hint": "walk through"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **Will + subject + V1?**\nУ запрошеннях, проханнях і питаннях про готовність щось зробити природно вживаємо **will**.\nПриклад: *Will you walk the panel through your reasoning now, or shall I do it after the break?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Are you going to": "❌ «Are you going to» змінює зміст на питання про план. Тут потрібне запрошення або питання про готовність, тому обираємо **Will ...?**\nПриклад: *Will you walk the panel through your reasoning now, or shall I do it after the break?*",
+                            "Will you": "✅ «Will you» правильно, бо це запрошення або питання про готовність щось зробити. Для цього природно вживаємо **Will ...?**\nПриклад: *Will you walk the panel through your reasoning now, or shall I do it after the break?*",
+                            "Do you": "❌ «Do you» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Will you walk the panel through your reasoning now, or shall I do it after the break?*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "{a1} walk the panel through your reasoning now, or shall I do it after the break?"
+            ]
+        },
+        {
+            "id": 54,
+            "question": "I assure you we {a1} ring-fence the research budget despite the wider cuts.",
+            "source": "c1",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "ring-fencing"
+                    ],
+                    "verb_hint": "ring-fence"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nКороткі обіцянки, запевнення та добровільні зобов'язання зазвичай виражаються через **will**.\nПриклад: *I assure you we will ring-fence the research budget despite the wider cuts.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are going to": "❌ «are going to» не підходить, бо тут є обіцянка або запевнення. Для такого значення вживаємо **will**.\nПриклад: *I assure you we will ring-fence the research budget despite the wider cuts.*",
+                            "will": "✅ «will» правильно, бо це обіцянка, запевнення або добровільне зобов'язання. Тут доречно вжити **will**.\nПриклад: *I assure you we will ring-fence the research budget despite the wider cuts.*",
+                            "ring-fencing": "❌ «ring-fencing» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *I assure you we will ring-fence the research budget despite the wider cuts.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "I assure you we {a1} ring-fence the research budget despite the wider cuts."
+            ]
+        },
+        {
+            "id": 55,
+            "question": "We've already commissioned the external audit, so the university {a1} publish the findings in early October.",
+            "source": "c1",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is going to",
+                    "options": [
+                        "will",
+                        "is going to",
+                        "going to"
+                    ],
+                    "verb_hint": "publish"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *We've already commissioned the external audit, so the university is going to publish the findings in early October.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *We've already commissioned the external audit, so the university is going to publish the findings in early October.*",
+                            "is going to": "✅ «is going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *We've already commissioned the external audit, so the university is going to publish the findings in early October.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *We've already commissioned the external audit, so the university is going to publish the findings in early October.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "We've already commissioned the external audit, so the university {a1} publish the findings in early October."
+            ]
+        },
+        {
+            "id": 56,
+            "question": "If they keep dismissing staff concerns, the dispute {a1} escalate well beyond the campus.",
+            "source": "c1",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "escalates"
+                    ],
+                    "verb_hint": "escalate"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nУ попередженнях про ймовірний наслідок у цій моделі використовується **will**.\nПриклад: *If they keep dismissing staff concerns, the dispute will escalate well beyond the campus.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо це попередження про ймовірний наслідок. У цій моделі обираємо **will**.\nПриклад: *If they keep dismissing staff concerns, the dispute will escalate well beyond the campus.*",
+                            "will": "✅ «will» правильно, бо це попередження про можливий наслідок. У цій моделі для такого значення вживаємо **will**.\nПриклад: *If they keep dismissing staff concerns, the dispute will escalate well beyond the campus.*",
+                            "escalates": "❌ «escalates» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *If they keep dismissing staff concerns, the dispute will escalate well beyond the campus.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "If they keep dismissing staff concerns, the dispute {a1} escalate well beyond the campus."
+            ]
+        },
+        {
+            "id": 57,
+            "question": "{a1} renegotiate the delivery schedule, or is the current timeline fixed?",
+            "source": "c1",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Are you going to",
+                    "options": [
+                        "Will you",
+                        "Are you going to",
+                        "Do you"
+                    ],
+                    "verb_hint": "renegotiate"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be + subject + going to + V1**.\nПитаємо **be going to**, коли хочемо дізнатися про чийсь план або намір.\nПриклад: *Are you going to renegotiate the delivery schedule, or is the current timeline fixed?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will you": "❌ «Will you» не підходить, бо питання стосується чиїхось планів або намірів. Тут потрібна форма **be going to**.\nПриклад: *Are you going to renegotiate the delivery schedule, or is the current timeline fixed?*",
+                            "Are you going to": "✅ «Are you going to» правильно, бо питання стосується плану чи наміру. Для цього вживаємо **be going to**.\nПриклад: *Are you going to renegotiate the delivery schedule, or is the current timeline fixed?*",
+                            "Do you": "❌ «Do you» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Are you going to renegotiate the delivery schedule, or is the current timeline fixed?*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "{a1} renegotiate the delivery schedule, or is the current timeline fixed?"
+            ]
+        },
+        {
+            "id": 58,
+            "question": "With the coalition already split on the issue, the bill {a1} struggle to pass its second reading.",
+            "source": "c1",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is going to",
+                    "options": [
+                        "will",
+                        "is going to",
+                        "struggles"
+                    ],
+                    "verb_hint": "struggle"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли є теперішній знак, контекст або видимий доказ майбутньої події.\nПриклад: *With the coalition already split on the issue, the bill is going to struggle to pass its second reading.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. У такому разі вживаємо **be going to**.\nПриклад: *With the coalition already split on the issue, the bill is going to struggle to pass its second reading.*",
+                            "is going to": "✅ «is going to» правильно, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. Тут уживаємо **be going to**.\nПриклад: *With the coalition already split on the issue, the bill is going to struggle to pass its second reading.*",
+                            "struggles": "❌ «struggles» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *With the coalition already split on the issue, the bill is going to struggle to pass its second reading.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "prediction"
+            ],
+            "variants": [
+                "With the coalition already split on the issue, the bill {a1} struggle to pass its second reading."
+            ]
+        },
+        {
+            "id": 59,
+            "question": "I think the public {a1} respond more favourably once the long-term benefits are explained clearly.",
+            "source": "c1",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "responds"
+                    ],
+                    "verb_hint": "respond"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will** для думки, припущення або нейтрального передбачення без прямого видимого доказу.\nПриклад: *I think the public will respond more favourably once the long-term benefits are explained clearly.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо це думка або передбачення без прямого доказу. Тут уживаємо **will**.\nПриклад: *I think the public will respond more favourably once the long-term benefits are explained clearly.*",
+                            "will": "✅ «will» правильно, бо це думка, припущення або нейтральне передбачення без прямого доказу. Тут уживаємо **will + V1**.\nПриклад: *I think the public will respond more favourably once the long-term benefits are explained clearly.*",
+                            "responds": "❌ «responds» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *I think the public will respond more favourably once the long-term benefits are explained clearly.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "I think the public {a1} respond more favourably once the long-term benefits are explained clearly."
+            ]
+        },
+        {
+            "id": 60,
+            "question": "A: The Q&A is becoming hostile.\nB: Then I {a1} take over and reframe the discussion.",
+            "source": "c1",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "am going to",
+                        "will",
+                        "taking over"
+                    ],
+                    "verb_hint": "take over"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *A: The Q&A is becoming hostile.\nB: Then I will take over and reframe the discussion.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am going to": "❌ «am going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *A: The Q&A is becoming hostile.\nB: Then I will take over and reframe the discussion.*",
+                            "will": "✅ «will» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *A: The Q&A is becoming hostile.\nB: Then I will take over and reframe the discussion.*",
+                            "taking over": "❌ «taking over» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *A: The Q&A is becoming hostile.\nB: Then I will take over and reframe the discussion.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "A: The Q&A is becoming hostile.\nB: Then I {a1} take over and reframe the discussion."
+            ]
+        },
+        {
+            "id": 61,
+            "question": "We've already secured the necessary jurisdictional clearances, so the consortium {a1} consolidate its overseas holdings before year-end.",
+            "source": "c2",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is going to",
+                    "options": [
+                        "will",
+                        "is going to",
+                        "going to"
+                    ],
+                    "verb_hint": "consolidate"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *We've already secured the necessary jurisdictional clearances, so the consortium is going to consolidate its overseas holdings before year-end.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *We've already secured the necessary jurisdictional clearances, so the consortium is going to consolidate its overseas holdings before year-end.*",
+                            "is going to": "✅ «is going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *We've already secured the necessary jurisdictional clearances, so the consortium is going to consolidate its overseas holdings before year-end.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *We've already secured the necessary jurisdictional clearances, so the consortium is going to consolidate its overseas holdings before year-end.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "We've already secured the necessary jurisdictional clearances, so the consortium {a1} consolidate its overseas holdings before year-end."
+            ]
+        },
+        {
+            "id": 62,
+            "question": "A: The cross-examiner has changed strategy completely.\nB: Then I {a1} recalibrate the argument and address the premise directly.",
+            "source": "c2",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "am going to",
+                        "will",
+                        "recalibrating"
+                    ],
+                    "verb_hint": "recalibrate"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *A: The cross-examiner has changed strategy completely.\nB: Then I will recalibrate the argument and address the premise directly.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am going to": "❌ «am going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *A: The cross-examiner has changed strategy completely.\nB: Then I will recalibrate the argument and address the premise directly.*",
+                            "will": "✅ «will» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *A: The cross-examiner has changed strategy completely.\nB: Then I will recalibrate the argument and address the premise directly.*",
+                            "recalibrating": "❌ «recalibrating» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *A: The cross-examiner has changed strategy completely.\nB: Then I will recalibrate the argument and address the premise directly.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "A: The cross-examiner has changed strategy completely.\nB: Then I {a1} recalibrate the argument and address the premise directly."
+            ]
+        },
+        {
+            "id": 63,
+            "question": "Given the tenor of the briefing and the diplomatic silence that followed, the ambassador {a1} distance herself from the remarks publicly.",
+            "source": "c2",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is going to",
+                    "options": [
+                        "will",
+                        "is going to",
+                        "distances herself"
+                    ],
+                    "verb_hint": "distance herself"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли є теперішній знак, контекст або видимий доказ майбутньої події.\nПриклад: *Given the tenor of the briefing and the diplomatic silence that followed, the ambassador is going to distance herself from the remarks publicly.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. У такому разі вживаємо **be going to**.\nПриклад: *Given the tenor of the briefing and the diplomatic silence that followed, the ambassador is going to distance herself from the remarks publicly.*",
+                            "is going to": "✅ «is going to» правильно, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. Тут уживаємо **be going to**.\nПриклад: *Given the tenor of the briefing and the diplomatic silence that followed, the ambassador is going to distance herself from the remarks publicly.*",
+                            "distances herself": "❌ «distances herself» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Given the tenor of the briefing and the diplomatic silence that followed, the ambassador is going to distance herself from the remarks publicly.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "prediction"
+            ],
+            "variants": [
+                "Given the tenor of the briefing and the diplomatic silence that followed, the ambassador {a1} distance herself from the remarks publicly."
+            ]
+        },
+        {
+            "id": 64,
+            "question": "I imagine posterity {a1} judge that intervention more harshly than contemporary commentators do.",
+            "source": "c2",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "judges"
+                    ],
+                    "verb_hint": "judge"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will** для думки, припущення або нейтрального передбачення без прямого видимого доказу.\nПриклад: *I imagine posterity will judge that intervention more harshly than contemporary commentators do.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо це думка або передбачення без прямого доказу. Тут уживаємо **will**.\nПриклад: *I imagine posterity will judge that intervention more harshly than contemporary commentators do.*",
+                            "will": "✅ «will» правильно, бо це думка, припущення або нейтральне передбачення без прямого доказу. Тут уживаємо **will + V1**.\nПриклад: *I imagine posterity will judge that intervention more harshly than contemporary commentators do.*",
+                            "judges": "❌ «judges» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *I imagine posterity will judge that intervention more harshly than contemporary commentators do.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "I imagine posterity {a1} judge that intervention more harshly than contemporary commentators do."
+            ]
+        },
+        {
+            "id": 65,
+            "question": "{a1} entertain a counterfactual here, or would you rather keep the discussion strictly evidential?",
+            "source": "c2",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Will you",
+                    "options": [
+                        "Are you going to",
+                        "Will you",
+                        "Do you"
+                    ],
+                    "verb_hint": "entertain"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **Will + subject + V1?**\nУ запрошеннях, проханнях і питаннях про готовність щось зробити природно вживаємо **will**.\nПриклад: *Will you entertain a counterfactual here, or would you rather keep the discussion strictly evidential?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Are you going to": "❌ «Are you going to» змінює зміст на питання про план. Тут потрібне запрошення або питання про готовність, тому обираємо **Will ...?**\nПриклад: *Will you entertain a counterfactual here, or would you rather keep the discussion strictly evidential?*",
+                            "Will you": "✅ «Will you» правильно, бо це запрошення або питання про готовність щось зробити. Для цього природно вживаємо **Will ...?**\nПриклад: *Will you entertain a counterfactual here, or would you rather keep the discussion strictly evidential?*",
+                            "Do you": "❌ «Do you» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Will you entertain a counterfactual here, or would you rather keep the discussion strictly evidential?*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "{a1} entertain a counterfactual here, or would you rather keep the discussion strictly evidential?"
+            ]
+        },
+        {
+            "id": 66,
+            "question": "I give you my word that the committee {a1} not dilute the recommendations in the final draft.",
+            "source": "c2",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "does not"
+                    ],
+                    "verb_hint": "not dilute"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nКороткі обіцянки, запевнення та добровільні зобов'язання зазвичай виражаються через **will**.\nПриклад: *I give you my word that the committee will not dilute the recommendations in the final draft.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо тут є обіцянка або запевнення. Для такого значення вживаємо **will**.\nПриклад: *I give you my word that the committee will not dilute the recommendations in the final draft.*",
+                            "will": "✅ «will» правильно, бо це обіцянка, запевнення або добровільне зобов'язання. Тут доречно вжити **will**.\nПриклад: *I give you my word that the committee will not dilute the recommendations in the final draft.*",
+                            "does not": "❌ «does not» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *I give you my word that the committee will not dilute the recommendations in the final draft.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "I give you my word that the committee {a1} not dilute the recommendations in the final draft."
+            ]
+        },
+        {
+            "id": 67,
+            "question": "We've already lined up the archival permissions, so I {a1} collate the primary materials in situ over the summer.",
+            "source": "c2",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "'m going to",
+                    "options": [
+                        "will",
+                        "'m going to",
+                        "going to"
+                    ],
+                    "verb_hint": "collate"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли план, намір або вже прийняте рішення існували до моменту мовлення.\nПриклад: *We've already lined up the archival permissions, so I 'm going to collate the primary materials in situ over the summer.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо дія вже запланована або намір уже існує. Тут потрібне **be going to**.\nПриклад: *We've already lined up the archival permissions, so I 'm going to collate the primary materials in situ over the summer.*",
+                            "'m going to": "✅ «'m going to» правильно, бо дія вже запланована або намір уже існує. Тут потрібне **be going to + V1**.\nПриклад: *We've already lined up the archival permissions, so I 'm going to collate the primary materials in situ over the summer.*",
+                            "going to": "❌ «going to» неправильно, бо в конструкції **be going to** обов'язково потрібна форма дієслова **be**: *am / is / are*.\nПриклад: *We've already lined up the archival permissions, so I 'm going to collate the primary materials in situ over the summer.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "We've already lined up the archival permissions, so I {a1} collate the primary materials in situ over the summer."
+            ]
+        },
+        {
+            "id": 68,
+            "question": "If counsel continues to equivocate, the tribunal {a1} infer deliberate obstruction.",
+            "source": "c2",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "is going to",
+                        "will",
+                        "infers"
+                    ],
+                    "verb_hint": "infer"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nУ попередженнях про ймовірний наслідок у цій моделі використовується **will**.\nПриклад: *If counsel continues to equivocate, the tribunal will infer deliberate obstruction.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to": "❌ «is going to» не підходить, бо це попередження про ймовірний наслідок. У цій моделі обираємо **will**.\nПриклад: *If counsel continues to equivocate, the tribunal will infer deliberate obstruction.*",
+                            "will": "✅ «will» правильно, бо це попередження про можливий наслідок. У цій моделі для такого значення вживаємо **will**.\nПриклад: *If counsel continues to equivocate, the tribunal will infer deliberate obstruction.*",
+                            "infers": "❌ «infers» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *If counsel continues to equivocate, the tribunal will infer deliberate obstruction.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "If counsel continues to equivocate, the tribunal {a1} infer deliberate obstruction."
+            ]
+        },
+        {
+            "id": 69,
+            "question": "{a1} contest the interpretation in print, or have you decided to let it stand?",
+            "source": "c2",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Are you going to",
+                    "options": [
+                        "Will you",
+                        "Are you going to",
+                        "Do you"
+                    ],
+                    "verb_hint": "contest"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be + subject + going to + V1**.\nПитаємо **be going to**, коли хочемо дізнатися про чийсь план або намір.\nПриклад: *Are you going to contest the interpretation in print, or have you decided to let it stand?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will you": "❌ «Will you» не підходить, бо питання стосується чиїхось планів або намірів. Тут потрібна форма **be going to**.\nПриклад: *Are you going to contest the interpretation in print, or have you decided to let it stand?*",
+                            "Are you going to": "✅ «Are you going to» правильно, бо питання стосується плану чи наміру. Для цього вживаємо **be going to**.\nПриклад: *Are you going to contest the interpretation in print, or have you decided to let it stand?*",
+                            "Do you": "❌ «Do you» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *Are you going to contest the interpretation in print, or have you decided to let it stand?*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "plans"
+            ],
+            "variants": [
+                "{a1} contest the interpretation in print, or have you decided to let it stand?"
+            ]
+        },
+        {
+            "id": 70,
+            "question": "With liquidity evaporating and counterparties pulling back, the institution {a1} require emergency support within days.",
+            "source": "c2",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is going to",
+                    "options": [
+                        "will",
+                        "is going to",
+                        "requires"
+                    ],
+                    "verb_hint": "require"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **be going to + V1**.\nВживаємо **be going to**, коли є теперішній знак, контекст або видимий доказ майбутньої події.\nПриклад: *With liquidity evaporating and counterparties pulling back, the institution is going to require emergency support within days.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "❌ «will» не підходить, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. У такому разі вживаємо **be going to**.\nПриклад: *With liquidity evaporating and counterparties pulling back, the institution is going to require emergency support within days.*",
+                            "is going to": "✅ «is going to» правильно, бо є теперішній сигнал, контекст або видимий доказ майбутньої події. Тут уживаємо **be going to**.\nПриклад: *With liquidity evaporating and counterparties pulling back, the institution is going to require emergency support within days.*",
+                            "requires": "❌ «requires» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *With liquidity evaporating and counterparties pulling back, the institution is going to require emergency support within days.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "be_going_to",
+                "prediction"
+            ],
+            "variants": [
+                "With liquidity evaporating and counterparties pulling back, the institution {a1} require emergency support within days."
+            ]
+        },
+        {
+            "id": 71,
+            "question": "I think later scholars {a1} view this correspondence as the turning point in the entire dispute.",
+            "source": "c2",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "views"
+                    ],
+                    "verb_hint": "view"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will** для думки, припущення або нейтрального передбачення без прямого видимого доказу.\nПриклад: *I think later scholars will view this correspondence as the turning point in the entire dispute.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are going to": "❌ «are going to» не підходить, бо це думка або передбачення без прямого доказу. Тут уживаємо **will**.\nПриклад: *I think later scholars will view this correspondence as the turning point in the entire dispute.*",
+                            "will": "✅ «will» правильно, бо це думка, припущення або нейтральне передбачення без прямого доказу. Тут уживаємо **will + V1**.\nПриклад: *I think later scholars will view this correspondence as the turning point in the entire dispute.*",
+                            "views": "❌ «views» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *I think later scholars will view this correspondence as the turning point in the entire dispute.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "prediction"
+            ],
+            "variants": [
+                "I think later scholars {a1} view this correspondence as the turning point in the entire dispute."
+            ]
+        },
+        {
+            "id": 72,
+            "question": "A: The wording is still dangerously ambiguous.\nB: Very well, I {a1} redraft the clause so that no alternative reading survives.",
+            "source": "c2",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "am going to",
+                        "will",
+                        "redrafting"
+                    ],
+                    "verb_hint": "redraft"
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Форма: **will + V1**.\nВживаємо **will**, коли рішення приймається прямо в момент мовлення або коли одразу пропонуємо допомогу.\nПриклад: *A: The wording is still dangerously ambiguous.\nB: Very well, I will redraft the clause so that no alternative reading survives.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am going to": "❌ «am going to» не підходить, бо рішення приймається саме зараз як реакція на ситуацію. У цій вправі потрібне **will**.\nПриклад: *A: The wording is still dangerously ambiguous.\nB: Very well, I will redraft the clause so that no alternative reading survives.*",
+                            "will": "✅ «will» правильно, бо це спонтанне рішення або реакція в момент мовлення. Тут уживаємо **will + V1**.\nПриклад: *A: The wording is still dangerously ambiguous.\nB: Very well, I will redraft the clause so that no alternative reading survives.*",
+                            "redrafting": "❌ «redrafting» не відповідає потрібній майбутній формі в цьому реченні.\nПриклад: *A: The wording is still dangerously ambiguous.\nB: Very well, I will redraft the clause so that no alternative reading survives.*"
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "future_simple",
+                "spontaneous"
+            ],
+            "variants": [
+                "A: The wording is still dangerously ambiguous.\nB: Very well, I {a1} redraft the clause so that no alternative reading survives."
+            ]
+        }
+    ]
+}
+

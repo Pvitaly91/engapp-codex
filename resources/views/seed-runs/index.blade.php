@@ -1914,7 +1914,7 @@
             const createPendingFolderNode = function (name, path, depth) {
                 const wrapper = document.createElement('div');
                 wrapper.className = 'space-y-2';
-                wrapper.style.marginLeft = (Math.max(0, depth) * 1.5) + 'rem';
+                wrapper.style.marginLeft = (depth > 0 ? 1.5 : 0) + 'rem';
                 wrapper.setAttribute('data-pending-folder', '');
                 wrapper.setAttribute('data-folder-path', path);
                 wrapper.setAttribute('data-folder-name', name);
@@ -1946,7 +1946,7 @@
                     : 'inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold');
                 const wrapper = document.createElement('div');
                 wrapper.className = 'flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between';
-                wrapper.style.marginLeft = (Math.max(0, depth) * 1.5) + 'rem';
+                wrapper.style.marginLeft = (depth > 0 ? 1.5 : 0) + 'rem';
                 wrapper.setAttribute('data-pending-seeder', '');
                 wrapper.setAttribute('data-class-name', seeder.class_name);
                 wrapper.style.opacity = '0';
