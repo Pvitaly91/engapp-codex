@@ -11,7 +11,7 @@
                     <h1 class="text-2xl font-semibold text-gray-800">Seed Runs</h1>
                     <p class="text-sm text-gray-500">Керуйте виконаними та невиконаними сидарами.</p>
                 </div>
-                @if($tableExists)
+                @if($tableExists && $activeSeederTab !== 'theory-tests')
                     <form method="POST" action="{{ route('seed-runs.run-missing', ['tab' => $activeSeederTab]) }}" data-preloader>
                         @csrf
                         <button type="submit" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow hover:bg-blue-500 transition disabled:opacity-50 disabled:cursor-not-allowed" @if(($runnablePendingCount ?? 0) === 0) disabled @endif>
@@ -26,6 +26,7 @@
                 @php
                     $mainCount = (int) data_get($seederTabCounts ?? [], 'main.total', 0);
                     $localizationsCount = (int) data_get($seederTabCounts ?? [], 'localizations.total', 0);
+                    $theoryTestsCount = (int) data_get($seederTabCounts ?? [], 'theory-tests.total', 0);
                 @endphp
                 <a href="{{ route('seed-runs.index') }}"
                    @class([
@@ -44,6 +45,15 @@
                    ])>
                     <span>Локалізації</span>
                     <span class="rounded-full bg-white/15 px-2 py-0.5 text-xs">{{ $localizationsCount }}</span>
+                </a>
+                <a href="{{ route('seed-runs.index', ['tab' => 'theory-tests']) }}"
+                   @class([
+                       'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition',
+                       'bg-emerald-600 text-white shadow-sm' => $activeSeederTab === 'theory-tests',
+                       'bg-slate-100 text-slate-700 hover:bg-slate-200' => $activeSeederTab !== 'theory-tests',
+                   ])>
+                    <span>Теорія з тестами</span>
+                    <span class="rounded-full bg-white/15 px-2 py-0.5 text-xs">{{ $theoryTestsCount }}</span>
                 </a>
             </div>
 
@@ -96,126 +106,146 @@
 
         @if($tableExists)
             <div class="space-y-6">
-                <form id="pending-bulk-delete-form"
-                      method="POST"
-                      action="{{ route('seed-runs.destroy-seeder-files', ['tab' => $activeSeederTab]) }}"
-                      data-preloader
-                      data-bulk-delete-form
-                      data-bulk-scope="pending"
-                      data-confirm="Видалити файли вибраних сидерів?"
-                      class="hidden">
-                    @csrf
-                    @method('DELETE')
-                </form>
-
-                <form id="executed-bulk-delete-form"
-                      method="POST"
-                      action="{{ route('seed-runs.destroy-seeder-files', ['tab' => $activeSeederTab]) }}"
-                      data-preloader
-                      data-bulk-delete-form
-                      data-bulk-scope="executed"
-                      data-confirm="Видалити файли вибраних сидерів?"
-                      class="hidden">
-                    @csrf
-                    @method('DELETE')
-                </form>
-
-                <div class="bg-white shadow rounded-lg p-6">
-                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
-                        <h2 class="text-xl font-semibold text-gray-800">
-                            {{ $activeSeederTab === 'localizations' ? 'Невиконані локалізації' : 'Невиконані сидери' }}
-                        </h2>
-                        <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
-                            <button type="button"
-                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition"
-                                    data-create-seeder-open>
-                                <i class="fa-solid fa-plus"></i>
-                                Створити сидер
-                            </button>
-                            @if($pendingSeeders->isNotEmpty())
-                                <button type="submit"
-                                        form="pending-bulk-delete-form"
-                                        class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
-                                        data-bulk-delete-button
-                                        data-bulk-scope="pending"
-                                        disabled>
-                                    <i class="fa-solid fa-trash-can"></i>
-                                    Видалити вибрані файли
-                                </button>
-                            @endif
+                @if($activeSeederTab === 'theory-tests')
+                    @php $theoryTestPages = collect($theoryTestPages ?? []); @endphp
+                    <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
+                        <div class="mb-4">
+                            <h2 class="text-xl font-semibold text-gray-800">Сторінки теорії з готовими тестами</h2>
+                            <p class="mt-1 text-sm text-gray-500">
+                                Показані лише ті сторінки теорії, які прив’язані до виконаних сидерів через Prompt Generator і вже мають готовий тест.
+                            </p>
                         </div>
-                    </div>
-                    <div id="pending-seeders-container">
-                        @if(($pendingSeederHierarchy ?? collect())->isEmpty())
-                            <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
+
+                        @if($theoryTestPages->isEmpty())
+                            <p class="text-sm text-gray-500">Поки що не знайдено сторінок теорії з виконаними сидерами, для яких існують тести.</p>
                         @else
-                            @if(($runnablePendingCount ?? 0) === 0 && $activeSeederTab === 'localizations')
-                                <div class="mb-4 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-                                    Усі локалізації в цій вкладці заблоковані. Спочатку виконайте їхні основні сидери.
-                                </div>
-                            @endif
-                            <div class="space-y-3" id="pending-seeders-tree" data-pending-tree>
-                                @foreach($pendingSeederHierarchy as $node)
-                                    @include('seed-runs.partials.pending-node', [
-                                        'node' => $node,
-                                        'depth' => 0,
-                                        'activeSeederTab' => $activeSeederTab,
-                                    ])
-                                @endforeach
+                            <div class="space-y-4">
+                                @include('seed-runs.partials.theory-test-pages', ['theoryTestPages' => $theoryTestPages])
                             </div>
                         @endif
                     </div>
-                </div>
+                @else
+                    <form id="pending-bulk-delete-form"
+                          method="POST"
+                          action="{{ route('seed-runs.destroy-seeder-files', ['tab' => $activeSeederTab]) }}"
+                          data-preloader
+                          data-bulk-delete-form
+                          data-bulk-scope="pending"
+                          data-confirm="Видалити файли вибраних сидерів?"
+                          class="hidden">
+                        @csrf
+                        @method('DELETE')
+                    </form>
 
-                <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
-                    <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between mb-4">
-                        <h2 class="text-xl font-semibold text-gray-800">
-                            {{ $activeSeederTab === 'localizations' ? 'Виконані локалізації' : 'Виконані сидери' }}
-                        </h2>
-                        <div class="flex flex-col gap-3 w-full sm:flex-row sm:items-center sm:justify-end">
-                            <div class="relative w-full sm:max-w-xs">
-                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 pointer-events-none">
-                                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
-                                </span>
-                                <input type="search"
-                                       class="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                                       placeholder="Пошук сидера…"
-                                       aria-label="Пошук виконаного сидера"
-                                       autocomplete="off"
-                                       data-executed-search-input
-                                       @if($executedSeederHierarchy->isEmpty()) disabled @endif>
-                            </div>
-                            @if($executedSeederHierarchy->isNotEmpty())
-                                <button type="submit"
-                                        form="executed-bulk-delete-form"
-                                        class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
-                                        data-bulk-delete-button
-                                        data-bulk-scope="executed"
-                                        disabled>
-                                    <i class="fa-solid fa-trash-can"></i>
-                                    Видалити вибрані файли
+                    <form id="executed-bulk-delete-form"
+                          method="POST"
+                          action="{{ route('seed-runs.destroy-seeder-files', ['tab' => $activeSeederTab]) }}"
+                          data-preloader
+                          data-bulk-delete-form
+                          data-bulk-scope="executed"
+                          data-confirm="Видалити файли вибраних сидерів?"
+                          class="hidden">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+                            <h2 class="text-xl font-semibold text-gray-800">
+                                {{ $activeSeederTab === 'localizations' ? 'Невиконані локалізації' : 'Невиконані сидери' }}
+                            </h2>
+                            <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+                                <button type="button"
+                                        class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition"
+                                        data-create-seeder-open>
+                                    <i class="fa-solid fa-plus"></i>
+                                    Створити сидер
                                 </button>
+                                @if($pendingSeeders->isNotEmpty())
+                                    <button type="submit"
+                                            form="pending-bulk-delete-form"
+                                            class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                            data-bulk-delete-button
+                                            data-bulk-scope="pending"
+                                            disabled>
+                                        <i class="fa-solid fa-trash-can"></i>
+                                        Видалити вибрані файли
+                                    </button>
+                                @endif
+                            </div>
+                        </div>
+                        <div id="pending-seeders-container">
+                            @if(($pendingSeederHierarchy ?? collect())->isEmpty())
+                                <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
+                            @else
+                                @if(($runnablePendingCount ?? 0) === 0 && $activeSeederTab === 'localizations')
+                                    <div class="mb-4 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                                        Усі локалізації в цій вкладці заблоковані. Спочатку виконайте їхні основні сидери.
+                                    </div>
+                                @endif
+                                <div class="space-y-3" id="pending-seeders-tree" data-pending-tree>
+                                    @foreach($pendingSeederHierarchy as $node)
+                                        @include('seed-runs.partials.pending-node', [
+                                            'node' => $node,
+                                            'depth' => 0,
+                                            'activeSeederTab' => $activeSeederTab,
+                                        ])
+                                    @endforeach
+                                </div>
                             @endif
                         </div>
                     </div>
-                    @if($executedSeederHierarchy->isEmpty())
-                        <p class="text-sm text-gray-500">Поки що немає виконаних сидерів.</p>
-                    @else
-                        <div class="space-y-4" data-executed-nodes>
-                            @foreach($executedSeederHierarchy as $node)
-                            @include('seed-runs.partials.executed-node', [
-                                'node' => $node,
-                                'depth' => 0,
-                                'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
-                                'activeSeederTab' => $activeSeederTab,
-                            ])
-                        @endforeach
+
+                    <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
+                        <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between mb-4">
+                            <h2 class="text-xl font-semibold text-gray-800">
+                                {{ $activeSeederTab === 'localizations' ? 'Виконані локалізації' : 'Виконані сидери' }}
+                            </h2>
+                            <div class="flex flex-col gap-3 w-full sm:flex-row sm:items-center sm:justify-end">
+                                <div class="relative w-full sm:max-w-xs">
+                                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 pointer-events-none">
+                                        <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                                    </span>
+                                    <input type="search"
+                                           class="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                           placeholder="Пошук сидера…"
+                                           aria-label="Пошук виконаного сидера"
+                                           autocomplete="off"
+                                           data-executed-search-input
+                                           @if($executedSeederHierarchy->isEmpty()) disabled @endif>
+                                </div>
+                                @if($executedSeederHierarchy->isNotEmpty())
+                                    <button type="submit"
+                                            form="executed-bulk-delete-form"
+                                            class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                            data-bulk-delete-button
+                                            data-bulk-scope="executed"
+                                            disabled>
+                                        <i class="fa-solid fa-trash-can"></i>
+                                        Видалити вибрані файли
+                                    </button>
+                                @endif
+                            </div>
                         </div>
-                        <p class="text-sm text-slate-500 hidden" data-executed-search-empty>
-                            Сидери з такою назвою не знайдено.
-                        </p>
-                    @endif
-                </div>
+                        @if($executedSeederHierarchy->isEmpty())
+                            <p class="text-sm text-gray-500">Поки що немає виконаних сидерів.</p>
+                        @else
+                            <div class="space-y-4" data-executed-nodes>
+                                @foreach($executedSeederHierarchy as $node)
+                                @include('seed-runs.partials.executed-node', [
+                                    'node' => $node,
+                                    'depth' => 0,
+                                    'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
+                                    'activeSeederTab' => $activeSeederTab,
+                                ])
+                            @endforeach
+                            </div>
+                            <p class="text-sm text-slate-500 hidden" data-executed-search-empty>
+                                Сидери з такою назвою не знайдено.
+                            </p>
+                        @endif
+                    </div>
+                @endif
             </div>
         @endif
     </div>
@@ -1996,12 +2026,96 @@
                 return wrapper;
             };
 
+            const buildLocalizationPreviewBadges = function (localizations) {
+                const preview = localizations.slice(0, 3).map(function (localization) {
+                    const localeLabel = localization.locale_label || 'N/A';
+
+                    return '<span class="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 text-[11px] font-semibold text-sky-800">' + escapeHtml(localeLabel) + '</span>';
+                }).join('');
+                const overflow = localizations.length - Math.min(localizations.length, 3);
+
+                return preview + (overflow > 0
+                    ? '<span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">+' + overflow + '</span>'
+                    : '');
+            };
+
+            const buildPendingLocalizationsMarkup = function (checkboxId, localizations) {
+                if (!localizations.length) {
+                    return '';
+                }
+
+                const localizationsId = checkboxId + '-localizations';
+                const badgesMarkup = buildLocalizationPreviewBadges(localizations);
+                const localizationsItems = localizations.map(function (localization) {
+                    const localeLabel = localization.locale_label || 'N/A';
+                    const typeLabel = localization.type_label || 'Локалізація';
+                    const displayBasename = localization.display_basename || ((localization.class_name || localization.display_name || '').split('\\').pop());
+                    const displayName = localization.display_name || localization.class_name || '';
+
+                    return `
+                        <div class="rounded-md border border-sky-100 bg-white/90 px-3 py-2">
+                            <div class="flex flex-wrap items-center gap-2 text-xs">
+                                <span class="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 font-semibold text-sky-800">
+                                    ${escapeHtml(localeLabel)}
+                                </span>
+                                <span class="font-medium text-slate-700 break-all">
+                                    ${escapeHtml(displayBasename)}
+                                </span>
+                                <span class="text-slate-500">
+                                    ${escapeHtml(typeLabel)}
+                                </span>
+                            </div>
+                            ${displayName && displayName !== displayBasename
+                                ? '<p class="mt-1 break-all text-[11px] text-slate-500">' + escapeHtml(displayName) + '</p>'
+                                : ''}
+                        </div>
+                    `;
+                }).join('');
+
+                return `
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <button type="button" class="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 transition hover:bg-sky-100" data-localizations-toggle data-target="${localizationsId}" aria-expanded="false" aria-controls="${localizationsId}">
+                                <i class="fa-solid fa-chevron-right text-[10px] transition-transform" data-localizations-toggle-icon></i>
+                                <span data-toggle-label-collapsed>Показати локалізації (${localizations.length})</span>
+                                <span data-toggle-label-expanded class="hidden">Сховати локалізації (${localizations.length})</span>
+                            </button>
+                            ${badgesMarkup}
+                        </div>
+                        <div id="${localizationsId}" class="hidden rounded-lg border border-sky-100 bg-sky-50/70 px-3 py-2 space-y-2" data-localizations-panel>
+                            ${localizationsItems}
+                        </div>
+                    </div>
+                `;
+            };
+
+            const buildPromptTheoryTargetMarkup = function (target) {
+                if (!target || typeof target !== 'object' || !target.url) {
+                    return '';
+                }
+
+                const label = target.label || 'Пов’язана сторінка теорії';
+                const title = target.title || target.url;
+
+                return `
+                    <div class="flex flex-wrap items-center gap-2 text-xs">
+                        <span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 font-semibold text-emerald-700 ring-1 ring-emerald-200">
+                            ${escapeHtml(label)}
+                        </span>
+                        <a href="${escapeHtml(target.url)}" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-emerald-700 underline decoration-emerald-300 underline-offset-2 hover:text-emerald-900 break-all">
+                            ${escapeHtml(title)}
+                        </a>
+                    </div>
+                `;
+            };
+
             const createPendingSeederNode = function (seeder, depth, routes) {
                 const checkboxId = 'pending-seeder-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
                 const actionsId = checkboxId + '-actions';
                 const displayNamespace = seeder.display_class_namespace || '';
                 const displayBasename = seeder.display_class_basename || seeder.display_class_name;
                 const availableLocalizations = Array.isArray(seeder.available_localizations) ? seeder.available_localizations : [];
+                const promptTheoryTargetMarkup = buildPromptTheoryTargetMarkup(seeder.prompt_theory_target || null);
                 const isLocalizationSeeder = ['question_localizations', 'page_localizations'].includes(seeder.data_type || '');
                 const isCategorySeeder = (displayBasename || '').includes('Category');
                 const labelClasses = isLocalizationSeeder
@@ -2009,100 +2123,68 @@
                     : (isCategorySeeder
                     ? 'inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold ring-1 ring-emerald-200'
                     : 'inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold');
-                const localizationsMarkup = availableLocalizations.length
-                    ? `
-                        <div class="rounded-lg border border-sky-200 bg-sky-50/80 p-3 space-y-3">
-                            <div>
-                                <p class="text-xs font-semibold uppercase tracking-wide text-sky-800">
-                                    Існуючі локалізації
-                                </p>
-                                <p class="text-[11px] text-sky-700">
-                                    Знайдено ${availableLocalizations.length} файлів локалізацій.
-                                </p>
-                            </div>
-                            <div class="space-y-2">
-                                ${availableLocalizations.map(function (localization) {
-                                    const localeLabel = localization.locale_label || 'N/A';
-                                    const typeLabel = localization.type_label || 'Локалізація';
-                                    const displayName = localization.display_name || localization.class_name || '';
-
-                                    return `
-                                        <div class="rounded-md border border-sky-100 bg-white/90 px-3 py-2">
-                                            <div class="flex flex-wrap items-center gap-2 text-xs">
-                                                <span class="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 font-semibold text-sky-800">
-                                                    ${escapeHtml(localeLabel)}
-                                                </span>
-                                                <span class="font-medium text-slate-700">
-                                                    ${escapeHtml(typeLabel)}
-                                                </span>
-                                            </div>
-                                            <p class="mt-1 break-all text-xs text-slate-600">
-                                                ${escapeHtml(displayName)}
-                                            </p>
-                                        </div>
-                                    `;
-                                }).join('')}
-                            </div>
-                        </div>
-                    `
-                    : '';
+                const localizationsMarkup = buildPendingLocalizationsMarkup(checkboxId, availableLocalizations);
                 const wrapper = document.createElement('div');
-                wrapper.className = 'flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between';
                 wrapper.style.marginLeft = (depth > 0 ? 1.5 : 0) + 'rem';
                 wrapper.setAttribute('data-pending-seeder', '');
                 wrapper.setAttribute('data-class-name', seeder.class_name);
                 wrapper.style.opacity = '0';
 
                 wrapper.innerHTML = `
-                    <div class="flex flex-col gap-3 sm:flex-1">
-                        <div class="flex items-center gap-3 min-w-0">
-                            <input type="checkbox" id="${checkboxId}" name="class_names[]" value="${escapeHtml(seeder.class_name)}" form="pending-bulk-delete-form" class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500" data-bulk-delete-checkbox data-bulk-scope="pending">
-                            <label for="${checkboxId}" class="inline-flex text-sm font-mono text-gray-700 break-all cursor-pointer min-w-[12rem] sm:min-w-[15rem]">
-                                ${displayNamespace ? '<span class="text-gray-500">' + escapeHtml(displayNamespace) + '</span><span class="text-gray-400">\\</span>' : ''}
-                                <span class="${labelClasses}">${escapeHtml(displayBasename)}</span>
-                            </label>
-                        </div>
-                        ${localizationsMarkup}
-                    </div>
-                    <div class="sm:hidden">
-                        <button type="button" class="inline-flex items-center justify-between gap-2 w-full px-3 py-1.5 bg-slate-100 text-slate-700 text-xs font-medium rounded-md hover:bg-slate-200 transition" data-pending-actions-toggle data-target="${actionsId}" aria-expanded="false" aria-controls="${actionsId}">
-                            <span data-toggle-label-collapsed>Показати дії</span>
-                            <span data-toggle-label-expanded class="hidden">Сховати дії</span>
-                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform" data-pending-actions-icon></i>
-                        </button>
-                    </div>
-                    <div id="${actionsId}" class="hidden w-full sm:w-auto sm:block" data-pending-actions>
-                        <div class="flex flex-col gap-2 w-full sm:flex-row sm:flex-wrap sm:items-center">
-                            <button type="button" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition w-full sm:w-auto" data-seeder-file-open data-class-name="${escapeHtml(seeder.class_name)}" data-display-name="${escapeHtml(seeder.display_class_name)}">
-                                <i class="fa-solid fa-file-code"></i>
-                                Код
-                            </button>
-                            ${seeder.supports_preview ? '<a href="' + routes.previewBase + '?class_name=' + encodeURIComponent(seeder.class_name) + '" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition w-full sm:w-auto"><i class="fa-solid fa-eye"></i>Переглянути</a>' : ''}
-                            <form method="POST" action="${routes.deleteFile}" data-preloader data-confirm="Видалити файл сидера «${escapeHtml(seeder.display_class_name)}»?" class="flex w-full sm:w-auto">
-                                <input type="hidden" name="_token" value="${csrfToken}">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
-                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition w-full sm:w-auto">
-                                    <i class="fa-solid fa-file-circle-xmark"></i>
-                                    Видалити файл
+                    <div class="border border-gray-200 rounded-xl shadow-sm bg-white p-4 md:p-6">
+                        <div class="flex flex-col gap-3 w-full">
+                            <div class="flex flex-col gap-3 sm:flex-1">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <input type="checkbox" id="${checkboxId}" name="class_names[]" value="${escapeHtml(seeder.class_name)}" form="pending-bulk-delete-form" class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500" data-bulk-delete-checkbox data-bulk-scope="pending">
+                                    <label for="${checkboxId}" class="inline-flex text-sm font-mono text-gray-700 break-all cursor-pointer min-w-[12rem] sm:min-w-[15rem]">
+                                        ${displayNamespace ? '<span class="text-gray-500">' + escapeHtml(displayNamespace) + '</span><span class="text-gray-400">\\</span>' : ''}
+                                        <span class="${labelClasses}">${escapeHtml(displayBasename)}</span>
+                                    </label>
+                                </div>
+                                ${promptTheoryTargetMarkup}
+                                ${localizationsMarkup}
+                            </div>
+                            <div class="sm:hidden">
+                                <button type="button" class="inline-flex items-center justify-between gap-2 w-full px-3 py-1.5 bg-slate-100 text-slate-700 text-xs font-medium rounded-md hover:bg-slate-200 transition" data-pending-actions-toggle data-target="${actionsId}" aria-expanded="false" aria-controls="${actionsId}">
+                                    <span data-toggle-label-collapsed>Показати дії</span>
+                                    <span data-toggle-label-expanded class="hidden">Сховати дії</span>
+                                    <i class="fa-solid fa-chevron-down text-[10px] transition-transform" data-pending-actions-icon></i>
                                 </button>
-                            </form>
-                            <form method="POST" action="${routes.markExecuted}" data-preloader class="flex w-full sm:w-auto">
-                                <input type="hidden" name="_token" value="${csrfToken}">
-                                <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
-                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition w-full sm:w-auto">
-                                    <i class="fa-solid fa-check"></i>
-                                    Позначити виконаним
-                                </button>
-                            </form>
-                            <form method="POST" action="${routes.run}" data-preloader class="flex w-full sm:w-auto">
-                                <input type="hidden" name="_token" value="${csrfToken}">
-                                <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
-                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition w-full sm:w-auto">
-                                    <i class="fa-solid fa-play"></i>
-                                    Виконати
-                                </button>
-                            </form>
+                            </div>
+                            <div id="${actionsId}" class="hidden w-full sm:block" data-pending-actions>
+                                <div class="flex flex-col gap-2 w-full sm:flex-row sm:flex-wrap sm:items-center">
+                                    <button type="button" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition w-full sm:w-auto" data-seeder-file-open data-class-name="${escapeHtml(seeder.class_name)}" data-display-name="${escapeHtml(seeder.display_class_name)}">
+                                        <i class="fa-solid fa-file-code"></i>
+                                        Код
+                                    </button>
+                                    ${seeder.supports_preview ? '<a href="' + routes.previewBase + '?class_name=' + encodeURIComponent(seeder.class_name) + '" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition w-full sm:w-auto"><i class="fa-solid fa-eye"></i>Переглянути</a>' : ''}
+                                    <form method="POST" action="${routes.deleteFile}" data-preloader data-confirm="Видалити файл сидера «${escapeHtml(seeder.display_class_name)}»?" class="flex w-full sm:w-auto">
+                                        <input type="hidden" name="_token" value="${csrfToken}">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
+                                        <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition w-full sm:w-auto">
+                                            <i class="fa-solid fa-file-circle-xmark"></i>
+                                            Видалити файл
+                                        </button>
+                                    </form>
+                                    <form method="POST" action="${routes.markExecuted}" data-preloader class="flex w-full sm:w-auto">
+                                        <input type="hidden" name="_token" value="${csrfToken}">
+                                        <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
+                                        <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition w-full sm:w-auto">
+                                            <i class="fa-solid fa-check"></i>
+                                            Позначити виконаним
+                                        </button>
+                                    </form>
+                                    <form method="POST" action="${routes.run}" data-preloader class="flex w-full sm:w-auto">
+                                        <input type="hidden" name="_token" value="${csrfToken}">
+                                        <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
+                                        <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition w-full sm:w-auto">
+                                            <i class="fa-solid fa-play"></i>
+                                            Виконати
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -2388,6 +2470,31 @@
                 }
 
                 actionsContainer.classList.remove('hidden');
+            };
+
+            const handleLocalizationsToggle = function (button) {
+                const targetId = button.dataset.target || button.getAttribute('aria-controls');
+
+                if (!targetId) {
+                    return;
+                }
+
+                const panel = document.getElementById(targetId);
+
+                if (!panel) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-localizations-toggle-icon]');
+
+                button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+                updateToggleLabels(button, !isExpanded);
+                panel.classList.toggle('hidden', isExpanded);
+
+                if (icon) {
+                    icon.classList.toggle('rotate-90', !isExpanded);
+                }
             };
 
             const decrementNumericContent = function (elements) {
@@ -2900,6 +3007,15 @@
                 if (pendingActionsButton) {
                     event.preventDefault();
                     handlePendingActionsToggle(pendingActionsButton);
+
+                    return;
+                }
+
+                const localizationsButton = event.target.closest('[data-localizations-toggle]');
+
+                if (localizationsButton) {
+                    event.preventDefault();
+                    handleLocalizationsToggle(localizationsButton);
 
                     return;
                 }

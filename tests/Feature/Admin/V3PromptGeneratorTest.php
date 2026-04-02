@@ -75,6 +75,10 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertOk();
         $response->assertSee('V3 Prompt Generator');
         $response->assertSee('/admin/v3-prompt-generator');
+        $response->assertSee('\u0022target_namespace\u0022:\u0022AI\u0022', false);
+        $response->assertSee("targetNamespace: config.form.target_namespace || 'AI'", false);
+        $response->assertSee("selectedNamespaceBase: 'AI'", false);
+        $response->assertSee("namespacePresets: ['AI', 'AI\\\\ChatGpt', 'AI\\\\ChatGptPro', 'AI\\\\Gemini', 'AI\\\\Claude']", false);
         $response->assertSee('AI\\ChatGptPro');
         $response->assertSee('Additional folders inside selected namespace');
         $response->assertSee('Mode A1 / repository-connected');
@@ -134,6 +138,9 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('at most 36 characters');
         $response->assertSee('Keep every learner-facing `question` and every `variants` entry in English only.');
         $response->assertSee('Make `localizations.uk.hints` and `localizations.uk.explanations` genuinely instructional');
+        $response->assertSee('does not mean omitting teaching feedback');
+        $response->assertSee('Write at least two Ukrainian `hints` for every question');
+        $response->assertSee('Do not use vague clue phrasing like');
         $response->assertSee('A1: 4 question(s)');
         $response->assertSee('B1: 4 question(s)');
     }
@@ -190,7 +197,10 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('saved_test.uuid');
         $response->assertSee('at most 36 characters');
         $response->assertSee('Write every `question` and every `variants` entry in English only.');
+        $response->assertSee('include detailed `localizations.uk.hints` and `localizations.uk.explanations` in this JSON');
         $response->assertSee('Make `localizations.uk.explanations` more detailed for every option');
+        $response->assertSee('create or enrich the companion `database/seeders/V3/localizations/uk/...` JSON');
+        $response->assertSee('Avoid generic repeated templates like');
         $response->assertSee('database/seeders/V3/definitions/AI/ChatGptPro/passive_voice_v3_questions_only.json');
     }
 

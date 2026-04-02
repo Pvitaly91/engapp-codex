@@ -14,6 +14,7 @@ class SeedRunsIndex extends Component
     public string $activeSeederTab = 'main';
     public array $seederTabCounts = [];
     public int $runnablePendingCount = 0;
+    public array $theoryTestPages = [];
     
     public string $searchQuery = '';
     public string $statusMessage = '';
@@ -69,6 +70,44 @@ class SeedRunsIndex extends Component
         $this->activeSeederTab = $this->normalizeSeederTab($overview['activeSeederTab'] ?? $this->activeSeederTab);
         $this->seederTabCounts = $overview['seederTabCounts'] ?? [];
         $this->runnablePendingCount = (int) ($overview['runnablePendingCount'] ?? 0);
+        $this->theoryTestPages = collect($overview['theoryTestPages'] ?? collect())
+            ->map(function ($pageGroup) {
+                return [
+                    'group_key' => (string) data_get($pageGroup, 'group_key', ''),
+                    'page' => [
+                        'label' => (string) data_get($pageGroup, 'page.label', ''),
+                        'title' => (string) data_get($pageGroup, 'page.title', ''),
+                        'url' => (string) data_get($pageGroup, 'page.url', ''),
+                    ],
+                    'seeders_count' => (int) data_get($pageGroup, 'seeders_count', 0),
+                    'question_count' => (int) data_get($pageGroup, 'question_count', 0),
+                    'tests_count' => (int) data_get($pageGroup, 'tests_count', 0),
+                    'latest_ran_at' => (int) data_get($pageGroup, 'latest_ran_at', 0),
+                    'seeders' => collect(data_get($pageGroup, 'seeders', []))
+                        ->map(function ($seedRun) {
+                            $ranAt = data_get($seedRun, 'ran_at');
+
+                            if ($ranAt instanceof \DateTimeInterface) {
+                                $ranAt = $ranAt->format('Y-m-d H:i:s');
+                            } elseif (! is_string($ranAt)) {
+                                $ranAt = null;
+                            }
+
+                            return [
+                                'class_name' => (string) data_get($seedRun, 'class_name', ''),
+                                'display_class_name' => (string) data_get($seedRun, 'display_class_name', ''),
+                                'display_class_basename' => (string) data_get($seedRun, 'display_class_basename', ''),
+                                'question_count' => (int) data_get($seedRun, 'question_count', 0),
+                                'ran_at_formatted' => (string) data_get($seedRun, 'ran_at_formatted', $ranAt ?? ''),
+                                'test_target' => data_get($seedRun, 'test_target'),
+                            ];
+                        })
+                        ->values()
+                        ->all(),
+                ];
+            })
+            ->values()
+            ->all();
     }
 
     public function runSeeder(string $className): void
@@ -106,6 +145,31 @@ class SeedRunsIndex extends Component
         }
     }
 
+    public function runPendingLocalizations(string $className, string $displayName = ''): void
+    {
+        $localizationClassNames = $this->resolveExecutedSeederPendingLocalizationClassNames($className);
+
+        if ($localizationClassNames === []) {
+            $this->statusMessage = __('Для цього сидера не знайдено невиконаних локалізацій.');
+            $this->statusType = 'error';
+
+            return;
+        }
+
+        $label = $displayName !== ''
+            ? __('Локалізації для :name', ['name' => $displayName])
+            : $className;
+        $result = $this->seedRunsService->runSeedersInFolder($localizationClassNames, $label);
+
+        $this->statusMessage = $result['message'];
+        $this->statusType = $result['success'] ? 'success' : 'error';
+        $this->statusLinks = $result['test_targets'] ?? [];
+
+        if ($result['success']) {
+            $this->refreshOverview();
+        }
+    }
+
     public function confirmRunSeeder(string $className, string $displayName): void
     {
         $this->confirmAction = 'runSeeder';
@@ -119,6 +183,17 @@ class SeedRunsIndex extends Component
         $this->confirmAction = 'runFolder';
         $this->confirmMessage = __('Виконати всі сидери в папці «:name»?', ['name' => $folderLabel]);
         $this->confirmData = ['path' => $folderPath];
+        $this->showConfirmModal = true;
+    }
+
+    public function confirmRunPendingLocalizations(string $className, string $displayName): void
+    {
+        $this->confirmAction = 'runPendingLocalizations';
+        $this->confirmMessage = __('Виконати невиконані локалізації для сидера «:name»?', ['name' => $displayName]);
+        $this->confirmData = [
+            'class_name' => $className,
+            'display_name' => $displayName,
+        ];
         $this->showConfirmModal = true;
     }
 
@@ -279,6 +354,7 @@ class SeedRunsIndex extends Component
         match ($action) {
             'runSeeder' => $this->runSeeder($data),
             'runFolder' => $this->runFolder($data['path'] ?? ''),
+            'runPendingLocalizations' => $this->runPendingLocalizations($data['class_name'] ?? '', $data['display_name'] ?? ''),
             'runMissingSeeders' => $this->runMissingSeeders(),
             'markAsExecuted' => $this->markAsExecuted($data),
             'deleteSeedRun' => $this->deleteSeedRun($data),
@@ -386,7 +462,7 @@ class SeedRunsIndex extends Component
 
     protected function normalizeSeederTab(?string $tab): string
     {
-        return $tab === 'localizations' ? 'localizations' : 'main';
+        return in_array($tab, ['localizations', 'theory-tests'], true) ? $tab : 'main';
     }
 
     protected function resolvePendingFolderClassNames(string $folderPath): array
@@ -412,6 +488,39 @@ class SeedRunsIndex extends Component
             }
 
             $nested = $this->findPendingFolderNodeByPath($node['children'] ?? [], $folderPath);
+
+            if ($nested !== null) {
+                return $nested;
+            }
+        }
+
+        return null;
+    }
+
+    protected function resolveExecutedSeederPendingLocalizationClassNames(string $className): array
+    {
+        $node = $this->findExecutedSeederNodeByClassName($this->executedSeederHierarchy, $className);
+
+        return collect($node['seed_run']['pending_localizations'] ?? [])
+            ->pluck('class_name')
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->values()
+            ->all();
+    }
+
+    protected function findExecutedSeederNodeByClassName(array $nodes, string $className): ?array
+    {
+        foreach ($nodes as $node) {
+            if (($node['type'] ?? null) === 'seeder' && (($node['seed_run']['class_name'] ?? '') === $className)) {
+                return $node;
+            }
+
+            if (($node['type'] ?? null) !== 'folder') {
+                continue;
+            }
+
+            $nested = $this->findExecutedSeederNodeByClassName($node['children'] ?? [], $className);
 
             if ($nested !== null) {
                 return $nested;

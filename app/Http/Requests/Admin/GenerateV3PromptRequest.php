@@ -24,7 +24,7 @@ class GenerateV3PromptRequest extends FormRequest
             ->values()
             ->all();
 
-        $targetNamespace = trim((string) $this->input('target_namespace', 'AI\\ChatGptPro'));
+        $targetNamespace = trim((string) $this->input('target_namespace', 'AI'));
         $targetNamespace = str_replace('/', '\\', $targetNamespace);
         $targetNamespace = preg_replace('/\\\\+/', '\\\\', $targetNamespace) ?? $targetNamespace;
         $targetNamespace = trim($targetNamespace, "\\ \t\n\r\0\x0B");

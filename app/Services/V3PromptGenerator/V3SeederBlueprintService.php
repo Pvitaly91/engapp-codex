@@ -14,12 +14,14 @@ class V3SeederBlueprintService
     {
         $root = database_path('seeders/V3');
         $reservedSegments = ['Concerns', 'definitions', 'json', 'localizations'];
+        $defaultNamespaces = ['AI', 'AI\\ChatGpt', 'AI\\ChatGptPro', 'AI\\Gemini', 'AI\\Claude', 'V2'];
 
         if (! File::isDirectory($root)) {
-            return ['AI\\ChatGptPro', 'AI\\ChatGpt', 'V2'];
+            return $defaultNamespaces;
         }
 
-        $namespaces = collect(File::allFiles($root))
+        $namespaces = collect($defaultNamespaces)
+            ->merge(collect(File::allFiles($root))
             ->filter(fn ($file) => strtolower($file->getExtension()) === 'php')
             ->map(function ($file) use ($root, $reservedSegments) {
                 $relativeDirectory = trim(str_replace('\\', '/', Str::after($file->getPath(), $root)), '/');
@@ -35,14 +37,14 @@ class V3SeederBlueprintService
                 }
 
                 return implode('\\', $segments);
-            })
+            }))
             ->filter()
             ->unique()
             ->sort()
             ->values()
             ->all();
 
-        return $namespaces !== [] ? $namespaces : ['AI\\ChatGptPro', 'AI\\ChatGpt', 'V2'];
+        return $namespaces !== [] ? $namespaces : $defaultNamespaces;
     }
 
     public function normalizeNamespace(string $namespace): string
@@ -92,6 +94,7 @@ class V3SeederBlueprintService
             app_path('Support/Database/JsonTestSeeder.php'),
             database_path('seeders/V3/' . $namespacePath),
             database_path('seeders/V3/definitions/' . $namespacePath),
+            database_path('seeders/V3/localizations/uk/' . $namespacePath),
             database_path('seeders/V3/localizations/en/' . $namespacePath),
             database_path('seeders/V3/localizations/pl/' . $namespacePath),
         ]);

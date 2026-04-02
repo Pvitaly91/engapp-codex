@@ -14,7 +14,7 @@
                 <h1 class="text-2xl font-semibold text-gray-800">Seed Runs (V2)</h1>
                 <p class="text-sm text-gray-500">Керуйте виконаними та невиконаними сидарами (Livewire версія).</p>
             </div>
-            @if($tableExists && count($pendingSeederHierarchy) > 0)
+            @if($tableExists && $activeSeederTab !== 'theory-tests' && count($pendingSeederHierarchy) > 0)
                 <button 
                     type="button" 
                     wire:click="confirmRunMissing"
@@ -31,6 +31,7 @@
             @php
                 $mainCount = (int) data_get($seederTabCounts, 'main.total', 0);
                 $localizationsCount = (int) data_get($seederTabCounts, 'localizations.total', 0);
+                $theoryTestsCount = (int) data_get($seederTabCounts, 'theory-tests.total', 0);
             @endphp
             <button
                 type="button"
@@ -55,6 +56,18 @@
             >
                 <span>Локалізації</span>
                 <span class="rounded-full bg-white/15 px-2 py-0.5 text-xs">{{ $localizationsCount }}</span>
+            </button>
+            <button
+                type="button"
+                wire:click="setActiveSeederTab('theory-tests')"
+                @class([
+                    'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition',
+                    'bg-emerald-600 text-white shadow-sm' => $activeSeederTab === 'theory-tests',
+                    'bg-slate-100 text-slate-700 hover:bg-slate-200' => $activeSeederTab !== 'theory-tests',
+                ])
+            >
+                <span>Теорія з тестами</span>
+                <span class="rounded-full bg-white/15 px-2 py-0.5 text-xs">{{ $theoryTestsCount }}</span>
             </button>
         </div>
 
@@ -101,7 +114,25 @@
     </div>
 
     @if($tableExists)
-            <div class="space-y-6">
+        <div class="space-y-6">
+            @if($activeSeederTab === 'theory-tests')
+                <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
+                    <div class="mb-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Сторінки теорії з готовими тестами</h2>
+                        <p class="mt-1 text-sm text-gray-500">
+                            Показані лише ті сторінки теорії, які прив’язані до виконаних сидерів через Prompt Generator і вже мають готовий тест.
+                        </p>
+                    </div>
+
+                    @if(empty($theoryTestPages))
+                        <p class="text-sm text-gray-500">Поки що не знайдено сторінок теорії з виконаними сидерами, для яких існують тести.</p>
+                    @else
+                        <div class="space-y-4">
+                            @include('seed-runs.partials.theory-test-pages', ['theoryTestPages' => $theoryTestPages])
+                        </div>
+                    @endif
+                </div>
+            @else
                 {{-- Pending Seeders --}}
                 <div class="bg-white shadow rounded-lg p-6">
                     <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
@@ -111,31 +142,31 @@
                         <button 
                             type="button"
                             wire:click="openCreateModal"
-                        class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition"
-                    >
-                        <i class="fa-solid fa-plus"></i>
-                        Створити сидер
-                    </button>
-                </div>
+                            class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition"
+                        >
+                            <i class="fa-solid fa-plus"></i>
+                            Створити сидер
+                        </button>
+                    </div>
 
-                @if(empty($pendingSeederHierarchy))
-                    <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
-                @else
-                    @if($runnablePendingCount === 0 && $activeSeederTab === 'localizations')
-                        <div class="mb-4 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-                            Усі локалізації в цій вкладці заблоковані. Спочатку виконайте їхні основні сидери.
+                    @if(empty($pendingSeederHierarchy))
+                        <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
+                    @else
+                        @if($runnablePendingCount === 0 && $activeSeederTab === 'localizations')
+                            <div class="mb-4 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                                Усі локалізації в цій вкладці заблоковані. Спочатку виконайте їхні основні сидери.
+                            </div>
+                        @endif
+                        <div
+                            class="space-y-3"
+                            x-data="{ expandedFolders: {} }"
+                        >
+                            @foreach($pendingSeederHierarchy as $node)
+                                @include('seed-runs-v2::livewire.partials.pending-node', ['node' => $node, 'depth' => 0])
+                            @endforeach
                         </div>
                     @endif
-                    <div
-                        class="space-y-3"
-                        x-data="{ expandedFolders: {} }"
-                    >
-                        @foreach($pendingSeederHierarchy as $node)
-                            @include('seed-runs-v2::livewire.partials.pending-node', ['node' => $node, 'depth' => 0])
-                        @endforeach
-                    </div>
-                @endif
-            </div>
+                </div>
 
                 {{-- Executed Seeders --}}
                 <div class="bg-white shadow rounded-lg p-6">
@@ -143,32 +174,33 @@
                         <h2 class="text-xl font-semibold text-gray-800">
                             {{ $activeSeederTab === 'localizations' ? 'Виконані локалізації' : 'Виконані сидери' }}
                         </h2>
-                    <div class="relative w-full sm:max-w-xs">
-                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 pointer-events-none">
-                            <i class="fa-solid fa-magnifying-glass text-sm"></i>
-                        </span>
-                        <input 
-                            type="search"
-                            wire:model.live.debounce.300ms="searchQuery"
-                            class="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Пошук сидера…"
-                        >
+                        <div class="relative w-full sm:max-w-xs">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 pointer-events-none">
+                                <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                            </span>
+                            <input 
+                                type="search"
+                                wire:model.live.debounce.300ms="searchQuery"
+                                class="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Пошук сидера…"
+                            >
+                        </div>
                     </div>
-                </div>
 
-                @if(empty($executedSeederHierarchy))
-                    <p class="text-sm text-gray-500">Поки що немає виконаних сидерів.</p>
-                @else
-                    <div
-                        class="space-y-4"
-                        x-data="{ expandedFolders: {}, expandedSeeders: {} }"
-                    >
-                        @foreach($executedSeederHierarchy as $node)
-                            @include('seed-runs-v2::livewire.partials.executed-node', ['node' => $node, 'depth' => 0])
-                        @endforeach
-                    </div>
-                @endif
-            </div>
+                    @if(empty($executedSeederHierarchy))
+                        <p class="text-sm text-gray-500">Поки що немає виконаних сидерів.</p>
+                    @else
+                        <div
+                            class="space-y-4"
+                            x-data="{ expandedFolders: {}, expandedSeeders: {} }"
+                        >
+                            @foreach($executedSeederHierarchy as $node)
+                                @include('seed-runs-v2::livewire.partials.executed-node', ['node' => $node, 'depth' => 0])
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+            @endif
         </div>
     @endif
 

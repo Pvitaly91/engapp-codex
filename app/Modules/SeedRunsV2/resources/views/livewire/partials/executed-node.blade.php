@@ -49,8 +49,14 @@
         $dataProfile = $node['data_profile'] ?? [];
         $recentOrdinal = $recentSeedRunOrdinals[$seedRunId] ?? null;
         $theoryTarget = $seedRun['theory_target'] ?? null;
+        $promptTheoryTarget = $seedRun['prompt_theory_target'] ?? null;
         $testTarget = $seedRun['test_target'] ?? null;
         $relatedLocalizations = collect($seedRun['related_localizations'] ?? []);
+        $relatedLocalizationPreview = $relatedLocalizations->take(3);
+        $relatedLocalizationOverflow = max(0, $relatedLocalizations->count() - $relatedLocalizationPreview->count());
+        $pendingLocalizations = collect($seedRun['pending_localizations'] ?? []);
+        $pendingLocalizationPreview = $pendingLocalizations->take(3);
+        $pendingLocalizationOverflow = max(0, $pendingLocalizations->count() - $pendingLocalizationPreview->count());
         
         // Get delete button text from data profile
         $deleteButtonText = $dataProfile['delete_button'] ?? __('Видалити з даними');
@@ -62,6 +68,7 @@
             wire:key="executed-item-{{ $seedRunId ?: $className }}"
             class="space-y-2"
             style="margin-left: {{ max(0, $depth) * 1.5 }}rem"
+            x-data="{ relatedLocalizationsExpanded: false, pendingLocalizationsExpanded: false }"
         >
             <div class="flex flex-col gap-3">
                 {{-- Seeder info --}}
@@ -98,6 +105,175 @@
                         </span>
                     @endif
                 </div>
+
+                @if($promptTheoryTarget)
+                    <div class="flex flex-wrap items-center gap-2 text-xs">
+                        <span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 font-semibold text-emerald-700 ring-1 ring-emerald-200">
+                            {{ $promptTheoryTarget['label'] ?? 'Пов’язана сторінка теорії' }}
+                        </span>
+                        <a href="{{ $promptTheoryTarget['url'] }}"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="text-sm font-medium text-emerald-700 underline decoration-emerald-300 underline-offset-2 hover:text-emerald-900 break-all">
+                            {{ $promptTheoryTarget['title'] ?? $promptTheoryTarget['url'] }}
+                        </a>
+                    </div>
+                @endif
+
+                @if($pendingLocalizations->isNotEmpty())
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <button
+                                type="button"
+                                @click="pendingLocalizationsExpanded = !pendingLocalizationsExpanded"
+                                class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 transition hover:bg-emerald-100"
+                            >
+                                <i class="fa-solid fa-chevron-right text-[10px] transition-transform" :class="{ 'rotate-90': pendingLocalizationsExpanded }"></i>
+                                <span x-show="!pendingLocalizationsExpanded">Показати невиконані локалізації ({{ $pendingLocalizations->count() }})</span>
+                                <span x-show="pendingLocalizationsExpanded" style="display: none;">Сховати невиконані локалізації ({{ $pendingLocalizations->count() }})</span>
+                            </button>
+
+                            @foreach($pendingLocalizationPreview as $localization)
+                                <span class="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-800">
+                                    {{ $localization['locale_label'] ?? 'N/A' }}
+                                </span>
+                            @endforeach
+
+                            @if($pendingLocalizationOverflow > 0)
+                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">
+                                    +{{ $pendingLocalizationOverflow }}
+                                </span>
+                            @endif
+                        </div>
+
+                        <div class="space-y-2 rounded-lg border border-emerald-100 bg-emerald-50/70 px-3 py-2" x-show="pendingLocalizationsExpanded" x-collapse>
+                            <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                                <p class="text-[11px] font-medium text-emerald-800">
+                                    Знайдено {{ $pendingLocalizations->count() }} невиконаних локалізацій для цього сидера.
+                                </p>
+                                <button
+                                    type="button"
+                                    wire:click="confirmRunPendingLocalizations('{{ addslashes($className) }}', '{{ addslashes($displayName) }}')"
+                                    class="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-emerald-600 text-white text-[11px] font-medium rounded-md hover:bg-emerald-500 transition"
+                                >
+                                    <i class="fa-solid fa-play"></i>
+                                    Виконати локалізації
+                                </button>
+                            </div>
+
+                            @foreach($pendingLocalizations as $localization)
+                                @php
+                                    $pendingLocalizationName = $localization['display_name'] ?? ($localization['class_name'] ?? 'Unknown localization');
+                                    $pendingLocalizationDisplayBasename = $localization['display_basename']
+                                        ?? class_basename($localization['class_name'] ?? $pendingLocalizationName);
+                                @endphp
+                                <div class="rounded-md border border-emerald-100 bg-white/90 px-3 py-2">
+                                    <div class="flex flex-wrap items-center gap-2 text-xs">
+                                        <span class="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-800">
+                                            {{ $localization['locale_label'] ?? 'N/A' }}
+                                        </span>
+                                        <span class="font-medium text-slate-700 break-all">
+                                            {{ $pendingLocalizationDisplayBasename }}
+                                        </span>
+                                        <span class="text-slate-500">
+                                            {{ $localization['type_label'] ?? 'Локалізація' }}
+                                        </span>
+                                    </div>
+                                    @if($pendingLocalizationName !== '' && $pendingLocalizationName !== $pendingLocalizationDisplayBasename)
+                                        <p class="mt-1 break-all text-[11px] text-slate-500">
+                                            {{ $pendingLocalizationName }}
+                                        </p>
+                                    @endif
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+
+                @if($relatedLocalizations->isNotEmpty())
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <button
+                                type="button"
+                                @click="relatedLocalizationsExpanded = !relatedLocalizationsExpanded"
+                                class="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 transition hover:bg-sky-100"
+                            >
+                                <i class="fa-solid fa-chevron-right text-[10px] transition-transform" :class="{ 'rotate-90': relatedLocalizationsExpanded }"></i>
+                                <span x-show="!relatedLocalizationsExpanded">Показати виконані локалізації ({{ $relatedLocalizations->count() }})</span>
+                                <span x-show="relatedLocalizationsExpanded" style="display: none;">Сховати виконані локалізації ({{ $relatedLocalizations->count() }})</span>
+                            </button>
+
+                            @foreach($relatedLocalizationPreview as $localization)
+                                <span class="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 text-[11px] font-semibold text-sky-800">
+                                    {{ $localization['locale_label'] ?? 'N/A' }}
+                                </span>
+                            @endforeach
+
+                            @if($relatedLocalizationOverflow > 0)
+                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">
+                                    +{{ $relatedLocalizationOverflow }}
+                                </span>
+                            @endif
+                        </div>
+
+                        <div class="space-y-2 rounded-lg border border-sky-100 bg-sky-50/70 px-3 py-2" x-show="relatedLocalizationsExpanded" x-collapse>
+                            @foreach($relatedLocalizations as $localization)
+                                @php
+                                    $localizationName = $localization['display_name'] ?? ($localization['class_name'] ?? 'Unknown localization');
+                                    $localizationDisplayBasename = $localization['display_basename']
+                                        ?? class_basename($localization['class_name'] ?? $localizationName);
+                                @endphp
+                                <div class="rounded-md border border-sky-100 bg-white/90 px-3 py-2">
+                                    <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="min-w-0">
+                                            <div class="flex flex-wrap items-center gap-2 text-xs">
+                                                <span class="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 font-semibold text-sky-800">
+                                                    {{ $localization['locale_label'] ?? 'N/A' }}
+                                                </span>
+                                                <span class="font-medium text-slate-700 break-all">
+                                                    {{ $localizationDisplayBasename }}
+                                                </span>
+                                                <span class="text-slate-500">
+                                                    {{ $localization['type_label'] ?? 'Локалізація' }}
+                                                </span>
+                                            </div>
+                                            @if($localizationName !== '' && $localizationName !== $localizationDisplayBasename)
+                                                <p class="mt-1 break-all text-[11px] text-slate-500">
+                                                    {{ $localizationName }}
+                                                </p>
+                                            @endif
+                                            @if(!empty($localization['ran_at']))
+                                                <p class="mt-1 text-[11px] text-slate-500">
+                                                    Останній запуск: {{ $localization['ran_at'] }}
+                                                </p>
+                                            @endif
+                                        </div>
+
+                                        <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+                                            <button
+                                                type="button"
+                                                wire:click="confirmRefreshSeeder({{ (int) ($localization['seed_run_id'] ?? 0) }}, '{{ addslashes($localizationName) }}')"
+                                                class="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-blue-600 text-white text-[11px] font-medium rounded-md hover:bg-blue-500 transition"
+                                            >
+                                                <i class="fa-solid fa-rotate"></i>
+                                                Оновити
+                                            </button>
+
+                                            <button
+                                                type="button"
+                                                wire:click="confirmDeleteLocalizationFromDatabase({{ (int) ($localization['seed_run_id'] ?? 0) }}, '{{ addslashes($localizationName) }}')"
+                                                class="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-red-600 text-white text-[11px] font-medium rounded-md hover:bg-red-500 transition"
+                                            >
+                                                <i class="fa-solid fa-database"></i>
+                                                Видалити з БД
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
 
                 {{-- Action buttons --}}
                 <div class="flex flex-wrap gap-2">
@@ -188,68 +364,6 @@
                     </button>
                 </div>
 
-                @if($relatedLocalizations->isNotEmpty())
-                    <div class="rounded-lg border border-sky-200 bg-sky-50/80 p-3 space-y-3">
-                        <div>
-                            <p class="text-xs font-semibold uppercase tracking-wide text-sky-800">
-                                Виконані локалізації
-                            </p>
-                            <p class="text-[11px] text-sky-700">
-                                Доступно {{ $relatedLocalizations->count() }} записів локалізацій.
-                            </p>
-                        </div>
-
-                        <div class="space-y-2">
-                            @foreach($relatedLocalizations as $localization)
-                                @php
-                                    $localizationName = $localization['display_name'] ?? ($localization['class_name'] ?? 'Unknown localization');
-                                @endphp
-                                <div class="rounded-md border border-sky-100 bg-white/90 px-3 py-2">
-                                    <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-                                        <div class="min-w-0">
-                                            <div class="flex flex-wrap items-center gap-2 text-xs">
-                                                <span class="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 font-semibold text-sky-800">
-                                                    {{ $localization['locale_label'] ?? 'N/A' }}
-                                                </span>
-                                                <span class="font-medium text-slate-700">
-                                                    {{ $localization['type_label'] ?? 'Локалізація' }}
-                                                </span>
-                                            </div>
-                                            <p class="mt-1 break-all text-xs text-slate-600">
-                                                {{ $localizationName }}
-                                            </p>
-                                            @if(!empty($localization['ran_at']))
-                                                <p class="mt-1 text-[11px] text-slate-500">
-                                                    Останній запуск: {{ $localization['ran_at'] }}
-                                                </p>
-                                            @endif
-                                        </div>
-
-                                        <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-                                            <button
-                                                type="button"
-                                                wire:click="confirmRefreshSeeder({{ (int) ($localization['seed_run_id'] ?? 0) }}, '{{ addslashes($localizationName) }}')"
-                                                class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-md hover:bg-blue-500 transition"
-                                            >
-                                                <i class="fa-solid fa-rotate"></i>
-                                                Оновити
-                                            </button>
-
-                                            <button
-                                                type="button"
-                                                wire:click="confirmDeleteLocalizationFromDatabase({{ (int) ($localization['seed_run_id'] ?? 0) }}, '{{ addslashes($localizationName) }}')"
-                                                class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition"
-                                            >
-                                                <i class="fa-solid fa-database"></i>
-                                                Видалити з БД
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
             </div>
         </div>
     @endif

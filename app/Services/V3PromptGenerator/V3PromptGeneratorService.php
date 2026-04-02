@@ -215,6 +215,7 @@ class V3PromptGeneratorService
             $this->savedTestUuidRequirement(),
             '- If this namespace pattern uses a thin PHP wrapper seeder plus a JSON definition file, create both.',
             '- If nearby V3 seeders also rely on localization JSON files under `database/seeders/V3/localizations/...`, create or update the correct companion files instead of inventing custom runtime logic.',
+            $this->singlePromptQuestionsOnlyLocalizationRequirement(),
             $this->formatTheoryPageLinkageRequirement($source),
             '- Keep the final result fully compatible with the current Laravel V3 seeding system.',
             '',
@@ -225,7 +226,8 @@ class V3PromptGeneratorService
             '- Use the topic source below as the pedagogical source of truth for coverage and terminology.',
             '- Reuse the project’s existing V3 question JSON structure, marker format, options format, hints, explanations, tag organization, and source naming style.',
             '- Keep every learner-facing `question` and every `variants` entry in English only. Use Ukrainian only inside `localizations.uk`.',
-            '- Make `localizations.uk.hints` and `localizations.uk.explanations` genuinely instructional: explain the rule, mention the clue in the sentence, and clarify why distractors are wrong instead of using very short labels.',
+            '- Make `localizations.uk.hints` and `localizations.uk.explanations` genuinely instructional: explain the rule, mention the clue in the sentence, and clarify why distractors are wrong instead of using very short labels. Hints must guide the learner without revealing the final answer.',
+            ...$this->detailedLocalizationQualityRules(),
             '- At the end, show: 1) changed files, 2) a short summary, 3) a per-level question count check.',
         ];
 
@@ -363,8 +365,10 @@ TEXT;
             '- Ensure every marker answer is present in its options list.',
             '- Keep source keys and tag keys stable and reusable.',
             '- Write every `question` and every `variants` entry in English only. Do not put Ukrainian translations into `variants`.',
-            '- Keep `localizations.uk.hints` in Ukrainian, but make them detailed: use complete teaching sentences that name the rule and point to the clue in the sentence.',
+            $this->llmJsonQuestionsOnlyLocalizationRequirement(),
+            '- Keep `localizations.uk.hints` in Ukrainian, but make them detailed: use complete teaching sentences that name the rule and point to the clue in the sentence, while never revealing the exact correct answer or directly naming the correct option.',
             '- Make `localizations.uk.explanations` more detailed for every option: explain in Ukrainian why an option is correct or incorrect by referring to the plural rule, irregular form, or agreement pattern in context.',
+            ...$this->detailedLocalizationQualityRules(),
             $this->formatTheoryPageLinkageRequirement($source, true),
             '- Make the JSON self-consistent and ready to be saved as a V3 definition file.',
         ]);
@@ -406,7 +410,9 @@ TEXT;
             '- Real question contract: each question normally carries `id`, `question`, `source`, `level`, `markers`, `localizations`, `tag_keys`, `variants`; each `markers.<marker>` object uses `answer`, `options`, optional `verb_hint`, optional `gap_tags`.',
             '- Real localization contract: under `localizations.<locale>`, use `hints` as an array and `explanations.<marker>.<option>` as per-option feedback text.',
             '- Keep all learner-facing question stems in English: both `question` and every entry in `variants` should stay English-only, while Ukrainian support belongs in `localizations.uk`.',
-            '- Prefer detailed teaching feedback over very short labels: `hints` should explain the rule and the sentence clue, and `explanations` should explain why each option is right or wrong.',
+            '- For AI-oriented `...V3QuestionsOnlySeeder` targets, the repository may later split Ukrainian teaching feedback into companion localization JSON files, but the generated content still needs rich `localizations.uk.hints` and `localizations.uk.explanations`.',
+            '- Prefer detailed teaching feedback over very short labels: `hints` should explain the rule and the sentence clue, may include a similar example, and must not reveal the final correct answer or explicitly identify the correct option; `explanations` should explain why each option is right or wrong.',
+            ...$this->detailedLocalizationQualityRules(),
             '- Real saved-test contract: if you include `saved_test`, it must define `uuid`, `slug`, and `name`; it may also define `description`, `question_uuids`, and `filters`.',
             '- Real saved-test rules from the loader: `saved_test.uuid` must be at most 36 characters; `filters.seeder_classes` must include `' . ($preview['fully_qualified_class_name'] ?? '') . '`; `filters.num_questions` should equal ' . array_sum($distribution) . '; and `saved_test.question_uuids`, if present, must match the generated question UUID set in the same order.',
             '- Minimal `saved_test` skeleton example:',
@@ -473,11 +479,13 @@ TEXT;
             '- First inspect the real V3 implementation in `database/seeders/V3`, especially `database/seeders/V3/Concerns/JsonTestSeeder.php`, and compare it with the JSON contract in `app/Support/Database/JsonTestSeeder.php`.',
             '- Do not invent a new schema, new loader logic, or a custom one-off seeder implementation.',
             '- Preserve the provided JSON question set as the canonical content. Do not rewrite or rebalance it unless a small technical compatibility fix is required.',
-            '- If the provided JSON uses Ukrainian translations inside `variants` or has overly terse `localizations.uk.hints` / `localizations.uk.explanations`, normalize those fields to the local V3 standard while preserving the same question set, ordering, and level counts.',
+            '- If the provided JSON uses Ukrainian translations inside `variants`, reveals the final answer inside `localizations.uk.hints`, or has overly terse `localizations.uk.hints` / `localizations.uk.explanations`, normalize those fields to the local V3 standard while preserving the same question set, ordering, and level counts.',
+            $this->codexSeederQuestionsOnlyLocalizationRequirement(),
             '- Ensure the final `seeder.class`, namespace, wrapper seeder file path, and JSON definition path are all consistent.',
             '- The final integrated result must persist a real `SavedGrammarTest` entry with ordered question links so the public theory page can surface this test.',
             $this->savedTestUuidRequirement(true),
             '- If neighboring V3 seeders in this namespace also use localization JSON files, wire them correctly instead of introducing ad-hoc logic.',
+            ...$this->detailedLocalizationQualityRules(),
             $this->formatTheoryPageLinkageRequirement($source),
             '- Verify the per-level counts before finishing.',
             '',
@@ -593,6 +601,35 @@ TEXT;
             array_keys($distribution),
             array_values($distribution)
         ));
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    protected function detailedLocalizationQualityRules(): array
+    {
+        return [
+            '- Write at least two Ukrainian `hints` for every question: one must name the exact grammar or spelling rule, and another must point to the concrete clue in that sentence by quoting the actual trigger word(s) or structure.',
+            '- Never put the exact gap answer, the full correct option text, or wording like "правильна відповідь" inside `hints`; hints may include a similar example or a leading clue, but the learner must still infer the answer independently.',
+            '- Do not use vague clue phrasing like "слова на кшталт ..."; name the real cue from the sentence such as `two`, `many`, `are`, the noun ending, or the surrounding agreement pattern.',
+            '- For every option inside `explanations`, write 1-2 full Ukrainian teaching sentences that identify the exact error type or success reason, such as singular instead of plural, wrong `-es` spelling, `y -> ies`, `f/fe -> ves`, irregular plural, zero plural, singular-only/plural-only noun, or agreement mismatch.',
+            '- Avoid generic repeated templates like "не підходить, бо потрібна правильна форма"; vary the wording and tie each hint or explanation to the actual noun pattern and sentence context.',
+        ];
+    }
+
+    protected function singlePromptQuestionsOnlyLocalizationRequirement(): string
+    {
+        return '- For AI-oriented `...V3QuestionsOnlySeeder` targets, `QuestionsOnly` does not mean omitting teaching feedback: keep the base definition question-focused if that is the local pattern, but still generate companion localization JSON files with detailed `hints` and per-option `explanations`.';
+    }
+
+    protected function llmJsonQuestionsOnlyLocalizationRequirement(): string
+    {
+        return '- For AI-oriented `...V3QuestionsOnlySeeder` targets, include detailed `localizations.uk.hints` and `localizations.uk.explanations` in this JSON even if the repository later stores them in companion localization JSON files.';
+    }
+
+    protected function codexSeederQuestionsOnlyLocalizationRequirement(): string
+    {
+        return '- For AI-oriented `...V3QuestionsOnlySeeder` targets, if the provided JSON omits Ukrainian teaching feedback or keeps it terse, create or enrich the companion `database/seeders/V3/localizations/uk/...` JSON so every question gets detailed `hints` and per-option `explanations` without changing the question set.';
     }
 
     protected function savedTestUuidRequirement(bool $integrationMode = false): string

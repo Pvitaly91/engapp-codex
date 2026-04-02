@@ -71,7 +71,7 @@ class V3PromptGeneratorController extends Controller
             'manual_topic' => old('manual_topic', (string) $request->input('manual_topic', '')),
             'external_url' => old('external_url', (string) $request->input('external_url', '')),
             'site_domain' => old('site_domain', (string) $request->input('site_domain', 'gramlyze.com')),
-            'target_namespace' => old('target_namespace', (string) $request->input('target_namespace', 'AI\\ChatGptPro')),
+            'target_namespace' => old('target_namespace', (string) $request->input('target_namespace', 'AI')),
             'levels' => old('levels', $request->input('levels', ['A1'])),
             'questions_per_level' => old('questions_per_level', $request->input('questions_per_level', 5)),
         ];

@@ -213,6 +213,132 @@ class SeedRunRelatedLocalizationsTest extends TestCase
         $this->assertSame('Локалізація сторінки', $items->first()['type_label']);
     }
 
+    public function test_controller_builds_pending_localization_map_for_executed_seeders(): void
+    {
+        $controller = new class(
+            app(QuestionDeletionService::class),
+            app(SeederTestTargetResolver::class),
+            app(JsonTestLocalizationManager::class),
+            app(JsonPageLocalizationManager::class),
+        ) extends SeedRunController {
+            public function exposePendingLocalizationMap(iterable $targetSeeders, iterable $executedClassNames): Collection
+            {
+                return $this->buildPendingLocalizationMap($targetSeeders, $executedClassNames);
+            }
+
+            protected function virtualLocalizationClasses(): array
+            {
+                return [
+                    'Database\\Seeders\\V3\\Localizations\\En\\ExampleLocalizationSeeder',
+                    'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder',
+                ];
+            }
+
+            protected function virtualLocalizationType(string $className): ?string
+            {
+                return match ($className) {
+                    'Database\\Seeders\\V3\\Localizations\\En\\ExampleLocalizationSeeder',
+                    'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder' => 'question_localizations',
+                    default => null,
+                };
+            }
+
+            protected function localizationTargetSeederClass(string $className): ?string
+            {
+                return match ($className) {
+                    'Database\\Seeders\\V3\\Localizations\\En\\ExampleLocalizationSeeder',
+                    'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder' => 'Database\\Seeders\\V3\\ExampleSeeder',
+                    default => null,
+                };
+            }
+
+            protected function localizationDescriptorForClass(string $className): ?array
+            {
+                return match ($className) {
+                    'Database\\Seeders\\V3\\Localizations\\En\\ExampleLocalizationSeeder' => ['locale' => 'en'],
+                    'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder' => ['locale' => 'pl'],
+                    default => null,
+                };
+            }
+        };
+
+        $map = $controller->exposePendingLocalizationMap([
+            'Database\\Seeders\\V3\\ExampleSeeder',
+        ], [
+            'Database\\Seeders\\V3\\ExampleSeeder',
+            'Database\\Seeders\\V3\\Localizations\\En\\ExampleLocalizationSeeder',
+        ]);
+
+        $items = $map->get('Database\\Seeders\\V3\\ExampleSeeder');
+
+        $this->assertCount(1, $items);
+        $this->assertSame('PL', $items->first()['locale_label']);
+        $this->assertSame('Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder', $items->first()['class_name']);
+    }
+
+    public function test_seed_runs_v2_service_builds_pending_localization_map_for_executed_seeders(): void
+    {
+        $service = new class(
+            app(QuestionDeletionService::class),
+            app(SeederTestTargetResolver::class),
+            app(JsonTestLocalizationManager::class),
+            app(JsonPageLocalizationManager::class),
+        ) extends SeedRunsService {
+            public function exposePendingLocalizationMap(iterable $targetSeeders, iterable $executedClassNames): Collection
+            {
+                return $this->buildPendingLocalizationMap($targetSeeders, $executedClassNames);
+            }
+
+            protected function virtualLocalizationClasses(): array
+            {
+                return [
+                    'Database\\Seeders\\Page_V3\\Localizations\\En\\ExamplePageLocalizationSeeder',
+                    'Database\\Seeders\\Page_V3\\Localizations\\Uk\\ExamplePageLocalizationSeeder',
+                ];
+            }
+
+            protected function virtualLocalizationType(string $className): ?string
+            {
+                return match ($className) {
+                    'Database\\Seeders\\Page_V3\\Localizations\\En\\ExamplePageLocalizationSeeder',
+                    'Database\\Seeders\\Page_V3\\Localizations\\Uk\\ExamplePageLocalizationSeeder' => 'page_localizations',
+                    default => null,
+                };
+            }
+
+            protected function localizationTargetSeederClass(string $className): ?string
+            {
+                return match ($className) {
+                    'Database\\Seeders\\Page_V3\\Localizations\\En\\ExamplePageLocalizationSeeder',
+                    'Database\\Seeders\\Page_V3\\Localizations\\Uk\\ExamplePageLocalizationSeeder' => 'Database\\Seeders\\Page_V3\\ExampleSeeder',
+                    default => null,
+                };
+            }
+
+            protected function localizationDescriptorForClass(string $className): ?array
+            {
+                return match ($className) {
+                    'Database\\Seeders\\Page_V3\\Localizations\\En\\ExamplePageLocalizationSeeder' => ['locale' => 'en'],
+                    'Database\\Seeders\\Page_V3\\Localizations\\Uk\\ExamplePageLocalizationSeeder' => ['locale' => 'uk'],
+                    default => null,
+                };
+            }
+        };
+
+        $map = $service->exposePendingLocalizationMap([
+            (object) ['class_name' => 'Database\\Seeders\\Page_V3\\ExampleSeeder'],
+        ], [
+            'Database\\Seeders\\Page_V3\\ExampleSeeder',
+            'Database\\Seeders\\Page_V3\\Localizations\\En\\ExamplePageLocalizationSeeder',
+        ]);
+
+        $items = $map->get('Database\\Seeders\\Page_V3\\ExampleSeeder');
+
+        $this->assertCount(1, $items);
+        $this->assertSame('UK', $items->first()['locale_label']);
+        $this->assertSame('Локалізація сторінки', $items->first()['type_label']);
+    }
+
     public function test_seed_runs_v2_hierarchy_keeps_related_localizations_in_seed_run_payload(): void
     {
         $service = new class(
@@ -247,6 +373,15 @@ class SeedRunRelatedLocalizationsTest extends TestCase
                 ],
             ],
             'related_localizations_count' => 1,
+            'pending_localizations' => [
+                [
+                    'class_name' => 'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder',
+                    'display_name' => 'V3\\Localizations\\Pl\\ExampleLocalizationSeeder',
+                    'locale_label' => 'PL',
+                    'type_label' => 'Локалізація питань',
+                ],
+            ],
+            'pending_localizations_count' => 1,
         ];
 
         $hierarchy = $service->exposeBuildSeederHierarchy(collect([$seedRun]));
@@ -256,6 +391,9 @@ class SeedRunRelatedLocalizationsTest extends TestCase
         $this->assertSame(1, $node['seed_run']['related_localizations_count']);
         $this->assertCount(1, $node['seed_run']['related_localizations']);
         $this->assertSame('EN', $node['seed_run']['related_localizations'][0]['locale_label']);
+        $this->assertSame(1, $node['seed_run']['pending_localizations_count']);
+        $this->assertCount(1, $node['seed_run']['pending_localizations']);
+        $this->assertSame('PL', $node['seed_run']['pending_localizations'][0]['locale_label']);
     }
 
     public function test_seed_runs_v2_pending_hierarchy_keeps_available_localizations_in_pending_payload(): void
@@ -327,6 +465,14 @@ class SeedRunRelatedLocalizationsTest extends TestCase
                             'ran_at' => '2026-04-01 11:00:00',
                         ],
                     ],
+                    'pending_localizations' => [
+                        [
+                            'class_name' => 'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder',
+                            'display_name' => 'V3\\Localizations\\Pl\\ExampleLocalizationSeeder',
+                            'locale_label' => 'PL',
+                            'type_label' => 'Локалізація питань',
+                        ],
+                    ],
                 ],
                 'data_profile' => ['type' => 'questions'],
             ],
@@ -335,7 +481,10 @@ class SeedRunRelatedLocalizationsTest extends TestCase
             'activeSeederTab' => 'main',
         ])->render();
 
-        $this->assertStringContainsString('Виконані локалізації', $html);
+        $this->assertStringContainsString('Показати невиконані локалізації (1)', $html);
+        $this->assertStringContainsString('Показати виконані локалізації (1)', $html);
+        $this->assertStringContainsString('data-localizations-toggle', $html);
+        $this->assertStringContainsString('Виконати локалізації', $html);
         $this->assertStringContainsString('Видалити з БД', $html);
         $this->assertStringContainsString('data-reload-after-success="true"', $html);
     }
@@ -360,6 +509,14 @@ class SeedRunRelatedLocalizationsTest extends TestCase
                             'ran_at' => '2026-04-01 11:00:00',
                         ],
                     ],
+                    'pending_localizations' => [
+                        [
+                            'class_name' => 'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder',
+                            'display_name' => 'V3\\Localizations\\Pl\\ExampleLocalizationSeeder',
+                            'locale_label' => 'PL',
+                            'type_label' => 'Локалізація питань',
+                        ],
+                    ],
                 ],
                 'data_profile' => ['type' => 'questions'],
             ],
@@ -368,8 +525,11 @@ class SeedRunRelatedLocalizationsTest extends TestCase
             'searchQuery' => '',
         ])->render();
 
-        $this->assertStringContainsString('Виконані локалізації', $html);
+        $this->assertStringContainsString('Показати невиконані локалізації (1)', $html);
+        $this->assertStringContainsString('Показати виконані локалізації (1)', $html);
+        $this->assertStringContainsString('confirmRunPendingLocalizations', $html);
         $this->assertStringContainsString('confirmDeleteLocalizationFromDatabase', $html);
+        $this->assertStringContainsString('Виконати локалізації', $html);
         $this->assertStringContainsString('Видалити з БД', $html);
     }
 
@@ -400,7 +560,8 @@ class SeedRunRelatedLocalizationsTest extends TestCase
             'activeSeederTab' => 'main',
         ])->render();
 
-        $this->assertStringContainsString('Існуючі локалізації', $html);
+        $this->assertStringContainsString('Показати локалізації (1)', $html);
+        $this->assertStringContainsString('data-localizations-toggle', $html);
         $this->assertStringContainsString('V3\\Localizations\\En\\ExampleLocalizationSeeder', $html);
         $this->assertStringContainsString('Локалізація питань', $html);
     }
@@ -431,7 +592,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
             'depth' => 0,
         ])->render();
 
-        $this->assertStringContainsString('Існуючі локалізації', $html);
+        $this->assertStringContainsString('Показати локалізації (1)', $html);
         $this->assertStringContainsString('Page_V3\\Localizations\\En\\ExamplePageLocalizationSeeder', $html);
         $this->assertStringContainsString('Локалізація сторінки', $html);
     }

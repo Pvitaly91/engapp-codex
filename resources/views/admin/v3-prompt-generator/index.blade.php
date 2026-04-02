@@ -215,7 +215,7 @@
                                                 <option :value="option" x-text="option"></option>
                                             </template>
                                         </select>
-                                        <p class="mt-2 text-xs text-slate-500">За замовчуванням доступні AI-папки: <code>AI\ChatGpt</code>, <code>AI\ChatGptPro</code>, <code>AI\Gemini</code>, <code>AI\Claude</code>. Також у списку є поточні namespace з репозиторію.</p>
+                                        <p class="mt-2 text-xs text-slate-500">У списку є базовий <code>AI</code>, щоб через suffix задати свій namespace, а також готові AI-папки: <code>AI\ChatGpt</code>, <code>AI\ChatGptPro</code>, <code>AI\Gemini</code>, <code>AI\Claude</code>. Також у списку є поточні namespace з репозиторію.</p>
                                     </div>
 
                                     <div>
@@ -227,7 +227,7 @@
                                             placeholder="Наприклад: Grammar\\PluralNouns"
                                             class="w-full rounded-xl border-slate-300 text-sm shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                         >
-                                        <p class="mt-2 text-xs text-slate-500">Опційно. Наприклад, suffix <code>Grammar\PluralNouns</code> перетворить <code>AI\ChatGptPro</code> на <code>AI\ChatGptPro\Grammar\PluralNouns</code>.</p>
+                                        <p class="mt-2 text-xs text-slate-500">Опційно. Наприклад, suffix <code>Grammar\PluralNouns</code> перетворить <code>AI\ChatGptPro</code> на <code>AI\ChatGptPro\Grammar\PluralNouns</code>. Якщо в base обрати <code>AI</code>, suffix <code>DeepSeek\Grammar\PluralNouns</code> дасть <code>AI\DeepSeek\Grammar\PluralNouns</code>.</p>
                                     </div>
 
                                     <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
@@ -448,10 +448,10 @@
                 sourceType: config.form.source_type || 'theory_page',
                 generationMode: config.form.generation_mode || 'single',
                 promptAMode: config.form.prompt_a_mode || 'repository_connected',
-                targetNamespace: config.form.target_namespace || 'AI\\ChatGptPro',
+                targetNamespace: config.form.target_namespace || 'AI',
                 namespaceSuggestions: Array.isArray(config.namespaceSuggestions) ? config.namespaceSuggestions : [],
-                namespacePresets: ['AI\\ChatGpt', 'AI\\ChatGptPro', 'AI\\Gemini', 'AI\\Claude'],
-                selectedNamespaceBase: 'AI\\ChatGptPro',
+                namespacePresets: ['AI', 'AI\\ChatGpt', 'AI\\ChatGptPro', 'AI\\Gemini', 'AI\\Claude'],
+                selectedNamespaceBase: 'AI',
                 namespaceSuffix: '',
                 siteDomain: config.form.site_domain || 'gramlyze.com',
                 manualTopic: config.form.manual_topic || '',
@@ -503,7 +503,7 @@
                 },
 
                 syncNamespaceSelection() {
-                    const normalized = this.normalizeNamespaceValue(this.targetNamespace || 'AI\\ChatGptPro');
+                    const normalized = this.normalizeNamespaceValue(this.targetNamespace || 'AI');
                     const match = [...this.namespaceBaseCandidates()]
                         .sort((left, right) => right.length - left.length)
                         .find((option) => normalized === option || normalized.startsWith(`${option}\\`));
@@ -517,7 +517,7 @@
                         return;
                     }
 
-                    this.selectedNamespaceBase = normalized || 'AI\\ChatGptPro';
+                    this.selectedNamespaceBase = normalized || 'AI';
                     this.namespaceSuffix = '';
                 },
 
@@ -633,7 +633,7 @@
                 },
 
                 normalizedNamespace() {
-                    const base = this.normalizeNamespaceValue(this.selectedNamespaceBase || 'AI\\ChatGptPro');
+                    const base = this.normalizeNamespaceValue(this.selectedNamespaceBase || 'AI');
                     const suffix = this.normalizeNamespaceValue(this.namespaceSuffix);
 
                     if (!suffix) {
