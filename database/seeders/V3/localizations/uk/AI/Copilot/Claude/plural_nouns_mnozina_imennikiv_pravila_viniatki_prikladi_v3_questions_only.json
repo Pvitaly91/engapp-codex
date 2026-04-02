@@ -1,0 +1,1527 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\\\Seeders\\\\V3\\\\Localizations\\\\Uk\\\\AI\\\\Copilot\\\\Claude\\\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\Claude\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+    "definition": "AI/Copilot/Claude/plural_nouns_mnozina_imennikiv_pravila_viniatki_prikladi_v3_questions_only",
+    "definition_path": "database/seeders/V3/definitions/AI/Copilot/Claude/plural_nouns_mnozina_imennikiv_pravila_viniatki_prikladi_v3_questions_only.json"
+  },
+  "locale": "uk",
+  "hint_provider": "claude",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "Правило: більшість іменників утворюють множину додаванням **-s**.",
+        "У реченні є числівник **two**, що вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "books": "✅ Правильно! Іменник «book» утворює множину додаванням -s → books.",
+          "book": "❌ Це форма однини. Числівник «two» вимагає множини.",
+          "bookes": "❌ Закінчення -es не потрібне для слів на приголосний + голосний."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Правило: додайте **-s** до більшості іменників для утворення множини.",
+        "Числівник **three** показує, що потрібна множина."
+      ],
+      "explanations": {
+        "a1": {
+          "cats": "✅ Правильно! cat + s = cats — стандартне правило множини.",
+          "cat": "❌ Однина не підходить після числівника «three».",
+          "cates": "❌ Такої форми не існує; правильно — cats."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Стандартне правило: іменник + **-s** = множина.",
+        "Конструкція **there are** + числівник **five** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "pens": "✅ Правильно! pen → pens — звичайна множина з -s.",
+          "pen": "❌ Форма однини не узгоджується з «five» та «are».",
+          "penes": "❌ Неправильне закінчення; pen просто додає -s."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Дієслово **are** вказує на множину підмета.",
+        "Для іменника «dog» множина утворюється додаванням -s."
+      ],
+      "explanations": {
+        "a1": {
+          "dogs": "✅ Правильно! dog + s = dogs.",
+          "dog": "❌ Однина не узгоджується з «are».",
+          "doges": "❌ Форма «doges» не існує в англійській мові."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "Числівник **four** потребує іменника у множині.",
+        "Слово «apple» утворює множину за стандартним правилом."
+      ],
+      "explanations": {
+        "a1": {
+          "apples": "✅ Правильно! apple + s = apples.",
+          "apple": "❌ Однина; потрібна множина після «four».",
+          "applees": "❌ Подвійне -ee не використовується; правильно — apples."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Правило: якщо іменник закінчується на **-s**, додаємо **-es**.",
+        "Числівник **two** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "buses": "✅ Правильно! bus → buses — додаємо -es після -s.",
+          "bus": "❌ Це однина, а потрібна множина.",
+          "buss": "❌ Просто подвоєння -s неправильне; потрібно -es."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Правило: іменники на **-x** утворюють множину з **-es**.",
+        "Вказівний займенник **those** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "boxes": "✅ Правильно! box → boxes — після -x додаємо -es.",
+          "box": "❌ Однина не підходить після «those».",
+          "boxs": "❌ Неправильно; після -x потрібно -es, а не просто -s."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Правило: іменники на **-sh** отримують закінчення **-es**.",
+        "Дієслово **are** сигналізує про множину."
+      ],
+      "explanations": {
+        "a1": {
+          "dishes": "✅ Правильно! dish → dishes.",
+          "dish": "❌ Однина не узгоджується з «are».",
+          "dishs": "❌ Після -sh потрібно -es, а не -s."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Правило: слова на **-ch** утворюють множину з **-es**.",
+        "Числівник **two** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "sandwiches": "✅ Правильно! sandwich → sandwiches.",
+          "sandwich": "❌ Це однина; «two» вимагає множини.",
+          "sandwichs": "❌ Після -ch потрібно -es."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Іменники на **-ch** потребують закінчення **-es** у множині.",
+        "Числівник **three** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "watches": "✅ Правильно! watch → watches.",
+          "watch": "❌ Однина не підходить після «three».",
+          "watchs": "❌ Правильне закінчення — -es, а не -s."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "Правило: якщо перед **-y** приголосний, змінюємо **y → ies**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "babies": "✅ Правильно! baby → babies (y → ies після приголосного).",
+          "babys": "❌ Неправильно; після приголосного y змінюється на ies.",
+          "baby": "❌ Однина не узгоджується з «are»."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "Перед **-y** стоїть приголосний **l**, тому **y → ies**.",
+        "Слово **many** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "families": "✅ Правильно! family → families.",
+          "familys": "❌ Неправильне закінчення; потрібно ies.",
+          "family": "❌ Однина не підходить після «many»."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Правило y → ies: city закінчується на приголосний + y.",
+        "Слово **several** сигналізує про множину."
+      ],
+      "explanations": {
+        "a1": {
+          "cities": "✅ Правильно! city → cities.",
+          "citys": "❌ Коли перед y приголосний, пишемо ies.",
+          "city": "❌ Однина; «several» вимагає множини."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Правило: якщо перед **-y** голосний (**e**), просто додаємо **-s**.",
+        "Числівник **two** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "keys": "✅ Правильно! key → keys (голосний + y, тому просто -s).",
+          "keies": "❌ Зміна y → ies не потрібна після голосного.",
+          "keyes": "❌ Неправильна форма; просто keys."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "Перед **y** стоїть голосний **o**, тому додаємо тільки **-s**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "boys": "✅ Правильно! boy → boys.",
+          "boies": "❌ Після голосного + y не змінюємо y.",
+          "boyes": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Слово **child** має неправильну форму множини.",
+        "Дієслово **are** сигналізує про множину."
+      ],
+      "explanations": {
+        "a1": {
+          "children": "✅ Правильно! child → children — неправильна множина.",
+          "childs": "❌ Неправильно; child має особливу форму children.",
+          "childrens": "❌ Children вже множина, -s не потрібен."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "Слово **man** має неправильну множину: **men**.",
+        "Числівник **two** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "men": "✅ Правильно! man → men — неправильна форма.",
+          "mans": "❌ Неправильно; man не додає -s.",
+          "mens": "❌ Men вже є множиною."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Слово **woman** має неправильну множину.",
+        "Числівник **three** вимагає множини."
+      ],
+      "explanations": {
+        "a1": {
+          "women": "✅ Правильно! woman → women.",
+          "womans": "❌ Woman не додає -s.",
+          "womens": "❌ Women вже множина."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "Правило: іменники на **-o** після приголосного часто додають **-es**.",
+        "Слово **many** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "potatoes": "✅ Правильно! potato → potatoes.",
+          "potatos": "❌ Для potato правильно -es.",
+          "potato": "❌ Однина не підходить після «many»."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Слово **tomato** закінчується на приголосний + **o**, тому додаємо **-es**.",
+        "Слово **some** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "tomatoes": "✅ Правильно! tomato → tomatoes.",
+          "tomatos": "❌ Потрібно -es, а не -s.",
+          "tomato": "❌ Однина; «some» потребує множини."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "Правило: hero → heroes (додаємо -es).",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "heroes": "✅ Правильно! hero → heroes.",
+          "heros": "❌ Hero потребує -es.",
+          "hero": "❌ Однина не підходить."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "Виняток: **photo** — скорочене слово, тому просто **-s**.",
+        "Слово **many** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "photos": "✅ Правильно! photo → photos (виняток, бо скорочення).",
+          "photoes": "❌ Photo — виняток, додає тільки -s.",
+          "photo": "❌ Однина не підходить."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Виняток: **piano** — музичний термін, додає тільки **-s**.",
+        "Числівник **two** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "pianos": "✅ Правильно! piano → pianos.",
+          "pianoes": "❌ Piano — виняток.",
+          "piano": "❌ Потрібна множина."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Стандартне правило: egg + **-s** = eggs.",
+        "Слово **several** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "eggs": "✅ Правильно! egg → eggs.",
+          "eggies": "❌ Неправильна форма.",
+          "egges": "❌ Просто додаємо -s."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "Правило y → ies: перед y стоїть приголосний **r**.",
+        "Слово **some** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "strawberries": "✅ Правильно! strawberry → strawberries.",
+          "strawberrys": "❌ Після приголосного y → ies.",
+          "strawberry": "❌ Однина; потрібна множина."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "Butterfly закінчується на приголосний + y, тому y → ies.",
+        "Дієслово **flew** (past) з підметом у множині."
+      ],
+      "explanations": {
+        "a1": {
+          "butterflies": "✅ Правильно! butterfly → butterflies.",
+          "butterflys": "❌ Неправильне закінчення.",
+          "butterfly": "❌ Однина не підходить."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "Слово **foot** має неправильну множину: **feet**.",
+        "Дієслово **hurt** може бути і однина, і множина, але «my feet» — типовий вираз."
+      ],
+      "explanations": {
+        "a1": {
+          "feet": "✅ Правильно! foot → feet — неправильна форма.",
+          "foots": "❌ Foot не додає -s.",
+          "feets": "❌ Feet вже множина."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "Слово **tooth** має неправильну множину: **teeth**.",
+        "Контекст вказує на всі зуби (множина)."
+      ],
+      "explanations": {
+        "a1": {
+          "teeth": "✅ Правильно! tooth → teeth.",
+          "tooths": "❌ Tooth не додає -s.",
+          "teeths": "❌ Teeth вже множина."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "Слово **goose** має неправильну множину: **geese**.",
+        "Слово **several** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "geese": "✅ Правильно! goose → geese.",
+          "gooses": "❌ Goose не додає -s.",
+          "goose": "❌ Однина."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "Слово **sheep** однакове в однині й множині (zero plural).",
+        "Слово **many** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "sheep": "✅ Правильно! sheep → sheep (без змін).",
+          "sheeps": "❌ Sheep не змінюється у множині.",
+          "sheepes": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 31,
+      "hints": [
+        "Слово **fish** зазвичай однакове в однині й множині.",
+        "Числівник **three** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "fish": "✅ Правильно! fish → fish (зазвичай без змін).",
+          "fishes": "❌ Можливо в спец. контексті, але fish — стандарт.",
+          "fishs": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 32,
+      "hints": [
+        "Слово **mouse** має неправильну множину: **mice**.",
+        "Контекст припускає множину."
+      ],
+      "explanations": {
+        "a1": {
+          "mice": "✅ Правильно! mouse → mice.",
+          "mouses": "❌ Mouse не додає -s.",
+          "mices": "❌ Mice вже множина."
+        }
+      }
+    },
+    {
+      "id": 33,
+      "hints": [
+        "Стандартне правило: student + **-s**.",
+        "Слово **all** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "students": "✅ Правильно! student → students.",
+          "studentes": "❌ Просто -s.",
+          "student": "❌ Потрібна множина."
+        }
+      }
+    },
+    {
+      "id": 34,
+      "hints": [
+        "Стандартне правило множини: chair + -s.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "chairs": "✅ Правильно! chair → chairs.",
+          "chaires": "❌ Просто -s.",
+          "chair": "❌ Однина не узгоджується з «are»."
+        }
+      }
+    },
+    {
+      "id": 35,
+      "hints": [
+        "Cake закінчується на -e, тому просто додаємо -s.",
+        "Слово **several** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "cakes": "✅ Правильно! cake → cakes.",
+          "cakies": "❌ Неправильна форма.",
+          "cake": "❌ Однина."
+        }
+      }
+    },
+    {
+      "id": 36,
+      "hints": [
+        "Shell утворює множину за стандартним правилом.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "shells": "✅ Правильно! shell → shells.",
+          "shelles": "❌ Не потрібно -es.",
+          "shell": "❌ Однина не підходить."
+        }
+      }
+    },
+    {
+      "id": 37,
+      "hints": [
+        "Правило: іменники на **-f** змінюють **f → ves**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "leaves": "✅ Правильно! leaf → leaves (f → ves).",
+          "leafs": "❌ Неправильно; потрібно leaves.",
+          "leafes": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 38,
+      "hints": [
+        "Правило: knife → knives (fe → ves).",
+        "Контекст вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "knives": "✅ Правильно! knife → knives.",
+          "knifes": "❌ Неправильно; fe → ves.",
+          "knifs": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 39,
+      "hints": [
+        "Правило: wife → wives (fe → ves).",
+        "Слово **both** вказує на двох (множина)."
+      ],
+      "explanations": {
+        "a1": {
+          "wives": "✅ Правильно! wife → wives.",
+          "wifes": "❌ Неправильне закінчення.",
+          "wifs": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 40,
+      "hints": [
+        "Правило: thief → thieves (f → ves).",
+        "Дієслово **are** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "thieves": "✅ Правильно! thief → thieves.",
+          "thiefs": "❌ Неправильно.",
+          "thiefes": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 41,
+      "hints": [
+        "Правило: life → lives (fe → ves).",
+        "Числівник **nine** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "lives": "✅ Правильно! life → lives.",
+          "lifes": "❌ Неправильно; fe → ves.",
+          "lifs": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 42,
+      "hints": [
+        "Правило: shelf → shelves (f → ves).",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "shelves": "✅ Правильно! shelf → shelves.",
+          "shelfs": "❌ Неправильно.",
+          "shelfes": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 43,
+      "hints": [
+        "Правило: wolf → wolves (f → ves).",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "wolves": "✅ Правильно! wolf → wolves.",
+          "wolfs": "❌ Неправильно.",
+          "wolfes": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 44,
+      "hints": [
+        "Виняток: **roof** просто додає **-s** (roofs).",
+        "Дієслово **are** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "roofs": "✅ Правильно! roof → roofs (виняток).",
+          "rooves": "❌ Roof не змінює f на v.",
+          "roofes": "❌ Просто -s."
+        }
+      }
+    },
+    {
+      "id": 45,
+      "hints": [
+        "Виняток: **proof** просто додає **-s**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "proofs": "✅ Правильно! proof → proofs.",
+          "prooves": "❌ Proof — виняток.",
+          "proofes": "❌ Просто -s."
+        }
+      }
+    },
+    {
+      "id": 46,
+      "hints": [
+        "У складених іменниках множина утворюється від головного слова (**brother**).",
+        "Слово **both** вказує на двох."
+      ],
+      "explanations": {
+        "a1": {
+          "brothers-in-law": "✅ Правильно! Головне слово brother → brothers.",
+          "brother-in-laws": "❌ Неправильно; множина від brother.",
+          "brothers-in-laws": "❌ Подвійне закінчення не потрібне."
+        }
+      }
+    },
+    {
+      "id": 47,
+      "hints": [
+        "Складений іменник: множина утворюється від **editor**.",
+        "Дієслово **attended** з підметом у множині."
+      ],
+      "explanations": {
+        "a1": {
+          "editors-in-chief": "✅ Правильно! editor → editors.",
+          "editor-in-chiefs": "❌ Неправильно.",
+          "editors-in-chiefs": "❌ Подвійне закінчення."
+        }
+      }
+    },
+    {
+      "id": 48,
+      "hints": [
+        "Складений іменник: passer → passers.",
+        "Слово **many** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "passers-by": "✅ Правильно! passer → passers.",
+          "passer-bys": "❌ Неправильно.",
+          "passers-bys": "❌ Подвійне закінчення."
+        }
+      }
+    },
+    {
+      "id": 49,
+      "hints": [
+        "Слово **deer** однакове в однині й множині.",
+        "Слово **several** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "deer": "✅ Правильно! deer → deer (zero plural).",
+          "deers": "❌ Deer не змінюється.",
+          "deeres": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 50,
+      "hints": [
+        "Слово **trout** (форель) однакове в однині й множині.",
+        "Слово **many** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "trout": "✅ Правильно! trout → trout.",
+          "trouts": "❌ Trout не змінюється.",
+          "troutes": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 51,
+      "hints": [
+        "Слово **aircraft** однакове в однині й множині.",
+        "Числівник **twenty** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "aircraft": "✅ Правильно! aircraft → aircraft.",
+          "aircrafts": "❌ Aircraft не змінюється.",
+          "aircraftes": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 52,
+      "hints": [
+        "Слово **person** має неправильну множину: **people**.",
+        "Слово **many** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "people": "✅ Правильно! person → people (у загальному значенні).",
+          "persons": "❌ Persons — офіційний стиль, але people — стандарт.",
+          "peoples": "❌ Peoples = народи, інше значення."
+        }
+      }
+    },
+    {
+      "id": 53,
+      "hints": [
+        "У розмовній мові множина від person — **people**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "people": "✅ Правильно! person → people.",
+          "persons": "❌ Офіційний варіант, але people — звичайний.",
+          "peoples": "❌ Означає «народи»."
+        }
+      }
+    },
+    {
+      "id": 54,
+      "hints": [
+        "Student утворює множину за стандартним правилом.",
+        "Дієслово **are** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "students": "✅ Правильно! student → students.",
+          "studentes": "❌ Просто -s.",
+          "student": "❌ Однина."
+        }
+      }
+    },
+    {
+      "id": 55,
+      "hints": [
+        "Слово **datum** (латинське) має множину **data**.",
+        "Контекст вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "data": "✅ Правильно! datum → data (латинська множина).",
+          "datas": "❌ Data вже множина, -s не потрібен.",
+          "datum": "❌ Це однина."
+        }
+      }
+    },
+    {
+      "id": 56,
+      "hints": [
+        "Слово **criterion** (грецьке) має множину **criteria**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "criteria": "✅ Правильно! criterion → criteria.",
+          "criterias": "❌ Criteria вже множина.",
+          "criterion": "❌ Це однина."
+        }
+      }
+    },
+    {
+      "id": 57,
+      "hints": [
+        "Слово **phenomenon** (грецьке) має множину **phenomena**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "phenomena": "✅ Правильно! phenomenon → phenomena.",
+          "phenomenons": "❌ Грецька множина — phenomena.",
+          "phenomenon": "❌ Це однина."
+        }
+      }
+    },
+    {
+      "id": 58,
+      "hints": [
+        "Слово **formula** (латинське) має множину **formulae** або **formulas**.",
+        "Контекст (various) вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "formulae": "✅ Правильно! formula → formulae (класична форма).",
+          "formulas": "✅ Також правильно! Сучасний варіант.",
+          "formula": "❌ Це однина."
+        }
+      }
+    },
+    {
+      "id": 59,
+      "hints": [
+        "Слово **thesis** (грецьке) має множину **theses**.",
+        "Присвійний займенник **their** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "theses": "✅ Правильно! thesis → theses.",
+          "thesis": "❌ Це однина.",
+          "thesises": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 60,
+      "hints": [
+        "Слово **crisis** (грецьке) має множину **crises**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "crises": "✅ Правильно! crisis → crises.",
+          "crisis": "❌ Це однина.",
+          "crisises": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 61,
+      "hints": [
+        "Слово **diagnosis** (грецьке) має множину **diagnoses**.",
+        "Слово **several** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "diagnoses": "✅ Правильно! diagnosis → diagnoses.",
+          "diagnosis": "❌ Це однина.",
+          "diagnosises": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 62,
+      "hints": [
+        "Слово **basis** (грецьке) має множину **bases**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "bases": "✅ Правильно! basis → bases.",
+          "basis": "❌ Це однина.",
+          "basises": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 63,
+      "hints": [
+        "Слово **species** однакове в однині й множині.",
+        "Контекст (new, plural bacteria) вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "species": "✅ Правильно! species → species.",
+          "specieses": "❌ Species не змінюється.",
+          "specie": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 64,
+      "hints": [
+        "Слово **index** (латинське) має множину **indices** або **indexes**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "indices": "✅ Правильно! index → indices (класична форма).",
+          "indexes": "✅ Також правильно! Сучасний варіант.",
+          "index": "❌ Це однина."
+        }
+      }
+    },
+    {
+      "id": 65,
+      "hints": [
+        "Слово **appendix** (латинське) має множину **appendices** або **appendixes**.",
+        "Дієслово **are** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "appendices": "✅ Правильно! appendix → appendices.",
+          "appendixes": "✅ Також правильно!",
+          "appendix": "❌ Це однина."
+        }
+      }
+    },
+    {
+      "id": 66,
+      "hints": [
+        "Слово **clause** утворює множину стандартно: clause + s.",
+        "Дієслово **are** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "clauses": "✅ Правильно! clause → clauses.",
+          "clause": "❌ Це однина.",
+          "clausies": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 67,
+      "hints": [
+        "Слово **news** завжди в однині, хоча закінчується на -s.",
+        "Дієслово **is** вказує на однину."
+      ],
+      "explanations": {
+        "a1": {
+          "news": "✅ Правильно! News — незлічуваний іменник, завжди однина.",
+          "newses": "❌ News не має множини.",
+          "new": "❌ New — прикметник, не іменник."
+        }
+      }
+    },
+    {
+      "id": 68,
+      "hints": [
+        "Слово **mathematics** завжди в однині, хоча закінчується на -s.",
+        "Дієслово **is** підтверджує однину."
+      ],
+      "explanations": {
+        "a1": {
+          "Mathematics": "✅ Правильно! Mathematics — однина.",
+          "Mathematic": "❌ Неправильна форма.",
+          "Mathematicses": "❌ Не існує."
+        }
+      }
+    },
+    {
+      "id": 69,
+      "hints": [
+        "Слово **scissors** завжди у множині (pluralia tantum).",
+        "Дієслово **are** підтверджує множину."
+      ],
+      "explanations": {
+        "a1": {
+          "scissors": "✅ Правильно! Scissors завжди множина.",
+          "scissor": "❌ Scissors не має однини.",
+          "scissorses": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 70,
+      "hints": [
+        "Слово **trousers** завжди у множині.",
+        "Дієслово **are** підтверджує множину."
+      ],
+      "explanations": {
+        "a1": {
+          "trousers": "✅ Правильно! Trousers завжди множина.",
+          "trouser": "❌ Trousers не має однини.",
+          "trouserses": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 71,
+      "hints": [
+        "Слово **glasses** (окуляри) завжди у множині.",
+        "Дієслово **are** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "glasses": "✅ Правильно! Glasses (окуляри) — множина.",
+          "glass": "❌ Glass — склянка, інше значення.",
+          "glasseses": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 72,
+      "hints": [
+        "Слово **analysis** (грецьке) має множину **analyses**.",
+        "Слово **all** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "analyses": "✅ Правильно! analysis → analyses.",
+          "analysis": "❌ Це однина.",
+          "analysises": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 73,
+      "hints": [
+        "Слово **nucleus** (латинське) має множину **nuclei**.",
+        "Контекст вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "nuclei": "✅ Правильно! nucleus → nuclei.",
+          "nucleus": "❌ Це однина.",
+          "nucleuses": "❌ Латинська форма — nuclei."
+        }
+      }
+    },
+    {
+      "id": 74,
+      "hints": [
+        "Слово **stimulus** (латинське) має множину **stimuli**.",
+        "Слово **several** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "stimuli": "✅ Правильно! stimulus → stimuli.",
+          "stimulus": "❌ Це однина.",
+          "stimuluses": "❌ Латинська форма — stimuli."
+        }
+      }
+    },
+    {
+      "id": 75,
+      "hints": [
+        "Слово **alumnus** (латинське) має множину **alumni**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "alumni": "✅ Правильно! alumnus → alumni.",
+          "alumnus": "❌ Це однина (чоловік).",
+          "alumnuses": "❌ Латинська форма — alumni."
+        }
+      }
+    },
+    {
+      "id": 76,
+      "hints": [
+        "Слово **addendum** (латинське) має множину **addenda**.",
+        "Слово **several** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "addenda": "✅ Правильно! addendum → addenda.",
+          "addendum": "❌ Це однина.",
+          "addendums": "❌ Класична форма — addenda."
+        }
+      }
+    },
+    {
+      "id": 77,
+      "hints": [
+        "Слово **erratum** (латинське) має множину **errata**.",
+        "Слово **all** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "errata": "✅ Правильно! erratum → errata.",
+          "erratum": "❌ Це однина.",
+          "erratums": "❌ Латинська форма — errata."
+        }
+      }
+    },
+    {
+      "id": 78,
+      "hints": [
+        "Слово **genus** (латинське) має множину **genera**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "genera": "✅ Правильно! genus → genera.",
+          "genus": "❌ Це однина.",
+          "genuses": "❌ Латинська форма — genera."
+        }
+      }
+    },
+    {
+      "id": 79,
+      "hints": [
+        "Слово **curriculum** (латинське) має множину **curricula**.",
+        "Слово **several** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "curricula": "✅ Правильно! curriculum → curricula.",
+          "curriculum": "❌ Це однина.",
+          "curriculums": "❌ Можливо, але curricula — класична."
+        }
+      }
+    },
+    {
+      "id": 80,
+      "hints": [
+        "Слово **tableau** (французьке) має множину **tableaux**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "tableaux": "✅ Правильно! tableau → tableaux (фр. множина).",
+          "tableau": "❌ Це однина.",
+          "tableaus": "❌ Можливо, але tableaux — стандарт."
+        }
+      }
+    },
+    {
+      "id": 81,
+      "hints": [
+        "Слово **coup** (французьке) додає -s у множині.",
+        "Слово **several** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "coups": "✅ Правильно! coup → coups.",
+          "coup": "❌ Це однина.",
+          "coupes": "❌ Coupe — інше слово (купе)."
+        }
+      }
+    },
+    {
+      "id": 82,
+      "hints": [
+        "Слово **exposé** (французьке) додає -s у множині, зберігаючи accent.",
+        "Слово **several** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "exposés": "✅ Правильно! exposé → exposés.",
+          "exposé": "❌ Це однина.",
+          "exposes": "❌ Це дієслово 'викривати'."
+        }
+      }
+    },
+    {
+      "id": 83,
+      "hints": [
+        "Слово **symposium** (грецьке/латинське) має множину **symposia**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "symposia": "✅ Правильно! symposium → symposia.",
+          "symposium": "❌ Це однина.",
+          "symposiums": "❌ Можливо, але symposia — класична."
+        }
+      }
+    },
+    {
+      "id": 84,
+      "hints": [
+        "Слово **memorandum** (латинське) має множину **memoranda**.",
+        "Дієслово **need** (множина) вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "memoranda": "✅ Правильно! memorandum → memoranda.",
+          "memorandum": "❌ Це однина.",
+          "memorandums": "❌ Можливо, але memoranda — класична."
+        }
+      }
+    },
+    {
+      "id": 85,
+      "hints": [
+        "Слово **flagellum** (латинське) має множину **flagella**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "flagella": "✅ Правильно! flagellum → flagella.",
+          "flagellum": "❌ Це однина.",
+          "flagellums": "❌ Латинська форма — flagella."
+        }
+      }
+    },
+    {
+      "id": 86,
+      "hints": [
+        "Слово **matrix** (латинське) має множину **matrices**.",
+        "Контекст вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "matrices": "✅ Правильно! matrix → matrices.",
+          "matrix": "❌ Це однина.",
+          "matrixes": "❌ Можливо, але matrices — стандарт."
+        }
+      }
+    },
+    {
+      "id": 87,
+      "hints": [
+        "Слово **stoma** (грецьке) має множину **stomata**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "stomata": "✅ Правильно! stoma → stomata.",
+          "stoma": "❌ Це однина.",
+          "stomas": "❌ Грецька форма — stomata."
+        }
+      }
+    },
+    {
+      "id": 88,
+      "hints": [
+        "Слово **corpus** (латинське) має множину **corpora**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "corpora": "✅ Правильно! corpus → corpora.",
+          "corpus": "❌ Це однина.",
+          "corpuses": "❌ Латинська форма — corpora."
+        }
+      }
+    },
+    {
+      "id": 89,
+      "hints": [
+        "Слово **larva** (латинське) має множину **larvae**.",
+        "Слово **multiple** та **were** вказують на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "larvae": "✅ Правильно! larva → larvae.",
+          "larva": "❌ Це однина.",
+          "larvas": "❌ Латинська форма — larvae."
+        }
+      }
+    },
+    {
+      "id": 90,
+      "hints": [
+        "Слово **appendix** (латинське) має множину **appendices**.",
+        "Слово **several** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "appendices": "✅ Правильно! appendix → appendices.",
+          "appendix": "❌ Це однина.",
+          "appendixes": "❌ Можливо, але appendices — стандарт."
+        }
+      }
+    },
+    {
+      "id": 91,
+      "hints": [
+        "Слово **persona** (латинське) має класичну множину **personae**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "personae": "✅ Правильно! persona → personae (класична форма).",
+          "persona": "❌ Це однина.",
+          "personas": "❌ Сучасний варіант, але personae — академічний."
+        }
+      }
+    },
+    {
+      "id": 92,
+      "hints": [
+        "Слово **locus** (латинське) має множину **loci**.",
+        "Контекст вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "loci": "✅ Правильно! locus → loci.",
+          "locus": "❌ Це однина.",
+          "locuses": "❌ Латинська форма — loci."
+        }
+      }
+    },
+    {
+      "id": 93,
+      "hints": [
+        "Слово **premise** утворює множину стандартно: -s.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "premises": "✅ Правильно! premise → premises.",
+          "premise": "❌ Це однина.",
+          "premisses": "❌ Застарілий варіант."
+        }
+      }
+    },
+    {
+      "id": 94,
+      "hints": [
+        "Слово **sarcophagus** (грецьке) має множину **sarcophagi**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "sarcophagi": "✅ Правильно! sarcophagus → sarcophagi.",
+          "sarcophagus": "❌ Це однина.",
+          "sarcophaguses": "❌ Грецька форма — sarcophagi."
+        }
+      }
+    },
+    {
+      "id": 95,
+      "hints": [
+        "Слово **radius** (латинське) має множину **radii**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "radii": "✅ Правильно! radius → radii.",
+          "radius": "❌ Це однина.",
+          "radiuses": "❌ Латинська форма — radii."
+        }
+      }
+    },
+    {
+      "id": 96,
+      "hints": [
+        "Слово **parenthesis** (грецьке) має множину **parentheses**.",
+        "Слово **multiple** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "parentheses": "✅ Правильно! parenthesis → parentheses.",
+          "parenthesis": "❌ Це однина.",
+          "parenthesises": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 97,
+      "hints": [
+        "Слово **hypothesis** (грецьке) має множину **hypotheses**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "hypotheses": "✅ Правильно! hypothesis → hypotheses.",
+          "hypothesis": "❌ Це однина.",
+          "hypothesises": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 98,
+      "hints": [
+        "Слово **minutia** (латинське) має множину **minutiae**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "minutiae": "✅ Правильно! minutia → minutiae.",
+          "minutia": "❌ Це однина.",
+          "minutias": "❌ Латинська форма — minutiae."
+        }
+      }
+    },
+    {
+      "id": 99,
+      "hints": [
+        "Слово **corrigendum** (латинське) має множину **corrigenda**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "corrigenda": "✅ Правильно! corrigendum → corrigenda.",
+          "corrigendum": "❌ Це однина.",
+          "corrigendums": "❌ Латинська форма — corrigenda."
+        }
+      }
+    },
+    {
+      "id": 100,
+      "hints": [
+        "Слово **viscus** (латинське) має множину **viscera**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "viscera": "✅ Правильно! viscus → viscera.",
+          "viscus": "❌ Це однина.",
+          "viscuses": "❌ Латинська форма — viscera."
+        }
+      }
+    },
+    {
+      "id": 101,
+      "hints": [
+        "Слово **antenna** (латинське) у біології має множину **antennae**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "antennae": "✅ Правильно! antenna → antennae (біологія).",
+          "antenna": "❌ Це однина.",
+          "antennas": "❌ Можливо для техніки, але antennae — для біології."
+        }
+      }
+    },
+    {
+      "id": 102,
+      "hints": [
+        "Слово **desideratum** (латинське) має множину **desiderata**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "desiderata": "✅ Правильно! desideratum → desiderata.",
+          "desideratum": "❌ Це однина.",
+          "desideratums": "❌ Латинська форма — desiderata."
+        }
+      }
+    },
+    {
+      "id": 103,
+      "hints": [
+        "Слово **syntagma** (грецьке) має множину **syntagmata**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "syntagmata": "✅ Правильно! syntagma → syntagmata.",
+          "syntagma": "❌ Це однина.",
+          "syntagmas": "❌ Грецька форма — syntagmata."
+        }
+      }
+    },
+    {
+      "id": 104,
+      "hints": [
+        "Слово **obverse** утворює множину стандартно: -s.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "obverses": "✅ Правильно! obverse → obverses.",
+          "obverse": "❌ Це однина.",
+          "obversi": "❌ Неправильна форма."
+        }
+      }
+    },
+    {
+      "id": 105,
+      "hints": [
+        "Слово **lexicon** (грецьке) має множину **lexica**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "lexica": "✅ Правильно! lexicon → lexica.",
+          "lexicon": "❌ Це однина.",
+          "lexicons": "❌ Можливо, але lexica — класична."
+        }
+      }
+    },
+    {
+      "id": 106,
+      "hints": [
+        "Слово **concerto** (італійське) може мати множину **concerti**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "concerti": "✅ Правильно! concerto → concerti (італійська форма).",
+          "concerto": "❌ Це однина.",
+          "concertos": "❌ Також правильно, але concerti — класична."
+        }
+      }
+    },
+    {
+      "id": 107,
+      "hints": [
+        "Слово **compendium** (латинське) має множину **compendia**.",
+        "Дієслово **were** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "compendia": "✅ Правильно! compendium → compendia.",
+          "compendium": "❌ Це однина.",
+          "compendiums": "❌ Можливо, але compendia — класична."
+        }
+      }
+    },
+    {
+      "id": 108,
+      "hints": [
+        "Слово **septum** (латинське) має множину **septa**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "septa": "✅ Правильно! septum → septa.",
+          "septum": "❌ Це однина.",
+          "septums": "❌ Латинська форма — septa."
+        }
+      }
+    }
+  ]
+}

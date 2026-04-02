@@ -1,0 +1,1527 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\\\Seeders\\\\V3\\\\Localizations\\\\En\\\\AI\\\\Copilot\\\\Claude\\\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\Claude\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+    "definition": "AI/Copilot/Claude/plural_nouns_mnozina_imennikiv_pravila_viniatki_prikladi_v3_questions_only",
+    "definition_path": "database/seeders/V3/definitions/AI/Copilot/Claude/plural_nouns_mnozina_imennikiv_pravila_viniatki_prikladi_v3_questions_only.json"
+  },
+  "locale": "en",
+  "hint_provider": "claude",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "Rule: most nouns form plural by adding **-s**.",
+        "The sentence contains the numeral **two**, indicating plural."
+      ],
+      "explanations": {
+        "a1": {
+          "books": "✅ Correct! Іменник «book» утворює множину додаванням -s → books.",
+          "book": "❌ This is the singular form. Числівник «two» вимагає множини.",
+          "bookes": "❌ The ending -es is not needed для слів на приголосний + голосний."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Rule: add **-s** to most nouns to form plural.",
+        "The numeral **three** shows plural is needed."
+      ],
+      "explanations": {
+        "a1": {
+          "cats": "✅ Correct! cat + s = cats — standardне правило множини.",
+          "cat": "❌ Singular doesn't fit після числівника «three».",
+          "cates": "❌ This form doesn't exist; правильно — cats."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Standard rule: noun + **-s** = plural.",
+        "The construction **there are** + numeral **five** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "pens": "✅ Correct! pen → pens — звичайна множина з -s.",
+          "pen": "❌ Форма однини не узгоджується з «five» та «are».",
+          "penes": "❌ Неправильне ending; pen just додає -s."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "The verb **are** indicates plural subject.",
+        "For the noun 'dog', plural is formed by adding -s."
+      ],
+      "explanations": {
+        "a1": {
+          "dogs": "✅ Correct! dog + s = dogs.",
+          "dog": "❌ Singular doesn't agree з «are».",
+          "doges": "❌ Форма «doges» не існує в англійській мові."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "The numeral **four** requires a plural noun.",
+        "The word 'apple' forms plural following the standard rule."
+      ],
+      "explanations": {
+        "a1": {
+          "apples": "✅ Correct! apple + s = apples.",
+          "apple": "❌ Singular; plural is needed після «four».",
+          "applees": "❌ Подвійне -ee не використовується; правильно — apples."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Rule: if a noun ends in **-s**, add **-es**.",
+        "The numeral **two** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "buses": "✅ Correct! bus → buses — додаємо -es після -s.",
+          "bus": "❌ This is singular, а plural is needed.",
+          "buss": "❌ Just подвоєння -s неправильне; потрібно -es."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Rule: nouns ending in **-x** form plural with **-es**.",
+        "The demonstrative pronoun **those** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "boxes": "✅ Correct! box → boxes — після -x додаємо -es.",
+          "box": "❌ Singular doesn't fit після «those».",
+          "boxs": "❌ Incorrect; після -x потрібно -es, а не just -s."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Rule: nouns ending in **-sh** take the **-es** ending.",
+        "The verb **are** signals plural."
+      ],
+      "explanations": {
+        "a1": {
+          "dishes": "✅ Correct! dish → dishes.",
+          "dish": "❌ Singular doesn't agree з «are».",
+          "dishs": "❌ Після -sh потрібно -es, а не -s."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Rule: words ending in **-ch** form plural with **-es**.",
+        "The numeral **two** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "sandwiches": "✅ Correct! sandwich → sandwiches.",
+          "sandwich": "❌ This is singular; «two» вимагає множини.",
+          "sandwichs": "❌ Після -ch потрібно -es."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Nouns ending in **-ch** require the **-es** ending in plural.",
+        "The numeral **three** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "watches": "✅ Correct! watch → watches.",
+          "watch": "❌ Singular doesn't fit після «three».",
+          "watchs": "❌ Правильне ending — -es, а не -s."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "Rule: if there's a consonant before **-y**, change **y → ies**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "babies": "✅ Correct! baby → babies (y → ies після приголосного).",
+          "babys": "❌ Incorrect; після приголосного y змінюється на ies.",
+          "baby": "❌ Singular doesn't agree з «are»."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "There's a consonant **l** before **-y**, so **y → ies**.",
+        "The word **many** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "families": "✅ Correct! family → families.",
+          "familys": "❌ Неправильне ending; потрібно ies.",
+          "family": "❌ Singular doesn't fit після «many»."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Rule y → ies: city ends with consonant + y.",
+        "The word **several** signals plural."
+      ],
+      "explanations": {
+        "a1": {
+          "cities": "✅ Correct! city → cities.",
+          "citys": "❌ Коли перед y приголосний, пишемо ies.",
+          "city": "❌ Singular; «several» вимагає множини."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Rule: if there's a vowel (**e**) before **-y**, just add **-s**.",
+        "The numeral **two** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "keys": "✅ Correct! key → keys (голосний + y, тому just -s).",
+          "keies": "❌ Зміна y → ies не потрібна після голосного.",
+          "keyes": "❌ Incorrect form; just keys."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "There's a vowel **o** before **y**, so just add **-s**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "boys": "✅ Correct! boy → boys.",
+          "boies": "❌ Після голосного + y не змінюємо y.",
+          "boyes": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "The word **child** has an irregular plural form.",
+        "The verb **are** signals plural."
+      ],
+      "explanations": {
+        "a1": {
+          "children": "✅ Correct! child → children — неправильна множина.",
+          "childs": "❌ Incorrect; child має особливу форму children.",
+          "childrens": "❌ Children is already plural, -s is not needed."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "The word **man** has an irregular plural: **men**.",
+        "The numeral **two** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "men": "✅ Correct! man → men — incorrect form.",
+          "mans": "❌ Incorrect; man не додає -s.",
+          "mens": "❌ Men вже є множиною."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "The word **woman** has an irregular plural.",
+        "The numeral **three** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "women": "✅ Correct! woman → women.",
+          "womans": "❌ Woman не додає -s.",
+          "womens": "❌ Women is already plural."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "Rule: nouns ending in **-o** after a consonant often add **-es**.",
+        "Слово **many** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "potatoes": "✅ Correct! potato → potatoes.",
+          "potatos": "❌ Для potato правильно -es.",
+          "potato": "❌ Singular doesn't fit після «many»."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "The word 'tomato' ends with consonant + **o**, so add **-es**.",
+        "The word **some** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "tomatoes": "✅ Correct! tomato → tomatoes.",
+          "tomatos": "❌ Потрібно -es, а не -s.",
+          "tomato": "❌ Singular; «some» потребує множини."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "Rule: hero → heroes (add -es).",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "heroes": "✅ Correct! hero → heroes.",
+          "heros": "❌ Hero потребує -es.",
+          "hero": "❌ Singular doesn't fit."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "Exception: **photo** is an abbreviated word, so just **-s**.",
+        "The word **many** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "photos": "✅ Correct! photo → photos (exception, бо скорочення).",
+          "photoes": "❌ Photo — exception, додає тільки -s.",
+          "photo": "❌ Singular doesn't fit."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Exception: **piano** is a musical term, adds only **-s**.",
+        "The numeral **two** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "pianos": "✅ Correct! piano → pianos.",
+          "pianoes": "❌ Piano — exception.",
+          "piano": "❌ Plural is needed."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Standard rule: egg + **-s** = eggs.",
+        "The word **several** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "eggs": "✅ Correct! egg → eggs.",
+          "eggies": "❌ Incorrect form.",
+          "egges": "❌ Just додаємо -s."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "Rule y → ies: consonant **r** before y.",
+        "The word **some** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "strawberries": "✅ Correct! strawberry → strawberries.",
+          "strawberrys": "❌ Після приголосного y → ies.",
+          "strawberry": "❌ Singular; plural is needed."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "Butterfly ends with consonant + y, so y → ies.",
+        "The verb **flew** (past) with plural subject."
+      ],
+      "explanations": {
+        "a1": {
+          "butterflies": "✅ Correct! butterfly → butterflies.",
+          "butterflys": "❌ Неправильне ending.",
+          "butterfly": "❌ Singular doesn't fit."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "The word **foot** has an irregular plural: **feet**.",
+        "The verb **hurt** can be singular or plural, but 'my feet' is a typical expression."
+      ],
+      "explanations": {
+        "a1": {
+          "feet": "✅ Correct! foot → feet — incorrect form.",
+          "foots": "❌ Foot не додає -s.",
+          "feets": "❌ Feet is already plural."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "The word **tooth** has an irregular plural: **teeth**.",
+        "Context indicates all teeth (plural)."
+      ],
+      "explanations": {
+        "a1": {
+          "teeth": "✅ Correct! tooth → teeth.",
+          "tooths": "❌ Tooth не додає -s.",
+          "teeths": "❌ Teeth is already plural."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "The word **goose** has an irregular plural: **geese**.",
+        "The word **several** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "geese": "✅ Correct! goose → geese.",
+          "gooses": "❌ Goose не додає -s.",
+          "goose": "❌ Singular."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "The word **sheep** is the same in singular and plural (zero plural).",
+        "The word **many** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "sheep": "✅ Correct! sheep → sheep (без змін).",
+          "sheeps": "❌ Sheep doesn't change у множині.",
+          "sheepes": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 31,
+      "hints": [
+        "The word **fish** is usually the same in singular and plural.",
+        "The numeral **three** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "fish": "✅ Correct! fish → fish (зазвичай без змін).",
+          "fishes": "❌ Possibly в спец. контексті, but fish — standard.",
+          "fishs": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 32,
+      "hints": [
+        "The word **mouse** has an irregular plural: **mice**.",
+        "Context suggests plural."
+      ],
+      "explanations": {
+        "a1": {
+          "mice": "✅ Correct! mouse → mice.",
+          "mouses": "❌ Mouse не додає -s.",
+          "mices": "❌ Mice is already plural."
+        }
+      }
+    },
+    {
+      "id": 33,
+      "hints": [
+        "Стандартне правило: student + **-s**.",
+        "The word **all** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "students": "✅ Correct! student → students.",
+          "studentes": "❌ Just -s.",
+          "student": "❌ Plural is needed."
+        }
+      }
+    },
+    {
+      "id": 34,
+      "hints": [
+        "Стандартне правило множини: chair + -s.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "chairs": "✅ Correct! chair → chairs.",
+          "chaires": "❌ Just -s.",
+          "chair": "❌ Singular doesn't agree з «are»."
+        }
+      }
+    },
+    {
+      "id": 35,
+      "hints": [
+        "Cake ends in -e, so just add -s.",
+        "The word **several** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "cakes": "✅ Correct! cake → cakes.",
+          "cakies": "❌ Incorrect form.",
+          "cake": "❌ Singular."
+        }
+      }
+    },
+    {
+      "id": 36,
+      "hints": [
+        "Shell forms plural following the standard rule.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "shells": "✅ Correct! shell → shells.",
+          "shelles": "❌ Не потрібно -es.",
+          "shell": "❌ Singular doesn't fit."
+        }
+      }
+    },
+    {
+      "id": 37,
+      "hints": [
+        "Rule: nouns ending in **-f** change **f → ves**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "leaves": "✅ Correct! leaf → leaves (f → ves).",
+          "leafs": "❌ Incorrect; потрібно leaves.",
+          "leafes": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 38,
+      "hints": [
+        "Rule: knife → knives (fe → ves).",
+        "Контекст вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "knives": "✅ Correct! knife → knives.",
+          "knifes": "❌ Incorrect; fe → ves.",
+          "knifs": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 39,
+      "hints": [
+        "Rule: wife → wives (fe → ves).",
+        "The word **both** indicates two (plural)."
+      ],
+      "explanations": {
+        "a1": {
+          "wives": "✅ Correct! wife → wives.",
+          "wifes": "❌ Неправильне ending.",
+          "wifs": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 40,
+      "hints": [
+        "Rule: thief → thieves (f → ves).",
+        "The verb **are** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "thieves": "✅ Correct! thief → thieves.",
+          "thiefs": "❌ Incorrect.",
+          "thiefes": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 41,
+      "hints": [
+        "Rule: life → lives (fe → ves).",
+        "The numeral **nine** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "lives": "✅ Correct! life → lives.",
+          "lifes": "❌ Incorrect; fe → ves.",
+          "lifs": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 42,
+      "hints": [
+        "Rule: shelf → shelves (f → ves).",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "shelves": "✅ Correct! shelf → shelves.",
+          "shelfs": "❌ Incorrect.",
+          "shelfes": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 43,
+      "hints": [
+        "Rule: wolf → wolves (f → ves).",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "wolves": "✅ Correct! wolf → wolves.",
+          "wolfs": "❌ Incorrect.",
+          "wolfes": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 44,
+      "hints": [
+        "Exception: **roof** just adds **-s** (roofs).",
+        "The verb **are** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "roofs": "✅ Correct! roof → roofs (exception).",
+          "rooves": "❌ Roof не змінює f на v.",
+          "roofes": "❌ Just -s."
+        }
+      }
+    },
+    {
+      "id": 45,
+      "hints": [
+        "Exception: **proof** just adds **-s**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "proofs": "✅ Correct! proof → proofs.",
+          "prooves": "❌ Proof — exception.",
+          "proofes": "❌ Just -s."
+        }
+      }
+    },
+    {
+      "id": 46,
+      "hints": [
+        "In compound nouns, plural is formed from the main word (**brother**).",
+        "The word **both** indicates two."
+      ],
+      "explanations": {
+        "a1": {
+          "brothers-in-law": "✅ Correct! The main word brother → brothers.",
+          "brother-in-laws": "❌ Incorrect; множина від brother.",
+          "brothers-in-laws": "❌ Подвійне ending is not needed."
+        }
+      }
+    },
+    {
+      "id": 47,
+      "hints": [
+        "Compound noun: plural is formed from **editor**.",
+        "The verb **attended** with plural subject."
+      ],
+      "explanations": {
+        "a1": {
+          "editors-in-chief": "✅ Correct! editor → editors.",
+          "editor-in-chiefs": "❌ Incorrect.",
+          "editors-in-chiefs": "❌ Подвійне ending."
+        }
+      }
+    },
+    {
+      "id": 48,
+      "hints": [
+        "Compound noun: passer → passers.",
+        "The word **many** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "passers-by": "✅ Correct! passer → passers.",
+          "passer-bys": "❌ Incorrect.",
+          "passers-bys": "❌ Подвійне ending."
+        }
+      }
+    },
+    {
+      "id": 49,
+      "hints": [
+        "The word **deer** is the same in singular and plural.",
+        "Слово **several** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "deer": "✅ Correct! deer → deer (zero plural).",
+          "deers": "❌ Deer doesn't change.",
+          "deeres": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 50,
+      "hints": [
+        "The word **trout** is the same in singular and plural.",
+        "The word **many** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "trout": "✅ Correct! trout → trout.",
+          "trouts": "❌ Trout doesn't change.",
+          "troutes": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 51,
+      "hints": [
+        "The word **aircraft** is the same in singular and plural.",
+        "The numeral **twenty** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "aircraft": "✅ Correct! aircraft → aircraft.",
+          "aircrafts": "❌ Aircraft doesn't change.",
+          "aircraftes": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 52,
+      "hints": [
+        "The word **person** has an irregular plural: **people**.",
+        "The word **many** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "people": "✅ Correct! person → people (у загальному значенні).",
+          "persons": "❌ Persons — formal style, but people — standard.",
+          "peoples": "❌ Peoples = народи, different meaning."
+        }
+      }
+    },
+    {
+      "id": 53,
+      "hints": [
+        "In everyday speech, the plural of person is **people**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "people": "✅ Correct! person → people.",
+          "persons": "❌ Офіційний варіант, but people — common.",
+          "peoples": "❌ Означає «народи»."
+        }
+      }
+    },
+    {
+      "id": 54,
+      "hints": [
+        "Student forms plural following the standard rule.",
+        "The verb **are** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "students": "✅ Correct! student → students.",
+          "studentes": "❌ Just -s.",
+          "student": "❌ Singular."
+        }
+      }
+    },
+    {
+      "id": 55,
+      "hints": [
+        "The word **datum** (Latin) has the plural **data**.",
+        "Контекст вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "data": "✅ Correct! datum → data (латинська множина).",
+          "datas": "❌ Data is already plural, -s is not needed.",
+          "datum": "❌ This is singular."
+        }
+      }
+    },
+    {
+      "id": 56,
+      "hints": [
+        "The word **criterion** (Greek) has the plural **criteria**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "criteria": "✅ Correct! criterion → criteria.",
+          "criterias": "❌ Criteria is already plural.",
+          "criterion": "❌ This is singular."
+        }
+      }
+    },
+    {
+      "id": 57,
+      "hints": [
+        "The word **phenomenon** (Greek) has the plural **phenomena**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "phenomena": "✅ Correct! phenomenon → phenomena.",
+          "phenomenons": "❌ Грецька множина — phenomena.",
+          "phenomenon": "❌ This is singular."
+        }
+      }
+    },
+    {
+      "id": 58,
+      "hints": [
+        "The word **formula** (Latin) has the plural **formulae** or **formulas**.",
+        "Context (various) indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "formulae": "✅ Correct! formula → formulae (classical form).",
+          "formulas": "✅ Also correct! Modern variant.",
+          "formula": "❌ This is singular."
+        }
+      }
+    },
+    {
+      "id": 59,
+      "hints": [
+        "The word **thesis** (Greek) has the plural **theses**.",
+        "The possessive pronoun **their** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "theses": "✅ Correct! thesis → theses.",
+          "thesis": "❌ This is singular.",
+          "thesises": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 60,
+      "hints": [
+        "The word **crisis** (Greek) has the plural **crises**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "crises": "✅ Correct! crisis → crises.",
+          "crisis": "❌ This is singular.",
+          "crisises": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 61,
+      "hints": [
+        "The word **diagnosis** (Greek) has the plural **diagnoses**.",
+        "The word **several** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "diagnoses": "✅ Correct! diagnosis → diagnoses.",
+          "diagnosis": "❌ This is singular.",
+          "diagnosises": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 62,
+      "hints": [
+        "The word **basis** (Greek) has the plural **bases**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "bases": "✅ Correct! basis → bases.",
+          "basis": "❌ This is singular.",
+          "basises": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 63,
+      "hints": [
+        "The word **species** is the same in singular and plural.",
+        "Context (new, plural bacteria) indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "species": "✅ Correct! species → species.",
+          "specieses": "❌ Species doesn't change.",
+          "specie": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 64,
+      "hints": [
+        "The word **index** (Latin) has the plural **indices** or **indexes**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "indices": "✅ Correct! index → indices (classical form).",
+          "indexes": "✅ Also correct! Modern variant.",
+          "index": "❌ This is singular."
+        }
+      }
+    },
+    {
+      "id": 65,
+      "hints": [
+        "The word **appendix** (Latin) has the plural **appendices** or **appendixes**.",
+        "The verb **are** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "appendices": "✅ Correct! appendix → appendices.",
+          "appendixes": "✅ Also correct!",
+          "appendix": "❌ This is singular."
+        }
+      }
+    },
+    {
+      "id": 66,
+      "hints": [
+        "The word **clause** forms plural normally: clause + s.",
+        "The verb **are** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "clauses": "✅ Correct! clause → clauses.",
+          "clause": "❌ This is singular.",
+          "clausies": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 67,
+      "hints": [
+        "The word **news** is always singular, although it ends in -s.",
+        "The verb **is** indicates singular."
+      ],
+      "explanations": {
+        "a1": {
+          "news": "✅ Correct! News — незлічуваний іменник, завжди singular.",
+          "newses": "❌ News не має множини.",
+          "new": "❌ New — прикметник, не іменник."
+        }
+      }
+    },
+    {
+      "id": 68,
+      "hints": [
+        "The word **mathematics** is always singular, although it ends in -s.",
+        "The verb **is** confirms singular."
+      ],
+      "explanations": {
+        "a1": {
+          "Mathematics": "✅ Correct! Mathematics — singular.",
+          "Mathematic": "❌ Incorrect form.",
+          "Mathematicses": "❌ Не існує."
+        }
+      }
+    },
+    {
+      "id": 69,
+      "hints": [
+        "The word **scissors** is always plural (pluralia tantum).",
+        "The verb **are** confirms plural."
+      ],
+      "explanations": {
+        "a1": {
+          "scissors": "✅ Correct! Scissors always plural.",
+          "scissor": "❌ Scissors не має однини.",
+          "scissorses": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 70,
+      "hints": [
+        "The word **trousers** is always plural.",
+        "The verb **are** confirms plural."
+      ],
+      "explanations": {
+        "a1": {
+          "trousers": "✅ Correct! Trousers always plural.",
+          "trouser": "❌ Trousers не має однини.",
+          "trouserses": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 71,
+      "hints": [
+        "The word **glasses** (eyeglasses) is always plural.",
+        "The verb **are** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "glasses": "✅ Correct! Glasses (окуляри) — множина.",
+          "glass": "❌ Glass — склянка, different meaning.",
+          "glasseses": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 72,
+      "hints": [
+        "The word **analysis** (Greek) has the plural **analyses**.",
+        "The word **all** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "analyses": "✅ Correct! analysis → analyses.",
+          "analysis": "❌ This is singular.",
+          "analysises": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 73,
+      "hints": [
+        "The word **nucleus** (Latin) has the plural **nuclei**.",
+        "Контекст вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "nuclei": "✅ Correct! nucleus → nuclei.",
+          "nucleus": "❌ This is singular.",
+          "nucleuses": "❌ Latin form — nuclei."
+        }
+      }
+    },
+    {
+      "id": 74,
+      "hints": [
+        "The word **stimulus** (Latin) has the plural **stimuli**.",
+        "The word **several** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "stimuli": "✅ Correct! stimulus → stimuli.",
+          "stimulus": "❌ This is singular.",
+          "stimuluses": "❌ Latin form — stimuli."
+        }
+      }
+    },
+    {
+      "id": 75,
+      "hints": [
+        "The word **alumnus** (Latin) has the plural **alumni**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "alumni": "✅ Correct! alumnus → alumni.",
+          "alumnus": "❌ This is singular (чоловік).",
+          "alumnuses": "❌ Latin form — alumni."
+        }
+      }
+    },
+    {
+      "id": 76,
+      "hints": [
+        "The word **addendum** (Latin) has the plural **addenda**.",
+        "The word **several** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "addenda": "✅ Correct! addendum → addenda.",
+          "addendum": "❌ This is singular.",
+          "addendums": "❌ Класична форма — addenda."
+        }
+      }
+    },
+    {
+      "id": 77,
+      "hints": [
+        "The word **erratum** (Latin) has the plural **errata**.",
+        "Слово **all** потребує множини."
+      ],
+      "explanations": {
+        "a1": {
+          "errata": "✅ Correct! erratum → errata.",
+          "erratum": "❌ This is singular.",
+          "erratums": "❌ Latin form — errata."
+        }
+      }
+    },
+    {
+      "id": 78,
+      "hints": [
+        "The word **genus** (Latin) has the plural **genera**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "genera": "✅ Correct! genus → genera.",
+          "genus": "❌ This is singular.",
+          "genuses": "❌ Latin form — genera."
+        }
+      }
+    },
+    {
+      "id": 79,
+      "hints": [
+        "The word **curriculum** (Latin) has the plural **curricula**.",
+        "The word **several** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "curricula": "✅ Correct! curriculum → curricula.",
+          "curriculum": "❌ This is singular.",
+          "curriculums": "❌ Possibly, but curricula — класична."
+        }
+      }
+    },
+    {
+      "id": 80,
+      "hints": [
+        "The word **tableau** (French) has the plural **tableaux**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "tableaux": "✅ Correct! tableau → tableaux (фр. множина).",
+          "tableau": "❌ This is singular.",
+          "tableaus": "❌ Possibly, but tableaux — standard."
+        }
+      }
+    },
+    {
+      "id": 81,
+      "hints": [
+        "The word **coup** (French) adds -s in plural.",
+        "The word **several** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "coups": "✅ Correct! coup → coups.",
+          "coup": "❌ This is singular.",
+          "coupes": "❌ Coupe — інше слово (купе)."
+        }
+      }
+    },
+    {
+      "id": 82,
+      "hints": [
+        "The word **exposé** (French) adds -s in plural, keeping the accent.",
+        "The word **several** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "exposés": "✅ Correct! exposé → exposés.",
+          "exposé": "❌ This is singular.",
+          "exposes": "❌ Це дієслово 'викривати'."
+        }
+      }
+    },
+    {
+      "id": 83,
+      "hints": [
+        "The word **symposium** (Greek/Latin) has the plural **symposia**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "symposia": "✅ Correct! symposium → symposia.",
+          "symposium": "❌ This is singular.",
+          "symposiums": "❌ Possibly, but symposia — класична."
+        }
+      }
+    },
+    {
+      "id": 84,
+      "hints": [
+        "The word **memorandum** (Latin) has the plural **memoranda**.",
+        "The verb **need** (plural) indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "memoranda": "✅ Correct! memorandum → memoranda.",
+          "memorandum": "❌ This is singular.",
+          "memorandums": "❌ Possibly, but memoranda — класична."
+        }
+      }
+    },
+    {
+      "id": 85,
+      "hints": [
+        "The word **flagellum** (Latin) has the plural **flagella**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "flagella": "✅ Correct! flagellum → flagella.",
+          "flagellum": "❌ This is singular.",
+          "flagellums": "❌ Latin form — flagella."
+        }
+      }
+    },
+    {
+      "id": 86,
+      "hints": [
+        "The word **matrix** (Latin) has the plural **matrices**.",
+        "Контекст вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "matrices": "✅ Correct! matrix → matrices.",
+          "matrix": "❌ This is singular.",
+          "matrixes": "❌ Possibly, but matrices — standard."
+        }
+      }
+    },
+    {
+      "id": 87,
+      "hints": [
+        "The word **stoma** (Greek) has the plural **stomata**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "stomata": "✅ Correct! stoma → stomata.",
+          "stoma": "❌ This is singular.",
+          "stomas": "❌ Greek form — stomata."
+        }
+      }
+    },
+    {
+      "id": 88,
+      "hints": [
+        "The word **corpus** (Latin) has the plural **corpora**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "corpora": "✅ Correct! corpus → corpora.",
+          "corpus": "❌ This is singular.",
+          "corpuses": "❌ Latin form — corpora."
+        }
+      }
+    },
+    {
+      "id": 89,
+      "hints": [
+        "The word **larva** (Latin) has the plural **larvae**.",
+        "The words **multiple** and **were** indicate plural."
+      ],
+      "explanations": {
+        "a1": {
+          "larvae": "✅ Correct! larva → larvae.",
+          "larva": "❌ This is singular.",
+          "larvas": "❌ Latin form — larvae."
+        }
+      }
+    },
+    {
+      "id": 90,
+      "hints": [
+        "Слово **appendix** (латинське) має множину **appendices**.",
+        "The word **several** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "appendices": "✅ Correct! appendix → appendices.",
+          "appendix": "❌ This is singular.",
+          "appendixes": "❌ Possibly, but appendices — standard."
+        }
+      }
+    },
+    {
+      "id": 91,
+      "hints": [
+        "The word **persona** (Latin) has the classical plural **personae**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "personae": "✅ Correct! persona → personae (classical form).",
+          "persona": "❌ This is singular.",
+          "personas": "❌ Modern variant, but personae — academic."
+        }
+      }
+    },
+    {
+      "id": 92,
+      "hints": [
+        "The word **locus** (Latin) has the plural **loci**.",
+        "Контекст вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "loci": "✅ Correct! locus → loci.",
+          "locus": "❌ This is singular.",
+          "locuses": "❌ Latin form — loci."
+        }
+      }
+    },
+    {
+      "id": 93,
+      "hints": [
+        "The word **premise** forms plural normally: -s.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "premises": "✅ Correct! premise → premises.",
+          "premise": "❌ This is singular.",
+          "premisses": "❌ Archaic variant."
+        }
+      }
+    },
+    {
+      "id": 94,
+      "hints": [
+        "The word **sarcophagus** (Greek) has the plural **sarcophagi**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "sarcophagi": "✅ Correct! sarcophagus → sarcophagi.",
+          "sarcophagus": "❌ This is singular.",
+          "sarcophaguses": "❌ Greek form — sarcophagi."
+        }
+      }
+    },
+    {
+      "id": 95,
+      "hints": [
+        "The word **radius** (Latin) has the plural **radii**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "radii": "✅ Correct! radius → radii.",
+          "radius": "❌ This is singular.",
+          "radiuses": "❌ Latin form — radii."
+        }
+      }
+    },
+    {
+      "id": 96,
+      "hints": [
+        "The word **parenthesis** (Greek) has the plural **parentheses**.",
+        "The word **multiple** requires plural."
+      ],
+      "explanations": {
+        "a1": {
+          "parentheses": "✅ Correct! parenthesis → parentheses.",
+          "parenthesis": "❌ This is singular.",
+          "parenthesises": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 97,
+      "hints": [
+        "The word **hypothesis** (Greek) has the plural **hypotheses**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "hypotheses": "✅ Correct! hypothesis → hypotheses.",
+          "hypothesis": "❌ This is singular.",
+          "hypothesises": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 98,
+      "hints": [
+        "The word **minutia** (Latin) has the plural **minutiae**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "minutiae": "✅ Correct! minutia → minutiae.",
+          "minutia": "❌ This is singular.",
+          "minutias": "❌ Latin form — minutiae."
+        }
+      }
+    },
+    {
+      "id": 99,
+      "hints": [
+        "The word **corrigendum** (Latin) has the plural **corrigenda**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "corrigenda": "✅ Correct! corrigendum → corrigenda.",
+          "corrigendum": "❌ This is singular.",
+          "corrigendums": "❌ Latin form — corrigenda."
+        }
+      }
+    },
+    {
+      "id": 100,
+      "hints": [
+        "The word **viscus** (Latin) has the plural **viscera**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "viscera": "✅ Correct! viscus → viscera.",
+          "viscus": "❌ This is singular.",
+          "viscuses": "❌ Latin form — viscera."
+        }
+      }
+    },
+    {
+      "id": 101,
+      "hints": [
+        "The word **antenna** (Latin) in biology has the plural **antennae**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "antennae": "✅ Correct! antenna → antennae (біологія).",
+          "antenna": "❌ This is singular.",
+          "antennas": "❌ Possibly для техніки, but antennae — для біології."
+        }
+      }
+    },
+    {
+      "id": 102,
+      "hints": [
+        "The word **desideratum** (Latin) has the plural **desiderata**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "desiderata": "✅ Correct! desideratum → desiderata.",
+          "desideratum": "❌ This is singular.",
+          "desideratums": "❌ Latin form — desiderata."
+        }
+      }
+    },
+    {
+      "id": 103,
+      "hints": [
+        "The word **syntagma** (Greek) has the plural **syntagmata**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "syntagmata": "✅ Correct! syntagma → syntagmata.",
+          "syntagma": "❌ This is singular.",
+          "syntagmas": "❌ Greek form — syntagmata."
+        }
+      }
+    },
+    {
+      "id": 104,
+      "hints": [
+        "The word **obverse** forms plural normally: -s.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "obverses": "✅ Correct! obverse → obverses.",
+          "obverse": "❌ This is singular.",
+          "obversi": "❌ Incorrect form."
+        }
+      }
+    },
+    {
+      "id": 105,
+      "hints": [
+        "The word **lexicon** (Greek) has the plural **lexica**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "lexica": "✅ Correct! lexicon → lexica.",
+          "lexicon": "❌ This is singular.",
+          "lexicons": "❌ Possibly, but lexica — класична."
+        }
+      }
+    },
+    {
+      "id": 106,
+      "hints": [
+        "The word **concerto** (Italian) can have the plural **concerti**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "concerti": "✅ Correct! concerto → concerti (італійська форма).",
+          "concerto": "❌ This is singular.",
+          "concertos": "❌ Also correct, but concerti — класична."
+        }
+      }
+    },
+    {
+      "id": 107,
+      "hints": [
+        "The word **compendium** (Latin) has the plural **compendia**.",
+        "The verb **were** indicates plural."
+      ],
+      "explanations": {
+        "a1": {
+          "compendia": "✅ Correct! compendium → compendia.",
+          "compendium": "❌ This is singular.",
+          "compendiums": "❌ Possibly, but compendia — класична."
+        }
+      }
+    },
+    {
+      "id": 108,
+      "hints": [
+        "The word **septum** (Latin) has the plural **septa**.",
+        "Дієслово **are** вказує на множину."
+      ],
+      "explanations": {
+        "a1": {
+          "septa": "✅ Correct! septum → septa.",
+          "septum": "❌ This is singular.",
+          "septums": "❌ Latin form — septa."
+        }
+      }
+    }
+  ]
+}

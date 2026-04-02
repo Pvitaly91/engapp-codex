@@ -1,0 +1,4076 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\AI\\Copilot\\Claude\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+    "uuid_namespace": "PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder"
+  },
+  "defaults": {
+    "default_locale": "uk",
+    "flag": 0,
+    "type": 0,
+    "level_difficulty": {
+      "A1": 1,
+      "A2": 2,
+      "B1": 3,
+      "B2": 4,
+      "C1": 5,
+      "C2": 5
+    }
+  },
+  "category": {
+    "name": "Іменники, артиклі та кількість"
+  },
+  "sources": {
+    "theory_page_446": {
+      "name": "Plural Nouns — Множина іменників: правила, винятки, приклади (Page 446)"
+    }
+  },
+  "tags": {
+    "grammar_plural": {
+      "name": "Множина іменників",
+      "category": "grammar"
+    },
+    "irregular_plurals": {
+      "name": "Неправильні форми",
+      "category": "grammar"
+    },
+    "latin_greek_roots": {
+      "name": "Латинські та грецькі корені",
+      "category": "grammar"
+    }
+  },
+  "default_tag_keys": [
+    "grammar_plural"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "I have two {a1} in my bag.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "books",
+          "options": [
+            "books",
+            "book",
+            "bookes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: більшість іменників утворюють множину додаванням **-s**.",
+            "У реченні є числівник **two**, що вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "books": "✅ Правильно! Іменник «book» утворює множину додаванням -s → books.",
+              "book": "❌ Це форма однини. Числівник «two» вимагає множини.",
+              "bookes": "❌ Закінчення -es не потрібне для слів на приголосний + голосний."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "I have two {a1} in my bag."
+      ]
+    },
+    {
+      "id": 2,
+      "question": "She has three {a1}.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "cats",
+          "options": [
+            "cats",
+            "cat",
+            "cates"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: додайте **-s** до більшості іменників для утворення множини.",
+            "Числівник **three** показує, що потрібна множина."
+          ],
+          "explanations": {
+            "a1": {
+              "cats": "✅ Правильно! cat + s = cats — стандартне правило множини.",
+              "cat": "❌ Однина не підходить після числівника «three».",
+              "cates": "❌ Такої форми не існує; правильно — cats."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "She has three {a1}."
+      ]
+    },
+    {
+      "id": 3,
+      "question": "There are five {a1} on the table.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "pens",
+          "options": [
+            "pens",
+            "pen",
+            "penes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Стандартне правило: іменник + **-s** = множина.",
+            "Конструкція **there are** + числівник **five** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "pens": "✅ Правильно! pen → pens — звичайна множина з -s.",
+              "pen": "❌ Форма однини не узгоджується з «five» та «are».",
+              "penes": "❌ Неправильне закінчення; pen просто додає -s."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "There are five {a1} on the table."
+      ]
+    },
+    {
+      "id": 4,
+      "question": "The {a1} are playing in the garden.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "dogs",
+          "options": [
+            "dogs",
+            "dog",
+            "doges"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Дієслово **are** вказує на множину підмета.",
+            "Для іменника «dog» множина утворюється додаванням -s."
+          ],
+          "explanations": {
+            "a1": {
+              "dogs": "✅ Правильно! dog + s = dogs.",
+              "dog": "❌ Однина не узгоджується з «are».",
+              "doges": "❌ Форма «doges» не існує в англійській мові."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are playing in the garden."
+      ]
+    },
+    {
+      "id": 5,
+      "question": "My sister bought four {a1}.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "apples",
+          "options": [
+            "apples",
+            "apple",
+            "applees"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Числівник **four** потребує іменника у множині.",
+            "Слово «apple» утворює множину за стандартним правилом."
+          ],
+          "explanations": {
+            "a1": {
+              "apples": "✅ Правильно! apple + s = apples.",
+              "apple": "❌ Однина; потрібна множина після «four».",
+              "applees": "❌ Подвійне -ee не використовується; правильно — apples."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "My sister bought four {a1}."
+      ]
+    },
+    {
+      "id": 6,
+      "question": "She sees two {a1} at the stop.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "buses",
+          "options": [
+            "buses",
+            "bus",
+            "buss"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: якщо іменник закінчується на **-s**, додаємо **-es**.",
+            "Числівник **two** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "buses": "✅ Правильно! bus → buses — додаємо -es після -s.",
+              "bus": "❌ Це однина, а потрібна множина.",
+              "buss": "❌ Просто подвоєння -s неправильне; потрібно -es."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "She sees two {a1} at the stop."
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Look at those {a1}!",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "boxes",
+          "options": [
+            "boxes",
+            "box",
+            "boxs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: іменники на **-x** утворюють множину з **-es**.",
+            "Вказівний займенник **those** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "boxes": "✅ Правильно! box → boxes — після -x додаємо -es.",
+              "box": "❌ Однина не підходить після «those».",
+              "boxs": "❌ Неправильно; після -x потрібно -es, а не просто -s."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "Look at those {a1}!"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "The {a1} are in the kitchen.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "dishes",
+          "options": [
+            "dishes",
+            "dish",
+            "dishs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: іменники на **-sh** отримують закінчення **-es**.",
+            "Дієслово **are** сигналізує про множину."
+          ],
+          "explanations": {
+            "a1": {
+              "dishes": "✅ Правильно! dish → dishes.",
+              "dish": "❌ Однина не узгоджується з «are».",
+              "dishs": "❌ Після -sh потрібно -es, а не -s."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are in the kitchen."
+      ]
+    },
+    {
+      "id": 9,
+      "question": "She ate two {a1} for lunch.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "sandwiches",
+          "options": [
+            "sandwiches",
+            "sandwich",
+            "sandwichs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: слова на **-ch** утворюють множину з **-es**.",
+            "Числівник **two** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "sandwiches": "✅ Правильно! sandwich → sandwiches.",
+              "sandwich": "❌ Це однина; «two» вимагає множини.",
+              "sandwichs": "❌ Після -ch потрібно -es."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "She ate two {a1} for lunch."
+      ]
+    },
+    {
+      "id": 10,
+      "question": "I need three {a1} for the test.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "watches",
+          "options": [
+            "watches",
+            "watch",
+            "watchs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Іменники на **-ch** потребують закінчення **-es** у множині.",
+            "Числівник **three** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "watches": "✅ Правильно! watch → watches.",
+              "watch": "❌ Однина не підходить після «three».",
+              "watchs": "❌ Правильне закінчення — -es, а не -s."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "I need three {a1} for the test."
+      ]
+    },
+    {
+      "id": 11,
+      "question": "The {a1} are crying.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "babies",
+          "options": [
+            "babies",
+            "babys",
+            "baby"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: якщо перед **-y** приголосний, змінюємо **y → ies**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "babies": "✅ Правильно! baby → babies (y → ies після приголосного).",
+              "babys": "❌ Неправильно; після приголосного y змінюється на ies.",
+              "baby": "❌ Однина не узгоджується з «are»."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are crying."
+      ]
+    },
+    {
+      "id": 12,
+      "question": "There are many {a1} in the city.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "families",
+          "options": [
+            "families",
+            "familys",
+            "family"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Перед **-y** стоїть приголосний **l**, тому **y → ies**.",
+            "Слово **many** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "families": "✅ Правильно! family → families.",
+              "familys": "❌ Неправильне закінчення; потрібно ies.",
+              "family": "❌ Однина не підходить після «many»."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "There are many {a1} in the city."
+      ]
+    },
+    {
+      "id": 13,
+      "question": "We visited several {a1} yesterday.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "cities",
+          "options": [
+            "cities",
+            "citys",
+            "city"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило y → ies: city закінчується на приголосний + y.",
+            "Слово **several** сигналізує про множину."
+          ],
+          "explanations": {
+            "a1": {
+              "cities": "✅ Правильно! city → cities.",
+              "citys": "❌ Коли перед y приголосний, пишемо ies.",
+              "city": "❌ Однина; «several» вимагає множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "We visited several {a1} yesterday."
+      ]
+    },
+    {
+      "id": 14,
+      "question": "I have two {a1} to my house.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "keys",
+          "options": [
+            "keys",
+            "keies",
+            "keyes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: якщо перед **-y** голосний (**e**), просто додаємо **-s**.",
+            "Числівник **two** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "keys": "✅ Правильно! key → keys (голосний + y, тому просто -s).",
+              "keies": "❌ Зміна y → ies не потрібна після голосного.",
+              "keyes": "❌ Неправильна форма; просто keys."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "I have two {a1} to my house."
+      ]
+    },
+    {
+      "id": 15,
+      "question": "The {a1} are on holiday.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "boys",
+          "options": [
+            "boys",
+            "boies",
+            "boyes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Перед **y** стоїть голосний **o**, тому додаємо тільки **-s**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "boys": "✅ Правильно! boy → boys.",
+              "boies": "❌ Після голосного + y не змінюємо y.",
+              "boyes": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are on holiday."
+      ]
+    },
+    {
+      "id": 16,
+      "question": "The {a1} are playing football.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "children",
+          "options": [
+            "children",
+            "childs",
+            "childrens"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **child** має неправильну форму множини.",
+            "Дієслово **are** сигналізує про множину."
+          ],
+          "explanations": {
+            "a1": {
+              "children": "✅ Правильно! child → children — неправильна множина.",
+              "childs": "❌ Неправильно; child має особливу форму children.",
+              "childrens": "❌ Children вже множина, -s не потрібен."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are playing football."
+      ]
+    },
+    {
+      "id": 17,
+      "question": "Two {a1} are waiting outside.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "men",
+          "options": [
+            "men",
+            "mans",
+            "mens"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **man** має неправильну множину: **men**.",
+            "Числівник **two** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "men": "✅ Правильно! man → men — неправильна форма.",
+              "mans": "❌ Неправильно; man не додає -s.",
+              "mens": "❌ Men вже є множиною."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "Two {a1} are waiting outside."
+      ]
+    },
+    {
+      "id": 18,
+      "question": "Three {a1} work in this office.",
+      "source": "theory_page_446",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "women",
+          "options": [
+            "women",
+            "womans",
+            "womens"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **woman** має неправильну множину.",
+            "Числівник **three** вимагає множини."
+          ],
+          "explanations": {
+            "a1": {
+              "women": "✅ Правильно! woman → women.",
+              "womans": "❌ Woman не додає -s.",
+              "womens": "❌ Women вже множина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "Three {a1} work in this office."
+      ]
+    },
+    {
+      "id": 19,
+      "question": "The farmer has many {a1}.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "potatoes",
+          "options": [
+            "potatoes",
+            "potatos",
+            "potato"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: іменники на **-o** після приголосного часто додають **-es**.",
+            "Слово **many** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "potatoes": "✅ Правильно! potato → potatoes.",
+              "potatos": "❌ Для potato правильно -es.",
+              "potato": "❌ Однина не підходить після «many»."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The farmer has many {a1}."
+      ]
+    },
+    {
+      "id": 20,
+      "question": "She picked some {a1} from the garden.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "tomatoes",
+          "options": [
+            "tomatoes",
+            "tomatos",
+            "tomato"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **tomato** закінчується на приголосний + **o**, тому додаємо **-es**.",
+            "Слово **some** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "tomatoes": "✅ Правильно! tomato → tomatoes.",
+              "tomatos": "❌ Потрібно -es, а не -s.",
+              "tomato": "❌ Однина; «some» потребує множини."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "She picked some {a1} from the garden."
+      ]
+    },
+    {
+      "id": 21,
+      "question": "The {a1} are very brave.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "heroes",
+          "options": [
+            "heroes",
+            "heros",
+            "hero"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: hero → heroes (додаємо -es).",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "heroes": "✅ Правильно! hero → heroes.",
+              "heros": "❌ Hero потребує -es.",
+              "hero": "❌ Однина не підходить."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are very brave."
+      ]
+    },
+    {
+      "id": 22,
+      "question": "I took many {a1} during my trip.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "photos",
+          "options": [
+            "photos",
+            "photoes",
+            "photo"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Виняток: **photo** — скорочене слово, тому просто **-s**.",
+            "Слово **many** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "photos": "✅ Правильно! photo → photos (виняток, бо скорочення).",
+              "photoes": "❌ Photo — виняток, додає тільки -s.",
+              "photo": "❌ Однина не підходить."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "I took many {a1} during my trip."
+      ]
+    },
+    {
+      "id": 23,
+      "question": "The band played two {a1}.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "pianos",
+          "options": [
+            "pianos",
+            "pianoes",
+            "piano"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Виняток: **piano** — музичний термін, додає тільки **-s**.",
+            "Числівник **two** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "pianos": "✅ Правильно! piano → pianos.",
+              "pianoes": "❌ Piano — виняток.",
+              "piano": "❌ Потрібна множина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The band played two {a1}."
+      ]
+    },
+    {
+      "id": 24,
+      "question": "There are several {a1} in the fridge.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "eggs",
+          "options": [
+            "eggs",
+            "eggies",
+            "egges"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Стандартне правило: egg + **-s** = eggs.",
+            "Слово **several** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "eggs": "✅ Правильно! egg → eggs.",
+              "eggies": "❌ Неправильна форма.",
+              "egges": "❌ Просто додаємо -s."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "There are several {a1} in the fridge."
+      ]
+    },
+    {
+      "id": 25,
+      "question": "I bought some {a1} at the market.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "strawberries",
+          "options": [
+            "strawberries",
+            "strawberrys",
+            "strawberry"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило y → ies: перед y стоїть приголосний **r**.",
+            "Слово **some** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "strawberries": "✅ Правильно! strawberry → strawberries.",
+              "strawberrys": "❌ Після приголосного y → ies.",
+              "strawberry": "❌ Однина; потрібна множина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "I bought some {a1} at the market."
+      ]
+    },
+    {
+      "id": 26,
+      "question": "The {a1} flew south for winter.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "butterflies",
+          "options": [
+            "butterflies",
+            "butterflys",
+            "butterfly"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Butterfly закінчується на приголосний + y, тому y → ies.",
+            "Дієслово **flew** (past) з підметом у множині."
+          ],
+          "explanations": {
+            "a1": {
+              "butterflies": "✅ Правильно! butterfly → butterflies.",
+              "butterflys": "❌ Неправильне закінчення.",
+              "butterfly": "❌ Однина не підходить."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} flew south for winter."
+      ]
+    },
+    {
+      "id": 27,
+      "question": "My {a1} hurt after the long walk.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "feet",
+          "options": [
+            "feet",
+            "foots",
+            "feets"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **foot** має неправильну множину: **feet**.",
+            "Дієслово **hurt** може бути і однина, і множина, але «my feet» — типовий вираз."
+          ],
+          "explanations": {
+            "a1": {
+              "feet": "✅ Правильно! foot → feet — неправильна форма.",
+              "foots": "❌ Foot не додає -s.",
+              "feets": "❌ Feet вже множина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "My {a1} hurt after the long walk."
+      ]
+    },
+    {
+      "id": 28,
+      "question": "The dentist checked my {a1}.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "teeth",
+          "options": [
+            "teeth",
+            "tooths",
+            "teeths"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **tooth** має неправильну множину: **teeth**.",
+            "Контекст вказує на всі зуби (множина)."
+          ],
+          "explanations": {
+            "a1": {
+              "teeth": "✅ Правильно! tooth → teeth.",
+              "tooths": "❌ Tooth не додає -s.",
+              "teeths": "❌ Teeth вже множина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The dentist checked my {a1}."
+      ]
+    },
+    {
+      "id": 29,
+      "question": "Several {a1} flew over the lake.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "geese",
+          "options": [
+            "geese",
+            "gooses",
+            "goose"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **goose** має неправильну множину: **geese**.",
+            "Слово **several** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "geese": "✅ Правильно! goose → geese.",
+              "gooses": "❌ Goose не додає -s.",
+              "goose": "❌ Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "Several {a1} flew over the lake."
+      ]
+    },
+    {
+      "id": 30,
+      "question": "The farm has many {a1}.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "sheep",
+          "options": [
+            "sheep",
+            "sheeps",
+            "sheepes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **sheep** однакове в однині й множині (zero plural).",
+            "Слово **many** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "sheep": "✅ Правильно! sheep → sheep (без змін).",
+              "sheeps": "❌ Sheep не змінюється у множині.",
+              "sheepes": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The farm has many {a1}."
+      ]
+    },
+    {
+      "id": 31,
+      "question": "He caught three {a1} in the river.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "fish",
+          "options": [
+            "fish",
+            "fishes",
+            "fishs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **fish** зазвичай однакове в однині й множині.",
+            "Числівник **three** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "fish": "✅ Правильно! fish → fish (зазвичай без змін).",
+              "fishes": "❌ Можливо в спец. контексті, але fish — стандарт.",
+              "fishs": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "He caught three {a1} in the river."
+      ]
+    },
+    {
+      "id": 32,
+      "question": "The scientist studies {a1}.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "mice",
+          "options": [
+            "mice",
+            "mouses",
+            "mices"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **mouse** має неправильну множину: **mice**.",
+            "Контекст припускає множину."
+          ],
+          "explanations": {
+            "a1": {
+              "mice": "✅ Правильно! mouse → mice.",
+              "mouses": "❌ Mouse не додає -s.",
+              "mices": "❌ Mice вже множина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The scientist studies {a1}."
+      ]
+    },
+    {
+      "id": 33,
+      "question": "All the {a1} in the class passed.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "students",
+          "options": [
+            "students",
+            "studentes",
+            "student"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Стандартне правило: student + **-s**.",
+            "Слово **all** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "students": "✅ Правильно! student → students.",
+              "studentes": "❌ Просто -s.",
+              "student": "❌ Потрібна множина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "All the {a1} in the class passed."
+      ]
+    },
+    {
+      "id": 34,
+      "question": "The {a1} are very comfortable.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "chairs",
+          "options": [
+            "chairs",
+            "chaires",
+            "chair"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Стандартне правило множини: chair + -s.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "chairs": "✅ Правильно! chair → chairs.",
+              "chaires": "❌ Просто -s.",
+              "chair": "❌ Однина не узгоджується з «are»."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} are very comfortable."
+      ]
+    },
+    {
+      "id": 35,
+      "question": "She baked several {a1} for the party.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "cakes",
+          "options": [
+            "cakes",
+            "cakies",
+            "cake"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Cake закінчується на -e, тому просто додаємо -s.",
+            "Слово **several** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "cakes": "✅ Правильно! cake → cakes.",
+              "cakies": "❌ Неправильна форма.",
+              "cake": "❌ Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "She baked several {a1} for the party."
+      ]
+    },
+    {
+      "id": 36,
+      "question": "The {a1} on the beach were beautiful.",
+      "source": "theory_page_446",
+      "level": "A2",
+      "markers": {
+        "a1": {
+          "answer": "shells",
+          "options": [
+            "shells",
+            "shelles",
+            "shell"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Shell утворює множину за стандартним правилом.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "shells": "✅ Правильно! shell → shells.",
+              "shelles": "❌ Не потрібно -es.",
+              "shell": "❌ Однина не підходить."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "grammar_plural"
+      ],
+      "variants": [
+        "The {a1} on the beach were beautiful."
+      ]
+    },
+    {
+      "id": 37,
+      "question": "The {a1} are falling from the trees.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "leaves",
+          "options": [
+            "leaves",
+            "leafs",
+            "leafes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: іменники на **-f** змінюють **f → ves**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "leaves": "✅ Правильно! leaf → leaves (f → ves).",
+              "leafs": "❌ Неправильно; потрібно leaves.",
+              "leafes": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} are falling from the trees."
+      ]
+    },
+    {
+      "id": 38,
+      "question": "The chef uses sharp {a1}.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "knives",
+          "options": [
+            "knives",
+            "knifes",
+            "knifs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: knife → knives (fe → ves).",
+            "Контекст вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "knives": "✅ Правильно! knife → knives.",
+              "knifes": "❌ Неправильно; fe → ves.",
+              "knifs": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The chef uses sharp {a1}."
+      ]
+    },
+    {
+      "id": 39,
+      "question": "Both {a1} went to the meeting.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "wives",
+          "options": [
+            "wives",
+            "wifes",
+            "wifs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: wife → wives (fe → ves).",
+            "Слово **both** вказує на двох (множина)."
+          ],
+          "explanations": {
+            "a1": {
+              "wives": "✅ Правильно! wife → wives.",
+              "wifes": "❌ Неправильне закінчення.",
+              "wifs": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "Both {a1} went to the meeting."
+      ]
+    },
+    {
+      "id": 40,
+      "question": "The {a1} are on the roof.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "thieves",
+          "options": [
+            "thieves",
+            "thiefs",
+            "thiefes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: thief → thieves (f → ves).",
+            "Дієслово **are** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "thieves": "✅ Правильно! thief → thieves.",
+              "thiefs": "❌ Неправильно.",
+              "thiefes": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} are on the roof."
+      ]
+    },
+    {
+      "id": 41,
+      "question": "The cat has nine {a1}.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "lives",
+          "options": [
+            "lives",
+            "lifes",
+            "lifs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: life → lives (fe → ves).",
+            "Числівник **nine** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "lives": "✅ Правильно! life → lives.",
+              "lifes": "❌ Неправильно; fe → ves.",
+              "lifs": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The cat has nine {a1}."
+      ]
+    },
+    {
+      "id": 42,
+      "question": "The {a1} are displayed on the wall.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "shelves",
+          "options": [
+            "shelves",
+            "shelfs",
+            "shelfes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: shelf → shelves (f → ves).",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "shelves": "✅ Правильно! shelf → shelves.",
+              "shelfs": "❌ Неправильно.",
+              "shelfes": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} are displayed on the wall."
+      ]
+    },
+    {
+      "id": 43,
+      "question": "The {a1} were howling at the moon.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "wolves",
+          "options": [
+            "wolves",
+            "wolfs",
+            "wolfes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило: wolf → wolves (f → ves).",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "wolves": "✅ Правильно! wolf → wolves.",
+              "wolfs": "❌ Неправильно.",
+              "wolfes": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} were howling at the moon."
+      ]
+    },
+    {
+      "id": 44,
+      "question": "The {a1} are very tall.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "roofs",
+          "options": [
+            "roofs",
+            "rooves",
+            "roofes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Виняток: **roof** просто додає **-s** (roofs).",
+            "Дієслово **are** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "roofs": "✅ Правильно! roof → roofs (виняток).",
+              "rooves": "❌ Roof не змінює f на v.",
+              "roofes": "❌ Просто -s."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} are very tall."
+      ]
+    },
+    {
+      "id": 45,
+      "question": "The photographer's {a1} were expensive.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "proofs",
+          "options": [
+            "proofs",
+            "prooves",
+            "proofes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Виняток: **proof** просто додає **-s**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "proofs": "✅ Правильно! proof → proofs.",
+              "prooves": "❌ Proof — виняток.",
+              "proofes": "❌ Просто -s."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The photographer's {a1} were expensive."
+      ]
+    },
+    {
+      "id": 46,
+      "question": "Both of my {a1} are doctors.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "brothers-in-law",
+          "options": [
+            "brothers-in-law",
+            "brother-in-laws",
+            "brothers-in-laws"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "У складених іменниках множина утворюється від головного слова (**brother**).",
+            "Слово **both** вказує на двох."
+          ],
+          "explanations": {
+            "a1": {
+              "brothers-in-law": "✅ Правильно! Головне слово brother → brothers.",
+              "brother-in-laws": "❌ Неправильно; множина від brother.",
+              "brothers-in-laws": "❌ Подвійне закінчення не потрібне."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "Both of my {a1} are doctors."
+      ]
+    },
+    {
+      "id": 47,
+      "question": "The {a1} attended the conference.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "editors-in-chief",
+          "options": [
+            "editors-in-chief",
+            "editor-in-chiefs",
+            "editors-in-chiefs"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Складений іменник: множина утворюється від **editor**.",
+            "Дієслово **attended** з підметом у множині."
+          ],
+          "explanations": {
+            "a1": {
+              "editors-in-chief": "✅ Правильно! editor → editors.",
+              "editor-in-chiefs": "❌ Неправильно.",
+              "editors-in-chiefs": "❌ Подвійне закінчення."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} attended the conference."
+      ]
+    },
+    {
+      "id": 48,
+      "question": "Many {a1} were walking in the park.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "passers-by",
+          "options": [
+            "passers-by",
+            "passer-bys",
+            "passers-bys"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Складений іменник: passer → passers.",
+            "Слово **many** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "passers-by": "✅ Правильно! passer → passers.",
+              "passer-bys": "❌ Неправильно.",
+              "passers-bys": "❌ Подвійне закінчення."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "Many {a1} were walking in the park."
+      ]
+    },
+    {
+      "id": 49,
+      "question": "The hunters saw several {a1} in the forest.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "deer",
+          "options": [
+            "deer",
+            "deers",
+            "deeres"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **deer** однакове в однині й множині.",
+            "Слово **several** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "deer": "✅ Правильно! deer → deer (zero plural).",
+              "deers": "❌ Deer не змінюється.",
+              "deeres": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The hunters saw several {a1} in the forest."
+      ]
+    },
+    {
+      "id": 50,
+      "question": "The fisherman caught many {a1}.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "trout",
+          "options": [
+            "trout",
+            "trouts",
+            "troutes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **trout** (форель) однакове в однині й множині.",
+            "Слово **many** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "trout": "✅ Правильно! trout → trout.",
+              "trouts": "❌ Trout не змінюється.",
+              "troutes": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The fisherman caught many {a1}."
+      ]
+    },
+    {
+      "id": 51,
+      "question": "We counted twenty {a1}.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "aircraft",
+          "options": [
+            "aircraft",
+            "aircrafts",
+            "aircraftes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **aircraft** однакове в однині й множині.",
+            "Числівник **twenty** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "aircraft": "✅ Правильно! aircraft → aircraft.",
+              "aircrafts": "❌ Aircraft не змінюється.",
+              "aircraftes": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "We counted twenty {a1}."
+      ]
+    },
+    {
+      "id": 52,
+      "question": "Many {a1} attended the concert.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "people",
+          "options": [
+            "people",
+            "persons",
+            "peoples"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **person** має неправильну множину: **people**.",
+            "Слово **many** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "people": "✅ Правильно! person → people (у загальному значенні).",
+              "persons": "❌ Persons — офіційний стиль, але people — стандарт.",
+              "peoples": "❌ Peoples = народи, інше значення."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "Many {a1} attended the concert."
+      ]
+    },
+    {
+      "id": 53,
+      "question": "The {a1} in the waiting room were impatient.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "people",
+          "options": [
+            "people",
+            "persons",
+            "peoples"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "У розмовній мові множина від person — **people**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "people": "✅ Правильно! person → people.",
+              "persons": "❌ Офіційний варіант, але people — звичайний.",
+              "peoples": "❌ Означає «народи»."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} in the waiting room were impatient."
+      ]
+    },
+    {
+      "id": 54,
+      "question": "The {a1} are learning about climate change.",
+      "source": "theory_page_446",
+      "level": "B1",
+      "markers": {
+        "a1": {
+          "answer": "students",
+          "options": [
+            "students",
+            "studentes",
+            "student"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Student утворює множину за стандартним правилом.",
+            "Дієслово **are** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "students": "✅ Правильно! student → students.",
+              "studentes": "❌ Просто -s.",
+              "student": "❌ Однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} are learning about climate change."
+      ]
+    },
+    {
+      "id": 55,
+      "question": "The scientist analyzed the {a1}.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "data",
+          "options": [
+            "data",
+            "datas",
+            "datum"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **datum** (латинське) має множину **data**.",
+            "Контекст вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "data": "✅ Правильно! datum → data (латинська множина).",
+              "datas": "❌ Data вже множина, -s не потрібен.",
+              "datum": "❌ Це однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The scientist analyzed the {a1}."
+      ]
+    },
+    {
+      "id": 56,
+      "question": "The {a1} were affected by the change.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "criteria",
+          "options": [
+            "criteria",
+            "criterias",
+            "criterion"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **criterion** (грецьке) має множину **criteria**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "criteria": "✅ Правильно! criterion → criteria.",
+              "criterias": "❌ Criteria вже множина.",
+              "criterion": "❌ Це однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} were affected by the change."
+      ]
+    },
+    {
+      "id": 57,
+      "question": "The {a1} of the problem were analyzed.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "phenomena",
+          "options": [
+            "phenomena",
+            "phenomenons",
+            "phenomenon"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **phenomenon** (грецьке) має множину **phenomena**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "phenomena": "✅ Правильно! phenomenon → phenomena.",
+              "phenomenons": "❌ Грецька множина — phenomena.",
+              "phenomenon": "❌ Це однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} of the problem were analyzed."
+      ]
+    },
+    {
+      "id": 58,
+      "question": "He studied the {a1} of various equations.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "formulae",
+          "options": [
+            "formulae",
+            "formulas",
+            "formula"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **formula** (латинське) має множину **formulae** або **formulas**.",
+            "Контекст (various) вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "formulae": "✅ Правильно! formula → formulae (класична форма).",
+              "formulas": "✅ Також правильно! Сучасний варіант.",
+              "formula": "❌ Це однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "He studied the {a1} of various equations."
+      ]
+    },
+    {
+      "id": 59,
+      "question": "The researchers published their {a1}.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "theses",
+          "options": [
+            "theses",
+            "thesis",
+            "thesises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **thesis** (грецьке) має множину **theses**.",
+            "Присвійний займенник **their** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "theses": "✅ Правильно! thesis → theses.",
+              "thesis": "❌ Це однина.",
+              "thesises": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The researchers published their {a1}."
+      ]
+    },
+    {
+      "id": 60,
+      "question": "The {a1} at the hospital were urgent.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "crises",
+          "options": [
+            "crises",
+            "crisis",
+            "crisises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **crisis** (грецьке) має множину **crises**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "crises": "✅ Правильно! crisis → crises.",
+              "crisis": "❌ Це однина.",
+              "crisises": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} at the hospital were urgent."
+      ]
+    },
+    {
+      "id": 61,
+      "question": "The doctor made several {a1}.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "diagnoses",
+          "options": [
+            "diagnoses",
+            "diagnosis",
+            "diagnosises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **diagnosis** (грецьке) має множину **diagnoses**.",
+            "Слово **several** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "diagnoses": "✅ Правильно! diagnosis → diagnoses.",
+              "diagnosis": "❌ Це однина.",
+              "diagnosises": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The doctor made several {a1}."
+      ]
+    },
+    {
+      "id": 62,
+      "question": "The {a1} of his argument were clear.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "bases",
+          "options": [
+            "bases",
+            "basis",
+            "basises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **basis** (грецьке) має множину **bases**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "bases": "✅ Правильно! basis → bases.",
+              "basis": "❌ Це однина.",
+              "basises": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} of his argument were clear."
+      ]
+    },
+    {
+      "id": 63,
+      "question": "Scientists found new {a1} of bacteria.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "species",
+          "options": [
+            "species",
+            "specieses",
+            "specie"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **species** однакове в однині й множині.",
+            "Контекст (new, plural bacteria) вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "species": "✅ Правильно! species → species.",
+              "specieses": "❌ Species не змінюється.",
+              "specie": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "Scientists found new {a1} of bacteria."
+      ]
+    },
+    {
+      "id": 64,
+      "question": "The {a1} of the magazine were impressive.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "indices",
+          "options": [
+            "indices",
+            "indexes",
+            "index"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **index** (латинське) має множину **indices** або **indexes**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "indices": "✅ Правильно! index → indices (класична форма).",
+              "indexes": "✅ Також правильно! Сучасний варіант.",
+              "index": "❌ Це однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} of the magazine were impressive."
+      ]
+    },
+    {
+      "id": 65,
+      "question": "The {a1} of the building are modern.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "appendices",
+          "options": [
+            "appendices",
+            "appendixes",
+            "appendix"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **appendix** (латинське) має множину **appendices** або **appendixes**.",
+            "Дієслово **are** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "appendices": "✅ Правильно! appendix → appendices.",
+              "appendixes": "✅ Також правильно!",
+              "appendix": "❌ Це однина."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} of the building are modern."
+      ]
+    },
+    {
+      "id": 66,
+      "question": "The {a1} are clearly defined in the contract.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "clauses",
+          "options": [
+            "clauses",
+            "clause",
+            "clausies"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **clause** утворює множину стандартно: clause + s.",
+            "Дієслово **are** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "clauses": "✅ Правильно! clause → clauses.",
+              "clause": "❌ Це однина.",
+              "clausies": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} are clearly defined in the contract."
+      ]
+    },
+    {
+      "id": 67,
+      "question": "The {a1} about climate is concerning.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "news",
+          "options": [
+            "news",
+            "newses",
+            "new"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **news** завжди в однині, хоча закінчується на -s.",
+            "Дієслово **is** вказує на однину."
+          ],
+          "explanations": {
+            "a1": {
+              "news": "✅ Правильно! News — незлічуваний іменник, завжди однина.",
+              "newses": "❌ News не має множини.",
+              "new": "❌ New — прикметник, не іменник."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} about climate is concerning."
+      ]
+    },
+    {
+      "id": 68,
+      "question": "{a1} is an important subject.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "Mathematics",
+          "options": [
+            "Mathematics",
+            "Mathematic",
+            "Mathematicses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **mathematics** завжди в однині, хоча закінчується на -s.",
+            "Дієслово **is** підтверджує однину."
+          ],
+          "explanations": {
+            "a1": {
+              "Mathematics": "✅ Правильно! Mathematics — однина.",
+              "Mathematic": "❌ Неправильна форма.",
+              "Mathematicses": "❌ Не існує."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "{a1} is an important subject."
+      ]
+    },
+    {
+      "id": 69,
+      "question": "The {a1} are very comfortable.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "scissors",
+          "options": [
+            "scissors",
+            "scissor",
+            "scissorses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **scissors** завжди у множині (pluralia tantum).",
+            "Дієслово **are** підтверджує множину."
+          ],
+          "explanations": {
+            "a1": {
+              "scissors": "✅ Правильно! Scissors завжди множина.",
+              "scissor": "❌ Scissors не має однини.",
+              "scissorses": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The {a1} are very comfortable."
+      ]
+    },
+    {
+      "id": 70,
+      "question": "My {a1} are new.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "trousers",
+          "options": [
+            "trousers",
+            "trouser",
+            "trouserses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **trousers** завжди у множині.",
+            "Дієслово **are** підтверджує множину."
+          ],
+          "explanations": {
+            "a1": {
+              "trousers": "✅ Правильно! Trousers завжди множина.",
+              "trouser": "❌ Trousers не має однини.",
+              "trouserses": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "My {a1} are new."
+      ]
+    },
+    {
+      "id": 71,
+      "question": "Her {a1} are very stylish.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "glasses",
+          "options": [
+            "glasses",
+            "glass",
+            "glasseses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **glasses** (окуляри) завжди у множині.",
+            "Дієслово **are** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "glasses": "✅ Правильно! Glasses (окуляри) — множина.",
+              "glass": "❌ Glass — склянка, інше значення.",
+              "glasseses": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "Her {a1} are very stylish."
+      ]
+    },
+    {
+      "id": 72,
+      "question": "The team reviewed all the {a1}.",
+      "source": "theory_page_446",
+      "level": "B2",
+      "markers": {
+        "a1": {
+          "answer": "analyses",
+          "options": [
+            "analyses",
+            "analysis",
+            "analysises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **analysis** (грецьке) має множину **analyses**.",
+            "Слово **all** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "analyses": "✅ Правильно! analysis → analyses.",
+              "analysis": "❌ Це однина.",
+              "analysises": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "irregular_plurals"
+      ],
+      "variants": [
+        "The team reviewed all the {a1}."
+      ]
+    },
+    {
+      "id": 73,
+      "question": "The biologist studied the cell {a1}.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "nuclei",
+          "options": [
+            "nuclei",
+            "nucleus",
+            "nucleuses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **nucleus** (латинське) має множину **nuclei**.",
+            "Контекст вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "nuclei": "✅ Правильно! nucleus → nuclei.",
+              "nucleus": "❌ Це однина.",
+              "nucleuses": "❌ Латинська форма — nuclei."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The biologist studied the cell {a1}."
+      ]
+    },
+    {
+      "id": 74,
+      "question": "The researcher identified several {a1}.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "stimuli",
+          "options": [
+            "stimuli",
+            "stimulus",
+            "stimuluses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **stimulus** (латинське) має множину **stimuli**.",
+            "Слово **several** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "stimuli": "✅ Правильно! stimulus → stimuli.",
+              "stimulus": "❌ Це однина.",
+              "stimuluses": "❌ Латинська форма — stimuli."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The researcher identified several {a1}."
+      ]
+    },
+    {
+      "id": 75,
+      "question": "The {a1} of the university are impressive.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "alumni",
+          "options": [
+            "alumni",
+            "alumnus",
+            "alumnuses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **alumnus** (латинське) має множину **alumni**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "alumni": "✅ Правильно! alumnus → alumni.",
+              "alumnus": "❌ Це однина (чоловік).",
+              "alumnuses": "❌ Латинська форма — alumni."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the university are impressive."
+      ]
+    },
+    {
+      "id": 76,
+      "question": "The book contained several {a1}.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "addenda",
+          "options": [
+            "addenda",
+            "addendum",
+            "addendums"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **addendum** (латинське) має множину **addenda**.",
+            "Слово **several** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "addenda": "✅ Правильно! addendum → addenda.",
+              "addendum": "❌ Це однина.",
+              "addendums": "❌ Класична форма — addenda."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The book contained several {a1}."
+      ]
+    },
+    {
+      "id": 77,
+      "question": "The report listed all {a1}.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "errata",
+          "options": [
+            "errata",
+            "erratum",
+            "erratums"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **erratum** (латинське) має множину **errata**.",
+            "Слово **all** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "errata": "✅ Правильно! erratum → errata.",
+              "erratum": "❌ Це однина.",
+              "erratums": "❌ Латинська форма — errata."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The report listed all {a1}."
+      ]
+    },
+    {
+      "id": 78,
+      "question": "The {a1} of the organisms were examined.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "genera",
+          "options": [
+            "genera",
+            "genus",
+            "genuses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **genus** (латинське) має множину **genera**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "genera": "✅ Правильно! genus → genera.",
+              "genus": "❌ Це однина.",
+              "genuses": "❌ Латинська форма — genera."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the organisms were examined."
+      ]
+    },
+    {
+      "id": 79,
+      "question": "The lecture covered several {a1}.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "curricula",
+          "options": [
+            "curricula",
+            "curriculum",
+            "curriculums"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **curriculum** (латинське) має множину **curricula**.",
+            "Слово **several** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "curricula": "✅ Правильно! curriculum → curricula.",
+              "curriculum": "❌ Це однина.",
+              "curriculums": "❌ Можливо, але curricula — класична."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The lecture covered several {a1}."
+      ]
+    },
+    {
+      "id": 80,
+      "question": "The {a1} in the paintings were analyzed.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "tableaux",
+          "options": [
+            "tableaux",
+            "tableau",
+            "tableaus"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **tableau** (французьке) має множину **tableaux**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "tableaux": "✅ Правильно! tableau → tableaux (фр. множина).",
+              "tableau": "❌ Це однина.",
+              "tableaus": "❌ Можливо, але tableaux — стандарт."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} in the paintings were analyzed."
+      ]
+    },
+    {
+      "id": 81,
+      "question": "The news covered several political {a1}.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "coups",
+          "options": [
+            "coups",
+            "coup",
+            "coupes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **coup** (французьке) додає -s у множині.",
+            "Слово **several** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "coups": "✅ Правильно! coup → coups.",
+              "coup": "❌ Це однина.",
+              "coupes": "❌ Coupe — інше слово (купе)."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The news covered several political {a1}."
+      ]
+    },
+    {
+      "id": 82,
+      "question": "The journalist uncovered several {a1}.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "exposés",
+          "options": [
+            "exposés",
+            "exposé",
+            "exposes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **exposé** (французьке) додає -s у множині, зберігаючи accent.",
+            "Слово **several** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "exposés": "✅ Правильно! exposé → exposés.",
+              "exposé": "❌ Це однина.",
+              "exposes": "❌ Це дієслово 'викривати'."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The journalist uncovered several {a1}."
+      ]
+    },
+    {
+      "id": 83,
+      "question": "The {a1} of the conference were well-attended.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "symposia",
+          "options": [
+            "symposia",
+            "symposium",
+            "symposiums"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **symposium** (грецьке/латинське) має множину **symposia**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "symposia": "✅ Правильно! symposium → symposia.",
+              "symposium": "❌ Це однина.",
+              "symposiums": "❌ Можливо, але symposia — класична."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the conference were well-attended."
+      ]
+    },
+    {
+      "id": 84,
+      "question": "The {a1} need to be checked.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "memoranda",
+          "options": [
+            "memoranda",
+            "memorandum",
+            "memorandums"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **memorandum** (латинське) має множину **memoranda**.",
+            "Дієслово **need** (множина) вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "memoranda": "✅ Правильно! memorandum → memoranda.",
+              "memorandum": "❌ Це однина.",
+              "memorandums": "❌ Можливо, але memoranda — класична."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} need to be checked."
+      ]
+    },
+    {
+      "id": 85,
+      "question": "The {a1} of the bacteria are complex.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "flagella",
+          "options": [
+            "flagella",
+            "flagellum",
+            "flagellums"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **flagellum** (латинське) має множину **flagella**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "flagella": "✅ Правильно! flagellum → flagella.",
+              "flagellum": "❌ Це однина.",
+              "flagellums": "❌ Латинська форма — flagella."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the bacteria are complex."
+      ]
+    },
+    {
+      "id": 86,
+      "question": "The architect reviewed the design {a1}.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "matrices",
+          "options": [
+            "matrices",
+            "matrix",
+            "matrixes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **matrix** (латинське) має множину **matrices**.",
+            "Контекст вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "matrices": "✅ Правильно! matrix → matrices.",
+              "matrix": "❌ Це однина.",
+              "matrixes": "❌ Можливо, але matrices — стандарт."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The architect reviewed the design {a1}."
+      ]
+    },
+    {
+      "id": 87,
+      "question": "The {a1} of the leaf are visible.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "stomata",
+          "options": [
+            "stomata",
+            "stoma",
+            "stomas"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **stoma** (грецьке) має множину **stomata**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "stomata": "✅ Правильно! stoma → stomata.",
+              "stoma": "❌ Це однина.",
+              "stomas": "❌ Грецька форма — stomata."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the leaf are visible."
+      ]
+    },
+    {
+      "id": 88,
+      "question": "The {a1} of the study were significant.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "corpora",
+          "options": [
+            "corpora",
+            "corpus",
+            "corpuses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **corpus** (латинське) має множину **corpora**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "corpora": "✅ Правильно! corpus → corpora.",
+              "corpus": "❌ Це однина.",
+              "corpuses": "❌ Латинська форма — corpora."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the study were significant."
+      ]
+    },
+    {
+      "id": 89,
+      "question": "Multiple {a1} were detected in the sample.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "larvae",
+          "options": [
+            "larvae",
+            "larva",
+            "larvas"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **larva** (латинське) має множину **larvae**.",
+            "Слово **multiple** та **were** вказують на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "larvae": "✅ Правильно! larva → larvae.",
+              "larva": "❌ Це однина.",
+              "larvas": "❌ Латинська форма — larvae."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "Multiple {a1} were detected in the sample."
+      ]
+    },
+    {
+      "id": 90,
+      "question": "The document contained several {a1}.",
+      "source": "theory_page_446",
+      "level": "C1",
+      "markers": {
+        "a1": {
+          "answer": "appendices",
+          "options": [
+            "appendices",
+            "appendix",
+            "appendixes"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **appendix** (латинське) має множину **appendices**.",
+            "Слово **several** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "appendices": "✅ Правильно! appendix → appendices.",
+              "appendix": "❌ Це однина.",
+              "appendixes": "❌ Можливо, але appendices — стандарт."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The document contained several {a1}."
+      ]
+    },
+    {
+      "id": 91,
+      "question": "The {a1} of the elite are often misunderstood.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "personae",
+          "options": [
+            "personae",
+            "persona",
+            "personas"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **persona** (латинське) має класичну множину **personae**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "personae": "✅ Правильно! persona → personae (класична форма).",
+              "persona": "❌ Це однина.",
+              "personas": "❌ Сучасний варіант, але personae — академічний."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the elite are often misunderstood."
+      ]
+    },
+    {
+      "id": 92,
+      "question": "The professor discussed the {a1} of knowledge.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "loci",
+          "options": [
+            "loci",
+            "locus",
+            "locuses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **locus** (латинське) має множину **loci**.",
+            "Контекст вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "loci": "✅ Правильно! locus → loci.",
+              "locus": "❌ Це однина.",
+              "locuses": "❌ Латинська форма — loci."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The professor discussed the {a1} of knowledge."
+      ]
+    },
+    {
+      "id": 93,
+      "question": "The {a1} of this theory are questionable.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "premises",
+          "options": [
+            "premises",
+            "premise",
+            "premisses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **premise** утворює множину стандартно: -s.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "premises": "✅ Правильно! premise → premises.",
+              "premise": "❌ Це однина.",
+              "premisses": "❌ Застарілий варіант."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of this theory are questionable."
+      ]
+    },
+    {
+      "id": 94,
+      "question": "The {a1} were found in the ancient temple.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "sarcophagi",
+          "options": [
+            "sarcophagi",
+            "sarcophagus",
+            "sarcophaguses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **sarcophagus** (грецьке) має множину **sarcophagi**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "sarcophagi": "✅ Правильно! sarcophagus → sarcophagi.",
+              "sarcophagus": "❌ Це однина.",
+              "sarcophaguses": "❌ Грецька форма — sarcophagi."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} were found in the ancient temple."
+      ]
+    },
+    {
+      "id": 95,
+      "question": "The {a1} of the stars were calculated.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "radii",
+          "options": [
+            "radii",
+            "radius",
+            "radiuses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **radius** (латинське) має множину **radii**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "radii": "✅ Правильно! radius → radii.",
+              "radius": "❌ Це однина.",
+              "radiuses": "❌ Латинська форма — radii."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the stars were calculated."
+      ]
+    },
+    {
+      "id": 96,
+      "question": "The text contained multiple {a1}.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "parentheses",
+          "options": [
+            "parentheses",
+            "parenthesis",
+            "parenthesises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **parenthesis** (грецьке) має множину **parentheses**.",
+            "Слово **multiple** потребує множини."
+          ],
+          "explanations": {
+            "a1": {
+              "parentheses": "✅ Правильно! parenthesis → parentheses.",
+              "parenthesis": "❌ Це однина.",
+              "parenthesises": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The text contained multiple {a1}."
+      ]
+    },
+    {
+      "id": 97,
+      "question": "The {a1} of the argument are sound.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "hypotheses",
+          "options": [
+            "hypotheses",
+            "hypothesis",
+            "hypothesises"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **hypothesis** (грецьке) має множину **hypotheses**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "hypotheses": "✅ Правильно! hypothesis → hypotheses.",
+              "hypothesis": "❌ Це однина.",
+              "hypothesises": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the argument are sound."
+      ]
+    },
+    {
+      "id": 98,
+      "question": "The {a1} of the experiment were recorded.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "minutiae",
+          "options": [
+            "minutiae",
+            "minutia",
+            "minutias"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **minutia** (латинське) має множину **minutiae**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "minutiae": "✅ Правильно! minutia → minutiae.",
+              "minutia": "❌ Це однина.",
+              "minutias": "❌ Латинська форма — minutiae."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the experiment were recorded."
+      ]
+    },
+    {
+      "id": 99,
+      "question": "The {a1} of the document were corrected.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "corrigenda",
+          "options": [
+            "corrigenda",
+            "corrigendum",
+            "corrigendums"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **corrigendum** (латинське) має множину **corrigenda**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "corrigenda": "✅ Правильно! corrigendum → corrigenda.",
+              "corrigendum": "❌ Це однина.",
+              "corrigendums": "❌ Латинська форма — corrigenda."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the document were corrected."
+      ]
+    },
+    {
+      "id": 100,
+      "question": "The {a1} of the body were examined.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "viscera",
+          "options": [
+            "viscera",
+            "viscus",
+            "viscuses"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **viscus** (латинське) має множину **viscera**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "viscera": "✅ Правильно! viscus → viscera.",
+              "viscus": "❌ Це однина.",
+              "viscuses": "❌ Латинська форма — viscera."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the body were examined."
+      ]
+    },
+    {
+      "id": 101,
+      "question": "The {a1} of the insect are complex.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "antennae",
+          "options": [
+            "antennae",
+            "antenna",
+            "antennas"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **antenna** (латинське) у біології має множину **antennae**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "antennae": "✅ Правильно! antenna → antennae (біологія).",
+              "antenna": "❌ Це однина.",
+              "antennas": "❌ Можливо для техніки, але antennae — для біології."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the insect are complex."
+      ]
+    },
+    {
+      "id": 102,
+      "question": "The {a1} of the case are complex.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "desiderata",
+          "options": [
+            "desiderata",
+            "desideratum",
+            "desideratums"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **desideratum** (латинське) має множину **desiderata**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "desiderata": "✅ Правильно! desideratum → desiderata.",
+              "desideratum": "❌ Це однина.",
+              "desideratums": "❌ Латинська форма — desiderata."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the case are complex."
+      ]
+    },
+    {
+      "id": 103,
+      "question": "The {a1} of the sentence are clear.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "syntagmata",
+          "options": [
+            "syntagmata",
+            "syntagma",
+            "syntagmas"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **syntagma** (грецьке) має множину **syntagmata**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "syntagmata": "✅ Правильно! syntagma → syntagmata.",
+              "syntagma": "❌ Це однина.",
+              "syntagmas": "❌ Грецька форма — syntagmata."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the sentence are clear."
+      ]
+    },
+    {
+      "id": 104,
+      "question": "The {a1} of the coins were studied.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "obverses",
+          "options": [
+            "obverses",
+            "obverse",
+            "obversi"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **obverse** утворює множину стандартно: -s.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "obverses": "✅ Правильно! obverse → obverses.",
+              "obverse": "❌ Це однина.",
+              "obversi": "❌ Неправильна форма."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the coins were studied."
+      ]
+    },
+    {
+      "id": 105,
+      "question": "The {a1} of the two languages are different.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "lexica",
+          "options": [
+            "lexica",
+            "lexicon",
+            "lexicons"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **lexicon** (грецьке) має множину **lexica**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "lexica": "✅ Правильно! lexicon → lexica.",
+              "lexicon": "❌ Це однина.",
+              "lexicons": "❌ Можливо, але lexica — класична."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the two languages are different."
+      ]
+    },
+    {
+      "id": 106,
+      "question": "The {a1} of the orchestra were demanding.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "concerti",
+          "options": [
+            "concerti",
+            "concerto",
+            "concertos"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **concerto** (італійське) може мати множину **concerti**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "concerti": "✅ Правильно! concerto → concerti (італійська форма).",
+              "concerto": "❌ Це однина.",
+              "concertos": "❌ Також правильно, але concerti — класична."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the orchestra were demanding."
+      ]
+    },
+    {
+      "id": 107,
+      "question": "The {a1} were published in several journals.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "compendia",
+          "options": [
+            "compendia",
+            "compendium",
+            "compendiums"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **compendium** (латинське) має множину **compendia**.",
+            "Дієслово **were** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "compendia": "✅ Правильно! compendium → compendia.",
+              "compendium": "❌ Це однина.",
+              "compendiums": "❌ Можливо, але compendia — класична."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} were published in several journals."
+      ]
+    },
+    {
+      "id": 108,
+      "question": "The {a1} of the plant are visible.",
+      "source": "theory_page_446",
+      "level": "C2",
+      "markers": {
+        "a1": {
+          "answer": "septa",
+          "options": [
+            "septa",
+            "septum",
+            "septums"
+          ]
+        }
+      },
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Слово **septum** (латинське) має множину **septa**.",
+            "Дієслово **are** вказує на множину."
+          ],
+          "explanations": {
+            "a1": {
+              "septa": "✅ Правильно! septum → septa.",
+              "septum": "❌ Це однина.",
+              "septums": "❌ Латинська форма — septa."
+            }
+          }
+        }
+      },
+      "tag_keys": [
+        "latin_greek_roots"
+      ],
+      "variants": [
+        "The {a1} of the plant are visible."
+      ]
+    }
+  ],
+  "saved_test": {
+    "uuid": "plural-nouns-claude-v3-test",
+    "slug": "plural-nouns-mnozina-imennikiv-pravila-viniatki-prikladi",
+    "name": "Plural Nouns Comprehensive Practice",
+    "filters": {
+      "num_questions": 108,
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "seeder_classes": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Claude\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder"
+      ],
+      "prompt_generator": {
+        "source_type": "theory_page",
+        "theory_page_id": 446,
+        "theory_page_ids": [
+          446
+        ],
+        "theory_page": {
+          "id": 446,
+          "slug": "plural-nouns-s-es-ies",
+          "title": "Plural Nouns — Множина іменників: правила, винятки, приклади",
+          "category_slug_path": "imennyky-artykli-ta-kilkist",
+          "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies"
+        }
+      }
+    }
+  }
+}
