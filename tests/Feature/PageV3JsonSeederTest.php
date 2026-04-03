@@ -526,6 +526,7 @@ class PageV3JsonSeederTest extends TestCase
             $this->assertSame('Podstawowa gramatyka', $categories->firstWhere('slug', 'basic-grammar')?->title);
             $this->assertSame('Strona bierna (Passive Voice)', $categories->firstWhere('slug', 'passive-voice')?->title);
             $this->assertSame('Teoria', $data['sectionTitle']);
+            $this->assertArrayNotHasKey('relatedTests', $data);
 
             $html = $view->render();
 
@@ -534,6 +535,7 @@ class PageV3JsonSeederTest extends TestCase
             $this->assertStringContainsString('Strona bierna (Passive Voice)', $html);
             $this->assertStringNotContainsString('Пасив у різних часах', $html);
             $this->assertStringNotContainsString('Базова граматика', $html);
+            $this->assertStringNotContainsString(__('public.common.related_tests'), $html);
         } finally {
             app()->setLocale($originalLocale);
         }
