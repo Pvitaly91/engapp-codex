@@ -1,0 +1,814 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+        "uuid_namespace": "PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Іменники, артиклі та кількість"
+    },
+    "sources": {
+        "theory_page_712": {
+            "name": "Plural Nouns — Множина іменників: правила, винятки, приклади"
+        }
+    },
+    "tags": {
+        "theme": {
+            "name": "Plural nouns",
+            "category": "topic"
+        },
+        "detail": {
+            "name": "Rules, exceptions, and usage",
+            "category": "focus"
+        },
+        "structure": {
+            "name": "Single-gap multiple choice",
+            "category": "structure"
+        },
+        "regular_plural": {
+            "name": "Regular plural formation",
+            "category": "pattern"
+        },
+        "spelling_rules": {
+            "name": "Plural spelling rules",
+            "category": "pattern"
+        },
+        "irregular_forms": {
+            "name": "Irregular plural forms",
+            "category": "pattern"
+        },
+        "singular_only_nouns": {
+            "name": "Nouns used only in the singular",
+            "category": "usage"
+        },
+        "plural_only_nouns": {
+            "name": "Nouns used only in the plural",
+            "category": "usage"
+        },
+        "agreement_usage": {
+            "name": "Subject-verb agreement",
+            "category": "usage"
+        },
+        "compound_plurals": {
+            "name": "Compound noun plurals",
+            "category": "pattern"
+        },
+        "zero_plural": {
+            "name": "Zero plural nouns",
+            "category": "pattern"
+        },
+        "academic_plurals": {
+            "name": "Academic and formal plurals",
+            "category": "register"
+        },
+        "scientific_plurals": {
+            "name": "Scientific and technical plurals",
+            "category": "register"
+        }
+    },
+    "default_tag_keys": [
+        "theme",
+        "detail",
+        "structure"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "There are five {a1} on the table.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "cats",
+                    "options": [
+                        "cat",
+                        "cats",
+                        "cates"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "regular_plural"
+            ],
+            "variants": [
+                "There are five {a1} on the table."
+            ]
+        },
+        {
+            "id": 2,
+            "question": "She has three {a2} in her bag.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "pencils",
+                    "options": [
+                        "pencil",
+                        "pencils",
+                        "penciles"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "regular_plural"
+            ],
+            "variants": [
+                "She has three {a2} in her bag."
+            ]
+        },
+        {
+            "id": 3,
+            "question": "We need two {a3} for the salad.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "tomatoes",
+                    "options": [
+                        "tomatos",
+                        "tomatoes",
+                        "tomato"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "We need two {a3} for the salad."
+            ]
+        },
+        {
+            "id": 4,
+            "question": "The farmer has ten {a4}.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "horses",
+                    "options": [
+                        "horse",
+                        "horses",
+                        "horsees"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "regular_plural"
+            ],
+            "variants": [
+                "The farmer has ten {a4}."
+            ]
+        },
+        {
+            "id": 5,
+            "question": "I can see many {a5} in the park.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "trees",
+                    "options": [
+                        "tree",
+                        "trees",
+                        "treees"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "regular_plural"
+            ],
+            "variants": [
+                "I can see many {a5} in the park."
+            ]
+        },
+        {
+            "id": 6,
+            "question": "The teacher brought several {a6} to the classroom.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a6": {
+                    "answer": "watches",
+                    "options": [
+                        "watchs",
+                        "watches",
+                        "watch"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "The teacher brought several {a6} to the classroom."
+            ]
+        },
+        {
+            "id": 7,
+            "question": "My grandmother tells wonderful {a7} before bedtime.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a7": {
+                    "answer": "stories",
+                    "options": [
+                        "storys",
+                        "stories",
+                        "storyes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "My grandmother tells wonderful {a7} before bedtime."
+            ]
+        },
+        {
+            "id": 8,
+            "question": "We visited three different {a8} during the trip.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a8": {
+                    "answer": "cities",
+                    "options": [
+                        "citys",
+                        "cities",
+                        "cityes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "We visited three different {a8} during the trip."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "She cut the cake into eight {a9}.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a9": {
+                    "answer": "halves",
+                    "options": [
+                        "halfs",
+                        "halves",
+                        "halfes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "She cut the cake into eight {a9}."
+            ]
+        },
+        {
+            "id": 10,
+            "question": "The bakery sells delicious {a10} every morning.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a10": {
+                    "answer": "loaves",
+                    "options": [
+                        "loafs",
+                        "loaves",
+                        "loafes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "The bakery sells delicious {a10} every morning."
+            ]
+        },
+        {
+            "id": 11,
+            "question": "Several {a11} were playing in the yard.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a11": {
+                    "answer": "children",
+                    "options": [
+                        "childs",
+                        "children",
+                        "childrens"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "Several {a11} were playing in the yard."
+            ]
+        },
+        {
+            "id": 12,
+            "question": "The dentist checked all of my {a12}.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a12": {
+                    "answer": "teeth",
+                    "options": [
+                        "tooths",
+                        "teeth",
+                        "teeths"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "The dentist checked all of my {a12}."
+            ]
+        },
+        {
+            "id": 13,
+            "question": "A flock of {a13} flew over the lake.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a13": {
+                    "answer": "geese",
+                    "options": [
+                        "gooses",
+                        "geese",
+                        "geeses"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "A flock of {a13} flew over the lake."
+            ]
+        },
+        {
+            "id": 14,
+            "question": "The farmer counted fifty {a14} in the field.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a14": {
+                    "answer": "sheep",
+                    "options": [
+                        "sheeps",
+                        "sheep",
+                        "sheepes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "zero_plural"
+            ],
+            "variants": [
+                "The farmer counted fifty {a14} in the field."
+            ]
+        },
+        {
+            "id": 15,
+            "question": "We caught twelve {a15} in the river yesterday.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a15": {
+                    "answer": "fish",
+                    "options": [
+                        "fishes",
+                        "fish",
+                        "fishs"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "zero_plural"
+            ],
+            "variants": [
+                "We caught twelve {a15} in the river yesterday."
+            ]
+        },
+        {
+            "id": 16,
+            "question": "These {a16} need to be washed before you wear them.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a16": {
+                    "answer": "trousers",
+                    "options": [
+                        "trouser",
+                        "trousers",
+                        "trouserses"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "These {a16} need to be washed before you wear them."
+            ]
+        },
+        {
+            "id": 17,
+            "question": "The {a17} on television was very surprising last night.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a17": {
+                    "answer": "news",
+                    "options": [
+                        "news",
+                        "newses",
+                        "new"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "singular_only_nouns"
+            ],
+            "variants": [
+                "The {a17} on television was very surprising last night."
+            ]
+        },
+        {
+            "id": 18,
+            "question": "Both of my {a18} live in different countries.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a18": {
+                    "answer": "brothers-in-law",
+                    "options": [
+                        "brother-in-laws",
+                        "brothers-in-law",
+                        "brothers-in-laws"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "compound_plurals"
+            ],
+            "variants": [
+                "Both of my {a18} live in different countries."
+            ]
+        },
+        {
+            "id": 19,
+            "question": "The police {a19} investigating the case right now.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a19": {
+                    "answer": "are",
+                    "options": [
+                        "is",
+                        "are",
+                        "was"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage"
+            ],
+            "variants": [
+                "The police {a19} investigating the case right now."
+            ]
+        },
+        {
+            "id": 20,
+            "question": "Mathematics {a20} my favourite subject at school.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a20": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "were"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage",
+                "singular_only_nouns"
+            ],
+            "variants": [
+                "Mathematics {a20} my favourite subject at school."
+            ]
+        },
+        {
+            "id": 21,
+            "question": "The biologist studied several {a21} under the microscope.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a21": {
+                    "answer": "larvae",
+                    "options": [
+                        "larvas",
+                        "larvae",
+                        "larvæs"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The biologist studied several {a21} under the microscope."
+            ]
+        },
+        {
+            "id": 22,
+            "question": "The report includes two detailed {a22}.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a22": {
+                    "answer": "analyses",
+                    "options": [
+                        "analysises",
+                        "analyses",
+                        "analysi"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "The report includes two detailed {a22}."
+            ]
+        },
+        {
+            "id": 23,
+            "question": "All the {a23} in the proposal seemed reasonable.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a23": {
+                    "answer": "criteria",
+                    "options": [
+                        "criterions",
+                        "criteria",
+                        "criterias"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "All the {a23} in the proposal seemed reasonable."
+            ]
+        },
+        {
+            "id": 24,
+            "question": "The scientist tested multiple {a24} before drawing a conclusion.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a24": {
+                    "answer": "hypotheses",
+                    "options": [
+                        "hypothesises",
+                        "hypotheses",
+                        "hypothesi"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "The scientist tested multiple {a24} before drawing a conclusion."
+            ]
+        },
+        {
+            "id": 25,
+            "question": "The editor listed several {a25} at the back of the book.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a25": {
+                    "answer": "errata",
+                    "options": [
+                        "erratas",
+                        "errata",
+                        "erratums"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "The editor listed several {a25} at the back of the book."
+            ]
+        },
+        {
+            "id": 26,
+            "question": "The statistician argued that the {a26} were insufficient to confirm the trend.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a26": {
+                    "answer": "data",
+                    "options": [
+                        "datas",
+                        "data",
+                        "datums"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The statistician argued that the {a26} were insufficient to confirm the trend."
+            ]
+        },
+        {
+            "id": 27,
+            "question": "Several unexplained {a27} were observed during the experiment.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a27": {
+                    "answer": "phenomena",
+                    "options": [
+                        "phenomenons",
+                        "phenomena",
+                        "phenomenas"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "Several unexplained {a27} were observed during the experiment."
+            ]
+        },
+        {
+            "id": 28,
+            "question": "In formal academic writing, the plural of 'stimulus' is {a28}.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a28": {
+                    "answer": "stimuli",
+                    "options": [
+                        "stimuluses",
+                        "stimuli",
+                        "stimulus"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "In formal academic writing, the plural of 'stimulus' is {a28}."
+            ]
+        },
+        {
+            "id": 29,
+            "question": "The geologist identified distinct {a29} in the rock formation.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a29": {
+                    "answer": "strata",
+                    "options": [
+                        "stratums",
+                        "strata",
+                        "stratas"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The geologist identified distinct {a29} in the rock formation."
+            ]
+        },
+        {
+            "id": 30,
+            "question": "At the formal reunion, the {a30} gathered in the main hall.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a30": {
+                    "answer": "alumni",
+                    "options": [
+                        "alumnuses",
+                        "alumni",
+                        "alumnis"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "At the formal reunion, the {a30} gathered in the main hall."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "plnouns-opus46-v3-saved-test",
+        "slug": "plural_nouns_mnozina_imennikiv_pravila_viniatki_prikladi",
+        "name": "Plural Nouns — Множина іменників: правила, винятки, приклади",
+        "description": "Practice set for plural noun formation, spelling changes, irregular forms, singular-only and plural-only nouns, compound plurals, and academic usage across A1-C2.",
+        "filters": {
+            "num_questions": 30,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 712,
+                "theory_page_ids": [
+                    712
+                ],
+                "theory_page": {
+                    "id": 712,
+                    "slug": "plural-nouns-s-es-ies",
+                    "title": "Plural Nouns — Множина іменників: правила, винятки, приклади",
+                    "category_slug_path": "imennyky-artykli-ta-kilkist",
+                    "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies"
+                }
+            }
+        }
+    }
+}
