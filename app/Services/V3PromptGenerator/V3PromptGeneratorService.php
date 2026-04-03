@@ -213,6 +213,7 @@ class V3PromptGeneratorService
             '- Make the difficulty progression feel natural from the lowest selected level to the highest selected level.',
             '- The generated result must persist a real `SavedGrammarTest` entry with ordered question links, not only raw question data.',
             $this->savedTestUuidRequirement(),
+            ...$this->savedTestQuestionUuidRules(),
             '- If this namespace pattern uses a thin PHP wrapper seeder plus a JSON definition file, create both.',
             '- If nearby V3 seeders also rely on localization JSON files under `database/seeders/V3/localizations/...`, create or update the correct companion files instead of inventing custom runtime logic.',
             $this->singlePromptQuestionsOnlyLocalizationRequirement(),
@@ -361,6 +362,7 @@ TEXT;
             '- Use the real V3 pattern already used in this project. Do not invent another schema.',
             '- The final seeder built from this JSON must be able to persist a real `SavedGrammarTest` entry; include any saved-test metadata required by the neighboring V3 pattern.',
             $this->savedTestUuidRequirement(),
+            ...$this->savedTestQuestionUuidRules(),
             '- Generate exactly the requested number of questions for every selected CEFR level.',
             '- Ensure every marker answer is present in its options list.',
             '- Keep source keys and tag keys stable and reusable.',
@@ -414,7 +416,11 @@ TEXT;
             '- Prefer detailed teaching feedback over very short labels: `hints` should explain the rule and the sentence clue, may include a similar example, and must not reveal the final correct answer or explicitly identify the correct option; `explanations` should explain why each option is right or wrong.',
             ...$this->detailedLocalizationQualityRules(),
             '- Real saved-test contract: if you include `saved_test`, it must define `uuid`, `slug`, and `name`; it may also define `description`, `question_uuids`, and `filters`.',
-            '- Real saved-test rules from the loader: `saved_test.uuid` must be at most 36 characters; `filters.seeder_classes` must include `' . ($preview['fully_qualified_class_name'] ?? '') . '`; `filters.num_questions` should equal ' . array_sum($distribution) . '; and `saved_test.question_uuids`, if present, must match the generated question UUID set in the same order.',
+            '- Real saved-test rules from the loader: `saved_test.uuid` must be at most 36 characters; `filters.seeder_classes` must include `' . ($preview['fully_qualified_class_name'] ?? '') . '`; and `filters.num_questions` should equal ' . array_sum($distribution) . '.',
+            '- Prevent the runtime/preview failure `saved_test.question_uuids references questions that were not seeded.`',
+            '- Never invent `saved_test.question_uuids` from planned numbering, `id`, CEFR labels, marker names, or a guessed UUID prefix.',
+            '- If you include `saved_test.question_uuids`, derive it only from the final generated question UUIDs in this same JSON, keeping exactly the same UUID set and the same order.',
+            '- If you are not fully certain that the list is exact, omit `saved_test.question_uuids` entirely. The loader will fall back to the seeded question UUID order automatically.',
             '- Minimal `saved_test` skeleton example:',
             '```json',
             ...$savedTestExample,
@@ -484,6 +490,7 @@ TEXT;
             '- Ensure the final `seeder.class`, namespace, wrapper seeder file path, and JSON definition path are all consistent.',
             '- The final integrated result must persist a real `SavedGrammarTest` entry with ordered question links so the public theory page can surface this test.',
             $this->savedTestUuidRequirement(true),
+            ...$this->savedTestQuestionUuidRules(true),
             '- If neighboring V3 seeders in this namespace also use localization JSON files, wire them correctly instead of introducing ad-hoc logic.',
             ...$this->detailedLocalizationQualityRules(),
             $this->formatTheoryPageLinkageRequirement($source),
@@ -637,6 +644,25 @@ TEXT;
         return $integrationMode
             ? '- Validate `saved_test` identifiers against database limits: `saved_test.uuid` must be at most 36 characters because it is stored in `saved_grammar_tests.uuid`. If it is longer, shorten only the UUID and keep the saved-test slug stable.'
             : '- Any generated `saved_test.uuid` must fit the database limit for `saved_grammar_tests.uuid`: at most 36 characters. Prefer a short slug-like UUID such as `<short-topic>-saved-test`.';
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    protected function savedTestQuestionUuidRules(bool $integrationMode = false): array
+    {
+        $rules = [
+            '- Prevent the preview/runtime error `saved_test.question_uuids references questions that were not seeded.`',
+            '- Never invent `saved_test.question_uuids` from planned numbering, numeric `id`, CEFR labels, marker names, or a guessed UUID prefix.',
+            '- If you include `saved_test.question_uuids`, derive it only from the final generated question UUIDs in the same artifact (`questions[*].uuid` in the current JSON contract, or the final seeded question UUID list after integration), keeping exactly the same UUID set and the same order.',
+            '- If you cannot guarantee an exact one-to-one match, omit `saved_test.question_uuids` entirely and let the loader use the seeded question UUID order automatically.',
+        ];
+
+        if ($integrationMode) {
+            $rules[] = '- When integrating attached JSON, validate any incoming `saved_test.question_uuids` against the actual question UUIDs that will be seeded; if there is any mismatch, regenerate the list from the final UUIDs or remove the field before finishing.';
+        }
+
+        return $rules;
     }
 
     protected function promptAModeLabel(string $promptAMode): string

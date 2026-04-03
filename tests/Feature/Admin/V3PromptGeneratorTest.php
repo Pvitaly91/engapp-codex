@@ -136,6 +136,9 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('theory_page_ids');
         $response->assertSee('saved_test.uuid');
         $response->assertSee('at most 36 characters');
+        $response->assertSee('saved_test.question_uuids references questions that were not seeded.');
+        $response->assertSee('Never invent `saved_test.question_uuids` from planned numbering');
+        $response->assertSee('omit `saved_test.question_uuids` entirely and let the loader use the seeded question UUID order automatically');
         $response->assertSee('Keep every learner-facing `question` and every `variants` entry in English only.');
         $response->assertSee('Make `localizations.uk.hints` and `localizations.uk.explanations` genuinely instructional');
         $response->assertSee('does not mean omitting teaching feedback');
@@ -196,6 +199,10 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('filters.seeder_classes');
         $response->assertSee('saved_test.uuid');
         $response->assertSee('at most 36 characters');
+        $response->assertSee('saved_test.question_uuids references questions that were not seeded.');
+        $response->assertSee('Never invent `saved_test.question_uuids` from planned numbering');
+        $response->assertSee('omit `saved_test.question_uuids` entirely. The loader will fall back to the seeded question UUID order automatically');
+        $response->assertSee('validate any incoming `saved_test.question_uuids` against the actual question UUIDs that will be seeded');
         $response->assertSee('Write every `question` and every `variants` entry in English only.');
         $response->assertSee('include detailed `localizations.uk.hints` and `localizations.uk.explanations` in this JSON');
         $response->assertSee('Make `localizations.uk.explanations` more detailed for every option');
