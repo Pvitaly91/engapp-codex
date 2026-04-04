@@ -1,0 +1,351 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\En\\V2\\ComparativesSuperlativesV2LocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\V2\\ComparativesSuperlativesV3Seeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "en",
+  "hint_provider": "chatgpt",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "Comparative formula: **adjective/adverb + -er/more + than** (hot → hotter than; dry → drier than).\nEquality formula: **not (the) same + as** and **not as + adjective + as** for negating equality.\nSuperlative formula: **the + most/least + adjective** for the highest or lowest degree of quality."
+      ],
+      "explanations": {
+        "a1": {
+          "hotter": "Comparative is formed according to the scheme base adjective + -er + than, so hot → hotter + than.",
+          "hottest": "Superlative requires the formula the + adjective-est or the most + adjective, not a comparison with than.",
+          "hoter": "When forming hotter, we double the final consonant before -er: hot → hotter."
+        },
+        "a2": {
+          "than": "After comparative, the conjunction than is used: comparative + than + object.",
+          "that": "The conjunction that is not included in the formula comparative + than.",
+          "as": "As is used in the structure as + adjective + as for equal comparisons, not after comparative."
+        },
+        "a3": {
+          "us": "After than in comparisons, we put the objective case (me/us/them).",
+          "our": "The possessive pronoun does not correspond to the formula than + object pronoun.",
+          "we": "The subject pronoun without an auxiliary verb does not fit in the scheme comparative + than + object."
+        },
+        "a4": {
+          "as": "Equality comparisons are formatted through the structure (not) the same as / as + adjective + as.",
+          "that": "Same + that does not form a standard similarity construction.",
+          "than": "Than is included in the formula comparative + than, not the same as."
+        },
+        "a5": {
+          "least": "The superlative of the lower degree has the structure the + least + adjective.",
+          "more": "More creates a comparative (more + adjective + than) that does not convey the highest/lowest degree.",
+          "less": "Less is a regular comparative without the; for the lowest degree, the formula the least + adjective is needed."
+        },
+        "a6": {
+          "ever": "The collocation the + superlative + ever emphasizes the best/worst experience in life.",
+          "never": "Never changes the meaning of the construction ever + present perfect, which describes experience.",
+          "before": "Before without ever does not provide the formula for superlative experience (the best ... ever)."
+        },
+        "a7": {
+          "nice as": "The structure not as + adjective + as uses the base form of the adjective between two as.",
+          "nicer as": "Comparative with as violates the formula; after comparative comes than.",
+          "nicer than": "The formula not as ... as does not require comparative, only the base form of the adjective.",
+          "as nice as": "The full model as + adjective + as shows equality when both elements as are present."
+        },
+        "a8": {
+          "much more": "Enhanced comparative: intensifier (much) + more + adjective.",
+          "lot more": "A common conversational model is a lot more + adjective; without the article, it violates the formula.",
+          "most": "Most + adjective forms the superlative (the most ...), not a comparison with than/as.",
+          "far more": "Another intensifier in the scheme far + more + adjective."
+        },
+        "a9": {
+          "in": "The phrase one of the + superlative + plural noun + in the world uses the preposition in.",
+          "of": "The preposition of in this position does not fit the standard formula one of the most + noun + in the world.",
+          "from": "From denotes origin and does not combine with the superlative framework one of the most ... in the world."
+        },
+        "a10": {
+          "as much": "The structure of quantity for uncountable: as much + uncountable noun + as.",
+          "as many": "The formula as many + countable noun + as applies only to countable nouns.",
+          "more": "Comparative of quantity more + noun + than does not correspond to the model as much ... as."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "The formula for comparing two items: comparative (more + adjective) + than + object."
+      ],
+      "explanations": {
+        "a1": {
+          "more bitter than": "Multisyllabic adjectives form comparative according to the scheme more + adjective + than.",
+          "bitterest than": "The superlative adjective-est is used with the and without than.",
+          "more bitter that": "The conjunction in the comparative formula is than, not that.",
+          "far more bitter than": "The intensifier far can stand before more: far + more + adjective + than."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Rule: one-syllable and some two-syllable adjectives → base adjective + -er + than."
+      ],
+      "explanations": {
+        "a1": {
+          "happier": "Words ending in -y change -y to -ier in the comparative form: happy → happier.",
+          "more happy": "For short adjectives, the suffix -er is used instead of the construction more + adjective.",
+          "more happier": "Double comparative (more + -er) contradicts the grading formula.",
+          "far happier": "The intensifier far is added before the ready comparative: far + comparative + than."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "The formula for adverbs ending in -ly: more/less + adverb + than for comparing speed or intensity."
+      ],
+      "explanations": {
+        "a1": {
+          "more slowly": "Adverbs form the comparative through more + adverb: more slowly + than ...",
+          "slowlier": "Adding -er to adverbs ending in -ly does not follow the grading rule.",
+          "most slowly": "Most + adverb forms the superlative, not the comparative form.",
+          "a bit more slowly": "Intensifiers (a bit, slightly) can be placed before more + adverb."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "Template for lack of difference: any/no + comparative + than, without the construction as + comparative.\nSentences with two correct options reflect the same meaning through different intensifiers (any/no)."
+      ],
+      "explanations": {
+        "a1": {
+          "Your car isn't any cheaper than ours.": "The model any + comparative + than indicates that there is actually no difference.",
+          "Your car is no cheaper than ours.": "No + comparative + than means equality in the feature (the price is the same).",
+          "Your car isn't as cheaper as ours.": "As ... as requires the base form of the adjective: as + adjective + as."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Structure of gradual change: comparative and comparative (worse and worse) to denote a trend."
+      ],
+      "explanations": {
+        "a1": {
+          "worse and worse": "The fixed pattern comparative and comparative emphasizes gradual deterioration.",
+          "more and more worse": "The combination more + worse violates the rule: irregular adjective bad → worse (without more).",
+          "every day badder": "Bad has the irregular comparative worse; the form badder is not used.",
+          "steadily worse": "Another way to convey the trend: steadily + comparative."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "The negative construction not as ... as has the same meaning as the comparison with than in reverse order."
+      ],
+      "explanations": {
+        "a1": {
+          "Tom is more intelligent than David.": "Direct form comparative: subject + verb + more + adjective + than + object.",
+          "David is more intelligent than Tom.": "The sentence mirrors the logic of comparison and makes David smarter.",
+          "David isn't as intelligent as Tom.": "Not as + adjective + as conveys that the subject has a lower degree of the feature than the object."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Template as + adjective/adverb + as for maximum effort or equality."
+      ],
+      "explanations": {
+        "a1": {
+          "as fast as": "Standard template as + adverb + as for maximum speed.",
+          "as faster as": "The construction as ... as does not contain comparative inside; the base form is needed.",
+          "faster as": "The order of elements is violated: the formula requires two as on the edges and the base form between them.",
+          "as quickly as": "The synonymous variant with quickly corresponds to the same formula as + adverb + as."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "After than, you can place the object pronoun (me) or a shortened repetition of the verb (I do)."
+      ],
+      "explanations": {
+        "a1": {
+          "me": "In the formula comparative + than + object pronoun, the object pronoun is used after than.",
+          "I do": "A short answer after than can repeat the auxiliary verb: than I do.",
+          "I have": "The repetition of the verb have creates a heavy structure and does not fit into the usual pattern than + auxiliary."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Ever + present perfect emphasizes experience; superlative: the most + adjective."
+      ],
+      "explanations": {
+        "a1": {
+          "the most boring teacher I've ever met": "The superlative according to the formula the + most + adjective with the specification of experience ever + present perfect.",
+          "the most boring teacher I've never met": "Never met contradicts the application about the meeting: the construction denies the very fact of experience.",
+          "The boringest teacher I've never met": "The form boringest is stylistically marginal, and never met removes the experience.",
+          "the very boringest teacher": "Without the specification of experience (ever met) and with the simplified boringest, the expression looks unfixed."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "Fixed collocation: the best/worst day **of** my life."
+      ],
+      "explanations": {
+        "a1": {
+          "of": "The collocation the + superlative + noun + of my life uses the preposition of.",
+          "in": "In my life is possible, but in the fixed expression the best day of my life, traditionally, of is placed.",
+          "than": "The conjunction than belongs to the formula comparative + than and does not fit after superlative.",
+          "during": "During my life does not combine with the one-time event the best day."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "One-syllable adjectives add -er; comparison with than."
+      ],
+      "explanations": {
+        "a1": {
+          "easier": "Adjectives ending in -y change to -ier in comparative: easy → easier + than ...",
+          "more easy": "Short adjectives use the suffix -er instead of the construction more + adjective.",
+          "the easiest": "The formula the + adjective-est forms a superlative, not a comparison of two objects.",
+          "far easier": "The intensifier far can stand before comparative: far + comparative + than."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Adverbs ending in -ly: comparative through more + adverb."
+      ],
+      "explanations": {
+        "a1": {
+          "more slowly": "Adverbs are compared using the model more/less + adverb + than.",
+          "slower": "Slower is the form of the adjective slow; for the adverb, you need more slowly.",
+          "slowliest": "The superlative of the adverb is formed as the most slowly, not by adding -est.",
+          "a lot more slowly": "A lot / much can strengthen comparative: a lot more slowly than ..."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Near → nearer/farther for ordinary distance comparison."
+      ],
+      "explanations": {
+        "a1": {
+          "nearer": "The one-syllable near forms the comparative by the rule adjective + -er + than: near → nearer.",
+          "more near": "For short adjectives, more + adjective is not applied.",
+          "nearest": "The nearest — superlative for selection from a group, not for comparing two houses.",
+          "far nearer": "Far can strengthen the degree: far + comparative + than."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "In the construction not as ... as, the base form of the adjective is used."
+      ],
+      "explanations": {
+        "a1": {
+          "difficult": "The template not as + adjective + as uses the base form without suffixes or more/most.",
+          "more difficult": "Comparative + than is not included in the construction not as ... as.",
+          "most difficult": "Superlative (the most + adjective) does not combine with the scheme not as ... as.",
+          "so difficult": "So + adjective is usually continued by that + clause; in this construction, as ... as is needed."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Superlative for distance: the farthest/the furthest (in travel, the farthest is most common)."
+      ],
+      "explanations": {
+        "a1": {
+          "farthest": "Superlative from far: the + farthest/furthest + noun, especially with ever + present perfect.",
+          "farther": "Farther — comparative form (farther than ...), not superlative.",
+          "more far": "Far has irregular degrees (farther/farthest or further/furthest), not the form with more.",
+          "most far": "The standard model of the superlative for far is farthest/furthest, not most far."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "Thin → thinner for ordinary comparison; much + comparative for strengthening."
+      ],
+      "explanations": {
+        "a1": {
+          "thinner": "Thin → thinner is formed by doubling n and the suffix -er in comparative.",
+          "more thin": "Short adjectives are compared with the suffix -er, not the construction more + adjective.",
+          "thinnest": "The thinnest — superlative used for a group, not for comparing two states.",
+          "a lot thinner": "A lot serves as a booster before comparative: a lot + comparative + than."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Irregular comparison good → better → the best."
+      ],
+      "explanations": {
+        "a1": {
+          "better": "Irregular pair of degrees: good → better → the best; comparative is not formed with more.",
+          "more good": "Good does not combine with more for comparison, the form better is used.",
+          "gooder": "For good, the suffix -er is not added; there is only the irregular form better.",
+          "much better": "The amplifier much is located before irregular comparative: much better than ..."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "Superlative for busy: the busiest. We double the consonant y → iest."
+      ],
+      "explanations": {
+        "a1": {
+          "busiest": "Busy → busiest: y → iest in the superlative with the article the.",
+          "more busy": "More + adjective + than creates comparative, but the presence of the signals superlative.",
+          "busyest": "Spelling of the superlative: y changes to i before the suffix -est → busiest.",
+          "most busy": "The form most busy is less commonly used; the typical formula is — the busiest."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Few → fewer (with countable nouns), fewest — superlative."
+      ],
+      "explanations": {
+        "a1": {
+          "fewer": "With countable nouns, comparative fewer + plural noun is used.",
+          "less": "Less is typically used with uncountable; for the number of people, fewer is more correct.",
+          "fewest": "The fewest — superlative form, and in the sentence, comparative is needed.",
+          "a lot fewer": "A lot works as an amplifier in the model a lot + comparative."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "Superlative with the: the trickiest. Comparative: trickier."
+      ],
+      "explanations": {
+        "a1": {
+          "trickiest": "The + adjective-est forms the superlative: the trickiest part.",
+          "more tricky": "More + adjective creates comparative, which does not combine with the article the in this sentence.",
+          "trickier": "Comparative (adjective + -er) is not used with the to describe one element from a group.",
+          "most tricky": "Most + adjective — alternative superlative, but the standard form for tricky is — trickiest."
+        }
+      }
+    }
+  ]
+}

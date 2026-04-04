@@ -59,7 +59,7 @@ class JsonTestLocalizationManager
 
         try {
             $definition = $this->loadVirtualSeederDefinition($className);
-            $baseIndex = $this->targetDefinitionIndex($definition);
+            $baseIndex = $this->targetDefinitionIndex($definition, $descriptor['path'] ?? null);
             $resolved = trim((string) ($baseIndex['seeder_class'] ?? ''));
 
             return $resolved !== '' ? $resolved : null;
@@ -82,9 +82,10 @@ class JsonTestLocalizationManager
         }
 
         foreach ($this->descriptorMap() as $descriptor) {
-            $localizationDefinition = $this->loadLocalizationDefinition((string) $descriptor['path']);
+            $localizationPath = (string) ($descriptor['path'] ?? '');
+            $localizationDefinition = $this->loadLocalizationDefinition($localizationPath);
 
-            if (! $this->matchesTarget($localizationDefinition, $definitionPath, $baseSeederClass)) {
+            if (! $this->matchesTarget($localizationDefinition, $localizationPath, $definitionPath, $baseSeederClass)) {
                 continue;
             }
 
@@ -133,8 +134,9 @@ class JsonTestLocalizationManager
 
     public function applyVirtualSeeder(string $className): array
     {
+        $descriptor = $this->descriptorForClass($className);
         $definition = $this->loadVirtualSeederDefinition($className);
-        $baseIndex = $this->targetDefinitionIndex($definition);
+        $baseIndex = $this->targetDefinitionIndex($definition, $descriptor['path'] ?? null);
         $resolvedQuestions = $this->resolveLocalizationQuestions($definition, $baseIndex);
         $questionsByUuid = Question::query()
             ->whereIn('uuid', collect($resolvedQuestions)->pluck('uuid')->all())
@@ -225,8 +227,9 @@ class JsonTestLocalizationManager
 
     public function removeVirtualSeederData(string $className): array
     {
+        $descriptor = $this->descriptorForClass($className);
         $definition = $this->loadVirtualSeederDefinition($className);
-        $baseIndex = $this->targetDefinitionIndex($definition);
+        $baseIndex = $this->targetDefinitionIndex($definition, $descriptor['path'] ?? null);
         $resolvedQuestions = $this->resolveLocalizationQuestions($definition, $baseIndex);
         $questionsByUuid = Question::query()
             ->whereIn('uuid', collect($resolvedQuestions)->pluck('uuid')->all())
@@ -279,8 +282,9 @@ class JsonTestLocalizationManager
 
     public function buildVirtualSeederPreview(string $className): array
     {
+        $descriptor = $this->descriptorForClass($className);
         $definition = $this->loadVirtualSeederDefinition($className);
-        $baseIndex = $this->targetDefinitionIndex($definition);
+        $baseIndex = $this->targetDefinitionIndex($definition, $descriptor['path'] ?? null);
         $resolvedQuestions = $this->resolveLocalizationQuestions($definition, $baseIndex);
         $questionsByUuid = Question::query()
             ->whereIn('uuid', collect($resolvedQuestions)->pluck('uuid')->all())
@@ -328,7 +332,8 @@ class JsonTestLocalizationManager
             'target' => [
                 'seeder_class' => trim((string) Arr::get($definition, 'target.seeder_class', '')),
                 'definition' => $baseIndex['definition_key'] ?? trim((string) Arr::get($definition, 'target.definition', '')),
-                'definition_path' => $baseIndex['definition_path'] ?? $this->resolveTargetDefinitionPath($definition),
+                'definition_path' => $baseIndex['definition_path']
+                    ?? $this->resolveTargetDefinitionPath($definition, $descriptor['path'] ?? null),
             ],
             'questions' => $questions,
             'localizedQuestionCount' => $questions->count(),
@@ -364,7 +369,7 @@ class JsonTestLocalizationManager
             return collect($this->descriptorCache);
         }
 
-        $directory = $this->localizationsDirectory();
+        $directory = $this->discoveryDirectory();
 
         if (! File::isDirectory($directory)) {
             $this->descriptorCache = [];
@@ -374,6 +379,7 @@ class JsonTestLocalizationManager
 
         $map = collect(File::allFiles($directory))
             ->filter(fn (SplFileInfo $file) => strtolower($file->getExtension()) === 'json')
+            ->filter(fn (SplFileInfo $file) => $this->isLocalizationFilePath($file->getPathname()))
             ->mapWithKeys(function (SplFileInfo $file) {
                 $definition = $this->loadLocalizationDefinition($file->getPathname());
                 $className = $this->resolveVirtualSeederClassName($definition, $file->getPathname());
@@ -384,7 +390,10 @@ class JsonTestLocalizationManager
                     'locale' => $this->normalizeLocale((string) ($definition['locale'] ?? '')),
                     'target_seeder_class' => trim((string) Arr::get($definition, 'target.seeder_class', '')),
                     'target_definition' => trim((string) Arr::get($definition, 'target.definition', '')),
-                    'target_definition_path' => $this->resolveTargetDefinitionPath($definition),
+                    'target_definition_path' => $this->resolveTargetDefinitionPath(
+                        $definition,
+                        $file->getPathname()
+                    ),
                 ]];
             })
             ->all();
@@ -402,7 +411,7 @@ class JsonTestLocalizationManager
             return $configured;
         }
 
-        $directory = rtrim(str_replace('\\', '/', $this->localizationsDirectory()), '/');
+        $directory = rtrim(str_replace('\\', '/', $this->discoveryDirectory()), '/');
         $normalizedPath = str_replace('\\', '/', $path);
         $relativePath = Str::after($normalizedPath, $directory . '/');
         $segments = array_values(array_filter(explode('/', $relativePath), 'strlen'));
@@ -424,12 +433,22 @@ class JsonTestLocalizationManager
         return 'Database\\Seeders\\V3\\Localizations\\' . implode('\\', $namespaceSegments);
     }
 
-    private function localizationsDirectory(): string
+    private function discoveryDirectory(): string
     {
-        return database_path('seeders/V3/localizations');
+        return database_path('seeders/V3');
     }
 
-    private function matchesTarget(array $localizationDefinition, ?string $definitionPath, string $baseSeederClass): bool
+    private function isLocalizationFilePath(string $path): bool
+    {
+        return Str::contains(str_replace('\\', '/', $path), '/localizations/');
+    }
+
+    private function matchesTarget(
+        array $localizationDefinition,
+        ?string $localizationPath,
+        ?string $definitionPath,
+        string $baseSeederClass
+    ): bool
     {
         $matched = false;
         $targetSeederClass = trim((string) Arr::get($localizationDefinition, 'target.seeder_class', ''));
@@ -453,7 +472,7 @@ class JsonTestLocalizationManager
             $matched = true;
         }
 
-        $targetDefinitionPath = $this->resolveTargetDefinitionPath($localizationDefinition);
+        $targetDefinitionPath = $this->resolveTargetDefinitionPath($localizationDefinition, $localizationPath);
 
         if ($targetDefinitionPath !== null) {
             if (! $this->pathsEqual($targetDefinitionPath, $definitionPath)) {
@@ -466,9 +485,9 @@ class JsonTestLocalizationManager
         return $matched;
     }
 
-    private function targetDefinitionIndex(array $localizationDefinition): array
+    private function targetDefinitionIndex(array $localizationDefinition, ?string $localizationPath = null): array
     {
-        $definitionPath = $this->resolveTargetDefinitionPath($localizationDefinition);
+        $definitionPath = $this->resolveTargetDefinitionPath($localizationDefinition, $localizationPath);
 
         if ($definitionPath === null) {
             throw new RuntimeException('Localization definition must define target.definition or target.definition_path.');
@@ -480,12 +499,28 @@ class JsonTestLocalizationManager
         return $this->definitionIndex->indexQuestions($definition, $definitionPath, $fallbackSeederClass);
     }
 
-    private function resolveTargetDefinitionPath(array $localizationDefinition): ?string
+    private function resolveTargetDefinitionPath(array $localizationDefinition, ?string $localizationPath = null): ?string
     {
         $configuredPath = trim((string) Arr::get($localizationDefinition, 'target.definition_path', ''));
 
         if ($configuredPath !== '') {
-            return $this->normalizeTargetDefinitionPath($configuredPath);
+            return $this->normalizeTargetDefinitionPath($configuredPath, $localizationPath);
+        }
+
+        $adjacentDefinitionPath = $this->inferAdjacentDefinitionPath($localizationPath);
+
+        if ($adjacentDefinitionPath !== null) {
+            return $adjacentDefinitionPath;
+        }
+
+        $targetSeederClass = trim((string) Arr::get($localizationDefinition, 'target.seeder_class', ''));
+
+        if ($targetSeederClass !== '') {
+            $resolvedDefinitionPath = $this->resolveDefinitionPathFromSeederClass($targetSeederClass);
+
+            if ($resolvedDefinitionPath !== null) {
+                return $resolvedDefinitionPath;
+            }
         }
 
         $definitionKey = trim((string) Arr::get($localizationDefinition, 'target.definition', ''));
@@ -501,13 +536,23 @@ class JsonTestLocalizationManager
         return database_path('seeders/V3/definitions/' . str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $definitionKey));
     }
 
-    private function normalizeTargetDefinitionPath(string $path): string
+    private function normalizeTargetDefinitionPath(string $path, ?string $localizationPath = null): string
     {
         if ($this->isAbsolutePath($path)) {
             return $path;
         }
 
         $normalized = ltrim(str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $path), DIRECTORY_SEPARATOR);
+
+        if ($localizationPath !== null) {
+            $relativeCandidate = dirname($localizationPath) . DIRECTORY_SEPARATOR . $normalized;
+            $resolvedRelativeCandidate = realpath($relativeCandidate);
+
+            if ($resolvedRelativeCandidate !== false) {
+                return $resolvedRelativeCandidate;
+            }
+        }
+
         $unixPath = str_replace('\\', '/', $normalized);
 
         if (Str::startsWith($unixPath, 'database/')) {
@@ -519,6 +564,54 @@ class JsonTestLocalizationManager
         }
 
         return database_path('seeders/V3/definitions/' . $normalized);
+    }
+
+    private function inferAdjacentDefinitionPath(?string $localizationPath): ?string
+    {
+        $normalizedPath = trim((string) $localizationPath);
+
+        if ($normalizedPath === '') {
+            return null;
+        }
+
+        $localizationsDirectory = dirname($normalizedPath);
+
+        if (Str::lower(basename($localizationsDirectory)) !== 'localizations') {
+            return null;
+        }
+
+        $definitionPath = dirname($localizationsDirectory) . DIRECTORY_SEPARATOR . 'definition.json';
+
+        if (File::exists($definitionPath)) {
+            return $definitionPath;
+        }
+
+        return null;
+    }
+
+    private function resolveDefinitionPathFromSeederClass(string $className): ?string
+    {
+        if (! $this->classExistsSafely($className)) {
+            return null;
+        }
+
+        try {
+            $instance = app($className);
+
+            if (method_exists($instance, 'resolvedDefinitionPath')) {
+                $path = $instance->resolvedDefinitionPath();
+
+                return is_string($path) && trim($path) !== '' ? $path : null;
+            }
+
+            $method = new \ReflectionMethod($instance, 'definitionPath');
+            $method->setAccessible(true);
+            $path = $method->invoke($instance);
+
+            return is_string($path) && trim($path) !== '' ? $path : null;
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     private function resolveLocalizationQuestions(array $localizationDefinition, array $baseIndex): array
@@ -757,5 +850,14 @@ class JsonTestLocalizationManager
     private function isAbsolutePath(string $path): bool
     {
         return preg_match('/^(?:[A-Za-z]:[\/\\\\]|\/)/', $path) === 1;
+    }
+
+    private function classExistsSafely(string $className): bool
+    {
+        if (class_exists($className, false)) {
+            return true;
+        }
+
+        return @class_exists($className);
     }
 }

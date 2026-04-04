@@ -66,7 +66,7 @@ class JsonPageLocalizationManager
 
         try {
             $definition = $this->loadVirtualSeederDefinition($className);
-            $baseIndex = $this->targetDefinitionIndex($definition);
+            $baseIndex = $this->targetDefinitionIndex($definition, $descriptor['path'] ?? null);
             $resolved = trim((string) ($baseIndex['seeder_class'] ?? ''));
 
             return $resolved !== '' ? $resolved : null;
@@ -101,8 +101,9 @@ class JsonPageLocalizationManager
 
     public function applyVirtualSeeder(string $className): array
     {
+        $descriptor = $this->descriptorForClass($className);
         $definition = $this->loadVirtualSeederDefinition($className);
-        $baseIndex = $this->targetDefinitionIndex($definition);
+        $baseIndex = $this->targetDefinitionIndex($definition, $descriptor['path'] ?? null);
         $result = $this->applyLocalizationDefinition($className, $definition, $baseIndex);
 
         if (($result['localized_blocks'] ?? 0) === 0) {
@@ -128,15 +129,17 @@ class JsonPageLocalizationManager
 
     public function buildVirtualSeederPreview(string $className): array
     {
+        $descriptor = $this->descriptorForClass($className);
         $definition = $this->loadVirtualSeederDefinition($className);
-        $baseIndex = $this->targetDefinitionIndex($definition);
+        $baseIndex = $this->targetDefinitionIndex($definition, $descriptor['path'] ?? null);
         $resolvedBlocks = $this->resolveLocalizationBlocks($definition, $baseIndex);
         $targetExists = $this->targetExists($baseIndex);
         $contentType = (string) ($baseIndex['content_type'] ?? 'page');
         $target = [
             'seeder_class' => trim((string) Arr::get($definition, 'target.seeder_class', '')),
             'definition' => $baseIndex['definition_key'] ?? trim((string) Arr::get($definition, 'target.definition', '')),
-            'definition_path' => $baseIndex['definition_path'] ?? $this->resolveTargetDefinitionPath($definition),
+            'definition_path' => $baseIndex['definition_path']
+                ?? $this->resolveTargetDefinitionPath($definition, $descriptor['path'] ?? null),
             'slug' => (string) ($baseIndex['slug'] ?? ''),
             'category_slug' => (string) ($baseIndex['category_slug'] ?? ''),
             'content_type' => $contentType,
@@ -175,9 +178,15 @@ class JsonPageLocalizationManager
     {
         return $this->descriptorMap()
             ->filter(function (array $descriptor) use ($definitionPath, $baseSeederClass) {
-                $localizationDefinition = $this->loadLocalizationDefinition((string) $descriptor['path']);
+                $localizationPath = (string) ($descriptor['path'] ?? '');
+                $localizationDefinition = $this->loadLocalizationDefinition($localizationPath);
 
-                return $this->matchesTarget($localizationDefinition, $definitionPath, $baseSeederClass);
+                return $this->matchesTarget(
+                    $localizationDefinition,
+                    $localizationPath,
+                    $definitionPath,
+                    $baseSeederClass
+                );
             })
             ->values();
     }
@@ -210,7 +219,7 @@ class JsonPageLocalizationManager
             return collect($this->descriptorCache);
         }
 
-        $directory = $this->localizationsDirectory();
+        $directory = $this->discoveryDirectory();
 
         if (! File::isDirectory($directory)) {
             $this->descriptorCache = [];
@@ -220,6 +229,7 @@ class JsonPageLocalizationManager
 
         $map = collect(File::allFiles($directory))
             ->filter(fn (SplFileInfo $file) => strtolower($file->getExtension()) === 'json')
+            ->filter(fn (SplFileInfo $file) => $this->isLocalizationFilePath($file->getPathname()))
             ->mapWithKeys(function (SplFileInfo $file) {
                 $definition = $this->loadLocalizationDefinition($file->getPathname());
                 $className = $this->resolveVirtualSeederClassName($definition, $file->getPathname());
@@ -230,7 +240,10 @@ class JsonPageLocalizationManager
                     'locale' => $this->normalizeLocale((string) ($definition['locale'] ?? '')),
                     'target_seeder_class' => trim((string) Arr::get($definition, 'target.seeder_class', '')),
                     'target_definition' => trim((string) Arr::get($definition, 'target.definition', '')),
-                    'target_definition_path' => $this->resolveTargetDefinitionPath($definition),
+                    'target_definition_path' => $this->resolveTargetDefinitionPath(
+                        $definition,
+                        $file->getPathname()
+                    ),
                 ]];
             })
             ->all();
@@ -248,8 +261,24 @@ class JsonPageLocalizationManager
             return $configured;
         }
 
-        $directory = rtrim(str_replace('\\', '/', $this->localizationsDirectory()), '/');
         $normalizedPath = str_replace('\\', '/', $path);
+        $parentDirectory = basename(dirname($normalizedPath));
+        $grandParentDirectory = basename(dirname(dirname($normalizedPath)));
+        $baseName = Str::studly(pathinfo($normalizedPath, PATHINFO_FILENAME));
+
+        if (
+            strtolower($parentDirectory) === 'localizations'
+            && in_array(strtolower($baseName), ['en', 'pl', 'uk'], true)
+            && Str::endsWith($grandParentDirectory, 'Seeder')
+        ) {
+            $localeNamespace = Str::ucfirst(strtolower($baseName));
+            $classStem = preg_replace('/Seeder$/', '', $grandParentDirectory) ?: $grandParentDirectory;
+
+            return 'Database\\Seeders\\Page_V3\\Localizations\\'
+                . $localeNamespace . '\\' . $classStem . 'LocalizationSeeder';
+        }
+
+        $directory = rtrim(str_replace('\\', '/', $this->discoveryDirectory()), '/');
         $relativePath = Str::after($normalizedPath, $directory . '/');
         $segments = array_values(array_filter(explode('/', $relativePath), 'strlen'));
         $fileName = array_pop($segments) ?: 'generated';
@@ -268,12 +297,22 @@ class JsonPageLocalizationManager
         return 'Database\\Seeders\\Page_V3\\Localizations\\' . implode('\\', $namespaceSegments);
     }
 
-    private function localizationsDirectory(): string
+    private function discoveryDirectory(): string
     {
-        return database_path('seeders/Page_V3/localizations');
+        return database_path('seeders/Page_V3');
     }
 
-    private function matchesTarget(array $localizationDefinition, ?string $definitionPath, string $baseSeederClass): bool
+    private function isLocalizationFilePath(string $path): bool
+    {
+        return Str::contains(str_replace('\\', '/', $path), '/localizations/');
+    }
+
+    private function matchesTarget(
+        array $localizationDefinition,
+        ?string $localizationPath,
+        ?string $definitionPath,
+        string $baseSeederClass
+    ): bool
     {
         $matched = false;
         $targetSeederClass = trim((string) Arr::get($localizationDefinition, 'target.seeder_class', ''));
@@ -297,7 +336,7 @@ class JsonPageLocalizationManager
             $matched = true;
         }
 
-        $targetDefinitionPath = $this->resolveTargetDefinitionPath($localizationDefinition);
+        $targetDefinitionPath = $this->resolveTargetDefinitionPath($localizationDefinition, $localizationPath);
 
         if ($targetDefinitionPath !== null) {
             if (! $this->pathsEqual($targetDefinitionPath, $definitionPath)) {
@@ -310,9 +349,9 @@ class JsonPageLocalizationManager
         return $matched;
     }
 
-    private function targetDefinitionIndex(array $localizationDefinition): array
+    private function targetDefinitionIndex(array $localizationDefinition, ?string $localizationPath = null): array
     {
-        $definitionPath = $this->resolveTargetDefinitionPath($localizationDefinition);
+        $definitionPath = $this->resolveTargetDefinitionPath($localizationDefinition, $localizationPath);
 
         if ($definitionPath === null) {
             throw new RuntimeException('Page localization definition must define target.definition or target.definition_path.');
@@ -324,12 +363,28 @@ class JsonPageLocalizationManager
         return $this->definitionIndex->indexBlocks($definition, $definitionPath, $fallbackSeederClass);
     }
 
-    private function resolveTargetDefinitionPath(array $localizationDefinition): ?string
+    private function resolveTargetDefinitionPath(array $localizationDefinition, ?string $localizationPath = null): ?string
     {
         $configuredPath = trim((string) Arr::get($localizationDefinition, 'target.definition_path', ''));
 
         if ($configuredPath !== '') {
-            return $this->normalizeTargetDefinitionPath($configuredPath);
+            return $this->normalizeTargetDefinitionPath($configuredPath, $localizationPath);
+        }
+
+        $adjacentDefinitionPath = $this->inferAdjacentDefinitionPath($localizationPath);
+
+        if ($adjacentDefinitionPath !== null) {
+            return $adjacentDefinitionPath;
+        }
+
+        $targetSeederClass = trim((string) Arr::get($localizationDefinition, 'target.seeder_class', ''));
+
+        if ($targetSeederClass !== '') {
+            $resolvedDefinitionPath = $this->resolveDefinitionPathFromSeederClass($targetSeederClass);
+
+            if ($resolvedDefinitionPath !== null) {
+                return $resolvedDefinitionPath;
+            }
         }
 
         $definitionKey = trim((string) Arr::get($localizationDefinition, 'target.definition', ''));
@@ -345,13 +400,23 @@ class JsonPageLocalizationManager
         return database_path('seeders/Page_V3/definitions/' . str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $definitionKey));
     }
 
-    private function normalizeTargetDefinitionPath(string $path): string
+    private function normalizeTargetDefinitionPath(string $path, ?string $localizationPath = null): string
     {
         if ($this->isAbsolutePath($path)) {
             return $path;
         }
 
         $normalized = ltrim(str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $path), DIRECTORY_SEPARATOR);
+
+        if ($localizationPath !== null) {
+            $relativeCandidate = dirname($localizationPath) . DIRECTORY_SEPARATOR . $normalized;
+            $resolvedRelativeCandidate = realpath($relativeCandidate);
+
+            if ($resolvedRelativeCandidate !== false) {
+                return $resolvedRelativeCandidate;
+            }
+        }
+
         $unixPath = str_replace('\\', '/', $normalized);
 
         if (Str::startsWith($unixPath, 'database/')) {
@@ -363,6 +428,54 @@ class JsonPageLocalizationManager
         }
 
         return database_path('seeders/Page_V3/definitions/' . $normalized);
+    }
+
+    private function inferAdjacentDefinitionPath(?string $localizationPath): ?string
+    {
+        $normalizedPath = trim((string) $localizationPath);
+
+        if ($normalizedPath === '') {
+            return null;
+        }
+
+        $localizationsDirectory = dirname($normalizedPath);
+
+        if (Str::lower(basename($localizationsDirectory)) !== 'localizations') {
+            return null;
+        }
+
+        $definitionPath = dirname($localizationsDirectory) . DIRECTORY_SEPARATOR . 'definition.json';
+
+        if (File::exists($definitionPath)) {
+            return $definitionPath;
+        }
+
+        return null;
+    }
+
+    private function resolveDefinitionPathFromSeederClass(string $className): ?string
+    {
+        if (! $this->classExistsSafely($className)) {
+            return null;
+        }
+
+        try {
+            $instance = app($className);
+
+            if (method_exists($instance, 'resolvedDefinitionPath')) {
+                $path = $instance->resolvedDefinitionPath();
+
+                return is_string($path) && trim($path) !== '' ? $path : null;
+            }
+
+            $method = new \ReflectionMethod($instance, 'definitionPath');
+            $method->setAccessible(true);
+            $path = $method->invoke($instance);
+
+            return is_string($path) && trim($path) !== '' ? $path : null;
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     private function resolveLocalizationBlocks(array $localizationDefinition, array $baseIndex): array
@@ -578,19 +691,32 @@ class JsonPageLocalizationManager
 
     private function pathsEqual(?string $left, ?string $right): bool
     {
-        if ($left === null || $right === null) {
-            return false;
+        $leftPath = $this->normalizeComparablePath($left);
+        $rightPath = $this->normalizeComparablePath($right);
+
+        return $leftPath !== null && $rightPath !== null && $leftPath === $rightPath;
+    }
+
+    private function normalizeComparablePath(?string $path): ?string
+    {
+        $normalized = trim((string) $path);
+
+        if ($normalized === '') {
+            return null;
         }
 
-        $normalizedLeft = str_replace('\\', '/', realpath($left) ?: $left);
-        $normalizedRight = str_replace('\\', '/', realpath($right) ?: $right);
+        $realPath = realpath($normalized);
 
-        return $normalizedLeft === $normalizedRight;
+        if ($realPath !== false) {
+            return str_replace('\\', '/', $realPath);
+        }
+
+        return str_replace('\\', '/', $normalized);
     }
 
     private function isAbsolutePath(string $path): bool
     {
-        return preg_match('/^(?:[A-Za-z]:\\\\|\\\\\\\\|\/)/', $path) === 1;
+        return preg_match('/^(?:[A-Za-z]:[\/\\\\]|\/)/', $path) === 1;
     }
 
     private function normalizeLocale(string $locale): string
@@ -602,5 +728,14 @@ class JsonPageLocalizationManager
         }
 
         return $normalized;
+    }
+
+    private function classExistsSafely(string $className): bool
+    {
+        if (class_exists($className, false)) {
+            return true;
+        }
+
+        return @class_exists($className);
     }
 }

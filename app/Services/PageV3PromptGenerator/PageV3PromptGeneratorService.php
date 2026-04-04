@@ -277,7 +277,9 @@ class PageV3PromptGeneratorService
             $this->formatCategorySection($category),
             '',
             'Suggested targets',
-            '- Suggested page PHP wrapper: `' . $preview['page_seeder_relative_path'] . '`',
+            '- Suggested page loader stub: `' . $preview['page_seeder_relative_path'] . '`',
+            '- Suggested page package folder: `' . $preview['page_package_relative_path'] . '`',
+            '- Suggested page real seeder PHP: `' . $preview['page_real_seeder_relative_path'] . '`',
             '- Suggested page class: `' . $preview['page_fully_qualified_class_name'] . '`',
             '- Suggested page definition JSON: `' . $preview['page_definition_relative_path'] . '`',
             '- Suggested page localization JSON (en): `' . $preview['page_localization_en_relative_path'] . '`',
@@ -285,7 +287,9 @@ class PageV3PromptGeneratorService
         ];
 
         if ($category['mode'] !== 'existing') {
-            $lines[] = '- Suggested category PHP wrapper: `' . $preview['category_seeder_relative_path'] . '`';
+            $lines[] = '- Suggested category loader stub: `' . $preview['category_seeder_relative_path'] . '`';
+            $lines[] = '- Suggested category package folder: `' . $preview['category_package_relative_path'] . '`';
+            $lines[] = '- Suggested category real seeder PHP: `' . $preview['category_real_seeder_relative_path'] . '`';
             $lines[] = '- Suggested category definition JSON: `' . $preview['category_definition_relative_path'] . '`';
             $lines[] = '- Suggested category localization JSON (en): `' . $preview['category_localization_en_relative_path'] . '`';
             $lines[] = '- Suggested category localization JSON (pl): `' . $preview['category_localization_pl_relative_path'] . '`';
@@ -296,11 +300,13 @@ class PageV3PromptGeneratorService
             'Hard requirements',
             '- First inspect the real `Page_V3` implementation already present in `database/seeders/Page_V3`.',
             '- Treat `app/Support/Database/JsonPageSeeder.php`, `app/Support/Database/JsonPageDirectorySeeder.php`, `app/Support/Database/JsonPageLocalizationManager.php`, and nearby Page_V3 files as the compatibility contract.',
-            '- Use the existing `Page_V3` schema only: `content_type: page` or `content_type: category`, `type: theory`, base definition in `uk`, localization JSON files in `database/seeders/Page_V3/localizations/en` and `database/seeders/Page_V3/localizations/pl`.',
+            '- Use the existing `Page_V3` schema only: `content_type: page` or `content_type: category`, `type: theory`, base definition in `uk`, and companion localization JSON files in each seeder package under `localizations/en.json` and `localizations/pl.json`.',
             '- Do not invent a new schema, runtime loader, localization mechanism, or naming convention.',
+            '- Each seeder must be self-contained in its own package folder with the real PHP class, `definition.json`, and all related localization JSON files.',
+            '- Keep the top-level PHP file as a compatibility loader stub that requires the real class from its package folder.',
             '- Create fully written content. No demo content, no placeholders, no TODOs, no stubs.',
             '- Do not create PHP wrapper classes for localization JSON files unless you find a real existing project pattern that requires them. Current Page_V3 localization files are JSON-driven.',
-            '- Keep all `seeder.class`, `target.definition`, `target.seeder_class`, category slug linkage, and file paths internally consistent.',
+            '- Keep all `seeder.class`, `target.definition_path`, `target.seeder_class`, category slug linkage, and file paths internally consistent.',
             '- Make the output directly runnable through the current Page_V3 seeding system.',
         ]);
 
@@ -352,12 +358,10 @@ class PageV3PromptGeneratorService
         array $preview,
         array $referenceFiles,
     ): string {
-        $pageDefinitionBaseName = pathinfo((string) $preview['page_definition_relative_path'], PATHINFO_FILENAME);
-        $pageLocalizationEnClass = $this->localizationSeederClass($pageDefinitionBaseName, 'en');
-        $pageLocalizationPlClass = $this->localizationSeederClass($pageDefinitionBaseName, 'pl');
-        $categoryDefinitionBaseName = pathinfo((string) $preview['category_definition_relative_path'], PATHINFO_FILENAME);
-        $categoryLocalizationEnClass = $this->localizationSeederClass($categoryDefinitionBaseName, 'en');
-        $categoryLocalizationPlClass = $this->localizationSeederClass($categoryDefinitionBaseName, 'pl');
+        $pageLocalizationEnClass = $this->localizationSeederClass((string) $preview['page_class_name'], 'en');
+        $pageLocalizationPlClass = $this->localizationSeederClass((string) $preview['page_class_name'], 'pl');
+        $categoryLocalizationEnClass = $this->localizationSeederClass((string) $preview['category_class_name'], 'en');
+        $categoryLocalizationPlClass = $this->localizationSeederClass((string) $preview['category_class_name'], 'pl');
 
         $promptModeLines = [
             'Prompt A mode',
@@ -402,17 +406,21 @@ class PageV3PromptGeneratorService
 
         $lines = array_merge($lines, [
             'Target file expectations',
+            '- Always keep the PHP loader stub at: `' . $preview['page_seeder_relative_path'] . '`',
+            '- Always keep the real page seeder class at: `' . $preview['page_real_seeder_relative_path'] . '`',
             '- Always output the base page definition JSON in `uk`: `' . $preview['page_definition_relative_path'] . '`',
             '- Always output the page localization JSON for `en`: `' . $preview['page_localization_en_relative_path'] . '`',
             '- Always output the page localization JSON for `pl`: `' . $preview['page_localization_pl_relative_path'] . '`',
         ]);
 
         if ($category['mode'] === 'new') {
+            $lines[] = '- Also keep the category loader stub at: `' . $preview['category_seeder_relative_path'] . '`';
+            $lines[] = '- Also keep the real category seeder class at: `' . $preview['category_real_seeder_relative_path'] . '`';
             $lines[] = '- Also output the base category definition JSON in `uk`: `' . $preview['category_definition_relative_path'] . '`';
             $lines[] = '- Also output the category localization JSON for `en`: `' . $preview['category_localization_en_relative_path'] . '`';
             $lines[] = '- Also output the category localization JSON for `pl`: `' . $preview['category_localization_pl_relative_path'] . '`';
         } elseif ($category['mode'] === 'ai_select') {
-            $lines[] = '- If you decide a new category is required, also output the category definition JSON and `en`/`pl` category localizations before the page files.';
+            $lines[] = '- If you decide a new category is required, also output the category loader stub, real category seeder, category definition JSON, and `en`/`pl` category localizations before the page files.';
             $lines[] = '- If you reuse an existing category, do not output category JSON files.';
         }
 
@@ -442,7 +450,7 @@ class PageV3PromptGeneratorService
             'Rules',
             '- Base definitions must be written for locale `uk`.',
             '- Companion localizations must be written for locales `en` and `pl`.',
-            '- `target.definition` in localization JSON must match the base definition filename without `.json`.',
+            '- `target.definition_path` in localization JSON should point to `../definition.json` so each localization stays self-contained with its base seeder package.',
             '- `target.seeder_class` in localization JSON must exactly match the corresponding base wrapper class.',
             '- Use `content_type: page` for the theory page JSON and `content_type: category` only when category JSON is needed.',
             '- Use `type: theory` consistently.',
@@ -492,14 +500,16 @@ class PageV3PromptGeneratorService
             $this->formatCategorySection($category),
             '',
             'Suggested targets',
-            '- Suggested page PHP wrapper: `' . $preview['page_seeder_relative_path'] . '`',
+            '- Suggested page loader stub: `' . $preview['page_seeder_relative_path'] . '`',
+            '- Suggested page real seeder PHP: `' . $preview['page_real_seeder_relative_path'] . '`',
             '- Suggested page definition JSON: `' . $preview['page_definition_relative_path'] . '`',
             '- Suggested page localization JSON (en): `' . $preview['page_localization_en_relative_path'] . '`',
             '- Suggested page localization JSON (pl): `' . $preview['page_localization_pl_relative_path'] . '`',
         ];
 
         if ($category['mode'] !== 'existing') {
-            $lines[] = '- Suggested category PHP wrapper: `' . $preview['category_seeder_relative_path'] . '`';
+            $lines[] = '- Suggested category loader stub: `' . $preview['category_seeder_relative_path'] . '`';
+            $lines[] = '- Suggested category real seeder PHP: `' . $preview['category_real_seeder_relative_path'] . '`';
             $lines[] = '- Suggested category definition JSON: `' . $preview['category_definition_relative_path'] . '`';
         }
 
@@ -510,7 +520,8 @@ class PageV3PromptGeneratorService
             '- Do not invent a new schema, new runtime loader, or a custom one-off seeder implementation.',
             '- Preserve the provided JSON content as the canonical content. Only make small technical compatibility fixes if necessary.',
             '- Create PHP wrapper seeders only for base page/category definitions. Do not create localization PHP wrappers unless the real project already does that for the same pattern.',
-            '- Keep `seeder.class`, `target.definition`, `target.seeder_class`, category slug linkage, and file placement consistent.',
+            '- Keep `seeder.class`, `target.definition_path`, `target.seeder_class`, category slug linkage, and file placement consistent.',
+            '- Materialize each base seeder as a self-contained package folder with the real PHP class, `definition.json`, and localized JSON files, while keeping the top-level PHP path as a compatibility loader stub.',
             '- If nearby Page_V3 files in the chosen namespace use a slightly different naming convention than the suggested preview, follow the local convention consistently and update all related JSON references to match.',
             '- Ensure the final output stays compatible with the current Page_V3 directory seeder and localization sync flow.',
         ]);
@@ -669,7 +680,7 @@ class PageV3PromptGeneratorService
     protected function localizationSeederClass(string $definitionBaseName, string $locale): string
     {
         $localeNamespace = Str::ucfirst(strtolower($locale));
-        $classStem = Str::studly(str_replace('_', ' ', $definitionBaseName));
+        $classStem = preg_replace('/Seeder$/', '', trim($definitionBaseName)) ?: trim($definitionBaseName);
 
         return 'Database\\Seeders\\Page_V3\\Localizations\\' . $localeNamespace . '\\' . $classStem . 'LocalizationSeeder';
     }
@@ -685,11 +696,11 @@ class PageV3PromptGeneratorService
         array $referenceFiles,
     ): string {
         $lines = [
-            '- Observed Page_V3 naming pattern: page wrapper `' . ($preview['page_fully_qualified_class_name'] ?? '') . '`, page definition `' . basename((string) ($preview['page_definition_relative_path'] ?? '')) . '`, page localizations in `database/seeders/Page_V3/localizations/en|pl` with the same basename.',
+            '- Observed Page_V3 naming pattern: top-level loader stub `' . ($preview['page_seeder_relative_path'] ?? '') . '`, real page class `' . ($preview['page_real_seeder_relative_path'] ?? '') . '`, base definition in `' . ($preview['page_definition_relative_path'] ?? '') . '`, and localizations in `' . ($preview['page_package_relative_path'] ?? '') . '/localizations/en.json|pl.json`.',
             '- Real loader contract from `app/Support/Database/JsonPageSeeder.php`: base definitions are JSON-driven and use `content_type: page` or `content_type: category`, `type: theory`, and `seeder.class` for the base PHP wrapper.',
             '- Real localization contract from `app/Support/Database/JsonPageLocalizationManager.php`: localization JSON uses top-level keys `locale`, `seeder`, `target`, `blocks`.',
-            '- Real localization targeting rules: `target.definition` must match the base definition filename without `.json`, and `target.seeder_class` must exactly match the corresponding base wrapper class.',
-            '- Real runtime directory contract from `app/Support/Database/JsonPageDirectorySeeder.php`: base definitions live under `database/seeders/Page_V3/definitions`; localization JSON files live under `database/seeders/Page_V3/localizations/<locale>`; localization PHP wrappers are virtual and do not require standalone PHP files.',
+            '- Real localization targeting rules: `target.definition_path` should point to `../definition.json`, and `target.seeder_class` must exactly match the corresponding base wrapper class.',
+            '- Real runtime directory contract from `app/Support/Database/JsonPageDirectorySeeder.php`: base definitions are discovered anywhere under `database/seeders/Page_V3`, excluding nested `localizations` folders; localization PHP wrappers are virtual and do not require standalone PHP files.',
             '- Base page content rules: write the base definition in locale `uk`; write companion `en` and `pl` localizations; keep page slug, category slug, and wrapper class linkage internally consistent.',
         ];
 

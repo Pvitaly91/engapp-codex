@@ -1,0 +1,419 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\En\\V2\\IndefinitePronounsPracticeV2LocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\V2\\IndefinitePronounsPracticeV3Seeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "en",
+  "hint_provider": "chatgpt",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "The negation *can't find* requires any-word: we are looking for **anywhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "somewhere": "❌ *Somewhere* is appropriate in statements or invitations, not after a negation.",
+          "anywhere": "✅ **Anywhere** is used after *can't* and *don't* to denote 'somewhere/nowhere'.",
+          "nowhere": "❌ *Nowhere* already carries a negation and together with *can't* creates a double negative construction."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "After \"didn't\" we choose an any-word for negation."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "❌ *Something* sounds like an assertion, not a negation.",
+          "anything": "✅ **Anything** logically completes the sentence after \"didn't\".",
+          "nothing": "❌ *Nothing* would make the construction doubly negative."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "The phrase \"all our friends and family\" suggests totality → **Everybody**."
+      ],
+      "explanations": {
+        "a1": {
+          "Everybody": "✅ **Everybody** means all without exception, as described in the sentence.",
+          "Anybody": "❌ *Anybody* is more often used in questions/negations and does not emphasize 'everyone'.",
+          "Nobody": "❌ *Nobody* contradicts the statement that the party was filled with people."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "A general question (Did you...?) requires an any-word → **anybody**.\nThe answer describes a complete absence of interesting people → **nobody**."
+      ],
+      "explanations": {
+        "a1": {
+          "somebody": "❌ This would mean that someone interesting was there, but the phrase says the opposite.",
+          "anybody": "❌ *Anybody* sounds indefinite and does not convey 'none'.",
+          "nobody": "✅ **Nobody** emphasizes the absence of interesting people."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "An event definitely happened, but the person is unknown → we use a some-word."
+      ],
+      "explanations": {
+        "a1": {
+          "Somebody": "✅ **Somebody** is suitable for a statement about an unknown criminal.",
+          "Anybody": "❌ *Anybody* is more often found in questions or negations.",
+          "Nobody": "❌ *Nobody* contradicts the fact of the robbery."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "This statement has an assumption → **somewhere** is needed."
+      ],
+      "explanations": {
+        "a1": {
+          "somewhere": "✅ **Somewhere** is used when we are sure that a place exists but do not know which one.",
+          "anywhere": "❌ *Anywhere* is used in negations or for 'anywhere'.",
+          "nowhere": "❌ *Nowhere* means that no one is hiding, which contradicts the police's assumption."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Yes/no questions about experience → we use **anything**.\nHe is hungry, so he ate **nothing**."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "❌ *Something* is suitable for offers, not for neutral questions.",
+          "anything": "✅ **Anything** – standard for general questions.",
+          "nothing": "❌ *Nothing* is not used in the interrogative part."
+        },
+        "a2": {
+          "something": "❌ If he ate something, he wouldn't be \"very hungry\".",
+          "anything": "❌ *Anything* means \"anything\", but it needs to emphasize the absence of food.",
+          "nothing": "✅ **Nothing** shows that there was no food at all."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "When there is no place, we say **nowhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "somewhere": "❌ *Somewhere* means that a place exists, but is unknown.",
+          "anywhere": "❌ *Anywhere* means \"anywhere\", but the hero has nowhere to go.",
+          "nowhere": "✅ **Nowhere** clearly conveys the complete absence of a place."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "There is suspicion of an event → we use **something**.\nOfficers are everywhere → we need **everywhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "✅ **Something** denotes an unknown but real event.",
+          "anything": "❌ *Anything* indicates indifference to choice, not suspicion.",
+          "nothing": "❌ *Nothing* contradicts what is happening."
+        },
+        "a2": {
+          "everywhere": "✅ **Everywhere** shows that the police are everywhere.",
+          "anywhere": "❌ *Anywhere* sounds like \"somewhere\", without emphasis on scale.",
+          "nowhere": "❌ *Nowhere* would mean that there is no police, which is not true."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "The list \"streets, houses, cars…\" = all things → **Everything**."
+      ],
+      "explanations": {
+        "a1": {
+          "Something": "❌ *Something* means only one thing, not the whole list.",
+          "Everything": "✅ **Everything** encompasses all named items.",
+          "Anything": "❌ *Anything* means \"anything\", but not \"everything\"."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "The fact of usage was → a positive some-word is needed."
+      ],
+      "explanations": {
+        "a1": {
+          "Somebody": "✅ **Somebody** conveys an unknown but real user.",
+          "Nobody": "❌ *Nobody* denies the fact.",
+          "Anybody": "❌ *Anybody* is appropriate in questions/negations."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "After \"couldn't\" we put **anything**."
+      ],
+      "explanations": {
+        "a1": {
+          "anything": "✅ **Anything** corresponds to the negative verb.",
+          "something": "❌ *Something* sounds like a statement.",
+          "nothing": "❌ *Nothing* would create a double negative form."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "A neutral question requires **anybody**."
+      ],
+      "explanations": {
+        "a1": {
+          "somebody": "❌ *Somebody* sounds like expecting a positive answer.",
+          "anybody": "✅ **Anybody** is suitable for a general question.",
+          "nobody": "❌ *Nobody* is a negation and is not used in a question form."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "After \"don't have\" we use an any-word."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "❌ *Something* contradicts the negation.",
+          "anything": "✅ **Anything** logically completes the negative phrase.",
+          "nothing": "❌ *Nothing* would create a double negative construction."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "When there is no housing at all, we choose **nowhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "somewhere": "❌ *Somewhere* would mean the presence of a place.",
+          "anywhere": "❌ *Anywhere* = \"anywhere\", not \"nowhere\".",
+          "nowhere": "✅ **Nowhere** emphasizes the complete absence of housing."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "After the negation \"doesn't have\" we use **anybody**."
+      ],
+      "explanations": {
+        "a1": {
+          "somebody": "❌ *Somebody* means that someone exists, which contradicts the negation.",
+          "anybody": "✅ **Anybody** correctly combines with \"doesn't have\" to express loneliness.",
+          "nobody": "❌ *Nobody* creates a double negation with \"doesn't have\"."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "In polite offers Would you like…? we use **something**."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "✅ **Something** sounds warm in the offer.",
+          "anything": "❌ *Anything* makes the offer too indifferent.",
+          "nothing": "❌ *Nothing* negates the offer."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "General question → **anyone**."
+      ],
+      "explanations": {
+        "a1": {
+          "someone": "❌ *Someone* sounds like an answer, not a question.",
+          "anyone": "✅ **Anyone** standard for neutral questions.",
+          "no one": "❌ *No one* contradicts the positive answer."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "The phrase \"Now we all know\" means that she told everyone → **everyone**."
+      ],
+      "explanations": {
+        "a1": {
+          "anyone": "❌ *Anyone* sounds vague, while the context speaks about \"everyone\".",
+          "no one": "❌ *No one* contradicts the statement \"Now we all know\".",
+          "everyone": "✅ **Everyone** logically explains why everyone now knows."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "The form \"There is ...\" + negative meaning → **nothing**."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "❌ *Something* contradicts the idea of \"going to sleep\".",
+          "anything": "❌ *Anything* does not give a sense of complete lack of interest.",
+          "nothing": "✅ **Nothing** means that there is nothing interesting on TV."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "Negation *can't find* → **anywhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "anywhere": "✅ **Anywhere** combines with *can't* and shows lack of result.",
+          "nowhere": "❌ *Nowhere* already contains negation, which would sound strange.",
+          "somewhere": "❌ *Somewhere* means that a place was found."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "The phone call was → we use **Someone**."
+      ],
+      "explanations": {
+        "a1": {
+          "Someone": "✅ **Someone** conveys that an unknown person called.",
+          "Anybody": "❌ *Anybody* is used in questions/negations.",
+          "No one": "❌ *No one* contradicts the fact of the call."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "After \"didn't\" we put **anywhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "anywhere": "✅ **Anywhere** is the most natural choice in negation.",
+          "somewhere": "❌ *Somewhere* would mean that he went somewhere.",
+          "nowhere": "❌ *Nowhere* repeats the negation and sounds heavy."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Negation *don't know* + general reference → **anyone**."
+      ],
+      "explanations": {
+        "a1": {
+          "anyone": "✅ **Anyone** shows that there is a lack of acquaintances with the rest of the people.",
+          "someone": "❌ *Someone* would mean that only one person is unknown.",
+          "everyone": "❌ *Everyone* talks about everyone, but here we need a group of \"still unknowns.\""
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "After \"don't know\" – **anything**."
+      ],
+      "explanations": {
+        "a1": {
+          "anything": "✅ **Anything** supports negation.",
+          "something": "❌ *Something* would mean that knowledge exists.",
+          "nothing": "❌ *Nothing* would make the sentence doubly negative."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "There is an obvious problem, although unknown → **Something**."
+      ],
+      "explanations": {
+        "a1": {
+          "Something": "✅ **Something** points to a specific, albeit unnamed problem.",
+          "Anything": "❌ *Anything* sounds like indifference, not like a fact.",
+          "Nothing": "❌ *Nothing* contradicts strange behavior."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "I was alone → **Nobody**."
+      ],
+      "explanations": {
+        "a1": {
+          "Nobody": "✅ **Nobody** means a complete absence of people.",
+          "Anybody": "❌ *Anybody* does not give a clear sense that no one was there.",
+          "Everyone": "❌ *Everyone* contradicts the statement."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "Negation *can't find* → **anywhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "anywhere": "✅ **Anywhere** sounds natural in negation.",
+          "nowhere": "❌ *Nowhere* duplicates the negation.",
+          "everywhere": "❌ *Everywhere* means \"everywhere,\" but it's better to use it when you find something."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "Defeat = zero reasons to celebrate → **nothing**."
+      ],
+      "explanations": {
+        "a1": {
+          "nothing": "✅ **Nothing** emphasizes the absence of a reason.",
+          "anything": "❌ *Anything* would sound like an opportunity to celebrate.",
+          "everything": "❌ *Everything* means the opposite of the content."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "The police thought someone was hiding → need **someone**.\nAfter the negation \"did not find\" we use **anyone**."
+      ],
+      "explanations": {
+        "a1": {
+          "anyone": "❌ *Anyone* is more often for questions, but here it's a statement about suspicion.",
+          "someone": "✅ **Someone** is suitable for stating that the police thought about a specific person.",
+          "no one": "❌ *No one* contradicts the police's assumption."
+        },
+        "a2": {
+          "anyone": "✅ **Anyone** is correctly used after the negation \"did not find\".",
+          "someone": "❌ *Someone* would mean that someone was found.",
+          "no one": "❌ *No one* creates a double negative with \"did not find\"."
+        }
+      }
+    }
+  ]
+}

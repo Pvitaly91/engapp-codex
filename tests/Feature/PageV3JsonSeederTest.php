@@ -34,7 +34,7 @@ use Tests\TestCase;
 
 class PageV3JsonSeederTest extends TestCase
 {
-    private string $tempDefinitionsDirectory;
+    private string $tempSeederPackageDirectory;
 
     private string $tempLocalizationRoot;
 
@@ -44,14 +44,16 @@ class PageV3JsonSeederTest extends TestCase
 
         $this->rebuildMinimalSchema();
 
-        $this->tempDefinitionsDirectory = database_path('seeders/Page_V3/definitions/_tmp_tests');
-        $this->tempLocalizationRoot = database_path('seeders/Page_V3/localizations/_tmp_tests');
+        $this->tempSeederPackageDirectory = database_path('seeders/Page_V3/_tmp_tests/JsonOnlyPageSeeder');
+        $this->tempLocalizationRoot = $this->tempSeederPackageDirectory . DIRECTORY_SEPARATOR . 'localizations';
     }
 
     protected function tearDown(): void
     {
-        if (File::isDirectory($this->tempDefinitionsDirectory)) {
-            File::deleteDirectory($this->tempDefinitionsDirectory);
+        $tempRoot = dirname($this->tempSeederPackageDirectory);
+
+        if (File::isDirectory($tempRoot)) {
+            File::deleteDirectory($tempRoot);
         }
 
         if (File::isDirectory($this->tempLocalizationRoot)) {
@@ -266,13 +268,11 @@ class PageV3JsonSeederTest extends TestCase
 
     public function test_json_page_runtime_seeder_supports_page_definition_and_virtual_localization_seeders(): void
     {
-        File::ensureDirectoryExists($this->tempDefinitionsDirectory);
-        $tempLocalizationDirectory = $this->tempLocalizationRoot . DIRECTORY_SEPARATOR . 'en';
+        File::ensureDirectoryExists($this->tempSeederPackageDirectory);
+        File::ensureDirectoryExists($this->tempLocalizationRoot);
 
-        File::ensureDirectoryExists($tempLocalizationDirectory);
-
-        $definitionPath = $this->tempDefinitionsDirectory . DIRECTORY_SEPARATOR . 'json_only_page.json';
-        $localizationPath = $tempLocalizationDirectory . DIRECTORY_SEPARATOR . 'json_only_page.en.json';
+        $definitionPath = $this->tempSeederPackageDirectory . DIRECTORY_SEPARATOR . 'definition.json';
+        $localizationPath = $this->tempLocalizationRoot . DIRECTORY_SEPARATOR . 'en.json';
         $baseSeederClass = 'Database\\Seeders\\Page_V3\\Generated\\Tmp\\JsonOnlyPageSeeder';
         $localizationSeederClass = 'Database\\Seeders\\Page_V3\\Localizations\\En\\JsonOnlyPageLocalizationSeeder';
 
@@ -349,6 +349,7 @@ class PageV3JsonSeederTest extends TestCase
 
         $controller = new class(
             app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),

@@ -33,7 +33,7 @@ class JsonTestDirectorySeeder extends Seeder
 
     protected function definitionDirectory(): string
     {
-        return database_path('seeders/V3/definitions');
+        return database_path('seeders/V3');
     }
 
     protected function definitionPaths(): array
@@ -46,6 +46,8 @@ class JsonTestDirectorySeeder extends Seeder
 
         return collect(File::allFiles($directory))
             ->filter(fn ($file) => strtolower($file->getExtension()) === 'json')
+            ->filter(fn ($file) => ! $this->isLocalizationDefinitionPath($file->getPathname()))
+            ->filter(fn ($file) => $this->isTestDefinitionPath($file->getPathname()))
             ->sortBy(fn ($file) => str_replace('\\', '/', $file->getPathname()))
             ->map(fn ($file) => $file->getPathname())
             ->values()
@@ -71,7 +73,14 @@ class JsonTestDirectorySeeder extends Seeder
         $segments = array_values(array_filter(explode('/', $relativePath), 'strlen'));
         $fileName = array_pop($segments) ?: 'generated';
         $baseName = pathinfo($fileName, PATHINFO_FILENAME);
-        $className = Str::studly($baseName);
+
+        if (Str::lower($baseName) === 'definition' && $segments !== []) {
+            $className = Str::studly(array_pop($segments));
+            $namespacePrefix = 'Database\\Seeders\\V3\\';
+        } else {
+            $className = Str::studly($baseName);
+            $namespacePrefix = 'Database\\Seeders\\V3\\Generated\\';
+        }
 
         if (! Str::endsWith($className, 'Seeder')) {
             $className .= 'Seeder';
@@ -84,7 +93,23 @@ class JsonTestDirectorySeeder extends Seeder
 
         $namespaceSegments[] = $className;
 
-        return 'Database\\Seeders\\V3\\Generated\\' . implode('\\', $namespaceSegments);
+        return $namespacePrefix . implode('\\', $namespaceSegments);
+    }
+
+    protected function isLocalizationDefinitionPath(string $path): bool
+    {
+        return Str::contains(str_replace('\\', '/', $path), '/localizations/');
+    }
+
+    protected function isTestDefinitionPath(string $path): bool
+    {
+        try {
+            $decoded = json_decode(File::get($path), true, 512, JSON_THROW_ON_ERROR);
+        } catch (\Throwable) {
+            return false;
+        }
+
+        return is_array($decoded) && is_array(data_get($decoded, 'questions'));
     }
 
     protected function shouldRunDefinition(string $className): bool

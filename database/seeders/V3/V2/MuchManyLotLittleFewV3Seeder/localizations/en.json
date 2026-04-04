@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\En\\V2\\MuchManyLotLittleFewV2LocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\V2\\MuchManyLotLittleFewV3Seeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "en",
+  "hint_provider": "chatgpt",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "**A lot** is used at the end of a sentence or after a verb.\n**A lot of** + noun (countable or uncountable).\n**Many** + countable noun in plural."
+      ],
+      "explanations": {
+        "a1": {
+          "a lot": "✅ A lot stands at the end of a sentence without adding a noun. Example: *I need to study a lot*.",
+          "a lot of": "❌ A lot of requires a noun after it (a lot of books, a lot of time). Here there is no noun.",
+          "many": "❌ Many is used only before countable nouns in plural (many books, many hours)."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "**Many** + countable noun in plural in negatives and questions.\n**Much** + uncountable noun in negatives and questions.\n**A lot** stands separately, without a noun after it."
+      ],
+      "explanations": {
+        "a1": {
+          "many": "✅ Many is used with countable nouns in the plural: many things. Example: *There aren't many things to do*.",
+          "a lot": "❌ A lot cannot stand between \"aren't\" and the noun; it should be a lot of things or many things.",
+          "much": "❌ Much is used with uncountable nouns (much water, much time), while \"things\" is a countable noun."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "**How much** + uncountable noun in questions about quantity.\n**How many** + countable noun in the plural."
+      ],
+      "explanations": {
+        "a1": {
+          "How much": "✅ How much is used with uncountable nouns: How much sugar/water/time. Example: *How much sugar do you take?*",
+          "How many": "❌ How many is used with countable nouns in the plural (How many cups, How many spoons).",
+          "How little": "❌ How little is not a standard construction for questions about quantity."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "**A lot of** + any noun (countable or uncountable) in affirmative sentences.\n**Much** + uncountable noun, but rarely in affirmative sentences.\n**Many** + countable noun in the plural."
+      ],
+      "explanations": {
+        "a1": {
+          "a lot of": "✅ A lot of is used with any nouns in affirmative sentences. Example: *There was a lot of tension*.",
+          "much": "❌ Much is rarely used in affirmative sentences; usually in negatives and questions.",
+          "many": "❌ Many is used with countable nouns in the plural, while \"tension\" is an uncountable noun."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "**A little** + uncountable noun (a small amount).\n**A few** + countable noun in the plural (a small amount)."
+      ],
+      "explanations": {
+        "a1": {
+          "a little": "✅ A little is used with uncountable nouns: a little money/time/water. Example: *I need a little money*.",
+          "many": "❌ Many is used with countable nouns in the plural, while \"money\" is an uncountable noun.",
+          "a few": "❌ A few is used with countable nouns in the plural (a few books, a few dollars)."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "**A few** + countable noun in the plural (a small amount in an affirmative sentence).\n**A little** + uncountable noun."
+      ],
+      "explanations": {
+        "a1": {
+          "a few": "✅ A few is used with countable nouns in the plural: a few things. Example: *There are a few things you can do*.",
+          "any": "❌ Any is usually used in negatives and questions, not in affirmative sentences.",
+          "a little": "❌ A little is used with uncountable nouns, while \"things\" is a countable noun in the plural."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "**No** + noun = absence of something (no milk, no time).\n**None** stands alone, without a noun after it.\n**Any** is used in negatives with \"not\" (not any)."
+      ],
+      "explanations": {
+        "a1": {
+          "no": "✅ No + noun means absence: no milk, no books. Example: *There is no milk in the fridge*.",
+          "none": "❌ None stands alone as a response or at the end of a sentence, without a noun after it.",
+          "any": "❌ Any is used with \"not\" in negatives (There isn't any milk), not with the verb \"is\"."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "**Any** + noun in negatives with \"not\" (doesn't/don't/isn't + any).\n**No** + noun without \"not\" in the verb."
+      ],
+      "explanations": {
+        "a1": {
+          "any": "✅ Any is used with \"not\" in negatives: doesn't have any hobbies. Example: *He doesn't have any hobbies*.",
+          "none": "❌ None stands alone without a noun: \"He has none\" (not \"none hobbies\").",
+          "no": "❌ No + noun requires the affirmative form of the verb: \"He has no hobbies\", not \"doesn't have no\"."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "**None** — an independent answer to the question \"How many...\" (not any).\n**No** requires a noun after it (no computers)."
+      ],
+      "explanations": {
+        "a1": {
+          "None": "✅ None — an independent answer meaning \"not any\": How many computers? None. Example: *\"None.\"*",
+          "Any": "❌ Any is not an answer to the question about quantity; it means \"any\" or is used in negations.",
+          "No": "❌ No requires a noun after it (No computers), cannot stand alone as an answer."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "**A lot of** + any noun in affirmative sentences.\n**Much** is rarely used in affirmative sentences."
+      ],
+      "explanations": {
+        "a1": {
+          "a lot of": "✅ A lot of is used with any nouns in affirmative sentences. Example: *I have a lot of time*.",
+          "much": "❌ Much is usually used in negations and questions, rarely in affirmative sentences.",
+          "many": "❌ Many is used with countable nouns in plural, while \"time\" is an uncountable noun."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "**A lot** — an independent answer at the end of a sentence, without a noun.\n**A lot of** requires a noun after it."
+      ],
+      "explanations": {
+        "a1": {
+          "A lot": "✅ A lot stands alone as an answer to the question about quantity. Example: *\"How much?\" \"A lot.\"*",
+          "A lot of": "❌ A lot of requires a noun after it (a lot of water), cannot stand alone.",
+          "Much": "❌ Much is usually not used in short affirmative answers."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "**How many** + countable noun in plural for questions about quantity.\n**How much** + uncountable noun."
+      ],
+      "explanations": {
+        "a1": {
+          "How many": "✅ How many is used with countable nouns in plural: How many goals/books/people. Example: *How many goals did they score?*",
+          "How much": "❌ How much is used with uncountable nouns (How much water, How much time).",
+          "How little": "❌ How little is not a standard construction for questions about quantity."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "**Much** + uncountable noun in negations and questions.\n**Many** + countable noun in plural."
+      ],
+      "explanations": {
+        "a1": {
+          "much": "✅ Much is used with uncountable nouns in negations: don't use much cash. Example: *We don't use much cash*.",
+          "many": "❌ Many is used with countable nouns in plural, while \"cash\" is an uncountable noun.",
+          "a lot": "❌ A lot cannot stand between \"don't use\" and the noun; you can say \"don't use a lot of cash\"."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "**A lot of** + any noun in affirmative sentences.\n**Much** is rarely used in affirmative sentences."
+      ],
+      "explanations": {
+        "a1": {
+          "a lot of": "✅ A lot of is used in affirmative sentences with any nouns. Example: *There's a lot of pressure*.",
+          "much": "❌ Much is usually used in negations and questions, not in affirmative sentences.",
+          "many": "❌ Many is used with countable nouns in plural, while \"pressure\" is an uncountable noun."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "**A few** + countable noun in plural (a small number).\n**A little** + uncountable noun."
+      ],
+      "explanations": {
+        "a1": {
+          "a few": "✅ A few is used with countable nouns in the plural: a few months/days/years. Example: *They got married a few months after*.",
+          "much": "❌ Much is used with uncountable nouns, while \"months\" is a countable noun in the plural.",
+          "a little": "❌ A little is used with uncountable nouns (a little time, a little money)."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "**A little** — a small amount of uncountable noun.\n**A few** — a small amount of countable noun in the plural."
+      ],
+      "explanations": {
+        "a1": {
+          "a little": "✅ A little is used with uncountable nouns as a response: a little milk. Example: *\"Only a little.\"*",
+          "a few": "❌ A few is used with countable nouns in the plural, while \"milk\" is an uncountable noun.",
+          "much": "❌ Much is not used in short affirmative responses with \"only\"."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "**No** + noun = absence of something (affirmative verb form).\n**None** stands alone without a noun."
+      ],
+      "explanations": {
+        "a1": {
+          "no": "✅ No + noun means absence: no problems, no issues. Example: *There were no problems*.",
+          "any": "❌ Any is used with \"not\" in negations (There weren't any problems), not with the affirmative form \"were\".",
+          "none": "❌ None stands alone without a noun: \"There were none\" (not \"none problems\")."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "**Any** + noun in negations with \"not\" (don't want any).\n**No** requires an affirmative verb form (I want no gifts)."
+      ],
+      "explanations": {
+        "a1": {
+          "any": "✅ Any is used with \"not\" in negations: don't want any gifts. Example: *I don't want any gifts*.",
+          "none": "❌ None stands alone without a noun, cannot be used with \"don't want\".",
+          "no": "❌ No requires an affirmative form: \"I want no gifts\", not \"don't want no\"."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "**None** — a standalone response to \"How many...\" (none).\n**No** requires a noun after it."
+      ],
+      "explanations": {
+        "a1": {
+          "None": "✅ None — a standalone response meaning \"none\": How many gifts? None. Example: *\"None.\"*",
+          "Any": "❌ Any means \"any\" and does not answer the question about quantity in this context.",
+          "No": "❌ No requires a noun after it (No gifts), cannot stand alone."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "**A lot of** — best for affirmative sentences with any nouns.\n**Many** is also possible with countables, but a lot of is more natural."
+      ],
+      "explanations": {
+        "a1": {
+          "a lot of": "✅ A lot of is the most natural choice for affirmative sentences. Example: *I eat a lot of vegetables*.",
+          "much": "❌ Much is used with uncountable nouns, while \"vegetables\" is a countable noun in the plural.",
+          "many": "❌ Many is possible, but in affirmative sentences a lot of sounds more natural and is used more often."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "**A lot of** — for a large quantity in affirmative sentences.\nContext: \"really big collection\" indicates a large amount."
+      ],
+      "explanations": {
+        "a1": {
+          "a lot of": "✅ A lot of indicates a large quantity: He has a lot of paintings. Context confirms: \"big collection\". Example: *He has a lot of paintings*.",
+          "many": "❌ Many can be used, but in affirmative sentences a lot of — is more natural for a large quantity.",
+          "a few": "❌ A few means \"several, not much\", which contradicts the context of \"really big collection\"."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "**How much** + uncountable noun in questions.\nSalt — uncountable noun."
+      ],
+      "explanations": {
+        "a1": {
+          "How much": "✅ How much is used with uncountable nouns: How much salt/sugar/water. Example: *How much salt do you put?*",
+          "How many": "❌ How many is used with countable nouns in plural, while \"salt\" is an uncountable noun.",
+          "How little": "❌ How little is not a standard construction for questions about quantity."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "**A little** — a small amount of uncountable noun.\nMakeup — uncountable noun."
+      ],
+      "explanations": {
+        "a1": {
+          "a little": "✅ A little is used with uncountable nouns: a little makeup/water/time. Context: \"not much\". Example: *I use a little makeup*.",
+          "a few": "❌ A few is used with countable nouns in plural, while \"makeup\" is an uncountable noun.",
+          "much": "❌ Much is not used in affirmative sentences of this type; usually in negatives and questions."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "**A lot** at the end of the sentence without a noun.\nContext: \"every day\" indicates a large quantity."
+      ],
+      "explanations": {
+        "a1": {
+          "a lot": "✅ A lot stands at the end of the sentence without a noun: It rained a lot. Context: \"every day\". Example: *It rained a lot*.",
+          "much": "❌ Much is not used in affirmative sentences of this type without a noun.",
+          "a few": "❌ A few is used only with nouns (a few days), cannot stand alone after a verb."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "**Many** + countable noun in negatives.\nOpportunities — countable noun in plural."
+      ],
+      "explanations": {
+        "a1": {
+          "many": "✅ Many is used with countable nouns in negatives: didn't have many opportunities. Example: *They didn't have many opportunities*.",
+          "much": "❌ Much is used with uncountable nouns, while \"opportunities\" is a countable noun in plural.",
+          "a lot": "❌ A lot cannot stand between \"didn't have\" and the noun; possibly \"didn't have a lot of opportunities\"."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "**A few** — a small amount of countable noun in plural.\nQuestions — countable noun in plural."
+      ],
+      "explanations": {
+        "a1": {
+          "a few": "✅ A few is used with countable nouns in plural: a few questions. Context: \"only\". Example: *I have a few questions*.",
+          "a little": "❌ A little is used with uncountable nouns, while \"questions\" is a countable noun in plural.",
+          "many": "❌ Many does not combine with \"only\" in this context; \"only a few\" is the correct combination."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "**No** + noun = complete absence (affirmative verb form).\nContext: \"100% perfect\" confirms the absence of problems."
+      ],
+      "explanations": {
+        "a1": {
+          "no": "✅ No + noun means complete absence: We had no problems. Context: \"100% perfect\". Example: *We had no problems*.",
+          "none": "❌ None stands alone without a noun: \"We had none\" (not \"none problems\").",
+          "any": "❌ Any is used with \"not\": \"We didn't have any problems\", not with the affirmative form \"had\"."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "**Much** + uncountable noun in negatives.\nTime — uncountable noun."
+      ],
+      "explanations": {
+        "a1": {
+          "much": "✅ Much is used with uncountable nouns in negatives: haven't got much time. Example: *We haven't got much time*.",
+          "many": "❌ Many is used with countable nouns in plural, while \"time\" is an uncountable noun.",
+          "a lot of": "❌ A lot of is possible, but much is more natural in negatives with uncountable nouns."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "**Any** + noun in negatives with \"not\" (didn't see any).\nContext: \"completely empty\" confirms absence."
+      ],
+      "explanations": {
+        "a1": {
+          "any": "✅ Any is used with \"not\" in negatives: didn't see any people. Context: \"empty\". Example: *I didn't see any people*.",
+          "no": "❌ No requires the affirmative form of the verb: \"I saw no people\", not \"didn't see no\".",
+          "none": "❌ None stands alone without a noun, cannot be used with \"didn't see\"."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "**None** — a standalone answer to \"How many...\" (not one).\nContext confirms: \"I don't drink coffee\"."
+      ],
+      "explanations": {
+        "a1": {
+          "none": "✅ None — a standalone answer meaning \"not one\": How many cups? None. Context: \"I don't drink coffee\". Example: *\"None.\"*",
+          "no": "❌ No requires a noun after it (No cups), cannot stand alone as an answer.",
+          "any": "❌ Any is not an answer to a question about quantity; it is used in negatives with \"not\"."
+        }
+      }
+    }
+  ]
+}

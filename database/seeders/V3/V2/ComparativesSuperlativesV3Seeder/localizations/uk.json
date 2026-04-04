@@ -1,0 +1,372 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\\\Seeders\\\\V3\\\\Localizations\\\\Uk\\\\V2\\\\ComparativesSuperlativesV2LocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\V2\\ComparativesSuperlativesV3Seeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "uk",
+  "hint_provider": "chatgpt",
+  "questions": [
+    {
+      "id": 1,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Формула comparative: **adjective/adverb + -er/more + than** (hot → hotter than; dry → drier than).\nФормула рівності: **not (the) same + as** та **not as + adjective + as** для заперечення рівності.\nФормула суперлатива: **the + most/least + adjective** для найвищого або найнижчого ступеня якості."
+      ],
+      "explanations": {
+        "a1": {
+          "hotter": "Comparative утворюється за схемою base adjective + -er + than, тож hot → hotter + than.",
+          "hottest": "Superlative потребує формули the + adjective-est або the most + adjective, а не порівняння з than.",
+          "hoter": "При утворенні hotter подвоюємо кінцеву приголосну перед -er: hot → hotter."
+        },
+        "a2": {
+          "than": "Після comparative використовується сполучник than: comparative + than + об’єкт.",
+          "that": "Spолучник that не входить до формули comparative + than.",
+          "as": "As вживається у структурі as + adjective + as для рівних порівнянь, не після comparative."
+        },
+        "a3": {
+          "us": "Після than у порівняннях ставимо об’єктний відмінок (me/us/them).",
+          "our": "Присвійний займенник не відповідає формулі than + object pronoun.",
+          "we": "Subjektний займенник без допоміжного дієслова не підходить у схемі comparative + than + object."
+        },
+        "a4": {
+          "as": "Порівняння рівності оформлюють через структуру (not) the same as / as + adjective + as.",
+          "that": "Same + that не утворює стандартної конструкції подібності.",
+          "than": "Than входить у формулу comparative + than, а не the same as."
+        },
+        "a5": {
+          "least": "Суперлатив нижчого ступеня має структуру the + least + adjective.",
+          "more": "More створює comparative (more + adjective + than), що не передає найвищий/найнижчий ступінь.",
+          "less": "Less — звичайний comparative без the; для найнижчого ступеня потрібна формула the least + adjective."
+        },
+        "a6": {
+          "ever": "Колокація the + superlative + ever підкреслює найкращий/найгірший досвід у житті.",
+          "never": "Never змінює значення конструкції ever + present perfect, що описує досвід.",
+          "before": "Before без ever не дає формули суперлативного досвіду (the best ... ever)."
+        },
+        "a7": {
+          "nice as": "Структура not as + adjective + as використовує базову форму прикметника між двома as.",
+          "nicer as": "Comparative з as порушує формулу; після comparative стоїть than.",
+          "nicer than": "Формула not as ... as не потребує comparative, лише базову форму adjective.",
+          "as nice as": "Повна модель as + adjective + as показує рівність, коли обидва елементи as присутні."
+        },
+        "a8": {
+          "much more": "Посилений comparative: intensifier (much) + more + adjective.",
+          "lot more": "Поширена розмовна модель — a lot more + adjective; без артикля порушує формулу.",
+          "most": "Most + adjective формує суперлатив (the most ...), а не порівняння з than/as.",
+          "far more": "Інший підсилювач у схемі far + more + adjective."
+        },
+        "a9": {
+          "in": "Фраза one of the + superlative + plural noun + in the world використовує прийменник in.",
+          "of": "Прийменник of у цій позиції не входить до стандартної формули one of the most + noun + in the world.",
+          "from": "From позначає походження і не поєднується з суперлативною рамкою one of the most ... in the world."
+        },
+        "a10": {
+          "as much": "Структура кількості для незлічуваних: as much + uncountable noun + as.",
+          "as many": "Формула as many + countable noun + as застосовується лише до злічуваних іменників.",
+          "more": "Comparative кількості more + noun + than не відповідає моделі as much ... as."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Формула порівняння двох предметів: comparative (more + adjective) + than + об’єкт."
+      ],
+      "explanations": {
+        "a1": {
+          "more bitter than": "Мультискладові прикметники утворюють comparative за схемою more + adjective + than.",
+          "bitterest than": "Суперлатив adjective-est використовується з the та без than.",
+          "more bitter that": "Сполучник у формулі comparative — than, не that.",
+          "far more bitter than": "Підсилювач far може стояти перед more: far + more + adjective + than."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Правило: односкладові та деякі двоскладові прикметники → base adjective + -er + than."
+      ],
+      "explanations": {
+        "a1": {
+          "happier": "Слова на -y змінюють -y → -ier у порівняльній формі: happy → happier.",
+          "more happy": "Для коротких прикметників застосовується суфікс -er, а не конструкція more + adjective.",
+          "more happier": "Подвійний comparative (more + -er) суперечить формулі ступенювання.",
+          "far happier": "Підсилювач far додається перед готовим comparative: far + comparative + than."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Формула для прислівників на -ly: more/less + adverb + than для порівняння швидкості чи інтенсивності."
+      ],
+      "explanations": {
+        "a1": {
+          "more slowly": "Прислівники утворюють comparative через more + adverb: more slowly + than ...",
+          "slowlier": "Додавання -er до прислівників на -ly не відповідає правилу ступенювання.",
+          "most slowly": "Most + adverb формує суперлатив, а не порівняльну форму.",
+          "a bit more slowly": "Підсилювачі (a bit, slightly) можуть ставитися перед more + adverb."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Шаблон відсутності різниці: any/no + comparative + than, без конструкції as + comparative.\nРечення з двома правильними варіантами відображають однаковий зміст через різні підсилювачі (any/no)."
+      ],
+      "explanations": {
+        "a1": {
+          "Your car isn't any cheaper than ours.": "Модель any + comparative + than вказує, що різниці фактично немає.",
+          "Your car is no cheaper than ours.": "No + comparative + than означає рівність за ознакою (ціна однакова).",
+          "Your car isn't as cheaper as ours.": "As ... as потребує базової форми прикметника: as + adjective + as."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Структура поступової зміни: comparative and comparative (worse and worse) для позначення тренду."
+      ],
+      "explanations": {
+        "a1": {
+          "worse and worse": "Сталий зразок comparative and comparative підкреслює поступове погіршення.",
+          "more and more worse": "Комбінація more + worse порушує правило: irregular adjective bad → worse (без more).",
+          "every day badder": "Bad має неправильний comparative worse; форма badder не використовується.",
+          "steadily worse": "Інший спосіб передати тренд: steadily + comparative."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Заперечна конструкція not as ... as має те саме значення, що й порівняння з than у зворотному порядку."
+      ],
+      "explanations": {
+        "a1": {
+          "Tom is more intelligent than David.": "Пряма форма comparative: subject + verb + more + adjective + than + object.",
+          "David is more intelligent than Tom.": "Речення дзеркально змінює логіку порівняння й робить Давида розумнішим.",
+          "David isn't as intelligent as Tom.": "Not as + adjective + as передає, що суб’єкт має нижчий показник ознаки, ніж об’єкт."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Шаблон as + adjective/adverb + as для максимуму зусиль чи рівності."
+      ],
+      "explanations": {
+        "a1": {
+          "as fast as": "Стандартний шаблон as + adverb + as для максимальної швидкості.",
+          "as faster as": "Конструкція as ... as не містить comparative усередині; потрібна базова форма.",
+          "faster as": "Порушений порядок елементів: формула вимагає двох as по краях і базової форми між ними.",
+          "as quickly as": "Синонімічний варіант із quickly відповідає тій самій формулі as + adverb + as."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Після than можна ставити об’єктний займенник (me) або скорочене повторення дієслова (I do)."
+      ],
+      "explanations": {
+        "a1": {
+          "me": "У формулі comparative + than + object pronoun після than вживається об’єктний займенник.",
+          "I do": "Коротка відповідь після than може повторювати допоміжне дієслово: than I do.",
+          "I have": "Повтор дієслова have створює важку структуру й не вписується у звичний патерн than + auxiliary."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Ever + present perfect підкреслює досвід; superlative: the most + adjective."
+      ],
+      "explanations": {
+        "a1": {
+          "the most boring teacher I've ever met": "Суперлатив за формулою the + most + adjective з уточненням досвіду ever + present perfect.",
+          "the most boring teacher I've never met": "Never met суперечить додатку про зустріч: конструкція заперечує сам факт досвіду.",
+          "The boringest teacher I've never met": "Форма boringest стилістично маргінальна, а never met прибирає досвід.",
+          "the very boringest teacher": "Без уточнення досвіду (ever met) та зі спрощеним boringest вислів виглядає нефіксованим."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Фіксована колокація: the best/worst day **of** my life."
+      ],
+      "explanations": {
+        "a1": {
+          "of": "Колокація the + superlative + noun + of my life використовує прийменник of.",
+          "in": "In my life можливе, але у сталому виразі the best day of my life традиційно ставлять of.",
+          "than": "Сполучник than належить до формули comparative + than і не підходить після superlative.",
+          "during": "During my life не поєднується з одноразовою подією the best day."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Односкладові прикметники додають -er; порівняння з than."
+      ],
+      "explanations": {
+        "a1": {
+          "easier": "Прикметники на -y переходять у -ier у comparative: easy → easier + than ...",
+          "more easy": "Короткі прикметники користуються суфіксом -er замість конструкції more + adjective.",
+          "the easiest": "Формула the + adjective-est утворює суперлатив, а не порівняння двох предметів.",
+          "far easier": "Підсилювач far може стояти перед comparative: far + comparative + than."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Прислівники на -ly: comparative через more + adverb."
+      ],
+      "explanations": {
+        "a1": {
+          "more slowly": "Прислівники ступенюються моделлю more/less + adverb + than.",
+          "slower": "Slower — форма прикметника slow; для прислівника потрібно more slowly.",
+          "slowliest": "Суперлатив прислівника твориться як the most slowly, а не шляхом додавання -est.",
+          "a lot more slowly": "A lot / much можуть підсилювати comparative: a lot more slowly than ..."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Near → nearer/farther для звичайного порівняння відстані."
+      ],
+      "explanations": {
+        "a1": {
+          "nearer": "Односкладовий near утворює comparative за правилом adjective + -er + than: near → nearer.",
+          "more near": "Для коротких прикметників не застосовується more + adjective.",
+          "nearest": "The nearest — суперлатив для вибору з групи, не для порівняння двох будинків.",
+          "far nearer": "Far може підсилювати ступінь: far + comparative + than."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "У конструкції not as ... as використовується базова форма прикметника."
+      ],
+      "explanations": {
+        "a1": {
+          "difficult": "Шаблон not as + adjective + as використовує базову форму без суфіксів чи more/most.",
+          "more difficult": "Comparative + than не входить у конструкцію not as ... as.",
+          "most difficult": "Superlative (the most + adjective) не поєднується зі схемою not as ... as.",
+          "so difficult": "So + adjective зазвичай продовжується that + clause; у цій конструкції потрібен as ... as."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Superlative для відстані: the farthest/the furthest (у подорожах найчастіше farthest)."
+      ],
+      "explanations": {
+        "a1": {
+          "farthest": "Суперлатив від far: the + farthest/furthest + noun, особливо з ever + present perfect.",
+          "farther": "Farther — comparative форма (farther than ...), а не суперлатив.",
+          "more far": "Far має неправильні ступені (farther/farthest або further/furthest), не форму з more.",
+          "most far": "Стандартна модель суперлатива для far — farthest/furthest, а не most far."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Thin → thinner для звичайного порівняння; much + comparative для підсилення."
+      ],
+      "explanations": {
+        "a1": {
+          "thinner": "Thin → thinner утворюється через подвоєння n та суфікс -er у comparative.",
+          "more thin": "Короткі прикметники ступенюються суфіксом -er, а не конструкцією more + adjective.",
+          "thinnest": "The thinnest — суперлатив, що вживається для групи, а не для порівняння двох станів.",
+          "a lot thinner": "A lot слугує підсилювачем перед comparative: a lot + comparative + than."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Неправильне порівняння good → better → the best."
+      ],
+      "explanations": {
+        "a1": {
+          "better": "Неправильна пара ступенів: good → better → the best; comparative не утворюється через more.",
+          "more good": "Good не поєднується з more для ступенювання, використовують форму better.",
+          "gooder": "Для good не додається суфікс -er; існує лише irregular форма better.",
+          "much better": "Підсилювач much розташовується перед irregular comparative: much better than ..."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Суперлатив для busy: the busiest. Подвоюємо приголосну y → iest."
+      ],
+      "explanations": {
+        "a1": {
+          "busiest": "Busy → busiest: y → iest у суперлативі з артиклем the.",
+          "more busy": "More + adjective + than створює comparative, але наявність the сигналізує суперлатив.",
+          "busyest": "Орфографія суперлатива: y змінюється на i перед суфіксом -est → busiest.",
+          "most busy": "Форма most busy менш уживана; типова формула — the busiest."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Few → fewer (зі злічуваними іменниками), fewest — суперлатив."
+      ],
+      "explanations": {
+        "a1": {
+          "fewer": "Зі злічуваними іменниками використовується comparative fewer + plural noun.",
+          "less": "Less типово вживається з незлічуваними; для кількості людей коректніший fewer.",
+          "fewest": "The fewest — суперлативна форма, а в реченні потрібно comparative.",
+          "a lot fewer": "A lot працює як підсилювач у моделі a lot + comparative."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Суперлатив із the: the trickiest. Comparative: trickier."
+      ],
+      "explanations": {
+        "a1": {
+          "trickiest": "The + adjective-est формує суперлатив: the trickiest part.",
+          "more tricky": "More + adjective створює comparative, що не поєднується зі статтею the у цьому реченні.",
+          "trickier": "Comparative (adjective + -er) не використовується зі the для опису одного елемента з групи.",
+          "most tricky": "Most + adjective — альтернативний суперлатив, але стандартна форма для tricky — trickiest."
+        }
+      }
+    }
+  ]
+}

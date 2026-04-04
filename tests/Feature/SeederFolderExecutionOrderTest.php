@@ -128,6 +128,7 @@ class SeederFolderExecutionOrderTest extends TestCase
 
         $service = new class(
             app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),
@@ -172,6 +173,7 @@ class SeederFolderExecutionOrderTest extends TestCase
 
         $service = new class(
             app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),

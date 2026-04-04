@@ -12,6 +12,7 @@ use App\Support\Database\JsonTestDirectorySeeder;
 use App\Support\Database\JsonTestLocalizationManager;
 use App\Support\Database\JsonRuntimeSeeder;
 use App\Services\QuestionDeletionService;
+use App\Services\SeederPromptTheoryPageResolver;
 use App\Services\SeederTestTargetResolver;
 use Database\Seeders\V2\PassiveVoiceAllTensesV2Seeder;
 use Database\Seeders\V3\PassiveVoiceAllTensesV3Seeder;
@@ -529,6 +530,7 @@ class V3JsonTestSeederTest extends TestCase
                             'slug' => 'plural-nouns-s-es-ies',
                             'title' => 'Plural Nouns — Множина іменників: правила, винятки, приклади',
                             'category_slug_path' => 'imennyky-artykli-ta-kilkist',
+                            'page_seeder_class' => 'Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder',
                             'url' => 'https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies',
                         ],
                     ],
@@ -590,6 +592,10 @@ class V3JsonTestSeederTest extends TestCase
             data_get($savedTest->filters, 'prompt_generator.theory_page_id')
         );
         $this->assertSame(
+            'Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder',
+            data_get($savedTest->filters, 'prompt_generator.theory_page.page_seeder_class')
+        );
+        $this->assertSame(
             [
                 'Database\\Seeders\\V3\\IA\\ChatGptPro\\JsonSavedTestSampleSeeder',
             ],
@@ -622,7 +628,7 @@ class V3JsonTestSeederTest extends TestCase
                 'name' => 'JSON Saved Test String Prompt',
                 'filters' => [
                     'levels' => ['A1'],
-                    'prompt_generator' => 'source_type=theory_page; theory_page_id=712; theory_page_ids=[712]; theory_page.id=712; theory_page.slug=plural-nouns-s-es-ies; theory_page.title=Plural Nouns — Множина іменників: правила, винятки, приклади; theory_page.category_slug_path=imennyky-artykli-ta-kilkist; theory_page.url=https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies',
+                    'prompt_generator' => 'source_type=theory_page; theory_page_id=712; theory_page_ids=[712]; theory_page.id=712; theory_page.slug=plural-nouns-s-es-ies; theory_page.title=Plural Nouns — Множина іменників: правила, винятки, приклади; theory_page.category_slug_path=imennyky-artykli-ta-kilkist; theory_page.page_seeder_class=Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder; theory_page.url=https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies',
                 ],
             ],
             'questions' => [
@@ -659,12 +665,105 @@ class V3JsonTestSeederTest extends TestCase
             'plural-nouns-s-es-ies',
             data_get($savedTest->filters, 'prompt_generator.theory_page.slug')
         );
+        $this->assertSame(
+            'Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder',
+            data_get($savedTest->filters, 'prompt_generator.theory_page.page_seeder_class')
+        );
+    }
+
+    public function test_runtime_seeder_rejects_duplicate_saved_test_slug_for_different_uuid(): void
+    {
+        File::ensureDirectoryExists($this->tempDefinitionsDirectory);
+
+        $firstDefinitionPath = $this->tempDefinitionsDirectory . DIRECTORY_SEPARATOR . 'json_saved_test_slug_a.json';
+        $secondDefinitionPath = $this->tempDefinitionsDirectory . DIRECTORY_SEPARATOR . 'json_saved_test_slug_b.json';
+
+        $baseDefinition = [
+            'schema_version' => 1,
+            'defaults' => [
+                'default_locale' => 'uk',
+            ],
+            'category' => [
+                'name' => 'JSON Saved Test Category',
+            ],
+            'questions' => [
+                [
+                    'uuid' => 'json-shared-slug-question-1',
+                    'question' => 'Shared slug question {a1}.',
+                    'level' => 'A1',
+                    'markers' => [
+                        'a1' => [
+                            'answer' => 'works',
+                            'options' => ['works', 'fails'],
+                        ],
+                    ],
+                ],
+            ],
+        ];
+
+        File::put($firstDefinitionPath, json_encode(array_merge($baseDefinition, [
+            'seeder' => [
+                'class' => 'Database\\Seeders\\V3\\IA\\ChatGptPro\\JsonSavedTestSlugASeeder',
+                'uuid_namespace' => 'JsonSavedTestSlugASeeder',
+            ],
+            'saved_test' => [
+                'uuid' => 'json-shared-slug-a',
+                'slug' => 'json-shared-saved-test-slug',
+                'name' => 'JSON Shared Slug A',
+            ],
+            'questions' => [
+                [
+                    'uuid' => 'json-shared-slug-question-a',
+                    'question' => 'Shared slug question A {a1}.',
+                    'level' => 'A1',
+                    'markers' => [
+                        'a1' => [
+                            'answer' => 'works',
+                            'options' => ['works', 'fails'],
+                        ],
+                    ],
+                ],
+            ],
+        ]), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
+
+        File::put($secondDefinitionPath, json_encode(array_merge($baseDefinition, [
+            'seeder' => [
+                'class' => 'Database\\Seeders\\V3\\IA\\ChatGptPro\\JsonSavedTestSlugBSeeder',
+                'uuid_namespace' => 'JsonSavedTestSlugBSeeder',
+            ],
+            'saved_test' => [
+                'uuid' => 'json-shared-slug-b',
+                'slug' => 'json-shared-saved-test-slug',
+                'name' => 'JSON Shared Slug B',
+            ],
+            'questions' => [
+                [
+                    'uuid' => 'json-shared-slug-question-b',
+                    'question' => 'Shared slug question B {a1}.',
+                    'level' => 'A1',
+                    'markers' => [
+                        'a1' => [
+                            'answer' => 'works',
+                            'options' => ['works', 'fails'],
+                        ],
+                    ],
+                ],
+            ],
+        ]), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
+
+        (new JsonRuntimeSeeder($firstDefinitionPath))->seedFile();
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('each seeder must use a unique saved_test.slug');
+
+        (new JsonRuntimeSeeder($secondDefinitionPath))->seedFile();
     }
 
     public function test_seed_runs_supports_virtual_localization_seeders_for_preview_and_execution(): void
     {
         $controller = new class(
             app(QuestionDeletionService::class),
+            app(SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),

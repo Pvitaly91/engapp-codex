@@ -105,6 +105,7 @@ class SeedRunCategoryDeletionTest extends TestCase
 
         $service = new class(
             app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(\App\Services\SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),

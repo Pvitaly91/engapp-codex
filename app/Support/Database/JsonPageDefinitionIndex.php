@@ -4,6 +4,7 @@ namespace App\Support\Database;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use RuntimeException;
 
 class JsonPageDefinitionIndex
@@ -31,7 +32,25 @@ class JsonPageDefinitionIndex
             return null;
         }
 
-        return pathinfo($normalized, PATHINFO_FILENAME) ?: null;
+        $realPath = realpath($normalized);
+        $comparablePath = str_replace('\\', '/', $realPath !== false ? $realPath : $normalized);
+        $pageDirectory = realpath(database_path('seeders/Page_V3'));
+
+        if ($pageDirectory !== false) {
+            $normalizedPageDirectory = rtrim(str_replace('\\', '/', $pageDirectory), '/');
+
+            if ($comparablePath === $normalizedPageDirectory) {
+                return null;
+            }
+
+            if (Str::startsWith($comparablePath, $normalizedPageDirectory . '/')) {
+                $relativePath = Str::after($comparablePath, $normalizedPageDirectory . '/');
+
+                return preg_replace('/\.json$/i', '', $relativePath) ?: null;
+            }
+        }
+
+        return pathinfo($comparablePath, PATHINFO_FILENAME) ?: null;
     }
 
     public function resolveSeederClassName(array $definition, ?string $fallbackSeederClass = null): string

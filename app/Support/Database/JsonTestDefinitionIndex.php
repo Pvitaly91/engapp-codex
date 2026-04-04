@@ -34,7 +34,25 @@ class JsonTestDefinitionIndex
             return null;
         }
 
-        return pathinfo($normalized, PATHINFO_FILENAME) ?: null;
+        $realPath = realpath($normalized);
+        $comparablePath = str_replace('\\', '/', $realPath !== false ? $realPath : $normalized);
+        $v3Directory = realpath(database_path('seeders/V3'));
+
+        if ($v3Directory !== false) {
+            $normalizedV3Directory = rtrim(str_replace('\\', '/', $v3Directory), '/');
+
+            if ($comparablePath === $normalizedV3Directory) {
+                return null;
+            }
+
+            if (Str::startsWith($comparablePath, $normalizedV3Directory . '/')) {
+                $relativePath = Str::after($comparablePath, $normalizedV3Directory . '/');
+
+                return preg_replace('/\.json$/i', '', $relativePath) ?: null;
+            }
+        }
+
+        return pathinfo($comparablePath, PATHINFO_FILENAME) ?: null;
     }
 
     public function resolveSeederClassName(array $definition, ?string $fallbackSeederClass = null): string

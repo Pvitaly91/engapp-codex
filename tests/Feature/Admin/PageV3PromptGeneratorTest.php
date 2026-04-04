@@ -91,7 +91,7 @@ class PageV3PromptGeneratorTest extends TestCase
         $response->assertSee('Passive Voice');
         $response->assertSee('Database\\Seeders\\Page_V3\\PassiveVoice\\PassiveVoiceCategorySeeder');
         $response->assertSee('database/seeders/Page_V3/PassiveVoice/PassiveVoiceCausativeTheorySeeder.php');
-        $response->assertSee('database/seeders/Page_V3/definitions/passive_voice_causative_theory.json');
+        $response->assertSee('database/seeders/Page_V3/PassiveVoice/PassiveVoiceCausativeTheorySeeder/definition.json');
     }
 
     public function test_generates_split_mode_prompts_for_new_category_from_external_url_even_when_fetch_fails(): void
@@ -119,8 +119,8 @@ class PageV3PromptGeneratorTest extends TestCase
         $response->assertSee('Selected Prompt A mode: Mode A1 / repository-connected');
         $response->assertSee('This prompt assumes the repository is connected. Inspect the real Page_V3 files first and follow the live project contract.');
         $response->assertSee('Primary live repository references to inspect before generating JSON:');
-        $response->assertSee('database/seeders/Page_V3/definitions/types_of_questions_category.json');
-        $response->assertSee('database/seeders/Page_V3/definitions/alternative_questions_theory.json');
+        $response->assertSee('database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsCategorySeeder/definition.json');
+        $response->assertSee('database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsAlternativeQuestionsTheorySeeder/definition.json');
     }
 
     public function test_ai_category_mode_includes_current_category_catalog(): void

@@ -53,11 +53,16 @@ class PassiveVoiceSeederMergeTest extends TestCase
     public function test_page_v3_passive_voice_seeders_and_definitions_are_consolidated(): void
     {
         $legacyWrapperDirectory = database_path('seeders/Page_V3/PassiveVoiceV2');
-        $legacyDefinitionFiles = collect(File::files(database_path('seeders/Page_V3/definitions')))
-            ->filter(fn (SplFileInfo $file) => str_contains($file->getFilename(), 'passive_voice_v2_'));
-        $legacyLocalizationFiles = collect(['en', 'pl'])
-            ->flatMap(fn (string $locale) => File::files(database_path("seeders/Page_V3/localizations/{$locale}")))
-            ->filter(fn (SplFileInfo $file) => str_contains($file->getFilename(), 'passive_voice_v2_'));
+        $legacyDefinitionsDirectory = database_path('seeders/Page_V3/definitions');
+        $legacyLocalizationsDirectory = database_path('seeders/Page_V3/localizations');
+        $legacyDefinitionFiles = File::isDirectory($legacyDefinitionsDirectory)
+            ? collect(File::files($legacyDefinitionsDirectory))
+                ->filter(fn (SplFileInfo $file) => str_contains($file->getFilename(), 'passive_voice_v2_'))
+            : collect();
+        $legacyLocalizationFiles = File::isDirectory($legacyLocalizationsDirectory)
+            ? collect(File::allFiles($legacyLocalizationsDirectory))
+                ->filter(fn (SplFileInfo $file) => str_contains($file->getFilename(), 'passive_voice_v2_'))
+            : collect();
 
         $legacyWrappers = File::isDirectory($legacyWrapperDirectory)
             ? collect(File::allFiles($legacyWrapperDirectory))
@@ -72,7 +77,7 @@ class PassiveVoiceSeederMergeTest extends TestCase
             database_path('seeders/Page_V3/PassiveVoice/SpecialCases/PassiveVoiceByPhraseTheorySeeder.php')
         );
         $this->assertFileExists(
-            database_path('seeders/Page_V3/definitions/passive_voice_by_phrase_theory.json')
+            database_path('seeders/Page_V3/PassiveVoice/SpecialCases/PassiveVoiceByPhraseTheorySeeder/definition.json')
         );
     }
 

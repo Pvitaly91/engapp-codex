@@ -1,0 +1,449 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\\\Seeders\\\\V3\\\\Localizations\\\\Uk\\\\V2\\\\IndefinitePronounsPracticeV2LocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\V2\\IndefinitePronounsPracticeV3Seeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "uk",
+  "hint_provider": "chatgpt",
+  "questions": [
+    {
+      "id": 1,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Заперечення *can't find* вимагає any-слова: шукаємо **anywhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "somewhere": "❌ *Somewhere* доречне у ствердженнях або запрошеннях, а не після заперечення.",
+          "anywhere": "✅ **Anywhere** використовуємо після *can't* і *don't* для позначення «деінде/ніде».",
+          "nowhere": "❌ *Nowhere* уже несе заперечення і разом з *can't* створює подвійну негативну конструкцію."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Після \"didn't\" обираємо any-слово для заперечення."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "❌ *Something* звучить як ствердження, а не як заперечення.",
+          "anything": "✅ **Anything** логічно завершує речення після \"didn't\".",
+          "nothing": "❌ *Nothing* зробило б конструкцію подвійнозаперечною."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Фраза «all our friends and family» підказує тотальність → **Everybody**."
+      ],
+      "explanations": {
+        "a1": {
+          "Everybody": "✅ **Everybody** означає всіх без винятку, що й описано в реченні.",
+          "Anybody": "❌ *Anybody* частіше вживається у питаннях/запереченнях і не підкреслює «всі».",
+          "Nobody": "❌ *Nobody* суперечить твердженню, що вечірка була заповнена людьми."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Загальне питання (Did you...?) потребує any-слова → **anybody**.\nВідповідь описує повну відсутність цікавих людей → **nobody**."
+      ],
+      "explanations": {
+        "a1": {
+          "somebody": "❌ Це б означало, що хтось цікавий був, але фраза каже протилежне.",
+          "anybody": "❌ *Anybody* звучить невизначено й не передає «жодного».",
+          "nobody": "✅ **Nobody** підкреслює відсутність цікавих людей."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Подія точно сталася, але особа невідома → використовуємо some-слово."
+      ],
+      "explanations": {
+        "a1": {
+          "Somebody": "✅ **Somebody** підходить для ствердження про невідомого злочинця.",
+          "Anybody": "❌ *Anybody* частіше стоїть у питаннях або запереченнях.",
+          "Nobody": "❌ *Nobody* суперечить факту пограбування."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Це ствердження з припущенням → потрібне **somewhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "somewhere": "✅ **Somewhere** вживаємо, коли впевнені, що місце існує, але не знаємо яке.",
+          "anywhere": "❌ *Anywhere* використовують у запереченнях або для «будь-де».",
+          "nowhere": "❌ *Nowhere* означає, що ніхто не ховається, що суперечить припущенню поліції."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Так/ні питання про досвід → ставимо **anything**.\nВін голодний, тож нічого не їв → **nothing**."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "❌ *Something* підходить для пропозицій, а не для нейтрального питання.",
+          "anything": "✅ **Anything** – стандарт для загальних питань.",
+          "nothing": "❌ *Nothing* не вживається у питальній частині."
+        },
+        "a2": {
+          "something": "❌ Якщо б він щось їв, то не був би «дуже голодний».",
+          "anything": "❌ *Anything* означає «що-небудь», а потрібно підкреслити відсутність їжі.",
+          "nothing": "✅ **Nothing** показує, що їжі не було зовсім."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Коли немає жодного місця, кажемо **nowhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "somewhere": "❌ *Somewhere* означає, що місце є, але невідоме.",
+          "anywhere": "❌ *Anywhere* означає «де завгодно», але герою нема куди йти.",
+          "nowhere": "✅ **Nowhere** чітко передає повну відсутність місця."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Є підозра на подію → уживаємо **something**.\nОфіцери скрізь навколо → потрібне **everywhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "✅ **Something** позначає невідому, але реальну подію.",
+          "anything": "❌ *Anything* вказує на байдужість до вибору, а не на підозру.",
+          "nothing": "❌ *Nothing* суперечить тому, що відбувається."
+        },
+        "a2": {
+          "everywhere": "✅ **Everywhere** показує, що поліція всюди.",
+          "anywhere": "❌ *Anywhere* звучить як «де-небудь», без наголосу на масштаб.",
+          "nowhere": "❌ *Nowhere* означало б, що поліції немає, а це неправда."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Перелік «вулиці, будинки, машини…» = всі речі → **Everything**."
+      ],
+      "explanations": {
+        "a1": {
+          "Something": "❌ *Something* означає лише одну річ, а не весь список.",
+          "Everything": "✅ **Everything** охоплює всі названі предмети.",
+          "Anything": "❌ *Anything* означає «будь-що», але не «все підряд»."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Факт використання був → потрібне позитивне some-слово."
+      ],
+      "explanations": {
+        "a1": {
+          "Somebody": "✅ **Somebody** передає невідомого, але реального користувача.",
+          "Nobody": "❌ *Nobody* заперечує факт.",
+          "Anybody": "❌ *Anybody* доречне у питаннях/запереченнях."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Після \"couldn't\" ставимо **anything**."
+      ],
+      "explanations": {
+        "a1": {
+          "anything": "✅ **Anything** відповідає заперечному дієслову.",
+          "something": "❌ *Something* звучить як твердження.",
+          "nothing": "❌ *Nothing* створило б подвійну негативну форму."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Нейтральне питання вимагає **anybody**."
+      ],
+      "explanations": {
+        "a1": {
+          "somebody": "❌ *Somebody* звучить як очікування позитивної відповіді.",
+          "anybody": "✅ **Anybody** підходить для загального питання.",
+          "nobody": "❌ *Nobody* є запереченням і не ставиться у питальній формі."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Після \"don't have\" ставимо any-слово."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "❌ *Something* суперечить запереченню.",
+          "anything": "✅ **Anything** логічно завершує заперечну фразу.",
+          "nothing": "❌ *Nothing* створило б подвійну негативну конструкцію."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Коли житла немає зовсім, обираємо **nowhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "somewhere": "❌ *Somewhere* означало б наявність місця.",
+          "anywhere": "❌ *Anywhere* = «будь-де», а не «ніде».",
+          "nowhere": "✅ **Nowhere** підкреслює повну відсутність житла."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Після заперечення \"doesn't have\" використовуємо **anybody**."
+      ],
+      "explanations": {
+        "a1": {
+          "somebody": "❌ *Somebody* означає, що хтось є, що суперечить запереченню.",
+          "anybody": "✅ **Anybody** правильно поєднується з \"doesn't have\" для вираження самотності.",
+          "nobody": "❌ *Nobody* створює подвійне заперечення з \"doesn't have\"."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "У ввічливих пропозиціях Would you like…? вживаємо **something**."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "✅ **Something** звучить тепло в пропозиції.",
+          "anything": "❌ *Anything* робить пропозицію занадто байдужою.",
+          "nothing": "❌ *Nothing* заперечує пропозицію."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Загальне питання → **anyone**."
+      ],
+      "explanations": {
+        "a1": {
+          "someone": "❌ *Someone* звучить як відповідь, а не запитання.",
+          "anyone": "✅ **Anyone** стандарт для нейтральних питань.",
+          "no one": "❌ *No one* суперечить позитивній відповіді."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Фраза \"Now we all know\" означає, що вона розповіла всім → **everyone**."
+      ],
+      "explanations": {
+        "a1": {
+          "anyone": "❌ *Anyone* звучить невизначено, а контекст говорить про «всіх».",
+          "no one": "❌ *No one* суперечить твердженню \"Now we all know\".",
+          "everyone": "✅ **Everyone** логічно пояснює, чому всі тепер знають."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Форма \"There is ...\" + негативний зміст → **nothing**."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "❌ *Something* суперечить ідеї «йду спати».",
+          "anything": "❌ *Anything* не дає відчуття повної відсутності інтересу.",
+          "nothing": "✅ **Nothing** означає, що на ТВ немає цікавого."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Заперечення *can't find* → **anywhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "anywhere": "✅ **Anywhere** поєднується з *can't* і показує відсутність результату.",
+          "nowhere": "❌ *Nowhere* уже містить заперечення, що звучало б дивно.",
+          "somewhere": "❌ *Somewhere* означає, що знайшли місце."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Телефонний дзвінок був → використовуємо **Someone**."
+      ],
+      "explanations": {
+        "a1": {
+          "Someone": "✅ **Someone** передає, що дзвонив невідомий.",
+          "Anybody": "❌ *Anybody* використовується у питаннях/запереченнях.",
+          "No one": "❌ *No one* суперечить факту дзвінка."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Після \"didn't\" ставимо **anywhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "anywhere": "✅ **Anywhere** – найприродніший вибір у запереченні.",
+          "somewhere": "❌ *Somewhere* означало б, що він кудись ходив.",
+          "nowhere": "❌ *Nowhere* повторює заперечення і звучить важкувато."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Заперечення *don't know* + загальне посилання → **anyone**."
+      ],
+      "explanations": {
+        "a1": {
+          "anyone": "✅ **Anyone** показує, що не вистачає знайомств із рештою людей.",
+          "someone": "❌ *Someone* означало б, що невідома лише одна людина.",
+          "everyone": "❌ *Everyone* говорить про всіх, а тут потрібна група «ще незнайомих»."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Після \"don't know\" – **anything**."
+      ],
+      "explanations": {
+        "a1": {
+          "anything": "✅ **Anything** підтримує заперечення.",
+          "something": "❌ *Something* означало б, що знання є.",
+          "nothing": "❌ *Nothing* зробило б речення подвійно негативним."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Є очевидна проблема, хоч і невідома → **Something**."
+      ],
+      "explanations": {
+        "a1": {
+          "Something": "✅ **Something** вказує на конкретну, хоч і не названу проблему.",
+          "Anything": "❌ *Anything* звучить як байдужість, а не як факт.",
+          "Nothing": "❌ *Nothing* суперечить дивній поведінці."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Я був сам → **Nobody**."
+      ],
+      "explanations": {
+        "a1": {
+          "Nobody": "✅ **Nobody** означає повну відсутність людей.",
+          "Anybody": "❌ *Anybody* не дає чіткого відчуття, що нікого не було.",
+          "Everyone": "❌ *Everyone* суперечить твердженню."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Заперечення *can't find* → **anywhere**."
+      ],
+      "explanations": {
+        "a1": {
+          "anywhere": "✅ **Anywhere** природно звучить у запереченні.",
+          "nowhere": "❌ *Nowhere* дублює заперечення.",
+          "everywhere": "❌ *Everywhere* означає «усюди», але краще використовувати його, коли щось знаходиш."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Поразка = нуль причин для свята → **nothing**."
+      ],
+      "explanations": {
+        "a1": {
+          "nothing": "✅ **Nothing** підкреслює відсутність приводу.",
+          "anything": "❌ *Anything* звучало б як можливість святкувати.",
+          "everything": "❌ *Everything* означає протилежне змісту."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Поліція думала, що хтось ховається → потрібне **someone**.\nПісля заперечення \"did not find\" використовуємо **anyone**."
+      ],
+      "explanations": {
+        "a1": {
+          "anyone": "❌ *Anyone* частіше для питань, а тут ствердження про підозру.",
+          "someone": "✅ **Someone** підходить для ствердження, що поліція думала про конкретну людину.",
+          "no one": "❌ *No one* суперечить припущенню поліції."
+        },
+        "a2": {
+          "anyone": "✅ **Anyone** правильно використовується після заперечення \"did not find\".",
+          "someone": "❌ *Someone* означало б, що когось знайшли.",
+          "no one": "❌ *No one* створює подвійне заперечення з \"did not find\"."
+        }
+      }
+    }
+  ]
+}

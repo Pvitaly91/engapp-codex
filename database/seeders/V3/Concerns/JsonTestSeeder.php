@@ -302,8 +302,31 @@ abstract class JsonTestSeeder extends QuestionSeeder
     {
         $savedTest = SavedGrammarTest::query()
             ->where('uuid', $payload['uuid'])
-            ->orWhere('slug', $payload['slug'])
             ->first();
+
+        $slugOwner = SavedGrammarTest::query()
+            ->where('slug', $payload['slug'])
+            ->first();
+
+        if ($savedTest) {
+            if ($slugOwner && (int) $slugOwner->getKey() !== (int) $savedTest->getKey()) {
+                throw new RuntimeException(sprintf(
+                    'saved_test.slug [%s] is already used by uuid [%s]; each seeder must use a unique saved_test.slug.',
+                    $payload['slug'],
+                    (string) ($slugOwner->uuid ?? '')
+                ));
+            }
+        } elseif ($slugOwner) {
+            if ((string) ($slugOwner->uuid ?? '') !== (string) $payload['uuid']) {
+                throw new RuntimeException(sprintf(
+                    'saved_test.slug [%s] is already used by uuid [%s]; each seeder must use a unique saved_test.slug.',
+                    $payload['slug'],
+                    (string) ($slugOwner->uuid ?? '')
+                ));
+            }
+
+            $savedTest = $slugOwner;
+        }
 
         if (! $savedTest) {
             $savedTest = new SavedGrammarTest;

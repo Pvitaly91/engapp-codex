@@ -18,6 +18,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
     {
         $controller = new class(
             app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),
@@ -63,6 +64,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
     {
         $service = new class(
             app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),
@@ -103,6 +105,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
     {
         $controller = new class(
             app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),
@@ -161,6 +164,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
     {
         $service = new class(
             app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),
@@ -217,6 +221,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
     {
         $controller = new class(
             app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),
@@ -280,6 +285,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
     {
         $service = new class(
             app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),
@@ -343,6 +349,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
     {
         $service = new class(
             app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),
@@ -400,6 +407,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
     {
         $service = new class(
             app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
             app(JsonTestLocalizationManager::class),
             app(JsonPageLocalizationManager::class),

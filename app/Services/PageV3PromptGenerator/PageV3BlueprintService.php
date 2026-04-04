@@ -18,6 +18,8 @@ class PageV3BlueprintService
 
         if ($categoryMode === 'ai_select') {
             $pageClassName = $topicStem . 'TheorySeeder';
+            $categorySeederPath = 'database/seeders/Page_V3/<resolved-category-path>/<ResolvedCategory>CategorySeeder.php';
+            $pageSeederPath = 'database/seeders/Page_V3/<resolved-category-path>/' . $pageClassName . '.php';
 
             return [
                 'category_mode' => $categoryMode,
@@ -26,16 +28,20 @@ class PageV3BlueprintService
                 'category_slug' => '<resolved-category-slug>',
                 'category_namespace' => '<resolved-category-namespace>',
                 'category_class_name' => '<ResolvedCategory>CategorySeeder',
-                'category_seeder_relative_path' => 'database/seeders/Page_V3/<resolved-category-path>/<ResolvedCategory>CategorySeeder.php',
-                'category_definition_relative_path' => 'database/seeders/Page_V3/definitions/<resolved_category>_category.json',
-                'category_localization_en_relative_path' => 'database/seeders/Page_V3/localizations/en/<resolved_category>_category.json',
-                'category_localization_pl_relative_path' => 'database/seeders/Page_V3/localizations/pl/<resolved_category>_category.json',
+                'category_seeder_relative_path' => $categorySeederPath,
+                'category_package_relative_path' => 'database/seeders/Page_V3/<resolved-category-path>/<ResolvedCategory>CategorySeeder',
+                'category_real_seeder_relative_path' => 'database/seeders/Page_V3/<resolved-category-path>/<ResolvedCategory>CategorySeeder/<ResolvedCategory>CategorySeeder.php',
+                'category_definition_relative_path' => 'database/seeders/Page_V3/<resolved-category-path>/<ResolvedCategory>CategorySeeder/definition.json',
+                'category_localization_en_relative_path' => 'database/seeders/Page_V3/<resolved-category-path>/<ResolvedCategory>CategorySeeder/localizations/en.json',
+                'category_localization_pl_relative_path' => 'database/seeders/Page_V3/<resolved-category-path>/<ResolvedCategory>CategorySeeder/localizations/pl.json',
                 'page_class_name' => $pageClassName,
                 'page_fully_qualified_class_name' => 'Database\\Seeders\\Page_V3\\<resolved-category-namespace>\\' . $pageClassName,
-                'page_seeder_relative_path' => 'database/seeders/Page_V3/<resolved-category-path>/' . $pageClassName . '.php',
-                'page_definition_relative_path' => 'database/seeders/Page_V3/definitions/' . $topicSlug . '_theory.json',
-                'page_localization_en_relative_path' => 'database/seeders/Page_V3/localizations/en/' . $topicSlug . '_theory.json',
-                'page_localization_pl_relative_path' => 'database/seeders/Page_V3/localizations/pl/' . $topicSlug . '_theory.json',
+                'page_seeder_relative_path' => $pageSeederPath,
+                'page_package_relative_path' => 'database/seeders/Page_V3/<resolved-category-path>/' . $pageClassName,
+                'page_real_seeder_relative_path' => 'database/seeders/Page_V3/<resolved-category-path>/' . $pageClassName . '/' . $pageClassName . '.php',
+                'page_definition_relative_path' => 'database/seeders/Page_V3/<resolved-category-path>/' . $pageClassName . '/definition.json',
+                'page_localization_en_relative_path' => 'database/seeders/Page_V3/<resolved-category-path>/' . $pageClassName . '/localizations/en.json',
+                'page_localization_pl_relative_path' => 'database/seeders/Page_V3/<resolved-category-path>/' . $pageClassName . '/localizations/pl.json',
             ];
         }
 
@@ -59,6 +65,9 @@ class PageV3BlueprintService
         $categorySeederPath = $existingSeederPath !== ''
             ? $existingSeederPath
             : 'database/seeders/Page_V3/' . $namespacePath . '/' . $categoryClassName . '.php';
+        $categoryPackagePath = 'database/seeders/Page_V3/' . $namespacePath . '/' . $categoryClassName;
+        $pageSeederPath = 'database/seeders/Page_V3/' . $namespacePath . '/' . $pageClassName . '.php';
+        $pagePackagePath = 'database/seeders/Page_V3/' . $namespacePath . '/' . $pageClassName;
 
         return [
             'category_mode' => $categoryMode,
@@ -68,15 +77,19 @@ class PageV3BlueprintService
             'category_namespace' => $resolvedCategoryNamespace,
             'category_class_name' => $categoryClassName,
             'category_seeder_relative_path' => $categorySeederPath,
-            'category_definition_relative_path' => 'database/seeders/Page_V3/definitions/' . $resolvedCategorySlug . '_category.json',
-            'category_localization_en_relative_path' => 'database/seeders/Page_V3/localizations/en/' . $resolvedCategorySlug . '_category.json',
-            'category_localization_pl_relative_path' => 'database/seeders/Page_V3/localizations/pl/' . $resolvedCategorySlug . '_category.json',
+            'category_package_relative_path' => $categoryPackagePath,
+            'category_real_seeder_relative_path' => $categoryPackagePath . '/' . $categoryClassName . '.php',
+            'category_definition_relative_path' => $categoryPackagePath . '/definition.json',
+            'category_localization_en_relative_path' => $categoryPackagePath . '/localizations/en.json',
+            'category_localization_pl_relative_path' => $categoryPackagePath . '/localizations/pl.json',
             'page_class_name' => $pageClassName,
             'page_fully_qualified_class_name' => 'Database\\Seeders\\Page_V3\\' . $resolvedCategoryNamespace . '\\' . $pageClassName,
-            'page_seeder_relative_path' => 'database/seeders/Page_V3/' . $namespacePath . '/' . $pageClassName . '.php',
-            'page_definition_relative_path' => 'database/seeders/Page_V3/definitions/' . $topicSlug . '_theory.json',
-            'page_localization_en_relative_path' => 'database/seeders/Page_V3/localizations/en/' . $topicSlug . '_theory.json',
-            'page_localization_pl_relative_path' => 'database/seeders/Page_V3/localizations/pl/' . $topicSlug . '_theory.json',
+            'page_seeder_relative_path' => $pageSeederPath,
+            'page_package_relative_path' => $pagePackagePath,
+            'page_real_seeder_relative_path' => $pagePackagePath . '/' . $pageClassName . '.php',
+            'page_definition_relative_path' => $pagePackagePath . '/definition.json',
+            'page_localization_en_relative_path' => $pagePackagePath . '/localizations/en.json',
+            'page_localization_pl_relative_path' => $pagePackagePath . '/localizations/pl.json',
         ];
     }
 
@@ -130,6 +143,11 @@ class PageV3BlueprintService
 
             if ($categorySeederPath !== '' && File::exists(base_path($categorySeederPath))) {
                 $files->push($categorySeederPath);
+                $realSeederPath = $this->realSeederRelativePathFromSeeder($categorySeederPath);
+
+                if ($realSeederPath !== null) {
+                    $files->push($realSeederPath);
+                }
 
                 foreach ($this->siblingSeederFiles($categorySeederPath) as $relativePath) {
                     $files->push($relativePath);
@@ -139,8 +157,10 @@ class PageV3BlueprintService
 
                 if ($definitionPath) {
                     $files->push($definitionPath);
-                    $files->push('database/seeders/Page_V3/localizations/en/' . pathinfo($definitionPath, PATHINFO_BASENAME));
-                    $files->push('database/seeders/Page_V3/localizations/pl/' . pathinfo($definitionPath, PATHINFO_BASENAME));
+
+                    foreach ($this->localizationRelativePathsFromSeeder($categorySeederPath) as $localizationPath) {
+                        $files->push($localizationPath);
+                    }
                 }
             }
         }
@@ -185,6 +205,16 @@ class PageV3BlueprintService
 
     protected function definitionRelativePathFromSeeder(string $seederRelativePath): ?string
     {
+        $packageDirectory = $this->packageDirectoryRelativePathFromSeeder($seederRelativePath);
+
+        if ($packageDirectory !== null) {
+            $definitionPath = $packageDirectory . '/definition.json';
+
+            if (File::exists(base_path($definitionPath))) {
+                return $definitionPath;
+            }
+        }
+
         $absolutePath = base_path($seederRelativePath);
 
         if (! File::exists($absolutePath)) {
@@ -204,6 +234,52 @@ class PageV3BlueprintService
             : null;
     }
 
+    protected function realSeederRelativePathFromSeeder(string $seederRelativePath): ?string
+    {
+        $packageDirectory = $this->packageDirectoryRelativePathFromSeeder($seederRelativePath);
+
+        if ($packageDirectory === null) {
+            return null;
+        }
+
+        $className = pathinfo($seederRelativePath, PATHINFO_FILENAME);
+        $realSeederPath = $packageDirectory . '/' . $className . '.php';
+
+        return File::exists(base_path($realSeederPath)) ? $realSeederPath : null;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    protected function localizationRelativePathsFromSeeder(string $seederRelativePath): array
+    {
+        $packageDirectory = $this->packageDirectoryRelativePathFromSeeder($seederRelativePath);
+
+        if ($packageDirectory === null) {
+            return [];
+        }
+
+        return collect(['en', 'pl'])
+            ->map(fn (string $locale) => $packageDirectory . '/localizations/' . $locale . '.json')
+            ->filter(fn (string $path) => File::exists(base_path($path)))
+            ->values()
+            ->all();
+    }
+
+    protected function packageDirectoryRelativePathFromSeeder(string $seederRelativePath): ?string
+    {
+        $className = pathinfo($seederRelativePath, PATHINFO_FILENAME);
+        $directory = trim(str_replace('\\', '/', dirname($seederRelativePath)), '/');
+
+        if ($directory === '' || $className === '') {
+            return null;
+        }
+
+        $packageDirectory = $directory . '/' . $className;
+
+        return File::isDirectory(base_path($packageDirectory)) ? $packageDirectory : null;
+    }
+
     /**
      * @return array<int, string>
      */
@@ -211,13 +287,15 @@ class PageV3BlueprintService
     {
         return [
             'database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsCategorySeeder.php',
+            'database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsCategorySeeder/TypesOfQuestionsCategorySeeder.php',
+            'database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsCategorySeeder/definition.json',
+            'database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsCategorySeeder/localizations/en.json',
+            'database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsCategorySeeder/localizations/pl.json',
             'database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsAlternativeQuestionsTheorySeeder.php',
-            'database/seeders/Page_V3/definitions/types_of_questions_category.json',
-            'database/seeders/Page_V3/definitions/types_of_questions_alternative_questions_theory.json',
-            'database/seeders/Page_V3/localizations/en/types_of_questions_category.json',
-            'database/seeders/Page_V3/localizations/en/types_of_questions_alternative_questions_theory.json',
-            'database/seeders/Page_V3/localizations/pl/types_of_questions_category.json',
-            'database/seeders/Page_V3/localizations/pl/types_of_questions_alternative_questions_theory.json',
+            'database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsAlternativeQuestionsTheorySeeder/TypesOfQuestionsAlternativeQuestionsTheorySeeder.php',
+            'database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsAlternativeQuestionsTheorySeeder/definition.json',
+            'database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsAlternativeQuestionsTheorySeeder/localizations/en.json',
+            'database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsAlternativeQuestionsTheorySeeder/localizations/pl.json',
         ];
     }
 

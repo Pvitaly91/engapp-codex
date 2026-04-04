@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\\\Seeders\\\\V3\\\\Localizations\\\\Uk\\\\V2\\\\BasicWordOrderPracticeV2LocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\V2\\BasicWordOrderPracticeV3Seeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "uk",
+  "hint_provider": "chatgpt",
+  "questions": [
+    {
+      "id": 1,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Спочатку називаємо додаток, потім прислівник міри (наприклад, very much)."
+      ],
+      "explanations": {
+        "a1": {
+          "very much the food": "❌ Прислівник міри не ставимо перед основним додатком у такому реченні.",
+          "the food very much": "✅ Прямий додаток іде перед прислівником міри, тому порядок природний."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Місце після дієслова, потім обставина часу/способу (напр., very late)."
+      ],
+      "explanations": {
+        "a1": {
+          "home very late": "✅ Спочатку місце (home), а вже потім обставина часу/способу.",
+          "very late home": "❌ Обставина very late перед місцем звучить неприродно."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Прямий додаток (що?) перед прислівником способу (how?)."
+      ],
+      "explanations": {
+        "a1": {
+          "very well English": "❌ Прислівник способу не ставимо перед об’єктом у такій конструкції.",
+          "English very well": "✅ Об’єкт (English) стоїть перед прислівником способу, що відповідає звичному порядку."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Спочатку додаток, потім обставина місця."
+      ],
+      "explanations": {
+        "a1": {
+          "in the corner that box": "❌ Обставина місця не має випереджати прямий додаток у цьому реченні.",
+          "that box in the corner": "✅ Предмет називаємо першим, а уточнення місця додаємо після нього."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Обставина місця зазвичай перед тривалістю часу."
+      ],
+      "explanations": {
+        "a1": {
+          "for a week in hospital": "❌ Тривалість часу ставити перед місцем звучить неприродно.",
+          "in hospital for a week": "✅ Спершу вказуємо місце, а потім тривалість перебування."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Додаток (що?) перед прислівником міри a lot."
+      ],
+      "explanations": {
+        "a1": {
+          "this music a lot": "✅ Об’єкт ставиться перед коротким прислівником міри.",
+          "a lot this music": "❌ Переміщення a lot уперед порушує стандартний порядок."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Спершу конкретніше місце, потім ширший контекст часу/події."
+      ],
+      "explanations": {
+        "a1": {
+          "at a friend's house after a party": "✅ Конкретне місце перед обставиною часу/події звучить природно.",
+          "after a party at a friend's house": "❌ Починати з after a party зміщує логіку опису місця."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Додаток перед прислівником способу."
+      ],
+      "explanations": {
+        "a1": {
+          "their victims very slowly": "✅ Об’єкт ставиться перед описом способу дії.",
+          "very slowly their victims": "❌ Переміщення very slowly уперед порушує типовий порядок."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Спочатку хто/що бачили, потім де."
+      ],
+      "explanations": {
+        "a1": {
+          "Hellen at the library": "✅ Спершу називаємо особу, а місце додаємо після.",
+          "at the library Hellen": "❌ Починати з місця у такому простому реченні неприродно."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Додаток перед прислівником швидкості/способу."
+      ],
+      "explanations": {
+        "a1": {
+          "very quickly the exam": "❌ Прислівник не ставимо перед прямим додатком у цій конструкції.",
+          "the exam very quickly": "✅ Об’єкт іде першим, а опис швидкості додається опісля."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок: об’єкт → місце → частота/час."
+      ],
+      "explanations": {
+        "a1": {
+          "my dog in the park every day": "✅ Прямий додаток, потім місце, далі частота — природний порядок.",
+          "my dog every day in the park": "❌ Частота перед місцем робить речення менш природним.",
+          "every day my dog in the park": "❌ Починати з частоти й одразу ставити об’єкт порушує типовий порядок."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Спочатку об’єкт, далі напрямок/місце, потім час."
+      ],
+      "explanations": {
+        "a1": {
+          "her son to the doctor this morning": "✅ Дитина як об’єкт, місце призначення потім, час наприкінці.",
+          "to the doctor her son this morning": "❌ Речення починається з обставини напрямку, що робить порядок неоковирним.",
+          "this morning her son to the doctor": "❌ Час перед об’єктом і місцем порушує стандартний порядок."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Об’єкт → місце призначення → час."
+      ],
+      "explanations": {
+        "a1": {
+          "home me after the concert": "❌ Починати з місця, а потім ставити об’єкт у такому реченні незвично.",
+          "me after the concert home": "❌ Час між об’єктом і місцем ламає природний порядок.",
+          "me home after the concert": "✅ Об’єкт спершу, потім куди, і лише потім час."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Звичний прислівник частоти ставимо перед основним дієсловом."
+      ],
+      "explanations": {
+        "a1": {
+          "always finish school at 3.30 pm": "✅ Прислівник частоти стоїть перед дієсловом, час наприкінці.",
+          "finish always school at 3.30 pm": "❌ Розривати дієслово й об’єкт прислівником частоти небажано.",
+          "finish school at 3.30 pm always": "❌ Частоту наприкінці такого речення вживають рідко."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Після дієслова like одразу йде об’єкт, посилювач наприкінці."
+      ],
+      "explanations": {
+        "a1": {
+          "don't play very often tennis": "❌ Інший дієслово (play) не підходить до змісту про симпатію.",
+          "don't like tennis very much": "✅ Об’єкт відразу після like, прислівник міри наприкінці.",
+          "don't like very much tennis": "❌ Прислівник міри не ставимо перед об’єктом."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Додаток після дієслова, прислівник міри після додатка."
+      ],
+      "explanations": {
+        "a1": {
+          "very much loves his children": "❌ Починати з very much не потрібно.",
+          "loves his children very much": "✅ Об’єкт одразу після дієслова, посилювач почуття наприкінці.",
+          "loves very much his children": "❌ Прислівник усередині фрази порушує послідовність."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Об’єкт → місце → обставина часу/події наприкінці."
+      ],
+      "explanations": {
+        "a1": {
+          "Italian in Rome during a student exchange program": "✅ Після об’єкта йде місце, а потім опис програми/часу.",
+          "Italian during a student exchange program in Rome": "❌ Час/подія перед уточненням місця робить порядок менш логічним.",
+          "in Rome Italian during a student exchange program": "❌ Починати з місця перед об’єктом тут не слід."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Порядок: дієслово → об’єкт → місце → час."
+      ],
+      "explanations": {
+        "a1": {
+          "had a nice lunch at a restaurant today": "✅ Після дієслова йде повний об’єкт, далі місце та час.",
+          "had a nice lunch today at a restaurant": "❌ Час перед місцем наприкінці звучить менш природно.",
+          "had at a restaurant a nice lunch today": "❌ Вставляти місце всередину об’єкта недоречно."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Об’єкт після дієслова, місце далі, час наприкінці."
+      ],
+      "explanations": {
+        "a1": {
+          "forgot the keys in the car last night": "✅ Ключі як об’єкт, місце після, час наприкінці.",
+          "forgot in the car the keys last night": "❌ Місце перед об’єктом робить речення кострубате.",
+          "forgot the keys last night in the car": "❌ Час перед уточненням місця наприкінці менш логічний."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Прислівник частоти перед дієсловом, об’єкт одразу після нього."
+      ],
+      "explanations": {
+        "a1": {
+          "often takes a taxi to work": "✅ Частота перед основним дієсловом, далі об’єкт і місце.",
+          "takes often a taxi to work": "❌ Вставляти often після дієслова й перед об’єктом небажано.",
+          "takes a taxi often to work": "❌ Розривати об’єкт прислівником частоти робить фразу незручною."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Після модальної частини ставимо об’єкт, далі місце, потім час."
+      ],
+      "explanations": {
+        "a1": {
+          "have to return the book to the library today": "✅ Об’єкт після return, місце далі, час наприкінці.",
+          "have to return today the book to the library": "❌ Час посередині фрази робить її важкою.",
+          "have to return to the library the book today": "❌ Місце перед об’єктом ускладнює сприйняття."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Прислівник частоти після допоміжного дієслова, місце перед часовою обставиною."
+      ],
+      "explanations": {
+        "a1": {
+          "are never at home at lunchtime": "✅ Never після are, місце далі, час наприкінці.",
+          "are never at lunchtime at home": "❌ Час перед місцем виглядає незграбно.",
+          "never are at home at lunchtime": "❌ Починати з never перед формою be не природно у твердженні."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Після дієслова be ставимо прислівник частоти, місце й час наприкінці."
+      ],
+      "explanations": {
+        "a1": {
+          "is always very hot here in July": "✅ Always після is, далі прикметник, потім місце і час.",
+          "is very hot always here in July": "❌ Прислівник посеред опису робить порядок незручним.",
+          "is always very hot in July here": "❌ Розміщення місця після часу звучить менш природно."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Після дієслова об’єкт, потім місце, а далі час."
+      ],
+      "explanations": {
+        "a1": {
+          "play football in the park after school": "✅ Об’єкт football після дієслова, місце далі, час наприкінці.",
+          "play football after school in the park": "❌ Час перед місцем виглядає менш природно.",
+          "play in the park football after school": "❌ Місце між дієсловом і об’єктом створює незручний порядок."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Прислівник частоти перед основним дієсловом have."
+      ],
+      "explanations": {
+        "a1": {
+          "usually has cereal for breakfast": "✅ Usually перед has, далі об’єкт і обставина прийому їжі.",
+          "has usually cereal for breakfast": "❌ Вставка usually після has порушує плавність.",
+          "has cereal usually for breakfast": "❌ Прислівник у середині об’єктної групи звучить неприродно."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Після дієслова об’єкт, потім місце, час наприкінці."
+      ],
+      "explanations": {
+        "a1": {
+          "met her husband at a nightclub in 2006": "✅ Об’єкт одразу після дієслова, місце далі, час у кінці.",
+          "met her husband in 2006 at a nightclub": "❌ Час перед місцем наприкінці менш природний.",
+          "met at a nightclub her husband in 2006": "❌ Місце перед об’єктом робить речення незграбним."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hint_provider": "chatgpt",
+      "hints": [
+        "Прислівник частоти перед дієсловом work, обставина місця та часу далі."
+      ],
+      "explanations": {
+        "a1": {
+          "always work from home on Tuesdays": "✅ Частота перед дієсловом, потім місце й час.",
+          "work from home always on Tuesdays": "❌ Розміщення always після місця робить фразу менш природною.",
+          "work always from home on Tuesdays": "❌ Вставка always між дієсловом та місцем порушує порядок."
+        }
+      }
+    }
+  ]
+}

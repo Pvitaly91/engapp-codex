@@ -33,7 +33,7 @@ class JsonPageDirectorySeeder extends Seeder
 
     protected function definitionDirectory(): string
     {
-        return database_path('seeders/Page_V3/definitions');
+        return database_path('seeders/Page_V3');
     }
 
     protected function definitionPaths(): array
@@ -46,6 +46,8 @@ class JsonPageDirectorySeeder extends Seeder
 
         return collect(File::allFiles($directory))
             ->filter(fn ($file) => strtolower($file->getExtension()) === 'json')
+            ->filter(fn ($file) => ! $this->isLocalizationDefinitionPath($file->getPathname()))
+            ->filter(fn ($file) => $this->isPageDefinitionPath($file->getPathname()))
             ->sortBy(fn ($file) => str_replace('\\', '/', $file->getPathname()))
             ->map(fn ($file) => $file->getPathname())
             ->values()
@@ -71,7 +73,14 @@ class JsonPageDirectorySeeder extends Seeder
         $segments = array_values(array_filter(explode('/', $relativePath), 'strlen'));
         $fileName = array_pop($segments) ?: 'generated';
         $baseName = pathinfo($fileName, PATHINFO_FILENAME);
-        $className = Str::studly($baseName);
+
+        if (Str::lower($baseName) === 'definition' && $segments !== []) {
+            $className = Str::studly(array_pop($segments));
+            $namespacePrefix = 'Database\\Seeders\\Page_V3\\';
+        } else {
+            $className = Str::studly($baseName);
+            $namespacePrefix = 'Database\\Seeders\\Page_V3\\Generated\\';
+        }
 
         if (! Str::endsWith($className, 'Seeder')) {
             $className .= 'Seeder';
@@ -84,7 +93,37 @@ class JsonPageDirectorySeeder extends Seeder
 
         $namespaceSegments[] = $className;
 
-        return 'Database\\Seeders\\Page_V3\\Generated\\' . implode('\\', $namespaceSegments);
+        return $namespacePrefix . implode('\\', $namespaceSegments);
+    }
+
+    protected function isLocalizationDefinitionPath(string $path): bool
+    {
+        return Str::contains(str_replace('\\', '/', $path), '/localizations/');
+    }
+
+    protected function isPageDefinitionPath(string $path): bool
+    {
+        try {
+            $decoded = json_decode(File::get($path), true, 512, JSON_THROW_ON_ERROR);
+        } catch (\Throwable) {
+            return false;
+        }
+
+        if (! is_array($decoded)) {
+            return false;
+        }
+
+        $contentType = strtolower(trim((string) data_get($decoded, 'content_type', '')));
+
+        if ($contentType === 'page') {
+            return is_array(data_get($decoded, 'page'));
+        }
+
+        if ($contentType === 'category') {
+            return is_array(data_get($decoded, 'description'));
+        }
+
+        return is_array(data_get($decoded, 'page')) || is_array(data_get($decoded, 'description'));
     }
 
     protected function shouldRunDefinition(string $className): bool

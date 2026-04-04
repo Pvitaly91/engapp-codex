@@ -1,13 +1,3 @@
 <?php
 
-namespace Database\Seeders\Page_V3\PassiveVoice\Basics;
-
-use App\Support\Database\JsonPageSeeder;
-
-class PassiveVoiceCausativeTheorySeeder extends JsonPageSeeder
-{
-    protected function definitionPath(): string
-    {
-        return database_path('seeders/Page_V3/definitions/passive_voice_causative_theory.json');
-    }
-}
+require_once __DIR__ . '/PassiveVoiceCausativeTheorySeeder/PassiveVoiceCausativeTheorySeeder.php';

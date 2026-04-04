@@ -34,6 +34,38 @@ abstract class JsonPageSeeder extends Seeder
 
     abstract protected function definitionPath(): string;
 
+    public function resolvedDefinitionPath(): string
+    {
+        return $this->definitionPath();
+    }
+
+    protected function seederDirectory(): string
+    {
+        $reflection = new \ReflectionClass($this);
+        $fileName = $reflection->getFileName();
+
+        if (! is_string($fileName) || $fileName === '') {
+            throw new RuntimeException(sprintf(
+                'Unable to resolve file path for seeder [%s].',
+                static::class
+            ));
+        }
+
+        return dirname($fileName);
+    }
+
+    protected function seederAssetPath(string $relativePath = ''): string
+    {
+        $directory = rtrim($this->seederDirectory(), DIRECTORY_SEPARATOR);
+        $relativePath = ltrim(str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $relativePath), DIRECTORY_SEPARATOR);
+
+        if ($relativePath === '') {
+            return $directory;
+        }
+
+        return $directory . DIRECTORY_SEPARATOR . $relativePath;
+    }
+
     protected function loadDefinitionFromFile(string $path): array
     {
         if (! File::exists($path)) {

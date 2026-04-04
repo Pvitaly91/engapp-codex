@@ -1,13 +1,3 @@
 <?php
 
-namespace Database\Seeders\V3\AI\ChatGptPro;
-
-use App\Support\Database\JsonTestSeeder;
-
-class PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder extends JsonTestSeeder
-{
-    protected function definitionPath(): string
-    {
-        return database_path('seeders/V3/definitions/AI/ChatGptPro/plural_nouns_mnozina_imennikiv_pravila_viniatki_prikladi_v3_questions_only.json');
-    }
-}
+require_once __DIR__ . '/PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder/PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder.php';

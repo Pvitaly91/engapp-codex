@@ -1,0 +1,435 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\Pl\\V2\\Modals\\ModalDeductionPossibilityV2LocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\V2\\Modals\\ModalDeductionPossibilityV3Seeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "pl",
+  "hint_provider": "chatgpt",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "{a1} Formuła: **modal (might/may/could) + be + V-ing**. Użycie: zakładamy działanie, które trwa w tej chwili. Markery: seems, acting strangely, right now. Przykład: *Paul zachowuje się w bardzo nietypowy sposób. Myślę, że może pić znowu.*."
+      ],
+      "explanations": {
+        "a1": {
+          "might be drinking": "✅ «might be drinking» wyraża przypuszczenie o działaniu, które odbywa się w momencie mówienia. Przykład: *Paul zachowuje się w bardzo nietypowy sposób. Myślę, że może pić znowu.*.",
+          "must be drinking": "❌ «must be drinking» zbyt kategoryczne; robimy tylko przypuszczenie. Przykład: *Paul zachowuje się w bardzo nietypowy sposób. Myślę, że może pić znowu.*.",
+          "can't be drinking": "❌ «can't be drinking» zaprzecza działaniu, chociaż nie jesteśmy pewni. Przykład: *Paul zachowuje się w bardzo nietypowy sposób. Myślę, że może pić znowu.*.",
+          "could be drinking": "❌ Forma «could be drinking» nie oddaje potrzebnego stopnia prawdopodobieństwa. Przykład: *Paul zachowuje się w bardzo nietypowy sposób. Myślę, że może pić znowu.*."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "{a1} Formuła: **modal (might/may/could) + be + przymiotnik/rzeczownik**. Użycie: opisujemy możliwy stan lub fakt bez pewności. Markery: maybe, I think, possible. Przykład: *Myślę, że może być błąd w twoim zeznaniu podatkowym. Powinieneś to sprawdzić.*."
+      ],
+      "explanations": {
+        "a1": {
+          "may be": "✅ «may be» daje delikatne przypuszczenie o stanie bez twardej pewności. Przykład: *Myślę, że może być błąd w twoim zeznaniu podatkowym. Powinieneś to sprawdzić.*."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "{a1} Formuła: **must + base verb / be**. Użycie: gdy są mocne dowody i jesteśmy pewni wniosku. Markery: sure, never lies, clear evidence. Przykład: *Jeśli Suzan to powiedziała, to musi być prawda. Ona nigdy nie kłamie.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must be": "✅ «must be» wyraża pewność na podstawie oczywistych dowodów. Przykład: *Jeśli Suzan to powiedziała, to musi być prawda. Ona nigdy nie kłamie.*.",
+          "might be": "❌ «might be» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *Jeśli Suzan to powiedziała, to musi być prawda. Ona nigdy nie kłamie.*.",
+          "could be": "❌ «could be» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *Jeśli Suzan to powiedziała, to musi być prawda. Ona nigdy nie kłamie.*.",
+          "can't be": "❌ «can't be» zaprzecza sytuacji, chociaż jesteśmy pewni w przeciwnym razie. Przykład: *Jeśli Suzan to powiedziała, to musi być prawda. Ona nigdy nie kłamie.*."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "{a1} Formuła: **must + base verb / be**. Użycie: gdy są mocne dowody i jesteśmy pewni wniosku. Markery: sure, never lies, clear evidence. Przykład: *Przepraszam, ale nie jestem Connor. Musisz mnie mylić z kimś innym.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must be confusing": "✅ «must be confusing» wyraża pewność na podstawie oczywistych dowodów. Przykład: *Przepraszam, ale nie jestem Connor. Musisz mnie mylić z kimś innym.*.",
+          "might be confusing": "❌ «might be confusing» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *Przepraszam, ale nie jestem Connor. Musisz mnie mylić z kimś innym.*.",
+          "can't be confusing": "❌ «can't be confusing» zaprzecza sytuacji, chociaż jesteśmy pewni w przeciwnym razie. Przykład: *Przepraszam, ale nie jestem Connor. Musisz mnie mylić z kimś innym.*.",
+          "must confuse": "❌ «must confuse» nie pasuje w tej pozycji lub wymaga innej formy, zwróć uwagę na przykład: *Przykro mi, ale nie jestem Connor. Musisz mnie mylić z kimś innym.*."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "{a1} Formuła: **can't + base verb / be**. Użycie: sprzeczne z faktami, więc działanie niemożliwe. Markery: no way, impossible, different facts. Przykład: *Nie jestem pewien, czy ufam Peterowi. On nie może być osobą, którą myślimy, że jest.*."
+      ],
+      "explanations": {
+        "a1": {
+          "can't be": "✅ «can't be» całkowicie zaprzeczamy możliwości przez sprzeczne fakty. Przykład: *Nie jestem pewien, czy ufam Peterowi. On nie może być osobą, którą myślimy, że jest.*.",
+          "might be": "❌ «might be» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *Nie jestem pewien, czy ufam Peterowi. On nie może być osobą, którą myślimy, że jest.*.",
+          "must be": "❌ «must be» brzmi jak pewne stwierdzenie, ale fakty czynią sytuację niemożliwą. Przykład: *Nie jestem pewien, czy ufam Peterowi. On nie może być osobą, którą myślimy, że jest.*.",
+          "might not be": "❌ «might not be» nie pokazuje niemożliwości, potrzebne jest silne zaprzeczenie. Przykład: *Nie jestem pewien, czy ufam Peterowi. On nie może być osobą, którą myślimy, że jest.*."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "{a1} Formuła: **must + base verb / be**. Użycie: gdy są mocne dowody i jesteśmy pewni wniosku. Markery: sure, never lies, clear evidence. Przykład: *Szedłeś przez dziesięć godzin. Musisz być wyczerpany.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must be": "✅ «must be» wyraża pewność na podstawie oczywistych dowodów. Przykład: *Szedłeś przez dziesięć godzin. Musisz być wyczerpany.*.",
+          "might be": "❌ «might be» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *Szedłeś przez dziesięć godzin. Musisz być wyczerpany.*.",
+          "can't be": "❌ «can't be» zaprzecza sytuacji, chociaż jesteśmy pewni przeciwnym. Przykład: *Szedłeś przez dziesięć godzin. Musisz być wyczerpany.*.",
+          "could be": "❌ «could be» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *Szedłeś przez dziesięć godzin. Musisz być wyczerpany.*."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "{a1} Formuła: **can't + base verb / be**. Użycie: sprzeczne z faktami, więc działanie niemożliwe. Markery: no way, impossible, different facts. Przykład: *On nie może być jego synem, wyglądają zupełnie inaczej.*."
+      ],
+      "explanations": {
+        "a1": {
+          "can't be": "✅ «can't be» całkowicie zaprzeczamy możliwości przez sprzeczne fakty. Przykład: *On nie może być jego synem, wyglądają zupełnie inaczej.*.",
+          "must be": "❌ «must be» brzmi jak pewne stwierdzenie, ale fakty czynią sytuację niemożliwą. Przykład: *On nie może być jego synem, wyglądają zupełnie inaczej.*.",
+          "might be": "❌ «might be» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *On nie może być jego synem, wyglądają zupełnie inaczej.*.",
+          "may be": "❌ «may be» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *On nie może być jego synem, wyglądają zupełnie inaczej.*."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "{a1} Formuła: **modal (might/may/could) + not + base verb**. Użycie: przypuszczamy, że działanie może się nie odbyć. Markery: traffic, doubt, worried. Przykład: *Jest trochę ruchu, więc mogę nie przyjechać na czas.*."
+      ],
+      "explanations": {
+        "a1": {
+          "may not": "✅ «may not» daje ostrożne zaprzeczenie bez kategoryczności. Przykład: *Jest trochę ruchu, więc mogę nie przyjechać na czas.*."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "{a1} Formuła: **can't + base verb / be**. Użycie: sprzeczne z faktami, więc działanie niemożliwe. Markery: no way, impossible, different facts. Przykład: *On nie może być bardzo dumny z ciebie teraz. Rozczarowałeś go.*."
+      ],
+      "explanations": {
+        "a1": {
+          "can't be": "✅ «can't be» całkowicie zaprzeczamy możliwości przez sprzeczne fakty. Przykład: *On nie może być bardzo dumny z ciebie teraz. Rozczarowałeś go.*.",
+          "must be": "❌ «must be» brzmi jak pewne stwierdzenie, ale fakty czynią sytuację niemożliwą. Przykład: *On nie może być bardzo dumny z ciebie teraz. Rozczarowałeś go.*.",
+          "might be": "❌ «might be» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *On nie może być bardzo dumny z ciebie teraz. Rozczarowałeś go.*.",
+          "should be": "❌ «should be» wyraża radę, a nie niemożność. Przykład: *He can't be very proud of you right now. You disappointed him.*."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "{a1} Formuła: **modal (might/may/could) + be + przymiotnik/rzeczownik**. Użycie: opisujemy możliwy stan lub fakt bez pewności. Markery: maybe, I think, possible. Przykład: *I wouldn't swim in this river if I were you. It might be dangerous.*."
+      ],
+      "explanations": {
+        "a1": {
+          "may be": "✅ «may be» daje łagodną sugestię o stanie bez twardej pewności. Przykład: *I wouldn't swim in this river if I were you. It may be dangerous.*."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "{a1} Formuła: **must + base verb / be**. Użycie: gdy są mocne dowody i jesteśmy pewni wniosku. Markery: sure, never lies, clear evidence. Przykład: *The phone is ringing. It must be Charlotte; she said she would call this morning.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "✅ «must» wyraża pewność na podstawie oczywistych dowodów. Przykład: *The phone is ringing. It must be Charlotte; she said she would call this morning.*.",
+          "may": "❌ «may» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *The phone is ringing. It must be Charlotte; she said she would call this morning.*.",
+          "might": "❌ «might» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *The phone is ringing. It must be Charlotte; she said she would call this morning.*.",
+          "could": "❌ «could» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *The phone is ringing. It must be Charlotte; she said she would call this morning.*.",
+          "can't": "❌ «can't» zaprzecza sytuacji, chociaż jesteśmy pewni przeciwnie. Przykład: *The phone is ringing. It must be Charlotte; she said she would call this morning.*."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "{a1} Formuła: **can't + base verb / be**. Użycie: sprzeciwia się faktom, więc działanie jest niemożliwe. Markery: no way, impossible, different facts. Przykład: *She can't be in love with him. She told me she hates him.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» brzmi jak pewne stwierdzenie, ale fakty czynią sytuację niemożliwą. Przykład: *She can't be in love with him. She told me she hates him.*.",
+          "may": "❌ «may» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *She can't be in love with him. She told me she hates him.*.",
+          "might": "❌ «might» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *She can't be in love with him. She told me she hates him.*.",
+          "could": "❌ «could» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *She can't be in love with him. She told me she hates him.*.",
+          "can't": "✅ «can't» całkowicie zaprzecza możliwość przez sprzeczne fakty. Przykład: *She can't be in love with him. She told me she hates him.*."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "{a1} Formuła: **modal (might/may/could) + base verb**. Użycie: mówimy o rzeczywistym, ale nie gwarantowanym działaniu. Markery: perhaps, sometimes, could happen. Przykład: *He might be at the gym right now. Sometimes he goes there at this time.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» zbyt kategoryczne; robimy tylko przypuszczenia. Przykład: *He might be at the gym right now. Sometimes he goes there at this time.*.",
+          "may": "❌ Forma «may» nie przekazuje potrzebnego stopnia prawdopodobieństwa. Przykład: *He might be at the gym right now. Sometimes he goes there at this time.*.",
+          "might": "✅ «might» pozostawia działanie możliwe, ale bez gwarancji. Przykład: *He might be at the gym right now. Sometimes he goes there at this time.*.",
+          "could": "❌ Forma «could» nie przekazuje potrzebnego stopnia prawdopodobieństwa. Przykład: *He might be at the gym right now. Sometimes he goes there at this time.*.",
+          "can't": "❌ «can't» zaprzecza działaniu, chociaż nie jesteśmy pewni. Przykład: *He might be at the gym right now. Sometimes he goes there at this time.*."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "{a1} Formuła: **can't + base verb / be**. Użycie: sprzeciwia się faktom, więc działanie jest niemożliwe. Markery: no way, impossible, different facts. Przykład: *This is not possible. You can't be serious!.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» brzmi jak pewne stwierdzenie, ale fakty czynią sytuację niemożliwą. Przykład: *This is not possible. You can't be serious!.*.",
+          "may": "❌ «may» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *This is not possible. You can't be serious!*.",
+          "might": "❌ «might» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *This is not possible. You can't be serious!*.",
+          "could": "❌ «could» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *This is not possible. You can't be serious!*.",
+          "can't": "✅ «can't» całkowicie zaprzecza możliwość przez sprzeczne fakty. Przykład: *This is not possible. You can't be serious!*."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "{a1} Formuła: **must + base verb / be**. Użycie: gdy są mocne dowody i jesteśmy pewni wniosku. Markery: sure, never lies, clear evidence. Przykład: *If he drives a Jaguar, he must be quite rich.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "✅ «must» wyraża pewność na podstawie oczywistych dowodów. Przykład: *If he drives a Jaguar, he must be quite rich.*.",
+          "may": "❌ «may» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *If he drives a Jaguar, he must be quite rich.*.",
+          "might": "❌ «might» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *If he drives a Jaguar, he must be quite rich.*.",
+          "could": "❌ «could» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *If he drives a Jaguar, he must be quite rich.*.",
+          "can't": "❌ «can't» zaprzecza sytuację, chociaż jesteśmy pewni w przeciwnym. Przykład: *If he drives a Jaguar, he must be quite rich.*."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "{a1} Formuła: **modal (might/may/could) + base verb**. Użycie: mówimy o realnej, ale nie gwarantowanej akcji. Markery: perhaps, sometimes, could happen. Przykład: *You should pick up the phone. It might be an important call.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» zbyt kategoryczne; robimy tylko przypuszczenia. Przykład: *You should pick up the phone. It might be an important call.*.",
+          "may": "❌ Forma «may» nie przekazuje potrzebnego stopnia prawdopodobieństwa. Przykład: *You should pick up the phone. It might be an important call.*.",
+          "might": "✅ «might» pozostawia akcję możliwą, ale bez gwarancji. Przykład: *You should pick up the phone. It might be an important call.*.",
+          "could": "❌ Forma «could» nie przekazuje potrzebnego stopnia prawdopodobieństwa. Przykład: *You should pick up the phone. It might be an important call.*.",
+          "can't": "❌ «can't» zaprzecza akcji, chociaż nie jesteśmy pewni. Przykład: *You should pick up the phone. It might be an important call.*."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "{a1} Formuła: **must + base verb / be**. Użycie: gdy są mocne dowody i jesteśmy pewni wniosku. Markery: sure, never lies, clear evidence. Przykład: *He must know the answer, he's the best in the class.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "✅ «must» wyraża pewność na podstawie oczywistych dowodów. Przykład: *He must know the answer, he's the best in the class.*.",
+          "may": "❌ «may» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *He must know the answer, he's the best in the class.*.",
+          "might": "❌ «might» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *He must know the answer, he's the best in the class.*.",
+          "could": "❌ «could» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *He must know the answer, he's the best in the class.*.",
+          "can't": "❌ «can't» zaprzecza sytuację, chociaż jesteśmy pewni w przeciwnym. Przykład: *He must know the answer, he's the best in the class.*."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "{a1} Formuła: **modal (might/may/could) + base verb**. Użycie: mówimy o realnej, ale nie gwarantowanej akcji. Markery: perhaps, sometimes, could happen. Przykład: *You might be right, but it’s better if we check.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» zbyt kategoryczne; robimy tylko przypuszczenia. Przykład: *You might be right, but it’s better if we check.*.",
+          "may": "❌ Forma «may» nie przekazuje potrzebnego stopnia prawdopodobieństwa. Przykład: *You might be right, but it’s better if we check.*.",
+          "might": "✅ «might» pozostawia działanie możliwe, ale bez gwarancji. Przykład: *You might be right, but it’s better if we check.*.",
+          "could": "❌ Forma «could» nie przekazuje potrzebnego stopnia prawdopodobieństwa. Przykład: *You might be right, but it’s better if we check.*.",
+          "can't": "❌ «can't» zaprzecza działaniu, chociaż nie jesteśmy pewni. Przykład: *You might be right, but it’s better if we check.*."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "{a1} Formuła: **can't + base verb / be**. Użycie: sprzeczne z faktami, więc działanie niemożliwe. Markery: no way, impossible, different facts. Przykład: *He can't be in class. I saw him at the library a minute ago.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» brzmi jak pewne stwierdzenie, ale fakty czynią sytuację niemożliwą. Przykład: *He can't be in class. I saw him at the library a minute ago.*.",
+          "may": "❌ «may» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *He can't be in class. I saw him at the library a minute ago.*.",
+          "might": "❌ «might» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *He can't be in class. I saw him at the library a minute ago.*.",
+          "could": "❌ «could» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *He can't be in class. I saw him at the library a minute ago.*.",
+          "can't": "✅ «can't» całkowicie zaprzeczamy możliwość przez sprzeczne fakty. Przykład: *He can't be in class. I saw him at the library a minute ago.*."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "{a1} Formuła: **modal (might/may/could) + base verb**. Użycie: mówimy o realnym, ale nie gwarantowanym działaniu. Markery: perhaps, sometimes, could happen. Przykład: *A: Who’s at the door? B: I don’t know; it could be John.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» zbyt kategoryczne; robimy tylko przypuszczenia. Przykład: *A: Who’s at the door? B: I don’t know; it could be John.*.",
+          "may": "❌ Forma «may» nie przekazuje potrzebnego stopnia prawdopodobieństwa. Przykład: *A: Who’s at the door? B: I don’t know; it could be John.*.",
+          "might": "❌ Forma «might» nie przekazuje potrzebnego stopnia prawdopodobieństwa. Przykład: *A: Who’s at the door? B: I don’t know; it could be John.*.",
+          "could": "✅ «could» pozostawia działanie możliwe, ale bez gwarancji. Przykład: *A: Who’s at the door? B: I don’t know; it could be John.*.",
+          "can't": "❌ «can't» zaprzecza działaniu, chociaż nie jesteśmy pewni. Przykład: *A: Who’s at the door? B: I don’t know; it could be John.*."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "{a1} Formuła: **must + base verb / be**. Użycie: gdy są mocne dowody i jesteśmy pewni wniosku. Markery: sure, never lies, clear evidence. Przykład: *Someone is knocking at the door. — It must be the pizza delivery man. I ordered a pizza.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "✅ «must» wyraża pewność na podstawie oczywistych dowodów. Przykład: *Someone is knocking at the door. — It must be the pizza delivery man. I ordered a pizza.*.",
+          "might": "❌ «might» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *Someone is knocking at the door. — It must be the pizza delivery man. I ordered a pizza.*.",
+          "might not": "❌ Forma «might not» nie przekazuje pewności, którą wymaga kontekst. Przykład: *Someone is knocking at the door. — It must be the pizza delivery man. I ordered a pizza.*.",
+          "can't": "❌ «can't» zaprzecza sytuacji, chociaż jesteśmy pewni w przeciwieństwie. Przykład: *Someone is knocking at the door. — It must be the pizza delivery man. I ordered a pizza.*."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "{a1} Formuła: **can't + base verb / be**. Użycie: sprzeczne z faktami, więc działanie niemożliwe. Markery: no way, impossible, different facts. Przykład: *I know you ordered a pizza. But it can't be him, because you ordered the pizza five minutes ago.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» brzmi jak pewne stwierdzenie, ale fakty czynią sytuację niemożliwą. Przykład: *I know you ordered a pizza. But it can't be him, because you ordered the pizza five minutes ago.*.",
+          "might": "❌ «might» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *I know you ordered a pizza. But it can't be him, because you ordered the pizza five minutes ago.*.",
+          "might not": "❌ «might not» nie pokazuje niemożliwości, potrzebne silne zaprzeczenie. Przykład: *I know you ordered a pizza. But it can't be him, because you ordered the pizza five minutes ago.*.",
+          "can't": "✅ «can't» całkowicie zaprzeczamy możliwości przez sprzeczne fakty. Przykład: *I know you ordered a pizza. But it can't be him, because you ordered the pizza five minutes ago.*."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "{a1} Formuła: **modal (might/may/could) + base verb**. Wykorzystanie: mówimy o realnym, ale nie gwarantowanym działaniu. Markery: perhaps, sometimes, could happen. Przykład: *Then it might be your sister.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» zbyt kategoryczne; robimy tylko przypuszczenia. Przykład: *Then it might be your sister.*.",
+          "might": "✅ «might» pozostawia działanie możliwe, ale bez gwarancji. Przykład: *Then it might be your sister.*.",
+          "might not": "❌ «might not» zaprzecza możliwości, a kontekst mówi o prawdopodobieństwie. Przykład: *Then it might be your sister.*.",
+          "can't": "❌ «can't» zaprzecza działaniu, chociaż nie jesteśmy pewni. Przykład: *Then it might be your sister.*."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "{a1} Formuła: **can't + base verb / be**. Wykorzystanie: sprzeciwia się faktom, więc działanie jest niemożliwe. Markery: no way, impossible, different facts. Przykład: *No, it can't be my sister, she's out of town.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» brzmi jak pewne stwierdzenie, ale fakty czynią sytuację niemożliwą. Przykład: *No, it can't be my sister, she's out of town.*.",
+          "might": "❌ «might» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *No, it can't be my sister, she's out of town.*.",
+          "might not": "❌ «might not» nie pokazuje niemożliwości, potrzebne silne zaprzeczenie. Przykład: *No, it can't be my sister, she's out of town.*.",
+          "can't": "✅ «can't» całkowicie zaprzeczamy możliwości przez sprzeczne fakty. Przykład: *No, it can't be my sister, she's out of town.*."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "{a1} Formuła: **modal (might/may/could) + base verb**. Wykorzystanie: mówimy o realnym, ale nie gwarantowanym działaniu. Markery: perhaps, sometimes, could happen. Przykład: *Well, then just open the door; it might be important.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» zbyt kategoryczne; robimy tylko przypuszczenia. Przykład: *Well, then just open the door; it might be important.*.",
+          "might": "✅ «might» pozostawia działanie możliwe, ale bez gwarancji. Przykład: *Well, then just open the door; it might be important.*.",
+          "might not": "❌ «might not» zaprzecza możliwości, a kontekst mówi o prawdopodobieństwie. Przykład: *Well, then just open the door; it might be important.*.",
+          "can't": "❌ «can't» zaprzecza działaniu, chociaż nie jesteśmy pewni. Przykład: *Well, then just open the door; it might be important.*."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "{a1} Formuła: **modal (might/may/could) + not + base verb**. Wykorzystanie: przypuszczamy, że działanie może się nie odbyć. Markery: traffic, doubt, worried. Przykład: *I should tell you something and I think you might not like it.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» zbyt pewne; potrzebne nam jest łagodne zaprzeczenie. Przykład: *I should tell you something and I think you might not like it.*.",
+          "might": "❌ «might» bez not nie przekazuje wątpliwości co do negatywnego wyniku. Przykład: *I should tell you something and I think you might not like it.*.",
+          "might not": "✅ «might not» daje ostrożne zaprzeczenie bez kategoryczności. Przykład: *I should tell you something and I think you might not like it.*.",
+          "can't": "❌ «can't» brzmi jak absolutna niemożliwość, a nie ostrożna wątpliwość. Przykład: *I should tell you something and I think you might not like it.*."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "{a1} Formuła: **can't + base verb / be**. Wykorzystanie: sprzeciwia się faktom, więc działanie jest niemożliwe. Markery: no way, impossible, different facts. Przykład: *Come on! Tell me what it is. It can't be that bad.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» brzmi jak pewne stwierdzenie, ale fakty czynią sytuację niemożliwą. Przykład: *Come on! Tell me what it is. It can't be that bad.*.",
+          "might": "❌ «might» tylko dopuszcza możliwość, podczas gdy fakty ją zaprzeczają. Przykład: *Come on! Tell me what it is. It can't be that bad.*.",
+          "might not": "❌ «might not» nie pokazuje niemożliwości, potrzebne jest silne zaprzeczenie. Przykład: *Come on! Tell me what it is. It can't be that bad.*.",
+          "can't": "✅ «can't» całkowicie zaprzecza możliwość przez sprzeczne fakty. Przykład: *Come on! Tell me what it is. It can't be that bad.*."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "{a1} Formuła: **modal (might/may/could) + czasownik podstawowy**. Użycie: mówimy o rzeczywistej, ale nie gwarantowanej akcji. Markery: perhaps, sometimes, could happen. Przykład: *I'm afraid you might react badly.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ «must» zbyt kategoryczne; robimy tylko przypuszczenia. Przykład: *I'm afraid you might react badly.*.",
+          "might": "✅ «might» pozostawia działanie możliwe, ale bez gwarancji. Przykład: *I'm afraid you might react badly.*.",
+          "might not": "❌ «might not» zaprzecza możliwość, a kontekst mówi o prawdopodobieństwie. Przykład: *I'm afraid you might react badly.*.",
+          "can't": "❌ «can't» zaprzecza działaniu, chociaż nie jesteśmy pewni. Przykład: *I'm afraid you might react badly.*."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "{a1} Formuła: **must + czasownik podstawowy / być**. Użycie: gdy są mocne dowody i jesteśmy pewni wniosku. Markery: sure, never lies, clear evidence. Przykład: *Then I'm sure it must be serious. Please, tell me.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "✅ «must» wyraża pewność na podstawie oczywistych dowodów. Przykład: *Then I'm sure it must be serious. Please, tell me.*.",
+          "might": "❌ «might» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *Then I'm sure it must be serious. Please, tell me.*.",
+          "might not": "❌ Forma «might not» nie przekazuje pewności, którą wymaga kontekst. Przykład: *Then I'm sure it must be serious. Please, tell me.*.",
+          "can't": "❌ «can't» zaprzecza sytuacji, chociaż jesteśmy pewni w przeciwnym. Przykład: *Then I'm sure it must be serious. Please, tell me.*."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "{a1} Formuła: **must + czasownik podstawowy / być**. Użycie: gdy są mocne dowody i jesteśmy pewni wniosku. Markery: sure, never lies, clear evidence. Przykład: *I know you must be upset right now, but…*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "✅ «must» wyraża pewność na podstawie oczywistych dowodów. Przykład: *I know you must be upset right now, but…*.",
+          "might": "❌ «might» zbyt niepewne, a kontekst daje wyraźne dowody. Przykład: *I know you must be upset right now, but…*.",
+          "might not": "❌ Forma «might not» nie przekazuje pewności, którą wymaga kontekst. Przykład: *I know you must be upset right now, but…*.",
+          "can't": "❌ «can't» zaprzecza sytuacji, chociaż jesteśmy pewni w przeciwnym. Przykład: *I know you must be upset right now, but…*."
+        }
+      }
+    }
+  ]
+}

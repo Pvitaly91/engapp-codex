@@ -194,8 +194,13 @@ class V3PromptGeneratorService
             'Target output',
             '- Target namespace inside `database/seeders/V3`: `' . $preview['target_namespace'] . '`',
             '- Suggested PHP class: `' . $preview['fully_qualified_class_name'] . '`',
-            '- Suggested PHP seeder path: `' . $preview['seeder_relative_path'] . '`',
+            '- Suggested PHP loader stub: `' . $preview['seeder_relative_path'] . '`',
+            '- Suggested seeder package folder: `' . $preview['package_relative_path'] . '`',
+            '- Suggested real seeder PHP: `' . $preview['real_seeder_relative_path'] . '`',
             '- Suggested JSON definition path: `' . $preview['definition_relative_path'] . '`',
+            '- Suggested localization JSON path (uk): `' . $preview['localization_uk_relative_path'] . '`',
+            '- Suggested localization JSON path (en): `' . $preview['localization_en_relative_path'] . '`',
+            '- Suggested localization JSON path (pl): `' . $preview['localization_pl_relative_path'] . '`',
             '- If nearby V3 seeders in this namespace use a slightly different but stronger local naming rule, follow that local convention consistently.',
             '',
             'Question plan',
@@ -206,16 +211,18 @@ class V3PromptGeneratorService
             '',
             'Hard requirements',
             '- Before generating files, inspect the real V3 implementation already present in `database/seeders/V3`.',
-            '- Treat `database/seeders/V3/Concerns/JsonTestSeeder.php`, `app/Support/Database/JsonTestSeeder.php`, and nearby V3 definition files as the compatibility contract.',
+            '- Treat `app/Support/Database/JsonTestSeeder.php`, `app/Support/Database/JsonTestDirectorySeeder.php`, `app/Support/Database/JsonTestLocalizationManager.php`, and nearby V3 seeder packages as the compatibility contract.',
             '- Do not invent a new schema, new file layout, or new naming convention.',
-            '- Follow the existing namespace, path, wrapper seeder, JSON definition, and localization pattern used by neighboring V3 seeders.',
+            '- Follow the existing namespace, stub loader, package folder, real seeder class, `definition.json`, and `localizations/*.json` pattern used by neighboring V3 seeders.',
             '- Generate exactly the requested number of questions for every selected CEFR level.',
             '- Make the difficulty progression feel natural from the lowest selected level to the highest selected level.',
             '- The generated result must persist a real `SavedGrammarTest` entry with ordered question links, not only raw question data.',
             $this->savedTestUuidRequirement(),
+            $this->savedTestSlugRequirement(),
             ...$this->savedTestQuestionUuidRules(),
-            '- If this namespace pattern uses a thin PHP wrapper seeder plus a JSON definition file, create both.',
-            '- If nearby V3 seeders also rely on localization JSON files under `database/seeders/V3/localizations/...`, create or update the correct companion files instead of inventing custom runtime logic.',
+            '- Materialize the seeder as a self-contained package: keep the top-level PHP file as a compatibility loader stub and place the real seeder PHP, `definition.json`, and all localization JSON files inside the seeder folder.',
+            '- Use package-local localization JSON files under `localizations/uk.json`, `localizations/en.json`, and `localizations/pl.json` instead of any shared global localization directory.',
+            '- In every companion localization JSON file, keep `target.definition_path` pointed at `../definition.json` and `target.seeder_class` matched to the base V3 seeder class.',
             $this->singlePromptQuestionsOnlyLocalizationRequirement(),
             $this->formatTheoryPageLinkageRequirement($source),
             '- Keep the final result fully compatible with the current Laravel V3 seeding system.',
@@ -226,8 +233,8 @@ class V3PromptGeneratorService
             'Execution notes',
             '- Use the topic source below as the pedagogical source of truth for coverage and terminology.',
             '- Reuse the project’s existing V3 question JSON structure, marker format, options format, hints, explanations, tag organization, and source naming style.',
-            '- Keep every learner-facing `question` and every `variants` entry in English only. Use Ukrainian only inside `localizations.uk`.',
-            '- Make `localizations.uk.hints` and `localizations.uk.explanations` genuinely instructional: explain the rule, mention the clue in the sentence, and clarify why distractors are wrong instead of using very short labels. Hints must guide the learner without revealing the final answer.',
+            '- Keep every learner-facing `question` and every `variants` entry in English only. Store Ukrainian teaching feedback in the seeder package localization flow (`localizations.uk` in the definition when required by the local pattern, plus the companion `localizations/uk.json` file).',
+            '- Make Ukrainian `hints` and `explanations` genuinely instructional in both the definition content and the companion package localization JSON: explain the rule, mention the clue in the sentence, and clarify why distractors are wrong instead of using very short labels. Hints must guide the learner without revealing the final answer.',
             ...$this->detailedLocalizationQualityRules(),
             '- At the end, show: 1) changed files, 2) a short summary, 3) a per-level question count check.',
         ];
@@ -326,14 +333,20 @@ TEXT;
             '- The attachment filename may be arbitrary. The JSON content must be correct.',
             '- If your chat interface cannot generate files, return only one fenced `json` code block with no commentary before or after it.',
             '',
-            'This JSON must match the real V3 definition style used by the Laravel project `Pvitaly91/engapp-codex` in `database/seeders/V3/definitions`.',
+            'This JSON must match the real V3 definition style used by the Laravel project `Pvitaly91/engapp-codex` inside self-contained seeder packages under `database/seeders/V3/<namespace>/<SeederClass>/definition.json`.',
             '',
             ...$promptModeLines,
             '',
             'Target metadata',
             '- `seeder.class`: `' . $preview['fully_qualified_class_name'] . '`',
             '- `seeder.uuid_namespace`: `' . $preview['class_name'] . '`',
+            '- Planned loader stub path: `' . $preview['seeder_relative_path'] . '`',
+            '- Planned seeder package folder: `' . $preview['package_relative_path'] . '`',
+            '- Planned real seeder path: `' . $preview['real_seeder_relative_path'] . '`',
             '- Planned definition path: `' . $preview['definition_relative_path'] . '`',
+            '- Planned localization path (uk): `' . $preview['localization_uk_relative_path'] . '`',
+            '- Planned localization path (en): `' . $preview['localization_en_relative_path'] . '`',
+            '- Planned localization path (pl): `' . $preview['localization_pl_relative_path'] . '`',
             '- Planned namespace inside `database/seeders/V3`: `' . $preview['target_namespace'] . '`',
             '',
             'Topic and source',
@@ -362,6 +375,7 @@ TEXT;
             '- Use the real V3 pattern already used in this project. Do not invent another schema.',
             '- The final seeder built from this JSON must be able to persist a real `SavedGrammarTest` entry; include any saved-test metadata required by the neighboring V3 pattern.',
             $this->savedTestUuidRequirement(),
+            $this->savedTestSlugRequirement(),
             ...$this->savedTestQuestionUuidRules(),
             '- Generate exactly the requested number of questions for every selected CEFR level.',
             '- Ensure every marker answer is present in its options list.',
@@ -406,17 +420,20 @@ TEXT;
         ];
 
         $lines = [
-            '- Observed naming pattern for this target namespace: wrapper class `' . ($preview['fully_qualified_class_name'] ?? '') . '`, `seeder.uuid_namespace` `' . ($preview['class_name'] ?? '') . '`, definition file `' . basename((string) ($preview['definition_relative_path'] ?? '')) . '`.',
-            '- For AI-oriented namespaces in this repo, the normal local convention is a thin `...V3QuestionsOnlySeeder` wrapper plus a definition file named `..._v3_questions_only.json`.',
+            '- Observed naming pattern for this target namespace: top-level loader stub `' . ($preview['seeder_relative_path'] ?? '') . '`, real seeder class `' . ($preview['fully_qualified_class_name'] ?? '') . '`, package folder `' . ($preview['package_relative_path'] ?? '') . '`, `seeder.uuid_namespace` `' . ($preview['class_name'] ?? '') . '`, and base definition file `' . basename((string) ($preview['definition_relative_path'] ?? '')) . '`.',
+            '- For AI-oriented namespaces in this repo, the normal local convention is a thin top-level `...V3QuestionsOnlySeeder.php` loader stub plus a same-named package folder containing the real seeder class, `definition.json`, and companion `localizations/*.json` files.',
             '- Real loader contract from `app/Support/Database/JsonTestSeeder.php`: use top-level keys `schema_version`, `seeder`, `defaults`, `category`, `sources`, `tags`, `default_tag_keys`, `questions`, and optional `saved_test`.',
             '- Real question contract: each question normally carries `id`, `question`, `source`, `level`, `markers`, `localizations`, `tag_keys`, `variants`; each `markers.<marker>` object uses `answer`, `options`, optional `verb_hint`, optional `gap_tags`.',
-            '- Real localization contract: under `localizations.<locale>`, use `hints` as an array and `explanations.<marker>.<option>` as per-option feedback text.',
+            '- Real localization contract inside the definition: under `localizations.<locale>`, use `hints` as an array and `explanations.<marker>.<option>` as per-option feedback text.',
+            '- Real companion localization file contract from `app/Support/Database/JsonTestLocalizationManager.php`: package-local localization JSON files use top-level keys `schema_version`, `seeder`, `target`, `locale`, optional `hint_provider`, and `questions`.',
+            '- Real companion localization targeting rules: keep these files inside the same seeder package under `localizations/<locale>.json`, set `target.definition_path` to `../definition.json`, and set `target.seeder_class` to the base V3 seeder class.',
             '- Keep all learner-facing question stems in English: both `question` and every entry in `variants` should stay English-only, while Ukrainian support belongs in `localizations.uk`.',
-            '- For AI-oriented `...V3QuestionsOnlySeeder` targets, the repository may later split Ukrainian teaching feedback into companion localization JSON files, but the generated content still needs rich `localizations.uk.hints` and `localizations.uk.explanations`.',
+            '- For AI-oriented `...V3QuestionsOnlySeeder` targets, the repository keeps companion localization JSON files inside the seeder package, but the generated content still needs rich `localizations.uk.hints` and `localizations.uk.explanations` so Codex can materialize the package correctly.',
             '- Prefer detailed teaching feedback over very short labels: `hints` should explain the rule and the sentence clue, may include a similar example, and must not reveal the final correct answer or explicitly identify the correct option; `explanations` should explain why each option is right or wrong.',
             ...$this->detailedLocalizationQualityRules(),
             '- Real saved-test contract: if you include `saved_test`, it must define `uuid`, `slug`, and `name`; it may also define `description`, `question_uuids`, and `filters`.',
             '- Real saved-test rules from the loader: `saved_test.uuid` must be at most 36 characters; `filters.seeder_classes` must include `' . ($preview['fully_qualified_class_name'] ?? '') . '`; and `filters.num_questions` should equal ' . array_sum($distribution) . '.',
+            '- Real saved-test rule from the loader and repository practice: every seeder must use its own unique `saved_test.slug`. If two seeders would share a slug, rename it with a provider- or namespace-specific suffix instead of reusing another test slug.',
             '- Prevent the runtime/preview failure `saved_test.question_uuids references questions that were not seeded.`',
             '- Never invent `saved_test.question_uuids` from planned numbering, `id`, CEFR labels, marker names, or a guessed UUID prefix.',
             '- If you include `saved_test.question_uuids`, derive it only from the final generated question UUIDs in this same JSON, keeping exactly the same UUID set and the same order.',
@@ -428,7 +445,7 @@ TEXT;
         ];
 
         if (($source['source_type'] ?? null) === 'theory_page' && ! empty($source['id'])) {
-            $lines[] = '- For a local theory-page source, mirror the theory linkage in `saved_test.filters.prompt_generator` exactly as specified later in this prompt.';
+            $lines[] = '- For a local theory-page source, mirror the theory linkage in `saved_test.filters.prompt_generator` exactly as specified later in this prompt. Treat `theory_page.page_seeder_class` as the stable page link and keep `theory_page_id` only as auxiliary metadata.';
         }
 
         if ($referenceFiles !== []) {
@@ -468,8 +485,13 @@ TEXT;
             'Target',
             '- Target namespace: `' . $preview['target_namespace'] . '`',
             '- Planned PHP class: `' . $preview['fully_qualified_class_name'] . '`',
-            '- Planned PHP seeder path: `' . $preview['seeder_relative_path'] . '`',
+            '- Planned PHP loader stub: `' . $preview['seeder_relative_path'] . '`',
+            '- Planned seeder package folder: `' . $preview['package_relative_path'] . '`',
+            '- Planned real seeder PHP: `' . $preview['real_seeder_relative_path'] . '`',
             '- Planned JSON definition path: `' . $preview['definition_relative_path'] . '`',
+            '- Planned localization JSON path (uk): `' . $preview['localization_uk_relative_path'] . '`',
+            '- Planned localization JSON path (en): `' . $preview['localization_en_relative_path'] . '`',
+            '- Planned localization JSON path (pl): `' . $preview['localization_pl_relative_path'] . '`',
             '- If nearby seeders in this namespace use a slightly different local suffix or file naming pattern, follow that local convention consistently.',
             '',
             'Question plan',
@@ -482,16 +504,18 @@ TEXT;
             $this->formatSourceSection($source),
             '',
             'Hard requirements',
-            '- First inspect the real V3 implementation in `database/seeders/V3`, especially `database/seeders/V3/Concerns/JsonTestSeeder.php`, and compare it with the JSON contract in `app/Support/Database/JsonTestSeeder.php`.',
+            '- First inspect the real V3 implementation in `database/seeders/V3` plus `app/Support/Database/JsonTestSeeder.php`, `app/Support/Database/JsonTestDirectorySeeder.php`, and `app/Support/Database/JsonTestLocalizationManager.php`.',
             '- Do not invent a new schema, new loader logic, or a custom one-off seeder implementation.',
             '- Preserve the provided JSON question set as the canonical content. Do not rewrite or rebalance it unless a small technical compatibility fix is required.',
             '- If the provided JSON uses Ukrainian translations inside `variants`, reveals the final answer inside `localizations.uk.hints`, or has overly terse `localizations.uk.hints` / `localizations.uk.explanations`, normalize those fields to the local V3 standard while preserving the same question set, ordering, and level counts.',
             $this->codexSeederQuestionsOnlyLocalizationRequirement(),
-            '- Ensure the final `seeder.class`, namespace, wrapper seeder file path, and JSON definition path are all consistent.',
+            '- Ensure the final `seeder.class`, namespace, loader stub, package folder, real seeder file path, JSON definition path, and localization JSON paths are all consistent.',
             '- The final integrated result must persist a real `SavedGrammarTest` entry with ordered question links so the public theory page can surface this test.',
             $this->savedTestUuidRequirement(true),
+            $this->savedTestSlugRequirement(true),
             ...$this->savedTestQuestionUuidRules(true),
-            '- If neighboring V3 seeders in this namespace also use localization JSON files, wire them correctly instead of introducing ad-hoc logic.',
+            '- Materialize the seeder as a self-contained package: keep the top-level PHP file as a compatibility loader stub and place the real seeder PHP, `definition.json`, and all companion localization JSON files inside the seeder folder.',
+            '- Wire package-local localization JSON files with `target.definition_path: ../definition.json` and the correct `target.seeder_class` instead of introducing ad-hoc logic or any shared localization directory.',
             ...$this->detailedLocalizationQualityRules(),
             $this->formatTheoryPageLinkageRequirement($source),
             '- Verify the per-level counts before finishing.',
@@ -580,11 +604,12 @@ TEXT;
                 'slug' => $source['slug'] ?? '',
                 'title' => $source['title'] ?? '',
                 'category_slug_path' => $source['category_slug_path'] ?? '',
+                'page_seeder_class' => $source['page_seeder_class'] ?? '',
                 'url' => $source['url'] ?? '',
             ],
         ];
 
-        return $prefix . ': `' . json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '`.';
+        return $prefix . ': `' . json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '`. Use `theory_page.page_seeder_class` as the canonical page identifier so the link survives DB reseeding.';
     }
 
     /**
@@ -626,7 +651,7 @@ TEXT;
 
     protected function singlePromptQuestionsOnlyLocalizationRequirement(): string
     {
-        return '- For AI-oriented `...V3QuestionsOnlySeeder` targets, `QuestionsOnly` does not mean omitting teaching feedback: keep the base definition question-focused if that is the local pattern, but still generate companion localization JSON files with detailed `hints` and per-option `explanations`.';
+        return '- For AI-oriented `...V3QuestionsOnlySeeder` targets, `QuestionsOnly` does not mean omitting teaching feedback: keep the base definition question-focused if that is the local pattern, but still generate companion localization JSON files with detailed `hints` and per-option `explanations` inside the same seeder package.';
     }
 
     protected function llmJsonQuestionsOnlyLocalizationRequirement(): string
@@ -636,7 +661,7 @@ TEXT;
 
     protected function codexSeederQuestionsOnlyLocalizationRequirement(): string
     {
-        return '- For AI-oriented `...V3QuestionsOnlySeeder` targets, if the provided JSON omits Ukrainian teaching feedback or keeps it terse, create or enrich the companion `database/seeders/V3/localizations/uk/...` JSON so every question gets detailed `hints` and per-option `explanations` without changing the question set.';
+        return '- For AI-oriented `...V3QuestionsOnlySeeder` targets, if the provided JSON omits Ukrainian teaching feedback or keeps it terse, create or enrich the companion `localizations/uk.json` file inside the seeder package so every question gets detailed `hints` and per-option `explanations` without changing the question set.';
     }
 
     protected function savedTestUuidRequirement(bool $integrationMode = false): string
@@ -644,6 +669,13 @@ TEXT;
         return $integrationMode
             ? '- Validate `saved_test` identifiers against database limits: `saved_test.uuid` must be at most 36 characters because it is stored in `saved_grammar_tests.uuid`. If it is longer, shorten only the UUID and keep the saved-test slug stable.'
             : '- Any generated `saved_test.uuid` must fit the database limit for `saved_grammar_tests.uuid`: at most 36 characters. Prefer a short slug-like UUID such as `<short-topic>-saved-test`.';
+    }
+
+    protected function savedTestSlugRequirement(bool $integrationMode = false): string
+    {
+        return $integrationMode
+            ? '- Validate `saved_test.slug` for repository-wide uniqueness before finishing. If the incoming slug collides with a different saved-test UUID, rename the slug to a stable unique value instead of overwriting another test.'
+            : '- Any generated `saved_test.slug` must be unique across repository V3 definitions. Derive it from the topic plus provider/namespace when needed; never reuse another seeder\'s saved-test slug.';
     }
 
     /**

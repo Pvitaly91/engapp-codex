@@ -105,6 +105,9 @@ class V3PromptGeneratorTest extends TestCase
             'resolved_seeder_class' => 'Database\\Seeders\\Page_v2\\Grammar\\PassiveVoiceSeeder',
         ]);
         $response->assertJsonFragment([
+            'page_seeder_class' => 'Database\\Seeders\\Page_v2\\Grammar\\PassiveVoiceSeeder',
+        ]);
+        $response->assertJsonFragment([
             'url' => 'https://gramlyze.com/theory/voice/passive-voice-overview',
         ]);
     }
@@ -128,19 +131,29 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('Prompt for Codex');
         $response->assertSee('Passive Voice Overview');
         $response->assertSee('PassiveVoiceOverviewV3QuestionsOnlySeeder');
-        $response->assertSee('database/seeders/V3/definitions/AI/ChatGptPro/passive_voice_overview_v3_questions_only.json');
+        $response->assertSee('database/seeders/V3/AI/ChatGptPro/PassiveVoiceOverviewV3QuestionsOnlySeeder/definition.json');
+        $response->assertSee('database/seeders/V3/AI/ChatGptPro/PassiveVoiceOverviewV3QuestionsOnlySeeder/localizations/uk.json');
+        $response->assertSee('database/seeders/V3/AI/ChatGptPro/PassiveVoiceOverviewV3QuestionsOnlySeeder/localizations/en.json');
+        $response->assertSee('database/seeders/V3/AI/ChatGptPro/PassiveVoiceOverviewV3QuestionsOnlySeeder/localizations/pl.json');
         $response->assertSee('https://gramlyze.com/theory/voice/passive-voice-overview');
         $response->assertSee('prompt_generator');
         $response->assertSee('theory_page_id');
         $response->assertSee((string) $page->id);
         $response->assertSee('theory_page_ids');
+        $response->assertSee('page_seeder_class');
+        $response->assertSee('Database\\Seeders\\Page_v2\\Grammar\\PassiveVoiceSeeder');
         $response->assertSee('saved_test.uuid');
         $response->assertSee('at most 36 characters');
+        $response->assertSee('saved_test.slug');
+        $response->assertSee('must be unique across repository V3 definitions');
         $response->assertSee('saved_test.question_uuids references questions that were not seeded.');
         $response->assertSee('Never invent `saved_test.question_uuids` from planned numbering');
         $response->assertSee('omit `saved_test.question_uuids` entirely and let the loader use the seeded question UUID order automatically');
+        $response->assertSee('keep the top-level PHP file as a compatibility loader stub');
+        $response->assertSee('Use package-local localization JSON files under `localizations/uk.json`, `localizations/en.json`, and `localizations/pl.json`');
+        $response->assertSee('`target.definition_path` pointed at `../definition.json`');
         $response->assertSee('Keep every learner-facing `question` and every `variants` entry in English only.');
-        $response->assertSee('Make `localizations.uk.hints` and `localizations.uk.explanations` genuinely instructional');
+        $response->assertSee('Make Ukrainian `hints` and `explanations` genuinely instructional');
         $response->assertSee('does not mean omitting teaching feedback');
         $response->assertSee('Write at least two Ukrainian `hints` for every question');
         $response->assertSee('Do not use vague clue phrasing like');
@@ -165,7 +178,7 @@ class V3PromptGeneratorTest extends TestCase
 
         $response->assertOk();
         $response->assertSee('Database\\Seeders\\V3\\AI\\ChatGptPro\\Grammar\\PluralNouns\\PassiveVoiceOverviewV3QuestionsOnlySeeder');
-        $response->assertSee('database/seeders/V3/definitions/AI/ChatGptPro/Grammar/PluralNouns/passive_voice_overview_v3_questions_only.json');
+        $response->assertSee('database/seeders/V3/AI/ChatGptPro/Grammar/PluralNouns/PassiveVoiceOverviewV3QuestionsOnlySeeder/definition.json');
     }
 
     public function test_generates_split_mode_prompts_for_external_url_even_when_fetch_fails(): void
@@ -199,6 +212,8 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('filters.seeder_classes');
         $response->assertSee('saved_test.uuid');
         $response->assertSee('at most 36 characters');
+        $response->assertSee('saved_test.slug');
+        $response->assertSee('must be unique across repository V3 definitions');
         $response->assertSee('saved_test.question_uuids references questions that were not seeded.');
         $response->assertSee('Never invent `saved_test.question_uuids` from planned numbering');
         $response->assertSee('omit `saved_test.question_uuids` entirely. The loader will fall back to the seeded question UUID order automatically');
@@ -206,9 +221,12 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('Write every `question` and every `variants` entry in English only.');
         $response->assertSee('include detailed `localizations.uk.hints` and `localizations.uk.explanations` in this JSON');
         $response->assertSee('Make `localizations.uk.explanations` more detailed for every option');
-        $response->assertSee('create or enrich the companion `database/seeders/V3/localizations/uk/...` JSON');
+        $response->assertSee('Planned seeder package folder');
+        $response->assertSee('Planned localization path (uk): `database/seeders/V3/AI/ChatGptPro/PassiveVoiceV3QuestionsOnlySeeder/localizations/uk.json`');
+        $response->assertSee('keep these files inside the same seeder package under `localizations/<locale>.json`');
+        $response->assertSee('create or enrich the companion `localizations/uk.json` file inside the seeder package');
         $response->assertSee('Avoid generic repeated templates like');
-        $response->assertSee('database/seeders/V3/definitions/AI/ChatGptPro/passive_voice_v3_questions_only.json');
+        $response->assertSee('database/seeders/V3/AI/ChatGptPro/PassiveVoiceV3QuestionsOnlySeeder/definition.json');
     }
 
     public function test_rejects_unsafe_external_url_hosts(): void
