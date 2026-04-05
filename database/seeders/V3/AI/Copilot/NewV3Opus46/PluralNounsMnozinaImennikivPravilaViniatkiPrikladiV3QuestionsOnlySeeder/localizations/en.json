@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\En\\AI\\Copilot\\NewV3Opus46\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\NewV3Opus46\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "en",
+  "hint_provider": "copilot-new-v3-opus46",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "Most regular countable nouns form the plural by simply adding **-s**."
+      ],
+      "explanations": {
+        "a1": {
+          "dog": "Incorrect. 'Dog' is the singular form. The numeral 'two' requires the plural: **dogs**.",
+          "dogs": "Correct. 'Dogs' is the regular plural formed by adding **-s** to 'dog'.",
+          "doges": "Incorrect. The ending **-es** is only added after sibilants (s, sh, ch, x, z). 'Dog' ends in a regular consonant, so just add **-s**: **dogs**."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Regular nouns ending in a normal consonant or vowel take **-s** in the plural."
+      ],
+      "explanations": {
+        "a2": {
+          "egg": "Incorrect. 'Egg' is singular. After 'six', the plural is needed: **eggs**.",
+          "eggs": "Correct. 'Eggs' is the standard plural with **-s**. The word 'egg' does not end in a sibilant.",
+          "egges": "Incorrect. Adding **-es** is unnecessary here since 'egg' does not end in a sibilant sound."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "After **s, ss, x, z, ch, sh**, add **-es** to form the plural."
+      ],
+      "explanations": {
+        "a3": {
+          "boxs": "Incorrect. After the letter **x**, you cannot add just **-s**. The correct plural is **boxes** (-es after x).",
+          "boxes": "Correct. 'Boxes' follows the rule: after **x**, add **-es** for easier pronunciation.",
+          "boxies": "Incorrect. The **-ies** ending only applies when a noun ends in consonant + **y**. 'Box' ends in **x**, so the plural is **boxes**."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Nouns ending in **s** form the plural by adding **-es**, not by doubling the final letter."
+      ],
+      "explanations": {
+        "a4": {
+          "buss": "Incorrect. Doubling the final 's' is not the plural rule. After a final **s**, add **-es**: **buses**.",
+          "buses": "Correct. 'Buses' is formed by adding **-es** after the final **s** in 'bus'.",
+          "busies": "Incorrect. The **-ies** ending is for nouns ending in consonant + **y**, not for nouns ending in **s**."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "After the sibilant ending **sh**, nouns take **-es** in the plural."
+      ],
+      "explanations": {
+        "a5": {
+          "dishs": "Incorrect. The cluster 'shs' is hard to pronounce. After **sh**, add **-es**: **dishes**.",
+          "dishes": "Correct. 'Dishes' is the plural with **-es** after the sibilant **sh**.",
+          "dishies": "Incorrect. The **-ies** ending applies only to consonant + **y** nouns. 'Dish' ends in **sh**, so use **-es**."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "When a noun ends in consonant + **y**, change the **y** to **-ies**."
+      ],
+      "explanations": {
+        "a6": {
+          "citys": "Incorrect. When **y** is preceded by a consonant (**t** in 'city'), change **y** to **-ies**: **cities**.",
+          "cities": "Correct. 'Cities' follows the consonant + **y → ies** rule: the **t** before **y** triggers the change.",
+          "cityes": "Incorrect. The ending '-yes' does not exist in English spelling. The correct pattern is **y → ies**: **cities**."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Consonant + **y** nouns change **y** to **-ies** in the plural."
+      ],
+      "explanations": {
+        "a7": {
+          "butterflys": "Incorrect. The consonant **l** before **y** triggers the **y → ies** rule: **butterflies**.",
+          "butterflies": "Correct. 'Butterflies' — the **l** before **y** means we change **y** to **-ies**.",
+          "butterflyes": "Incorrect. The ending '-yes' is not standard. With consonant + **y**, replace **y** with **-ies**."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Some nouns ending in **-fe** form the plural by changing **-fe** to **-ves**."
+      ],
+      "explanations": {
+        "a8": {
+          "knifes": "Incorrect as a noun plural. 'Knife' changes **-fe** to **-ves** in the plural: **knives**. ('Knifes' exists only as a verb.)",
+          "knives": "Correct. 'Knives' is formed by changing **-fe** to **-ves**. Compare: *life → lives*, *wife → wives*.",
+          "knifs": "Incorrect. You cannot just drop the **e** and add **-s**. The rule requires changing **-fe** to **-ves**: **knives**."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Nouns ending in **-f** often change the **f** to **-ves** in the plural."
+      ],
+      "explanations": {
+        "a9": {
+          "leafs": "Incorrect. 'Leaf' belongs to the group where **-f** changes to **-ves**: **leaves**.",
+          "leaves": "Correct. 'Leaves' — the **f** in 'leaf' changes to **-ves**. Compare: *half → halves*.",
+          "leafes": "Incorrect. Adding **-es** without changing the **f** to **v** doesn't follow the rule: **leaves**."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Certain nouns ending in **-o** add **-es** in the plural, especially food and nature words."
+      ],
+      "explanations": {
+        "a10": {
+          "tomatos": "Incorrect. 'Tomato' belongs to the **-o → -oes** group: **tomatoes**. Compare: *potato → potatoes*.",
+          "tomatoes": "Correct. 'Tomatoes' — some **-o** nouns (tomato, potato, hero) add **-es** rather than just **-s**.",
+          "tomatoies": "Incorrect. The **-ies** ending is for consonant + **y** words, not **-o** words. The correct plural is **tomatoes**."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "'Woman' is an irregular noun — it does not follow standard **-s/-es** rules."
+      ],
+      "explanations": {
+        "a11": {
+          "womans": "Incorrect. 'Woman' is irregular. The plural changes the internal vowel: *woman → women* (a → e).",
+          "women": "Correct. 'Women' — the vowel change *a → e* forms this irregular plural. Compare: *man → men*.",
+          "womens": "Incorrect. 'Women' is already plural; adding **-s** creates a double plural that doesn't exist."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "'Foot' is an irregular noun that changes its internal vowel in the plural."
+      ],
+      "explanations": {
+        "a12": {
+          "foots": "Incorrect. 'Foot' is irregular: the vowel **oo** changes to **ee** in the plural: *foot → feet*.",
+          "feet": "Correct. 'Feet' — the vowel shift *oo → ee* forms the irregular plural. Compare: *tooth → teeth*.",
+          "feets": "Incorrect. 'Feet' is already the plural form. Adding **-s** creates a non-existent double plural."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "'Mouse' is an irregular noun with a completely different plural form."
+      ],
+      "explanations": {
+        "a13": {
+          "mouses": "Incorrect. 'Mouse' has an irregular plural: **mice**. The entire stem changes.",
+          "mice": "Correct. 'Mice' — a historical Old English irregular plural where the vowel changes entirely.",
+          "mices": "Incorrect. 'Mice' is already plural; adding **-s** to it is redundant and incorrect."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Some nouns have a zero plural — the same form for singular and plural."
+      ],
+      "explanations": {
+        "a14": {
+          "sheeps": "Incorrect. 'Sheep' has a zero plural: the form does not change. *One sheep → a hundred sheep.*",
+          "sheep": "Correct. 'Sheep' is a zero-plural noun. Singular and plural are identical. Compare: *deer, fish*.",
+          "sheepes": "Incorrect. No ending is needed. 'Sheep' remains unchanged in the plural."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "'Deer' is another zero-plural noun — the form stays the same regardless of number."
+      ],
+      "explanations": {
+        "a15": {
+          "deers": "Incorrect. 'Deer' has a zero plural: the form never changes. *One deer → several deer.*",
+          "deer": "Correct. 'Deer' — zero plural. Whether one or many, the word stays **deer**.",
+          "deeres": "Incorrect. Adding **-es** is not needed. 'Deer' is always **deer**, singular or plural."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Some nouns exist only in the plural (pluralia tantum), especially items with two matching parts."
+      ],
+      "explanations": {
+        "a16": {
+          "glass": "Incorrect in this context. 'Glass' (without -es) means material or a drinking vessel. For eyewear, use the plural-only form **glasses**.",
+          "glasses": "Correct. 'Glasses' (eyewear) is pluralia tantum — it is always used in the plural form.",
+          "glassies": "Incorrect. The **-ies** ending does not apply here. The correct form is **glasses** (always plural)."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "'Trousers' is a plural-only noun (pluralia tantum) because it refers to an item with two legs."
+      ],
+      "explanations": {
+        "a17": {
+          "trouser": "Incorrect. 'Trouser' without **-s** is not used as a standalone noun. Always say **trousers**.",
+          "trousers": "Correct. 'Trousers' is pluralia tantum. Like *scissors* and *jeans*, it is always plural.",
+          "trouserses": "Incorrect. 'Trousers' is already plural. Adding **-es** creates a non-existent form."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "In compound nouns with a preposition (noun-in-law), the plural is added to the main noun, not the last word."
+      ],
+      "explanations": {
+        "a18": {
+          "mother-in-laws": "Incorrect. The **-s** is on the wrong element. Pluralise the head noun: *mother → mothers*-in-law.",
+          "mothers-in-law": "Correct. 'Mothers-in-law' — the head noun 'mother' takes the plural. Compare: *passers-by*.",
+          "mothers-in-laws": "Incorrect. Double plural marking is wrong: only the head noun 'mother' gets **-s**."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "'News' looks plural because of the **-s**, but it is grammatically uncountable and takes a singular verb."
+      ],
+      "explanations": {
+        "a19": {
+          "news": "Correct. 'News' is an uncountable noun that always takes a singular verb: *The news was shocking.*",
+          "newses": "Incorrect. 'News' has no separate plural form. It is uncountable and does not change.",
+          "newes": "Incorrect. 'Newes' does not exist. The word is always **news**, unchanged."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Academic subject names ending in **-ics** (economics, physics) are grammatically singular."
+      ],
+      "explanations": {
+        "a20": {
+          "is": "Correct. 'Economics is' — discipline names ending in **-ics** take a singular verb.",
+          "are": "Incorrect. Despite the **-s** ending, 'Economics' as a discipline is singular: *Economics is*.",
+          "were": "Incorrect. The sentence states a general fact (present tense), and 'Economics' takes singular agreement: *is*."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "Greek-origin nouns ending in **-sis** change to **-ses** in the plural."
+      ],
+      "explanations": {
+        "a21": {
+          "thesises": "Incorrect. 'Thesis' follows the Greek pattern: **-sis → -ses**: *thesis → theses*.",
+          "theses": "Correct. 'Theses' — Greek plural where **-sis** becomes **-ses**. Compare: *crisis → crises*.",
+          "thesies": "Incorrect. The **-ies** rule does not apply to Greek **-sis** nouns. The correct plural is **theses**."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "'Crisis' follows the Greek **-sis → -ses** plural pattern."
+      ],
+      "explanations": {
+        "a22": {
+          "crisises": "Incorrect. Do not add **-es** to the full word. Change **-sis** to **-ses**: *crisis → crises*.",
+          "crises": "Correct. 'Crises' — the Greek **-sis → -ses** pattern. Compare: *basis → bases*.",
+          "crisies": "Incorrect. The **-ies** ending is not used with Greek **-sis** nouns. Correct plural: **crises**."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Latin nouns ending in **-us** often change to **-i** in formal/scientific plurals."
+      ],
+      "explanations": {
+        "a23": {
+          "funguses": "Acceptable informally, but in scientific writing the Latin plural **fungi** (**-us → -i**) is preferred.",
+          "fungi": "Correct. 'Fungi' is the standard Latin plural of 'fungus'. Compare: *stimulus → stimuli*.",
+          "fungies": "Incorrect. The **-ies** ending does not apply to Latin **-us** nouns."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Latin nouns ending in **-ix** change to **-ices** in formal/academic plurals."
+      ],
+      "explanations": {
+        "a24": {
+          "appendixs": "Incorrect. You cannot add **-s** after **x**. The Latin plural is **appendices** (**-ix → -ices**).",
+          "appendices": "Correct. 'Appendices' follows the **-ix → -ices** Latin pattern. Compare: *index → indices*.",
+          "appendixes": "Acceptable in informal English, but the Latin form **appendices** is preferred in academic writing."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "'Syllabus' is a Latin noun: its formal plural changes **-us** to **-i**."
+      ],
+      "explanations": {
+        "a25": {
+          "syllabuses": "Acceptable informally, but in academic writing the Latin plural **syllabi** is preferred.",
+          "syllabi": "Correct. 'Syllabi' — the Latin **-us → -i** plural. This form is standard in academic contexts.",
+          "syllabies": "Incorrect. The **-ies** ending is not used for Latin **-us** nouns. The correct plural is **syllabi**."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "'Matrix' follows the Latin **-ix → -ices** pattern in scientific and mathematical contexts."
+      ],
+      "explanations": {
+        "a26": {
+          "matrixes": "Sometimes seen in informal use, but in mathematics and engineering the standard plural is **matrices**.",
+          "matrices": "Correct. 'Matrices' — the Latin **-ix → -ices** plural, standard in scientific writing.",
+          "matrixs": "Incorrect. You cannot add just **-s** after **x**. The correct Latin plural is **matrices**."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "In scientific writing, 'nucleus' takes the Latin **-us → -i** plural form."
+      ],
+      "explanations": {
+        "a27": {
+          "nucleuses": "Sometimes found in informal speech, but in scientific texts the standard plural is **nuclei**.",
+          "nuclei": "Correct. 'Nuclei' — the Latin **-us → -i** plural, mandatory in scientific literature.",
+          "nucleis": "Incorrect. 'Nuclei' is already plural. Adding **-s** creates a non-standard form."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "Latin nouns ending in **-um** change to **-a** in the plural."
+      ],
+      "explanations": {
+        "a28": {
+          "stratums": "Incorrect. 'Stratum' is a Latin noun: **-um** changes to **-a** in the plural: *stratum → strata*.",
+          "strata": "Correct. 'Strata' — the Latin **-um → -a** plural. Compare: *datum → data*, *medium → media*.",
+          "stratas": "Incorrect. 'Strata' is already plural. Adding **-s** creates a double plural."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "'Index' follows the Latin **-ex → -ices** pattern in formal academic writing."
+      ],
+      "explanations": {
+        "a29": {
+          "indexs": "Incorrect. You cannot add **-s** directly after **x**. The Latin plural is **indices**.",
+          "indices": "Correct. 'Indices' — the Latin **-ex → -ices** plural, standard in academic and technical texts.",
+          "indexes": "Acceptable in everyday English (e.g. 'database indexes'), but in formal academic writing **indices** is preferred."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "Latin first-declension nouns ending in **-a** form the plural by adding **-e** (giving **-ae**)."
+      ],
+      "explanations": {
+        "a30": {
+          "vertebras": "Sometimes seen informally, but in medical and anatomical literature the Latin plural **vertebrae** is standard.",
+          "vertebrae": "Correct. 'Vertebrae' — the Latin **-a → -ae** plural, mandatory in scientific and medical texts.",
+          "vertebraes": "Incorrect. 'Vertebrae' is already the plural. Adding **-s** is redundant and non-standard."
+        }
+      }
+    }
+  ]
+}

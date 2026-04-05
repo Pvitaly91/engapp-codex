@@ -1,0 +1,834 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\AI\\Copilot\\NewV3Opus46\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+    "uuid_namespace": "PNMnozinaNewV3Opus46"
+  },
+  "defaults": {
+    "default_locale": "uk",
+    "flag": 0,
+    "type": 0,
+    "level_difficulty": {
+      "A1": 1,
+      "A2": 2,
+      "B1": 3,
+      "B2": 4,
+      "C1": 5,
+      "C2": 5
+    }
+  },
+  "category": {
+    "name": "Іменники, артиклі та кількість"
+  },
+  "sources": {
+    "theory_page_776": {
+      "name": "Plural Nouns — Множина іменників: правила, винятки, приклади"
+    }
+  },
+  "tags": {
+    "theme": {
+      "name": "Plural nouns",
+      "category": "topic"
+    },
+    "detail": {
+      "name": "Rules, exceptions, and usage",
+      "category": "focus"
+    },
+    "structure": {
+      "name": "Single-gap multiple choice",
+      "category": "structure"
+    },
+    "regular_s": {
+      "name": "Regular -s plural",
+      "category": "pattern"
+    },
+    "regular_es": {
+      "name": "Regular -es plural",
+      "category": "pattern"
+    },
+    "y_to_ies": {
+      "name": "Consonant + y → -ies",
+      "category": "pattern"
+    },
+    "f_to_ves": {
+      "name": "f/fe → -ves",
+      "category": "pattern"
+    },
+    "o_plural": {
+      "name": "-o plural forms",
+      "category": "pattern"
+    },
+    "irregular": {
+      "name": "Irregular plural forms",
+      "category": "pattern"
+    },
+    "zero_plural": {
+      "name": "Zero-change plural",
+      "category": "pattern"
+    },
+    "plural_only": {
+      "name": "Plural-only nouns",
+      "category": "usage"
+    },
+    "singular_only": {
+      "name": "Singular-only / uncountable nouns",
+      "category": "usage"
+    },
+    "compound": {
+      "name": "Compound noun plurals",
+      "category": "pattern"
+    },
+    "agreement": {
+      "name": "Subject–verb agreement with nouns",
+      "category": "usage"
+    },
+    "latin_greek": {
+      "name": "Latin and Greek plurals",
+      "category": "register"
+    },
+    "academic": {
+      "name": "Academic and scientific plurals",
+      "category": "register"
+    }
+  },
+  "default_tag_keys": [
+    "theme",
+    "detail",
+    "structure"
+  ],
+  "saved_test": {
+    "uuid": "plnouns-nv3o46-saved-test",
+    "slug": "plural_nouns_mnozina_imennikiv_pravila_viniatki_prikladi_new_v3_opus46",
+    "name": "Plural Nouns — New V3 Opus 4.6 Questions Test",
+    "description": "Practice set for plural noun formation covering regular -s/-es/-ies, f/fe→ves, irregular forms, zero plurals, plural-only and singular-only nouns, compound plurals, subject–verb agreement, and Latin/Greek academic plurals across CEFR levels A1–C2.",
+    "filters": {
+      "num_questions": 30,
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "seeder_classes": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\NewV3Opus46\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder"
+      ],
+      "prompt_generator": {
+        "source_type": "theory_page",
+        "theory_page_id": 776,
+        "theory_page_ids": [
+          776
+        ],
+        "theory_page": {
+          "id": 776,
+          "slug": "plural-nouns-s-es-ies",
+          "title": "Plural Nouns — Множина іменників: правила, винятки, приклади",
+          "category_slug_path": "imennyky-artykli-ta-kilkist",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+          "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies"
+        }
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": 1,
+      "level": "A1",
+      "question": "I have two {a1} at home.",
+      "tag_keys": [
+        "regular_s"
+      ],
+      "variants": [
+        "I have two {a1} at home."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a1": {
+          "answer": "dogs",
+          "options": [
+            "dog",
+            "dogs",
+            "doges"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "level": "A1",
+      "question": "She bought six {a2} at the shop.",
+      "tag_keys": [
+        "regular_s"
+      ],
+      "variants": [
+        "She bought six {a2} at the shop."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a2": {
+          "answer": "eggs",
+          "options": [
+            "egg",
+            "eggs",
+            "egges"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "level": "A1",
+      "question": "There are three {a3} on the shelf.",
+      "tag_keys": [
+        "regular_es"
+      ],
+      "variants": [
+        "There are three {a3} on the shelf."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a3": {
+          "answer": "boxes",
+          "options": [
+            "boxs",
+            "boxes",
+            "boxies"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "level": "A1",
+      "question": "We have four {a4} in our garage.",
+      "tag_keys": [
+        "regular_es"
+      ],
+      "variants": [
+        "We have four {a4} in our garage."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a4": {
+          "answer": "buses",
+          "options": [
+            "buss",
+            "buses",
+            "busies"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "level": "A1",
+      "question": "He washed all the {a5} after lunch.",
+      "tag_keys": [
+        "regular_es"
+      ],
+      "variants": [
+        "He washed all the {a5} after lunch."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a5": {
+          "answer": "dishes",
+          "options": [
+            "dishs",
+            "dishes",
+            "dishies"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "level": "A2",
+      "question": "There are many big {a6} in Europe.",
+      "tag_keys": [
+        "y_to_ies"
+      ],
+      "variants": [
+        "There are many big {a6} in Europe."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a6": {
+          "answer": "cities",
+          "options": [
+            "citys",
+            "cities",
+            "cityes"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "level": "A2",
+      "question": "The children chased colourful {a7} in the meadow.",
+      "tag_keys": [
+        "y_to_ies"
+      ],
+      "variants": [
+        "The children chased colourful {a7} in the meadow."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a7": {
+          "answer": "butterflies",
+          "options": [
+            "butterflys",
+            "butterflies",
+            "butterflyes"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "level": "A2",
+      "question": "Be careful with those sharp {a8}!",
+      "tag_keys": [
+        "f_to_ves"
+      ],
+      "variants": [
+        "Be careful with those sharp {a8}!"
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a8": {
+          "answer": "knives",
+          "options": [
+            "knifes",
+            "knives",
+            "knifs"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "level": "A2",
+      "question": "In autumn, dry {a9} cover the ground.",
+      "tag_keys": [
+        "f_to_ves"
+      ],
+      "variants": [
+        "In autumn, dry {a9} cover the ground."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a9": {
+          "answer": "leaves",
+          "options": [
+            "leafs",
+            "leaves",
+            "leafes"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "level": "A2",
+      "question": "She grows {a10} in her garden every summer.",
+      "tag_keys": [
+        "o_plural"
+      ],
+      "variants": [
+        "She grows {a10} in her garden every summer."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a10": {
+          "answer": "tomatoes",
+          "options": [
+            "tomatos",
+            "tomatoes",
+            "tomatoies"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 11,
+      "level": "B1",
+      "question": "Two {a11} were waiting at the entrance.",
+      "tag_keys": [
+        "irregular"
+      ],
+      "variants": [
+        "Two {a11} were waiting at the entrance."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a11": {
+          "answer": "women",
+          "options": [
+            "womans",
+            "women",
+            "womens"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 12,
+      "level": "B1",
+      "question": "He hurt both of his {a12} during the race.",
+      "tag_keys": [
+        "irregular"
+      ],
+      "variants": [
+        "He hurt both of his {a12} during the race."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a12": {
+          "answer": "feet",
+          "options": [
+            "foots",
+            "feet",
+            "feets"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 13,
+      "level": "B1",
+      "question": "The cat caught three {a13} in the barn.",
+      "tag_keys": [
+        "irregular"
+      ],
+      "variants": [
+        "The cat caught three {a13} in the barn."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a13": {
+          "answer": "mice",
+          "options": [
+            "mouses",
+            "mice",
+            "mices"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 14,
+      "level": "B1",
+      "question": "The farmer keeps a hundred {a14} on the hill.",
+      "tag_keys": [
+        "zero_plural"
+      ],
+      "variants": [
+        "The farmer keeps a hundred {a14} on the hill."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a14": {
+          "answer": "sheep",
+          "options": [
+            "sheeps",
+            "sheep",
+            "sheepes"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 15,
+      "level": "B1",
+      "question": "We spotted several {a15} crossing the forest path.",
+      "tag_keys": [
+        "zero_plural"
+      ],
+      "variants": [
+        "We spotted several {a15} crossing the forest path."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a15": {
+          "answer": "deer",
+          "options": [
+            "deers",
+            "deer",
+            "deeres"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 16,
+      "level": "B2",
+      "question": "Where are my {a16}? I cannot see the board.",
+      "tag_keys": [
+        "plural_only"
+      ],
+      "variants": [
+        "Where are my {a16}? I cannot see the board."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a16": {
+          "answer": "glasses",
+          "options": [
+            "glass",
+            "glasses",
+            "glassies"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 17,
+      "level": "B2",
+      "question": "These {a17} need to be shortened before the ceremony.",
+      "tag_keys": [
+        "plural_only"
+      ],
+      "variants": [
+        "These {a17} need to be shortened before the ceremony."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a17": {
+          "answer": "trousers",
+          "options": [
+            "trouser",
+            "trousers",
+            "trouserses"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 18,
+      "level": "B2",
+      "question": "Her two {a18} live in different countries.",
+      "tag_keys": [
+        "compound"
+      ],
+      "variants": [
+        "Her two {a18} live in different countries."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a18": {
+          "answer": "mothers-in-law",
+          "options": [
+            "mother-in-laws",
+            "mothers-in-law",
+            "mothers-in-laws"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 19,
+      "level": "B2",
+      "question": "The {a19} about the earthquake was shocking.",
+      "tag_keys": [
+        "singular_only"
+      ],
+      "variants": [
+        "The {a19} about the earthquake was shocking."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a19": {
+          "answer": "news",
+          "options": [
+            "news",
+            "newses",
+            "newes"
+          ],
+          "verb_hint": "singular/plural form"
+        }
+      }
+    },
+    {
+      "id": 20,
+      "level": "B2",
+      "question": "Economics {a20} a required subject at this university.",
+      "tag_keys": [
+        "agreement"
+      ],
+      "variants": [
+        "Economics {a20} a required subject at this university."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a20": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "were"
+          ],
+          "verb_hint": "verb agreement"
+        }
+      }
+    },
+    {
+      "id": 21,
+      "level": "C1",
+      "question": "The student submitted two {a21} before the deadline.",
+      "tag_keys": [
+        "latin_greek"
+      ],
+      "variants": [
+        "The student submitted two {a21} before the deadline."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a21": {
+          "answer": "theses",
+          "options": [
+            "thesises",
+            "theses",
+            "thesies"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 22,
+      "level": "C1",
+      "question": "The country faced two major political {a22} in one decade.",
+      "tag_keys": [
+        "latin_greek"
+      ],
+      "variants": [
+        "The country faced two major political {a22} in one decade."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a22": {
+          "answer": "crises",
+          "options": [
+            "crisises",
+            "crises",
+            "crisies"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 23,
+      "level": "C1",
+      "question": "The biologist classified several {a23} found in the soil samples.",
+      "tag_keys": [
+        "latin_greek",
+        "academic"
+      ],
+      "variants": [
+        "The biologist classified several {a23} found in the soil samples."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a23": {
+          "answer": "fungi",
+          "options": [
+            "funguses",
+            "fungi",
+            "fungies"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 24,
+      "level": "C1",
+      "question": "The book contains three {a24} with supplementary data.",
+      "tag_keys": [
+        "latin_greek",
+        "academic"
+      ],
+      "variants": [
+        "The book contains three {a24} with supplementary data."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a24": {
+          "answer": "appendices",
+          "options": [
+            "appendixs",
+            "appendices",
+            "appendixes"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 25,
+      "level": "C1",
+      "question": "The updated {a25} for the course are posted online.",
+      "tag_keys": [
+        "latin_greek",
+        "academic"
+      ],
+      "variants": [
+        "The updated {a25} for the course are posted online."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a25": {
+          "answer": "syllabi",
+          "options": [
+            "syllabuses",
+            "syllabi",
+            "syllabies"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 26,
+      "level": "C2",
+      "question": "The engineer calculated the inverse of both {a26}.",
+      "tag_keys": [
+        "latin_greek",
+        "academic"
+      ],
+      "variants": [
+        "The engineer calculated the inverse of both {a26}."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a26": {
+          "answer": "matrices",
+          "options": [
+            "matrixes",
+            "matrices",
+            "matrixs"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 27,
+      "level": "C2",
+      "question": "In formal scientific papers, the plural of 'nucleus' is {a27}.",
+      "tag_keys": [
+        "latin_greek",
+        "academic"
+      ],
+      "variants": [
+        "In formal scientific papers, the plural of 'nucleus' is {a27}."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a27": {
+          "answer": "nuclei",
+          "options": [
+            "nucleuses",
+            "nuclei",
+            "nucleis"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 28,
+      "level": "C2",
+      "question": "The geologist examined several {a28} of sedimentary rock.",
+      "tag_keys": [
+        "latin_greek",
+        "academic"
+      ],
+      "variants": [
+        "The geologist examined several {a28} of sedimentary rock."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a28": {
+          "answer": "strata",
+          "options": [
+            "stratums",
+            "strata",
+            "stratas"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 29,
+      "level": "C2",
+      "question": "The ancient text included two {a29} listing all the members.",
+      "tag_keys": [
+        "latin_greek",
+        "academic"
+      ],
+      "variants": [
+        "The ancient text included two {a29} listing all the members."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a29": {
+          "answer": "indices",
+          "options": [
+            "indexs",
+            "indices",
+            "indexes"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    },
+    {
+      "id": 30,
+      "level": "C2",
+      "question": "The researcher documented five distinct {a30} in the patient's vertebral column.",
+      "tag_keys": [
+        "latin_greek",
+        "academic"
+      ],
+      "variants": [
+        "The researcher documented five distinct {a30} in the patient's vertebral column."
+      ],
+      "source": "theory_page_776",
+      "markers": {
+        "a30": {
+          "answer": "vertebrae",
+          "options": [
+            "vertebras",
+            "vertebrae",
+            "vertebraes"
+          ],
+          "verb_hint": "plural form"
+        }
+      }
+    }
+  ]
+}
