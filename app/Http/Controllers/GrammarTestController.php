@@ -23,6 +23,7 @@ use App\Services\TagAggregationService;
 use App\Services\TheoryBlockMatcherService;
 use App\Services\VirtualSavedTest;
 use App\Models\QuestionHint;
+use App\Support\SavedTestJsState;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -420,8 +421,9 @@ class GrammarTestController extends Controller
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
         $stateKey = $this->jsStateSessionKey($test, $view);
-        $savedState = session($stateKey);
-        $questions = $this->buildQuestionDataset($resolved, empty($savedState));
+        $savedState = $this->activeJsSavedState($stateKey);
+        $questions = $this->persistedQuestionData($test, $savedState)
+            ?? $this->buildQuestionDataset($resolved, $savedState === null);
 
         return view("engram.$view", [
             'test' => $test,
@@ -443,7 +445,7 @@ class GrammarTestController extends Controller
         }
 
         if ($mode) {
-            session()->forget($this->jsStateSessionKey($test, $mode));
+            $this->clearJsLaunchState($test);
         }
 
         $questions = $this->buildQuestionDataset($resolved, true);
@@ -465,7 +467,7 @@ class GrammarTestController extends Controller
         $state = $request->input('state');
 
         if ($state === null) {
-            session()->forget($key);
+            $this->clearJsLaunchState($test);
 
             return response()->noContent();
         }
@@ -474,7 +476,18 @@ class GrammarTestController extends Controller
             return response()->json(['message' => 'Invalid state'], 422);
         }
 
+        if (! SavedTestJsState::isStarted($state)) {
+            session()->forget($key);
+
+            return response()->noContent();
+        }
+
         session([$key => $state]);
+
+        $questionData = SavedTestJsState::questionData($state);
+        if (is_array($questionData)) {
+            session([$this->jsQuestionDataSessionKey($test) => $questionData]);
+        }
 
         return response()->noContent();
     }
@@ -598,6 +611,58 @@ class GrammarTestController extends Controller
         $launchToken = $this->sanitizeJsLaunchToken(request()->input('launch', request()->query('launch')));
 
         return $launchToken ? $key . ':' . $launchToken : $key;
+    }
+
+    private function jsQuestionDataSessionKey(Test|SavedGrammarTest|VirtualSavedTest $test): string
+    {
+        $key = sprintf('saved_test_js_questions:%s', $test->slug);
+        $launchToken = $this->sanitizeJsLaunchToken(request()->input('launch', request()->query('launch')));
+
+        return $launchToken ? $key . ':' . $launchToken : $key;
+    }
+
+    private function activeJsSavedState(string $stateKey): ?array
+    {
+        $savedState = session($stateKey);
+
+        if (! is_array($savedState)) {
+            return null;
+        }
+
+        if (! SavedTestJsState::isStarted($savedState)) {
+            session()->forget($stateKey);
+
+            return null;
+        }
+
+        return $savedState;
+    }
+
+    private function persistedQuestionData(Test|SavedGrammarTest|VirtualSavedTest $test, ?array $savedState): ?array
+    {
+        $questionData = session($this->jsQuestionDataSessionKey($test));
+
+        if (is_array($questionData)) {
+            return $questionData;
+        }
+
+        $questionData = SavedTestJsState::questionData($savedState);
+
+        if (is_array($questionData)) {
+            session([$this->jsQuestionDataSessionKey($test) => $questionData]);
+        }
+
+        return is_array($questionData) ? $questionData : null;
+    }
+
+    private function clearJsLaunchState(Test|SavedGrammarTest|VirtualSavedTest $test): void
+    {
+        $keys = collect(self::JS_VIEWS)
+            ->map(fn (string $view) => $this->jsStateSessionKey($test, $view))
+            ->push($this->jsQuestionDataSessionKey($test))
+            ->all();
+
+        session()->forget($keys);
     }
 
     public function showSavedTestStep(Request $request, $slug)

@@ -38,6 +38,7 @@ class SavedTestJsStateTest extends TestCase
 
         session()->start();
         session()->flush();
+        config(['coming-soon.enabled' => false]);
 
         Test::query()->delete();
         if (Schema::hasTable('saved_grammar_tests')) {
@@ -201,7 +202,7 @@ class SavedTestJsStateTest extends TestCase
         $session = array_merge(['_token' => 'test-token'], $session);
 
         return $this->withSession($session)->postJson(
-            route('saved-test.js.state', $test->slug),
+            route('test.js.state', $test->slug),
             $payload,
             ['X-CSRF-TOKEN' => 'test-token']
         );
@@ -213,7 +214,17 @@ class SavedTestJsStateTest extends TestCase
 
         $payload = [
             'mode' => 'saved-test-js',
-            'state' => ['foo' => 'bar'],
+            'state' => [
+                'items' => [
+                    ['chosen' => ['answer']],
+                ],
+                '__meta' => [
+                    'started' => true,
+                    'question_data' => [
+                        ['id' => 101, 'question' => 'Sample question'],
+                    ],
+                ],
+            ],
         ];
 
         $response = $this->postState($test, $payload);
@@ -222,6 +233,38 @@ class SavedTestJsStateTest extends TestCase
 
         $key = sprintf('saved_test_js_state:%s:%s', $test->slug, 'saved-test-js');
         $this->assertSame($payload['state'], session($key));
+        $this->assertSame(
+            $payload['state']['__meta']['question_data'],
+            session(sprintf('saved_test_js_questions:%s', $test->slug))
+        );
+    }
+
+    public function test_it_does_not_store_unstarted_state_in_session(): void
+    {
+        $test = $this->createSavedTest();
+
+        $payload = [
+            'mode' => 'saved-test-js',
+            'state' => [
+                'items' => [
+                    ['chosen' => [null, null], 'inputs' => [[''], ['']]],
+                ],
+                '__meta' => [
+                    'started' => false,
+                    'question_data' => [
+                        ['id' => 101, 'question' => 'Sample question'],
+                    ],
+                ],
+            ],
+        ];
+
+        $this->postState($test, $payload)->assertNoContent();
+
+        $stateKey = sprintf('saved_test_js_state:%s:%s', $test->slug, 'saved-test-js');
+        $questionsKey = sprintf('saved_test_js_questions:%s', $test->slug);
+
+        $this->assertNull(session($stateKey));
+        $this->assertNull(session($questionsKey));
     }
 
     public function test_it_fetches_questions_for_filter_based_saved_test(): void
@@ -255,7 +298,7 @@ class SavedTestJsStateTest extends TestCase
             'filters' => $filters,
         ]);
 
-        $response = $this->getJson(route('saved-test.js.questions', $savedTest->slug));
+        $response = $this->getJson(route('test.js.questions', $savedTest->slug));
 
         $response->assertOk();
         $data = $response->json('questions');
@@ -269,16 +312,22 @@ class SavedTestJsStateTest extends TestCase
     {
         $test = $this->createSavedTest();
         $key = sprintf('saved_test_js_state:%s:%s', $test->slug, 'saved-test-js');
+        $otherModeKey = sprintf('saved_test_js_state:%s:%s', $test->slug, 'saved-test-js-step');
+        $questionsKey = sprintf('saved_test_js_questions:%s', $test->slug);
 
         $response = $this->postState($test, [
             'mode' => 'saved-test-js',
             'state' => null,
         ], [
             $key => ['foo' => 'bar'],
+            $otherModeKey => ['bar' => 'baz'],
+            $questionsKey => [['id' => 1]],
         ]);
 
         $response->assertNoContent();
         $this->assertNull(session($key));
+        $this->assertNull(session($otherModeKey));
+        $this->assertNull(session($questionsKey));
     }
 
     public function test_it_rejects_invalid_payload(): void
@@ -306,20 +355,28 @@ class SavedTestJsStateTest extends TestCase
     {
         $test = $this->createSavedTest();
         $key = sprintf('saved_test_js_state:%s:%s', $test->slug, 'saved-test-js');
+        $otherModeKey = sprintf('saved_test_js_state:%s:%s', $test->slug, 'saved-test-js-step');
+        $questionsKey = sprintf('saved_test_js_questions:%s', $test->slug);
 
-        $response = $this->withSession([$key => ['foo' => 'bar']])->getJson(
-            route('saved-test.js.questions', $test->slug) . '?mode=saved-test-js'
+        $response = $this->withSession([
+            $key => ['foo' => 'bar'],
+            $otherModeKey => ['bar' => 'baz'],
+            $questionsKey => [['id' => 1]],
+        ])->getJson(
+            route('test.js.questions', $test->slug) . '?mode=saved-test-js'
         );
 
         $response->assertOk()->assertJson(['questions' => []]);
         $this->assertNull(session($key));
+        $this->assertNull(session($otherModeKey));
+        $this->assertNull(session($questionsKey));
     }
 
     public function test_it_rejects_invalid_mode_when_fetching_questions(): void
     {
         $test = $this->createSavedTest();
 
-        $this->getJson(route('saved-test.js.questions', $test->slug) . '?mode=invalid')
+        $this->getJson(route('test.js.questions', $test->slug) . '?mode=invalid')
             ->assertStatus(422);
     }
 

@@ -69,6 +69,74 @@ function cloneState(data) {
     return JSON.parse(JSON.stringify(data));
 }
 
+function isFilledAnswerScalar(value) {
+    if (Array.isArray(value)) {
+        return value.some(isFilledAnswerScalar);
+    }
+
+    if (typeof value === 'string') {
+        return value.trim() !== '';
+    }
+
+    if (typeof value === 'number') {
+        return Number.isFinite(value);
+    }
+
+    return value !== null && value !== undefined && value !== false;
+}
+
+function isStartedState(state) {
+    if (!state || typeof state !== 'object') {
+        return false;
+    }
+
+    if (Array.isArray(state.connections) && state.connections.length > 0) {
+        return true;
+    }
+
+    if (Array.isArray(state.placements) && state.placements.length > 0) {
+        return true;
+    }
+
+    if (!Array.isArray(state.items)) {
+        return false;
+    }
+
+    return state.items.some((item) => {
+        if (!item || typeof item !== 'object') {
+            return false;
+        }
+
+        return isFilledAnswerScalar(item.chosen) || isFilledAnswerScalar(item.inputs);
+    });
+}
+
+function prepareStateForPersistence(state) {
+    const snapshot = cloneState(state);
+
+    if (!snapshot || typeof snapshot !== 'object') {
+        return snapshot;
+    }
+
+    const meta = snapshot.__meta && typeof snapshot.__meta === 'object'
+        ? snapshot.__meta
+        : {};
+    const started = isStartedState(snapshot);
+
+    meta.started = started;
+
+    if (started) {
+        const questionData = cloneState(window.__INITIAL_JS_TEST_QUESTIONS__);
+        meta.question_data = Array.isArray(questionData) ? questionData : [];
+    } else {
+        delete meta.question_data;
+    }
+
+    snapshot.__meta = meta;
+
+    return snapshot;
+}
+
 const JS_TEST_PERSISTENCE = window.JS_TEST_PERSISTENCE || null;
 let JS_TEST_SAVE_TIMER = null;
 
@@ -89,7 +157,9 @@ function persistState(state, immediate = false) {
         return;
     }
 
-    const snapshot = cloneState(state);
+    const previousStarted = Boolean(JS_TEST_PERSISTENCE?.saved?.__meta?.started);
+    const snapshot = prepareStateForPersistence(state);
+    const started = Boolean(snapshot?.__meta?.started);
     JS_TEST_PERSISTENCE.saved = snapshot;
 
     const payload = {
@@ -110,7 +180,7 @@ function persistState(state, immediate = false) {
         }).catch(() => {});
     };
 
-    if (immediate) {
+    if (immediate || (started && !previousStarted)) {
         if (JS_TEST_SAVE_TIMER) {
             clearTimeout(JS_TEST_SAVE_TIMER);
         }

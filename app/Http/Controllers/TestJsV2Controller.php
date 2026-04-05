@@ -6,6 +6,7 @@ use App\Models\TextBlock;
 use App\Services\MarkerTheoryMatcherService;
 use App\Services\QuestionVariantService;
 use App\Services\SavedTestResolver;
+use App\Support\SavedTestJsState;
 
 class TestJsV2Controller extends Controller
 {
@@ -89,8 +90,9 @@ class TestJsV2Controller extends Controller
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
         $stateKey = $this->jsStateSessionKey($test, $mode);
-        $savedState = session($stateKey);
-        $questions = $this->buildQuestionDataset($resolved, empty($savedState));
+        $savedState = $this->activeJsSavedState($stateKey);
+        $questions = $this->persistedQuestionData($test, $savedState)
+            ?? $this->buildQuestionDataset($resolved, $savedState === null);
 
         return view($view, array_merge([
             'test' => $test,
@@ -205,6 +207,48 @@ class TestJsV2Controller extends Controller
         $launchToken = $this->sanitizeJsLaunchToken(request()->query('launch'));
 
         return $launchToken ? $key . ':' . $launchToken : $key;
+    }
+
+    protected function jsQuestionDataSessionKey($test): string
+    {
+        $key = sprintf('saved_test_js_questions:%s', $test->slug);
+        $launchToken = $this->sanitizeJsLaunchToken(request()->query('launch'));
+
+        return $launchToken ? $key . ':' . $launchToken : $key;
+    }
+
+    protected function activeJsSavedState(string $stateKey): ?array
+    {
+        $savedState = session($stateKey);
+
+        if (! is_array($savedState)) {
+            return null;
+        }
+
+        if (! SavedTestJsState::isStarted($savedState)) {
+            session()->forget($stateKey);
+
+            return null;
+        }
+
+        return $savedState;
+    }
+
+    protected function persistedQuestionData($test, ?array $savedState): ?array
+    {
+        $questionData = session($this->jsQuestionDataSessionKey($test));
+
+        if (is_array($questionData)) {
+            return $questionData;
+        }
+
+        $questionData = SavedTestJsState::questionData($savedState);
+
+        if (is_array($questionData)) {
+            session([$this->jsQuestionDataSessionKey($test) => $questionData]);
+        }
+
+        return is_array($questionData) ? $questionData : null;
     }
 
     protected function isAdminUser(): bool
