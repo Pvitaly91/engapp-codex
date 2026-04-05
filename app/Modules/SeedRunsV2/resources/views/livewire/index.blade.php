@@ -118,14 +118,14 @@
             @if($activeSeederTab === 'theory-tests')
                 <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
                     <div class="mb-4">
-                        <h2 class="text-xl font-semibold text-gray-800">Сторінки теорії з готовими тестами</h2>
+                        <h2 class="text-xl font-semibold text-gray-800">Сторінки теорії з пов’язаними сидарами</h2>
                         <p class="mt-1 text-sm text-gray-500">
-                            Показані лише ті сторінки теорії, які прив’язані до виконаних сидерів через Prompt Generator і вже мають готовий тест.
+                            Показані сторінки теорії, які прив’язані до сидерів через Prompt Generator. Для кожної сторінки видно виконані та невиконані сидери, а також доступні готові тести.
                         </p>
                     </div>
 
                     @if(empty($theoryTestPages))
-                        <p class="text-sm text-gray-500">Поки що не знайдено сторінок теорії з виконаними сидерами, для яких існують тести.</p>
+                        <p class="text-sm text-gray-500">Поки що не знайдено сторінок теорії, пов’язаних із сидарами через Prompt Generator.</p>
                     @else
                         <div class="space-y-4">
                             @include('seed-runs.partials.theory-test-pages', ['theoryTestPages' => $theoryTestPages])

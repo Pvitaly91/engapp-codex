@@ -1,0 +1,439 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\Pl\\AI\\NewV3\\Codex\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlyLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\AI\\NewV3\\Codex\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+        "definition_path": "../definition.json"
+    },
+    "locale": "pl",
+    "hint_provider": "codex-newv3",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "Zasada: to zdanie sprawdza regularną liczbę mnogą z `-s`.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `two`."
+            ],
+            "explanations": {
+                "a1": {
+                    "book": "`book` jest niepoprawne, bo to zdanie wymaga regularnej liczby mnogiej z `-s`.",
+                    "books": "`books` jest poprawne, bo to zdanie wymaga regularnej liczby mnogiej z `-s`.",
+                    "bookes": "`bookes` jest niepoprawne, bo to zdanie wymaga regularnej liczby mnogiej z `-s`."
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "Zasada: to zdanie sprawdza liczbę mnogą z `-es` po końcówce syczącej lub szumiącej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `three`."
+            ],
+            "explanations": {
+                "a1": {
+                    "bus": "`bus` jest niepoprawne, bo to zdanie wymaga liczby mnogiej z `-es` po tej końcówce.",
+                    "buses": "`buses` jest poprawne, bo to zdanie wymaga liczby mnogiej z `-es`.",
+                    "buss": "`buss` jest niepoprawne, bo to zdanie wymaga liczby mnogiej z `-es` po tej końcówce."
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "Zasada: po spółgłosce + `y` liczba mnoga zmienia `y` na `-ies`.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `two other`."
+            ],
+            "explanations": {
+                "a1": {
+                    "baby": "`baby` jest niepoprawne, bo ten rzeczownik powinien zmienić `y` na `-ies`.",
+                    "babies": "`babies` jest poprawne, bo tutaj liczba mnoga zmienia `y` na `-ies`.",
+                    "babys": "`babys` jest niepoprawne, bo ten rzeczownik powinien zmienić `y` na `-ies`."
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "Zasada: po samogłosce + `y` liczba mnoga zachowuje `y` i dodaje `-s`.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `many`."
+            ],
+            "explanations": {
+                "a1": {
+                    "toys": "`toys` jest poprawne, bo tutaj liczba mnoga zachowuje `y` i dodaje `-s`.",
+                    "toies": "`toies` jest niepoprawne, bo ten rzeczownik powinien zachować `y` i dodać `-s`.",
+                    "toyes": "`toyes` jest niepoprawne, bo ten rzeczownik powinien zachować `y` i dodać `-s`."
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "Zasada: `child` ma nieregularną formę liczby mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `Two ... are`."
+            ],
+            "explanations": {
+                "a1": {
+                    "childs": "`childs` jest niepoprawne, bo `child` nie używa tu regularnej liczby mnogiej.",
+                    "children": "`children` jest poprawne, bo to nieregularna liczba mnoga od `child`.",
+                    "childrens": "`childrens` jest niepoprawne, bo `child` nie używa tu regularnej liczby mnogiej."
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "Zasada: to zdanie sprawdza liczbę mnogą z `-es` po końcówce syczącej lub szumiącej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `all the dirty`."
+            ],
+            "explanations": {
+                "a1": {
+                    "dishs": "`dishs` jest niepoprawne, bo to zdanie wymaga liczby mnogiej z `-es` po tej końcówce.",
+                    "dishes": "`dishes` jest poprawne, bo to zdanie wymaga liczby mnogiej z `-es`.",
+                    "dishies": "`dishies` jest niepoprawne, bo to zdanie wymaga liczby mnogiej z `-es` po tej końcówce."
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "Zasada: to zdanie sprawdza liczbę mnogą z `-es` po spółgłosce + `o`.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `many`."
+            ],
+            "explanations": {
+                "a1": {
+                    "tomatoes": "`tomatoes` jest poprawne, bo ten rzeczownik przyjmuje `-es` po spółgłosce + `o`.",
+                    "tomatos": "`tomatos` jest niepoprawne, bo ten rzeczownik potrzebuje liczby mnogiej z `-es` po spółgłosce + `o`.",
+                    "tomato": "`tomato` jest niepoprawne, bo ten rzeczownik potrzebuje liczby mnogiej z `-es` po spółgłosce + `o`."
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "Zasada: to zdanie sprawdza wyjątek na `-o`, który przyjmuje zwykłe `-s`.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `several`."
+            ],
+            "explanations": {
+                "a1": {
+                    "photos": "`photos` jest poprawne, bo ten rzeczownik na `-o` jest wyjątkiem i przyjmuje zwykłe `-s`.",
+                    "photoes": "`photoes` jest niepoprawne, bo ten rzeczownik na `-o` przyjmuje w liczbie mnogiej zwykłe `-s`.",
+                    "photo": "`photo` jest niepoprawne, bo ten rzeczownik na `-o` przyjmuje w liczbie mnogiej zwykłe `-s`."
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "Zasada: to zdanie sprawdza zmianę `-f/-fe` na `-ves`.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `several`."
+            ],
+            "explanations": {
+                "a1": {
+                    "loaves": "`loaves` jest poprawne, bo ten rzeczownik zmienia `-f/-fe` na `-ves` w liczbie mnogiej.",
+                    "loafs": "`loafs` jest niepoprawne, bo ten rzeczownik powinien zmienić `-f/-fe` na `-ves`.",
+                    "loafes": "`loafes` jest niepoprawne, bo ten rzeczownik powinien zmienić `-f/-fe` na `-ves`."
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "Zasada: to zdanie sprawdza zgodę orzeczenia z podmiotem w liczbie mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `Those boxes`."
+            ],
+            "explanations": {
+                "a1": {
+                    "are": "`are` jest poprawne, bo zgadza się z podmiotem w liczbie mnogiej.",
+                    "is": "`is` jest niepoprawne, bo nie zgadza się z podmiotem w liczbie mnogiej.",
+                    "am": "`am` jest niepoprawne, bo nie zgadza się z podmiotem w liczbie mnogiej."
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "Zasada: `tooth` ma nieregularną formę liczby mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `all of my`."
+            ],
+            "explanations": {
+                "a1": {
+                    "teeth": "`teeth` jest poprawne, bo to nieregularna liczba mnoga od `tooth`.",
+                    "tooths": "`tooths` jest niepoprawne, bo `tooth` nie używa tu regularnej liczby mnogiej.",
+                    "teeths": "`teeths` jest niepoprawne, bo `tooth` nie używa tu regularnej liczby mnogiej."
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "Zasada: ten rzeczownik ma taką samą formę w liczbie pojedynczej i mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `six`."
+            ],
+            "explanations": {
+                "a1": {
+                    "deer": "`deer` jest poprawne, bo ten rzeczownik ma tę samą formę w liczbie pojedynczej i mnogiej.",
+                    "deers": "`deers` jest niepoprawne, bo ten rzeczownik nie zmienia formy w liczbie mnogiej.",
+                    "deeres": "`deeres` jest niepoprawne, bo ten rzeczownik nie zmienia formy w liczbie mnogiej."
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "Zasada: to zdanie sprawdza rzeczownik niepoliczalny bez regularnej liczby mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `useful`."
+            ],
+            "explanations": {
+                "a1": {
+                    "advice": "`advice` jest poprawne, bo w tym zdaniu rzeczownik pozostaje niepoliczalny.",
+                    "advices": "`advices` jest niepoprawne, bo ten rzeczownik jest w tym zdaniu niepoliczalny.",
+                    "an advice": "`an advice` jest niepoprawne, bo ten rzeczownik jest w tym zdaniu niepoliczalny."
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "Zasada: to zdanie sprawdza rzeczownik używany zwykle w liczbie mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `are on the table`."
+            ],
+            "explanations": {
+                "a1": {
+                    "glasses": "`glasses` jest poprawne, bo w tym znaczeniu rzeczownik zwykle ma formę mnogą.",
+                    "glass": "`glass` jest niepoprawne, bo w tym znaczeniu używa się zwykle formy mnogiej.",
+                    "glasss": "`glasss` jest niepoprawne, bo w tym znaczeniu używa się zwykle formy mnogiej."
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "Zasada: w konstrukcji `a pair of` czasownik zwykle zgadza się z wyrazem `pair` i pozostaje w liczbie pojedynczej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `This pair`."
+            ],
+            "explanations": {
+                "a1": {
+                    "is": "`is` jest poprawne, bo czasownik zgadza się z `pair`, czyli z liczbą pojedynczą.",
+                    "are": "`are` jest niepoprawne, bo czasownik powinien zgadzać się z `pair`, a nie z następującym po nim rzeczownikiem mnogim.",
+                    "be": "`be` jest niepoprawne, bo czasownik powinien zgadzać się z `pair`, a nie z następującym po nim rzeczownikiem mnogim."
+                }
+            }
+        },
+        {
+            "id": 16,
+            "hints": [
+                "Zasada: to zdanie sprawdza zmianę `-f/-fe` na `-ves`.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `Several ... were built`."
+            ],
+            "explanations": {
+                "a1": {
+                    "shelves": "`shelves` jest poprawne, bo ten rzeczownik zmienia `-f/-fe` na `-ves` w liczbie mnogiej.",
+                    "shelfs": "`shelfs` jest niepoprawne, bo ten rzeczownik powinien zmienić `-f/-fe` na `-ves`.",
+                    "shelfes": "`shelfes` jest niepoprawne, bo ten rzeczownik powinien zmienić `-f/-fe` na `-ves`."
+                }
+            }
+        },
+        {
+            "id": 17,
+            "hints": [
+                "Zasada: to zdanie sprawdza formalną lub akademicką formę liczby mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `are listed`."
+            ],
+            "explanations": {
+                "a1": {
+                    "criteria": "`criteria` jest poprawne, bo to oczekiwana formalna liczba mnoga od `criterion`.",
+                    "criterion": "`criterion` jest niepoprawne, bo zadanie wymaga formalnej liczby mnogiej od `criterion`.",
+                    "criterions": "`criterions` jest niepoprawne, bo zadanie wymaga formalnej liczby mnogiej od `criterion`."
+                }
+            }
+        },
+        {
+            "id": 18,
+            "hints": [
+                "Zasada: to zdanie sprawdza rzeczownik używany zwykle w liczbie mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `all our`."
+            ],
+            "explanations": {
+                "a1": {
+                    "belongings": "`belongings` jest poprawne, bo w tym znaczeniu rzeczownik zwykle ma formę mnogą.",
+                    "belonging": "`belonging` jest niepoprawne, bo w tym znaczeniu używa się zwykle formy mnogiej.",
+                    "belongingses": "`belongingses` jest niepoprawne, bo w tym znaczeniu używa się zwykle formy mnogiej."
+                }
+            }
+        },
+        {
+            "id": 19,
+            "hints": [
+                "Zasada: to zdanie sprawdza rzeczownik niepoliczalny bez regularnej liczby mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `some new`."
+            ],
+            "explanations": {
+                "a1": {
+                    "furniture": "`furniture` jest poprawne, bo w tym zdaniu rzeczownik pozostaje niepoliczalny.",
+                    "furnitures": "`furnitures` jest niepoprawne, bo ten rzeczownik jest w tym zdaniu niepoliczalny.",
+                    "a furniture": "`a furniture` jest niepoprawne, bo ten rzeczownik jest w tym zdaniu niepoliczalny."
+                }
+            }
+        },
+        {
+            "id": 20,
+            "hints": [
+                "Zasada: to zdanie sprawdza użycie rodzajnika przy konkretnej liczbie mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `on the top shelf`."
+            ],
+            "explanations": {
+                "a1": {
+                    "The books": "`The books` jest poprawne, bo fraza o półce wskazuje konkretny zestaw w liczbie mnogiej.",
+                    "Books": "`Books` jest niepoprawne, bo zdanie odnosi się do konkretnego zestawu w liczbie mnogiej na jednej półce.",
+                    "A books": "`A books` jest niepoprawne, bo zdanie odnosi się do konkretnego zestawu w liczbie mnogiej na jednej półce."
+                }
+            }
+        },
+        {
+            "id": 21,
+            "hints": [
+                "Zasada: ten rzeczownik ma taką samą formę w liczbie pojedynczej i mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `Two ... were visible`."
+            ],
+            "explanations": {
+                "a1": {
+                    "aircraft": "`aircraft` jest poprawne, bo ten rzeczownik ma tę samą formę w liczbie pojedynczej i mnogiej.",
+                    "aircrafts": "`aircrafts` jest niepoprawne, bo ten rzeczownik nie zmienia formy w liczbie mnogiej.",
+                    "aircrafes": "`aircrafes` jest niepoprawne, bo ten rzeczownik nie zmienia formy w liczbie mnogiej."
+                }
+            }
+        },
+        {
+            "id": 22,
+            "hints": [
+                "Zasada: to zdanie sprawdza rzeczownik na `-f`, który jest wyjątkiem i przyjmuje zwykłe `-s`.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `were repaired`."
+            ],
+            "explanations": {
+                "a1": {
+                    "roofs": "`roofs` jest poprawne, bo `roof` jest wyjątkiem i przyjmuje zwykłe `-s`.",
+                    "rooves": "`rooves` jest niepoprawne, bo `roof` jest wyjątkiem i nie przechodzi tutaj na `-ves` ani `-es`.",
+                    "roofes": "`roofes` jest niepoprawne, bo `roof` jest wyjątkiem i nie przechodzi tutaj na `-ves` ani `-es`."
+                }
+            }
+        },
+        {
+            "id": 23,
+            "hints": [
+                "Zasada: ten rzeczownik ma taką samą formę w liczbie pojedynczej i mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `Several endangered`."
+            ],
+            "explanations": {
+                "a1": {
+                    "species": "`species` jest poprawne, bo ten rzeczownik ma tę samą formę w liczbie pojedynczej i mnogiej.",
+                    "specie": "`specie` jest niepoprawne, bo ten rzeczownik nie zmienia formy w liczbie mnogiej.",
+                    "specieses": "`specieses` jest niepoprawne, bo ten rzeczownik nie zmienia formy w liczbie mnogiej."
+                }
+            }
+        },
+        {
+            "id": 24,
+            "hints": [
+                "Zasada: to zdanie sprawdza formalną lub akademicką formę liczby mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `several social`."
+            ],
+            "explanations": {
+                "a1": {
+                    "phenomena": "`phenomena` jest poprawne, bo to oczekiwana formalna liczba mnoga od `phenomenon`.",
+                    "phenomenon": "`phenomenon` jest niepoprawne, bo zadanie wymaga formalnej liczby mnogiej od `phenomenon`.",
+                    "phenomenons": "`phenomenons` jest niepoprawne, bo zadanie wymaga formalnej liczby mnogiej od `phenomenon`."
+                }
+            }
+        },
+        {
+            "id": 25,
+            "hints": [
+                "Zasada: to zdanie sprawdza rzeczownik używany zwykle w liczbie mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `make it attractive`."
+            ],
+            "explanations": {
+                "a1": {
+                    "surroundings": "`surroundings` jest poprawne, bo w tym znaczeniu rzeczownik zwykle ma formę mnogą.",
+                    "surrounding": "`surrounding` jest niepoprawne, bo w tym znaczeniu używa się zwykle formy mnogiej.",
+                    "surroundingses": "`surroundingses` jest niepoprawne, bo w tym znaczeniu używa się zwykle formy mnogiej."
+                }
+            }
+        },
+        {
+            "id": 26,
+            "hints": [
+                "Zasada: ten rzeczownik ma taką samą formę w liczbie pojedynczej i mnogiej.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `Several efficient`."
+            ],
+            "explanations": {
+                "a1": {
+                    "means": "`means` jest poprawne, bo ten rzeczownik ma tę samą formę w liczbie pojedynczej i mnogiej.",
+                    "meanses": "`meanses` jest niepoprawne, bo ten rzeczownik nie zmienia formy w liczbie mnogiej.",
+                    "meanss": "`meanss` jest niepoprawne, bo ten rzeczownik nie zmienia formy w liczbie mnogiej."
+                }
+            }
+        },
+        {
+            "id": 27,
+            "hints": [
+                "Zasada: to zdanie sprawdza znaczeniową formę liczby mnogiej `peoples`.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `many indigenous`."
+            ],
+            "explanations": {
+                "a1": {
+                    "peoples": "`peoples` jest poprawne, bo zdanie odnosi się do odrębnych narodów lub grup etnicznych.",
+                    "people": "`people` jest niepoprawne, bo zdanie odnosi się do odrębnych ludów, a nie tylko do ludzi ogólnie.",
+                    "peopleses": "`peopleses` jest niepoprawne, bo zdanie odnosi się do odrębnych ludów, a nie tylko do ludzi ogólnie."
+                }
+            }
+        },
+        {
+            "id": 28,
+            "hints": [
+                "Zasada: to zdanie sprawdza rzeczownik zakończony na `-is`, który w liczbie mnogiej zmienia się na `-es`.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `repeated the`."
+            ],
+            "explanations": {
+                "a1": {
+                    "analyses": "`analyses` jest poprawne, bo `analysis` zmienia `-is` na `-es` w liczbie mnogiej.",
+                    "analysis": "`analysis` jest niepoprawne, bo `analysis` zmienia `-is` na `-es` w liczbie mnogiej.",
+                    "analysises": "`analysises` jest niepoprawne, bo `analysis` zmienia `-is` na `-es` w liczbie mnogiej."
+                }
+            }
+        },
+        {
+            "id": 29,
+            "hints": [
+                "Zasada: to zdanie sprawdza utrwaloną formę instytucjonalną `customs`.",
+                "Wskazówka z zdania: zwróć uwagę na sygnał ilości lub zgodę wokół luki, na przykład `border ... were`."
+            ],
+            "explanations": {
+                "a1": {
+                    "customs": "`customs` jest poprawne, bo instytucjonalna forma przy granicy to `customs`.",
+                    "custom": "`custom` jest niepoprawne, bo instytucję graniczną wyraża utrwalona forma `customs`.",
+                    "customses": "`customses` jest niepoprawne, bo instytucję graniczną wyraża utrwalona forma `customs`."
+                }
+            }
+        },
+        {
+            "id": 30,
+            "hints": [
+                "Zasada zgody: rzeczowniki typu `trousers` łączą się z czasownikiem w liczbie mnogiej, ale `pair` przełącza zgodę na liczbę pojedynczą.",
+                "Wskazówka z zdania: porównaj `These trousers` z `that pair by the mirror`; każdy podmiot wymaga innej formy czasownika."
+            ],
+            "explanations": {
+                "a1": {
+                    "are": "`are` jest poprawne, bo `These trousers` traktujemy jako podmiot w liczbie mnogiej.",
+                    "is": "`is` jest niepoprawne, bo pierwszy podmiot jest w liczbie mnogiej.",
+                    "am": "`am` jest niepoprawne, bo działa tylko z `I`."
+                },
+                "a2": {
+                    "is": "`is` jest poprawne, bo drugim podmiotem jest `that pair`.",
+                    "are": "`are` jest niepoprawne, bo drugi podmiot jest w liczbie pojedynczej.",
+                    "be": "`be` jest niepoprawne, bo zdanie potrzebuje osobowej formy czasownika."
+                }
+            }
+        }
+    ]
+}

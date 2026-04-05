@@ -351,32 +351,52 @@ class SeedRunController extends Controller
             ->values();
     }
 
-    protected function buildTheoryTestPages(Collection $executedSeeders): Collection
+    protected function buildTheoryTestPages(Collection $executedSeeders, ?Collection $pendingSeeders = null): Collection
     {
+        $pendingSeeders ??= collect();
+
         return $executedSeeders
-            ->filter(function ($seedRun) {
-                return filled(data_get($seedRun, 'prompt_theory_target.url'))
-                    && filled(data_get($seedRun, 'test_target.url'));
+            ->map(fn ($seedRun) => ['status' => 'executed', 'seeder' => $seedRun])
+            ->merge($pendingSeeders->map(fn ($pendingSeeder) => ['status' => 'pending', 'seeder' => $pendingSeeder]))
+            ->filter(function (array $entry) {
+                return filled(data_get($entry, 'seeder.prompt_theory_target.url'))
+                    || filled(data_get($entry, 'seeder.prompt_theory_target.title'));
             })
-            ->groupBy(function ($seedRun) {
-                $url = trim((string) data_get($seedRun, 'prompt_theory_target.url', ''));
+            ->groupBy(function (array $entry) {
+                $url = trim((string) data_get($entry, 'seeder.prompt_theory_target.url', ''));
 
                 if ($url !== '') {
                     return $url;
                 }
 
                 return trim((string) data_get(
-                    $seedRun,
-                    'prompt_theory_target.title',
-                    data_get($seedRun, 'class_name', 'unknown-seeder')
+                    $entry,
+                    'seeder.prompt_theory_target.title',
+                    data_get($entry, 'seeder.class_name', 'unknown-seeder')
                 ));
             })
             ->map(function (Collection $seeders, string $groupKey) {
-                $sortedSeeders = $seeders
+                $executedPageSeeders = $seeders
+                    ->filter(fn (array $entry) => ($entry['status'] ?? null) === 'executed')
+                    ->map(fn (array $entry) => $entry['seeder'])
                     ->sortByDesc(fn ($seedRun) => optional($seedRun->ran_at)->timestamp ?? 0)
                     ->values();
 
-                $firstSeeder = $sortedSeeders->first();
+                $pendingPageSeeders = $seeders
+                    ->filter(fn (array $entry) => ($entry['status'] ?? null) === 'pending')
+                    ->map(fn (array $entry) => $entry['seeder'])
+                    ->sortBy(fn ($pendingSeeder) => Str::lower((string) data_get(
+                        $pendingSeeder,
+                        'display_class_name',
+                        data_get($pendingSeeder, 'class_name', '')
+                    )))
+                    ->values();
+
+                $sortedSeeders = $executedPageSeeders
+                    ->concat($pendingPageSeeders)
+                    ->values();
+
+                $firstSeeder = $executedPageSeeders->first() ?? $pendingPageSeeders->first();
 
                 return [
                     'group_key' => $groupKey,
@@ -386,7 +406,11 @@ class SeedRunController extends Controller
                         'url' => (string) data_get($firstSeeder, 'prompt_theory_target.url', ''),
                     ],
                     'seeders' => $sortedSeeders,
+                    'executed_seeders' => $executedPageSeeders,
+                    'pending_seeders' => $pendingPageSeeders,
                     'seeders_count' => $sortedSeeders->count(),
+                    'executed_seeders_count' => $executedPageSeeders->count(),
+                    'pending_seeders_count' => $pendingPageSeeders->count(),
                     'question_count' => $sortedSeeders->sum(fn ($seedRun) => (int) ($seedRun->question_count ?? 0)),
                     'tests_count' => $sortedSeeders
                         ->pluck('test_target.url')
@@ -394,7 +418,7 @@ class SeedRunController extends Controller
                         ->unique()
                         ->count(),
                     'latest_ran_at' => $sortedSeeders->max(
-                        fn ($seedRun) => optional($seedRun->ran_at)->timestamp ?? 0
+                        fn ($seedRun) => optional(data_get($seedRun, 'ran_at'))->timestamp ?? 0
                     ),
                 ];
             })
@@ -433,8 +457,12 @@ class SeedRunController extends Controller
         $theoryPagesCount = $theoryTestPages->count();
 
         $counts['theory-tests'] = [
-            'pending' => 0,
-            'executed' => $theoryPagesCount,
+            'pending' => $theoryTestPages
+                ->filter(fn (array $pageGroup) => (int) ($pageGroup['pending_seeders_count'] ?? 0) > 0)
+                ->count(),
+            'executed' => $theoryTestPages
+                ->filter(fn (array $pageGroup) => (int) ($pageGroup['executed_seeders_count'] ?? 0) > 0)
+                ->count(),
             'total' => $theoryPagesCount,
         ];
 
@@ -942,19 +970,27 @@ class SeedRunController extends Controller
             })
             ->values();
 
+        $allDiscoveredSeederClasses = $executedClasses
+            ->merge($pendingSeeders->pluck('class_name'))
+            ->filter()
+            ->unique()
+            ->values();
+
         $promptTheoryTargets = $this->seederPromptTheoryPageResolver->resolveForSeeders(
-            $executedClasses->merge($pendingSeeders->pluck('class_name'))->all()
+            $allDiscoveredSeederClasses->all()
         );
+        $testTargets = $this->seederTestTargetResolver->resolveForSeeders($allDiscoveredSeederClasses->all());
 
         $availableLocalizationMap = $this->buildAvailableLocalizationMap($pendingSeeders);
 
-        $pendingSeeders = $pendingSeeders->map(function ($pendingSeeder) use ($availableLocalizationMap, $promptTheoryTargets) {
+        $pendingSeeders = $pendingSeeders->map(function ($pendingSeeder) use ($availableLocalizationMap, $promptTheoryTargets, $testTargets) {
             $availableLocalizations = $availableLocalizationMap->get($pendingSeeder->class_name, collect());
             $pendingSeeder->available_localizations = $availableLocalizations instanceof Collection
                 ? $availableLocalizations->all()
                 : [];
             $pendingSeeder->available_localizations_count = count($pendingSeeder->available_localizations);
             $pendingSeeder->prompt_theory_target = $promptTheoryTargets->get($pendingSeeder->class_name);
+            $pendingSeeder->test_target = $testTargets->get($pendingSeeder->class_name);
 
             return $pendingSeeder;
         });
@@ -1001,8 +1037,6 @@ class SeedRunController extends Controller
             return $seedRun;
         });
 
-        $testTargets = $this->seederTestTargetResolver->resolveForSeeders($executedClasses->all());
-
         $executedSeeders = $executedSeeders->map(function ($seedRun) use ($testTargets) {
             $seedRun->test_target = $testTargets->get($seedRun->class_name);
 
@@ -1027,7 +1061,7 @@ class SeedRunController extends Controller
             return $seedRun;
         });
 
-        $theoryTestPages = $this->buildTheoryTestPages($executedSeeders);
+        $theoryTestPages = $this->buildTheoryTestPages($executedSeeders, $pendingSeeders);
         $seederTabCounts = $this->buildSeederTabCounts($pendingSeeders, $executedSeeders, $theoryTestPages);
 
         if ($activeTab === 'theory-tests') {

@@ -1,0 +1,439 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\En\\AI\\NewV3\\Codex\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlyLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\AI\\NewV3\\Codex\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+        "definition_path": "../definition.json"
+    },
+    "locale": "en",
+    "hint_provider": "codex-newv3",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "Rule: this sentence tests the regular plural with `-s`.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `two`."
+            ],
+            "explanations": {
+                "a1": {
+                    "book": "`book` is incorrect because this sentence needs the regular plural with `-s`.",
+                    "books": "`books` is correct because this sentence needs the regular plural with `-s`.",
+                    "bookes": "`bookes` is incorrect because this sentence needs the regular plural with `-s`."
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "Rule: this sentence tests the plural with `-es` after a sibilant ending.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `three`."
+            ],
+            "explanations": {
+                "a1": {
+                    "bus": "`bus` is incorrect because this sentence needs the plural with `-es` after the final sound.",
+                    "buses": "`buses` is correct because this sentence needs the plural with `-es`.",
+                    "buss": "`buss` is incorrect because this sentence needs the plural with `-es` after the final sound."
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "Rule: after a consonant + `y`, the plural changes `y` to `-ies`.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `two other`."
+            ],
+            "explanations": {
+                "a1": {
+                    "baby": "`baby` is incorrect because this noun should change `y` to `-ies` here.",
+                    "babies": "`babies` is correct because the plural changes `y` to `-ies` here.",
+                    "babys": "`babys` is incorrect because this noun should change `y` to `-ies` here."
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "Rule: after a vowel + `y`, the plural keeps `y` and adds `-s`.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `many`."
+            ],
+            "explanations": {
+                "a1": {
+                    "toys": "`toys` is correct because the plural keeps `y` and adds `-s` here.",
+                    "toies": "`toies` is incorrect because this noun should keep `y` and add `-s`.",
+                    "toyes": "`toyes` is incorrect because this noun should keep `y` and add `-s`."
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "Rule: `child` uses an irregular plural form.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `Two ... are`."
+            ],
+            "explanations": {
+                "a1": {
+                    "childs": "`childs` is incorrect because `child` does not use a regular plural form here.",
+                    "children": "`children` is correct because it is the irregular plural of `child`.",
+                    "childrens": "`childrens` is incorrect because `child` does not use a regular plural form here."
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "Rule: this sentence tests the plural with `-es` after a sibilant ending.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `all the dirty`."
+            ],
+            "explanations": {
+                "a1": {
+                    "dishs": "`dishs` is incorrect because this sentence needs the plural with `-es` after the final sound.",
+                    "dishes": "`dishes` is correct because this sentence needs the plural with `-es`.",
+                    "dishies": "`dishies` is incorrect because this sentence needs the plural with `-es` after the final sound."
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "Rule: this sentence tests the plural with `-es` after consonant + `o`.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `many`."
+            ],
+            "explanations": {
+                "a1": {
+                    "tomatoes": "`tomatoes` is correct because this noun takes `-es` after consonant + `o`.",
+                    "tomatos": "`tomatos` is incorrect because this noun needs the `-es` plural after consonant + `o`.",
+                    "tomato": "`tomato` is incorrect because this noun needs the `-es` plural after consonant + `o`."
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "Rule: this sentence tests an `-o` exception that takes simple `-s`.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `several`."
+            ],
+            "explanations": {
+                "a1": {
+                    "photos": "`photos` is correct because this `-o` noun is an exception and takes simple `-s`.",
+                    "photoes": "`photoes` is incorrect because this `-o` noun takes simple `-s` in the plural.",
+                    "photo": "`photo` is incorrect because this `-o` noun takes simple `-s` in the plural."
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "Rule: this sentence tests the change from `-f/-fe` to `-ves`.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `several`."
+            ],
+            "explanations": {
+                "a1": {
+                    "loaves": "`loaves` is correct because this noun changes `-f/-fe` to `-ves` in the plural.",
+                    "loafs": "`loafs` is incorrect because this noun should change `-f/-fe` to `-ves`.",
+                    "loafes": "`loafes` is incorrect because this noun should change `-f/-fe` to `-ves`."
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "Rule: this sentence tests plural subject-verb agreement.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `Those boxes`."
+            ],
+            "explanations": {
+                "a1": {
+                    "are": "`are` is correct because it matches the plural subject in the sentence.",
+                    "is": "`is` is incorrect because it does not agree with the plural subject.",
+                    "am": "`am` is incorrect because it does not agree with the plural subject."
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "Rule: `tooth` uses an irregular plural form.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `all of my`."
+            ],
+            "explanations": {
+                "a1": {
+                    "teeth": "`teeth` is correct because it is the irregular plural of `tooth`.",
+                    "tooths": "`tooths` is incorrect because `tooth` does not use a regular plural form here.",
+                    "teeths": "`teeths` is incorrect because `tooth` does not use a regular plural form here."
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "Rule: this noun keeps the same form in singular and plural.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `six`."
+            ],
+            "explanations": {
+                "a1": {
+                    "deer": "`deer` is correct because this noun keeps the same singular and plural form.",
+                    "deers": "`deers` is incorrect because this noun does not change form in the plural.",
+                    "deeres": "`deeres` is incorrect because this noun does not change form in the plural."
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "Rule: this sentence tests an uncountable noun with no regular plural form.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `useful`."
+            ],
+            "explanations": {
+                "a1": {
+                    "advice": "`advice` is correct because this noun stays uncountable in this sentence.",
+                    "advices": "`advices` is incorrect because this noun is uncountable in this sentence.",
+                    "an advice": "`an advice` is incorrect because this noun is uncountable in this sentence."
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "Rule: this sentence tests a noun that is normally used in the plural form.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `are on the table`."
+            ],
+            "explanations": {
+                "a1": {
+                    "glasses": "`glasses` is correct because this meaning normally uses a plural-form noun.",
+                    "glass": "`glass` is incorrect because this meaning normally uses the plural-form noun.",
+                    "glasss": "`glasss` is incorrect because this meaning normally uses the plural-form noun."
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "Rule: with `a pair of`, the verb usually agrees with `pair` and stays singular.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `This pair`."
+            ],
+            "explanations": {
+                "a1": {
+                    "is": "`is` is correct because the verb agrees with `pair`, which is singular.",
+                    "are": "`are` is incorrect because the verb should agree with `pair`, not with the plural noun after it.",
+                    "be": "`be` is incorrect because the verb should agree with `pair`, not with the plural noun after it."
+                }
+            }
+        },
+        {
+            "id": 16,
+            "hints": [
+                "Rule: this sentence tests the change from `-f/-fe` to `-ves`.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `Several ... were built`."
+            ],
+            "explanations": {
+                "a1": {
+                    "shelves": "`shelves` is correct because this noun changes `-f/-fe` to `-ves` in the plural.",
+                    "shelfs": "`shelfs` is incorrect because this noun should change `-f/-fe` to `-ves`.",
+                    "shelfes": "`shelfes` is incorrect because this noun should change `-f/-fe` to `-ves`."
+                }
+            }
+        },
+        {
+            "id": 17,
+            "hints": [
+                "Rule: this sentence tests a formal or academic plural form.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `are listed`."
+            ],
+            "explanations": {
+                "a1": {
+                    "criteria": "`criteria` is correct because it is the expected formal plural of `criterion`.",
+                    "criterion": "`criterion` is incorrect because the task expects the formal plural of `criterion`.",
+                    "criterions": "`criterions` is incorrect because the task expects the formal plural of `criterion`."
+                }
+            }
+        },
+        {
+            "id": 18,
+            "hints": [
+                "Rule: this sentence tests a noun that is normally used in the plural form.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `all our`."
+            ],
+            "explanations": {
+                "a1": {
+                    "belongings": "`belongings` is correct because this meaning normally uses a plural-form noun.",
+                    "belonging": "`belonging` is incorrect because this meaning normally uses the plural-form noun.",
+                    "belongingses": "`belongingses` is incorrect because this meaning normally uses the plural-form noun."
+                }
+            }
+        },
+        {
+            "id": 19,
+            "hints": [
+                "Rule: this sentence tests an uncountable noun with no regular plural form.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `some new`."
+            ],
+            "explanations": {
+                "a1": {
+                    "furniture": "`furniture` is correct because this noun stays uncountable in this sentence.",
+                    "furnitures": "`furnitures` is incorrect because this noun is uncountable in this sentence.",
+                    "a furniture": "`a furniture` is incorrect because this noun is uncountable in this sentence."
+                }
+            }
+        },
+        {
+            "id": 20,
+            "hints": [
+                "Rule: this sentence tests article choice with a specific plural noun.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `on the top shelf`."
+            ],
+            "explanations": {
+                "a1": {
+                    "The books": "`The books` is correct because the shelf phrase identifies a specific plural set.",
+                    "Books": "`Books` is incorrect because the sentence refers to a specific plural set on one shelf.",
+                    "A books": "`A books` is incorrect because the sentence refers to a specific plural set on one shelf."
+                }
+            }
+        },
+        {
+            "id": 21,
+            "hints": [
+                "Rule: this noun keeps the same form in singular and plural.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `Two ... were visible`."
+            ],
+            "explanations": {
+                "a1": {
+                    "aircraft": "`aircraft` is correct because this noun keeps the same singular and plural form.",
+                    "aircrafts": "`aircrafts` is incorrect because this noun does not change form in the plural.",
+                    "aircrafes": "`aircrafes` is incorrect because this noun does not change form in the plural."
+                }
+            }
+        },
+        {
+            "id": 22,
+            "hints": [
+                "Rule: this sentence tests an `-f` noun that is an exception and takes simple `-s`.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `were repaired`."
+            ],
+            "explanations": {
+                "a1": {
+                    "roofs": "`roofs` is correct because `roof` is an exception and takes simple `-s`.",
+                    "rooves": "`rooves` is incorrect because `roof` is an exception and does not change to `-ves` or `-es` here.",
+                    "roofes": "`roofes` is incorrect because `roof` is an exception and does not change to `-ves` or `-es` here."
+                }
+            }
+        },
+        {
+            "id": 23,
+            "hints": [
+                "Rule: this noun keeps the same form in singular and plural.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `Several endangered`."
+            ],
+            "explanations": {
+                "a1": {
+                    "species": "`species` is correct because this noun keeps the same singular and plural form.",
+                    "specie": "`specie` is incorrect because this noun does not change form in the plural.",
+                    "specieses": "`specieses` is incorrect because this noun does not change form in the plural."
+                }
+            }
+        },
+        {
+            "id": 24,
+            "hints": [
+                "Rule: this sentence tests a formal or academic plural form.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `several social`."
+            ],
+            "explanations": {
+                "a1": {
+                    "phenomena": "`phenomena` is correct because it is the expected formal plural of `phenomenon`.",
+                    "phenomenon": "`phenomenon` is incorrect because the task expects the formal plural of `phenomenon`.",
+                    "phenomenons": "`phenomenons` is incorrect because the task expects the formal plural of `phenomenon`."
+                }
+            }
+        },
+        {
+            "id": 25,
+            "hints": [
+                "Rule: this sentence tests a noun that is normally used in the plural form.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `make it attractive`."
+            ],
+            "explanations": {
+                "a1": {
+                    "surroundings": "`surroundings` is correct because this meaning normally uses a plural-form noun.",
+                    "surrounding": "`surrounding` is incorrect because this meaning normally uses the plural-form noun.",
+                    "surroundingses": "`surroundingses` is incorrect because this meaning normally uses the plural-form noun."
+                }
+            }
+        },
+        {
+            "id": 26,
+            "hints": [
+                "Rule: this noun keeps the same form in singular and plural.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `Several efficient`."
+            ],
+            "explanations": {
+                "a1": {
+                    "means": "`means` is correct because this noun keeps the same singular and plural form.",
+                    "meanses": "`meanses` is incorrect because this noun does not change form in the plural.",
+                    "meanss": "`meanss` is incorrect because this noun does not change form in the plural."
+                }
+            }
+        },
+        {
+            "id": 27,
+            "hints": [
+                "Rule: this sentence tests the meaning-based plural form `peoples`.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `many indigenous`."
+            ],
+            "explanations": {
+                "a1": {
+                    "peoples": "`peoples` is correct because the sentence refers to distinct nations or ethnic groups.",
+                    "people": "`people` is incorrect because the sentence refers to distinct peoples, not just people in general.",
+                    "peopleses": "`peopleses` is incorrect because the sentence refers to distinct peoples, not just people in general."
+                }
+            }
+        },
+        {
+            "id": 28,
+            "hints": [
+                "Rule: this sentence tests a noun ending in `-is` that changes to `-es` in the plural.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `repeated the`."
+            ],
+            "explanations": {
+                "a1": {
+                    "analyses": "`analyses` is correct because `analysis` changes `-is` to `-es` in the plural.",
+                    "analysis": "`analysis` is incorrect because `analysis` changes `-is` to `-es` in the plural.",
+                    "analysises": "`analysises` is incorrect because `analysis` changes `-is` to `-es` in the plural."
+                }
+            }
+        },
+        {
+            "id": 29,
+            "hints": [
+                "Rule: this sentence tests the fixed institutional form `customs`.",
+                "Clue from the sentence: look at the quantity or agreement cue around the gap, such as `border ... were`."
+            ],
+            "explanations": {
+                "a1": {
+                    "customs": "`customs` is correct because the institutional form at the border is `customs`.",
+                    "custom": "`custom` is incorrect because the border institution is expressed with the fixed form `customs`.",
+                    "customses": "`customses` is incorrect because the border institution is expressed with the fixed form `customs`."
+                }
+            }
+        },
+        {
+            "id": 30,
+            "hints": [
+                "Agreement rule: plural-only nouns like `trousers` take a plural verb, but `pair` switches the verb to singular.",
+                "Clue from the sentence: compare `These trousers` with `that pair by the mirror`; each subject controls a different verb form."
+            ],
+            "explanations": {
+                "a1": {
+                    "are": "`are` is correct because `These trousers` is treated as a plural subject.",
+                    "is": "`is` is incorrect because the first subject is plural.",
+                    "am": "`am` is incorrect because it only works with `I`."
+                },
+                "a2": {
+                    "is": "`is` is correct because the second subject is `that pair`.",
+                    "are": "`are` is incorrect because the second subject is singular.",
+                    "be": "`be` is incorrect because the sentence needs a finite verb form."
+                }
+            }
+        }
+    ]
+}
