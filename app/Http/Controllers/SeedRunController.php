@@ -1138,6 +1138,102 @@ class SeedRunController extends Controller
         return nl2br($questionText);
     }
 
+    protected function buildQuestionLocalizationPreview(Question $question): array
+    {
+        $localizations = [];
+
+        foreach ($question->hints as $hint) {
+            $locale = $this->normalizeLocalizationLocale($hint->locale);
+            $text = trim((string) $hint->hint);
+
+            if ($locale === '' || $text === '') {
+                continue;
+            }
+
+            if (! array_key_exists($locale, $localizations)) {
+                $localizations[$locale] = [
+                    'locale' => $locale,
+                    'locale_label' => $this->localizationLocaleLabel($locale),
+                    'hints' => [],
+                    'explanations' => [],
+                ];
+            }
+
+            $localizations[$locale]['hints'][] = [
+                'provider' => $hint->provider,
+                'text' => $text,
+            ];
+        }
+
+        foreach ($question->chatgptExplanations as $explanation) {
+            $locale = $this->normalizeLocalizationLocale($explanation->language);
+            $text = trim((string) $explanation->explanation);
+
+            if ($locale === '' || $text === '') {
+                continue;
+            }
+
+            if (! array_key_exists($locale, $localizations)) {
+                $localizations[$locale] = [
+                    'locale' => $locale,
+                    'locale_label' => $this->localizationLocaleLabel($locale),
+                    'hints' => [],
+                    'explanations' => [],
+                ];
+            }
+
+            $localizations[$locale]['explanations'][] = [
+                'wrong_answer' => $explanation->wrong_answer,
+                'correct_answer' => $explanation->correct_answer,
+                'text' => $text,
+            ];
+        }
+
+        $preferredLocale = $this->normalizeLocalizationLocale((string) app()->getLocale());
+
+        return collect($localizations)
+            ->map(function (array $localization) {
+                $localization['hints'] = collect($localization['hints'])
+                    ->unique(fn (array $hint) => sprintf(
+                        '%s|%s',
+                        $hint['provider'] ?? '',
+                        $hint['text'] ?? ''
+                    ))
+                    ->values()
+                    ->all();
+
+                $localization['explanations'] = collect($localization['explanations'])
+                    ->unique(fn (array $explanation) => sprintf(
+                        '%s|%s|%s',
+                        $explanation['wrong_answer'] ?? '',
+                        $explanation['correct_answer'] ?? '',
+                        $explanation['text'] ?? ''
+                    ))
+                    ->values()
+                    ->all();
+
+                return $localization;
+            })
+            ->sortBy(function (array $localization) use ($preferredLocale) {
+                return sprintf(
+                    '%d|%s',
+                    ($localization['locale'] ?? '') === $preferredLocale ? 0 : 1,
+                    $localization['locale'] ?? ''
+                );
+            })
+            ->values()
+            ->all();
+    }
+
+    protected function resolveQuestionPreviewDefaultLocale(array $localizations): ?string
+    {
+        if ($localizations === []) {
+            return null;
+        }
+
+        return $localizations[0]['locale'] ?? null;
+    }
+
     protected function seederSupportsPreview(string $className): bool
     {
         if ($this->isVirtualLocalizationSeeder($className)) {
@@ -1605,6 +1701,7 @@ class SeedRunController extends Controller
             $previewQuestions = $questions
                 ->map(function (Question $question) {
                     $question->answers = $question->answers->sortBy('marker')->values();
+                    $localizations = $this->buildQuestionLocalizationPreview($question);
 
                     return [
                         'uuid' => $question->uuid,
@@ -1655,6 +1752,8 @@ class SeedRunController extends Controller
                                 'text' => $explanation->explanation,
                             ])
                             ->values(),
+                        'localizations' => $localizations,
+                        'default_locale' => $this->resolveQuestionPreviewDefaultLocale($localizations),
                     ];
                 })
                 ->values();

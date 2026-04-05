@@ -525,8 +525,9 @@
                                         $questionOptions = collect(data_get($question, 'options', []));
                                         $questionVerbHints = collect(data_get($question, 'verb_hints', []));
                                         $questionVariants = collect(data_get($question, 'variants', []));
-                                        $questionHints = collect(data_get($question, 'hints', []));
-                                        $questionExplanations = collect(data_get($question, 'explanations', []));
+                                        $questionLocalizations = collect(data_get($question, 'localizations', []));
+                                        $defaultQuestionLocale = data_get($question, 'default_locale');
+                                        $questionLocaleGroupId = 'question-locale-' . ($loop->parent->index ?? 0) . '-' . $loop->index;
                                     @endphp
 
                                     <div class="rounded-xl border border-slate-200 bg-white/60 p-6 shadow-sm transition-all" 
@@ -538,6 +539,26 @@
                                             <h2 class="text-lg font-semibold text-gray-800">{!! $question['highlighted_text'] !!}</h2>
                                             <p class="text-xs text-gray-500 font-mono break-all">UUID: {{ $question['uuid'] }}</p>
                                         </div>
+
+                                        @if($questionLocalizations->isNotEmpty())
+                                            <div class="flex flex-wrap items-center gap-2">
+                                                <span class="text-xs font-semibold uppercase tracking-wide text-slate-500">{{ __('Локалізації') }}</span>
+                                                @foreach($questionLocalizations as $localization)
+                                                    @php
+                                                        $isActiveLocale = ($localization['locale'] ?? null) === $defaultQuestionLocale;
+                                                    @endphp
+                                                    <button
+                                                        type="button"
+                                                        class="inline-flex items-center rounded-md border px-2.5 py-1 text-xs font-semibold transition {{ $isActiveLocale ? 'border-sky-300 bg-sky-100 text-sky-800 shadow-sm' : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50' }}"
+                                                        data-question-locale-switch="{{ $localization['locale'] }}"
+                                                        data-question-locale-group="{{ $questionLocaleGroupId }}"
+                                                        aria-pressed="{{ $isActiveLocale ? 'true' : 'false' }}"
+                                                    >
+                                                        {{ $localization['locale_label'] ?? strtoupper((string) ($localization['locale'] ?? '')) }}
+                                                    </button>
+                                                @endforeach
+                                            </div>
+                                        @endif
 
                                         <div>
                                             <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">{{ __('Варіанти відповіді') }}</h3>
@@ -668,41 +689,71 @@
                                                 </div>
                                             @endif
 
-                                            @if($questionHints->isNotEmpty())
+                                            @if($questionLocalizations->isNotEmpty())
                                                 <div class="border border-slate-200 rounded-lg" data-preview-section>
-                                                    <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-сlate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
-                                                        <span>{{ __('Підказки') }}</span>
+                                                    <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
+                                                        <span>{{ __('Локалізації питання') }}</span>
                                                         <svg class="h-4 w-4 text-slate-500 transition-transform durée-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
                                                             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06З" clip-rule="evenodd" />
                                                         </svg>
                                                     </button>
-                                                    <div class="hidden border-t border-slate-200 px-3 py-3 space-y-2" data-preview-section-content>
-                                                        @foreach($questionHints as $hint)
-                                                            <div class="rounded bg-slate-50 border border-slate-200 px-3 py-2 text-sm text-gray-600 space-y-1">
-                                                                <div class="flex items-center justify-between text-xs text-slate-500">
-                                                                    <span>{{ $hint['provider'] ?? __('Невідомий провайдер') }}</span>
-                                                                    <span>{{ strtoupper($hint['locale'] ?? 'UA') }}</span>
+                                                    <div class="hidden border-t border-slate-200 px-3 py-3 space-y-3" data-preview-section-content>
+                                                        @foreach($questionLocalizations as $localization)
+                                                            @php
+                                                                $localeHints = collect($localization['hints'] ?? []);
+                                                                $localeExplanations = collect($localization['explanations'] ?? []);
+                                                                $isDefaultLocalePanel = ($localization['locale'] ?? null) === $defaultQuestionLocale;
+                                                            @endphp
+                                                            <div
+                                                                class="space-y-3 {{ $isDefaultLocalePanel ? '' : 'hidden' }}"
+                                                                data-question-locale-panel="{{ $localization['locale'] }}"
+                                                                data-question-locale-group="{{ $questionLocaleGroupId }}"
+                                                            >
+                                                                <div class="flex items-center justify-between gap-3 rounded-lg bg-slate-50 border border-slate-200 px-3 py-2">
+                                                                    <div class="text-sm font-semibold text-slate-700">
+                                                                        {{ __('Locale') }}: {{ $localization['locale_label'] ?? strtoupper((string) ($localization['locale'] ?? '')) }}
+                                                                    </div>
+                                                                    <div class="text-xs text-slate-500">
+                                                                        {{ trans_choice('{1} :count підказка|[2,4] :count підказки|[5,*] :count підказок', $localeHints->count(), ['count' => $localeHints->count()]) }},
+                                                                        {{ trans_choice('{1} :count пояснення|[2,4] :count пояснення|[5,*] :count пояснень', $localeExplanations->count(), ['count' => $localeExplanations->count()]) }}
+                                                                    </div>
                                                                 </div>
-                                                                <p class="whitespace-pre-line">{{ $hint['text'] }}</p>
-                                                            </div>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            @endif
 
-                                            @if($questionExplanations->isNotEmpty())
-                                                <div class="border border-slate-200 rounded-lg" data-preview-section>
-                                                    <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-сlate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
-                                                        <span>{{ __('Пояснення ChatGPT') }}</span>
-                                                        <svg class="h-4 w-4 text-slate-500 transition-transform durée-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
-                                                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06З" clip-rule="evenodd" />
-                                                        </svg>
-                                                    </button>
-                                                    <div class="hidden border-t border-slate-200 px-3 py-3 space-y-2" data-preview-section-content>
-                                                        @foreach($questionExplanations as $explanation)
-                                                            <div class="rounded bg-purple-50 border border-purple-200 px-3 py-2 text-sm text-purple-800 space-y-1">
-                                                                <div class="text-xs text-purple-600 font-semibold">{{ __('Неправильна відповідь:') }} {{ $explanation['wrong_answer'] }}</div>
-                                                                <p class="whitespace-pre-line">{{ $explanation['text'] }}</p>
+                                                                @if($localeHints->isNotEmpty())
+                                                                    <div class="space-y-2">
+                                                                        <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-500">{{ __('Підказки') }}</h4>
+                                                                        @foreach($localeHints as $hint)
+                                                                            <div class="rounded bg-slate-50 border border-slate-200 px-3 py-2 text-sm text-gray-600 space-y-1">
+                                                                                <div class="flex items-center justify-between text-xs text-slate-500">
+                                                                                    <span>{{ $hint['provider'] ?? __('Невідомий провайдер') }}</span>
+                                                                                    <span>{{ $localization['locale_label'] ?? strtoupper((string) ($localization['locale'] ?? '')) }}</span>
+                                                                                </div>
+                                                                                <p class="whitespace-pre-line">{{ $hint['text'] }}</p>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    </div>
+                                                                @endif
+
+                                                                @if($localeExplanations->isNotEmpty())
+                                                                    <div class="space-y-2">
+                                                                        <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-500">{{ __('Пояснення ChatGPT') }}</h4>
+                                                                        @foreach($localeExplanations as $explanation)
+                                                                            <div class="rounded bg-purple-50 border border-purple-200 px-3 py-2 text-sm text-purple-800 space-y-1">
+                                                                                <div class="text-xs text-purple-600 font-semibold">{{ __('Неправильна відповідь:') }} {{ $explanation['wrong_answer'] }}</div>
+                                                                                @if(filled($explanation['correct_answer'] ?? null))
+                                                                                    <div class="text-xs text-purple-600">{{ __('Правильна відповідь:') }} {{ $explanation['correct_answer'] }}</div>
+                                                                                @endif
+                                                                                <p class="whitespace-pre-line">{{ $explanation['text'] }}</p>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    </div>
+                                                                @endif
+
+                                                                @if($localeHints->isEmpty() && $localeExplanations->isEmpty())
+                                                                    <div class="rounded border border-dashed border-slate-300 bg-slate-50 px-3 py-4 text-sm text-slate-500">
+                                                                        {{ __('Для цієї локалі немає hints або explanations.') }}
+                                                                    </div>
+                                                                @endif
                                                             </div>
                                                         @endforeach
                                                     </div>
@@ -841,6 +892,41 @@
                 content?.classList.remove('hidden');
                 icon?.classList.add('rotate-180');
             }
+        });
+
+        document.addEventListener('click', function (event) {
+            const toggle = event.target.closest('[data-question-locale-switch]');
+
+            if (!toggle) {
+                return;
+            }
+
+            const group = toggle.getAttribute('data-question-locale-group');
+            const locale = toggle.getAttribute('data-question-locale-switch');
+
+            if (!group || !locale) {
+                return;
+            }
+
+            const escapedGroup = CSS.escape(group);
+
+            document.querySelectorAll(`[data-question-locale-switch][data-question-locale-group="${escapedGroup}"]`).forEach((button) => {
+                const isActive = button.getAttribute('data-question-locale-switch') === locale;
+
+                button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                button.classList.toggle('border-sky-300', isActive);
+                button.classList.toggle('bg-sky-100', isActive);
+                button.classList.toggle('text-sky-800', isActive);
+                button.classList.toggle('shadow-sm', isActive);
+                button.classList.toggle('border-slate-200', !isActive);
+                button.classList.toggle('bg-white', !isActive);
+                button.classList.toggle('text-slate-600', !isActive);
+            });
+
+            document.querySelectorAll(`[data-question-locale-panel][data-question-locale-group="${escapedGroup}"]`).forEach((panel) => {
+                const isActive = panel.getAttribute('data-question-locale-panel') === locale;
+                panel.classList.toggle('hidden', !isActive);
+            });
         });
 
         // Tags summary toggle
