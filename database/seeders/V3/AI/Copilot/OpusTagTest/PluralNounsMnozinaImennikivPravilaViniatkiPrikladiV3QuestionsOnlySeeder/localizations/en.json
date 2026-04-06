@@ -1,0 +1,266 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\En\\AI\\Copilot\\OpusTagTest\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlyLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\OpusTagTest\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+        "definition_path": "../definition.json"
+    },
+    "locale": "en",
+    "hint_provider": "copilot-opus-tag-test",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "Nouns ending in a regular consonant form the plural by simply adding **-s**.",
+                "The numeral `five` signals that the noun must be in its plural form."
+            ],
+            "explanations": {
+                "a1": {
+                    "cups": "✅ Correct. «cup» ends in a regular consonant, so the plural is formed by adding -s → «cups».",
+                    "cupes": "❌ Incorrect. The -es ending is only added after sibilants (-s, -x, -ch, -sh, -z); «cup» ends in -p, so the correct form is «cups».",
+                    "cup": "❌ Incorrect. «cup» is singular and does not agree with the numeral «five», which requires a plural noun."
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "After endings **-s, -ss, -x, -z, -ch, -sh**, we add **-es** to form the plural.",
+                "The noun `dress` ends in -ss — note which plural ending is needed after a double -s."
+            ],
+            "explanations": {
+                "a1": {
+                    "dresses": "✅ Correct. «dress» ends in -ss (a sibilant sound), so the plural is formed by adding -es → «dresses».",
+                    "dresss": "❌ Incorrect. Simply adding -s after -ss produces an incorrect triple-s; the correct ending is -es → «dresses».",
+                    "dress": "❌ Incorrect. «dress» is singular and does not match the numeral «three», which requires a plural noun."
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "The noun «child» has an irregular plural that must be memorised: child → children.",
+                "The verb `are` in the sentence is used with a plural subject."
+            ],
+            "explanations": {
+                "a1": {
+                    "children": "✅ Correct. «children» is the irregular plural of «child» and agrees with the verb «are».",
+                    "childs": "❌ Incorrect. «child» does not form its plural by adding -s; the correct irregular form is «children».",
+                    "childrens": "❌ Incorrect. «children» is already plural, so adding -s creates a double plural marking."
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "When a noun ends in **consonant + y**, the y changes to **i** and **-es** is added → -ies.",
+                "The noun `city` ends in consonant `t` + `y` — check which rule applies."
+            ],
+            "explanations": {
+                "a1": {
+                    "cities": "✅ Correct. «city» ends in consonant + y (t + y), so y changes to i and -es is added → «cities».",
+                    "citys": "❌ Incorrect. You cannot simply add -s to a noun ending in consonant + y; the y must change to i + -es.",
+                    "cityes": "❌ Incorrect. When y changes to i, the ending -es gives «cities», not «cityes» — the y must be fully replaced by i."
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "Nouns ending in **-f** or **-fe** often change that ending to **-ves** in the plural.",
+                "The noun `leaf` ends in -f — recall the rule: f → v + es."
+            ],
+            "explanations": {
+                "a1": {
+                    "leaves": "✅ Correct. «leaf» ends in -f, so f changes to v and -es is added → «leaves».",
+                    "leafs": "❌ Incorrect. For «leaf» the rule f → ves applies; simply adding -s is not correct for this noun.",
+                    "leafes": "❌ Incorrect. You need to change f to v before adding -es → «leaves», not just add -es to the original form."
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "Some nouns have the same form in the singular and the plural — this is called **zero plural**.",
+                "The noun `sheep` belongs to the zero-plural group, where the form does not change."
+            ],
+            "explanations": {
+                "a1": {
+                    "sheep": "✅ Correct. «sheep» has a zero plural — the singular and plural forms are identical (one sheep, many sheep).",
+                    "sheeps": "❌ Incorrect. «sheep» does not take the -s ending in the plural because it is a zero-plural noun.",
+                    "sheepes": "❌ Incorrect. «sheep» never changes form in the plural — the correct plural is simply «sheep»."
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "Most nouns ending in **consonant + o** form the plural by adding **-es** (tomato, potato, hero).",
+                "The noun `tomato` ends in -o after consonant `t` — check whether it needs -es or just -s."
+            ],
+            "explanations": {
+                "a1": {
+                    "tomatoes": "✅ Correct. «tomato» ends in consonant + o, so the plural is formed by adding -es → «tomatoes».",
+                    "tomatos": "❌ Incorrect. For «tomato» the rule -es after -o applies (like potato → potatoes, hero → heroes).",
+                    "tomatoies": "❌ Incorrect. The y → ies rule does not apply here because «tomato» ends in -o, not -y."
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "The noun «tooth» has an irregular plural with a vowel change: tooth → teeth.",
+                "The possessive `his` and the verb `brushes` indicate a third-person singular subject, while the direct object is plural."
+            ],
+            "explanations": {
+                "a1": {
+                    "teeth": "✅ Correct. «teeth» is the irregular plural of «tooth» with a vowel change (oo → ee).",
+                    "tooths": "❌ Incorrect. «tooth» does not form its plural by adding -s; the correct form is the irregular «teeth».",
+                    "toothes": "❌ Incorrect. «tooth» is not a sibilant-ending noun, so -es does not apply; the plural is «teeth»."
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "The noun «loaf» ends in **-f**, so in the plural f changes to v and -es is added → **loaves**.",
+                "The numeral `twenty` in the sentence requires a plural noun."
+            ],
+            "explanations": {
+                "a1": {
+                    "loaves": "✅ Correct. «loaf» follows the f → ves rule (like knife → knives, leaf → leaves).",
+                    "loafs": "❌ Incorrect. «loaf» does not form the plural by simply adding -s — the f must change to v + es.",
+                    "loafes": "❌ Incorrect. Adding -es without changing f to v breaks the rule; the correct form is «loaves»."
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "Some nouns exist **only in the plural** (pluralia tantum): trousers, scissors, glasses, jeans.",
+                "The demonstrative `these` and the verb `are` are used with plural nouns."
+            ],
+            "explanations": {
+                "a1": {
+                    "trousers": "✅ Correct. «trousers» is a pluralia tantum noun — it exists only in the plural and always takes «are», «these», «those».",
+                    "trouser": "❌ Incorrect. «trousers» has no singular form as a standalone noun; to express one unit, say «a pair of trousers».",
+                    "trouserses": "❌ Incorrect. «trousers» is already plural, so adding -es creates a non-existent double plural marking."
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "The noun «information» is **uncountable** and has no plural form in English.",
+                "The verb `was` (singular) in the sentence confirms that the subject cannot be plural."
+            ],
+            "explanations": {
+                "a1": {
+                    "information": "✅ Correct. «information» is an uncountable noun that is always used in the singular with «was» / «is».",
+                    "informations": "❌ Incorrect. «information» has no plural in English; to express quantity, say «pieces of information».",
+                    "informationes": "❌ Incorrect. A Latin-style ending does not apply to «information» — this noun is uncountable."
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "The noun «mouse» has an irregular plural with a vowel change: mouse → mice.",
+                "The quantifier `several` is only used with countable plural nouns."
+            ],
+            "explanations": {
+                "a1": {
+                    "mice": "✅ Correct. «mice» is the irregular plural of «mouse» (vowel change ou → i), agreeing with «several» and «were».",
+                    "mouses": "❌ Incorrect. «mouse» does not form its plural by adding -s; the correct irregular form is «mice».",
+                    "mices": "❌ Incorrect. «mice» is already plural, so adding -s creates a double plural marking."
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "The noun «analysis» has a Greek origin: the plural is formed by replacing **-is** with **-es** → analyses.",
+                "The numeral `three` requires a plural form, and in a scientific context the Greek plural is standard."
+            ],
+            "explanations": {
+                "a1": {
+                    "analyses": "✅ Correct. «analysis» comes from Greek and forms the plural by replacing -is → -es (like crisis → crises, basis → bases).",
+                    "analysises": "❌ Incorrect. Greek nouns ending in -is do not add -es to the full stem — the -is ending is replaced by -es.",
+                    "analysies": "❌ Incorrect. The y → ies rule does not apply here because «analysis» ends in -is (Greek root), not -y."
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "In compound nouns with a preposition, the **head noun** takes the plural, not the last element.",
+                "In «mother-in-law» the head noun is `mother`, which receives the plural ending."
+            ],
+            "explanations": {
+                "a1": {
+                    "mothers-in-law": "✅ Correct. In the compound noun, the head word «mother» takes the plural → «mothers-in-law».",
+                    "mother-in-laws": "❌ Incorrect. The -s was added to «law», which is not the head word; the plural should be on «mother».",
+                    "mothers-in-laws": "❌ Incorrect. The plural is marked only once — on the head word «mother», not on both elements."
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "The noun «species» has a **zero plural** of Latin origin: the singular and plural forms are identical.",
+                "The numeral `two` confirms the plural, but the form of `species` does not change."
+            ],
+            "explanations": {
+                "a1": {
+                    "species": "✅ Correct. «species» is a zero-plural noun — one species, two species (the form does not change).",
+                    "specieses": "❌ Incorrect. «species» is a zero-plural noun and does not accept any additional endings.",
+                    "specie": "❌ Incorrect in the sense of 'a type': «specie» is a separate archaic word (coins), not the singular of «species»."
+                }
+            }
+        },
+        {
+            "id": 16,
+            "hints": [
+                "The noun «criterion» has a Greek plural: criterion → **criteria** (ending -on → -a).",
+                "The verb `were` in the sentence confirms that the subject is plural."
+            ],
+            "explanations": {
+                "a1": {
+                    "criteria": "✅ Correct. The Greek noun «criterion» forms the plural by replacing -on → -a, agreeing with «were».",
+                    "criterions": "❌ Non-standard. Although occasionally encountered, in formal and academic English the Greek form «criteria» is preferred.",
+                    "criterias": "❌ Incorrect. «criteria» is already plural, so adding -s creates a double plural marking."
+                }
+            }
+        },
+        {
+            "id": 17,
+            "hints": [
+                "The noun «phenomenon» has a Greek plural: phenomenon → **phenomena** (ending -on → -a).",
+                "The determiner `such` and the verb `are` in the sentence indicate a plural subject."
+            ],
+            "explanations": {
+                "a1": {
+                    "phenomena": "✅ Correct. The Greek noun «phenomenon» forms the plural by replacing -on → -a (like criterion → criteria).",
+                    "phenomenons": "❌ Non-standard. In formal and scientific English the Greek plural «phenomena» is the accepted form.",
+                    "phenomenas": "❌ Incorrect. «phenomena» is already plural, so adding -s creates a double plural marking."
+                }
+            }
+        },
+        {
+            "id": 18,
+            "hints": [
+                "The noun «alumnus» has a Latin plural: alumnus → **alumni** (ending -us → -i).",
+                "The adjective `distinguished` and the context `its ___` indicate that the sentence refers to several graduates."
+            ],
+            "explanations": {
+                "a1": {
+                    "alumni": "✅ Correct. The Latin noun «alumnus» forms the plural by replacing -us → -i (like cactus → cacti, stimulus → stimuli).",
+                    "alumnuses": "❌ Non-standard. In formal and academic contexts the Latin form «alumni» is always preferred.",
+                    "alumnis": "❌ Incorrect. «alumni» is already plural, so adding -s creates an incorrect double plural marking."
+                }
+            }
+        }
+    ]
+}

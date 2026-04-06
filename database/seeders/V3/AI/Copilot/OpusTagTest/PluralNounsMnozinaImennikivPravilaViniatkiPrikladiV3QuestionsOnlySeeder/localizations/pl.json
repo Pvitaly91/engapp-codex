@@ -1,0 +1,266 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Localizations\\Pl\\AI\\Copilot\\OpusTagTest\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlyLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\OpusTagTest\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+        "definition_path": "../definition.json"
+    },
+    "locale": "pl",
+    "hint_provider": "copilot-opus-tag-test",
+    "questions": [
+        {
+            "id": 1,
+            "hints": [
+                "Rzeczowniki kończące się na zwykłą spółgłoskę tworzą liczbę mnogą przez dodanie **-s**.",
+                "Liczebnik `five` w zdaniu wskazuje, że rzeczownik musi być w liczbie mnogiej."
+            ],
+            "explanations": {
+                "a1": {
+                    "cups": "✅ Poprawnie. «cup» kończy się na zwykłą spółgłoskę -p, więc liczbę mnogą tworzymy dodając -s → «cups».",
+                    "cupes": "❌ Niepoprawnie. Końcówkę -es dodajemy tylko po syczących (-s, -x, -ch, -sh, -z); «cup» kończy się na -p, więc poprawna forma to «cups».",
+                    "cup": "❌ Niepoprawnie. «cup» to forma liczby pojedynczej, która nie zgadza się z liczebnikiem «five» wymagającym liczby mnogiej."
+                }
+            }
+        },
+        {
+            "id": 2,
+            "hints": [
+                "Po zakończeniach **-s, -ss, -x, -z, -ch, -sh** dodajemy **-es**, aby utworzyć liczbę mnogą.",
+                "Rzeczownik `dress` kończy się na -ss — zwróć uwagę, jaka końcówka liczby mnogiej jest potrzebna po podwójnym -s."
+            ],
+            "explanations": {
+                "a1": {
+                    "dresses": "✅ Poprawnie. «dress» kończy się na -ss (głoska sycząca), więc liczbę mnogą tworzymy dodając -es → «dresses».",
+                    "dresss": "❌ Niepoprawnie. Samo dodanie -s po -ss daje niepoprawne potrójne s; prawidłowa końcówka to -es → «dresses».",
+                    "dress": "❌ Niepoprawnie. «dress» to forma liczby pojedynczej, która nie pasuje do liczebnika «three» wymagającego liczby mnogiej."
+                }
+            }
+        },
+        {
+            "id": 3,
+            "hints": [
+                "Rzeczownik «child» ma nieregularną formę liczby mnogiej, którą trzeba zapamiętać: child → children.",
+                "Czasownik `are` w zdaniu jest używany z podmiotem w liczbie mnogiej."
+            ],
+            "explanations": {
+                "a1": {
+                    "children": "✅ Poprawnie. «children» to nieregularna liczba mnoga rzeczownika «child», która zgadza się z czasownikiem «are».",
+                    "childs": "❌ Niepoprawnie. «child» nie tworzy liczby mnogiej przez dodanie -s; prawidłowa forma nieregularna to «children».",
+                    "childrens": "❌ Niepoprawnie. «children» to już forma liczby mnogiej, więc dodanie -s tworzy podwójne oznaczenie liczby mnogiej."
+                }
+            }
+        },
+        {
+            "id": 4,
+            "hints": [
+                "Gdy rzeczownik kończy się na **spółgłoskę + y**, litera y zmienia się na **i** i dodaje się **-es** → -ies.",
+                "Rzeczownik `city` kończy się na spółgłoskę `t` + `y` — sprawdź, jaka reguła obowiązuje."
+            ],
+            "explanations": {
+                "a1": {
+                    "cities": "✅ Poprawnie. «city» kończy się na spółgłoskę + y (t + y), więc y zmienia się na i i dodaje się -es → «cities».",
+                    "citys": "❌ Niepoprawnie. Nie można po prostu dodać -s do rzeczownika kończącego się na spółgłoskę + y; trzeba zmienić y → i + -es.",
+                    "cityes": "❌ Niepoprawnie. Przy zmianie y → i końcówka -es daje «cities», a nie «cityes» — litera y musi być całkowicie zastąpiona przez i."
+                }
+            }
+        },
+        {
+            "id": 5,
+            "hints": [
+                "Rzeczowniki kończące się na **-f** lub **-fe** często zmieniają to zakończenie na **-ves** w liczbie mnogiej.",
+                "Rzeczownik `leaf` kończy się na -f — przypomnij sobie regułę: f → v + es."
+            ],
+            "explanations": {
+                "a1": {
+                    "leaves": "✅ Poprawnie. «leaf» kończy się na -f, więc f zmienia się na v i dodaje się -es → «leaves».",
+                    "leafs": "❌ Niepoprawnie. Dla «leaf» obowiązuje reguła f → ves; samo dodanie -s nie jest prawidłowe dla tego rzeczownika.",
+                    "leafes": "❌ Niepoprawnie. Trzeba nie tylko dodać -es, ale też zmienić f na v → «leaves»."
+                }
+            }
+        },
+        {
+            "id": 6,
+            "hints": [
+                "Niektóre rzeczowniki mają taką samą formę w liczbie pojedynczej i mnogiej — to tak zwana **liczba mnoga zerowa** (zero plural).",
+                "Rzeczownik `sheep` należy do grupy słów z liczbą mnogą zerową, gdzie forma się nie zmienia."
+            ],
+            "explanations": {
+                "a1": {
+                    "sheep": "✅ Poprawnie. «sheep» ma liczbę mnogą zerową — forma pojedyncza i mnoga są identyczne (one sheep, many sheep).",
+                    "sheeps": "❌ Niepoprawnie. «sheep» nie przyjmuje końcówki -s w liczbie mnogiej, ponieważ jest rzeczownikiem z liczbą mnogą zerową.",
+                    "sheepes": "❌ Niepoprawnie. «sheep» nigdy nie zmienia formy w liczbie mnogiej — poprawna liczba mnoga to po prostu «sheep»."
+                }
+            }
+        },
+        {
+            "id": 7,
+            "hints": [
+                "Większość rzeczowników kończących się na **spółgłoskę + o** tworzy liczbę mnogą przez dodanie **-es** (tomato, potato, hero).",
+                "Rzeczownik `tomato` kończy się na -o po spółgłosce `t` — sprawdź, czy potrzebne jest -es czy samo -s."
+            ],
+            "explanations": {
+                "a1": {
+                    "tomatoes": "✅ Poprawnie. «tomato» kończy się na spółgłoskę + o, więc liczbę mnogą tworzymy dodając -es → «tomatoes».",
+                    "tomatos": "❌ Niepoprawnie. Dla «tomato» obowiązuje reguła -es po -o (jak potato → potatoes, hero → heroes).",
+                    "tomatoies": "❌ Niepoprawnie. Reguła y → ies tu nie działa, ponieważ «tomato» kończy się na -o, a nie na -y."
+                }
+            }
+        },
+        {
+            "id": 8,
+            "hints": [
+                "Rzeczownik «tooth» ma nieregularną liczbę mnogą ze zmianą samogłoski: tooth → teeth.",
+                "Zaimek dzierżawczy `his` i czasownik `brushes` wskazują, że podmiot jest w trzeciej osobie liczby pojedynczej, a dopełnienie — w liczbie mnogiej."
+            ],
+            "explanations": {
+                "a1": {
+                    "teeth": "✅ Poprawnie. «teeth» to nieregularna liczba mnoga rzeczownika «tooth» ze zmianą samogłoski (oo → ee).",
+                    "tooths": "❌ Niepoprawnie. «tooth» nie tworzy liczby mnogiej przez dodanie -s; prawidłowa forma to «teeth».",
+                    "toothes": "❌ Niepoprawnie. «tooth» nie należy do rzeczowników kończących się na syczącą, więc -es też nie pasuje; liczba mnoga to «teeth»."
+                }
+            }
+        },
+        {
+            "id": 9,
+            "hints": [
+                "Rzeczownik «loaf» kończy się na **-f**, więc w liczbie mnogiej f zmienia się na v i dodaje się -es → **loaves**.",
+                "Liczebnik `twenty` w zdaniu wymaga formy liczby mnogiej rzeczownika."
+            ],
+            "explanations": {
+                "a1": {
+                    "loaves": "✅ Poprawnie. «loaf» podlega regule f → ves (jak knife → knives, leaf → leaves).",
+                    "loafs": "❌ Niepoprawnie. «loaf» nie tworzy liczby mnogiej przez proste dodanie -s — potrzebna jest zmiana f → v + es.",
+                    "loafes": "❌ Niepoprawnie. Dodanie -es bez zmiany f na v łamie regułę; poprawna forma to «loaves»."
+                }
+            }
+        },
+        {
+            "id": 10,
+            "hints": [
+                "Niektóre rzeczowniki istnieją **tylko w liczbie mnogiej** (pluralia tantum): trousers, scissors, glasses, jeans.",
+                "Zaimek wskazujący `these` i czasownik `are` łączą się z rzeczownikami w liczbie mnogiej."
+            ],
+            "explanations": {
+                "a1": {
+                    "trousers": "✅ Poprawnie. «trousers» to rzeczownik pluralia tantum — istnieje tylko w liczbie mnogiej i zawsze łączy się z «are», «these», «those».",
+                    "trouser": "❌ Niepoprawnie. «trousers» nie ma formy liczby pojedynczej jako samodzielny rzeczownik; w znaczeniu jednej sztuki mówimy «a pair of trousers».",
+                    "trouserses": "❌ Niepoprawnie. «trousers» to już liczba mnoga, dodanie -es tworzy nieistniejące podwójne oznaczenie."
+                }
+            }
+        },
+        {
+            "id": 11,
+            "hints": [
+                "Rzeczownik «information» jest **niepoliczalny** (uncountable) i nie ma formy liczby mnogiej w języku angielskim.",
+                "Czasownik `was` (liczba pojedyncza) w zdaniu potwierdza, że podmiot nie może być w liczbie mnogiej."
+            ],
+            "explanations": {
+                "a1": {
+                    "information": "✅ Poprawnie. «information» to rzeczownik niepoliczalny, który zawsze występuje w liczbie pojedynczej z czasownikiem «was» / «is».",
+                    "informations": "❌ Niepoprawnie. «information» nie ma liczby mnogiej w angielskim; aby wyrazić ilość, mówimy «pieces of information».",
+                    "informationes": "❌ Niepoprawnie. Łacińska końcówka nie ma zastosowania do «information» — ten rzeczownik jest niepoliczalny."
+                }
+            }
+        },
+        {
+            "id": 12,
+            "hints": [
+                "Rzeczownik «mouse» ma nieregularną liczbę mnogą ze zmianą samogłoski: mouse → mice.",
+                "Kwantyfikator `several` łączy się tylko z policzalnymi rzeczownikami w liczbie mnogiej."
+            ],
+            "explanations": {
+                "a1": {
+                    "mice": "✅ Poprawnie. «mice» to nieregularna liczba mnoga rzeczownika «mouse» (zmiana samogłoski ou → i), zgadzająca się z «several» i «were».",
+                    "mouses": "❌ Niepoprawnie. «mouse» nie tworzy liczby mnogiej przez dodanie -s; prawidłowa forma nieregularna to «mice».",
+                    "mices": "❌ Niepoprawnie. «mice» to już liczba mnoga, dodanie -s tworzy podwójne oznaczenie liczby mnogiej."
+                }
+            }
+        },
+        {
+            "id": 13,
+            "hints": [
+                "Rzeczownik «analysis» pochodzi z greki: liczbę mnogą tworzymy zamieniając **-is** na **-es** → analyses.",
+                "Liczebnik `three` wymaga formy liczby mnogiej, a w kontekście naukowym stosuje się grecką formę."
+            ],
+            "explanations": {
+                "a1": {
+                    "analyses": "✅ Poprawnie. «analysis» pochodzi z greki i tworzy liczbę mnogą przez zamianę -is → -es (jak crisis → crises, basis → bases).",
+                    "analysises": "❌ Niepoprawnie. Greckie rzeczowniki na -is nie dodają -es do pełnej podstawy — zakończenie -is jest zamieniane na -es.",
+                    "analysies": "❌ Niepoprawnie. Reguła y → ies tu nie działa, ponieważ «analysis» kończy się na -is (grecki rdzeń), a nie na -y."
+                }
+            }
+        },
+        {
+            "id": 14,
+            "hints": [
+                "W rzeczownikach złożonych z przyimkiem (compound nouns) liczbę mnogą przyjmuje **główny rzeczownik**, a nie ostatni element.",
+                "W «mother-in-law» głównym rzeczownikiem jest `mother`, który przyjmuje końcówkę liczby mnogiej."
+            ],
+            "explanations": {
+                "a1": {
+                    "mothers-in-law": "✅ Poprawnie. W złożonym rzeczowniku liczbę mnogą przyjmuje główne słowo «mother» → «mothers-in-law».",
+                    "mother-in-laws": "❌ Niepoprawnie. Końcówkę -s dodano do «law», które nie jest głównym słowem; liczbę mnogą powinien przyjąć «mother».",
+                    "mothers-in-laws": "❌ Niepoprawnie. Liczbę mnogą oznaczamy tylko raz — na głównym słowie «mother», a nie na obu elementach."
+                }
+            }
+        },
+        {
+            "id": 15,
+            "hints": [
+                "Rzeczownik «species» ma **liczbę mnogą zerową** pochodzenia łacińskiego: forma pojedyncza i mnoga są identyczne.",
+                "Liczebnik `two` potwierdza liczbę mnogą, ale forma `species` się nie zmienia."
+            ],
+            "explanations": {
+                "a1": {
+                    "species": "✅ Poprawnie. «species» to rzeczownik z liczbą mnogą zerową — one species, two species (forma się nie zmienia).",
+                    "specieses": "❌ Niepoprawnie. «species» to rzeczownik z liczbą mnogą zerową i nie przyjmuje żadnych dodatkowych końcówek.",
+                    "specie": "❌ Niepoprawnie w znaczeniu 'gatunek': «specie» to oddzielne archaiczne słowo (monety), a nie forma pojedyncza od «species»."
+                }
+            }
+        },
+        {
+            "id": 16,
+            "hints": [
+                "Rzeczownik «criterion» ma grecką liczbę mnogą: criterion → **criteria** (zakończenie -on → -a).",
+                "Czasownik `were` w zdaniu potwierdza, że podmiot jest w liczbie mnogiej."
+            ],
+            "explanations": {
+                "a1": {
+                    "criteria": "✅ Poprawnie. Grecki rzeczownik «criterion» tworzy liczbę mnogą przez zamianę -on → -a, co zgadza się z «were».",
+                    "criterions": "❌ Niestandardowe. Choć spotykane sporadycznie, w formalnym i akademickim angielskim preferowana jest grecka forma «criteria».",
+                    "criterias": "❌ Niepoprawnie. «criteria» to już liczba mnoga, więc dodanie -s tworzy podwójne oznaczenie liczby mnogiej."
+                }
+            }
+        },
+        {
+            "id": 17,
+            "hints": [
+                "Rzeczownik «phenomenon» ma grecką liczbę mnogą: phenomenon → **phenomena** (zakończenie -on → -a).",
+                "Zaimek `such` i czasownik `are` w zdaniu wskazują na podmiot w liczbie mnogiej."
+            ],
+            "explanations": {
+                "a1": {
+                    "phenomena": "✅ Poprawnie. Grecki rzeczownik «phenomenon» tworzy liczbę mnogą przez zamianę -on → -a (jak criterion → criteria).",
+                    "phenomenons": "❌ Niestandardowe. W formalnym i naukowym angielskim stosuje się grecką liczbę mnogą «phenomena».",
+                    "phenomenas": "❌ Niepoprawnie. «phenomena» to już liczba mnoga, więc dodanie -s tworzy podwójne oznaczenie."
+                }
+            }
+        },
+        {
+            "id": 18,
+            "hints": [
+                "Rzeczownik «alumnus» ma łacińską liczbę mnogą: alumnus → **alumni** (zakończenie -us → -i).",
+                "Przymiotnik `distinguished` i kontekst `its ___` wskazują, że mowa jest o kilku absolwentach."
+            ],
+            "explanations": {
+                "a1": {
+                    "alumni": "✅ Poprawnie. Łaciński rzeczownik «alumnus» tworzy liczbę mnogą przez zamianę -us → -i (jak cactus → cacti, stimulus → stimuli).",
+                    "alumnuses": "❌ Niestandardowe. W kontekście formalnym i akademickim zawsze preferowana jest łacińska forma «alumni».",
+                    "alumnis": "❌ Niepoprawnie. «alumni» to już liczba mnoga, więc dodanie -s tworzy niepoprawne podwójne oznaczenie."
+                }
+            }
+        }
+    ]
+}
