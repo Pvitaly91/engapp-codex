@@ -233,6 +233,7 @@ class V3PromptGeneratorService
             'Execution notes',
             '- Use the topic source below as the pedagogical source of truth for coverage and terminology.',
             '- Reuse the project’s existing V3 question JSON structure, marker format, options format, hints, explanations, tag organization, and source naming style.',
+            ...$this->grammarTaggingRules(),
             '- Keep every learner-facing `question` and every `variants` entry in English only. Store Ukrainian teaching feedback in the seeder package localization flow (`localizations.uk` in the definition when required by the local pattern, plus the companion `localizations/uk.json` file).',
             '- Make Ukrainian `hints` and `explanations` genuinely instructional in both the definition content and the companion package localization JSON: explain the rule, mention the clue in the sentence, and clarify why distractors are wrong instead of using very short labels. Hints must guide the learner without revealing the final answer.',
             ...$this->detailedLocalizationQualityRules(),
@@ -277,8 +278,11 @@ class V3PromptGeneratorService
   },
   "category": { "name": "..." },
   "sources": { "source_key": { "name": "..." } },
-  "tags": { "tag_key": { "name": "...", "category": "..." } },
-  "default_tag_keys": ["theme", "detail", "structure"],
+  "tags": {
+    "grammar_core_rule": { "name": "Core Grammar Rule", "category": "grammar" },
+    "grammar_subrule": { "name": "Specific Grammar Subrule", "category": "grammar_detail" }
+  },
+  "default_tag_keys": ["grammar_core_rule"],
   "questions": [
     {
       "id": 1,
@@ -289,7 +293,8 @@ class V3PromptGeneratorService
         "a1": {
           "answer": "...",
           "options": ["...", "...", "..."],
-          "verb_hint": "..."
+          "verb_hint": "...",
+          "gap_tags": ["grammar_subrule"]
         }
       },
       "localizations": {
@@ -303,7 +308,7 @@ class V3PromptGeneratorService
           }
         }
       },
-      "tag_keys": ["theme"],
+      "tag_keys": ["grammar_subrule"],
       "variants": ["... {a1} ..."]
     }
   ]
@@ -380,6 +385,7 @@ TEXT;
             '- Generate exactly the requested number of questions for every selected CEFR level.',
             '- Ensure every marker answer is present in its options list.',
             '- Keep source keys and tag keys stable and reusable.',
+            ...$this->grammarTaggingRules(),
             '- Write every `question` and every `variants` entry in English only. Do not put Ukrainian translations into `variants`.',
             $this->llmJsonQuestionsOnlyLocalizationRequirement(),
             '- Keep `localizations.uk.hints` in Ukrainian, but make them detailed: use complete teaching sentences that name the rule and point to the clue in the sentence, while never revealing the exact correct answer or directly naming the correct option.',
@@ -424,6 +430,7 @@ TEXT;
             '- For AI-oriented namespaces in this repo, the normal local convention is a thin top-level `...V3QuestionsOnlySeeder.php` loader stub plus a same-named package folder containing the real seeder class, `definition.json`, and companion `localizations/*.json` files.',
             '- Real loader contract from `app/Support/Database/JsonTestSeeder.php`: use top-level keys `schema_version`, `seeder`, `defaults`, `category`, `sources`, `tags`, `default_tag_keys`, `questions`, and optional `saved_test`.',
             '- Real question contract: each question normally carries `id`, `question`, `source`, `level`, `markers`, `localizations`, `tag_keys`, `variants`; each `markers.<marker>` object uses `answer`, `options`, optional `verb_hint`, optional `gap_tags`.',
+            '- Real tag contract: declare every reusable grammar tag key under top-level `tags`; use `default_tag_keys` only for shared umbrella grammar rules, question-level `tag_keys` for the grammar point tested by that question, and `markers.<marker>.gap_tags` when different gaps test different sub-rules.',
             '- Real localization contract inside the definition: under `localizations.<locale>`, use `hints` as an array and `explanations.<marker>.<option>` as per-option feedback text.',
             '- Real companion localization file contract from `app/Support/Database/JsonTestLocalizationManager.php`: package-local localization JSON files use top-level keys `schema_version`, `seeder`, `target`, `locale`, optional `hint_provider`, and `questions`.',
             '- Real companion localization targeting rules: keep these files inside the same seeder package under `localizations/<locale>.json`, set `target.definition_path` to `../definition.json`, and set `target.seeder_class` to the base V3 seeder class.',
@@ -507,7 +514,9 @@ TEXT;
             '- First inspect the real V3 implementation in `database/seeders/V3` plus `app/Support/Database/JsonTestSeeder.php`, `app/Support/Database/JsonTestDirectorySeeder.php`, and `app/Support/Database/JsonTestLocalizationManager.php`.',
             '- Do not invent a new schema, new loader logic, or a custom one-off seeder implementation.',
             '- Preserve the provided JSON question set as the canonical content. Do not rewrite or rebalance it unless a small technical compatibility fix is required.',
+            '- Preserve incoming grammar tags when they are already specific and reusable. If `tags`, `default_tag_keys`, `questions[*].tag_keys`, or marker `gap_tags` are missing, overly generic, or inconsistent with the actual grammar rule, normalize them to the local V3 style without changing the question set.',
             '- If the provided JSON uses Ukrainian translations inside `variants`, reveals the final answer inside `localizations.uk.hints`, or has overly terse `localizations.uk.hints` / `localizations.uk.explanations`, normalize those fields to the local V3 standard while preserving the same question set, ordering, and level counts.',
+            ...$this->grammarTaggingRules(true),
             $this->codexSeederQuestionsOnlyLocalizationRequirement(),
             '- Ensure the final `seeder.class`, namespace, loader stub, package folder, real seeder file path, JSON definition path, and localization JSON paths are all consistent.',
             '- The final integrated result must persist a real `SavedGrammarTest` entry with ordered question links so the public theory page can surface this test.',
@@ -646,6 +655,24 @@ TEXT;
             '- Do not use vague clue phrasing like "слова на кшталт ..."; name the real cue from the sentence such as `two`, `many`, `are`, the noun ending, or the surrounding agreement pattern.',
             '- For every option inside `explanations`, write 1-2 full Ukrainian teaching sentences that identify the exact error type or success reason, such as singular instead of plural, wrong `-es` spelling, `y -> ies`, `f/fe -> ves`, irregular plural, zero plural, singular-only/plural-only noun, or agreement mismatch.',
             '- Avoid generic repeated templates like "не підходить, бо потрібна правильна форма"; vary the wording and tie each hint or explanation to the actual noun pattern and sentence context.',
+        ];
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    protected function grammarTaggingRules(bool $integrationMode = false): array
+    {
+        return [
+            $integrationMode
+                ? '- Ensure every question ends up with grammar-filter tags: each question must have `tag_keys` naming the actual grammar concept(s) being tested so admins can filter question banks by grammar.'
+                : '- Generate grammar-filter tags for every question: each question must include `tag_keys` naming the actual grammar concept(s) being tested so admins can filter question banks by grammar.',
+            '- Prefer stable, reusable grammar tag keys for rule families and sub-rules, such as tense usage, article choice, modal meaning, conditional type, agreement pattern, passive structure, or gerund/infinitive contrast, instead of generic tags like `grammar`, `mixed`, `exercise`, or only topical labels.',
+            '- Keep tags focused on the grammar mechanism, not the lesson title, topic summary, exercise format, provider, or UI shape. Do not generate broad/meta labels such as `Plural Nouns`, `Rules, exceptions, and usage`, `Single-gap multiple choice`, or similar page-title / task-format tags unless the label itself names a reusable grammar rule.',
+            '- Name the specific rule or contrast being tested. Prefer tags such as `plural_s`, `plural_es_after_sibilant`, `plural_y_to_ies`, `plural_f_fe_to_ves`, `irregular_plural_nouns`, `zero_plural_nouns`, `plural_only_nouns`, `singular_only_nouns`, or `plural_subject_verb_agreement` over vague bucket tags.',
+            '- Declare every used grammar tag key in top-level `tags`. If the whole test shares one umbrella rule, keep that umbrella rule in `default_tag_keys` and use question-level `tag_keys` for the more specific grammar point tested by each question.',
+            '- When different markers inside the same question target different grammar points, add marker-level `gap_tags` for those markers so filtering can stay precise at gap level instead of collapsing everything into one broad tag.',
+            '- If a question also carries topic or vocabulary tags, grammar-filter tags are still mandatory and should remain the clearest signal for grammar-based filtering.',
         ];
     }
 

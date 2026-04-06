@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TextBlock;
 use App\Services\MarkerTheoryMatcherService;
+use App\Services\QuestionTechnicalInfoService;
 use App\Services\QuestionVariantService;
 use App\Services\SavedTestResolver;
 use App\Support\SavedTestJsState;
@@ -14,6 +15,7 @@ class TestJsV2Controller extends Controller
         private QuestionVariantService $variantService,
         private SavedTestResolver $savedTestResolver,
         private MarkerTheoryMatcherService $markerTheoryMatcher,
+        private QuestionTechnicalInfoService $questionTechnicalInfoService,
     ) {}
 
     /**
@@ -91,8 +93,13 @@ class TestJsV2Controller extends Controller
         $test = $resolved->model;
         $stateKey = $this->jsStateSessionKey($test, $mode);
         $savedState = $this->activeJsSavedState($stateKey);
-        $questions = $this->persistedQuestionData($test, $savedState)
-            ?? $this->buildQuestionDataset($resolved, $savedState === null);
+        $isAdmin = $this->isAdminUser();
+        $showTechnicalInfo = $this->shouldShowTechnicalInfo($isAdmin);
+        $questions = $this->persistedQuestionData($test, $savedState);
+
+        if (! is_array($questions) || ($showTechnicalInfo && ! $this->datasetContainsTechnicalInfo($questions))) {
+            $questions = $this->buildQuestionDataset($resolved, $savedState === null, $showTechnicalInfo);
+        }
 
         return view($view, array_merge([
             'test' => $test,
@@ -100,17 +107,22 @@ class TestJsV2Controller extends Controller
             'jsStateMode' => $mode,
             'savedState' => $savedState,
             'usesUuidLinks' => $resolved->usesUuidLinks,
-            'isAdmin' => $this->isAdminUser(),
+            'isAdmin' => $isAdmin,
+            'showTechnicalInfo' => $showTechnicalInfo,
         ], $extra));
     }
 
-    protected function buildQuestionDataset($resolved, bool $freshVariants = false)
+    protected function buildQuestionDataset($resolved, bool $freshVariants = false, bool $includeTechnicalInfo = false)
     {
         $test = $resolved->model;
         $relations = ['category', 'answers.option', 'options', 'verbHints.option'];
         $supportsVariants = $this->variantService->supportsVariants();
         if ($supportsVariants) {
             $relations[] = 'variants';
+        }
+        if ($includeTechnicalInfo) {
+            $relations[] = 'source';
+            $relations[] = 'tags';
         }
 
         $questions = $this->savedTestResolver->loadQuestions($resolved, $relations);
@@ -129,9 +141,13 @@ class TestJsV2Controller extends Controller
             }
         }
 
+        $technicalInfoByQuestionId = $includeTechnicalInfo
+            ? $this->questionTechnicalInfoService->mapForQuestions($questions)
+            : [];
+
         $controller = $this;
 
-        return $questions->map(function ($q) use ($controller) {
+        return $questions->map(function ($q) use ($controller, $technicalInfoByQuestionId) {
             $answers = $q->answers
                 ->sortBy('marker')
                 ->values()
@@ -197,6 +213,7 @@ class TestJsV2Controller extends Controller
                 'level' => $q->level ?? '',
                 'theory_block' => $theoryBlock,
                 'marker_tags' => $markerTags,
+                'tech_info' => $technicalInfoByQuestionId[$q->id] ?? null,
             ];
         })->values()->all();
     }
@@ -254,6 +271,24 @@ class TestJsV2Controller extends Controller
     protected function isAdminUser(): bool
     {
         return (bool) (auth()->user()?->is_admin ?? session('admin_authenticated', false));
+    }
+
+    protected function shouldShowTechnicalInfo(?bool $isAdmin = null): bool
+    {
+        $isAdmin ??= $this->isAdminUser();
+
+        return $isAdmin && (bool) config('tests.tech_info_enabled', true);
+    }
+
+    protected function datasetContainsTechnicalInfo(array $questions): bool
+    {
+        foreach ($questions as $question) {
+            if (is_array($question) && array_key_exists('tech_info', $question)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     protected function normalizeOptionsByMarker($rawOptions, array $markers): ?array

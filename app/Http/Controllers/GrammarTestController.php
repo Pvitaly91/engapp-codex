@@ -15,6 +15,7 @@ use App\Models\Tag;
 use App\Models\SavedGrammarTest;
 use App\Models\ChatGPTExplanation;
 use App\Services\QuestionDeletionService;
+use App\Services\QuestionTechnicalInfoService;
 use App\Services\QuestionVariantService;
 use App\Services\GrammarTestFilterService;
 use App\Services\ResolvedSavedTest;
@@ -54,6 +55,7 @@ class GrammarTestController extends Controller
         private SavedTestResolver $savedTestResolver,
         private GrammarTestFilterService $filterService,
         private QuestionDeletionService $questionDeletionService,
+        private QuestionTechnicalInfoService $questionTechnicalInfoService,
         private TagAggregationService $aggregationService,
         private TheoryBlockMatcherService $theoryBlockMatcherService,
     )
@@ -422,8 +424,13 @@ class GrammarTestController extends Controller
         $test = $resolved->model;
         $stateKey = $this->jsStateSessionKey($test, $view);
         $savedState = $this->activeJsSavedState($stateKey);
-        $questions = $this->persistedQuestionData($test, $savedState)
-            ?? $this->buildQuestionDataset($resolved, $savedState === null);
+        $isAdmin = $this->isAdminUser();
+        $showTechnicalInfo = $this->shouldShowTechnicalInfo($isAdmin);
+        $questions = $this->persistedQuestionData($test, $savedState);
+
+        if (! is_array($questions) || ($showTechnicalInfo && ! $this->datasetContainsTechnicalInfo($questions))) {
+            $questions = $this->buildQuestionDataset($resolved, $savedState === null, $showTechnicalInfo);
+        }
 
         return view("engram.$view", [
             'test' => $test,
@@ -431,6 +438,8 @@ class GrammarTestController extends Controller
             'jsStateMode' => $view,
             'savedState' => $savedState,
             'usesUuidLinks' => $resolved->usesUuidLinks,
+            'isAdmin' => $isAdmin,
+            'showTechnicalInfo' => $showTechnicalInfo,
         ]);
     }
 
@@ -448,7 +457,7 @@ class GrammarTestController extends Controller
             $this->clearJsLaunchState($test);
         }
 
-        $questions = $this->buildQuestionDataset($resolved, true);
+        $questions = $this->buildQuestionDataset($resolved, true, $this->shouldShowTechnicalInfo());
 
         return response()->json(['questions' => $questions]);
     }
@@ -492,13 +501,21 @@ class GrammarTestController extends Controller
         return response()->noContent();
     }
 
-    private function buildQuestionDataset(ResolvedSavedTest $resolved, bool $freshVariants = false)
+    private function buildQuestionDataset(
+        ResolvedSavedTest $resolved,
+        bool $freshVariants = false,
+        bool $includeTechnicalInfo = false
+    )
     {
         $test = $resolved->model;
         $relations = ['category', 'answers.option', 'options', 'verbHints.option'];
         $supportsVariants = $this->variantService->supportsVariants();
         if ($supportsVariants) {
             $relations[] = 'variants';
+        }
+        if ($includeTechnicalInfo) {
+            $relations[] = 'source';
+            $relations[] = 'tags';
         }
 
         $questions = $this->savedTestResolver->loadQuestions($resolved, $relations);
@@ -517,9 +534,13 @@ class GrammarTestController extends Controller
             }
         }
 
+        $technicalInfoByQuestionId = $includeTechnicalInfo
+            ? $this->questionTechnicalInfoService->mapForQuestions($questions)
+            : [];
+
         $controller = $this;
 
-        return $questions->map(function ($q) use ($controller) {
+        return $questions->map(function ($q) use ($controller, $technicalInfoByQuestionId) {
             $answers = $q->answers
                 ->sortBy('marker')
                 ->values()
@@ -564,6 +585,7 @@ class GrammarTestController extends Controller
                 'options' => $options,
                 'tense' => $q->category->name ?? '',
                 'level' => $q->level ?? '',
+                'tech_info' => $technicalInfoByQuestionId[$q->id] ?? null,
             ];
         })->values()->all();
     }
@@ -653,6 +675,29 @@ class GrammarTestController extends Controller
         }
 
         return is_array($questionData) ? $questionData : null;
+    }
+
+    private function isAdminUser(): bool
+    {
+        return (bool) (auth()->user()?->is_admin ?? session('admin_authenticated', false));
+    }
+
+    private function shouldShowTechnicalInfo(?bool $isAdmin = null): bool
+    {
+        $isAdmin ??= $this->isAdminUser();
+
+        return $isAdmin && (bool) config('tests.tech_info_enabled', true);
+    }
+
+    private function datasetContainsTechnicalInfo(array $questions): bool
+    {
+        foreach ($questions as $question) {
+            if (is_array($question) && array_key_exists('tech_info', $question)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private function clearJsLaunchState(Test|SavedGrammarTest|VirtualSavedTest $test): void

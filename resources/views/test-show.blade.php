@@ -895,6 +895,7 @@
             'savedState' => $savedState,
             'usesUuidLinks' => $usesUuidLinks,
             'isAdmin' => $isAdmin ?? false,
+            'showTechnicalInfo' => $showTechnicalInfo ?? false,
         ]) !!}
     </div>
 </div>

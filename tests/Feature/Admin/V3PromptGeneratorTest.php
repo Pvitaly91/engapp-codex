@@ -152,6 +152,11 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('keep the top-level PHP file as a compatibility loader stub');
         $response->assertSee('Use package-local localization JSON files under `localizations/uk.json`, `localizations/en.json`, and `localizations/pl.json`');
         $response->assertSee('`target.definition_path` pointed at `../definition.json`');
+        $response->assertSee('Generate grammar-filter tags for every question');
+        $response->assertSee('Keep tags focused on the grammar mechanism, not the lesson title, topic summary, exercise format, provider, or UI shape.');
+        $response->assertSee('Do not generate broad/meta labels such as `Plural Nouns`, `Rules, exceptions, and usage`, `Single-gap multiple choice`');
+        $response->assertSee('Prefer tags such as `plural_s`, `plural_es_after_sibilant`, `plural_y_to_ies`, `plural_f_fe_to_ves`');
+        $response->assertSee('If the whole test shares one umbrella rule, keep that umbrella rule in `default_tag_keys`');
         $response->assertSee('Keep every learner-facing `question` and every `variants` entry in English only.');
         $response->assertSee('Make Ukrainian `hints` and `explanations` genuinely instructional');
         $response->assertSee('does not mean omitting teaching feedback');
@@ -224,6 +229,12 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('Planned seeder package folder');
         $response->assertSee('Planned localization path (uk): `database/seeders/V3/AI/ChatGptPro/PassiveVoiceV3QuestionsOnlySeeder/localizations/uk.json`');
         $response->assertSee('keep these files inside the same seeder package under `localizations/<locale>.json`');
+        $response->assertSee('Generate grammar-filter tags for every question');
+        $response->assertSee('Ensure every question ends up with grammar-filter tags');
+        $response->assertSee('Keep tags focused on the grammar mechanism, not the lesson title, topic summary, exercise format, provider, or UI shape.');
+        $response->assertSee('Do not generate broad/meta labels such as `Plural Nouns`, `Rules, exceptions, and usage`, `Single-gap multiple choice`');
+        $response->assertSee('Prefer tags such as `plural_s`, `plural_es_after_sibilant`, `plural_y_to_ies`, `plural_f_fe_to_ves`');
+        $response->assertSee('If `tags`, `default_tag_keys`, `questions[*].tag_keys`, or marker `gap_tags` are missing');
         $response->assertSee('create or enrich the companion `localizations/uk.json` file inside the seeder package');
         $response->assertSee('Avoid generic repeated templates like');
         $response->assertSee('database/seeders/V3/AI/ChatGptPro/PassiveVoiceV3QuestionsOnlySeeder/definition.json');
