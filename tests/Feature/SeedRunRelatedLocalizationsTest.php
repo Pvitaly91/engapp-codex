@@ -101,6 +101,96 @@ class SeedRunRelatedLocalizationsTest extends TestCase
         $this->assertSame('2026-04-01 12:00:00', $items->last()['ran_at']);
     }
 
+    public function test_controller_expand_refresh_class_names_includes_related_localizations_for_base_seeder(): void
+    {
+        $controller = new class(
+            app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
+            app(SeederTestTargetResolver::class),
+            app(JsonTestLocalizationManager::class),
+            app(JsonPageLocalizationManager::class),
+        ) extends SeedRunController {
+            public function exposeExpandRefreshClassNames(Collection $selectedClasses, ?Collection $executedSeeders = null): Collection
+            {
+                return $this->expandRefreshClassNames($selectedClasses, $executedSeeders);
+            }
+
+            protected function localizationTargetSeederClass(string $className): ?string
+            {
+                return match ($className) {
+                    'Database\\Seeders\\V3\\Localizations\\En\\ExampleLocalizationSeeder',
+                    'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder' => 'Database\\Seeders\\V3\\ExampleSeeder',
+                    default => null,
+                };
+            }
+
+            protected function localizationDescriptorForClass(string $className): ?array
+            {
+                return match ($className) {
+                    'Database\\Seeders\\V3\\Localizations\\En\\ExampleLocalizationSeeder' => ['locale' => 'en'],
+                    'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder' => ['locale' => 'pl'],
+                    default => null,
+                };
+            }
+        };
+
+        $classes = $controller->exposeExpandRefreshClassNames(
+            collect(['Database\\Seeders\\V3\\ExampleSeeder']),
+            $this->fakeExecutedSeeders()
+        );
+
+        $this->assertSame([
+            'Database\\Seeders\\V3\\ExampleSeeder',
+            'Database\\Seeders\\V3\\Localizations\\En\\ExampleLocalizationSeeder',
+            'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder',
+        ], $classes->all());
+    }
+
+    public function test_seed_runs_v2_service_expand_refresh_class_names_includes_related_localizations_for_base_seeder(): void
+    {
+        $service = new class(
+            app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
+            app(SeederTestTargetResolver::class),
+            app(JsonTestLocalizationManager::class),
+            app(JsonPageLocalizationManager::class),
+        ) extends SeedRunsService {
+            public function exposeExpandRefreshClassNames(Collection $selectedClasses, ?Collection $executedSeeders = null): Collection
+            {
+                return $this->expandRefreshClassNames($selectedClasses, $executedSeeders);
+            }
+
+            protected function localizationTargetSeederClass(string $className): ?string
+            {
+                return match ($className) {
+                    'Database\\Seeders\\V3\\Localizations\\En\\ExampleLocalizationSeeder',
+                    'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder' => 'Database\\Seeders\\V3\\ExampleSeeder',
+                    default => null,
+                };
+            }
+
+            protected function localizationDescriptorForClass(string $className): ?array
+            {
+                return match ($className) {
+                    'Database\\Seeders\\V3\\Localizations\\En\\ExampleLocalizationSeeder' => ['locale' => 'en'],
+                    'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder' => ['locale' => 'pl'],
+                    default => null,
+                };
+            }
+        };
+
+        $classes = $service->exposeExpandRefreshClassNames(
+            collect(['Database\\Seeders\\V3\\ExampleSeeder']),
+            $this->fakeExecutedSeeders(true)
+        );
+
+        $this->assertSame([
+            'Database\\Seeders\\V3\\ExampleSeeder',
+            'Database\\Seeders\\V3\\Localizations\\En\\ExampleLocalizationSeeder',
+            'Database\\Seeders\\V3\\Localizations\\Pl\\ExampleLocalizationSeeder',
+        ], $classes->all());
+    }
+
     public function test_controller_builds_available_localization_map_for_pending_seeders(): void
     {
         $controller = new class(
@@ -497,6 +587,28 @@ class SeedRunRelatedLocalizationsTest extends TestCase
         $this->assertStringContainsString('data-reload-after-success="true"', $html);
     }
 
+    public function test_classic_executed_folder_renders_refresh_action(): void
+    {
+        $html = view('seed-runs.partials.executed-node', [
+            'node' => [
+                'type' => 'folder',
+                'name' => 'V3',
+                'path' => 'V3/Example',
+                'children' => [],
+                'seeder_count' => 1,
+                'seed_run_ids' => [101],
+                'class_names' => ['Database\\Seeders\\V3\\ExampleSeeder'],
+                'folder_profile' => [],
+            ],
+            'depth' => 0,
+            'recentSeedRunOrdinals' => collect(),
+            'activeSeederTab' => 'main',
+        ])->render();
+
+        $this->assertStringContainsString(route('seed-runs.folders.refresh'), $html);
+        $this->assertStringContainsString('Оновити дані', $html);
+    }
+
     public function test_livewire_executed_node_renders_related_localizations_actions(): void
     {
         $html = view('seed-runs-v2::livewire.partials.executed-node', [
@@ -539,6 +651,26 @@ class SeedRunRelatedLocalizationsTest extends TestCase
         $this->assertStringContainsString('confirmDeleteLocalizationFromDatabase', $html);
         $this->assertStringContainsString('Виконати локалізації', $html);
         $this->assertStringContainsString('Видалити з БД', $html);
+    }
+
+    public function test_livewire_executed_folder_renders_refresh_action(): void
+    {
+        $html = view('seed-runs-v2::livewire.partials.executed-node', [
+            'node' => [
+                'type' => 'folder',
+                'name' => 'V3',
+                'path' => 'V3/Example',
+                'children' => [],
+                'seeder_count' => 1,
+                'class_names' => ['Database\\Seeders\\V3\\ExampleSeeder'],
+                'folder_profile' => [],
+            ],
+            'depth' => 0,
+            'searchQuery' => '',
+        ])->render();
+
+        $this->assertStringContainsString('confirmRefreshExecutedFolder', $html);
+        $this->assertStringContainsString('Оновити дані', $html);
     }
 
     public function test_classic_pending_node_renders_existing_localizations(): void

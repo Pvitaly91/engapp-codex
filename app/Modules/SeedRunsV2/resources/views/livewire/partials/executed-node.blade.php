@@ -8,6 +8,7 @@
     @php
         $folderName = $node['name'] ?? 'Unknown';
         $folderProfile = $node['folder_profile'] ?? [];
+        $folderLabel = $node['path'] ?? $folderName;
         $shouldShow = empty($searchQuery) || collect($node['class_names'] ?? [])->contains(fn($c) => 
             stripos($this->seedRunsService->formatSeederClassName($c), $searchQuery) !== false
         );
@@ -31,6 +32,18 @@
                 <span>{{ $folderName }}</span>
                 <span class="text-xs font-normal text-slate-500">({{ $node['seeder_count'] ?? 0 }})</span>
             </button>
+            @if(!empty($node['class_names']))
+                <div class="flex flex-wrap gap-2">
+                    <button
+                        type="button"
+                        wire:click="confirmRefreshExecutedFolder('{{ addslashes($node['path'] ?? '') }}', '{{ addslashes($folderLabel) }}')"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-md hover:bg-blue-500 transition"
+                    >
+                        <i class="fa-solid fa-rotate"></i>
+                        Оновити дані
+                    </button>
+                </div>
+            @endif
             <div class="space-y-4" x-show="expandedFolders['{{ $nodeKey }}']" x-collapse>
                 @foreach(($node['children'] ?? []) as $childNode)
                     @include('seed-runs-v2::livewire.partials.executed-node', ['node' => $childNode, 'depth' => $depth + 1])

@@ -2540,6 +2540,133 @@ class SeedRunController extends Controller
         return $redirect;
     }
 
+    public function refreshFolder(Request $request): RedirectResponse|JsonResponse
+    {
+        $validated = $request->validate([
+            'class_names' => ['required', 'array', 'min:1'],
+            'class_names.*' => ['string'],
+            'folder_label' => ['nullable', 'string'],
+        ]);
+
+        $classNames = collect($validated['class_names'] ?? [])
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($classNames->isEmpty()) {
+            $message = __('No seeders were selected.');
+
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $message], 422);
+            }
+
+            return $this->redirectToIndexWithTab($request)
+                ->withErrors(['refresh' => $message]);
+        }
+
+        $folderLabel = $this->resolveFolderLabel($validated['folder_label'] ?? null);
+        $result = $this->refreshExecutedSeeders($classNames);
+
+        if (($result['selected_ran'] ?? collect())->isEmpty()) {
+            $errorMessage = $result['message'] ?? __('Не вдалося оновити дані сидерів у папці.');
+
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'message' => $errorMessage,
+                    'errors' => ($result['errors'] ?? collect())->all(),
+                ], 422);
+            }
+
+            return $this->redirectToIndexWithTab($request)
+                ->withErrors(['refresh' => $errorMessage]);
+        }
+
+        $statusMessage = __('Оновлено дані :count сидер(ів) у папці :folder.', [
+            'count' => ($result['selected_ran'] ?? collect())->count(),
+            'folder' => $folderLabel,
+        ]);
+
+        $localizationsRan = (int) ($result['localizations_ran_total'] ?? 0);
+        if ($localizationsRan > 0) {
+            $statusMessage .= ' ' . __('Повторно виконано :count сидер(ів) локалізації.', [
+                'count' => $localizationsRan,
+            ]);
+        }
+
+        if (($result['questions_deleted'] ?? 0) > 0) {
+            $statusMessage .= ' ' . __('Видалено :count пов’язаних питань.', ['count' => $result['questions_deleted']]);
+        }
+
+        if (($result['blocks_deleted'] ?? 0) > 0) {
+            $statusMessage .= ' ' . __('Видалено :count пов’язаних текстових блоків.', ['count' => $result['blocks_deleted']]);
+        }
+
+        if (($result['pages_deleted'] ?? 0) > 0) {
+            $statusMessage .= ' ' . __('Видалено :count пов’язаних сторінок.', ['count' => $result['pages_deleted']]);
+        }
+
+        if (($result['categories_deleted'] ?? 0) > 0) {
+            $statusMessage .= ' ' . __('Видалено :count пов’язаних категорій.', ['count' => $result['categories_deleted']]);
+        }
+
+        if (($result['hints_deleted'] ?? 0) > 0) {
+            $statusMessage .= ' ' . __('Видалено :count пов’язаних підказок.', ['count' => $result['hints_deleted']]);
+        }
+
+        if (($result['explanations_deleted'] ?? 0) > 0) {
+            $statusMessage .= ' ' . __('Видалено :count пов’язаних пояснень.', ['count' => $result['explanations_deleted']]);
+        }
+
+        $errors = $result['errors'] ?? collect();
+
+        if ($errors->isNotEmpty()) {
+            $statusMessage .= ' ' . __('Під час повторного запуску виникли помилки: :errors', [
+                'errors' => $errors->implode(' '),
+            ]);
+        }
+
+        $testTargets = $this->resolveTestTargetsForClasses($result['ran'] ?? collect());
+
+        if ($request->wantsJson()) {
+            $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
+
+            return response()->json([
+                'message' => $statusMessage,
+                'test_targets' => $testTargets,
+                'errors' => $errors->all(),
+                'folder_label' => $folderLabel,
+                'refreshed_count' => ($result['selected_ran'] ?? collect())->count(),
+                'refreshed_classes' => ($result['selected_ran'] ?? collect())->all(),
+                'executed_classes' => ($result['ran'] ?? collect())->all(),
+                'ordered_classes' => ($result['ordered'] ?? collect())->all(),
+                'questions_deleted' => $result['questions_deleted'] ?? 0,
+                'blocks_deleted' => $result['blocks_deleted'] ?? 0,
+                'pages_deleted' => $result['pages_deleted'] ?? 0,
+                'categories_deleted' => $result['categories_deleted'] ?? 0,
+                'hints_deleted' => $result['hints_deleted'] ?? 0,
+                'explanations_deleted' => $result['explanations_deleted'] ?? 0,
+                'overview' => [
+                    'pending_count' => $overview['pendingSeeders']->count(),
+                    'executed_count' => $overview['executedSeeders']->count(),
+                ],
+            ]);
+        }
+
+        $redirect = $this->redirectToIndexWithTab($request)
+            ->with('status', $statusMessage);
+
+        if ($testTargets !== []) {
+            $redirect = $redirect->with('status_links', $testTargets);
+        }
+
+        if ($errors->isNotEmpty()) {
+            $redirect = $redirect->withErrors(['refresh' => $errors->implode(' ')]);
+        }
+
+        return $redirect;
+    }
+
     public function destroySeederFile(Request $request): RedirectResponse|JsonResponse
     {
         $validated = $request->validate([
@@ -3622,109 +3749,33 @@ class SeedRunController extends Controller
         }
 
         $className = $seedRun->class_name;
+        $profile = $this->describeSeederData($seedRun->class_name);
+        $result = $this->refreshExecutedSeeders(collect([$className]));
 
-        if (! $this->ensureSeederClassIsLoaded($className)) {
-            $errorMessage = __('Seeder :class was not found.', ['class' => $className]);
-            
+        if (! ($result['selected_ran'] ?? collect())->contains($className)) {
+            $errorMessage = $result['message'] ?? __('Не вдалося оновити дані сидера.');
+
+            if (($result['errors'] ?? collect())->isNotEmpty()) {
+                $errorMessage = $result['errors']->implode(' ');
+            }
+
             if ($request->wantsJson()) {
-                return response()->json(['message' => $errorMessage], 404);
+                return response()->json([
+                    'message' => $errorMessage,
+                    'errors' => ($result['errors'] ?? collect())->all(),
+                ], 422);
             }
 
             return $this->redirectToIndexWithTab($request)
                 ->withErrors(['refresh' => $errorMessage]);
         }
 
-        $deletedQuestions = 0;
-        $deletedBlocks = 0;
-        $deletedPages = 0;
-        $deletedCategories = 0;
-        $deletedHints = 0;
-        $deletedExplanations = 0;
-        $profile = $this->describeSeederData($seedRun->class_name);
-
-        $blockedMessage = $this->executionBlockedMessageForSeeder($className, $this->executedSeederClasses());
-
-        if ($blockedMessage !== null) {
-            if ($request->wantsJson()) {
-                return response()->json(['message' => $blockedMessage], 422);
-            }
-
-            return $this->redirectToIndexWithTab($request)
-                ->withErrors(['refresh' => $blockedMessage]);
-        }
-
-        try {
-            $isLocalizationSeeder = $this->isVirtualLocalizationSeeder($className);
-
-            if (! $isLocalizationSeeder) {
-                $filePath = $this->resolveSeederFilePath($className);
-
-                if (! $this->isInstantiableSeeder($className, $filePath)) {
-                    $errorMessage = __('Seeder :class cannot be executed.', ['class' => $className]);
-
-                    if ($request->wantsJson()) {
-                        return response()->json(['message' => $errorMessage], 422);
-                    }
-
-                    return $this->redirectToIndexWithTab($request)
-                        ->withErrors(['refresh' => $errorMessage]);
-                }
-            }
-
-            DB::transaction(function () use (
-                $seedRun,
-                &$deletedQuestions,
-                &$deletedBlocks,
-                &$deletedPages,
-                &$deletedCategories,
-                &$deletedHints,
-                &$deletedExplanations,
-                $profile
-            ) {
-                $classNames = collect([$seedRun->class_name]);
-
-                if ($profile['type'] === 'question_localizations') {
-                    $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
-                    $deletedHints = (int) ($result['deleted_hints'] ?? 0);
-                    $deletedExplanations = (int) ($result['deleted_explanations'] ?? 0);
-                } elseif ($profile['type'] === 'page_localizations') {
-                    $result = $this->removeVirtualLocalizationSeederData($seedRun->class_name);
-                    $deletedBlocks = (int) ($result['deleted_blocks'] ?? 0);
-                } elseif ($profile['type'] === 'questions') {
-                    $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
-                } elseif ($profile['type'] === 'pages') {
-                    $pageResult = $this->deletePageContentForSeeders($classNames);
-                    $deletedBlocks = $pageResult['blocks'];
-                    $deletedPages = $pageResult['pages_deleted'];
-                    $deletedCategories = $pageResult['categories_deleted'];
-                } else {
-                    $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
-                    $pageResult = $this->deletePageContentForSeeders($classNames);
-                    $deletedBlocks = $pageResult['blocks'];
-                    $deletedPages = $pageResult['pages_deleted'];
-                    $deletedCategories = $pageResult['categories_deleted'];
-                }
-            });
-
-            if ($isLocalizationSeeder) {
-                $this->applyVirtualLocalizationSeeder($className);
-            } else {
-                Artisan::call('db:seed', ['--class' => $className]);
-            }
-
-            DB::table('seed_runs')
-                ->where('id', $seedRun->id)
-                ->update(['ran_at' => now()]);
-        } catch (\Throwable $exception) {
-            report($exception);
-
-            if ($request->wantsJson()) {
-                return response()->json(['message' => $exception->getMessage()], 500);
-            }
-
-            return $this->redirectToIndexWithTab($request)
-                ->withErrors(['refresh' => $exception->getMessage()]);
-        }
+        $deletedQuestions = (int) ($result['questions_deleted'] ?? 0);
+        $deletedBlocks = (int) ($result['blocks_deleted'] ?? 0);
+        $deletedPages = (int) ($result['pages_deleted'] ?? 0);
+        $deletedCategories = (int) ($result['categories_deleted'] ?? 0);
+        $deletedHints = (int) ($result['hints_deleted'] ?? 0);
+        $deletedExplanations = (int) ($result['explanations_deleted'] ?? 0);
 
         $status = match ($profile['type']) {
             'question_localizations' => __('Refreshed localization seeder :class. Deleted :hints hint(s) and :explanations explanation(s), then re-applied localization.', [
@@ -3754,6 +3805,20 @@ class SeedRunController extends Controller
             ]),
         };
 
+        $relatedLocalizationsRan = (int) ($result['related_localizations_ran'] ?? 0);
+        if ($relatedLocalizationsRan > 0 && ! in_array($profile['type'], ['question_localizations', 'page_localizations'], true)) {
+            $status .= ' ' . __('Повторно виконано :count пов’язаних сидер(ів) локалізації.', [
+                'count' => $relatedLocalizationsRan,
+            ]);
+        }
+
+        $errors = $result['errors'] ?? collect();
+        if ($errors->isNotEmpty()) {
+            $status .= ' ' . __('Під час повторного запуску виникли помилки: :errors', [
+                'errors' => $errors->implode(' '),
+            ]);
+        }
+
         if ($request->wantsJson()) {
             $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
             
@@ -3767,6 +3832,8 @@ class SeedRunController extends Controller
                 'categories_deleted' => $deletedCategories,
                 'hints_deleted' => $deletedHints,
                 'explanations_deleted' => $deletedExplanations,
+                'related_localizations_ran' => $relatedLocalizationsRan,
+                'errors' => $errors->all(),
                 'overview' => [
                     'pending_count' => $overview['pendingSeeders']->count(),
                     'executed_count' => $overview['executedSeeders']->count(),
@@ -3774,8 +3841,310 @@ class SeedRunController extends Controller
             ]);
         }
 
-        return $this->redirectToIndexWithTab($request)
+        $redirect = $this->redirectToIndexWithTab($request)
             ->with('status', $status);
+
+        if ($errors->isNotEmpty()) {
+            $redirect = $redirect->withErrors(['refresh' => $errors->implode(' ')]);
+        }
+
+        return $redirect;
+    }
+
+    protected function refreshExecutedSeeders(Collection $selectedClasses): array
+    {
+        $selectedClasses = $selectedClasses
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        $emptyResult = [
+            'success' => false,
+            'message' => __('No seeders were selected.'),
+            'selected_classes' => collect(),
+            'classes_to_refresh' => collect(),
+            'related_localization_classes' => collect(),
+            'selected_ran' => collect(),
+            'ran' => collect(),
+            'ordered' => collect(),
+            'errors' => collect(),
+            'questions_deleted' => 0,
+            'blocks_deleted' => 0,
+            'pages_deleted' => 0,
+            'categories_deleted' => 0,
+            'hints_deleted' => 0,
+            'explanations_deleted' => 0,
+            'localizations_ran_total' => 0,
+            'related_localizations_ran' => 0,
+        ];
+
+        if ($selectedClasses->isEmpty()) {
+            return $emptyResult;
+        }
+
+        $classesToRefresh = $this->expandRefreshClassNames($selectedClasses);
+        $validationErrors = $this->validateSeederClassesForRefresh($classesToRefresh);
+
+        if ($validationErrors->isNotEmpty()) {
+            return array_merge($emptyResult, [
+                'message' => $validationErrors->implode(' '),
+                'selected_classes' => $selectedClasses,
+                'classes_to_refresh' => $classesToRefresh,
+                'errors' => $validationErrors,
+            ]);
+        }
+
+        try {
+            $deletionStats = $this->deleteSeederDataForRefresh($classesToRefresh);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return array_merge($emptyResult, [
+                'message' => $exception->getMessage(),
+                'selected_classes' => $selectedClasses,
+                'classes_to_refresh' => $classesToRefresh,
+                'errors' => collect([$exception->getMessage()]),
+            ]);
+        }
+
+        $rerunResult = $this->executeSeedersInOrder($classesToRefresh);
+        $ran = collect($rerunResult['ran'] ?? collect())->values();
+        $ordered = collect($rerunResult['ordered'] ?? collect())->values();
+        $errors = collect($rerunResult['errors'] ?? collect())
+            ->filter()
+            ->unique()
+            ->values();
+
+        try {
+            $this->touchSeedRunTimestamps($ran);
+        } catch (\Throwable $exception) {
+            report($exception);
+            $errors = $errors->push($exception->getMessage())->filter()->unique()->values();
+        }
+
+        $relatedLocalizationClasses = $classesToRefresh
+            ->diff($selectedClasses)
+            ->values();
+
+        return array_merge($deletionStats, [
+            'success' => $ran->isNotEmpty(),
+            'message' => $ran->isNotEmpty()
+                ? __('Seeder data refreshed.')
+                : __('No seeders were refreshed.'),
+            'selected_classes' => $selectedClasses,
+            'classes_to_refresh' => $classesToRefresh,
+            'related_localization_classes' => $relatedLocalizationClasses,
+            'selected_ran' => $ran->intersect($selectedClasses)->values(),
+            'ran' => $ran,
+            'ordered' => $ordered,
+            'errors' => $errors,
+            'localizations_ran_total' => $ran
+                ->filter(fn (string $className) => in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true))
+                ->count(),
+            'related_localizations_ran' => $ran
+                ->filter(fn (string $className) => $relatedLocalizationClasses->contains($className))
+                ->count(),
+        ]);
+    }
+
+    protected function expandRefreshClassNames(Collection $classNames, ?Collection $executedSeeders = null): Collection
+    {
+        $normalized = $classNames
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($normalized->isEmpty()) {
+            return collect();
+        }
+
+        $executedSeeders ??= $this->buildExecutedSeedersForRefresh();
+
+        if ($executedSeeders->isEmpty()) {
+            return $normalized;
+        }
+
+        $relatedLocalizationMap = $this->buildRelatedLocalizationMap($executedSeeders);
+
+        $relatedLocalizationClasses = $normalized
+            ->reject(fn (string $className) => in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true))
+            ->flatMap(function (string $className) use ($relatedLocalizationMap) {
+                return collect($relatedLocalizationMap->get($className, collect()))
+                    ->pluck('class_name');
+            })
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        return $normalized
+            ->merge($relatedLocalizationClasses)
+            ->unique()
+            ->values();
+    }
+
+    protected function buildExecutedSeedersForRefresh(): Collection
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            return collect();
+        }
+
+        return DB::table('seed_runs')
+            ->orderByDesc('ran_at')
+            ->get()
+            ->map(function ($seedRun) {
+                $className = trim((string) ($seedRun->class_name ?? ''));
+
+                $seedRun->ran_at = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
+                $seedRun->display_class_name = $this->formatSeederClassName($className);
+                $seedRun->display_class_basename = class_basename($className);
+                $seedRun->data_profile = $this->describeSeederData($className);
+
+                return $seedRun;
+            });
+    }
+
+    protected function validateSeederClassesForRefresh(Collection $classNames): Collection
+    {
+        if ($classNames->isEmpty()) {
+            return collect();
+        }
+
+        $executedClasses = $this->executedSeederClasses();
+
+        return $classNames
+            ->map(function (string $className) use ($executedClasses) {
+                if (! $this->ensureSeederClassIsLoaded($className)) {
+                    return __('Seeder :class was not found.', ['class' => $className]);
+                }
+
+                $blockedMessage = $this->executionBlockedMessageForSeeder($className, $executedClasses);
+
+                if ($blockedMessage !== null) {
+                    return $blockedMessage;
+                }
+
+                if ($this->isVirtualLocalizationSeeder($className)) {
+                    return null;
+                }
+
+                $filePath = $this->resolveSeederFilePath($className);
+
+                return $this->isInstantiableSeeder($className, $filePath)
+                    ? null
+                    : __('Seeder :class cannot be executed.', ['class' => $className]);
+            })
+            ->filter()
+            ->unique()
+            ->values();
+    }
+
+    protected function deleteSeederDataForRefresh(Collection $classNames): array
+    {
+        $typeMap = $classNames->mapWithKeys(function (string $className) {
+            $profile = $this->describeSeederData($className);
+
+            return [$className => $profile['type'] ?? 'unknown'];
+        });
+
+        $questionLocalizationClasses = $typeMap
+            ->filter(fn ($type) => $type === 'question_localizations')
+            ->keys()
+            ->values();
+        $pageLocalizationClasses = $typeMap
+            ->filter(fn ($type) => $type === 'page_localizations')
+            ->keys()
+            ->values();
+        $questionClasses = $typeMap
+            ->filter(fn ($type) => $type === 'questions')
+            ->keys()
+            ->values();
+        $pageClasses = $typeMap
+            ->filter(fn ($type) => $type === 'pages')
+            ->keys()
+            ->values();
+        $unknownClasses = $typeMap
+            ->filter(fn ($type) => ! in_array($type, ['question_localizations', 'page_localizations', 'questions', 'pages'], true))
+            ->keys()
+            ->values();
+
+        $deletedQuestions = 0;
+        $deletedBlocks = 0;
+        $deletedPages = 0;
+        $deletedCategories = 0;
+        $deletedHints = 0;
+        $deletedExplanations = 0;
+
+        DB::transaction(function () use (
+            $questionLocalizationClasses,
+            $pageLocalizationClasses,
+            $questionClasses,
+            $pageClasses,
+            $unknownClasses,
+            &$deletedQuestions,
+            &$deletedBlocks,
+            &$deletedPages,
+            &$deletedCategories,
+            &$deletedHints,
+            &$deletedExplanations
+        ) {
+            foreach ($questionLocalizationClasses as $className) {
+                $result = $this->removeVirtualLocalizationSeederData($className);
+                $deletedHints += (int) ($result['deleted_hints'] ?? 0);
+                $deletedExplanations += (int) ($result['deleted_explanations'] ?? 0);
+            }
+
+            foreach ($pageLocalizationClasses as $className) {
+                $result = $this->removeVirtualLocalizationSeederData($className);
+                $deletedBlocks += (int) ($result['deleted_blocks'] ?? 0);
+            }
+
+            if ($questionClasses->isNotEmpty()) {
+                $deletedQuestions += $this->deleteQuestionsForSeeders($questionClasses);
+            }
+
+            if ($pageClasses->isNotEmpty()) {
+                $pageResult = $this->deletePageContentForSeeders($pageClasses);
+                $deletedBlocks += $pageResult['blocks'];
+                $deletedPages += $pageResult['pages_deleted'];
+                $deletedCategories += $pageResult['categories_deleted'];
+            }
+
+            if ($unknownClasses->isNotEmpty()) {
+                $deletedQuestions += $this->deleteQuestionsForSeeders($unknownClasses);
+                $pageResult = $this->deletePageContentForSeeders($unknownClasses);
+                $deletedBlocks += $pageResult['blocks'];
+                $deletedPages += $pageResult['pages_deleted'];
+                $deletedCategories += $pageResult['categories_deleted'];
+            }
+        });
+
+        return [
+            'questions_deleted' => $deletedQuestions,
+            'blocks_deleted' => $deletedBlocks,
+            'pages_deleted' => $deletedPages,
+            'categories_deleted' => $deletedCategories,
+            'hints_deleted' => $deletedHints,
+            'explanations_deleted' => $deletedExplanations,
+        ];
+    }
+
+    protected function touchSeedRunTimestamps(Collection $classNames): void
+    {
+        if ($classNames->isEmpty() || ! Schema::hasTable('seed_runs')) {
+            return;
+        }
+
+        $timestamp = now();
+
+        foreach ($classNames as $className) {
+            DB::table('seed_runs')->updateOrInsert(
+                ['class_name' => $className],
+                ['ran_at' => $timestamp]
+            );
+        }
     }
 
     public function destroyFolder(Request $request): RedirectResponse|JsonResponse

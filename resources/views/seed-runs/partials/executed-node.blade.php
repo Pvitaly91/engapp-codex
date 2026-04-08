@@ -8,6 +8,7 @@
     @php
         $folderLabel = $node['path'] ?? $node['name'];
         $folderSeedRunIds = $node['seed_run_ids'] ?? [];
+        $folderClassNames = $node['class_names'] ?? [];
         $folderProfile = $node['folder_profile'] ?? [];
         $folderDeleteButton = $folderProfile['delete_button'] ?? __('Видалити з даними');
         $folderDeleteConfirm = $folderProfile['delete_confirm'] ?? __('Видалити всі сидери в папці «:folder» та пов’язані дані?');
@@ -36,6 +37,21 @@
         <div class="space-y-3 hidden" data-folder-children data-depth="{{ $depth + 1 }}">
             @if(!empty($folderSeedRunIds))
                 <div class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-end gap-2 sm:items-center w-full lg:ml-auto xl:flex-nowrap" data-folder-actions>
+                    <form method="POST"
+                          action="{{ route('seed-runs.folders.refresh', ['tab' => $activeSeederTab ?? 'main']) }}"
+                          data-preloader
+                          data-confirm="Оновити дані всіх сидерів у папці «{{ e($folderLabel) }}»? Поточні дані та пов’язані локалізації буде видалено і створено заново."
+                          class="w-full sm:w-auto lg:w-auto">
+                        @csrf
+                        <input type="hidden" name="folder_label" value="{{ $folderLabel }}">
+                        @foreach($folderClassNames as $className)
+                            <input type="hidden" name="class_names[]" value="{{ $className }}">
+                        @endforeach
+                        <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-md hover:bg-blue-500 transition">
+                            <i class="fa-solid fa-rotate"></i>
+                            Оновити дані
+                        </button>
+                    </form>
                     <form method="POST"
                           action="{{ route('seed-runs.folders.destroy-with-questions', ['tab' => $activeSeederTab ?? 'main']) }}"
                           data-preloader

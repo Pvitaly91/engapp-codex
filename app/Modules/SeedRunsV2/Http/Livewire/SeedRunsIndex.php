@@ -309,6 +309,39 @@ class SeedRunsIndex extends Component
         $this->showConfirmModal = true;
     }
 
+    public function refreshExecutedFolder(string $folderPath, string $folderLabel = ''): void
+    {
+        $classNames = $this->resolveExecutedFolderClassNames($folderPath);
+
+        if ($classNames === []) {
+            $this->statusMessage = __('Не знайдено виконаних сидерів для вибраної папки.');
+            $this->statusType = 'error';
+
+            return;
+        }
+
+        $result = $this->seedRunsService->refreshSeedersInFolder($classNames, $folderLabel !== '' ? $folderLabel : $folderPath);
+
+        $this->statusMessage = $result['message'];
+        $this->statusType = $result['success'] ? 'success' : 'error';
+        $this->statusLinks = $result['test_targets'] ?? [];
+
+        if ($result['success']) {
+            $this->refreshOverview();
+        }
+    }
+
+    public function confirmRefreshExecutedFolder(string $folderPath, string $folderLabel): void
+    {
+        $this->confirmAction = 'refreshExecutedFolder';
+        $this->confirmMessage = __('Оновити дані всіх сидерів у папці «:name»? Поточні дані та пов’язані локалізації буде видалено і створено заново.', ['name' => $folderLabel]);
+        $this->confirmData = [
+            'path' => $folderPath,
+            'label' => $folderLabel,
+        ];
+        $this->showConfirmModal = true;
+    }
+
     public function deleteSeedRunWithData(int $seedRunId): void
     {
         $result = $this->seedRunsService->destroySeedRunWithData($seedRunId);
@@ -361,6 +394,7 @@ class SeedRunsIndex extends Component
             'deleteSeederFile' => $this->deleteSeederFile($data, false),
             'deleteSeederFileWithQuestions' => $this->deleteSeederFile($data, true),
             'refreshSeeder' => $this->refreshSeeder($data),
+            'refreshExecutedFolder' => $this->refreshExecutedFolder($data['path'] ?? '', $data['label'] ?? ''),
             'deleteSeedRunWithData' => $this->deleteSeedRunWithData($data),
             default => null,
         };
@@ -476,6 +510,16 @@ class SeedRunsIndex extends Component
             : [];
     }
 
+    protected function resolveExecutedFolderClassNames(string $folderPath): array
+    {
+        $node = $this->findExecutedFolderNodeByPath($this->executedSeederHierarchy, $folderPath);
+        $classNames = $node['class_names'] ?? null;
+
+        return is_array($classNames)
+            ? array_values(array_filter(array_map('strval', $classNames)))
+            : [];
+    }
+
     protected function findPendingFolderNodeByPath(array $nodes, string $folderPath): ?array
     {
         foreach ($nodes as $node) {
@@ -488,6 +532,27 @@ class SeedRunsIndex extends Component
             }
 
             $nested = $this->findPendingFolderNodeByPath($node['children'] ?? [], $folderPath);
+
+            if ($nested !== null) {
+                return $nested;
+            }
+        }
+
+        return null;
+    }
+
+    protected function findExecutedFolderNodeByPath(array $nodes, string $folderPath): ?array
+    {
+        foreach ($nodes as $node) {
+            if (($node['type'] ?? null) !== 'folder') {
+                continue;
+            }
+
+            if (($node['path'] ?? '') === $folderPath) {
+                return $node;
+            }
+
+            $nested = $this->findExecutedFolderNodeByPath($node['children'] ?? [], $folderPath);
 
             if ($nested !== null) {
                 return $nested;
