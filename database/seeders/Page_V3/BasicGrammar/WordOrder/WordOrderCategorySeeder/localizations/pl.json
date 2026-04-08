@@ -1,50 +1,50 @@
 {
-    "locale": "pl",
-    "seeder": {
-        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\WordOrderCategoryLocalizationSeeder"
+  "locale": "pl",
+  "seeder": {
+    "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\WordOrderCategoryLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderCategorySeeder",
+    "definition_path": "../definition.json"
+  },
+  "blocks": [
+    {
+      "reference": "subtitle",
+      "body": "<p><strong>Word order</strong> to jeden z fundamentów angielskiej gramatyki. W angielskim szyk zdania jest znacznie bardziej stały niż w polskim, dlatego kolejność wyrazów bardzo często decyduje o sensie i naturalnym brzmieniu wypowiedzi.</p>"
     },
-    "target": {
-        "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderCategorySeeder",
-        "definition_path": "../definition.json"
+    {
+      "index": 1,
+      "body": "{\r\n  \"level\": \"A1–B2\",\r\n  \"intro\": \"W tej sekcji poznasz <strong>szyk zdania w języku angielskim</strong>: od podstawowego układu <strong>S–V–O</strong> po pytania, przeczenia, pozycję przysłówków i bardziej zaawansowane formy emfazy.\",\r\n  \"rules\": [\r\n    {\r\n      \"label\": \"Podstawowy szyk\",\r\n      \"color\": \"emerald\",\r\n      \"text\": \"Najczęstszy układ to <strong>subject + verb + object</strong>.\",\r\n      \"example\": \"She reads books.\"\r\n    },\r\n    {\r\n      \"label\": \"Pytania\",\r\n      \"color\": \"blue\",\r\n      \"text\": \"W pytaniach <strong>operator albo czasownik posiłkowy</strong> staje przed podmiotem.\",\r\n      \"example\": \"Do you like pizza? / Are you ready?\"\r\n    },\r\n    {\r\n      \"label\": \"Przeczenia\",\r\n      \"color\": \"rose\",\r\n      \"text\": \"W przeczeniach dodajemy <strong>not</strong> po operatorze lub po <strong>be</strong>.\",\r\n      \"example\": \"I do not like apples. / She is not here.\"\r\n    }\r\n  ]\r\n}"
     },
-    "blocks": [
-        {
-            "reference": "subtitle",
-            "body": "<p><strong>Kolejność słów</strong> to jeden z najważniejszych aspektów gramatyki języka angielskiego. W przeciwieństwie do języka ukraińskiego, gdzie kolejność słów jest stosunkowo dowolna, angielski wymaga jasnej sekwencji słów w zdaniu, aby przekazać prawidłowe znaczenie.</p>"
-        },
-        {
-            "index": 1,
-            "body": "{\n    \"level\": \"A1–B2\",\n    \"intro\": \"W tej sekcji nauczysz się <strong>kolejności słów</strong> w języku angielskim: od podstawowej struktury S–V–O po inwersję i wzmocnienie.\",\n    \"rules\": [\n        {\n            \"label\": \"Podstawowa struktura\",\n            \"color\": \"emerald\",\n            \"text\": \"<strong>Temat + Czasownik + dopełnienie</strong> — podstawa zdania angielskiego:\",\n            \"example\": \"Ona czyta książki.\"\n        },\n        {\n            \"label\": \"Pytanie\",\n            \"color\": \"blue\",\n            \"text\": \"Czasownik pomocniczy <strong>przed</strong> tematem:\",\n            \"example\": \"Czy lubisz pizza?\"\n        },\n        {\n            \"label\": \"Zaprzeczenie\",\n            \"color\": \"rose\",\n            \"text\": \"Dodajemy <strong>nie</strong> po czasowniku pomocniczym:\",\n            \"example\": \"Nie lubię jabłek.\"\n        }\n    ]\n}"
-        },
-        {
-            "index": 2,
-            "body": "<ul class=\"gw-list\">\r\n<li><strong>S–V–O</strong> — podmiot, czasownik, dopełnienie: <span class=\"gw-en\">Ona czyta książki.</span></li>\r\n<li><strong>Przysłówki częstotliwości</strong> przed czasownikiem głównym: <span class=\"gw-en\">Zawsze piję kawę.</span></li>\r\n<li><strong>Okoliczności miejsca i czasu</strong> na końcu (Miejsce → Czas): <span class=\"gw-en\">Na co dzień pracuje w domu.</span></li>\r\n<li><strong>Wzór:</strong> S + (Adv) + V + O + Miejsce + Czas.</li>\r\n</ul>",
-            "heading": "Podstawowa kolejność słów"
-        },
-        {
-            "index": 3,
-            "body": "<ul class=\"gw-list\">\r\n<li><strong>Pytania tak/nie:</strong> <span class=\"gw-en\">Czy lubisz pizzę?</span></li>\r\n<li><strong>Jakie pytanie:</strong> <span class=\"gw-en\">Gdzie mieszkasz?</span></li>\r\n<li><strong>Zastrzeżenie:</strong> <span class=\"gw-en\">Nie lubię jabłek.</span></li>\r\n<li><strong>Pomocne czasowniki:</strong> robić/does/did + not.</li>\r\n</ul>",
-            "heading": "Pytania i zastrzeżenia"
-        },
-        {
-            "index": 4,
-            "body": "<ul class=\"gw-list\">\r\n<li><strong>Przysłówki częstotliwości</strong> (zawsze, często, nigdy) — przed czasownikiem: <span class=\"gw-en\">Ona zawsze przychodzi wcześniej.</span></li>\r\n<li><strong>Przysłówki działania</strong> (szybko, dobrze) — na końcu zdania: <span class=\"gw-en\">Świetnie mówi po angielsku.</span></li>\r\n<li><strong>Kolejność okoliczności:</strong> Sposób → Miejsce → Czas.</li>\r\n</ul>",
-            "heading": "Przysłówki i okoliczności"
-        },
-        {
-            "index": 5,
-            "body": "<table class=\"gw-table\" aria-label=\"Kolejność słów w tematach sekcji\">\r\n<głowa>\r\n<tr>\r\n<th>Temat</th>\r\n<th>Poziom</th>\r\n<th>Opis</th>\r\n</tr>\r\n</thead>\r\n<ciało>\r\n<tr>\r\n<td><strong>Podstawowy porządek słów</strong></td>\r\n<td>A1</td>\r\n<td>Podstawowa struktura S–V–O w instrukcjach</td>\r\n</tr>\r\n<tr>\r\n<td><strong>Pytania i przeczenia</strong></td>\r\n<td>A1–A2</td>\r\n<td>Pytania i zastrzeżenia dotyczące zrobienia/robienia/zrobienia</td>\r\n</tr>\r\n<tr>\r\n<td><strong>Przysłówki i przysłówki</strong></td>\r\n<td>A2–B1</td>\r\n<td>Pozycja przysłówków i okoliczności</td>\r\n</tr>\r\n<tr>\r\n<td><strong>Czasowniki i dopełnienia</strong></td>\r\n<td>A2–B1</td>\r\n<td>Czasowniki modalne i frazowe</td>\r\n</tr>\r\n<tr>\r\n<td><strong>Zaawansowane akcentowanie</strong></td>\r\n<td>B1–B2</td>\r\n<td>Zdania inwersyjne i rozszczepione</td>\r\n</tr>\r\n</tbody>\r\n</table>",
-            "heading": "Tematy w tej sekcji"
-        },
-        {
-            "index": 6,
-            "body": "<ul class=\"gw-list\">\r\n<li><strong>Inwersja</strong> — z przysłówkami przeczącymi: <span class=\"gw-en\">Nigdy nie widziałem...</span></li>\r\n<li><strong>It-cleft</strong> — wzmocnienie elementu: <span class=\"gw-en\">To ty dzwoniłeś.</span></li>\r\n<li><strong>What-cleft</strong> - wzmocnienie działania: <span class=\"gw-en\">Potrzebuję odpoczynku.</span></li>\r\n<li><strong>Zdecydowane tak</strong> — wzmocnienie stwierdzenia: <span class=\"gw-en\">Lubię to!</span></li>\r\n</ul>",
-            "heading": "Zaawansowane struktury"
-        },
-        {
-            "index": 7,
-            "body": "<div class=\"gw-hint\">\r\n<div class=\"gw-emoji\">🧠</div>\r\n<div>\r\n<p>Zacznij od <strong>podstawowej kolejności słów S–V–O</strong>, która jest podstawą angielskiego zdania.</p>\r\n<p>Następnie przestudiuj pytania i zastrzeżenia za pomocą <strong>do/does/did</strong>.</p>\r\n<p>Przysłówki częstotliwości umieszcza się <strong>przed czasownikiem</strong>, a przysłówki sposobu działania <strong>na końcu</strong>.</p>\r\n<p>Na poziomie zaawansowanym zdania inwersyjne i rozszczepione dodają <strong>formalności i podkreślenia</strong>.</p>\r\n</div>\r\n</div>",
-            "heading": "Wskazówki dotyczące nauki"
-        }
-    ]
+    {
+      "index": 2,
+      "body": "<ul class=\"gw-list\"><li><strong>S–V–O</strong> — podmiot, czasownik, dopełnienie: <span class=\"gw-en\">She reads books.</span></li><li><strong>Przysłówki częstotliwości</strong> zwykle stoją przed czasownikiem głównym: <span class=\"gw-en\">I always drink coffee.</span></li><li><strong>Miejsce i czas</strong> najczęściej pojawiają się pod koniec zdania: <span class=\"gw-en\">She works at home every day.</span></li><li><strong>Praktyczny wzór:</strong> Subject + (adverb) + verb + object + place + time.</li></ul>",
+      "heading": "Podstawowa kolejność słów"
+    },
+    {
+      "index": 3,
+      "body": "<ul class=\"gw-list\"><li><strong>Pytania yes/no:</strong> <span class=\"gw-en\">Do you like pizza?</span></li><li><strong>Pytania szczegółowe:</strong> <span class=\"gw-en\">Where do you live?</span></li><li><strong>Przeczenia:</strong> <span class=\"gw-en\">I do not like apples.</span></li><li><strong>Operatory pomocnicze:</strong> <span class=\"gw-en\">do / does / did</span> oraz formy <span class=\"gw-en\">be</span>.</li></ul>",
+      "heading": "Pytania i zastrzeżenia"
+    },
+    {
+      "index": 4,
+      "body": "<ul class=\"gw-list\"><li><strong>Przysłówki częstotliwości</strong> (<em>always, often, never</em>) zwykle stoją przed czasownikiem głównym: <span class=\"gw-en\">She always arrives early.</span></li><li><strong>Przysłówki sposobu</strong> często trafiają na koniec zdania: <span class=\"gw-en\">He speaks English fluently.</span></li><li><strong>Kolejność okoliczników</strong> w dłuższym zdaniu to zwykle: sposób → miejsce → czas.</li></ul>",
+      "heading": "Przysłówki i okoliczności"
+    },
+    {
+      "index": 5,
+      "body": "<table class=\"gw-table\" aria-label=\"Tematy w sekcji Word Order\"><thead><tr><th>Temat</th><th>Poziom</th><th>Opis</th></tr></thead><tbody><tr><td><strong>Basic Word Order</strong></td><td>A1</td><td>Podstawowy układ S–V–O w zdaniu angielskim</td></tr><tr><td><strong>Questions and Negatives</strong></td><td>A1–A2</td><td>Szyk pytań i przeczeń z operatorami</td></tr><tr><td><strong>Adverbs and Adverbials</strong></td><td>A2–B1</td><td>Pozycja przysłówków i okoliczników</td></tr><tr><td><strong>Verb Patterns and Complements</strong></td><td>A2–B1</td><td>Szyk po czasowniku i typowe dopełnienia</td></tr><tr><td><strong>Advanced Emphasis</strong></td><td>B1–B2</td><td>Inwersja, cleft sentences i środki emfazy</td></tr></tbody></table>",
+      "heading": "Tematy w tej sekcji"
+    },
+    {
+      "index": 6,
+      "body": "<ul class=\"gw-list\"><li><strong>Inwersja</strong> — np. po wyrażeniach przeczących: <span class=\"gw-en\">Never have I seen...</span></li><li><strong>It-cleft</strong> — podkreślenie konkretnego elementu: <span class=\"gw-en\">It was John who called.</span></li><li><strong>What-cleft</strong> — skupienie na treści lub działaniu: <span class=\"gw-en\">What I need is a break.</span></li><li><strong>Emphatic do</strong> — mocniejsze potwierdzenie: <span class=\"gw-en\">I do like it.</span></li></ul>",
+      "heading": "Zaawansowane struktury"
+    },
+    {
+      "index": 7,
+      "body": "<div class=\"gw-hint\"><div class=\"gw-emoji\">🧠</div><div><p>Zacznij od <strong>podstawowego szyku S–V–O</strong>, bo to fundament większości angielskich zdań.</p><p>Następnie przejdź do pytań i przeczeń z <strong>do / does / did</strong> oraz z <strong>to be</strong>.</p><p>Zwracaj uwagę na miejsce <strong>przysłówków częstotliwości</strong> i <strong>okoliczników czasu oraz miejsca</strong>.</p><p>Na wyższych poziomach opanuj <strong>inwersję</strong> i <strong>emfazę</strong>, bo to one nadają wypowiedzi bardziej naturalny lub formalny ton.</p></div></div>",
+      "heading": "Wskazówki dotyczące nauki"
+    }
+  ]
 }
