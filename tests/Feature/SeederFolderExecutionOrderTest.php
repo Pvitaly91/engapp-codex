@@ -9,7 +9,6 @@ use App\Services\SeederTestTargetResolver;
 use App\Support\Database\JsonPageLocalizationManager;
 use App\Support\Database\JsonTestLocalizationManager;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
 class SeederFolderExecutionOrderTest extends TestCase
@@ -20,23 +19,20 @@ class SeederFolderExecutionOrderTest extends TestCase
         $childCategory = 'Database\\Seeders\\Page_v2\\PassiveVoice\\Tenses\\PassiveVoiceTensesCategorySeeder';
         $pageSeeder = 'Database\\Seeders\\Page_v2\\PassiveVoice\\Tenses\\PassiveVoicePresentSimpleTheorySeeder';
 
-        Artisan::shouldReceive('call')
-            ->once()
-            ->ordered()
-            ->with('db:seed', ['--class' => $rootCategory])
-            ->andReturn(0);
+        $controller = new class(
+            app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
+            app(SeederTestTargetResolver::class),
+            app(JsonTestLocalizationManager::class),
+            app(JsonPageLocalizationManager::class),
+        ) extends SeedRunController {
+            public array $executedSeeders = [];
 
-        Artisan::shouldReceive('call')
-            ->once()
-            ->ordered()
-            ->with('db:seed', ['--class' => $childCategory])
-            ->andReturn(0);
-
-        Artisan::shouldReceive('call')
-            ->once()
-            ->ordered()
-            ->with('db:seed', ['--class' => $pageSeeder])
-            ->andReturn(0);
+            protected function executeConcreteSeeder(string $className): void
+            {
+                $this->executedSeeders[] = $className;
+            }
+        };
 
         $request = Request::create('/admin/seed-runs/folders/run', 'POST', [
             'folder_label' => 'Page_v2/PassiveVoice',
@@ -48,7 +44,7 @@ class SeederFolderExecutionOrderTest extends TestCase
         ]);
         $request->headers->set('Accept', 'application/json');
 
-        $response = app(SeedRunController::class)->runFolder($request);
+        $response = $controller->runFolder($request);
 
         $this->assertSame(200, $response->getStatusCode());
 
@@ -58,6 +54,10 @@ class SeederFolderExecutionOrderTest extends TestCase
             [$rootCategory, $childCategory, $pageSeeder],
             $payload['executed_classes']
         );
+        $this->assertSame(
+            [$rootCategory, $childCategory, $pageSeeder],
+            $controller->executedSeeders
+        );
     }
 
     public function test_seed_runs_service_executes_page_v3_folder_in_category_then_page_order(): void
@@ -66,25 +66,22 @@ class SeederFolderExecutionOrderTest extends TestCase
         $childCategory = 'Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoiceTensesCategorySeeder';
         $pageSeeder = 'Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoicePresentSimpleTheorySeeder';
 
-        Artisan::shouldReceive('call')
-            ->once()
-            ->ordered()
-            ->with('db:seed', ['--class' => $rootCategory])
-            ->andReturn(0);
+        $service = new class(
+            app(QuestionDeletionService::class),
+            app(\App\Services\SeederPromptTheoryPageResolver::class),
+            app(SeederTestTargetResolver::class),
+            app(JsonTestLocalizationManager::class),
+            app(JsonPageLocalizationManager::class),
+        ) extends SeedRunsService {
+            public array $executedSeeders = [];
 
-        Artisan::shouldReceive('call')
-            ->once()
-            ->ordered()
-            ->with('db:seed', ['--class' => $childCategory])
-            ->andReturn(0);
+            protected function executeConcreteSeeder(string $className): void
+            {
+                $this->executedSeeders[] = $className;
+            }
+        };
 
-        Artisan::shouldReceive('call')
-            ->once()
-            ->ordered()
-            ->with('db:seed', ['--class' => $pageSeeder])
-            ->andReturn(0);
-
-        $result = app(SeedRunsService::class)->runSeedersInFolder([
+        $result = $service->runSeedersInFolder([
             $pageSeeder,
             $childCategory,
             $rootCategory,
@@ -98,6 +95,10 @@ class SeederFolderExecutionOrderTest extends TestCase
         $this->assertSame(
             [$rootCategory, $childCategory, $pageSeeder],
             $result['ordered']
+        );
+        $this->assertSame(
+            [$rootCategory, $childCategory, $pageSeeder],
+            $service->executedSeeders
         );
     }
 
@@ -120,12 +121,6 @@ class SeederFolderExecutionOrderTest extends TestCase
         $rootCategory = 'Database\\Seeders\\Page_V3\\PassiveVoice\\PassiveVoiceCategorySeeder';
         $localizationSeeder = 'Database\\Seeders\\Page_V3\\Localizations\\En\\PassiveVoiceCategoryLocalizationSeeder';
 
-        Artisan::shouldReceive('call')
-            ->once()
-            ->ordered()
-            ->with('db:seed', ['--class' => $rootCategory])
-            ->andReturn(0);
-
         $service = new class(
             app(QuestionDeletionService::class),
             app(\App\Services\SeederPromptTheoryPageResolver::class),
@@ -134,12 +129,18 @@ class SeederFolderExecutionOrderTest extends TestCase
             app(JsonPageLocalizationManager::class),
         ) extends SeedRunsService {
             public array $appliedLocalizations = [];
+            public array $executedSeeders = [];
 
             protected function applyVirtualLocalizationSeeder(string $className): array
             {
                 $this->appliedLocalizations[] = $className;
 
                 return ['localized_blocks' => 5];
+            }
+
+            protected function executeConcreteSeeder(string $className): void
+            {
+                $this->executedSeeders[] = $className;
             }
 
             protected function logVirtualSeederRun(string $className): void
@@ -160,6 +161,10 @@ class SeederFolderExecutionOrderTest extends TestCase
         $this->assertSame(
             [$rootCategory, $localizationSeeder],
             $result['executed']
+        );
+        $this->assertSame(
+            [$rootCategory],
+            $service->executedSeeders
         );
         $this->assertSame(
             [$localizationSeeder],

@@ -19,7 +19,6 @@ use Database\Seeders\QuestionSeeder as QuestionSeederBase;
 use Illuminate\Database\Seeder as LaravelSeeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
@@ -746,7 +745,7 @@ class SeedRunsService
         }
 
         try {
-            Artisan::call('db:seed', ['--class' => $className]);
+            $this->executeConcreteSeeder($className);
         } catch (\Throwable $exception) {
             report($exception);
             return ['success' => false, 'message' => $exception->getMessage(), 'test_targets' => []];
@@ -866,14 +865,10 @@ class SeedRunsService
         }
 
         $errors = $result['errors'] ?? collect();
-        if ($errors->isNotEmpty()) {
-            $message .= ' ' . __('Під час повторного запуску виникли помилки: :errors', [
-                'errors' => $errors->implode(' '),
-            ]);
-        }
 
         return [
             'success' => true,
+            'status' => $errors->isNotEmpty() ? 'partial' : 'success',
             'message' => $message,
             'refreshed' => ($result['selected_ran'] ?? collect())->all(),
             'executed' => ($result['ran'] ?? collect())->all(),
@@ -952,7 +947,7 @@ class SeedRunsService
                     $executedClasses->push($className);
                 } catch (\Throwable $exception) {
                     report($exception);
-                    $errors->push($exception->getMessage());
+                    $errors->push($this->formatSeederExecutionError($className, $exception));
                 }
 
                 continue;
@@ -966,12 +961,12 @@ class SeedRunsService
             }
 
             try {
-                Artisan::call('db:seed', ['--class' => $className]);
+                $this->executeConcreteSeeder($className);
                 $ran->push($className);
                 $executedClasses->push($className);
             } catch (\Throwable $exception) {
                 report($exception);
-                $errors->push($exception->getMessage());
+                $errors->push($this->formatSeederExecutionError($className, $exception));
             }
         }
 
@@ -980,6 +975,19 @@ class SeedRunsService
             'ran' => $ran,
             'errors' => $errors,
         ];
+    }
+
+    protected function executeConcreteSeeder(string $className): void
+    {
+        $seeder = app()->make($className);
+
+        if (! $seeder instanceof LaravelSeeder || ! method_exists($seeder, 'run')) {
+            throw new \RuntimeException(__('Seeder :class cannot be executed.', ['class' => $className]));
+        }
+
+        $seeder->setContainer(app());
+        $seeder->run();
+        $this->logVirtualSeederRun($className);
     }
 
     protected function orderSeedersForExecution(Collection $classNames): Collection
@@ -1432,7 +1440,7 @@ class SeedRunsService
             return [
                 'success' => false,
                 'message' => ($result['errors'] ?? collect())->isNotEmpty()
-                    ? $result['errors']->implode(' ')
+                    ? $this->formatDetailedErrorMessage($result['errors'])
                     : ($result['message'] ?? __('Не вдалося оновити дані сидера.')),
                 'errors' => ($result['errors'] ?? collect())->all(),
             ];
@@ -1475,14 +1483,10 @@ class SeedRunsService
         }
 
         $errors = $result['errors'] ?? collect();
-        if ($errors->isNotEmpty()) {
-            $message .= ' ' . __('Під час повторного запуску виникли помилки: :errors', [
-                'errors' => $errors->implode(' '),
-            ]);
-        }
 
         return [
             'success' => true,
+            'status' => $errors->isNotEmpty() ? 'partial' : 'success',
             'message' => $message,
             'deleted_questions' => $deletedQuestions,
             'deleted_blocks' => $deletedBlocks,
@@ -1528,7 +1532,9 @@ class SeedRunsService
             return $emptyResult;
         }
 
-        $classesToRefresh = $this->expandRefreshClassNames($selectedClasses);
+        $executedSeeders = $this->buildExecutedSeedersForRefresh();
+        $classesToRefresh = $this->expandRefreshClassNames($selectedClasses, $executedSeeders);
+        $autoRefreshedLocalizationClasses = $this->autoRefreshedRelatedLocalizationClasses($selectedClasses, $executedSeeders);
         $validationErrors = $this->validateSeederClassesForRefresh($classesToRefresh);
 
         if ($validationErrors->isNotEmpty()) {
@@ -1562,7 +1568,12 @@ class SeedRunsService
             ->values();
 
         try {
-            $this->touchSeedRunTimestamps($ran);
+            $this->touchSeedRunTimestamps(
+                $ran
+                    ->merge($autoRefreshedLocalizationClasses)
+                    ->unique()
+                    ->values()
+            );
         } catch (\Throwable $exception) {
             report($exception);
             $errors = $errors->push($exception->getMessage())->filter()->unique()->values();
@@ -1570,6 +1581,13 @@ class SeedRunsService
 
         $relatedLocalizationClasses = $classesToRefresh
             ->diff($selectedClasses)
+            ->merge($autoRefreshedLocalizationClasses)
+            ->unique()
+            ->values();
+        $refreshedLocalizationClasses = $ran
+            ->filter(fn (string $className) => in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true))
+            ->merge($autoRefreshedLocalizationClasses)
+            ->unique()
             ->values();
 
         return array_merge($deletionStats, [
@@ -1584,10 +1602,8 @@ class SeedRunsService
             'ran' => $ran,
             'ordered' => $ordered,
             'errors' => $errors,
-            'localizations_ran_total' => $ran
-                ->filter(fn (string $className) => in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true))
-                ->count(),
-            'related_localizations_ran' => $ran
+            'localizations_ran_total' => $refreshedLocalizationClasses->count(),
+            'related_localizations_ran' => $refreshedLocalizationClasses
                 ->filter(fn (string $className) => $relatedLocalizationClasses->contains($className))
                 ->count(),
         ]);
@@ -1612,6 +1628,7 @@ class SeedRunsService
         }
 
         $relatedLocalizationMap = $this->buildRelatedLocalizationMap($executedSeeders);
+        $autoRefreshedLocalizationClasses = $this->autoRefreshedRelatedLocalizationClasses($normalized, $executedSeeders);
 
         $relatedLocalizationClasses = $normalized
             ->reject(fn (string $className) => in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true))
@@ -1621,6 +1638,7 @@ class SeedRunsService
             })
             ->map(fn ($value) => trim((string) $value))
             ->filter()
+            ->reject(fn (string $className) => $autoRefreshedLocalizationClasses->contains($className))
             ->unique()
             ->values();
 
@@ -1628,6 +1646,49 @@ class SeedRunsService
             ->merge($relatedLocalizationClasses)
             ->unique()
             ->values();
+    }
+
+    protected function autoRefreshedRelatedLocalizationClasses(Collection $classNames, ?Collection $executedSeeders = null): Collection
+    {
+        $normalized = $classNames
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($normalized->isEmpty()) {
+            return collect();
+        }
+
+        $executedSeeders ??= $this->buildExecutedSeedersForRefresh();
+
+        if ($executedSeeders->isEmpty()) {
+            return collect();
+        }
+
+        $relatedLocalizationMap = $this->buildRelatedLocalizationMap($executedSeeders);
+
+        return $normalized
+            ->reject(fn (string $className) => in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true))
+            ->filter(fn (string $className) => $this->refreshesPageLocalizationsWithinBaseSeeder($className))
+            ->flatMap(function (string $className) use ($relatedLocalizationMap) {
+                return collect($relatedLocalizationMap->get($className, collect()))
+                    ->filter(fn (array $localization) => ($localization['type'] ?? null) === 'page_localizations')
+                    ->pluck('class_name');
+            })
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+    }
+
+    protected function refreshesPageLocalizationsWithinBaseSeeder(string $className): bool
+    {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
+            return false;
+        }
+
+        return is_subclass_of($className, JsonPageSeeder::class);
     }
 
     protected function buildExecutedSeedersForRefresh(): Collection
@@ -1999,6 +2060,43 @@ class SeedRunsService
         $shortName = Str::after($className, 'Database\\Seeders\\');
 
         return $shortName !== '' ? $shortName : $className;
+    }
+
+    protected function formatDetailedErrorMessage(Collection $errors): string
+    {
+        $messages = $errors
+            ->map(fn ($message) => trim((string) $message))
+            ->filter()
+            ->values();
+
+        if ($messages->isEmpty()) {
+            return '';
+        }
+
+        if ($messages->count() === 1) {
+            return (string) $messages->first();
+        }
+
+        return $messages
+            ->values()
+            ->map(fn (string $message, int $index) => ($index + 1) . '. ' . $message)
+            ->implode("\n");
+    }
+
+    protected function formatSeederExecutionError(string $className, \Throwable $exception): string
+    {
+        $message = trim($exception->getMessage());
+        $displayName = $this->formatSeederClassName($className);
+
+        if ($message === '') {
+            return $displayName . ': ' . __('Невідома помилка під час виконання сидера.');
+        }
+
+        if (Str::startsWith($message, $displayName . ':') || Str::startsWith($message, $className . ':')) {
+            return $message;
+        }
+
+        return $displayName . ': ' . $message;
     }
 
     public function splitSeederDisplayName(string $displayName): array

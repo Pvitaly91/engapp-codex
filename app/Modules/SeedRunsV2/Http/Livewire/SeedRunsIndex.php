@@ -20,6 +20,7 @@ class SeedRunsIndex extends Component
     public string $statusMessage = '';
     public string $statusType = 'success';
     public array $statusLinks = [];
+    public array $statusErrors = [];
     
     public bool $showConfirmModal = false;
     public string $confirmAction = '';
@@ -114,9 +115,7 @@ class SeedRunsIndex extends Component
     {
         $result = $this->seedRunsService->runSeeder($className);
         
-        $this->statusMessage = $result['message'];
-        $this->statusType = $result['success'] ? 'success' : 'error';
-        $this->statusLinks = $result['test_targets'] ?? [];
+        $this->applyResultStatus($result);
         
         if ($result['success']) {
             $this->refreshOverview();
@@ -128,17 +127,14 @@ class SeedRunsIndex extends Component
         $classNames = $this->resolvePendingFolderClassNames($folderPath);
 
         if ($classNames === []) {
-            $this->statusMessage = __('Не знайдено сидерів для вибраної папки.');
-            $this->statusType = 'error';
+            $this->setStatus(__('Не знайдено сидерів для вибраної папки.'), 'error');
 
             return;
         }
 
         $result = $this->seedRunsService->runSeedersInFolder($classNames, $folderPath);
 
-        $this->statusMessage = $result['message'];
-        $this->statusType = $result['success'] ? 'success' : 'error';
-        $this->statusLinks = $result['test_targets'] ?? [];
+        $this->applyResultStatus($result);
 
         if ($result['success']) {
             $this->refreshOverview();
@@ -150,8 +146,7 @@ class SeedRunsIndex extends Component
         $localizationClassNames = $this->resolveExecutedSeederPendingLocalizationClassNames($className);
 
         if ($localizationClassNames === []) {
-            $this->statusMessage = __('Для цього сидера не знайдено невиконаних локалізацій.');
-            $this->statusType = 'error';
+            $this->setStatus(__('Для цього сидера не знайдено невиконаних локалізацій.'), 'error');
 
             return;
         }
@@ -161,9 +156,7 @@ class SeedRunsIndex extends Component
             : $className;
         $result = $this->seedRunsService->runSeedersInFolder($localizationClassNames, $label);
 
-        $this->statusMessage = $result['message'];
-        $this->statusType = $result['success'] ? 'success' : 'error';
-        $this->statusLinks = $result['test_targets'] ?? [];
+        $this->applyResultStatus($result);
 
         if ($result['success']) {
             $this->refreshOverview();
@@ -201,9 +194,7 @@ class SeedRunsIndex extends Component
     {
         $result = $this->seedRunsService->runMissingSeeders($this->activeSeederTab);
         
-        $this->statusMessage = $result['message'];
-        $this->statusType = $result['success'] ? 'success' : 'error';
-        $this->statusLinks = $result['test_targets'] ?? [];
+        $this->applyResultStatus($result);
         
         $this->refreshOverview();
     }
@@ -228,9 +219,7 @@ class SeedRunsIndex extends Component
     {
         $result = $this->seedRunsService->markAsExecuted($className);
         
-        $this->statusMessage = $result['message'];
-        $this->statusType = $result['success'] ? 'success' : 'error';
-        $this->statusLinks = $result['test_targets'] ?? [];
+        $this->applyResultStatus($result);
         
         if ($result['success']) {
             $this->refreshOverview();
@@ -249,9 +238,7 @@ class SeedRunsIndex extends Component
     {
         $result = $this->seedRunsService->destroySeedRun($seedRunId);
         
-        $this->statusMessage = $result['message'];
-        $this->statusType = $result['success'] ? 'success' : 'error';
-        $this->statusLinks = $result['test_targets'] ?? [];
+        $this->applyResultStatus($result);
         
         if ($result['success']) {
             $this->refreshOverview();
@@ -270,9 +257,7 @@ class SeedRunsIndex extends Component
     {
         $result = $this->seedRunsService->deleteSeederFile($className, $withQuestions);
         
-        $this->statusMessage = $result['message'];
-        $this->statusType = ($result['status'] ?? '') === 'success' ? 'success' : 'error';
-        $this->statusLinks = $result['test_targets'] ?? [];
+        $this->applyResultStatus($result);
         
         $this->refreshOverview();
     }
@@ -292,9 +277,7 @@ class SeedRunsIndex extends Component
     {
         $result = $this->seedRunsService->refreshSeeder($seedRunId);
         
-        $this->statusMessage = $result['message'];
-        $this->statusType = $result['success'] ? 'success' : 'error';
-        $this->statusLinks = $result['test_targets'] ?? [];
+        $this->applyResultStatus($result);
         
         if ($result['success']) {
             $this->refreshOverview();
@@ -314,17 +297,14 @@ class SeedRunsIndex extends Component
         $classNames = $this->resolveExecutedFolderClassNames($folderPath);
 
         if ($classNames === []) {
-            $this->statusMessage = __('Не знайдено виконаних сидерів для вибраної папки.');
-            $this->statusType = 'error';
+            $this->setStatus(__('Не знайдено виконаних сидерів для вибраної папки.'), 'error');
 
             return;
         }
 
         $result = $this->seedRunsService->refreshSeedersInFolder($classNames, $folderLabel !== '' ? $folderLabel : $folderPath);
 
-        $this->statusMessage = $result['message'];
-        $this->statusType = $result['success'] ? 'success' : 'error';
-        $this->statusLinks = $result['test_targets'] ?? [];
+        $this->applyResultStatus($result);
 
         if ($result['success']) {
             $this->refreshOverview();
@@ -346,9 +326,7 @@ class SeedRunsIndex extends Component
     {
         $result = $this->seedRunsService->destroySeedRunWithData($seedRunId);
         
-        $this->statusMessage = $result['message'];
-        $this->statusType = $result['success'] ? 'success' : 'error';
-        $this->statusLinks = $result['test_targets'] ?? [];
+        $this->applyResultStatus($result);
         
         if ($result['success']) {
             $this->refreshOverview();
@@ -416,8 +394,7 @@ class SeedRunsIndex extends Component
         $result = $this->seedRunsService->getSeederFile($className);
         
         if (!$result['success']) {
-            $this->statusMessage = $result['message'];
-            $this->statusType = 'error';
+        $this->setStatus($result['message'], 'error', [], $result['errors'] ?? []);
             return;
         }
         
@@ -433,9 +410,7 @@ class SeedRunsIndex extends Component
     {
         $result = $this->seedRunsService->updateSeederFile($this->fileModalClassName, $this->fileModalContents);
         
-        $this->statusMessage = $result['message'];
-        $this->statusType = $result['success'] ? 'success' : 'error';
-        $this->statusLinks = $result['test_targets'] ?? [];
+        $this->applyResultStatus($result);
         
         if ($result['success']) {
             $this->fileModalLastModified = $result['last_modified'] ?? '';
@@ -470,9 +445,7 @@ class SeedRunsIndex extends Component
             $this->newSeederFolder
         );
         
-        $this->statusMessage = $result['message'];
-        $this->statusType = $result['success'] ? 'success' : 'error';
-        $this->statusLinks = $result['test_targets'] ?? [];
+        $this->applyResultStatus($result);
         
         if ($result['success']) {
             $this->closeCreateModal();
@@ -491,7 +464,42 @@ class SeedRunsIndex extends Component
     public function clearStatus(): void
     {
         $this->statusMessage = '';
+        $this->statusErrors = [];
         $this->statusLinks = [];
+    }
+
+    protected function setStatus(string $message, string $type = 'success', array $links = [], array $errors = []): void
+    {
+        $this->statusMessage = $message;
+        $this->statusType = $type;
+        $this->statusLinks = $links;
+        $this->statusErrors = array_values(array_filter(
+            array_map(fn ($error) => trim((string) $error), $errors),
+            fn (string $error) => $error !== ''
+        ));
+    }
+
+    protected function applyResultStatus(array $result): void
+    {
+        $errors = is_array($result['errors'] ?? null) ? $result['errors'] : [];
+        $status = (string) ($result['status'] ?? '');
+        $success = array_key_exists('success', $result)
+            ? (bool) $result['success']
+            : $status === 'success';
+
+        $type = match (true) {
+            $status === 'partial' => 'warning',
+            $success && $errors !== [] => 'warning',
+            $success => 'success',
+            default => 'error',
+        };
+
+        $this->setStatus(
+            (string) ($result['message'] ?? ''),
+            $type,
+            is_array($result['test_targets'] ?? null) ? $result['test_targets'] : [],
+            $errors
+        );
     }
 
     protected function normalizeSeederTab(?string $tab): string

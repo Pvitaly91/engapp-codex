@@ -72,15 +72,36 @@
         </div>
 
         {{-- Status Messages --}}
-        @if($statusMessage || !empty($statusLinks))
+        @if($statusMessage || !empty($statusLinks) || !empty($statusErrors))
             <div 
                 class="mb-4 rounded-md border px-4 py-3 text-sm
-                    {{ $statusType === 'success' ? 'bg-emerald-50 border-emerald-200 text-emerald-700' : 'bg-red-50 border-red-200 text-red-700' }}"
+                    {{ $statusType === 'success'
+                        ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
+                        : ($statusType === 'warning'
+                            ? 'bg-amber-50 border-amber-200 text-amber-800'
+                            : 'bg-red-50 border-red-200 text-red-700') }}"
+                data-feedback-container
             >
                 <div class="flex items-start justify-between gap-4">
-                    <div class="min-w-0">
+                    <div class="min-w-0 flex-1 space-y-3" data-feedback-copy-content>
                         @if($statusMessage)
-                            <p>{{ $statusMessage }}</p>
+                            <div>
+                                <p class="text-[11px] font-semibold uppercase tracking-wide">
+                                    {{ $statusType === 'error' ? 'Не виконано' : ($statusType === 'warning' ? 'Частково виконано' : 'Виконано') }}
+                                </p>
+                                <p class="mt-1 whitespace-pre-line">{{ $statusMessage }}</p>
+                            </div>
+                        @endif
+
+                        @if(!empty($statusErrors))
+                            <div class="rounded-md border border-red-200 bg-white/80 px-3 py-2 text-red-700">
+                                <p class="text-[11px] font-semibold uppercase tracking-wide">Помилки</p>
+                                <ul class="mt-2 list-disc space-y-1 pl-4">
+                                    @foreach($statusErrors as $statusError)
+                                        <li class="whitespace-pre-line">{{ $statusError }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         @endif
 
                         @if(!empty($statusLinks))
@@ -99,12 +120,120 @@
                         @endif
                     </div>
 
-                    <button type="button" wire:click="clearStatus" class="shrink-0 text-current opacity-60 hover:opacity-100">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
+                    <div class="flex shrink-0 items-center gap-2">
+                        <button type="button"
+                                class="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-current ring-1 ring-current/10 transition hover:bg-white"
+                                data-copy-feedback
+                                title="Скопіювати текст повідомлення">
+                            <i class="fa-regular fa-copy"></i>
+                            <span data-copy-feedback-label>Скопіювати</span>
+                        </button>
+                        <button type="button" wire:click="clearStatus" class="shrink-0 text-current opacity-60 hover:opacity-100">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         @endif
+
+        @once
+            <script>
+                if (!window.__seedRunsFeedbackCopyBound) {
+                    window.__seedRunsFeedbackCopyBound = true;
+
+                    const extractFeedbackText = function (container) {
+                        if (!container) {
+                            return '';
+                        }
+
+                        const source = container.querySelector('[data-feedback-copy-content]') || container;
+
+                        return String(source.innerText || source.textContent || '')
+                            .replace(/\n{3,}/g, '\n\n')
+                            .trim();
+                    };
+
+                    const copyTextToClipboard = async function (text) {
+                        if (!text) {
+                            return false;
+                        }
+
+                        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+                            await navigator.clipboard.writeText(text);
+
+                            return true;
+                        }
+
+                        const textarea = document.createElement('textarea');
+                        textarea.value = text;
+                        textarea.setAttribute('readonly', 'readonly');
+                        textarea.style.position = 'fixed';
+                        textarea.style.opacity = '0';
+                        document.body.appendChild(textarea);
+                        textarea.select();
+
+                        const copied = document.execCommand('copy');
+                        document.body.removeChild(textarea);
+
+                        return copied;
+                    };
+
+                    const updateCopyButtonLabel = function (button, label) {
+                        if (!button) {
+                            return;
+                        }
+
+                        const labelNode = button.querySelector('[data-copy-feedback-label]');
+
+                        if (!labelNode) {
+                            return;
+                        }
+
+                        if (!labelNode.dataset.defaultLabel) {
+                            labelNode.dataset.defaultLabel = labelNode.textContent || 'Скопіювати';
+                        }
+
+                        labelNode.textContent = label;
+
+                        window.clearTimeout(Number(button.dataset.copyFeedbackTimeout || '0'));
+                        button.dataset.copyFeedbackTimeout = String(window.setTimeout(function () {
+                            labelNode.textContent = labelNode.dataset.defaultLabel || 'Скопіювати';
+                        }, 1800));
+                    };
+
+                    document.addEventListener('click', async function (event) {
+                        const button = event.target.closest('[data-copy-feedback]');
+
+                        if (!button) {
+                            return;
+                        }
+
+                        const container = button.closest('[data-feedback-container]');
+
+                        if (!container) {
+                            return;
+                        }
+
+                        event.preventDefault();
+
+                        const text = extractFeedbackText(container);
+
+                        if (!text) {
+                            updateCopyButtonLabel(button, 'Порожньо');
+
+                            return;
+                        }
+
+                        try {
+                            await copyTextToClipboard(text);
+                            updateCopyButtonLabel(button, 'Скопійовано');
+                        } catch (error) {
+                            updateCopyButtonLabel(button, 'Помилка');
+                        }
+                    });
+                }
+            </script>
+        @endonce
 
         @unless($tableExists)
             <div class="rounded-md bg-yellow-50 border border-yellow-200 px-4 py-3 text-yellow-800">

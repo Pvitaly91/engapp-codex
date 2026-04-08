@@ -107,7 +107,7 @@ class JsonPageLocalizationManager
         $result = $this->applyLocalizationDefinition($className, $definition, $baseIndex);
 
         if (($result['localized_blocks'] ?? 0) === 0) {
-            throw new RuntimeException('Локалізацію не застосовано: цільова сторінка або категорія ще не створена.');
+            throw new RuntimeException($this->buildMissingTargetMessage($definition, $baseIndex, $descriptor['path'] ?? null));
         }
 
         return $result;
@@ -651,6 +651,83 @@ class JsonPageLocalizationManager
     private function targetExists(array $baseIndex): bool
     {
         return $this->resolveTargetEntity($baseIndex) !== null;
+    }
+
+    private function buildMissingTargetMessage(array $definition, array $baseIndex, ?string $localizationPath = null): string
+    {
+        $details = [];
+        $locale = $this->normalizeLocale((string) ($definition['locale'] ?? ''));
+        $target = $this->formatTargetDescriptor($baseIndex);
+        $targetSeederClass = trim((string) ($baseIndex['seeder_class'] ?? Arr::get($definition, 'target.seeder_class', '')));
+        $definitionKey = trim((string) ($baseIndex['definition_key'] ?? ''));
+        $definitionPath = $this->shortPath($baseIndex['definition_path'] ?? null);
+        $sourcePath = $this->shortPath($localizationPath);
+
+        if ($locale !== '') {
+            $details[] = 'locale: ' . $locale;
+        }
+
+        if ($target !== '') {
+            $details[] = 'target: ' . $target;
+        }
+
+        if ($targetSeederClass !== '') {
+            $details[] = 'seeder: ' . $targetSeederClass;
+        }
+
+        if ($definitionKey !== '') {
+            $details[] = 'definition: ' . $definitionKey;
+        } elseif ($definitionPath !== '') {
+            $details[] = 'definition: ' . $definitionPath;
+        }
+
+        if ($sourcePath !== '') {
+            $details[] = 'source: ' . $sourcePath;
+        }
+
+        return 'Локалізацію не застосовано: не знайдено цільову сторінку або категорію'
+            . ($details !== [] ? ' (' . implode('; ', $details) . ')' : '')
+            . '.';
+    }
+
+    private function formatTargetDescriptor(array $baseIndex): string
+    {
+        $contentType = (string) ($baseIndex['content_type'] ?? 'page');
+
+        if ($contentType === 'category') {
+            $slug = trim((string) ($baseIndex['category_slug'] ?? $baseIndex['slug'] ?? ''));
+
+            return $slug !== '' ? 'category slug "' . $slug . '"' : 'category';
+        }
+
+        $details = [];
+        $slug = trim((string) ($baseIndex['slug'] ?? ''));
+        $type = trim((string) ($baseIndex['type'] ?? ''));
+
+        $details[] = $slug !== '' ? 'page slug "' . $slug . '"' : 'page';
+
+        if ($type !== '') {
+            $details[] = 'type ' . $type;
+        }
+
+        return implode(', ', $details);
+    }
+
+    private function shortPath(?string $path): string
+    {
+        $normalized = trim(str_replace('\\', '/', (string) $path));
+
+        if ($normalized === '') {
+            return '';
+        }
+
+        $base = str_replace('\\', '/', base_path());
+
+        if (Str::startsWith($normalized, $base . '/')) {
+            return Str::after($normalized, $base . '/');
+        }
+
+        return $normalized;
     }
 
     private function resolveLocalizedBlockUuid(string $scope, array $indexedBlock): string

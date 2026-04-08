@@ -63,39 +63,61 @@
             @endphp
 
             @if(session('status') || $statusLinks->isNotEmpty())
-                <div class="mb-4 rounded-md bg-green-50 border border-green-200 px-4 py-3 text-green-700">
-                    @if(session('status'))
-                        <p>{{ session('status') }}</p>
-                    @endif
+                <div class="mb-4 rounded-md bg-green-50 border border-green-200 px-4 py-3 text-green-700" data-feedback-container>
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="min-w-0 flex-1 space-y-3" data-feedback-copy-content>
+                            @if(session('status'))
+                                <p class="whitespace-pre-line">{{ session('status') }}</p>
+                            @endif
 
-                    @if($statusLinks->isNotEmpty())
-                        <div class="mt-3 flex flex-wrap gap-2">
-                            @foreach($statusLinks as $link)
-                                <a href="{{ $link['url'] }}"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   title="{{ $link['title'] ?? ($link['label'] ?? 'Тест') }}"
-                                   class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-green-700 ring-1 ring-green-200 hover:bg-green-100 transition">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                    {{ $link['title'] ?? ($link['label'] ?? 'Готовий тест') }}
-                                </a>
-                            @endforeach
+                            @if($statusLinks->isNotEmpty())
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    @foreach($statusLinks as $link)
+                                        <a href="{{ $link['url'] }}"
+                                           target="_blank"
+                                           rel="noopener noreferrer"
+                                           title="{{ $link['title'] ?? ($link['label'] ?? 'Тест') }}"
+                                           class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-green-700 ring-1 ring-green-200 hover:bg-green-100 transition">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                            {{ $link['title'] ?? ($link['label'] ?? 'Готовий тест') }}
+                                        </a>
+                                    @endforeach
+                                </div>
+                            @endif
                         </div>
-                    @endif
+                        <button type="button"
+                                class="inline-flex shrink-0 items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-current ring-1 ring-current/10 transition hover:bg-white"
+                                data-copy-feedback
+                                title="Скопіювати текст повідомлення">
+                            <i class="fa-regular fa-copy"></i>
+                            <span data-copy-feedback-label>Скопіювати</span>
+                        </button>
+                    </div>
                 </div>
             @endif
 
             @if($errors->any())
-                <div class="mb-4 rounded-md bg-red-50 border border-red-200 px-4 py-3 text-red-700">
-                    <ul class="list-disc list-inside space-y-1">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                <div class="mb-4 rounded-md bg-red-50 border border-red-200 px-4 py-3 text-red-700" data-feedback-container>
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="min-w-0 flex-1" data-feedback-copy-content>
+                            <ul class="list-disc list-inside space-y-1">
+                                @foreach($errors->all() as $error)
+                                    <li class="whitespace-pre-line">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <button type="button"
+                                class="inline-flex shrink-0 items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-current ring-1 ring-current/10 transition hover:bg-white"
+                                data-copy-feedback
+                                title="Скопіювати текст повідомлення">
+                            <i class="fa-regular fa-copy"></i>
+                            <span data-copy-feedback-label>Скопіювати</span>
+                        </button>
+                    </div>
                 </div>
             @endif
 
-            <div id="seed-run-ajax-feedback" class="hidden mb-4 rounded-md border px-4 py-3 text-sm"></div>
+            <div id="seed-run-ajax-feedback" class="hidden mb-4 rounded-md border px-4 py-3 text-sm" data-feedback-container></div>
 
             @unless($tableExists)
                 <div class="rounded-md bg-yellow-50 border border-yellow-200 px-4 py-3 text-yellow-800">
@@ -437,6 +459,7 @@
             const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
             const csrfToken = csrfTokenMeta ? csrfTokenMeta.getAttribute('content') : '';
             const successClasses = ['bg-emerald-50', 'border-emerald-200', 'text-emerald-700'];
+            const warningClasses = ['bg-amber-50', 'border-amber-200', 'text-amber-800'];
             const errorClasses = ['bg-red-50', 'border-red-200', 'text-red-700'];
             const fileModal = document.getElementById('seeder-file-modal');
             const fileModalLoadUrl = fileModal ? fileModal.dataset.loadUrl || '' : '';
@@ -654,6 +677,189 @@
                 }
 
                 return fallbackMessage;
+            };
+
+            const collectPayloadErrorList = function (payload) {
+                const messages = [];
+
+                if (!payload || typeof payload !== 'object') {
+                    return messages;
+                }
+
+                if (!payload.errors || typeof payload.errors !== 'object') {
+                    return messages;
+                }
+
+                Object.values(payload.errors).forEach(function (value) {
+                    if (Array.isArray(value)) {
+                        value.forEach(function (message) {
+                            if (typeof message === 'string' && message) {
+                                messages.push(message);
+                            }
+                        });
+
+                        return;
+                    }
+
+                    if (typeof value === 'string' && value) {
+                        messages.push(value);
+                    }
+                });
+
+                return messages
+                    .map(function (message) {
+                        return typeof message === 'string' ? message.trim() : '';
+                    })
+                    .filter(function (message, index, list) {
+                        return message !== '' && list.indexOf(message) === index;
+                    });
+            };
+
+            const escapeHtml = function (value) {
+                return String(value ?? '')
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#039;');
+            };
+
+            const extractFeedbackText = function (container) {
+                if (!container) {
+                    return '';
+                }
+
+                const source = container.querySelector('[data-feedback-copy-content]') || container;
+
+                return String(source.innerText || source.textContent || '')
+                    .replace(/\n{3,}/g, '\n\n')
+                    .trim();
+            };
+
+            const copyTextToClipboard = async function (text) {
+                if (!text) {
+                    return false;
+                }
+
+                if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+                    await navigator.clipboard.writeText(text);
+
+                    return true;
+                }
+
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.setAttribute('readonly', 'readonly');
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+
+                const copied = document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                return copied;
+            };
+
+            const updateCopyButtonLabel = function (button, label) {
+                if (!button) {
+                    return;
+                }
+
+                const labelNode = button.querySelector('[data-copy-feedback-label]');
+
+                if (!labelNode) {
+                    return;
+                }
+
+                if (!labelNode.dataset.defaultLabel) {
+                    labelNode.dataset.defaultLabel = labelNode.textContent || 'Скопіювати';
+                }
+
+                labelNode.textContent = label;
+
+                window.clearTimeout(Number(button.dataset.copyFeedbackTimeout || '0'));
+                button.dataset.copyFeedbackTimeout = String(window.setTimeout(function () {
+                    labelNode.textContent = labelNode.dataset.defaultLabel || 'Скопіювати';
+                }, 1800));
+            };
+
+            const buildFeedbackMarkup = function (content, type) {
+                const details = content && typeof content === 'object' && !Array.isArray(content)
+                    ? content
+                    : { message: typeof content === 'string' ? content : '' };
+                const message = typeof details.message === 'string' ? details.message.trim() : '';
+                const errors = Array.isArray(details.errors)
+                    ? details.errors
+                        .map(function (error) {
+                            return typeof error === 'string' ? error.trim() : '';
+                        })
+                        .filter(function (error, index, list) {
+                            return error !== '' && list.indexOf(error) === index;
+                        })
+                    : [];
+                const links = Array.isArray(details.links)
+                    ? details.links.filter(function (link) {
+                        return link && typeof link === 'object' && typeof link.url === 'string' && link.url;
+                    })
+                    : [];
+                const title = type === 'error'
+                    ? 'Не виконано'
+                    : (type === 'warning' ? 'Частково виконано' : 'Виконано');
+                const sections = [];
+
+                if (message) {
+                    sections.push(
+                        '<div>'
+                        + '<p class="text-[11px] font-semibold uppercase tracking-wide">' + escapeHtml(title) + '</p>'
+                        + '<p class="mt-1 whitespace-pre-line">' + escapeHtml(message) + '</p>'
+                        + '</div>'
+                    );
+                }
+
+                if (errors.length > 0) {
+                    sections.push(
+                        '<div class="rounded-md border border-red-200 bg-white/80 px-3 py-2 text-red-700">'
+                        + '<p class="text-[11px] font-semibold uppercase tracking-wide">Помилки</p>'
+                        + '<ul class="mt-2 list-disc space-y-1 pl-4">'
+                        + errors.map(function (error) {
+                            return '<li class="whitespace-pre-line">' + escapeHtml(error) + '</li>';
+                        }).join('')
+                        + '</ul>'
+                        + '</div>'
+                    );
+                }
+
+                if (links.length > 0) {
+                    sections.push(
+                        '<div class="flex flex-wrap gap-2">'
+                        + links.map(function (link) {
+                            const titleText = link.title || link.label || 'Тест';
+                            const href = typeof link.url === 'string' ? link.url : '#';
+
+                            return '<a href="' + escapeHtml(href) + '" target="_blank" rel="noopener noreferrer"'
+                                + ' title="' + escapeHtml(titleText) + '"'
+                                + ' class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-semibold ring-1 ring-current/10 hover:bg-white/80 transition">'
+                                + '<i class="fa-solid fa-arrow-up-right-from-square"></i>'
+                                + escapeHtml(titleText)
+                                + '</a>';
+                        }).join('')
+                        + '</div>'
+                    );
+                }
+
+                return '<div class="flex items-start justify-between gap-3">'
+                    + '<div class="min-w-0 flex-1 space-y-3" data-feedback-copy-content>'
+                    + sections.join('')
+                    + '</div>'
+                    + '<button type="button"'
+                    + ' class="inline-flex shrink-0 items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-current ring-1 ring-current/10 transition hover:bg-white"'
+                    + ' data-copy-feedback'
+                    + ' title="Скопіювати текст повідомлення">'
+                    + '<i class="fa-regular fa-copy"></i>'
+                    + '<span data-copy-feedback-label>Скопіювати</span>'
+                    + '</button>'
+                    + '</div>';
             };
 
             const formatFileUpdatedAt = function (timestamp) {
@@ -1766,14 +1972,24 @@
 
                     if (!response.ok) {
                         const message = parseErrorMessage(payload, 'Не вдалося виконати операцію.');
-                        throw new Error(message);
+                        const error = new Error(message);
+                        error.payload = payload;
+                        throw error;
                     }
 
                     const successMessage = payload && typeof payload.message === 'string' && payload.message
                         ? payload.message
                         : 'Операцію успішно виконано.';
+                    const successErrors = collectPayloadErrorList(payload);
+                    const feedbackType = (payload && payload.status === 'partial') || successErrors.length > 0
+                        ? 'warning'
+                        : 'success';
 
-                    showFeedback(successMessage, 'success');
+                    showFeedback({
+                        message: successMessage,
+                        errors: successErrors,
+                        links: payload && Array.isArray(payload.test_targets) ? payload.test_targets : [],
+                    }, feedbackType);
 
                     if (form.dataset.reloadAfterSuccess === 'true') {
                         window.setTimeout(function () {
@@ -1790,7 +2006,13 @@
                         ? error.message
                         : 'Не вдалося виконати операцію.';
 
-                    showFeedback(message, 'error');
+                    showFeedback({
+                        message: message,
+                        errors: collectPayloadErrorList(error && typeof error === 'object' ? error.payload : null)
+                            .filter(function (item) {
+                                return item !== message;
+                            }),
+                    }, 'error');
                 } finally {
                     if (preloader) {
                         preloader.classList.add('hidden');
@@ -1799,6 +2021,10 @@
             };
 
             const handleUIUpdate = function (form, payload) {
+                if (form.dataset.noReloadSuccess === 'true') {
+                    return;
+                }
+
                 if (payload && payload.overview) {
                     window.setTimeout(function () {
                         window.location.reload();
@@ -2275,13 +2501,6 @@
                 });
             };
 
-            // Helper function to escape HTML
-            const escapeHtml = function (text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
-            };
-
             const checkPendingListEmpty = function () {
                 const pendingContainer = document.getElementById('pending-seeders-container');
                 const hasPendingSeeders = pendingContainer && pendingContainer.querySelector('[data-pending-seeder]');
@@ -2338,6 +2557,32 @@
                 // No confirmation needed, submit via AJAX directly
                 event.preventDefault();
                 handleAjaxFormSubmit(form);
+            });
+
+            document.addEventListener('click', async function (event) {
+                const button = event.target.closest('[data-copy-feedback]');
+
+                if (!button) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                const container = button.closest('[data-feedback-container]');
+                const text = extractFeedbackText(container);
+
+                if (!text) {
+                    updateCopyButtonLabel(button, 'Порожньо');
+
+                    return;
+                }
+
+                try {
+                    await copyTextToClipboard(text);
+                    updateCopyButtonLabel(button, 'Скопійовано');
+                } catch (error) {
+                    updateCopyButtonLabel(button, 'Помилка');
+                }
             });
 
             document.querySelectorAll('[data-bulk-delete-button]').forEach(function (button) {
@@ -2405,11 +2650,13 @@
                     return;
                 }
 
-                feedback.textContent = message;
+                feedback.innerHTML = buildFeedbackMarkup(message, type);
                 feedback.classList.remove('hidden');
-                feedback.classList.remove(...successClasses, ...errorClasses);
+                feedback.classList.remove(...successClasses, ...warningClasses, ...errorClasses);
 
-                const classes = type === 'error' ? errorClasses : successClasses;
+                const classes = type === 'error'
+                    ? errorClasses
+                    : (type === 'warning' ? warningClasses : successClasses);
                 classes.forEach(function (className) {
                     feedback.classList.add(className);
                 });
@@ -2417,7 +2664,7 @@
                 window.clearTimeout(feedbackTimeout);
                 feedbackTimeout = window.setTimeout(function () {
                     feedback.classList.add('hidden');
-                }, 5000);
+                }, 8000);
             };
 
             const updateToggleLabels = function (button, expanded) {

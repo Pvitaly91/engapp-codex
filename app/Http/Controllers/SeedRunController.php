@@ -23,7 +23,6 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Seeder as LaravelSeeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
@@ -1099,6 +1098,43 @@ class SeedRunController extends Controller
         $shortName = Str::after($className, 'Database\\Seeders\\');
 
         return $shortName !== '' ? $shortName : $className;
+    }
+
+    protected function formatDetailedErrorMessage(Collection $errors): string
+    {
+        $messages = $errors
+            ->map(fn ($message) => trim((string) $message))
+            ->filter()
+            ->values();
+
+        if ($messages->isEmpty()) {
+            return '';
+        }
+
+        if ($messages->count() === 1) {
+            return (string) $messages->first();
+        }
+
+        return $messages
+            ->values()
+            ->map(fn (string $message, int $index) => ($index + 1) . '. ' . $message)
+            ->implode("\n");
+    }
+
+    protected function formatSeederExecutionError(string $className, \Throwable $exception): string
+    {
+        $message = trim($exception->getMessage());
+        $displayName = $this->formatSeederClassName($className);
+
+        if ($message === '') {
+            return $displayName . ': ' . __('Невідома помилка під час виконання сидера.');
+        }
+
+        if (Str::startsWith($message, $displayName . ':') || Str::startsWith($message, $className . ':')) {
+            return $message;
+        }
+
+        return $displayName . ': ' . $message;
     }
 
     /**
@@ -2429,7 +2465,7 @@ class SeedRunController extends Controller
                         ->withErrors(['run' => $message]);
                 }
 
-                Artisan::call('db:seed', ['--class' => $className]);
+                $this->executeConcreteSeeder($className);
             }
         } catch (\Throwable $exception) {
             report($exception);
@@ -2619,10 +2655,11 @@ class SeedRunController extends Controller
         }
 
         $errors = $result['errors'] ?? collect();
+        $statusSummary = $statusMessage;
 
         if ($errors->isNotEmpty()) {
             $statusMessage .= ' ' . __('Під час повторного запуску виникли помилки: :errors', [
-                'errors' => $errors->implode(' '),
+                'errors' => $this->formatDetailedErrorMessage($errors),
             ]);
         }
 
@@ -2632,7 +2669,8 @@ class SeedRunController extends Controller
             $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
 
             return response()->json([
-                'message' => $statusMessage,
+                'status' => $errors->isNotEmpty() ? 'partial' : 'success',
+                'message' => $statusSummary,
                 'test_targets' => $testTargets,
                 'errors' => $errors->all(),
                 'folder_label' => $folderLabel,
@@ -2661,7 +2699,7 @@ class SeedRunController extends Controller
         }
 
         if ($errors->isNotEmpty()) {
-            $redirect = $redirect->withErrors(['refresh' => $errors->implode(' ')]);
+            $redirect = $redirect->withErrors(new MessageBag(['refresh' => $errors->all()]));
         }
 
         return $redirect;
@@ -3229,14 +3267,14 @@ class SeedRunController extends Controller
                         continue;
                     }
 
-                    Artisan::call('db:seed', ['--class' => $className]);
+                    $this->executeConcreteSeeder($className);
                 }
 
                 $ran->push($className);
                 $executedClasses->push($className);
             } catch (\Throwable $exception) {
                 report($exception);
-                $errors->push($exception->getMessage());
+                $errors->push($this->formatSeederExecutionError($className, $exception));
             }
         }
 
@@ -3245,6 +3283,25 @@ class SeedRunController extends Controller
             'ran' => $ran,
             'errors' => $errors,
         ];
+    }
+
+    protected function executeConcreteSeeder(string $className): void
+    {
+        $seeder = app()->make($className);
+
+        if (! $seeder instanceof LaravelSeeder || ! method_exists($seeder, 'run')) {
+            throw new \RuntimeException(__('Seeder :class cannot be executed.', ['class' => $className]));
+        }
+
+        $seeder->setContainer(app());
+        $seeder->run();
+
+        if (Schema::hasTable('seed_runs')) {
+            DB::table('seed_runs')->updateOrInsert(
+                ['class_name' => $className],
+                ['ran_at' => now()]
+            );
+        }
     }
 
     protected function orderSeedersForExecution(Collection $classNames): Collection
@@ -3756,7 +3813,7 @@ class SeedRunController extends Controller
             $errorMessage = $result['message'] ?? __('Не вдалося оновити дані сидера.');
 
             if (($result['errors'] ?? collect())->isNotEmpty()) {
-                $errorMessage = $result['errors']->implode(' ');
+                $errorMessage = $this->formatDetailedErrorMessage($result['errors']);
             }
 
             if ($request->wantsJson()) {
@@ -3767,7 +3824,7 @@ class SeedRunController extends Controller
             }
 
             return $this->redirectToIndexWithTab($request)
-                ->withErrors(['refresh' => $errorMessage]);
+                ->withErrors(new MessageBag(['refresh' => [$errorMessage]]));
         }
 
         $deletedQuestions = (int) ($result['questions_deleted'] ?? 0);
@@ -3813,9 +3870,10 @@ class SeedRunController extends Controller
         }
 
         $errors = $result['errors'] ?? collect();
+        $statusSummary = $status;
         if ($errors->isNotEmpty()) {
             $status .= ' ' . __('Під час повторного запуску виникли помилки: :errors', [
-                'errors' => $errors->implode(' '),
+                'errors' => $this->formatDetailedErrorMessage($errors),
             ]);
         }
 
@@ -3823,7 +3881,8 @@ class SeedRunController extends Controller
             $overview = $this->assembleSeedRunOverview($this->currentSeederTab($request));
             
             return response()->json([
-                'message' => $status,
+                'status' => $errors->isNotEmpty() ? 'partial' : 'success',
+                'message' => $statusSummary,
                 'seed_run_id' => $seedRunId,
                 'class_name' => $seedRun->class_name,
                 'questions_deleted' => $deletedQuestions,
@@ -3845,7 +3904,7 @@ class SeedRunController extends Controller
             ->with('status', $status);
 
         if ($errors->isNotEmpty()) {
-            $redirect = $redirect->withErrors(['refresh' => $errors->implode(' ')]);
+            $redirect = $redirect->withErrors(new MessageBag(['refresh' => $errors->all()]));
         }
 
         return $redirect;
@@ -3883,7 +3942,9 @@ class SeedRunController extends Controller
             return $emptyResult;
         }
 
-        $classesToRefresh = $this->expandRefreshClassNames($selectedClasses);
+        $executedSeeders = $this->buildExecutedSeedersForRefresh();
+        $classesToRefresh = $this->expandRefreshClassNames($selectedClasses, $executedSeeders);
+        $autoRefreshedLocalizationClasses = $this->autoRefreshedRelatedLocalizationClasses($selectedClasses, $executedSeeders);
         $validationErrors = $this->validateSeederClassesForRefresh($classesToRefresh);
 
         if ($validationErrors->isNotEmpty()) {
@@ -3917,7 +3978,12 @@ class SeedRunController extends Controller
             ->values();
 
         try {
-            $this->touchSeedRunTimestamps($ran);
+            $this->touchSeedRunTimestamps(
+                $ran
+                    ->merge($autoRefreshedLocalizationClasses)
+                    ->unique()
+                    ->values()
+            );
         } catch (\Throwable $exception) {
             report($exception);
             $errors = $errors->push($exception->getMessage())->filter()->unique()->values();
@@ -3925,6 +3991,13 @@ class SeedRunController extends Controller
 
         $relatedLocalizationClasses = $classesToRefresh
             ->diff($selectedClasses)
+            ->merge($autoRefreshedLocalizationClasses)
+            ->unique()
+            ->values();
+        $refreshedLocalizationClasses = $ran
+            ->filter(fn (string $className) => in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true))
+            ->merge($autoRefreshedLocalizationClasses)
+            ->unique()
             ->values();
 
         return array_merge($deletionStats, [
@@ -3939,10 +4012,8 @@ class SeedRunController extends Controller
             'ran' => $ran,
             'ordered' => $ordered,
             'errors' => $errors,
-            'localizations_ran_total' => $ran
-                ->filter(fn (string $className) => in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true))
-                ->count(),
-            'related_localizations_ran' => $ran
+            'localizations_ran_total' => $refreshedLocalizationClasses->count(),
+            'related_localizations_ran' => $refreshedLocalizationClasses
                 ->filter(fn (string $className) => $relatedLocalizationClasses->contains($className))
                 ->count(),
         ]);
@@ -3967,6 +4038,7 @@ class SeedRunController extends Controller
         }
 
         $relatedLocalizationMap = $this->buildRelatedLocalizationMap($executedSeeders);
+        $autoRefreshedLocalizationClasses = $this->autoRefreshedRelatedLocalizationClasses($normalized, $executedSeeders);
 
         $relatedLocalizationClasses = $normalized
             ->reject(fn (string $className) => in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true))
@@ -3976,6 +4048,7 @@ class SeedRunController extends Controller
             })
             ->map(fn ($value) => trim((string) $value))
             ->filter()
+            ->reject(fn (string $className) => $autoRefreshedLocalizationClasses->contains($className))
             ->unique()
             ->values();
 
@@ -3983,6 +4056,49 @@ class SeedRunController extends Controller
             ->merge($relatedLocalizationClasses)
             ->unique()
             ->values();
+    }
+
+    protected function autoRefreshedRelatedLocalizationClasses(Collection $classNames, ?Collection $executedSeeders = null): Collection
+    {
+        $normalized = $classNames
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($normalized->isEmpty()) {
+            return collect();
+        }
+
+        $executedSeeders ??= $this->buildExecutedSeedersForRefresh();
+
+        if ($executedSeeders->isEmpty()) {
+            return collect();
+        }
+
+        $relatedLocalizationMap = $this->buildRelatedLocalizationMap($executedSeeders);
+
+        return $normalized
+            ->reject(fn (string $className) => in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true))
+            ->filter(fn (string $className) => $this->refreshesPageLocalizationsWithinBaseSeeder($className))
+            ->flatMap(function (string $className) use ($relatedLocalizationMap) {
+                return collect($relatedLocalizationMap->get($className, collect()))
+                    ->filter(fn (array $localization) => ($localization['type'] ?? null) === 'page_localizations')
+                    ->pluck('class_name');
+            })
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+    }
+
+    protected function refreshesPageLocalizationsWithinBaseSeeder(string $className): bool
+    {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
+            return false;
+        }
+
+        return is_subclass_of($className, JsonPageSeeder::class);
     }
 
     protected function buildExecutedSeedersForRefresh(): Collection

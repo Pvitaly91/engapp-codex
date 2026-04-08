@@ -7,6 +7,7 @@ use App\Http\Controllers\TheoryController;
 use App\Models\Page;
 use App\Models\PageCategory;
 use App\Models\TextBlock;
+use App\Modules\SeedRunsV2\Services\SeedRunsService;
 use App\Services\QuestionDeletionService;
 use App\Services\SeederTestTargetResolver;
 use App\Support\Database\JsonPageDirectorySeeder;
@@ -264,6 +265,23 @@ class PageV3JsonSeederTest extends TestCase
                 ->where('seeder', 'Database\\Seeders\\Page_V3\\Localizations\\Pl\\PassiveVoiceCategoryLocalizationSeeder')
                 ->count()
         );
+    }
+
+    public function test_seed_runs_service_executes_page_v3_seeder_via_direct_run_helper(): void
+    {
+        DB::table('seed_runs')->where('class_name', BasicGrammarCategorySeeder::class)->delete();
+
+        $result = app(SeedRunsService::class)->runSeeder(BasicGrammarCategorySeeder::class);
+
+        $this->assertTrue($result['success']);
+
+        $category = PageCategory::query()->where('slug', 'basic-grammar')->first();
+
+        $this->assertNotNull($category);
+        $this->assertSame(BasicGrammarCategorySeeder::class, $category->seeder);
+        $this->assertSame(5, TextBlock::query()->where('page_category_id', $category->id)->where('locale', 'uk')->count());
+        $this->assertSame(5, TextBlock::query()->where('page_category_id', $category->id)->where('locale', 'en')->count());
+        $this->assertSame(5, TextBlock::query()->where('page_category_id', $category->id)->where('locale', 'pl')->count());
     }
 
     public function test_json_page_runtime_seeder_supports_page_definition_and_virtual_localization_seeders(): void

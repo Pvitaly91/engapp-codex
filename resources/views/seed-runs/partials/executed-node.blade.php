@@ -40,6 +40,7 @@
                     <form method="POST"
                           action="{{ route('seed-runs.folders.refresh', ['tab' => $activeSeederTab ?? 'main']) }}"
                           data-preloader
+                          data-no-reload-success="true"
                           data-confirm="Оновити дані всіх сидерів у папці «{{ e($folderLabel) }}»? Поточні дані та пов’язані локалізації буде видалено і створено заново."
                           class="w-full sm:w-auto lg:w-auto">
                         @csrf
@@ -324,7 +325,7 @@
                                                             <form method="POST"
                                                                   action="{{ route('seed-runs.refresh', ['seedRun' => $localization['seed_run_id'], 'tab' => $activeSeederTab ?? 'main']) }}"
                                                                   data-preloader
-                                                                  data-reload-after-success="true"
+                                                                  data-no-reload-success="true"
                                                                   data-confirm="Оновити дані локалізації «{{ e($localizationDisplayName) }}»?"
                                                                   class="w-full sm:w-auto">
                                                                 @csrf
@@ -459,7 +460,7 @@
                                                         Видалити файл
                                                     </button>
                                                 </form>
-                                                <form method="POST" action="{{ route('seed-runs.refresh', ['seedRun' => $seedRun->id, 'tab' => $activeSeederTab ?? 'main']) }}" data-preloader data-confirm="Оновити дані сидера «{{ e($seedRun->display_class_name) }}»? Всі поточні дані будуть видалені та створені заново." class="w-full sm:w-auto lg:w-auto">
+                                                <form method="POST" action="{{ route('seed-runs.refresh', ['seedRun' => $seedRun->id, 'tab' => $activeSeederTab ?? 'main']) }}" data-preloader data-no-reload-success="true" data-confirm="Оновити дані сидера «{{ e($seedRun->display_class_name) }}»? Всі поточні дані будуть видалені та створені заново." class="w-full sm:w-auto lg:w-auto">
                                                     @csrf
                                                     <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-md hover:bg-blue-500 transition">
                                                         <i class="fa-solid fa-rotate"></i>

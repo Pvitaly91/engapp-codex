@@ -213,7 +213,12 @@ class JsonTestLocalizationManager
         }
 
         if ($questionsUpdated === 0) {
-            throw new RuntimeException('Локалізацію не застосовано: цільові питання ще не створені або не знайдені в базі.');
+            throw new RuntimeException($this->buildMissingQuestionsMessage(
+                $definition,
+                $baseIndex,
+                $resolvedQuestions,
+                $descriptor['path'] ?? null
+            ));
         }
 
         return [
@@ -800,6 +805,57 @@ class JsonTestLocalizationManager
         return implode("\n", $parts);
     }
 
+    private function buildMissingQuestionsMessage(
+        array $definition,
+        array $baseIndex,
+        array $resolvedQuestions,
+        ?string $localizationPath = null
+    ): string {
+        $details = [];
+        $locale = $this->normalizeLocale((string) ($definition['locale'] ?? ''));
+        $targetSeederClass = trim((string) ($baseIndex['seeder_class'] ?? Arr::get($definition, 'target.seeder_class', '')));
+        $definitionKey = trim((string) ($baseIndex['definition_key'] ?? ''));
+        $definitionPath = $this->shortPath($baseIndex['definition_path'] ?? null);
+        $sourcePath = $this->shortPath($localizationPath);
+        $expectedUuids = collect($resolvedQuestions)
+            ->pluck('uuid')
+            ->filter(fn ($uuid) => is_string($uuid) && trim($uuid) !== '')
+            ->map(fn (string $uuid) => trim($uuid))
+            ->unique()
+            ->values();
+
+        if ($locale !== '') {
+            $details[] = 'locale: ' . $locale;
+        }
+
+        if ($targetSeederClass !== '') {
+            $details[] = 'seeder: ' . $targetSeederClass;
+        }
+
+        if ($definitionKey !== '') {
+            $details[] = 'definition: ' . $definitionKey;
+        } elseif ($definitionPath !== '') {
+            $details[] = 'definition: ' . $definitionPath;
+        }
+
+        if ($sourcePath !== '') {
+            $details[] = 'source: ' . $sourcePath;
+        }
+
+        if ($expectedUuids->isNotEmpty()) {
+            $sample = $expectedUuids->take(5)->implode(', ');
+            $suffix = $expectedUuids->count() > 5
+                ? ' (+' . ($expectedUuids->count() - 5) . ' more)'
+                : '';
+
+            $details[] = 'expected UUIDs: ' . $sample . $suffix;
+        }
+
+        return 'Локалізацію не застосовано: не знайдено жодного цільового питання в базі'
+            . ($details !== [] ? ' (' . implode('; ', $details) . ')' : '')
+            . '.';
+    }
+
     private function explanationLanguagesForLocale(string $locale): array
     {
         $normalized = $this->normalizeLocale($locale);
@@ -845,6 +901,23 @@ class JsonTestLocalizationManager
         }
 
         return str_replace('\\', '/', $normalized);
+    }
+
+    private function shortPath(?string $path): string
+    {
+        $normalized = trim(str_replace('\\', '/', (string) $path));
+
+        if ($normalized === '') {
+            return '';
+        }
+
+        $base = str_replace('\\', '/', base_path());
+
+        if (Str::startsWith($normalized, $base . '/')) {
+            return Str::after($normalized, $base . '/');
+        }
+
+        return $normalized;
     }
 
     private function isAbsolutePath(string $path): bool
