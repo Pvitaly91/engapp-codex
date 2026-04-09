@@ -1,32 +1,32 @@
 {
-    "locale": "en",
-    "seeder": {
-        "class": "Database\\Seeders\\Page_V3\\Localizations\\En\\BasicGrammarCategoryLocalizationSeeder"
+  "locale": "en",
+  "seeder": {
+    "class": "Database\\Seeders\\Page_V3\\Localizations\\En\\BasicGrammarCategoryLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarCategorySeeder",
+    "definition_path": "../definition.json"
+  },
+  "blocks": [
+    {
+      "reference": "subtitle",
+      "body": "<p><strong>Basic Grammar</strong> covers the core of English: parts of speech, sentence structure, sentence types, imperatives, conjunctions and word order.</p>"
     },
-    "target": {
-        "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarCategorySeeder",
-        "definition_path": "../definition.json"
+    {
+      "index": 1,
+      "body": "{\r\n  \"level\": \"A1–B1\",\r\n  \"intro\": \"This topic gives you the <strong>grammar foundation</strong> for English: parts of speech, sentence structure, sentence types, imperatives, conjunctions and basic word order.\",\r\n  \"rules\": [\r\n    {\r\n      \"label\": \"Parts of Speech\",\r\n      \"color\": \"emerald\",\r\n      \"text\": \"Words play different roles in a sentence:\",\r\n      \"example\": \"noun, verb, adjective, adverb\"\r\n    },\r\n    {\r\n      \"label\": \"Sentence Basics\",\r\n      \"color\": \"blue\",\r\n      \"text\": \"English sentences rely on a clear core structure:\",\r\n      \"example\": \"Subject + Verb + Object\"\r\n    },\r\n    {\r\n      \"label\": \"Word Order\",\r\n      \"color\": \"amber\",\r\n      \"text\": \"The Word Order lessons show how sentence position changes the pattern:\",\r\n      \"example\": \"statements, questions, adverbials, emphasis\"\r\n    }\r\n  ]\r\n}"
     },
-    "blocks": [
-        {
-            "reference": "subtitle",
-            "body": "<p><strong>Basic grammar</strong> is the foundation of the English language. In this section you will learn the basic rules of sentence construction: word order, questions and objections, adverbs and circumstances.</p>"
-        },
-        {
-            "index": 1,
-            "body": "{\n    \"level\": \"A1–B1\",\n    \"intro\": \"In this section you will learn <strong>basic grammar</strong> of the English language: word order in a sentence, interrogative and negative structures, adverbs and circumstances.\",\n    \"rules\": [\n        {\n            \"label\": \"Word order\",\n            \"color\": \"emerald\",\n            \"text\": \"Basic structure <strong>S–V–O</strong> — subject, verb, object:\",\n            \"example\": \"She reads books every day.\"\n        },\n        {\n            \"label\": \"Questions\",\n            \"color\": \"blue\",\n            \"text\": \"Auxiliary verb <strong>do/does/did</strong> before the subject:\",\n            \"example\": \"Do you like pizza?\"\n        },\n        {\n            \"label\": \"Negation\",\n            \"color\": \"rose\",\n            \"text\": \"We use <strong>do/does/did + not</strong>:\",\n            \"example\": \"I don't like apples.\"\n        }\n    ]\n}"
-        },
-        {
-            "index": 2,
-            "body": "{\n    \"title\": \"1. The main elements of a sentence\",\n    \"intro\": \"An English sentence is built according to a clear structure:\",\n    \"items\": [\n        {\n            \"label\": \"Subject\",\n            \"title\": \"Subject (S)\",\n            \"subtitle\": \"Who performs the action: I, you, she, Tom\"\n        },\n        {\n            \"label\": \"Verb\",\n            \"title\": \" (V)\",\n            \"subtitle\": \"Action or state: read, eat, is, have\"\n        },\n        {\n            \"label\": \"Object\",\n            \"title\": \"Appendix (O)\",\n            \"subtitle\": \"To whom/what the action is directed: book, coffee\"\n        },\n        {\n            \"label\": \"Adverbials\",\n            \"title\": \"Circumstances\",\n            \"subtitle\": \"When, where, how: yesterday, at home, quickly\"\n        }\n    ]\n}"
-        },
-        {
-            "index": 3,
-            "body": "{\n    \"title\": \"2. Sentence types\",\n    \"sections\": [\n        {\n            \"label\": \"Affirmative\",\n            \"color\": \"emerald\",\n            \"description\": \"Basic S–V–O structure without additional elements.\",\n            \"examples\": [\n                {\n                    \"en\": \"She reads books.\",\n                    \"ua\": \"Вона читає книги.\"\n                },\n                {\n                    \"en\": \"They play football.\",\n                    \"ua\": \"Вони грають у футбол.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Питальні\",\n            \"color\": \"blue\",\n            \"description\": \"Допоміжне дієслово <strong>do/does/did</strong> на початку.\",\n            \"examples\": [\n                {\n                    \"en\": \"Do you like pizza?\",\n                    \"ua\": \"Do you like pizza?\"\n                },\n                {\n                    \"en\": \"Does she work here?\",\n                    \"ua\": \"She works here?\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Negative\",\n            \"color\": \"rose\",\n            \"description\": \"Add <strong>not</strong> after the auxiliary verbs.\",\n            \"examples\": [\n                {\n                    \"en\": \"I don't like coffee.\",\n                    \"ua\": \"I don't like coffee.\"\n                },\n                {\n                    \"en\": \"She doesn't work here.\",\n                    \"ua\": \"She doesn't work here.\"\n                }\n            ]\n        }\n    ]\n}"
-        },
-        {
-            "index": 4,
-            "body": "{\n    \"title\": \"3. Key rules\",\n    \"items\": [\n        \"Basic structure: <strong>S + V + O</strong> (subject + verb + object).\",\n        \"Adverbs of frequency (<em>always, often, never</em>) - <strong>before the main verb</strong>.\",\n        \"Circumstances of time and place - usually <strong>at the end</strong> sentence.\",\n        \"The order of circumstances: <strong>Manner → Place → Time</strong>.\",\n        \"In questions, the auxiliary verb <strong>before the subject</strong>.\"\n    ]\n}"
-        }
-    ]
+    {
+      "index": 2,
+      "body": "{\r\n  \"title\": \"1. What this topic covers\",\r\n  \"intro\": \"These are the grammar points that usually come first in English:\",\r\n  \"items\": [\r\n    {\r\n      \"label\": \"Parts of Speech\",\r\n      \"title\": \"Parts of speech\",\r\n      \"subtitle\": \"The basic roles of words: nouns, verbs, adjectives, adverbs and more.\"\r\n    },\r\n    {\r\n      \"label\": \"Sentence Structure\",\r\n      \"title\": \"Sentence structure\",\r\n      \"subtitle\": \"The simplest sentence model and the SVO pattern.\"\r\n    },\r\n    {\r\n      \"label\": \"Sentence Types\",\r\n      \"title\": \"Sentence types\",\r\n      \"subtitle\": \"Statements, questions, negatives and imperatives as core sentence models.\"\r\n    },\r\n    {\r\n      \"label\": \"Word Order\",\r\n      \"title\": \"Word order\",\r\n      \"subtitle\": \"A focused path through statements, questions, adverbials, objects and emphasis.\"\r\n    }\r\n  ]\r\n}"
+    },
+    {
+      "index": 3,
+      "body": "{\r\n  \"title\": \"2. How to study this topic\",\r\n  \"sections\": [\r\n    {\r\n      \"label\": \"Foundation\",\r\n      \"color\": \"emerald\",\r\n      \"description\": \"Start with <strong>Parts of Speech</strong> and <strong>Sentence Structure</strong> so you can see word roles and the sentence frame.\",\r\n      \"examples\": [\r\n        {\r\n          \"en\": \"The student reads a book.\",\r\n          \"ua\": \"Subject + verb + object.\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"label\": \"Core models\",\r\n      \"color\": \"blue\",\r\n      \"description\": \"Then move to <strong>Sentence Types</strong>, <strong>Imperatives</strong> and <strong>Conjunctions</strong> to see how sentences change their function.\",\r\n      \"examples\": [\r\n        {\r\n          \"en\": \"Open the window. / I was tired, so I stayed home.\",\r\n          \"ua\": \"Imperative form and a basic link between clauses.\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"label\": \"Word Order\",\r\n      \"color\": \"amber\",\r\n      \"description\": \"<strong>Word Order</strong> shows where words go in English and how position affects meaning.\",\r\n      \"examples\": [\r\n        {\r\n          \"en\": \"She often works at home. / Do you work here?\",\r\n          \"ua\": \"Focus on word position.\"\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    },
+    {
+      "index": 4,
+      "body": "{\r\n  \"title\": \"3. In short\",\r\n  \"items\": [\r\n    \"<strong>Parts of Speech</strong> helps you see what each word does in a sentence.\",\r\n    \"<strong>Sentence Structure</strong> and <strong>Sentence Types</strong> give you the main sentence models.\",\r\n    \"<strong>Imperatives</strong> and <strong>Conjunctions</strong> show how sentences work in real speech.\",\r\n    \"<strong>Word Order</strong> helps you place words in natural English order.\",\r\n    \"Together, these lessons give you a base for the rest of the grammar guide.\"\r\n  ]\r\n}"
+    }
+  ]
 }
