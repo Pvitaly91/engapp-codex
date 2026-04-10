@@ -345,6 +345,16 @@ class SiteTreeSeeder extends Seeder
                             ['title' => 'Advanced word order and emphasis — Інверсія та підсилення', 'level' => 'B1–B2'],
                         ],
                     ],
+                    [
+                        'title' => 'Verb to Be',
+                        'level' => 'A1–A2',
+                        'children' => [
+                            ['title' => 'Verb to Be: Present Forms', 'level' => 'A1'],
+                            ['title' => 'Verb to Be: Negatives', 'level' => 'A1'],
+                            ['title' => 'Verb to Be: Questions and Short Answers', 'level' => 'A1'],
+                            ['title' => 'There Is / There Are', 'level' => 'A1–A2'],
+                        ],
+                    ],
                 ],
             ],
             [
@@ -388,18 +398,6 @@ class SiteTreeSeeder extends Seeder
                     ['title' => 'One / Ones — заміна іменників', 'level' => 'B2'],
                     ['title' => 'Whatever / Whenever / Whoever — невизначені відносні займенники', 'level' => 'C1'],
                     ['title' => 'This / That / These / Those — Вказівні займенники', 'level' => 'A1'],
-                ],
-            ],
-            [
-                'title' => '4. Verb to be та базові конструкції',
-                'level' => 'A1–A2',
-                'children' => [
-                    ['title' => 'Verb to be — дієслово «бути»', 'level' => 'A1'],
-                    ['title' => 'Contractions — скорочені форми в англійській', 'level' => 'A1'],
-                    ['title' => 'There is / There are — наявність предметів', 'level' => 'A1'],
-                    ['title' => 'It is vs There is — формальний підмет', 'level' => 'A2'],
-                    ['title' => 'It as a formal subject — погода, час, відстань (It is raining, It is late)', 'level' => 'A2'],
-                    ['title' => 'Do / Does vs. Is / Are — вибір допоміжного дієслова', 'level' => 'A1–A2'],
                 ],
             ],
             [

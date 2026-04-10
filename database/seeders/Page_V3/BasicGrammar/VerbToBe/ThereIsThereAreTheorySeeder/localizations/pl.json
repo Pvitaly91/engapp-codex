@@ -1,0 +1,44 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\ThereIsThereAreTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\ThereIsThereAreTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>There Is / There Are</strong> — jak powiedzieć, że coś jest albo czegoś nie ma w danym miejscu.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\n    \"level\": \"A1–A2\",\n    \"intro\": \"Konstrukcje <strong>there is</strong> i <strong>there are</strong> pokazują, że <strong>coś istnieje</strong> albo <strong>czegoś nie ma</strong> w danym miejscu.\",\n    \"rules\": [\n        {\n            \"label\": \"Singular\",\n            \"color\": \"emerald\",\n            \"text\": \"Dla <strong>jednej</strong> rzeczy używaj <strong>there is</strong>.\",\n            \"example\": \"There is a lamp on the desk.\"\n        },\n        {\n            \"label\": \"Plural\",\n            \"color\": \"blue\",\n            \"text\": \"Dla <strong>więcej niż jednej</strong> rzeczy używaj <strong>there are</strong>.\",\n            \"example\": \"There are two cups in the kitchen.\"\n        },\n        {\n            \"label\": \"Negative / Question\",\n            \"color\": \"amber\",\n            \"text\": \"Dodaj <strong>not</strong> albo przesuń <strong>is / are</strong> do przodu, żeby utworzyć pytanie.\",\n            \"example\": \"There isn't a chair here. / Is there a shop nearby?\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 2,
+            "body": "{\n    \"title\": \"1. Główne modele\",\n    \"intro\": \"Najpierw wybierz: jedna rzecz czy więcej niż jedna.\",\n    \"items\": [\n        {\n            \"label\": \"Affirmative\",\n            \"title\": \"There is + singular\",\n            \"subtitle\": \"There is a cat in the garden.\"\n        },\n        {\n            \"label\": \"Affirmative\",\n            \"title\": \"There are + plural\",\n            \"subtitle\": \"There are three books on the shelf.\"\n        },\n        {\n            \"label\": \"Negative\",\n            \"title\": \"There isn't / There aren't\",\n            \"subtitle\": \"There isn't a key here. / There aren't any buses now.\"\n        },\n        {\n            \"label\": \"Question\",\n            \"title\": \"Is there ...? / Are there ...?\",\n            \"subtitle\": \"Is there a bank nearby? / Are there any chairs?\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 3,
+            "body": "{\n    \"title\": \"2. Gdzie to jest przydatne\",\n    \"sections\": [\n        {\n            \"label\": \"W pokoju / domu\",\n            \"color\": \"emerald\",\n            \"description\": \"Opisuj, co znajduje się w pokoju, na stole, w torbie albo w domu.\",\n            \"examples\": [\n                {\n                    \"en\": \"There is a sofa in the living room.\",\n                    \"ua\": \"W salonie jest sofa.\"\n                },\n                {\n                    \"en\": \"There are clean plates in the cupboard.\",\n                    \"ua\": \"W szafce są czyste talerze.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Z any w przeczeniach i pytaniach\",\n            \"color\": \"blue\",\n            \"description\": \"W przeczeniach i pytaniach często pojawia się <strong>any</strong>.\",\n            \"examples\": [\n                {\n                    \"en\": \"There isn't any milk in the fridge.\",\n                    \"ua\": \"W lodówce nie ma mleka.\"\n                },\n                {\n                    \"en\": \"Are there any students in the classroom?\",\n                    \"ua\": \"Czy w klasie są jacyś uczniowie?\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Krótkie odpowiedzi\",\n            \"color\": \"amber\",\n            \"description\": \"W krótkich odpowiedziach powtarzaj <strong>is</strong> albo <strong>are</strong>.\",\n            \"examples\": [\n                {\n                    \"en\": \"Is there a pharmacy here? — Yes, there is.\",\n                    \"ua\": \"Tak, jest.\"\n                },\n                {\n                    \"en\": \"Are there any tickets? — No, there aren't.\",\n                    \"ua\": \"Nie, nie ma.\"\n                }\n            ]\n        }\n    ]\n}"
+        },
+        {
+            "index": 4,
+            "body": "{\n    \"title\": \"3. Liczba pojedyncza vs mnoga\",\n    \"intro\": \"Zobacz, jak model zmienia się od jednej rzeczy do kilku.\",\n    \"rows\": [\n        {\n            \"en\": \"There is a chair in the room.\",\n            \"ua\": \"Jedna rzecz\",\n            \"note\": \"is + singular noun\"\n        },\n        {\n            \"en\": \"There are two chairs in the room.\",\n            \"ua\": \"Więcej niż jedna rzecz\",\n            \"note\": \"are + plural noun\"\n        },\n        {\n            \"en\": \"Is there a chair in the room?\",\n            \"ua\": \"Pytanie\",\n            \"note\": \"is before there\"\n        },\n        {\n            \"en\": \"Are there two chairs in the room?\",\n            \"ua\": \"Pytanie\",\n            \"note\": \"are before there\"\n        }\n    ],\n    \"warning\": \"📌 Nie mów <strong>There are a chair</strong> ani <strong>There is two chairs</strong>.\"\n}"
+        },
+        {
+            "index": 5,
+            "body": "{\n    \"title\": \"4. Typowe błędy\",\n    \"items\": [\n        {\n            \"label\": \"Błąd 1\",\n            \"color\": \"rose\",\n            \"title\": \"Używanie are z rzeczownikiem w liczbie pojedynczej.\",\n            \"wrong\": \"❌ There are a lamp on the table.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">There is a lamp on the table.</span>\"\n        },\n        {\n            \"label\": \"Błąd 2\",\n            \"color\": \"amber\",\n            \"title\": \"Używanie is z liczbą mnogą.\",\n            \"wrong\": \"❌ There is two shops nearby.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">There are two shops nearby.</span>\"\n        },\n        {\n            \"label\": \"Błąd 3\",\n            \"color\": \"sky\",\n            \"title\": \"Mieszanie there is z it is.\",\n            \"wrong\": \"❌ It is a book on the desk.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">There is a book on the desk.</span>\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 6,
+            "body": "{\n    \"title\": \"5. Krótkie podsumowanie\",\n    \"items\": [\n        \"<strong>There is</strong> = jedna rzecz.\",\n        \"<strong>There are</strong> = więcej niż jedna rzecz albo osoba.\",\n        \"Przeczenie: <strong>there isn't</strong> / <strong>there aren't</strong>.\",\n        \"Pytanie: <strong>Is there...?</strong> / <strong>Are there...?</strong>\",\n        \"Model z <strong>there</strong> jest potrzebny, gdy mówisz o istnieniu czegoś w miejscu.\"\n    ]\n}"
+        },
+        {
+            "index": 7,
+            "body": "{\n    \"title\": \"Lekcje Verb to Be\",\n    \"items\": [\n        {\n            \"label\": \"Present Forms\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-present\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Negatives\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-negatives\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Questions and Short Answers\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-questions\",\n            \"current\": false\n        },\n        {\n            \"label\": \"There Is / There Are\",\n            \"url\": \"/pl/theory/verb-to-be/there-is-there-are\",\n            \"current\": true\n        }\n    ]\n}"
+        }
+    ]
+}

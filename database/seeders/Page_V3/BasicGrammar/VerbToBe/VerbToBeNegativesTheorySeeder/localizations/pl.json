@@ -1,0 +1,44 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\VerbToBeNegativesTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeNegativesTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Verb to Be: Negatives</strong> — am not, is not i are not w prostych modelach A1.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\n    \"level\": \"A1\",\n    \"intro\": \"Aby zrobić przeczenie z <strong>to be</strong>, wstaw <strong>not</strong> po <strong>am / is / are</strong>.\",\n    \"rules\": [\n        {\n            \"label\": \"am not\",\n            \"color\": \"emerald\",\n            \"text\": \"Z <strong>I</strong> używaj <strong>am not</strong>.\",\n            \"example\": \"I am not tired.\"\n        },\n        {\n            \"label\": \"is not / isn't\",\n            \"color\": \"blue\",\n            \"text\": \"Z <strong>he / she / it</strong> używaj <strong>is not</strong> albo <strong>isn't</strong>.\",\n            \"example\": \"She isn't busy.\"\n        },\n        {\n            \"label\": \"are not / aren't\",\n            \"color\": \"amber\",\n            \"text\": \"Z <strong>you / we / they</strong> używaj <strong>are not</strong> albo <strong>aren't</strong>.\",\n            \"example\": \"They aren't at home.\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 2,
+            "body": "{\n    \"title\": \"1. Formy przeczące\",\n    \"intro\": \"Pełna forma przydaje się do mocniejszego akcentu, skrócona jest częsta w codziennej mowie.\",\n    \"items\": [\n        {\n            \"label\": \"I\",\n            \"title\": \"am not\",\n            \"subtitle\": \"I am not late.\"\n        },\n        {\n            \"label\": \"He / She / It\",\n            \"title\": \"is not / isn't\",\n            \"subtitle\": \"He is not hungry. / He isn't hungry.\"\n        },\n        {\n            \"label\": \"You / We / They\",\n            \"title\": \"are not / aren't\",\n            \"subtitle\": \"We are not ready. / We aren't ready.\"\n        },\n        {\n            \"label\": \"Pattern\",\n            \"title\": \"Subject + be + not\",\n            \"subtitle\": \"She is not here. / They are not students.\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 3,
+            "body": "{\n    \"title\": \"2. Jak to działa\",\n    \"sections\": [\n        {\n            \"label\": \"Pełna forma\",\n            \"color\": \"emerald\",\n            \"description\": \"Pełnej formy często używamy wtedy, gdy chcemy zabrzmieć wyraźniej albo mocniej podkreślić przeczenie.\",\n            \"examples\": [\n                {\n                    \"en\": \"She is not at school.\",\n                    \"ua\": \"Ona nie jest w szkole.\"\n                },\n                {\n                    \"en\": \"We are not tired.\",\n                    \"ua\": \"Nie jesteśmy zmęczeni.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Skrócona forma\",\n            \"color\": \"blue\",\n            \"description\": \"W zwykłej rozmowie częściej pojawiają się <strong>isn't</strong> i <strong>aren't</strong>.\",\n            \"examples\": [\n                {\n                    \"en\": \"He isn't busy.\",\n                    \"ua\": \"On nie jest zajęty.\"\n                },\n                {\n                    \"en\": \"They aren't my friends.\",\n                    \"ua\": \"Oni nie są moimi przyjaciółmi.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Kontrast z twierdzeniem\",\n            \"color\": \"amber\",\n            \"description\": \"Porównuj zdanie twierdzące i przeczące, żeby szybko zobaczyć miejsce <strong>not</strong>.\",\n            \"examples\": [\n                {\n                    \"en\": \"She is ready. → She isn't ready.\",\n                    \"ua\": \"not stoi po is.\"\n                },\n                {\n                    \"en\": \"They are at home. → They aren't at home.\",\n                    \"ua\": \"not stoi po are.\"\n                }\n            ]\n        }\n    ]\n}"
+        },
+        {
+            "index": 4,
+            "body": "{\n    \"title\": \"3. Twierdzenie vs przeczenie\",\n    \"intro\": \"Forma to be zostaje w zdaniu: dodajemy tylko <strong>not</strong>.\",\n    \"rows\": [\n        {\n            \"en\": \"I am at home.\",\n            \"ua\": \"I am not at home.\",\n            \"note\": \"am + not\"\n        },\n        {\n            \"en\": \"She is happy.\",\n            \"ua\": \"She isn't happy.\",\n            \"note\": \"isn't = is not\"\n        },\n        {\n            \"en\": \"They are students.\",\n            \"ua\": \"They aren't students.\",\n            \"note\": \"aren't = are not\"\n        }\n    ],\n    \"warning\": \"📌 Nie dodawaj <strong>do / does</strong> do przeczeń z <strong>to be</strong>.\"\n}"
+        },
+        {
+            "index": 5,
+            "body": "{\n    \"title\": \"4. Typowe błędy\",\n    \"items\": [\n        {\n            \"label\": \"Błąd 1\",\n            \"color\": \"rose\",\n            \"title\": \"Stawianie not przed formą to be.\",\n            \"wrong\": \"❌ She not is tired.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">She is not tired.</span>\"\n        },\n        {\n            \"label\": \"Błąd 2\",\n            \"color\": \"amber\",\n            \"title\": \"Dodawanie do do to be.\",\n            \"wrong\": \"❌ They don't are ready.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">They aren't ready.</span>\"\n        },\n        {\n            \"label\": \"Błąd 3\",\n            \"color\": \"sky\",\n            \"title\": \"Mieszanie am not z isn't / aren't.\",\n            \"wrong\": \"❌ I isn't late.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">I am not late.</span>\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 6,
+            "body": "{\n    \"title\": \"5. Krótkie podsumowanie\",\n    \"items\": [\n        \"Przeczenie z <strong>to be</strong> = <strong>am / is / are + not</strong>.\",\n        \"Z <strong>I</strong> używaj <strong>am not</strong>.\",\n        \"Z <strong>he / she / it</strong> używaj <strong>is not</strong> albo <strong>isn't</strong>.\",\n        \"Z <strong>you / we / they</strong> używaj <strong>are not</strong> albo <strong>aren't</strong>.\",\n        \"W przeczeniach z <strong>to be</strong> nie potrzebujesz <strong>do / does</strong>.\"\n    ]\n}"
+        },
+        {
+            "index": 7,
+            "body": "{\n    \"title\": \"Lekcje Verb to Be\",\n    \"items\": [\n        {\n            \"label\": \"Present Forms\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-present\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Negatives\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-negatives\",\n            \"current\": true\n        },\n        {\n            \"label\": \"Questions and Short Answers\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-questions\",\n            \"current\": false\n        },\n        {\n            \"label\": \"There Is / There Are\",\n            \"url\": \"/pl/theory/verb-to-be/there-is-there-are\",\n            \"current\": false\n        }\n    ]\n}"
+        }
+    ]
+}

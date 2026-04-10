@@ -1,0 +1,48 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\VerbToBeQuestionsTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeQuestionsTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Verb to Be: Questions and Short Answers</strong> — Am I...?, Is he...?, Are they...? i krótkie odpowiedzi.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\n    \"level\": \"A1\",\n    \"intro\": \"W pytaniach z <strong>to be</strong> forma <strong>am / is / are</strong> stoi <strong>przed podmiotem</strong>.\",\n    \"rules\": [\n        {\n            \"label\": \"Am I...?\",\n            \"color\": \"emerald\",\n            \"text\": \"Zaczynaj pytanie od <strong>am</strong>, gdy podmiotem jest <strong>I</strong>.\",\n            \"example\": \"Am I late?\"\n        },\n        {\n            \"label\": \"Is he / she / it...?\",\n            \"color\": \"blue\",\n            \"text\": \"Z <strong>he / she / it</strong> stawiaj <strong>is</strong> przed podmiotem.\",\n            \"example\": \"Is she at home?\"\n        },\n        {\n            \"label\": \"Are you / we / they...?\",\n            \"color\": \"amber\",\n            \"text\": \"Z <strong>you / we / they</strong> stawiaj <strong>are</strong> przed podmiotem.\",\n            \"example\": \"Are they ready?\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 2,
+            "body": "{\n    \"title\": \"1. Podstawowe modele pytań\",\n    \"intro\": \"Pytania z to be budujemy bez do / does.\",\n    \"items\": [\n        {\n            \"label\": \"I\",\n            \"title\": \"Am I ...?\",\n            \"subtitle\": \"Am I early?\"\n        },\n        {\n            \"label\": \"He / She / It\",\n            \"title\": \"Is he / she / it ...?\",\n            \"subtitle\": \"Is he busy? / Is it cold?\"\n        },\n        {\n            \"label\": \"You / We / They\",\n            \"title\": \"Are you / we / they ...?\",\n            \"subtitle\": \"Are we late? / Are they at school?\"\n        },\n        {\n            \"label\": \"Short Answers\",\n            \"title\": \"Yes, ... am / is / are.\",\n            \"subtitle\": \"Yes, I am. / No, he isn't. / Yes, they are.\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 3,
+            "body": "{\n    \"title\": \"2. Jak odpowiadać krótko\",\n    \"sections\": [\n        {\n            \"label\": \"Yes\",\n            \"color\": \"emerald\",\n            \"description\": \"W krótkiej odpowiedzi twierdzącej powtórz formę <strong>am / is / are</strong>.\",\n            \"examples\": [\n                {\n                    \"en\": \"Are you tired? — Yes, I am.\",\n                    \"ua\": \"Tak, jestem.\"\n                },\n                {\n                    \"en\": \"Is she here? — Yes, she is.\",\n                    \"ua\": \"Tak, ona tu jest.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"No\",\n            \"color\": \"blue\",\n            \"description\": \"W krótkiej odpowiedzi przeczącej często używa się skrótów <strong>isn't / aren't</strong>.\",\n            \"examples\": [\n                {\n                    \"en\": \"Is he busy? — No, he isn't.\",\n                    \"ua\": \"Nie, on nie jest zajęty.\"\n                },\n                {\n                    \"en\": \"Are they at home? — No, they aren't.\",\n                    \"ua\": \"Nie, nie ma ich w domu.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Szyk zdania\",\n            \"color\": \"amber\",\n            \"description\": \"Porównaj zdanie twierdzące i pytanie: forma <strong>to be</strong> przechodzi przed podmiot.\",\n            \"examples\": [\n                {\n                    \"en\": \"She is ready. → Is she ready?\",\n                    \"ua\": \"Inwersja z to be.\"\n                },\n                {\n                    \"en\": \"They are at school. → Are they at school?\",\n                    \"ua\": \"Bez do / does.\"\n                }\n            ]\n        }\n    ]\n}"
+        },
+        {
+            "index": 4,
+            "body": "{\n    \"title\": \"3. Pytanie i krótka odpowiedź\",\n    \"intro\": \"W odpowiedzi nie trzeba powtarzać całego zdania: wystarczy krótka forma.\",\n    \"rows\": [\n        {\n            \"en\": \"Am I late?\",\n            \"ua\": \"Yes, you are. / No, you aren't.\",\n            \"note\": \"Przy Am I...? odpowiedź często ma formę you are / you aren't.\"\n        },\n        {\n            \"en\": \"Is she your teacher?\",\n            \"ua\": \"Yes, she is. / No, she isn't.\",\n            \"note\": \"is → she is / she isn't\"\n        },\n        {\n            \"en\": \"Are they ready?\",\n            \"ua\": \"Yes, they are. / No, they aren't.\",\n            \"note\": \"are → they are / they aren't\"\n        }\n    ],\n    \"warning\": \"📌 Nie mów <strong>Do they are...?</strong> ani <strong>Yes, they do.</strong>\"\n}"
+        },
+        {
+            "index": 5,
+            "body": "{\n    \"title\": \"4. Typowe błędy\",\n    \"items\": [\n        {\n            \"label\": \"Błąd 1\",\n            \"color\": \"rose\",\n            \"title\": \"Zostawianie szyku jak w zdaniu twierdzącym.\",\n            \"wrong\": \"❌ She is ready?\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">Is she ready?</span>\"\n        },\n        {\n            \"label\": \"Błąd 2\",\n            \"color\": \"amber\",\n            \"title\": \"Dodawanie do / does do to be.\",\n            \"wrong\": \"❌ Do they are at home?\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">Are they at home?</span>\"\n        },\n        {\n            \"label\": \"Błąd 3\",\n            \"color\": \"sky\",\n            \"title\": \"Krótka odpowiedź z do.\",\n            \"wrong\": \"❌ Yes, she does.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">Yes, she is.</span>\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 6,
+            "body": "{\n    \"title\": \"5. Krótkie podsumowanie\",\n    \"items\": [\n        \"Pytanie z <strong>to be</strong> = <strong>am / is / are + subject</strong>.\",\n        \"Z <strong>I</strong> zaczynaj od <strong>Am I...?</strong>\",\n        \"Z <strong>he / she / it</strong> zaczynaj od <strong>Is...?</strong>\",\n        \"Z <strong>you / we / they</strong> zaczynaj od <strong>Are...?</strong>\",\n        \"W krótkich odpowiedziach powtarzaj formę <strong>to be</strong>: <strong>Yes, I am. / No, he isn't.</strong>\"\n    ]\n}"
+        },
+        {
+            "index": 7,
+            "body": "{\n    \"title\": \"Lekcje Verb to Be\",\n    \"items\": [\n        {\n            \"label\": \"Present Forms\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-present\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Negatives\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-negatives\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Questions and Short Answers\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-questions\",\n            \"current\": true\n        },\n        {\n            \"label\": \"There Is / There Are\",\n            \"url\": \"/pl/theory/verb-to-be/there-is-there-are\",\n            \"current\": false\n        }\n    ]\n}"
+        },
+        {
+            "index": 8,
+            "body": "{\n    \"title\": \"Powiązany temat\",\n    \"items\": [\n        {\n            \"label\": \"Pytania i przeczenia\",\n            \"url\": \"/pl/theory/pytalni-rechennia-ta-zaperechennia\",\n            \"current\": false\n        }\n    ]\n}"
+        }
+    ]
+}

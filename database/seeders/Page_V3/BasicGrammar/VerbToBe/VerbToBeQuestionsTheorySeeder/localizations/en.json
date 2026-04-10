@@ -1,0 +1,48 @@
+{
+    "locale": "en",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\En\\VerbToBeQuestionsTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeQuestionsTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Verb to Be: Questions and Short Answers</strong> — Am I...?, Is he...?, Are they...? and short answers.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\n    \"level\": \"A1\",\n    \"intro\": \"In questions with <strong>to be</strong>, the form <strong>am / is / are</strong> goes <strong>before the subject</strong>.\",\n    \"rules\": [\n        {\n            \"label\": \"Am I...?\",\n            \"color\": \"emerald\",\n            \"text\": \"Start the question with <strong>am</strong> when the subject is <strong>I</strong>.\",\n            \"example\": \"Am I late?\"\n        },\n        {\n            \"label\": \"Is he / she / it...?\",\n            \"color\": \"blue\",\n            \"text\": \"With <strong>he / she / it</strong>, put <strong>is</strong> before the subject.\",\n            \"example\": \"Is she at home?\"\n        },\n        {\n            \"label\": \"Are you / we / they...?\",\n            \"color\": \"amber\",\n            \"text\": \"With <strong>you / we / they</strong>, put <strong>are</strong> before the subject.\",\n            \"example\": \"Are they ready?\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 2,
+            "body": "{\n    \"title\": \"1. Basic question patterns\",\n    \"intro\": \"Questions with to be do not use do / does.\",\n    \"items\": [\n        {\n            \"label\": \"I\",\n            \"title\": \"Am I ...?\",\n            \"subtitle\": \"Am I early?\"\n        },\n        {\n            \"label\": \"He / She / It\",\n            \"title\": \"Is he / she / it ...?\",\n            \"subtitle\": \"Is he busy? / Is it cold?\"\n        },\n        {\n            \"label\": \"You / We / They\",\n            \"title\": \"Are you / we / they ...?\",\n            \"subtitle\": \"Are we late? / Are they at school?\"\n        },\n        {\n            \"label\": \"Short Answers\",\n            \"title\": \"Yes, ... am / is / are.\",\n            \"subtitle\": \"Yes, I am. / No, he isn't. / Yes, they are.\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 3,
+            "body": "{\n    \"title\": \"2. How to answer shortly\",\n    \"sections\": [\n        {\n            \"label\": \"Yes\",\n            \"color\": \"emerald\",\n            \"description\": \"In a short positive answer, repeat the form <strong>am / is / are</strong>.\",\n            \"examples\": [\n                {\n                    \"en\": \"Are you tired? — Yes, I am.\",\n                    \"ua\": \"Are you tired? — Yes, I am.\"\n                },\n                {\n                    \"en\": \"Is she here? — Yes, she is.\",\n                    \"ua\": \"Is she here? — Yes, she is.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"No\",\n            \"color\": \"blue\",\n            \"description\": \"In a short negative answer, the short forms <strong>isn't / aren't</strong> are common.\",\n            \"examples\": [\n                {\n                    \"en\": \"Is he busy? — No, he isn't.\",\n                    \"ua\": \"Is he busy? — No, he isn't.\"\n                },\n                {\n                    \"en\": \"Are they at home? — No, they aren't.\",\n                    \"ua\": \"Are they at home? — No, they aren't.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Word order\",\n            \"color\": \"amber\",\n            \"description\": \"Compare the statement and the question: the form of <strong>to be</strong> moves before the subject.\",\n            \"examples\": [\n                {\n                    \"en\": \"She is ready. → Is she ready?\",\n                    \"ua\": \"Inversion with to be.\"\n                },\n                {\n                    \"en\": \"They are at school. → Are they at school?\",\n                    \"ua\": \"No do / does.\"\n                }\n            ]\n        }\n    ]\n}"
+        },
+        {
+            "index": 4,
+            "body": "{\n    \"title\": \"3. Question and short answer\",\n    \"intro\": \"In the answer, you do not need to repeat the full sentence: a short form is enough.\",\n    \"rows\": [\n        {\n            \"en\": \"Am I late?\",\n            \"ua\": \"Yes, you are. / No, you aren't.\",\n            \"note\": \"For Am I...?, the reply often uses you are / you aren't.\"\n        },\n        {\n            \"en\": \"Is she your teacher?\",\n            \"ua\": \"Yes, she is. / No, she isn't.\",\n            \"note\": \"is → she is / she isn't\"\n        },\n        {\n            \"en\": \"Are they ready?\",\n            \"ua\": \"Yes, they are. / No, they aren't.\",\n            \"note\": \"are → they are / they aren't\"\n        }\n    ],\n    \"warning\": \"📌 Do not say <strong>Do they are...?</strong> or <strong>Yes, they do.</strong>\"\n}"
+        },
+        {
+            "index": 5,
+            "body": "{\n    \"title\": \"4. Common mistakes\",\n    \"items\": [\n        {\n            \"label\": \"Mistake 1\",\n            \"color\": \"rose\",\n            \"title\": \"Keeping statement word order in the question.\",\n            \"wrong\": \"❌ She is ready?\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">Is she ready?</span>\"\n        },\n        {\n            \"label\": \"Mistake 2\",\n            \"color\": \"amber\",\n            \"title\": \"Adding do / does to to be.\",\n            \"wrong\": \"❌ Do they are at home?\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">Are they at home?</span>\"\n        },\n        {\n            \"label\": \"Mistake 3\",\n            \"color\": \"sky\",\n            \"title\": \"Giving a short answer with do.\",\n            \"wrong\": \"❌ Yes, she does.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">Yes, she is.</span>\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 6,
+            "body": "{\n    \"title\": \"5. Short summary\",\n    \"items\": [\n        \"Question with <strong>to be</strong> = <strong>am / is / are + subject</strong>.\",\n        \"With <strong>I</strong>, start with <strong>Am I...?</strong>\",\n        \"With <strong>he / she / it</strong>, start with <strong>Is...?</strong>\",\n        \"With <strong>you / we / they</strong>, start with <strong>Are...?</strong>\",\n        \"In short answers, repeat the form of <strong>to be</strong>: <strong>Yes, I am. / No, he isn't.</strong>\"\n    ]\n}"
+        },
+        {
+            "index": 7,
+            "body": "{\n    \"title\": \"Verb to Be lessons\",\n    \"items\": [\n        {\n            \"label\": \"Present Forms\",\n            \"url\": \"/en/theory/verb-to-be/verb-to-be-present\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Negatives\",\n            \"url\": \"/en/theory/verb-to-be/verb-to-be-negatives\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Questions and Short Answers\",\n            \"url\": \"/en/theory/verb-to-be/verb-to-be-questions\",\n            \"current\": true\n        },\n        {\n            \"label\": \"There Is / There Are\",\n            \"url\": \"/en/theory/verb-to-be/there-is-there-are\",\n            \"current\": false\n        }\n    ]\n}"
+        },
+        {
+            "index": 8,
+            "body": "{\n    \"title\": \"Related topic\",\n    \"items\": [\n        {\n            \"label\": \"Questions and Negations\",\n            \"url\": \"/en/theory/pytalni-rechennia-ta-zaperechennia\",\n            \"current\": false\n        }\n    ]\n}"
+        }
+    ]
+}
