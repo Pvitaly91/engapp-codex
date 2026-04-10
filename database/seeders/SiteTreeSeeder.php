@@ -457,6 +457,16 @@ class SiteTreeSeeder extends Seeder
                             ['title' => 'Past Simple: Time Expressions', 'level' => 'A1–A2'],
                         ],
                     ],
+                    [
+                        'title' => 'Past Continuous',
+                        'level' => 'A2',
+                        'children' => [
+                            ['title' => 'Past Continuous: Forms and Use', 'level' => 'A2'],
+                            ['title' => 'Past Continuous: Negatives', 'level' => 'A2'],
+                            ['title' => 'Past Continuous: Questions and Short Answers', 'level' => 'A2'],
+                            ['title' => 'Past Continuous: Time Expressions', 'level' => 'A2'],
+                        ],
+                    ],
                 ],
             ],
             [
