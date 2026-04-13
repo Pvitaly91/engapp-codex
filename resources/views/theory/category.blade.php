@@ -33,7 +33,7 @@
             <div class="grid gap-3 sm:grid-cols-2">
                 <div class="rounded-[22px] border px-5 py-4 surface-card" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.lessons_count') }}</p>
-                    <p class="mt-2 font-display text-2xl font-extrabold leading-none">{{ $categoryPages->count() }}</p>
+                    <p class="mt-2 font-display text-2xl font-extrabold leading-none">{{ $selectedCategory->recursive_pages_count ?? $categoryPages->count() }}</p>
                 </div>
                 <a href="{{ localized_route($routePrefix . '.index') }}" class="rounded-[22px] bg-ocean px-5 py-4 text-sm font-extrabold uppercase tracking-[0.18em] text-white shadow-card transition hover:bg-[#245592]">
                     {{ __('public.theory.all_categories') }}

@@ -123,6 +123,15 @@ class PageController extends Controller
         $locales = array_unique([$preferredLocale, $fallbackLocale]);
 
         $categories = $this->categoryList();
+        $resolvedCategory = $categories->firstWhere('id', $category->getKey());
+
+        if ($resolvedCategory instanceof PageCategory) {
+            $category->setAttribute(
+                'recursive_pages_count',
+                (int) ($resolvedCategory->getAttribute('recursive_pages_count') ?? $category->pages->count())
+            );
+        }
+
         $ordering = $this->siteTreeOrdering ?? [];
         $category->load([
             'pages' => fn ($query) => $this->applyPageTypeFilter($query)->orderBy('title'),
@@ -280,6 +289,15 @@ class PageController extends Controller
 
         $this->applyLocalizedTitlesToModels($categoryModels, $localizedTitles['categories'] ?? [], $preferredLocale, $fallbackLocale);
         $this->applyLocalizedTitlesToModels($pageModels, $localizedTitles['pages'] ?? [], $preferredLocale, $fallbackLocale);
+
+        if ($preferredLocale !== $fallbackLocale) {
+            $this->applyLocalizedPagePreviewsToModels(
+                $pageModels,
+                $localizedTitles['page_previews'] ?? [],
+                $preferredLocale,
+                $fallbackLocale
+            );
+        }
     }
 
     protected function collectCategoryModelsForLocalization(?Collection $categories, ?PageCategory $selectedCategory): Collection
@@ -355,6 +373,7 @@ class PageController extends Controller
     {
         $categoryTitles = [];
         $pageTitles = [];
+        $pagePreviews = [];
 
         if ($categoryIds !== []) {
             $categoryBlocks = TextBlock::query()
@@ -386,18 +405,28 @@ class PageController extends Controller
 
             foreach ($pageBlocks as $block) {
                 $title = $this->extractLocalizedTitleFromSubtitle($block->body);
+                $preview = $this->extractLocalizedPreviewFromSubtitle($block->body, $title);
 
                 if ($title === null || ! $block->page_id) {
+                    if ($preview !== null && $block->page_id) {
+                        $pagePreviews[$block->page_id][$block->locale] ??= $preview;
+                    }
+
                     continue;
                 }
 
                 $pageTitles[$block->page_id][$block->locale] ??= $title;
+
+                if ($preview !== null) {
+                    $pagePreviews[$block->page_id][$block->locale] ??= $preview;
+                }
             }
         }
 
         return [
             'categories' => $categoryTitles,
             'pages' => $pageTitles,
+            'page_previews' => $pagePreviews,
         ];
     }
 
@@ -427,6 +456,36 @@ class PageController extends Controller
         }
     }
 
+    protected function applyLocalizedPagePreviewsToModels(
+        Collection $models,
+        array $localizedPreviews,
+        string $preferredLocale,
+        string $fallbackLocale
+    ): void {
+        $locales = array_values(array_unique(array_filter([$preferredLocale, $fallbackLocale])));
+
+        foreach ($models as $model) {
+            if (! $model instanceof Page) {
+                continue;
+            }
+
+            $modelId = $model->getKey();
+
+            if (! $modelId || ! isset($localizedPreviews[$modelId])) {
+                continue;
+            }
+
+            foreach ($locales as $locale) {
+                $localizedPreview = $localizedPreviews[$modelId][$locale] ?? null;
+
+                if (is_string($localizedPreview) && $localizedPreview !== '') {
+                    $model->setAttribute('text', $localizedPreview);
+                    break;
+                }
+            }
+        }
+    }
+
     protected function extractLocalizedTitleFromSubtitle(?string $body): ?string
     {
         if (! is_string($body) || trim($body) === '') {
@@ -440,6 +499,14 @@ class PageController extends Controller
         }
 
         $candidates = [];
+
+        if (preg_match('/^\s*(?:<p\b[^>]*>\s*)?<strong\b[^>]*>(.*?)<\/strong>/isu', $body, $matches) === 1) {
+            $candidate = $this->normalizeLocalizedTitleCandidate($matches[1] ?? null);
+
+            if ($candidate !== '') {
+                $candidates[] = $candidate;
+            }
+        }
 
         foreach ([
             '/^(.+?)\s+[—-]\s+/u',
@@ -457,7 +524,7 @@ class PageController extends Controller
         if (preg_match('/<strong\b[^>]*>(.*?)<\/strong>/isu', $body, $matches) === 1) {
             $candidate = $this->normalizeLocalizedTitleCandidate($matches[1] ?? null);
 
-            if ($candidate !== '') {
+            if ($candidate !== '' && ! in_array($candidate, $candidates, true)) {
                 $candidates[] = $candidate;
             }
         }
@@ -469,6 +536,39 @@ class PageController extends Controller
         }
 
         return $this->isValidLocalizedTitleCandidate($plainText) ? $plainText : null;
+    }
+
+    protected function extractLocalizedPreviewFromSubtitle(?string $body, ?string $title = null): ?string
+    {
+        if (! is_string($body) || trim($body) === '') {
+            return null;
+        }
+
+        $plainText = $this->normalizeLocalizedTitleCandidate(
+            strip_tags(html_entity_decode($body, ENT_QUOTES | ENT_HTML5, 'UTF-8'))
+        );
+
+        if ($plainText === '') {
+            return null;
+        }
+
+        $normalizedTitle = $this->normalizeLocalizedTitleCandidate($title);
+
+        if ($normalizedTitle !== '') {
+            $plainLower = Str::lower($plainText);
+            $titleLower = Str::lower($normalizedTitle);
+
+            if (Str::startsWith($plainLower, $titleLower)) {
+                $plainText = trim(mb_substr($plainText, mb_strlen($normalizedTitle)));
+                $plainText = ltrim($plainText, " \t\n\r\0\x0B-–—:;,.|");
+            }
+        }
+
+        if ($plainText === '') {
+            return null;
+        }
+
+        return Str::limit($plainText, 180);
     }
 
     protected function normalizeLocalizedTitleCandidate(?string $value): string
@@ -516,6 +616,8 @@ class PageController extends Controller
             ->orderBy('title')
             ->get();
 
+        $this->attachRecursivePageCounts($categories);
+
         if ($this->pageType !== 'theory') {
             return $categories;
         }
@@ -525,6 +627,32 @@ class PageController extends Controller
         $ordering = $this->siteTreeOrdering;
 
         return $this->applySiteTreeOrdering($categories, $ordering);
+    }
+
+    protected function attachRecursivePageCounts(Collection $categories): void
+    {
+        foreach ($categories as $category) {
+            if ($category instanceof PageCategory) {
+                $this->setRecursivePageCount($category);
+            }
+        }
+    }
+
+    protected function setRecursivePageCount(PageCategory $category): int
+    {
+        $count = (int) ($category->pages_count ?? ($category->relationLoaded('pages') ? $category->pages->count() : 0));
+
+        if ($category->relationLoaded('children')) {
+            foreach ($category->children as $child) {
+                if ($child instanceof PageCategory) {
+                    $count += $this->setRecursivePageCount($child);
+                }
+            }
+        }
+
+        $category->setAttribute('recursive_pages_count', $count);
+
+        return $count;
     }
 
     protected function applyCategoryChildrenRelations($query): void

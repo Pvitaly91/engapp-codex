@@ -6,7 +6,7 @@
 @section('content')
 @php
     $routePrefix = $routePrefix ?? 'theory';
-    $totalPages = $categories->sum(fn ($category) => $category->pages_count ?? 0);
+    $totalPages = $categories->sum(fn ($category) => $category->recursive_pages_count ?? $category->pages_count ?? 0);
     $gradients = ['bg-ocean', 'bg-amber', 'bg-emerald-500', 'bg-slate-800 dark:bg-slate-200', 'bg-rose-500', 'bg-sky-500'];
 @endphp
 
@@ -90,7 +90,7 @@
                                 {{ str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) }}
                             </span>
                             <span class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--muted);">
-                                {{ $category->pages_count ?? 0 }} {{ __('public.theory.lessons_count') }}
+                                {{ $category->recursive_pages_count ?? $category->pages_count ?? 0 }} {{ __('public.theory.lessons_count') }}
                             </span>
                         </div>
                         <h3 class="mt-5 font-display text-xl font-extrabold leading-tight">{{ $category->title }}</h3>
@@ -104,7 +104,7 @@
                                     @foreach($category->children->take(4) as $child)
                                         <a href="{{ localized_route($routePrefix . '.category', $child->slug) }}" class="flex items-center justify-between rounded-[18px] border px-3 py-3 text-sm transition hover:-translate-y-0.5 surface-card" style="border-color: var(--line); color: var(--text);">
                                             <span class="min-w-0 break-words">{{ $child->title }}</span>
-                                            <span class="text-xs font-bold" style="color: var(--muted);">{{ $child->pages_count ?? 0 }}</span>
+                                            <span class="text-xs font-bold" style="color: var(--muted);">{{ $child->recursive_pages_count ?? $child->pages_count ?? 0 }}</span>
                                         </a>
                                     @endforeach
                                 </div>
