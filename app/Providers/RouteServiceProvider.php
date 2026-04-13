@@ -29,6 +29,12 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
 
+        RateLimiter::for('ai-admin', function (Request $request) {
+            $routeKey = $request->route()?->getName() ?? $request->path();
+
+            return Limit::perMinute(12)->by($request->ip().'|'.$routeKey);
+        });
+
         $this->routes(function () {
             $localeConfig = $this->getLocaleConfig();
 
@@ -80,12 +86,12 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::middleware('web')->group(function () use ($localeConfig) {
             Route::get('/{locale}/admin/{path?}', function (Request $request, string $locale, ?string $path = null) {
-                $suffix = $path ? '/' . ltrim($path, '/') : '';
+                $suffix = $path ? '/'.ltrim($path, '/') : '';
                 $query = $request->getQueryString();
 
-                $target = '/admin' . $suffix;
+                $target = '/admin'.$suffix;
                 if ($query) {
-                    $target .= '?' . $query;
+                    $target .= '?'.$query;
                 }
 
                 return redirect()->to($target, 301);

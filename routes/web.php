@@ -3,10 +3,11 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CopilotTheoryController;
 use App\Http\Controllers\GrammarTestController;
+use App\Http\Controllers\HealthCheckController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IrregularVerbsTestController;
 use App\Http\Controllers\NewDesignTestController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\IrregularVerbsTestController;
 use App\Http\Controllers\SiteSearchController;
 use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\WordSearchController;
@@ -29,15 +30,17 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.show
 Route::post('/login', [AuthController::class, 'login'])->name('login.perform');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/health', HealthCheckController::class)->name('health');
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Public locale switching route
 Route::get('/set-locale', function (\Illuminate\Http\Request $request) {
     $lang = $request->input('lang', 'uk');
-    
+
     $supportedLocales = LocaleService::getSupportedLocaleCodes();
     $defaultLocale = LocaleService::getDefaultLocaleCode();
-    
+
     if (! in_array($lang, $supportedLocales)) {
         $lang = $defaultLocale;
     }
@@ -50,12 +53,12 @@ Route::get('/set-locale', function (\Illuminate\Http\Request $request) {
     // Use intended() with fallback to home for safety
     $referer = $request->headers->get('referer');
     $host = $request->getHost();
-    
+
     // Validate referer is from same host to prevent open redirect
     if ($referer && parse_url($referer, PHP_URL_HOST) === $host) {
         return redirect()->back()->withCookie($cookie);
     }
-    
+
     return redirect()->route('home')->withCookie($cookie);
 })->name('locale.set');
 

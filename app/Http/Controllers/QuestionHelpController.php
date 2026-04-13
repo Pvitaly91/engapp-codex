@@ -9,6 +9,7 @@ use App\Services\ChatGPTService;
 use App\Services\GeminiService;
 use App\Services\MarkerTheoryMatcherService;
 use App\Services\QuestionVariantService;
+use App\Support\AiOutputSanitizer;
 use Illuminate\Http\Request;
 
 class QuestionHelpController extends Controller
@@ -54,16 +55,16 @@ class QuestionHelpController extends Controller
             }
 
             return response()->json([
-                'chatgpt' => $chatgptHint->hint,
-                'gemini' => $geminiHint->hint,
+                'chatgpt' => AiOutputSanitizer::sanitize($chatgptHint->hint),
+                'gemini' => AiOutputSanitizer::sanitize($geminiHint->hint),
             ]);
         }
 
         $text = $data['question'];
 
         return response()->json([
-            'chatgpt' => $gpt->hintSentenceStructure($text, $locale),
-            'gemini' => $gemini->hintSentenceStructure($text, $locale),
+            'chatgpt' => AiOutputSanitizer::sanitize($gpt->hintSentenceStructure($text, $locale)),
+            'gemini' => AiOutputSanitizer::sanitize($gemini->hintSentenceStructure($text, $locale)),
         ]);
     }
 
@@ -137,7 +138,7 @@ class QuestionHelpController extends Controller
         if ($storedExplanation !== null) {
             return response()->json([
                 'correct' => $isCorrect,
-                'explanation' => $storedExplanation,
+                'explanation' => AiOutputSanitizer::sanitize($storedExplanation),
             ]);
         }
 
@@ -154,7 +155,7 @@ class QuestionHelpController extends Controller
 
         return response()->json([
             'correct' => false,
-            'explanation' => $explanation,
+            'explanation' => AiOutputSanitizer::sanitize($explanation),
         ]);
     }
 
@@ -174,30 +175,30 @@ class QuestionHelpController extends Controller
         if ($normalizedGiven !== '') {
             $match = $this->selectPreferredExplanation(
                 (clone $baseQuery)
-                ->whereRaw('LOWER(TRIM(wrong_answer)) = ?', [$normalizedGiven])
-                ->get(),
+                    ->whereRaw('LOWER(TRIM(wrong_answer)) = ?', [$normalizedGiven])
+                    ->get(),
                 $languages
             );
 
             if ($match) {
-                return $match->explanation;
+                return AiOutputSanitizer::sanitize($match->explanation);
             }
         }
 
         if ($isCorrect) {
             $match = $this->selectPreferredExplanation(
                 (clone $baseQuery)
-                ->where(function ($query) use ($normalizedCorrect) {
-                    $query->whereRaw('LOWER(TRIM(wrong_answer)) = ?', [$normalizedCorrect])
-                        ->orWhereNull('wrong_answer')
-                        ->orWhereRaw("TRIM(wrong_answer) = ''");
-                })
-                ->get(),
+                    ->where(function ($query) use ($normalizedCorrect) {
+                        $query->whereRaw('LOWER(TRIM(wrong_answer)) = ?', [$normalizedCorrect])
+                            ->orWhereNull('wrong_answer')
+                            ->orWhereRaw("TRIM(wrong_answer) = ''");
+                    })
+                    ->get(),
                 $languages
             );
 
             if ($match) {
-                return $match->explanation;
+                return AiOutputSanitizer::sanitize($match->explanation);
             }
         }
 

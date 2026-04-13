@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\WordsExportController;
 use App\Http\Controllers\Admin\PageV3PromptGeneratorController;
 use App\Http\Controllers\Admin\V3PromptGeneratorController;
+use App\Http\Controllers\Admin\WordsExportController;
 use App\Http\Controllers\AiTestController;
 use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\DynamicPageController;
@@ -30,9 +30,9 @@ Route::get('/admin/search', fn () => redirect('/search', 301));
 
 Route::get('/admin/words', function (Request $request) {
     $query = $request->getQueryString();
-    $suffix = $query ? '?' . $query : '';
+    $suffix = $query ? '?'.$query : '';
 
-    return redirect('/words' . $suffix, 301);
+    return redirect('/words'.$suffix, 301);
 });
 
 // Define a pattern that excludes reserved route prefixes for dynamic page type routes
@@ -256,8 +256,12 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::post('/chatgpt-explanations', [ChatGPTExplanationController::class, 'store'])->name('chatgpt-explanations.store');
         Route::delete('/chatgpt-explanations/{chatGPTExplanation}', [ChatGPTExplanationController::class, 'destroy'])->name('chatgpt-explanations.destroy');
 
-        Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
-        Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');
+        Route::post('/question-hint', [QuestionHelpController::class, 'hint'])
+            ->middleware('throttle:ai-admin')
+            ->name('question.hint');
+        Route::post('/question-explain', [QuestionHelpController::class, 'explain'])
+            ->middleware('throttle:ai-admin')
+            ->name('question.explain');
         Route::post('/question-marker-theory', [QuestionHelpController::class, 'markerTheory'])->name('question.marker-theory');
 
         // Marker Theory Tags API
@@ -271,12 +275,12 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::get('/seed-runs/file', [SeedRunController::class, 'showSeederFile'])->name('seed-runs.file.show');
         Route::put('/seed-runs/file', [SeedRunController::class, 'updateSeederFile'])->name('seed-runs.file.update');
         Route::post('/seed-runs/file', [SeedRunController::class, 'storeSeederFile'])->name('seed-runs.file.store');
-Route::get('/seed-runs/folders', [SeedRunController::class, 'getSeederFolders'])->name('seed-runs.folders.list');
+        Route::get('/seed-runs/folders', [SeedRunController::class, 'getSeederFolders'])->name('seed-runs.folders.list');
         Route::post('/seed-runs/run', [SeedRunController::class, 'run'])->name('seed-runs.run');
         Route::post('/seed-runs/folders/run', [SeedRunController::class, 'runFolder'])->name('seed-runs.folders.run');
         Route::post('/seed-runs/folders/refresh', [SeedRunController::class, 'refreshFolder'])->name('seed-runs.folders.refresh');
-Route::delete('/seed-runs/delete-file', [SeedRunController::class, 'destroySeederFile'])
-    ->name('seed-runs.destroy-seeder-file');
+        Route::delete('/seed-runs/delete-file', [SeedRunController::class, 'destroySeederFile'])
+            ->name('seed-runs.destroy-seeder-file');
         Route::delete('/seed-runs/delete-files/bulk', [SeedRunController::class, 'destroySeederFiles'])
             ->name('seed-runs.destroy-seeder-files');
         Route::post('/seed-runs/mark-executed', [SeedRunController::class, 'markAsExecuted'])->name('seed-runs.mark-executed');

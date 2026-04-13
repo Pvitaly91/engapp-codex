@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Support\AiOutputSanitizer;
 use Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -59,7 +60,7 @@ class GeminiService
         $lang = $lang ?? 'uk';
         $prompt = "Question: {$question}\nWrong answer: {$wrongAnswer}\nCorrect answer: {$correctAnswer}\nExplain in 1-2 sentences in {$lang} why the wrong answer is incorrect.";
 
-        return $this->request($prompt) ?? '';
+        return AiOutputSanitizer::sanitize($this->request($prompt) ?? '');
     }
 
     public function hintSentenceStructure(string $question, string $lang = 'uk'): string
