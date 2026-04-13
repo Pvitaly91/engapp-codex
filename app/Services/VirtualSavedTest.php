@@ -156,7 +156,7 @@ class VirtualSavedTest
     private static function createName(string $contextPrefix, string $levelFrom, string $levelTo): string
     {
         $prefix = $contextPrefix ? "{$contextPrefix}: " : '';
-        return "{$prefix}Тест {$levelFrom}-{$levelTo}";
+        return sprintf('%s%s %s-%s', $prefix, __('public.type_test'), $levelFrom, $levelTo);
     }
 
     /**
