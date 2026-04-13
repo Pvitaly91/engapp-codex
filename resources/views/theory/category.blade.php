@@ -8,6 +8,13 @@
     $categoryPages = $categoryPages ?? collect();
     $routePrefix = $routePrefix ?? 'theory';
     $categoryDescription = $categoryDescription ?? ['hasBlocks' => false];
+    $categoryTags = $selectedCategory->tags ?? collect();
+
+    if (app()->getLocale() !== 'uk') {
+        $categoryTags = $categoryTags
+            ->reject(fn ($tag) => preg_match('/\p{Cyrillic}/u', (string) ($tag->name ?? '')) === 1)
+            ->values();
+    }
 @endphp
 
 <div class="nd-page">
@@ -71,11 +78,11 @@
                     </div>
                 </section>
 
-                @if($selectedCategory->tags->isNotEmpty())
+                @if($categoryTags->isNotEmpty())
                     <section class="rounded-[28px] border p-5 shadow-card surface-card" style="border-color: var(--line);">
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.category_tags') }}</p>
                         <div class="mt-4 flex flex-wrap gap-2">
-                            @foreach($selectedCategory->tags as $tag)
+                            @foreach($categoryTags as $tag)
                                 <span class="rounded-full px-3 py-1.5 text-xs font-bold" style="background: var(--accent-soft); color: var(--text);">{{ $tag->name }}</span>
                             @endforeach
                         </div>
@@ -145,3 +152,4 @@
     </div>
 </div>
 @endsection
+

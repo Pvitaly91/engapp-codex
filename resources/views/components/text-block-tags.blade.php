@@ -2,6 +2,12 @@
 
 @php
     $tags = $block->tags ?? collect();
+
+    if (app()->getLocale() !== 'uk') {
+        $tags = $tags
+            ->reject(fn ($tag) => preg_match('/\p{Cyrillic}/u', (string) ($tag->name ?? '')) === 1)
+            ->values();
+    }
 @endphp
 
 @if($tags->isNotEmpty())

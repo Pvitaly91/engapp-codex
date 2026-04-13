@@ -14,6 +14,13 @@
     $categoryPages = $categoryPages ?? collect();
     $tocBlocks = $contentBlocks->filter(fn ($block) => !empty(json_decode($block->body ?? '[]', true)['title'] ?? ''));
     $practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [];
+    $pageTags = $page->tags ?? collect();
+
+    if (app()->getLocale() !== 'uk') {
+        $pageTags = $pageTags
+            ->reject(fn ($tag) => preg_match('/\p{Cyrillic}/u', (string) ($tag->name ?? '')) === 1)
+            ->values();
+    }
 @endphp
 
 <div class="nd-page">
@@ -103,11 +110,11 @@
                     </section>
                 @endif
 
-                @if($page->tags->isNotEmpty())
+                @if($pageTags->isNotEmpty())
                     <section class="rounded-[28px] border p-4 shadow-card surface-card xl:p-5" style="border-color: var(--line);">
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.page_tags') }}</p>
                         <div class="mt-4 flex flex-wrap gap-2">
-                            @foreach($page->tags as $tag)
+                            @foreach($pageTags as $tag)
                                 <span class="rounded-full px-3 py-1.5 text-xs font-bold" style="background: var(--accent-soft); color: var(--text);">{{ $tag->name }}</span>
                             @endforeach
                         </div>
@@ -196,3 +203,4 @@
     </div>
 </div>
 @endsection
+

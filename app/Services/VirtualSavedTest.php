@@ -156,7 +156,13 @@ class VirtualSavedTest
     private static function createName(string $contextPrefix, string $levelFrom, string $levelTo): string
     {
         $prefix = $contextPrefix ? "{$contextPrefix}: " : '';
-        return sprintf('%s%s %s-%s', $prefix, __('public.type_test'), $levelFrom, $levelTo);
+        $testLabel = __('public.type_test');
+
+        if ($testLabel === 'public.type_test') {
+            $testLabel = app()->getLocale() === 'uk' ? 'Тест' : 'Test';
+        }
+
+        return sprintf('%s%s %s-%s', $prefix, $testLabel, $levelFrom, $levelTo);
     }
 
     /**
