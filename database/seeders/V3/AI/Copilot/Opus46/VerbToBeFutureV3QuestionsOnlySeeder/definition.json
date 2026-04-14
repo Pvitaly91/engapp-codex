@@ -1,0 +1,2712 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBeFutureV3QuestionsOnlySeeder",
+        "uuid_namespace": "VerbToBeFutureV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Verb to Be"
+    },
+    "sources": {
+        "theory_page_1178": {
+            "name": "Verb to Be: Future — will be в простих майбутніх твердженнях, запереченнях і питаннях"
+        }
+    },
+    "tags": {
+        "future_will_be": {
+            "name": "Future with will be",
+            "category": "tense"
+        },
+        "will_be_affirmative": {
+            "name": "will be — affirmative form",
+            "category": "pattern"
+        },
+        "will_be_negative": {
+            "name": "won't be / will not be — negative form",
+            "category": "pattern"
+        },
+        "will_be_question": {
+            "name": "Will … be …? — interrogative form",
+            "category": "pattern"
+        },
+        "will_be_short_answer": {
+            "name": "Short answers with will be",
+            "category": "pattern"
+        },
+        "will_be_subject_choice": {
+            "name": "Subject–verb agreement with will be",
+            "category": "usage"
+        },
+        "will_be_contraction": {
+            "name": "Contractions: 'll be / won't be",
+            "category": "form"
+        },
+        "will_be_time_marker": {
+            "name": "Future time markers with will be",
+            "category": "usage"
+        },
+        "will_be_prediction": {
+            "name": "Predictions with will be",
+            "category": "usage"
+        },
+        "will_be_promise": {
+            "name": "Promises and assurances with will be",
+            "category": "usage"
+        },
+        "will_be_formal_register": {
+            "name": "Formal/academic register with will be",
+            "category": "register"
+        },
+        "will_be_passive_future": {
+            "name": "Future passive: will be + past participle",
+            "category": "pattern"
+        },
+        "will_be_conditional": {
+            "name": "will be in conditional/if-clauses",
+            "category": "usage"
+        }
+    },
+    "default_tag_keys": [
+        "future_will_be"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "I {a1} at home tomorrow.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "am be"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "I {a1} at home tomorrow."
+            ]
+        },
+        {
+            "id": 2,
+            "question": "She {a2} happy to see you.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "She {a2} happy to see you."
+            ]
+        },
+        {
+            "id": 3,
+            "question": "They {a3} ready in five minutes.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "are will"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "They {a3} ready in five minutes."
+            ]
+        },
+        {
+            "id": 4,
+            "question": "He {a4} at school next Monday.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will been",
+                        "is will"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_time_marker"
+            ],
+            "variants": [
+                "He {a4} at school next Monday."
+            ]
+        },
+        {
+            "id": 5,
+            "question": "It {a5} sunny tomorrow.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is going"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "It {a5} sunny tomorrow."
+            ]
+        },
+        {
+            "id": 6,
+            "question": "We {a6} at the park after lunch.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will been",
+                        "are will"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "We {a6} at the park after lunch."
+            ]
+        },
+        {
+            "id": 7,
+            "question": "I {a7} late for the meeting.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't",
+                        "will not"
+                    ],
+                    "verb_hint": "negative future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_negative",
+                "will_be_contraction"
+            ],
+            "variants": [
+                "I {a7} late for the meeting."
+            ]
+        },
+        {
+            "id": 8,
+            "question": "She {a8} at the party tonight.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "isn't will"
+                    ],
+                    "verb_hint": "negative future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_negative"
+            ],
+            "variants": [
+                "She {a8} at the party tonight."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "{a9} you be at home this evening?",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "question word for future"
+                }
+            },
+            "tag_keys": [
+                "will_be_question"
+            ],
+            "variants": [
+                "{a9} you be at home this evening?"
+            ]
+        },
+        {
+            "id": 10,
+            "question": "{a10} she be ready by noon?",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "question word for future"
+                }
+            },
+            "tag_keys": [
+                "will_be_question"
+            ],
+            "variants": [
+                "{a10} she be ready by noon?"
+            ]
+        },
+        {
+            "id": 11,
+            "question": "Will he be at home? — Yes, he {a11}.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "short answer to will question"
+                }
+            },
+            "tag_keys": [
+                "will_be_short_answer"
+            ],
+            "variants": [
+                "Will he be at home? — Yes, he {a11}."
+            ]
+        },
+        {
+            "id": 12,
+            "question": "Will they be late? — No, they {a12}.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "won't",
+                    "options": [
+                        "won't",
+                        "won't be",
+                        "aren't"
+                    ],
+                    "verb_hint": "negative short answer"
+                }
+            },
+            "tag_keys": [
+                "will_be_short_answer",
+                "will_be_contraction"
+            ],
+            "variants": [
+                "Will they be late? — No, they {a12}."
+            ]
+        },
+        {
+            "id": 13,
+            "question": "My parents {a13} at the airport at 6 PM.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a13": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will been",
+                        "are be"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_time_marker"
+            ],
+            "variants": [
+                "My parents {a13} at the airport at 6 PM."
+            ]
+        },
+        {
+            "id": 14,
+            "question": "The children {a14} tired after the trip.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a14": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "are be"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "The children {a14} tired after the trip."
+            ]
+        },
+        {
+            "id": 15,
+            "question": "The weather {a15} cold next week.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a15": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is be"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "The weather {a15} cold next week."
+            ]
+        },
+        {
+            "id": 16,
+            "question": "Tom {a16} in the office tomorrow morning.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a16": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "is will"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_time_marker"
+            ],
+            "variants": [
+                "Tom {a16} in the office tomorrow morning."
+            ]
+        },
+        {
+            "id": 17,
+            "question": "The shops {a17} open on Sunday.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a17": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't",
+                        "don't be"
+                    ],
+                    "verb_hint": "negative future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_negative"
+            ],
+            "variants": [
+                "The shops {a17} open on Sunday."
+            ]
+        },
+        {
+            "id": 18,
+            "question": "{a18} it be warm this afternoon?",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a18": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "question word for future"
+                }
+            },
+            "tag_keys": [
+                "will_be_question",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "{a18} it be warm this afternoon?"
+            ]
+        },
+        {
+            "id": 19,
+            "question": "We {a19} on holiday next month.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a19": {
+                    "answer": "'ll be",
+                    "options": [
+                        "'ll be",
+                        "will",
+                        "are be"
+                    ],
+                    "verb_hint": "contracted future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_contraction"
+            ],
+            "variants": [
+                "We {a19} on holiday next month."
+            ]
+        },
+        {
+            "id": 20,
+            "question": "Don't worry — everything {a20} fine.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a20": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "is be"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_promise"
+            ],
+            "variants": [
+                "Don't worry — everything {a20} fine."
+            ]
+        },
+        {
+            "id": 21,
+            "question": "He {a21} available until Friday.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a21": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't",
+                        "doesn't be"
+                    ],
+                    "verb_hint": "negative future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_negative",
+                "will_be_time_marker"
+            ],
+            "variants": [
+                "He {a21} available until Friday."
+            ]
+        },
+        {
+            "id": 22,
+            "question": "{a22} the children be hungry after school?",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a22": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Are",
+                        "Do"
+                    ],
+                    "verb_hint": "question word for future"
+                }
+            },
+            "tag_keys": [
+                "will_be_question"
+            ],
+            "variants": [
+                "{a22} the children be hungry after school?"
+            ]
+        },
+        {
+            "id": 23,
+            "question": "Will you be free on Saturday? — Yes, I {a23}.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a23": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will be",
+                        "am"
+                    ],
+                    "verb_hint": "short answer to will question"
+                }
+            },
+            "tag_keys": [
+                "will_be_short_answer"
+            ],
+            "variants": [
+                "Will you be free on Saturday? — Yes, I {a23}."
+            ]
+        },
+        {
+            "id": 24,
+            "question": "Will it be difficult? — No, it {a24}.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a24": {
+                    "answer": "won't",
+                    "options": [
+                        "won't",
+                        "won't be",
+                        "isn't"
+                    ],
+                    "verb_hint": "negative short answer"
+                }
+            },
+            "tag_keys": [
+                "will_be_short_answer",
+                "will_be_contraction"
+            ],
+            "variants": [
+                "Will it be difficult? — No, it {a24}."
+            ]
+        },
+        {
+            "id": 25,
+            "question": "I think the test {a25} easy.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "is be"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "I think the test {a25} easy."
+            ]
+        },
+        {
+            "id": 26,
+            "question": "She {a26} a great doctor one day.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "'ll be",
+                    "options": [
+                        "'ll be",
+                        "will",
+                        "is be"
+                    ],
+                    "verb_hint": "contracted future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_contraction",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "She {a26} a great doctor one day."
+            ]
+        },
+        {
+            "id": 27,
+            "question": "The museum {a27} closed tomorrow.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "is be"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "The museum {a27} closed tomorrow."
+            ]
+        },
+        {
+            "id": 28,
+            "question": "The roads {a28} busy during the holiday.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "are will"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "The roads {a28} busy during the holiday."
+            ]
+        },
+        {
+            "id": 29,
+            "question": "We {a29} there on time if we leave now.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will been",
+                        "are"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_conditional"
+            ],
+            "variants": [
+                "We {a29} there on time if we leave now."
+            ]
+        },
+        {
+            "id": 30,
+            "question": "The hotel room {a30} ready when we arrive.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "is"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_time_marker"
+            ],
+            "variants": [
+                "The hotel room {a30} ready when we arrive."
+            ]
+        },
+        {
+            "id": 31,
+            "question": "The new bridge {a31} completed by next year.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a31": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't",
+                        "isn't be"
+                    ],
+                    "verb_hint": "negative future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_negative"
+            ],
+            "variants": [
+                "The new bridge {a31} completed by next year."
+            ]
+        },
+        {
+            "id": 32,
+            "question": "{a32} there be enough chairs for everyone?",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a32": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Are",
+                        "Do"
+                    ],
+                    "verb_hint": "question word for future"
+                }
+            },
+            "tag_keys": [
+                "will_be_question"
+            ],
+            "variants": [
+                "{a32} there be enough chairs for everyone?"
+            ]
+        },
+        {
+            "id": 33,
+            "question": "I promise I {a33} honest with you.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a33": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "am be"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_promise"
+            ],
+            "variants": [
+                "I promise I {a33} honest with you."
+            ]
+        },
+        {
+            "id": 34,
+            "question": "There {a34} a lot of people at the concert.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a34": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will have",
+                        "will"
+                    ],
+                    "verb_hint": "future form of to be with there"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "There {a34} a lot of people at the concert."
+            ]
+        },
+        {
+            "id": 35,
+            "question": "Don't call me at 8 — I {a35} in a meeting.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a35": {
+                    "answer": "'ll be",
+                    "options": [
+                        "'ll be",
+                        "will",
+                        "am"
+                    ],
+                    "verb_hint": "contracted future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_contraction"
+            ],
+            "variants": [
+                "Don't call me at 8 — I {a35} in a meeting."
+            ]
+        },
+        {
+            "id": 36,
+            "question": "We {a36} surprised if he wins.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a36": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't",
+                        "don't be"
+                    ],
+                    "verb_hint": "negative future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_negative",
+                "will_be_conditional"
+            ],
+            "variants": [
+                "We {a36} surprised if he wins."
+            ]
+        },
+        {
+            "id": 37,
+            "question": "If it rains, the roads {a37} slippery.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a37": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "are"
+                    ],
+                    "verb_hint": "future result in first conditional"
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "If it rains, the roads {a37} slippery."
+            ]
+        },
+        {
+            "id": 38,
+            "question": "By this time tomorrow, we {a38} in Paris.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a38": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_time_marker"
+            ],
+            "variants": [
+                "By this time tomorrow, we {a38} in Paris."
+            ]
+        },
+        {
+            "id": 39,
+            "question": "The report {a39} finished by Monday if the team works overtime.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a39": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future result in conditional"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_conditional"
+            ],
+            "variants": [
+                "The report {a39} finished by Monday if the team works overtime."
+            ]
+        },
+        {
+            "id": 40,
+            "question": "He {a40} responsible for the project next quarter.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a40": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will been",
+                        "is being"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_time_marker"
+            ],
+            "variants": [
+                "He {a40} responsible for the project next quarter."
+            ]
+        },
+        {
+            "id": 41,
+            "question": "The guests {a41} informed about the schedule change.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a41": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "are been"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future"
+            ],
+            "variants": [
+                "The guests {a41} informed about the schedule change."
+            ]
+        },
+        {
+            "id": 42,
+            "question": "The new policy {a42} effective from January.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a42": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "is been"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_time_marker"
+            ],
+            "variants": [
+                "The new policy {a42} effective from January."
+            ]
+        },
+        {
+            "id": 43,
+            "question": "She {a43} pleased with the results, I'm sure.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a43": {
+                    "answer": "'ll be",
+                    "options": [
+                        "'ll be",
+                        "will",
+                        "is"
+                    ],
+                    "verb_hint": "contracted future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_contraction",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "She {a43} pleased with the results, I'm sure."
+            ]
+        },
+        {
+            "id": 44,
+            "question": "The documents {a44} sent to all participants.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a44": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "are be"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future"
+            ],
+            "variants": [
+                "The documents {a44} sent to all participants."
+            ]
+        },
+        {
+            "id": 45,
+            "question": "You {a45} disappointed if you skip this opportunity.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a45": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "are"
+                    ],
+                    "verb_hint": "future result in conditional"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_conditional"
+            ],
+            "variants": [
+                "You {a45} disappointed if you skip this opportunity."
+            ]
+        },
+        {
+            "id": 46,
+            "question": "I {a46} grateful for any help you can offer.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a46": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "am be"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_promise"
+            ],
+            "variants": [
+                "I {a46} grateful for any help you can offer."
+            ]
+        },
+        {
+            "id": 47,
+            "question": "The results {a47} announced next Friday.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a47": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "are being"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_time_marker"
+            ],
+            "variants": [
+                "The results {a47} announced next Friday."
+            ]
+        },
+        {
+            "id": 48,
+            "question": "I'm afraid there {a48} any seats left.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a48": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't have",
+                        "aren't"
+                    ],
+                    "verb_hint": "negative future form of to be with there"
+                }
+            },
+            "tag_keys": [
+                "will_be_negative",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "I'm afraid there {a48} any seats left."
+            ]
+        },
+        {
+            "id": 49,
+            "question": "{a49} the venue be accessible by public transport?",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a49": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Is",
+                        "Does"
+                    ],
+                    "verb_hint": "question word for future"
+                }
+            },
+            "tag_keys": [
+                "will_be_question"
+            ],
+            "variants": [
+                "{a49} the venue be accessible by public transport?"
+            ]
+        },
+        {
+            "id": 50,
+            "question": "She {a50} the youngest person in the team.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a50": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "is been"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "She {a50} the youngest person in the team."
+            ]
+        },
+        {
+            "id": 51,
+            "question": "Unless we act now, the problem {a51} worse.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a51": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future result in conditional"
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "Unless we act now, the problem {a51} worse."
+            ]
+        },
+        {
+            "id": 52,
+            "question": "The old factory {a52} demolished before the year ends.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a52": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will have",
+                        "is"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future"
+            ],
+            "variants": [
+                "The old factory {a52} demolished before the year ends."
+            ]
+        },
+        {
+            "id": 53,
+            "question": "The staff {a53} notified once a decision has been made.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a53": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "are been"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future"
+            ],
+            "variants": [
+                "The staff {a53} notified once a decision has been made."
+            ]
+        },
+        {
+            "id": 54,
+            "question": "I {a54} more careful with my spending from now on.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a54": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "am be"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_promise"
+            ],
+            "variants": [
+                "I {a54} more careful with my spending from now on."
+            ]
+        },
+        {
+            "id": 55,
+            "question": "The candidates {a55} evaluated on the basis of both experience and qualifications.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a55": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "are been"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The candidates {a55} evaluated on the basis of both experience and qualifications."
+            ]
+        },
+        {
+            "id": 56,
+            "question": "If you arrive late, you {a56} able to enter the auditorium.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a56": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't",
+                        "aren't"
+                    ],
+                    "verb_hint": "negative future form of to be in conditional"
+                }
+            },
+            "tag_keys": [
+                "will_be_negative",
+                "will_be_conditional"
+            ],
+            "variants": [
+                "If you arrive late, you {a56} able to enter the auditorium."
+            ]
+        },
+        {
+            "id": 57,
+            "question": "The data {a57} processed within 48 hours of submission.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a57": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will have",
+                        "is"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The data {a57} processed within 48 hours of submission."
+            ]
+        },
+        {
+            "id": 58,
+            "question": "She assured us that everything {a58} arranged before the deadline.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a58": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "was"
+                    ],
+                    "verb_hint": "future in the past"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_passive_future"
+            ],
+            "variants": [
+                "She assured us that everything {a58} arranged before the deadline."
+            ]
+        },
+        {
+            "id": 59,
+            "question": "By the end of this decade, renewable energy {a59} the dominant power source.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a59": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction",
+                "will_be_time_marker"
+            ],
+            "variants": [
+                "By the end of this decade, renewable energy {a59} the dominant power source."
+            ]
+        },
+        {
+            "id": 60,
+            "question": "The new regulations {a60} enforced starting next fiscal year.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a60": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "are been"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The new regulations {a60} enforced starting next fiscal year."
+            ]
+        },
+        {
+            "id": 61,
+            "question": "I can guarantee that the package {a61} delivered by Thursday.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a61": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will have",
+                        "is"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_promise"
+            ],
+            "variants": [
+                "I can guarantee that the package {a61} delivered by Thursday."
+            ]
+        },
+        {
+            "id": 62,
+            "question": "Unless the funding is approved, the research {a62} put on hold indefinitely.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a62": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future result in conditional"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_conditional"
+            ],
+            "variants": [
+                "Unless the funding is approved, the research {a62} put on hold indefinitely."
+            ]
+        },
+        {
+            "id": 63,
+            "question": "All participants {a63} required to sign a non-disclosure agreement.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a63": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "are been"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "All participants {a63} required to sign a non-disclosure agreement."
+            ]
+        },
+        {
+            "id": 64,
+            "question": "Do you think the interview {a64} conducted in person or online?",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a64": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_question",
+                "will_be_passive_future"
+            ],
+            "variants": [
+                "Do you think the interview {a64} conducted in person or online?"
+            ]
+        },
+        {
+            "id": 65,
+            "question": "He promised his performance {a65} better in the second half.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a65": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "future in the past"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_promise"
+            ],
+            "variants": [
+                "He promised his performance {a65} better in the second half."
+            ]
+        },
+        {
+            "id": 66,
+            "question": "The entire building {a66} renovated by the time the company moves in.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a66": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will have",
+                        "would be"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future"
+            ],
+            "variants": [
+                "The entire building {a66} renovated by the time the company moves in."
+            ]
+        },
+        {
+            "id": 67,
+            "question": "The committee warned that future violations {a67} dealt with more severely.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a67": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "future in the past"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The committee warned that future violations {a67} dealt with more severely."
+            ]
+        },
+        {
+            "id": 68,
+            "question": "Attendance {a68} mandatory for all department heads.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a68": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "is been"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Attendance {a68} mandatory for all department heads."
+            ]
+        },
+        {
+            "id": 69,
+            "question": "If the merger goes through, the workforce {a69} significantly restructured.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a69": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future passive in conditional"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_conditional"
+            ],
+            "variants": [
+                "If the merger goes through, the workforce {a69} significantly restructured."
+            ]
+        },
+        {
+            "id": 70,
+            "question": "They confirmed that the venue {a70} available for the charity event.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a70": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "future in the past"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "They confirmed that the venue {a70} available for the charity event."
+            ]
+        },
+        {
+            "id": 71,
+            "question": "You {a71} held personally accountable for any breaches of protocol.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a71": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "are been"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "You {a71} held personally accountable for any breaches of protocol."
+            ]
+        },
+        {
+            "id": 72,
+            "question": "The updated terms {a72} applicable to all existing subscribers.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a72": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "is been"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The updated terms {a72} applicable to all existing subscribers."
+            ]
+        },
+        {
+            "id": 73,
+            "question": "It is anticipated that the budget deficit {a73} eliminated within two fiscal quarters.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a73": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "It is anticipated that the budget deficit {a73} eliminated within two fiscal quarters."
+            ]
+        },
+        {
+            "id": 74,
+            "question": "Should the proposal gain approval, additional resources {a74} allocated immediately.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a74": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "are"
+                    ],
+                    "verb_hint": "future passive in formal conditional"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_conditional",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Should the proposal gain approval, additional resources {a74} allocated immediately."
+            ]
+        },
+        {
+            "id": 75,
+            "question": "The implications of this policy shift {a75} far-reaching and unprecedented.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a75": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "are been"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The implications of this policy shift {a75} far-reaching and unprecedented."
+            ]
+        },
+        {
+            "id": 76,
+            "question": "It {a76} incumbent upon the board to disclose the findings.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a76": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is been"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "It {a76} incumbent upon the board to disclose the findings."
+            ]
+        },
+        {
+            "id": 77,
+            "question": "Stakeholders have been assured that transparency {a77} maintained throughout the process.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a77": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_promise",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Stakeholders have been assured that transparency {a77} maintained throughout the process."
+            ]
+        },
+        {
+            "id": 78,
+            "question": "Whether or not the amendment passes, the debate {a78} a turning point for the party.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a78": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction"
+            ],
+            "variants": [
+                "Whether or not the amendment passes, the debate {a78} a turning point for the party."
+            ]
+        },
+        {
+            "id": 79,
+            "question": "The CEO stated that all branches {a79} audited by an independent body.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a79": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "future in the past"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The CEO stated that all branches {a79} audited by an independent body."
+            ]
+        },
+        {
+            "id": 80,
+            "question": "Under no circumstances {a80} the deadline extended beyond March.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a80": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "would",
+                        "is"
+                    ],
+                    "verb_hint": "inverted future with will + be"
+                }
+            },
+            "tag_keys": [
+                "will_be_negative",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Under no circumstances {a80} the deadline be extended beyond March."
+            ]
+        },
+        {
+            "id": 81,
+            "question": "It remains to be seen whether the ceasefire {a81} sustainable in the long term.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a81": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "It remains to be seen whether the ceasefire {a81} sustainable in the long term."
+            ]
+        },
+        {
+            "id": 82,
+            "question": "Participants who fail to comply {a82} excluded from the programme.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a82": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "are"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_conditional",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Participants who fail to comply {a82} excluded from the programme."
+            ]
+        },
+        {
+            "id": 83,
+            "question": "The minister confirmed that emergency funding {a83} made available to affected regions.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a83": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "future in the past"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The minister confirmed that emergency funding {a83} made available to affected regions."
+            ]
+        },
+        {
+            "id": 84,
+            "question": "In the event of non-compliance, the contract {a84} terminated with immediate effect.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a84": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future passive in formal conditional"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_conditional",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "In the event of non-compliance, the contract {a84} terminated with immediate effect."
+            ]
+        },
+        {
+            "id": 85,
+            "question": "It {a85} widely acknowledged that the reforms represent a paradigm shift.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a85": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is been"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_prediction",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "It {a85} widely acknowledged that the reforms represent a paradigm shift."
+            ]
+        },
+        {
+            "id": 86,
+            "question": "No assurance can be given that the restructuring {a86} free of legal challenges.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a86": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "No assurance can be given that the restructuring {a86} free of legal challenges."
+            ]
+        },
+        {
+            "id": 87,
+            "question": "Provided that consensus is reached, the resolution {a87} binding on all member states.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a87": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future form in formal conditional"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_conditional",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Provided that consensus is reached, the resolution {a87} binding on all member states."
+            ]
+        },
+        {
+            "id": 88,
+            "question": "It is expected that the inquiry {a88} concluded before the parliamentary recess.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a88": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "It is expected that the inquiry {a88} concluded before the parliamentary recess."
+            ]
+        },
+        {
+            "id": 89,
+            "question": "Failure to meet the criteria {a89} grounds for disqualification.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a89": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is been"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Failure to meet the criteria {a89} grounds for disqualification."
+            ]
+        },
+        {
+            "id": 90,
+            "question": "The spokesperson reiterated that confidentiality {a90} preserved at all stages.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a90": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "future in the past"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The spokesperson reiterated that confidentiality {a90} preserved at all stages."
+            ]
+        },
+        {
+            "id": 91,
+            "question": "It is posited that the socioeconomic ramifications of automation {a91} both pervasive and irreversible.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a91": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "are been"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "It is posited that the socioeconomic ramifications of automation {a91} both pervasive and irreversible."
+            ]
+        },
+        {
+            "id": 92,
+            "question": "Were the tribunal to rule against the defendant, the precedent {a92} applicable across all jurisdictions.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a92": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "hypothetical future with subjunctive inversion"
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Were the tribunal to rule against the defendant, the precedent {a92} applicable across all jurisdictions."
+            ]
+        },
+        {
+            "id": 93,
+            "question": "The delegation underscored that sovereignty {a93} safeguarded irrespective of the negotiation outcome.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a93": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "future in the past in formal register"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The delegation underscored that sovereignty {a93} safeguarded irrespective of the negotiation outcome."
+            ]
+        },
+        {
+            "id": 94,
+            "question": "Notwithstanding the prevailing skepticism, the accord {a94} ratified before the summit concludes.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a94": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_prediction",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Notwithstanding the prevailing skepticism, the accord {a94} ratified before the summit concludes."
+            ]
+        },
+        {
+            "id": 95,
+            "question": "It {a95} imperative that the findings not be misconstrued by the media.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a95": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is been"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "It {a95} imperative that the findings not be misconstrued by the media."
+            ]
+        },
+        {
+            "id": 96,
+            "question": "Had the amendment been introduced earlier, its reception {a96} markedly different.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a96": {
+                    "answer": "would have been",
+                    "options": [
+                        "would have been",
+                        "will be",
+                        "would be"
+                    ],
+                    "verb_hint": "third conditional with to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Had the amendment been introduced earlier, its reception {a96} markedly different."
+            ]
+        },
+        {
+            "id": 97,
+            "question": "The ramifications of this jurisprudence {a97} debated by constitutional scholars for decades to come.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a97": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "are been"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_prediction",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The ramifications of this jurisprudence {a97} debated by constitutional scholars for decades to come."
+            ]
+        },
+        {
+            "id": 98,
+            "question": "In the absence of bipartisan support, it {a98} exceedingly difficult to pass the legislation.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a98": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "In the absence of bipartisan support, it {a98} exceedingly difficult to pass the legislation."
+            ]
+        },
+        {
+            "id": 99,
+            "question": "The envoy intimated that the sanctions {a99} lifted only upon verifiable compliance.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a99": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "future in the past in formal register"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_conditional",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The envoy intimated that the sanctions {a99} lifted only upon verifiable compliance."
+            ]
+        },
+        {
+            "id": 100,
+            "question": "Not until the auditors submit their report {a100} the true extent of the losses known.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a100": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "would",
+                        "is"
+                    ],
+                    "verb_hint": "inverted future with will + be"
+                }
+            },
+            "tag_keys": [
+                "will_be_negative",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Not until the auditors submit their report {a100} the true extent of the losses be known."
+            ]
+        },
+        {
+            "id": 101,
+            "question": "The tribunal's adjudication {a101} final and not subject to further appeal.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a101": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is been"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The tribunal's adjudication {a101} final and not subject to further appeal."
+            ]
+        },
+        {
+            "id": 102,
+            "question": "It is conjectured that the demographic shift {a102} the most consequential variable in the forthcoming elections.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a102": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_prediction",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "It is conjectured that the demographic shift {a102} the most consequential variable in the forthcoming elections."
+            ]
+        },
+        {
+            "id": 103,
+            "question": "The ambassador pledged that reparations {a103} disbursed to all verified claimants.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a103": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "future in the past in formal register"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_promise",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The ambassador pledged that reparations {a103} disbursed to all verified claimants."
+            ]
+        },
+        {
+            "id": 104,
+            "question": "Whether the hypothesis {a104} corroborated by empirical data remains an open question.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a104": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ],
+                    "verb_hint": "future passive form"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_prediction",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Whether the hypothesis {a104} corroborated by empirical data remains an open question."
+            ]
+        },
+        {
+            "id": 105,
+            "question": "The outgoing chairperson remarked that the institution's legacy {a105} judged not by its intentions but by its outcomes.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a105": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "future in the past in formal register"
+                }
+            },
+            "tag_keys": [
+                "will_be_passive_future",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The outgoing chairperson remarked that the institution's legacy {a105} judged not by its intentions but by its outcomes."
+            ]
+        },
+        {
+            "id": 106,
+            "question": "Only if the requisite quorum is met {a106} the vote deemed valid.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a106": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "would",
+                        "is"
+                    ],
+                    "verb_hint": "inverted future with will + be"
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Only if the requisite quorum is met {a106} the vote be deemed valid."
+            ]
+        },
+        {
+            "id": 107,
+            "question": "The intergovernmental panel asserted that global temperatures {a107} 1.5 °C above pre-industrial levels by 2035.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a107": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "future in the past"
+                }
+            },
+            "tag_keys": [
+                "will_be_prediction",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The intergovernmental panel asserted that global temperatures {a107} 1.5 °C above pre-industrial levels by 2035."
+            ]
+        },
+        {
+            "id": 108,
+            "question": "Irrespective of any dissenting opinions, the constitutional court's ruling {a108} enforceable throughout the federation.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a108": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is been"
+                    ],
+                    "verb_hint": "future form of to be"
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "Irrespective of any dissenting opinions, the constitutional court's ruling {a108} enforceable throughout the federation."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "vtb-future-opus46-v3-saved",
+        "slug": "verb_to_be_future_opus46",
+        "name": "Verb to Be: Future — Opus 4.6 V3 Questions Test",
+        "description": "Practice set for future forms of to be: will be affirmative, negative (won't be), questions (Will … be …?), short answers, contractions, first conditional, future passive, future in the past, and formal register across A1–C2.",
+        "filters": {
+            "num_questions": 108,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBeFutureV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1178,
+                "theory_page_ids": [
+                    1178
+                ],
+                "theory_page": {
+                    "id": 1178,
+                    "slug": "verb-to-be-future",
+                    "title": "Verb to Be: Future",
+                    "category_slug_path": "basic-grammar/verb-to-be",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeFutureTheorySeeder",
+                    "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-future"
+                }
+            }
+        }
+    }
+}
