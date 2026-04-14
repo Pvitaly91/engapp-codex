@@ -1,0 +1,1526 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\Uk\\AI\\Copilot\\Sonate\\BasicWordOrderV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\BasicWordOrderV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "uk",
+  "hint_provider": "copilot-sonate",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "В ствердному реченні порядок слів фіксований: S + V + O. Дієслово стоїть перед додатком.",
+        "Підмет «She» стоїть першим. Після нього — дієслово «drinks», потім додаток «tea»."
+      ],
+      "explanations": {
+        "a1": {
+          "drinks tea": "Правильно: SVO — «drinks» (V) перед «tea» (O).",
+          "tea drinks": "Неправильно: SOV — додаток перед дієсловом не відповідає нормам англійського речення.",
+          "tea she drinks": "Неправильно: підмет «she» не може з'являтися між додатком і дієсловом у нейтральному реченні."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "SVO: підмет + дієслово + додаток. Дієслово не може стояти після додатка.",
+        "Підмет «My brother» є. Що він робить? → «plays»; що грає? → «football»."
+      ],
+      "explanations": {
+        "a1": {
+          "plays football": "Правильно: SVO — «plays» (V) перед «football» (O).",
+          "football plays": "Неправильно: SOV-порядок — дієслово завжди передує додатку.",
+          "football is played": "Неправильно: пасивна форма не підходить — підмет є активним виконавцем."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Ствердне речення: S + V + O — незмінна структура.",
+        "Підмет «They» → дієслово «do» → додаток «their homework»."
+      ],
+      "explanations": {
+        "a1": {
+          "do their homework": "Правильно: SVO — V (do) перед O.",
+          "their homework do": "Неправильно: SOV — додаток перед дієсловом суперечить нормам.",
+          "doing their homework": "Неправильно: «doing» без допоміжного дієслова не може бути присудком."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "SVO: дієслово між підметом і додатком; не може стояти після додатка.",
+        "«The teacher» → «explains» → «new words»."
+      ],
+      "explanations": {
+        "a1": {
+          "explains new words": "Правильно: SVO.",
+          "new words explains": "Неправильно: SOV — додаток перед дієсловом некоректний.",
+          "new words the teacher explains": "Неправильно: підмет не повторюється між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "Ствердне речення: S + V + O.",
+        "Підмет «We» → «eat» → «lunch»."
+      ],
+      "explanations": {
+        "a1": {
+          "eat lunch": "Правильно: SVO.",
+          "lunch eat": "Неправильно: SOV.",
+          "lunch we eat": "Неправильно: «we» вже є і не повторюється між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "SVO: підмет + дієслово + додаток.",
+        "«Tom» → «drives» → «his car»."
+      ],
+      "explanations": {
+        "a1": {
+          "drives his car": "Правильно: SVO.",
+          "his car drives": "Неправильно: SOV.",
+          "his car Tom drives": "Неправильно: підмет «Tom» не повторюється між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Дієслово стоїть після підмета і перед додатком: S + V + O.",
+        "«Anna» → «reads» → «books»."
+      ],
+      "explanations": {
+        "a1": {
+          "reads books": "Правильно: SVO.",
+          "books reads": "Неправильно: SOV.",
+          "books she reads": "Неправильно: «she» зайве між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "SVO: «I» → дієслово → «my grandparents».",
+        "«I» → «visit» → «my grandparents»."
+      ],
+      "explanations": {
+        "a1": {
+          "visit my grandparents": "Правильно: SVO.",
+          "my grandparents visit": "Неправильно: SOV.",
+          "my grandparents I visit": "Неправильно: «I» не може з'явитися між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "SVO: підмет + дієслово + додаток.",
+        "«He» → «takes» → «the bus»."
+      ],
+      "explanations": {
+        "a1": {
+          "takes the bus": "Правильно: SVO.",
+          "the bus takes": "Неправильно: SOV.",
+          "the bus he takes": "Неправильно: «he» не може з'явитися між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Ствердне речення: S + V + O.",
+        "«The students» → «speak» → «English»."
+      ],
+      "explanations": {
+        "a1": {
+          "speak English": "Правильно: SVO.",
+          "English speak": "Неправильно: SOV.",
+          "English students speak": "Неправильно: підмет не повторюється між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "V завжди стоїть перед O: S + V + O.",
+        "«They» → «watch» → «films»."
+      ],
+      "explanations": {
+        "a1": {
+          "watch films": "Правильно: SVO.",
+          "films watch": "Неправильно: SOV.",
+          "films they watch": "Неправильно: «they» вже є й не повторюється між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "SVO: після підмета — дієслово, після дієслова — додаток.",
+        "«My parents» → «cook» → «dinner»."
+      ],
+      "explanations": {
+        "a1": {
+          "cook dinner": "Правильно: SVO.",
+          "dinner cook": "Неправильно: SOV.",
+          "cook dinner they": "Неправильно: підмет не ставиться після додатка наприкінці."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Дієслово стоїть перед додатком: S + V + O.",
+        "«She» → «buys» → «new clothes»."
+      ],
+      "explanations": {
+        "a1": {
+          "buys new clothes": "Правильно: SVO.",
+          "new clothes buys": "Неправильно: SOV.",
+          "new clothes she buys": "Неправильно: «she» зайва між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "SVO: підмет + дієслово + додаток.",
+        "«We» → «have» → «breakfast»."
+      ],
+      "explanations": {
+        "a1": {
+          "have breakfast": "Правильно: SVO.",
+          "breakfast have": "Неправильно: SOV.",
+          "breakfast we have": "Неправильно: «we» не повторюється між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "S + V + O: підмет → дієслово → додаток.",
+        "«The children» → «play» → «games»."
+      ],
+      "explanations": {
+        "a1": {
+          "play games": "Правильно: SVO.",
+          "games play": "Неправильно: SOV.",
+          "games children play": "Неправильно: «children» не може з'явитися між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "S + V + O: дієслово після підмета і перед додатком.",
+        "«He» → «listens to» → «music»."
+      ],
+      "explanations": {
+        "a1": {
+          "listens to music": "Правильно: SVO.",
+          "music listens to": "Неправильно: SOV.",
+          "music he listens to": "Неправильно: «he» не може з'явитися між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "S + V + O — основна структура ствердного речення.",
+        "«My sister» → «learns» → «new recipes»."
+      ],
+      "explanations": {
+        "a1": {
+          "learns new recipes": "Правильно: SVO.",
+          "new recipes learns": "Неправильно: SOV.",
+          "new recipes sister learns": "Неправильно: підмет не повторюється між об'єктом і дієсловом."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "У простому ствердному реченні присудок стоїть після підмета; обставина часу — після присудка.",
+        "«Our cat» → «sleeps» → «all day»."
+      ],
+      "explanations": {
+        "a1": {
+          "sleeps all day": "Правильно: S + V + Adv.",
+          "all day sleeps": "Неправильно: «all day» не стоїть перед присудком у нейтральному реченні.",
+          "all day our cat sleeps": "Неправильно: підмет «our cat» не повторюється після обставини часу."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "Після дієслова «to be» прислівник частотності стоїть ПІСЛЯ нього: be + adverb.",
+        "«is» — форма to be. Прислівники never, always тощо стоять після форм to be."
+      ],
+      "explanations": {
+        "a1": {
+          "is never": "Правильно: «never» після «is» (to be) — стандартна позиція.",
+          "never is": "Неправильно: прислівник стоїть ПІСЛЯ to be, не перед ним.",
+          "never be": "Неправильно: «be» — інфінітив; потрібна форма «is»."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Прислівники частотності (always, usually, often, sometimes, rarely, never) стоять ПЕРЕД основним дієсловом.",
+        "Дієслово «eat» — не to be. «always» стоїть перед ним."
+      ],
+      "explanations": {
+        "a1": {
+          "always eat": "Правильно: «always» перед «eat» — стандартна серединна позиція.",
+          "eat always": "Неправильно: прислівник не ставиться після основного дієслова.",
+          "always to eat": "Неправильно: «to eat» — інфінітив; після «I» потрібна форма «eat»."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "«Usually» стоїть перед основним дієсловом, але після підмета.",
+        "«They» → «usually» → «watch» → «the news»."
+      ],
+      "explanations": {
+        "a1": {
+          "usually watch": "Правильно: «usually» перед «watch».",
+          "watch usually": "Неправильно: «usually» не ставиться після основного дієслова.",
+          "usually watching": "Неправильно: «watching» без допоміжного дієслова не може бути присудком."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "«Often» стоїть перед основним дієсловом у ствердному реченні.",
+        "Після «He» → «often» → «trains» (форма 3 ос. одн.)."
+      ],
+      "explanations": {
+        "a1": {
+          "often trains": "Правильно: «often» перед «trains».",
+          "trains often": "Неправильно: прислівник стоїть ПЕРЕД дієсловом, а не після.",
+          "often to train": "Неправильно: «to train» — інфінітив; після «He» потрібна форма «trains»."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "«Sometimes» стоїть перед основним дієсловом.",
+        "«My grandmother» → «sometimes» → «drinks» (з -s для 3 ос. одн.)."
+      ],
+      "explanations": {
+        "a1": {
+          "sometimes drinks": "Правильно: «sometimes» перед «drinks».",
+          "drinks sometimes": "Неправильно: «sometimes» не ставиться після дієслова в цій позиції.",
+          "sometimes drinking": "Неправильно: «drinking» без «is» не може бути присудком."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "З «to be» прислівники частотності йдуть ПІСЛЯ нього.",
+        "«is» — форма to be. Прислівник стоїть після «is»."
+      ],
+      "explanations": {
+        "a1": {
+          "is rarely": "Правильно: «rarely» після «is» (to be).",
+          "rarely is": "Неправильно: «rarely» не ставиться перед to be.",
+          "rarely be": "Неправильно: «be» — інфінітив; потрібна форма «is»."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "«Never» стоїть перед основним дієсловом.",
+        "«My friends» → «never» → «travel»."
+      ],
+      "explanations": {
+        "a1": {
+          "never travel": "Правильно: «never» перед «travel».",
+          "travel never": "Неправильно: «never» не ставиться після дієслова.",
+          "travel never by": "Неправильно: прийменник «by» відокремлений від «bus»; порядок хаотичний."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "З «to be»: be + прислівник частотності — «are» + «never».",
+        "«are» — форма to be. Прислівники стоять після to be."
+      ],
+      "explanations": {
+        "a1": {
+          "are never": "Правильно: «never» після «are» (to be).",
+          "never are": "Неправильно: прислівник після to be стоїть після нього, не перед.",
+          "never being": "Неправильно: «being» без допоміжного дієслова не утворює присудка."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "«Rarely» стоїть перед основним дієсловом.",
+        "«He» (3 ос. одн.) → «rarely» → «goes»."
+      ],
+      "explanations": {
+        "a1": {
+          "rarely goes": "Правильно: «rarely» перед «goes».",
+          "goes rarely": "Неправильно: прислівник стоїть ПЕРЕД основним дієсловом, а не після.",
+          "rarely gone": "Неправильно: «gone» — минулий дієприкметник, а не Present Simple."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "З «to be»: am + прислівник + прикметник.",
+        "«am» — форма to be. Правило: am → «always» → «free»."
+      ],
+      "explanations": {
+        "a1": {
+          "am always free": "Правильно: «always» після «am» і перед «free».",
+          "always am free": "Неправильно: «always» не ставиться перед «am».",
+          "always free am": "Неправильно: порядок «always + прикметник + be» не вживається."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "«Never» стоїть перед основним дієсловом.",
+        "«My cat» (3 ос. одн.) → «never» → «goes»."
+      ],
+      "explanations": {
+        "a1": {
+          "never goes": "Правильно: «never» перед «goes».",
+          "goes never": "Неправильно: «never» не ставиться після дієслова.",
+          "never go": "Неправильно: «My cat» вимагає форми «goes», а не «go»."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "«Seldom» (= rarely) з «to be» стоїть ПІСЛЯ форми to be.",
+        "«are» → «seldom»."
+      ],
+      "explanations": {
+        "a1": {
+          "are seldom": "Правильно: «seldom» після «are» (to be).",
+          "seldom are": "Неправильно: прислівник після to be стоїть після нього, не перед.",
+          "seldom be": "Неправильно: «be» — інфінітив; з «We» потрібна форма «are»."
+        }
+      }
+    },
+    {
+      "id": 31,
+      "hints": [
+        "«Always» стоїть перед основним дієсловом.",
+        "«The manager» → «always» → «checks» (Present Simple, 3 ос. одн.)."
+      ],
+      "explanations": {
+        "a1": {
+          "always checks": "Правильно: «always» перед «checks».",
+          "checks always": "Неправильно: прислівник стоїть ПЕРЕД дієсловом, а не після.",
+          "always checked": "Неправильно: «checked» — минулий час; потрібен Present Simple."
+        }
+      }
+    },
+    {
+      "id": 32,
+      "hints": [
+        "З «to be»: is + прислівник + прикметник.",
+        "«is» → «often» → «uncomfortable»."
+      ],
+      "explanations": {
+        "a1": {
+          "is often uncomfortable": "Правильно: «often» між «is» та «uncomfortable».",
+          "often is uncomfortable": "Неправильно: «often» не ставиться перед «is».",
+          "is uncomfortable often": "Неправильно: «often» не стоїть після прикметника в цій позиції."
+        }
+      }
+    },
+    {
+      "id": 33,
+      "hints": [
+        "«Usually» стоїть перед основним дієсловом.",
+        "«My students» (мн.) → «usually» → «finish» (без -s)."
+      ],
+      "explanations": {
+        "a1": {
+          "usually finish": "Правильно: «usually» перед «finish».",
+          "finish usually": "Неправильно: «usually» не стоїть після дієслова.",
+          "usually finishing": "Неправильно: «finishing» без «are» не утворює присудка."
+        }
+      }
+    },
+    {
+      "id": 34,
+      "hints": [
+        "«Never» з «to be» стоїть після нього: is + never + прикметник.",
+        "«is» → «never» → «happy»."
+      ],
+      "explanations": {
+        "a1": {
+          "is never": "Правильно: «never» після «is» і перед «happy».",
+          "never is": "Неправильно: «never» не стоїть перед «is» у ствердному реченні.",
+          "is not never": "Неправильно: подвійне заперечення «not never» неприпустиме."
+        }
+      }
+    },
+    {
+      "id": 35,
+      "hints": [
+        "«Hardly ever» — складений прислівник частотності; стоїть перед основним дієсловом.",
+        "«hardly» та «ever» завжди разом і перед «use»."
+      ],
+      "explanations": {
+        "a1": {
+          "hardly ever use": "Правильно: «hardly ever» перед «use».",
+          "use hardly ever": "Неправильно: «hardly ever» не ставиться після дієслова.",
+          "hardly use ever": "Неправильно: «ever» не можна відокремлювати від «hardly»."
+        }
+      }
+    },
+    {
+      "id": 36,
+      "hints": [
+        "«Sometimes» стоїть перед основним дієсловом.",
+        "«Our neighbours» (мн.) → «sometimes» → «mow» (без -s)."
+      ],
+      "explanations": {
+        "a1": {
+          "sometimes mow": "Правильно: «sometimes» перед «mow».",
+          "mow sometimes": "Неправильно: прислівник стоїть ПЕРЕД дієсловом, а не після.",
+          "sometimes mowing": "Неправильно: «mowing» без «are» не може бути присудком."
+        }
+      }
+    },
+    {
+      "id": 37,
+      "hints": [
+        "Коли є три типи обставин, їх розставляють у порядку Manner (як?) → Place (де?) → Time (коли?) — правило MPT.",
+        "«beautifully» — Manner, «at the concert» — Place, «last night» — Time."
+      ],
+      "explanations": {
+        "a1": {
+          "beautifully at the concert last night": "Правильно: M–P–T.",
+          "at the concert last night beautifully": "Неправильно: P–T–M — обставина способу стоїть останньою.",
+          "last night beautifully at the concert": "Неправильно: T–M–P — Time стоїть першим."
+        }
+      }
+    },
+    {
+      "id": 38,
+      "hints": [
+        "Порядок обставин: Manner → Place → Time. «hard» — спосіб, «at the office» — місце, «every day» — час.",
+        "«як?» (hard) → «де?» (at the office) → «коли?» (every day)."
+      ],
+      "explanations": {
+        "a1": {
+          "hard at the office every day": "Правильно: M–P–T.",
+          "every day hard at the office": "Неправильно: T–M–P — Time стоїть першим.",
+          "at the office hard every day": "Неправильно: P–M–T — Manner після Place."
+        }
+      }
+    },
+    {
+      "id": 39,
+      "hints": [
+        "M–P–T: «noisily» (M) → «in the garden» (P) → «yesterday» (T).",
+        "«noisily» — Manner, «in the garden» — Place, «yesterday» — Time."
+      ],
+      "explanations": {
+        "a1": {
+          "noisily in the garden yesterday": "Правильно: M–P–T.",
+          "in the garden noisily yesterday": "Неправильно: P–M–T.",
+          "yesterday noisily in the garden": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 40,
+      "hints": [
+        "M–P–T: «slowly» (M) → «to work» (P) → «every morning» (T).",
+        "Обставина способу «slowly» завжди йде першою серед цих трьох."
+      ],
+      "explanations": {
+        "a1": {
+          "slowly to work every morning": "Правильно: M–P–T.",
+          "to work slowly every morning": "Неправильно: P–M–T.",
+          "every morning slowly to work": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 41,
+      "hints": [
+        "M–P–T: «quickly» (M) → «at the table» (P) → «last night» (T).",
+        "«quickly» відповідає на «як?» і стоїть першим."
+      ],
+      "explanations": {
+        "a1": {
+          "quickly at the table last night": "Правильно: M–P–T.",
+          "at the table quickly last night": "Неправильно: P–M–T.",
+          "last night quickly at the table": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 42,
+      "hints": [
+        "M–P–T: «loudly» (M) → «in the kitchen» (P) → «last weekend» (T).",
+        "«loudly» — Manner; завжди перший серед M–P–T."
+      ],
+      "explanations": {
+        "a1": {
+          "loudly in the kitchen last weekend": "Правильно: M–P–T.",
+          "in the kitchen loudly last weekend": "Неправильно: P–M–T.",
+          "last weekend loudly in the kitchen": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 43,
+      "hints": [
+        "M–P–T: «tirelessly» (M) → «at the hospital» (P) → «all week» (T).",
+        "«tirelessly» — спосіб дії, стоїть ПЕРЕД місцем і часом."
+      ],
+      "explanations": {
+        "a1": {
+          "tirelessly at the hospital all week": "Правильно: M–P–T.",
+          "at the hospital tirelessly all week": "Неправильно: P–M–T.",
+          "all week tirelessly at the hospital": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 44,
+      "hints": [
+        "M–P–T: «brilliantly» (M) → «in Prague» (P) → «last summer» (T).",
+        "«brilliantly» відповідає на «як?»; стоїть перед «in Prague»."
+      ],
+      "explanations": {
+        "a1": {
+          "brilliantly in Prague last summer": "Правильно: M–P–T.",
+          "in Prague brilliantly last summer": "Неправильно: P–M–T.",
+          "last summer brilliantly in Prague": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 45,
+      "hints": [
+        "M–P–T: «hard» (M) → «at the library» (P) → «last semester» (T).",
+        "«hard» відповідає на «як?»; стоїть перед «at the library»."
+      ],
+      "explanations": {
+        "a1": {
+          "hard at the library last semester": "Правильно: M–P–T.",
+          "at the library hard last semester": "Неправильно: P–M–T.",
+          "last semester hard at the library": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 46,
+      "hints": [
+        "Коли є лише місце і час (без способу дії), місце стоїть ПЕРЕД часом: Place → Time.",
+        "«at the station» — Place; «early» — Time. Місце передує часу."
+      ],
+      "explanations": {
+        "a1": {
+          "at the station early": "Правильно: P → T.",
+          "early at the station": "Неправильно: T–P — обставина часу не стоїть перед місцем.",
+          "the station early at": "Неправильно: прийменник «at» не може стояти наприкінці."
+        }
+      }
+    },
+    {
+      "id": 47,
+      "hints": [
+        "M–P–T: «patiently» (M) → «at the bus stop» (P) → «for an hour» (T).",
+        "«patiently» відповідає на «як?»; стоїть першим."
+      ],
+      "explanations": {
+        "a1": {
+          "patiently at the bus stop for an hour": "Правильно: M–P–T.",
+          "at the bus stop for an hour patiently": "Неправильно: P–T–M.",
+          "for an hour patiently at the bus stop": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 48,
+      "hints": [
+        "M–P–T: «diligently» (M) → «at home» (P) → «every evening» (T).",
+        "«diligently» — спосіб дії; стоїть перед місцем і часом."
+      ],
+      "explanations": {
+        "a1": {
+          "diligently at home every evening": "Правильно: M–P–T.",
+          "at home diligently every evening": "Неправильно: P–M–T.",
+          "every evening diligently at home": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 49,
+      "hints": [
+        "M–P–T: «intensely» (M) → «at the stadium» (P) → «last week» (T).",
+        "«intensely» відповідає на «як?»; передує «at the stadium» і «last week»."
+      ],
+      "explanations": {
+        "a1": {
+          "intensely at the stadium last week": "Правильно: M–P–T.",
+          "at the stadium intensely last week": "Неправильно: P–M–T.",
+          "last week intensely at the stadium": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 50,
+      "hints": [
+        "M–P–T: «slowly» (M) → «through the old town» (P) → «all afternoon» (T).",
+        "«slowly» — Manner; завжди перший серед трьох."
+      ],
+      "explanations": {
+        "a1": {
+          "slowly through the old town all afternoon": "Правильно: M–P–T.",
+          "through the old town slowly all afternoon": "Неправильно: P–M–T.",
+          "all afternoon slowly through the old town": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 51,
+      "hints": [
+        "M–P–T: «loudly» (M) → «in its cot» (P) → «all night» (T).",
+        "«loudly» — Manner; стоїть перед місцем і часом."
+      ],
+      "explanations": {
+        "a1": {
+          "loudly in its cot all night": "Правильно: M–P–T.",
+          "in its cot loudly all night": "Неправильно: P–M–T.",
+          "all night loudly in its cot": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 52,
+      "hints": [
+        "Коли є лише місце і час (без способу), місце стоїть ПЕРЕД часом: Place → Time.",
+        "«on the sofa» — Place; «every afternoon» — Time."
+      ],
+      "explanations": {
+        "a1": {
+          "on the sofa every afternoon": "Правильно: P → T.",
+          "every afternoon on the sofa": "Неправильно: T–P — обставина часу не стоїть перед місцем.",
+          "afternoon the sofa on every": "Неправильно: хаотичний порядок слів."
+        }
+      }
+    },
+    {
+      "id": 53,
+      "hints": [
+        "M–P–T: «fast» (M) → «around the track» (P) → «twice a day» (T).",
+        "«fast» відповідає на «як?»; стоїть перед «around the track» і «twice a day»."
+      ],
+      "explanations": {
+        "a1": {
+          "fast around the track twice a day": "Правильно: M–P–T.",
+          "around the track fast twice a day": "Неправильно: P–M–T.",
+          "twice a day fast around the track": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 54,
+      "hints": [
+        "M–P–T: «gracefully» (M) → «on the stage» (P) → «for hours» (T).",
+        "«gracefully» — Manner; завжди перший серед обставин."
+      ],
+      "explanations": {
+        "a1": {
+          "gracefully on the stage for hours": "Правильно: M–P–T.",
+          "on the stage gracefully for hours": "Неправильно: P–M–T.",
+          "for hours gracefully on the stage": "Неправильно: T–M–P."
+        }
+      }
+    },
+    {
+      "id": 55,
+      "hints": [
+        "Дієслово «send» з займенниковим IO: V + IO + DO без прийменника.",
+        "«him» — Object case «he». IO стоїть між дієсловом і прямим додатком."
+      ],
+      "explanations": {
+        "a1": {
+          "sent him": "Правильно: V + IO (him) + DO.",
+          "sent to him": "Неправильно: у V + to + IO прямий додаток іде першим: «sent a birthday card to him».",
+          "sent he": "Неправильно: «he» — Subject case; для IO потрібна форма «him»."
+        }
+      }
+    },
+    {
+      "id": 56,
+      "hints": [
+        "«show» + займенниковий IO: V + IO + DO без прийменника.",
+        "«us» — Object case «we». IO стоїть після дієслова без «to»."
+      ],
+      "explanations": {
+        "a1": {
+          "showed us": "Правильно: V + IO (us) + DO.",
+          "showed to us": "Неправильно: у V + DO + to + IO прямий додаток іде першим.",
+          "showed we": "Неправильно: «we» — Subject case; потрібна форма «us»."
+        }
+      }
+    },
+    {
+      "id": 57,
+      "hints": [
+        "«give» з коротким IO: V + IO + DO без прийменника.",
+        "«me» — Object case «I». Стоїть між «give» та «a hand»."
+      ],
+      "explanations": {
+        "a1": {
+          "give me": "Правильно: V + IO (me) + DO.",
+          "give to me": "Неправильно: у V + DO + to + IO прямий додаток іде першим.",
+          "give I": "Неправильно: «I» — Subject case; потрібна форма «me»."
+        }
+      }
+    },
+    {
+      "id": 58,
+      "hints": [
+        "«tell» + подвійний об'єкт: V + IO + DO. «no one» — IO після дієслова без «to».",
+        "«told no one the secret» — IO стоїть після V без прийменника."
+      ],
+      "explanations": {
+        "a1": {
+          "told no one": "Правильно: V + IO (no one) + DO.",
+          "told to no one": "Неправильно: «told to no one + DO» неприродна конструкція.",
+          "no one told": "Неправильно: IO не стоїть перед дієсловом у ствердному реченні."
+        }
+      }
+    },
+    {
+      "id": 59,
+      "hints": [
+        "«offer» з займенниковим IO: V + IO + DO без прийменника.",
+        "«her» — Object case «she». Стоїть між «offered» та «a good salary»."
+      ],
+      "explanations": {
+        "a1": {
+          "offered her": "Правильно: V + IO (her) + DO.",
+          "offered to her": "Неправильно: прямий додаток іде першим у V + DO + to + IO.",
+          "offered she": "Неправильно: «she» — Subject case; потрібна форма «her»."
+        }
+      }
+    },
+    {
+      "id": 60,
+      "hints": [
+        "«send» з займенниковим IO: V + IO + DO без прийменника.",
+        "«them» — Object case «they». Стоїть між «send» та «the report»."
+      ],
+      "explanations": {
+        "a1": {
+          "send them": "Правильно: V + IO (them) + DO.",
+          "send to them": "Неправильно: прямий додаток іде першим у V + DO + to + IO.",
+          "send they": "Неправильно: «they» — Subject case; потрібна форма «them»."
+        }
+      }
+    },
+    {
+      "id": 61,
+      "hints": [
+        "«teach» з займенниковим IO: V + IO + DO без прийменника.",
+        "«me» — Object case «I». Стоїть між «taught» та «a great deal»."
+      ],
+      "explanations": {
+        "a1": {
+          "taught me": "Правильно: V + IO (me) + DO.",
+          "taught to me": "Неправильно: прямий додаток іде першим у V + DO + to + IO.",
+          "taught I": "Неправильно: «I» — Subject case; потрібна форма «me»."
+        }
+      }
+    },
+    {
+      "id": 62,
+      "hints": [
+        "«show» + займенниковий IO: V + IO + DO без прийменника.",
+        "«me» — Object case «I». Стоїть між «show» та «the way»."
+      ],
+      "explanations": {
+        "a1": {
+          "show me": "Правильно: V + IO (me) + DO.",
+          "show to me": "Неправильно: прямий додаток іде першим у V + DO + to + IO.",
+          "show I": "Неправильно: «I» — Subject case; потрібна форма «me»."
+        }
+      }
+    },
+    {
+      "id": 63,
+      "hints": [
+        "«email» з займенниковим IO: V + IO + DO без прийменника.",
+        "«us» — Object case «we». Стоїть між «emailed» та «the recipe»."
+      ],
+      "explanations": {
+        "a1": {
+          "emailed us": "Правильно: V + IO (us) + DO.",
+          "emailed to us": "Неправильно: прямий додаток іде першим у V + DO + to + IO.",
+          "emailed we": "Неправильно: «we» — Subject case; потрібна форма «us»."
+        }
+      }
+    },
+    {
+      "id": 64,
+      "hints": [
+        "Займенник-об'єкт фразового дієслова завжди стоїть між дієсловом і часткою: turn + them + off.",
+        "«them» — займенник; ніколи не стоїть ПІСЛЯ частки."
+      ],
+      "explanations": {
+        "a1": {
+          "turn them off": "Правильно: займенник «them» між «turn» та «off».",
+          "turn off them": "Неправильно: займенник ніколи не стоїть після частки у фразовому дієслові.",
+          "turning them off": "Неправильно: після «Please» потрібна основна форма «turn»."
+        }
+      }
+    },
+    {
+      "id": 65,
+      "hints": [
+        "Займенник-об'єкт стоїть між дієсловом і часткою: read + it + out.",
+        "«it» — займенник; не може стояти після частки «out»."
+      ],
+      "explanations": {
+        "a1": {
+          "read it out": "Правильно: «it» між «read» та «out».",
+          "read out it": "Неправильно: займенник не ставиться після частки.",
+          "reading it out": "Неправильно: після «Let me» потрібна основна форма."
+        }
+      }
+    },
+    {
+      "id": 66,
+      "hints": [
+        "Займенник-об'єкт стоїть між дієсловом і часткою: throw + it + away.",
+        "«it» — займенник; після «away» стояти не може."
+      ],
+      "explanations": {
+        "a1": {
+          "throw it away": "Правильно: «it» між «throw» та «away».",
+          "throw away it": "Неправильно: займенник не ставиться після частки.",
+          "throwing it away": "Неправильно: після «decided to» потрібна основна форма «throw»."
+        }
+      }
+    },
+    {
+      "id": 67,
+      "hints": [
+        "Займенник-об'єкт стоїть між дієсловом і часткою: turn + it + down.",
+        "«it» — займенник; «turn down it» неможлива форма."
+      ],
+      "explanations": {
+        "a1": {
+          "turn it down": "Правильно: «it» між «turn» та «down».",
+          "turn down it": "Неправильно: займенник не ставиться після частки.",
+          "turning it down": "Неправильно: після «Can you» потрібна основна форма «turn»."
+        }
+      }
+    },
+    {
+      "id": 68,
+      "hints": [
+        "Займенник-об'єкт стоїть між дієсловом і часткою: give + it + up.",
+        "«it» — займенник; після «up» стояти не може."
+      ],
+      "explanations": {
+        "a1": {
+          "give it up": "Правильно: «it» між «give» та «up».",
+          "give up it": "Неправильно: займенник не ставиться після частки.",
+          "gives it up": "Неправильно: після «should» потрібна основна форма «give»."
+        }
+      }
+    },
+    {
+      "id": 69,
+      "hints": [
+        "Займенник стоїть між дієсловом і часткою: fill + it + in; «again» — після всієї конструкції.",
+        "«it» між «fill» та «in»; «again» після «fill it in»."
+      ],
+      "explanations": {
+        "a1": {
+          "fill it in again": "Правильно: «it» між «fill» та «in», «again» в кінці.",
+          "fill in it again": "Неправильно: займенник не ставиться після частки «in».",
+          "fill it again in": "Неправильно: «again» має стояти після «fill it in», а не між займенником і часткою."
+        }
+      }
+    },
+    {
+      "id": 70,
+      "hints": [
+        "Займенник-об'єкт стоїть між дієсловом і часткою: write + it + down.",
+        "«it» — займенник; після «down» стояти не може."
+      ],
+      "explanations": {
+        "a1": {
+          "write it down": "Правильно: «it» між «write» та «down».",
+          "write down it": "Неправильно: займенник не ставиться після частки.",
+          "writing it down": "Неправильно: після «to» потрібна основна форма «write»."
+        }
+      }
+    },
+    {
+      "id": 71,
+      "hints": [
+        "Займенник-об'єкт (them) стоїть між дієсловом і часткою: throws + them + away.",
+        "«them» між «throws» та «away»; форма «throws» для 3 ос. одн. «She»."
+      ],
+      "explanations": {
+        "a1": {
+          "throws them away": "Правильно: «them» між «throws» та «away»; форма «throws» відповідає «She».",
+          "throws away them": "Неправильно: займенник не ставиться після частки.",
+          "throw them away": "Неправильно: «She» вимагає форми «throws», а не «throw»."
+        }
+      }
+    },
+    {
+      "id": 72,
+      "hints": [
+        "Займенник-об'єкт стоїть між дієсловом і часткою: look + it + up.",
+        "«it» — займенник; після «up» стояти не може."
+      ],
+      "explanations": {
+        "a1": {
+          "look it up": "Правильно: «it» між «look» та «up».",
+          "look up it": "Неправильно: займенник не ставиться після частки.",
+          "looking it up": "Неправильно: після «to» потрібна основна форма «look»."
+        }
+      }
+    },
+    {
+      "id": 73,
+      "hints": [
+        "Після «Not only» відбувається інверсія: допоміжне дієслово → підмет → основне дієслово.",
+        "«Not only» — негативна конструкція; після неї обов'язкова інверсія: does + she + cook."
+      ],
+      "explanations": {
+        "a1": {
+          "does she cook": "Правильно: інверсія — does + she + cook.",
+          "she cooks": "Неправильно: звичайний S+V без інверсії після «Not only» неприпустимий.",
+          "she does cook": "Неправильно: емфатична конструкція без інверсії після «Not only» граматично некоректна."
+        }
+      }
+    },
+    {
+      "id": 74,
+      "hints": [
+        "Після «Never» на початку речення — інверсія: had → I → seen (Past Perfect).",
+        "«Never» — негативний прислівник; після нього: had → I → seen."
+      ],
+      "explanations": {
+        "a1": {
+          "had I seen": "Правильно: інверсія — had + I + seen.",
+          "I had seen": "Неправильно: S+V без інверсії після «Never» неприпустимий.",
+          "I have seen": "Неправильно: неправильна форма часу і немає інверсії."
+        }
+      }
+    },
+    {
+      "id": 75,
+      "hints": [
+        "«Rarely» на початку речення викликає інверсію: have → I → been.",
+        "Після «Rarely»: have → I → been. S+V без інверсії неприпустимий."
+      ],
+      "explanations": {
+        "a1": {
+          "have I been": "Правильно: інверсія — have + I + been.",
+          "I have been": "Неправильно: S+V без інверсії після «Rarely» неприпустимий.",
+          "I am": "Неправильно: неправильний час і відсутність інверсії."
+        }
+      }
+    },
+    {
+      "id": 76,
+      "hints": [
+        "«Seldom» на початку речення вимагає інверсії: do + підмет + основне дієслово.",
+        "Після «Seldom»: do → managers → acknowledge."
+      ],
+      "explanations": {
+        "a1": {
+          "do managers acknowledge": "Правильно: інверсія — do + managers + acknowledge.",
+          "managers acknowledge": "Неправильно: S+V без інверсії після «Seldom» неприпустимий.",
+          "managers do acknowledge": "Неправильно: «do» тут емфатичне і не замінює інверсію."
+        }
+      }
+    },
+    {
+      "id": 77,
+      "hints": [
+        "«Hardly ... when» з Past Perfect вимагає інверсії: had + підмет + PP.",
+        "Після «Hardly»: had → we → arrived."
+      ],
+      "explanations": {
+        "a1": {
+          "had we arrived": "Правильно: інверсія — had + we + arrived.",
+          "we had arrived": "Неправильно: S+V без інверсії після «Hardly» неприпустимий.",
+          "we arrived": "Неправильно: простий минулий і відсутність інверсії некоректні."
+        }
+      }
+    },
+    {
+      "id": 78,
+      "hints": [
+        "«No sooner ... than» вимагає інверсії: had + підмет + PP.",
+        "Після «No sooner»: had → she → sat down."
+      ],
+      "explanations": {
+        "a1": {
+          "had she sat down": "Правильно: інверсія — had + she + sat down.",
+          "she had sat down": "Неправильно: S+V без інверсії некоректний.",
+          "she sat down": "Неправильно: немає Past Perfect і немає інверсії."
+        }
+      }
+    },
+    {
+      "id": 79,
+      "hints": [
+        "«Under no circumstances» — негативна фраза; вимагає інверсії: modal + підмет + дієслово.",
+        "Після «Under no circumstances»: should → you → leave."
+      ],
+      "explanations": {
+        "a1": {
+          "should you leave": "Правильно: інверсія — should + you + leave.",
+          "you should leave": "Неправильно: S+V без інверсії неприпустимий.",
+          "you leave": "Неправильно: відсутнє modal і немає інверсії."
+        }
+      }
+    },
+    {
+      "id": 80,
+      "hints": [
+        "«Little» у значенні «майже не» вимагає інверсії: did + підмет + основне дієслово.",
+        "Після «Little»: did → he → realise."
+      ],
+      "explanations": {
+        "a1": {
+          "did he realise": "Правильно: інверсія — did + he + realise.",
+          "he realised": "Неправильно: S+V без інверсії після «Little» у цьому значенні некоректний.",
+          "he did realise": "Неправильно: «did» тут емфатичне; без інверсії після «Little» неприпустимо."
+        }
+      }
+    },
+    {
+      "id": 81,
+      "hints": [
+        "«On no account» — негативна фраза; вимагає інверсії: modal + підмет + дієслово.",
+        "Після «On no account»: must → you → share."
+      ],
+      "explanations": {
+        "a1": {
+          "must you share": "Правильно: інверсія — must + you + share.",
+          "you must share": "Неправильно: S+V без інверсії некоректний.",
+          "you share": "Неправильно: відсутнє modal і немає інверсії."
+        }
+      }
+    },
+    {
+      "id": 82,
+      "hints": [
+        "Конструкція «There + V + S» вводить суб'єкт із дієсловами позиції (stood, sat).",
+        "«There stood the CEO...» — класичний інвертований порядок."
+      ],
+      "explanations": {
+        "a1": {
+          "There stood": "Правильно: «There + V + S» — інверсія для введення суб'єкта.",
+          "There was stood": "Неправильно: «was stood» — пасивна форма; тут потрібен активний стан.",
+          "Stood there": "Неправильно: порядок «Stood there the CEO» неприродний у сучасній англійській."
+        }
+      }
+    },
+    {
+      "id": 83,
+      "hints": [
+        "«Not until + time» на початку речення вимагає інверсії: did + підмет + дієслово.",
+        "Після «Not until midnight»: did → they → hear."
+      ],
+      "explanations": {
+        "a1": {
+          "did they hear": "Правильно: інверсія — did + they + hear.",
+          "they heard": "Неправильно: S+V без інверсії після «Not until» неприпустимий.",
+          "they did hear": "Неправильно: емфатична конструкція без інверсії некоректна."
+        }
+      }
+    },
+    {
+      "id": 84,
+      "hints": [
+        "«Only then» вимагає інверсії: did + підмет + основне дієслово.",
+        "Після «Only then»: did → they → understand."
+      ],
+      "explanations": {
+        "a1": {
+          "did they understand": "Правильно: інверсія — did + they + understand.",
+          "they understood": "Неправильно: S+V без інверсії після «Only then» неприпустимий.",
+          "they did understand": "Неправильно: емфатична конструкція без інверсії некоректна."
+        }
+      }
+    },
+    {
+      "id": 85,
+      "hints": [
+        "«Such was + NP» — інвертована конструкція для наголосу. Після «Such was» — іменна група з означеним артиклем.",
+        "«the noise» стоїть після «was» — інверсія для емфазису."
+      ],
+      "explanations": {
+        "a1": {
+          "the noise": "Правильно: «Such was the noise» — інверсія «Such was + NP».",
+          "noise the": "Неправильно: артикль «the» стоїть перед іменником, а не після нього.",
+          "a noise the": "Неправильно: «a» — неозначений артикль; тут потрібний «the»."
+        }
+      }
+    },
+    {
+      "id": 86,
+      "hints": [
+        "Коли обставина місця на початку речення — інверсія: Adv + V + S.",
+        "«In front of the house stood two tall oak trees» — типова літературна інверсія."
+      ],
+      "explanations": {
+        "a1": {
+          "stood": "Правильно: інверсія Adv + V + S.",
+          "were standing there": "Неправильно: «there» зайве; конструкція не відображає потрібну інверсію.",
+          "there were standing": "Неправильно: «there were two trees standing» — цілком інша конструкція."
+        }
+      }
+    },
+    {
+      "id": 87,
+      "hints": [
+        "«Nowhere» — негативний прислівник місця; вимагає інверсії: modal + підмет + дієслово.",
+        "Після «Nowhere in the world»: will → you → hear."
+      ],
+      "explanations": {
+        "a1": {
+          "will you hear": "Правильно: інверсія — will + you + hear.",
+          "you will hear": "Неправильно: S+V без інверсії після «Nowhere» неприпустимий.",
+          "you hear": "Неправильно: відсутнє «will» і немає інверсії."
+        }
+      }
+    },
+    {
+      "id": 88,
+      "hints": [
+        "«At no time» — негативна фраза; вимагає інверсії: did + підмет + дієслово.",
+        "Після «At no time»: did → she → consider."
+      ],
+      "explanations": {
+        "a1": {
+          "did she consider": "Правильно: інверсія — did + she + consider.",
+          "she considered": "Неправильно: S+V без інверсії некоректний.",
+          "she did consider": "Неправильно: емфатична конструкція без інверсії неприпустима."
+        }
+      }
+    },
+    {
+      "id": 89,
+      "hints": [
+        "«Not a word» — негативна фраза; вимагає інверсії: did + підмет + дієслово.",
+        "Після «Not a word»: did → he → say."
+      ],
+      "explanations": {
+        "a1": {
+          "did he say": "Правильно: інверсія — did + he + say.",
+          "he said": "Неправильно: S+V без інверсії некоректний.",
+          "he did say": "Неправильно: емфатична конструкція без інверсії неприпустима."
+        }
+      }
+    },
+    {
+      "id": 90,
+      "hints": [
+        "Коли прислівник напряму (Down, Up, Out) на початку речення — інверсія: Adv + V + S.",
+        "«Down came the curtain» — класична інверсія Adv + V + S."
+      ],
+      "explanations": {
+        "a1": {
+          "came": "Правильно: «Down came the curtain» — інверсія.",
+          "there came": "Неправильно: «there» зайве; «Down came» — вже завершена інверсія.",
+          "it came": "Неправильно: стандартний S+V без інверсії."
+        }
+      }
+    },
+    {
+      "id": 91,
+      "hints": [
+        "В it-cleft: It + be + фокус + who/that. Виділений елемент між «was» і «who» без прийменника.",
+        "«It was ... who ...» — конструкція для виділення підмета; простий іменник без прийменника."
+      ],
+      "explanations": {
+        "a1": {
+          "Neil Armstrong": "Правильно: «It was Neil Armstrong who...» — стандартна it-cleft.",
+          "by Neil Armstrong": "Неправильно: «by» вносить пасивне значення; в it-cleft прийменника немає.",
+          "Neil Armstrong himself": "Неправильно: «himself» не вживається як виділений елемент в it-cleft."
+        }
+      }
+    },
+    {
+      "id": 92,
+      "hints": [
+        "В it-cleft «that» з'єднує виділений елемент і клаузу-решту.",
+        "Конструкція: It + was + [виділена обставина] + that + [решта речення]."
+      ],
+      "explanations": {
+        "a1": {
+          "that": "Правильно: «It was in 1969 that...» — стандартна it-cleft.",
+          "when": "Неправильно: «when» вводить часові підрядні, але не it-cleft.",
+          "which": "Неправильно: «which» — відносний займенник; в it-cleft після обставини часу — «that»."
+        }
+      }
+    },
+    {
+      "id": 93,
+      "hints": [
+        "В it-cleft після виділеного підмета-особи вживається «who».",
+        "«children» — особи. В it-cleft після виділеного особового іменника — «who»."
+      ],
+      "explanations": {
+        "a1": {
+          "who": "Правильно: «It is children who are...» — it-cleft із «who».",
+          "which": "Неправильно: «which» для речей; для «children» потрібне «who».",
+          "they": "Неправильно: займенник «they» не замінює відносний займенник."
+        }
+      }
+    },
+    {
+      "id": 94,
+      "hints": [
+        "В it-cleft «that» з'єднує виділений елемент і клаузу-решту.",
+        "«poverty and despair» — абстрактні поняття; в it-cleft після них — «that», не «who»."
+      ],
+      "explanations": {
+        "a1": {
+          "that": "Правильно: «It was poverty and despair that drove...» — it-cleft.",
+          "which had": "Неправильно: «which had» вводить власний підрядний час; в it-cleft потрібне просте «that».",
+          "who": "Неправильно: «who» для осіб; «poverty and despair» — абстрактні поняття."
+        }
+      }
+    },
+    {
+      "id": 95,
+      "hints": [
+        "В it-cleft після виділеної обставини часу або місця вживається «that».",
+        "«on Tuesdays» — обставина часу; в it-cleft після неї — «that»."
+      ],
+      "explanations": {
+        "a1": {
+          "that": "Правильно: «It is on Tuesdays that the committee meets» — it-cleft.",
+          "when": "Неправильно: «when» вводить підрядне часу, але не it-cleft.",
+          "which": "Неправильно: «which» — відносний займенник, не сполучник у it-cleft."
+        }
+      }
+    },
+    {
+      "id": 96,
+      "hints": [
+        "«It was not until ... that ...» — стала формула для емфатичного часового обмеження.",
+        "Конструкція: It + was + not until + [час] + that + [речення]."
+      ],
+      "explanations": {
+        "a1": {
+          "that": "Правильно: «It was not until dawn that...» — стандартна it-cleft.",
+          "when": "Неправильно: у «It was not until ... that» «when» неприпустимий.",
+          "which": "Неправильно: «which» — відносний займенник; не вживається в цій формулі."
+        }
+      }
+    },
+    {
+      "id": 97,
+      "hints": [
+        "В it-cleft після абстрактного поняття вживається «that».",
+        "«her passion» — абстрактне, не особа; в it-cleft — «that», не «who»."
+      ],
+      "explanations": {
+        "a1": {
+          "that": "Правильно: «It is her passion that sets her apart» — it-cleft.",
+          "who": "Неправильно: «who» тільки після виділення особи.",
+          "it": "Неправильно: «it» — займенник, не сполучник."
+        }
+      }
+    },
+    {
+      "id": 98,
+      "hints": [
+        "В it-cleft після виділеної обставини місця вживається «that».",
+        "«to London» — обставина місця; в it-cleft — «that»."
+      ],
+      "explanations": {
+        "a1": {
+          "that": "Правильно: «It was to London that she moved» — it-cleft.",
+          "where": "Неправильно: «where» вводить підрядне місця, але не it-cleft.",
+          "which": "Неправильно: «which» — відносний займенник, не сполучник."
+        }
+      }
+    },
+    {
+      "id": 99,
+      "hints": [
+        "В it-cleft після неособового іменника вживається «that».",
+        "«the final chapter» — річ; в it-cleft — «that», не «who»."
+      ],
+      "explanations": {
+        "a1": {
+          "that": "Правильно: «It was the final chapter that moved...» — it-cleft.",
+          "who": "Неправильно: «who» тільки для виділення осіб.",
+          "it": "Неправильно: «it» — займенник, не сполучник."
+        }
+      }
+    },
+    {
+      "id": 100,
+      "hints": [
+        "Wh-cleft починається з «What» (= the thing that). «What + clause» виконує роль підмета.",
+        "«What happened next surprised everyone» — wh-cleft; «What» = «the thing that»."
+      ],
+      "explanations": {
+        "a1": {
+          "What": "Правильно: «What happened next surprised everyone» — wh-cleft.",
+          "That": "Неправильно: «That happened next is...» граматично некоректно.",
+          "Which": "Неправильно: «Which» — відносний займенник; не починає wh-cleft підмет-клаузу."
+        }
+      }
+    },
+    {
+      "id": 101,
+      "hints": [
+        "У wh-cleft «What + clause» є однинним підметом → «was».",
+        "«What annoyed her» — підмет-клауза (однина) → «was»."
+      ],
+      "explanations": {
+        "a1": {
+          "was": "Правильно: wh-cleft з «was» — підмет-клауза однинна.",
+          "were": "Неправильно: wh-клауза-підмет однинна → «was», а не «were».",
+          "has been": "Неправильно: Present Perfect тут недоречний; потрібен Past Simple «was»."
+        }
+      }
+    },
+    {
+      "id": 102,
+      "hints": [
+        "Wh-cleft починається з «What». «What + clause» є підметом.",
+        "«What bothers me is the lack of transparency» — типова wh-cleft."
+      ],
+      "explanations": {
+        "a1": {
+          "What": "Правильно: «What bothers me is...» — wh-cleft.",
+          "That": "Неправильно: «That bothers me is...» граматично некоректно.",
+          "Which": "Неправильно: «Which» — відносний займенник; не починає wh-cleft."
+        }
+      }
+    },
+    {
+      "id": 103,
+      "hints": [
+        "У wh-cleft «What + clause» — однинний підмет → «was».",
+        "«What they discovered» — підмет-клауза (однина) → «was»."
+      ],
+      "explanations": {
+        "a1": {
+          "was": "Правильно: wh-cleft з «was».",
+          "were": "Неправильно: wh-клауза-підмет однинна → «was».",
+          "has been": "Неправильно: Past Perfect тут зайвий; потрібен «was»."
+        }
+      }
+    },
+    {
+      "id": 104,
+      "hints": [
+        "Wh-cleft починається з «What». «What she truly values» — підмет речення.",
+        "«What she truly values is honesty» — класична wh-cleft."
+      ],
+      "explanations": {
+        "a1": {
+          "What": "Правильно: «What she truly values is...» — wh-cleft.",
+          "That": "Неправильно: «That she truly values is...» граматично некоректно.",
+          "It is": "Неправильно: «It is + focus + that/who» — це it-cleft, не wh-cleft."
+        }
+      }
+    },
+    {
+      "id": 105,
+      "hints": [
+        "У wh-cleft «What + clause» — однинний підмет → «is».",
+        "«What the new policy requires» — підмет-клауза (однина) → «is»."
+      ],
+      "explanations": {
+        "a1": {
+          "is": "Правильно: wh-cleft з «is».",
+          "are": "Неправильно: підмет-клауза однинна → «is».",
+          "was being": "Неправильно: Past Progressive Passive часово невідповідний."
+        }
+      }
+    },
+    {
+      "id": 106,
+      "hints": [
+        "Wh-cleft починається з «What». «What I find remarkable» — підмет.",
+        "«What I find remarkable is his ability...» — типова wh-cleft."
+      ],
+      "explanations": {
+        "a1": {
+          "What": "Правильно: wh-cleft.",
+          "That": "Неправильно: «That I find remarkable is...» граматично некоректно.",
+          "Which": "Неправильно: «Which» — відносний займенник; не починає wh-cleft."
+        }
+      }
+    },
+    {
+      "id": 107,
+      "hints": [
+        "У wh-cleft «What + clause» — однинний підмет → «was».",
+        "«What puzzled the archaeologists» — підмет-клауза (однина) → «was»."
+      ],
+      "explanations": {
+        "a1": {
+          "was": "Правильно: wh-cleft з «was».",
+          "were": "Неправильно: wh-клауза-підмет однинна → «was».",
+          "had been": "Неправильно: Past Perfect тут зайвий; потрібен «was»."
+        }
+      }
+    },
+    {
+      "id": 108,
+      "hints": [
+        "У wh-cleft «What + clause» — однинний підмет → «was».",
+        "«What he brought» — підмет-клауза (однина) → «was»."
+      ],
+      "explanations": {
+        "a1": {
+          "was": "Правильно: wh-cleft з «was».",
+          "were": "Неправильно: wh-клауза-підмет однинна → «was».",
+          "is being": "Неправильно: Present Progressive Passive часово невідповідний; потрібен «was»."
+        }
+      }
+    }
+  ]
+}
