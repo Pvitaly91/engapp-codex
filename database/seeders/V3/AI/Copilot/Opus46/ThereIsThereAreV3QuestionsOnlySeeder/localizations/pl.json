@@ -1,0 +1,1526 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\Pl\\AI\\Copilot\\Opus46\\ThereIsThereAreV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ThereIsThereAreV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "pl",
+  "hint_provider": "copilot-opus46",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "Konstrukcja 'there is' jest używana z rzeczownikiem w liczbie pojedynczej. Przedimek 'a' wskazuje na jeden przedmiot.",
+        "Zwróć uwagę na 'a' przed 'cat' — to sygnał liczby pojedynczej, więc wybierz 'is'."
+      ],
+      "explanations": {
+        "a1": {
+          "is": "Poprawnie: 'a cat' to liczba pojedyncza → 'there is'.",
+          "are": "'Are' wymaga liczby mnogiej. 'A cat' to l. pojedyncza.",
+          "am": "'Am' występuje tylko z 'I'. Nie używa się go w konstrukcji 'there'."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Konstrukcja 'there are' jest używana z rzeczownikami w liczbie mnogiej. 'Two' wskazuje na więcej niż jeden.",
+        "'Two dogs' to liczba mnoga — czasownik musi się z nią zgadzać."
+      ],
+      "explanations": {
+        "a2": {
+          "are": "Poprawnie: 'two dogs' to l. mnoga → 'there are'.",
+          "is": "'Is' dla l. pojedynczej. 'Two dogs' = l. mnoga.",
+          "am": "'Am' tylko z 'I'."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Przedimek 'a' + 'book' = jeden przedmiot → 'there is'.",
+        "Jeden przedmiot = czasownik w liczbie pojedynczej."
+      ],
+      "explanations": {
+        "a3": {
+          "is": "Poprawnie: 'a book' = l. pojedyncza → 'is'.",
+          "are": "'Are' dla l. mnogiej.",
+          "am": "'There am' nie istnieje."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Liczebnik 'three' + 'apples' = l. mnoga → 'there are'.",
+        "'Apples' to l. mnoga."
+      ],
+      "explanations": {
+        "a4": {
+          "are": "Poprawnie: 'three apples' = l. mnoga → 'are'.",
+          "is": "'Is' dla l. pojedynczej.",
+          "am": "'Am' tylko z 'I'."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "'A lamp' — jeden przedmiot → 'there is'.",
+        "Przedimek 'a' sygnalizuje l. pojedynczą."
+      ],
+      "explanations": {
+        "a5": {
+          "is": "Poprawnie: l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "has": "'There has' nie wyraża istnienia w Present Simple."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "'Many chairs' — l. mnoga → 'there are'.",
+        "'Many' występuje z policzalnymi rzeczownikami w l. mnogiej."
+      ],
+      "explanations": {
+        "a6": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "'A window' — jeden przedmiot → 'is'.",
+        "Przedimek 'a' = l. pojedyncza."
+      ],
+      "explanations": {
+        "a7": {
+          "is": "Poprawnie: l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "'Some toys' — l. mnoga → 'are'.",
+        "'Toys' to l. mnoga od 'toy'."
+      ],
+      "explanations": {
+        "a8": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "'Milk' jest niepoliczalny → zawsze 'there is'.",
+        "Rzeczowniki niepoliczalne (płyny, substancje) łączą się z 'is'."
+      ],
+      "explanations": {
+        "a9": {
+          "is": "Poprawnie: 'milk' niepoliczalny → 'is'.",
+          "are": "'Are' dla l. mnogiej policzalnych.",
+          "am": "'Am' tylko z 'I'."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "'Water' jest niepoliczalny → 'is'.",
+        "'Water' nie ma formy liczby mnogiej."
+      ],
+      "explanations": {
+        "a10": {
+          "is": "Poprawnie: niepoliczalny → 'is'.",
+          "are": "L. mnoga.",
+          "am": "'Am' tylko z 'I'."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "Pytanie z l. pojedynczą: 'Is there …?'",
+        "'A pen' = l. pojedyncza → 'Is there'."
+      ],
+      "explanations": {
+        "a11": {
+          "Is there": "Poprawnie: l. pojedyncza → 'Is there'.",
+          "Are there": "'Are there' dla l. mnogiej.",
+          "There is": "To zdanie twierdzące, nie pytanie."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "Pytanie z l. mnogą: 'Are there …?'",
+        "'Books' = l. mnoga."
+      ],
+      "explanations": {
+        "a12": {
+          "Are there": "Poprawnie: l. mnoga → 'Are there'.",
+          "Is there": "'Is there' dla l. pojedynczej.",
+          "There are": "Zdanie twierdzące, nie pytanie."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Przeczenie z l. pojedynczą: 'There is not' / 'There isn't'.",
+        "'A computer' = l. pojedyncza."
+      ],
+      "explanations": {
+        "a13": {
+          "is": "Poprawnie: l. pojedyncza → 'is not'.",
+          "are": "L. mnoga.",
+          "am": "Nie występuje w 'there'."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Przeczenie z l. mnogą: 'There are not' / 'There aren't'.",
+        "'Pictures' = l. mnoga."
+      ],
+      "explanations": {
+        "a14": {
+          "are": "Poprawnie: l. mnoga → 'are not'.",
+          "is": "L. pojedyncza.",
+          "am": "Nie w konstrukcji 'there'."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "'A big tree' — jeden przedmiot → 'is'.",
+        "Przymiotnik nie zmienia reguły: jeden = 'is'."
+      ],
+      "explanations": {
+        "a15": {
+          "is": "Poprawnie: l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "'Four children' — l. mnoga → 'are'.",
+        "'Children' to nieregularna l. mnoga od 'child'."
+      ],
+      "explanations": {
+        "a16": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "Krótka odpowiedź na 'Is there…?': 'Yes, there is.'",
+        "Pytanie z 'Is there' — odpowiedź powtarza 'is'."
+      ],
+      "explanations": {
+        "a17": {
+          "is": "Poprawnie: 'Yes, there is.'",
+          "are": "Nie pasuje do pytania z 'Is there'.",
+          "isn't": "To przeczenie, ale odpowiedź zaczyna się od 'Yes'."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Krótka przecząca odpowiedź: 'No, there aren't.'",
+        "'Are there' + 'No' → 'aren't'."
+      ],
+      "explanations": {
+        "a18": {
+          "aren't": "Poprawnie: 'No, there aren't.'",
+          "isn't": "'Isn't' dla 'Is there'.",
+          "not": "Samo 'not' nie tworzy krótkiej odpowiedzi."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "'A beautiful garden' — l. pojedyncza → 'is'.",
+        "Przedimek 'a' = jeden przedmiot."
+      ],
+      "explanations": {
+        "a19": {
+          "is": "Poprawnie: l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "was": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "'Some museums' — l. mnoga → 'are'.",
+        "'Museums' to l. mnoga."
+      ],
+      "explanations": {
+        "a20": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "was": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "'Traffic' jest niepoliczalny → 'is'.",
+        "Mimo 'a lot of', 'traffic' jest zawsze niepoliczalny."
+      ],
+      "explanations": {
+        "a21": {
+          "is": "Poprawnie: niepoliczalny → 'is'.",
+          "are": "L. mnoga.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "'Students' — policzalny w l. mnogiej → 'are'.",
+        "'A lot of students' = l. mnoga."
+      ],
+      "explanations": {
+        "a22": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "'There is no' + niepoliczalny — przeczenie z 'no'.",
+        "'Sugar' niepoliczalny → 'is'."
+      ],
+      "explanations": {
+        "a23": {
+          "is": "Poprawnie: 'there is no sugar'.",
+          "are": "L. mnoga.",
+          "isn't": "'Isn't' z 'there isn't any'. Tu z 'no' = 'is'."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "'There are no' + l. mnoga.",
+        "'Buses' = l. mnoga → 'are'."
+      ],
+      "explanations": {
+        "a24": {
+          "are": "Poprawnie: 'there are no buses'.",
+          "is": "L. pojedyncza.",
+          "aren't": "'Aren't' z 'there aren't any'. Tu z 'no' = 'are'."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "Pytanie o niepoliczalny: 'Is there any milk…?'",
+        "'Milk' niepoliczalny → 'Is there'."
+      ],
+      "explanations": {
+        "a25": {
+          "Is there": "Poprawnie: niepoliczalny → 'Is there'.",
+          "Are there": "L. mnoga.",
+          "Does there": "'Does there' nie istnieje."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "L. mnoga: 'Are there any restaurants…?'",
+        "'Restaurants' = l. mnoga."
+      ],
+      "explanations": {
+        "a26": {
+          "Are there": "Poprawnie: l. mnoga → 'Are there'.",
+          "Is there": "L. pojedyncza.",
+          "Does there": "Nie istnieje."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "'A strange noise' — l. pojedyncza → 'is'.",
+        "Przedimek 'a' = l. pojedyncza."
+      ],
+      "explanations": {
+        "a27": {
+          "is": "Poprawnie: l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "were": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "'Some clouds' — l. mnoga → 'are'.",
+        "'Clouds' = l. mnoga."
+      ],
+      "explanations": {
+        "a28": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "were": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "'A new shopping centre' — l. pojedyncza → 'is'.",
+        "Przedimek 'a' = jeden."
+      ],
+      "explanations": {
+        "a29": {
+          "is": "Poprawnie: l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "'Parking spaces' — l. mnoga → 'are'.",
+        "'Spaces' = l. mnoga."
+      ],
+      "explanations": {
+        "a30": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 31,
+      "hints": [
+        "'A pharmacy' — l. pojedyncza → 'is'.",
+        "Przedimek 'a' = jeden."
+      ],
+      "explanations": {
+        "a31": {
+          "is": "Poprawnie: l. pojedyncza.",
+          "are": "L. mnoga.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 32,
+      "hints": [
+        "'Several mistakes' — l. mnoga → 'are'.",
+        "'Several' zawsze z l. mnogą."
+      ],
+      "explanations": {
+        "a32": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 33,
+      "hints": [
+        "'Time' (czas) jest niepoliczalny → 'is'.",
+        "'Not enough time' — niepoliczalny."
+      ],
+      "explanations": {
+        "a33": {
+          "is": "Poprawnie: niepoliczalny → 'is'.",
+          "are": "L. mnoga.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 34,
+      "hints": [
+        "'People' — l. mnoga → 'are'.",
+        "'Not many people' = l. mnoga."
+      ],
+      "explanations": {
+        "a34": {
+          "are": "Poprawnie: 'people' = l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "has": "Nie dla istnienia."
+        }
+      }
+    },
+    {
+      "id": 35,
+      "hints": [
+        "Krótka przecząca odpowiedź na 'Is there…?': 'No, there isn't.'",
+        "L. pojedyncza + 'No' → 'isn't'."
+      ],
+      "explanations": {
+        "a35": {
+          "isn't": "Poprawnie: 'No, there isn't.'",
+          "aren't": "'Aren't' dla 'Are there'.",
+          "not": "Samo 'not' nie tworzy odpowiedzi."
+        }
+      }
+    },
+    {
+      "id": 36,
+      "hints": [
+        "Krótka twierdzaca odpowiedź na 'Are there…?': 'Yes, there are.'",
+        "L. mnoga + 'Yes' → 'are'."
+      ],
+      "explanations": {
+        "a36": {
+          "are": "Poprawnie: 'Yes, there are.'",
+          "is": "L. pojedyncza.",
+          "were": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 37,
+      "hints": [
+        "Czas przeszły od 'there is' → 'there was' (l. pojedyncza).",
+        "'Yesterday' = przeszłość. 'A meeting' = l. pojedyncza → 'was'."
+      ],
+      "explanations": {
+        "a37": {
+          "was": "Poprawnie: l. pojedyncza + przeszłość → 'was'.",
+          "were": "L. mnoga.",
+          "is": "Czas teraźniejszy."
+        }
+      }
+    },
+    {
+      "id": 38,
+      "hints": [
+        "Czas przeszły od 'there are' → 'there were' (l. mnoga).",
+        "'Many guests' + 'last night' → l. mnoga w przeszłości."
+      ],
+      "explanations": {
+        "a38": {
+          "were": "Poprawnie: l. mnoga + przeszłość → 'were'.",
+          "was": "L. pojedyncza.",
+          "are": "Czas teraźniejszy."
+        }
+      }
+    },
+    {
+      "id": 39,
+      "hints": [
+        "Przyszłość: 'there will be'.",
+        "'Next week' = przyszłość."
+      ],
+      "explanations": {
+        "a39": {
+          "will be": "Poprawnie: przyszłość → 'will be'.",
+          "is being": "Present Continuous Passive.",
+          "has been": "Present Perfect."
+        }
+      }
+    },
+    {
+      "id": 40,
+      "hints": [
+        "'Next summer' = przyszłość → 'there will be'.",
+        "'Will be' nie zmienia się w zależności od liczby."
+      ],
+      "explanations": {
+        "a40": {
+          "will be": "Poprawnie: przyszłość → 'will be'.",
+          "are being": "Present Continuous Passive.",
+          "have been": "Present Perfect."
+        }
+      }
+    },
+    {
+      "id": 41,
+      "hints": [
+        "'This morning' + zakończone zdarzenie → przeszłość. 'An accident' = l. pojedyncza → 'was'.",
+        "Jedno zdarzenie w przeszłości."
+      ],
+      "explanations": {
+        "a41": {
+          "was": "Poprawnie: l. pojedyncza + przeszłość → 'was'.",
+          "were": "L. mnoga.",
+          "has": "Błędna konstrukcja."
+        }
+      }
+    },
+    {
+      "id": 42,
+      "hints": [
+        "'When I arrived' = przeszłość. 'Towels' = l. mnoga → 'were'.",
+        "L. mnoga + przeszłość."
+      ],
+      "explanations": {
+        "a42": {
+          "were": "Poprawnie: l. mnoga + przeszłość → 'were'.",
+          "was": "L. pojedyncza.",
+          "are": "Czas teraźniejszy."
+        }
+      }
+    },
+    {
+      "id": 43,
+      "hints": [
+        "Pytanie w przyszłości: 'Will there be …?'",
+        "'Tomorrow' = przyszłość."
+      ],
+      "explanations": {
+        "a43": {
+          "Will there be": "Poprawnie: pytanie w przyszłości.",
+          "Is there": "Czas teraźniejszy.",
+          "Was there": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 44,
+      "hints": [
+        "Pytanie w przeszłości + l. mnoga: 'Were there …?'",
+        "'Yesterday' + 'problems' = przeszłość + l. mnoga."
+      ],
+      "explanations": {
+        "a44": {
+          "Were there": "Poprawnie: l. mnoga + przeszłość → 'Were there'.",
+          "Was there": "L. pojedyncza.",
+          "Are there": "Czas teraźniejszy."
+        }
+      }
+    },
+    {
+      "id": 45,
+      "hints": [
+        "'Someone' to gramatycznie l. pojedyncza → 'is'.",
+        "Zaimki nieokreślone jak 'someone' łączą się z czasownikiem w l. pojedynczej."
+      ],
+      "explanations": {
+        "a45": {
+          "is": "Poprawnie: 'someone' = l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "were": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 46,
+      "hints": [
+        "'Nothing' to gramatycznie l. pojedyncza → 'is'.",
+        "'Nothing' zawsze z czasownikiem w l. pojedynczej."
+      ],
+      "explanations": {
+        "a46": {
+          "is": "Poprawnie: 'nothing' = l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "were": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 47,
+      "hints": [
+        "'There used to be' opisuje przeszły stan, który już nie istnieje.",
+        "Poprawna forma: 'used to be', nie 'use to be'."
+      ],
+      "explanations": {
+        "a47": {
+          "used to be": "Poprawnie: 'there used to be' — przeszły stan.",
+          "use to be": "'Use to be' jest błędne w zdaniach twierdzących.",
+          "was used to be": "Podwójna konstrukcja. Poprawnie: 'used to be'."
+        }
+      }
+    },
+    {
+      "id": 48,
+      "hints": [
+        "'Going to be' dla zaplanowanej przyszłości. 'A concert' = l. pojedyncza → 'is'.",
+        "'This Saturday' = plan na przyszłość."
+      ],
+      "explanations": {
+        "a48": {
+          "is": "Poprawnie: l. pojedyncza → 'is going to be'.",
+          "are": "L. mnoga.",
+          "was": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 49,
+      "hints": [
+        "'No point' = abstrakcyjny → 'there is no point'.",
+        "'There is no point in + -ing' to stała konstrukcja."
+      ],
+      "explanations": {
+        "a49": {
+          "is": "Poprawnie: abstrakcyjny → 'is'.",
+          "are": "L. mnoga.",
+          "has": "Błędna konstrukcja."
+        }
+      }
+    },
+    {
+      "id": 50,
+      "hints": [
+        "'Fewer cars' — policzalny w l. mnogiej → 'are'.",
+        "'Fewer' z policzalnymi w l. mnogiej."
+      ],
+      "explanations": {
+        "a50": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "was": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 51,
+      "hints": [
+        "'Last night' = przeszłość. 'Noise' niepoliczalny → 'was'.",
+        "Niepoliczalny + przeszłość."
+      ],
+      "explanations": {
+        "a51": {
+          "was": "Poprawnie: niepoliczalny + przeszłość → 'was'.",
+          "were": "L. mnoga.",
+          "is": "Czas teraźniejszy."
+        }
+      }
+    },
+    {
+      "id": 52,
+      "hints": [
+        "Przy wyliczaniu czasownik zgadza się z pierwszym rzeczownikiem: 'two letters' = l. mnoga → 'are'.",
+        "Pierwszy rzeczownik determinuje formę czasownika."
+      ],
+      "explanations": {
+        "a52": {
+          "are": "Poprawnie: 'letters' (pierwszy, l. mnoga) → 'are'.",
+          "is": "L. pojedyncza.",
+          "was": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 53,
+      "hints": [
+        "'Bound to be' + l. mnoga 'delays' → 'are'.",
+        "'Delays' = l. mnoga."
+      ],
+      "explanations": {
+        "a53": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "was": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 54,
+      "hints": [
+        "'Furniture' jest niepoliczalny → 'is'.",
+        "'Much' sygnalizuje rzeczownik niepoliczalny."
+      ],
+      "explanations": {
+        "a54": {
+          "is": "Poprawnie: niepoliczalny → 'is'.",
+          "are": "L. mnoga policzalnych.",
+          "were": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 55,
+      "hints": [
+        "Present Perfect l. pojedyncza: 'there has been' + 'a significant increase'.",
+        "'This year' często wymaga Present Perfect."
+      ],
+      "explanations": {
+        "a55": {
+          "has": "Poprawnie: l. pojedyncza + Present Perfect → 'has'.",
+          "have": "L. mnoga.",
+          "is": "Present Simple."
+        }
+      }
+    },
+    {
+      "id": 56,
+      "hints": [
+        "Present Perfect l. mnoga: 'there have been' + 'several complaints'.",
+        "'Several complaints' = l. mnoga → 'have'."
+      ],
+      "explanations": {
+        "a56": {
+          "have": "Poprawnie: l. mnoga → 'have'.",
+          "has": "L. pojedyncza.",
+          "had": "Past Perfect."
+        }
+      }
+    },
+    {
+      "id": 57,
+      "hints": [
+        "'Must' wyraża silne przypuszczenie: 'there must be'.",
+        "'At least fifty people' + pewność → 'must'."
+      ],
+      "explanations": {
+        "a57": {
+          "must": "Poprawnie: 'there must be' — silne przypuszczenie.",
+          "is": "Stwierdza fakt bez modalności.",
+          "are": "Bez modalności."
+        }
+      }
+    },
+    {
+      "id": 58,
+      "hints": [
+        "'Might' wyraża możliwość: 'there might be'.",
+        "Niepewność → 'might' + 'be'."
+      ],
+      "explanations": {
+        "a58": {
+          "might": "Poprawnie: 'there might be' — niepewna możliwość.",
+          "is": "Stwierdza fakt.",
+          "has": "'There has be' jest błędne."
+        }
+      }
+    },
+    {
+      "id": 59,
+      "hints": [
+        "'There seems to be' — l. pojedyncza: 'a huge difference' → 'seems'.",
+        "L. pojedyncza → trzecia osoba z '-s'."
+      ],
+      "explanations": {
+        "a59": {
+          "seems": "Poprawnie: l. pojedyncza → 'seems'.",
+          "seem": "Bez '-s' — l. mnoga.",
+          "is seeming": "'Seem' to czasownik stanu."
+        }
+      }
+    },
+    {
+      "id": 60,
+      "hints": [
+        "'There appear to be' — l. mnoga: 'many advantages' → 'appear' (bez -s).",
+        "L. mnoga = 'appear'."
+      ],
+      "explanations": {
+        "a60": {
+          "appear": "Poprawnie: l. mnoga → 'appear'.",
+          "appears": "L. pojedyncza.",
+          "is appearing": "'Appear' to czasownik stanu."
+        }
+      }
+    },
+    {
+      "id": 61,
+      "hints": [
+        "'No reason' = l. pojedyncza → 'is'.",
+        "'Reason' jest policzalny w l. pojedynczej."
+      ],
+      "explanations": {
+        "a61": {
+          "is": "Poprawnie: l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "has": "Błędna konstrukcja."
+        }
+      }
+    },
+    {
+      "id": 62,
+      "hints": [
+        "'Power cuts' = l. mnoga + Present Perfect → 'have'.",
+        "'For the last three days' = Present Perfect."
+      ],
+      "explanations": {
+        "a62": {
+          "have": "Poprawnie: l. mnoga + PP → 'have'.",
+          "has": "L. pojedyncza.",
+          "had": "Past Perfect."
+        }
+      }
+    },
+    {
+      "id": 63,
+      "hints": [
+        "Pytanie w Present Perfect, l. mnoga: 'Have there been …?'",
+        "'Updates' = l. mnoga → 'Have'."
+      ],
+      "explanations": {
+        "a63": {
+          "Have": "Poprawnie: l. mnoga → 'Have'.",
+          "Has": "L. pojedyncza.",
+          "Is": "'Is there been' jest błędne."
+        }
+      }
+    },
+    {
+      "id": 64,
+      "hints": [
+        "Modalny 'should' + 'be': 'there should be'.",
+        "Po czasowniku modalnym — bezokolicznik 'be'."
+      ],
+      "explanations": {
+        "a64": {
+          "should be": "Poprawnie: modalny + bezokolicznik.",
+          "should been": "'Been' to imiesłów, nie bezokolicznik.",
+          "should being": "'Being' to imiesłów czynny."
+        }
+      }
+    },
+    {
+      "id": 65,
+      "hints": [
+        "Stały zwrot: 'There is no denying that …'",
+        "Rozróżnij 'there' (istnienie) od 'it' (odniesienie)."
+      ],
+      "explanations": {
+        "a65": {
+          "There": "Poprawnie: stały zwrot z 'there'.",
+          "It": "'It is no denying' jest niepoprawne.",
+          "This": "'This is no denying' brzmi nienaturalnie."
+        }
+      }
+    },
+    {
+      "id": 66,
+      "hints": [
+        "Pogoda = 'it': 'It is raining'.",
+        "'It' dla pogody, 'there' dla istnienia."
+      ],
+      "explanations": {
+        "a66": {
+          "It is": "Poprawnie: pogoda → 'It is raining'.",
+          "There is": "'There is raining' jest błędne.",
+          "There are": "'There are raining' jest błędne."
+        }
+      }
+    },
+    {
+      "id": 67,
+      "hints": [
+        "Past Perfect: 'there had been' — zdarzenie przed innym przeszłym.",
+        "'Before the earthquake struck' → Past Perfect."
+      ],
+      "explanations": {
+        "a67": {
+          "had been": "Poprawnie: Past Perfect.",
+          "has been": "Present Perfect — kontekst jest w pełni przeszły.",
+          "have been": "Present Perfect l. mnoga."
+        }
+      }
+    },
+    {
+      "id": 68,
+      "hints": [
+        "'A growing concern' — l. pojedyncza → 'is'.",
+        "'Concern' to abstrakcyjny/niepoliczalny."
+      ],
+      "explanations": {
+        "a68": {
+          "is": "Poprawnie: l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "has": "Błędna konstrukcja."
+        }
+      }
+    },
+    {
+      "id": 69,
+      "hints": [
+        "'Likely to be' + l. mnoga 'delays' → 'are'.",
+        "'Delays' = l. mnoga."
+      ],
+      "explanations": {
+        "a69": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "was": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 70,
+      "hints": [
+        "'A number of' + l. mnoga → czasownik w l. mnogiej.",
+        "W odróżnieniu od 'the number of' (l. pojed.), 'a number of' = kilka → l. mnoga."
+      ],
+      "explanations": {
+        "a70": {
+          "are": "Poprawnie: 'a number of issues' → l. mnoga.",
+          "is": "'Is' pasuje do 'the number of'.",
+          "has": "Błędna konstrukcja."
+        }
+      }
+    },
+    {
+      "id": 71,
+      "hints": [
+        "'No guarantee' — l. pojedyncza → 'is'.",
+        "'Guarantee' = l. pojedyncza."
+      ],
+      "explanations": {
+        "a71": {
+          "is": "Poprawnie: l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "has": "Błędna konstrukcja."
+        }
+      }
+    },
+    {
+      "id": 72,
+      "hints": [
+        "'Expected to be' + l. pojedyncza 'a sharp rise' → 'is'.",
+        "Konstrukcja bierna: czasownik zgadza się z rzeczownikiem."
+      ],
+      "explanations": {
+        "a72": {
+          "is": "Poprawnie: l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "was": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 73,
+      "hints": [
+        "'There appears to have been' — l. pojedyncza 'a misunderstanding' → 'appears'.",
+        "Trzecia osoba l. pojed. wymaga '-s'."
+      ],
+      "explanations": {
+        "a73": {
+          "appears": "Poprawnie: l. pojedyncza → 'appears'.",
+          "appear": "L. mnoga.",
+          "is appearing": "'Appear' to czasownik stanu."
+        }
+      }
+    },
+    {
+      "id": 74,
+      "hints": [
+        "Literacki: 'there remain' + l. mnoga 'several questions'.",
+        "L. mnoga → 'remain' (bez -s)."
+      ],
+      "explanations": {
+        "a74": {
+          "remain": "Poprawnie: l. mnoga → 'remain'.",
+          "remains": "L. pojedyncza.",
+          "remaining": "Imiesłów, nie czasownik osobowy."
+        }
+      }
+    },
+    {
+      "id": 75,
+      "hints": [
+        "Strona bierna: 'there are believed to be' + l. mnoga 'species'.",
+        "'Over a thousand species' = l. mnoga."
+      ],
+      "explanations": {
+        "a75": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "was": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 76,
+      "hints": [
+        "'There is said to be' — l. pojedyncza 'a hidden chamber'.",
+        "'A chamber' = l. pojedyncza."
+      ],
+      "explanations": {
+        "a76": {
+          "is": "Poprawnie: l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "was": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 77,
+      "hints": [
+        "Trzeci okres warunkowy: 'there would have been'.",
+        "Odwrócona forma warunkowa → 'would'."
+      ],
+      "explanations": {
+        "a77": {
+          "would": "Poprawnie: trzeci okres warunkowy.",
+          "will": "'Will' dla realnych warunków przyszłych.",
+          "should": "'Should' nie tworzy standardowego trzeciego okresu."
+        }
+      }
+    },
+    {
+      "id": 78,
+      "hints": [
+        "Literacki: 'there arose' — Past Simple od 'arise'.",
+        "'Arose' to Past Simple (arise — arose — arisen)."
+      ],
+      "explanations": {
+        "a78": {
+          "arose": "Poprawnie: literacki Past Simple.",
+          "arised": "'Arised' jest błędne. 'Arise' jest nieregularny.",
+          "was arising": "Past Continuous. Styl literacki wymaga 'arose'."
+        }
+      }
+    },
+    {
+      "id": 79,
+      "hints": [
+        "'There is little evidence' — 'little' z niepoliczalnymi.",
+        "Po 'there is' z niepoliczalnym → 'little'."
+      ],
+      "explanations": {
+        "a79": {
+          "little": "Poprawnie: 'evidence' niepoliczalny → 'little'.",
+          "few": "'Few' z policzalnymi.",
+          "a few": "'A few' też z policzalnymi."
+        }
+      }
+    },
+    {
+      "id": 80,
+      "hints": [
+        "'There are few reasons' — 'few' z policzalnymi w l. mnogiej.",
+        "Po 'there are' → 'few' (nie 'little')."
+      ],
+      "explanations": {
+        "a80": {
+          "few": "Poprawnie: 'reasons' policzalny → 'few'.",
+          "little": "'Little' z niepoliczalnymi.",
+          "a little": "Też z niepoliczalnymi."
+        }
+      }
+    },
+    {
+      "id": 81,
+      "hints": [
+        "Modalny 'need not' + 'be': 'there need not be'.",
+        "Modalny 'need' nie odmienia się."
+      ],
+      "explanations": {
+        "a81": {
+          "need not be": "Poprawnie: modalny 'need' + przeczenie + 'be'.",
+          "needs not be": "Modalny 'need' nie odmienia się.",
+          "not need be": "Błędny szyk."
+        }
+      }
+    },
+    {
+      "id": 82,
+      "hints": [
+        "Literacki: 'there existed' — Past Simple.",
+        "'Existed' to zwykły Past Simple."
+      ],
+      "explanations": {
+        "a82": {
+          "existed": "Poprawnie: literacki Past Simple.",
+          "existing": "Imiesłów.",
+          "was existed": "'Exist' jest nieprzechodni; brak strony biernej."
+        }
+      }
+    },
+    {
+      "id": 83,
+      "hints": [
+        "'There has proven to be' — Present Perfect, l. pojedyncza 'a gap'.",
+        "'Has' dla l. pojedynczej."
+      ],
+      "explanations": {
+        "a83": {
+          "has": "Poprawnie: l. pojedyncza → 'has'.",
+          "have": "L. mnoga.",
+          "is": "Present Simple."
+        }
+      }
+    },
+    {
+      "id": 84,
+      "hints": [
+        "Odwrócony warunek: 'Had there not been' = Past Perfect.",
+        "Po 'had there not' → imiesłów bierny 'been'."
+      ],
+      "explanations": {
+        "a84": {
+          "been": "Poprawnie: imiesłów bierny po 'had'.",
+          "be": "Bezokolicznik, nie imiesłów.",
+          "being": "Imiesłów czynny."
+        }
+      }
+    },
+    {
+      "id": 85,
+      "hints": [
+        "'There tend to be' — l. mnoga 'applicants' → 'tend' (bez -s).",
+        "L. mnoga = bez trzeciej osoby -s."
+      ],
+      "explanations": {
+        "a85": {
+          "tend to be": "Poprawnie: l. mnoga → 'tend'.",
+          "tends to be": "L. pojedyncza.",
+          "tending to be": "Imiesłów."
+        }
+      }
+    },
+    {
+      "id": 86,
+      "hints": [
+        "Literacki: 'there comes a time' — l. pojedyncza → 'comes'.",
+        "Formalna/literacka konstrukcja."
+      ],
+      "explanations": {
+        "a86": {
+          "comes": "Poprawnie: l. pojedyncza → 'comes'.",
+          "come": "L. mnoga.",
+          "is coming": "Continuous; literacki styl wymaga Simple."
+        }
+      }
+    },
+    {
+      "id": 87,
+      "hints": [
+        "Strona bierna: 'there are reported to have been' + l. mnoga 'irregularities'.",
+        "L. mnoga → 'are'."
+      ],
+      "explanations": {
+        "a87": {
+          "are": "Poprawnie: l. mnoga → 'are'.",
+          "is": "L. pojedyncza.",
+          "was": "Czas przeszły."
+        }
+      }
+    },
+    {
+      "id": 88,
+      "hints": [
+        "Modalny: 'there could well be'.",
+        "Po 'could' → bezokolicznik 'be'."
+      ],
+      "explanations": {
+        "a88": {
+          "could well be": "Poprawnie: modalny + 'well' + bezokolicznik.",
+          "could well been": "'Been' to imiesłów.",
+          "could well being": "'Being' to imiesłów czynny."
+        }
+      }
+    },
+    {
+      "id": 89,
+      "hints": [
+        "Formalny warunek: 'Should there be …'",
+        "Po 'should there' → bezokolicznik 'be'."
+      ],
+      "explanations": {
+        "a89": {
+          "be": "Poprawnie: bezokolicznik po 'should'.",
+          "are": "Present Simple.",
+          "been": "Imiesłów bierny."
+        }
+      }
+    },
+    {
+      "id": 90,
+      "hints": [
+        "'Nothing' = l. pojedyncza → 'is'.",
+        "'Nothing' zawsze z l. pojedynczą."
+      ],
+      "explanations": {
+        "a90": {
+          "is": "Poprawnie: 'nothing' = l. pojedyncza → 'is'.",
+          "are": "L. mnoga.",
+          "has": "Błędna konstrukcja."
+        }
+      }
+    },
+    {
+      "id": 91,
+      "hints": [
+        "Literacki: 'there ensued' — Past Simple od 'ensue'.",
+        "'Ensue' jest nieprzechodni."
+      ],
+      "explanations": {
+        "a91": {
+          "ensued": "Poprawnie: literacki Past Simple.",
+          "ensuing": "Imiesłów.",
+          "was ensued": "'Ensue' jest nieprzechodni; brak strony biernej."
+        }
+      }
+    },
+    {
+      "id": 92,
+      "hints": [
+        "Modalny: 'could scarcely have been'.",
+        "'Could' dla niezrealizowanej możliwości w przeszłości."
+      ],
+      "explanations": {
+        "a92": {
+          "could": "Poprawnie: przeszła niezrealizowana możliwość.",
+          "can": "Czas teraźniejszy.",
+          "would": "'Would' nie łączy się naturalnie ze 'scarcely … have been'."
+        }
+      }
+    },
+    {
+      "id": 93,
+      "hints": [
+        "Formalny bierny: 'there was obtained a consensus'.",
+        "'A consensus' = l. pojedyncza → 'was'."
+      ],
+      "explanations": {
+        "a93": {
+          "was": "Poprawnie: l. pojedyncza + przeszłość → 'was'.",
+          "were": "L. mnoga.",
+          "has": "Inny czas."
+        }
+      }
+    },
+    {
+      "id": 94,
+      "hints": [
+        "Inwersja z 'seldom': 'Seldom has there been' — Present Perfect.",
+        "'Unanimity' = niepoliczalny → 'has'."
+      ],
+      "explanations": {
+        "a94": {
+          "has": "Poprawnie: l. pojedyncza → 'has'.",
+          "have": "L. mnoga.",
+          "had": "Past Perfect."
+        }
+      }
+    },
+    {
+      "id": 95,
+      "hints": [
+        "'There has emerged' — Present Perfect, 'a body' = l. pojedyncza.",
+        "'A body of scholarship' = jeden podmiot."
+      ],
+      "explanations": {
+        "a95": {
+          "has": "Poprawnie: l. pojedyncza → 'has'.",
+          "have": "L. mnoga.",
+          "had": "Past Perfect."
+        }
+      }
+    },
+    {
+      "id": 96,
+      "hints": [
+        "Inwersja: 'Never before have there been' — l. mnoga 'opportunities'.",
+        "L. mnoga → 'have'."
+      ],
+      "explanations": {
+        "a96": {
+          "have": "Poprawnie: l. mnoga → 'have'.",
+          "has": "L. pojedyncza.",
+          "had": "Past Perfect."
+        }
+      }
+    },
+    {
+      "id": 97,
+      "hints": [
+        "'There appears to be' + l. pojedyncza 'no viable alternative'.",
+        "L. pojedyncza → 'appears'."
+      ],
+      "explanations": {
+        "a97": {
+          "appears": "Poprawnie: l. pojedyncza → 'appears'.",
+          "appear": "L. mnoga.",
+          "appearing": "Czasownik stanu; bez Continuous."
+        }
+      }
+    },
+    {
+      "id": 98,
+      "hints": [
+        "Trzeci okres warunkowy: 'there would not have arisen'.",
+        "Odwrócony warunek → 'would'."
+      ],
+      "explanations": {
+        "a98": {
+          "would": "Poprawnie: trzeci okres warunkowy.",
+          "will": "Dla realnych warunków.",
+          "could": "'Could' możliwe, ale 'would' jest standardowe."
+        }
+      }
+    },
+    {
+      "id": 99,
+      "hints": [
+        "Formalny hipotetyczny: 'Were there to be'.",
+        "Po 'were there' → 'to' + bezokolicznik."
+      ],
+      "explanations": {
+        "a99": {
+          "to": "Poprawnie: 'were there to be'.",
+          "will": "Błędna gramatycznie.",
+          "going": "Niekompletna forma."
+        }
+      }
+    },
+    {
+      "id": 100,
+      "hints": [
+        "Literacki: 'there lay' — Past Simple od 'lie' (leżeć).",
+        "'Lay' to przeszłość od 'lie' (lie — lay — lain)."
+      ],
+      "explanations": {
+        "a100": {
+          "lay": "Poprawnie: przeszłość od 'lie' (leżeć).",
+          "laid": "'Laid' to przeszłość od 'lay' (kłaść).",
+          "lied": "'Lied' to przeszłość od 'lie' (kłamać)."
+        }
+      }
+    },
+    {
+      "id": 101,
+      "hints": [
+        "Literacki: 'there prevailed an atmosphere'.",
+        "'Prevail' jest nieprzechodni."
+      ],
+      "explanations": {
+        "a101": {
+          "prevailed": "Poprawnie: literacki Past Simple.",
+          "prevailing": "Imiesłów.",
+          "was prevailed": "'Prevail' jest nieprzechodni."
+        }
+      }
+    },
+    {
+      "id": 102,
+      "hints": [
+        "Inwersja: 'Rarely has there arisen' — l. pojedyncza 'a case'.",
+        "L. pojedyncza → 'has'."
+      ],
+      "explanations": {
+        "a102": {
+          "has": "Poprawnie: l. pojedyncza → 'has'.",
+          "have": "L. mnoga.",
+          "had": "Past Perfect."
+        }
+      }
+    },
+    {
+      "id": 103,
+      "hints": [
+        "Modalny: 'there ought to be'.",
+        "'Ought to' wymaga 'to' przed 'be'."
+      ],
+      "explanations": {
+        "a103": {
+          "ought to be": "Poprawnie: 'ought to' + 'be'.",
+          "ought be": "Brak 'to'.",
+          "ought to been": "'Been' to imiesłów. Potrzebny bezokolicznik 'be'."
+        }
+      }
+    },
+    {
+      "id": 104,
+      "hints": [
+        "Inwersja: 'Not since … has there been' — l. pojedyncza.",
+        "L. pojedyncza → 'has'."
+      ],
+      "explanations": {
+        "a104": {
+          "has": "Poprawnie: l. pojedyncza → 'has'.",
+          "have": "L. mnoga.",
+          "had": "Past Perfect."
+        }
+      }
+    },
+    {
+      "id": 105,
+      "hints": [
+        "Modalny: 'there can be no doubt'.",
+        "Po 'can' → bezokolicznik 'be'."
+      ],
+      "explanations": {
+        "a105": {
+          "can be": "Poprawnie: modalny + bezokolicznik.",
+          "can been": "Imiesłów bierny.",
+          "can being": "Imiesłów czynny."
+        }
+      }
+    },
+    {
+      "id": 106,
+      "hints": [
+        "Literacki: 'there lurked a danger'.",
+        "'Lurk' jest nieprzechodni."
+      ],
+      "explanations": {
+        "a106": {
+          "lurked": "Poprawnie: Past Simple.",
+          "lurking": "Imiesłów.",
+          "was lurked": "'Lurk' jest nieprzechodni."
+        }
+      }
+    },
+    {
+      "id": 107,
+      "hints": [
+        "Past Perfect: 'there had existed'.",
+        "'Until the reforms of 1998' wyznacza punkt końcowy."
+      ],
+      "explanations": {
+        "a107": {
+          "had": "Poprawnie: Past Perfect.",
+          "has": "Present Perfect — kontekst przeszły.",
+          "have": "Present Perfect l. mnoga."
+        }
+      }
+    },
+    {
+      "id": 108,
+      "hints": [
+        "Formalny warunek: 'Should there happen to be'.",
+        "Po 'should' → bezokolicznik 'happen'."
+      ],
+      "explanations": {
+        "a108": {
+          "happen": "Poprawnie: bezokolicznik po 'should'.",
+          "happens": "Trzecia osoba. Po 'should' bez -s.",
+          "happened": "Czas przeszły. Po 'should' forma podstawowa."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,2708 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ThereIsThereAreV3QuestionsOnlySeeder",
+    "uuid_namespace": "ThereIsThereAreV3QuestionsOnlySeeder"
+  },
+  "defaults": {
+    "default_locale": "uk",
+    "flag": 0,
+    "type": 0,
+    "level_difficulty": {
+      "A1": 1,
+      "A2": 2,
+      "B1": 3,
+      "B2": 4,
+      "C1": 5,
+      "C2": 5
+    }
+  },
+  "category": {
+    "name": "Базова граматика"
+  },
+  "sources": {
+    "theory_page_1124": {
+      "name": "There Is / There Are"
+    }
+  },
+  "tags": {
+    "there_is_there_are": {
+      "name": "There is / There are",
+      "category": "topic"
+    },
+    "there_is_singular": {
+      "name": "There is + singular noun",
+      "category": "pattern"
+    },
+    "there_are_plural": {
+      "name": "There are + plural noun",
+      "category": "pattern"
+    },
+    "there_is_uncountable": {
+      "name": "There is + uncountable noun",
+      "category": "pattern"
+    },
+    "there_is_negative": {
+      "name": "There is not / There isn't",
+      "category": "pattern"
+    },
+    "there_are_negative": {
+      "name": "There are not / There aren't",
+      "category": "pattern"
+    },
+    "is_there_question": {
+      "name": "Is there ...? question form",
+      "category": "pattern"
+    },
+    "are_there_question": {
+      "name": "Are there ...? question form",
+      "category": "pattern"
+    },
+    "there_is_are_choice": {
+      "name": "Choosing between is and are",
+      "category": "pattern"
+    },
+    "short_answer": {
+      "name": "Short answers with there is/are",
+      "category": "pattern"
+    },
+    "there_was_were": {
+      "name": "There was / There were (past)",
+      "category": "pattern"
+    },
+    "there_will_be": {
+      "name": "There will be (future)",
+      "category": "pattern"
+    },
+    "there_has_been": {
+      "name": "There has been / have been",
+      "category": "pattern"
+    },
+    "there_modal": {
+      "name": "There + modal verb + be",
+      "category": "pattern"
+    },
+    "subject_verb_agreement": {
+      "name": "Subject-verb agreement with there",
+      "category": "usage"
+    },
+    "existential_there": {
+      "name": "Existential there vs locative there",
+      "category": "usage"
+    },
+    "formal_register": {
+      "name": "Formal register with there-constructions",
+      "category": "register"
+    },
+    "it_vs_there": {
+      "name": "It is vs There is distinction",
+      "category": "usage"
+    }
+  },
+  "default_tag_keys": [
+    "there_is_there_are"
+  ],
+  "saved_test": {
+    "uuid": "there-is-are-opus46-v3-saved",
+    "slug": "there_is_there_are_opus46",
+    "name": "There Is / There Are — Opus 4.6 V3 Questions Test",
+    "description": "Practice set for there is / there are constructions: affirmative, negative, questions, short answers, past and future forms, modals, and formal usage across A1–C2.",
+    "filters": {
+      "num_questions": 108,
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "seeder_classes": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ThereIsThereAreV3QuestionsOnlySeeder"
+      ],
+      "prompt_generator": {
+        "source_type": "theory_page",
+        "theory_page_id": 1124,
+        "theory_page_ids": [
+          1124
+        ],
+        "theory_page": {
+          "id": 1124,
+          "slug": "there-is-there-are",
+          "title": "There Is / There Are",
+          "category_slug_path": "basic-grammar/verb-to-be",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\ThereIsThereAreTheorySeeder",
+          "url": "https://gramlyze.com/theory/verb-to-be/there-is-there-are"
+        }
+      }
+    }
+  },
+  "questions": [
+    {
+      "question": "There {a1} a cat on the sofa.",
+      "markers": {
+        "a1": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "am"
+          ],
+          "verb_hint": "singular noun"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular",
+        "there_is_are_choice"
+      ],
+      "variants": [
+        "There {a1} a cat on the sofa."
+      ],
+      "id": 1,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a2} two dogs in the park.",
+      "markers": {
+        "a2": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "am"
+          ],
+          "verb_hint": "plural noun"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "there_is_are_choice"
+      ],
+      "variants": [
+        "There {a2} two dogs in the park."
+      ],
+      "id": 2,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a3} a book on the desk.",
+      "markers": {
+        "a3": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "am"
+          ],
+          "verb_hint": "singular noun"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular",
+        "there_is_are_choice"
+      ],
+      "variants": [
+        "There {a3} a book on the desk."
+      ],
+      "id": 3,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a4} three apples in the basket.",
+      "markers": {
+        "a4": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "am"
+          ],
+          "verb_hint": "plural noun"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "there_is_are_choice"
+      ],
+      "variants": [
+        "There {a4} three apples in the basket."
+      ],
+      "id": 4,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a5} a lamp in my room.",
+      "markers": {
+        "a5": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "singular noun"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular"
+      ],
+      "variants": [
+        "There {a5} a lamp in my room."
+      ],
+      "id": 5,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a6} many chairs in the classroom.",
+      "markers": {
+        "a6": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "plural noun"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural"
+      ],
+      "variants": [
+        "There {a6} many chairs in the classroom."
+      ],
+      "id": 6,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a7} a window in the kitchen.",
+      "markers": {
+        "a7": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "singular noun"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular"
+      ],
+      "variants": [
+        "There {a7} a window in the kitchen."
+      ],
+      "id": 7,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a8} some toys on the floor.",
+      "markers": {
+        "a8": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "plural noun"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural"
+      ],
+      "variants": [
+        "There {a8} some toys on the floor."
+      ],
+      "id": 8,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a9} milk in the fridge.",
+      "markers": {
+        "a9": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "am"
+          ],
+          "verb_hint": "uncountable noun"
+        }
+      },
+      "tag_keys": [
+        "there_is_uncountable"
+      ],
+      "variants": [
+        "There {a9} milk in the fridge."
+      ],
+      "id": 9,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a10} water in the glass.",
+      "markers": {
+        "a10": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "am"
+          ],
+          "verb_hint": "uncountable noun"
+        }
+      },
+      "tag_keys": [
+        "there_is_uncountable"
+      ],
+      "variants": [
+        "There {a10} water in the glass."
+      ],
+      "id": 10,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "{a11} a pen on the table?",
+      "markers": {
+        "a11": {
+          "answer": "Is there",
+          "options": [
+            "Is there",
+            "Are there",
+            "There is"
+          ],
+          "verb_hint": "question + singular"
+        }
+      },
+      "tag_keys": [
+        "is_there_question"
+      ],
+      "variants": [
+        "{a11} a pen on the table?"
+      ],
+      "id": 11,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "{a12} any books on the shelf?",
+      "markers": {
+        "a12": {
+          "answer": "Are there",
+          "options": [
+            "Is there",
+            "Are there",
+            "There are"
+          ],
+          "verb_hint": "question + plural"
+        }
+      },
+      "tag_keys": [
+        "are_there_question"
+      ],
+      "variants": [
+        "{a12} any books on the shelf?"
+      ],
+      "id": 12,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a13} not a computer in this room.",
+      "markers": {
+        "a13": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "am"
+          ],
+          "verb_hint": "negative + singular"
+        }
+      },
+      "tag_keys": [
+        "there_is_negative"
+      ],
+      "variants": [
+        "There {a13} not a computer in this room."
+      ],
+      "id": 13,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a14} not any pictures on the wall.",
+      "markers": {
+        "a14": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "am"
+          ],
+          "verb_hint": "negative + plural"
+        }
+      },
+      "tag_keys": [
+        "there_are_negative"
+      ],
+      "variants": [
+        "There {a14} not any pictures on the wall."
+      ],
+      "id": 14,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a15} a big tree near my house.",
+      "markers": {
+        "a15": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "singular noun"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular"
+      ],
+      "variants": [
+        "There {a15} a big tree near my house."
+      ],
+      "id": 15,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a16} four children in the playground.",
+      "markers": {
+        "a16": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "plural noun"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural"
+      ],
+      "variants": [
+        "There {a16} four children in the playground."
+      ],
+      "id": 16,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "— Is there a cinema near here? — Yes, there {a17}.",
+      "markers": {
+        "a17": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "isn't"
+          ],
+          "verb_hint": "short answer"
+        }
+      },
+      "tag_keys": [
+        "short_answer",
+        "there_is_singular"
+      ],
+      "variants": [
+        "— Is there a cinema near here? — Yes, there {a17}."
+      ],
+      "id": 17,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "— Are there any shops on this street? — No, there {a18}.",
+      "markers": {
+        "a18": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "not"
+          ],
+          "verb_hint": "short negative answer"
+        }
+      },
+      "tag_keys": [
+        "short_answer",
+        "there_are_negative"
+      ],
+      "variants": [
+        "— Are there any shops on this street? — No, there {a18}."
+      ],
+      "id": 18,
+      "source": "theory_page_1124",
+      "level": "A1"
+    },
+    {
+      "question": "There {a19} a beautiful garden behind the hotel.",
+      "markers": {
+        "a19": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "was"
+          ],
+          "verb_hint": "singular noun"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular"
+      ],
+      "variants": [
+        "There {a19} a beautiful garden behind the hotel."
+      ],
+      "id": 19,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a20} some interesting museums in this city.",
+      "markers": {
+        "a20": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "was"
+          ],
+          "verb_hint": "plural noun"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural"
+      ],
+      "variants": [
+        "There {a20} some interesting museums in this city."
+      ],
+      "id": 20,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a21} a lot of traffic on the highway today.",
+      "markers": {
+        "a21": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "uncountable noun"
+        }
+      },
+      "tag_keys": [
+        "there_is_uncountable",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a21} a lot of traffic on the highway today."
+      ],
+      "id": 21,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a22} a lot of students in the library.",
+      "markers": {
+        "a22": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "plural noun"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a22} a lot of students in the library."
+      ],
+      "id": 22,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a23} no sugar in my coffee.",
+      "markers": {
+        "a23": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "isn't"
+          ],
+          "verb_hint": "uncountable + no"
+        }
+      },
+      "tag_keys": [
+        "there_is_negative",
+        "there_is_uncountable"
+      ],
+      "variants": [
+        "There {a23} no sugar in my coffee."
+      ],
+      "id": 23,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a24} no buses after midnight.",
+      "markers": {
+        "a24": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "aren't"
+          ],
+          "verb_hint": "plural + no"
+        }
+      },
+      "tag_keys": [
+        "there_are_negative"
+      ],
+      "variants": [
+        "There {a24} no buses after midnight."
+      ],
+      "id": 24,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "{a25} any milk left in the bottle?",
+      "markers": {
+        "a25": {
+          "answer": "Is there",
+          "options": [
+            "Is there",
+            "Are there",
+            "Does there"
+          ],
+          "verb_hint": "question + uncountable"
+        }
+      },
+      "tag_keys": [
+        "is_there_question",
+        "there_is_uncountable"
+      ],
+      "variants": [
+        "{a25} any milk left in the bottle?"
+      ],
+      "id": 25,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "{a26} any good restaurants near the station?",
+      "markers": {
+        "a26": {
+          "answer": "Are there",
+          "options": [
+            "Is there",
+            "Are there",
+            "Does there"
+          ],
+          "verb_hint": "question + plural"
+        }
+      },
+      "tag_keys": [
+        "are_there_question"
+      ],
+      "variants": [
+        "{a26} any good restaurants near the station?"
+      ],
+      "id": 26,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a27} a strange noise coming from the attic.",
+      "markers": {
+        "a27": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "were"
+          ],
+          "verb_hint": "singular noun"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular"
+      ],
+      "variants": [
+        "There {a27} a strange noise coming from the attic."
+      ],
+      "id": 27,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a28} some clouds in the sky, but it isn't raining.",
+      "markers": {
+        "a28": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "were"
+          ],
+          "verb_hint": "plural noun"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural"
+      ],
+      "variants": [
+        "There {a28} some clouds in the sky, but it isn't raining."
+      ],
+      "id": 28,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a29} a new shopping centre in our town.",
+      "markers": {
+        "a29": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "singular noun"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular"
+      ],
+      "variants": [
+        "There {a29} a new shopping centre in our town."
+      ],
+      "id": 29,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a30} plenty of parking spaces near the supermarket.",
+      "markers": {
+        "a30": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "plural noun"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural"
+      ],
+      "variants": [
+        "There {a30} plenty of parking spaces near the supermarket."
+      ],
+      "id": 30,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a31} a pharmacy next to the post office.",
+      "markers": {
+        "a31": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "singular noun"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular"
+      ],
+      "variants": [
+        "There {a31} a pharmacy next to the post office."
+      ],
+      "id": 31,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a32} several mistakes in your essay.",
+      "markers": {
+        "a32": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "plural noun"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a32} several mistakes in your essay."
+      ],
+      "id": 32,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a33} not enough time to finish the test.",
+      "markers": {
+        "a33": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "uncountable + negative"
+        }
+      },
+      "tag_keys": [
+        "there_is_negative",
+        "there_is_uncountable"
+      ],
+      "variants": [
+        "There {a33} not enough time to finish the test."
+      ],
+      "id": 33,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a34} not many people in the park today.",
+      "markers": {
+        "a34": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "plural + negative"
+        }
+      },
+      "tag_keys": [
+        "there_are_negative"
+      ],
+      "variants": [
+        "There {a34} not many people in the park today."
+      ],
+      "id": 34,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "— Is there a swimming pool at the hotel? — No, there {a35}.",
+      "markers": {
+        "a35": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "not"
+          ],
+          "verb_hint": "short negative answer"
+        }
+      },
+      "tag_keys": [
+        "short_answer",
+        "there_is_negative"
+      ],
+      "variants": [
+        "— Is there a swimming pool at the hotel? — No, there {a35}."
+      ],
+      "id": 35,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "— Are there any letters for me? — Yes, there {a36}.",
+      "markers": {
+        "a36": {
+          "answer": "are",
+          "options": [
+            "are",
+            "is",
+            "were"
+          ],
+          "verb_hint": "short affirmative answer"
+        }
+      },
+      "tag_keys": [
+        "short_answer",
+        "there_are_plural"
+      ],
+      "variants": [
+        "— Are there any letters for me? — Yes, there {a36}."
+      ],
+      "id": 36,
+      "source": "theory_page_1124",
+      "level": "A2"
+    },
+    {
+      "question": "There {a37} a meeting at 3 p.m. yesterday.",
+      "markers": {
+        "a37": {
+          "answer": "was",
+          "options": [
+            "was",
+            "were",
+            "is"
+          ],
+          "verb_hint": "past + singular"
+        }
+      },
+      "tag_keys": [
+        "there_was_were"
+      ],
+      "variants": [
+        "There {a37} a meeting at 3 p.m. yesterday."
+      ],
+      "id": 37,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a38} many guests at the party last night.",
+      "markers": {
+        "a38": {
+          "answer": "were",
+          "options": [
+            "was",
+            "were",
+            "are"
+          ],
+          "verb_hint": "past + plural"
+        }
+      },
+      "tag_keys": [
+        "there_was_were"
+      ],
+      "variants": [
+        "There {a38} many guests at the party last night."
+      ],
+      "id": 38,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a39} a new café opening next week.",
+      "markers": {
+        "a39": {
+          "answer": "will be",
+          "options": [
+            "will be",
+            "is being",
+            "has been"
+          ],
+          "verb_hint": "future"
+        }
+      },
+      "tag_keys": [
+        "there_will_be"
+      ],
+      "variants": [
+        "There {a39} a new café opening next week."
+      ],
+      "id": 39,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a40} more tourists here next summer.",
+      "markers": {
+        "a40": {
+          "answer": "will be",
+          "options": [
+            "will be",
+            "are being",
+            "have been"
+          ],
+          "verb_hint": "future + plural"
+        }
+      },
+      "tag_keys": [
+        "there_will_be"
+      ],
+      "variants": [
+        "There {a40} more tourists here next summer."
+      ],
+      "id": 40,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a41} an accident on the motorway this morning.",
+      "markers": {
+        "a41": {
+          "answer": "was",
+          "options": [
+            "was",
+            "were",
+            "has"
+          ],
+          "verb_hint": "past + singular"
+        }
+      },
+      "tag_keys": [
+        "there_was_were"
+      ],
+      "variants": [
+        "There {a41} an accident on the motorway this morning."
+      ],
+      "id": 41,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a42} no clean towels in the bathroom when I arrived.",
+      "markers": {
+        "a42": {
+          "answer": "were",
+          "options": [
+            "was",
+            "were",
+            "are"
+          ],
+          "verb_hint": "past + plural + negative"
+        }
+      },
+      "tag_keys": [
+        "there_was_were",
+        "there_are_negative"
+      ],
+      "variants": [
+        "There {a42} no clean towels in the bathroom when I arrived."
+      ],
+      "id": 42,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "{a43} a test tomorrow?",
+      "markers": {
+        "a43": {
+          "answer": "Will there be",
+          "options": [
+            "Will there be",
+            "Is there",
+            "Was there"
+          ],
+          "verb_hint": "future question"
+        }
+      },
+      "tag_keys": [
+        "there_will_be",
+        "is_there_question"
+      ],
+      "variants": [
+        "{a43} a test tomorrow?"
+      ],
+      "id": 43,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "{a44} any problems with the delivery yesterday?",
+      "markers": {
+        "a44": {
+          "answer": "Were there",
+          "options": [
+            "Were there",
+            "Was there",
+            "Are there"
+          ],
+          "verb_hint": "past question + plural"
+        }
+      },
+      "tag_keys": [
+        "there_was_were",
+        "are_there_question"
+      ],
+      "variants": [
+        "{a44} any problems with the delivery yesterday?"
+      ],
+      "id": 44,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a45} someone knocking at the door.",
+      "markers": {
+        "a45": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "were"
+          ],
+          "verb_hint": "singular pronoun"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a45} someone knocking at the door."
+      ],
+      "id": 45,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a46} nothing we can do about the weather.",
+      "markers": {
+        "a46": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "were"
+          ],
+          "verb_hint": "nothing = singular"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a46} nothing we can do about the weather."
+      ],
+      "id": 46,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a47} used to be a cinema on this corner.",
+      "markers": {
+        "a47": {
+          "answer": "used to be",
+          "options": [
+            "used to be",
+            "use to be",
+            "was used to be"
+          ],
+          "verb_hint": "past habit / state"
+        }
+      },
+      "tag_keys": [
+        "there_was_were"
+      ],
+      "variants": [
+        "There {a47} a cinema on this corner."
+      ],
+      "id": 47,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a48} going to be a concert in the park this Saturday.",
+      "markers": {
+        "a48": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "was"
+          ],
+          "verb_hint": "going to + singular"
+        }
+      },
+      "tag_keys": [
+        "there_will_be",
+        "there_is_singular"
+      ],
+      "variants": [
+        "There {a48} going to be a concert in the park this Saturday."
+      ],
+      "id": 48,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a49} no point in arguing about this.",
+      "markers": {
+        "a49": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "uncountable abstract"
+        }
+      },
+      "tag_keys": [
+        "there_is_uncountable",
+        "there_is_negative"
+      ],
+      "variants": [
+        "There {a49} no point in arguing about this."
+      ],
+      "id": 49,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a50} fewer cars on the road during the holidays.",
+      "markers": {
+        "a50": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "was"
+          ],
+          "verb_hint": "plural + fewer"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a50} fewer cars on the road during the holidays."
+      ],
+      "id": 50,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a51} a lot of noise outside last night.",
+      "markers": {
+        "a51": {
+          "answer": "was",
+          "options": [
+            "was",
+            "were",
+            "is"
+          ],
+          "verb_hint": "past + uncountable"
+        }
+      },
+      "tag_keys": [
+        "there_was_were",
+        "there_is_uncountable"
+      ],
+      "variants": [
+        "There {a51} a lot of noise outside last night."
+      ],
+      "id": 51,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a52} two letters and a parcel on the doorstep.",
+      "markers": {
+        "a52": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "was"
+          ],
+          "verb_hint": "plural (first noun)"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a52} two letters and a parcel on the doorstep."
+      ],
+      "id": 52,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a53} bound to be some delays because of the storm.",
+      "markers": {
+        "a53": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "was"
+          ],
+          "verb_hint": "bound to be + plural"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "there_modal"
+      ],
+      "variants": [
+        "There {a53} bound to be some delays because of the storm."
+      ],
+      "id": 53,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a54} not much furniture in the new apartment yet.",
+      "markers": {
+        "a54": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "were"
+          ],
+          "verb_hint": "uncountable + negative"
+        }
+      },
+      "tag_keys": [
+        "there_is_negative",
+        "there_is_uncountable"
+      ],
+      "variants": [
+        "There {a54} not much furniture in the new apartment yet."
+      ],
+      "id": 54,
+      "source": "theory_page_1124",
+      "level": "B1"
+    },
+    {
+      "question": "There {a55} been a significant increase in online sales this year.",
+      "markers": {
+        "a55": {
+          "answer": "has",
+          "options": [
+            "has",
+            "have",
+            "is"
+          ],
+          "verb_hint": "present perfect + singular"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a55} been a significant increase in online sales this year."
+      ],
+      "id": 55,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a56} been several complaints about the new policy.",
+      "markers": {
+        "a56": {
+          "answer": "have",
+          "options": [
+            "has",
+            "have",
+            "had"
+          ],
+          "verb_hint": "present perfect + plural"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a56} been several complaints about the new policy."
+      ],
+      "id": 56,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a57} be at least fifty people at the event.",
+      "markers": {
+        "a57": {
+          "answer": "must",
+          "options": [
+            "must",
+            "is",
+            "are"
+          ],
+          "verb_hint": "modal + be"
+        }
+      },
+      "tag_keys": [
+        "there_modal"
+      ],
+      "variants": [
+        "There {a57} be at least fifty people at the event."
+      ],
+      "id": 57,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a58} be a better explanation for this result.",
+      "markers": {
+        "a58": {
+          "answer": "might",
+          "options": [
+            "might",
+            "is",
+            "has"
+          ],
+          "verb_hint": "modal possibility"
+        }
+      },
+      "tag_keys": [
+        "there_modal"
+      ],
+      "variants": [
+        "There {a58} be a better explanation for this result."
+      ],
+      "id": 58,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a59} to be a huge difference between the two proposals.",
+      "markers": {
+        "a59": {
+          "answer": "seems",
+          "options": [
+            "seems",
+            "seem",
+            "is seeming"
+          ],
+          "verb_hint": "there seems to be + singular"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a59} to be a huge difference between the two proposals."
+      ],
+      "id": 59,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a60} to be many advantages to working remotely.",
+      "markers": {
+        "a60": {
+          "answer": "appear",
+          "options": [
+            "appears",
+            "appear",
+            "is appearing"
+          ],
+          "verb_hint": "there appear to be + plural"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a60} to be many advantages to working remotely."
+      ],
+      "id": 60,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a61} no reason to panic — the situation is under control.",
+      "markers": {
+        "a61": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "singular abstract"
+        }
+      },
+      "tag_keys": [
+        "there_is_negative",
+        "there_is_singular"
+      ],
+      "variants": [
+        "There {a61} no reason to panic — the situation is under control."
+      ],
+      "id": 61,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a62} been power cuts in the region for the last three days.",
+      "markers": {
+        "a62": {
+          "answer": "have",
+          "options": [
+            "has",
+            "have",
+            "had"
+          ],
+          "verb_hint": "present perfect + plural"
+        }
+      },
+      "tag_keys": [
+        "there_has_been"
+      ],
+      "variants": [
+        "There {a62} been power cuts in the region for the last three days."
+      ],
+      "id": 62,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "{a63} there been any updates on the project since Monday?",
+      "markers": {
+        "a63": {
+          "answer": "Have",
+          "options": [
+            "Have",
+            "Has",
+            "Is"
+          ],
+          "verb_hint": "present perfect question + plural"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "are_there_question"
+      ],
+      "variants": [
+        "{a63} there been any updates on the project since Monday?"
+      ],
+      "id": 63,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a64} should be enough chairs for everyone.",
+      "markers": {
+        "a64": {
+          "answer": "should be",
+          "options": [
+            "should be",
+            "should been",
+            "should being"
+          ],
+          "verb_hint": "modal + be"
+        }
+      },
+      "tag_keys": [
+        "there_modal"
+      ],
+      "variants": [
+        "There {a64} enough chairs for everyone."
+      ],
+      "id": 64,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "{a65} is no denying that the project was a success.",
+      "markers": {
+        "a65": {
+          "answer": "There",
+          "options": [
+            "There",
+            "It",
+            "This"
+          ],
+          "verb_hint": "fixed expression: there is no denying"
+        }
+      },
+      "tag_keys": [
+        "existential_there",
+        "it_vs_there"
+      ],
+      "variants": [
+        "{a65} is no denying that the project was a success."
+      ],
+      "id": 65,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "{a66} raining outside, so take an umbrella.",
+      "markers": {
+        "a66": {
+          "answer": "It is",
+          "options": [
+            "It is",
+            "There is",
+            "There are"
+          ],
+          "verb_hint": "weather = it"
+        }
+      },
+      "tag_keys": [
+        "it_vs_there"
+      ],
+      "variants": [
+        "{a66} raining outside, so take an umbrella."
+      ],
+      "id": 66,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a67} had been no warning before the earthquake struck.",
+      "markers": {
+        "a67": {
+          "answer": "had been",
+          "options": [
+            "had been",
+            "has been",
+            "have been"
+          ],
+          "verb_hint": "past perfect"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "there_was_were"
+      ],
+      "variants": [
+        "There {a67} no warning before the earthquake struck."
+      ],
+      "id": 67,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a68} a growing concern about air pollution in large cities.",
+      "markers": {
+        "a68": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "singular uncountable abstract"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular",
+        "there_is_uncountable"
+      ],
+      "variants": [
+        "There {a68} a growing concern about air pollution in large cities."
+      ],
+      "id": 68,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a69} likely to be delays due to the roadworks.",
+      "markers": {
+        "a69": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "was"
+          ],
+          "verb_hint": "likely to be + plural"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "there_modal"
+      ],
+      "variants": [
+        "There {a69} likely to be delays due to the roadworks."
+      ],
+      "id": 69,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a70} a number of issues that still need to be resolved.",
+      "markers": {
+        "a70": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "a number of = plural verb"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a70} a number of issues that still need to be resolved."
+      ],
+      "id": 70,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a71} no guarantee that the flight will depart on time.",
+      "markers": {
+        "a71": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "singular abstract + no"
+        }
+      },
+      "tag_keys": [
+        "there_is_negative",
+        "there_is_singular"
+      ],
+      "variants": [
+        "There {a71} no guarantee that the flight will depart on time."
+      ],
+      "id": 71,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a72} expected to be a sharp rise in temperatures this week.",
+      "markers": {
+        "a72": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "was"
+          ],
+          "verb_hint": "expected to be + singular"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular",
+        "there_modal"
+      ],
+      "variants": [
+        "There {a72} expected to be a sharp rise in temperatures this week."
+      ],
+      "id": 72,
+      "source": "theory_page_1124",
+      "level": "B2"
+    },
+    {
+      "question": "There {a73} to have been a misunderstanding between the two departments.",
+      "markers": {
+        "a73": {
+          "answer": "appears",
+          "options": [
+            "appears",
+            "appear",
+            "is appearing"
+          ],
+          "verb_hint": "there appears to have been + singular"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "subject_verb_agreement",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a73} to have been a misunderstanding between the two departments."
+      ],
+      "id": 73,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a74} remain several unresolved questions regarding the merger.",
+      "markers": {
+        "a74": {
+          "answer": "remain",
+          "options": [
+            "remain",
+            "remains",
+            "remaining"
+          ],
+          "verb_hint": "there remain + plural"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "formal_register",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a74} several unresolved questions regarding the merger."
+      ],
+      "id": 74,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a75} believed to be over a thousand species in this rainforest.",
+      "markers": {
+        "a75": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "was"
+          ],
+          "verb_hint": "believed to be + plural"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "there_modal",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a75} believed to be over a thousand species in this rainforest."
+      ],
+      "id": 75,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a76} said to be a hidden chamber beneath the old castle.",
+      "markers": {
+        "a76": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "was"
+          ],
+          "verb_hint": "said to be + singular"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular",
+        "there_modal",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a76} said to be a hidden chamber beneath the old castle."
+      ],
+      "id": 76,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a77} have been far more casualties had the warning not been issued.",
+      "markers": {
+        "a77": {
+          "answer": "would",
+          "options": [
+            "would",
+            "will",
+            "should"
+          ],
+          "verb_hint": "conditional + there"
+        }
+      },
+      "tag_keys": [
+        "there_modal",
+        "there_has_been"
+      ],
+      "variants": [
+        "There {a77} have been far more casualties had the warning not been issued."
+      ],
+      "id": 77,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a78} arose a dispute over the ownership of the land.",
+      "markers": {
+        "a78": {
+          "answer": "arose",
+          "options": [
+            "arose",
+            "arised",
+            "was arising"
+          ],
+          "verb_hint": "literary inversion: there arose"
+        }
+      },
+      "tag_keys": [
+        "existential_there",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a78} a dispute over the ownership of the land."
+      ],
+      "id": 78,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There is {a79} evidence to suggest that the policy has been effective.",
+      "markers": {
+        "a79": {
+          "answer": "little",
+          "options": [
+            "little",
+            "few",
+            "a few"
+          ],
+          "verb_hint": "there is + little (uncountable)"
+        }
+      },
+      "tag_keys": [
+        "there_is_uncountable",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There is {a79} evidence to suggest that the policy has been effective."
+      ],
+      "id": 79,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There are {a80} reasons to believe the situation will improve soon.",
+      "markers": {
+        "a80": {
+          "answer": "few",
+          "options": [
+            "few",
+            "little",
+            "a little"
+          ],
+          "verb_hint": "there are + few (countable)"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There are {a80} reasons to believe the situation will improve soon."
+      ],
+      "id": 80,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a81} need not be any conflict between economic growth and sustainability.",
+      "markers": {
+        "a81": {
+          "answer": "need not be",
+          "options": [
+            "need not be",
+            "needs not be",
+            "not need be"
+          ],
+          "verb_hint": "modal need + there"
+        }
+      },
+      "tag_keys": [
+        "there_modal",
+        "there_is_negative"
+      ],
+      "variants": [
+        "There {a81} any conflict between economic growth and sustainability."
+      ],
+      "id": 81,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a82} existed a strong tradition of craftsmanship in this region.",
+      "markers": {
+        "a82": {
+          "answer": "existed",
+          "options": [
+            "existed",
+            "existing",
+            "was existed"
+          ],
+          "verb_hint": "literary: there existed"
+        }
+      },
+      "tag_keys": [
+        "existential_there",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a82} a strong tradition of craftsmanship in this region."
+      ],
+      "id": 82,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a83} proven to be a significant gap between theory and practice.",
+      "markers": {
+        "a83": {
+          "answer": "has",
+          "options": [
+            "has",
+            "have",
+            "is"
+          ],
+          "verb_hint": "present perfect + singular"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a83} proven to be a significant gap between theory and practice."
+      ],
+      "id": 83,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "Had there not {a84} a ceasefire, the conflict would have escalated.",
+      "markers": {
+        "a84": {
+          "answer": "been",
+          "options": [
+            "been",
+            "be",
+            "being"
+          ],
+          "verb_hint": "inverted conditional past perfect"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "there_modal"
+      ],
+      "variants": [
+        "Had there not {a84} a ceasefire, the conflict would have escalated."
+      ],
+      "id": 84,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a85} tend to be fewer applicants during the summer months.",
+      "markers": {
+        "a85": {
+          "answer": "tend to be",
+          "options": [
+            "tend to be",
+            "tends to be",
+            "tending to be"
+          ],
+          "verb_hint": "there tend to be + plural"
+        }
+      },
+      "tag_keys": [
+        "there_are_plural",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a85} fewer applicants during the summer months."
+      ],
+      "id": 85,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a86} comes a time when every organisation must adapt or fail.",
+      "markers": {
+        "a86": {
+          "answer": "comes",
+          "options": [
+            "comes",
+            "come",
+            "is coming"
+          ],
+          "verb_hint": "literary: there comes + singular"
+        }
+      },
+      "tag_keys": [
+        "existential_there",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a86} a time when every organisation must adapt or fail."
+      ],
+      "id": 86,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a87} reported to have been irregularities in the election.",
+      "markers": {
+        "a87": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "was"
+          ],
+          "verb_hint": "reported to have been + plural"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "formal_register",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a87} reported to have been irregularities in the election."
+      ],
+      "id": 87,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a88} could well be further disruptions to train services.",
+      "markers": {
+        "a88": {
+          "answer": "could well be",
+          "options": [
+            "could well be",
+            "could well been",
+            "could well being"
+          ],
+          "verb_hint": "modal + well + be"
+        }
+      },
+      "tag_keys": [
+        "there_modal"
+      ],
+      "variants": [
+        "There {a88} further disruptions to train services."
+      ],
+      "id": 88,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "Should there {a89} any questions, please contact the helpdesk.",
+      "markers": {
+        "a89": {
+          "answer": "be",
+          "options": [
+            "be",
+            "are",
+            "been"
+          ],
+          "verb_hint": "formal conditional: should there be"
+        }
+      },
+      "tag_keys": [
+        "there_modal",
+        "formal_register"
+      ],
+      "variants": [
+        "Should there {a89} any questions, please contact the helpdesk."
+      ],
+      "id": 89,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a90} nothing to prevent the committee from reconsidering the decision.",
+      "markers": {
+        "a90": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "has"
+          ],
+          "verb_hint": "nothing = singular"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a90} nothing to prevent the committee from reconsidering the decision."
+      ],
+      "id": 90,
+      "source": "theory_page_1124",
+      "level": "C1"
+    },
+    {
+      "question": "There {a91} ensued a protracted debate on the constitutional amendment.",
+      "markers": {
+        "a91": {
+          "answer": "ensued",
+          "options": [
+            "ensued",
+            "ensuing",
+            "was ensued"
+          ],
+          "verb_hint": "literary inversion: there ensued"
+        }
+      },
+      "tag_keys": [
+        "existential_there",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a91} a protracted debate on the constitutional amendment."
+      ],
+      "id": 91,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "There {a92} scarcely have been a more opportune moment for the announcement.",
+      "markers": {
+        "a92": {
+          "answer": "could",
+          "options": [
+            "could",
+            "can",
+            "would"
+          ],
+          "verb_hint": "modal + scarcely + have been"
+        }
+      },
+      "tag_keys": [
+        "there_modal",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a92} scarcely have been a more opportune moment for the announcement."
+      ],
+      "id": 92,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "There {a93} obtained a consensus among the delegates only after extensive negotiations.",
+      "markers": {
+        "a93": {
+          "answer": "was",
+          "options": [
+            "was",
+            "were",
+            "has"
+          ],
+          "verb_hint": "formal passive: there was obtained"
+        }
+      },
+      "tag_keys": [
+        "existential_there",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a93} obtained a consensus among the delegates only after extensive negotiations."
+      ],
+      "id": 93,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "Seldom {a94} there been such unanimity in the council's history.",
+      "markers": {
+        "a94": {
+          "answer": "has",
+          "options": [
+            "has",
+            "have",
+            "had"
+          ],
+          "verb_hint": "inverted adverb: seldom has there been"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "formal_register"
+      ],
+      "variants": [
+        "Seldom {a94} there been such unanimity in the council's history."
+      ],
+      "id": 94,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "There {a95} emerged, in recent decades, a body of scholarship challenging the received view.",
+      "markers": {
+        "a95": {
+          "answer": "has",
+          "options": [
+            "has",
+            "have",
+            "had"
+          ],
+          "verb_hint": "present perfect + singular body"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "formal_register",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a95} emerged, in recent decades, a body of scholarship challenging the received view."
+      ],
+      "id": 95,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "Never before {a96} there been so many opportunities for international collaboration.",
+      "markers": {
+        "a96": {
+          "answer": "have",
+          "options": [
+            "has",
+            "have",
+            "had"
+          ],
+          "verb_hint": "inverted: never before have + plural"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "formal_register",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "Never before {a96} there been so many opportunities for international collaboration."
+      ],
+      "id": 96,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "There {a97} to be no viable alternative to the proposed legislation.",
+      "markers": {
+        "a97": {
+          "answer": "appears",
+          "options": [
+            "appears",
+            "appear",
+            "appearing"
+          ],
+          "verb_hint": "formal: there appears to be + singular"
+        }
+      },
+      "tag_keys": [
+        "there_is_singular",
+        "formal_register",
+        "subject_verb_agreement"
+      ],
+      "variants": [
+        "There {a97} to be no viable alternative to the proposed legislation."
+      ],
+      "id": 97,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "There {a98} not have arisen such a controversy had the data been disclosed earlier.",
+      "markers": {
+        "a98": {
+          "answer": "would",
+          "options": [
+            "would",
+            "will",
+            "could"
+          ],
+          "verb_hint": "conditional perfect: would not have arisen"
+        }
+      },
+      "tag_keys": [
+        "there_modal",
+        "there_has_been"
+      ],
+      "variants": [
+        "There {a98} not have arisen such a controversy had the data been disclosed earlier."
+      ],
+      "id": 98,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "Were there {a99} be a referendum, the outcome would be far from certain.",
+      "markers": {
+        "a99": {
+          "answer": "to",
+          "options": [
+            "to",
+            "will",
+            "going"
+          ],
+          "verb_hint": "formal conditional: were there to be"
+        }
+      },
+      "tag_keys": [
+        "there_modal",
+        "formal_register"
+      ],
+      "variants": [
+        "Were there {a99} be a referendum, the outcome would be far from certain."
+      ],
+      "id": 99,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "There {a100} lay, beneath the surface, a complex network of underground rivers.",
+      "markers": {
+        "a100": {
+          "answer": "lay",
+          "options": [
+            "lay",
+            "laid",
+            "lied"
+          ],
+          "verb_hint": "literary: there lay + singular"
+        }
+      },
+      "tag_keys": [
+        "existential_there",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a100}, beneath the surface, a complex network of underground rivers."
+      ],
+      "id": 100,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "There {a101} prevailed an atmosphere of cautious optimism throughout the negotiations.",
+      "markers": {
+        "a101": {
+          "answer": "prevailed",
+          "options": [
+            "prevailed",
+            "prevailing",
+            "was prevailed"
+          ],
+          "verb_hint": "literary: there prevailed"
+        }
+      },
+      "tag_keys": [
+        "existential_there",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a101} an atmosphere of cautious optimism throughout the negotiations."
+      ],
+      "id": 101,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "Rarely {a102} there arisen a case of such legal complexity.",
+      "markers": {
+        "a102": {
+          "answer": "has",
+          "options": [
+            "has",
+            "have",
+            "had"
+          ],
+          "verb_hint": "inverted: rarely has + singular"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "formal_register"
+      ],
+      "variants": [
+        "Rarely {a102} there arisen a case of such legal complexity."
+      ],
+      "id": 102,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "There {a103} ought to be stricter regulations governing data privacy.",
+      "markers": {
+        "a103": {
+          "answer": "ought to be",
+          "options": [
+            "ought to be",
+            "ought be",
+            "ought to been"
+          ],
+          "verb_hint": "modal: there ought to be"
+        }
+      },
+      "tag_keys": [
+        "there_modal",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a103} stricter regulations governing data privacy."
+      ],
+      "id": 103,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "Not since the industrial revolution {a104} there been such a transformation of the labour market.",
+      "markers": {
+        "a104": {
+          "answer": "has",
+          "options": [
+            "has",
+            "have",
+            "had"
+          ],
+          "verb_hint": "inverted temporal clause + singular"
+        }
+      },
+      "tag_keys": [
+        "there_has_been",
+        "formal_register"
+      ],
+      "variants": [
+        "Not since the industrial revolution {a104} there been such a transformation of the labour market."
+      ],
+      "id": 104,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "There {a105} can be no doubt that the reforms have yielded tangible results.",
+      "markers": {
+        "a105": {
+          "answer": "can be",
+          "options": [
+            "can be",
+            "can been",
+            "can being"
+          ],
+          "verb_hint": "modal: there can be no doubt"
+        }
+      },
+      "tag_keys": [
+        "there_modal",
+        "there_is_negative"
+      ],
+      "variants": [
+        "There {a105} no doubt that the reforms have yielded tangible results."
+      ],
+      "id": 105,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "Little did they realise that there {a106} lurked a danger in the abandoned mine.",
+      "markers": {
+        "a106": {
+          "answer": "lurked",
+          "options": [
+            "lurked",
+            "lurking",
+            "was lurked"
+          ],
+          "verb_hint": "literary past: there lurked"
+        }
+      },
+      "tag_keys": [
+        "existential_there",
+        "formal_register"
+      ],
+      "variants": [
+        "Little did they realise that there {a106} a danger in the abandoned mine."
+      ],
+      "id": 106,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "There {a107} existed, until the reforms of 1998, a dual system of governance.",
+      "markers": {
+        "a107": {
+          "answer": "had",
+          "options": [
+            "had",
+            "has",
+            "have"
+          ],
+          "verb_hint": "past perfect: there had existed"
+        }
+      },
+      "tag_keys": [
+        "there_was_were",
+        "formal_register"
+      ],
+      "variants": [
+        "There {a107} existed, until the reforms of 1998, a dual system of governance."
+      ],
+      "id": 107,
+      "source": "theory_page_1124",
+      "level": "C2"
+    },
+    {
+      "question": "Should there {a108} to be an objection, the matter will be referred to arbitration.",
+      "markers": {
+        "a108": {
+          "answer": "happen",
+          "options": [
+            "happen",
+            "happens",
+            "happened"
+          ],
+          "verb_hint": "formal: should there happen to be"
+        }
+      },
+      "tag_keys": [
+        "there_modal",
+        "formal_register"
+      ],
+      "variants": [
+        "Should there {a108} to be an objection, the matter will be referred to arbitration."
+      ],
+      "id": 108,
+      "source": "theory_page_1124",
+      "level": "C2"
+    }
+  ]
+}
