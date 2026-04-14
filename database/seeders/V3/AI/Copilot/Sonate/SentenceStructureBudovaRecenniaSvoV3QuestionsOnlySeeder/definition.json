@@ -1,0 +1,791 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
+        "uuid_namespace": "ss-cp-sn"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Речення та граматика"
+    },
+    "sources": {
+        "theory_page_1064": {
+            "name": "Sentence Structure — Будова речення (SVO)"
+        }
+    },
+    "tags": {
+        "theme": {
+            "name": "Sentence structure SVO",
+            "category": "topic"
+        },
+        "svo_basic": {
+            "name": "Basic SVO order",
+            "category": "pattern"
+        },
+        "svo_negation": {
+            "name": "Negation in SVO",
+            "category": "pattern"
+        },
+        "svo_question": {
+            "name": "Question word order",
+            "category": "pattern"
+        },
+        "svo_adverb": {
+            "name": "Adverb placement in SVO",
+            "category": "pattern"
+        },
+        "svo_passive": {
+            "name": "Passive voice",
+            "category": "pattern"
+        },
+        "svo_inversion": {
+            "name": "Subject-auxiliary inversion",
+            "category": "pattern"
+        },
+        "svo_cleft": {
+            "name": "Cleft sentences",
+            "category": "pattern"
+        },
+        "svo_fronting": {
+            "name": "Fronting and emphasis",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "theme",
+        "svo_basic"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid_segments": ["a1", "q01"],
+            "question": "She {a1} an apple every morning.",
+            "source": "theory_page_1064",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "eats",
+                    "options": [
+                        "eats",
+                        "eat",
+                        "eating"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У реченнях типу SVO (підмет + присудок + додаток) дієслово узгоджується з підметом у числі та особі.",
+                        "З підметом третьої особи однини (he, she, it) у Present Simple до дієслова додається закінчення -s або -es."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "eats": "Форма «eats» правильна: підмет «She» — третя особа однини, тому у Present Simple до дієслова «eat» додається -s.",
+                            "eat": "Форма «eat» — базова форма дієслова, яка вживається з підметами I, you, we, they, але не з she/he/it у Present Simple.",
+                            "eating": "Форма «eating» — дієприкметник теперішнього часу, який не може виступати присудком без допоміжного дієслова «is»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_basic"
+            ],
+            "variants": [
+                "She {a1} an apple every morning."
+            ]
+        },
+        {
+            "id": 2,
+            "uuid_segments": ["a1", "q02"],
+            "question": "We {a1} football on Sundays.",
+            "source": "theory_page_1064",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "play",
+                    "options": [
+                        "play",
+                        "plays",
+                        "played"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Підмет «We» належить до першої особи множини — дієслово у Present Simple не змінюється і залишається у базовій формі.",
+                        "Вираз «on Sundays» (щонеділі) вказує на регулярну звичну дію в теперішньому часі."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "play": "Форма «play» правильна: підмет «We» (перша особа множини) не потребує закінчення -s у Present Simple.",
+                            "plays": "Форма «plays» — третя особа однини (he/she/it), яка не підходить до підмета «We».",
+                            "played": "Форма «played» — Past Simple, тоді як «on Sundays» описує регулярну теперішню звичку."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_basic"
+            ],
+            "variants": [
+                "We {a1} football on Sundays."
+            ]
+        },
+        {
+            "id": 3,
+            "uuid_segments": ["a1", "q03"],
+            "question": "He {a1} the door quietly.",
+            "source": "theory_page_1064",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "closed",
+                    "options": [
+                        "closed",
+                        "close",
+                        "closes"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівник «quietly» описує спосіб дії, але не впливає на форму дієслова.",
+                        "Речення описує конкретну завершену дію без уточнення часу — це типово для Past Simple."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "closed": "Форма «closed» правильна: Past Simple для опису конкретної завершеної дії; «close» — правильне дієслово, а -d додається за правилом.",
+                            "close": "Форма «close» — базова форма дієслова, яку не можна вжити як присудок без допоміжного дієслова у минулому часі.",
+                            "closes": "Форма «closes» — Present Simple для he/she/it; не підходить для опису конкретної завершеної минулої дії."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_basic"
+            ],
+            "variants": [
+                "He {a1} the door quietly."
+            ]
+        },
+        {
+            "id": 4,
+            "uuid_segments": ["a2", "q04"],
+            "question": "I {a1} not like coffee.",
+            "source": "theory_page_1064",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У заперечних реченнях Present Simple для підмета «I» використовується допоміжне дієслово «do».",
+                        "Структура заперечення у Present Simple: підмет + do/does + not + основне дієслово."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "do": "Форма «do» правильна: підмет «I» вимагає «do not» (don't) для утворення заперечення у Present Simple.",
+                            "does": "Форма «does» вживається лише з підметами третьої особи однини (he/she/it), але не з «I».",
+                            "did": "Форма «did» — допоміжне дієслово Past Simple; у реченні немає жодних ознак минулого часу."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_negation"
+            ],
+            "variants": [
+                "I {a1} not like coffee."
+            ]
+        },
+        {
+            "id": 5,
+            "uuid_segments": ["a2", "q05"],
+            "question": "{a1} she speak English?",
+            "source": "theory_page_1064",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання у Present Simple для підмета третьої особи однини утворюється за допомогою допоміжного дієслова «Does».",
+                        "У питальних реченнях SVO допоміжне дієслово ставиться перед підметом, а основне дієслово залишається у базовій формі."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Does": "Форма «Does» правильна: підмет «she» (третя особа однини) вимагає «does» для утворення загального питання в Present Simple.",
+                            "Do": "Форма «Do» — допоміжне дієслово для I/you/we/they; не вживається з підметом «she» у Present Simple.",
+                            "Is": "Форма «Is» — допоміжне дієслово «to be»; у цьому питанні вживається смислове дієслово «speak», тому «is» не підходить."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_question"
+            ],
+            "variants": [
+                "{a1} she speak English?"
+            ]
+        },
+        {
+            "id": 6,
+            "uuid_segments": ["a2", "q06"],
+            "question": "They {a1} not go to school yesterday.",
+            "source": "theory_page_1064",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "does"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Слово «yesterday» чітко вказує на минулий час — для заперечення в Past Simple потрібне «did».",
+                        "Структура заперечення у Past Simple: підмет + did + not + основне дієслово у базовій формі."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did": "Форма «did» правильна: «yesterday» вказує на Past Simple, а «did not» — стандартне заперечення для всіх підметів у минулому часі.",
+                            "do": "Форма «do» — допоміжне дієслово Present Simple для I/you/we/they; не підходить до минулого часу.",
+                            "does": "Форма «does» — Present Simple для третьої особи однини; не відповідає ні часу (минуле), ні підмету (they)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_negation"
+            ],
+            "variants": [
+                "They {a1} not go to school yesterday."
+            ]
+        },
+        {
+            "id": 7,
+            "uuid_segments": ["b1", "q07"],
+            "question": "She always {a1} up early.",
+            "source": "theory_page_1064",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "wakes",
+                    "options": [
+                        "wakes",
+                        "wake",
+                        "is waking"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівник частоти «always» зазвичай стоїть між підметом і основним дієсловом у Present Simple.",
+                        "Підмет «She» (третя особа однини) вимагає закінчення -s/-es у Present Simple."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wakes": "Форма «wakes» правильна: «always» вживається з Present Simple для регулярної дії, а підмет «She» вимагає закінчення -s.",
+                            "wake": "Форма «wake» — базова форма без -s; не узгоджується з підметом «She» у Present Simple.",
+                            "is waking": "Форма «is waking» — Present Continuous; з прислівником «always» у значенні постійної звички зазвичай використовується Present Simple, а не Continuous."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_adverb"
+            ],
+            "variants": [
+                "She always {a1} up early."
+            ]
+        },
+        {
+            "id": 8,
+            "uuid_segments": ["b1", "q08"],
+            "question": "He carefully {a1} the instructions.",
+            "source": "theory_page_1064",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "read",
+                    "options": [
+                        "read",
+                        "reads",
+                        "reading"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівник способу дії «carefully» стоїть між підметом і дієсловом, але не впливає на форму присудка.",
+                        "Дієслово «read» є неправильним: його форма Past Simple збігається за написанням з базовою формою, але вимовляється «red»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "read": "Форма «read» правильна як Past Simple: речення описує конкретну завершену дію; «read» (вим. «red») — неправильне дієслово, де форма минулого часу збігається з базовою.",
+                            "reads": "Форма «reads» — Present Simple третьої особи однини; вказувала б на регулярну дію, тоді як речення описує конкретний минулий випадок.",
+                            "reading": "Форма «reading» — дієприкметник теперішнього часу; без допоміжного «is» або «was» не може виступати самостійним присудком."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_adverb"
+            ],
+            "variants": [
+                "He carefully {a1} the instructions."
+            ]
+        },
+        {
+            "id": 9,
+            "uuid_segments": ["b1", "q09"],
+            "question": "We rarely {a1} mistakes in this exercise.",
+            "source": "theory_page_1064",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "make",
+                    "options": [
+                        "make",
+                        "makes",
+                        "made"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівник частоти «rarely» стоїть перед основним дієсловом у Present Simple.",
+                        "Підмет «We» (перша особа множини) не вимагає закінчення -s у Present Simple."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "make": "Форма «make» правильна: підмет «We» не потребує -s у Present Simple, а «rarely» підтверджує звичну, хоча й рідкісну теперішню дію.",
+                            "makes": "Форма «makes» — Present Simple третьої особи однини (he/she/it); не відповідає підмету «We».",
+                            "made": "Форма «made» — Past Simple; «rarely» у поєднанні з Present Simple описує поточну звичку, а не минулу подію."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_adverb"
+            ],
+            "variants": [
+                "We rarely {a1} mistakes in this exercise."
+            ]
+        },
+        {
+            "id": 10,
+            "uuid_segments": ["b2", "q10"],
+            "question": "The letter {a1} written by Tom yesterday.",
+            "source": "theory_page_1064",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Слово «yesterday» вказує на минулий час — потрібна форма Past Simple Passive.",
+                        "Підмет «The letter» — іменник однини, тому допоміжне дієслово пасивного стану теж має бути в однині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "Форма «was» правильна: Past Simple Passive для однинного підмета «the letter»; «yesterday» підтверджує минулий час.",
+                            "is": "Форма «is» — Present Simple Passive; суперечить слову «yesterday», яке вказує на минулий час.",
+                            "were": "Форма «were» — Past Simple Passive для множини; підмет «the letter» є однинним, тому «were» з ним не узгоджується."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_passive"
+            ],
+            "variants": [
+                "The letter {a1} written by Tom yesterday."
+            ]
+        },
+        {
+            "id": 11,
+            "uuid_segments": ["b2", "q11"],
+            "question": "This book {a1} published in 1999.",
+            "source": "theory_page_1064",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "had"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Рік «in 1999» вказує на конкретну завершену дію в минулому — Past Simple Passive.",
+                        "Підмет «This book» є однинним — потрібне допоміжне дієслово «was»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "Форма «was» правильна: Past Simple Passive для однинного підмета «this book»; «in 1999» підтверджує конкретний минулий час.",
+                            "were": "Форма «were» — Past Simple Passive для множини; підмет «this book» є однинним, тому «were» тут неправильне.",
+                            "had": "Форма «had» — допоміжне дієслово Past Perfect або дієслово «мати»; без «been» не утворює пасивний стан (потрібно «had been published»)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_passive"
+            ],
+            "variants": [
+                "This book {a1} published in 1999."
+            ]
+        },
+        {
+            "id": 12,
+            "uuid_segments": ["b2", "q12"],
+            "question": "The windows {a1} cleaned every Friday.",
+            "source": "theory_page_1064",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Вираз «every Friday» вказує на регулярну дію в теперішньому часі — Present Simple Passive.",
+                        "Підмет «The windows» — іменник множини, тому допоміжне дієслово пасивного стану також має бути у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: Present Simple Passive для множинного підмета «the windows»; «every Friday» підтверджує регулярність дії.",
+                            "is": "Форма «is» — Present Simple Passive для однини; підмет «the windows» є множинним, тому «is» не підходить.",
+                            "were": "Форма «were» — Past Simple Passive для множини; «every Friday» вказує на теперішній час, а не минулий."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_passive"
+            ],
+            "variants": [
+                "The windows {a1} cleaned every Friday."
+            ]
+        },
+        {
+            "id": 13,
+            "uuid_segments": ["c1", "q13"],
+            "question": "Never {a1} I seen such a beautiful sunset.",
+            "source": "theory_page_1064",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Never» на початку речення викликає інверсію: допоміжне дієслово ставиться перед підметом.",
+                        "Слово «seen» — дієприкметник II (Past Participle), який вживається в Present Perfect або Past Perfect."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "have": "Форма «have» правильна: «Never have I seen» — класична інверсія з Present Perfect; «seen» — дієприкметник II, що вживається з «have/has».",
+                            "had": "Форма «had» утворює Past Perfect Inversion («Never had I seen»), яка граматично можлива, але менш природна для опису унікального особистого досвіду.",
+                            "did": "Форма «did» — допоміжне дієслово Past Simple; не поєднується з дієприкметником «seen» — потрібна була б базова форма «see»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_inversion"
+            ],
+            "variants": [
+                "Never {a1} I seen such a beautiful sunset."
+            ]
+        },
+        {
+            "id": 14,
+            "uuid_segments": ["c1", "q14"],
+            "question": "Rarely {a1} she arrive late to meetings.",
+            "source": "theory_page_1064",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "did",
+                        "has"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Rarely» на початку речення вимагає інверсії: допоміжне дієслово ставиться перед підметом.",
+                        "Основне дієслово «arrive» стоїть у базовій формі після підмета, що свідчить про Present Simple."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "does": "Форма «does» правильна: «Rarely does she arrive» — інверсія у Present Simple з підметом третьої особи однини; «arrive» залишається у базовій формі.",
+                            "did": "Форма «did» — Past Simple Inversion; основне дієслово «arrive» у базовій формі вказує на Present Simple, а не минулий час.",
+                            "has": "Форма «has» — Present Perfect Auxiliary; при інверсії з «rarely» у Present Simple потрібне «does», а не «has»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_inversion"
+            ],
+            "variants": [
+                "Rarely {a1} she arrive late to meetings."
+            ]
+        },
+        {
+            "id": 15,
+            "uuid_segments": ["c1", "q15"],
+            "question": "Not only {a1} he pass the exam, but he also won an award.",
+            "source": "theory_page_1064",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Not only» на початку речення вимагає інверсії: допоміжне дієслово ставиться перед підметом.",
+                        "Друга частина речення містить «won» — форму минулого часу (Past Simple), яка узгоджується з часом у першій частині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did": "Форма «did» правильна: «Not only did he pass» — інверсія у Past Simple; «won» у другій частині підтверджує минулий час.",
+                            "does": "Форма «does» — Present Simple; суперечить «won» у другій частині речення, що є формою минулого часу.",
+                            "was": "Форма «was» — допоміжне дієслово пасивного стану або Past Simple «to be»; не підходить, оскільки «pass» потребує «did» для утворення інверсії."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_inversion"
+            ],
+            "variants": [
+                "Not only {a1} he pass the exam, but he also won an award."
+            ]
+        },
+        {
+            "id": 16,
+            "uuid_segments": ["c2", "q16"],
+            "question": "It {a1} John who broke the window.",
+            "source": "theory_page_1064",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Речення є розщепленим (cleft sentence) типу «It + be + виділений елемент + who/that + решта речення».",
+                        "Друга частина речення містить «broke» — Past Simple, тому дієслово-зв'язка теж має бути у минулому часі."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "Форма «was» правильна: «It was John who...» — стандартна конструкція cleft sentence у минулому часі; «broke» (Past Simple) підтверджує вибір.",
+                            "is": "Форма «is» — теперішній час; суперечить «broke» (Past Simple) у другій частині речення.",
+                            "were": "Форма «were» — множина Past Simple; конструкція «It + be» завжди вживається в однині незалежно від виділеного елемента."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_cleft"
+            ],
+            "variants": [
+                "It {a1} John who broke the window."
+            ]
+        },
+        {
+            "id": 17,
+            "uuid_segments": ["c2", "q17"],
+            "question": "{a1} the president himself who opened the ceremony.",
+            "source": "theory_page_1064",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "It was",
+                    "options": [
+                        "It was",
+                        "There was",
+                        "It is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Розщеплене речення (cleft sentence) починається зі сполучення «It + be», а не «There + be».",
+                        "Дієслово «opened» (Past Simple) вказує на те, що потрібна форма минулого часу «was», а не теперішнього «is»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "It was": "Сполучення «It was» правильне: «It was the president himself who...» — класична конструкція cleft sentence для виділення підмета у минулому часі.",
+                            "There was": "Конструкція «There was» вживається для позначення існування або наявності чогось; вона не виділяє підмет і не утворює cleft sentence.",
+                            "It is": "Сполучення «It is» — теперішній час; суперечить «opened» (Past Simple) у реченні."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_cleft"
+            ],
+            "variants": [
+                "{a1} the president himself who opened the ceremony."
+            ]
+        },
+        {
+            "id": 18,
+            "uuid_segments": ["c2", "q18"],
+            "question": "What she needed {a1} a long rest.",
+            "source": "theory_page_1064",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У конструкції «What + підметовий зворот + be + доповнення» дієслово «be» узгоджується з доповненням.",
+                        "Слово «needed» (Past Simple) вказує на те, що і дієслово-зв'язка повинна бути у минулому часі."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "Форма «was» правильна: «What she needed was a long rest» — pseudocleft sentence; «a long rest» є однинним доповненням, а «needed» підтверджує Past Simple.",
+                            "were": "Форма «were» — множина минулого часу; доповнення «a long rest» є однинною іменною групою, тому «were» з ним не узгоджується.",
+                            "is": "Форма «is» — теперішній час; суперечить «needed» (Past Simple) у підметовому звороті."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_cleft",
+                "svo_fronting"
+            ],
+            "variants": [
+                "What she needed {a1} a long rest."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "ss-cp-sn-saved-test",
+        "slug": "sentence-structure-svo-sonate-v3-test",
+        "name": "Sentence Structure SVO — Sonate V3 Test",
+        "filters": {
+            "num_questions": 18,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1064,
+                "theory_page_ids": [
+                    1064
+                ],
+                "theory_page": {
+                    "id": 1064,
+                    "slug": "sentence-structure-svo",
+                    "title": "Sentence Structure — Будова речення (SVO)",
+                    "category_slug_path": "rechennia-ta-hramatyka",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\SentenceGrammar\\SentenceStructureSvoTheorySeeder",
+                    "url": "https://gramlyze.com/theory/rechennia-ta-hramatyka/sentence-structure-svo"
+                }
+            }
+        }
+    }
+}
