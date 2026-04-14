@@ -1,0 +1,2666 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
+        "uuid_namespace": "SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "theory_page_1064": {
+            "name": "Sentence Structure — Будова речення (SVO)"
+        }
+    },
+    "tags": {
+        "svo_order": {
+            "name": "S-V-O word order",
+            "category": "pattern"
+        },
+        "subject_identification": {
+            "name": "Subject identification",
+            "category": "pattern"
+        },
+        "verb_placement": {
+            "name": "Verb placement in SVO",
+            "category": "pattern"
+        },
+        "object_identification": {
+            "name": "Object identification",
+            "category": "pattern"
+        },
+        "svo_with_adverb": {
+            "name": "SVO with adverb placement",
+            "category": "pattern"
+        },
+        "svo_with_indirect_object": {
+            "name": "SVO with indirect object",
+            "category": "pattern"
+        },
+        "svo_negation": {
+            "name": "Negation in SVO structure",
+            "category": "pattern"
+        },
+        "svo_question_form": {
+            "name": "Question formation from SVO",
+            "category": "pattern"
+        },
+        "subject_verb_agreement": {
+            "name": "Subject-verb agreement in SVO",
+            "category": "usage"
+        },
+        "svo_compound_subject": {
+            "name": "Compound subjects in SVO",
+            "category": "pattern"
+        },
+        "svo_compound_object": {
+            "name": "Compound objects in SVO",
+            "category": "pattern"
+        },
+        "svo_passive_reorder": {
+            "name": "Active-to-passive reordering",
+            "category": "pattern"
+        },
+        "svo_relative_clause": {
+            "name": "SVO with embedded relative clause",
+            "category": "pattern"
+        },
+        "svo_fronting": {
+            "name": "Fronting and inversion",
+            "category": "pattern"
+        },
+        "svo_cleft_sentence": {
+            "name": "Cleft and pseudo-cleft structures",
+            "category": "pattern"
+        },
+        "svo_ellipsis": {
+            "name": "Ellipsis in SVO",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "svo_order"
+    ],
+    "saved_test": {
+        "uuid": "svo-structure-opus46-saved",
+        "slug": "sentence_structure_budova_recennia_svo_opus46",
+        "name": "Sentence Structure (SVO) — Opus 4.6 V3 Questions Test",
+        "description": "Practice set for English SVO sentence structure: subject-verb-object order, negation, questions, adverb placement, compound elements, passive reordering, and advanced structures across A1-C2.",
+        "filters": {
+            "num_questions": 108,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1064,
+                "theory_page_ids": [
+                    1064
+                ],
+                "theory_page": {
+                    "id": 1064,
+                    "slug": "sentence-structure-svo",
+                    "title": "Sentence Structure — Будова речення (SVO)",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarSentenceStructureSvoTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/sentence-structure-svo"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "question": "The cat {a1} milk.",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "milk drinks",
+                        "drinks the cat"
+                    ],
+                    "verb_hint": "verb position"
+                }
+            },
+            "tag_keys": [
+                "svo_order",
+                "verb_placement"
+            ],
+            "variants": [
+                "The cat {a1} milk."
+            ],
+            "id": 1,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "{a2} reads a book.",
+            "markers": {
+                "a2": {
+                    "answer": "She",
+                    "options": [
+                        "She",
+                        "A book",
+                        "Reads"
+                    ],
+                    "verb_hint": "subject position"
+                }
+            },
+            "tag_keys": [
+                "subject_identification"
+            ],
+            "variants": [
+                "{a2} reads a book."
+            ],
+            "id": 2,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "Tom eats {a3}.",
+            "markers": {
+                "a3": {
+                    "answer": "an apple",
+                    "options": [
+                        "an apple",
+                        "Tom",
+                        "eats Tom"
+                    ],
+                    "verb_hint": "object position"
+                }
+            },
+            "tag_keys": [
+                "object_identification"
+            ],
+            "variants": [
+                "Tom eats {a3}."
+            ],
+            "id": 3,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "I {a4} English every day.",
+            "markers": {
+                "a4": {
+                    "answer": "study",
+                    "options": [
+                        "study",
+                        "English study",
+                        "every day study"
+                    ],
+                    "verb_hint": "verb after subject"
+                }
+            },
+            "tag_keys": [
+                "verb_placement"
+            ],
+            "variants": [
+                "I {a4} English every day."
+            ],
+            "id": 4,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "{a5} likes chocolate.",
+            "markers": {
+                "a5": {
+                    "answer": "My sister",
+                    "options": [
+                        "My sister",
+                        "Chocolate",
+                        "Likes"
+                    ],
+                    "verb_hint": "who performs the action"
+                }
+            },
+            "tag_keys": [
+                "subject_identification"
+            ],
+            "variants": [
+                "{a5} likes chocolate."
+            ],
+            "id": 5,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "We play {a6} after school.",
+            "markers": {
+                "a6": {
+                    "answer": "football",
+                    "options": [
+                        "football",
+                        "we",
+                        "play we"
+                    ],
+                    "verb_hint": "object after verb"
+                }
+            },
+            "tag_keys": [
+                "object_identification"
+            ],
+            "variants": [
+                "We play {a6} after school."
+            ],
+            "id": 6,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "The dog {a7} the ball.",
+            "markers": {
+                "a7": {
+                    "answer": "chases",
+                    "options": [
+                        "chases",
+                        "the ball chases",
+                        "the dog the ball"
+                    ],
+                    "verb_hint": "action word"
+                }
+            },
+            "tag_keys": [
+                "verb_placement"
+            ],
+            "variants": [
+                "The dog {a7} the ball."
+            ],
+            "id": 7,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "My mother {a8} dinner every evening.",
+            "markers": {
+                "a8": {
+                    "answer": "cooks",
+                    "options": [
+                        "cooks",
+                        "dinner cooks",
+                        "every evening cooks"
+                    ],
+                    "verb_hint": "verb follows subject"
+                }
+            },
+            "tag_keys": [
+                "svo_order",
+                "verb_placement"
+            ],
+            "variants": [
+                "My mother {a8} dinner every evening."
+            ],
+            "id": 8,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "{a9} opens the door.",
+            "markers": {
+                "a9": {
+                    "answer": "The teacher",
+                    "options": [
+                        "The teacher",
+                        "The door",
+                        "Opens"
+                    ],
+                    "verb_hint": "who does it"
+                }
+            },
+            "tag_keys": [
+                "subject_identification"
+            ],
+            "variants": [
+                "{a9} opens the door."
+            ],
+            "id": 9,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "They watch {a10} on TV.",
+            "markers": {
+                "a10": {
+                    "answer": "cartoons",
+                    "options": [
+                        "cartoons",
+                        "they",
+                        "watch they"
+                    ],
+                    "verb_hint": "what they watch"
+                }
+            },
+            "tag_keys": [
+                "object_identification"
+            ],
+            "variants": [
+                "They watch {a10} on TV."
+            ],
+            "id": 10,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "He {a11} water in the morning.",
+            "markers": {
+                "a11": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "water drinks",
+                        "in the morning drinks"
+                    ],
+                    "verb_hint": "verb after he"
+                }
+            },
+            "tag_keys": [
+                "verb_placement"
+            ],
+            "variants": [
+                "He {a11} water in the morning."
+            ],
+            "id": 11,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "{a12} writes letters.",
+            "markers": {
+                "a12": {
+                    "answer": "Anna",
+                    "options": [
+                        "Anna",
+                        "Letters",
+                        "Writes"
+                    ],
+                    "verb_hint": "subject at the start"
+                }
+            },
+            "tag_keys": [
+                "subject_identification"
+            ],
+            "variants": [
+                "{a12} writes letters."
+            ],
+            "id": 12,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "The children eat {a13} for lunch.",
+            "markers": {
+                "a13": {
+                    "answer": "sandwiches",
+                    "options": [
+                        "sandwiches",
+                        "the children",
+                        "eat children"
+                    ],
+                    "verb_hint": "what is eaten"
+                }
+            },
+            "tag_keys": [
+                "object_identification"
+            ],
+            "variants": [
+                "The children eat {a13} for lunch."
+            ],
+            "id": 13,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "She {a14} to music at home.",
+            "markers": {
+                "a14": {
+                    "answer": "listens",
+                    "options": [
+                        "listens",
+                        "music listens",
+                        "at home listens"
+                    ],
+                    "verb_hint": "action after subject"
+                }
+            },
+            "tag_keys": [
+                "verb_placement"
+            ],
+            "variants": [
+                "She {a14} to music at home."
+            ],
+            "id": 14,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "{a15} has a red car.",
+            "markers": {
+                "a15": {
+                    "answer": "My father",
+                    "options": [
+                        "My father",
+                        "A red car",
+                        "Has"
+                    ],
+                    "verb_hint": "who has the car"
+                }
+            },
+            "tag_keys": [
+                "subject_identification"
+            ],
+            "variants": [
+                "{a15} has a red car."
+            ],
+            "id": 15,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "I see {a16} in the sky.",
+            "markers": {
+                "a16": {
+                    "answer": "a bird",
+                    "options": [
+                        "a bird",
+                        "I",
+                        "see I"
+                    ],
+                    "verb_hint": "object after see"
+                }
+            },
+            "tag_keys": [
+                "object_identification"
+            ],
+            "variants": [
+                "I see {a16} in the sky."
+            ],
+            "id": 16,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "My friend {a17} a bike to school.",
+            "markers": {
+                "a17": {
+                    "answer": "rides",
+                    "options": [
+                        "rides",
+                        "a bike rides",
+                        "to school rides"
+                    ],
+                    "verb_hint": "what the friend does"
+                }
+            },
+            "tag_keys": [
+                "svo_order",
+                "verb_placement"
+            ],
+            "variants": [
+                "My friend {a17} a bike to school."
+            ],
+            "id": 17,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "The baby {a18} the toy.",
+            "markers": {
+                "a18": {
+                    "answer": "holds",
+                    "options": [
+                        "holds",
+                        "the toy holds",
+                        "the baby the toy"
+                    ],
+                    "verb_hint": "action between S and O"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "The baby {a18} the toy."
+            ],
+            "id": 18,
+            "source": "theory_page_1064",
+            "level": "A1"
+        },
+        {
+            "question": "My parents {a19} breakfast together every morning.",
+            "markers": {
+                "a19": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "breakfast have",
+                        "together have"
+                    ],
+                    "verb_hint": "verb after subject"
+                }
+            },
+            "tag_keys": [
+                "svo_order",
+                "verb_placement"
+            ],
+            "variants": [
+                "My parents {a19} breakfast together every morning."
+            ],
+            "id": 19,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "She does not {a20} coffee.",
+            "markers": {
+                "a20": {
+                    "answer": "drink",
+                    "options": [
+                        "drink",
+                        "drinks",
+                        "drinking"
+                    ],
+                    "verb_hint": "base form after does not"
+                }
+            },
+            "tag_keys": [
+                "svo_negation"
+            ],
+            "variants": [
+                "She does not {a20} coffee."
+            ],
+            "id": 20,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "{a21} do you eat for dinner?",
+            "markers": {
+                "a21": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Where",
+                        "Who"
+                    ],
+                    "verb_hint": "asking about the object"
+                }
+            },
+            "tag_keys": [
+                "svo_question_form",
+                "object_identification"
+            ],
+            "variants": [
+                "{a21} do you eat for dinner?"
+            ],
+            "id": 21,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "The students {a22} homework after classes.",
+            "markers": {
+                "a22": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "homework do",
+                        "after classes do"
+                    ],
+                    "verb_hint": "verb follows subject"
+                }
+            },
+            "tag_keys": [
+                "verb_placement"
+            ],
+            "variants": [
+                "The students {a22} homework after classes."
+            ],
+            "id": 22,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "He always {a23} his keys on the table.",
+            "markers": {
+                "a23": {
+                    "answer": "puts",
+                    "options": [
+                        "puts",
+                        "always puts keys",
+                        "keys puts"
+                    ],
+                    "verb_hint": "adverb before verb, object after"
+                }
+            },
+            "tag_keys": [
+                "svo_with_adverb"
+            ],
+            "variants": [
+                "He always {a23} his keys on the table."
+            ],
+            "id": 23,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "We do not {a24} TV in the morning.",
+            "markers": {
+                "a24": {
+                    "answer": "watch",
+                    "options": [
+                        "watch",
+                        "watches",
+                        "watching"
+                    ],
+                    "verb_hint": "base form after do not"
+                }
+            },
+            "tag_keys": [
+                "svo_negation"
+            ],
+            "variants": [
+                "We do not {a24} TV in the morning."
+            ],
+            "id": 24,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "{a25} does she teach at school?",
+            "markers": {
+                "a25": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Where",
+                        "When"
+                    ],
+                    "verb_hint": "asking about object"
+                }
+            },
+            "tag_keys": [
+                "svo_question_form"
+            ],
+            "variants": [
+                "{a25} does she teach at school?"
+            ],
+            "id": 25,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "Maria gives {a26} a present.",
+            "markers": {
+                "a26": {
+                    "answer": "her friend",
+                    "options": [
+                        "her friend",
+                        "Maria",
+                        "gives Maria"
+                    ],
+                    "verb_hint": "indirect object after verb"
+                }
+            },
+            "tag_keys": [
+                "svo_with_indirect_object"
+            ],
+            "variants": [
+                "Maria gives {a26} a present."
+            ],
+            "id": 26,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "The boys usually {a27} football in the park.",
+            "markers": {
+                "a27": {
+                    "answer": "play",
+                    "options": [
+                        "play",
+                        "football play",
+                        "in the park play"
+                    ],
+                    "verb_hint": "adverb between S and V"
+                }
+            },
+            "tag_keys": [
+                "svo_with_adverb"
+            ],
+            "variants": [
+                "The boys usually {a27} football in the park."
+            ],
+            "id": 27,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "They {a28} not like cold weather.",
+            "markers": {
+                "a28": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "does",
+                        "are"
+                    ],
+                    "verb_hint": "auxiliary for negation with they"
+                }
+            },
+            "tag_keys": [
+                "svo_negation",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "They {a28} not like cold weather."
+            ],
+            "id": 28,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "{a29} plays the piano?",
+            "markers": {
+                "a29": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "What",
+                        "Which"
+                    ],
+                    "verb_hint": "asking about the subject"
+                }
+            },
+            "tag_keys": [
+                "svo_question_form",
+                "subject_identification"
+            ],
+            "variants": [
+                "{a29} plays the piano?"
+            ],
+            "id": 29,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "My teacher often {a30} us interesting stories.",
+            "markers": {
+                "a30": {
+                    "answer": "tells",
+                    "options": [
+                        "tells",
+                        "stories tells",
+                        "us stories tells"
+                    ],
+                    "verb_hint": "S + adverb + V + IO + DO"
+                }
+            },
+            "tag_keys": [
+                "svo_with_indirect_object",
+                "svo_with_adverb"
+            ],
+            "variants": [
+                "My teacher often {a30} us interesting stories."
+            ],
+            "id": 30,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "The girl {a31} a picture for her mother.",
+            "markers": {
+                "a31": {
+                    "answer": "draws",
+                    "options": [
+                        "draws",
+                        "a picture draws",
+                        "for her mother draws"
+                    ],
+                    "verb_hint": "verb right after subject"
+                }
+            },
+            "tag_keys": [
+                "svo_order",
+                "verb_placement"
+            ],
+            "variants": [
+                "The girl {a31} a picture for her mother."
+            ],
+            "id": 31,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "He {a32} not understand the question.",
+            "markers": {
+                "a32": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "do",
+                        "is"
+                    ],
+                    "verb_hint": "auxiliary for he + negation"
+                }
+            },
+            "tag_keys": [
+                "svo_negation",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "He {a32} not understand the question."
+            ],
+            "id": 32,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "I send {a33} emails every week.",
+            "markers": {
+                "a33": {
+                    "answer": "my boss",
+                    "options": [
+                        "my boss",
+                        "I",
+                        "send I"
+                    ],
+                    "verb_hint": "indirect object after send"
+                }
+            },
+            "tag_keys": [
+                "svo_with_indirect_object"
+            ],
+            "variants": [
+                "I send {a33} emails every week."
+            ],
+            "id": 33,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "{a34} does your brother study?",
+            "markers": {
+                "a34": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Who",
+                        "How"
+                    ],
+                    "verb_hint": "asking about object of study"
+                }
+            },
+            "tag_keys": [
+                "svo_question_form"
+            ],
+            "variants": [
+                "{a34} does your brother study?"
+            ],
+            "id": 34,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "The cat never {a35} the furniture.",
+            "markers": {
+                "a35": {
+                    "answer": "scratches",
+                    "options": [
+                        "scratches",
+                        "the furniture scratches",
+                        "never the furniture"
+                    ],
+                    "verb_hint": "frequency adverb before verb"
+                }
+            },
+            "tag_keys": [
+                "svo_with_adverb",
+                "verb_placement"
+            ],
+            "variants": [
+                "The cat never {a35} the furniture."
+            ],
+            "id": 35,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "She shows {a36} her new photos.",
+            "markers": {
+                "a36": {
+                    "answer": "us",
+                    "options": [
+                        "us",
+                        "she",
+                        "shows she"
+                    ],
+                    "verb_hint": "indirect object after shows"
+                }
+            },
+            "tag_keys": [
+                "svo_with_indirect_object"
+            ],
+            "variants": [
+                "She shows {a36} her new photos."
+            ],
+            "id": 36,
+            "source": "theory_page_1064",
+            "level": "A2"
+        },
+        {
+            "question": "The manager {a37} the report to the team yesterday.",
+            "markers": {
+                "a37": {
+                    "answer": "presented",
+                    "options": [
+                        "presented",
+                        "the report presented",
+                        "to the team presented"
+                    ],
+                    "verb_hint": "verb after subject in past tense"
+                }
+            },
+            "tag_keys": [
+                "svo_order",
+                "verb_placement"
+            ],
+            "variants": [
+                "The manager {a37} the report to the team yesterday."
+            ],
+            "id": 37,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "They did not {a38} the meeting on time.",
+            "markers": {
+                "a38": {
+                    "answer": "finish",
+                    "options": [
+                        "finish",
+                        "finished",
+                        "finishing"
+                    ],
+                    "verb_hint": "base form after did not"
+                }
+            },
+            "tag_keys": [
+                "svo_negation"
+            ],
+            "variants": [
+                "They did not {a38} the meeting on time."
+            ],
+            "id": 38,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "{a39} did the students submit their projects?",
+            "markers": {
+                "a39": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "What",
+                        "Who"
+                    ],
+                    "verb_hint": "time question about the action"
+                }
+            },
+            "tag_keys": [
+                "svo_question_form"
+            ],
+            "variants": [
+                "{a39} did the students submit their projects?"
+            ],
+            "id": 39,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "My brother and I {a40} a small business together.",
+            "markers": {
+                "a40": {
+                    "answer": "run",
+                    "options": [
+                        "run",
+                        "runs",
+                        "running"
+                    ],
+                    "verb_hint": "compound subject needs plural verb"
+                }
+            },
+            "tag_keys": [
+                "svo_compound_subject",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "My brother and I {a40} a small business together."
+            ],
+            "id": 40,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "She bought {a41} at the market yesterday.",
+            "markers": {
+                "a41": {
+                    "answer": "fresh vegetables and fruit",
+                    "options": [
+                        "fresh vegetables and fruit",
+                        "she",
+                        "bought she yesterday"
+                    ],
+                    "verb_hint": "compound object after verb"
+                }
+            },
+            "tag_keys": [
+                "svo_compound_object"
+            ],
+            "variants": [
+                "She bought {a41} at the market yesterday."
+            ],
+            "id": 41,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "The children rarely {a42} their homework without help.",
+            "markers": {
+                "a42": {
+                    "answer": "complete",
+                    "options": [
+                        "complete",
+                        "homework complete",
+                        "without help complete"
+                    ],
+                    "verb_hint": "adverb between S and V"
+                }
+            },
+            "tag_keys": [
+                "svo_with_adverb",
+                "verb_placement"
+            ],
+            "variants": [
+                "The children rarely {a42} their homework without help."
+            ],
+            "id": 42,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "The company {a43} new employees every spring.",
+            "markers": {
+                "a43": {
+                    "answer": "hires",
+                    "options": [
+                        "hires",
+                        "new employees hires",
+                        "every spring hires"
+                    ],
+                    "verb_hint": "S + V + O + time"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "The company {a43} new employees every spring."
+            ],
+            "id": 43,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "Neither the teacher nor the students {a44} the answer.",
+            "markers": {
+                "a44": {
+                    "answer": "know",
+                    "options": [
+                        "know",
+                        "knows",
+                        "knowing"
+                    ],
+                    "verb_hint": "verb agrees with nearest subject"
+                }
+            },
+            "tag_keys": [
+                "svo_compound_subject",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "Neither the teacher nor the students {a44} the answer."
+            ],
+            "id": 44,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "He has not {a45} the results yet.",
+            "markers": {
+                "a45": {
+                    "answer": "received",
+                    "options": [
+                        "received",
+                        "receive",
+                        "receiving"
+                    ],
+                    "verb_hint": "past participle after has not"
+                }
+            },
+            "tag_keys": [
+                "svo_negation"
+            ],
+            "variants": [
+                "He has not {a45} the results yet."
+            ],
+            "id": 45,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "The artist carefully {a46} every detail in the painting.",
+            "markers": {
+                "a46": {
+                    "answer": "examines",
+                    "options": [
+                        "examines",
+                        "every detail examines",
+                        "in the painting examines"
+                    ],
+                    "verb_hint": "adverb before verb, object after"
+                }
+            },
+            "tag_keys": [
+                "svo_with_adverb",
+                "verb_placement"
+            ],
+            "variants": [
+                "The artist carefully {a46} every detail in the painting."
+            ],
+            "id": 46,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "{a47} invented the telephone?",
+            "markers": {
+                "a47": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "What",
+                        "When"
+                    ],
+                    "verb_hint": "asking about the subject"
+                }
+            },
+            "tag_keys": [
+                "svo_question_form",
+                "subject_identification"
+            ],
+            "variants": [
+                "{a47} invented the telephone?"
+            ],
+            "id": 47,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "The teacher gave {a48} extra homework.",
+            "markers": {
+                "a48": {
+                    "answer": "the students",
+                    "options": [
+                        "the students",
+                        "the teacher",
+                        "gave the teacher"
+                    ],
+                    "verb_hint": "indirect object after gave"
+                }
+            },
+            "tag_keys": [
+                "svo_with_indirect_object"
+            ],
+            "variants": [
+                "The teacher gave {a48} extra homework."
+            ],
+            "id": 48,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "Both the manager and the assistant {a49} the document.",
+            "markers": {
+                "a49": {
+                    "answer": "signed",
+                    "options": [
+                        "signed",
+                        "signs",
+                        "signing"
+                    ],
+                    "verb_hint": "compound subject with both...and"
+                }
+            },
+            "tag_keys": [
+                "svo_compound_subject",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "Both the manager and the assistant {a49} the document."
+            ],
+            "id": 49,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "I lent {a50} my bicycle last weekend.",
+            "markers": {
+                "a50": {
+                    "answer": "my neighbour",
+                    "options": [
+                        "my neighbour",
+                        "I",
+                        "my bicycle lent"
+                    ],
+                    "verb_hint": "IO after lent"
+                }
+            },
+            "tag_keys": [
+                "svo_with_indirect_object"
+            ],
+            "variants": [
+                "I lent {a50} my bicycle last weekend."
+            ],
+            "id": 50,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "She seldom {a51} mistakes in her essays.",
+            "markers": {
+                "a51": {
+                    "answer": "makes",
+                    "options": [
+                        "makes",
+                        "mistakes makes",
+                        "in her essays makes"
+                    ],
+                    "verb_hint": "frequency adverb before verb"
+                }
+            },
+            "tag_keys": [
+                "svo_with_adverb"
+            ],
+            "variants": [
+                "She seldom {a51} mistakes in her essays."
+            ],
+            "id": 51,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "The researchers {a52} the data and the conclusions.",
+            "markers": {
+                "a52": {
+                    "answer": "reviewed",
+                    "options": [
+                        "reviewed",
+                        "the data reviewed",
+                        "and the conclusions reviewed"
+                    ],
+                    "verb_hint": "V before compound O"
+                }
+            },
+            "tag_keys": [
+                "svo_compound_object"
+            ],
+            "variants": [
+                "The researchers {a52} the data and the conclusions."
+            ],
+            "id": 52,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "{a53} have the engineers designed?",
+            "markers": {
+                "a53": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Who",
+                        "Where"
+                    ],
+                    "verb_hint": "asking about the object"
+                }
+            },
+            "tag_keys": [
+                "svo_question_form",
+                "object_identification"
+            ],
+            "variants": [
+                "{a53} have the engineers designed?"
+            ],
+            "id": 53,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "We quickly {a54} the problem and fixed it.",
+            "markers": {
+                "a54": {
+                    "answer": "identified",
+                    "options": [
+                        "identified",
+                        "the problem identified",
+                        "and fixed identified"
+                    ],
+                    "verb_hint": "adverb before V, O after V"
+                }
+            },
+            "tag_keys": [
+                "svo_with_adverb",
+                "svo_order"
+            ],
+            "variants": [
+                "We quickly {a54} the problem and fixed it."
+            ],
+            "id": 54,
+            "source": "theory_page_1064",
+            "level": "B1"
+        },
+        {
+            "question": "The committee {a55} a unanimous decision after lengthy deliberation.",
+            "markers": {
+                "a55": {
+                    "answer": "reached",
+                    "options": [
+                        "reached",
+                        "a unanimous decision reached",
+                        "after deliberation reached"
+                    ],
+                    "verb_hint": "V follows S directly"
+                }
+            },
+            "tag_keys": [
+                "svo_order",
+                "verb_placement"
+            ],
+            "variants": [
+                "The committee {a55} a unanimous decision after lengthy deliberation."
+            ],
+            "id": 55,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "The new policy has not {a56} the expected results.",
+            "markers": {
+                "a56": {
+                    "answer": "produced",
+                    "options": [
+                        "produced",
+                        "produce",
+                        "producing"
+                    ],
+                    "verb_hint": "past participle after has not"
+                }
+            },
+            "tag_keys": [
+                "svo_negation"
+            ],
+            "variants": [
+                "The new policy has not {a56} the expected results."
+            ],
+            "id": 56,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "{a57} should the report be submitted to?",
+            "markers": {
+                "a57": {
+                    "answer": "Whom",
+                    "options": [
+                        "Whom",
+                        "Who",
+                        "Which"
+                    ],
+                    "verb_hint": "object form of who in formal question"
+                }
+            },
+            "tag_keys": [
+                "svo_question_form",
+                "object_identification"
+            ],
+            "variants": [
+                "{a57} should the report be submitted to?"
+            ],
+            "id": 57,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "The journalist not only gathered facts but also {a58} eyewitnesses.",
+            "markers": {
+                "a58": {
+                    "answer": "interviewed",
+                    "options": [
+                        "interviewed",
+                        "interviews",
+                        "interviewing"
+                    ],
+                    "verb_hint": "parallel past tense after also"
+                }
+            },
+            "tag_keys": [
+                "svo_compound_object",
+                "svo_order"
+            ],
+            "variants": [
+                "The journalist not only gathered facts but also {a58} eyewitnesses."
+            ],
+            "id": 58,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "The letter {a59} by the secretary before the director signed it.",
+            "markers": {
+                "a59": {
+                    "answer": "was typed",
+                    "options": [
+                        "was typed",
+                        "typed",
+                        "has typed"
+                    ],
+                    "verb_hint": "passive: be + past participle"
+                }
+            },
+            "tag_keys": [
+                "svo_passive_reorder"
+            ],
+            "variants": [
+                "The letter {a59} by the secretary before the director signed it."
+            ],
+            "id": 59,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "Each of the participants {a60} a certificate at the ceremony.",
+            "markers": {
+                "a60": {
+                    "answer": "received",
+                    "options": [
+                        "received",
+                        "receive",
+                        "were received"
+                    ],
+                    "verb_hint": "each + singular verb"
+                }
+            },
+            "tag_keys": [
+                "subject_verb_agreement",
+                "svo_order"
+            ],
+            "variants": [
+                "Each of the participants {a60} a certificate at the ceremony."
+            ],
+            "id": 60,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "The professor, along with two assistants, {a61} the experiment.",
+            "markers": {
+                "a61": {
+                    "answer": "conducts",
+                    "options": [
+                        "conducts",
+                        "conduct",
+                        "conducting"
+                    ],
+                    "verb_hint": "along with does not change subject number"
+                }
+            },
+            "tag_keys": [
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "The professor, along with two assistants, {a61} the experiment."
+            ],
+            "id": 61,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "The software {a62} by the team over six months.",
+            "markers": {
+                "a62": {
+                    "answer": "was developed",
+                    "options": [
+                        "was developed",
+                        "developed",
+                        "has developing"
+                    ],
+                    "verb_hint": "passive voice: S receives the action"
+                }
+            },
+            "tag_keys": [
+                "svo_passive_reorder"
+            ],
+            "variants": [
+                "The software {a62} by the team over six months."
+            ],
+            "id": 62,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "Neither the CEO nor the board members {a63} the proposal.",
+            "markers": {
+                "a63": {
+                    "answer": "approved",
+                    "options": [
+                        "approved",
+                        "approves",
+                        "approving"
+                    ],
+                    "verb_hint": "nearest subject is plural"
+                }
+            },
+            "tag_keys": [
+                "svo_compound_subject",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "Neither the CEO nor the board members {a63} the proposal."
+            ],
+            "id": 63,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "The data clearly {a64} a significant trend in consumer behaviour.",
+            "markers": {
+                "a64": {
+                    "answer": "show",
+                    "options": [
+                        "show",
+                        "shows",
+                        "showing"
+                    ],
+                    "verb_hint": "data is often treated as plural"
+                }
+            },
+            "tag_keys": [
+                "subject_verb_agreement",
+                "svo_with_adverb"
+            ],
+            "variants": [
+                "The data clearly {a64} a significant trend in consumer behaviour."
+            ],
+            "id": 64,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "{a65} does the evidence suggest about the theory?",
+            "markers": {
+                "a65": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Who",
+                        "How"
+                    ],
+                    "verb_hint": "asking about the object of suggest"
+                }
+            },
+            "tag_keys": [
+                "svo_question_form"
+            ],
+            "variants": [
+                "{a65} does the evidence suggest about the theory?"
+            ],
+            "id": 65,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "The government gradually {a66} restrictions on imports.",
+            "markers": {
+                "a66": {
+                    "answer": "lifted",
+                    "options": [
+                        "lifted",
+                        "restrictions lifted",
+                        "on imports lifted"
+                    ],
+                    "verb_hint": "adverb between S and V"
+                }
+            },
+            "tag_keys": [
+                "svo_with_adverb",
+                "svo_order"
+            ],
+            "variants": [
+                "The government gradually {a66} restrictions on imports."
+            ],
+            "id": 66,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "The storm damaged {a67} throughout the region.",
+            "markers": {
+                "a67": {
+                    "answer": "buildings and roads",
+                    "options": [
+                        "buildings and roads",
+                        "the storm",
+                        "damaged the storm"
+                    ],
+                    "verb_hint": "compound object after V"
+                }
+            },
+            "tag_keys": [
+                "svo_compound_object"
+            ],
+            "variants": [
+                "The storm damaged {a67} throughout the region."
+            ],
+            "id": 67,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "The results of the survey {a68} a clear preference.",
+            "markers": {
+                "a68": {
+                    "answer": "indicate",
+                    "options": [
+                        "indicate",
+                        "indicates",
+                        "indicating"
+                    ],
+                    "verb_hint": "results (plural) as subject"
+                }
+            },
+            "tag_keys": [
+                "subject_verb_agreement",
+                "svo_order"
+            ],
+            "variants": [
+                "The results of the survey {a68} a clear preference."
+            ],
+            "id": 68,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "The report, which took three months to prepare, {a69} all major findings.",
+            "markers": {
+                "a69": {
+                    "answer": "summarises",
+                    "options": [
+                        "summarises",
+                        "summarise",
+                        "summarising"
+                    ],
+                    "verb_hint": "subject is report (singular), clause is parenthetical"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "The report, which took three months to prepare, {a69} all major findings."
+            ],
+            "id": 69,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "A famous architect {a70} the new museum.",
+            "markers": {
+                "a70": {
+                    "answer": "designed",
+                    "options": [
+                        "designed",
+                        "was designed",
+                        "designing"
+                    ],
+                    "verb_hint": "active SVO: S did V to O"
+                }
+            },
+            "tag_keys": [
+                "svo_passive_reorder",
+                "svo_order"
+            ],
+            "variants": [
+                "A famous architect {a70} the new museum."
+            ],
+            "id": 70,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "The volunteers eagerly {a71} donations and supplies.",
+            "markers": {
+                "a71": {
+                    "answer": "collected",
+                    "options": [
+                        "collected",
+                        "donations collected",
+                        "supplies collected"
+                    ],
+                    "verb_hint": "adverb before V, compound O after"
+                }
+            },
+            "tag_keys": [
+                "svo_with_adverb",
+                "svo_compound_object"
+            ],
+            "variants": [
+                "The volunteers eagerly {a71} donations and supplies."
+            ],
+            "id": 71,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "The award {a72} to the scientist by the committee.",
+            "markers": {
+                "a72": {
+                    "answer": "was given",
+                    "options": [
+                        "was given",
+                        "gave",
+                        "has giving"
+                    ],
+                    "verb_hint": "passive: award receives action"
+                }
+            },
+            "tag_keys": [
+                "svo_passive_reorder"
+            ],
+            "variants": [
+                "The award {a72} to the scientist by the committee."
+            ],
+            "id": 72,
+            "source": "theory_page_1064",
+            "level": "B2"
+        },
+        {
+            "question": "Seldom {a73} such a complex argument in a student essay.",
+            "markers": {
+                "a73": {
+                    "answer": "does one encounter",
+                    "options": [
+                        "does one encounter",
+                        "one encounters",
+                        "one does encounter"
+                    ],
+                    "verb_hint": "inversion after negative adverb"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting"
+            ],
+            "variants": [
+                "Seldom {a73} such a complex argument in a student essay."
+            ],
+            "id": 73,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "It {a74} the budget constraints that delayed the project.",
+            "markers": {
+                "a74": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "had"
+                    ],
+                    "verb_hint": "cleft: It + be + focus"
+                }
+            },
+            "tag_keys": [
+                "svo_cleft_sentence"
+            ],
+            "variants": [
+                "It {a74} the budget constraints that delayed the project."
+            ],
+            "id": 74,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "The research, which several universities {a75}, has now been published.",
+            "markers": {
+                "a75": {
+                    "answer": "funded",
+                    "options": [
+                        "funded",
+                        "funds",
+                        "funding"
+                    ],
+                    "verb_hint": "past tense inside relative clause, universities is plural"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "The research, which several universities {a75}, has now been published."
+            ],
+            "id": 75,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "Not until the final paragraph {a76} her main argument.",
+            "markers": {
+                "a76": {
+                    "answer": "did the author reveal",
+                    "options": [
+                        "did the author reveal",
+                        "the author revealed",
+                        "the author did reveal"
+                    ],
+                    "verb_hint": "inversion after not until"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting"
+            ],
+            "variants": [
+                "Not until the final paragraph {a76} her main argument."
+            ],
+            "id": 76,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "What the researchers discovered {a77} all previous assumptions.",
+            "markers": {
+                "a77": {
+                    "answer": "contradicted",
+                    "options": [
+                        "contradicted",
+                        "contradict",
+                        "contradicting"
+                    ],
+                    "verb_hint": "noun clause as S, singular verb"
+                }
+            },
+            "tag_keys": [
+                "svo_cleft_sentence",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "What the researchers discovered {a77} all previous assumptions."
+            ],
+            "id": 77,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "The hypothesis that the team {a78} has attracted widespread attention.",
+            "markers": {
+                "a78": {
+                    "answer": "proposed",
+                    "options": [
+                        "proposed",
+                        "proposes",
+                        "proposing"
+                    ],
+                    "verb_hint": "past tense in the relative clause"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause"
+            ],
+            "variants": [
+                "The hypothesis that the team {a78} has attracted widespread attention."
+            ],
+            "id": 78,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "Under no circumstances {a79} access classified documents.",
+            "markers": {
+                "a79": {
+                    "answer": "should employees",
+                    "options": [
+                        "should employees",
+                        "employees should",
+                        "employees"
+                    ],
+                    "verb_hint": "inversion after negative phrase"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting",
+                "svo_negation"
+            ],
+            "variants": [
+                "Under no circumstances {a79} access classified documents."
+            ],
+            "id": 79,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "It was the lead engineer who {a80} the critical flaw.",
+            "markers": {
+                "a80": {
+                    "answer": "identified",
+                    "options": [
+                        "identified",
+                        "identify",
+                        "identifying"
+                    ],
+                    "verb_hint": "cleft sentence: past tense in who-clause"
+                }
+            },
+            "tag_keys": [
+                "svo_cleft_sentence"
+            ],
+            "variants": [
+                "It was the lead engineer who {a80} the critical flaw."
+            ],
+            "id": 80,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "The policy that the board of directors {a81} affects all departments.",
+            "markers": {
+                "a81": {
+                    "answer": "adopted",
+                    "options": [
+                        "adopted",
+                        "adopts",
+                        "adopting"
+                    ],
+                    "verb_hint": "relative clause modifying policy"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause",
+                "svo_order"
+            ],
+            "variants": [
+                "The policy that the board of directors {a81} affects all departments."
+            ],
+            "id": 81,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "Rarely {a82} such a thorough analysis of the issue.",
+            "markers": {
+                "a82": {
+                    "answer": "have scholars produced",
+                    "options": [
+                        "have scholars produced",
+                        "scholars have produced",
+                        "scholars produced"
+                    ],
+                    "verb_hint": "inversion after rarely"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting"
+            ],
+            "variants": [
+                "Rarely {a82} such a thorough analysis of the issue."
+            ],
+            "id": 82,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "The documents, some of which the court {a83}, remain confidential.",
+            "markers": {
+                "a83": {
+                    "answer": "sealed",
+                    "options": [
+                        "sealed",
+                        "seals",
+                        "sealing"
+                    ],
+                    "verb_hint": "past tense in non-restrictive relative clause"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause"
+            ],
+            "variants": [
+                "The documents, some of which the court {a83}, remain confidential."
+            ],
+            "id": 83,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "What concerned the panel most {a84} the lack of empirical evidence.",
+            "markers": {
+                "a84": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "being"
+                    ],
+                    "verb_hint": "pseudo-cleft: what-clause is singular"
+                }
+            },
+            "tag_keys": [
+                "svo_cleft_sentence",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "What concerned the panel most {a84} the lack of empirical evidence."
+            ],
+            "id": 84,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "The amendment, together with three sub-clauses, {a85} the scope of the law.",
+            "markers": {
+                "a85": {
+                    "answer": "expands",
+                    "options": [
+                        "expands",
+                        "expand",
+                        "expanding"
+                    ],
+                    "verb_hint": "together with does not change subject number"
+                }
+            },
+            "tag_keys": [
+                "subject_verb_agreement",
+                "svo_order"
+            ],
+            "variants": [
+                "The amendment, together with three sub-clauses, {a85} the scope of the law."
+            ],
+            "id": 85,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "markers": {
+                "a86": {
+                    "answer": "did the jury announce",
+                    "options": [
+                        "did the jury announce",
+                        "the jury announced",
+                        "the jury did announce"
+                    ],
+                    "verb_hint": "inversion after only after"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting"
+            ],
+            "variants": [
+                "Only after reviewing all evidence {a86} their verdict."
+            ],
+            "id": 86,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "The CEO, rather than the managers, {a87} the final decision.",
+            "markers": {
+                "a87": {
+                    "answer": "makes",
+                    "options": [
+                        "makes",
+                        "make",
+                        "making"
+                    ],
+                    "verb_hint": "rather than does not affect subject number"
+                }
+            },
+            "tag_keys": [
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "The CEO, rather than the managers, {a87} the final decision."
+            ],
+            "id": 87,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "A number of candidates {a88} the entrance exam last year.",
+            "markers": {
+                "a88": {
+                    "answer": "passed",
+                    "options": [
+                        "passed",
+                        "passes",
+                        "was passed"
+                    ],
+                    "verb_hint": "a number of + plural verb"
+                }
+            },
+            "tag_keys": [
+                "subject_verb_agreement",
+                "svo_order"
+            ],
+            "variants": [
+                "A number of candidates {a88} the entrance exam last year."
+            ],
+            "id": 88,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "So compelling was the evidence that the jury {a89} a guilty verdict within an hour.",
+            "markers": {
+                "a89": {
+                    "answer": "returned",
+                    "options": [
+                        "returned",
+                        "returns",
+                        "returning"
+                    ],
+                    "verb_hint": "main clause after that follows normal SVO"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting",
+                "svo_order"
+            ],
+            "variants": [
+                "So compelling was the evidence that the jury {a89} a guilty verdict within an hour."
+            ],
+            "id": 89,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "The effects of the policy, which experts {a90}, are becoming visible.",
+            "markers": {
+                "a90": {
+                    "answer": "predicted",
+                    "options": [
+                        "predicted",
+                        "predicts",
+                        "predicting"
+                    ],
+                    "verb_hint": "past tense in relative clause"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause"
+            ],
+            "variants": [
+                "The effects of the policy, which experts {a90}, are becoming visible."
+            ],
+            "id": 90,
+            "source": "theory_page_1064",
+            "level": "C1"
+        },
+        {
+            "question": "Never before {a91} such a paradigm shift in the field.",
+            "markers": {
+                "a91": {
+                    "answer": "had researchers witnessed",
+                    "options": [
+                        "had researchers witnessed",
+                        "researchers had witnessed",
+                        "researchers witnessed"
+                    ],
+                    "verb_hint": "inversion after never before"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting"
+            ],
+            "variants": [
+                "Never before {a91} such a paradigm shift in the field."
+            ],
+            "id": 91,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "It is the underlying methodology, not the findings, that {a92} scrutiny.",
+            "markers": {
+                "a92": {
+                    "answer": "warrants",
+                    "options": [
+                        "warrants",
+                        "warrant",
+                        "warranting"
+                    ],
+                    "verb_hint": "cleft focus on singular noun"
+                }
+            },
+            "tag_keys": [
+                "svo_cleft_sentence",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "It is the underlying methodology, not the findings, that {a92} scrutiny."
+            ],
+            "id": 92,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "The thesis, every chapter of which the supervisor {a93}, was submitted on time.",
+            "markers": {
+                "a93": {
+                    "answer": "reviewed",
+                    "options": [
+                        "reviewed",
+                        "reviews",
+                        "reviewing"
+                    ],
+                    "verb_hint": "past tense in relative clause"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause"
+            ],
+            "variants": [
+                "The thesis, every chapter of which the supervisor {a93}, was submitted on time."
+            ],
+            "id": 93,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "Not only {a94} the existing framework but also proposed a new one.",
+            "markers": {
+                "a94": {
+                    "answer": "did the author critique",
+                    "options": [
+                        "did the author critique",
+                        "the author critiqued",
+                        "the author did critique"
+                    ],
+                    "verb_hint": "inversion after not only"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting"
+            ],
+            "variants": [
+                "Not only {a94} the existing framework but also proposed a new one."
+            ],
+            "id": 94,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "What the audit revealed {a95} systemic rather than isolated failures.",
+            "markers": {
+                "a95": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "was",
+                        "being"
+                    ],
+                    "verb_hint": "pseudo-cleft complement is plural"
+                }
+            },
+            "tag_keys": [
+                "svo_cleft_sentence",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "What the audit revealed {a95} systemic rather than isolated failures."
+            ],
+            "id": 95,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "The data set, from which the algorithm {a96} its predictions, has since been updated.",
+            "markers": {
+                "a96": {
+                    "answer": "derived",
+                    "options": [
+                        "derived",
+                        "derives",
+                        "deriving"
+                    ],
+                    "verb_hint": "past tense in relative clause"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause"
+            ],
+            "variants": [
+                "The data set, from which the algorithm {a96} its predictions, has since been updated."
+            ],
+            "id": 96,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "Hardly {a97} the experiment when the equipment malfunctioned.",
+            "markers": {
+                "a97": {
+                    "answer": "had they begun",
+                    "options": [
+                        "had they begun",
+                        "they had begun",
+                        "they began"
+                    ],
+                    "verb_hint": "inversion after hardly"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting"
+            ],
+            "variants": [
+                "Hardly {a97} the experiment when the equipment malfunctioned."
+            ],
+            "id": 97,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "It was not the hypothesis itself but the {a98} that drew criticism.",
+            "markers": {
+                "a98": {
+                    "answer": "methodology",
+                    "options": [
+                        "methodology",
+                        "hypothesis",
+                        "criticism"
+                    ],
+                    "verb_hint": "cleft focus: not X but Y that..."
+                }
+            },
+            "tag_keys": [
+                "svo_cleft_sentence"
+            ],
+            "variants": [
+                "It was not the hypothesis itself but the {a98} that drew criticism."
+            ],
+            "id": 98,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "The {a99}, which the committee had long deliberated, was finally enacted.",
+            "markers": {
+                "a99": {
+                    "answer": "legislation",
+                    "options": [
+                        "legislation",
+                        "committee",
+                        "deliberation"
+                    ],
+                    "verb_hint": "subject of was enacted, modified by which-clause"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause",
+                "subject_identification"
+            ],
+            "variants": [
+                "The {a99}, which the committee had long deliberated, was finally enacted."
+            ],
+            "id": 99,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "At no point during the trial {a100} their composure.",
+            "markers": {
+                "a100": {
+                    "answer": "did the defendants lose",
+                    "options": [
+                        "did the defendants lose",
+                        "the defendants lost",
+                        "the defendants did lose"
+                    ],
+                    "verb_hint": "inversion after at no point"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting",
+                "svo_negation"
+            ],
+            "variants": [
+                "At no point during the trial {a100} their composure."
+            ],
+            "id": 100,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "The implications of {a101} the government implemented are far-reaching.",
+            "markers": {
+                "a101": {
+                    "answer": "what",
+                    "options": [
+                        "what",
+                        "which",
+                        "that"
+                    ],
+                    "verb_hint": "free relative clause as object"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause",
+                "svo_order"
+            ],
+            "variants": [
+                "The implications of {a101} the government implemented are far-reaching."
+            ],
+            "id": 101,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "So unprecedented was the discovery that it {a102} the entire theoretical framework.",
+            "markers": {
+                "a102": {
+                    "answer": "invalidated",
+                    "options": [
+                        "invalidated",
+                        "invalidates",
+                        "invalidating"
+                    ],
+                    "verb_hint": "past tense in result clause"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting",
+                "svo_order"
+            ],
+            "variants": [
+                "So unprecedented was the discovery that it {a102} the entire theoretical framework."
+            ],
+            "id": 102,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "The variables that the researchers {a103} yielded statistically significant correlations.",
+            "markers": {
+                "a103": {
+                    "answer": "controlled",
+                    "options": [
+                        "controlled",
+                        "controls",
+                        "controlling"
+                    ],
+                    "verb_hint": "past tense in restrictive relative clause"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause"
+            ],
+            "variants": [
+                "The variables that the researchers {a103} yielded statistically significant correlations."
+            ],
+            "id": 103,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "Only by {a104} all confounding factors can the study claim causation.",
+            "markers": {
+                "a104": {
+                    "answer": "eliminating",
+                    "options": [
+                        "eliminating",
+                        "eliminate",
+                        "eliminated"
+                    ],
+                    "verb_hint": "gerund after by in fronted adverbial"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting"
+            ],
+            "variants": [
+                "Only by {a104} all confounding factors can the study claim causation."
+            ],
+            "id": 104,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "The phenomenon, a full account of which {a105} in the appendix, defies simple categorisation.",
+            "markers": {
+                "a105": {
+                    "answer": "appears",
+                    "options": [
+                        "appears",
+                        "appear",
+                        "appearing"
+                    ],
+                    "verb_hint": "subject is account (singular)"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "The phenomenon, a full account of which {a105} in the appendix, defies simple categorisation."
+            ],
+            "id": 105,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "Nowhere in the literature {a106} a satisfactory explanation for this anomaly.",
+            "markers": {
+                "a106": {
+                    "answer": "does one find",
+                    "options": [
+                        "does one find",
+                        "one finds",
+                        "one does find"
+                    ],
+                    "verb_hint": "inversion after nowhere"
+                }
+            },
+            "tag_keys": [
+                "svo_fronting"
+            ],
+            "variants": [
+                "Nowhere in the literature {a106} a satisfactory explanation for this anomaly."
+            ],
+            "id": 106,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "It is the rigour of the analysis that {a107} this study apart from its predecessors.",
+            "markers": {
+                "a107": {
+                    "answer": "sets",
+                    "options": [
+                        "sets",
+                        "set",
+                        "setting"
+                    ],
+                    "verb_hint": "cleft: singular focus requires singular verb"
+                }
+            },
+            "tag_keys": [
+                "svo_cleft_sentence",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "It is the rigour of the analysis that {a107} this study apart from its predecessors."
+            ],
+            "id": 107,
+            "source": "theory_page_1064",
+            "level": "C2"
+        },
+        {
+            "question": "The council, none of whose members {a108} the motion, adjourned the session.",
+            "markers": {
+                "a108": {
+                    "answer": "seconded",
+                    "options": [
+                        "seconded",
+                        "seconds",
+                        "seconding"
+                    ],
+                    "verb_hint": "past tense in relative clause; members is subject"
+                }
+            },
+            "tag_keys": [
+                "svo_relative_clause",
+                "subject_verb_agreement"
+            ],
+            "variants": [
+                "The council, none of whose members {a108} the motion, adjourned the session."
+            ],
+            "id": 108,
+            "source": "theory_page_1064",
+            "level": "C2"
+        }
+    ]
+}

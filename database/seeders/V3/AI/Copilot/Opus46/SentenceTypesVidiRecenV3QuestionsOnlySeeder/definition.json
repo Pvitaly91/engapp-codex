@@ -1,0 +1,2674 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceTypesVidiRecenV3QuestionsOnlySeeder",
+        "uuid_namespace": "SentenceTypesVidiRecenV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "theory_page_1065": {
+            "name": "Sentence Types — Види речень"
+        }
+    },
+    "tags": {
+        "sentence_types": {
+            "name": "Sentence types",
+            "category": "topic"
+        },
+        "affirmative_sentence": {
+            "name": "Affirmative sentence structure",
+            "category": "pattern"
+        },
+        "negative_sentence": {
+            "name": "Negative sentence formation",
+            "category": "pattern"
+        },
+        "yes_no_question": {
+            "name": "Yes/No question formation",
+            "category": "pattern"
+        },
+        "wh_question": {
+            "name": "Wh-question formation",
+            "category": "pattern"
+        },
+        "imperative_sentence": {
+            "name": "Imperative sentence structure",
+            "category": "pattern"
+        },
+        "negative_imperative": {
+            "name": "Negative imperative (prohibition)",
+            "category": "pattern"
+        },
+        "auxiliary_do_does": {
+            "name": "Auxiliary do/does usage",
+            "category": "mechanism"
+        },
+        "auxiliary_inversion": {
+            "name": "Subject-auxiliary inversion",
+            "category": "mechanism"
+        },
+        "sentence_type_identification": {
+            "name": "Sentence type identification",
+            "category": "usage"
+        },
+        "word_order": {
+            "name": "Word order in sentence types",
+            "category": "mechanism"
+        },
+        "tag_question": {
+            "name": "Tag question formation",
+            "category": "pattern"
+        },
+        "indirect_question": {
+            "name": "Indirect question word order",
+            "category": "pattern"
+        },
+        "rhetorical_question": {
+            "name": "Rhetorical question usage",
+            "category": "register"
+        },
+        "exclamatory_sentence": {
+            "name": "Exclamatory sentence structure",
+            "category": "pattern"
+        },
+        "negative_contraction": {
+            "name": "Negative contraction forms",
+            "category": "mechanism"
+        }
+    },
+    "default_tag_keys": [
+        "sentence_types"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "She {a1} to school every day.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "goes",
+                    "options": [
+                        "goes",
+                        "don't goes",
+                        "does goes"
+                    ],
+                    "verb_hint": "affirmative form"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "She {a1} to school every day."
+            ]
+        },
+        {
+            "id": 2,
+            "question": "He {a2} like coffee.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "doesn't",
+                    "options": [
+                        "doesn't",
+                        "don't",
+                        "isn't"
+                    ],
+                    "verb_hint": "negative auxiliary"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "auxiliary_do_does"
+            ],
+            "variants": [
+                "He {a2} like coffee."
+            ]
+        },
+        {
+            "id": 3,
+            "question": "{a3} you like ice cream?",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Are"
+                    ],
+                    "verb_hint": "question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "yes_no_question",
+                "auxiliary_do_does"
+            ],
+            "variants": [
+                "{a3} you like ice cream?"
+            ]
+        },
+        {
+            "id": 4,
+            "question": "{a4} the door, please.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "Close",
+                    "options": [
+                        "Close",
+                        "Closes",
+                        "Closing"
+                    ],
+                    "verb_hint": "imperative verb"
+                }
+            },
+            "tag_keys": [
+                "imperative_sentence"
+            ],
+            "variants": [
+                "{a4} the door, please."
+            ]
+        },
+        {
+            "id": 5,
+            "question": "They {a5} play football on Sundays.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "don't",
+                    "options": [
+                        "don't",
+                        "doesn't",
+                        "aren't"
+                    ],
+                    "verb_hint": "negative auxiliary"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "auxiliary_do_does"
+            ],
+            "variants": [
+                "They {a5} play football on Sundays."
+            ]
+        },
+        {
+            "id": 6,
+            "question": "{a6} she speak English?",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is"
+                    ],
+                    "verb_hint": "question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "yes_no_question",
+                "auxiliary_do_does"
+            ],
+            "variants": [
+                "{a6} she speak English?"
+            ]
+        },
+        {
+            "id": 7,
+            "question": "{a7} run in the corridor!",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "Don't",
+                    "options": [
+                        "Don't",
+                        "Doesn't",
+                        "Not"
+                    ],
+                    "verb_hint": "negative imperative"
+                }
+            },
+            "tag_keys": [
+                "negative_imperative"
+            ],
+            "variants": [
+                "{a7} run in the corridor!"
+            ]
+        },
+        {
+            "id": 8,
+            "question": "I {a8} a student.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "am not",
+                        "do"
+                    ],
+                    "verb_hint": "affirmative form"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "I {a8} a student."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "We {a9} from Ukraine.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "affirmative form"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "We {a9} from Ukraine."
+            ]
+        },
+        {
+            "id": 10,
+            "question": "{a10} your name Tom?",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Do",
+                        "Does"
+                    ],
+                    "verb_hint": "question word"
+                }
+            },
+            "tag_keys": [
+                "yes_no_question",
+                "auxiliary_inversion"
+            ],
+            "variants": [
+                "{a10} your name Tom?"
+            ]
+        },
+        {
+            "id": 11,
+            "question": "She {a11} not a teacher.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "do"
+                    ],
+                    "verb_hint": "negative form with be"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence"
+            ],
+            "variants": [
+                "She {a11} not a teacher."
+            ]
+        },
+        {
+            "id": 12,
+            "question": "{a12} quiet in the library!",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "Be",
+                    "options": [
+                        "Be",
+                        "Is",
+                        "Are"
+                    ],
+                    "verb_hint": "imperative verb"
+                }
+            },
+            "tag_keys": [
+                "imperative_sentence"
+            ],
+            "variants": [
+                "{a12} quiet in the library!"
+            ]
+        },
+        {
+            "id": 13,
+            "question": "The cat {a13} on the sofa.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a13": {
+                    "answer": "sits",
+                    "options": [
+                        "sits",
+                        "don't sit",
+                        "sit does"
+                    ],
+                    "verb_hint": "affirmative form"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "The cat {a13} on the sofa."
+            ]
+        },
+        {
+            "id": 14,
+            "question": "My brother {a14} eat vegetables.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a14": {
+                    "answer": "doesn't",
+                    "options": [
+                        "doesn't",
+                        "don't",
+                        "not"
+                    ],
+                    "verb_hint": "negative auxiliary"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "auxiliary_do_does"
+            ],
+            "variants": [
+                "My brother {a14} eat vegetables."
+            ]
+        },
+        {
+            "id": 15,
+            "question": "{a15} they have a dog?",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a15": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Are"
+                    ],
+                    "verb_hint": "question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "yes_no_question",
+                "auxiliary_do_does"
+            ],
+            "variants": [
+                "{a15} they have a dog?"
+            ]
+        },
+        {
+            "id": 16,
+            "question": "{a16} your homework now!",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a16": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Doing"
+                    ],
+                    "verb_hint": "imperative verb"
+                }
+            },
+            "tag_keys": [
+                "imperative_sentence"
+            ],
+            "variants": [
+                "{a16} your homework now!"
+            ]
+        },
+        {
+            "id": 17,
+            "question": "My parents {a17} in a big house.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a17": {
+                    "answer": "live",
+                    "options": [
+                        "live",
+                        "lives",
+                        "living"
+                    ],
+                    "verb_hint": "affirmative form"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "My parents {a17} in a big house."
+            ]
+        },
+        {
+            "id": 18,
+            "question": "{a18} touch the hot stove!",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a18": {
+                    "answer": "Don't",
+                    "options": [
+                        "Don't",
+                        "Not",
+                        "Doesn't"
+                    ],
+                    "verb_hint": "negative imperative"
+                }
+            },
+            "tag_keys": [
+                "negative_imperative"
+            ],
+            "variants": [
+                "{a18} touch the hot stove!"
+            ]
+        },
+        {
+            "id": 19,
+            "question": "She {b1} watching TV right now.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "affirmative form"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "She {b1} watching TV right now."
+            ]
+        },
+        {
+            "id": 20,
+            "question": "They {b2} playing in the garden at the moment.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b2": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "doesn't",
+                        "don't"
+                    ],
+                    "verb_hint": "negative auxiliary"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "negative_contraction"
+            ],
+            "variants": [
+                "They {b2} playing in the garden at the moment."
+            ]
+        },
+        {
+            "id": 21,
+            "question": "{b3} he reading a book now?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b3": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Do"
+                    ],
+                    "verb_hint": "question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "yes_no_question",
+                "auxiliary_inversion"
+            ],
+            "variants": [
+                "{b3} he reading a book now?"
+            ]
+        },
+        {
+            "id": 22,
+            "question": "{b4} me your notebook, please.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b4": {
+                    "answer": "Show",
+                    "options": [
+                        "Show",
+                        "Shows",
+                        "Showing"
+                    ],
+                    "verb_hint": "imperative verb"
+                }
+            },
+            "tag_keys": [
+                "imperative_sentence"
+            ],
+            "variants": [
+                "{b4} me your notebook, please."
+            ]
+        },
+        {
+            "id": 23,
+            "question": "{b5} do you go to bed?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b5": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Do",
+                        "Is"
+                    ],
+                    "verb_hint": "question word"
+                }
+            },
+            "tag_keys": [
+                "wh_question"
+            ],
+            "variants": [
+                "{b5} do you go to bed?"
+            ]
+        },
+        {
+            "id": 24,
+            "question": "I {b6} go to school yesterday because I was sick.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b6": {
+                    "answer": "didn't",
+                    "options": [
+                        "didn't",
+                        "don't",
+                        "wasn't"
+                    ],
+                    "verb_hint": "past negative auxiliary"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence"
+            ],
+            "variants": [
+                "I {b6} go to school yesterday because I was sick."
+            ]
+        },
+        {
+            "id": 25,
+            "question": "{b7} did you buy at the shop?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b7": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Did",
+                        "Do"
+                    ],
+                    "verb_hint": "question word"
+                }
+            },
+            "tag_keys": [
+                "wh_question"
+            ],
+            "variants": [
+                "{b7} did you buy at the shop?"
+            ]
+        },
+        {
+            "id": 26,
+            "question": "{b8} forget to bring your umbrella!",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b8": {
+                    "answer": "Don't",
+                    "options": [
+                        "Don't",
+                        "Not",
+                        "No"
+                    ],
+                    "verb_hint": "negative imperative"
+                }
+            },
+            "tag_keys": [
+                "negative_imperative"
+            ],
+            "variants": [
+                "{b8} forget to bring your umbrella!"
+            ]
+        },
+        {
+            "id": 27,
+            "question": "She {b9} to the cinema last weekend.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b9": {
+                    "answer": "went",
+                    "options": [
+                        "went",
+                        "didn't went",
+                        "goes"
+                    ],
+                    "verb_hint": "past affirmative"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "She {b9} to the cinema last weekend."
+            ]
+        },
+        {
+            "id": 28,
+            "question": "{b10} you visit your grandparents last summer?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b10": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Were"
+                    ],
+                    "verb_hint": "past question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "yes_no_question",
+                "auxiliary_do_does"
+            ],
+            "variants": [
+                "{b10} you visit your grandparents last summer?"
+            ]
+        },
+        {
+            "id": 29,
+            "question": "He {b11} already finished his lunch.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b11": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is"
+                    ],
+                    "verb_hint": "present perfect auxiliary"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "He {b11} already finished his lunch."
+            ]
+        },
+        {
+            "id": 30,
+            "question": "We {b12} seen that movie yet.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b12": {
+                    "answer": "haven't",
+                    "options": [
+                        "haven't",
+                        "hasn't",
+                        "didn't"
+                    ],
+                    "verb_hint": "negative auxiliary"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "negative_contraction"
+            ],
+            "variants": [
+                "We {b12} seen that movie yet."
+            ]
+        },
+        {
+            "id": 31,
+            "question": "{b13} she ever been to London?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b13": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Have",
+                        "Did"
+                    ],
+                    "verb_hint": "question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "yes_no_question",
+                "auxiliary_inversion"
+            ],
+            "variants": [
+                "{b13} she ever been to London?"
+            ]
+        },
+        {
+            "id": 32,
+            "question": "{b14} sit down and listen carefully.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b14": {
+                    "answer": "Please",
+                    "options": [
+                        "Please",
+                        "You",
+                        "Must"
+                    ],
+                    "verb_hint": "polite imperative"
+                }
+            },
+            "tag_keys": [
+                "imperative_sentence"
+            ],
+            "variants": [
+                "{b14} sit down and listen carefully."
+            ]
+        },
+        {
+            "id": 33,
+            "question": "{b15} does your father work?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b15": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "question word"
+                }
+            },
+            "tag_keys": [
+                "wh_question"
+            ],
+            "variants": [
+                "{b15} does your father work?"
+            ]
+        },
+        {
+            "id": 34,
+            "question": "I {b16} not understand this exercise.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b16": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "am",
+                        "have"
+                    ],
+                    "verb_hint": "negative auxiliary"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "auxiliary_do_does"
+            ],
+            "variants": [
+                "I {b16} not understand this exercise."
+            ]
+        },
+        {
+            "id": 35,
+            "question": "{b17} are you going after class?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b17": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "Are",
+                        "Do"
+                    ],
+                    "verb_hint": "question word"
+                }
+            },
+            "tag_keys": [
+                "wh_question"
+            ],
+            "variants": [
+                "{b17} are you going after class?"
+            ]
+        },
+        {
+            "id": 36,
+            "question": "{b18} careful on the icy road!",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "b18": {
+                    "answer": "Be",
+                    "options": [
+                        "Be",
+                        "Being",
+                        "Is"
+                    ],
+                    "verb_hint": "imperative verb"
+                }
+            },
+            "tag_keys": [
+                "imperative_sentence"
+            ],
+            "variants": [
+                "{b18} careful on the icy road!"
+            ]
+        },
+        {
+            "id": 37,
+            "question": "She {c1} to Paris three times since 2019.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was"
+                    ],
+                    "verb_hint": "present perfect form"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "She {c1} to Paris three times since 2019."
+            ]
+        },
+        {
+            "id": 38,
+            "question": "They {c2} completed the project by the deadline.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c2": {
+                    "answer": "hadn't",
+                    "options": [
+                        "hadn't",
+                        "haven't",
+                        "didn't"
+                    ],
+                    "verb_hint": "past perfect negative"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "negative_contraction"
+            ],
+            "variants": [
+                "They {c2} completed the project by the deadline."
+            ]
+        },
+        {
+            "id": 39,
+            "question": "{c3} many books have you read this year?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c3": {
+                    "answer": "How",
+                    "options": [
+                        "How",
+                        "What",
+                        "Do"
+                    ],
+                    "verb_hint": "question word"
+                }
+            },
+            "tag_keys": [
+                "wh_question"
+            ],
+            "variants": [
+                "{c3} many books have you read this year?"
+            ]
+        },
+        {
+            "id": 40,
+            "question": "{c4} waste water — every drop counts.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c4": {
+                    "answer": "Don't",
+                    "options": [
+                        "Don't",
+                        "Not",
+                        "Never"
+                    ],
+                    "verb_hint": "negative imperative"
+                }
+            },
+            "tag_keys": [
+                "negative_imperative"
+            ],
+            "variants": [
+                "{c4} waste water — every drop counts."
+            ]
+        },
+        {
+            "id": 41,
+            "question": "The meeting {c5} be held next Monday.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c5": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "won't",
+                        "shall"
+                    ],
+                    "verb_hint": "future affirmative"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "The meeting {c5} be held next Monday."
+            ]
+        },
+        {
+            "id": 42,
+            "question": "You {c6} supposed to arrive at 9 a.m., were you?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c6": {
+                    "answer": "weren't",
+                    "options": [
+                        "weren't",
+                        "wasn't",
+                        "didn't"
+                    ],
+                    "verb_hint": "negative tag"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "tag_question"
+            ],
+            "variants": [
+                "You {c6} supposed to arrive at 9 a.m., were you?"
+            ]
+        },
+        {
+            "id": 43,
+            "question": "{c7} long have you been waiting here?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c7": {
+                    "answer": "How",
+                    "options": [
+                        "How",
+                        "What",
+                        "Since"
+                    ],
+                    "verb_hint": "question word"
+                }
+            },
+            "tag_keys": [
+                "wh_question"
+            ],
+            "variants": [
+                "{c7} long have you been waiting here?"
+            ]
+        },
+        {
+            "id": 44,
+            "question": "{c8} sure to lock the door when you leave.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c8": {
+                    "answer": "Make",
+                    "options": [
+                        "Make",
+                        "Making",
+                        "Makes"
+                    ],
+                    "verb_hint": "imperative verb"
+                }
+            },
+            "tag_keys": [
+                "imperative_sentence"
+            ],
+            "variants": [
+                "{c8} sure to lock the door when you leave."
+            ]
+        },
+        {
+            "id": 45,
+            "question": "He {c9} be at home now — his car is in the driveway.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c9": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "mustn't",
+                        "can't"
+                    ],
+                    "verb_hint": "modal of deduction"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "He {c9} be at home now — his car is in the driveway."
+            ]
+        },
+        {
+            "id": 46,
+            "question": "She {c10} have left already — the lights are still on.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c10": {
+                    "answer": "can't",
+                    "options": [
+                        "can't",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "negative modal deduction"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence"
+            ],
+            "variants": [
+                "She {c10} have left already — the lights are still on."
+            ]
+        },
+        {
+            "id": 47,
+            "question": "{c11} you mind if I open the window?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c11": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "polite question form"
+                }
+            },
+            "tag_keys": [
+                "yes_no_question"
+            ],
+            "variants": [
+                "{c11} you mind if I open the window?"
+            ]
+        },
+        {
+            "id": 48,
+            "question": "You like chocolate, {c12} you?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c12": {
+                    "answer": "don't",
+                    "options": [
+                        "don't",
+                        "do",
+                        "aren't"
+                    ],
+                    "verb_hint": "tag question form"
+                }
+            },
+            "tag_keys": [
+                "tag_question",
+                "auxiliary_do_does"
+            ],
+            "variants": [
+                "You like chocolate, {c12} you?"
+            ]
+        },
+        {
+            "id": 49,
+            "question": "He {c13} been studying English for three years.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c13": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is"
+                    ],
+                    "verb_hint": "present perfect continuous"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "He {c13} been studying English for three years."
+            ]
+        },
+        {
+            "id": 50,
+            "question": "We {c14} attend the meeting — it was cancelled.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c14": {
+                    "answer": "didn't",
+                    "options": [
+                        "didn't",
+                        "don't",
+                        "haven't"
+                    ],
+                    "verb_hint": "past negative"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence"
+            ],
+            "variants": [
+                "We {c14} attend the meeting — it was cancelled."
+            ]
+        },
+        {
+            "id": 51,
+            "question": "{c15} anyone called while I was out?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c15": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Did",
+                        "Is"
+                    ],
+                    "verb_hint": "question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "yes_no_question",
+                "auxiliary_inversion"
+            ],
+            "variants": [
+                "{c15} anyone called while I was out?"
+            ]
+        },
+        {
+            "id": 52,
+            "question": "Let {c16} know if you need any help.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c16": {
+                    "answer": "me",
+                    "options": [
+                        "me",
+                        "I",
+                        "my"
+                    ],
+                    "verb_hint": "imperative with let"
+                }
+            },
+            "tag_keys": [
+                "imperative_sentence"
+            ],
+            "variants": [
+                "Let {c16} know if you need any help."
+            ]
+        },
+        {
+            "id": 53,
+            "question": "{c17} is the best way to learn a new language?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c17": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "How",
+                        "Which"
+                    ],
+                    "verb_hint": "question word"
+                }
+            },
+            "tag_keys": [
+                "wh_question"
+            ],
+            "variants": [
+                "{c17} is the best way to learn a new language?"
+            ]
+        },
+        {
+            "id": 54,
+            "question": "I {c18} able to finish the report on time, so I asked for an extension.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "c18": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "didn't"
+                    ],
+                    "verb_hint": "past negative"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "negative_contraction"
+            ],
+            "variants": [
+                "I {c18} able to finish the report on time, so I asked for an extension."
+            ]
+        },
+        {
+            "id": 55,
+            "question": "Had she known about the delay, she {d1} have taken an earlier flight.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "should"
+                    ],
+                    "verb_hint": "conditional form"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "Had she known about the delay, she {d1} have taken an earlier flight."
+            ]
+        },
+        {
+            "id": 56,
+            "question": "The report {d2} been submitted on time if the data had been available.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d2": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "couldn't",
+                        "can"
+                    ],
+                    "verb_hint": "modal perfect form"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "The report {d2} been submitted on time if the data had been available."
+            ]
+        },
+        {
+            "id": 57,
+            "question": "You {d3} have told me about the meeting — I missed it completely.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d3": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "shouldn't",
+                        "must"
+                    ],
+                    "verb_hint": "modal of obligation"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "You {d3} have told me about the meeting — I missed it completely."
+            ]
+        },
+        {
+            "id": 58,
+            "question": "She {d4} have been the one who called — she was abroad at the time.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d4": {
+                    "answer": "couldn't",
+                    "options": [
+                        "couldn't",
+                        "could",
+                        "shouldn't"
+                    ],
+                    "verb_hint": "negative modal deduction"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "negative_contraction"
+            ],
+            "variants": [
+                "She {d4} have been the one who called — she was abroad at the time."
+            ]
+        },
+        {
+            "id": 59,
+            "question": "{d5} you rather we met on Tuesday instead?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d5": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Do",
+                        "Will"
+                    ],
+                    "verb_hint": "polite question form"
+                }
+            },
+            "tag_keys": [
+                "yes_no_question"
+            ],
+            "variants": [
+                "{d5} you rather we met on Tuesday instead?"
+            ]
+        },
+        {
+            "id": 60,
+            "question": "He speaks French fluently, {d6} he?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d6": {
+                    "answer": "doesn't",
+                    "options": [
+                        "doesn't",
+                        "does",
+                        "isn't"
+                    ],
+                    "verb_hint": "negative tag"
+                }
+            },
+            "tag_keys": [
+                "tag_question",
+                "auxiliary_do_does"
+            ],
+            "variants": [
+                "He speaks French fluently, {d6} he?"
+            ]
+        },
+        {
+            "id": 61,
+            "question": "{d7} on earth did you manage to finish so quickly?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d7": {
+                    "answer": "How",
+                    "options": [
+                        "How",
+                        "What",
+                        "Why"
+                    ],
+                    "verb_hint": "emphatic question"
+                }
+            },
+            "tag_keys": [
+                "wh_question"
+            ],
+            "variants": [
+                "{d7} on earth did you manage to finish so quickly?"
+            ]
+        },
+        {
+            "id": 62,
+            "question": "{d8} hesitate to ask if you have any questions.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d8": {
+                    "answer": "Don't",
+                    "options": [
+                        "Don't",
+                        "Not",
+                        "Never"
+                    ],
+                    "verb_hint": "negative imperative"
+                }
+            },
+            "tag_keys": [
+                "negative_imperative"
+            ],
+            "variants": [
+                "{d8} hesitate to ask if you have any questions."
+            ]
+        },
+        {
+            "id": 63,
+            "question": "The results {d9} not have been verified before publication.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d9": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "will"
+                    ],
+                    "verb_hint": "modal of speculation"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence"
+            ],
+            "variants": [
+                "The results {d9} not have been verified before publication."
+            ]
+        },
+        {
+            "id": 64,
+            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d10": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "inversion after negative adverb"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence",
+                "auxiliary_inversion"
+            ],
+            "variants": [
+                "Not only {d10} she pass the exam, but she also got the highest score."
+            ]
+        },
+        {
+            "id": 65,
+            "question": "Could you tell me {d11} the nearest station is?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d11": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "where is",
+                        "is where"
+                    ],
+                    "verb_hint": "indirect question word order"
+                }
+            },
+            "tag_keys": [
+                "indirect_question",
+                "word_order"
+            ],
+            "variants": [
+                "Could you tell me {d11} the nearest station is?"
+            ]
+        },
+        {
+            "id": 66,
+            "question": "She {d12} supposed to be leading the presentation, not observing it.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d12": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "wasn't",
+                        "did"
+                    ],
+                    "verb_hint": "affirmative past"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "She {d12} supposed to be leading the presentation, not observing it."
+            ]
+        },
+        {
+            "id": 67,
+            "question": "I wonder {d13} he decided to leave so suddenly.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d13": {
+                    "answer": "why",
+                    "options": [
+                        "why",
+                        "why did",
+                        "did why"
+                    ],
+                    "verb_hint": "indirect question"
+                }
+            },
+            "tag_keys": [
+                "indirect_question",
+                "word_order"
+            ],
+            "variants": [
+                "I wonder {d13} he decided to leave so suddenly."
+            ]
+        },
+        {
+            "id": 68,
+            "question": "{d14} under any circumstances reveal the password to others.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d14": {
+                    "answer": "Do not",
+                    "options": [
+                        "Do not",
+                        "Not",
+                        "You don't"
+                    ],
+                    "verb_hint": "formal negative imperative"
+                }
+            },
+            "tag_keys": [
+                "negative_imperative"
+            ],
+            "variants": [
+                "{d14} under any circumstances reveal the password to others."
+            ]
+        },
+        {
+            "id": 69,
+            "question": "They {d15} have arrived yet — the flight was delayed by two hours.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d15": {
+                    "answer": "can't",
+                    "options": [
+                        "can't",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "negative modal deduction"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence"
+            ],
+            "variants": [
+                "They {d15} have arrived yet — the flight was delayed by two hours."
+            ]
+        },
+        {
+            "id": 70,
+            "question": "She hasn't called, {d16} she?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d16": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "hasn't",
+                        "does"
+                    ],
+                    "verb_hint": "positive tag after negative"
+                }
+            },
+            "tag_keys": [
+                "tag_question",
+                "auxiliary_inversion"
+            ],
+            "variants": [
+                "She hasn't called, {d16} she?"
+            ]
+        },
+        {
+            "id": 71,
+            "question": "{d17} a beautiful painting that is!",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d17": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "How",
+                        "Which"
+                    ],
+                    "verb_hint": "exclamatory word"
+                }
+            },
+            "tag_keys": [
+                "exclamatory_sentence"
+            ],
+            "variants": [
+                "{d17} a beautiful painting that is!"
+            ]
+        },
+        {
+            "id": 72,
+            "question": "Little {d18} they know what was about to happen.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "d18": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "had"
+                    ],
+                    "verb_hint": "inversion with negative adverb"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence",
+                "auxiliary_inversion",
+                "word_order"
+            ],
+            "variants": [
+                "Little {d18} they know what was about to happen."
+            ]
+        },
+        {
+            "id": 73,
+            "question": "Rarely {e1} one encounter such a well-organized conference.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e1": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "do",
+                        "is"
+                    ],
+                    "verb_hint": "inversion after negative adverb"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence",
+                "auxiliary_inversion",
+                "word_order"
+            ],
+            "variants": [
+                "Rarely {e1} one encounter such a well-organized conference."
+            ]
+        },
+        {
+            "id": 74,
+            "question": "Under no circumstances {e2} this information be shared with the press.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e2": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "shouldn't",
+                        "must"
+                    ],
+                    "verb_hint": "inverted negative modal"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "auxiliary_inversion"
+            ],
+            "variants": [
+                "Under no circumstances {e2} this information be shared with the press."
+            ]
+        },
+        {
+            "id": 75,
+            "question": "The board {e3} yet to approve the revised budget proposal.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e3": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is"
+                    ],
+                    "verb_hint": "negative with yet"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence"
+            ],
+            "variants": [
+                "The board {e3} yet to approve the revised budget proposal."
+            ]
+        },
+        {
+            "id": 76,
+            "question": "Do you know {e4} the next board meeting is scheduled?",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e4": {
+                    "answer": "when",
+                    "options": [
+                        "when",
+                        "when is",
+                        "is when"
+                    ],
+                    "verb_hint": "indirect question word order"
+                }
+            },
+            "tag_keys": [
+                "indirect_question",
+                "word_order"
+            ],
+            "variants": [
+                "Do you know {e4} the next board meeting is scheduled?"
+            ]
+        },
+        {
+            "id": 77,
+            "question": "{e5} all stakeholders be informed of the policy changes immediately.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e5": {
+                    "answer": "Let",
+                    "options": [
+                        "Let",
+                        "Make",
+                        "Have"
+                    ],
+                    "verb_hint": "formal imperative"
+                }
+            },
+            "tag_keys": [
+                "imperative_sentence"
+            ],
+            "variants": [
+                "{e5} all stakeholders be informed of the policy changes immediately."
+            ]
+        },
+        {
+            "id": 78,
+            "question": "She {e6} have anticipated the merger — all the signs were there.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e6": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "would",
+                        "must"
+                    ],
+                    "verb_hint": "modal of hindsight obligation"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "She {e6} have anticipated the merger — all the signs were there."
+            ]
+        },
+        {
+            "id": 79,
+            "question": "The proposal, which {e7} been revised several times, was finally accepted.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e7": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "has",
+                        "was"
+                    ],
+                    "verb_hint": "past perfect in relative clause"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "The proposal, which {e7} been revised several times, was finally accepted."
+            ]
+        },
+        {
+            "id": 80,
+            "question": "No sooner {e8} we left than it started to rain heavily.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e8": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "did",
+                        "have"
+                    ],
+                    "verb_hint": "inversion with no sooner"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence",
+                "auxiliary_inversion",
+                "word_order"
+            ],
+            "variants": [
+                "No sooner {e8} we left than it started to rain heavily."
+            ]
+        },
+        {
+            "id": 81,
+            "question": "He {e9} not be persuaded to change his mind, no matter what arguments were presented.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e9": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "would"
+                    ],
+                    "verb_hint": "negative modal of ability"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence"
+            ],
+            "variants": [
+                "He {e9} not be persuaded to change his mind, no matter what arguments were presented."
+            ]
+        },
+        {
+            "id": 82,
+            "question": "Isn't it remarkable {e10} quickly technology evolves these days?",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e10": {
+                    "answer": "how",
+                    "options": [
+                        "how",
+                        "what",
+                        "that"
+                    ],
+                    "verb_hint": "rhetorical question word"
+                }
+            },
+            "tag_keys": [
+                "rhetorical_question"
+            ],
+            "variants": [
+                "Isn't it remarkable {e10} quickly technology evolves these days?"
+            ]
+        },
+        {
+            "id": 83,
+            "question": "The committee {e11} reached a decision — discussions are still ongoing.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e11": {
+                    "answer": "hasn't",
+                    "options": [
+                        "hasn't",
+                        "haven't",
+                        "didn't"
+                    ],
+                    "verb_hint": "present perfect negative"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "negative_contraction"
+            ],
+            "variants": [
+                "The committee {e11} reached a decision — discussions are still ongoing."
+            ]
+        },
+        {
+            "id": 84,
+            "question": "The new regulations {e12} to take effect on the first of next month.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e12": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "will"
+                    ],
+                    "verb_hint": "affirmative scheduled future"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "The new regulations {e12} to take effect on the first of next month."
+            ]
+        },
+        {
+            "id": 85,
+            "question": "She asked me {e13} I had completed the assignment.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e13": {
+                    "answer": "whether",
+                    "options": [
+                        "whether",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "reported yes/no question"
+                }
+            },
+            "tag_keys": [
+                "indirect_question",
+                "word_order"
+            ],
+            "variants": [
+                "She asked me {e13} I had completed the assignment."
+            ]
+        },
+        {
+            "id": 86,
+            "question": "{e14} the necessary precautions before handling any chemicals.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e14": {
+                    "answer": "Take",
+                    "options": [
+                        "Take",
+                        "Taking",
+                        "Takes"
+                    ],
+                    "verb_hint": "imperative verb"
+                }
+            },
+            "tag_keys": [
+                "imperative_sentence"
+            ],
+            "variants": [
+                "{e14} the necessary precautions before handling any chemicals."
+            ]
+        },
+        {
+            "id": 87,
+            "question": "Seldom {e15} the director attend meetings in person.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e15": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "do",
+                        "is"
+                    ],
+                    "verb_hint": "inversion with seldom"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence",
+                "auxiliary_inversion",
+                "word_order"
+            ],
+            "variants": [
+                "Seldom {e15} the director attend meetings in person."
+            ]
+        },
+        {
+            "id": 88,
+            "question": "They {e16} have been more considerate in their approach to the negotiations.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e16": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must"
+                    ],
+                    "verb_hint": "modal of past possibility"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "They {e16} have been more considerate in their approach to the negotiations."
+            ]
+        },
+        {
+            "id": 89,
+            "question": "You submitted the report on time, {e17} you?",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e17": {
+                    "answer": "didn't",
+                    "options": [
+                        "didn't",
+                        "don't",
+                        "haven't"
+                    ],
+                    "verb_hint": "negative tag"
+                }
+            },
+            "tag_keys": [
+                "tag_question"
+            ],
+            "variants": [
+                "You submitted the report on time, {e17} you?"
+            ]
+        },
+        {
+            "id": 90,
+            "question": "{e18} brilliant the performance was last night!",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "e18": {
+                    "answer": "How",
+                    "options": [
+                        "How",
+                        "What",
+                        "So"
+                    ],
+                    "verb_hint": "exclamatory word"
+                }
+            },
+            "tag_keys": [
+                "exclamatory_sentence"
+            ],
+            "variants": [
+                "{e18} brilliant the performance was last night!"
+            ]
+        },
+        {
+            "id": 91,
+            "question": "Not until the audit was complete {f1} the discrepancies come to light.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "had"
+                    ],
+                    "verb_hint": "inversion after not until"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence",
+                "auxiliary_inversion",
+                "word_order"
+            ],
+            "variants": [
+                "Not until the audit was complete {f1} the discrepancies come to light."
+            ]
+        },
+        {
+            "id": 92,
+            "question": "On no account {f2} the defendant be permitted to leave the jurisdiction.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f2": {
+                    "answer": "shall",
+                    "options": [
+                        "shall",
+                        "will",
+                        "should"
+                    ],
+                    "verb_hint": "formal prohibition with inversion"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "auxiliary_inversion"
+            ],
+            "variants": [
+                "On no account {f2} the defendant be permitted to leave the jurisdiction."
+            ]
+        },
+        {
+            "id": 93,
+            "question": "Were it not for the swift intervention, the outcome {f3} have been catastrophic.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f3": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "could"
+                    ],
+                    "verb_hint": "subjunctive conditional"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence"
+            ],
+            "variants": [
+                "Were it not for the swift intervention, the outcome {f3} have been catastrophic."
+            ]
+        },
+        {
+            "id": 94,
+            "question": "He enquired as to {f4} the deadline had been extended.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f4": {
+                    "answer": "whether",
+                    "options": [
+                        "whether",
+                        "that",
+                        "if did"
+                    ],
+                    "verb_hint": "formal reported question"
+                }
+            },
+            "tag_keys": [
+                "indirect_question",
+                "word_order"
+            ],
+            "variants": [
+                "He enquired as to {f4} the deadline had been extended."
+            ]
+        },
+        {
+            "id": 95,
+            "question": "{f5} it be noted that all submissions must adhere to the revised guidelines.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f5": {
+                    "answer": "Let",
+                    "options": [
+                        "Let",
+                        "May",
+                        "Shall"
+                    ],
+                    "verb_hint": "formal imperative with let"
+                }
+            },
+            "tag_keys": [
+                "imperative_sentence"
+            ],
+            "variants": [
+                "{f5} it be noted that all submissions must adhere to the revised guidelines."
+            ]
+        },
+        {
+            "id": 96,
+            "question": "Scarcely {f6} the delegates arrived when the keynote speaker collapsed.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f6": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "have",
+                        "did"
+                    ],
+                    "verb_hint": "inversion with scarcely"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence",
+                "auxiliary_inversion",
+                "word_order"
+            ],
+            "variants": [
+                "Scarcely {f6} the delegates arrived when the keynote speaker collapsed."
+            ]
+        },
+        {
+            "id": 97,
+            "question": "The hypothesis {f7} not withstand peer review and was subsequently retracted.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f7": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "could"
+                    ],
+                    "verb_hint": "past negative"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence"
+            ],
+            "variants": [
+                "The hypothesis {f7} not withstand peer review and was subsequently retracted."
+            ]
+        },
+        {
+            "id": 98,
+            "question": "So compelling was the evidence that the jury {f8} no choice but to convict.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f8": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "has",
+                        "have"
+                    ],
+                    "verb_hint": "inversion with so + adjective"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence",
+                "auxiliary_inversion",
+                "word_order"
+            ],
+            "variants": [
+                "So compelling was the evidence that the jury {f8} no choice but to convict."
+            ]
+        },
+        {
+            "id": 99,
+            "question": "{f9} the allegations prove unfounded, the company reserves the right to seek damages.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f9": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Would",
+                        "Could"
+                    ],
+                    "verb_hint": "formal conditional inversion"
+                }
+            },
+            "tag_keys": [
+                "yes_no_question",
+                "auxiliary_inversion"
+            ],
+            "variants": [
+                "{f9} the allegations prove unfounded, the company reserves the right to seek damages."
+            ]
+        },
+        {
+            "id": 100,
+            "question": "At no point during the proceedings {f10} the defendant express remorse.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f10": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "inversion with negative adverb"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "auxiliary_inversion",
+                "word_order"
+            ],
+            "variants": [
+                "At no point during the proceedings {f10} the defendant express remorse."
+            ]
+        },
+        {
+            "id": 101,
+            "question": "Never before {f11} the parliament faced such a constitutional challenge.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f11": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "has",
+                        "did"
+                    ],
+                    "verb_hint": "inversion with never before"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence",
+                "auxiliary_inversion",
+                "word_order"
+            ],
+            "variants": [
+                "Never before {f11} the parliament faced such a constitutional challenge."
+            ]
+        },
+        {
+            "id": 102,
+            "question": "The minister {f12} neither confirm nor deny the reports of the investigation.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f12": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "could"
+                    ],
+                    "verb_hint": "refusal modal"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence"
+            ],
+            "variants": [
+                "The minister {f12} neither confirm nor deny the reports of the investigation."
+            ]
+        },
+        {
+            "id": 103,
+            "question": "Might I {f13} so bold as to suggest an alternative approach?",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f13": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "being",
+                        "been"
+                    ],
+                    "verb_hint": "formal question form"
+                }
+            },
+            "tag_keys": [
+                "yes_no_question"
+            ],
+            "variants": [
+                "Might I {f13} so bold as to suggest an alternative approach?"
+            ]
+        },
+        {
+            "id": 104,
+            "question": "{f14} all personnel vacate the premises in an orderly fashion.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f14": {
+                    "answer": "Let",
+                    "options": [
+                        "Let",
+                        "Make",
+                        "Allow"
+                    ],
+                    "verb_hint": "formal directive"
+                }
+            },
+            "tag_keys": [
+                "imperative_sentence"
+            ],
+            "variants": [
+                "{f14} all personnel vacate the premises in an orderly fashion."
+            ]
+        },
+        {
+            "id": 105,
+            "question": "Hardly {f15} the chairman finished his address when protests erupted.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f15": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "has",
+                        "did"
+                    ],
+                    "verb_hint": "inversion with hardly"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence",
+                "auxiliary_inversion",
+                "word_order"
+            ],
+            "variants": [
+                "Hardly {f15} the chairman finished his address when protests erupted."
+            ]
+        },
+        {
+            "id": 106,
+            "question": "Only after extensive deliberation {f16} the committee reach a consensus.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f16": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "had"
+                    ],
+                    "verb_hint": "inversion with only after"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentence",
+                "auxiliary_inversion",
+                "word_order"
+            ],
+            "variants": [
+                "Only after extensive deliberation {f16} the committee reach a consensus."
+            ]
+        },
+        {
+            "id": 107,
+            "question": "In no way {f17} this decision reflect the views of the entire organization.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f17": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "did",
+                        "is"
+                    ],
+                    "verb_hint": "inversion with negative adverb"
+                }
+            },
+            "tag_keys": [
+                "negative_sentence",
+                "auxiliary_inversion",
+                "word_order"
+            ],
+            "variants": [
+                "In no way {f17} this decision reflect the views of the entire organization."
+            ]
+        },
+        {
+            "id": 108,
+            "question": "So {f18} was the turnaround that even the harshest critics were silenced.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "f18": {
+                    "answer": "remarkable",
+                    "options": [
+                        "remarkable",
+                        "remarkably",
+                        "remarking"
+                    ],
+                    "verb_hint": "adjective in inverted exclamatory"
+                }
+            },
+            "tag_keys": [
+                "exclamatory_sentence",
+                "word_order"
+            ],
+            "variants": [
+                "So {f18} was the turnaround that even the harshest critics were silenced."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "sent-types-opus46-v3-test",
+        "slug": "sentence_types_vidi_recen_opus46",
+        "name": "Sentence Types — Opus 4.6 V3 Questions Test",
+        "description": "Practice set for sentence types: affirmative, negative, interrogative, and imperative sentences across A1–C2.",
+        "filters": {
+            "num_questions": 108,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceTypesVidiRecenV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1065,
+                "theory_page_ids": [
+                    1065
+                ],
+                "theory_page": {
+                    "id": 1065,
+                    "slug": "sentence-types",
+                    "title": "Sentence Types — Види речень",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarSentenceTypesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/sentence-types"
+                }
+            }
+        }
+    }
+}
