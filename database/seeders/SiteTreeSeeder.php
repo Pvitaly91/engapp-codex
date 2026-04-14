@@ -352,6 +352,8 @@ class SiteTreeSeeder extends Seeder
                             ['title' => 'Verb to Be: Present Forms', 'level' => 'A1'],
                             ['title' => 'Verb to Be: Negatives', 'level' => 'A1'],
                             ['title' => 'Verb to Be: Questions and Short Answers', 'level' => 'A1'],
+                            ['title' => 'Verb to Be: Past Forms', 'level' => 'A1–A2'],
+                            ['title' => 'Verb to Be: Future', 'level' => 'A1–A2'],
                             ['title' => 'There Is / There Are', 'level' => 'A1–A2'],
                         ],
                     ],
