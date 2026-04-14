@@ -1,0 +1,1737 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBePresentFormsV3QuestionsOnlySeeder",
+        "uuid_namespace": "VerbToBePresentFormsV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Verb to Be"
+    },
+    "sources": {
+        "theory_page_1121": {
+            "name": "Verb to Be: Present Forms"
+        }
+    },
+    "tags": {
+        "verb_to_be": {
+            "name": "Verb to be — present forms",
+            "category": "topic"
+        },
+        "am_form": {
+            "name": "I am — first person singular",
+            "category": "pattern"
+        },
+        "is_form": {
+            "name": "He/She/It is — third person singular",
+            "category": "pattern"
+        },
+        "are_form": {
+            "name": "You/We/They are — plural and second person",
+            "category": "pattern"
+        },
+        "be_negative": {
+            "name": "Negative forms of be (am not / is not / are not)",
+            "category": "pattern"
+        },
+        "be_question": {
+            "name": "Question forms of be (inversion)",
+            "category": "pattern"
+        },
+        "be_contraction": {
+            "name": "Contracted forms ('m / 's / 're / isn't / aren't)",
+            "category": "pattern"
+        },
+        "be_subject_agreement": {
+            "name": "Subject–verb agreement with be",
+            "category": "usage"
+        },
+        "be_adjective_predicate": {
+            "name": "Be + adjective (predicate adjective)",
+            "category": "usage"
+        },
+        "be_location": {
+            "name": "Be + prepositional phrase (location)",
+            "category": "usage"
+        },
+        "be_identity": {
+            "name": "Be for identity and definition",
+            "category": "usage"
+        },
+        "be_short_answer": {
+            "name": "Short answers with be (Yes, I am / No, it isn't)",
+            "category": "pattern"
+        },
+        "be_formal_register": {
+            "name": "Be in formal and academic register",
+            "category": "register"
+        },
+        "be_existential": {
+            "name": "There is / There are — existential be",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "verb_to_be"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "I {a1} happy today.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["am_form", "be_adjective_predicate"],
+            "variants": ["I {a1} happy today."]
+        },
+        {
+            "id": 2,
+            "question": "She {a2} a teacher.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_identity"],
+            "variants": ["She {a2} a teacher."]
+        },
+        {
+            "id": 3,
+            "question": "They {a3} in the park.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_location"],
+            "variants": ["They {a3} in the park."]
+        },
+        {
+            "id": 4,
+            "question": "He {a4} my friend.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_identity"],
+            "variants": ["He {a4} my friend."]
+        },
+        {
+            "id": 5,
+            "question": "We {a5} students.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_identity"],
+            "variants": ["We {a5} students."]
+        },
+        {
+            "id": 6,
+            "question": "It {a6} cold outside.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_adjective_predicate"],
+            "variants": ["It {a6} cold outside."]
+        },
+        {
+            "id": 7,
+            "question": "You {a7} very kind.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_adjective_predicate"],
+            "variants": ["You {a7} very kind."]
+        },
+        {
+            "id": 8,
+            "question": "I {a8} from Ukraine.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "am",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["am_form", "be_location"],
+            "variants": ["I {a8} from Ukraine."]
+        },
+        {
+            "id": 9,
+            "question": "The cat {a9} on the sofa.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_location"],
+            "variants": ["The cat {a9} on the sofa."]
+        },
+        {
+            "id": 10,
+            "question": "My parents {a10} at home.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_location"],
+            "variants": ["My parents {a10} at home."]
+        },
+        {
+            "id": 11,
+            "question": "I {a11} tired.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "am",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["am_form", "be_adjective_predicate"],
+            "variants": ["I {a11} tired."]
+        },
+        {
+            "id": 12,
+            "question": "This {a12} my book.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_identity"],
+            "variants": ["This {a12} my book."]
+        },
+        {
+            "id": 13,
+            "question": "The children {a13} in the garden.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a13": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_location"],
+            "variants": ["The children {a13} in the garden."]
+        },
+        {
+            "id": 14,
+            "question": "I {a14} a student.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a14": {
+                    "answer": "am",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["am_form", "be_identity"],
+            "variants": ["I {a14} a student."]
+        },
+        {
+            "id": 15,
+            "question": "The dog {a15} big.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a15": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_adjective_predicate"],
+            "variants": ["The dog {a15} big."]
+        },
+        {
+            "id": 16,
+            "question": "Tom and Jerry {a16} friends.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a16": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_identity"],
+            "variants": ["Tom and Jerry {a16} friends."]
+        },
+        {
+            "id": 17,
+            "question": "My name {a17} Anna.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a17": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_identity"],
+            "variants": ["My name {a17} Anna."]
+        },
+        {
+            "id": 18,
+            "question": "We {a18} hungry.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a18": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_adjective_predicate"],
+            "variants": ["We {a18} hungry."]
+        },
+        {
+            "id": 19,
+            "question": "She {a19} not at school today.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a19": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_negative", "be_location"],
+            "variants": ["She {a19} not at school today."]
+        },
+        {
+            "id": 20,
+            "question": "I {a20} not ready yet.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a20": {
+                    "answer": "am",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["am_form", "be_negative"],
+            "variants": ["I {a20} not ready yet."]
+        },
+        {
+            "id": 21,
+            "question": "{a21} you a doctor?",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a21": {
+                    "answer": "Are",
+                    "options": ["Am", "Is", "Are"],
+                    "verb_hint": "question form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_question"],
+            "variants": ["{a21} you a doctor?"]
+        },
+        {
+            "id": 22,
+            "question": "The flowers {a22} beautiful.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a22": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_adjective_predicate"],
+            "variants": ["The flowers {a22} beautiful."]
+        },
+        {
+            "id": 23,
+            "question": "There {a23} a book on the desk.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a23": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_existential"],
+            "variants": ["There {a23} a book on the desk."]
+        },
+        {
+            "id": 24,
+            "question": "There {a24} many people in the room.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a24": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_existential"],
+            "variants": ["There {a24} many people in the room."]
+        },
+        {
+            "id": 25,
+            "question": "He {a25} not happy about the result.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_negative", "be_adjective_predicate"],
+            "variants": ["He {a25} not happy about the result."]
+        },
+        {
+            "id": 26,
+            "question": "{a26} it your pen?",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "Is",
+                    "options": ["Am", "Is", "Are"],
+                    "verb_hint": "question form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_question"],
+            "variants": ["{a26} it your pen?"]
+        },
+        {
+            "id": 27,
+            "question": "My brothers {a27} tall.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_adjective_predicate"],
+            "variants": ["My brothers {a27} tall."]
+        },
+        {
+            "id": 28,
+            "question": "The weather {a28} nice today.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_adjective_predicate"],
+            "variants": ["The weather {a28} nice today."]
+        },
+        {
+            "id": 29,
+            "question": "We {a29} not from this city.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_negative", "be_location"],
+            "variants": ["We {a29} not from this city."]
+        },
+        {
+            "id": 30,
+            "question": "{a30} I late?",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "Am",
+                    "options": ["Am", "Is", "Are"],
+                    "verb_hint": "question form of be"
+                }
+            },
+            "tag_keys": ["am_form", "be_question"],
+            "variants": ["{a30} I late?"]
+        },
+        {
+            "id": 31,
+            "question": "There {a31} three cups on the table.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a31": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_existential"],
+            "variants": ["There {a31} three cups on the table."]
+        },
+        {
+            "id": 32,
+            "question": "{a32} they your classmates?",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a32": {
+                    "answer": "Are",
+                    "options": ["Am", "Is", "Are"],
+                    "verb_hint": "question form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_question"],
+            "variants": ["{a32} they your classmates?"]
+        },
+        {
+            "id": 33,
+            "question": "I {a33} not sure about this.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a33": {
+                    "answer": "am",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["am_form", "be_negative"],
+            "variants": ["I {a33} not sure about this."]
+        },
+        {
+            "id": 34,
+            "question": "This exercise {a34} not very difficult.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a34": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_negative", "be_adjective_predicate"],
+            "variants": ["This exercise {a34} not very difficult."]
+        },
+        {
+            "id": 35,
+            "question": "These shoes {a35} too small for me.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a35": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_adjective_predicate"],
+            "variants": ["These shoes {a35} too small for me."]
+        },
+        {
+            "id": 36,
+            "question": "The milk {a36} in the fridge.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a36": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_location"],
+            "variants": ["The milk {a36} in the fridge."]
+        },
+        {
+            "id": 37,
+            "question": "I think she {a37} right about this.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a37": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_adjective_predicate"],
+            "variants": ["I think she {a37} right about this."]
+        },
+        {
+            "id": 38,
+            "question": "The team {a38} ready for the competition.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a38": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement", "be_adjective_predicate"],
+            "variants": ["The team {a38} ready for the competition."]
+        },
+        {
+            "id": 39,
+            "question": "Neither the teacher nor the students {a39} in the classroom.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a39": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement"],
+            "variants": ["Neither the teacher nor the students {a39} in the classroom."]
+        },
+        {
+            "id": 40,
+            "question": "Every student {a40} responsible for the homework.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a40": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["Every student {a40} responsible for the homework."]
+        },
+        {
+            "id": 41,
+            "question": "The news {a41} surprising.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a41": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["The news {a41} surprising."]
+        },
+        {
+            "id": 42,
+            "question": "There {a42} a lot of information on this website.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a42": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_existential", "be_subject_agreement"],
+            "variants": ["There {a42} a lot of information on this website."]
+        },
+        {
+            "id": 43,
+            "question": "Physics {a43} my favourite subject.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a43": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["Physics {a43} my favourite subject."]
+        },
+        {
+            "id": 44,
+            "question": "Both answers {a44} correct.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a44": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement"],
+            "variants": ["Both answers {a44} correct."]
+        },
+        {
+            "id": 45,
+            "question": "It {a45} important that you arrive on time.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a45": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_adjective_predicate"],
+            "variants": ["It {a45} important that you arrive on time."]
+        },
+        {
+            "id": 46,
+            "question": "Each of the rooms {a46} clean.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a46": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["Each of the rooms {a46} clean."]
+        },
+        {
+            "id": 47,
+            "question": "My glasses {a47} on the table.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a47": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_location"],
+            "variants": ["My glasses {a47} on the table."]
+        },
+        {
+            "id": 48,
+            "question": "Everybody {a48} welcome at the party.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a48": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["Everybody {a48} welcome at the party."]
+        },
+        {
+            "id": 49,
+            "question": "There {a49} several reasons for this decision.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a49": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_existential"],
+            "variants": ["There {a49} several reasons for this decision."]
+        },
+        {
+            "id": 50,
+            "question": "The furniture in this room {a50} very old.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a50": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement", "be_adjective_predicate"],
+            "variants": ["The furniture in this room {a50} very old."]
+        },
+        {
+            "id": 51,
+            "question": "One of my friends {a51} an engineer.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a51": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement", "be_identity"],
+            "variants": ["One of my friends {a51} an engineer."]
+        },
+        {
+            "id": 52,
+            "question": "The police {a52} looking for the suspect.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a52": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement"],
+            "variants": ["The police {a52} looking for the suspect."]
+        },
+        {
+            "id": 53,
+            "question": "None of the homework {a53} done.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a53": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["None of the homework {a53} done."]
+        },
+        {
+            "id": 54,
+            "question": "A number of students {a54} absent today.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a54": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement"],
+            "variants": ["A number of students {a54} absent today."]
+        },
+        {
+            "id": 55,
+            "question": "The majority of the students {a55} satisfied with the course.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a55": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement"],
+            "variants": ["The majority of the students {a55} satisfied with the course."]
+        },
+        {
+            "id": 56,
+            "question": "The number of applicants {a56} growing every year.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a56": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["The number of applicants {a56} growing every year."]
+        },
+        {
+            "id": 57,
+            "question": "Either the manager or his assistants {a57} available right now.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a57": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement"],
+            "variants": ["Either the manager or his assistants {a57} available right now."]
+        },
+        {
+            "id": 58,
+            "question": "Neither the students nor the professor {a58} aware of the schedule change.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a58": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["Neither the students nor the professor {a58} aware of the schedule change."]
+        },
+        {
+            "id": 59,
+            "question": "What {a59} the criteria for this selection?",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a59": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_question", "be_subject_agreement"],
+            "variants": ["What {a59} the criteria for this selection?"]
+        },
+        {
+            "id": 60,
+            "question": "Mathematics {a60} essential for engineering students.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a60": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["Mathematics {a60} essential for engineering students."]
+        },
+        {
+            "id": 61,
+            "question": "The committee {a61} divided on this issue.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a61": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["The committee {a61} divided on this issue."]
+        },
+        {
+            "id": 62,
+            "question": "Half of the report {a62} still unfinished.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a62": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["Half of the report {a62} still unfinished."]
+        },
+        {
+            "id": 63,
+            "question": "There {a63} no excuse for this behaviour.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a63": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_existential", "be_negative"],
+            "variants": ["There {a63} no excuse for this behaviour."]
+        },
+        {
+            "id": 64,
+            "question": "Not only the price but also the quality {a64} important.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a64": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["Not only the price but also the quality {a64} important."]
+        },
+        {
+            "id": 65,
+            "question": "Two thirds of the land {a65} covered in forest.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a65": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["Two thirds of the land {a65} covered in forest."]
+        },
+        {
+            "id": 66,
+            "question": "The data {a66} being analysed by the research team.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a66": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["The data {a66} being analysed by the research team."]
+        },
+        {
+            "id": 67,
+            "question": "Each of the candidates {a67} well-qualified.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a67": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["Each of the candidates {a67} well-qualified."]
+        },
+        {
+            "id": 68,
+            "question": "None of the answers {a68} entirely wrong.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a68": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_negative"],
+            "variants": ["None of the answers {a68} entirely wrong."]
+        },
+        {
+            "id": 69,
+            "question": "The audience {a69} enthusiastic about the performance.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a69": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["The audience {a69} enthusiastic about the performance."]
+        },
+        {
+            "id": 70,
+            "question": "Half of the cookies {a70} already eaten.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a70": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement"],
+            "variants": ["Half of the cookies {a70} already eaten."]
+        },
+        {
+            "id": 71,
+            "question": "The United States {a71} a federal republic.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a71": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement", "be_identity"],
+            "variants": ["The United States {a71} a federal republic."]
+        },
+        {
+            "id": 72,
+            "question": "The scissors {a72} in the top drawer.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a72": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_location"],
+            "variants": ["The scissors {a72} in the top drawer."]
+        },
+        {
+            "id": 73,
+            "question": "It {a73} widely acknowledged that climate change poses a serious threat.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a73": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_formal_register"],
+            "variants": ["It {a73} widely acknowledged that climate change poses a serious threat."]
+        },
+        {
+            "id": 74,
+            "question": "Neither the evidence nor the testimony {a74} convincing enough.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a74": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["Neither the evidence nor the testimony {a74} convincing enough."]
+        },
+        {
+            "id": 75,
+            "question": "The phenomena described in the report {a75} extremely rare.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a75": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["The phenomena described in the report {a75} extremely rare."]
+        },
+        {
+            "id": 76,
+            "question": "What {a76} at stake here is the company's entire reputation.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a76": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["What {a76} at stake here is the company's entire reputation."]
+        },
+        {
+            "id": 77,
+            "question": "A series of lectures {a77} scheduled for next month.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a77": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["A series of lectures {a77} scheduled for next month."]
+        },
+        {
+            "id": 78,
+            "question": "The media {a78} often criticised for bias.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a78": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["The media {a78} often criticised for bias."]
+        },
+        {
+            "id": 79,
+            "question": "Every one of the proposals {a79} under review.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a79": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["Every one of the proposals {a79} under review."]
+        },
+        {
+            "id": 80,
+            "question": "The criteria by which candidates {a80} judged remain unclear.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a80": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["The criteria by which candidates {a80} judged remain unclear."]
+        },
+        {
+            "id": 81,
+            "question": "No fewer than fifty participants {a81} registered for the conference.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a81": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement"],
+            "variants": ["No fewer than fifty participants {a81} registered for the conference."]
+        },
+        {
+            "id": 82,
+            "question": "There {a82} little evidence to support this claim.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a82": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_existential", "be_formal_register"],
+            "variants": ["There {a82} little evidence to support this claim."]
+        },
+        {
+            "id": 83,
+            "question": "The staff {a83} divided over the proposed restructuring.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a83": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement"],
+            "variants": ["The staff {a83} divided over the proposed restructuring."]
+        },
+        {
+            "id": 84,
+            "question": "More than one candidate {a84} expected to pass the interview.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a84": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["More than one candidate {a84} expected to pass the interview."]
+        },
+        {
+            "id": 85,
+            "question": "Not only the results but also the methodology {a85} being questioned.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a85": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["Not only the results but also the methodology {a85} being questioned."]
+        },
+        {
+            "id": 86,
+            "question": "The percentage of errors {a86} surprisingly high.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a86": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["The percentage of errors {a86} surprisingly high."]
+        },
+        {
+            "id": 87,
+            "question": "A pair of gloves {a87} lying on the bench.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a87": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement", "be_location"],
+            "variants": ["A pair of gloves {a87} lying on the bench."]
+        },
+        {
+            "id": 88,
+            "question": "There {a88} a great many factors that influence the outcome.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a88": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_existential"],
+            "variants": ["There {a88} a great many factors that influence the outcome."]
+        },
+        {
+            "id": 89,
+            "question": "The acoustics in this hall {a89} excellent.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a89": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement"],
+            "variants": ["The acoustics in this hall {a89} excellent."]
+        },
+        {
+            "id": 90,
+            "question": "The amount of effort required {a90} considerable.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a90": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement"],
+            "variants": ["The amount of effort required {a90} considerable."]
+        },
+        {
+            "id": 91,
+            "question": "It {a91} upon this principle that the entire legal framework rests.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a91": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_formal_register"],
+            "variants": ["It {a91} upon this principle that the entire legal framework rests."]
+        },
+        {
+            "id": 92,
+            "question": "The hypothesis, along with all supporting data, {a92} presented in the appendix.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a92": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["The hypothesis, along with all supporting data, {a92} presented in the appendix."]
+        },
+        {
+            "id": 93,
+            "question": "Whether these findings {a93} replicable remains a matter of debate.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a93": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["Whether these findings {a93} replicable remains a matter of debate."]
+        },
+        {
+            "id": 94,
+            "question": "The crux of the matter {a94} that both parties refuse to negotiate.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a94": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["The crux of the matter {a94} that both parties refuse to negotiate."]
+        },
+        {
+            "id": 95,
+            "question": "Neither the scope nor the implications of the reform {a95} fully understood.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a95": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["Neither the scope nor the implications of the reform {a95} fully understood."]
+        },
+        {
+            "id": 96,
+            "question": "There {a96} in the archive a collection of letters that sheds light on the era.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a96": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_existential", "be_formal_register"],
+            "variants": ["There {a96} in the archive a collection of letters that sheds light on the era."]
+        },
+        {
+            "id": 97,
+            "question": "The dynamics of the relationship {a97} far more complex than initially assumed.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a97": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["The dynamics of the relationship {a97} far more complex than initially assumed."]
+        },
+        {
+            "id": 98,
+            "question": "It {a98} precisely this ambiguity that makes the statute so contentious.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a98": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_formal_register"],
+            "variants": ["It {a98} precisely this ambiguity that makes the statute so contentious."]
+        },
+        {
+            "id": 99,
+            "question": "The onus of proof {a99} on the prosecution in any criminal proceeding.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a99": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["The onus of proof {a99} on the prosecution in any criminal proceeding."]
+        },
+        {
+            "id": 100,
+            "question": "The analyses conducted thus far {a100} inconclusive.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a100": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["The analyses conducted thus far {a100} inconclusive."]
+        },
+        {
+            "id": 101,
+            "question": "So profound {a101} the impact that a complete policy revision was demanded.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a101": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_formal_register"],
+            "variants": ["So profound {a101} the impact that a complete policy revision was demanded."]
+        },
+        {
+            "id": 102,
+            "question": "The ramifications of the decision {a102} still being debated in academic circles.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a102": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["The ramifications of the decision {a102} still being debated in academic circles."]
+        },
+        {
+            "id": 103,
+            "question": "It {a103} not without reason that the board chose to intervene.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a103": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_formal_register", "be_negative"],
+            "variants": ["It {a103} not without reason that the board chose to intervene."]
+        },
+        {
+            "id": 104,
+            "question": "Among the most pressing concerns {a104} the lack of transparency.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a104": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_formal_register", "be_existential"],
+            "variants": ["Among the most pressing concerns {a104} the lack of transparency."]
+        },
+        {
+            "id": 105,
+            "question": "The minutiae of the contract {a105} often overlooked by laypersons.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a105": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["The minutiae of the contract {a105} often overlooked by laypersons."]
+        },
+        {
+            "id": 106,
+            "question": "What {a106} conspicuously absent from the report is any mention of liability.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a106": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_formal_register"],
+            "variants": ["What {a106} conspicuously absent from the report is any mention of liability."]
+        },
+        {
+            "id": 107,
+            "question": "The premises {a107} currently under investigation by the authorities.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a107": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["are_form", "be_subject_agreement", "be_formal_register"],
+            "variants": ["The premises {a107} currently under investigation by the authorities."]
+        },
+        {
+            "id": 108,
+            "question": "It {a108} incumbent upon every citizen to uphold the principles of democracy.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a108": {
+                    "answer": "is",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "present form of be"
+                }
+            },
+            "tag_keys": ["is_form", "be_formal_register"],
+            "variants": ["It {a108} incumbent upon every citizen to uphold the principles of democracy."]
+        }
+    ],
+    "saved_test": {
+        "uuid": "vtb-present-opus46-saved",
+        "slug": "verb_to_be_present_forms_opus46",
+        "name": "Verb to Be: Present Forms — Opus 4.6 V3 Questions Test",
+        "description": "Practice set for present forms of be (am, is, are): basic subject–verb agreement, negatives, questions, contractions, existential constructions, collective nouns, and formal register across A1–C2.",
+        "filters": {
+            "num_questions": 108,
+            "levels": ["A1", "A2", "B1", "B2", "C1", "C2"],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBePresentFormsV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1121,
+                "theory_page_ids": [1121],
+                "theory_page": {
+                    "id": 1121,
+                    "slug": "verb-to-be-present",
+                    "title": "Verb to Be: Present Forms",
+                    "category_slug_path": "basic-grammar/verb-to-be",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBePresentTheorySeeder",
+                    "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-present"
+                }
+            }
+        }
+    }
+}
