@@ -1,0 +1,1733 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
+        "uuid_namespace": "ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "theory_page_1061": {
+            "name": "Conjunctions — and, but, or, because, so"
+        }
+    },
+    "tags": {
+        "conjunction_and": {
+            "name": "Conjunction 'and' — addition",
+            "category": "pattern"
+        },
+        "conjunction_but": {
+            "name": "Conjunction 'but' — contrast",
+            "category": "pattern"
+        },
+        "conjunction_or": {
+            "name": "Conjunction 'or' — alternative",
+            "category": "pattern"
+        },
+        "conjunction_because": {
+            "name": "Conjunction 'because' — reason",
+            "category": "pattern"
+        },
+        "conjunction_so": {
+            "name": "Conjunction 'so' — result",
+            "category": "pattern"
+        },
+        "coordinating_conjunctions": {
+            "name": "Coordinating conjunctions",
+            "category": "pattern"
+        },
+        "subordinating_conjunctions": {
+            "name": "Subordinating conjunctions",
+            "category": "pattern"
+        },
+        "conjunction_contrast": {
+            "name": "Contrast conjunctions",
+            "category": "pattern"
+        },
+        "conjunction_cause_result": {
+            "name": "Cause-result conjunctions",
+            "category": "pattern"
+        },
+        "conjunction_choice": {
+            "name": "Choice conjunctions",
+            "category": "pattern"
+        },
+        "conjunction_addition": {
+            "name": "Addition conjunctions",
+            "category": "pattern"
+        },
+        "clause_linking": {
+            "name": "Clause linking",
+            "category": "usage"
+        },
+        "formal_conjunction_usage": {
+            "name": "Formal conjunction usage",
+            "category": "register"
+        }
+    },
+    "default_tag_keys": [
+        "coordinating_conjunctions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "I like cats {a1} dogs.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": ["and", "but", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and"],
+            "variants": ["I like cats {a1} dogs."]
+        },
+        {
+            "id": 2,
+            "question": "She is tired {a2} happy.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "but",
+                    "options": ["but", "and", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but"],
+            "variants": ["She is tired {a2} happy."]
+        },
+        {
+            "id": 3,
+            "question": "Do you want tea {a3} coffee?",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "or",
+                    "options": ["or", "and", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or"],
+            "variants": ["Do you want tea {a3} coffee?"]
+        },
+        {
+            "id": 4,
+            "question": "I am hungry {a4} I did not eat breakfast.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "because",
+                    "options": ["because", "so", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because"],
+            "variants": ["I am hungry {a4} I did not eat breakfast."]
+        },
+        {
+            "id": 5,
+            "question": "It was raining, {a5} I took an umbrella.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "so",
+                    "options": ["so", "because", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so"],
+            "variants": ["It was raining, {a5} I took an umbrella."]
+        },
+        {
+            "id": 6,
+            "question": "I have a pen {a6} a pencil.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "and",
+                    "options": ["and", "or", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and"],
+            "variants": ["I have a pen {a6} a pencil."]
+        },
+        {
+            "id": 7,
+            "question": "He is small {a7} strong.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "but",
+                    "options": ["but", "because", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but"],
+            "variants": ["He is small {a7} strong."]
+        },
+        {
+            "id": 8,
+            "question": "Is it a cat {a8} a dog?",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "or",
+                    "options": ["or", "so", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or"],
+            "variants": ["Is it a cat {a8} a dog?"]
+        },
+        {
+            "id": 9,
+            "question": "She is happy {a9} she got a present.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "because",
+                    "options": ["because", "but", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because"],
+            "variants": ["She is happy {a9} she got a present."]
+        },
+        {
+            "id": 10,
+            "question": "He was late, {a10} he missed the bus.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "so",
+                    "options": ["so", "and", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so"],
+            "variants": ["He was late, {a10} he missed the bus."]
+        },
+        {
+            "id": 11,
+            "question": "We can play inside {a11} outside.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "or",
+                    "options": ["or", "but", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or"],
+            "variants": ["We can play inside {a11} outside."]
+        },
+        {
+            "id": 12,
+            "question": "I need bread {a12} milk from the shop.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "and",
+                    "options": ["and", "so", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and"],
+            "variants": ["I need bread {a12} milk from the shop."]
+        },
+        {
+            "id": 13,
+            "question": "The room is big {a13} dark.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a13": {
+                    "answer": "but",
+                    "options": ["but", "or", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but"],
+            "variants": ["The room is big {a13} dark."]
+        },
+        {
+            "id": 14,
+            "question": "I stayed home {a14} I was sick.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a14": {
+                    "answer": "because",
+                    "options": ["because", "and", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because"],
+            "variants": ["I stayed home {a14} I was sick."]
+        },
+        {
+            "id": 15,
+            "question": "It was cold, {a15} I wore a jacket.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a15": {
+                    "answer": "so",
+                    "options": ["so", "because", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so"],
+            "variants": ["It was cold, {a15} I wore a jacket."]
+        },
+        {
+            "id": 16,
+            "question": "My sister {a16} I go to the same school.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a16": {
+                    "answer": "and",
+                    "options": ["and", "but", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and"],
+            "variants": ["My sister {a16} I go to the same school."]
+        },
+        {
+            "id": 17,
+            "question": "The car is old {a17} it still works.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a17": {
+                    "answer": "but",
+                    "options": ["but", "because", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but"],
+            "variants": ["The car is old {a17} it still works."]
+        },
+        {
+            "id": 18,
+            "question": "I was thirsty, {a18} I drank some water.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a18": {
+                    "answer": "so",
+                    "options": ["so", "or", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so"],
+            "variants": ["I was thirsty, {a18} I drank some water."]
+        },
+        {
+            "id": 19,
+            "question": "She can speak English {a19} French very well.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a19": {
+                    "answer": "and",
+                    "options": ["and", "but", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and"],
+            "variants": ["She can speak English {a19} French very well."]
+        },
+        {
+            "id": 20,
+            "question": "I wanted to go out, {a20} it was too late.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a20": {
+                    "answer": "but",
+                    "options": ["but", "so", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["I wanted to go out, {a20} it was too late."]
+        },
+        {
+            "id": 21,
+            "question": "You can call me {a21} send me a message.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a21": {
+                    "answer": "or",
+                    "options": ["or", "and", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice"],
+            "variants": ["You can call me {a21} send me a message."]
+        },
+        {
+            "id": 22,
+            "question": "We stayed inside {a22} it was raining heavily.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a22": {
+                    "answer": "because",
+                    "options": ["because", "but", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because"],
+            "variants": ["We stayed inside {a22} it was raining heavily."]
+        },
+        {
+            "id": 23,
+            "question": "The shop was closed, {a23} we went home.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a23": {
+                    "answer": "so",
+                    "options": ["so", "or", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result"],
+            "variants": ["The shop was closed, {a23} we went home."]
+        },
+        {
+            "id": 24,
+            "question": "He likes swimming {a24} he goes to the pool every week.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a24": {
+                    "answer": "and",
+                    "options": ["and", "because", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "clause_linking"],
+            "variants": ["He likes swimming {a24} he goes to the pool every week."]
+        },
+        {
+            "id": 25,
+            "question": "The movie was long {a25} boring.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "and",
+                    "options": ["and", "or", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and"],
+            "variants": ["The movie was long {a25} boring."]
+        },
+        {
+            "id": 26,
+            "question": "She studied hard, {a26} she did not pass the exam.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "but",
+                    "options": ["but", "so", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["She studied hard, {a26} she did not pass the exam."]
+        },
+        {
+            "id": 27,
+            "question": "Would you like to sit here {a27} there?",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "or",
+                    "options": ["or", "but", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice"],
+            "variants": ["Would you like to sit here {a27} there?"]
+        },
+        {
+            "id": 28,
+            "question": "He did not come to school {a28} he was feeling unwell.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "because",
+                    "options": ["because", "or", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "conjunction_cause_result"],
+            "variants": ["He did not come to school {a28} he was feeling unwell."]
+        },
+        {
+            "id": 29,
+            "question": "I lost my keys, {a29} I could not open the door.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "so",
+                    "options": ["so", "because", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result"],
+            "variants": ["I lost my keys, {a29} I could not open the door."]
+        },
+        {
+            "id": 30,
+            "question": "She does not eat meat {a30} fish.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "or",
+                    "options": ["or", "and", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or"],
+            "variants": ["She does not eat meat {a30} fish."]
+        },
+        {
+            "id": 31,
+            "question": "The food was great, {a31} the service was slow.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a31": {
+                    "answer": "but",
+                    "options": ["but", "and", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["The food was great, {a31} the service was slow."]
+        },
+        {
+            "id": 32,
+            "question": "She likes dancing {a32} she does not like singing.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a32": {
+                    "answer": "but",
+                    "options": ["but", "because", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["She likes dancing {a32} she does not like singing."]
+        },
+        {
+            "id": 33,
+            "question": "I left early {a33} I had a meeting at nine.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a33": {
+                    "answer": "because",
+                    "options": ["because", "but", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because"],
+            "variants": ["I left early {a33} I had a meeting at nine."]
+        },
+        {
+            "id": 34,
+            "question": "There was a lot of traffic, {a34} we arrived late.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a34": {
+                    "answer": "so",
+                    "options": ["so", "and", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result"],
+            "variants": ["There was a lot of traffic, {a34} we arrived late."]
+        },
+        {
+            "id": 35,
+            "question": "He bought apples {a35} oranges at the market.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a35": {
+                    "answer": "and",
+                    "options": ["and", "but", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "conjunction_addition"],
+            "variants": ["He bought apples {a35} oranges at the market."]
+        },
+        {
+            "id": 36,
+            "question": "I did not hear the alarm, {a36} I overslept.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a36": {
+                    "answer": "so",
+                    "options": ["so", "but", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so"],
+            "variants": ["I did not hear the alarm, {a36} I overslept."]
+        },
+        {
+            "id": 37,
+            "question": "The manager approved the proposal {a37} asked for minor revisions to the timeline.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a37": {
+                    "answer": "but",
+                    "options": ["but", "so", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["The manager approved the proposal {a37} asked for minor revisions to the timeline."]
+        },
+        {
+            "id": 38,
+            "question": "You should bring a jacket {a38} it might get cold later.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a38": {
+                    "answer": "because",
+                    "options": ["because", "or", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "subordinating_conjunctions"],
+            "variants": ["You should bring a jacket {a38} it might get cold later."]
+        },
+        {
+            "id": 39,
+            "question": "We can take the bus {a39} walk to the station — it is not far.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a39": {
+                    "answer": "or",
+                    "options": ["or", "and", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice"],
+            "variants": ["We can take the bus {a39} walk to the station — it is not far."]
+        },
+        {
+            "id": 40,
+            "question": "The hotel was expensive, {a40} we decided to stay there anyway.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a40": {
+                    "answer": "but",
+                    "options": ["but", "because", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["The hotel was expensive, {a40} we decided to stay there anyway."]
+        },
+        {
+            "id": 41,
+            "question": "She speaks French {a41} German fluently, which helps her at work.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a41": {
+                    "answer": "and",
+                    "options": ["and", "or", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "conjunction_addition"],
+            "variants": ["She speaks French {a41} German fluently, which helps her at work."]
+        },
+        {
+            "id": 42,
+            "question": "I couldn't concentrate {a42} there was too much noise in the office.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a42": {
+                    "answer": "because",
+                    "options": ["because", "so", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "subordinating_conjunctions"],
+            "variants": ["I couldn't concentrate {a42} there was too much noise in the office."]
+        },
+        {
+            "id": 43,
+            "question": "He didn't study at all, {a43} he failed the test.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a43": {
+                    "answer": "so",
+                    "options": ["so", "but", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result"],
+            "variants": ["He didn't study at all, {a43} he failed the test."]
+        },
+        {
+            "id": 44,
+            "question": "I enjoy hiking {a44} cycling in my free time.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a44": {
+                    "answer": "and",
+                    "options": ["and", "so", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and"],
+            "variants": ["I enjoy hiking {a44} cycling in my free time."]
+        },
+        {
+            "id": 45,
+            "question": "She wanted to help, {a45} she didn't know how.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a45": {
+                    "answer": "but",
+                    "options": ["but", "and", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["She wanted to help, {a45} she didn't know how."]
+        },
+        {
+            "id": 46,
+            "question": "Shall we eat at home {a46} go to a restaurant tonight?",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a46": {
+                    "answer": "or",
+                    "options": ["or", "and", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice"],
+            "variants": ["Shall we eat at home {a46} go to a restaurant tonight?"]
+        },
+        {
+            "id": 47,
+            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a47": {
+                    "answer": "because",
+                    "options": ["because", "but", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "conjunction_cause_result"],
+            "variants": ["We missed the deadline {a47} we hadn't planned the project properly."]
+        },
+        {
+            "id": 48,
+            "question": "The train was cancelled, {a48} we had to find another way to get there.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a48": {
+                    "answer": "so",
+                    "options": ["so", "or", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result"],
+            "variants": ["The train was cancelled, {a48} we had to find another way to get there."]
+        },
+        {
+            "id": 49,
+            "question": "The museum was interesting {a49} a bit overcrowded on that day.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a49": {
+                    "answer": "but",
+                    "options": ["but", "so", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but"],
+            "variants": ["The museum was interesting {a49} a bit overcrowded on that day."]
+        },
+        {
+            "id": 50,
+            "question": "He packed his bag {a50} left for the airport immediately.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a50": {
+                    "answer": "and",
+                    "options": ["and", "but", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "clause_linking"],
+            "variants": ["He packed his bag {a50} left for the airport immediately."]
+        },
+        {
+            "id": 51,
+            "question": "We need to reduce costs {a51} improve efficiency at the same time.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a51": {
+                    "answer": "and",
+                    "options": ["and", "or", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "conjunction_addition"],
+            "variants": ["We need to reduce costs {a51} improve efficiency at the same time."]
+        },
+        {
+            "id": 52,
+            "question": "She apologised sincerely, {a52} he refused to forgive her.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a52": {
+                    "answer": "but",
+                    "options": ["but", "because", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["She apologised sincerely, {a52} he refused to forgive her."]
+        },
+        {
+            "id": 53,
+            "question": "I didn't go to the party {a53} I wasn't invited.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a53": {
+                    "answer": "because",
+                    "options": ["because", "so", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because"],
+            "variants": ["I didn't go to the party {a53} I wasn't invited."]
+        },
+        {
+            "id": 54,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a54": {
+                    "answer": "so",
+                    "options": ["so", "but", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so"],
+            "variants": ["His flight was delayed, {a54} he missed the connecting train."]
+        },
+        {
+            "id": 55,
+            "question": "The negotiations were tense {a55} ultimately productive for both parties.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a55": {
+                    "answer": "but",
+                    "options": ["but", "because", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["The negotiations were tense {a55} ultimately productive for both parties."]
+        },
+        {
+            "id": 56,
+            "question": "The company expanded rapidly {a56} demand for its products had surged.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a56": {
+                    "answer": "because",
+                    "options": ["because", "and", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "subordinating_conjunctions"],
+            "variants": ["The company expanded rapidly {a56} demand for its products had surged."]
+        },
+        {
+            "id": 57,
+            "question": "You can submit the report by email {a57} deliver it in person before Friday.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a57": {
+                    "answer": "or",
+                    "options": ["or", "but", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice"],
+            "variants": ["You can submit the report by email {a57} deliver it in person before Friday."]
+        },
+        {
+            "id": 58,
+            "question": "The budget was limited, {a58} the team found creative solutions.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a58": {
+                    "answer": "but",
+                    "options": ["but", "so", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["The budget was limited, {a58} the team found creative solutions."]
+        },
+        {
+            "id": 59,
+            "question": "The study examines both the causes {a59} the long-term effects of climate change.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a59": {
+                    "answer": "and",
+                    "options": ["and", "or", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "conjunction_addition"],
+            "variants": ["The study examines both the causes {a59} the long-term effects of climate change."]
+        },
+        {
+            "id": 60,
+            "question": "She hadn't slept for two days, {a60} her performance at work suffered considerably.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a60": {
+                    "answer": "so",
+                    "options": ["so", "but", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result"],
+            "variants": ["She hadn't slept for two days, {a60} her performance at work suffered considerably."]
+        },
+        {
+            "id": 61,
+            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a61": {
+                    "answer": "and",
+                    "options": ["and", "so", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and"],
+            "variants": ["The restaurant serves traditional {a61} modern dishes that reflect local culture."]
+        },
+        {
+            "id": 62,
+            "question": "They invested heavily in marketing, {a62} sales remained disappointingly flat.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a62": {
+                    "answer": "but",
+                    "options": ["but", "so", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["They invested heavily in marketing, {a62} sales remained disappointingly flat."]
+        },
+        {
+            "id": 63,
+            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a63": {
+                    "answer": "because",
+                    "options": ["because", "and", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "subordinating_conjunctions"],
+            "variants": ["The patient recovered quickly {a63} the treatment was started early enough."]
+        },
+        {
+            "id": 64,
+            "question": "Applicants must hold a degree in engineering {a64} have at least five years of relevant experience.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a64": {
+                    "answer": "or",
+                    "options": ["or", "and", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice"],
+            "variants": ["Applicants must hold a degree in engineering {a64} have at least five years of relevant experience."]
+        },
+        {
+            "id": 65,
+            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a65": {
+                    "answer": "so",
+                    "options": ["so", "or", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result"],
+            "variants": ["The regulations were unclear, {a65} many companies struggled to comply."]
+        },
+        {
+            "id": 66,
+            "question": "He accepted the job offer {a66} the salary was lower than he had expected.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a66": {
+                    "answer": "but",
+                    "options": ["but", "because", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["He accepted the job offer {a66} the salary was lower than he had expected."]
+        },
+        {
+            "id": 67,
+            "question": "The data supports both the original hypothesis {a67} the revised model proposed by the reviewers.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a67": {
+                    "answer": "and",
+                    "options": ["and", "or", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "conjunction_addition"],
+            "variants": ["The data supports both the original hypothesis {a67} the revised model proposed by the reviewers."]
+        },
+        {
+            "id": 68,
+            "question": "She decided to postpone the trip {a68} her visa application was still being processed.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a68": {
+                    "answer": "because",
+                    "options": ["because", "so", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because"],
+            "variants": ["She decided to postpone the trip {a68} her visa application was still being processed."]
+        },
+        {
+            "id": 69,
+            "question": "Funding was not approved, {a69} the research team had to scale back the experiment.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a69": {
+                    "answer": "so",
+                    "options": ["so", "but", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so"],
+            "variants": ["Funding was not approved, {a69} the research team had to scale back the experiment."]
+        },
+        {
+            "id": 70,
+            "question": "The contract can be renewed annually {a70} terminated with three months' notice.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a70": {
+                    "answer": "or",
+                    "options": ["or", "so", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice"],
+            "variants": ["The contract can be renewed annually {a70} terminated with three months' notice."]
+        },
+        {
+            "id": 71,
+            "question": "She initially planned to resign, {a71} the pay rise persuaded her to stay.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a71": {
+                    "answer": "but",
+                    "options": ["but", "and", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["She initially planned to resign, {a71} the pay rise persuaded her to stay."]
+        },
+        {
+            "id": 72,
+            "question": "The project required expertise in software development {a72} data analysis.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a72": {
+                    "answer": "and",
+                    "options": ["and", "but", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and"],
+            "variants": ["The project required expertise in software development {a72} data analysis."]
+        },
+        {
+            "id": 73,
+            "question": "The findings were compelling, {a73} some methodological limitations were acknowledged by the authors.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a73": {
+                    "answer": "but",
+                    "options": ["but", "so", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast", "formal_conjunction_usage"],
+            "variants": ["The findings were compelling, {a73} some methodological limitations were acknowledged by the authors."]
+        },
+        {
+            "id": 74,
+            "question": "The government raised taxes {a74} the national debt had reached an unsustainable level.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a74": {
+                    "answer": "because",
+                    "options": ["because", "and", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "subordinating_conjunctions", "formal_conjunction_usage"],
+            "variants": ["The government raised taxes {a74} the national debt had reached an unsustainable level."]
+        },
+        {
+            "id": 75,
+            "question": "The candidate may accept the current terms {a75} propose amendments before the deadline.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a75": {
+                    "answer": "or",
+                    "options": ["or", "but", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice", "formal_conjunction_usage"],
+            "variants": ["The candidate may accept the current terms {a75} propose amendments before the deadline."]
+        },
+        {
+            "id": 76,
+            "question": "The policy addresses both environmental sustainability {a76} economic viability in the long term.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a76": {
+                    "answer": "and",
+                    "options": ["and", "so", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "conjunction_addition", "formal_conjunction_usage"],
+            "variants": ["The policy addresses both environmental sustainability {a76} economic viability in the long term."]
+        },
+        {
+            "id": 77,
+            "question": "The clinical trials were halted prematurely, {a77} participants reported severe adverse effects.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a77": {
+                    "answer": "because",
+                    "options": ["because", "but", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "subordinating_conjunctions"],
+            "variants": ["The clinical trials were halted prematurely, {a77} participants reported severe adverse effects."]
+        },
+        {
+            "id": 78,
+            "question": "The evidence was circumstantial, {a78} it was insufficient to secure a conviction.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a78": {
+                    "answer": "so",
+                    "options": ["so", "or", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result", "formal_conjunction_usage"],
+            "variants": ["The evidence was circumstantial, {a78} it was insufficient to secure a conviction."]
+        },
+        {
+            "id": 79,
+            "question": "The author draws on historical {a79} contemporary sources to support the central argument.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a79": {
+                    "answer": "and",
+                    "options": ["and", "or", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "conjunction_addition"],
+            "variants": ["The author draws on historical {a79} contemporary sources to support the central argument."]
+        },
+        {
+            "id": 80,
+            "question": "The merger was financially advantageous, {a80} it raised concerns about market monopolisation.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a80": {
+                    "answer": "but",
+                    "options": ["but", "because", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast"],
+            "variants": ["The merger was financially advantageous, {a80} it raised concerns about market monopolisation."]
+        },
+        {
+            "id": 81,
+            "question": "Participants may withdraw from the study at any time {a81} continue under the revised protocol.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a81": {
+                    "answer": "or",
+                    "options": ["or", "so", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice"],
+            "variants": ["Participants may withdraw from the study at any time {a81} continue under the revised protocol."]
+        },
+        {
+            "id": 82,
+            "question": "The committee praised the initiative, {a82} several members questioned the allocation of resources.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a82": {
+                    "answer": "but",
+                    "options": ["but", "so", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast", "formal_conjunction_usage"],
+            "variants": ["The committee praised the initiative, {a82} several members questioned the allocation of resources."]
+        },
+        {
+            "id": 83,
+            "question": "International cooperation intensified {a83} the threat of a pandemic became apparent to all nations.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a83": {
+                    "answer": "because",
+                    "options": ["because", "and", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "conjunction_cause_result"],
+            "variants": ["International cooperation intensified {a83} the threat of a pandemic became apparent to all nations."]
+        },
+        {
+            "id": 84,
+            "question": "Public trust in the institution eroded, {a84} voter turnout dropped to a historic low.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a84": {
+                    "answer": "so",
+                    "options": ["so", "but", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result"],
+            "variants": ["Public trust in the institution eroded, {a84} voter turnout dropped to a historic low."]
+        },
+        {
+            "id": 85,
+            "question": "The framework integrates qualitative {a85} quantitative methods to ensure triangulation of data.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a85": {
+                    "answer": "and",
+                    "options": ["and", "but", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "conjunction_addition", "formal_conjunction_usage"],
+            "variants": ["The framework integrates qualitative {a85} quantitative methods to ensure triangulation of data."]
+        },
+        {
+            "id": 86,
+            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a86": {
+                    "answer": "so",
+                    "options": ["so", "because", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result"],
+            "variants": ["The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch."]
+        },
+        {
+            "id": 87,
+            "question": "The legislation must either be ratified by parliament {a87} subjected to a public referendum.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a87": {
+                    "answer": "or",
+                    "options": ["or", "and", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice", "formal_conjunction_usage"],
+            "variants": ["The legislation must either be ratified by parliament {a87} subjected to a public referendum."]
+        },
+        {
+            "id": 88,
+            "question": "The diplomat acknowledged the severity of the crisis {a88} refrained from committing to any specific course of action.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a88": {
+                    "answer": "but",
+                    "options": ["but", "because", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast", "formal_conjunction_usage"],
+            "variants": ["The diplomat acknowledged the severity of the crisis {a88} refrained from committing to any specific course of action."]
+        },
+        {
+            "id": 89,
+            "question": "The sanctions remained in place {a89} the targeted state had failed to meet the agreed benchmarks.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a89": {
+                    "answer": "because",
+                    "options": ["because", "so", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "subordinating_conjunctions", "formal_conjunction_usage"],
+            "variants": ["The sanctions remained in place {a89} the targeted state had failed to meet the agreed benchmarks."]
+        },
+        {
+            "id": 90,
+            "question": "The audit revealed systemic inefficiencies, {a90} a complete restructuring of the department was initiated.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a90": {
+                    "answer": "so",
+                    "options": ["so", "and", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result", "formal_conjunction_usage"],
+            "variants": ["The audit revealed systemic inefficiencies, {a90} a complete restructuring of the department was initiated."]
+        },
+        {
+            "id": 91,
+            "question": "The philosophical treatise reconciles empiricism {a91} rationalism through a novel epistemological framework.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a91": {
+                    "answer": "and",
+                    "options": ["and", "but", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "conjunction_addition", "formal_conjunction_usage"],
+            "variants": ["The philosophical treatise reconciles empiricism {a91} rationalism through a novel epistemological framework."]
+        },
+        {
+            "id": 92,
+            "question": "The theorem has been proven rigorously, {a92} its practical implications remain the subject of considerable debate.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a92": {
+                    "answer": "but",
+                    "options": ["but", "so", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast", "formal_conjunction_usage"],
+            "variants": ["The theorem has been proven rigorously, {a92} its practical implications remain the subject of considerable debate."]
+        },
+        {
+            "id": 93,
+            "question": "The governing body must either amend the existing statute {a93} draft entirely new legislation to address the anomaly.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a93": {
+                    "answer": "or",
+                    "options": ["or", "and", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice", "formal_conjunction_usage"],
+            "variants": ["The governing body must either amend the existing statute {a93} draft entirely new legislation to address the anomaly."]
+        },
+        {
+            "id": 94,
+            "question": "The civilisation collapsed {a94} prolonged drought depleted its agricultural resources beyond recovery.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a94": {
+                    "answer": "because",
+                    "options": ["because", "but", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "subordinating_conjunctions", "formal_conjunction_usage"],
+            "variants": ["The civilisation collapsed {a94} prolonged drought depleted its agricultural resources beyond recovery."]
+        },
+        {
+            "id": 95,
+            "question": "The currency was devalued sharply, {a95} foreign investors withdrew their capital en masse.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a95": {
+                    "answer": "so",
+                    "options": ["so", "or", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result", "formal_conjunction_usage"],
+            "variants": ["The currency was devalued sharply, {a95} foreign investors withdrew their capital en masse."]
+        },
+        {
+            "id": 96,
+            "question": "The dissertation analyses both synchronic {a96} diachronic aspects of morphological change in the language.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a96": {
+                    "answer": "and",
+                    "options": ["and", "so", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "conjunction_addition", "formal_conjunction_usage"],
+            "variants": ["The dissertation analyses both synchronic {a96} diachronic aspects of morphological change in the language."]
+        },
+        {
+            "id": 97,
+            "question": "The architect envisaged a bold, modernist structure, {a97} the planning commission favoured a more conservative design.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a97": {
+                    "answer": "but",
+                    "options": ["but", "because", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast", "formal_conjunction_usage"],
+            "variants": ["The architect envisaged a bold, modernist structure, {a97} the planning commission favoured a more conservative design."]
+        },
+        {
+            "id": 98,
+            "question": "The manuscript may be accepted for publication as is {a98} returned to the author for substantial revisions.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a98": {
+                    "answer": "or",
+                    "options": ["or", "and", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice", "formal_conjunction_usage"],
+            "variants": ["The manuscript may be accepted for publication as is {a98} returned to the author for substantial revisions."]
+        },
+        {
+            "id": 99,
+            "question": "The regime suppressed dissent ruthlessly {a99} any form of opposition was perceived as an existential threat.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a99": {
+                    "answer": "because",
+                    "options": ["because", "so", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "subordinating_conjunctions", "formal_conjunction_usage"],
+            "variants": ["The regime suppressed dissent ruthlessly {a99} any form of opposition was perceived as an existential threat."]
+        },
+        {
+            "id": 100,
+            "question": "The ecological equilibrium was irreversibly disrupted, {a100} several endemic species were driven to extinction.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a100": {
+                    "answer": "so",
+                    "options": ["so", "but", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result", "formal_conjunction_usage"],
+            "variants": ["The ecological equilibrium was irreversibly disrupted, {a100} several endemic species were driven to extinction."]
+        },
+        {
+            "id": 101,
+            "question": "The monograph elucidates both the ontological {a101} epistemological dimensions of the problem.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a101": {
+                    "answer": "and",
+                    "options": ["and", "or", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "conjunction_addition", "formal_conjunction_usage"],
+            "variants": ["The monograph elucidates both the ontological {a101} epistemological dimensions of the problem."]
+        },
+        {
+            "id": 102,
+            "question": "The translation preserves the original cadence, {a102} it inevitably sacrifices certain culturally specific nuances.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a102": {
+                    "answer": "but",
+                    "options": ["but", "and", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast", "formal_conjunction_usage"],
+            "variants": ["The translation preserves the original cadence, {a102} it inevitably sacrifices certain culturally specific nuances."]
+        },
+        {
+            "id": 103,
+            "question": "Scholars may interpret the artefact as ceremonial {a103} attribute it to purely utilitarian purposes.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a103": {
+                    "answer": "or",
+                    "options": ["or", "so", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_or", "conjunction_choice", "formal_conjunction_usage"],
+            "variants": ["Scholars may interpret the artefact as ceremonial {a103} attribute it to purely utilitarian purposes."]
+        },
+        {
+            "id": 104,
+            "question": "The expedition was abandoned {a104} the terrain proved impassable during the monsoon season.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a104": {
+                    "answer": "because",
+                    "options": ["because", "but", "so"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_because", "subordinating_conjunctions"],
+            "variants": ["The expedition was abandoned {a104} the terrain proved impassable during the monsoon season."]
+        },
+        {
+            "id": 105,
+            "question": "The constitutional amendment was ratified, {a105} a new era of judicial reform commenced.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a105": {
+                    "answer": "so",
+                    "options": ["so", "and", "or"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result", "formal_conjunction_usage"],
+            "variants": ["The constitutional amendment was ratified, {a105} a new era of judicial reform commenced."]
+        },
+        {
+            "id": 106,
+            "question": "The composer fused baroque counterpoint {a106} minimalist aesthetics in a strikingly original symphony.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a106": {
+                    "answer": "and",
+                    "options": ["and", "but", "because"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_and", "conjunction_addition", "formal_conjunction_usage"],
+            "variants": ["The composer fused baroque counterpoint {a106} minimalist aesthetics in a strikingly original symphony."]
+        },
+        {
+            "id": 107,
+            "question": "The hypothesis was elegant, {a107} subsequent empirical data unequivocally contradicted its predictions.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a107": {
+                    "answer": "but",
+                    "options": ["but", "so", "and"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_but", "conjunction_contrast", "formal_conjunction_usage"],
+            "variants": ["The hypothesis was elegant, {a107} subsequent empirical data unequivocally contradicted its predictions."]
+        },
+        {
+            "id": 108,
+            "question": "The tribunal could not reach a unanimous verdict, {a108} the case was referred to the appellate chamber.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a108": {
+                    "answer": "so",
+                    "options": ["so", "because", "but"],
+                    "verb_hint": "conjunction"
+                }
+            },
+            "tag_keys": ["conjunction_so", "conjunction_cause_result", "formal_conjunction_usage"],
+            "variants": ["The tribunal could not reach a unanimous verdict, {a108} the case was referred to the appellate chamber."]
+        }
+    ],
+    "saved_test": {
+        "uuid": "conj-and-but-or-bc-so-opus46",
+        "slug": "conjunctions_and_but_or_because_so_opus46",
+        "name": "Conjunctions — and, but, or, because, so — Opus 4.6 V3 Questions Test",
+        "description": "Practice set for basic conjunctions (and, but, or, because, so): addition, contrast, choice, cause, and result across A1–C2.",
+        "filters": {
+            "num_questions": 108,
+            "levels": ["A1", "A2", "B1", "B2", "C1", "C2"],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1061,
+                "theory_page_ids": [1061],
+                "theory_page": {
+                    "id": 1061,
+                    "slug": "basic-conjunctions-and-but-or-because-so",
+                    "title": "Conjunctions — and, but, or, because, so",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarConjunctionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/basic-conjunctions-and-but-or-because-so"
+                }
+            }
+        }
+    }
+}
