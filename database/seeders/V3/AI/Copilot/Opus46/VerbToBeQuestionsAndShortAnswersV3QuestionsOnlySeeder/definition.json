@@ -1,0 +1,1729 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBeQuestionsAndShortAnswersV3QuestionsOnlySeeder",
+        "uuid_namespace": "VerbToBeQuestionsAndShortAnswersV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "theory_page_1123": {
+            "name": "Verb to Be: Questions and Short Answers"
+        }
+    },
+    "tags": {
+        "verb_to_be_questions": {
+            "name": "Verb to be question formation",
+            "category": "pattern"
+        },
+        "am_i_questions": {
+            "name": "Am I...? questions",
+            "category": "pattern"
+        },
+        "is_he_she_it_questions": {
+            "name": "Is he/she/it...? questions",
+            "category": "pattern"
+        },
+        "are_you_we_they_questions": {
+            "name": "Are you/we/they...? questions",
+            "category": "pattern"
+        },
+        "short_answer_affirmative": {
+            "name": "Short affirmative answers with to be",
+            "category": "pattern"
+        },
+        "short_answer_negative": {
+            "name": "Short negative answers with to be",
+            "category": "pattern"
+        },
+        "subject_verb_inversion": {
+            "name": "Subject-verb inversion in questions",
+            "category": "pattern"
+        },
+        "wh_question_to_be": {
+            "name": "Wh-questions with to be",
+            "category": "pattern"
+        },
+        "negative_question_to_be": {
+            "name": "Negative questions with to be",
+            "category": "pattern"
+        },
+        "tag_question_to_be": {
+            "name": "Tag questions with to be",
+            "category": "pattern"
+        },
+        "embedded_question_to_be": {
+            "name": "Embedded/indirect questions with to be",
+            "category": "pattern"
+        },
+        "formal_register_to_be": {
+            "name": "Formal register questions with to be",
+            "category": "register"
+        }
+    },
+    "default_tag_keys": [
+        "verb_to_be_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "{a1} I late?",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Am",
+                    "options": ["Am", "Is", "Are"],
+                    "verb_hint": "verb to be question form with I"
+                }
+            },
+            "tag_keys": ["am_i_questions"],
+            "variants": ["{a1} I late?"]
+        },
+        {
+            "id": 2,
+            "question": "{a2} I your friend?",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "Am",
+                    "options": ["Is", "Am", "Are"],
+                    "verb_hint": "verb to be question form with I"
+                }
+            },
+            "tag_keys": ["am_i_questions"],
+            "variants": ["{a2} I your friend?"]
+        },
+        {
+            "id": 3,
+            "question": "{a3} I in the right place?",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "Am",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "verb to be question form with I"
+                }
+            },
+            "tag_keys": ["am_i_questions"],
+            "variants": ["{a3} I in the right place?"]
+        },
+        {
+            "id": 4,
+            "question": "{a4} she a teacher?",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "Is",
+                    "options": ["Is", "Am", "Are"],
+                    "verb_hint": "verb to be question form with she"
+                }
+            },
+            "tag_keys": ["is_he_she_it_questions"],
+            "variants": ["{a4} she a teacher?"]
+        },
+        {
+            "id": 5,
+            "question": "{a5} he at home?",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "Is",
+                    "options": ["Am", "Is", "Are"],
+                    "verb_hint": "verb to be question form with he"
+                }
+            },
+            "tag_keys": ["is_he_she_it_questions"],
+            "variants": ["{a5} he at home?"]
+        },
+        {
+            "id": 6,
+            "question": "{a6} it cold outside?",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "Is",
+                    "options": ["Are", "Am", "Is"],
+                    "verb_hint": "verb to be question form with it"
+                }
+            },
+            "tag_keys": ["is_he_she_it_questions"],
+            "variants": ["{a6} it cold outside?"]
+        },
+        {
+            "id": 7,
+            "question": "{a7} you ready?",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "Are",
+                    "options": ["Are", "Am", "Is"],
+                    "verb_hint": "verb to be question form with you"
+                }
+            },
+            "tag_keys": ["are_you_we_they_questions"],
+            "variants": ["{a7} you ready?"]
+        },
+        {
+            "id": 8,
+            "question": "{a8} they in the park?",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "Are",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "verb to be question form with they"
+                }
+            },
+            "tag_keys": ["are_you_we_they_questions"],
+            "variants": ["{a8} they in the park?"]
+        },
+        {
+            "id": 9,
+            "question": "{a9} we late?",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "Are",
+                    "options": ["Am", "Is", "Are"],
+                    "verb_hint": "verb to be question form with we"
+                }
+            },
+            "tag_keys": ["are_you_we_they_questions"],
+            "variants": ["{a9} we late?"]
+        },
+        {
+            "id": 10,
+            "question": "{a10} the cat hungry?",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "Is",
+                    "options": ["Is", "Am", "Are"],
+                    "verb_hint": "verb to be question form with singular noun"
+                }
+            },
+            "tag_keys": ["is_he_she_it_questions"],
+            "variants": ["{a10} the cat hungry?"]
+        },
+        {
+            "id": 11,
+            "question": "{a11} your parents at work?",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "verb to be question form with plural noun"
+                }
+            },
+            "tag_keys": ["are_you_we_they_questions"],
+            "variants": ["{a11} your parents at work?"]
+        },
+        {
+            "id": 12,
+            "question": "{a12} this your book?",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "Is",
+                    "options": ["Am", "Are", "Is"],
+                    "verb_hint": "verb to be question form with singular demonstrative"
+                }
+            },
+            "tag_keys": ["is_he_she_it_questions"],
+            "variants": ["{a12} this your book?"]
+        },
+        {
+            "id": 13,
+            "question": "Is he a doctor? — Yes, he {a13}.",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a13": {
+                    "answer": "is",
+                    "options": ["is", "am", "are"],
+                    "verb_hint": "short affirmative answer with he"
+                }
+            },
+            "tag_keys": ["short_answer_affirmative"],
+            "variants": ["Is he a doctor? — Yes, he {a13}."]
+        },
+        {
+            "id": 14,
+            "question": "Are you happy? — Yes, I {a14}.",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a14": {
+                    "answer": "am",
+                    "options": ["are", "am", "is"],
+                    "verb_hint": "short affirmative answer with I"
+                }
+            },
+            "tag_keys": ["short_answer_affirmative"],
+            "variants": ["Are you happy? — Yes, I {a14}."]
+        },
+        {
+            "id": 15,
+            "question": "Am I right? — Yes, you {a15}.",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a15": {
+                    "answer": "are",
+                    "options": ["am", "is", "are"],
+                    "verb_hint": "short affirmative answer with you"
+                }
+            },
+            "tag_keys": ["short_answer_affirmative"],
+            "variants": ["Am I right? — Yes, you {a15}."]
+        },
+        {
+            "id": 16,
+            "question": "Is it expensive? — No, it {a16}.",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a16": {
+                    "answer": "isn't",
+                    "options": ["isn't", "aren't", "am not"],
+                    "verb_hint": "short negative answer with it"
+                }
+            },
+            "tag_keys": ["short_answer_negative"],
+            "variants": ["Is it expensive? — No, it {a16}."]
+        },
+        {
+            "id": 17,
+            "question": "Are they home? — No, they {a17}.",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a17": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "short negative answer with they"
+                }
+            },
+            "tag_keys": ["short_answer_negative"],
+            "variants": ["Are they home? — No, they {a17}."]
+        },
+        {
+            "id": 18,
+            "question": "Am I wrong? — No, you {a18}.",
+            "source": "theory_page_1123",
+            "level": "A1",
+            "markers": {
+                "a18": {
+                    "answer": "aren't",
+                    "options": ["isn't", "aren't", "am not"],
+                    "verb_hint": "short negative answer with you"
+                }
+            },
+            "tag_keys": ["short_answer_negative"],
+            "variants": ["Am I wrong? — No, you {a18}."]
+        },
+        {
+            "id": 19,
+            "question": "{a19} the children in the garden?",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a19": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "verb to be question form with plural noun"
+                }
+            },
+            "tag_keys": ["are_you_we_they_questions"],
+            "variants": ["{a19} the children in the garden?"]
+        },
+        {
+            "id": 20,
+            "question": "{a20} your sister a nurse?",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a20": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "verb to be question form with singular noun"
+                }
+            },
+            "tag_keys": ["is_he_she_it_questions"],
+            "variants": ["{a20} your sister a nurse?"]
+        },
+        {
+            "id": 21,
+            "question": "{a21} the water warm?",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a21": {
+                    "answer": "Is",
+                    "options": ["Am", "Is", "Are"],
+                    "verb_hint": "verb to be question form with uncountable noun"
+                }
+            },
+            "tag_keys": ["is_he_she_it_questions"],
+            "variants": ["{a21} the water warm?"]
+        },
+        {
+            "id": 22,
+            "question": "Where {a22} the nearest station?",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a22": {
+                    "answer": "is",
+                    "options": ["is", "am", "are"],
+                    "verb_hint": "wh-question with singular noun"
+                }
+            },
+            "tag_keys": ["wh_question_to_be"],
+            "variants": ["Where {a22} the nearest station?"]
+        },
+        {
+            "id": 23,
+            "question": "What {a23} your name?",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a23": {
+                    "answer": "is",
+                    "options": ["are", "is", "am"],
+                    "verb_hint": "wh-question with singular noun"
+                }
+            },
+            "tag_keys": ["wh_question_to_be"],
+            "variants": ["What {a23} your name?"]
+        },
+        {
+            "id": 24,
+            "question": "Who {a24} those people?",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a24": {
+                    "answer": "are",
+                    "options": ["are", "am", "is"],
+                    "verb_hint": "wh-question with plural noun"
+                }
+            },
+            "tag_keys": ["wh_question_to_be"],
+            "variants": ["Who {a24} those people?"]
+        },
+        {
+            "id": 25,
+            "question": "How {a25} you today?",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "are",
+                    "options": ["are", "am", "is"],
+                    "verb_hint": "wh-question with you"
+                }
+            },
+            "tag_keys": ["wh_question_to_be"],
+            "variants": ["How {a25} you today?"]
+        },
+        {
+            "id": 26,
+            "question": "How {a26} the weather?",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "is",
+                    "options": ["is", "am", "are"],
+                    "verb_hint": "wh-question with singular noun"
+                }
+            },
+            "tag_keys": ["wh_question_to_be"],
+            "variants": ["How {a26} the weather?"]
+        },
+        {
+            "id": 27,
+            "question": "How old {a27} she?",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "is",
+                    "options": ["is", "am", "are"],
+                    "verb_hint": "wh-question with she"
+                }
+            },
+            "tag_keys": ["wh_question_to_be"],
+            "variants": ["How old {a27} she?"]
+        },
+        {
+            "id": 28,
+            "question": "Is the restaurant open? — Yes, it {a28}.",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "short affirmative answer with it"
+                }
+            },
+            "tag_keys": ["short_answer_affirmative"],
+            "variants": ["Is the restaurant open? — Yes, it {a28}."]
+        },
+        {
+            "id": 29,
+            "question": "Are your friends kind? — Yes, they {a29}.",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "are",
+                    "options": ["are", "is", "am"],
+                    "verb_hint": "short affirmative answer with they"
+                }
+            },
+            "tag_keys": ["short_answer_affirmative"],
+            "variants": ["Are your friends kind? — Yes, they {a29}."]
+        },
+        {
+            "id": 30,
+            "question": "Is this seat taken? — No, it {a30}.",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "isn't",
+                    "options": ["isn't", "aren't", "am not"],
+                    "verb_hint": "short negative answer with it"
+                }
+            },
+            "tag_keys": ["short_answer_negative"],
+            "variants": ["Is this seat taken? — No, it {a30}."]
+        },
+        {
+            "id": 31,
+            "question": "Are the shops closed? — No, they {a31}.",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a31": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "short negative answer with they"
+                }
+            },
+            "tag_keys": ["short_answer_negative"],
+            "variants": ["Are the shops closed? — No, they {a31}."]
+        },
+        {
+            "id": 32,
+            "question": "Is your brother tall? — No, he {a32}.",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a32": {
+                    "answer": "isn't",
+                    "options": ["isn't", "aren't", "am not"],
+                    "verb_hint": "short negative answer with he"
+                }
+            },
+            "tag_keys": ["short_answer_negative"],
+            "variants": ["Is your brother tall? — No, he {a32}."]
+        },
+        {
+            "id": 33,
+            "question": "Am I disturbing you? — No, you {a33}.",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a33": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "short negative answer with you"
+                }
+            },
+            "tag_keys": ["short_answer_negative"],
+            "variants": ["Am I disturbing you? — No, you {a33}."]
+        },
+        {
+            "id": 34,
+            "question": "Why {a34} the bus late?",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a34": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "wh-question with singular noun"
+                }
+            },
+            "tag_keys": ["wh_question_to_be"],
+            "variants": ["Why {a34} the bus late?"]
+        },
+        {
+            "id": 35,
+            "question": "{a35} the tickets expensive? — No, they aren't.",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a35": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "question form with plural noun"
+                }
+            },
+            "tag_keys": ["are_you_we_they_questions"],
+            "variants": ["{a35} the tickets expensive? — No, they aren't."]
+        },
+        {
+            "id": 36,
+            "question": "How much {a36} the tickets?",
+            "source": "theory_page_1123",
+            "level": "A2",
+            "markers": {
+                "a36": {
+                    "answer": "are",
+                    "options": ["are", "is", "am"],
+                    "verb_hint": "wh-question with plural noun"
+                }
+            },
+            "tag_keys": ["wh_question_to_be"],
+            "variants": ["How much {a36} the tickets?"]
+        },
+        {
+            "id": 37,
+            "question": "{a37} she your neighbor?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a37": {
+                    "answer": "Isn't",
+                    "options": ["Isn't", "Aren't", "Am not"],
+                    "verb_hint": "negative question form with she"
+                }
+            },
+            "tag_keys": ["negative_question_to_be"],
+            "variants": ["{a37} she your neighbor?"]
+        },
+        {
+            "id": 38,
+            "question": "{a38} you tired after the trip?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a38": {
+                    "answer": "Aren't",
+                    "options": ["Aren't", "Isn't", "Am not"],
+                    "verb_hint": "negative question form with you"
+                }
+            },
+            "tag_keys": ["negative_question_to_be"],
+            "variants": ["{a38} you tired after the trip?"]
+        },
+        {
+            "id": 39,
+            "question": "{a39} it strange that he's late?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a39": {
+                    "answer": "Isn't",
+                    "options": ["Isn't", "Aren't", "Am not"],
+                    "verb_hint": "negative question form with it"
+                }
+            },
+            "tag_keys": ["negative_question_to_be"],
+            "variants": ["{a39} it strange that he's late?"]
+        },
+        {
+            "id": 40,
+            "question": "Why {a40} the manager here yet?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a40": {
+                    "answer": "isn't",
+                    "options": ["isn't", "aren't", "am not"],
+                    "verb_hint": "negative wh-question with singular noun"
+                }
+            },
+            "tag_keys": ["negative_question_to_be", "wh_question_to_be"],
+            "variants": ["Why {a40} the manager here yet?"]
+        },
+        {
+            "id": 41,
+            "question": "Why {a41} you interested in this?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a41": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "negative wh-question with you"
+                }
+            },
+            "tag_keys": ["negative_question_to_be", "wh_question_to_be"],
+            "variants": ["Why {a41} you interested in this?"]
+        },
+        {
+            "id": 42,
+            "question": "How {a42} it that nobody noticed?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a42": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "wh-question with it (formal structure)"
+                }
+            },
+            "tag_keys": ["wh_question_to_be"],
+            "variants": ["How {a42} it that nobody noticed?"]
+        },
+        {
+            "id": 43,
+            "question": "Is his explanation clear? — No, it {a43}. It's confusing.",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a43": {
+                    "answer": "isn't",
+                    "options": ["isn't", "aren't", "am not"],
+                    "verb_hint": "short negative answer with it"
+                }
+            },
+            "tag_keys": ["short_answer_negative"],
+            "variants": ["Is his explanation clear? — No, it {a43}. It's confusing."]
+        },
+        {
+            "id": 44,
+            "question": "Are the instructions easy? — No, they {a44}. They need rewriting.",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a44": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "short negative answer with they"
+                }
+            },
+            "tag_keys": ["short_answer_negative"],
+            "variants": ["Are the instructions easy? — No, they {a44}. They need rewriting."]
+        },
+        {
+            "id": 45,
+            "question": "Am I making sense? — Yes, you {a45}. Please continue.",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a45": {
+                    "answer": "are",
+                    "options": ["are", "is", "am"],
+                    "verb_hint": "short affirmative answer with you"
+                }
+            },
+            "tag_keys": ["short_answer_affirmative"],
+            "variants": ["Am I making sense? — Yes, you {a45}. Please continue."]
+        },
+        {
+            "id": 46,
+            "question": "{a46} the project deadline realistic?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a46": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "question form with singular noun"
+                }
+            },
+            "tag_keys": ["is_he_she_it_questions"],
+            "variants": ["{a46} the project deadline realistic?"]
+        },
+        {
+            "id": 47,
+            "question": "{a47} the new regulations fair?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a47": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "question form with plural noun"
+                }
+            },
+            "tag_keys": ["are_you_we_they_questions"],
+            "variants": ["{a47} the new regulations fair?"]
+        },
+        {
+            "id": 48,
+            "question": "{a48} this information accurate?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a48": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "question form with singular demonstrative"
+                }
+            },
+            "tag_keys": ["is_he_she_it_questions"],
+            "variants": ["{a48} this information accurate?"]
+        },
+        {
+            "id": 49,
+            "question": "{a49} the documents in the folder?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a49": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "question form with plural noun"
+                }
+            },
+            "tag_keys": ["are_you_we_they_questions"],
+            "variants": ["{a49} the documents in the folder?"]
+        },
+        {
+            "id": 50,
+            "question": "{a50} the manager available for a call?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a50": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "question form with singular noun"
+                }
+            },
+            "tag_keys": ["is_he_she_it_questions"],
+            "variants": ["{a50} the manager available for a call?"]
+        },
+        {
+            "id": 51,
+            "question": "{a51} the students aware of the change?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a51": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "question form with plural noun"
+                }
+            },
+            "tag_keys": ["are_you_we_they_questions"],
+            "variants": ["{a51} the students aware of the change?"]
+        },
+        {
+            "id": 52,
+            "question": "Where {a52} the meeting room? I can't find it.",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a52": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "wh-question with singular noun"
+                }
+            },
+            "tag_keys": ["wh_question_to_be"],
+            "variants": ["Where {a52} the meeting room? I can't find it."]
+        },
+        {
+            "id": 53,
+            "question": "Who {a53} responsible for this error?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a53": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "wh-question with who (singular reference)"
+                }
+            },
+            "tag_keys": ["wh_question_to_be"],
+            "variants": ["Who {a53} responsible for this error?"]
+        },
+        {
+            "id": 54,
+            "question": "How many people {a54} at the conference?",
+            "source": "theory_page_1123",
+            "level": "B1",
+            "markers": {
+                "a54": {
+                    "answer": "are",
+                    "options": ["are", "is", "am"],
+                    "verb_hint": "wh-question with plural noun"
+                }
+            },
+            "tag_keys": ["wh_question_to_be"],
+            "variants": ["How many people {a54} at the conference?"]
+        },
+        {
+            "id": 55,
+            "question": "She is coming to the party, {a55} she?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a55": {
+                    "answer": "isn't",
+                    "options": ["isn't", "aren't", "am not"],
+                    "verb_hint": "tag question with affirmative statement"
+                }
+            },
+            "tag_keys": ["tag_question_to_be"],
+            "variants": ["She is coming to the party, {a55} she?"]
+        },
+        {
+            "id": 56,
+            "question": "They aren't ready yet, {a56} they?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a56": {
+                    "answer": "are",
+                    "options": ["are", "is", "am"],
+                    "verb_hint": "tag question with negative statement"
+                }
+            },
+            "tag_keys": ["tag_question_to_be"],
+            "variants": ["They aren't ready yet, {a56} they?"]
+        },
+        {
+            "id": 57,
+            "question": "You are the new manager, {a57} you?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a57": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "tag question with affirmative statement"
+                }
+            },
+            "tag_keys": ["tag_question_to_be"],
+            "variants": ["You are the new manager, {a57} you?"]
+        },
+        {
+            "id": 58,
+            "question": "It isn't fair, {a58} it?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a58": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "tag question with negative statement"
+                }
+            },
+            "tag_keys": ["tag_question_to_be"],
+            "variants": ["It isn't fair, {a58} it?"]
+        },
+        {
+            "id": 59,
+            "question": "We are on time, {a59} we?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a59": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "tag question with affirmative statement"
+                }
+            },
+            "tag_keys": ["tag_question_to_be"],
+            "variants": ["We are on time, {a59} we?"]
+        },
+        {
+            "id": 60,
+            "question": "I am invited too, {a60} I?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a60": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "tag question with I am (special case)"
+                }
+            },
+            "tag_keys": ["tag_question_to_be"],
+            "variants": ["I am invited too, {a60} I?"]
+        },
+        {
+            "id": 61,
+            "question": "{a61} the team ready for the presentation?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a61": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "collective noun treated as singular"
+                }
+            },
+            "tag_keys": ["is_he_she_it_questions"],
+            "variants": ["{a61} the team ready for the presentation?"]
+        },
+        {
+            "id": 62,
+            "question": "{a62} the news about the merger true?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a62": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "uncountable noun (news) treated as singular"
+                }
+            },
+            "tag_keys": ["is_he_she_it_questions"],
+            "variants": ["{a62} the news about the merger true?"]
+        },
+        {
+            "id": 63,
+            "question": "{a63} the police investigating the case?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a63": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "collective noun (police) treated as plural"
+                }
+            },
+            "tag_keys": ["are_you_we_they_questions"],
+            "variants": ["{a63} the police investigating the case?"]
+        },
+        {
+            "id": 64,
+            "question": "{a64} this the best solution we have?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a64": {
+                    "answer": "Isn't",
+                    "options": ["Isn't", "Aren't", "Am not"],
+                    "verb_hint": "negative question expecting agreement"
+                }
+            },
+            "tag_keys": ["negative_question_to_be"],
+            "variants": ["{a64} this the best solution we have?"]
+        },
+        {
+            "id": 65,
+            "question": "{a65} the results disappointing?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a65": {
+                    "answer": "Aren't",
+                    "options": ["Aren't", "Isn't", "Am not"],
+                    "verb_hint": "negative question with plural noun"
+                }
+            },
+            "tag_keys": ["negative_question_to_be"],
+            "variants": ["{a65} the results disappointing?"]
+        },
+        {
+            "id": 66,
+            "question": "{a66} it obvious that he's lying?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a66": {
+                    "answer": "Isn't",
+                    "options": ["Isn't", "Aren't", "Am not"],
+                    "verb_hint": "negative question with it"
+                }
+            },
+            "tag_keys": ["negative_question_to_be"],
+            "variants": ["{a66} it obvious that he's lying?"]
+        },
+        {
+            "id": 67,
+            "question": "{a67} you by any chance available this afternoon?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a67": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "formal/polite question with you"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["{a67} you by any chance available this afternoon?"]
+        },
+        {
+            "id": 68,
+            "question": "{a68} it possible to reschedule the appointment?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a68": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "formal question with it"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["{a68} it possible to reschedule the appointment?"]
+        },
+        {
+            "id": 69,
+            "question": "{a69} there any objections to the proposal?",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a69": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "existential there with plural noun"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["{a69} there any objections to the proposal?"]
+        },
+        {
+            "id": 70,
+            "question": "Is the data reliable? — Yes, it {a70}. We double-checked.",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a70": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "short affirmative answer with it (data as singular)"
+                }
+            },
+            "tag_keys": ["short_answer_affirmative"],
+            "variants": ["Is the data reliable? — Yes, it {a70}. We double-checked."]
+        },
+        {
+            "id": 71,
+            "question": "Are the figures consistent? — No, they {a71}. There are discrepancies.",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a71": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "short negative answer with they"
+                }
+            },
+            "tag_keys": ["short_answer_negative"],
+            "variants": ["Are the figures consistent? — No, they {a71}. There are discrepancies."]
+        },
+        {
+            "id": 72,
+            "question": "Isn't this the final version? — Yes, it {a72}.",
+            "source": "theory_page_1123",
+            "level": "B2",
+            "markers": {
+                "a72": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "affirmative response to negative question"
+                }
+            },
+            "tag_keys": ["short_answer_affirmative"],
+            "variants": ["Isn't this the final version? — Yes, it {a72}."]
+        },
+        {
+            "id": 73,
+            "question": "Could you tell me where the office {a73}?",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a73": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "embedded question with statement word order"
+                }
+            },
+            "tag_keys": ["embedded_question_to_be"],
+            "variants": ["Could you tell me where the office {a73}?"]
+        },
+        {
+            "id": 74,
+            "question": "Do you know who {a74} in charge of this department?",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a74": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "embedded question with who (singular reference)"
+                }
+            },
+            "tag_keys": ["embedded_question_to_be"],
+            "variants": ["Do you know who {a74} in charge of this department?"]
+        },
+        {
+            "id": 75,
+            "question": "I wonder whether the proposal {a75} acceptable.",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a75": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "embedded question with singular subject"
+                }
+            },
+            "tag_keys": ["embedded_question_to_be"],
+            "variants": ["I wonder whether the proposal {a75} acceptable."]
+        },
+        {
+            "id": 76,
+            "question": "Can you confirm whether the reports {a76} ready?",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a76": {
+                    "answer": "are",
+                    "options": ["are", "is", "am"],
+                    "verb_hint": "embedded question with plural subject"
+                }
+            },
+            "tag_keys": ["embedded_question_to_be"],
+            "variants": ["Can you confirm whether the reports {a76} ready?"]
+        },
+        {
+            "id": 77,
+            "question": "Nobody seems to know where the files {a77}.",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a77": {
+                    "answer": "are",
+                    "options": ["are", "is", "am"],
+                    "verb_hint": "embedded question with plural subject"
+                }
+            },
+            "tag_keys": ["embedded_question_to_be"],
+            "variants": ["Nobody seems to know where the files {a77}."]
+        },
+        {
+            "id": 78,
+            "question": "The question is whether the budget {a78} sufficient.",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a78": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "embedded question with singular subject"
+                }
+            },
+            "tag_keys": ["embedded_question_to_be"],
+            "variants": ["The question is whether the budget {a78} sufficient."]
+        },
+        {
+            "id": 79,
+            "question": "{a79} it not the case that everyone deserves a fair trial?",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a79": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "rhetorical question with formal structure"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["{a79} it not the case that everyone deserves a fair trial?"]
+        },
+        {
+            "id": 80,
+            "question": "{a80} we not all responsible for the environment?",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a80": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "rhetorical question with we"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["{a80} we not all responsible for the environment?"]
+        },
+        {
+            "id": 81,
+            "question": "{a81} it really so difficult to follow the rules?",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a81": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "rhetorical question with it"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["{a81} it really so difficult to follow the rules?"]
+        },
+        {
+            "id": 82,
+            "question": "{a82} the respondents in this study representative of the population?",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a82": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "formal academic question with plural subject"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["{a82} the respondents in this study representative of the population?"]
+        },
+        {
+            "id": 83,
+            "question": "{a83} the methodology sound enough to replicate?",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a83": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "formal academic question with singular subject"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["{a83} the methodology sound enough to replicate?"]
+        },
+        {
+            "id": 84,
+            "question": "{a84} the assumptions underlying this model valid?",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a84": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "formal academic question with plural subject"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["{a84} the assumptions underlying this model valid?"]
+        },
+        {
+            "id": 85,
+            "question": "The evidence is compelling, {a85} it?",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a85": {
+                    "answer": "isn't",
+                    "options": ["isn't", "aren't", "am not"],
+                    "verb_hint": "tag question in formal context"
+                }
+            },
+            "tag_keys": ["tag_question_to_be", "formal_register_to_be"],
+            "variants": ["The evidence is compelling, {a85} it?"]
+        },
+        {
+            "id": 86,
+            "question": "These findings are consistent with prior research, {a86} they?",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a86": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "tag question with they in formal context"
+                }
+            },
+            "tag_keys": ["tag_question_to_be", "formal_register_to_be"],
+            "variants": ["These findings are consistent with prior research, {a86} they?"]
+        },
+        {
+            "id": 87,
+            "question": "The hypothesis is still untested, {a87} it?",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a87": {
+                    "answer": "isn't",
+                    "options": ["isn't", "aren't", "am not"],
+                    "verb_hint": "tag question with it in formal context"
+                }
+            },
+            "tag_keys": ["tag_question_to_be", "formal_register_to_be"],
+            "variants": ["The hypothesis is still untested, {a87} it?"]
+        },
+        {
+            "id": 88,
+            "question": "Is the correlation statistically significant? — Yes, it {a88}.",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a88": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "formal short answer with it"
+                }
+            },
+            "tag_keys": ["short_answer_affirmative", "formal_register_to_be"],
+            "variants": ["Is the correlation statistically significant? — Yes, it {a88}."]
+        },
+        {
+            "id": 89,
+            "question": "Are the control variables properly accounted for? — No, they {a89}.",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a89": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "formal short negative answer with they"
+                }
+            },
+            "tag_keys": ["short_answer_negative", "formal_register_to_be"],
+            "variants": ["Are the control variables properly accounted for? — No, they {a89}."]
+        },
+        {
+            "id": 90,
+            "question": "Is this interpretation consistent with the data? — No, it {a90}.",
+            "source": "theory_page_1123",
+            "level": "C1",
+            "markers": {
+                "a90": {
+                    "answer": "isn't",
+                    "options": ["isn't", "aren't", "am not"],
+                    "verb_hint": "formal short negative answer with it"
+                }
+            },
+            "tag_keys": ["short_answer_negative", "formal_register_to_be"],
+            "variants": ["Is this interpretation consistent with the data? — No, it {a90}."]
+        },
+        {
+            "id": 91,
+            "question": "{a91} happiness truly measurable by objective criteria?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a91": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "philosophical question with abstract noun"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["{a91} happiness truly measurable by objective criteria?"]
+        },
+        {
+            "id": 92,
+            "question": "{a92} the boundaries between art and life genuinely discernible?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a92": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "philosophical question with plural abstract noun"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["{a92} the boundaries between art and life genuinely discernible?"]
+        },
+        {
+            "id": 93,
+            "question": "{a93} consciousness merely an emergent property of neural activity?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a93": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "philosophical question with abstract noun"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["{a93} consciousness merely an emergent property of neural activity?"]
+        },
+        {
+            "id": 94,
+            "question": "How {a94} it that such a simple idea eluded us for so long?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a94": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "literary inversion with how is it"
+                }
+            },
+            "tag_keys": ["formal_register_to_be", "wh_question_to_be"],
+            "variants": ["How {a94} it that such a simple idea eluded us for so long?"]
+        },
+        {
+            "id": 95,
+            "question": "Why {a95} the most profound truths often the hardest to articulate?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a95": {
+                    "answer": "are",
+                    "options": ["are", "is", "am"],
+                    "verb_hint": "elevated register with plural subject"
+                }
+            },
+            "tag_keys": ["formal_register_to_be", "wh_question_to_be"],
+            "variants": ["Why {a95} the most profound truths often the hardest to articulate?"]
+        },
+        {
+            "id": 96,
+            "question": "Where, then, {a96} the line between ambition and recklessness?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a96": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "literary inversion with adverbial then"
+                }
+            },
+            "tag_keys": ["formal_register_to_be", "wh_question_to_be"],
+            "variants": ["Where, then, {a96} the line between ambition and recklessness?"]
+        },
+        {
+            "id": 97,
+            "question": "One might ask whether the current paradigm {a97} truly sustainable.",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a97": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "sophisticated embedded question"
+                }
+            },
+            "tag_keys": ["embedded_question_to_be", "formal_register_to_be"],
+            "variants": ["One might ask whether the current paradigm {a97} truly sustainable."]
+        },
+        {
+            "id": 98,
+            "question": "The central question remains: {a98} the benefits proportional to the risks?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a98": {
+                    "answer": "are",
+                    "options": ["are", "is", "am"],
+                    "verb_hint": "formal discourse with colon introduction"
+                }
+            },
+            "tag_keys": ["formal_register_to_be"],
+            "variants": ["The central question remains: {a98} the benefits proportional to the risks?"]
+        },
+        {
+            "id": 99,
+            "question": "It is worth considering whether our assumptions {a99} fundamentally flawed.",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a99": {
+                    "answer": "are",
+                    "options": ["are", "is", "am"],
+                    "verb_hint": "embedded question in sophisticated discourse"
+                }
+            },
+            "tag_keys": ["embedded_question_to_be", "formal_register_to_be"],
+            "variants": ["It is worth considering whether our assumptions {a99} fundamentally flawed."]
+        },
+        {
+            "id": 100,
+            "question": "The implications of this discovery are far-reaching, {a100} they?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a100": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "nuanced tag question in academic context"
+                }
+            },
+            "tag_keys": ["tag_question_to_be", "formal_register_to_be"],
+            "variants": ["The implications of this discovery are far-reaching, {a100} they?"]
+        },
+        {
+            "id": 101,
+            "question": "This distinction is more than merely semantic, {a101} it?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a101": {
+                    "answer": "isn't",
+                    "options": ["isn't", "aren't", "am not"],
+                    "verb_hint": "nuanced tag question with it"
+                }
+            },
+            "tag_keys": ["tag_question_to_be", "formal_register_to_be"],
+            "variants": ["This distinction is more than merely semantic, {a101} it?"]
+        },
+        {
+            "id": 102,
+            "question": "We are perhaps too quick to judge, {a102} we?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a102": {
+                    "answer": "aren't",
+                    "options": ["aren't", "isn't", "am not"],
+                    "verb_hint": "reflective tag question with we"
+                }
+            },
+            "tag_keys": ["tag_question_to_be", "formal_register_to_be"],
+            "variants": ["We are perhaps too quick to judge, {a102} we?"]
+        },
+        {
+            "id": 103,
+            "question": "{a103} it not self-evident that equity demands redistribution?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a103": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "rhetorical negative question (sophisticated)"
+                }
+            },
+            "tag_keys": ["negative_question_to_be", "formal_register_to_be"],
+            "variants": ["{a103} it not self-evident that equity demands redistribution?"]
+        },
+        {
+            "id": 104,
+            "question": "{a104} we not, in some sense, all products of our environment?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a104": {
+                    "answer": "Are",
+                    "options": ["Are", "Is", "Am"],
+                    "verb_hint": "rhetorical question with parenthetical phrase"
+                }
+            },
+            "tag_keys": ["negative_question_to_be", "formal_register_to_be"],
+            "variants": ["{a104} we not, in some sense, all products of our environment?"]
+        },
+        {
+            "id": 105,
+            "question": "{a105} the very notion of objectivity itself culturally conditioned?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a105": {
+                    "answer": "Isn't",
+                    "options": ["Isn't", "Aren't", "Am not"],
+                    "verb_hint": "philosophical negative question"
+                }
+            },
+            "tag_keys": ["negative_question_to_be", "formal_register_to_be"],
+            "variants": ["{a105} the very notion of objectivity itself culturally conditioned?"]
+        },
+        {
+            "id": 106,
+            "question": "To what extent {a106} the current framework adequate for addressing these challenges?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a106": {
+                    "answer": "is",
+                    "options": ["is", "are", "am"],
+                    "verb_hint": "complex formal question with extent"
+                }
+            },
+            "tag_keys": ["wh_question_to_be", "formal_register_to_be"],
+            "variants": ["To what extent {a106} the current framework adequate for addressing these challenges?"]
+        },
+        {
+            "id": 107,
+            "question": "In what sense {a107} these two theories genuinely incompatible?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a107": {
+                    "answer": "are",
+                    "options": ["are", "is", "am"],
+                    "verb_hint": "complex formal question with sense"
+                }
+            },
+            "tag_keys": ["wh_question_to_be", "formal_register_to_be"],
+            "variants": ["In what sense {a107} these two theories genuinely incompatible?"]
+        },
+        {
+            "id": 108,
+            "question": "{a108} it not paradoxical that greater connectivity often leads to greater isolation?",
+            "source": "theory_page_1123",
+            "level": "C2",
+            "markers": {
+                "a108": {
+                    "answer": "Is",
+                    "options": ["Is", "Are", "Am"],
+                    "verb_hint": "complex rhetorical question about paradox"
+                }
+            },
+            "tag_keys": ["negative_question_to_be", "formal_register_to_be"],
+            "variants": ["{a108} it not paradoxical that greater connectivity often leads to greater isolation?"]
+        }
+    ],
+    "saved_test": {
+        "uuid": "vb-q-sa-opus46-v3-saved",
+        "slug": "verb_to_be_questions_and_short_answers_opus46",
+        "name": "Verb to Be: Questions and Short Answers — Opus 4.6 V3 Questions Test",
+        "description": "Practice set for verb to be question formation, short answers, tag questions, embedded questions, and rhetorical questions across A1-C2.",
+        "filters": {
+            "num_questions": 108,
+            "levels": ["A1", "A2", "B1", "B2", "C1", "C2"],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBeQuestionsAndShortAnswersV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1123,
+                "theory_page_ids": [1123],
+                "theory_page": {
+                    "id": 1123,
+                    "slug": "verb-to-be-questions",
+                    "title": "Verb to Be: Questions and Short Answers",
+                    "category_slug_path": "basic-grammar/verb-to-be",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-questions"
+                }
+            }
+        }
+    }
+}
