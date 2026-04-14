@@ -1,0 +1,4626 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\VerbToBePastFormsV3QuestionsOnlySeeder",
+        "uuid_namespace": "vtb-past-sn"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "theory_page_1177": {
+            "name": "Verb to Be: Past Forms — was і were"
+        }
+    },
+    "tags": {
+        "theme": {
+            "name": "Verb to Be: Past Forms",
+            "category": "topic"
+        },
+        "past_be_was": {
+            "name": "was (I/he/she/it + was)",
+            "category": "pattern"
+        },
+        "past_be_were": {
+            "name": "were (you/we/they + were)",
+            "category": "pattern"
+        },
+        "past_be_negative": {
+            "name": "Negative: was not / were not",
+            "category": "pattern"
+        },
+        "past_be_question": {
+            "name": "Question form: Was...? / Were...?",
+            "category": "pattern"
+        },
+        "past_be_short_answer": {
+            "name": "Short answers with was/were",
+            "category": "usage"
+        },
+        "past_be_there_was_were": {
+            "name": "There was / There were",
+            "category": "pattern"
+        },
+        "past_be_subject_agreement": {
+            "name": "Subject-verb agreement with was/were",
+            "category": "pattern"
+        },
+        "past_be_collective_noun": {
+            "name": "Collective noun agreement with was/were",
+            "category": "pattern"
+        },
+        "past_be_passive": {
+            "name": "Passive voice with was/were",
+            "category": "pattern"
+        },
+        "past_be_reported": {
+            "name": "Reported speech with was/were",
+            "category": "pattern"
+        },
+        "past_be_subjunctive": {
+            "name": "Subjunctive/conditional were",
+            "category": "pattern"
+        },
+        "past_be_inverted_conditional": {
+            "name": "Inverted conditional: Were I to...",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "theme",
+        "past_be_was"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid_segments": [
+                "a1",
+                "q01"
+            ],
+            "question": "I {a1} tired yesterday.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — займенник `I` (перша особа однини), тому вживається форма минулого часу `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "am": "❌ `am` — форма теперішнього часу (першої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_was"
+            ],
+            "variants": [
+                "I {a1} tired yesterday."
+            ]
+        },
+        {
+            "id": 2,
+            "uuid_segments": [
+                "a1",
+                "q02"
+            ],
+            "question": "She {a1} happy last week.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — займенник `She` (третя особа однини), тому вживається форма минулого часу `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_was"
+            ],
+            "variants": [
+                "She {a1} happy last week."
+            ]
+        },
+        {
+            "id": 3,
+            "uuid_segments": [
+                "a1",
+                "q03"
+            ],
+            "question": "They {a1} at the park after school.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — займенник `They` (третя особа множини), тому вживається форма минулого часу `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_were"
+            ],
+            "variants": [
+                "They {a1} at the park after school."
+            ]
+        },
+        {
+            "id": 4,
+            "uuid_segments": [
+                "a1",
+                "q04"
+            ],
+            "question": "He {a1} a student last year.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — займенник `He` (третя особа однини), тому вживається форма минулого часу `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_was"
+            ],
+            "variants": [
+                "He {a1} a student last year."
+            ]
+        },
+        {
+            "id": 5,
+            "uuid_segments": [
+                "a1",
+                "q05"
+            ],
+            "question": "You {a1} right about that.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — займенник `You`, тому вживається форма минулого часу `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_were"
+            ],
+            "variants": [
+                "You {a1} right about that."
+            ]
+        },
+        {
+            "id": 6,
+            "uuid_segments": [
+                "a1",
+                "q06"
+            ],
+            "question": "It {a1} cold outside yesterday.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — займенник `I` (перша особа однини), тому вживається форма минулого часу `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_was"
+            ],
+            "variants": [
+                "It {a1} cold outside yesterday."
+            ]
+        },
+        {
+            "id": 7,
+            "uuid_segments": [
+                "a1",
+                "q07"
+            ],
+            "question": "We {a1} late for class.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — займенник `We` (перша особа множини), тому вживається форма минулого часу `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_were"
+            ],
+            "variants": [
+                "We {a1} late for class."
+            ]
+        },
+        {
+            "id": 8,
+            "uuid_segments": [
+                "a1",
+                "q08"
+            ],
+            "question": "The dog {a1} in the garden.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — іменник `The dog` в однині, тому вживається форма минулого часу `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_was"
+            ],
+            "variants": [
+                "The dog {a1} in the garden."
+            ]
+        },
+        {
+            "id": 9,
+            "uuid_segments": [
+                "a1",
+                "q09"
+            ],
+            "question": "The children {a1} excited about the trip.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — іменник `The children` (множина), тому вживається форма минулого часу `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_were"
+            ],
+            "variants": [
+                "The children {a1} excited about the trip."
+            ]
+        },
+        {
+            "id": 10,
+            "uuid_segments": [
+                "a1",
+                "q10"
+            ],
+            "question": "My friend {a1} at home yesterday.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — іменник `My friend` в однині, тому вживається форма минулого часу `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_was"
+            ],
+            "variants": [
+                "My friend {a1} at home yesterday."
+            ]
+        },
+        {
+            "id": 11,
+            "uuid_segments": [
+                "a1",
+                "q11"
+            ],
+            "question": "The coffee {a1} very hot.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — іменник `The coffee` (незлічуваний, однина), тому вживається форма минулого часу `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_was"
+            ],
+            "variants": [
+                "The coffee {a1} very hot."
+            ]
+        },
+        {
+            "id": 12,
+            "uuid_segments": [
+                "a1",
+                "q12"
+            ],
+            "question": "My parents {a1} at work.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — іменник `My parents` (множина), тому вживається форма минулого часу `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_were"
+            ],
+            "variants": [
+                "My parents {a1} at work."
+            ]
+        },
+        {
+            "id": 13,
+            "uuid_segments": [
+                "a1",
+                "q13"
+            ],
+            "question": "He {a1} hungry after school.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — займенник `He` (третя особа однини), тому вживається форма минулого часу `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_was"
+            ],
+            "variants": [
+                "He {a1} hungry after school."
+            ]
+        },
+        {
+            "id": 14,
+            "uuid_segments": [
+                "a1",
+                "q14"
+            ],
+            "question": "The students {a1} quiet during the test.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — іменник `The students` (множина), тому вживається форма минулого часу `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_were"
+            ],
+            "variants": [
+                "The students {a1} quiet during the test."
+            ]
+        },
+        {
+            "id": 15,
+            "uuid_segments": [
+                "a1",
+                "q15"
+            ],
+            "question": "I {a1} at school yesterday morning.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — займенник `I` (перша особа однини), тому вживається форма минулого часу `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "am": "❌ `am` — форма теперішнього часу (першої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_was"
+            ],
+            "variants": [
+                "I {a1} at school yesterday morning."
+            ]
+        },
+        {
+            "id": 16,
+            "uuid_segments": [
+                "a1",
+                "q16"
+            ],
+            "question": "The weather {a1} nice on Saturday.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — іменник `The weather` в однині, тому вживається форма минулого часу `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_was"
+            ],
+            "variants": [
+                "The weather {a1} nice on Saturday."
+            ]
+        },
+        {
+            "id": 17,
+            "uuid_segments": [
+                "a1",
+                "q17"
+            ],
+            "question": "We {a1} good friends at school.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — займенник `We` (перша особа множини), тому вживається форма минулого часу `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_were"
+            ],
+            "variants": [
+                "We {a1} good friends at school."
+            ]
+        },
+        {
+            "id": 18,
+            "uuid_segments": [
+                "a1",
+                "q18"
+            ],
+            "question": "She {a1} a doctor before she retired.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Past Simple дієслово `to be` має дві форми: `was` — для `I`, `he`, `she`, `it` та іменників однини; `were` — для `you`, `we`, `they` та іменників множини.",
+                        "Підмет речення — займенник `She` (третя особа однини), тому вживається форма минулого часу `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_was"
+            ],
+            "variants": [
+                "She {a1} a doctor before she retired."
+            ]
+        },
+        {
+            "id": 19,
+            "uuid_segments": [
+                "a2",
+                "q01"
+            ],
+            "question": "She {a1} not at home yesterday.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечна форма минулого часу `to be`: `was not` (скорочено `wasn't`) — для однини; `were not` (`weren't`) — для множини та `you`.",
+                        "Підмет `She` — третя особа однини → `was not`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_negative",
+                "past_be_was"
+            ],
+            "variants": [
+                "She {a1} not at home yesterday."
+            ]
+        },
+        {
+            "id": 20,
+            "uuid_segments": [
+                "a2",
+                "q02"
+            ],
+            "question": "{a1} you at the cinema last night?",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У загальних питаннях минулого часу з `to be` допоміжне дієслово виноситься на початок: `Was/Were + підмет + ...?`",
+                        "Підмет `you` завжди вимагає форми `Were` — навіть у питаннях."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "Were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "Are": "❌ `Are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_question",
+                "past_be_were"
+            ],
+            "variants": [
+                "{a1} you at the cinema last night?"
+            ]
+        },
+        {
+            "id": 21,
+            "uuid_segments": [
+                "a2",
+                "q03"
+            ],
+            "question": "They {a1} not ready for the exam.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечна форма минулого часу `to be`: `was not` (скорочено `wasn't`) — для однини; `were not` (`weren't`) — для множини та `you`.",
+                        "Підмет `They` — третя особа множини → `were not`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_negative",
+                "past_be_were"
+            ],
+            "variants": [
+                "They {a1} not ready for the exam."
+            ]
+        },
+        {
+            "id": 22,
+            "uuid_segments": [
+                "a2",
+                "q04"
+            ],
+            "question": "It {a1} not cold this morning.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечна форма минулого часу `to be`: `was not` (скорочено `wasn't`) — для однини; `were not` (`weren't`) — для множини та `you`.",
+                        "Підмет `It` — третя особа однини → `was not`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_negative",
+                "past_be_was"
+            ],
+            "variants": [
+                "It {a1} not cold this morning."
+            ]
+        },
+        {
+            "id": 23,
+            "uuid_segments": [
+                "a2",
+                "q05"
+            ],
+            "question": "{a1} he at the office yesterday?",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У загальних питаннях минулого часу з `to be` допоміжне дієслово виноситься на початок: `Was/Were + підмет + ...?`",
+                        "Підмет `he` (третя особа однини) → питальна форма `Was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "Were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "Is": "❌ `Is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_question",
+                "past_be_was"
+            ],
+            "variants": [
+                "{a1} he at the office yesterday?"
+            ]
+        },
+        {
+            "id": 24,
+            "uuid_segments": [
+                "a2",
+                "q06"
+            ],
+            "question": "The doors {a1} not open.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечна форма минулого часу `to be`: `was not` (скорочено `wasn't`) — для однини; `were not` (`weren't`) — для множини та `you`.",
+                        "Підмет `The doors` — іменник у множині → `were not`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_negative",
+                "past_be_were"
+            ],
+            "variants": [
+                "The doors {a1} not open."
+            ]
+        },
+        {
+            "id": 25,
+            "uuid_segments": [
+                "a2",
+                "q07"
+            ],
+            "question": "— Were you cold? — Yes, I {a1}.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У коротких відповідях на запитання з `was/were` повторюється та сама форма: `Yes, I was` / `No, he was not`. Форма залежить від підмета короткої відповіді.",
+                        "У короткій стверджувальній відповіді займенник `I` вимагає форми `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "am": "❌ `am` — форма теперішнього часу (першої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_short_answer",
+                "past_be_was"
+            ],
+            "variants": [
+                "— Were you cold? — Yes, I {a1}."
+            ]
+        },
+        {
+            "id": 26,
+            "uuid_segments": [
+                "a2",
+                "q08"
+            ],
+            "question": "— Was he late? — No, he {a1} not.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У коротких відповідях на запитання з `was/were` повторюється та сама форма: `Yes, I was` / `No, he was not`. Форма залежить від підмета короткої відповіді.",
+                        "У короткій заперечній відповіді займенник `he` (однина) → `was not`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_short_answer",
+                "past_be_was"
+            ],
+            "variants": [
+                "— Was he late? — No, he {a1} not."
+            ]
+        },
+        {
+            "id": 27,
+            "uuid_segments": [
+                "a2",
+                "q09"
+            ],
+            "question": "{a1} they in Paris last summer?",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У загальних питаннях минулого часу з `to be` допоміжне дієслово виноситься на початок: `Was/Were + підмет + ...?`",
+                        "Підмет `they` (третя особа множини) → питальна форма `Were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "Were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "Are": "❌ `Are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_question",
+                "past_be_were"
+            ],
+            "variants": [
+                "{a1} they in Paris last summer?"
+            ]
+        },
+        {
+            "id": 28,
+            "uuid_segments": [
+                "a2",
+                "q10"
+            ],
+            "question": "I {a1} not ready in time.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечна форма минулого часу `to be`: `was not` (скорочено `wasn't`) — для однини; `were not` (`weren't`) — для множини та `you`.",
+                        "Підмет `I` — перша особа → `was not`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "am": "❌ `am` — форма теперішнього часу (першої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_negative",
+                "past_be_was"
+            ],
+            "variants": [
+                "I {a1} not ready in time."
+            ]
+        },
+        {
+            "id": 29,
+            "uuid_segments": [
+                "a2",
+                "q11"
+            ],
+            "question": "— Was the film good? — Yes, it {a1}.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У коротких відповідях на запитання з `was/were` повторюється та сама форма: `Yes, I was` / `No, he was not`. Форма залежить від підмета короткої відповіді.",
+                        "У короткій стверджувальній відповіді займенник `it` (однина) → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_short_answer",
+                "past_be_was"
+            ],
+            "variants": [
+                "— Was the film good? — Yes, it {a1}."
+            ]
+        },
+        {
+            "id": 30,
+            "uuid_segments": [
+                "a2",
+                "q12"
+            ],
+            "question": "{a1} the students happy with the result?",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У загальних питаннях минулого часу з `to be` допоміжне дієслово виноситься на початок: `Was/Were + підмет + ...?`",
+                        "Підмет `the students` — множина → питальна форма `Were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "Were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "Are": "❌ `Are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_question",
+                "past_be_were"
+            ],
+            "variants": [
+                "{a1} the students happy with the result?"
+            ]
+        },
+        {
+            "id": 31,
+            "uuid_segments": [
+                "a2",
+                "q13"
+            ],
+            "question": "We {a1} not at school on Friday.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечна форма минулого часу `to be`: `was not` (скорочено `wasn't`) — для однини; `were not` (`weren't`) — для множини та `you`.",
+                        "Підмет `We` — перша особа множини → `were not`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_negative",
+                "past_be_were"
+            ],
+            "variants": [
+                "We {a1} not at school on Friday."
+            ]
+        },
+        {
+            "id": 32,
+            "uuid_segments": [
+                "a2",
+                "q14"
+            ],
+            "question": "{a1} it sunny yesterday?",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У загальних питаннях минулого часу з `to be` допоміжне дієслово виноситься на початок: `Was/Were + підмет + ...?`",
+                        "Підмет `it` — однина → питальна форма `Was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "Were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "Is": "❌ `Is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_question",
+                "past_be_was"
+            ],
+            "variants": [
+                "{a1} it sunny yesterday?"
+            ]
+        },
+        {
+            "id": 33,
+            "uuid_segments": [
+                "a2",
+                "q15"
+            ],
+            "question": "He {a1} not interested in the story.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечна форма минулого часу `to be`: `was not` (скорочено `wasn't`) — для однини; `were not` (`weren't`) — для множини та `you`.",
+                        "Підмет `He` — третя особа однини → `was not`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_negative",
+                "past_be_was"
+            ],
+            "variants": [
+                "He {a1} not interested in the story."
+            ]
+        },
+        {
+            "id": 34,
+            "uuid_segments": [
+                "a2",
+                "q16"
+            ],
+            "question": "— Were your parents at home? — Yes, they {a1}.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У коротких відповідях на запитання з `was/were` повторюється та сама форма: `Yes, I was` / `No, he was not`. Форма залежить від підмета короткої відповіді.",
+                        "У короткій стверджувальній відповіді займенник `they` (множина) → `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_short_answer",
+                "past_be_were"
+            ],
+            "variants": [
+                "— Were your parents at home? — Yes, they {a1}."
+            ]
+        },
+        {
+            "id": 35,
+            "uuid_segments": [
+                "a2",
+                "q17"
+            ],
+            "question": "— Was she sick? — No, she {a1} not.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У коротких відповідях на запитання з `was/were` повторюється та сама форма: `Yes, I was` / `No, he was not`. Форма залежить від підмета короткої відповіді.",
+                        "У короткій заперечній відповіді займенник `she` (однина) → `was not`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_short_answer",
+                "past_be_was"
+            ],
+            "variants": [
+                "— Was she sick? — No, she {a1} not."
+            ]
+        },
+        {
+            "id": 36,
+            "uuid_segments": [
+                "a2",
+                "q18"
+            ],
+            "question": "{a1} I the last one to arrive?",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У загальних питаннях минулого часу з `to be` допоміжне дієслово виноситься на початок: `Was/Were + підмет + ...?`",
+                        "Займенник `I` у питаннях Past Simple з `to be` вимагає форми `Was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "Were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "Am": "❌ `Am` — форма теперішнього часу (першої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_question",
+                "past_be_was"
+            ],
+            "variants": [
+                "{a1} I the last one to arrive?"
+            ]
+        },
+        {
+            "id": 37,
+            "uuid_segments": [
+                "b1",
+                "q01"
+            ],
+            "question": "There {a1} a problem with the car.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Конструкція `There was/were` вживається для опису існування або наявності: `was` — перед іменником однини, `were` — перед іменником множини.",
+                        "`a problem` — іменник однини → `There was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ В конструкції `There was/were` після `there` стоїть іменник однини або незлічуваний іменник → `There was`.",
+                            "were": "❌ `were` вживається після `there` лише з іменниками множини. У цьому реченні після `there` стоїть іменник однини або незлічуваний іменник.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_there_was_were"
+            ],
+            "variants": [
+                "There {a1} a problem with the car."
+            ]
+        },
+        {
+            "id": 38,
+            "uuid_segments": [
+                "b1",
+                "q02"
+            ],
+            "question": "There {a1} many people at the concert.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Конструкція `There was/were` вживається для опису існування або наявності: `was` — перед іменником однини, `were` — перед іменником множини.",
+                        "`many people` — множина → `There were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається лише з іменниками однини після `there`. У цьому реченні після `there` стоїть іменник у множині.",
+                            "were": "✅ В конструкції `There was/were` після `there` стоїть іменник у множині → `There were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_there_was_were"
+            ],
+            "variants": [
+                "There {a1} many people at the concert."
+            ]
+        },
+        {
+            "id": 39,
+            "uuid_segments": [
+                "b1",
+                "q03"
+            ],
+            "question": "My sister and I {a1} very close as children.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "Підмет `My sister and I` — два іменники, з'єднані `and` → множина → `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_were"
+            ],
+            "variants": [
+                "My sister and I {a1} very close as children."
+            ]
+        },
+        {
+            "id": 40,
+            "uuid_segments": [
+                "b1",
+                "q04"
+            ],
+            "question": "Nobody {a1} at home when I arrived.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`Nobody` — неозначений займенник (однина) → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_was"
+            ],
+            "variants": [
+                "Nobody {a1} at home when I arrived."
+            ]
+        },
+        {
+            "id": 41,
+            "uuid_segments": [
+                "b1",
+                "q05"
+            ],
+            "question": "Everybody {a1} surprised by the news.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`Everybody` — неозначений займенник (однина) → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_was"
+            ],
+            "variants": [
+                "Everybody {a1} surprised by the news."
+            ]
+        },
+        {
+            "id": 42,
+            "uuid_segments": [
+                "b1",
+                "q06"
+            ],
+            "question": "There {a1} no electricity for two days.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Конструкція `There was/were` вживається для опису існування або наявності: `was` — перед іменником однини, `were` — перед іменником множини.",
+                        "`electricity` — незлічуваний іменник (однина) → `There was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ В конструкції `There was/were` після `there` стоїть іменник однини або незлічуваний іменник → `There was`.",
+                            "were": "❌ `were` вживається після `there` лише з іменниками множини. У цьому реченні після `there` стоїть іменник однини або незлічуваний іменник.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_there_was_were"
+            ],
+            "variants": [
+                "There {a1} no electricity for two days."
+            ]
+        },
+        {
+            "id": 43,
+            "uuid_segments": [
+                "b1",
+                "q07"
+            ],
+            "question": "Both of them {a1} wrong about the date.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`Both` завжди вживається з множинним дієсловом → `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_were"
+            ],
+            "variants": [
+                "Both of them {a1} wrong about the date."
+            ]
+        },
+        {
+            "id": 44,
+            "uuid_segments": [
+                "b1",
+                "q08"
+            ],
+            "question": "There {a1} several reasons for the delay.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Конструкція `There was/were` вживається для опису існування або наявності: `was` — перед іменником однини, `were` — перед іменником множини.",
+                        "`several reasons` — іменник у множині → `There were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається лише з іменниками однини після `there`. У цьому реченні після `there` стоїть іменник у множині.",
+                            "were": "✅ В конструкції `There was/were` після `there` стоїть іменник у множині → `There were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_there_was_were"
+            ],
+            "variants": [
+                "There {a1} several reasons for the delay."
+            ]
+        },
+        {
+            "id": 45,
+            "uuid_segments": [
+                "b1",
+                "q09"
+            ],
+            "question": "Neither of the answers {a1} correct.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`Neither of` + іменник → вважається однинним підметом → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_was"
+            ],
+            "variants": [
+                "Neither of the answers {a1} correct."
+            ]
+        },
+        {
+            "id": 46,
+            "uuid_segments": [
+                "b1",
+                "q10"
+            ],
+            "question": "Everything {a1} ready before the guests arrived.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`Everything` — неозначений займенник (однина) → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_was"
+            ],
+            "variants": [
+                "Everything {a1} ready before the guests arrived."
+            ]
+        },
+        {
+            "id": 47,
+            "uuid_segments": [
+                "b1",
+                "q11"
+            ],
+            "question": "{a1} there a pharmacy near here?",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У питальних реченнях з `there` порядок слів: `Was/Were + there + підмет?`. Вибір `Was` чи `Were` залежить від іменника, що стоїть після `there`.",
+                        "Після `there` стоїть іменник однини `a pharmacy` — тому питальна форма починається з `Was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "✅ В конструкції `There was/were` після `there` стоїть іменник однини або незлічуваний іменник → `There was`.",
+                            "Were": "❌ `were` вживається після `there` лише з іменниками множини. У цьому реченні після `there` стоїть іменник однини або незлічуваний іменник.",
+                            "Is": "❌ `Is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_question",
+                "past_be_there_was_were"
+            ],
+            "variants": [
+                "{a1} there a pharmacy near here?"
+            ]
+        },
+        {
+            "id": 48,
+            "uuid_segments": [
+                "b1",
+                "q12"
+            ],
+            "question": "My glasses {a1} on the table.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`Glasses` — іменник, що завжди вживається в множині → `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_were"
+            ],
+            "variants": [
+                "My glasses {a1} on the table."
+            ]
+        },
+        {
+            "id": 49,
+            "uuid_segments": [
+                "b1",
+                "q13"
+            ],
+            "question": "The news {a1} shocking.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`News` — незлічуваний іменник (граматично однина) → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_was"
+            ],
+            "variants": [
+                "The news {a1} shocking."
+            ]
+        },
+        {
+            "id": 50,
+            "uuid_segments": [
+                "b1",
+                "q14"
+            ],
+            "question": "Mathematics {a1} his favourite subject at school.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "Назви наук на -ics (`Mathematics`, `Physics`) вживаються як однина → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_was"
+            ],
+            "variants": [
+                "Mathematics {a1} his favourite subject at school."
+            ]
+        },
+        {
+            "id": 51,
+            "uuid_segments": [
+                "b1",
+                "q15"
+            ],
+            "question": "Each of the students {a1} given a certificate.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`Each of` + множина → вважається однинним підметом → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_was"
+            ],
+            "variants": [
+                "Each of the students {a1} given a certificate."
+            ]
+        },
+        {
+            "id": 52,
+            "uuid_segments": [
+                "b1",
+                "q16"
+            ],
+            "question": "There {a1} not enough time to finish the task.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Конструкція `There was/were not` вживається для заперечення існування. `Was` — для іменників однини, `were` — для множини.",
+                        "Іменник у реченні — незлічуваний (`electricity`, `time`) — граматично однина → `was not`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ В конструкції `There was/were` після `there` стоїть іменник однини або незлічуваний іменник → `There was`.",
+                            "were": "❌ `were` вживається після `there` лише з іменниками множини. У цьому реченні після `there` стоїть іменник однини або незлічуваний іменник.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_there_was_were",
+                "past_be_negative"
+            ],
+            "variants": [
+                "There {a1} not enough time to finish the task."
+            ]
+        },
+        {
+            "id": 53,
+            "uuid_segments": [
+                "b1",
+                "q17"
+            ],
+            "question": "{a1} there any problems during the trip?",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У питальних реченнях з `there` порядок слів: `Was/Were + there + підмет?`. Вибір `Was` чи `Were` залежить від іменника, що стоїть після `there`.",
+                        "Після `there` стоїть іменник у множині `problems` — тому питальна форма починається з `Were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "❌ `was` вживається лише з іменниками однини після `there`. У цьому реченні після `there` стоїть іменник у множині.",
+                            "Were": "✅ В конструкції `There was/were` після `there` стоїть іменник у множині → `There were`.",
+                            "Are": "❌ `Are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_question",
+                "past_be_there_was_were"
+            ],
+            "variants": [
+                "{a1} there any problems during the trip?"
+            ]
+        },
+        {
+            "id": 54,
+            "uuid_segments": [
+                "b1",
+                "q18"
+            ],
+            "question": "Someone {a1} standing outside the door.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`Someone` — неозначений займенник (однина) → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_was"
+            ],
+            "variants": [
+                "Someone {a1} standing outside the door."
+            ]
+        },
+        {
+            "id": 55,
+            "uuid_segments": [
+                "b2",
+                "q01"
+            ],
+            "question": "She said that she {a1} tired after the trip.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У непрямій мові (reported speech) дієслова зміщуються в минуле. Якщо в прямій мові вживається `is/am/are`, у непрямій ставиться `was/were` відповідно до підмета.",
+                        "У непрямій мові після `said that` займенник `she` (однина) → форма `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ В непрямій мові форма `is/am` зміщується до `was` (однина). Підмет підрядного речення — однина, тому `was` є коректним.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_reported",
+                "past_be_was"
+            ],
+            "variants": [
+                "She said that she {a1} tired after the trip."
+            ]
+        },
+        {
+            "id": 56,
+            "uuid_segments": [
+                "b2",
+                "q02"
+            ],
+            "question": "The window {a1} broken when we arrived.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Підмет `The window` — іменник однини, що вимагає `was` у пасиві."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — іменник в однині, тому в пасивному стані Past Simple вживається `was + past participle`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_passive",
+                "past_be_was"
+            ],
+            "variants": [
+                "The window {a1} broken when we arrived."
+            ]
+        },
+        {
+            "id": 57,
+            "uuid_segments": [
+                "b2",
+                "q03"
+            ],
+            "question": "They told us that the results {a1} ready.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У непрямій мові (reported speech) дієслова зміщуються в минуле. Якщо в прямій мові вживається `is/am/are`, у непрямій ставиться `was/were` відповідно до підмета.",
+                        "Підмет у підрядному реченні — `the results` (множина) → в непрямій мові вживається `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ В непрямій мові форма `are` зміщується до `were`. Підмет підрядного речення — множина, тому `were` є правильним.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_reported",
+                "past_be_were"
+            ],
+            "variants": [
+                "They told us that the results {a1} ready."
+            ]
+        },
+        {
+            "id": 58,
+            "uuid_segments": [
+                "b2",
+                "q04"
+            ],
+            "question": "The books {a1} left on the table by accident.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Підмет `The books` — іменник у множині, що вимагає `were` у пасиві."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — іменник у множині, тому в пасивному стані Past Simple вживається `were + past participle`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_passive",
+                "past_be_were"
+            ],
+            "variants": [
+                "The books {a1} left on the table by accident."
+            ]
+        },
+        {
+            "id": 59,
+            "uuid_segments": [
+                "b2",
+                "q05"
+            ],
+            "question": "He asked if I {a1} busy at the time.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У непрямій мові (reported speech) дієслова зміщуються в минуле. Якщо в прямій мові вживається `is/am/are`, у непрямій ставиться `was/were` відповідно до підмета.",
+                        "Після `asked if` підмет `I` (однина/1 особа) → форма непрямої мови `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ В непрямій мові форма `is/am` зміщується до `was` (однина). Підмет підрядного речення — однина, тому `was` є коректним.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "am": "❌ `am` — форма теперішнього часу (першої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_reported",
+                "past_be_was"
+            ],
+            "variants": [
+                "He asked if I {a1} busy at the time."
+            ]
+        },
+        {
+            "id": 60,
+            "uuid_segments": [
+                "b2",
+                "q06"
+            ],
+            "question": "The letter {a1} written by a famous author.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Підмет `The letter` — іменник однини, що вимагає `was` у пасиві."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — іменник в однині, тому в пасивному стані Past Simple вживається `was + past participle`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_passive",
+                "past_be_was"
+            ],
+            "variants": [
+                "The letter {a1} written by a famous author."
+            ]
+        },
+        {
+            "id": 61,
+            "uuid_segments": [
+                "b2",
+                "q07"
+            ],
+            "question": "We heard that the match {a1} cancelled.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У непрямій мові (reported speech) дієслова зміщуються в минуле. Якщо в прямій мові вживається `is/am/are`, у непрямій ставиться `was/were` відповідно до підмета.",
+                        "Підмет підрядного речення — `the match` (однина) → `was` у непрямій мові."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ В непрямій мові форма `is/am` зміщується до `was` (однина). Підмет підрядного речення — однина, тому `was` є коректним.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_reported",
+                "past_be_was"
+            ],
+            "variants": [
+                "We heard that the match {a1} cancelled."
+            ]
+        },
+        {
+            "id": 62,
+            "uuid_segments": [
+                "b2",
+                "q08"
+            ],
+            "question": "The children {a1} told to stay inside.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Підмет `The children` — іменник у множині (irregular plural), що вимагає `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — іменник у множині, тому в пасивному стані Past Simple вживається `were + past participle`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_passive",
+                "past_be_were"
+            ],
+            "variants": [
+                "The children {a1} told to stay inside."
+            ]
+        },
+        {
+            "id": 63,
+            "uuid_segments": [
+                "b2",
+                "q09"
+            ],
+            "question": "She wondered why they {a1} so quiet.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У непрямій мові (reported speech) дієслова зміщуються в минуле. Якщо в прямій мові вживається `is/am/are`, у непрямій ставиться `was/were` відповідно до підмета.",
+                        "Підмет підрядного речення — `they` (множина) → `were` у непрямій мові."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ В непрямій мові форма `are` зміщується до `were`. Підмет підрядного речення — множина, тому `were` є правильним.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_reported",
+                "past_be_were"
+            ],
+            "variants": [
+                "She wondered why they {a1} so quiet."
+            ]
+        },
+        {
+            "id": 64,
+            "uuid_segments": [
+                "b2",
+                "q10"
+            ],
+            "question": "The museum {a1} built in the nineteenth century.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Підмет `The museum` — іменник однини, тому правильна пасивна форма — `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — іменник в однині, тому в пасивному стані Past Simple вживається `was + past participle`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_passive",
+                "past_be_was"
+            ],
+            "variants": [
+                "The museum {a1} built in the nineteenth century."
+            ]
+        },
+        {
+            "id": 65,
+            "uuid_segments": [
+                "b2",
+                "q11"
+            ],
+            "question": "He thought that the news {a1} true.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У непрямій мові (reported speech) дієслова зміщуються в минуле. Якщо в прямій мові вживається `is/am/are`, у непрямій ставиться `was/were` відповідно до підмета.",
+                        "Іменник `news` граматично є незлічуваним і вживається з дієсловом у однині → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ В непрямій мові форма `is/am` зміщується до `was` (однина). Підмет підрядного речення — однина, тому `was` є коректним.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_reported",
+                "past_be_was"
+            ],
+            "variants": [
+                "He thought that the news {a1} true."
+            ]
+        },
+        {
+            "id": 66,
+            "uuid_segments": [
+                "b2",
+                "q12"
+            ],
+            "question": "The doors {a1} locked before midnight.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Підмет `The doors` — іменник у множині, що вимагає `were` у пасиві."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — іменник у множині, тому в пасивному стані Past Simple вживається `were + past participle`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_passive",
+                "past_be_were"
+            ],
+            "variants": [
+                "The doors {a1} locked before midnight."
+            ]
+        },
+        {
+            "id": 67,
+            "uuid_segments": [
+                "b2",
+                "q13"
+            ],
+            "question": "She said the exam {a1} very difficult.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У непрямій мові (reported speech) дієслова зміщуються в минуле. Якщо в прямій мові вживається `is/am/are`, у непрямій ставиться `was/were` відповідно до підмета.",
+                        "Підмет підрядного речення — `the exam` (однина) → `was` у непрямій мові."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ В непрямій мові форма `is/am` зміщується до `was` (однина). Підмет підрядного речення — однина, тому `was` є коректним.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_reported",
+                "past_be_was"
+            ],
+            "variants": [
+                "She said the exam {a1} very difficult."
+            ]
+        },
+        {
+            "id": 68,
+            "uuid_segments": [
+                "b2",
+                "q14"
+            ],
+            "question": "The injured passengers {a1} taken to hospital.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Підмет `The injured passengers` — іменник у множині, що вимагає `were` у пасиві."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — іменник у множині, тому в пасивному стані Past Simple вживається `were + past participle`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_passive",
+                "past_be_were"
+            ],
+            "variants": [
+                "The injured passengers {a1} taken to hospital."
+            ]
+        },
+        {
+            "id": 69,
+            "uuid_segments": [
+                "b2",
+                "q15"
+            ],
+            "question": "I knew that something {a1} wrong.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У непрямій мові (reported speech) дієслова зміщуються в минуле. Якщо в прямій мові вживається `is/am/are`, у непрямій ставиться `was/were` відповідно до підмета.",
+                        "Займенник `something` — однина → в непрямій мові вживається `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ В непрямій мові форма `is/am` зміщується до `was` (однина). Підмет підрядного речення — однина, тому `was` є коректним.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_reported",
+                "past_be_was"
+            ],
+            "variants": [
+                "I knew that something {a1} wrong."
+            ]
+        },
+        {
+            "id": 70,
+            "uuid_segments": [
+                "b2",
+                "q16"
+            ],
+            "question": "The old bridge {a1} demolished last year.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Підмет `The old bridge` — іменник однини, тому в пасиві вживається `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — іменник в однині, тому в пасивному стані Past Simple вживається `was + past participle`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_passive",
+                "past_be_was"
+            ],
+            "variants": [
+                "The old bridge {a1} demolished last year."
+            ]
+        },
+        {
+            "id": 71,
+            "uuid_segments": [
+                "b2",
+                "q17"
+            ],
+            "question": "They confirmed that all seats {a1} already taken.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Passive) утворюється за формулою: `was/were + дієприкметник минулого часу (past participle)`. У непрямій мові форма зберігається.",
+                        "Підмет речення стоїть у пасивному відношенні до дії та визначає форму: однина → `was`, множина → `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — іменник у множині, тому в пасивному стані Past Simple вживається `were + past participle`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_reported",
+                "past_be_passive",
+                "past_be_were"
+            ],
+            "variants": [
+                "They confirmed that all seats {a1} already taken."
+            ]
+        },
+        {
+            "id": 72,
+            "uuid_segments": [
+                "b2",
+                "q18"
+            ],
+            "question": "The scientist reported that the results {a1} unexpected.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У непрямій мові (reported speech) дієслова зміщуються в минуле. Якщо в прямій мові вживається `is/am/are`, у непрямій ставиться `was/were` відповідно до підмета.",
+                        "Підмет підрядного речення — `the results` (множина) → `were` у непрямій мові."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ В непрямій мові форма `are` зміщується до `were`. Підмет підрядного речення — множина, тому `were` є правильним.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_reported",
+                "past_be_were"
+            ],
+            "variants": [
+                "The scientist reported that the results {a1} unexpected."
+            ]
+        },
+        {
+            "id": 73,
+            "uuid_segments": [
+                "c1",
+                "q01"
+            ],
+            "question": "If I {a1} in your position, I would ask for advice.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`, `would that`) дієслово `to be` завжди вживається у формі `were` для всіх осіб (суб'юнктив).",
+                        "Структура `If I...` із результатом у формі `would` вказує на нереальну умову — підмет не має значення, `were` є єдиною правильною формою."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` — хоча це форма Past Simple, у суб'юнктивних конструкціях (`if/wish/as if`) граматика вимагає `were` для всіх осіб, навіть для однини.",
+                            "were": "✅ У суб'юнктивних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`) дієслово `to be` вживається у формі `were` для всіх осіб — це граматична норма сучасної англійської.",
+                            "am": "❌ `am` — форма теперішнього часу (першої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subjunctive"
+            ],
+            "variants": [
+                "If I {a1} in your position, I would ask for advice."
+            ]
+        },
+        {
+            "id": 74,
+            "uuid_segments": [
+                "c1",
+                "q02"
+            ],
+            "question": "I wish the situation {a1} different.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`, `would that`) дієслово `to be` завжди вживається у формі `were` для всіх осіб (суб'юнктив).",
+                        "Після `wish` вживається суб'юнктив: `were` для всіх осіб, незалежно від підмета."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` — хоча це форма Past Simple, у суб'юнктивних конструкціях (`if/wish/as if`) граматика вимагає `were` для всіх осіб, навіть для однини.",
+                            "were": "✅ У суб'юнктивних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`) дієслово `to be` вживається у формі `were` для всіх осіб — це граматична норма сучасної англійської.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subjunctive"
+            ],
+            "variants": [
+                "I wish the situation {a1} different."
+            ]
+        },
+        {
+            "id": 75,
+            "uuid_segments": [
+                "c1",
+                "q03"
+            ],
+            "question": "She speaks as if she {a1} an expert on the topic.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`, `would that`) дієслово `to be` завжди вживається у формі `were` для всіх осіб (суб'юнктив).",
+                        "Структура `as if / as though` вводить нереальне порівняння, що вимагає суб'юнктивної форми `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` — хоча це форма Past Simple, у суб'юнктивних конструкціях (`if/wish/as if`) граматика вимагає `were` для всіх осіб, навіть для однини.",
+                            "were": "✅ У суб'юнктивних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`) дієслово `to be` вживається у формі `were` для всіх осіб — це граматична норма сучасної англійської.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subjunctive"
+            ],
+            "variants": [
+                "She speaks as if she {a1} an expert on the topic."
+            ]
+        },
+        {
+            "id": 76,
+            "uuid_segments": [
+                "c1",
+                "q04"
+            ],
+            "question": "Suppose he {a1} innocent — the case would be different.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`, `would that`) дієслово `to be` завжди вживається у формі `were` для всіх осіб (суб'юнктив).",
+                        "Слово `suppose` у значенні «уявімо, що...» запускає суб'юнктивний спосіб — `were` обов'язкове."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` — хоча це форма Past Simple, у суб'юнктивних конструкціях (`if/wish/as if`) граматика вимагає `were` для всіх осіб, навіть для однини.",
+                            "were": "✅ У суб'юнктивних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`) дієслово `to be` вживається у формі `were` для всіх осіб — це граматична норма сучасної англійської.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subjunctive"
+            ],
+            "variants": [
+                "Suppose he {a1} innocent — the case would be different."
+            ]
+        },
+        {
+            "id": 77,
+            "uuid_segments": [
+                "c1",
+                "q05"
+            ],
+            "question": "If only the deadline {a1} extended!",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`, `would that`) дієслово `to be` завжди вживається у формі `were` для всіх осіб (суб'юнктив).",
+                        "Вираз `if only` виражає нереальне бажання і вимагає форми `were` (суб'юнктив)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` — хоча це форма Past Simple, у суб'юнктивних конструкціях (`if/wish/as if`) граматика вимагає `were` для всіх осіб, навіть для однини.",
+                            "were": "✅ У суб'юнктивних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`) дієслово `to be` вживається у формі `were` для всіх осіб — це граматична норма сучасної англійської.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subjunctive"
+            ],
+            "variants": [
+                "If only the deadline {a1} extended!"
+            ]
+        },
+        {
+            "id": 78,
+            "uuid_segments": [
+                "c1",
+                "q06"
+            ],
+            "question": "{a1} the policy to be reversed, the consequences could be severe.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Інвертована умовна конструкція (Were + підмет + to...) — це формальний/книжний спосіб вираження нереальної умови. Підмет і `Were` міняються місцями без сполучника `if`.",
+                        "Структура `Were + the policy + to be reversed...` є інвертованою умовою: `were` виноситься на початок речення замість `if the policy were to be reversed`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "❌ `Was` не вживається в інвертованих умовних конструкціях. Правильна форма завжди `Were` (Were + підмет + to...).",
+                            "Were": "✅ `Were` виноситься на початок речення, замінюючи `if + were` в інвертованій умовній конструкції. Це формальний/книжний стиль.",
+                            "Is": "❌ `Is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_inverted_conditional"
+            ],
+            "variants": [
+                "{a1} the policy to be reversed, the consequences could be severe."
+            ]
+        },
+        {
+            "id": 79,
+            "uuid_segments": [
+                "c1",
+                "q07"
+            ],
+            "question": "The committee {a1} split on the proposal.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Збірні іменники (committee, police, staff, press, public, audience, government, clergy, couple) можуть вживатися з `was` (якщо розглядаються як єдине ціле) або `were` (якщо акцент на членах групи).",
+                        "`The committee` — розглядається як єдиний орган → вживається `was` (British English)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Цей збірний іменник у контексті розглядається як єдине ціле → `was`.",
+                            "were": "❌ `were` вживається, коли збірний іменник розглядається як група осіб. У цьому реченні іменник позначає єдиний орган/концепцію → `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_collective_noun",
+                "past_be_was"
+            ],
+            "variants": [
+                "The committee {a1} split on the proposal."
+            ]
+        },
+        {
+            "id": 80,
+            "uuid_segments": [
+                "c1",
+                "q08"
+            ],
+            "question": "Police {a1} called to the scene immediately.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Збірні іменники (committee, police, staff, press, public, audience, government, clergy, couple) можуть вживатися з `was` (якщо розглядаються як єдине ціле) або `were` (якщо акцент на членах групи).",
+                        "`Police` — збірний іменник, що позначає групу осіб → зазвичай `were` в British English."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається, коли збірний іменник розглядається як єдине ціле. У цьому реченні акцент на окремих членах групи → `were`.",
+                            "were": "✅ Цей збірний іменник у контексті позначає групу осіб → `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_collective_noun",
+                "past_be_were"
+            ],
+            "variants": [
+                "Police {a1} called to the scene immediately."
+            ]
+        },
+        {
+            "id": 81,
+            "uuid_segments": [
+                "c1",
+                "q09"
+            ],
+            "question": "The data {a1} collected over three years by the research team.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`Data` у формальному/академічному English вживається як множина → `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_were"
+            ],
+            "variants": [
+                "The data {a1} collected over three years by the research team."
+            ]
+        },
+        {
+            "id": 82,
+            "uuid_segments": [
+                "c1",
+                "q10"
+            ],
+            "question": "The public {a1} unaware of the decision for months.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Збірні іменники (committee, police, staff, press, public, audience, government, clergy, couple) можуть вживатися з `was` (якщо розглядаються як єдине ціле) або `were` (якщо акцент на членах групи).",
+                        "`The public` як єдина концепція → `was` (ставлення до нього як до одного цілого)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Цей збірний іменник у контексті розглядається як єдине ціле → `was`.",
+                            "were": "❌ `were` вживається, коли збірний іменник розглядається як група осіб. У цьому реченні іменник позначає єдиний орган/концепцію → `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_collective_noun",
+                "past_be_was"
+            ],
+            "variants": [
+                "The public {a1} unaware of the decision for months."
+            ]
+        },
+        {
+            "id": 83,
+            "uuid_segments": [
+                "c1",
+                "q11"
+            ],
+            "question": "I wished I {a1} more confident at the time.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`, `would that`) дієслово `to be` завжди вживається у формі `were` для всіх осіб (суб'юнктив).",
+                        "Після `wish` вживається суб'юнктив: `were` для всіх осіб, незалежно від підмета."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` — хоча це форма Past Simple, у суб'юнктивних конструкціях (`if/wish/as if`) граматика вимагає `were` для всіх осіб, навіть для однини.",
+                            "were": "✅ У суб'юнктивних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`) дієслово `to be` вживається у формі `were` для всіх осіб — це граматична норма сучасної англійської.",
+                            "am": "❌ `am` — форма теперішнього часу (першої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subjunctive"
+            ],
+            "variants": [
+                "I wished I {a1} more confident at the time."
+            ]
+        },
+        {
+            "id": 84,
+            "uuid_segments": [
+                "c1",
+                "q12"
+            ],
+            "question": "He spoke as though the outcome {a1} already certain.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`, `would that`) дієслово `to be` завжди вживається у формі `were` для всіх осіб (суб'юнктив).",
+                        "Структура `as though` вводить уявне порівняння та вимагає форми `were` (суб'юнктив)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` — хоча це форма Past Simple, у суб'юнктивних конструкціях (`if/wish/as if`) граматика вимагає `were` для всіх осіб, навіть для однини.",
+                            "were": "✅ У суб'юнктивних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`) дієслово `to be` вживається у формі `were` для всіх осіб — це граматична норма сучасної англійської.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subjunctive"
+            ],
+            "variants": [
+                "He spoke as though the outcome {a1} already certain."
+            ]
+        },
+        {
+            "id": 85,
+            "uuid_segments": [
+                "c1",
+                "q13"
+            ],
+            "question": "The press {a1} not invited to the private ceremony.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечна форма минулого часу `to be`: `was not` (скорочено `wasn't`) — для однини; `were not` (`weren't`) — для множини та `you`.",
+                        "Зверніть увагу на підмет речення: однина → `was not`, множина → `were not`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Цей збірний іменник у контексті розглядається як єдине ціле → `was`.",
+                            "were": "❌ `were` вживається, коли збірний іменник розглядається як група осіб. У цьому реченні іменник позначає єдиний орган/концепцію → `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_collective_noun",
+                "past_be_negative",
+                "past_be_was"
+            ],
+            "variants": [
+                "The press {a1} not invited to the private ceremony."
+            ]
+        },
+        {
+            "id": 86,
+            "uuid_segments": [
+                "c1",
+                "q14"
+            ],
+            "question": "Staff {a1} informed about the changes in advance.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Збірні іменники (committee, police, staff, press, public, audience, government, clergy, couple) можуть вживатися з `was` (якщо розглядаються як єдине ціле) або `were` (якщо акцент на членах групи).",
+                        "`Staff` — збірний іменник із відтінком множинності → зазвичай `were` (British English)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається, коли збірний іменник розглядається як єдине ціле. У цьому реченні акцент на окремих членах групи → `were`.",
+                            "were": "✅ Цей збірний іменник у контексті позначає групу осіб → `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_collective_noun",
+                "past_be_were"
+            ],
+            "variants": [
+                "Staff {a1} informed about the changes in advance."
+            ]
+        },
+        {
+            "id": 87,
+            "uuid_segments": [
+                "c1",
+                "q15"
+            ],
+            "question": "It was high time he {a1} told the truth.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`, `would that`) дієслово `to be` завжди вживається у формі `were` для всіх осіб (суб'юнктив).",
+                        "Вираз `it was high time` вимагає простого минулого або суб'юнктиву після нього (контекст визначає форму)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ У суб'юнктивних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`) дієслово `to be` вживається у формі `were` для всіх осіб — це граматична норма сучасної англійської.",
+                            "were": "❌ Хоча `were` вживається в суб'юнктиві, у цьому конкретному реченні контекст вимагає форми Past Simple `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subjunctive",
+                "past_be_was"
+            ],
+            "variants": [
+                "It was high time he {a1} told the truth."
+            ]
+        },
+        {
+            "id": 88,
+            "uuid_segments": [
+                "c1",
+                "q16"
+            ],
+            "question": "The majority of voters {a1} disappointed with the result.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`The majority of` + множина → зазвичай узгоджується з іменником у множині → `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_were"
+            ],
+            "variants": [
+                "The majority of voters {a1} disappointed with the result."
+            ]
+        },
+        {
+            "id": 89,
+            "uuid_segments": [
+                "c1",
+                "q17"
+            ],
+            "question": "{a1} I to accept this offer, I would have to relocate.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Інвертована умовна конструкція (Were + підмет + to...) — це формальний/книжний спосіб вираження нереальної умови. Підмет і `Were` міняються місцями без сполучника `if`.",
+                        "Структура `Were I to accept...` — формальна інвертована умова: еквівалент `If I were to accept...`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "❌ `Was` не вживається в інвертованих умовних конструкціях. Правильна форма завжди `Were` (Were + підмет + to...).",
+                            "Were": "✅ `Were` виноситься на початок речення, замінюючи `if + were` в інвертованій умовній конструкції. Це формальний/книжний стиль.",
+                            "Am": "❌ `Am` — форма теперішнього часу (першої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_inverted_conditional"
+            ],
+            "variants": [
+                "{a1} I to accept this offer, I would have to relocate."
+            ]
+        },
+        {
+            "id": 90,
+            "uuid_segments": [
+                "c1",
+                "q18"
+            ],
+            "question": "The audience {a1} captivated by her performance throughout.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Збірні іменники (committee, police, staff, press, public, audience, government, clergy, couple) можуть вживатися з `was` (якщо розглядаються як єдине ціле) або `were` (якщо акцент на членах групи).",
+                        "`The audience` — розглядається як єдиний глядацький організм → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Цей збірний іменник у контексті розглядається як єдине ціле → `was`.",
+                            "were": "❌ `were` вживається, коли збірний іменник розглядається як група осіб. У цьому реченні іменник позначає єдиний орган/концепцію → `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_collective_noun",
+                "past_be_was"
+            ],
+            "variants": [
+                "The audience {a1} captivated by her performance throughout."
+            ]
+        },
+        {
+            "id": 91,
+            "uuid_segments": [
+                "c2",
+                "q01"
+            ],
+            "question": "Would that she {a1} here to witness this historic moment!",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`, `would that`) дієслово `to be` завжди вживається у формі `were` для всіх осіб (суб'юнктив).",
+                        "Архаїчний вираз `would that` виражає нездійсненне бажання — обов'язково `were` (суб'юнктив)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` — хоча це форма Past Simple, у суб'юнктивних конструкціях (`if/wish/as if`) граматика вимагає `were` для всіх осіб, навіть для однини.",
+                            "were": "✅ У суб'юнктивних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`) дієслово `to be` вживається у формі `were` для всіх осіб — це граматична норма сучасної англійської.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subjunctive"
+            ],
+            "variants": [
+                "Would that she {a1} here to witness this historic moment!"
+            ]
+        },
+        {
+            "id": 92,
+            "uuid_segments": [
+                "c2",
+                "q02"
+            ],
+            "question": "{a1} it not for the unexpected delay, we would have arrived on time.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Інвертована умовна конструкція (Were + підмет + to...) — це формальний/книжний спосіб вираження нереальної умови. Підмет і `Were` міняються місцями без сполучника `if`.",
+                        "Вираз `Were it not for...` — стандартна книжна конструкція: еквівалент `If it were not for...`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "❌ `Was` не вживається в інвертованих умовних конструкціях. Правильна форма завжди `Were` (Were + підмет + to...).",
+                            "Were": "✅ `Were` виноситься на початок речення, замінюючи `if + were` в інвертованій умовній конструкції. Це формальний/книжний стиль.",
+                            "Is": "❌ `Is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_inverted_conditional"
+            ],
+            "variants": [
+                "{a1} it not for the unexpected delay, we would have arrived on time."
+            ]
+        },
+        {
+            "id": 93,
+            "uuid_segments": [
+                "c2",
+                "q03"
+            ],
+            "question": "The accused {a1} found guilty on all three counts.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Підмет `The accused` — однина (один обвинувачений), у пасиві вживається `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — іменник в однині, тому в пасивному стані Past Simple вживається `was + past participle`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_passive",
+                "past_be_was"
+            ],
+            "variants": [
+                "The accused {a1} found guilty on all three counts."
+            ]
+        },
+        {
+            "id": 94,
+            "uuid_segments": [
+                "c2",
+                "q04"
+            ],
+            "question": "The clergy {a1} deeply troubled by the content of the report.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Збірні іменники (committee, police, staff, press, public, audience, government, clergy, couple) можуть вживатися з `was` (якщо розглядаються як єдине ціле) або `were` (якщо акцент на членах групи).",
+                        "`The clergy` позначає групу людей і вживається як множина → `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається, коли збірний іменник розглядається як єдине ціле. У цьому реченні акцент на окремих членах групи → `were`.",
+                            "were": "✅ Цей збірний іменник у контексті позначає групу осіб → `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_collective_noun",
+                "past_be_were"
+            ],
+            "variants": [
+                "The clergy {a1} deeply troubled by the content of the report."
+            ]
+        },
+        {
+            "id": 95,
+            "uuid_segments": [
+                "c2",
+                "q05"
+            ],
+            "question": "Statistics {a1} never his strong suit, yet he managed brilliantly.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`Statistics` у значенні «числові дані» (множина) → `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — множина або `you`, тому правильна форма минулого часу `to be` — `were`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_were"
+            ],
+            "variants": [
+                "Statistics {a1} never his strong suit, yet he managed brilliantly."
+            ]
+        },
+        {
+            "id": 96,
+            "uuid_segments": [
+                "c2",
+                "q06"
+            ],
+            "question": "The couple {a1} seated separately during the proceedings.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Визначте підмет речення: якщо він у однині — `was`, якщо у множині — `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається, коли збірний іменник розглядається як єдине ціле. У цьому реченні акцент на окремих членах групи → `were`.",
+                            "were": "✅ Підмет речення — іменник у множині, тому в пасивному стані Past Simple вживається `were + past participle`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_collective_noun",
+                "past_be_passive",
+                "past_be_were"
+            ],
+            "variants": [
+                "The couple {a1} seated separately during the proceedings."
+            ]
+        },
+        {
+            "id": 97,
+            "uuid_segments": [
+                "c2",
+                "q07"
+            ],
+            "question": "He treated her as if she {a1} a complete stranger to him.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`, `would that`) дієслово `to be` завжди вживається у формі `were` для всіх осіб (суб'юнктив).",
+                        "Структура `as if / as though` вводить нереальне порівняння, що вимагає суб'юнктивної форми `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` — хоча це форма Past Simple, у суб'юнктивних конструкціях (`if/wish/as if`) граматика вимагає `were` для всіх осіб, навіть для однини.",
+                            "were": "✅ У суб'юнктивних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`) дієслово `to be` вживається у формі `were` для всіх осіб — це граматична норма сучасної англійської.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subjunctive"
+            ],
+            "variants": [
+                "He treated her as if she {a1} a complete stranger to him."
+            ]
+        },
+        {
+            "id": 98,
+            "uuid_segments": [
+                "c2",
+                "q08"
+            ],
+            "question": "The manuscript {a1} thought to have been lost for three centuries.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Підмет `The manuscript` — іменник однини, у пасиві вживається `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — іменник в однині, тому в пасивному стані Past Simple вживається `was + past participle`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_passive",
+                "past_be_was"
+            ],
+            "variants": [
+                "The manuscript {a1} thought to have been lost for three centuries."
+            ]
+        },
+        {
+            "id": 99,
+            "uuid_segments": [
+                "c2",
+                "q09"
+            ],
+            "question": "{a1} the situation not so dire, he would never have agreed to the terms.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Інвертована умовна конструкція (Were + підмет + to...) — це формальний/книжний спосіб вираження нереальної умови. Підмет і `Were` міняються місцями без сполучника `if`.",
+                        "Конструкція `Were the situation not so dire...` — інверсія умови: `Were` стоїть першим замість `if the situation were not`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "❌ `Was` не вживається в інвертованих умовних конструкціях. Правильна форма завжди `Were` (Were + підмет + to...).",
+                            "Were": "✅ `Were` виноситься на початок речення, замінюючи `if + were` в інвертованій умовній конструкції. Це формальний/книжний стиль.",
+                            "Is": "❌ `Is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_inverted_conditional"
+            ],
+            "variants": [
+                "{a1} the situation not so dire, he would never have agreed to the terms."
+            ]
+        },
+        {
+            "id": 100,
+            "uuid_segments": [
+                "c2",
+                "q10"
+            ],
+            "question": "The cattle {a1} moved to higher ground before the flooding.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Іменник `cattle` є множинним без форми однини — завжди вживається з `were`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — іменник у множині, тому в пасивному стані Past Simple вживається `were + past participle`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_passive",
+                "past_be_were"
+            ],
+            "variants": [
+                "The cattle {a1} moved to higher ground before the flooding."
+            ]
+        },
+        {
+            "id": 101,
+            "uuid_segments": [
+                "c2",
+                "q11"
+            ],
+            "question": "I wish he {a1} more forthcoming with information at the time.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`, `would that`) дієслово `to be` завжди вживається у формі `were` для всіх осіб (суб'юнктив).",
+                        "Після `wish` вживається суб'юнктив: `were` для всіх осіб, незалежно від підмета."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` — хоча це форма Past Simple, у суб'юнктивних конструкціях (`if/wish/as if`) граматика вимагає `were` для всіх осіб, навіть для однини.",
+                            "were": "✅ У суб'юнктивних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`) дієслово `to be` вживається у формі `were` для всіх осіб — це граматична норма сучасної англійської.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subjunctive"
+            ],
+            "variants": [
+                "I wish he {a1} more forthcoming with information at the time."
+            ]
+        },
+        {
+            "id": 102,
+            "uuid_segments": [
+                "c2",
+                "q12"
+            ],
+            "question": "The news of the casualties {a1} deeply disturbing to the relatives.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "`News` — незлічуваний іменник (граматично однина) → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_was"
+            ],
+            "variants": [
+                "The news of the casualties {a1} deeply disturbing to the relatives."
+            ]
+        },
+        {
+            "id": 103,
+            "uuid_segments": [
+                "c2",
+                "q13"
+            ],
+            "question": "The remains {a1} identified through DNA analysis and dental records.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Іменник `remains` у цьому значенні є множинним — вимагає `were` у пасиві."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — іменник у множині, тому в пасивному стані Past Simple вживається `were + past participle`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_passive",
+                "past_be_were"
+            ],
+            "variants": [
+                "The remains {a1} identified through DNA analysis and dental records."
+            ]
+        },
+        {
+            "id": 104,
+            "uuid_segments": [
+                "c2",
+                "q14"
+            ],
+            "question": "The findings {a1} presented to parliament in a closed-door session.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Іменник `findings` завжди множинний — вимагає `were` у пасиві."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` вживається для однини (I/he/she/it), а підмет цього речення — множина або `you`/`we`/`they` → потрібне `were`.",
+                            "were": "✅ Підмет речення — іменник у множині, тому в пасивному стані Past Simple вживається `were + past participle`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_passive",
+                "past_be_were"
+            ],
+            "variants": [
+                "The findings {a1} presented to parliament in a closed-door session."
+            ]
+        },
+        {
+            "id": 105,
+            "uuid_segments": [
+                "c2",
+                "q15"
+            ],
+            "question": "Suppose everything {a1} not as it appeared to the investigators.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`, `would that`) дієслово `to be` завжди вживається у формі `were` для всіх осіб (суб'юнктив).",
+                        "Слово `suppose` у значенні «припустимо, що» вимагає суб'юнктивного `were` для будь-якого підмета."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "❌ `was` — хоча це форма Past Simple, у суб'юнктивних конструкціях (`if/wish/as if`) граматика вимагає `were` для всіх осіб, навіть для однини.",
+                            "were": "✅ У суб'юнктивних та бажальних конструкціях (`if`, `wish`, `as if`, `suppose`) дієслово `to be` вживається у формі `were` для всіх осіб — це граматична норма сучасної англійської.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subjunctive"
+            ],
+            "variants": [
+                "Suppose everything {a1} not as it appeared to the investigators."
+            ]
+        },
+        {
+            "id": 106,
+            "uuid_segments": [
+                "c2",
+                "q16"
+            ],
+            "question": "Physics {a1} regarded at the time as an exclusively male domain.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "Назви наук на -ics вживаються як однина → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_was"
+            ],
+            "variants": [
+                "Physics {a1} regarded at the time as an exclusively male domain."
+            ]
+        },
+        {
+            "id": 107,
+            "uuid_segments": [
+                "c2",
+                "q17"
+            ],
+            "question": "The government {a1} accused of withholding critical information.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у минулому часі (Past Simple Passive) утворюється за схемою: `was/were + past participle`. Вибір `was` чи `were` залежить від підмета.",
+                        "Підмет `The government` як збірний іменник у британській традиції може сприйматися як множина (`were`)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — іменник в однині, тому в пасивному стані Past Simple вживається `was + past participle`.",
+                            "were": "❌ `were` вживається, коли збірний іменник розглядається як група осіб. У цьому реченні іменник позначає єдиний орган/концепцію → `was`.",
+                            "are": "❌ `are` — форма теперішнього часу (множини/you (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_collective_noun",
+                "past_be_passive",
+                "past_be_was"
+            ],
+            "variants": [
+                "The government {a1} accused of withholding critical information."
+            ]
+        },
+        {
+            "id": 108,
+            "uuid_segments": [
+                "c2",
+                "q18"
+            ],
+            "question": "To the survivors, it {a1} as if time itself had stopped.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження підмета з дієсловом `to be` у минулому часі: однина та неозначені займенники (nobody, everybody, everything, someone, each, neither) → `was`; множина та `both` → `were`.",
+                        "Підмет речення — `it` (однина) → `was`."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "✅ Підмет речення — однина (або `I`), тому правильна форма минулого часу `to be` — `was`.",
+                            "were": "❌ `were` вживається для множини та `you`/`we`/`they`. Підмет цього речення — однина → потрібне `was`.",
+                            "is": "❌ `is` — форма теперішнього часу (третьої особи однини (Present Simple)). Речення описує минулу ситуацію, тому потрібна форма Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "past_be_subject_agreement",
+                "past_be_was"
+            ],
+            "variants": [
+                "To the survivors, it {a1} as if time itself had stopped."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "vtb-past-sn-saved-test",
+        "slug": "verb-to-be-past-sonate-v3-test",
+        "name": "Verb to Be: Past Forms — Sonate V3 Test",
+        "filters": {
+            "num_questions": 30,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\VerbToBePastFormsV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1177,
+                "theory_page_ids": [
+                    1177
+                ],
+                "theory_page": {
+                    "id": 1177,
+                    "slug": "verb-to-be-past",
+                    "title": "Verb to Be: Past Forms",
+                    "category_slug_path": "basic-grammar/verb-to-be",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBePastTheorySeeder",
+                    "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-past"
+                }
+            }
+        }
+    }
+}
