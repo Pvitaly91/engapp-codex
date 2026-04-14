@@ -1,0 +1,1526 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\En\\AI\\Copilot\\Opus46\\WordOrderWithVerbsAndObjectsV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\WordOrderWithVerbsAndObjectsV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "en",
+  "hint_provider": "copilot-opus46",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "In English the standard word order is Subject + Verb + Object (SVO).",
+        "The subject `She` is already given; the verb must come before the object."
+      ],
+      "explanations": {
+        "a1": {
+          "books reads": "Wrong order: the object cannot precede the verb in a standard declarative sentence.",
+          "reads books": "Correct: verb + object follows the SVO pattern.",
+          "books she reads": "Redundant subject and inverted order; SVO requires subject → verb → object."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "SVO order: subject (They) + verb (drink) + object (milk).",
+        "After the subject `They`, the verb comes first, then the object."
+      ],
+      "explanations": {
+        "a2": {
+          "milk drink": "The object cannot come before the verb in a declarative sentence.",
+          "drink milk": "Correct: verb + object in SVO order.",
+          "milk they drink": "Redundant subject and wrong word order."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "SVO: the verb `eats` must precede the object `lunch`.",
+        "After `He`, the verb comes directly, followed by the object."
+      ],
+      "explanations": {
+        "a3": {
+          "lunch eats": "Object before verb is incorrect in standard English.",
+          "eats lunch": "Correct: verb + object.",
+          "lunch he eats": "Redundant subject; standard SVO doesn't place the object first."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Standard SVO: subject + verb + object.",
+        "After `I`, the verb `watch` precedes the object `TV`."
+      ],
+      "explanations": {
+        "a4": {
+          "TV watch": "Object cannot precede the verb.",
+          "watch TV": "Correct: verb + object in SVO.",
+          "TV I watch": "Disrupted word order with redundant subject."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "SVO: We (subject) + play (verb) + football (object).",
+        "The verb `play` must come before its object `football`."
+      ],
+      "explanations": {
+        "a5": {
+          "football play": "Object before verb is incorrect.",
+          "play football": "Correct: standard SVO order.",
+          "football we play": "Wrong order with redundant subject."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Negation with do/does: does + not + main verb + object.",
+        "The word `not` goes right after the auxiliary `does`."
+      ],
+      "explanations": {
+        "a6": {
+          "not does watch TV": "`not` cannot precede the auxiliary `does`.",
+          "does not watch TV": "Correct: auxiliary + not + verb + object.",
+          "does watch not TV": "`not` must go between the auxiliary and the main verb."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Negation in Present Simple with `does`: does + not + base verb.",
+        "Place `not` immediately after the auxiliary `does`."
+      ],
+      "explanations": {
+        "a7": {
+          "not does drink coffee": "`not` cannot come before the auxiliary.",
+          "does not drink coffee": "Correct: does + not + drink + coffee.",
+          "does drink not coffee": "`not` belongs between the auxiliary and the main verb."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Negation with `do`: do + not + main verb + object.",
+        "After `do`, `not` comes immediately, then the verb `play`."
+      ],
+      "explanations": {
+        "a8": {
+          "not do play games": "`not` cannot precede `do`.",
+          "do not play games": "Correct: do + not + play + games.",
+          "do play not games": "`not` must be between the auxiliary and the main verb."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Modal verb + base form: can + speak + object.",
+        "After the modal `can`, the main verb in base form comes next."
+      ],
+      "explanations": {
+        "a9": {
+          "speak can English": "The main verb cannot precede the modal.",
+          "can speak English": "Correct: modal + base verb + object.",
+          "can English speak": "The object cannot come between the modal and the main verb."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Modal + base verb + object: can + ride + a bike.",
+        "After `can`, the base verb `ride` comes next, then the object."
+      ],
+      "explanations": {
+        "a10": {
+          "ride can a bike": "The main verb cannot precede the modal.",
+          "can ride a bike": "Correct: can + ride + a bike.",
+          "can a bike ride": "The object cannot separate the modal from the verb."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "SVO: Tom + washes + the dishes.",
+        "After the subject `Tom`, the verb comes before the object."
+      ],
+      "explanations": {
+        "a11": {
+          "the dishes washes": "Object cannot precede the verb.",
+          "washes the dishes": "Correct: verb + object in SVO.",
+          "dishes washes the": "Completely wrong order with separated article."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "SVO: verb `brushes` before object `her teeth`.",
+        "After the subject, the verb precedes the object."
+      ],
+      "explanations": {
+        "a12": {
+          "her teeth brushes": "Object cannot precede the verb.",
+          "brushes her teeth": "Correct: verb + object.",
+          "teeth brushes her": "Completely wrong order."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Yes/no questions: auxiliary (Do/Does) + subject + main verb.",
+        "To form a question with `like`, use: Do + you + like."
+      ],
+      "explanations": {
+        "a13": {
+          "You do": "This is declarative order; questions need auxiliary before subject.",
+          "Do you": "Correct: auxiliary inversion for question formation.",
+          "Like you do": "The main verb cannot start a yes/no question."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Questions with `does`: Does + subject + base verb.",
+        "For third person singular, `Does` goes at the start of the question."
+      ],
+      "explanations": {
+        "a14": {
+          "She does": "Declarative order; `Does` must precede the subject in questions.",
+          "Does she": "Correct: Does + she — question word order.",
+          "Have she does": "Wrong auxiliary and completely disrupted order."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "SVO: subject + verb + object.",
+        "After `The baby`, the verb `drinks` precedes the object `water`."
+      ],
+      "explanations": {
+        "a15": {
+          "water drinks": "Object cannot precede the verb.",
+          "drinks water": "Correct: verb + object.",
+          "water the baby drinks": "Redundant subject and wrong order."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Modal + base verb + object: can + use + computers.",
+        "After `can`, the base verb `use` comes next."
+      ],
+      "explanations": {
+        "a16": {
+          "use can computers": "Main verb cannot precede the modal.",
+          "can use computers": "Correct: modal + verb + object.",
+          "can computers use": "Object cannot separate the modal from the verb."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "SVO: My mother + cooks + dinner.",
+        "The verb `cooks` must precede the object `dinner`."
+      ],
+      "explanations": {
+        "a17": {
+          "dinner cooks": "Object cannot precede the verb.",
+          "cooks dinner": "Correct: verb + object.",
+          "dinner my mother cooks": "Wrong order with redundant subject."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Questions with modal `can`: Can + subject + base verb.",
+        "The modal `Can` starts the question, before the subject `you`."
+      ],
+      "explanations": {
+        "a18": {
+          "You can": "Declarative order; `Can` must precede the subject in questions.",
+          "Can you": "Correct: modal inversion for questions.",
+          "Swim you can": "The main verb cannot start a question with a modal."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "Present Continuous: auxiliary `is` before the -ing verb, object after the verb.",
+        "Structure: is + reading + a book."
+      ],
+      "explanations": {
+        "a19": {
+          "reading is a book": "Auxiliary `is` must precede the -ing verb.",
+          "is reading a book": "Correct: auxiliary + -ing verb + object.",
+          "is a book reading": "Object cannot come between auxiliary and -ing verb."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Present Continuous: are + watching + object.",
+        "The auxiliary `are` precedes the -ing verb."
+      ],
+      "explanations": {
+        "a20": {
+          "watching are a film": "The -ing verb cannot precede the auxiliary.",
+          "are watching a film": "Correct: are + watching + a film.",
+          "are a film watching": "Object cannot separate auxiliary and verb."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "Present Perfect: have + past participle + object.",
+        "After auxiliary `have`, the past participle `finished` comes next."
+      ],
+      "explanations": {
+        "a21": {
+          "finished have my homework": "Past participle cannot precede the auxiliary.",
+          "have finished my homework": "Correct: have + finished + my homework.",
+          "have my homework finished": "Object cannot come between auxiliary and past participle."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "Negation in Present Perfect: has + not + past participle + object.",
+        "Place `not` right after `has`, before `eaten`."
+      ],
+      "explanations": {
+        "a22": {
+          "not has eaten breakfast": "`not` cannot precede the auxiliary `has`.",
+          "has not eaten breakfast": "Correct: has + not + eaten + breakfast.",
+          "has eaten not breakfast": "`not` must go between auxiliary and past participle."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Phrasal verb `turn off` is separable: turn off + noun object.",
+        "Standard order: turn off + the light."
+      ],
+      "explanations": {
+        "a23": {
+          "off turn the light": "The particle cannot precede the verb.",
+          "turn off the light": "Correct: phrasal verb + noun object.",
+          "turn the light off the": "Extra article at the end; incorrect structure."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Phrasal verb `pick up` is separable: pick up + noun object.",
+        "Standard order: pick up + the children."
+      ],
+      "explanations": {
+        "a24": {
+          "up pick the children": "Particle cannot precede the verb.",
+          "pick up the children": "Correct: phrasal verb + object.",
+          "pick the children pick up": "Duplicate verb — incorrect."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "Indirect object with `to`: verb + direct object + to + indirect object.",
+        "Structure: gave + a present + to her friend."
+      ],
+      "explanations": {
+        "a25": {
+          "gave to her friend a present": "With `to`, the direct object comes before `to + indirect object`.",
+          "gave a present to her friend": "Correct: verb + direct object + to + indirect object.",
+          "a present gave her friend to": "Completely wrong order; the verb must come first."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "Without `to`: verb + indirect object + direct object.",
+        "Structure: gave + the students + homework."
+      ],
+      "explanations": {
+        "a26": {
+          "gave homework the students": "Without `to`, indirect object (the students) comes before direct object (homework).",
+          "gave the students homework": "Correct: verb + indirect + direct object.",
+          "the students gave homework": "`the students` appears as subject; the subject is `The teacher`."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "With `to`: verb + direct object + to + indirect object.",
+        "Direct object `a card` comes before `to my grandma`."
+      ],
+      "explanations": {
+        "a27": {
+          "sent to my grandma a card": "With `to`, direct object must precede `to + indirect object`.",
+          "sent a card to my grandma": "Correct: verb + direct object + to + indirect.",
+          "a card sent to my grandma": "Object cannot precede the verb in declarative sentence."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "Phrasal verb `put on` is separable: put on + noun object.",
+        "Standard: put on + your coat."
+      ],
+      "explanations": {
+        "a28": {
+          "on put your coat": "Particle cannot precede the verb.",
+          "put on your coat": "Correct: phrasal verb + object.",
+          "put your coat on put": "Duplicate verb — incorrect."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "Frequency adverb `always` goes before the main verb.",
+        "Order: always + takes + the bus."
+      ],
+      "explanations": {
+        "a29": {
+          "takes always the bus": "`always` should not go after the main verb.",
+          "always takes the bus": "Correct: frequency adverb + verb + object.",
+          "the bus always takes": "Object cannot start the phrase in standard order."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "Frequency adverb `usually` precedes the main verb.",
+        "Order: usually + drinks + tea."
+      ],
+      "explanations": {
+        "a30": {
+          "drinks usually tea": "`usually` should not go between verb and object.",
+          "usually drinks tea": "Correct: adverb + verb + object.",
+          "tea usually drinks": "Object cannot start the phrase."
+        }
+      }
+    },
+    {
+      "id": 31,
+      "hints": [
+        "Past Simple negation: did + not + base verb + object.",
+        "Auxiliary `did` + `not` precede the main verb `visit`."
+      ],
+      "explanations": {
+        "a31": {
+          "not did visit the museum": "`not` cannot precede auxiliary `did`.",
+          "did not visit the museum": "Correct: did + not + visit + the museum.",
+          "did visit not the museum": "`not` must go right after `did`."
+        }
+      }
+    },
+    {
+      "id": 32,
+      "hints": [
+        "Present Perfect question: Have/Has + subject + past participle.",
+        "Auxiliary `Have` starts the question, before subject `you`."
+      ],
+      "explanations": {
+        "a32": {
+          "You have finished": "Declarative order; questions need auxiliary before subject.",
+          "Have you finished": "Correct: Have + you + finished — question inversion.",
+          "Finished have you": "Past participle cannot start a question."
+        }
+      }
+    },
+    {
+      "id": 33,
+      "hints": [
+        "Present Continuous question: Is/Are + subject + -ing verb + object.",
+        "Auxiliary `Is` starts the question."
+      ],
+      "explanations": {
+        "a33": {
+          "He is cooking dinner": "Declarative order; questions need `Is` before subject.",
+          "Is he cooking dinner": "Correct: Is + he + cooking + dinner.",
+          "Cooking is he dinner": "The -ing verb cannot start a yes/no question."
+        }
+      }
+    },
+    {
+      "id": 34,
+      "hints": [
+        "Phrasal verb `write down` is separable: write down + noun object.",
+        "Particle `down` goes right after `write`, before the object."
+      ],
+      "explanations": {
+        "a34": {
+          "down write the address": "Particle cannot precede the verb.",
+          "write down the address": "Correct: write down + the address.",
+          "write the address down write": "Duplicate verb — incorrect."
+        }
+      }
+    },
+    {
+      "id": 35,
+      "hints": [
+        "Frequency adverb `often` goes before the main verb.",
+        "Order: often + eats + lunch."
+      ],
+      "explanations": {
+        "a35": {
+          "eats often lunch": "`often` should not go between verb and object.",
+          "often eats lunch": "Correct: adverb + verb + object.",
+          "lunch often eats": "Object cannot start the phrase."
+        }
+      }
+    },
+    {
+      "id": 36,
+      "hints": [
+        "Present Continuous: is + making + a cake.",
+        "Auxiliary `is` precedes the -ing verb."
+      ],
+      "explanations": {
+        "a36": {
+          "making is a cake": "The -ing verb cannot precede the auxiliary.",
+          "is making a cake": "Correct: is + making + a cake.",
+          "is a cake making": "Object cannot separate auxiliary and -ing verb."
+        }
+      }
+    },
+    {
+      "id": 37,
+      "hints": [
+        "When the object of a separable phrasal verb is a pronoun, it must go between the verb and the particle.",
+        "Pronoun `it` must go between `turn` and `down`: turn it down."
+      ],
+      "explanations": {
+        "a37": {
+          "turn down it": "Pronoun objects cannot follow the particle; correct: turn it down.",
+          "turn it down": "Correct: verb + pronoun + particle.",
+          "it turn down": "The pronoun cannot precede the verb."
+        }
+      }
+    },
+    {
+      "id": 38,
+      "hints": [
+        "Pronoun objects must go between the verb and particle of separable phrasal verbs.",
+        "Here `it` replaces `her jacket`: pick + it + up."
+      ],
+      "explanations": {
+        "a38": {
+          "pick up it": "Pronoun must split the phrasal verb: pick it up.",
+          "pick it up": "Correct: verb + pronoun + particle.",
+          "it pick up": "Pronoun cannot precede the verb."
+        }
+      }
+    },
+    {
+      "id": 39,
+      "hints": [
+        "Pronoun `it` must go between the verb and particle: worked + it + out.",
+        "The pronoun replaces `the homework`."
+      ],
+      "explanations": {
+        "a39": {
+          "worked out it": "Pronoun cannot follow the particle.",
+          "worked it out": "Correct: verb + pronoun + particle.",
+          "it worked out": "`it` here looks like a subject, not the object of the phrasal verb."
+        }
+      }
+    },
+    {
+      "id": 40,
+      "hints": [
+        "Modal + base verb + object: should + study + the material.",
+        "After `should`, the infinitive without `to` comes next."
+      ],
+      "explanations": {
+        "a40": {
+          "study should the material": "Main verb cannot precede the modal.",
+          "should study the material": "Correct: modal + verb + object.",
+          "should the material study": "Object cannot go between modal and verb."
+        }
+      }
+    },
+    {
+      "id": 41,
+      "hints": [
+        "Modal negation: must + not + base verb + object.",
+        "Place `not` right after the modal `must`."
+      ],
+      "explanations": {
+        "a41": {
+          "not must use their phones": "`not` cannot precede the modal.",
+          "must not use their phones": "Correct: must + not + use + their phones.",
+          "must use not their phones": "`not` must go between the modal and the main verb."
+        }
+      }
+    },
+    {
+      "id": 42,
+      "hints": [
+        "Modal + base verb + object: should + eat + more vegetables.",
+        "After `should`, the base verb comes directly."
+      ],
+      "explanations": {
+        "a42": {
+          "eat should more vegetables": "Main verb cannot precede the modal.",
+          "should eat more vegetables": "Correct: should + eat + more vegetables.",
+          "should more vegetables eat": "Object cannot go between modal and verb."
+        }
+      }
+    },
+    {
+      "id": 43,
+      "hints": [
+        "In Present Perfect, adverb `never` goes between the auxiliary `has` and past participle `left`.",
+        "Order: has + never + left + her keys."
+      ],
+      "explanations": {
+        "a43": {
+          "has left never her keys": "`never` should go before the past participle, not after.",
+          "has never left her keys": "Correct: has + never + left + her keys.",
+          "never has her keys left": "In declarative sentences, auxiliary comes before the adverb."
+        }
+      }
+    },
+    {
+      "id": 44,
+      "hints": [
+        "In Past Perfect, adverb `already` goes between `had` and past participle.",
+        "Order: had + already + finished + the report."
+      ],
+      "explanations": {
+        "a44": {
+          "had finished already the report": "`already` should go between `had` and `finished`.",
+          "had already finished the report": "Correct: had + already + finished + the report.",
+          "already had the report finished": "Auxiliary `had` should precede the adverb in standard order."
+        }
+      }
+    },
+    {
+      "id": 45,
+      "hints": [
+        "Phrasal verb `look after` is inseparable: the object must follow the complete phrasal verb.",
+        "You cannot put the object between `look` and `after`."
+      ],
+      "explanations": {
+        "a45": {
+          "look the children after": "`look after` is inseparable; object cannot go between `look` and `after`.",
+          "look after the children": "Correct: inseparable phrasal verb + object.",
+          "after look the children": "Particle cannot precede the verb."
+        }
+      }
+    },
+    {
+      "id": 46,
+      "hints": [
+        "Phrasal verb `look for` is inseparable: object follows `for`.",
+        "Cannot separate `look` and `for` with the object."
+      ],
+      "explanations": {
+        "a46": {
+          "looks his glasses for": "Cannot put object between `looks` and `for`.",
+          "looks for his glasses": "Correct: inseparable phrasal verb + object.",
+          "for looks his glasses": "Particle cannot precede the verb."
+        }
+      }
+    },
+    {
+      "id": 47,
+      "hints": [
+        "Manner adverb `quietly` goes between auxiliary and -ing verb.",
+        "Order: were + quietly + reading + their notes."
+      ],
+      "explanations": {
+        "a47": {
+          "were reading quietly their notes": "Adverb `quietly` is better placed before the -ing verb.",
+          "were quietly reading their notes": "Correct: auxiliary + adverb + -ing verb + object.",
+          "quietly were their notes reading": "Auxiliary must precede the adverb."
+        }
+      }
+    },
+    {
+      "id": 48,
+      "hints": [
+        "Modal + base verb + object: will + order + the pasta.",
+        "After `will`, the base verb comes next."
+      ],
+      "explanations": {
+        "a48": {
+          "order will the pasta": "Main verb cannot precede the modal.",
+          "will order the pasta": "Correct: will + order + the pasta.",
+          "will the pasta order": "Object cannot separate modal and verb."
+        }
+      }
+    },
+    {
+      "id": 49,
+      "hints": [
+        "Without `to`: verb + indirect object + direct object.",
+        "Structure: gave + her brother + a book."
+      ],
+      "explanations": {
+        "a49": {
+          "gave a book her brother": "Without `to`, indirect object comes before direct object.",
+          "gave her brother a book": "Correct: verb + indirect + direct object.",
+          "her brother gave a book": "`her brother` appears as subject here."
+        }
+      }
+    },
+    {
+      "id": 50,
+      "hints": [
+        "Without `to`: verb + indirect object + direct object.",
+        "Order: sent + all employees + an email."
+      ],
+      "explanations": {
+        "a50": {
+          "sent an email all employees": "Without `to`, indirect object must precede direct object.",
+          "sent all employees an email": "Correct: verb + indirect + direct object.",
+          "all employees sent an email": "`all employees` appears as subject; the subject is `The company`."
+        }
+      }
+    },
+    {
+      "id": 51,
+      "hints": [
+        "Pronoun `it` must go between verb and particle: bring + it + back.",
+        "Rule: pronoun objects split separable phrasal verbs."
+      ],
+      "explanations": {
+        "a51": {
+          "bring back it": "Pronoun cannot follow the particle.",
+          "bring it back": "Correct: verb + pronoun + particle.",
+          "it bring back": "Pronoun cannot precede the verb."
+        }
+      }
+    },
+    {
+      "id": 52,
+      "hints": [
+        "Frequency adverb `always` goes before the main verb.",
+        "Order: always + checks + her answers."
+      ],
+      "explanations": {
+        "a52": {
+          "checks always her answers": "`always` should not go between verb and object.",
+          "always checks her answers": "Correct: adverb + verb + object.",
+          "her answers always checks": "Object cannot start the phrase."
+        }
+      }
+    },
+    {
+      "id": 53,
+      "hints": [
+        "Present Perfect Continuous: have + been + -ing verb + object.",
+        "Order: have + been + cleaning + the house."
+      ],
+      "explanations": {
+        "a53": {
+          "have cleaning been the house": "`been` must precede the -ing verb.",
+          "have been cleaning the house": "Correct: have + been + cleaning + the house.",
+          "been have the house cleaning": "Auxiliary `have` must come first."
+        }
+      }
+    },
+    {
+      "id": 54,
+      "hints": [
+        "Present Perfect question: Has + subject + past participle.",
+        "Auxiliary `Has` starts the question."
+      ],
+      "explanations": {
+        "a54": {
+          "He has called": "Declarative order; `Has` must precede the subject in questions.",
+          "Has he called": "Correct: Has + he + called — question inversion.",
+          "Called has he": "Past participle cannot start a question."
+        }
+      }
+    },
+    {
+      "id": 55,
+      "hints": [
+        "Passive voice: was + past participle + prepositional phrase.",
+        "Structure: was + sent + to the manager."
+      ],
+      "explanations": {
+        "a55": {
+          "sent was to the manager": "Auxiliary `was` must precede the past participle.",
+          "was sent to the manager": "Correct: was + sent + to the manager.",
+          "was to the manager sent": "Prepositional phrase cannot separate auxiliary and past participle."
+        }
+      }
+    },
+    {
+      "id": 56,
+      "hints": [
+        "Present Perfect Passive: has + been + past participle.",
+        "Order: has + been + postponed."
+      ],
+      "explanations": {
+        "a56": {
+          "has postponed been": "`been` must precede the past participle.",
+          "has been postponed": "Correct: has + been + postponed.",
+          "been has postponed": "Auxiliary `has` must come first."
+        }
+      }
+    },
+    {
+      "id": 57,
+      "hints": [
+        "Phrasal verb `come across` is inseparable: object follows the complete phrase.",
+        "Cannot place object between `came` and `across`."
+      ],
+      "explanations": {
+        "a57": {
+          "came an old photo across": "Inseparable: object cannot go between verb and particle.",
+          "came across an old photo": "Correct: inseparable phrasal verb + object.",
+          "across came an old photo": "Particle cannot precede the verb."
+        }
+      }
+    },
+    {
+      "id": 58,
+      "hints": [
+        "Pronoun `it` must split separable phrasal verb `write down`: wrote + it + down.",
+        "Pronouns always go between verb and particle."
+      ],
+      "explanations": {
+        "a58": {
+          "wrote down it": "Pronoun cannot follow the particle.",
+          "wrote it down": "Correct: verb + pronoun + particle.",
+          "it wrote down": "`it` appears as subject, not as object of the phrasal verb."
+        }
+      }
+    },
+    {
+      "id": 59,
+      "hints": [
+        "Modal passive: must + be + past participle.",
+        "Order: must + be + investigated."
+      ],
+      "explanations": {
+        "a59": {
+          "be must investigated": "Modal always precedes `be`.",
+          "must be investigated": "Correct: modal + be + past participle.",
+          "must investigated be": "`be` must precede the past participle."
+        }
+      }
+    },
+    {
+      "id": 60,
+      "hints": [
+        "Complex structure: should + have + been + past participle.",
+        "Order: should + have + been + completed."
+      ],
+      "explanations": {
+        "a60": {
+          "should been have completed": "`have` must precede `been`.",
+          "should have been completed": "Correct: modal + perfect + passive.",
+          "have should completed been": "Modal must come first in the verb phrase."
+        }
+      }
+    },
+    {
+      "id": 61,
+      "hints": [
+        "Adverb `still` goes between auxiliary `was` and -ing verb.",
+        "Order: was + still + writing + the report."
+      ],
+      "explanations": {
+        "a61": {
+          "was writing still the report": "`still` should not go between -ing verb and object.",
+          "was still writing the report": "Correct: auxiliary + still + -ing verb + object.",
+          "still was the report writing": "Auxiliary `was` must precede `still`."
+        }
+      }
+    },
+    {
+      "id": 62,
+      "hints": [
+        "Modal negation + phrasal verb: could + not + make up.",
+        "Place `not` right after the modal `could`."
+      ],
+      "explanations": {
+        "a62": {
+          "not could make up": "`not` cannot precede the modal.",
+          "could not make up": "Correct: could + not + make up.",
+          "could make not up": "`not` must go between modal and main verb."
+        }
+      }
+    },
+    {
+      "id": 63,
+      "hints": [
+        "Adverb `just` goes between auxiliary `had` and past participle `put`.",
+        "Order: had + just + put + the children + to bed."
+      ],
+      "explanations": {
+        "a63": {
+          "had put just the children to bed": "`just` should go between `had` and `put`.",
+          "had just put the children to bed": "Correct: had + just + put + the children to bed.",
+          "just had the children to bed put": "Auxiliary `had` must precede the adverb."
+        }
+      }
+    },
+    {
+      "id": 64,
+      "hints": [
+        "Separable phrasal verb `give back` with indirect object: give + object + back + to + recipient.",
+        "Order: give + the money + back + to them."
+      ],
+      "explanations": {
+        "a64": {
+          "give back the money to them": "While possible, `give the money back to them` is more natural here.",
+          "give the money back to them": "Correct: verb + direct object + particle + to + indirect object.",
+          "give to them back the money": "Prepositional phrase cannot precede the particle and direct object."
+        }
+      }
+    },
+    {
+      "id": 65,
+      "hints": [
+        "Passive infinitive: to + be + past participle.",
+        "Order: need + to be + signed."
+      ],
+      "explanations": {
+        "a65": {
+          "need signed to be": "Passive infinitive is `to be + past participle`.",
+          "need to be signed": "Correct: need + passive infinitive.",
+          "to be need signed": "The verb `need` must precede the passive infinitive."
+        }
+      }
+    },
+    {
+      "id": 66,
+      "hints": [
+        "Future Passive: will + be + past participle.",
+        "Order: will + be + announced."
+      ],
+      "explanations": {
+        "a66": {
+          "be will announced": "`will` always precedes `be`.",
+          "will be announced": "Correct: Future Passive.",
+          "will announced be": "`be` must precede the past participle."
+        }
+      }
+    },
+    {
+      "id": 67,
+      "hints": [
+        "Adverb `carefully` can precede the verb: carefully + explained + direct object + to + indirect.",
+        "Order: carefully + explained + the concept + to the audience."
+      ],
+      "explanations": {
+        "a67": {
+          "explained carefully to the audience the concept": "Direct object must follow the verb immediately.",
+          "carefully explained the concept to the audience": "Correct: adverb + verb + direct object + to + indirect.",
+          "the concept carefully explained to the audience": "Object cannot precede the verb."
+        }
+      }
+    },
+    {
+      "id": 68,
+      "hints": [
+        "Phrasal verb `run into` is inseparable: object follows `into`.",
+        "Cannot separate `ran` and `into` with the object."
+      ],
+      "explanations": {
+        "a68": {
+          "ran our old professor into": "Inseparable: object cannot go between verb and particle.",
+          "ran into our old professor": "Correct: inseparable phrasal verb + object.",
+          "into ran our old professor": "Particle cannot precede the verb."
+        }
+      }
+    },
+    {
+      "id": 69,
+      "hints": [
+        "Phrasal verb `hand out` separable: hand out + direct object + to + indirect.",
+        "Order: handed out + the papers + to the class."
+      ],
+      "explanations": {
+        "a69": {
+          "handed the papers out the class to": "Wrong order of prepositional phrase.",
+          "handed out the papers to the class": "Correct: phrasal verb + direct object + to + indirect.",
+          "out handed to the class the papers": "Particle cannot precede the verb."
+        }
+      }
+    },
+    {
+      "id": 70,
+      "hints": [
+        "Complex structure: might + want + to + think + pronoun + over.",
+        "Pronoun `it` goes between `think` and `over` because `think over` is separable."
+      ],
+      "explanations": {
+        "a70": {
+          "might to think want it over": "Modal `might` doesn't need `to`; `want` must follow `might`.",
+          "might want to think it over": "Correct: modal + want + to + phrasal verb with pronoun between verb and particle.",
+          "might want it to think over": "Pronoun `it` belongs to `think over`, not `want`."
+        }
+      }
+    },
+    {
+      "id": 71,
+      "hints": [
+        "Present Perfect Passive question: Has + subject + been + past participle.",
+        "Auxiliary `Has` starts the question."
+      ],
+      "explanations": {
+        "a71": {
+          "The email has been sent": "Declarative order; questions need `Has` before the subject.",
+          "Has the email been sent": "Correct: question inversion in passive Present Perfect.",
+          "Been has the email sent": "`has` must come first in the verb phrase."
+        }
+      }
+    },
+    {
+      "id": 72,
+      "hints": [
+        "Present Perfect Continuous + adverb: has + been + gradually + recovering + object.",
+        "Adverb `gradually` goes between `been` and the -ing verb."
+      ],
+      "explanations": {
+        "a72": {
+          "has gradually been recovering her strength": "While possible, `has been gradually recovering` is more standard.",
+          "has been gradually recovering her strength": "Correct: has + been + gradually + recovering + object.",
+          "gradually has been her strength recovering": "Auxiliary `has` must come first."
+        }
+      }
+    },
+    {
+      "id": 73,
+      "hints": [
+        "Inversion with negative adverb: Never before + had + subject + past participle.",
+        "When `Never before` starts the sentence, the auxiliary precedes the subject."
+      ],
+      "explanations": {
+        "a73": {
+          "They had never before witnessed": "Normal order; `Never before` at the start requires inversion.",
+          "Never before had they witnessed": "Correct: inversion after fronted negative adverb.",
+          "Had never before they witnessed": "`Never before` must precede the auxiliary."
+        }
+      }
+    },
+    {
+      "id": 74,
+      "hints": [
+        "Inversion with `No sooner`: No sooner + had + subject + past participle + than…",
+        "After `No sooner`, auxiliary `had` precedes the subject."
+      ],
+      "explanations": {
+        "a74": {
+          "She had no sooner closed the door": "Normal order; fronted `No sooner` requires inversion.",
+          "No sooner had she closed the door": "Correct: No sooner + had + she + closed.",
+          "Had no sooner she closed the door": "`No sooner` must come first."
+        }
+      }
+    },
+    {
+      "id": 75,
+      "hints": [
+        "Cleft sentence: It was + focused element + who/that + rest.",
+        "Structure: `It was the manager who explained`."
+      ],
+      "explanations": {
+        "a75": {
+          "The manager it was who explained": "Disrupted cleft; `It was` must start the sentence.",
+          "It was the manager who explained": "Correct: cleft sentence.",
+          "Who the manager it was explained": "Incorrect cleft structure."
+        }
+      }
+    },
+    {
+      "id": 76,
+      "hints": [
+        "Pseudo-cleft: What + clause + is + focused element.",
+        "Structure: `What I really want is more time`."
+      ],
+      "explanations": {
+        "a76": {
+          "More time what I really want is": "What-clause must come first.",
+          "What I really want is more time": "Correct: pseudo-cleft sentence.",
+          "Is what I really want more time": "`Is` doesn't start a declarative pseudo-cleft."
+        }
+      }
+    },
+    {
+      "id": 77,
+      "hints": [
+        "Complex structure: should + have + been + adverb + past participle.",
+        "Order: should + have + been + carefully + reviewed."
+      ],
+      "explanations": {
+        "a77": {
+          "should been have carefully reviewed": "`have` must precede `been`.",
+          "should have been carefully reviewed": "Correct: modal + perfect + passive + adverb.",
+          "should carefully have been reviewed": "Adverb `carefully` is most natural after `been`."
+        }
+      }
+    },
+    {
+      "id": 78,
+      "hints": [
+        "Inversion with `Rarely`: Rarely + does + subject + verb.",
+        "After fronted `Rarely`, auxiliary `does` precedes the subject."
+      ],
+      "explanations": {
+        "a78": {
+          "The editor rarely does overlook": "Normal order; fronted `Rarely` requires inversion.",
+          "Rarely does the editor overlook": "Correct: inversion after `Rarely`.",
+          "Does rarely the editor overlook": "`Rarely` must come first."
+        }
+      }
+    },
+    {
+      "id": 79,
+      "hints": [
+        "Inversion with `Not only`: Not only + did + subject + verb.",
+        "After `Not only`, auxiliary `did` precedes the subject."
+      ],
+      "explanations": {
+        "a79": {
+          "she did write the entire report": "After `Not only`, inversion is required: did + she.",
+          "did she write the entire report": "Correct: inversion after `Not only`.",
+          "did write she the entire report": "Subject must go between auxiliary and main verb."
+        }
+      }
+    },
+    {
+      "id": 80,
+      "hints": [
+        "Passive Progressive + adverb: is + currently + being + reviewed.",
+        "Adverb `currently` goes between `is` and `being`."
+      ],
+      "explanations": {
+        "a80": {
+          "is being currently reviewed": "Adverb `currently` is more natural before `being`.",
+          "is currently being reviewed": "Correct: Passive Progressive with adverb.",
+          "currently is reviewed being": "Auxiliary `is` must precede the adverb."
+        }
+      }
+    },
+    {
+      "id": 81,
+      "hints": [
+        "Separable phrasal verb `track down` with a long noun object: particle stays with the verb.",
+        "With long objects, the particle usually stays next to the verb."
+      ],
+      "explanations": {
+        "a81": {
+          "tracked the original document down": "With long objects, `tracked down + object` is more natural.",
+          "tracked down the original document": "Correct: particle stays with verb for long objects.",
+          "down tracked the original document": "Particle cannot precede the verb."
+        }
+      }
+    },
+    {
+      "id": 82,
+      "hints": [
+        "Cleft sentence: It is + focused element + that + clause.",
+        "Structure: `It is the budget allocation that we need to discuss`."
+      ],
+      "explanations": {
+        "a82": {
+          "The budget allocation it is": "Disrupted cleft; `It is` must start.",
+          "It is the budget allocation": "Correct: cleft sentence.",
+          "Is it the budget allocation": "Declarative cleft uses `It is` without inversion."
+        }
+      }
+    },
+    {
+      "id": 83,
+      "hints": [
+        "Modal Passive + adverb: must + be + thoroughly + past participle.",
+        "Adverb `thoroughly` goes between `be` and the past participle."
+      ],
+      "explanations": {
+        "a83": {
+          "must thoroughly be investigated": "Adverb is most natural after `be`.",
+          "must be thoroughly investigated": "Correct: must + be + thoroughly + investigated.",
+          "thoroughly must be investigated": "Adverb doesn't precede the modal."
+        }
+      }
+    },
+    {
+      "id": 84,
+      "hints": [
+        "Complex structure: may + have + been + adverb + past participle.",
+        "Order: may + have + been + accidentally + sent."
+      ],
+      "explanations": {
+        "a84": {
+          "may accidentally have been sent": "Adverb is most natural after `been`.",
+          "may have been accidentally sent": "Correct: modal + perfect + passive + adverb.",
+          "may have accidentally sent been": "`been` must precede adverb and past participle."
+        }
+      }
+    },
+    {
+      "id": 85,
+      "hints": [
+        "Inversion with `Under no circumstances`: should + subject + verb.",
+        "After the fronted negative phrase, the modal precedes the subject."
+      ],
+      "explanations": {
+        "a85": {
+          "employees should share": "Normal order; negative fronting requires inversion.",
+          "should employees share": "Correct: inversion after `Under no circumstances`.",
+          "should share employees": "Subject must go between modal and main verb."
+        }
+      }
+    },
+    {
+      "id": 86,
+      "hints": [
+        "Modal negation + inseparable phrasal verb: could + not + put up with.",
+        "Place `not` after `could`; `put up with` stays together."
+      ],
+      "explanations": {
+        "a86": {
+          "could not up put with": "Cannot rearrange particles of inseparable phrasal verb.",
+          "could not put up with": "Correct: modal + not + inseparable phrasal verb.",
+          "could put not up with": "`not` must go after the modal, not after the main verb."
+        }
+      }
+    },
+    {
+      "id": 87,
+      "hints": [
+        "Adverb + inseparable phrasal verb: completely + did away with + object.",
+        "Adverb precedes the phrasal verb; object follows all particles."
+      ],
+      "explanations": {
+        "a87": {
+          "did completely away with the original design": "Adverb should not split inseparable phrasal verb.",
+          "completely did away with the original design": "Correct: adverb + inseparable phrasal verb + object.",
+          "did away with completely the original design": "Adverb should not go between particle and object."
+        }
+      }
+    },
+    {
+      "id": 88,
+      "hints": [
+        "Inversion with `Little`: Little + did + subject + verb.",
+        "After `Little`, auxiliary `did` precedes the subject."
+      ],
+      "explanations": {
+        "a88": {
+          "He did little know": "Normal order; `Little` at the start requires inversion.",
+          "Little did he know": "Correct: inversion after `Little`.",
+          "Did he little know": "`Little` must come first."
+        }
+      }
+    },
+    {
+      "id": 89,
+      "hints": [
+        "Complex structure: will + need + to be + adverb + past participle.",
+        "Order: will + need + to be + completely + renovated."
+      ],
+      "explanations": {
+        "a89": {
+          "will to need be completely renovated": "`to` doesn't follow `will`; `will` takes bare infinitive.",
+          "will need to be completely renovated": "Correct: will + need + to be + completely + renovated.",
+          "will need completely to be renovated": "Adverb goes before the past participle, not before `to be`."
+        }
+      }
+    },
+    {
+      "id": 90,
+      "hints": [
+        "Inversion with `Only after`: Only after + clause triggers inversion in the main clause.",
+        "After `Only after signing the contract`, inversion: did + he + realize."
+      ],
+      "explanations": {
+        "a90": {
+          "After signing the contract only": "`Only` must come at the start for inversion.",
+          "Only after signing the contract": "Correct: `Only after` + clause triggers inversion.",
+          "Signing the contract only after": "Disrupted order; `Only after` is a fixed expression."
+        }
+      }
+    },
+    {
+      "id": 91,
+      "hints": [
+        "Inversion with `Not until`: Not until + clause + did + subject + verb.",
+        "After `Not until the report was published`, inversion: did + they + grasp."
+      ],
+      "explanations": {
+        "a91": {
+          "They did not grasp until the report was published": "Normal order; fronted `Not until` requires inversion.",
+          "Not until the report was published did they grasp": "Correct: Not until-clause + inversion.",
+          "Did not until the report was published they grasp": "`Not until`-clause must come first."
+        }
+      }
+    },
+    {
+      "id": 92,
+      "hints": [
+        "Correlative inversion: Not only + did + subject + verb, but … also.",
+        "After `Not only`, auxiliary `did` precedes subject `he`."
+      ],
+      "explanations": {
+        "a92": {
+          "He not only did conceive the project": "Fronted `Not only` requires full inversion.",
+          "Not only did he conceive the project": "Correct: correlative inversion.",
+          "Did not only he conceive the project": "`Not only` must come first."
+        }
+      }
+    },
+    {
+      "id": 93,
+      "hints": [
+        "Complex structure: should + have + been + adverb + past participle.",
+        "Adverb `more thoroughly` goes after `been`, before `vetted`."
+      ],
+      "explanations": {
+        "a93": {
+          "should more thoroughly have been vetted": "Adverb should not precede `have`; place after `been`.",
+          "should have been more thoroughly vetted": "Correct: should + have + been + more thoroughly + vetted.",
+          "should have more been thoroughly vetted": "`been` must precede the adverb."
+        }
+      }
+    },
+    {
+      "id": 94,
+      "hints": [
+        "Pseudo-cleft: What + clause + was + focused element.",
+        "Structure: `What the committee failed to appreciate was`."
+      ],
+      "explanations": {
+        "a94": {
+          "The committee what failed to appreciate was": "What-clause must start with `What`.",
+          "What the committee failed to appreciate was": "Correct: pseudo-cleft sentence.",
+          "Was what the committee failed to appreciate": "`Was` doesn't start a declarative pseudo-cleft."
+        }
+      }
+    },
+    {
+      "id": 95,
+      "hints": [
+        "Complex: will + need + to have been + adverb + past participle.",
+        "Order: will + need + to have been + fully + implemented."
+      ],
+      "explanations": {
+        "a95": {
+          "will to need have been fully implemented": "`to` doesn't follow `will`.",
+          "will need to have been fully implemented": "Correct: perfect passive infinitive.",
+          "will need to have fully been implemented": "`been` must precede the adverb."
+        }
+      }
+    },
+    {
+      "id": 96,
+      "hints": [
+        "Inversion with `Scarcely`: Scarcely + had + subject + past participle.",
+        "After `Scarcely`, auxiliary `had` precedes the subject."
+      ],
+      "explanations": {
+        "a96": {
+          "The director had scarcely thought": "Normal order; fronted `Scarcely` requires inversion.",
+          "Scarcely had the director thought": "Correct: Scarcely + had + the director + thought.",
+          "Had scarcely the director thought": "`Scarcely` must come first."
+        }
+      }
+    },
+    {
+      "id": 97,
+      "hints": [
+        "Cleft sentence: It was + focused element + that + clause.",
+        "Structure: `It was his meticulous attention to detail that we noticed`."
+      ],
+      "explanations": {
+        "a97": {
+          "His meticulous attention to detail it was": "Disrupted cleft; `It was` must start.",
+          "It was his meticulous attention to detail": "Correct: cleft sentence.",
+          "Was it his meticulous attention to detail": "Declarative cleft uses `It was`."
+        }
+      }
+    },
+    {
+      "id": 98,
+      "hints": [
+        "Complex: must + have + been + adverb + past participle.",
+        "Order: must + have + been + meticulously + examined."
+      ],
+      "explanations": {
+        "a98": {
+          "must meticulously have been examined": "Adverb should go after `been`.",
+          "must have been meticulously examined": "Correct: modal + perfect + passive + adverb.",
+          "must have meticulously examined been": "`been` must precede adverb and past participle."
+        }
+      }
+    },
+    {
+      "id": 99,
+      "hints": [
+        "Modal negative + adverb + separable phrasal verb + pronoun: could + not + simply + brush + it + aside.",
+        "Pronoun `it` must go between `brush` and `aside`."
+      ],
+      "explanations": {
+        "a99": {
+          "could not brush simply it aside": "Adverb `simply` should precede the verb, not follow it.",
+          "could not simply brush it aside": "Correct: modal + not + adverb + verb + pronoun + particle.",
+          "simply could not brush aside it": "Pronoun must go between verb and particle."
+        }
+      }
+    },
+    {
+      "id": 100,
+      "hints": [
+        "Inversion with `Seldom` + passive: Seldom + had + subject + been + past participle.",
+        "After `Seldom`, auxiliary `had` precedes the subject."
+      ],
+      "explanations": {
+        "a100": {
+          "The board had seldom been confronted": "Normal order; fronted `Seldom` requires inversion.",
+          "Seldom had the board been confronted": "Correct: inversion + passive.",
+          "Had seldom the board been confronted": "`Seldom` must come first."
+        }
+      }
+    },
+    {
+      "id": 101,
+      "hints": [
+        "Passive + adverb + phrasal verb: had + been + repeatedly + turned down.",
+        "Adverb `repeatedly` goes after `been`, before the phrasal verb in passive."
+      ],
+      "explanations": {
+        "a101": {
+          "had repeatedly been turned down by investors": "While possible, `had been repeatedly turned down` is more standard.",
+          "had been repeatedly turned down by investors": "Correct: passive with adverb.",
+          "had been turned repeatedly down by investors": "Adverb should not split the phrasal verb in passive."
+        }
+      }
+    },
+    {
+      "id": 102,
+      "hints": [
+        "Pseudo-cleft with phrasal verb: What + clause + was + past participle.",
+        "Structure: `What she chose to bring up was known`."
+      ],
+      "explanations": {
+        "a102": {
+          "She chose what to bring up was known": "What-clause must start with `What`.",
+          "What she chose to bring up was known": "Correct: pseudo-cleft with phrasal verb.",
+          "Known was what she chose to bring up": "Disrupted pseudo-cleft structure."
+        }
+      }
+    },
+    {
+      "id": 103,
+      "hints": [
+        "Inversion with `At no point`: did + subject + verb.",
+        "After the negative phrase, auxiliary `did` precedes the subject."
+      ],
+      "explanations": {
+        "a103": {
+          "the company did agree to change": "After `At no point`, inversion is required.",
+          "did the company agree to change": "Correct: inversion after negative fronting.",
+          "did agree the company to change": "Subject must go between `did` and `agree`."
+        }
+      }
+    },
+    {
+      "id": 104,
+      "hints": [
+        "Complex: ought to + have + been + adverb + past participle.",
+        "Order: ought to + have + been + formally + submitted."
+      ],
+      "explanations": {
+        "a104": {
+          "ought formally to have been submitted": "Adverb should not precede `to`.",
+          "ought to have been formally submitted": "Correct: modal + perfect passive + adverb.",
+          "ought to have formally submitted been": "`been` must precede adverb and past participle."
+        }
+      }
+    },
+    {
+      "id": 105,
+      "hints": [
+        "Cleft with phrasal verb: It was + focused element + that + clause.",
+        "Structure: `It was her willingness to follow up on every lead`."
+      ],
+      "explanations": {
+        "a105": {
+          "Her willingness it was to follow up on every lead": "Disrupted cleft; `It was` must start.",
+          "It was her willingness to follow up on every lead": "Correct: cleft sentence with phrasal verb.",
+          "Was it her willingness to follow up on every lead": "Declarative cleft uses `It was`."
+        }
+      }
+    },
+    {
+      "id": 106,
+      "hints": [
+        "Inversion with `Hardly`: had + subject + past participle.",
+        "After `Hardly`, auxiliary `had` precedes the subject."
+      ],
+      "explanations": {
+        "a106": {
+          "they had switched on the equipment": "Normal order; `Hardly` requires inversion.",
+          "had they switched on the equipment": "Correct: inversion after `Hardly`.",
+          "had switched they on the equipment": "Subject must go between `had` and `switched`."
+        }
+      }
+    },
+    {
+      "id": 107,
+      "hints": [
+        "Complex negative: could + not + possibly + have + been + past participle.",
+        "Order: could + not + possibly + have + been + completed."
+      ],
+      "explanations": {
+        "a107": {
+          "could possibly not have been completed": "`not` must come right after `could`.",
+          "could not possibly have been completed": "Correct: modal + not + adverb + perfect + passive.",
+          "could not have possibly completed been": "`been` must precede past participle; `possibly` should precede `have`."
+        }
+      }
+    },
+    {
+      "id": 108,
+      "hints": [
+        "Adverb + inseparable phrasal verb: carefully + going over + object.",
+        "Adverb `carefully` precedes the phrasal verb `going over`."
+      ],
+      "explanations": {
+        "a108": {
+          "going carefully over every clause": "Adverb should not split inseparable phrasal verb.",
+          "carefully going over every clause": "Correct: adverb + inseparable phrasal verb + object.",
+          "going over carefully every clause": "Adverb should not go between particle and object."
+        }
+      }
+    }
+  ]
+}
