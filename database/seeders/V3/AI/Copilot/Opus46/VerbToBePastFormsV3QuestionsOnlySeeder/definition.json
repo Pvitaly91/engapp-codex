@@ -1,0 +1,2716 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBePastFormsV3QuestionsOnlySeeder",
+        "uuid_namespace": "VerbToBePastFormsV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "theory_page_1177": {
+            "name": "Verb to Be: Past Forms"
+        }
+    },
+    "tags": {
+        "was_singular": {
+            "name": "was with singular subjects (I/he/she/it)",
+            "category": "pattern"
+        },
+        "were_plural": {
+            "name": "were with plural subjects (you/we/they)",
+            "category": "pattern"
+        },
+        "was_were_negative": {
+            "name": "was not / were not negation",
+            "category": "pattern"
+        },
+        "was_were_question": {
+            "name": "Was/Were in questions",
+            "category": "pattern"
+        },
+        "was_were_short_answer": {
+            "name": "Short answers with was/were",
+            "category": "pattern"
+        },
+        "was_were_agreement": {
+            "name": "Subject–verb agreement with was/were",
+            "category": "usage"
+        },
+        "wasnt_werent_contraction": {
+            "name": "wasn't / weren't contractions",
+            "category": "pattern"
+        },
+        "past_time_expression": {
+            "name": "Past time expressions with was/were",
+            "category": "usage"
+        },
+        "there_was_there_were": {
+            "name": "There was / There were existential",
+            "category": "pattern"
+        },
+        "was_were_adjective_complement": {
+            "name": "was/were + adjective complement",
+            "category": "usage"
+        },
+        "was_were_location": {
+            "name": "was/were + location/preposition",
+            "category": "usage"
+        },
+        "was_were_tag_question": {
+            "name": "Tag questions with was/were",
+            "category": "pattern"
+        },
+        "was_were_embedded_clause": {
+            "name": "was/were in embedded/subordinate clauses",
+            "category": "usage"
+        },
+        "was_were_subjunctive": {
+            "name": "were in subjunctive/unreal conditionals",
+            "category": "pattern"
+        },
+        "was_were_passive": {
+            "name": "was/were in passive voice",
+            "category": "pattern"
+        },
+        "was_were_formal_register": {
+            "name": "Formal register was/were usage",
+            "category": "register"
+        }
+    },
+    "default_tag_keys": [
+        "was_were_agreement"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "I {a1} very tired yesterday.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular"
+            ],
+            "variants": [
+                "I {a1} very tired yesterday."
+            ]
+        },
+        {
+            "id": 2,
+            "question": "She {a2} at school last Monday.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular"
+            ],
+            "variants": [
+                "She {a2} at school last Monday."
+            ]
+        },
+        {
+            "id": 3,
+            "question": "They {a3} happy at the party.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural"
+            ],
+            "variants": [
+                "They {a3} happy at the party."
+            ]
+        },
+        {
+            "id": 4,
+            "question": "We {a4} in the park on Sunday.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural"
+            ],
+            "variants": [
+                "We {a4} in the park on Sunday."
+            ]
+        },
+        {
+            "id": 5,
+            "question": "He {a5} a good student.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular"
+            ],
+            "variants": [
+                "He {a5} a good student."
+            ]
+        },
+        {
+            "id": 6,
+            "question": "You {a6} late for class.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural"
+            ],
+            "variants": [
+                "You {a6} late for class."
+            ]
+        },
+        {
+            "id": 7,
+            "question": "The cat {a7} on the sofa.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular"
+            ],
+            "variants": [
+                "The cat {a7} on the sofa."
+            ]
+        },
+        {
+            "id": 8,
+            "question": "It {a8} cold last night.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular"
+            ],
+            "variants": [
+                "It {a8} cold last night."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "The children {a9} in the garden.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural"
+            ],
+            "variants": [
+                "The children {a9} in the garden."
+            ]
+        },
+        {
+            "id": 10,
+            "question": "My mother {a10} at home yesterday.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular"
+            ],
+            "variants": [
+                "My mother {a10} at home yesterday."
+            ]
+        },
+        {
+            "id": 11,
+            "question": "I {a11} not hungry this morning.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_were_negative",
+                "was_singular"
+            ],
+            "variants": [
+                "I {a11} not hungry this morning."
+            ]
+        },
+        {
+            "id": 12,
+            "question": "The dogs {a12} very noisy last night.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural"
+            ],
+            "variants": [
+                "The dogs {a12} very noisy last night."
+            ]
+        },
+        {
+            "id": 13,
+            "question": "{a13} you at the cinema yesterday?",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a13": {
+                    "answer": "Were",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Are"
+                    ],
+                    "verb_hint": "past question"
+                }
+            },
+            "tag_keys": [
+                "was_were_question",
+                "were_plural"
+            ],
+            "variants": [
+                "{a13} you at the cinema yesterday?"
+            ]
+        },
+        {
+            "id": 14,
+            "question": "{a14} she your teacher last year?",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a14": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Is"
+                    ],
+                    "verb_hint": "past question"
+                }
+            },
+            "tag_keys": [
+                "was_were_question",
+                "was_singular"
+            ],
+            "variants": [
+                "{a14} she your teacher last year?"
+            ]
+        },
+        {
+            "id": 15,
+            "question": "My friends {a15} very kind to me.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a15": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural"
+            ],
+            "variants": [
+                "My friends {a15} very kind to me."
+            ]
+        },
+        {
+            "id": 16,
+            "question": "The book {a16} on the desk.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a16": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_location"
+            ],
+            "variants": [
+                "The book {a16} on the desk."
+            ]
+        },
+        {
+            "id": 17,
+            "question": "Tom and Jerry {a17} funny.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a17": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_agreement"
+            ],
+            "variants": [
+                "Tom and Jerry {a17} funny."
+            ]
+        },
+        {
+            "id": 18,
+            "question": "The weather {a18} nice last weekend.",
+            "source": "theory_page_1177",
+            "level": "A1",
+            "markers": {
+                "a18": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular"
+            ],
+            "variants": [
+                "The weather {a18} nice last weekend."
+            ]
+        },
+        {
+            "id": 19,
+            "question": "There {a19} a big tree in our garden.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a19": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past existential"
+                }
+            },
+            "tag_keys": [
+                "there_was_there_were"
+            ],
+            "variants": [
+                "There {a19} a big tree in our garden."
+            ]
+        },
+        {
+            "id": 20,
+            "question": "There {a20} many people at the concert.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a20": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past existential"
+                }
+            },
+            "tag_keys": [
+                "there_was_there_were"
+            ],
+            "variants": [
+                "There {a20} many people at the concert."
+            ]
+        },
+        {
+            "id": 21,
+            "question": "She {a21} not at the meeting yesterday.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a21": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past negative"
+                }
+            },
+            "tag_keys": [
+                "was_were_negative",
+                "was_singular"
+            ],
+            "variants": [
+                "She {a21} not at the meeting yesterday."
+            ]
+        },
+        {
+            "id": 22,
+            "question": "We {a22} not ready for the test.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a22": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past negative"
+                }
+            },
+            "tag_keys": [
+                "was_were_negative",
+                "were_plural"
+            ],
+            "variants": [
+                "We {a22} not ready for the test."
+            ]
+        },
+        {
+            "id": 23,
+            "question": "The shops {a23} closed on Sunday.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a23": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural"
+            ],
+            "variants": [
+                "The shops {a23} closed on Sunday."
+            ]
+        },
+        {
+            "id": 24,
+            "question": "{a24} the film good last night?",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a24": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Is"
+                    ],
+                    "verb_hint": "past question"
+                }
+            },
+            "tag_keys": [
+                "was_were_question",
+                "was_singular"
+            ],
+            "variants": [
+                "{a24} the film good last night?"
+            ]
+        },
+        {
+            "id": 25,
+            "question": "I {a25} born in 1995.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_passive"
+            ],
+            "variants": [
+                "I {a25} born in 1995."
+            ]
+        },
+        {
+            "id": 26,
+            "question": "The students {a26} excited about the trip.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_adjective_complement"
+            ],
+            "variants": [
+                "The students {a26} excited about the trip."
+            ]
+        },
+        {
+            "id": 27,
+            "question": "My keys {a27} in my pocket.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_location"
+            ],
+            "variants": [
+                "My keys {a27} in my pocket."
+            ]
+        },
+        {
+            "id": 28,
+            "question": "He {a28} sick last week.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_adjective_complement"
+            ],
+            "variants": [
+                "He {a28} sick last week."
+            ]
+        },
+        {
+            "id": 29,
+            "question": "The door {a29} open when I arrived.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular"
+            ],
+            "variants": [
+                "The door {a29} open when I arrived."
+            ]
+        },
+        {
+            "id": 30,
+            "question": "{a30} they at home when you called?",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "Were",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Are"
+                    ],
+                    "verb_hint": "past question"
+                }
+            },
+            "tag_keys": [
+                "was_were_question",
+                "were_plural"
+            ],
+            "variants": [
+                "{a30} they at home when you called?"
+            ]
+        },
+        {
+            "id": 31,
+            "question": "It {a31} very dark outside.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a31": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_adjective_complement"
+            ],
+            "variants": [
+                "It {a31} very dark outside."
+            ]
+        },
+        {
+            "id": 32,
+            "question": "The teacher {a32} angry because we were late.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a32": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_adjective_complement"
+            ],
+            "variants": [
+                "The teacher {a32} angry because we were late."
+            ]
+        },
+        {
+            "id": 33,
+            "question": "There {a33} two cats under the table.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a33": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past existential"
+                }
+            },
+            "tag_keys": [
+                "there_was_there_were"
+            ],
+            "variants": [
+                "There {a33} two cats under the table."
+            ]
+        },
+        {
+            "id": 34,
+            "question": "My grandparents {a34} farmers in a small village.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a34": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural"
+            ],
+            "variants": [
+                "My grandparents {a34} farmers in a small village."
+            ]
+        },
+        {
+            "id": 35,
+            "question": "The pizza {a35} delicious.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a35": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_adjective_complement"
+            ],
+            "variants": [
+                "The pizza {a35} delicious."
+            ]
+        },
+        {
+            "id": 36,
+            "question": "You {a36} right about the answer.",
+            "source": "theory_page_1177",
+            "level": "A2",
+            "markers": {
+                "a36": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural"
+            ],
+            "variants": [
+                "You {a36} right about the answer."
+            ]
+        },
+        {
+            "id": 37,
+            "question": "She {a37} at the office when the power went out.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a37": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "has been"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_location"
+            ],
+            "variants": [
+                "She {a37} at the office when the power went out."
+            ]
+        },
+        {
+            "id": 38,
+            "question": "The windows {a38} broken after the storm.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a38": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "have been"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The windows {a38} broken after the storm."
+            ]
+        },
+        {
+            "id": 39,
+            "question": "He {a39} the first person to arrive.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a39": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular"
+            ],
+            "variants": [
+                "He {a39} the first person to arrive."
+            ]
+        },
+        {
+            "id": 40,
+            "question": "The roads {a40} covered with snow that winter.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a40": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "have been"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The roads {a40} covered with snow that winter."
+            ]
+        },
+        {
+            "id": 41,
+            "question": "I {a41} surprised when she told me the news.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a41": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_adjective_complement"
+            ],
+            "variants": [
+                "I {a41} surprised when she told me the news."
+            ]
+        },
+        {
+            "id": 42,
+            "question": "There {a42} no milk left in the fridge.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a42": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past existential"
+                }
+            },
+            "tag_keys": [
+                "there_was_there_were"
+            ],
+            "variants": [
+                "There {a42} no milk left in the fridge."
+            ]
+        },
+        {
+            "id": 43,
+            "question": "The flights {a43} delayed because of the fog.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a43": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "have been"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The flights {a43} delayed because of the fog."
+            ]
+        },
+        {
+            "id": 44,
+            "question": "My brother and I {a44} at the cinema last Friday.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a44": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "have been"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_agreement"
+            ],
+            "variants": [
+                "My brother and I {a44} at the cinema last Friday."
+            ]
+        },
+        {
+            "id": 45,
+            "question": "She {a45} supposed to call me back.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a45": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular"
+            ],
+            "variants": [
+                "She {a45} supposed to call me back."
+            ]
+        },
+        {
+            "id": 46,
+            "question": "The homework {a46} too difficult for most students.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a46": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_adjective_complement"
+            ],
+            "variants": [
+                "The homework {a46} too difficult for most students."
+            ]
+        },
+        {
+            "id": 47,
+            "question": "{a47} there any problems during the event?",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a47": {
+                    "answer": "Were",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Have"
+                    ],
+                    "verb_hint": "past question"
+                }
+            },
+            "tag_keys": [
+                "was_were_question",
+                "there_was_there_were"
+            ],
+            "variants": [
+                "{a47} there any problems during the event?"
+            ]
+        },
+        {
+            "id": 48,
+            "question": "The neighbours {a48} very helpful when we moved in.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a48": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "have been"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_adjective_complement"
+            ],
+            "variants": [
+                "The neighbours {a48} very helpful when we moved in."
+            ]
+        },
+        {
+            "id": 49,
+            "question": "He said he {a49} sorry for the mistake.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a49": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_embedded_clause"
+            ],
+            "variants": [
+                "He said he {a49} sorry for the mistake."
+            ]
+        },
+        {
+            "id": 50,
+            "question": "The instructions {a50} written in small print.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a50": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "have been"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The instructions {a50} written in small print."
+            ]
+        },
+        {
+            "id": 51,
+            "question": "I asked if she {a51} coming to the party.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a51": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_embedded_clause"
+            ],
+            "variants": [
+                "I asked if she {a51} coming to the party."
+            ]
+        },
+        {
+            "id": 52,
+            "question": "The lights {a52} off when we entered the room.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a52": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural"
+            ],
+            "variants": [
+                "The lights {a52} off when we entered the room."
+            ]
+        },
+        {
+            "id": 53,
+            "question": "She {a53} told to wait outside.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a53": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_passive"
+            ],
+            "variants": [
+                "She {a53} told to wait outside."
+            ]
+        },
+        {
+            "id": 54,
+            "question": "There {a54} several reasons for the delay.",
+            "source": "theory_page_1177",
+            "level": "B1",
+            "markers": {
+                "a54": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past existential"
+                }
+            },
+            "tag_keys": [
+                "there_was_there_were"
+            ],
+            "variants": [
+                "There {a54} several reasons for the delay."
+            ]
+        },
+        {
+            "id": 55,
+            "question": "If I {a55} you, I would accept the offer.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a55": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ],
+                    "verb_hint": "subjunctive"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive"
+            ],
+            "variants": [
+                "If I {a55} you, I would accept the offer."
+            ]
+        },
+        {
+            "id": 56,
+            "question": "She wished she {a56} taller.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a56": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "subjunctive wish"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive"
+            ],
+            "variants": [
+                "She wished she {a56} taller."
+            ]
+        },
+        {
+            "id": 57,
+            "question": "The data {a57} collected over a period of three months.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a57": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "has been"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The data {a57} collected over a period of three months."
+            ]
+        },
+        {
+            "id": 58,
+            "question": "Neither the manager nor the employees {a58} informed.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a58": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_were_agreement",
+                "were_plural"
+            ],
+            "variants": [
+                "Neither the manager nor the employees {a58} informed."
+            ]
+        },
+        {
+            "id": 59,
+            "question": "The news {a59} shocking to everyone.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a59": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_agreement"
+            ],
+            "variants": [
+                "The news {a59} shocking to everyone."
+            ]
+        },
+        {
+            "id": 60,
+            "question": "He acted as if he {a60} the boss.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a60": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "subjunctive"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive"
+            ],
+            "variants": [
+                "He acted as if he {a60} the boss."
+            ]
+        },
+        {
+            "id": 61,
+            "question": "Each of the contestants {a61} given a number.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a61": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "Each of the contestants {a61} given a number."
+            ]
+        },
+        {
+            "id": 62,
+            "question": "The police {a62} called to the scene immediately.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a62": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The police {a62} called to the scene immediately."
+            ]
+        },
+        {
+            "id": 63,
+            "question": "The committee {a63} divided on the issue.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a63": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_agreement"
+            ],
+            "variants": [
+                "The committee {a63} divided on the issue."
+            ]
+        },
+        {
+            "id": 64,
+            "question": "I wish I {a64} there to see it.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a64": {
+                    "answer": "had been",
+                    "options": [
+                        "was",
+                        "were",
+                        "had been"
+                    ],
+                    "verb_hint": "past wish"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive"
+            ],
+            "variants": [
+                "I wish I {a64} there to see it."
+            ]
+        },
+        {
+            "id": 65,
+            "question": "The new regulations {a65} announced last Tuesday.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a65": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "have been"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The new regulations {a65} announced last Tuesday."
+            ]
+        },
+        {
+            "id": 66,
+            "question": "She {a66} at the airport, wasn't she?",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a66": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "tag question"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_tag_question"
+            ],
+            "variants": [
+                "She {a66} at the airport, wasn't she?"
+            ]
+        },
+        {
+            "id": 67,
+            "question": "You {a67} at the meeting, weren't you?",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a67": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "tag question"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_tag_question"
+            ],
+            "variants": [
+                "You {a67} at the meeting, weren't you?"
+            ]
+        },
+        {
+            "id": 68,
+            "question": "Not only the teacher but also the students {a68} surprised.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a68": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_were_agreement",
+                "were_plural"
+            ],
+            "variants": [
+                "Not only the teacher but also the students {a68} surprised."
+            ]
+        },
+        {
+            "id": 69,
+            "question": "The furniture {a69} delivered on time.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a69": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The furniture {a69} delivered on time."
+            ]
+        },
+        {
+            "id": 70,
+            "question": "If it {a70} not for the rain, we would have gone outside.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a70": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "subjunctive"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive"
+            ],
+            "variants": [
+                "If it {a70} not for the rain, we would have gone outside."
+            ]
+        },
+        {
+            "id": 71,
+            "question": "He talked as though nothing {a71} wrong.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a71": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "subjunctive"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive"
+            ],
+            "variants": [
+                "He talked as though nothing {a71} wrong."
+            ]
+        },
+        {
+            "id": 72,
+            "question": "Every one of the answers {a72} checked carefully.",
+            "source": "theory_page_1177",
+            "level": "B2",
+            "markers": {
+                "a72": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "Every one of the answers {a72} checked carefully."
+            ]
+        },
+        {
+            "id": 73,
+            "question": "It is essential that every student {a73} present at the ceremony.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a73": {
+                    "answer": "be",
+                    "options": [
+                        "was",
+                        "were",
+                        "be"
+                    ],
+                    "verb_hint": "mandative subjunctive"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "It is essential that every student {a73} present at the ceremony."
+            ]
+        },
+        {
+            "id": 74,
+            "question": "The criteria {a74} established long before the project began.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a74": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_agreement"
+            ],
+            "variants": [
+                "The criteria {a74} established long before the project began."
+            ]
+        },
+        {
+            "id": 75,
+            "question": "Neither of the proposals {a75} accepted by the board.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a75": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "Neither of the proposals {a75} accepted by the board."
+            ]
+        },
+        {
+            "id": 76,
+            "question": "Had it not {a76} for her quick thinking, the project would have failed.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a76": {
+                    "answer": "been",
+                    "options": [
+                        "was",
+                        "been",
+                        "were"
+                    ],
+                    "verb_hint": "past subjunctive inversion"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "Had it not {a76} for her quick thinking, the project would have failed."
+            ]
+        },
+        {
+            "id": 77,
+            "question": "The media {a77} heavily criticised for the biased reporting.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a77": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The media {a77} heavily criticised for the biased reporting."
+            ]
+        },
+        {
+            "id": 78,
+            "question": "A number of issues {a78} raised during the discussion.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a78": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "A number of issues {a78} raised during the discussion."
+            ]
+        },
+        {
+            "id": 79,
+            "question": "The number of complaints {a79} higher than expected.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a79": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_agreement"
+            ],
+            "variants": [
+                "The number of complaints {a79} higher than expected."
+            ]
+        },
+        {
+            "id": 80,
+            "question": "It {a80} reported that several employees had resigned.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a80": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_passive",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "It {a80} reported that several employees had resigned."
+            ]
+        },
+        {
+            "id": 81,
+            "question": "The audience {a81} captivated by the performance.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a81": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The audience {a81} captivated by the performance."
+            ]
+        },
+        {
+            "id": 82,
+            "question": "None of the information {a82} accurate.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a82": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_agreement"
+            ],
+            "variants": [
+                "None of the information {a82} accurate."
+            ]
+        },
+        {
+            "id": 83,
+            "question": "The couple {a83} seen leaving the restaurant at midnight.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a83": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_passive",
+                "was_were_agreement"
+            ],
+            "variants": [
+                "The couple {a83} seen leaving the restaurant at midnight."
+            ]
+        },
+        {
+            "id": 84,
+            "question": "She demanded that he {a84} removed from the committee.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a84": {
+                    "answer": "be",
+                    "options": [
+                        "was",
+                        "were",
+                        "be"
+                    ],
+                    "verb_hint": "mandative subjunctive"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "She demanded that he {a84} removed from the committee."
+            ]
+        },
+        {
+            "id": 85,
+            "question": "The phenomena {a85} studied extensively in the 1990s.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a85": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The phenomena {a85} studied extensively in the 1990s."
+            ]
+        },
+        {
+            "id": 86,
+            "question": "He {a86} thought to be the most qualified candidate.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a86": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_passive",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "He {a86} thought to be the most qualified candidate."
+            ]
+        },
+        {
+            "id": 87,
+            "question": "Whether the results {a87} reliable remained unclear.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a87": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_embedded_clause"
+            ],
+            "variants": [
+                "Whether the results {a87} reliable remained unclear."
+            ]
+        },
+        {
+            "id": 88,
+            "question": "Two thirds of the budget {a88} allocated to research.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a88": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "Two thirds of the budget {a88} allocated to research."
+            ]
+        },
+        {
+            "id": 89,
+            "question": "So intense {a89} the heat that the tarmac melted.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a89": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "inverted past"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "So intense {a89} the heat that the tarmac melted."
+            ]
+        },
+        {
+            "id": 90,
+            "question": "The staff {a90} briefed before the inspection.",
+            "source": "theory_page_1177",
+            "level": "C1",
+            "markers": {
+                "a90": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The staff {a90} briefed before the inspection."
+            ]
+        },
+        {
+            "id": 91,
+            "question": "Seldom {a91} such dedication seen in new recruits.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a91": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "inverted past"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "Seldom {a91} such dedication seen in new recruits."
+            ]
+        },
+        {
+            "id": 92,
+            "question": "Were it not for the emergency fund, the company {a92} bankrupt.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a92": {
+                    "answer": "would have been",
+                    "options": [
+                        "was",
+                        "would have been",
+                        "were"
+                    ],
+                    "verb_hint": "past conditional result"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "Were it not for the emergency fund, the company {a92} bankrupt."
+            ]
+        },
+        {
+            "id": 93,
+            "question": "The alumni {a93} invited to the anniversary gala.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a93": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The alumni {a93} invited to the anniversary gala."
+            ]
+        },
+        {
+            "id": 94,
+            "question": "It is as if the whole affair {a94} nothing but a dream.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a94": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "subjunctive"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive"
+            ],
+            "variants": [
+                "It is as if the whole affair {a94} nothing but a dream."
+            ]
+        },
+        {
+            "id": 95,
+            "question": "Not until the evidence {a95} presented did the jury change its mind.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a95": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_passive",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "Not until the evidence {a95} presented did the jury change its mind."
+            ]
+        },
+        {
+            "id": 96,
+            "question": "The species {a96} classified differently before the genetic study.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a96": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The species {a96} classified differently before the genetic study."
+            ]
+        },
+        {
+            "id": 97,
+            "question": "He spoke as though he {a97} an expert, yet he had no qualifications.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a97": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "subjunctive"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive"
+            ],
+            "variants": [
+                "He spoke as though he {a97} an expert, yet he had no qualifications."
+            ]
+        },
+        {
+            "id": 98,
+            "question": "Little {a98} known about the virus at that time.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a98": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "inverted past"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_formal_register",
+                "was_were_passive"
+            ],
+            "variants": [
+                "Little {a98} known about the virus at that time."
+            ]
+        },
+        {
+            "id": 99,
+            "question": "The onus {a99} on the prosecution to prove guilt.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a99": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "The onus {a99} on the prosecution to prove guilt."
+            ]
+        },
+        {
+            "id": 100,
+            "question": "If she {a100} to resign, the entire board would collapse.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a100": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "subjunctive"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "If she {a100} to resign, the entire board would collapse."
+            ]
+        },
+        {
+            "id": 101,
+            "question": "Hardly {a101} the announcement made when protests erupted.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a101": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "inverted past"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_formal_register",
+                "was_were_passive"
+            ],
+            "variants": [
+                "Hardly {a101} the announcement made when protests erupted."
+            ]
+        },
+        {
+            "id": 102,
+            "question": "The minutiae of the contract {a102} overlooked by both parties.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a102": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The minutiae of the contract {a102} overlooked by both parties."
+            ]
+        },
+        {
+            "id": 103,
+            "question": "Be that as it may, the decision {a103} already final.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a103": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "Be that as it may, the decision {a103} already final."
+            ]
+        },
+        {
+            "id": 104,
+            "question": "So poorly {a104} the project managed that it collapsed within months.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a104": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "inverted past"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_formal_register",
+                "was_were_passive"
+            ],
+            "variants": [
+                "So poorly {a104} the project managed that it collapsed within months."
+            ]
+        },
+        {
+            "id": 105,
+            "question": "The strata {a105} examined by geologists from three universities.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a105": {
+                    "answer": "were",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past passive"
+                }
+            },
+            "tag_keys": [
+                "were_plural",
+                "was_were_agreement",
+                "was_were_passive"
+            ],
+            "variants": [
+                "The strata {a105} examined by geologists from three universities."
+            ]
+        },
+        {
+            "id": 106,
+            "question": "Had the witnesses {a106} more forthcoming, the trial would have ended sooner.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a106": {
+                    "answer": "been",
+                    "options": [
+                        "was",
+                        "been",
+                        "were"
+                    ],
+                    "verb_hint": "past subjunctive inversion"
+                }
+            },
+            "tag_keys": [
+                "was_were_subjunctive",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "Had the witnesses {a106} more forthcoming, the trial would have ended sooner."
+            ]
+        },
+        {
+            "id": 107,
+            "question": "No sooner {a107} the verdict read than the courtroom erupted.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a107": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "inverted past"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_formal_register",
+                "was_were_passive"
+            ],
+            "variants": [
+                "No sooner {a107} the verdict read than the courtroom erupted."
+            ]
+        },
+        {
+            "id": 108,
+            "question": "It {a108} imperative that every clause be reviewed by counsel.",
+            "source": "theory_page_1177",
+            "level": "C2",
+            "markers": {
+                "a108": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "past form of be"
+                }
+            },
+            "tag_keys": [
+                "was_singular",
+                "was_were_formal_register"
+            ],
+            "variants": [
+                "It {a108} imperative that every clause be reviewed by counsel."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "vtb-past-opus46-v3-saved",
+        "slug": "verb_to_be_past_forms_opus46",
+        "name": "Verb to Be: Past Forms — Opus 4.6 V3 Questions Test",
+        "description": "Practice set for was/were in past statements, negatives, questions, subjunctive, passive, and agreement patterns across A1–C2.",
+        "filters": {
+            "num_questions": 108,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBePastFormsV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1177,
+                "theory_page_ids": [
+                    1177
+                ],
+                "theory_page": {
+                    "id": 1177,
+                    "slug": "verb-to-be-past",
+                    "title": "Verb to Be: Past Forms",
+                    "category_slug_path": "basic-grammar/verb-to-be",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBePastTheorySeeder",
+                    "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-past"
+                }
+            }
+        }
+    }
+}
