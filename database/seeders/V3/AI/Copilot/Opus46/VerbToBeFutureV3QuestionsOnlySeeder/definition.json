@@ -1,0 +1,3676 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBeFutureV3QuestionsOnlySeeder",
+        "uuid_namespace": "VerbToBeFutureV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Verb to Be"
+    },
+    "sources": {
+        "theory_page_1368": {
+            "name": "Verb to Be: Future"
+        }
+    },
+    "tags": {
+        "verb_to_be_future_theme": {
+            "name": "Verb to Be: Future (will be / won't be)",
+            "category": "topic"
+        },
+        "future_will_be_affirmative": {
+            "name": "Affirmative future: will be",
+            "category": "pattern"
+        },
+        "future_will_be_negative": {
+            "name": "Negative future: won't be / will not be",
+            "category": "pattern"
+        },
+        "wont_be_contraction": {
+            "name": "Contraction won't be",
+            "category": "form"
+        },
+        "future_will_be_question": {
+            "name": "Yes/No question: Will + subject + be?",
+            "category": "pattern"
+        },
+        "future_will_be_wh_question": {
+            "name": "Wh-question: Wh + will + subject + be?",
+            "category": "pattern"
+        },
+        "future_will_be_short_answer": {
+            "name": "Short answer: Yes, … will / No, … won't",
+            "category": "pattern"
+        },
+        "there_will_be": {
+            "name": "There will be / There won't be",
+            "category": "pattern"
+        },
+        "future_prediction": {
+            "name": "Future prediction with will be",
+            "category": "usage"
+        },
+        "future_promise": {
+            "name": "Promise with will be",
+            "category": "usage"
+        },
+        "future_warning": {
+            "name": "Warning with will be",
+            "category": "usage"
+        },
+        "future_age": {
+            "name": "Future age: will be + number",
+            "category": "usage"
+        },
+        "future_conditional_clause": {
+            "name": "If / Provided / Unless + present, … will be …",
+            "category": "pattern"
+        },
+        "future_unless_clause": {
+            "name": "Unless + present, … won't be …",
+            "category": "pattern"
+        },
+        "future_time_clause": {
+            "name": "When / Once / After + present, … will be …",
+            "category": "pattern"
+        },
+        "future_by_time": {
+            "name": "By + time expression, … will be …",
+            "category": "pattern"
+        },
+        "future_passive_be": {
+            "name": "Passive: will be + past participle",
+            "category": "pattern"
+        },
+        "future_certainty": {
+            "name": "Expressing certainty: I'm sure + will be",
+            "category": "usage"
+        },
+        "future_opinion": {
+            "name": "Asking opinion: Do you think + will be?",
+            "category": "usage"
+        },
+        "future_hope": {
+            "name": "Expressing hope: I hope + will be",
+            "category": "usage"
+        },
+        "future_reported": {
+            "name": "Reported speech with will be",
+            "category": "usage"
+        },
+        "future_belief": {
+            "name": "Expressing belief: We believe + will be",
+            "category": "usage"
+        },
+        "future_doubt": {
+            "name": "Expressing doubt: I doubt + will be",
+            "category": "usage"
+        },
+        "future_fear": {
+            "name": "Expressing fear: I'm afraid + won't be",
+            "category": "usage"
+        },
+        "future_assumption": {
+            "name": "Assuming / Provided + will be",
+            "category": "usage"
+        },
+        "future_concession": {
+            "name": "Concession: However / Even with + will be",
+            "category": "usage"
+        },
+        "future_regardless": {
+            "name": "Whether or not … will be",
+            "category": "usage"
+        },
+        "future_hedging": {
+            "name": "Hedging: It remains to be seen + will be",
+            "category": "usage"
+        },
+        "future_likelihood": {
+            "name": "Likelihood: In all likelihood + will be",
+            "category": "usage"
+        },
+        "future_rhetorical": {
+            "name": "Rhetorical: It will be no exaggeration",
+            "category": "usage"
+        },
+        "future_would_be_reported": {
+            "name": "Reported speech: would be (future in the past)",
+            "category": "pattern"
+        },
+        "future_inverted_negative": {
+            "name": "Inverted negative: Never / On no account / Not until + will + subject + be",
+            "category": "pattern"
+        },
+        "future_inverted_so": {
+            "name": "Inverted: So + adjective + will + subject + be",
+            "category": "pattern"
+        },
+        "future_hardly_any": {
+            "name": "Hardly any + noun + will be",
+            "category": "pattern"
+        },
+        "narrative_distance": {
+            "name": "Narrative distance: would be (literary)",
+            "category": "usage"
+        },
+        "subjunctive_be": {
+            "name": "Subjunctive: that + subject + be (mandative)",
+            "category": "pattern"
+        },
+        "formal_register": {
+            "name": "Formal / official register",
+            "category": "register"
+        },
+        "legal_register": {
+            "name": "Legal register",
+            "category": "register"
+        },
+        "diplomatic_register": {
+            "name": "Diplomatic register",
+            "category": "register"
+        },
+        "literary_register": {
+            "name": "Literary / archaic register",
+            "category": "register"
+        }
+    },
+    "default_tag_keys": [
+        "verb_to_be_future_theme"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "I {a1} at school tomorrow.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "am be",
+                        "will is"
+                    ],
+                    "verb_hint": "subject + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "I {a1} at school tomorrow."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 2,
+            "question": "She {a2} happy to see you.",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "will are"
+                    ],
+                    "verb_hint": "subject + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "She {a2} happy to see you."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 3,
+            "question": "They {a3} ready in five minutes.",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "will is"
+                    ],
+                    "verb_hint": "subject + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "They {a3} ready in five minutes."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 4,
+            "question": "He {a4} a good doctor one day.",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "subject + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "He {a4} a good doctor one day."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 5,
+            "question": "We {a5} at the party tonight.",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "are will"
+                    ],
+                    "verb_hint": "subject + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "We {a5} at the party tonight."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 6,
+            "question": "It {a6} cold next week.",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "subject + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "It {a6} cold next week."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 7,
+            "question": "I {a7} late for the meeting.",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "will not is",
+                        "won't is"
+                    ],
+                    "verb_hint": "won't be = will not be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "wont_be_contraction"
+            ],
+            "variants": [
+                "I {a7} late for the meeting."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 8,
+            "question": "She {a8} at the office tomorrow.",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "won't be = will not be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "wont_be_contraction"
+            ],
+            "variants": [
+                "She {a8} at the office tomorrow."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 9,
+            "question": "They {a9} angry with us.",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't are",
+                        "will not are"
+                    ],
+                    "verb_hint": "won't be = will not be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative"
+            ],
+            "variants": [
+                "They {a9} angry with us."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 10,
+            "question": "He {a10} available on Friday.",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "won't be = will not be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative"
+            ],
+            "variants": [
+                "He {a10} available on Friday."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 11,
+            "question": "We {a11} home before eight.",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't are",
+                        "will not are"
+                    ],
+                    "verb_hint": "won't be = will not be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative"
+            ],
+            "variants": [
+                "We {a11} home before eight."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 12,
+            "question": "It {a12} easy, but we will try.",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "won't be = will not be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative"
+            ],
+            "variants": [
+                "It {a12} easy, but we will try."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 13,
+            "question": "{a13} you be at the concert?",
+            "level": "A1",
+            "markers": {
+                "a13": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "Will + subject + be …?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_question"
+            ],
+            "variants": [
+                "{a13} you be at the concert?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 14,
+            "question": "{a14} she be ready by noon?",
+            "level": "A1",
+            "markers": {
+                "a14": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Will + subject + be …?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_question"
+            ],
+            "variants": [
+                "{a14} she be ready by noon?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 15,
+            "question": "{a15} they be on time?",
+            "level": "A1",
+            "markers": {
+                "a15": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "Will + subject + be …?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_question"
+            ],
+            "variants": [
+                "{a15} they be on time?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 16,
+            "question": "{a16} it be sunny tomorrow?",
+            "level": "A1",
+            "markers": {
+                "a16": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Will + subject + be …?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_question"
+            ],
+            "variants": [
+                "{a16} it be sunny tomorrow?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 17,
+            "question": "{a17} he be at the park?",
+            "level": "A1",
+            "markers": {
+                "a17": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Will + subject + be …?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_question"
+            ],
+            "variants": [
+                "{a17} he be at the park?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 18,
+            "question": "{a18} we be there in time?",
+            "level": "A1",
+            "markers": {
+                "a18": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "Will + subject + be …?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_question"
+            ],
+            "variants": [
+                "{a18} we be there in time?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 19,
+            "question": "The weather {a19} nice this weekend.",
+            "level": "A1",
+            "markers": {
+                "a19": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "subject + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "The weather {a19} nice this weekend."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 20,
+            "question": "Don't worry — I {a20} on time.",
+            "level": "A1",
+            "markers": {
+                "a20": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "am be",
+                        "will am"
+                    ],
+                    "verb_hint": "subject + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "Don't worry — I {a20} on time."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 21,
+            "question": "My parents {a21} proud of me.",
+            "level": "A1",
+            "markers": {
+                "a21": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "will is"
+                    ],
+                    "verb_hint": "subject + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "My parents {a21} proud of me."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 22,
+            "question": "The shops {a22} open on Sunday.",
+            "level": "A1",
+            "markers": {
+                "a22": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't are",
+                        "will not are"
+                    ],
+                    "verb_hint": "won't be = will not be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative"
+            ],
+            "variants": [
+                "The shops {a22} open on Sunday."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 23,
+            "question": "{a23} you be my partner for the project?",
+            "level": "A1",
+            "markers": {
+                "a23": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "Will + subject + be …?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_question"
+            ],
+            "variants": [
+                "{a23} you be my partner for the project?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 24,
+            "question": "Tomorrow {a24} a great day!",
+            "level": "A1",
+            "markers": {
+                "a24": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "subject + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "Tomorrow {a24} a great day!"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 25,
+            "question": "Where {a25} you be next Saturday?",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "do",
+                        "are"
+                    ],
+                    "verb_hint": "Wh-word + will + subject + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_wh_question"
+            ],
+            "variants": [
+                "Where {a25} you be next Saturday?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 26,
+            "question": "I think the film {a26} interesting.",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "prediction with will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_prediction"
+            ],
+            "variants": [
+                "I think the film {a26} interesting."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 27,
+            "question": "When {a27} the results be ready?",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "do",
+                        "are"
+                    ],
+                    "verb_hint": "Wh-word + will + … + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_wh_question"
+            ],
+            "variants": [
+                "When {a27} the results be ready?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 28,
+            "question": "She {a28} eighteen next month.",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "age in the future: will be + number"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_age"
+            ],
+            "variants": [
+                "She {a28} eighteen next month."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 29,
+            "question": "Will the test be hard? — Yes, it {a29}.",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "short answer: Yes, it will"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_short_answer"
+            ],
+            "variants": [
+                "Will the test be hard? — Yes, it {a29}."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 30,
+            "question": "Will you be at the gym? — No, I {a30}.",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "won't",
+                    "options": [
+                        "won't",
+                        "am not",
+                        "don't"
+                    ],
+                    "verb_hint": "short answer: No, I won't"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_short_answer",
+                "wont_be_contraction"
+            ],
+            "variants": [
+                "Will you be at the gym? — No, I {a30}."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 31,
+            "question": "How long {a31} the trip be?",
+            "level": "A2",
+            "markers": {
+                "a31": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "How long + will + … + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_wh_question"
+            ],
+            "variants": [
+                "How long {a31} the trip be?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 32,
+            "question": "There {a32} a new park in our city next year.",
+            "level": "A2",
+            "markers": {
+                "a32": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "There will be = буде"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "there_will_be"
+            ],
+            "variants": [
+                "There {a32} a new park in our city next year."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 33,
+            "question": "There {a33} any homework tomorrow.",
+            "level": "A2",
+            "markers": {
+                "a33": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "There won't be = не буде"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "there_will_be"
+            ],
+            "variants": [
+                "There {a33} any homework tomorrow."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 34,
+            "question": "Who {a34} be the next team captain?",
+            "level": "A2",
+            "markers": {
+                "a34": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Who + will + be …?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_wh_question"
+            ],
+            "variants": [
+                "Who {a34} be the next team captain?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 35,
+            "question": "I promise I {a35} careful.",
+            "level": "A2",
+            "markers": {
+                "a35": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "am be",
+                        "will am"
+                    ],
+                    "verb_hint": "promise + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_promise"
+            ],
+            "variants": [
+                "I promise I {a35} careful."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 36,
+            "question": "The children {a36} tired after the trip.",
+            "level": "A2",
+            "markers": {
+                "a36": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "will is"
+                    ],
+                    "verb_hint": "prediction: will be + adjective"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_prediction"
+            ],
+            "variants": [
+                "The children {a36} tired after the trip."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 37,
+            "question": "Will they be here by six? — No, they {a37}.",
+            "level": "A2",
+            "markers": {
+                "a37": {
+                    "answer": "won't",
+                    "options": [
+                        "won't",
+                        "aren't",
+                        "don't"
+                    ],
+                    "verb_hint": "short answer: No, they won't"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_short_answer"
+            ],
+            "variants": [
+                "Will they be here by six? — No, they {a37}."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 38,
+            "question": "The museum {a38} closed on Monday.",
+            "level": "A2",
+            "markers": {
+                "a38": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "will be + adjective"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "The museum {a38} closed on Monday."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 39,
+            "question": "She {a39} a famous singer one day.",
+            "level": "A2",
+            "markers": {
+                "a39": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "prediction about future career"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_prediction"
+            ],
+            "variants": [
+                "She {a39} a famous singer one day."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 40,
+            "question": "Don't touch it — it {a40} hot!",
+            "level": "A2",
+            "markers": {
+                "a40": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "warning about near future"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_warning"
+            ],
+            "variants": [
+                "Don't touch it — it {a40} hot!"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 41,
+            "question": "Why {a41} he be absent tomorrow?",
+            "level": "A2",
+            "markers": {
+                "a41": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Why + will + subject + be …?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_wh_question"
+            ],
+            "variants": [
+                "Why {a41} he be absent tomorrow?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 42,
+            "question": "The match {a42} at seven in the evening.",
+            "level": "A2",
+            "markers": {
+                "a42": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "scheduled event: will be + time"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "The match {a42} at seven in the evening."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 43,
+            "question": "There {a43} a lot of people at the festival.",
+            "level": "A2",
+            "markers": {
+                "a43": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "will is"
+                    ],
+                    "verb_hint": "There will be + noun"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "there_will_be"
+            ],
+            "variants": [
+                "There {a43} a lot of people at the festival."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 44,
+            "question": "I {a44} surprised if she comes.",
+            "level": "A2",
+            "markers": {
+                "a44": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't am",
+                        "will not am"
+                    ],
+                    "verb_hint": "won't be + adjective"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative"
+            ],
+            "variants": [
+                "I {a44} surprised if she comes."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 45,
+            "question": "Will the food be ready? — Yes, it {a45}.",
+            "level": "A2",
+            "markers": {
+                "a45": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "short answer: Yes, it will"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_short_answer"
+            ],
+            "variants": [
+                "Will the food be ready? — Yes, it {a45}."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 46,
+            "question": "Our new teacher {a46} very strict.",
+            "level": "A2",
+            "markers": {
+                "a46": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "negative prediction: won't be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "future_prediction"
+            ],
+            "variants": [
+                "Our new teacher {a46} very strict."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 47,
+            "question": "Everything {a47} fine, I promise.",
+            "level": "A2",
+            "markers": {
+                "a47": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "reassurance: will be + adjective"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_promise"
+            ],
+            "variants": [
+                "Everything {a47} fine, I promise."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 48,
+            "question": "What time {a48} dinner be ready?",
+            "level": "A2",
+            "markers": {
+                "a48": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "What time + will + … + be …?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_wh_question"
+            ],
+            "variants": [
+                "What time {a48} dinner be ready?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 49,
+            "question": "If it rains, the roads {a49} slippery.",
+            "level": "B1",
+            "markers": {
+                "a49": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are be",
+                        "will are"
+                    ],
+                    "verb_hint": "If + present, … will be …"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_conditional_clause"
+            ],
+            "variants": [
+                "If it rains, the roads {a49} slippery."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 50,
+            "question": "When you arrive, I {a50} waiting at the gate.",
+            "level": "B1",
+            "markers": {
+                "a50": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "am be",
+                        "will am"
+                    ],
+                    "verb_hint": "When + present, … will be …"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_time_clause"
+            ],
+            "variants": [
+                "When you arrive, I {a50} waiting at the gate."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 51,
+            "question": "The new bridge {a51} finished by December.",
+            "level": "B1",
+            "markers": {
+                "a51": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "will be + past participle (passive)"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be"
+            ],
+            "variants": [
+                "The new bridge {a51} finished by December."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 52,
+            "question": "She {a52} pleased to hear the good news.",
+            "level": "B1",
+            "markers": {
+                "a52": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "will be + adjective"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_prediction"
+            ],
+            "variants": [
+                "She {a52} pleased to hear the good news."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 53,
+            "question": "By this time tomorrow, they {a53} on the plane.",
+            "level": "B1",
+            "markers": {
+                "a53": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "are will"
+                    ],
+                    "verb_hint": "By + time, … will be …"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_by_time"
+            ],
+            "variants": [
+                "By this time tomorrow, they {a53} on the plane."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 54,
+            "question": "We believe the project {a54} successful.",
+            "level": "B1",
+            "markers": {
+                "a54": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "believe + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_belief"
+            ],
+            "variants": [
+                "We believe the project {a54} successful."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 55,
+            "question": "The meeting room {a55} available after three o'clock.",
+            "level": "B1",
+            "markers": {
+                "a55": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "will be + adjective + time"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative"
+            ],
+            "variants": [
+                "The meeting room {a55} available after three o'clock."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 56,
+            "question": "If you don't study, the exam {a56} very difficult for you.",
+            "level": "B1",
+            "markers": {
+                "a56": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "If + present, … will be …"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_conditional_clause"
+            ],
+            "variants": [
+                "If you don't study, the exam {a56} very difficult for you."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 57,
+            "question": "The package {a57} delivered by Friday.",
+            "level": "B1",
+            "markers": {
+                "a57": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "will be + past participle"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be"
+            ],
+            "variants": [
+                "The package {a57} delivered by Friday."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 58,
+            "question": "I'm sure she {a58} at the airport to meet us.",
+            "level": "B1",
+            "markers": {
+                "a58": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "I'm sure + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_certainty"
+            ],
+            "variants": [
+                "I'm sure she {a58} at the airport to meet us."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 59,
+            "question": "There {a59} enough time to finish, so please hurry.",
+            "level": "B1",
+            "markers": {
+                "a59": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "There won't be + noun"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "there_will_be"
+            ],
+            "variants": [
+                "There {a59} enough time to finish, so please hurry."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 60,
+            "question": "Unless you call ahead, the table {a60} reserved.",
+            "level": "B1",
+            "markers": {
+                "a60": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "Unless + present, … won't be …"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "future_unless_clause"
+            ],
+            "variants": [
+                "Unless you call ahead, the table {a60} reserved."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 61,
+            "question": "The results {a61} announced until next Monday.",
+            "level": "B1",
+            "markers": {
+                "a61": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "won't be + past participle"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "future_passive_be"
+            ],
+            "variants": [
+                "The results {a61} announced until next Monday."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 62,
+            "question": "How much {a62} the total cost be?",
+            "level": "B1",
+            "markers": {
+                "a62": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "How much + will + … + be?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_wh_question"
+            ],
+            "variants": [
+                "How much {a62} the total cost be?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 63,
+            "question": "When the guests arrive, everything {a63} ready.",
+            "level": "B1",
+            "markers": {
+                "a63": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "When + present, … will be …"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_time_clause"
+            ],
+            "variants": [
+                "When the guests arrive, everything {a63} ready."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 64,
+            "question": "Do you think the weather {a64} good for the picnic?",
+            "level": "B1",
+            "markers": {
+                "a64": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "Do you think + will be?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_opinion"
+            ],
+            "variants": [
+                "Do you think the weather {a64} good for the picnic?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 65,
+            "question": "The library {a65} open during the holidays.",
+            "level": "B1",
+            "markers": {
+                "a65": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "won't be + adjective"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative"
+            ],
+            "variants": [
+                "The library {a65} open during the holidays."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 66,
+            "question": "If we leave now, we {a66} there by sunset.",
+            "level": "B1",
+            "markers": {
+                "a66": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "are will"
+                    ],
+                    "verb_hint": "If + present, … will be …"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_conditional_clause"
+            ],
+            "variants": [
+                "If we leave now, we {a66} there by sunset."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 67,
+            "question": "I hope the concert {a67} as good as last year's.",
+            "level": "B1",
+            "markers": {
+                "a67": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "I hope + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_hope"
+            ],
+            "variants": [
+                "I hope the concert {a67} as good as last year's."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 68,
+            "question": "The repairs {a68} completed before you move in.",
+            "level": "B1",
+            "markers": {
+                "a68": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "will be + past participle"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be"
+            ],
+            "variants": [
+                "The repairs {a68} completed before you move in."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 69,
+            "question": "{a69} the presentation be long?",
+            "level": "B1",
+            "markers": {
+                "a69": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Will + subject + be …?"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_question"
+            ],
+            "variants": [
+                "{a69} the presentation be long?"
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 70,
+            "question": "She says the journey {a70} tiring.",
+            "level": "B1",
+            "markers": {
+                "a70": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "reported speech: will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_reported"
+            ],
+            "variants": [
+                "She says the journey {a70} tiring."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 71,
+            "question": "The hotel {a71} fully booked by next week.",
+            "level": "B1",
+            "markers": {
+                "a71": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "By + time, … will be …"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_by_time"
+            ],
+            "variants": [
+                "The hotel {a71} fully booked by next week."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 72,
+            "question": "Unless the traffic clears, we {a72} on time.",
+            "level": "B1",
+            "markers": {
+                "a72": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't are",
+                        "will not are"
+                    ],
+                    "verb_hint": "Unless + present, … won't be …"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "future_unless_clause"
+            ],
+            "variants": [
+                "Unless the traffic clears, we {a72} on time."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 73,
+            "question": "By 2030, renewable energy {a73} the primary power source in many countries.",
+            "level": "B2",
+            "markers": {
+                "a73": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "prediction + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_prediction",
+                "future_by_time"
+            ],
+            "variants": [
+                "By 2030, renewable energy {a73} the primary power source in many countries."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 74,
+            "question": "The delegates {a74} informed of the schedule change.",
+            "level": "B2",
+            "markers": {
+                "a74": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "will be + past participle (passive)"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "The delegates {a74} informed of the schedule change."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 75,
+            "question": "I suspect the outcome {a75} what we expected.",
+            "level": "B2",
+            "markers": {
+                "a75": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "suspect + won't be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "future_prediction"
+            ],
+            "variants": [
+                "I suspect the outcome {a75} what we expected."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 76,
+            "question": "If the funding is approved, the facility {a76} operational within two years.",
+            "level": "B2",
+            "markers": {
+                "a76": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "If + present, … will be …"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_conditional_clause"
+            ],
+            "variants": [
+                "If the funding is approved, the facility {a76} operational within two years."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 77,
+            "question": "All candidates {a77} notified of the interview dates by email.",
+            "level": "B2",
+            "markers": {
+                "a77": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "passive: will be + past participle"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "All candidates {a77} notified of the interview dates by email."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 78,
+            "question": "It is unlikely that the negotiations {a78} straightforward.",
+            "level": "B2",
+            "markers": {
+                "a78": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "It is unlikely that + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_likelihood"
+            ],
+            "variants": [
+                "It is unlikely that the negotiations {a78} straightforward."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 79,
+            "question": "The final decision {a79} made until all evidence has been reviewed.",
+            "level": "B2",
+            "markers": {
+                "a79": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "won't be + past participle"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "future_passive_be"
+            ],
+            "variants": [
+                "The final decision {a79} made until all evidence has been reviewed."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 80,
+            "question": "Once the report is published, the data {a80} available to the public.",
+            "level": "B2",
+            "markers": {
+                "a80": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "Once + present, … will be …"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_time_clause"
+            ],
+            "variants": [
+                "Once the report is published, the data {a80} available to the public."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 81,
+            "question": "There {a81} a significant improvement if the team follows the new strategy.",
+            "level": "B2",
+            "markers": {
+                "a81": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "There will be + noun (conditional)"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "there_will_be",
+                "future_conditional_clause"
+            ],
+            "variants": [
+                "There {a81} a significant improvement if the team follows the new strategy."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 82,
+            "question": "Participants {a82} required to submit a written proposal before the deadline.",
+            "level": "B2",
+            "markers": {
+                "a82": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "passive: will be + required"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "Participants {a82} required to submit a written proposal before the deadline."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 83,
+            "question": "I doubt the repair {a83} covered by the warranty.",
+            "level": "B2",
+            "markers": {
+                "a83": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "doubt + will be (passive)"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "future_doubt"
+            ],
+            "variants": [
+                "I doubt the repair {a83} covered by the warranty."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 84,
+            "question": "The conference venue {a84} changed unless there is a last-minute issue.",
+            "level": "B2",
+            "markers": {
+                "a84": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "won't be + past participle + unless"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "future_passive_be",
+                "future_unless_clause"
+            ],
+            "variants": [
+                "The conference venue {a84} changed unless there is a last-minute issue."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 85,
+            "question": "Students {a85} assessed on both written and oral performance.",
+            "level": "B2",
+            "markers": {
+                "a85": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "will is"
+                    ],
+                    "verb_hint": "passive: will be + assessed"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "Students {a85} assessed on both written and oral performance."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 86,
+            "question": "The contract {a86} valid for five years from the signing date.",
+            "level": "B2",
+            "markers": {
+                "a86": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "formal: will be + adjective"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "formal_register"
+            ],
+            "variants": [
+                "The contract {a86} valid for five years from the signing date."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 87,
+            "question": "Assuming all goes well, she {a87} promoted by the end of the year.",
+            "level": "B2",
+            "markers": {
+                "a87": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "Assuming …, will be + past participle"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "future_assumption"
+            ],
+            "variants": [
+                "Assuming all goes well, she {a87} promoted by the end of the year."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 88,
+            "question": "It {a88} surprising if the company reverses its decision.",
+            "level": "B2",
+            "markers": {
+                "a88": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "It won't be + adjective + if"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "future_prediction"
+            ],
+            "variants": [
+                "It {a88} surprising if the company reverses its decision."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 89,
+            "question": "After the renovation, the building {a89} equipped with modern facilities.",
+            "level": "B2",
+            "markers": {
+                "a89": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "After …, will be + past participle"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "future_time_clause"
+            ],
+            "variants": [
+                "After the renovation, the building {a89} equipped with modern facilities."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 90,
+            "question": "Whether the plan succeeds or not, we {a90} held accountable.",
+            "level": "B2",
+            "markers": {
+                "a90": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "will is"
+                    ],
+                    "verb_hint": "passive: will be + held"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be"
+            ],
+            "variants": [
+                "Whether the plan succeeds or not, we {a90} held accountable."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 91,
+            "question": "The new regulations {a91} enforced from January.",
+            "level": "B2",
+            "markers": {
+                "a91": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "will be + past participle + from"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "The new regulations {a91} enforced from January."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 92,
+            "question": "Even with extra funding, the deadline {a92} easy to meet.",
+            "level": "B2",
+            "markers": {
+                "a92": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "Even with …, won't be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "future_concession"
+            ],
+            "variants": [
+                "Even with extra funding, the deadline {a92} easy to meet."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 93,
+            "question": "All staff {a93} expected to attend the safety briefing.",
+            "level": "B2",
+            "markers": {
+                "a93": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "will is"
+                    ],
+                    "verb_hint": "passive: will be + expected"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "All staff {a93} expected to attend the safety briefing."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 94,
+            "question": "The scholarship {a94} awarded to the most deserving student.",
+            "level": "B2",
+            "markers": {
+                "a94": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "passive: will be + awarded"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be"
+            ],
+            "variants": [
+                "The scholarship {a94} awarded to the most deserving student."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 95,
+            "question": "I'm afraid the budget {a95} sufficient for both projects.",
+            "level": "B2",
+            "markers": {
+                "a95": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "won't is",
+                        "will not is"
+                    ],
+                    "verb_hint": "I'm afraid + won't be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_negative",
+                "future_fear"
+            ],
+            "variants": [
+                "I'm afraid the budget {a95} sufficient for both projects."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 96,
+            "question": "Provided the weather holds, the outdoor event {a96} a great success.",
+            "level": "B2",
+            "markers": {
+                "a96": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "Provided + present, … will be …"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_conditional_clause"
+            ],
+            "variants": [
+                "Provided the weather holds, the outdoor event {a96} a great success."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 97,
+            "question": "It remains to be seen whether the reforms {a97} effective in the long run.",
+            "level": "C1",
+            "markers": {
+                "a97": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "are be"
+                    ],
+                    "verb_hint": "whether + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_hedging",
+                "formal_register"
+            ],
+            "variants": [
+                "It remains to be seen whether the reforms {a97} effective in the long run."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 98,
+            "question": "The treaty, once ratified, {a98} binding on all member states.",
+            "level": "C1",
+            "markers": {
+                "a98": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "once + past participle, will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "The treaty, once ratified, {a98} binding on all member states."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 99,
+            "question": "In all likelihood, the merger {a99} completed by mid-year.",
+            "level": "C1",
+            "markers": {
+                "a99": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "In all likelihood + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "future_likelihood"
+            ],
+            "variants": [
+                "In all likelihood, the merger {a99} completed by mid-year."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 100,
+            "question": "Hardly any trace of the old system {a100} visible after the overhaul.",
+            "level": "C1",
+            "markers": {
+                "a100": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "Hardly any + noun + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_hardly_any"
+            ],
+            "variants": [
+                "Hardly any trace of the old system {a100} visible after the overhaul."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 101,
+            "question": "She assured the board that every precaution {a101} taken.",
+            "level": "C1",
+            "markers": {
+                "a101": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will is",
+                        "would is"
+                    ],
+                    "verb_hint": "reported speech: would be"
+                }
+            },
+            "tag_keys": [
+                "future_would_be_reported",
+                "future_passive_be"
+            ],
+            "variants": [
+                "She assured the board that every precaution {a101} taken."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 102,
+            "question": "The extent to which the policy {a102} implemented depends on local authorities.",
+            "level": "C1",
+            "markers": {
+                "a102": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "the extent to which + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "The extent to which the policy {a102} implemented depends on local authorities."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 103,
+            "question": "It {a103} necessary to renegotiate the terms if costs continue to rise.",
+            "level": "C1",
+            "markers": {
+                "a103": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "It will be + adjective + to-infinitive"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_conditional_clause"
+            ],
+            "variants": [
+                "It {a103} necessary to renegotiate the terms if costs continue to rise."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 104,
+            "question": "Under no circumstances {a104} the deadline be extended further.",
+            "level": "C1",
+            "markers": {
+                "a104": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Under no circumstances + will + subject + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_inverted_negative"
+            ],
+            "variants": [
+                "Under no circumstances {a104} the deadline be extended further."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 105,
+            "question": "The spokesperson confirmed that a press conference {a105} held the following day.",
+            "level": "C1",
+            "markers": {
+                "a105": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will is",
+                        "would is"
+                    ],
+                    "verb_hint": "reported speech: would be"
+                }
+            },
+            "tag_keys": [
+                "future_would_be_reported",
+                "future_passive_be"
+            ],
+            "variants": [
+                "The spokesperson confirmed that a press conference {a105} held the following day."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 106,
+            "question": "However advanced the technology, human oversight {a106} indispensable.",
+            "level": "C1",
+            "markers": {
+                "a106": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "However + adjective, … will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_concession"
+            ],
+            "variants": [
+                "However advanced the technology, human oversight {a106} indispensable."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 107,
+            "question": "Not until the investigation concludes {a107} any statement be issued.",
+            "level": "C1",
+            "markers": {
+                "a107": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Not until + clause + will + subject + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_inverted_negative"
+            ],
+            "variants": [
+                "Not until the investigation concludes {a107} any statement be issued."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 108,
+            "question": "They predicted that the infrastructure {a108} outdated within a decade.",
+            "level": "C1",
+            "markers": {
+                "a108": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will is",
+                        "would is"
+                    ],
+                    "verb_hint": "reported speech: would be"
+                }
+            },
+            "tag_keys": [
+                "future_would_be_reported"
+            ],
+            "variants": [
+                "They predicted that the infrastructure {a108} outdated within a decade."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 109,
+            "question": "Whether or not additional funds are allocated, staff morale {a109} a priority.",
+            "level": "C1",
+            "markers": {
+                "a109": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "Whether or not …, will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_regardless"
+            ],
+            "variants": [
+                "Whether or not additional funds are allocated, staff morale {a109} a priority."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 110,
+            "question": "Rest assured, your complaint {a110} addressed within 48 hours.",
+            "level": "C1",
+            "markers": {
+                "a110": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "Rest assured + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "Rest assured, your complaint {a110} addressed within 48 hours."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 111,
+            "question": "The amended policy {a111} subject to parliamentary approval.",
+            "level": "C1",
+            "markers": {
+                "a111": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "will be + subject to"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "formal_register"
+            ],
+            "variants": [
+                "The amended policy {a111} subject to parliamentary approval."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 112,
+            "question": "Little did they know that the discovery {a112} revolutionary.",
+            "level": "C1",
+            "markers": {
+                "a112": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will is",
+                        "would is"
+                    ],
+                    "verb_hint": "narrative: would be"
+                }
+            },
+            "tag_keys": [
+                "future_would_be_reported",
+                "narrative_distance"
+            ],
+            "variants": [
+                "Little did they know that the discovery {a112} revolutionary."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 113,
+            "question": "The proposal, if adopted, {a113} binding from the next fiscal year.",
+            "level": "C1",
+            "markers": {
+                "a113": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "if + past participle, will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_conditional_clause",
+                "formal_register"
+            ],
+            "variants": [
+                "The proposal, if adopted, {a113} binding from the next fiscal year."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 114,
+            "question": "It {a114} no exaggeration to say the results will transform the industry.",
+            "level": "C1",
+            "markers": {
+                "a114": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "It will be + no exaggeration"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_rhetorical"
+            ],
+            "variants": [
+                "It {a114} no exaggeration to say the results will transform the industry."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 115,
+            "question": "The jury was told that the verdict {a115} announced the next morning.",
+            "level": "C1",
+            "markers": {
+                "a115": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will is",
+                        "would is"
+                    ],
+                    "verb_hint": "reported speech: would be"
+                }
+            },
+            "tag_keys": [
+                "future_would_be_reported",
+                "future_passive_be"
+            ],
+            "variants": [
+                "The jury was told that the verdict {a115} announced the next morning."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 116,
+            "question": "Needless to say, compliance {a116} mandatory.",
+            "level": "C1",
+            "markers": {
+                "a116": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "will be + adjective (mandatory)"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "formal_register"
+            ],
+            "variants": [
+                "Needless to say, compliance {a116} mandatory."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 117,
+            "question": "On no account {a117} unauthorized access be tolerated.",
+            "level": "C1",
+            "markers": {
+                "a117": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "On no account + will + subject + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_inverted_negative",
+                "formal_register"
+            ],
+            "variants": [
+                "On no account {a117} unauthorized access be tolerated."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 118,
+            "question": "The CEO stated that no layoffs {a118} necessary.",
+            "level": "C1",
+            "markers": {
+                "a118": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will is",
+                        "would is"
+                    ],
+                    "verb_hint": "reported speech: would be"
+                }
+            },
+            "tag_keys": [
+                "future_would_be_reported",
+                "future_passive_be"
+            ],
+            "variants": [
+                "The CEO stated that no layoffs {a118} necessary."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 119,
+            "question": "Only when the audit is complete {a119} the full picture be clear.",
+            "level": "C1",
+            "markers": {
+                "a119": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Only when + clause + will + subject + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_inverted_negative"
+            ],
+            "variants": [
+                "Only when the audit is complete {a119} the full picture be clear."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 120,
+            "question": "It goes without saying that security {a120} the top concern at the summit.",
+            "level": "C1",
+            "markers": {
+                "a120": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "It goes without saying + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "formal_register"
+            ],
+            "variants": [
+                "It goes without saying that security {a120} the top concern at the summit."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 121,
+            "question": "The tribunal decreed that compensation {a121} awarded to all affected parties.",
+            "level": "C2",
+            "markers": {
+                "a121": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will is",
+                        "would is"
+                    ],
+                    "verb_hint": "decreed + would be (reported)"
+                }
+            },
+            "tag_keys": [
+                "future_would_be_reported",
+                "future_passive_be",
+                "legal_register"
+            ],
+            "variants": [
+                "The tribunal decreed that compensation {a121} awarded to all affected parties."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 122,
+            "question": "Never again {a122} such negligence be overlooked by the committee.",
+            "level": "C2",
+            "markers": {
+                "a122": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Never again + will + subject + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_inverted_negative",
+                "formal_register"
+            ],
+            "variants": [
+                "Never again {a122} such negligence be overlooked by the committee."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 123,
+            "question": "The ambassador assured his counterpart that every effort {a123} made to reach a consensus.",
+            "level": "C2",
+            "markers": {
+                "a123": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will is",
+                        "would is"
+                    ],
+                    "verb_hint": "assured + would be (reported)"
+                }
+            },
+            "tag_keys": [
+                "future_would_be_reported",
+                "future_passive_be",
+                "diplomatic_register"
+            ],
+            "variants": [
+                "The ambassador assured his counterpart that every effort {a123} made to reach a consensus."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 124,
+            "question": "It is imperative that the clause {a124} enforceable across all jurisdictions.",
+            "level": "C2",
+            "markers": {
+                "a124": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "It is imperative that + subject + be (subjunctive)"
+                }
+            },
+            "tag_keys": [
+                "subjunctive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "It is imperative that the clause {a124} enforceable across all jurisdictions."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 125,
+            "question": "Scarcely had the announcement been made when it became clear the strategy {a125} untenable.",
+            "level": "C2",
+            "markers": {
+                "a125": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will is",
+                        "would is"
+                    ],
+                    "verb_hint": "narrative: would be"
+                }
+            },
+            "tag_keys": [
+                "future_would_be_reported",
+                "narrative_distance"
+            ],
+            "variants": [
+                "Scarcely had the announcement been made when it became clear the strategy {a125} untenable."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 126,
+            "question": "So complex {a126} the regulations be that compliance will require specialist advice.",
+            "level": "C2",
+            "markers": {
+                "a126": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "So + adjective + will + subject + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_inverted_so"
+            ],
+            "variants": [
+                "So complex {a126} the regulations be that compliance will require specialist advice."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 127,
+            "question": "The committee recommended that the revised framework {a127} adopted without delay.",
+            "level": "C2",
+            "markers": {
+                "a127": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "recommended that + subject + be (subjunctive)"
+                }
+            },
+            "tag_keys": [
+                "subjunctive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "The committee recommended that the revised framework {a127} adopted without delay."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 128,
+            "question": "Be that as it may, the project {a128} completed on schedule.",
+            "level": "C2",
+            "markers": {
+                "a128": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "Be that as it may + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_concession",
+                "literary_register"
+            ],
+            "variants": [
+                "Be that as it may, the project {a128} completed on schedule."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 129,
+            "question": "Whether this proves feasible or not, the precedent {a129} significant.",
+            "level": "C2",
+            "markers": {
+                "a129": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "Whether … or not + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_regardless"
+            ],
+            "variants": [
+                "Whether this proves feasible or not, the precedent {a129} significant."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 130,
+            "question": "Rarely {a130} a policy change be met with such universal approval.",
+            "level": "C2",
+            "markers": {
+                "a130": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Rarely + will + subject + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_inverted_negative",
+                "formal_register"
+            ],
+            "variants": [
+                "Rarely {a130} a policy change be met with such universal approval."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 131,
+            "question": "The report stipulated that all data {a131} anonymised prior to publication.",
+            "level": "C2",
+            "markers": {
+                "a131": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "stipulated that + subject + be (subjunctive)"
+                }
+            },
+            "tag_keys": [
+                "subjunctive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "The report stipulated that all data {a131} anonymised prior to publication."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 132,
+            "question": "No sooner {a132} the infrastructure be in place than demand will surge.",
+            "level": "C2",
+            "markers": {
+                "a132": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "No sooner + will + subject + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_inverted_negative"
+            ],
+            "variants": [
+                "No sooner {a132} the infrastructure be in place than demand will surge."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 133,
+            "question": "It is essential that every clause {a133} scrutinised before the treaty is signed.",
+            "level": "C2",
+            "markers": {
+                "a133": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "It is essential that + subject + be (subjunctive)"
+                }
+            },
+            "tag_keys": [
+                "subjunctive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "It is essential that every clause {a133} scrutinised before the treaty is signed."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 134,
+            "question": "The envoy pledged that humanitarian aid {a134} dispatched within 72 hours.",
+            "level": "C2",
+            "markers": {
+                "a134": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will is",
+                        "would is"
+                    ],
+                    "verb_hint": "pledged + would be (reported)"
+                }
+            },
+            "tag_keys": [
+                "future_would_be_reported",
+                "future_passive_be",
+                "diplomatic_register"
+            ],
+            "variants": [
+                "The envoy pledged that humanitarian aid {a134} dispatched within 72 hours."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 135,
+            "question": "Seldom {a135} an institution be as thoroughly reformed as ours will be.",
+            "level": "C2",
+            "markers": {
+                "a135": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Seldom + will + subject + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_inverted_negative",
+                "formal_register"
+            ],
+            "variants": [
+                "Seldom {a135} an institution be as thoroughly reformed as ours will be."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 136,
+            "question": "The court insisted that the hearing {a136} open to the public.",
+            "level": "C2",
+            "markers": {
+                "a136": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "insisted that + subject + be (subjunctive)"
+                }
+            },
+            "tag_keys": [
+                "subjunctive_be",
+                "legal_register"
+            ],
+            "variants": [
+                "The court insisted that the hearing {a136} open to the public."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 137,
+            "question": "However improbable the scenario, the contingency plan {a137} activated if needed.",
+            "level": "C2",
+            "markers": {
+                "a137": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "However + adjective + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_passive_be",
+                "future_concession"
+            ],
+            "variants": [
+                "However improbable the scenario, the contingency plan {a137} activated if needed."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 138,
+            "question": "He prophesied that the nation {a138} a beacon of progress.",
+            "level": "C2",
+            "markers": {
+                "a138": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will is",
+                        "would is"
+                    ],
+                    "verb_hint": "prophesied + would be"
+                }
+            },
+            "tag_keys": [
+                "future_would_be_reported",
+                "literary_register"
+            ],
+            "variants": [
+                "He prophesied that the nation {a138} a beacon of progress."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 139,
+            "question": "It is vital that this principle {a139} upheld in all future legislation.",
+            "level": "C2",
+            "markers": {
+                "a139": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "It is vital that + subject + be (subjunctive)"
+                }
+            },
+            "tag_keys": [
+                "subjunctive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "It is vital that this principle {a139} upheld in all future legislation."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 140,
+            "question": "In no way {a140} the sovereignty of member states be compromised.",
+            "level": "C2",
+            "markers": {
+                "a140": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "In no way + will + subject + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_inverted_negative",
+                "formal_register"
+            ],
+            "variants": [
+                "In no way {a140} the sovereignty of member states be compromised."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 141,
+            "question": "Suffice it to say, the implications {a141} far-reaching.",
+            "level": "C2",
+            "markers": {
+                "a141": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "is will"
+                    ],
+                    "verb_hint": "Suffice it to say + will be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "literary_register"
+            ],
+            "variants": [
+                "Suffice it to say, the implications {a141} far-reaching."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 142,
+            "question": "The director demanded that every irregularity {a142} investigated without exception.",
+            "level": "C2",
+            "markers": {
+                "a142": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "demanded that + subject + be (subjunctive)"
+                }
+            },
+            "tag_keys": [
+                "subjunctive_be",
+                "formal_register"
+            ],
+            "variants": [
+                "The director demanded that every irregularity {a142} investigated without exception."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 143,
+            "question": "Lest there {a143} any doubt, the guidelines are mandatory.",
+            "level": "C2",
+            "markers": {
+                "a143": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "will be",
+                        "is"
+                    ],
+                    "verb_hint": "Lest there be (subjunctive)"
+                }
+            },
+            "tag_keys": [
+                "subjunctive_be",
+                "literary_register"
+            ],
+            "variants": [
+                "Lest there {a143} any doubt, the guidelines are mandatory."
+            ],
+            "source": "theory_page_1368"
+        },
+        {
+            "id": 144,
+            "question": "At no point {a144} the integrity of the process be questioned.",
+            "level": "C2",
+            "markers": {
+                "a144": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "At no point + will + subject + be"
+                }
+            },
+            "tag_keys": [
+                "future_will_be_affirmative",
+                "future_inverted_negative",
+                "formal_register"
+            ],
+            "variants": [
+                "At no point {a144} the integrity of the process be questioned."
+            ],
+            "source": "theory_page_1368"
+        }
+    ],
+    "saved_test": {
+        "uuid": "verb-to-be-future-opus46-saved",
+        "slug": "verb_to_be_future_opus46",
+        "name": "Verb to Be: Future — Opus 4.6 V3 Questions Test",
+        "description": "Practice set for Verb to Be in future tense: will be affirmative, won't be negative, Will … be? questions, short answers, There will be, passive will be, conditional and time clauses, reported speech with would be, inverted negatives, and subjunctive be across A1–C2.",
+        "filters": {
+            "num_questions": 144,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBeFutureV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1368,
+                "theory_page_ids": [
+                    1368
+                ],
+                "theory_page": {
+                    "id": 1368,
+                    "slug": "verb-to-be-future",
+                    "title": "Verb to Be: Future",
+                    "category_slug_path": "basic-grammar/verb-to-be",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeFutureTheorySeeder",
+                    "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-future"
+                }
+            }
+        }
+    }
+}
