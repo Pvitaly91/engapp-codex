@@ -1,0 +1,40 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\SomeAnyPeopleTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPeopleTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Some / Any — People</strong> pomaga naturalnie mówić o ludziach w zdaniach twierdzących, pytaniach i przeczeniach.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\n    \"level\": \"A2\",\n    \"intro\": \"W tym temacie nauczysz się używać <strong>some people, any people, no people</strong> oraz pokrewnych form zaimkowych bez typowych błędów.\",\n    \"rules\": [\n        {\n            \"label\": \"TWIERDZENIA\",\n            \"color\": \"emerald\",\n            \"text\": \"<strong>Some people</strong> to najczęstszy wybór w zdaniach twierdzących:\",\n            \"example\": \"Some people work better at night.\"\n        },\n        {\n            \"label\": \"PYTANIA / PRZECZENIA\",\n            \"color\": \"blue\",\n            \"text\": \"<strong>Any people</strong> zwykle pojawia się w pytaniach i przeczeniach:\",\n            \"example\": \"Do you know any people here?\"\n        },\n        {\n            \"label\": \"ZNACZENIE PRZECZĄCE\",\n            \"color\": \"rose\",\n            \"text\": \"<strong>No people</strong> oraz <strong>nobody / no one</strong> same w sobie są przeczące:\",\n            \"example\": \"No people were waiting outside.\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 2,
+            "body": "{\n    \"title\": \"1. Podstawowe wzory\",\n    \"intro\": \"Porównaj najczęstsze konstrukcje z <strong>people</strong> i pokrewnymi zaimkami.\",\n    \"items\": [\n        {\n            \"label\": \"Twierdzenie\",\n            \"title\": \"some people\",\n            \"subtitle\": \"nieokreślona część grupy: Some people need more time.\"\n        },\n        {\n            \"label\": \"Pytanie / przeczenie\",\n            \"title\": \"any people\",\n            \"subtitle\": \"Do you know any people there?\"\n        },\n        {\n            \"label\": \"Pełne przeczenie\",\n            \"title\": \"no people\",\n            \"subtitle\": \"No people came to the meeting.\"\n        },\n        {\n            \"label\": \"Forma zaimkowa\",\n            \"title\": \"someone / anyone / no one\",\n            \"subtitle\": \"Someone is at the door.\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 3,
+            "body": "{\n    \"title\": \"2. Jak to działa w zdaniach\",\n    \"sections\": [\n        {\n            \"label\": \"Twierdzenia z some people\",\n            \"color\": \"emerald\",\n            \"description\": \"<strong>Some people</strong> brzmi naturalnie, gdy masz na myśli nieokreśloną część większej grupy.\",\n            \"examples\": [\n                {\n                    \"en\": \"Some people learn faster with examples.\",\n                    \"ua\": \"Niektórzy ludzie uczą się szybciej na przykładach.\"\n                },\n                {\n                    \"en\": \"Some people in my class already have jobs.\",\n                    \"ua\": \"Niektóre osoby w mojej grupie już pracują.\"\n                },\n                {\n                    \"en\": \"Some people just prefer quiet cafés.\",\n                    \"ua\": \"Niektórzy po prostu wolą ciche kawiarnie.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Pytania i przeczenia z any people\",\n            \"color\": \"blue\",\n            \"description\": \"W neutralnych pytaniach i przeczeniach częściej używamy <strong>any people</strong>.\",\n            \"examples\": [\n                {\n                    \"en\": \"Do you know any people in Warsaw?\",\n                    \"ua\": \"Czy znasz kogoś w Warszawie?\"\n                },\n                {\n                    \"en\": \"I do not know any people on this street.\",\n                    \"ua\": \"Nie znam nikogo na tej ulicy.\"\n                },\n                {\n                    \"en\": \"Are there any people in the office now?\",\n                    \"ua\": \"Czy są teraz jacyś ludzie w biurze?\"\n                }\n            ],\n            \"note\": \"Jeśli oczekujesz odpowiedzi pozytywnej, w pytaniu może pojawić się <strong>some people</strong>.\"\n        },\n        {\n            \"label\": \"No people i formy zaimkowe\",\n            \"color\": \"rose\",\n            \"description\": \"<strong>No people</strong>, <strong>nobody</strong> i <strong>no one</strong> same zawierają znaczenie przeczące.\",\n            \"examples\": [\n                {\n                    \"en\": \"No people were sitting outside.\",\n                    \"ua\": \"Na zewnątrz nie siedzieli żadni ludzie.\"\n                },\n                {\n                    \"en\": \"Nobody answered the phone.\",\n                    \"ua\": \"Nikt nie odebrał telefonu.\"\n                },\n                {\n                    \"en\": \"No one wanted to leave early.\",\n                    \"ua\": \"Nikt nie chciał wyjść wcześniej.\"\n                }\n            ],\n            \"note\": \"Nie dodawaj kolejnego <strong>not</strong>: nie <span class=\\\"line-through\\\">I do not know nobody</span>.\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 4,
+            "body": "{\n    \"title\": \"3. Typowe błędy\",\n    \"items\": [\n        {\n            \"label\": \"Błąd 1\",\n            \"color\": \"rose\",\n            \"title\": \"Some w neutralnym pytaniu.\",\n            \"wrong\": \"Do you know some people here?\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">Do you know any people here?</span>\"\n        },\n        {\n            \"label\": \"Błąd 2\",\n            \"color\": \"amber\",\n            \"title\": \"Podwójne przeczenie.\",\n            \"wrong\": \"I do not know no people there.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">I do not know any people there.</span> / <span class=\\\"font-mono\\\">I know no people there.</span>\"\n        },\n        {\n            \"label\": \"Błąd 3\",\n            \"color\": \"sky\",\n            \"title\": \"Błędna zgoda z people.\",\n            \"wrong\": \"Some people is waiting outside.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">Some people are waiting outside.</span>\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 5,
+            "body": "{\n    \"title\": \"4. Krótkie podsumowanie\",\n    \"items\": [\n        \"<strong>Some people</strong> to normalny wybór w zdaniach twierdzących.\",\n        \"<strong>Any people</strong> najczęściej pojawia się w pytaniach i przeczeniach.\",\n        \"<strong>No people</strong>, <strong>nobody</strong> i <strong>no one</strong> już same mają znaczenie przeczące.\",\n        \"Po <strong>people</strong> czasownik zwykle stoi w liczbie mnogiej: <em>people are</em>.\",\n        \"Unikaj podwójnych przeczeń: <em>I do not know anybody</em> albo <em>I know nobody</em>.\"\n    ]\n}"
+        },
+        {
+            "index": 6,
+            "body": "{\n    \"title\": \"Strony tego działu\",\n    \"items\": [\n        {\n            \"label\": \"Some / Any — Places\",\n            \"url\": \"/pl/theory/some-any/theory-some-any-places\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Some / Any — People\",\n            \"url\": \"/pl/theory/some-any/theory-some-any-people\",\n            \"current\": true\n        },\n        {\n            \"label\": \"Some / Any — Things\",\n            \"url\": \"/pl/theory/some-any/theory-some-any-things\",\n            \"current\": false\n        }\n    ]\n}"
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\PronounsDemonstrativesThisThatTheseThoseTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesThisThatTheseThoseTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Demonstratives: this / that / these / those</strong> pomaga szybko wybrać właściwe słowo według odległości i liczby.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\n    \"level\": \"A1\",\n    \"intro\": \"W tym temacie nauczysz się wybierać między <strong>this, that, these, those</strong> na podstawie <strong>blisko / daleko</strong> oraz <strong>liczby pojedynczej / mnogiej</strong>.\",\n    \"rules\": [\n        {\n            \"label\": \"BLISKO + LICZBA POJEDYNCZA\",\n            \"color\": \"emerald\",\n            \"text\": \"<strong>This</strong> odnosi się do jednej rzeczy blisko mówiącego:\",\n            \"example\": \"This book is mine.\"\n        },\n        {\n            \"label\": \"DALEKO + LICZBA POJEDYNCZA\",\n            \"color\": \"blue\",\n            \"text\": \"<strong>That</strong> odnosi się do jednej rzeczy dalej od mówiącego:\",\n            \"example\": \"That car is expensive.\"\n        },\n        {\n            \"label\": \"LICZBA MNOGA\",\n            \"color\": \"amber\",\n            \"text\": \"<strong>These / those</strong> to formy liczby mnogiej: blisko albo daleko.\",\n            \"example\": \"These shoes are new. / Those houses are old.\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 2,
+            "body": "{\n    \"title\": \"1. Szybki schemat\",\n    \"intro\": \"Połącz odległość i liczbę, aby od razu wybrać poprawny zaimek wskazujący.\",\n    \"items\": [\n        {\n            \"label\": \"Blisko + liczba pojedyncza\",\n            \"title\": \"this\",\n            \"subtitle\": \"this bag, this idea, this one\"\n        },\n        {\n            \"label\": \"Daleko + liczba pojedyncza\",\n            \"title\": \"that\",\n            \"subtitle\": \"that bag, that idea, that one\"\n        },\n        {\n            \"label\": \"Blisko + liczba mnoga\",\n            \"title\": \"these\",\n            \"subtitle\": \"these bags, these ideas, these ones\"\n        },\n        {\n            \"label\": \"Daleko + liczba mnoga\",\n            \"title\": \"those\",\n            \"subtitle\": \"those bags, those ideas, those ones\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 3,
+            "body": "{\n    \"title\": \"2. Główne użycia\",\n    \"sections\": [\n        {\n            \"label\": \"Blisko czy daleko\",\n            \"color\": \"emerald\",\n            \"description\": \"Zaimek wskazujący często pokazuje, <strong>gdzie</strong> znajduje się rzecz albo idea względem mówiącego.\",\n            \"examples\": [\n                {\n                    \"en\": \"This chair is comfortable.\",\n                    \"ua\": \"To krzesło jest wygodne.\"\n                },\n                {\n                    \"en\": \"That building is very old.\",\n                    \"ua\": \"Tamten budynek jest bardzo stary.\"\n                },\n                {\n                    \"en\": \"Those lights look beautiful at night.\",\n                    \"ua\": \"Tamte światła pięknie wyglądają nocą.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Liczba pojedyncza i mnoga\",\n            \"color\": \"blue\",\n            \"description\": \"Forma zależy jednocześnie od odległości i od liczby.\",\n            \"examples\": [\n                {\n                    \"en\": \"This apple is sweet, but these apples are sour.\",\n                    \"ua\": \"To jabłko jest słodkie, ale te jabłka są kwaśne.\"\n                },\n                {\n                    \"en\": \"That photo is blurry, and those photos are darker.\",\n                    \"ua\": \"Tamto zdjęcie jest niewyraźne, a tamte zdjęcia są ciemniejsze.\"\n                },\n                {\n                    \"en\": \"Who is that? Who are those people?\",\n                    \"ua\": \"Kto to jest? Kim są tamci ludzie?\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Typowe wzory\",\n            \"color\": \"amber\",\n            \"description\": \"Po demonstrative często stoi <strong>rzeczownik</strong>, ale słowo może też występować samodzielnie.\",\n            \"examples\": [\n                {\n                    \"en\": \"This book is easier than that one.\",\n                    \"ua\": \"Ta książka jest łatwiejsza niż tamta.\"\n                },\n                {\n                    \"en\": \"These are my keys.\",\n                    \"ua\": \"To są moje klucze.\"\n                },\n                {\n                    \"en\": \"I do not like those.\",\n                    \"ua\": \"Nie lubię tamtych.\"\n                }\n            ],\n            \"note\": \"This / that łączą się z liczbą pojedynczą, a these / those z mnogą.\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 4,
+            "body": "{\n    \"title\": \"3. Typowe błędy\",\n    \"items\": [\n        {\n            \"label\": \"Błąd 1\",\n            \"color\": \"rose\",\n            \"title\": \"This z rzeczownikiem w liczbie mnogiej.\",\n            \"wrong\": \"This shoes are new.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">These shoes are new.</span>\"\n        },\n        {\n            \"label\": \"Błąd 2\",\n            \"color\": \"amber\",\n            \"title\": \"Złe połączenie that / those z czasownikiem.\",\n            \"wrong\": \"That are my keys.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">Those are my keys.</span> / <span class=\\\"font-mono\\\">That is my key.</span>\"\n        },\n        {\n            \"label\": \"Błąd 3\",\n            \"color\": \"sky\",\n            \"title\": \"Mylenie one i ones.\",\n            \"wrong\": \"I like this ones.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">I like these ones.</span> / <span class=\\\"font-mono\\\">I like this one.</span>\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 5,
+            "body": "{\n    \"title\": \"4. Krótkie podsumowanie\",\n    \"items\": [\n        \"<strong>This</strong> = blisko + liczba pojedyncza.\",\n        \"<strong>That</strong> = daleko + liczba pojedyncza.\",\n        \"<strong>These</strong> = blisko + liczba mnoga.\",\n        \"<strong>Those</strong> = daleko + liczba mnoga.\",\n        \"Demonstrative może stać przed rzeczownikiem albo samodzielnie: <em>this book</em>, <em>those</em>.\"\n    ]\n}"
+        },
+        {
+            "index": 6,
+            "body": "{\n    \"title\": \"Strony tego działu\",\n    \"items\": [\n        {\n            \"label\": \"Pronouns — Overview\",\n            \"url\": \"/pl/theory/zaimennyky-ta-vkazivni-slova/pronouns-theory\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Personal / Object Pronouns\",\n            \"url\": \"/pl/theory/zaimennyky-ta-vkazivni-slova/personal-object-pronouns\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Possessive Forms\",\n            \"url\": \"/pl/theory/zaimennyky-ta-vkazivni-slova/possessive-adjectives-vs-pronouns-my-mine-your-yours\",\n            \"current\": false\n        },\n        {\n            \"label\": \"One / Ones — Noun Replacement\",\n            \"url\": \"/pl/theory/zaimennyky-ta-vkazivni-slova/one-ones\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Demonstratives: this / that / these / those\",\n            \"url\": \"/pl/theory/zaimennyky-ta-vkazivni-slova/demonstratives-this-that-these-those\",\n            \"current\": true\n        }\n    ]\n}"
+        }
+    ]
+}
