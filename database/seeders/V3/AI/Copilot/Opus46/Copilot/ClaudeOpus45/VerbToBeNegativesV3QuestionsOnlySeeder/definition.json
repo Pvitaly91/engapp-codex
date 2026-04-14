@@ -1,0 +1,2680 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\Copilot\\ClaudeOpus45\\VerbToBeNegativesV3QuestionsOnlySeeder",
+        "uuid_namespace": "VerbToBeNegativesV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Verb to Be"
+    },
+    "sources": {
+        "theory_page_1122": {
+            "name": "Verb to Be: Negatives — am not, is not, are not"
+        }
+    },
+    "tags": {
+        "be_negative": {
+            "name": "Verb to be: negative forms",
+            "category": "grammar_rule"
+        },
+        "am_not": {
+            "name": "am not (I am not)",
+            "category": "grammar_subrule"
+        },
+        "is_not": {
+            "name": "is not (he/she/it is not)",
+            "category": "grammar_subrule"
+        },
+        "are_not": {
+            "name": "are not (you/we/they are not)",
+            "category": "grammar_subrule"
+        },
+        "isnt_contraction": {
+            "name": "isn't (contraction of is not)",
+            "category": "grammar_subrule"
+        },
+        "arent_contraction": {
+            "name": "aren't (contraction of are not)",
+            "category": "grammar_subrule"
+        },
+        "am_not_contraction": {
+            "name": "'m not (contraction of am not)",
+            "category": "grammar_subrule"
+        },
+        "wasnt_past_negative": {
+            "name": "wasn't / was not (past negative)",
+            "category": "grammar_subrule"
+        },
+        "werent_past_negative": {
+            "name": "weren't / were not (past negative)",
+            "category": "grammar_subrule"
+        },
+        "be_negative_formal": {
+            "name": "Formal full negative forms (is not, are not, was not, were not)",
+            "category": "register"
+        },
+        "be_not_to_infinitive": {
+            "name": "be not to + infinitive (prohibition/instruction)",
+            "category": "grammar_pattern"
+        },
+        "be_negative_inversion": {
+            "name": "Negative inversion with be (Never was…, At no point were…)",
+            "category": "grammar_pattern"
+        },
+        "be_negative_reported_speech": {
+            "name": "Negative be in reported speech",
+            "category": "grammar_pattern"
+        },
+        "be_negative_neither_nor": {
+            "name": "neither…nor with be (agreement)",
+            "category": "grammar_pattern"
+        },
+        "be_negative_litotes": {
+            "name": "Litotes with be (It is not uncommon…)",
+            "category": "grammar_pattern"
+        },
+        "be_negative_conditional": {
+            "name": "Negative be in conditional clauses",
+            "category": "grammar_pattern"
+        },
+        "be_negative_legal_register": {
+            "name": "Negative be in legal/official register",
+            "category": "register"
+        },
+        "be_negative_literary": {
+            "name": "Literary/rhetorical negative be patterns",
+            "category": "register"
+        },
+        "be_negative_parenthetical": {
+            "name": "Parenthetical negative be (it must be said, … is not…)",
+            "category": "grammar_pattern"
+        },
+        "be_not_for_construction": {
+            "name": "be not for + noun/gerund (purpose denial)",
+            "category": "grammar_pattern"
+        },
+        "be_negative_embedded_clause": {
+            "name": "Negative be in embedded clauses",
+            "category": "grammar_pattern"
+        },
+        "be_negative_subjunctive": {
+            "name": "Subjunctive be in negative contexts (lest it be…)",
+            "category": "grammar_pattern"
+        }
+    },
+    "default_tag_keys": [
+        "be_negative"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "I {a1} hungry right now.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} hungry right now."
+            ]
+        },
+        {
+            "id": 2,
+            "question": "She {a2} at home today.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "is not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a2} at home today."
+            ]
+        },
+        {
+            "id": 3,
+            "question": "They {a3} ready for the test.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "are not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a3} ready for the test."
+            ]
+        },
+        {
+            "id": 4,
+            "question": "He {a4} a doctor.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "He {a4} a doctor."
+            ]
+        },
+        {
+            "id": 5,
+            "question": "We {a5} late for class.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "We {a5} late for class."
+            ]
+        },
+        {
+            "id": 6,
+            "question": "It {a6} cold outside.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "It {a6} cold outside."
+            ]
+        },
+        {
+            "id": 7,
+            "question": "You {a7} wrong about that.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "You {a7} wrong about that."
+            ]
+        },
+        {
+            "id": 8,
+            "question": "I {a8} a teacher.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a8} a teacher."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "The cat {a9} on the bed.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "The cat {a9} on the bed."
+            ]
+        },
+        {
+            "id": 10,
+            "question": "My friends {a10} here yet.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "My friends {a10} here yet."
+            ]
+        },
+        {
+            "id": 11,
+            "question": "She {a11} happy about the news.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a11} happy about the news."
+            ]
+        },
+        {
+            "id": 12,
+            "question": "The door {a12} open.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "The door {a12} open."
+            ]
+        },
+        {
+            "id": 13,
+            "question": "We {a13} in the garden.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a13": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "We {a13} in the garden."
+            ]
+        },
+        {
+            "id": 14,
+            "question": "He {a14} tall.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a14": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "He {a14} tall."
+            ]
+        },
+        {
+            "id": 15,
+            "question": "I {a15} tired after the walk.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a15": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a15} tired after the walk."
+            ]
+        },
+        {
+            "id": 16,
+            "question": "The children {a16} asleep.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a16": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "The children {a16} asleep."
+            ]
+        },
+        {
+            "id": 17,
+            "question": "This book {a17} interesting.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a17": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "This book {a17} interesting."
+            ]
+        },
+        {
+            "id": 18,
+            "question": "You {a18} alone here.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a18": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ],
+                    "verb_hint": "be negative"
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "You {a18} alone here."
+            ]
+        },
+        {
+            "id": 19,
+            "question": "She {a19} busy right now.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a19": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "isnt_contraction"
+            ],
+            "variants": [
+                "She {a19} busy right now."
+            ]
+        },
+        {
+            "id": 20,
+            "question": "They {a20} from Spain.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a20": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "am not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "arent_contraction"
+            ],
+            "variants": [
+                "They {a20} from Spain."
+            ]
+        },
+        {
+            "id": 21,
+            "question": "The soup {a21} hot enough.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a21": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "isnt_contraction"
+            ],
+            "variants": [
+                "The soup {a21} hot enough."
+            ]
+        },
+        {
+            "id": 22,
+            "question": "I {a22} sure about the answer.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a22": {
+                    "answer": "'m not",
+                    "options": [
+                        "'m not",
+                        "isn't",
+                        "aren't"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "am_not_contraction"
+            ],
+            "variants": [
+                "I {a22} sure about the answer."
+            ]
+        },
+        {
+            "id": 23,
+            "question": "We {a23} going to the party tonight.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a23": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "'m not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "arent_contraction"
+            ],
+            "variants": [
+                "We {a23} going to the party tonight."
+            ]
+        },
+        {
+            "id": 24,
+            "question": "He {a24} very good at cooking.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a24": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "'m not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "isnt_contraction"
+            ],
+            "variants": [
+                "He {a24} very good at cooking."
+            ]
+        },
+        {
+            "id": 25,
+            "question": "You {a25} the only one who thinks so.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "'m not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "arent_contraction"
+            ],
+            "variants": [
+                "You {a25} the only one who thinks so."
+            ]
+        },
+        {
+            "id": 26,
+            "question": "It {a26} easy to learn a new language.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "'m not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "isnt_contraction"
+            ],
+            "variants": [
+                "It {a26} easy to learn a new language."
+            ]
+        },
+        {
+            "id": 27,
+            "question": "My sister {a27} older than me.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "'m not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "isnt_contraction"
+            ],
+            "variants": [
+                "My sister {a27} older than me."
+            ]
+        },
+        {
+            "id": 28,
+            "question": "The shops {a28} open on Sundays.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "'m not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "arent_contraction"
+            ],
+            "variants": [
+                "The shops {a28} open on Sundays."
+            ]
+        },
+        {
+            "id": 29,
+            "question": "I {a29} interested in football.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "'m not",
+                    "options": [
+                        "'m not",
+                        "isn't",
+                        "aren't"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "am_not_contraction"
+            ],
+            "variants": [
+                "I {a29} interested in football."
+            ]
+        },
+        {
+            "id": 30,
+            "question": "This {a30} the right answer.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "'m not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "isnt_contraction"
+            ],
+            "variants": [
+                "This {a30} the right answer."
+            ]
+        },
+        {
+            "id": 31,
+            "question": "The flowers {a31} fresh any more.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a31": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "'m not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "arent_contraction"
+            ],
+            "variants": [
+                "The flowers {a31} fresh any more."
+            ]
+        },
+        {
+            "id": 32,
+            "question": "He {a32} a teacher; he is a pilot.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a32": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "'m not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "isnt_contraction"
+            ],
+            "variants": [
+                "He {a32} a teacher; he is a pilot."
+            ]
+        },
+        {
+            "id": 33,
+            "question": "We {a33} allowed to park here.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a33": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "'m not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "arent_contraction"
+            ],
+            "variants": [
+                "We {a33} allowed to park here."
+            ]
+        },
+        {
+            "id": 34,
+            "question": "The film {a34} very long.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a34": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "'m not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "isnt_contraction"
+            ],
+            "variants": [
+                "The film {a34} very long."
+            ]
+        },
+        {
+            "id": 35,
+            "question": "Tom and Lisa {a35} at school today.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a35": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "'m not"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "arent_contraction"
+            ],
+            "variants": [
+                "Tom and Lisa {a35} at school today."
+            ]
+        },
+        {
+            "id": 36,
+            "question": "I {a36} afraid of the dark.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a36": {
+                    "answer": "'m not",
+                    "options": [
+                        "'m not",
+                        "isn't",
+                        "aren't"
+                    ],
+                    "verb_hint": "be contraction"
+                }
+            },
+            "tag_keys": [
+                "am_not_contraction"
+            ],
+            "variants": [
+                "I {a36} afraid of the dark."
+            ]
+        },
+        {
+            "id": 37,
+            "question": "The meeting {a37} scheduled for today.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a37": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "isn't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative"
+            ],
+            "variants": [
+                "The meeting {a37} scheduled for today."
+            ]
+        },
+        {
+            "id": 38,
+            "question": "They {a38} at the concert last night.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a38": {
+                    "answer": "weren't",
+                    "options": [
+                        "weren't",
+                        "wasn't",
+                        "aren't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative"
+            ],
+            "variants": [
+                "They {a38} at the concert last night."
+            ]
+        },
+        {
+            "id": 39,
+            "question": "I {a39} aware of the problem until Monday.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a39": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "am not"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative"
+            ],
+            "variants": [
+                "I {a39} aware of the problem until Monday."
+            ]
+        },
+        {
+            "id": 40,
+            "question": "The roads {a40} safe during the storm.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a40": {
+                    "answer": "weren't",
+                    "options": [
+                        "weren't",
+                        "wasn't",
+                        "aren't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative"
+            ],
+            "variants": [
+                "The roads {a40} safe during the storm."
+            ]
+        },
+        {
+            "id": 41,
+            "question": "She {a41} satisfied with the results.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a41": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "isn't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative"
+            ],
+            "variants": [
+                "She {a41} satisfied with the results."
+            ]
+        },
+        {
+            "id": 42,
+            "question": "We {a42} informed about the schedule change.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a42": {
+                    "answer": "weren't",
+                    "options": [
+                        "weren't",
+                        "wasn't",
+                        "aren't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative"
+            ],
+            "variants": [
+                "We {a42} informed about the schedule change."
+            ]
+        },
+        {
+            "id": 43,
+            "question": "The hotel {a43} as cheap as we expected.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a43": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "isn't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative"
+            ],
+            "variants": [
+                "The hotel {a43} as cheap as we expected."
+            ]
+        },
+        {
+            "id": 44,
+            "question": "Those answers {a44} correct on the quiz.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a44": {
+                    "answer": "weren't",
+                    "options": [
+                        "weren't",
+                        "wasn't",
+                        "aren't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative"
+            ],
+            "variants": [
+                "Those answers {a44} correct on the quiz."
+            ]
+        },
+        {
+            "id": 45,
+            "question": "He {a45} feeling well yesterday.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a45": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "isn't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative"
+            ],
+            "variants": [
+                "He {a45} feeling well yesterday."
+            ]
+        },
+        {
+            "id": 46,
+            "question": "The instructions {a46} clear enough for us.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a46": {
+                    "answer": "weren't",
+                    "options": [
+                        "weren't",
+                        "wasn't",
+                        "aren't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative"
+            ],
+            "variants": [
+                "The instructions {a46} clear enough for us."
+            ]
+        },
+        {
+            "id": 47,
+            "question": "I {a47} prepared for such a hard exam.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a47": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "am not"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative"
+            ],
+            "variants": [
+                "I {a47} prepared for such a hard exam."
+            ]
+        },
+        {
+            "id": 48,
+            "question": "The package {a48} delivered on time.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a48": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "isn't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative"
+            ],
+            "variants": [
+                "The package {a48} delivered on time."
+            ]
+        },
+        {
+            "id": 49,
+            "question": "The neighbours {a49} happy about the noise.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a49": {
+                    "answer": "weren't",
+                    "options": [
+                        "weren't",
+                        "wasn't",
+                        "aren't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative"
+            ],
+            "variants": [
+                "The neighbours {a49} happy about the noise."
+            ]
+        },
+        {
+            "id": 50,
+            "question": "She {a50} convinced by his argument.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a50": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "isn't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative"
+            ],
+            "variants": [
+                "She {a50} convinced by his argument."
+            ]
+        },
+        {
+            "id": 51,
+            "question": "The train {a51} delayed, but the bus was.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a51": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "isn't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative"
+            ],
+            "variants": [
+                "The train {a51} delayed, but the bus was."
+            ]
+        },
+        {
+            "id": 52,
+            "question": "We {a52} surprised by the announcement.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a52": {
+                    "answer": "weren't",
+                    "options": [
+                        "weren't",
+                        "wasn't",
+                        "aren't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative"
+            ],
+            "variants": [
+                "We {a52} surprised by the announcement."
+            ]
+        },
+        {
+            "id": 53,
+            "question": "The weather {a53} warm enough for a picnic.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a53": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "isn't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative"
+            ],
+            "variants": [
+                "The weather {a53} warm enough for a picnic."
+            ]
+        },
+        {
+            "id": 54,
+            "question": "These shoes {a54} suitable for hiking.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a54": {
+                    "answer": "weren't",
+                    "options": [
+                        "weren't",
+                        "wasn't",
+                        "aren't"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative"
+            ],
+            "variants": [
+                "These shoes {a54} suitable for hiking."
+            ]
+        },
+        {
+            "id": 55,
+            "question": "The data {a55} consistent with previous findings.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a55": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "The data {a55} consistent with previous findings."
+            ]
+        },
+        {
+            "id": 56,
+            "question": "The committee members {a56} satisfied with the proposed budget.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a56": {
+                    "answer": "were not",
+                    "options": [
+                        "were not",
+                        "was not",
+                        "are not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "The committee members {a56} satisfied with the proposed budget."
+            ]
+        },
+        {
+            "id": 57,
+            "question": "This approach {a57} recommended by the advisory board.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a57": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "was not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "This approach {a57} recommended by the advisory board."
+            ]
+        },
+        {
+            "id": 58,
+            "question": "The results {a58} as reliable as we initially thought.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a58": {
+                    "answer": "were not",
+                    "options": [
+                        "were not",
+                        "was not",
+                        "are not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "The results {a58} as reliable as we initially thought."
+            ]
+        },
+        {
+            "id": 59,
+            "question": "I {a59} entirely convinced by the evidence presented.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a59": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "am_not",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "I {a59} entirely convinced by the evidence presented."
+            ]
+        },
+        {
+            "id": 60,
+            "question": "The witnesses {a60} able to identify the suspect.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a60": {
+                    "answer": "were not",
+                    "options": [
+                        "were not",
+                        "was not",
+                        "are not"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative"
+            ],
+            "variants": [
+                "The witnesses {a60} able to identify the suspect."
+            ]
+        },
+        {
+            "id": 61,
+            "question": "His behaviour {a61} appropriate for a formal setting.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a61": {
+                    "answer": "was not",
+                    "options": [
+                        "was not",
+                        "were not",
+                        "is not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "His behaviour {a61} appropriate for a formal setting."
+            ]
+        },
+        {
+            "id": 62,
+            "question": "The figures in the report {a62} accurate.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a62": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "The figures in the report {a62} accurate."
+            ]
+        },
+        {
+            "id": 63,
+            "question": "She {a63} willing to accept the terms without revision.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a63": {
+                    "answer": "was not",
+                    "options": [
+                        "was not",
+                        "were not",
+                        "is not"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative"
+            ],
+            "variants": [
+                "She {a63} willing to accept the terms without revision."
+            ]
+        },
+        {
+            "id": 64,
+            "question": "The new regulations {a64} expected to take effect until July.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a64": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "were not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "The new regulations {a64} expected to take effect until July."
+            ]
+        },
+        {
+            "id": 65,
+            "question": "That explanation {a65} sufficient to address the concern.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a65": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "was not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "That explanation {a65} sufficient to address the concern."
+            ]
+        },
+        {
+            "id": 66,
+            "question": "The participants {a66} informed of the change in advance.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a66": {
+                    "answer": "were not",
+                    "options": [
+                        "were not",
+                        "was not",
+                        "are not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "The participants {a66} informed of the change in advance."
+            ]
+        },
+        {
+            "id": 67,
+            "question": "Such conduct {a67} tolerated in this institution.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a67": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "was not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "Such conduct {a67} tolerated in this institution."
+            ]
+        },
+        {
+            "id": 68,
+            "question": "The patients {a68} discharged until the tests came back.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a68": {
+                    "answer": "were not",
+                    "options": [
+                        "were not",
+                        "was not",
+                        "are not"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative"
+            ],
+            "variants": [
+                "The patients {a68} discharged until the tests came back."
+            ]
+        },
+        {
+            "id": 69,
+            "question": "The proposal {a69} supported by the majority of board members.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a69": {
+                    "answer": "was not",
+                    "options": [
+                        "was not",
+                        "were not",
+                        "is not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "The proposal {a69} supported by the majority of board members."
+            ]
+        },
+        {
+            "id": 70,
+            "question": "These measures {a70} designed to replace existing policies.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a70": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "were not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "These measures {a70} designed to replace existing policies."
+            ]
+        },
+        {
+            "id": 71,
+            "question": "The defendant {a71} present when the verdict was read.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a71": {
+                    "answer": "was not",
+                    "options": [
+                        "was not",
+                        "were not",
+                        "is not"
+                    ],
+                    "verb_hint": "past be negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative"
+            ],
+            "variants": [
+                "The defendant {a71} present when the verdict was read."
+            ]
+        },
+        {
+            "id": 72,
+            "question": "We {a72} prepared to make a final decision at this stage.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a72": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "were not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "We {a72} prepared to make a final decision at this stage."
+            ]
+        },
+        {
+            "id": 73,
+            "question": "The government {a73} to be held responsible for private losses.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a73": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "was not"
+                    ],
+                    "verb_hint": "be not to"
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_not_to_infinitive"
+            ],
+            "variants": [
+                "The government {a73} to be held responsible for private losses."
+            ]
+        },
+        {
+            "id": 74,
+            "question": "Employees {a74} to be disturbed during the inspection.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a74": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "were not"
+                    ],
+                    "verb_hint": "be not to"
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_not_to_infinitive"
+            ],
+            "variants": [
+                "Employees {a74} to be disturbed during the inspection."
+            ]
+        },
+        {
+            "id": 75,
+            "question": "Under no circumstances {a75} this document to be copied.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a75": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "was"
+                    ],
+                    "verb_hint": "emphatic negative"
+                }
+            },
+            "tag_keys": [
+                "be_negative_inversion"
+            ],
+            "variants": [
+                "Under no circumstances {a75} this document to be copied."
+            ]
+        },
+        {
+            "id": 76,
+            "question": "The CEO insisted that the figures {a76} accurate.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a76": {
+                    "answer": "were not",
+                    "options": [
+                        "were not",
+                        "was not",
+                        "are not"
+                    ],
+                    "verb_hint": "reported speech negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative",
+                "be_negative_reported_speech"
+            ],
+            "variants": [
+                "The CEO insisted that the figures {a76} accurate."
+            ]
+        },
+        {
+            "id": 77,
+            "question": "At no point {a77} the safety protocols breached.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a77": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "was",
+                        "are"
+                    ],
+                    "verb_hint": "emphatic negative"
+                }
+            },
+            "tag_keys": [
+                "be_negative_inversion"
+            ],
+            "variants": [
+                "At no point {a77} the safety protocols breached."
+            ]
+        },
+        {
+            "id": 78,
+            "question": "The minister stated that funding {a78} sufficient.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a78": {
+                    "answer": "was not",
+                    "options": [
+                        "was not",
+                        "were not",
+                        "is not"
+                    ],
+                    "verb_hint": "reported speech negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative",
+                "be_negative_reported_speech"
+            ],
+            "variants": [
+                "The minister stated that funding {a78} sufficient."
+            ]
+        },
+        {
+            "id": 79,
+            "question": "Neither the manager nor the assistant {a79} available for comment.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a79": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "neither-nor negative"
+                }
+            },
+            "tag_keys": [
+                "be_negative_neither_nor"
+            ],
+            "variants": [
+                "Neither the manager nor the assistant {a79} available for comment."
+            ]
+        },
+        {
+            "id": 80,
+            "question": "Neither the students nor the teacher {a80} satisfied with the outcome.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a80": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "neither-nor negative"
+                }
+            },
+            "tag_keys": [
+                "be_negative_neither_nor"
+            ],
+            "variants": [
+                "Neither the students nor the teacher {a80} satisfied with the outcome."
+            ]
+        },
+        {
+            "id": 81,
+            "question": "In no way {a81} the decision intended to cause harm.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a81": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "emphatic negative"
+                }
+            },
+            "tag_keys": [
+                "be_negative_inversion"
+            ],
+            "variants": [
+                "In no way {a81} the decision intended to cause harm."
+            ]
+        },
+        {
+            "id": 82,
+            "question": "It {a82} uncommon for negotiations to last several months.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a82": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "was not"
+                    ],
+                    "verb_hint": "litotes negative"
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_litotes"
+            ],
+            "variants": [
+                "It {a82} uncommon for negotiations to last several months."
+            ]
+        },
+        {
+            "id": 83,
+            "question": "These allegations {a83} to be taken lightly.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a83": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "were not"
+                    ],
+                    "verb_hint": "be not to"
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_not_to_infinitive"
+            ],
+            "variants": [
+                "These allegations {a83} to be taken lightly."
+            ]
+        },
+        {
+            "id": 84,
+            "question": "The report concluded that conditions {a84} adequate.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a84": {
+                    "answer": "were not",
+                    "options": [
+                        "were not",
+                        "was not",
+                        "are not"
+                    ],
+                    "verb_hint": "reported speech negative"
+                }
+            },
+            "tag_keys": [
+                "werent_past_negative",
+                "be_negative_reported_speech"
+            ],
+            "variants": [
+                "The report concluded that conditions {a84} adequate."
+            ]
+        },
+        {
+            "id": 85,
+            "question": "The accused {a85} present during the hearing.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a85": {
+                    "answer": "was not",
+                    "options": [
+                        "was not",
+                        "were not",
+                        "is not"
+                    ],
+                    "verb_hint": "formal negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative",
+                "be_negative_formal"
+            ],
+            "variants": [
+                "The accused {a85} present during the hearing."
+            ]
+        },
+        {
+            "id": 86,
+            "question": "Never {a86} such incompetence seen in this department.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a86": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "emphatic negative"
+                }
+            },
+            "tag_keys": [
+                "be_negative_inversion"
+            ],
+            "variants": [
+                "Never {a86} such incompetence seen in this department."
+            ]
+        },
+        {
+            "id": 87,
+            "question": "The warranty {a87} valid if the product has been modified.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a87": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "was not"
+                    ],
+                    "verb_hint": "conditional negative"
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_conditional"
+            ],
+            "variants": [
+                "The warranty {a87} valid if the product has been modified."
+            ]
+        },
+        {
+            "id": 88,
+            "question": "Neither proposal {a88} acceptable to the shareholders.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a88": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "neither-nor negative"
+                }
+            },
+            "tag_keys": [
+                "be_negative_neither_nor"
+            ],
+            "variants": [
+                "Neither proposal {a88} acceptable to the shareholders."
+            ]
+        },
+        {
+            "id": 89,
+            "question": "It {a89} unreasonable to expect more transparency.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a89": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "was not"
+                    ],
+                    "verb_hint": "litotes negative"
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_litotes"
+            ],
+            "variants": [
+                "It {a89} unreasonable to expect more transparency."
+            ]
+        },
+        {
+            "id": 90,
+            "question": "The staff {a90} to be blamed for systemic failures.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a90": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "were not"
+                    ],
+                    "verb_hint": "be not to"
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_not_to_infinitive"
+            ],
+            "variants": [
+                "The staff {a90} to be blamed for systemic failures."
+            ]
+        },
+        {
+            "id": 91,
+            "question": "Be it noted that the court {a91} persuaded by the defence's reasoning.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a91": {
+                    "answer": "was not",
+                    "options": [
+                        "was not",
+                        "were not",
+                        "is not"
+                    ],
+                    "verb_hint": "legal register"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative",
+                "be_negative_legal_register"
+            ],
+            "variants": [
+                "Be it noted that the court {a91} persuaded by the defence's reasoning."
+            ]
+        },
+        {
+            "id": 92,
+            "question": "So complex {a92} the matter that a single hearing proved insufficient.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a92": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "literary inversion"
+                }
+            },
+            "tag_keys": [
+                "be_negative_inversion",
+                "be_negative_literary"
+            ],
+            "variants": [
+                "So complex {a92} the matter that a single hearing proved insufficient."
+            ]
+        },
+        {
+            "id": 93,
+            "question": "Rarely {a93} scholars so divided on a fundamental principle.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a93": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "were"
+                    ],
+                    "verb_hint": "literary inversion"
+                }
+            },
+            "tag_keys": [
+                "be_negative_inversion",
+                "be_negative_literary"
+            ],
+            "variants": [
+                "Rarely {a93} scholars so divided on a fundamental principle."
+            ]
+        },
+        {
+            "id": 94,
+            "question": "The phenomenon, it must be said, {a94} without precedent in modern history.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a94": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "was not"
+                    ],
+                    "verb_hint": "parenthetical negative"
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_parenthetical"
+            ],
+            "variants": [
+                "The phenomenon, it must be said, {a94} without precedent in modern history."
+            ]
+        },
+        {
+            "id": 95,
+            "question": "It {a95} for the committee to determine individual liability.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a95": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "was not"
+                    ],
+                    "verb_hint": "be not for"
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_not_for_construction"
+            ],
+            "variants": [
+                "It {a95} for the committee to determine individual liability."
+            ]
+        },
+        {
+            "id": 96,
+            "question": "Not once {a96} the regulations enforced during that period.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a96": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "was",
+                        "are"
+                    ],
+                    "verb_hint": "literary inversion"
+                }
+            },
+            "tag_keys": [
+                "be_negative_inversion",
+                "be_negative_literary"
+            ],
+            "variants": [
+                "Not once {a96} the regulations enforced during that period."
+            ]
+        },
+        {
+            "id": 97,
+            "question": "Whether or not the hypothesis {a97} correct remains to be seen.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a97": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "was"
+                    ],
+                    "verb_hint": "embedded clause negative"
+                }
+            },
+            "tag_keys": [
+                "be_negative_embedded_clause"
+            ],
+            "variants": [
+                "Whether or not the hypothesis {a97} correct remains to be seen."
+            ]
+        },
+        {
+            "id": 98,
+            "question": "The assumption that all participants {a98} equally informed proved flawed.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a98": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "was",
+                        "are"
+                    ],
+                    "verb_hint": "embedded clause negative"
+                }
+            },
+            "tag_keys": [
+                "be_negative_embedded_clause"
+            ],
+            "variants": [
+                "The assumption that all participants {a98} equally informed proved flawed."
+            ]
+        },
+        {
+            "id": 99,
+            "question": "Lest it {a99} forgotten, the treaty expires next year.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a99": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "is",
+                        "was"
+                    ],
+                    "verb_hint": "subjunctive negative"
+                }
+            },
+            "tag_keys": [
+                "be_negative_subjunctive"
+            ],
+            "variants": [
+                "Lest it {a99} forgotten, the treaty expires next year."
+            ]
+        },
+        {
+            "id": 100,
+            "question": "Seldom {a100} a policy reversal met with such public indifference.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a100": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_negative_inversion"
+            ],
+            "variants": [
+                "Seldom {a100} a policy reversal met with such public indifference."
+            ]
+        },
+        {
+            "id": 101,
+            "question": "That the evidence {a101} conclusive should concern every researcher.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a101": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "was not"
+                    ],
+                    "verb_hint": "embedded clause negative"
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_embedded_clause"
+            ],
+            "variants": [
+                "That the evidence {a101} conclusive should concern every researcher."
+            ]
+        },
+        {
+            "id": 102,
+            "question": "No sooner {a102} the announcement made than the markets reacted.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a102": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "literary inversion"
+                }
+            },
+            "tag_keys": [
+                "be_negative_inversion",
+                "be_negative_literary"
+            ],
+            "variants": [
+                "No sooner {a102} the announcement made than the markets reacted."
+            ]
+        },
+        {
+            "id": 103,
+            "question": "Whether the defendant {a103} aware of the clause is immaterial.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a103": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "legal register"
+                }
+            },
+            "tag_keys": [
+                "be_negative_embedded_clause",
+                "be_negative_legal_register"
+            ],
+            "variants": [
+                "Whether the defendant {a103} aware of the clause is immaterial."
+            ]
+        },
+        {
+            "id": 104,
+            "question": "The allegation, though serious, {a104} substantiated by the inquiry.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a104": {
+                    "answer": "was not",
+                    "options": [
+                        "was not",
+                        "were not",
+                        "is not"
+                    ],
+                    "verb_hint": "parenthetical negative"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative",
+                "be_negative_parenthetical"
+            ],
+            "variants": [
+                "The allegation, though serious, {a104} substantiated by the inquiry."
+            ]
+        },
+        {
+            "id": 105,
+            "question": "Notwithstanding the objections, the amendment {a105} unconstitutional.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a105": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "was not"
+                    ],
+                    "verb_hint": "legal register"
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_legal_register"
+            ],
+            "variants": [
+                "Notwithstanding the objections, the amendment {a105} unconstitutional."
+            ]
+        },
+        {
+            "id": 106,
+            "question": "Hardly {a106} the ink dry before critics voiced their opposition.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a106": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is"
+                    ],
+                    "verb_hint": "literary inversion"
+                }
+            },
+            "tag_keys": [
+                "be_negative_inversion",
+                "be_negative_literary"
+            ],
+            "variants": [
+                "Hardly {a106} the ink dry before critics voiced their opposition."
+            ]
+        },
+        {
+            "id": 107,
+            "question": "That these concerns {a107} unfounded should reassure the stakeholders.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a107": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "were not"
+                    ],
+                    "verb_hint": "embedded clause negative"
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_embedded_clause"
+            ],
+            "variants": [
+                "That these concerns {a107} unfounded should reassure the stakeholders."
+            ]
+        },
+        {
+            "id": 108,
+            "question": "Be that as it may, the conclusion {a108} invalidated by subsequent findings.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a108": {
+                    "answer": "was not",
+                    "options": [
+                        "was not",
+                        "were not",
+                        "is not"
+                    ],
+                    "verb_hint": "literary register"
+                }
+            },
+            "tag_keys": [
+                "wasnt_past_negative",
+                "be_negative_literary"
+            ],
+            "variants": [
+                "Be that as it may, the conclusion {a108} invalidated by subsequent findings."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "vtobe-neg-co45-saved-test",
+        "slug": "verb_to_be_negatives_copilot_claude_opus45",
+        "name": "Verb to Be: Negatives — Copilot Claude Opus 4.5 V3 Questions Test",
+        "description": "Practice set for verb to be negative forms (am not, is not/isn't, are not/aren't, was not/wasn't, were not/weren't) across A1–C2 with formal register, inversions, and advanced patterns.",
+        "filters": {
+            "num_questions": 108,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\Copilot\\ClaudeOpus45\\VerbToBeNegativesV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1122,
+                "theory_page_ids": [
+                    1122
+                ],
+                "theory_page": {
+                    "id": 1122,
+                    "slug": "verb-to-be-negatives",
+                    "title": "Verb to Be: Negatives",
+                    "category_slug_path": "basic-grammar/verb-to-be",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeNegativesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-negatives"
+                }
+            }
+        }
+    }
+}

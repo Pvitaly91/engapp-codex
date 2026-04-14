@@ -1,0 +1,1526 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\En\\AI\\Copilot\\Opus46\\Copilot\\ClaudeOpus45\\VerbToBeNegativesV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\Copilot\\ClaudeOpus45\\VerbToBeNegativesV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "en",
+  "hint_provider": "copilot-claude-opus45",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "Rule: with subject **I**, the negative form is **am not**.",
+        "The subject here is `I`, so you need `am` + `not`."
+      ],
+      "explanations": {
+        "a1": {
+          "am not": "✅ Correct: `I` takes **am not**. Example: *I am not hungry right now.*",
+          "is not": "❌ `is not` is used with **he/she/it**, not `I`. The correct form with `I` is **am not**.",
+          "are not": "❌ `are not` is used with **you/we/they**, not `I`. The correct form is **am not**."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Rule: with **he/she/it** subjects, the negative is **is not**.",
+        "The subject is `She` (third person singular), so the form is `is` + `not`."
+      ],
+      "explanations": {
+        "a2": {
+          "am not": "❌ `am not` is only for `I`. With `She`, use **is not**.",
+          "is not": "✅ Correct: `She` takes **is not**. Example: *She is not at home today.*",
+          "are not": "❌ `are not` is for **you/we/they**. `She` requires **is not**."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Rule: with **you/we/they** or plural nouns, use **are not**.",
+        "The subject is `They` (third person plural), so the form is `are` + `not`."
+      ],
+      "explanations": {
+        "a3": {
+          "am not": "❌ `am not` is only for `I`. With `They`, use **are not**.",
+          "is not": "❌ `is not` is for singular third person. `They` is plural, so use **are not**.",
+          "are not": "✅ Correct: `They` takes **are not**. Example: *They are not ready for the test.*"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Rule: **he** requires **is not** for negation.",
+        "Subject is `He`, so choose `is` + `not`."
+      ],
+      "explanations": {
+        "a4": {
+          "is not": "✅ Correct: `He` takes **is not**.",
+          "am not": "❌ `am not` is only for `I`. Use **is not** with `He`.",
+          "are not": "❌ `are not` is for you/we/they. `He` needs **is not**."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "Rule: **we** takes **are not**.",
+        "Subject is `We` (first person plural), so the form is `are` + `not`."
+      ],
+      "explanations": {
+        "a5": {
+          "are not": "✅ Correct: `We` takes **are not**. Example: *We are not late for class.*",
+          "am not": "❌ `am not` is only for `I`. With `We`, use **are not**.",
+          "is not": "❌ `is not` is for he/she/it. `We` requires **are not**."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Rule: **it** takes **is not**.",
+        "Subject is `It`, so the negative form is `is` + `not`."
+      ],
+      "explanations": {
+        "a6": {
+          "is not": "✅ Correct: `It` takes **is not**. Example: *It is not cold outside.*",
+          "am not": "❌ `am not` is only for `I`. Use **is not** with `It`.",
+          "are not": "❌ `are not` is for you/we/they. `It` needs **is not**."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Rule: **you** always takes **are not** (both singular and plural).",
+        "Subject is `You`, so the form is `are` + `not`."
+      ],
+      "explanations": {
+        "a7": {
+          "are not": "✅ Correct: `You` takes **are not**. Example: *You are not wrong about that.*",
+          "am not": "❌ `am not` is only for `I`. `You` requires **are not**.",
+          "is not": "❌ `is not` is for he/she/it. `You` needs **are not**."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Rule: **I** always pairs with **am not**.",
+        "Subject is `I`, so the only correct form is `am` + `not`."
+      ],
+      "explanations": {
+        "a8": {
+          "am not": "✅ Correct: `I` takes **am not**. Example: *I am not a teacher.*",
+          "is not": "❌ `is not` is for he/she/it. With `I`, use **am not**.",
+          "are not": "❌ `are not` is for you/we/they. With `I`, use **am not**."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Rule: **the cat** = it (singular), so use **is not**.",
+        "Subject `The cat` (= it), so choose `is` + `not`."
+      ],
+      "explanations": {
+        "a9": {
+          "is not": "✅ Correct: `The cat` (singular) takes **is not**.",
+          "am not": "❌ `am not` is only for `I`. Use **is not** for `the cat`.",
+          "are not": "❌ `are not` is for plural or `you`. `The cat` is singular → **is not**."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Rule: plural subject **my friends** requires **are not**.",
+        "Subject `My friends` (plural = they), so choose `are` + `not`."
+      ],
+      "explanations": {
+        "a10": {
+          "are not": "✅ Correct: `My friends` (plural) takes **are not**.",
+          "is not": "❌ `is not` is for singular. `My friends` is plural → **are not**.",
+          "am not": "❌ `am not` is only for `I`. Plural subjects need **are not**."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "Rule: **she** (third person singular) takes **is not**.",
+        "Subject is `She`, so use `is` + `not`."
+      ],
+      "explanations": {
+        "a11": {
+          "is not": "✅ Correct: `She` takes **is not**.",
+          "am not": "❌ `am not` is only for `I`. For `She`, use **is not**.",
+          "are not": "❌ `are not` is for you/we/they. `She` is singular → **is not**."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "Rule: **the door** = it (singular), takes **is not**.",
+        "Subject `The door` (= it), so use `is` + `not`."
+      ],
+      "explanations": {
+        "a12": {
+          "is not": "✅ Correct: `The door` (singular) takes **is not**.",
+          "are not": "❌ `are not` is for plural or `you`. `The door` is singular → **is not**.",
+          "am not": "❌ `am not` is only for `I`. Use **is not** for `the door`."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Rule: **we** takes **are not**.",
+        "Subject is `We`, so the form is `are` + `not`."
+      ],
+      "explanations": {
+        "a13": {
+          "are not": "✅ Correct: `We` takes **are not**.",
+          "is not": "❌ `is not` is for singular third person. `We` needs **are not**.",
+          "am not": "❌ `am not` is only for `I`. `We` requires **are not**."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Rule: **he** takes **is not**.",
+        "Subject is `He`, so use `is` + `not`."
+      ],
+      "explanations": {
+        "a14": {
+          "is not": "✅ Correct: `He` takes **is not**.",
+          "am not": "❌ `am not` is for `I` only. `He` needs **is not**.",
+          "are not": "❌ `are not` is for you/we/they. `He` is singular → **is not**."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "Rule: **I** always takes **am not**.",
+        "Subject is `I`, so the correct form is `am` + `not`."
+      ],
+      "explanations": {
+        "a15": {
+          "am not": "✅ Correct: `I` takes **am not**.",
+          "is not": "❌ `is not` is for he/she/it. With `I`, use **am not**.",
+          "are not": "❌ `are not` is for you/we/they. With `I`, use **am not**."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Rule: **the children** is plural, so use **are not**.",
+        "Subject `The children` (plural = they), so use `are` + `not`."
+      ],
+      "explanations": {
+        "a16": {
+          "are not": "✅ Correct: `The children` (plural) takes **are not**.",
+          "is not": "❌ `is not` is for singular. `The children` is plural → **are not**.",
+          "am not": "❌ `am not` is only for `I`. Plural subjects require **are not**."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "Rule: **this book** = it (singular), takes **is not**.",
+        "Subject `This book` (= it), so use `is` + `not`."
+      ],
+      "explanations": {
+        "a17": {
+          "is not": "✅ Correct: `This book` (singular) takes **is not**.",
+          "am not": "❌ `am not` is only for `I`. Use **is not** for `this book`.",
+          "are not": "❌ `are not` is for plural or `you`. `This book` is singular → **is not**."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Rule: **you** takes **are not**.",
+        "Subject is `You`, so the form is `are` + `not`."
+      ],
+      "explanations": {
+        "a18": {
+          "are not": "✅ Correct: `You` takes **are not**.",
+          "am not": "❌ `am not` is for `I`. `You` needs **are not**.",
+          "is not": "❌ `is not` is for he/she/it. `You` requires **are not**."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a19": {
+          "isn't": "✅ Correct: **isn't** is the right form here.",
+          "aren't": "❌ Incorrect. The correct answer is **isn't**, not `aren't`.",
+          "am not": "❌ Incorrect. The correct answer is **isn't**, not `am not`."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a20": {
+          "aren't": "✅ Correct: **aren't** is the right form here.",
+          "isn't": "❌ Incorrect. The correct answer is **aren't**, not `isn't`.",
+          "am not": "❌ Incorrect. The correct answer is **aren't**, not `am not`."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a21": {
+          "isn't": "✅ Correct: **isn't** is the right form here.",
+          "aren't": "❌ Incorrect. The correct answer is **isn't**, not `aren't`.",
+          "am not": "❌ Incorrect. The correct answer is **isn't**, not `am not`."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a22": {
+          "'m not": "✅ Correct: **'m not** is the right form here.",
+          "isn't": "❌ Incorrect. The correct answer is **'m not**, not `isn't`.",
+          "aren't": "❌ Incorrect. The correct answer is **'m not**, not `aren't`."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a23": {
+          "aren't": "✅ Correct: **aren't** is the right form here.",
+          "isn't": "❌ Incorrect. The correct answer is **aren't**, not `isn't`.",
+          "'m not": "❌ Incorrect. The correct answer is **aren't**, not `'m not`."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a24": {
+          "isn't": "✅ Correct: **isn't** is the right form here.",
+          "aren't": "❌ Incorrect. The correct answer is **isn't**, not `aren't`.",
+          "'m not": "❌ Incorrect. The correct answer is **isn't**, not `'m not`."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a25": {
+          "aren't": "✅ Correct: **aren't** is the right form here.",
+          "isn't": "❌ Incorrect. The correct answer is **aren't**, not `isn't`.",
+          "'m not": "❌ Incorrect. The correct answer is **aren't**, not `'m not`."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a26": {
+          "isn't": "✅ Correct: **isn't** is the right form here.",
+          "aren't": "❌ Incorrect. The correct answer is **isn't**, not `aren't`.",
+          "'m not": "❌ Incorrect. The correct answer is **isn't**, not `'m not`."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a27": {
+          "isn't": "✅ Correct: **isn't** is the right form here.",
+          "aren't": "❌ Incorrect. The correct answer is **isn't**, not `aren't`.",
+          "'m not": "❌ Incorrect. The correct answer is **isn't**, not `'m not`."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a28": {
+          "aren't": "✅ Correct: **aren't** is the right form here.",
+          "isn't": "❌ Incorrect. The correct answer is **aren't**, not `isn't`.",
+          "'m not": "❌ Incorrect. The correct answer is **aren't**, not `'m not`."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a29": {
+          "'m not": "✅ Correct: **'m not** is the right form here.",
+          "isn't": "❌ Incorrect. The correct answer is **'m not**, not `isn't`.",
+          "aren't": "❌ Incorrect. The correct answer is **'m not**, not `aren't`."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a30": {
+          "isn't": "✅ Correct: **isn't** is the right form here.",
+          "aren't": "❌ Incorrect. The correct answer is **isn't**, not `aren't`.",
+          "'m not": "❌ Incorrect. The correct answer is **isn't**, not `'m not`."
+        }
+      }
+    },
+    {
+      "id": 31,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a31": {
+          "aren't": "✅ Correct: **aren't** is the right form here.",
+          "isn't": "❌ Incorrect. The correct answer is **aren't**, not `isn't`.",
+          "'m not": "❌ Incorrect. The correct answer is **aren't**, not `'m not`."
+        }
+      }
+    },
+    {
+      "id": 32,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a32": {
+          "isn't": "✅ Correct: **isn't** is the right form here.",
+          "aren't": "❌ Incorrect. The correct answer is **isn't**, not `aren't`.",
+          "'m not": "❌ Incorrect. The correct answer is **isn't**, not `'m not`."
+        }
+      }
+    },
+    {
+      "id": 33,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a33": {
+          "aren't": "✅ Correct: **aren't** is the right form here.",
+          "isn't": "❌ Incorrect. The correct answer is **aren't**, not `isn't`.",
+          "'m not": "❌ Incorrect. The correct answer is **aren't**, not `'m not`."
+        }
+      }
+    },
+    {
+      "id": 34,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a34": {
+          "isn't": "✅ Correct: **isn't** is the right form here.",
+          "aren't": "❌ Incorrect. The correct answer is **isn't**, not `aren't`.",
+          "'m not": "❌ Incorrect. The correct answer is **isn't**, not `'m not`."
+        }
+      }
+    },
+    {
+      "id": 35,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a35": {
+          "aren't": "✅ Correct: **aren't** is the right form here.",
+          "isn't": "❌ Incorrect. The correct answer is **aren't**, not `isn't`.",
+          "'m not": "❌ Incorrect. The correct answer is **aren't**, not `'m not`."
+        }
+      }
+    },
+    {
+      "id": 36,
+      "hints": [
+        "Use the contracted negative form that matches the subject in this sentence.",
+        "Identify the subject and choose the right contraction: **isn't** (he/she/it), **aren't** (you/we/they), or **'m not** (I)."
+      ],
+      "explanations": {
+        "a36": {
+          "'m not": "✅ Correct: **'m not** is the right form here.",
+          "isn't": "❌ Incorrect. The correct answer is **'m not**, not `isn't`.",
+          "aren't": "❌ Incorrect. The correct answer is **'m not**, not `aren't`."
+        }
+      }
+    },
+    {
+      "id": 37,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a37": {
+          "wasn't": "✅ Correct: **wasn't** is the right form here.",
+          "weren't": "❌ Incorrect. The correct answer is **wasn't**, not `weren't`.",
+          "isn't": "❌ Incorrect. The correct answer is **wasn't**, not `isn't`."
+        }
+      }
+    },
+    {
+      "id": 38,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a38": {
+          "weren't": "✅ Correct: **weren't** is the right form here.",
+          "wasn't": "❌ Incorrect. The correct answer is **weren't**, not `wasn't`.",
+          "aren't": "❌ Incorrect. The correct answer is **weren't**, not `aren't`."
+        }
+      }
+    },
+    {
+      "id": 39,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a39": {
+          "wasn't": "✅ Correct: **wasn't** is the right form here.",
+          "weren't": "❌ Incorrect. The correct answer is **wasn't**, not `weren't`.",
+          "am not": "❌ Incorrect. The correct answer is **wasn't**, not `am not`."
+        }
+      }
+    },
+    {
+      "id": 40,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a40": {
+          "weren't": "✅ Correct: **weren't** is the right form here.",
+          "wasn't": "❌ Incorrect. The correct answer is **weren't**, not `wasn't`.",
+          "aren't": "❌ Incorrect. The correct answer is **weren't**, not `aren't`."
+        }
+      }
+    },
+    {
+      "id": 41,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a41": {
+          "wasn't": "✅ Correct: **wasn't** is the right form here.",
+          "weren't": "❌ Incorrect. The correct answer is **wasn't**, not `weren't`.",
+          "isn't": "❌ Incorrect. The correct answer is **wasn't**, not `isn't`."
+        }
+      }
+    },
+    {
+      "id": 42,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a42": {
+          "weren't": "✅ Correct: **weren't** is the right form here.",
+          "wasn't": "❌ Incorrect. The correct answer is **weren't**, not `wasn't`.",
+          "aren't": "❌ Incorrect. The correct answer is **weren't**, not `aren't`."
+        }
+      }
+    },
+    {
+      "id": 43,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a43": {
+          "wasn't": "✅ Correct: **wasn't** is the right form here.",
+          "weren't": "❌ Incorrect. The correct answer is **wasn't**, not `weren't`.",
+          "isn't": "❌ Incorrect. The correct answer is **wasn't**, not `isn't`."
+        }
+      }
+    },
+    {
+      "id": 44,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a44": {
+          "weren't": "✅ Correct: **weren't** is the right form here.",
+          "wasn't": "❌ Incorrect. The correct answer is **weren't**, not `wasn't`.",
+          "aren't": "❌ Incorrect. The correct answer is **weren't**, not `aren't`."
+        }
+      }
+    },
+    {
+      "id": 45,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a45": {
+          "wasn't": "✅ Correct: **wasn't** is the right form here.",
+          "weren't": "❌ Incorrect. The correct answer is **wasn't**, not `weren't`.",
+          "isn't": "❌ Incorrect. The correct answer is **wasn't**, not `isn't`."
+        }
+      }
+    },
+    {
+      "id": 46,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a46": {
+          "weren't": "✅ Correct: **weren't** is the right form here.",
+          "wasn't": "❌ Incorrect. The correct answer is **weren't**, not `wasn't`.",
+          "aren't": "❌ Incorrect. The correct answer is **weren't**, not `aren't`."
+        }
+      }
+    },
+    {
+      "id": 47,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a47": {
+          "wasn't": "✅ Correct: **wasn't** is the right form here.",
+          "weren't": "❌ Incorrect. The correct answer is **wasn't**, not `weren't`.",
+          "am not": "❌ Incorrect. The correct answer is **wasn't**, not `am not`."
+        }
+      }
+    },
+    {
+      "id": 48,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a48": {
+          "wasn't": "✅ Correct: **wasn't** is the right form here.",
+          "weren't": "❌ Incorrect. The correct answer is **wasn't**, not `weren't`.",
+          "isn't": "❌ Incorrect. The correct answer is **wasn't**, not `isn't`."
+        }
+      }
+    },
+    {
+      "id": 49,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a49": {
+          "weren't": "✅ Correct: **weren't** is the right form here.",
+          "wasn't": "❌ Incorrect. The correct answer is **weren't**, not `wasn't`.",
+          "aren't": "❌ Incorrect. The correct answer is **weren't**, not `aren't`."
+        }
+      }
+    },
+    {
+      "id": 50,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a50": {
+          "wasn't": "✅ Correct: **wasn't** is the right form here.",
+          "weren't": "❌ Incorrect. The correct answer is **wasn't**, not `weren't`.",
+          "isn't": "❌ Incorrect. The correct answer is **wasn't**, not `isn't`."
+        }
+      }
+    },
+    {
+      "id": 51,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a51": {
+          "wasn't": "✅ Correct: **wasn't** is the right form here.",
+          "weren't": "❌ Incorrect. The correct answer is **wasn't**, not `weren't`.",
+          "isn't": "❌ Incorrect. The correct answer is **wasn't**, not `isn't`."
+        }
+      }
+    },
+    {
+      "id": 52,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a52": {
+          "weren't": "✅ Correct: **weren't** is the right form here.",
+          "wasn't": "❌ Incorrect. The correct answer is **weren't**, not `wasn't`.",
+          "aren't": "❌ Incorrect. The correct answer is **weren't**, not `aren't`."
+        }
+      }
+    },
+    {
+      "id": 53,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a53": {
+          "wasn't": "✅ Correct: **wasn't** is the right form here.",
+          "weren't": "❌ Incorrect. The correct answer is **wasn't**, not `weren't`.",
+          "isn't": "❌ Incorrect. The correct answer is **wasn't**, not `isn't`."
+        }
+      }
+    },
+    {
+      "id": 54,
+      "hints": [
+        "This sentence is in the past tense. Choose **wasn't** (singular) or **weren't** (plural/you).",
+        "Look for time markers like `yesterday`, `last night`, or past context to confirm the past tense."
+      ],
+      "explanations": {
+        "a54": {
+          "weren't": "✅ Correct: **weren't** is the right form here.",
+          "wasn't": "❌ Incorrect. The correct answer is **weren't**, not `wasn't`.",
+          "aren't": "❌ Incorrect. The correct answer is **weren't**, not `aren't`."
+        }
+      }
+    },
+    {
+      "id": 55,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a55": {
+          "is not": "✅ Correct: **is not** is the right form here.",
+          "are not": "❌ Incorrect. The correct answer is **is not**, not `are not`.",
+          "am not": "❌ Incorrect. The correct answer is **is not**, not `am not`."
+        }
+      }
+    },
+    {
+      "id": 56,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a56": {
+          "were not": "✅ Correct: **were not** is the right form here.",
+          "was not": "❌ Incorrect. The correct answer is **were not**, not `was not`.",
+          "are not": "❌ Incorrect. The correct answer is **were not**, not `are not`."
+        }
+      }
+    },
+    {
+      "id": 57,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a57": {
+          "is not": "✅ Correct: **is not** is the right form here.",
+          "are not": "❌ Incorrect. The correct answer is **is not**, not `are not`.",
+          "was not": "❌ Incorrect. The correct answer is **is not**, not `was not`."
+        }
+      }
+    },
+    {
+      "id": 58,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a58": {
+          "were not": "✅ Correct: **were not** is the right form here.",
+          "was not": "❌ Incorrect. The correct answer is **were not**, not `was not`.",
+          "are not": "❌ Incorrect. The correct answer is **were not**, not `are not`."
+        }
+      }
+    },
+    {
+      "id": 59,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a59": {
+          "am not": "✅ Correct: **am not** is the right form here.",
+          "is not": "❌ Incorrect. The correct answer is **am not**, not `is not`.",
+          "are not": "❌ Incorrect. The correct answer is **am not**, not `are not`."
+        }
+      }
+    },
+    {
+      "id": 60,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a60": {
+          "were not": "✅ Correct: **were not** is the right form here.",
+          "was not": "❌ Incorrect. The correct answer is **were not**, not `was not`.",
+          "are not": "❌ Incorrect. The correct answer is **were not**, not `are not`."
+        }
+      }
+    },
+    {
+      "id": 61,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a61": {
+          "was not": "✅ Correct: **was not** is the right form here.",
+          "were not": "❌ Incorrect. The correct answer is **was not**, not `were not`.",
+          "is not": "❌ Incorrect. The correct answer is **was not**, not `is not`."
+        }
+      }
+    },
+    {
+      "id": 62,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a62": {
+          "are not": "✅ Correct: **are not** is the right form here.",
+          "is not": "❌ Incorrect. The correct answer is **are not**, not `is not`.",
+          "am not": "❌ Incorrect. The correct answer is **are not**, not `am not`."
+        }
+      }
+    },
+    {
+      "id": 63,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a63": {
+          "was not": "✅ Correct: **was not** is the right form here.",
+          "were not": "❌ Incorrect. The correct answer is **was not**, not `were not`.",
+          "is not": "❌ Incorrect. The correct answer is **was not**, not `is not`."
+        }
+      }
+    },
+    {
+      "id": 64,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a64": {
+          "are not": "✅ Correct: **are not** is the right form here.",
+          "is not": "❌ Incorrect. The correct answer is **are not**, not `is not`.",
+          "were not": "❌ Incorrect. The correct answer is **are not**, not `were not`."
+        }
+      }
+    },
+    {
+      "id": 65,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a65": {
+          "is not": "✅ Correct: **is not** is the right form here.",
+          "are not": "❌ Incorrect. The correct answer is **is not**, not `are not`.",
+          "was not": "❌ Incorrect. The correct answer is **is not**, not `was not`."
+        }
+      }
+    },
+    {
+      "id": 66,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a66": {
+          "were not": "✅ Correct: **were not** is the right form here.",
+          "was not": "❌ Incorrect. The correct answer is **were not**, not `was not`.",
+          "are not": "❌ Incorrect. The correct answer is **were not**, not `are not`."
+        }
+      }
+    },
+    {
+      "id": 67,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a67": {
+          "is not": "✅ Correct: **is not** is the right form here.",
+          "are not": "❌ Incorrect. The correct answer is **is not**, not `are not`.",
+          "was not": "❌ Incorrect. The correct answer is **is not**, not `was not`."
+        }
+      }
+    },
+    {
+      "id": 68,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a68": {
+          "were not": "✅ Correct: **were not** is the right form here.",
+          "was not": "❌ Incorrect. The correct answer is **were not**, not `was not`.",
+          "are not": "❌ Incorrect. The correct answer is **were not**, not `are not`."
+        }
+      }
+    },
+    {
+      "id": 69,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a69": {
+          "was not": "✅ Correct: **was not** is the right form here.",
+          "were not": "❌ Incorrect. The correct answer is **was not**, not `were not`.",
+          "is not": "❌ Incorrect. The correct answer is **was not**, not `is not`."
+        }
+      }
+    },
+    {
+      "id": 70,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a70": {
+          "are not": "✅ Correct: **are not** is the right form here.",
+          "is not": "❌ Incorrect. The correct answer is **are not**, not `is not`.",
+          "were not": "❌ Incorrect. The correct answer is **are not**, not `were not`."
+        }
+      }
+    },
+    {
+      "id": 71,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a71": {
+          "was not": "✅ Correct: **was not** is the right form here.",
+          "were not": "❌ Incorrect. The correct answer is **was not**, not `were not`.",
+          "is not": "❌ Incorrect. The correct answer is **was not**, not `is not`."
+        }
+      }
+    },
+    {
+      "id": 72,
+      "hints": [
+        "In formal writing, prefer full negative forms (**is not**, **was not**, **were not**, **are not**) over contractions.",
+        "Match the negative form to the subject (singular or plural) and the correct tense."
+      ],
+      "explanations": {
+        "a72": {
+          "are not": "✅ Correct: **are not** is the right form here.",
+          "is not": "❌ Incorrect. The correct answer is **are not**, not `is not`.",
+          "were not": "❌ Incorrect. The correct answer is **are not**, not `were not`."
+        }
+      }
+    },
+    {
+      "id": 73,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a73": {
+          "is not": "✅ Correct: **is not** is the right form here.",
+          "are not": "❌ Incorrect. The correct answer is **is not**, not `are not`.",
+          "was not": "❌ Incorrect. The correct answer is **is not**, not `was not`."
+        }
+      }
+    },
+    {
+      "id": 74,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a74": {
+          "are not": "✅ Correct: **are not** is the right form here.",
+          "is not": "❌ Incorrect. The correct answer is **are not**, not `is not`.",
+          "were not": "❌ Incorrect. The correct answer is **are not**, not `were not`."
+        }
+      }
+    },
+    {
+      "id": 75,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a75": {
+          "is": "✅ Correct: **is** is the right form here.",
+          "are": "❌ Incorrect. The correct answer is **is**, not `are`.",
+          "was": "❌ Incorrect. The correct answer is **is**, not `was`."
+        }
+      }
+    },
+    {
+      "id": 76,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a76": {
+          "were not": "✅ Correct: **were not** is the right form here.",
+          "was not": "❌ Incorrect. The correct answer is **were not**, not `was not`.",
+          "are not": "❌ Incorrect. The correct answer is **were not**, not `are not`."
+        }
+      }
+    },
+    {
+      "id": 77,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a77": {
+          "were": "✅ Correct: **were** is the right form here.",
+          "was": "❌ Incorrect. The correct answer is **were**, not `was`.",
+          "are": "❌ Incorrect. The correct answer is **were**, not `are`."
+        }
+      }
+    },
+    {
+      "id": 78,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a78": {
+          "was not": "✅ Correct: **was not** is the right form here.",
+          "were not": "❌ Incorrect. The correct answer is **was not**, not `were not`.",
+          "is not": "❌ Incorrect. The correct answer is **was not**, not `is not`."
+        }
+      }
+    },
+    {
+      "id": 79,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a79": {
+          "was": "✅ Correct: **was** is the right form here.",
+          "were": "❌ Incorrect. The correct answer is **was**, not `were`.",
+          "is": "❌ Incorrect. The correct answer is **was**, not `is`."
+        }
+      }
+    },
+    {
+      "id": 80,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a80": {
+          "was": "✅ Correct: **was** is the right form here.",
+          "were": "❌ Incorrect. The correct answer is **was**, not `were`.",
+          "is": "❌ Incorrect. The correct answer is **was**, not `is`."
+        }
+      }
+    },
+    {
+      "id": 81,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a81": {
+          "was": "✅ Correct: **was** is the right form here.",
+          "were": "❌ Incorrect. The correct answer is **was**, not `were`.",
+          "is": "❌ Incorrect. The correct answer is **was**, not `is`."
+        }
+      }
+    },
+    {
+      "id": 82,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a82": {
+          "is not": "✅ Correct: **is not** is the right form here.",
+          "are not": "❌ Incorrect. The correct answer is **is not**, not `are not`.",
+          "was not": "❌ Incorrect. The correct answer is **is not**, not `was not`."
+        }
+      }
+    },
+    {
+      "id": 83,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a83": {
+          "are not": "✅ Correct: **are not** is the right form here.",
+          "is not": "❌ Incorrect. The correct answer is **are not**, not `is not`.",
+          "were not": "❌ Incorrect. The correct answer is **are not**, not `were not`."
+        }
+      }
+    },
+    {
+      "id": 84,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a84": {
+          "were not": "✅ Correct: **were not** is the right form here.",
+          "was not": "❌ Incorrect. The correct answer is **were not**, not `was not`.",
+          "are not": "❌ Incorrect. The correct answer is **were not**, not `are not`."
+        }
+      }
+    },
+    {
+      "id": 85,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a85": {
+          "was not": "✅ Correct: **was not** is the right form here.",
+          "were not": "❌ Incorrect. The correct answer is **was not**, not `were not`.",
+          "is not": "❌ Incorrect. The correct answer is **was not**, not `is not`."
+        }
+      }
+    },
+    {
+      "id": 86,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a86": {
+          "was": "✅ Correct: **was** is the right form here.",
+          "were": "❌ Incorrect. The correct answer is **was**, not `were`.",
+          "is": "❌ Incorrect. The correct answer is **was**, not `is`."
+        }
+      }
+    },
+    {
+      "id": 87,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a87": {
+          "is not": "✅ Correct: **is not** is the right form here.",
+          "are not": "❌ Incorrect. The correct answer is **is not**, not `are not`.",
+          "was not": "❌ Incorrect. The correct answer is **is not**, not `was not`."
+        }
+      }
+    },
+    {
+      "id": 88,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a88": {
+          "was": "✅ Correct: **was** is the right form here.",
+          "were": "❌ Incorrect. The correct answer is **was**, not `were`.",
+          "is": "❌ Incorrect. The correct answer is **was**, not `is`."
+        }
+      }
+    },
+    {
+      "id": 89,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a89": {
+          "is not": "✅ Correct: **is not** is the right form here.",
+          "are not": "❌ Incorrect. The correct answer is **is not**, not `are not`.",
+          "was not": "❌ Incorrect. The correct answer is **is not**, not `was not`."
+        }
+      }
+    },
+    {
+      "id": 90,
+      "hints": [
+        "Advanced pattern: identify whether this uses inversion, reported speech, neither…nor, litotes, or 'be not to' construction.",
+        "With negative inversion (Never, At no point, In no way), the negation is already in the adverb — the verb form is affirmative."
+      ],
+      "explanations": {
+        "a90": {
+          "are not": "✅ Correct: **are not** is the right form here.",
+          "is not": "❌ Incorrect. The correct answer is **are not**, not `is not`.",
+          "were not": "❌ Incorrect. The correct answer is **are not**, not `were not`."
+        }
+      }
+    },
+    {
+      "id": 91,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a91": {
+          "was not": "✅ Correct: **was not** is the right form here.",
+          "were not": "❌ Incorrect. The correct answer is **was not**, not `were not`.",
+          "is not": "❌ Incorrect. The correct answer is **was not**, not `is not`."
+        }
+      }
+    },
+    {
+      "id": 92,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a92": {
+          "was": "✅ Correct: **was** is the right form here.",
+          "were": "❌ Incorrect. The correct answer is **was**, not `were`.",
+          "is": "❌ Incorrect. The correct answer is **was**, not `is`."
+        }
+      }
+    },
+    {
+      "id": 93,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a93": {
+          "are": "✅ Correct: **are** is the right form here.",
+          "is": "❌ Incorrect. The correct answer is **are**, not `is`.",
+          "were": "❌ Incorrect. The correct answer is **are**, not `were`."
+        }
+      }
+    },
+    {
+      "id": 94,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a94": {
+          "is not": "✅ Correct: **is not** is the right form here.",
+          "are not": "❌ Incorrect. The correct answer is **is not**, not `are not`.",
+          "was not": "❌ Incorrect. The correct answer is **is not**, not `was not`."
+        }
+      }
+    },
+    {
+      "id": 95,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a95": {
+          "is not": "✅ Correct: **is not** is the right form here.",
+          "are not": "❌ Incorrect. The correct answer is **is not**, not `are not`.",
+          "was not": "❌ Incorrect. The correct answer is **is not**, not `was not`."
+        }
+      }
+    },
+    {
+      "id": 96,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a96": {
+          "were": "✅ Correct: **were** is the right form here.",
+          "was": "❌ Incorrect. The correct answer is **were**, not `was`.",
+          "are": "❌ Incorrect. The correct answer is **were**, not `are`."
+        }
+      }
+    },
+    {
+      "id": 97,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a97": {
+          "is": "✅ Correct: **is** is the right form here.",
+          "are": "❌ Incorrect. The correct answer is **is**, not `are`.",
+          "was": "❌ Incorrect. The correct answer is **is**, not `was`."
+        }
+      }
+    },
+    {
+      "id": 98,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a98": {
+          "were": "✅ Correct: **were** is the right form here.",
+          "was": "❌ Incorrect. The correct answer is **were**, not `was`.",
+          "are": "❌ Incorrect. The correct answer is **were**, not `are`."
+        }
+      }
+    },
+    {
+      "id": 99,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a99": {
+          "be": "✅ Correct: **be** is the right form here.",
+          "is": "❌ Incorrect. The correct answer is **be**, not `is`.",
+          "was": "❌ Incorrect. The correct answer is **be**, not `was`."
+        }
+      }
+    },
+    {
+      "id": 100,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a100": {
+          "has": "✅ Correct: **has** is the right form here.",
+          "is": "❌ Incorrect. The correct answer is **has**, not `is`.",
+          "was": "❌ Incorrect. The correct answer is **has**, not `was`."
+        }
+      }
+    },
+    {
+      "id": 101,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a101": {
+          "is not": "✅ Correct: **is not** is the right form here.",
+          "are not": "❌ Incorrect. The correct answer is **is not**, not `are not`.",
+          "was not": "❌ Incorrect. The correct answer is **is not**, not `was not`."
+        }
+      }
+    },
+    {
+      "id": 102,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a102": {
+          "was": "✅ Correct: **was** is the right form here.",
+          "were": "❌ Incorrect. The correct answer is **was**, not `were`.",
+          "is": "❌ Incorrect. The correct answer is **was**, not `is`."
+        }
+      }
+    },
+    {
+      "id": 103,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a103": {
+          "was": "✅ Correct: **was** is the right form here.",
+          "were": "❌ Incorrect. The correct answer is **was**, not `were`.",
+          "is": "❌ Incorrect. The correct answer is **was**, not `is`."
+        }
+      }
+    },
+    {
+      "id": 104,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a104": {
+          "was not": "✅ Correct: **was not** is the right form here.",
+          "were not": "❌ Incorrect. The correct answer is **was not**, not `were not`.",
+          "is not": "❌ Incorrect. The correct answer is **was not**, not `is not`."
+        }
+      }
+    },
+    {
+      "id": 105,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a105": {
+          "is not": "✅ Correct: **is not** is the right form here.",
+          "are not": "❌ Incorrect. The correct answer is **is not**, not `are not`.",
+          "was not": "❌ Incorrect. The correct answer is **is not**, not `was not`."
+        }
+      }
+    },
+    {
+      "id": 106,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a106": {
+          "was": "✅ Correct: **was** is the right form here.",
+          "were": "❌ Incorrect. The correct answer is **was**, not `were`.",
+          "is": "❌ Incorrect. The correct answer is **was**, not `is`."
+        }
+      }
+    },
+    {
+      "id": 107,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a107": {
+          "are not": "✅ Correct: **are not** is the right form here.",
+          "is not": "❌ Incorrect. The correct answer is **are not**, not `is not`.",
+          "were not": "❌ Incorrect. The correct answer is **are not**, not `were not`."
+        }
+      }
+    },
+    {
+      "id": 108,
+      "hints": [
+        "Literary/legal register: identify the construction type — inversion, subjunctive, embedded clause, or parenthetical.",
+        "In formal/literary inversions, the verb precedes the subject and the negation comes from the fronted adverb."
+      ],
+      "explanations": {
+        "a108": {
+          "was not": "✅ Correct: **was not** is the right form here.",
+          "were not": "❌ Incorrect. The correct answer is **was not**, not `were not`.",
+          "is not": "❌ Incorrect. The correct answer is **was not**, not `is not`."
+        }
+      }
+    }
+  ]
+}

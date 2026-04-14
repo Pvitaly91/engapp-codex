@@ -1,0 +1,1526 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\Uk\\AI\\Copilot\\Opus46\\Copilot\\ClaudeOpus45\\VerbToBeNegativesV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\Copilot\\ClaudeOpus45\\VerbToBeNegativesV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "uk",
+  "hint_provider": "copilot-claude-opus45",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "Правило: з займенником **I** вживаємо форму **am not** для заперечення.",
+        "У реченні підмет — `I`, отже потрібна форма `am` + `not`."
+      ],
+      "explanations": {
+        "a1": {
+          "am not": "✅ Правильно: з підметом `I` заперечна форма — **am not**. Приклад: *I am not hungry right now.*",
+          "is not": "❌ Форма `is not` вживається з **he / she / it**, а не з `I`. З `I` правильна форма — **am not**.",
+          "are not": "❌ Форма `are not` вживається з **you / we / they**, а не з `I`. З `I` правильна форма — **am not**."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Правило: з підметами **he / she / it** заперечення утворюється через **is not**.",
+        "Підмет речення — `She`, а це третя особа однини, тому потрібна форма `is` + `not`."
+      ],
+      "explanations": {
+        "a2": {
+          "am not": "❌ Форма `am not` вживається лише з підметом `I`. Тут підмет — `She`, тому правильна відповідь — **is not**.",
+          "is not": "✅ Правильно: підмет `She` вимагає форми **is not**. Приклад: *She is not at home today.*",
+          "are not": "❌ Форма `are not` вживається з **you / we / they**. Для `She` правильна відповідь — **is not**."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Правило: з підметами **you / we / they** або множинними іменниками вживаємо **are not**.",
+        "Підмет — `They` (третя особа множини), тому потрібна форма `are` + `not`."
+      ],
+      "explanations": {
+        "a3": {
+          "am not": "❌ Форма `am not` — лише для `I`. З `They` правильна відповідь — **are not**.",
+          "is not": "❌ Форма `is not` — для однини третьої особи (he/she/it). `They` — множина, тому — **are not**.",
+          "are not": "✅ Правильно: `They` вимагає форми **are not**. Приклад: *They are not ready for the test.*"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Правило: підмет **he** потребує дієслова **is** у запереченні — **is not**.",
+        "Підмет — `He`, тому обираємо `is` + `not`."
+      ],
+      "explanations": {
+        "a4": {
+          "is not": "✅ Правильно: `He` — третя особа однини, тому правильна форма — **is not**.",
+          "am not": "❌ Форма `am not` вживається тільки з `I`. Для `He` потрібна форма **is not**.",
+          "are not": "❌ Форма `are not` — для you/we/they. Підмет `He` вимагає **is not**."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "Правило: з підметом **we** вживаємо форму **are not**.",
+        "Підмет — `We`, а це перша особа множини, отже потрібне `are` + `not`."
+      ],
+      "explanations": {
+        "a5": {
+          "are not": "✅ Правильно: `We` — множина, тому **are not**. Приклад: *We are not late for class.*",
+          "am not": "❌ Форма `am not` — тільки для `I`. З `We` правильно — **are not**.",
+          "is not": "❌ Форма `is not` — для he/she/it. Підмет `We` потребує **are not**."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Правило: з підметом **it** вживаємо **is not**.",
+        "Підмет — `It`, тому заперечна форма — `is` + `not`."
+      ],
+      "explanations": {
+        "a6": {
+          "is not": "✅ Правильно: `It` — третя особа однини, тому **is not**. Приклад: *It is not cold outside.*",
+          "am not": "❌ `am not` — лише для `I`. Тут підмет `It`, тому правильна форма — **is not**.",
+          "are not": "❌ `are not` — для you/we/they. Підмет `It` вимагає **is not**."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Правило: з підметом **you** вживаємо **are not** (як в однині, так і в множині).",
+        "Підмет — `You`, тому потрібне `are` + `not`."
+      ],
+      "explanations": {
+        "a7": {
+          "are not": "✅ Правильно: `You` завжди вживається з **are not**. Приклад: *You are not wrong about that.*",
+          "am not": "❌ `am not` — для `I`. Підмет `You` потребує **are not**.",
+          "is not": "❌ `is not` — для he/she/it. Підмет `You` потребує **are not**."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Правило: підмет **I** завжди поєднується з **am not** у запереченні.",
+        "Тут підмет — `I`, тому єдина правильна форма — `am` + `not`."
+      ],
+      "explanations": {
+        "a8": {
+          "am not": "✅ Правильно: з `I` заперечна форма — **am not**. Приклад: *I am not a teacher.*",
+          "is not": "❌ `is not` — для третьої особи однини (he/she/it). З `I` потрібно **am not**.",
+          "are not": "❌ `are not` — для you/we/they. З `I` правильно — **am not**."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Правило: іменник **the cat** — третя особа однини, тому вживаємо **is not**.",
+        "Підмет — `The cat` (= it), отже потрібна форма `is` + `not`."
+      ],
+      "explanations": {
+        "a9": {
+          "is not": "✅ Правильно: `The cat` (однина) потребує **is not**. Приклад: *The cat is not on the bed.*",
+          "am not": "❌ `am not` — виключно для `I`. Для іменника `the cat` потрібна форма **is not**.",
+          "are not": "❌ `are not` — для множини або you. `The cat` — однина, тому — **is not**."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Правило: множинний підмет **my friends** потребує **are not**.",
+        "Підмет `My friends` — множина (= they), тому `are` + `not`."
+      ],
+      "explanations": {
+        "a10": {
+          "are not": "✅ Правильно: `My friends` — множина, тому **are not**. Приклад: *My friends are not here yet.*",
+          "is not": "❌ `is not` — для однини (he/she/it). `My friends` — множина, тому правильно — **are not**.",
+          "am not": "❌ `am not` — лише для `I`. Множинний підмет `my friends` потребує **are not**."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "Правило: підмет **she** — третя особа однини, тому заперечення — **is not**.",
+        "Тут підмет — `She`, отже обираємо `is` + `not`."
+      ],
+      "explanations": {
+        "a11": {
+          "is not": "✅ Правильно: `She` потребує **is not**. Приклад: *She is not happy about the news.*",
+          "am not": "❌ `am not` — тільки для `I`. Для `She` потрібно **is not**.",
+          "are not": "❌ `are not` — для you/we/they. Підмет `She` — однина, тому — **is not**."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "Правило: підмет **the door** — це однина (= it), тому вживаємо **is not**.",
+        "Підмет `The door` замінюється на `it`, отже потрібна форма `is` + `not`."
+      ],
+      "explanations": {
+        "a12": {
+          "is not": "✅ Правильно: `The door` (однина, = it) потребує **is not**. Приклад: *The door is not open.*",
+          "are not": "❌ `are not` — для множини або `you`. Підмет `The door` — однина, правильна форма — **is not**.",
+          "am not": "❌ `am not` — виключно для `I`. Для `the door` правильна відповідь — **is not**."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Правило: з підметом **we** заперечна форма — **are not**.",
+        "Підмет — `We` (множина), тому потрібне `are` + `not`."
+      ],
+      "explanations": {
+        "a13": {
+          "are not": "✅ Правильно: `We` вимагає **are not**. Приклад: *We are not in the garden.*",
+          "is not": "❌ `is not` — для однини третьої особи. З `We` правильно — **are not**.",
+          "am not": "❌ `am not` — лише для `I`. Підмет `We` потребує **are not**."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Правило: підмет **he** поєднується з **is not** у запереченні.",
+        "Тут підмет — `He`, тому обираємо форму `is` + `not`."
+      ],
+      "explanations": {
+        "a14": {
+          "is not": "✅ Правильно: `He` потребує **is not**. Приклад: *He is not tall.*",
+          "am not": "❌ `am not` — тільки для `I`. Для `He` правильно — **is not**.",
+          "are not": "❌ `are not` — для you/we/they. Підмет `He` — однина, тому — **is not**."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "Правило: підмет **I** завжди вживається з **am not**.",
+        "Тут підмет — `I`, тому єдина правильна комбінація — `am` + `not`."
+      ],
+      "explanations": {
+        "a15": {
+          "am not": "✅ Правильно: з `I` заперечна форма — **am not**. Приклад: *I am not tired after the walk.*",
+          "is not": "❌ `is not` — для he/she/it. Підмет `I` потребує **am not**.",
+          "are not": "❌ `are not` — для you/we/they. З `I` правильно — **am not**."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Правило: множинний підмет **the children** потребує **are not**.",
+        "Підмет `The children` — множина (= they), тому `are` + `not`."
+      ],
+      "explanations": {
+        "a16": {
+          "are not": "✅ Правильно: `The children` (множина) потребує **are not**. Приклад: *The children are not asleep.*",
+          "is not": "❌ `is not` — для однини. `The children` — множина, тому правильно — **are not**.",
+          "am not": "❌ `am not` — лише для `I`. Множинний підмет `the children` вимагає **are not**."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "Правило: підмет **this book** — однина (= it), тому **is not**.",
+        "Підмет `This book` замінюється на `it`, отже потрібна форма `is` + `not`."
+      ],
+      "explanations": {
+        "a17": {
+          "is not": "✅ Правильно: `This book` (однина) потребує **is not**. Приклад: *This book is not interesting.*",
+          "am not": "❌ `am not` — лише для `I`. Для `this book` потрібна форма **is not**.",
+          "are not": "❌ `are not` — для множини або `you`. Підмет `this book` — однина, тому — **is not**."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Правило: з підметом **you** заперечна форма — **are not**.",
+        "Підмет — `You`, тому `are` + `not`."
+      ],
+      "explanations": {
+        "a18": {
+          "are not": "✅ Правильно: `You` завжди потребує **are not**. Приклад: *You are not alone here.*",
+          "am not": "❌ `am not` — тільки для `I`. Для `You` правильно — **are not**.",
+          "is not": "❌ `is not` — для he/she/it. Підмет `You` потребує **are not**."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "Правило: скорочена форма заперечення з **he/she/it** — **isn't** (= is not).",
+        "Підмет — `She`, тому скорочена форма: `is not` → **isn't**."
+      ],
+      "explanations": {
+        "a19": {
+          "isn't": "✅ Правильно: `She` + скорочена заперечна форма = **isn't**. Приклад: *She isn't busy right now.*",
+          "aren't": "❌ `aren't` — скорочення від `are not`, а воно для you/we/they. Для `She` правильно — **isn't**.",
+          "am not": "❌ `am not` — лише для `I`. Тут підмет `She`, тому потрібна форма **isn't**."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Правило: скорочена заперечна форма для **you/we/they** — **aren't** (= are not).",
+        "Підмет — `They`, тому скорочена форма: `are not` → **aren't**."
+      ],
+      "explanations": {
+        "a20": {
+          "aren't": "✅ Правильно: `They` + скорочене заперечення = **aren't**. Приклад: *They aren't from Spain.*",
+          "isn't": "❌ `isn't` — скорочення від `is not`, а воно для однини he/she/it. `They` — множина, тому — **aren't**.",
+          "am not": "❌ `am not` — лише для `I`. Для множинного підмета `They` правильно — **aren't**."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "Правило: підмет **the soup** = it (однина), скорочена форма — **isn't**.",
+        "Підмет — `The soup` (однина), тому скорочення: `is not` → **isn't**."
+      ],
+      "explanations": {
+        "a21": {
+          "isn't": "✅ Правильно: `The soup` (однина) → **isn't**. Приклад: *The soup isn't hot enough.*",
+          "aren't": "❌ `aren't` — для множини. `The soup` — однина, тому потрібна форма **isn't**.",
+          "am not": "❌ `am not` — лише для `I`. Підмет `The soup` потребує **isn't**."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "Правило: з підметом **I** скорочена заперечна форма — **'m not** (= am not). Форми *amn't* в стандартній англійській не існує.",
+        "Підмет — `I`, отже скорочення: `I am not` → **I'm not**."
+      ],
+      "explanations": {
+        "a22": {
+          "'m not": "✅ Правильно: з `I` скорочена форма — **'m not**. Приклад: *I'm not sure about the answer.*",
+          "isn't": "❌ `isn't` — для he/she/it. Підмет `I` потребує **'m not**.",
+          "aren't": "❌ `aren't` — для you/we/they. Підмет `I` потребує скорочення **'m not**."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Правило: з підметом **we** скорочена заперечна форма — **aren't**.",
+        "Підмет — `We` (множина), тому `are not` → **aren't**."
+      ],
+      "explanations": {
+        "a23": {
+          "aren't": "✅ Правильно: `We` + скорочене заперечення = **aren't**. Приклад: *We aren't going to the party tonight.*",
+          "isn't": "❌ `isn't` — для однини he/she/it. Підмет `We` — множина, тому правильно — **aren't**.",
+          "'m not": "❌ `'m not` — лише для `I`. З `We` правильна форма — **aren't**."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Правило: підмет **he** — третя особа однини, скорочена форма — **isn't**.",
+        "Тут підмет — `He`, отже `is not` → **isn't**."
+      ],
+      "explanations": {
+        "a24": {
+          "isn't": "✅ Правильно: `He` → **isn't**. Приклад: *He isn't very good at cooking.*",
+          "aren't": "❌ `aren't` — для множини. `He` — однина, потрібна форма **isn't**.",
+          "'m not": "❌ `'m not` — тільки для `I`. Для `He` правильно — **isn't**."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "Правило: з підметом **you** скорочена заперечна форма — **aren't**.",
+        "Підмет — `You`, тому `are not` → **aren't**."
+      ],
+      "explanations": {
+        "a25": {
+          "aren't": "✅ Правильно: `You` → **aren't**. Приклад: *You aren't the only one who thinks so.*",
+          "isn't": "❌ `isn't` — для he/she/it. Підмет `You` потребує **aren't**.",
+          "'m not": "❌ `'m not` — лише для `I`. З `You` правильна форма — **aren't**."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "Правило: підмет **it** — однина, скорочена заперечна форма — **isn't**.",
+        "Підмет — `It`, тому `is not` → **isn't**."
+      ],
+      "explanations": {
+        "a26": {
+          "isn't": "✅ Правильно: `It` → **isn't**. Приклад: *It isn't easy to learn a new language.*",
+          "aren't": "❌ `aren't` — для множини. `It` — однина, тому потрібна форма **isn't**.",
+          "'m not": "❌ `'m not` — тільки для `I`. Для `It` правильно — **isn't**."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "Правило: підмет **my sister** = she (однина), скорочена форма — **isn't**.",
+        "Підмет — `My sister` (= she), тому `is not` → **isn't**."
+      ],
+      "explanations": {
+        "a27": {
+          "isn't": "✅ Правильно: `My sister` (однина) → **isn't**. Приклад: *My sister isn't older than me.*",
+          "aren't": "❌ `aren't` — для множини. `My sister` — однина, потрібна форма **isn't**.",
+          "'m not": "❌ `'m not` — лише для `I`. Для `My sister` правильна відповідь — **isn't**."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "Правило: множинний підмет **the shops** потребує скороченої форми **aren't**.",
+        "Підмет — `The shops` (множина = they), тому `are not` → **aren't**."
+      ],
+      "explanations": {
+        "a28": {
+          "aren't": "✅ Правильно: `The shops` (множина) → **aren't**. Приклад: *The shops aren't open on Sundays.*",
+          "isn't": "❌ `isn't` — для однини. `The shops` — множина, правильна форма — **aren't**.",
+          "'m not": "❌ `'m not` — лише для `I`. Множинний підмет потребує **aren't**."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "Правило: з підметом **I** скорочена заперечна форма — **'m not**.",
+        "Тут підмет — `I`, тому `I am not` → **I'm not**."
+      ],
+      "explanations": {
+        "a29": {
+          "'m not": "✅ Правильно: `I` → **'m not**. Приклад: *I'm not interested in football.*",
+          "isn't": "❌ `isn't` — для he/she/it. З `I` потрібна форма **'m not**.",
+          "aren't": "❌ `aren't` — для you/we/they. Підмет `I` потребує скорочення **'m not**."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "Правило: підмет **this** (вказівний займенник однини = it) потребує **isn't**.",
+        "Підмет — `This` (однина), тому `is not` → **isn't**."
+      ],
+      "explanations": {
+        "a30": {
+          "isn't": "✅ Правильно: `This` (однина) → **isn't**. Приклад: *This isn't the right answer.*",
+          "aren't": "❌ `aren't` — для множини. `This` — однина, тому — **isn't**.",
+          "'m not": "❌ `'m not` — лише для `I`. Для `This` правильно — **isn't**."
+        }
+      }
+    },
+    {
+      "id": 31,
+      "hints": [
+        "Правило: множинний підмет **the flowers** потребує **aren't**.",
+        "Підмет — `The flowers` (множина), тому `are not` → **aren't**."
+      ],
+      "explanations": {
+        "a31": {
+          "aren't": "✅ Правильно: `The flowers` (множина) → **aren't**. Приклад: *The flowers aren't fresh any more.*",
+          "isn't": "❌ `isn't` — для однини. `The flowers` — множина, тому потрібна форма **aren't**.",
+          "'m not": "❌ `'m not` — тільки для `I`. Множинний підмет `the flowers` потребує **aren't**."
+        }
+      }
+    },
+    {
+      "id": 32,
+      "hints": [
+        "Правило: підмет **he** — третя особа однини, скорочена форма — **isn't**.",
+        "Тут підмет — `He`, далі в реченні є уточнення: `he is a pilot`, тобто спочатку заперечення."
+      ],
+      "explanations": {
+        "a32": {
+          "isn't": "✅ Правильно: `He` → **isn't**. Приклад: *He isn't a teacher; he is a pilot.*",
+          "aren't": "❌ `aren't` — для множини/you. Підмет `He` — однина, тому — **isn't**.",
+          "'m not": "❌ `'m not` — лише для `I`. Для `He` правильна відповідь — **isn't**."
+        }
+      }
+    },
+    {
+      "id": 33,
+      "hints": [
+        "Правило: з підметом **we** скорочена заперечна форма — **aren't**.",
+        "Підмет — `We`, тому `are not` → **aren't**."
+      ],
+      "explanations": {
+        "a33": {
+          "aren't": "✅ Правильно: `We` → **aren't**. Приклад: *We aren't allowed to park here.*",
+          "isn't": "❌ `isn't` — для однини he/she/it. `We` — множина, потрібна форма **aren't**.",
+          "'m not": "❌ `'m not` — лише для `I`. З `We` правильна форма — **aren't**."
+        }
+      }
+    },
+    {
+      "id": 34,
+      "hints": [
+        "Правило: підмет **the film** = it (однина), скорочена форма — **isn't**.",
+        "Підмет — `The film` (однина), тому `is not` → **isn't**."
+      ],
+      "explanations": {
+        "a34": {
+          "isn't": "✅ Правильно: `The film` (однина) → **isn't**. Приклад: *The film isn't very long.*",
+          "aren't": "❌ `aren't` — для множини. `The film` — однина, тому правильно — **isn't**.",
+          "'m not": "❌ `'m not` — лише для `I`. Для `the film` потрібна форма — **isn't**."
+        }
+      }
+    },
+    {
+      "id": 35,
+      "hints": [
+        "Правило: складений підмет **Tom and Lisa** = they (множина), тому потрібна форма **aren't**.",
+        "Два імені, з'єднані `and`, утворюють множинний підмет → `are not` → **aren't**."
+      ],
+      "explanations": {
+        "a35": {
+          "aren't": "✅ Правильно: `Tom and Lisa` (множина) → **aren't**. Приклад: *Tom and Lisa aren't at school today.*",
+          "isn't": "❌ `isn't` — для однини. Два підмети, з'єднані `and`, утворюють множину → **aren't**.",
+          "'m not": "❌ `'m not` — лише для `I`. Складений підмет `Tom and Lisa` потребує **aren't**."
+        }
+      }
+    },
+    {
+      "id": 36,
+      "hints": [
+        "Правило: з підметом **I** скорочена форма заперечення — **'m not**.",
+        "Підмет — `I`, отже `I am not` → **I'm not**."
+      ],
+      "explanations": {
+        "a36": {
+          "'m not": "✅ Правильно: `I` → **'m not**. Приклад: *I'm not afraid of the dark.*",
+          "isn't": "❌ `isn't` — для he/she/it. З `I` потрібна форма **'m not**.",
+          "aren't": "❌ `aren't` — для you/we/they. Підмет `I` потребує скорочення **'m not**."
+        }
+      }
+    },
+    {
+      "id": 37,
+      "hints": [
+        "Правило: для минулого часу з підметом однини вживаємо **wasn't** (= was not).",
+        "Підмет — `The meeting` (однина), а контекст — минулий час (`scheduled for today` — запланована подія), тому потрібна форма `was` + `not` → **wasn't**."
+      ],
+      "explanations": {
+        "a37": {
+          "wasn't": "✅ Правильно: `The meeting` — однина, минулий час → **wasn't**. Приклад: *The meeting wasn't scheduled for today.*",
+          "weren't": "❌ `weren't` — для множини або `you`. `The meeting` — однина, тому правильно — **wasn't**.",
+          "isn't": "❌ `isn't` — теперішній час. Тут контекст минулого, тому потрібна форма **wasn't**."
+        }
+      }
+    },
+    {
+      "id": 38,
+      "hints": [
+        "Правило: минулий час з множинним підметом — **weren't** (= were not).",
+        "Підмет — `They`, маркер минулого — `last night`, тому `were` + `not` → **weren't**."
+      ],
+      "explanations": {
+        "a38": {
+          "weren't": "✅ Правильно: `They` + минулий час → **weren't**. Приклад: *They weren't at the concert last night.*",
+          "wasn't": "❌ `wasn't` — для однини. `They` — множина, тому правильно — **weren't**.",
+          "aren't": "❌ `aren't` — теперішній час. Маркер `last night` вказує на минулий час, тому — **weren't**."
+        }
+      }
+    },
+    {
+      "id": 39,
+      "hints": [
+        "Правило: з підметом **I** у минулому часі вживаємо **wasn't** (= was not).",
+        "Підмет — `I`, маркер минулого — `until Monday`, тому `was` + `not` → **wasn't**."
+      ],
+      "explanations": {
+        "a39": {
+          "wasn't": "✅ Правильно: `I` + минулий час → **wasn't**. Приклад: *I wasn't aware of the problem until Monday.*",
+          "weren't": "❌ `weren't` — для множини або `you`. З `I` у минулому часі правильно — **wasn't**.",
+          "am not": "❌ `am not` — теперішній час. Тут потрібна минула форма **wasn't**."
+        }
+      }
+    },
+    {
+      "id": 40,
+      "hints": [
+        "Правило: множинний підмет у минулому часі потребує **weren't**.",
+        "Підмет — `The roads` (множина), маркер минулого — `during the storm`, тому `were` + `not` → **weren't**."
+      ],
+      "explanations": {
+        "a40": {
+          "weren't": "✅ Правильно: `The roads` (множина) + минулий час → **weren't**. Приклад: *The roads weren't safe during the storm.*",
+          "wasn't": "❌ `wasn't` — для однини. `The roads` — множина, тому правильно — **weren't**.",
+          "aren't": "❌ `aren't` — теперішній час. Маркер `during the storm` вказує на минулий час → **weren't**."
+        }
+      }
+    },
+    {
+      "id": 41,
+      "hints": [
+        "Правило: підмет **she** в минулому часі — **wasn't**.",
+        "Підмет — `She` (однина), контекст — минулий час (результати вже відомі), тому `was` + `not` → **wasn't**."
+      ],
+      "explanations": {
+        "a41": {
+          "wasn't": "✅ Правильно: `She` + минулий час → **wasn't**. Приклад: *She wasn't satisfied with the results.*",
+          "weren't": "❌ `weren't` — для множини. `She` — однина, тому — **wasn't**.",
+          "isn't": "❌ `isn't` — теперішній час. Тут контекст минулого, потрібна форма **wasn't**."
+        }
+      }
+    },
+    {
+      "id": 42,
+      "hints": [
+        "Правило: з підметом **we** у минулому часі — **weren't** (= were not).",
+        "Підмет — `We` (множина), контекст — минулий час, тому `were` + `not` → **weren't**."
+      ],
+      "explanations": {
+        "a42": {
+          "weren't": "✅ Правильно: `We` + минулий час → **weren't**. Приклад: *We weren't informed about the schedule change.*",
+          "wasn't": "❌ `wasn't` — для однини. `We` — множина, тому правильна форма — **weren't**.",
+          "aren't": "❌ `aren't` — теперішній час. Тут контекст минулого → **weren't**."
+        }
+      }
+    },
+    {
+      "id": 43,
+      "hints": [
+        "Правило: підмет **the hotel** = it (однина), у минулому часі — **wasn't**.",
+        "Підмет — `The hotel` (однина), маркер минулого — `as … as we expected`, тому `was` + `not` → **wasn't**."
+      ],
+      "explanations": {
+        "a43": {
+          "wasn't": "✅ Правильно: `The hotel` (однина) + минулий час → **wasn't**. Приклад: *The hotel wasn't as cheap as we expected.*",
+          "weren't": "❌ `weren't` — для множини. `The hotel` — однина, тому — **wasn't**.",
+          "isn't": "❌ `isn't` — теперішній час. Тут контекст минулого (`expected`), потрібна форма **wasn't**."
+        }
+      }
+    },
+    {
+      "id": 44,
+      "hints": [
+        "Правило: множинний підмет **those answers** — минулий час → **weren't**.",
+        "Підмет — `Those answers` (множина), маркер минулого — `on the quiz`, тому `were` + `not` → **weren't**."
+      ],
+      "explanations": {
+        "a44": {
+          "weren't": "✅ Правильно: `Those answers` (множина) + минулий час → **weren't**. Приклад: *Those answers weren't correct on the quiz.*",
+          "wasn't": "❌ `wasn't` — для однини. `Those answers` — множина, тому — **weren't**.",
+          "aren't": "❌ `aren't` — теперішній час. Контекст минулого (`on the quiz`) → **weren't**."
+        }
+      }
+    },
+    {
+      "id": 45,
+      "hints": [
+        "Правило: підмет **he** в минулому часі — **wasn't**.",
+        "Підмет — `He` (однина), маркер минулого — `yesterday`, тому `was` + `not` → **wasn't**."
+      ],
+      "explanations": {
+        "a45": {
+          "wasn't": "✅ Правильно: `He` + минулий час → **wasn't**. Приклад: *He wasn't feeling well yesterday.*",
+          "weren't": "❌ `weren't` — для множини. `He` — однина, тому — **wasn't**.",
+          "isn't": "❌ `isn't` — теперішній час. Слово `yesterday` вказує на минулий час → **wasn't**."
+        }
+      }
+    },
+    {
+      "id": 46,
+      "hints": [
+        "Правило: множинний підмет **the instructions** — минулий час → **weren't**.",
+        "Підмет — `The instructions` (множина), контекст — минулий час, тому `were` + `not` → **weren't**."
+      ],
+      "explanations": {
+        "a46": {
+          "weren't": "✅ Правильно: `The instructions` (множина) + минулий час → **weren't**.",
+          "wasn't": "❌ `wasn't` — для однини. `The instructions` — множина, тому — **weren't**.",
+          "aren't": "❌ `aren't` — теперішній час. Тут контекст минулого → **weren't**."
+        }
+      }
+    },
+    {
+      "id": 47,
+      "hints": [
+        "Правило: підмет **I** в минулому часі — **wasn't**.",
+        "Підмет — `I`, контекст минулого (`such a hard exam` — іспит вже відбувся), тому `was` + `not` → **wasn't**."
+      ],
+      "explanations": {
+        "a47": {
+          "wasn't": "✅ Правильно: `I` + минулий час → **wasn't**. Приклад: *I wasn't prepared for such a hard exam.*",
+          "weren't": "❌ `weren't` — для множини або `you`. З `I` правильна минула форма — **wasn't**.",
+          "am not": "❌ `am not` — теперішній час. Тут потрібна минула форма — **wasn't**."
+        }
+      }
+    },
+    {
+      "id": 48,
+      "hints": [
+        "Правило: однинний підмет **the package** у минулому часі — **wasn't**.",
+        "Підмет — `The package` (однина), маркер минулого — `on time` (подія вже відбулася), тому `was` + `not` → **wasn't**."
+      ],
+      "explanations": {
+        "a48": {
+          "wasn't": "✅ Правильно: `The package` (однина) + минулий час → **wasn't**.",
+          "weren't": "❌ `weren't` — для множини. `The package` — однина, тому — **wasn't**.",
+          "isn't": "❌ `isn't` — теперішній час. Тут контекст минулого → **wasn't**."
+        }
+      }
+    },
+    {
+      "id": 49,
+      "hints": [
+        "Правило: множинний підмет **the neighbours** — минулий час → **weren't**.",
+        "Підмет — `The neighbours` (множина), контекст минулого, тому `were` + `not` → **weren't**."
+      ],
+      "explanations": {
+        "a49": {
+          "weren't": "✅ Правильно: `The neighbours` (множина) + минулий час → **weren't**.",
+          "wasn't": "❌ `wasn't` — для однини. `The neighbours` — множина, тому — **weren't**.",
+          "aren't": "❌ `aren't` — теперішній час. Контекст минулого → **weren't**."
+        }
+      }
+    },
+    {
+      "id": 50,
+      "hints": [
+        "Правило: підмет **she** в минулому часі — **wasn't**.",
+        "Підмет — `She` (однина), контекст — минулий час (аргумент вже представлений), тому `was` + `not` → **wasn't**."
+      ],
+      "explanations": {
+        "a50": {
+          "wasn't": "✅ Правильно: `She` + минулий час → **wasn't**.",
+          "weren't": "❌ `weren't` — для множини. `She` — однина → **wasn't**.",
+          "isn't": "❌ `isn't` — теперішній час. Контекст минулого → **wasn't**."
+        }
+      }
+    },
+    {
+      "id": 51,
+      "hints": [
+        "Правило: підмет **the train** = it (однина), минулий час → **wasn't**.",
+        "Підмет — `The train` (однина), у другій частині — `but the bus was`, що підтверджує минулий час → **wasn't**."
+      ],
+      "explanations": {
+        "a51": {
+          "wasn't": "✅ Правильно: `The train` (однина) + минулий час → **wasn't**. Приклад: *The train wasn't delayed, but the bus was.*",
+          "weren't": "❌ `weren't` — для множини. `The train` — однина → **wasn't**.",
+          "isn't": "❌ `isn't` — теперішній час. Контекст: `but the bus was` → минулий час → **wasn't**."
+        }
+      }
+    },
+    {
+      "id": 52,
+      "hints": [
+        "Правило: з підметом **we** в минулому часі — **weren't**.",
+        "Підмет — `We` (множина), контекст минулого → `were` + `not` → **weren't**."
+      ],
+      "explanations": {
+        "a52": {
+          "weren't": "✅ Правильно: `We` + минулий час → **weren't**.",
+          "wasn't": "❌ `wasn't` — для однини. `We` — множина → **weren't**.",
+          "aren't": "❌ `aren't` — теперішній час. Тут контекст минулого → **weren't**."
+        }
+      }
+    },
+    {
+      "id": 53,
+      "hints": [
+        "Правило: підмет **the weather** = it (однина), минулий час → **wasn't**.",
+        "Підмет — `The weather` (однина), контекст минулого → `was` + `not` → **wasn't**."
+      ],
+      "explanations": {
+        "a53": {
+          "wasn't": "✅ Правильно: `The weather` (однина) + минулий час → **wasn't**.",
+          "weren't": "❌ `weren't` — для множини. `The weather` — однина → **wasn't**.",
+          "isn't": "❌ `isn't` — теперішній час. Контекст минулого → **wasn't**."
+        }
+      }
+    },
+    {
+      "id": 54,
+      "hints": [
+        "Правило: множинний підмет **these shoes** — минулий час → **weren't**.",
+        "Підмет — `These shoes` (множина), контекст минулого → `were` + `not` → **weren't**."
+      ],
+      "explanations": {
+        "a54": {
+          "weren't": "✅ Правильно: `These shoes` (множина) + минулий час → **weren't**.",
+          "wasn't": "❌ `wasn't` — для однини. `These shoes` — множина → **weren't**.",
+          "aren't": "❌ `aren't` — теперішній час. Контекст минулого → **weren't**."
+        }
+      }
+    },
+    {
+      "id": 55,
+      "hints": [
+        "Правило: у формальному мовленні перевага надається повній формі **is not** замість скорочення `isn't`.",
+        "Підмет — `The data` (у формальному контексті вживається як однина = it), тому `is` + `not`."
+      ],
+      "explanations": {
+        "a55": {
+          "is not": "✅ Правильно: `The data` в науковому контексті — однина → **is not**.",
+          "are not": "❌ Хоча `data` може вживатися як множина у розмовній мові, у формальних/наукових текстах підмет `the data` тут узгоджується з дієсловом однини → **is not**.",
+          "am not": "❌ `am not` — лише для `I`. Для `the data` правильно — **is not**."
+        }
+      }
+    },
+    {
+      "id": 56,
+      "hints": [
+        "Правило: множинний підмет **the committee members** у минулому часі — **were not** (повна форма у формальному тексті).",
+        "Підмет — `The committee members` (множина), минулий час → `were` + `not`."
+      ],
+      "explanations": {
+        "a56": {
+          "were not": "✅ Правильно: множинний підмет + минулий час → **were not**.",
+          "was not": "❌ `was not` — для однини. `The committee members` — множина → **were not**.",
+          "are not": "❌ `are not` — теперішній час. Контекст: `proposed budget` (подія в минулому) → **were not**."
+        }
+      }
+    },
+    {
+      "id": 57,
+      "hints": [
+        "Правило: підмет **this approach** = it (однина), теперішній час, формальний стиль → **is not**.",
+        "Підмет — `This approach` (однина), теперішній час → `is` + `not`."
+      ],
+      "explanations": {
+        "a57": {
+          "is not": "✅ Правильно: `This approach` (однина) → **is not**.",
+          "are not": "❌ `are not` — для множини. `This approach` — однина → **is not**.",
+          "was not": "❌ `was not` — минулий час. Тут теперішній час (`is recommended`) → **is not**."
+        }
+      }
+    },
+    {
+      "id": 58,
+      "hints": [
+        "Правило: множинний підмет **the results** у минулому часі → **were not**.",
+        "Підмет — `The results` (множина), маркер минулого — `initially thought` → `were` + `not`."
+      ],
+      "explanations": {
+        "a58": {
+          "were not": "✅ Правильно: `The results` (множина) + минулий час → **were not**.",
+          "was not": "❌ `was not` — для однини. `The results` — множина → **were not**.",
+          "are not": "❌ `are not` — теперішній час. Маркер `initially thought` → минулий час → **were not**."
+        }
+      }
+    },
+    {
+      "id": 59,
+      "hints": [
+        "Правило: підмет **I** у теперішньому часі, формальний стиль → **am not** (повна форма).",
+        "Підмет — `I`, формальний контекст (наукова доповідь), тому `am` + `not`."
+      ],
+      "explanations": {
+        "a59": {
+          "am not": "✅ Правильно: `I` → **am not** (у формальному контексті без скорочень).",
+          "is not": "❌ `is not` — для he/she/it. Підмет `I` потребує **am not**.",
+          "are not": "❌ `are not` — для you/we/they. Підмет `I` → **am not**."
+        }
+      }
+    },
+    {
+      "id": 60,
+      "hints": [
+        "Правило: множинний підмет **the witnesses** у минулому часі → **were not**.",
+        "Підмет — `The witnesses` (множина), контекст минулого (розслідування завершене) → `were` + `not`."
+      ],
+      "explanations": {
+        "a60": {
+          "were not": "✅ Правильно: `The witnesses` (множина) + минулий час → **were not**.",
+          "was not": "❌ `was not` — для однини. `The witnesses` — множина → **were not**.",
+          "are not": "❌ `are not` — теперішній час. Контекст минулого → **were not**."
+        }
+      }
+    },
+    {
+      "id": 61,
+      "hints": [
+        "Правило: підмет **his behaviour** = it (однина), минулий час → **was not**.",
+        "Підмет — `His behaviour` (незлічуваний іменник, однина), контекст минулого → `was` + `not`."
+      ],
+      "explanations": {
+        "a61": {
+          "was not": "✅ Правильно: `His behaviour` (однина) + минулий час → **was not**.",
+          "were not": "❌ `were not` — для множини. `His behaviour` — однина → **was not**.",
+          "is not": "❌ `is not` — теперішній час. Контекст формального минулого → **was not**."
+        }
+      }
+    },
+    {
+      "id": 62,
+      "hints": [
+        "Правило: множинний підмет **the figures** у теперішньому часі → **are not**.",
+        "Підмет — `The figures in the report` (множина), теперішній час → `are` + `not`."
+      ],
+      "explanations": {
+        "a62": {
+          "are not": "✅ Правильно: `The figures` (множина) → **are not**.",
+          "is not": "❌ `is not` — для однини. `The figures` — множина → **are not**.",
+          "am not": "❌ `am not` — лише для `I`. Множинний підмет `the figures` → **are not**."
+        }
+      }
+    },
+    {
+      "id": 63,
+      "hints": [
+        "Правило: підмет **she** в минулому часі → **was not**.",
+        "Підмет — `She` (однина), контекст минулого (переговори завершилися) → `was` + `not`."
+      ],
+      "explanations": {
+        "a63": {
+          "was not": "✅ Правильно: `She` + минулий час → **was not**.",
+          "were not": "❌ `were not` — для множини. `She` — однина → **was not**.",
+          "is not": "❌ `is not` — теперішній час. Контекст минулого → **was not**."
+        }
+      }
+    },
+    {
+      "id": 64,
+      "hints": [
+        "Правило: множинний підмет **the new regulations** у теперішньому часі → **are not**.",
+        "Підмет — `The new regulations` (множина), а дія стосується майбутнього очікування → `are` + `not`."
+      ],
+      "explanations": {
+        "a64": {
+          "are not": "✅ Правильно: `The new regulations` (множина) → **are not**.",
+          "is not": "❌ `is not` — для однини. `The new regulations` — множина → **are not**.",
+          "were not": "❌ `were not` — минулий час. Тут йдеться про теперішнє очікування → **are not**."
+        }
+      }
+    },
+    {
+      "id": 65,
+      "hints": [
+        "Правило: підмет **that explanation** = it (однина), теперішній час → **is not**.",
+        "Підмет — `That explanation` (однина) → `is` + `not`."
+      ],
+      "explanations": {
+        "a65": {
+          "is not": "✅ Правильно: `That explanation` (однина) → **is not**.",
+          "are not": "❌ `are not` — для множини. `That explanation` — однина → **is not**.",
+          "was not": "❌ `was not` — минулий час. Тут теперішній час → **is not**."
+        }
+      }
+    },
+    {
+      "id": 66,
+      "hints": [
+        "Правило: множинний підмет **the participants** у минулому часі → **were not**.",
+        "Підмет — `The participants` (множина), маркер минулого — `in advance` (подія відбулася) → `were` + `not`."
+      ],
+      "explanations": {
+        "a66": {
+          "were not": "✅ Правильно: `The participants` (множина) + минулий час → **were not**.",
+          "was not": "❌ `was not` — для однини. `The participants` — множина → **were not**.",
+          "are not": "❌ `are not` — теперішній час. Контекст минулого → **were not**."
+        }
+      }
+    },
+    {
+      "id": 67,
+      "hints": [
+        "Правило: підмет **such conduct** = it (незлічуваний, однина), теперішній час → **is not**.",
+        "Підмет — `Such conduct` (однина), формальний контекст → `is` + `not`."
+      ],
+      "explanations": {
+        "a67": {
+          "is not": "✅ Правильно: `Such conduct` (однина) → **is not**.",
+          "are not": "❌ `are not` — для множини. `Such conduct` — однина → **is not**.",
+          "was not": "❌ `was not` — минулий час. Тут теперішній час (загальне правило) → **is not**."
+        }
+      }
+    },
+    {
+      "id": 68,
+      "hints": [
+        "Правило: множинний підмет **the patients** у минулому часі → **were not**.",
+        "Підмет — `The patients` (множина), маркер минулого — `until the tests came back` → `were` + `not`."
+      ],
+      "explanations": {
+        "a68": {
+          "were not": "✅ Правильно: `The patients` (множина) + минулий час → **were not**.",
+          "was not": "❌ `was not` — для однини. `The patients` — множина → **were not**.",
+          "are not": "❌ `are not` — теперішній час. Маркер `came back` → минулий час → **were not**."
+        }
+      }
+    },
+    {
+      "id": 69,
+      "hints": [
+        "Правило: підмет **the proposal** = it (однина), минулий час → **was not**.",
+        "Підмет — `The proposal` (однина), контекст минулого (голосування відбулося) → `was` + `not`."
+      ],
+      "explanations": {
+        "a69": {
+          "was not": "✅ Правильно: `The proposal` (однина) + минулий час → **was not**.",
+          "were not": "❌ `were not` — для множини. `The proposal` — однина → **was not**.",
+          "is not": "❌ `is not` — теперішній час. Контекст минулого → **was not**."
+        }
+      }
+    },
+    {
+      "id": 70,
+      "hints": [
+        "Правило: множинний підмет **these measures** у теперішньому часі → **are not**.",
+        "Підмет — `These measures` (множина), теперішній час (пояснення мети) → `are` + `not`."
+      ],
+      "explanations": {
+        "a70": {
+          "are not": "✅ Правильно: `These measures` (множина) → **are not**.",
+          "is not": "❌ `is not` — для однини. `These measures` — множина → **are not**.",
+          "were not": "❌ `were not` — минулий час. Тут теперішній час → **are not**."
+        }
+      }
+    },
+    {
+      "id": 71,
+      "hints": [
+        "Правило: підмет **the defendant** = he/she (однина), минулий час → **was not**.",
+        "Підмет — `The defendant` (однина), маркер минулого — `when the verdict was read` → `was` + `not`."
+      ],
+      "explanations": {
+        "a71": {
+          "was not": "✅ Правильно: `The defendant` (однина) + минулий час → **was not**.",
+          "were not": "❌ `were not` — для множини. `The defendant` — однина → **was not**.",
+          "is not": "❌ `is not` — теперішній час. Маркер `was read` → минулий час → **was not**."
+        }
+      }
+    },
+    {
+      "id": 72,
+      "hints": [
+        "Правило: підмет **we** у теперішньому часі, формальний стиль → **are not**.",
+        "Підмет — `We` (множина), теперішній час → `are` + `not`."
+      ],
+      "explanations": {
+        "a72": {
+          "are not": "✅ Правильно: `We` → **are not**.",
+          "is not": "❌ `is not` — для однини. `We` — множина → **are not**.",
+          "were not": "❌ `were not` — минулий час. Тут теперішній час (`at this stage`) → **are not**."
+        }
+      }
+    },
+    {
+      "id": 73,
+      "hints": [
+        "Конструкція **be not to + infinitive** виражає заборону або інструкцію. З підметом однини → **is not**.",
+        "Підмет — `The government` (однина), конструкція `be not to be held responsible` → `is` + `not`."
+      ],
+      "explanations": {
+        "a73": {
+          "is not": "✅ Правильно: `The government` + `be not to` конструкція → **is not to be held responsible**.",
+          "are not": "❌ `are not` — для множини. `The government` — однина → **is not**.",
+          "was not": "❌ `was not` — минулий час. Тут теперішній час (загальне правило) → **is not**."
+        }
+      }
+    },
+    {
+      "id": 74,
+      "hints": [
+        "Конструкція **be not to + infinitive** — заборона/інструкція. Підмет множини → **are not**.",
+        "Підмет — `Employees` (множина), конструкція `be not to be disturbed` → `are` + `not`."
+      ],
+      "explanations": {
+        "a74": {
+          "are not": "✅ Правильно: `Employees` (множина) + конструкція → **are not to be disturbed**.",
+          "is not": "❌ `is not` — для однини. `Employees` — множина → **are not**.",
+          "were not": "❌ `were not` — минулий час. Тут теперішня інструкція → **are not**."
+        }
+      }
+    },
+    {
+      "id": 75,
+      "hints": [
+        "Інверсія з негативним прислівником: **Under no circumstances** виносить допоміжне дієслово перед підметом. Підмет — `this document` (однина) → **is**.",
+        "Негативна інверсія: `Under no circumstances` + be → `Under no circumstances **is** this document to be copied`. Сам `no` вже виражає заперечення."
+      ],
+      "explanations": {
+        "a75": {
+          "is": "✅ Правильно: інверсія з `Under no circumstances` + однинний підмет → **is** (заперечення вже в `no circumstances`).",
+          "are": "❌ `are` — для множини. Підмет `this document` — однина → **is**.",
+          "was": "❌ `was` — минулий час. Тут загальне правило у теперішньому часі → **is**."
+        }
+      }
+    },
+    {
+      "id": 76,
+      "hints": [
+        "Непряма мова: дієслово в підрядному реченні узгоджується з підметом **the figures** (множина) у минулому часі → **were not**.",
+        "У реченні `The CEO insisted that the figures {…} accurate` — підмет `the figures` (множина) + минулий час → `were` + `not`."
+      ],
+      "explanations": {
+        "a76": {
+          "were not": "✅ Правильно: `the figures` (множина) + минулий час в непрямій мові → **were not**.",
+          "was not": "❌ `was not` — для однини. `The figures` — множина → **were not**.",
+          "are not": "❌ `are not` — теперішній час. Дієслово `insisted` зсуває час у минулий → **were not**."
+        }
+      }
+    },
+    {
+      "id": 77,
+      "hints": [
+        "Інверсія з **At no point**: негативний вираз виносить допоміжне дієслово перед підметом. Підмет — `the safety protocols` (множина), минулий час → **were**.",
+        "Заперечення вже є у `no point`, тому дієслово стоїть у стверджувальній формі: `At no point **were** the safety protocols breached`."
+      ],
+      "explanations": {
+        "a77": {
+          "were": "✅ Правильно: інверсія + множинний підмет + минулий час → **were**.",
+          "was": "❌ `was` — для однини. `The safety protocols` — множина → **were**.",
+          "are": "❌ `are` — теперішній час. Контекст минулого (`breached`) → **were**."
+        }
+      }
+    },
+    {
+      "id": 78,
+      "hints": [
+        "Непряма мова: `The minister stated that funding {…} sufficient`. Підмет — `funding` (незлічуваний, однина), минулий час → **was not**.",
+        "Дієслово `stated` зсуває час у підрядному реченні → `was` + `not`."
+      ],
+      "explanations": {
+        "a78": {
+          "was not": "✅ Правильно: `funding` (однина) + непряма мова в минулому → **was not**.",
+          "were not": "❌ `were not` — для множини. `Funding` — незлічуваний, однина → **was not**.",
+          "is not": "❌ `is not` — теперішній час. Дієслово `stated` зсуває час → **was not**."
+        }
+      }
+    },
+    {
+      "id": 79,
+      "hints": [
+        "Конструкція **neither…nor**: дієслово узгоджується з найближчим підметом. `Neither the manager nor the assistant` — найближчий `the assistant` (однина), минулий час → **was**.",
+        "`Neither…nor` вже виражає заперечення, тому дієслово стоїть у стверджувальній формі: **was**."
+      ],
+      "explanations": {
+        "a79": {
+          "was": "✅ Правильно: `neither…nor` + найближчий підмет однини + минулий час → **was**.",
+          "were": "❌ При `neither…nor` дієслово узгоджується з найближчим підметом. `The assistant` — однина → **was**, не `were`.",
+          "is": "❌ `is` — теперішній час. Контекст минулого → **was**."
+        }
+      }
+    },
+    {
+      "id": 80,
+      "hints": [
+        "Конструкція **neither…nor**: дієслово узгоджується з найближчим підметом. `Neither the students nor the teacher` — найближчий `the teacher` (однина), минулий час → **was**.",
+        "`Neither…nor` — вже заперечення, тому дієслово стверджувальне: **was**."
+      ],
+      "explanations": {
+        "a80": {
+          "was": "✅ Правильно: найближчий підмет `the teacher` (однина) + минулий час → **was**.",
+          "were": "❌ Найближчий до дієслова підмет — `the teacher` (однина), тому `was`, а не `were`.",
+          "is": "❌ `is` — теперішній час. Контекст минулого → **was**."
+        }
+      }
+    },
+    {
+      "id": 81,
+      "hints": [
+        "Інверсія з **In no way**: негативний вираз виносить дієслово перед підметом. Підмет — `the decision` (однина), минулий час → **was**.",
+        "`In no way` вже містить заперечення, тому дієслово — у стверджувальній формі: **was**."
+      ],
+      "explanations": {
+        "a81": {
+          "was": "✅ Правильно: інверсія + однинний підмет + минулий час → **was**.",
+          "were": "❌ `were` — для множини. `The decision` — однина → **was**.",
+          "is": "❌ `is` — теперішній час. Контекст минулого (`intended`) → **was**."
+        }
+      }
+    },
+    {
+      "id": 82,
+      "hints": [
+        "Літота (litotes): подвійне заперечення для підсилення. `It is not uncommon` означає «це досить поширено». Підмет — `It`, теперішній час → **is not**.",
+        "Підмет — `It`, конструкція літоти: `is not` + прикметник із заперечним префіксом (`uncommon`) → **is not**."
+      ],
+      "explanations": {
+        "a82": {
+          "is not": "✅ Правильно: літота з `It` + теперішній час → **is not uncommon**.",
+          "are not": "❌ `are not` — для множини. Підмет `It` — однина → **is not**.",
+          "was not": "❌ `was not` — минулий час. Тут загальне твердження → **is not**."
+        }
+      }
+    },
+    {
+      "id": 83,
+      "hints": [
+        "Конструкція **be not to + infinitive** — заборона/інструкція. Підмет — `These allegations` (множина) → **are not**.",
+        "Підмет — `These allegations` (множина), конструкція `be not to be taken lightly` → `are` + `not`."
+      ],
+      "explanations": {
+        "a83": {
+          "are not": "✅ Правильно: `These allegations` (множина) + конструкція → **are not to be taken lightly**.",
+          "is not": "❌ `is not` — для однини. `These allegations` — множина → **are not**.",
+          "were not": "❌ `were not` — минулий час. Тут теперішня інструкція → **are not**."
+        }
+      }
+    },
+    {
+      "id": 84,
+      "hints": [
+        "Непряма мова: дієслово `concluded` зсуває час. Підмет — `conditions` (множина), минулий час → **were not**.",
+        "Підмет — `conditions` (множина), у підрядному після `concluded that` → `were` + `not`."
+      ],
+      "explanations": {
+        "a84": {
+          "were not": "✅ Правильно: `conditions` (множина) + минулий час у непрямій мові → **were not**.",
+          "was not": "❌ `was not` — для однини. `Conditions` — множина → **were not**.",
+          "are not": "❌ `are not` — теперішній час. Дієслово `concluded` зсуває час → **were not**."
+        }
+      }
+    },
+    {
+      "id": 85,
+      "hints": [
+        "Підмет **the accused** — однина у юридичному контексті, минулий час → **was not**.",
+        "Підмет — `The accused` (одна особа), маркер минулого — `during the hearing` → `was` + `not`."
+      ],
+      "explanations": {
+        "a85": {
+          "was not": "✅ Правильно: `The accused` (одна особа, однина) + минулий час → **was not**.",
+          "were not": "❌ `were not` — якби `the accused` означало кількох осіб, було б `were not`, але тут йдеться про одну особу → **was not**.",
+          "is not": "❌ `is not` — теперішній час. Маркер `during the hearing` → минулий час → **was not**."
+        }
+      }
+    },
+    {
+      "id": 86,
+      "hints": [
+        "Інверсія з **Never**: `Never was such incompetence seen…`. Заперечення — у `Never`, дієслово стверджувальне. Підмет — `such incompetence` (однина), минулий час → **was**.",
+        "`Never` починає речення → інверсія: `Never **was** such incompetence seen…`."
+      ],
+      "explanations": {
+        "a86": {
+          "was": "✅ Правильно: `Never` + інверсія + однинний підмет + минулий час → **was**.",
+          "were": "❌ `were` — для множини. `Such incompetence` — однина → **was**.",
+          "is": "❌ `is` — теперішній час. Контекст — минулий досвід → **was**."
+        }
+      }
+    },
+    {
+      "id": 87,
+      "hints": [
+        "Заперечення в умовному реченні: підмет **the warranty** = it (однина), теперішній час → **is not**.",
+        "Підмет — `The warranty` (однина), умовний контекст (`if the product has been modified`) → `is` + `not`."
+      ],
+      "explanations": {
+        "a87": {
+          "is not": "✅ Правильно: `The warranty` (однина) + теперішній час → **is not valid if…**.",
+          "are not": "❌ `are not` — для множини. `The warranty` — однина → **is not**.",
+          "was not": "❌ `was not` — минулий час. Тут загальне правило у теперішньому часі → **is not**."
+        }
+      }
+    },
+    {
+      "id": 88,
+      "hints": [
+        "Конструкція **neither** + однинний підмет. `Neither proposal` — один із двох (однина), минулий час → **was**.",
+        "`Neither` вже заперечує, тому дієслово — стверджувальне: **was**."
+      ],
+      "explanations": {
+        "a88": {
+          "was": "✅ Правильно: `Neither proposal` (однина) + минулий час → **was acceptable**.",
+          "were": "❌ `were` — для множини. `Neither proposal` — однина (кожна пропозиція окремо) → **was**.",
+          "is": "❌ `is` — теперішній час. Контекст минулого (акціонери вже відреагували) → **was**."
+        }
+      }
+    },
+    {
+      "id": 89,
+      "hints": [
+        "Літота: `It is not unreasonable` = «це цілком розумно». Підмет — `It`, теперішній час → **is not**.",
+        "Підмет — `It`, конструкція літоти → `is` + `not`."
+      ],
+      "explanations": {
+        "a89": {
+          "is not": "✅ Правильно: `It` + теперішній час → **is not unreasonable**.",
+          "are not": "❌ `are not` — для множини. `It` — однина → **is not**.",
+          "was not": "❌ `was not` — минулий час. Тут загальне твердження → **is not**."
+        }
+      }
+    },
+    {
+      "id": 90,
+      "hints": [
+        "Конструкція **be not to + infinitive** — заборона. Підмет — `The staff` (вживається як множина у BrE) → **are not**.",
+        "Підмет — `The staff` (множина в британській англійській), конструкція `be not to be blamed` → `are` + `not`."
+      ],
+      "explanations": {
+        "a90": {
+          "are not": "✅ Правильно: `The staff` (множина) + конструкція → **are not to be blamed**.",
+          "is not": "❌ У BrE `the staff` часто вживається як множина. У цьому контексті → **are not**.",
+          "were not": "❌ `were not` — минулий час. Тут теперішня інструкція → **are not**."
+        }
+      }
+    },
+    {
+      "id": 91,
+      "hints": [
+        "Юридичний регістр: `Be it noted that…` — формальна конструкція. Підмет — `the court` (однина), минулий час → **was not**.",
+        "Підмет — `the court` (однина), маркер минулого — `the defence's reasoning` (аргументація вже представлена) → `was` + `not`."
+      ],
+      "explanations": {
+        "a91": {
+          "was not": "✅ Правильно: `the court` (однина) + минулий час → **was not**.",
+          "were not": "❌ `were not` — для множини. `The court` — однина → **was not**.",
+          "is not": "❌ `is not` — теперішній час. Контекст судового рішення (минулий) → **was not**."
+        }
+      }
+    },
+    {
+      "id": 92,
+      "hints": [
+        "Літературна інверсія: `So complex was the matter…`. Прислівник `So complex` виносить дієслово перед підметом. Підмет — `the matter` (однина), минулий час → **was**.",
+        "Інверсія з `So + adjective`: дієслово перед підметом. `The matter` — однина → **was**."
+      ],
+      "explanations": {
+        "a92": {
+          "was": "✅ Правильно: літературна інверсія + однинний підмет + минулий час → **was**.",
+          "were": "❌ `were` — для множини. `The matter` — однина → **was**.",
+          "is": "❌ `is` — теперішній час. Маркер `proved` → минулий час → **was**."
+        }
+      }
+    },
+    {
+      "id": 93,
+      "hints": [
+        "Інверсія з **Rarely**: дієслово перед підметом. Підмет — `scholars` (множина), теперішній час → **are**.",
+        "`Rarely` + інверсія: `Rarely **are** scholars so divided…`. Заперечення — у `Rarely`."
+      ],
+      "explanations": {
+        "a93": {
+          "are": "✅ Правильно: `Rarely` + інверсія + множинний підмет + теперішній час → **are**.",
+          "is": "❌ `is` — для однини. `Scholars` — множина → **are**.",
+          "were": "❌ `were` — минулий час. Тут загальне спостереження у теперішньому часі → **are**."
+        }
+      }
+    },
+    {
+      "id": 94,
+      "hints": [
+        "Вставна конструкція: `it must be said` — парентетичний вираз. Основне речення: `The phenomenon {…} without precedent`. Підмет — `The phenomenon` (однина), теперішній час → **is not**.",
+        "Підмет — `The phenomenon` (однина), вставне `it must be said` не змінює узгодження → `is` + `not`."
+      ],
+      "explanations": {
+        "a94": {
+          "is not": "✅ Правильно: `The phenomenon` (однина) → **is not without precedent**.",
+          "are not": "❌ `are not` — для множини. `The phenomenon` — однина → **is not**.",
+          "was not": "❌ `was not` — минулий час. Тут загальне твердження → **is not**."
+        }
+      }
+    },
+    {
+      "id": 95,
+      "hints": [
+        "Конструкція **be not for + noun/gerund**: `It is not for the committee to determine…` означає «не справа комітету визначати…». Підмет — `It` → **is not**.",
+        "Підмет — `It`, конструкція `be not for` → `is` + `not`."
+      ],
+      "explanations": {
+        "a95": {
+          "is not": "✅ Правильно: `It` + `be not for` → **is not for the committee**.",
+          "are not": "❌ `are not` — для множини. `It` — однина → **is not**.",
+          "was not": "❌ `was not` — минулий час. Тут загальне правило → **is not**."
+        }
+      }
+    },
+    {
+      "id": 96,
+      "hints": [
+        "Інверсія з **Not once**: `Not once were the regulations enforced…`. Заперечення — у `Not once`, дієслово — стверджувальне. Підмет — `the regulations` (множина), минулий час → **were**.",
+        "`Not once` починає речення → інверсія: дієслово перед підметом."
+      ],
+      "explanations": {
+        "a96": {
+          "were": "✅ Правильно: `Not once` + інверсія + множинний підмет + минулий час → **were**.",
+          "was": "❌ `was` — для однини. `The regulations` — множина → **were**.",
+          "are": "❌ `are` — теперішній час. Маркер `during that period` → минулий час → **were**."
+        }
+      }
+    },
+    {
+      "id": 97,
+      "hints": [
+        "Вбудоване речення: `Whether or not the hypothesis {…} correct`. Підмет — `the hypothesis` (однина), теперішній час → **is**.",
+        "У конструкції `whether or not` заперечення вже закладене в `not`, тому дієслово — стверджувальне: **is**."
+      ],
+      "explanations": {
+        "a97": {
+          "is": "✅ Правильно: `the hypothesis` (однина) + теперішній час → **is**. Заперечення — в `or not`.",
+          "are": "❌ `are` — для множини. `The hypothesis` — однина → **is**.",
+          "was": "❌ `was` — минулий час. Маркер `remains to be seen` → теперішній час → **is**."
+        }
+      }
+    },
+    {
+      "id": 98,
+      "hints": [
+        "Вбудоване речення: `The assumption that all participants {…} equally informed`. Підмет — `all participants` (множина), минулий час → **were**.",
+        "Заперечення виражене контекстом (`proved flawed`), тому в підрядному реченні дієслово стверджувальне. `All participants` (множина) + минулий час → **were**."
+      ],
+      "explanations": {
+        "a98": {
+          "were": "✅ Правильно: `all participants` (множина) + минулий час → **were equally informed**.",
+          "was": "❌ `was` — для однини. `All participants` — множина → **were**.",
+          "are": "❌ `are` — теперішній час. Маркер `proved flawed` → минулий час → **were**."
+        }
+      }
+    },
+    {
+      "id": 99,
+      "hints": [
+        "Конструкція **lest** вимагає форми **be** (subjunctive) або **should + V**. `Lest it be forgotten` — класичний subjunctive.",
+        "Після `lest` вживається bare subjunctive: `lest it **be** forgotten` — форма без `-s` і без `was/were`."
+      ],
+      "explanations": {
+        "a99": {
+          "be": "✅ Правильно: після `lest` вживається subjunctive → **be**. `Lest it be forgotten`.",
+          "is": "❌ `is` — індикатив. Після `lest` потрібна форма subjunctive → **be**.",
+          "was": "❌ `was` — минулий індикатив. Після `lest` потрібна форма subjunctive → **be**."
+        }
+      }
+    },
+    {
+      "id": 100,
+      "hints": [
+        "Інверсія з **Seldom**: `Seldom has a policy reversal met with…`. Форма present perfect з інверсією: допоміжне дієслово `has` перед підметом.",
+        "`Seldom` починає речення → інверсія. Підмет — `a policy reversal` (однина), present perfect → **has**."
+      ],
+      "explanations": {
+        "a100": {
+          "has": "✅ Правильно: `Seldom` + інверсія + однинний підмет + present perfect → **has** (+ met with…).",
+          "is": "❌ `is` + `met` не утворює граматичної конструкції. Тут present perfect → **has met**.",
+          "was": "❌ `was met` — passive past, але тут active present perfect з інверсією → **has met**."
+        }
+      }
+    },
+    {
+      "id": 101,
+      "hints": [
+        "Вбудоване підрядне: `That the evidence {…} conclusive should concern…`. Підмет — `the evidence` (незлічуваний, однина) → **is not**.",
+        "Підмет підрядного — `the evidence` (однина), теперішній час → `is` + `not`."
+      ],
+      "explanations": {
+        "a101": {
+          "is not": "✅ Правильно: `the evidence` (однина) → **is not conclusive**.",
+          "are not": "❌ `are not` — для множини. `The evidence` — незлічуваний, однина → **is not**.",
+          "was not": "❌ `was not` — минулий час. Тут загальне твердження → **is not**."
+        }
+      }
+    },
+    {
+      "id": 102,
+      "hints": [
+        "Конструкція **No sooner…than**: `No sooner was the announcement made than…`. Інверсія: дієслово перед підметом. Підмет — `the announcement` (однина), минулий час → **was**.",
+        "`No sooner` + інверсія + past simple: **was** the announcement made."
+      ],
+      "explanations": {
+        "a102": {
+          "was": "✅ Правильно: `No sooner` + інверсія + однинний підмет → **was**.",
+          "were": "❌ `were` — для множини. `The announcement` — однина → **was**.",
+          "is": "❌ `is` — теперішній час. Маркер `reacted` → минулий час → **was**."
+        }
+      }
+    },
+    {
+      "id": 103,
+      "hints": [
+        "Вбудоване речення у юридичному контексті: `Whether the defendant {…} aware of the clause`. Підмет — `the defendant` (однина), минулий час → **was**.",
+        "Заперечення — у загальному контексті (`is immaterial`), тому дієслово у підрядному — стверджувальне: **was**."
+      ],
+      "explanations": {
+        "a103": {
+          "was": "✅ Правильно: `the defendant` (однина) + минулий час → **was aware**.",
+          "were": "❌ `were` — для множини. `The defendant` — однина → **was**.",
+          "is": "❌ `is` — теперішній час. Контекст судової справи (минулий) → **was**."
+        }
+      }
+    },
+    {
+      "id": 104,
+      "hints": [
+        "Вставна конструкція: `though serious` — парентетичний вираз. Підмет — `The allegation` (однина), минулий час → **was not**.",
+        "Підмет — `The allegation` (однина), маркер минулого — `by the inquiry` → `was` + `not`."
+      ],
+      "explanations": {
+        "a104": {
+          "was not": "✅ Правильно: `The allegation` (однина) + минулий час → **was not substantiated**.",
+          "were not": "❌ `were not` — для множини. `The allegation` — однина → **was not**.",
+          "is not": "❌ `is not` — теперішній час. Контекст розслідування (минулий) → **was not**."
+        }
+      }
+    },
+    {
+      "id": 105,
+      "hints": [
+        "Формальний юридичний контекст: `the amendment {…} unconstitutional`. Підмет — `the amendment` (однина), теперішній час → **is not**.",
+        "`Notwithstanding the objections` — вставна конструкція, підмет — `the amendment` (однина) → `is` + `not`."
+      ],
+      "explanations": {
+        "a105": {
+          "is not": "✅ Правильно: `the amendment` (однина) + теперішній час → **is not unconstitutional**.",
+          "are not": "❌ `are not` — для множини. `The amendment` — однина → **is not**.",
+          "was not": "❌ `was not` — минулий час. Тут загальне юридичне твердження → **is not**."
+        }
+      }
+    },
+    {
+      "id": 106,
+      "hints": [
+        "Інверсія з **Hardly**: `Hardly was the ink dry before…`. Підмет — `the ink` (однина), минулий час → **was**.",
+        "`Hardly` починає речення → інверсія: дієслово перед підметом. Заперечення — у `Hardly`."
+      ],
+      "explanations": {
+        "a106": {
+          "was": "✅ Правильно: `Hardly` + інверсія + однинний підмет + минулий час → **was**.",
+          "were": "❌ `were` — для множини. `The ink` — однина → **was**.",
+          "is": "❌ `is` — теперішній час. Маркер `voiced` → минулий час → **was**."
+        }
+      }
+    },
+    {
+      "id": 107,
+      "hints": [
+        "Вбудоване підрядне: `That these concerns {…} unfounded should reassure…`. Підмет — `these concerns` (множина), теперішній час → **are not**.",
+        "Підмет підрядного — `these concerns` (множина) → `are` + `not`."
+      ],
+      "explanations": {
+        "a107": {
+          "are not": "✅ Правильно: `these concerns` (множина) + теперішній час → **are not unfounded**.",
+          "is not": "❌ `is not` — для однини. `These concerns` — множина → **are not**.",
+          "were not": "❌ `were not` — минулий час. Тут загальне твердження → **are not**."
+        }
+      }
+    },
+    {
+      "id": 108,
+      "hints": [
+        "Конструкція **Be that as it may**: фіксований вираз. Основне речення: `the conclusion {…} invalidated`. Підмет — `the conclusion` (однина), минулий час → **was not**.",
+        "Підмет — `the conclusion` (однина), маркер минулого — `subsequent findings` → `was` + `not`."
+      ],
+      "explanations": {
+        "a108": {
+          "was not": "✅ Правильно: `the conclusion` (однина) + минулий час → **was not invalidated**.",
+          "were not": "❌ `were not` — для множини. `The conclusion` — однина → **was not**.",
+          "is not": "❌ `is not` — теперішній час. Контекст минулих досліджень → **was not**."
+        }
+      }
+    }
+  ]
+}
