@@ -1,0 +1,3571 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBeQuestionsAndShortAnswersV3QuestionsOnlySeeder",
+        "uuid_namespace": "VerbToBeQuestionsAndShortAnswersV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Verb to Be"
+    },
+    "sources": {
+        "theory_page_1289": {
+            "name": "Verb to Be: Questions and Short Answers"
+        }
+    },
+    "tags": {
+        "verb_to_be_questions": {
+            "name": "Verb to be — questions",
+            "category": "topic"
+        },
+        "am_i_question": {
+            "name": "Am I...? question form",
+            "category": "pattern"
+        },
+        "is_he_she_it_question": {
+            "name": "Is he/she/it...? question form",
+            "category": "pattern"
+        },
+        "are_you_we_they_question": {
+            "name": "Are you/we/they...? question form",
+            "category": "pattern"
+        },
+        "yes_no_short_answer": {
+            "name": "Yes/No short answer with to be",
+            "category": "pattern"
+        },
+        "negative_short_answer": {
+            "name": "Negative short answer (No, … isn't / aren't / 'm not)",
+            "category": "pattern"
+        },
+        "affirmative_short_answer": {
+            "name": "Affirmative short answer (Yes, … am / is / are)",
+            "category": "pattern"
+        },
+        "subject_verb_inversion": {
+            "name": "Subject–verb inversion with be",
+            "category": "structure"
+        },
+        "wh_question_with_be": {
+            "name": "Wh-question with be (where/what/who/how + be)",
+            "category": "pattern"
+        },
+        "be_question_tag": {
+            "name": "Question tag with be (…, isn't it? / aren't you?)",
+            "category": "pattern"
+        },
+        "formal_be_question": {
+            "name": "Formal / polite be-question form",
+            "category": "register"
+        },
+        "be_question_negative": {
+            "name": "Negative question with be (Isn't he...? / Aren't they...?)",
+            "category": "pattern"
+        },
+        "be_question_embedded": {
+            "name": "Embedded / indirect be-question",
+            "category": "structure"
+        },
+        "be_question_rhetorical": {
+            "name": "Rhetorical question with be",
+            "category": "usage"
+        },
+        "be_pronoun_agreement": {
+            "name": "Pronoun–be agreement in questions",
+            "category": "structure"
+        }
+    },
+    "default_tag_keys": [
+        "verb_to_be_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "{a1} I late for class?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Am",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_i_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a1} I late for class?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 2,
+            "question": "{a2} she your sister?",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Am",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a2} she your sister?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 3,
+            "question": "{a3} they from Spain?",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a3} they from Spain?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 4,
+            "question": "{a4} he a doctor?",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a4} he a doctor?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 5,
+            "question": "{a5} you happy today?",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a5} you happy today?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 6,
+            "question": "{a6} it cold outside?",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a6} it cold outside?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 7,
+            "question": "{a7} we in the right room?",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a7} we in the right room?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 8,
+            "question": "{a8} I your new teacher?",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "Am",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_i_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a8} I your new teacher?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 9,
+            "question": "Is she at home? — Yes, she {a9}.",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_short_answer",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Is she at home? — Yes, she {a9}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 10,
+            "question": "Are you tired? — No, I {a10}.",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "'m not",
+                    "options": [
+                        "'m not",
+                        "isn't",
+                        "aren't"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_short_answer",
+                "am_i_question"
+            ],
+            "variants": [
+                "Are you tired? — No, I {a10}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 11,
+            "question": "{a11} the cat on the table?",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a11} the cat on the table?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 12,
+            "question": "Am I right? — Yes, you {a12}.",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_short_answer",
+                "am_i_question"
+            ],
+            "variants": [
+                "Am I right? — Yes, you {a12}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 13,
+            "question": "{a13} the boys in the garden?",
+            "level": "A1",
+            "markers": {
+                "a13": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a13} the boys in the garden?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 14,
+            "question": "Is he hungry? — No, he {a14}.",
+            "level": "A1",
+            "markers": {
+                "a14": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "'m not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_short_answer",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Is he hungry? — No, he {a14}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 15,
+            "question": "{a15} this your book?",
+            "level": "A1",
+            "markers": {
+                "a15": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a15} this your book?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 16,
+            "question": "Are they students? — Yes, they {a16}.",
+            "level": "A1",
+            "markers": {
+                "a16": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_short_answer",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "Are they students? — Yes, they {a16}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 17,
+            "question": "{a17} your mother a nurse?",
+            "level": "A1",
+            "markers": {
+                "a17": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a17} your mother a nurse?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 18,
+            "question": "{a18} I on the list?",
+            "level": "A1",
+            "markers": {
+                "a18": {
+                    "answer": "Am",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_i_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a18} I on the list?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 19,
+            "question": "Is it Monday today? — No, it {a19}.",
+            "level": "A1",
+            "markers": {
+                "a19": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "'m not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_short_answer",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Is it Monday today? — No, it {a19}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 20,
+            "question": "{a20} the shops open?",
+            "level": "A1",
+            "markers": {
+                "a20": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a20} the shops open?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 21,
+            "question": "{a21} Tom and Jerry friends?",
+            "level": "A1",
+            "markers": {
+                "a21": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion",
+                "be_pronoun_agreement"
+            ],
+            "variants": [
+                "{a21} Tom and Jerry friends?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 22,
+            "question": "Are we ready? — Yes, we {a22}.",
+            "level": "A1",
+            "markers": {
+                "a22": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_short_answer",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "Are we ready? — Yes, we {a22}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 23,
+            "question": "{a23} the water warm?",
+            "level": "A1",
+            "markers": {
+                "a23": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a23} the water warm?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 24,
+            "question": "Is your name Alex? — Yes, it {a24}.",
+            "level": "A1",
+            "markers": {
+                "a24": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_short_answer",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Is your name Alex? — Yes, it {a24}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 25,
+            "question": "{a25} your parents at work right now?",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion",
+                "be_pronoun_agreement"
+            ],
+            "variants": [
+                "{a25} your parents at work right now?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 26,
+            "question": "Is the film good? — No, it {a26}.",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "'m not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_short_answer",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Is the film good? — No, it {a26}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 27,
+            "question": "{a27} the children asleep yet?",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a27} the children asleep yet?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 28,
+            "question": "Am I speaking too fast? — No, you {a28}.",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "'m not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_short_answer",
+                "am_i_question"
+            ],
+            "variants": [
+                "Am I speaking too fast? — No, you {a28}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 29,
+            "question": "{a29} Maria interested in music?",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a29} Maria interested in music?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 30,
+            "question": "Are you and your brother twins? — Yes, we {a30}.",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_short_answer",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "Are you and your brother twins? — Yes, we {a30}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 31,
+            "question": "{a31} the restaurant open on Sundays?",
+            "level": "A2",
+            "markers": {
+                "a31": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a31} the restaurant open on Sundays?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 32,
+            "question": "{a32} I allowed to park here?",
+            "level": "A2",
+            "markers": {
+                "a32": {
+                    "answer": "Am",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_i_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a32} I allowed to park here?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 33,
+            "question": "Is your dog friendly? — Yes, it {a33}.",
+            "level": "A2",
+            "markers": {
+                "a33": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_short_answer",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Is your dog friendly? — Yes, it {a33}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 34,
+            "question": "{a34} the tickets expensive?",
+            "level": "A2",
+            "markers": {
+                "a34": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a34} the tickets expensive?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 35,
+            "question": "Are the neighbours nice? — No, they {a35}.",
+            "level": "A2",
+            "markers": {
+                "a35": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "'m not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_short_answer",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "Are the neighbours nice? — No, they {a35}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 36,
+            "question": "{a36} his new apartment big?",
+            "level": "A2",
+            "markers": {
+                "a36": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a36} his new apartment big?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 37,
+            "question": "{a37} those books yours?",
+            "level": "A2",
+            "markers": {
+                "a37": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion",
+                "be_pronoun_agreement"
+            ],
+            "variants": [
+                "{a37} those books yours?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 38,
+            "question": "Is Mr Brown busy? — Yes, he {a38}.",
+            "level": "A2",
+            "markers": {
+                "a38": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_short_answer",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Is Mr Brown busy? — Yes, he {a38}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 39,
+            "question": "{a39} the weather nice in your city?",
+            "level": "A2",
+            "markers": {
+                "a39": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a39} the weather nice in your city?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 40,
+            "question": "{a40} we late for the meeting?",
+            "level": "A2",
+            "markers": {
+                "a40": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a40} we late for the meeting?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 41,
+            "question": "Am I in the right place? — Yes, you {a41}.",
+            "level": "A2",
+            "markers": {
+                "a41": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_short_answer",
+                "am_i_question"
+            ],
+            "variants": [
+                "Am I in the right place? — Yes, you {a41}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 42,
+            "question": "{a42} the homework difficult?",
+            "level": "A2",
+            "markers": {
+                "a42": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a42} the homework difficult?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 43,
+            "question": "Are they from Japan? — No, they {a43}.",
+            "level": "A2",
+            "markers": {
+                "a43": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "'m not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_short_answer",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "Are they from Japan? — No, they {a43}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 44,
+            "question": "{a44} your grandparents retired?",
+            "level": "A2",
+            "markers": {
+                "a44": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion",
+                "be_pronoun_agreement"
+            ],
+            "variants": [
+                "{a44} your grandparents retired?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 45,
+            "question": "Is the coffee ready? — Yes, it {a45}.",
+            "level": "A2",
+            "markers": {
+                "a45": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_short_answer",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Is the coffee ready? — Yes, it {a45}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 46,
+            "question": "{a46} I the only one here?",
+            "level": "A2",
+            "markers": {
+                "a46": {
+                    "answer": "Am",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_i_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a46} I the only one here?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 47,
+            "question": "{a47} those seats taken?",
+            "level": "A2",
+            "markers": {
+                "a47": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a47} those seats taken?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 48,
+            "question": "Is her birthday in March? — No, it {a48}.",
+            "level": "A2",
+            "markers": {
+                "a48": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "'m not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_short_answer",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Is her birthday in March? — No, it {a48}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 49,
+            "question": "{a49} you aware of the new rules?",
+            "level": "B1",
+            "markers": {
+                "a49": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am",
+                        "Do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a49} you aware of the new rules?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 50,
+            "question": "{a50} the meeting scheduled for today?",
+            "level": "B1",
+            "markers": {
+                "a50": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a50} the meeting scheduled for today?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 51,
+            "question": "{a51} he still upset about the result?",
+            "level": "B1",
+            "markers": {
+                "a51": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a51} he still upset about the result?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 52,
+            "question": "Isn't she {a52} today? She looks pale.",
+            "level": "B1",
+            "markers": {
+                "a52": {
+                    "answer": "well",
+                    "options": [
+                        "well",
+                        "good",
+                        "fine",
+                        "nicely"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_negative",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Isn't she {a52} today? She looks pale."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 53,
+            "question": "Where {a53} the nearest bus stop?",
+            "level": "B1",
+            "markers": {
+                "a53": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am",
+                        "does"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_question_with_be",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Where {a53} the nearest bus stop?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 54,
+            "question": "How {a54} your colleagues? — They are fine.",
+            "level": "B1",
+            "markers": {
+                "a54": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_question_with_be",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "How {a54} your colleagues? — They are fine."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 55,
+            "question": "{a55} the students ready for the exam?",
+            "level": "B1",
+            "markers": {
+                "a55": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Do",
+                        "Does"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a55} the students ready for the exam?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 56,
+            "question": "Who {a56} responsible for this project?",
+            "level": "B1",
+            "markers": {
+                "a56": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_question_with_be",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Who {a56} responsible for this project?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 57,
+            "question": "Why {a57} the windows open? It's freezing.",
+            "level": "B1",
+            "markers": {
+                "a57": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "do",
+                        "does"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_question_with_be",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "Why {a57} the windows open? It's freezing."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 58,
+            "question": "{a58} the library open on weekends?",
+            "level": "B1",
+            "markers": {
+                "a58": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a58} the library open on weekends?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 59,
+            "question": "Aren't you {a59} of the dark?",
+            "level": "B1",
+            "markers": {
+                "a59": {
+                    "answer": "afraid",
+                    "options": [
+                        "afraid",
+                        "scare",
+                        "scary",
+                        "frighten"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_negative",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "Aren't you {a59} of the dark?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 60,
+            "question": "What {a60} the main reason for the delay?",
+            "level": "B1",
+            "markers": {
+                "a60": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_question_with_be",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "What {a60} the main reason for the delay?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 61,
+            "question": "Is the information correct? — No, it {a61}.",
+            "level": "B1",
+            "markers": {
+                "a61": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "doesn't",
+                        "don't"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_short_answer",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Is the information correct? — No, it {a61}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 62,
+            "question": "{a62} all the guests here already?",
+            "level": "B1",
+            "markers": {
+                "a62": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Do",
+                        "Does"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a62} all the guests here already?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 63,
+            "question": "How long {a63} the flight to London?",
+            "level": "B1",
+            "markers": {
+                "a63": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_question_with_be",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "How long {a63} the flight to London?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 64,
+            "question": "Are your bags packed? — Yes, they {a64}.",
+            "level": "B1",
+            "markers": {
+                "a64": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "do",
+                        "have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_short_answer",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "Are your bags packed? — Yes, they {a64}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 65,
+            "question": "Where {a65} the car keys? I can't find them.",
+            "level": "B1",
+            "markers": {
+                "a65": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "do",
+                        "does"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_question_with_be",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "Where {a65} the car keys? I can't find them."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 66,
+            "question": "{a66} she the one who called yesterday?",
+            "level": "B1",
+            "markers": {
+                "a66": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a66} she the one who called yesterday?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 67,
+            "question": "Isn't it {a67} to wear a helmet here?",
+            "level": "B1",
+            "markers": {
+                "a67": {
+                    "answer": "necessary",
+                    "options": [
+                        "necessary",
+                        "necessity",
+                        "needing",
+                        "need"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_negative",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Isn't it {a67} to wear a helmet here?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 68,
+            "question": "Am I being too strict? — No, you {a68}.",
+            "level": "B1",
+            "markers": {
+                "a68": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "don't",
+                        "'m not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_short_answer",
+                "am_i_question"
+            ],
+            "variants": [
+                "Am I being too strict? — No, you {a68}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 69,
+            "question": "What {a69} the best way to learn English?",
+            "level": "B1",
+            "markers": {
+                "a69": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_question_with_be",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "What {a69} the best way to learn English?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 70,
+            "question": "{a70} the instructions clear enough?",
+            "level": "B1",
+            "markers": {
+                "a70": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Do",
+                        "Does"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a70} the instructions clear enough?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 71,
+            "question": "Whose {a71} these gloves?",
+            "level": "B1",
+            "markers": {
+                "a71": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "do",
+                        "does"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_question_with_be",
+                "are_you_we_they_question",
+                "be_pronoun_agreement"
+            ],
+            "variants": [
+                "Whose {a71} these gloves?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 72,
+            "question": "Is she satisfied with the result? — Yes, she {a72}.",
+            "level": "B1",
+            "markers": {
+                "a72": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_short_answer",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Is she satisfied with the result? — Yes, she {a72}."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 73,
+            "question": "The report is finished, {a73}?",
+            "level": "B2",
+            "markers": {
+                "a73": {
+                    "answer": "isn't it",
+                    "options": [
+                        "isn't it",
+                        "aren't it",
+                        "is it",
+                        "doesn't it"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "The report is finished, {a73}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 74,
+            "question": "They are coming tonight, {a74}?",
+            "level": "B2",
+            "markers": {
+                "a74": {
+                    "answer": "aren't they",
+                    "options": [
+                        "aren't they",
+                        "isn't they",
+                        "don't they",
+                        "are they"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "They are coming tonight, {a74}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 75,
+            "question": "I wonder {a75} she is aware of the problem.",
+            "level": "B2",
+            "markers": {
+                "a75": {
+                    "answer": "whether",
+                    "options": [
+                        "whether",
+                        "is",
+                        "that",
+                        "what"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "I wonder {a75} she is aware of the problem."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 76,
+            "question": "Do you know where the office {a76}?",
+            "level": "B2",
+            "markers": {
+                "a76": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "is at",
+                        "are",
+                        "does"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Do you know where the office {a76}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 77,
+            "question": "{a77} the data accurate enough to publish?",
+            "level": "B2",
+            "markers": {
+                "a77": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a77} the data accurate enough to publish?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 78,
+            "question": "You are the new manager, {a78}?",
+            "level": "B2",
+            "markers": {
+                "a78": {
+                    "answer": "aren't you",
+                    "options": [
+                        "aren't you",
+                        "isn't you",
+                        "don't you",
+                        "are you"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "You are the new manager, {a78}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 79,
+            "question": "Can you tell me what the problem {a79}?",
+            "level": "B2",
+            "markers": {
+                "a79": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "was"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Can you tell me what the problem {a79}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 80,
+            "question": "{a80} it possible that the train is delayed?",
+            "level": "B2",
+            "markers": {
+                "a80": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a80} it possible that the train is delayed?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 81,
+            "question": "She isn't coming, {a81}?",
+            "level": "B2",
+            "markers": {
+                "a81": {
+                    "answer": "is she",
+                    "options": [
+                        "is she",
+                        "isn't she",
+                        "does she",
+                        "are she"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "She isn't coming, {a81}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 82,
+            "question": "Could you explain why the results {a82} so different?",
+            "level": "B2",
+            "markers": {
+                "a82": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "do",
+                        "have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "Could you explain why the results {a82} so different?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 83,
+            "question": "We aren't late, {a83}?",
+            "level": "B2",
+            "markers": {
+                "a83": {
+                    "answer": "are we",
+                    "options": [
+                        "are we",
+                        "aren't we",
+                        "do we",
+                        "don't we"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "We aren't late, {a83}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 84,
+            "question": "{a84} there any chance of a refund?",
+            "level": "B2",
+            "markers": {
+                "a84": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a84} there any chance of a refund?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 85,
+            "question": "I'd like to know if the rooms {a85} available.",
+            "level": "B2",
+            "markers": {
+                "a85": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "do",
+                        "have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "I'd like to know if the rooms {a85} available."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 86,
+            "question": "He is responsible for the budget, {a86}?",
+            "level": "B2",
+            "markers": {
+                "a86": {
+                    "answer": "isn't he",
+                    "options": [
+                        "isn't he",
+                        "aren't he",
+                        "doesn't he",
+                        "is he"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "He is responsible for the budget, {a86}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 87,
+            "question": "{a87} the proposal still under review?",
+            "level": "B2",
+            "markers": {
+                "a87": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a87} the proposal still under review?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 88,
+            "question": "Nobody told me whether the event {a88} free.",
+            "level": "B2",
+            "markers": {
+                "a88": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Nobody told me whether the event {a88} free."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 89,
+            "question": "I'm right about this, {a89}?",
+            "level": "B2",
+            "markers": {
+                "a89": {
+                    "answer": "aren't I",
+                    "options": [
+                        "aren't I",
+                        "amn't I",
+                        "isn't I",
+                        "don't I"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "am_i_question"
+            ],
+            "variants": [
+                "I'm right about this, {a89}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 90,
+            "question": "{a90} the team members informed about the change?",
+            "level": "B2",
+            "markers": {
+                "a90": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Do",
+                        "Have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a90} the team members informed about the change?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 91,
+            "question": "Please check whether the documents {a91} ready.",
+            "level": "B2",
+            "markers": {
+                "a91": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "have",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "Please check whether the documents {a91} ready."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 92,
+            "question": "The children are safe, {a92}?",
+            "level": "B2",
+            "markers": {
+                "a92": {
+                    "answer": "aren't they",
+                    "options": [
+                        "aren't they",
+                        "isn't they",
+                        "don't they",
+                        "are they"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "The children are safe, {a92}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 93,
+            "question": "I need to find out if the office {a93} closed tomorrow.",
+            "level": "B2",
+            "markers": {
+                "a93": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "will"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "I need to find out if the office {a93} closed tomorrow."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 94,
+            "question": "{a94} it true that the CEO is resigning?",
+            "level": "B2",
+            "markers": {
+                "a94": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a94} it true that the CEO is resigning?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 95,
+            "question": "The system isn't working, {a95}?",
+            "level": "B2",
+            "markers": {
+                "a95": {
+                    "answer": "is it",
+                    "options": [
+                        "is it",
+                        "isn't it",
+                        "does it",
+                        "has it"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "The system isn't working, {a95}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 96,
+            "question": "Could you confirm whether the contract {a96} valid?",
+            "level": "B2",
+            "markers": {
+                "a96": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "Could you confirm whether the contract {a96} valid?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 97,
+            "question": "{a97} it not the case that every employee deserves a fair hearing?",
+            "level": "C1",
+            "markers": {
+                "a97": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_rhetorical",
+                "is_he_she_it_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "{a97} it not the case that every employee deserves a fair hearing?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 98,
+            "question": "One might ask whether the regulations {a98} still relevant.",
+            "level": "C1",
+            "markers": {
+                "a98": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "have",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "One might ask whether the regulations {a98} still relevant."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 99,
+            "question": "The board is fully aware of the risks, {a99}?",
+            "level": "C1",
+            "markers": {
+                "a99": {
+                    "answer": "isn't it",
+                    "options": [
+                        "isn't it",
+                        "aren't it",
+                        "doesn't it",
+                        "is it"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "The board is fully aware of the risks, {a99}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 100,
+            "question": "{a100} the implications of this decision clear to everyone?",
+            "level": "C1",
+            "markers": {
+                "a100": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Do",
+                        "Have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion",
+                "be_pronoun_agreement"
+            ],
+            "variants": [
+                "{a100} the implications of this decision clear to everyone?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 101,
+            "question": "The question remains whether the evidence {a101} sufficient.",
+            "level": "C1",
+            "markers": {
+                "a101": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "has",
+                        "does"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "is_he_she_it_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "The question remains whether the evidence {a101} sufficient."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 102,
+            "question": "Aren't the current measures {a102} to address the crisis?",
+            "level": "C1",
+            "markers": {
+                "a102": {
+                    "answer": "inadequate",
+                    "options": [
+                        "inadequate",
+                        "inadequately",
+                        "inadequacy",
+                        "inadequating"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_negative",
+                "are_you_we_they_question",
+                "be_question_rhetorical"
+            ],
+            "variants": [
+                "Aren't the current measures {a102} to address the crisis?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 103,
+            "question": "We need to determine whether the stakeholders {a103} satisfied.",
+            "level": "C1",
+            "markers": {
+                "a103": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "have",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "We need to determine whether the stakeholders {a103} satisfied."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 104,
+            "question": "I'm not the only one who disagrees, {a104}?",
+            "level": "C1",
+            "markers": {
+                "a104": {
+                    "answer": "am I",
+                    "options": [
+                        "am I",
+                        "aren't I",
+                        "don't I",
+                        "do I"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "am_i_question"
+            ],
+            "variants": [
+                "I'm not the only one who disagrees, {a104}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 105,
+            "question": "{a105} it worth investing more time in this approach?",
+            "level": "C1",
+            "markers": {
+                "a105": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a105} it worth investing more time in this approach?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 106,
+            "question": "She asked whether the budget {a106} realistic.",
+            "level": "C1",
+            "markers": {
+                "a106": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "were",
+                        "has been"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "She asked whether the budget {a106} realistic."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 107,
+            "question": "The allegations are serious, {a107}?",
+            "level": "C1",
+            "markers": {
+                "a107": {
+                    "answer": "aren't they",
+                    "options": [
+                        "aren't they",
+                        "isn't they",
+                        "don't they",
+                        "are they"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "The allegations are serious, {a107}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 108,
+            "question": "It is essential to ascertain whether the findings {a108} reliable.",
+            "level": "C1",
+            "markers": {
+                "a108": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "have",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "It is essential to ascertain whether the findings {a108} reliable."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 109,
+            "question": "{a109} the candidates equally qualified for the role?",
+            "level": "C1",
+            "markers": {
+                "a109": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Do",
+                        "Have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion"
+            ],
+            "variants": [
+                "{a109} the candidates equally qualified for the role?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 110,
+            "question": "Isn't it {a110} that we haven't received any feedback yet?",
+            "level": "C1",
+            "markers": {
+                "a110": {
+                    "answer": "strange",
+                    "options": [
+                        "strange",
+                        "strangely",
+                        "stranger",
+                        "strangest"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_negative",
+                "is_he_she_it_question",
+                "be_question_rhetorical"
+            ],
+            "variants": [
+                "Isn't it {a110} that we haven't received any feedback yet?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 111,
+            "question": "He asked me if the allegations {a111} true.",
+            "level": "C1",
+            "markers": {
+                "a111": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "are",
+                        "was",
+                        "have been"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "He asked me if the allegations {a111} true."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 112,
+            "question": "It isn't fair to blame one person, {a112}?",
+            "level": "C1",
+            "markers": {
+                "a112": {
+                    "answer": "is it",
+                    "options": [
+                        "is it",
+                        "isn't it",
+                        "does it",
+                        "has it"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "It isn't fair to blame one person, {a112}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 113,
+            "question": "{a113} the government's response proportionate to the threat?",
+            "level": "C1",
+            "markers": {
+                "a113": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion",
+                "formal_be_question"
+            ],
+            "variants": [
+                "{a113} the government's response proportionate to the threat?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 114,
+            "question": "We should verify whether the statistics {a114} up to date.",
+            "level": "C1",
+            "markers": {
+                "a114": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "have",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "We should verify whether the statistics {a114} up to date."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 115,
+            "question": "The new policy is controversial, {a115}?",
+            "level": "C1",
+            "markers": {
+                "a115": {
+                    "answer": "isn't it",
+                    "options": [
+                        "isn't it",
+                        "aren't it",
+                        "doesn't it",
+                        "is it"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "The new policy is controversial, {a115}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 116,
+            "question": "Isn't it {a116} that both sides refuse to negotiate?",
+            "level": "C1",
+            "markers": {
+                "a116": {
+                    "answer": "remarkable",
+                    "options": [
+                        "remarkable",
+                        "remarkably",
+                        "remarking",
+                        "remarked"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_negative",
+                "is_he_she_it_question",
+                "be_question_rhetorical"
+            ],
+            "variants": [
+                "Isn't it {a116} that both sides refuse to negotiate?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 117,
+            "question": "The witnesses aren't reliable, {a117}?",
+            "level": "C1",
+            "markers": {
+                "a117": {
+                    "answer": "are they",
+                    "options": [
+                        "are they",
+                        "aren't they",
+                        "do they",
+                        "don't they"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "The witnesses aren't reliable, {a117}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 118,
+            "question": "I'd like to understand whether the criteria {a118} objective.",
+            "level": "C1",
+            "markers": {
+                "a118": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "have",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question",
+                "be_pronoun_agreement"
+            ],
+            "variants": [
+                "I'd like to understand whether the criteria {a118} objective."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 119,
+            "question": "{a119} there sufficient grounds to proceed with the investigation?",
+            "level": "C1",
+            "markers": {
+                "a119": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Do",
+                        "Have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion",
+                "formal_be_question"
+            ],
+            "variants": [
+                "{a119} there sufficient grounds to proceed with the investigation?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 120,
+            "question": "The committee members are divided on this issue, {a120}?",
+            "level": "C1",
+            "markers": {
+                "a120": {
+                    "answer": "aren't they",
+                    "options": [
+                        "aren't they",
+                        "isn't they",
+                        "don't they",
+                        "are they"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "The committee members are divided on this issue, {a120}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 121,
+            "question": "{a121} it not self-evident that universal access to education is a fundamental right?",
+            "level": "C2",
+            "markers": {
+                "a121": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_rhetorical",
+                "is_he_she_it_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "{a121} it not self-evident that universal access to education is a fundamental right?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 122,
+            "question": "One must consider whether the premises {a122} logically sound.",
+            "level": "C2",
+            "markers": {
+                "a122": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "have",
+                        "remain"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "One must consider whether the premises {a122} logically sound."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 123,
+            "question": "The hypothesis, however elegant, {a123} it not fundamentally flawed?",
+            "level": "C2",
+            "markers": {
+                "a123": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_rhetorical",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "The hypothesis, however elegant, {a123} it not fundamentally flawed?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 124,
+            "question": "It remains to be seen whether the new framework {a124} robust enough for implementation.",
+            "level": "C2",
+            "markers": {
+                "a124": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "has",
+                        "does"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "is_he_she_it_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "It remains to be seen whether the new framework {a124} robust enough for implementation."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 125,
+            "question": "The assumptions underlying the model are questionable, {a125}?",
+            "level": "C2",
+            "markers": {
+                "a125": {
+                    "answer": "aren't they",
+                    "options": [
+                        "aren't they",
+                        "isn't they",
+                        "don't they",
+                        "are they"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "The assumptions underlying the model are questionable, {a125}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 126,
+            "question": "{a126} the dichotomy between freedom and security genuinely irreconcilable?",
+            "level": "C2",
+            "markers": {
+                "a126": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "subject_verb_inversion",
+                "be_question_rhetorical"
+            ],
+            "variants": [
+                "{a126} the dichotomy between freedom and security genuinely irreconcilable?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 127,
+            "question": "Scholars have debated whether the data {a127} conclusive.",
+            "level": "C2",
+            "markers": {
+                "a127": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "has",
+                        "were"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question",
+                "be_pronoun_agreement"
+            ],
+            "variants": [
+                "Scholars have debated whether the data {a127} conclusive."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 128,
+            "question": "The minister's assurances are hardly convincing, {a128}?",
+            "level": "C2",
+            "markers": {
+                "a128": {
+                    "answer": "are they",
+                    "options": [
+                        "are they",
+                        "aren't they",
+                        "do they",
+                        "don't they"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "The minister's assurances are hardly convincing, {a128}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 129,
+            "question": "Whether the phenomenon {a129} replicable under controlled conditions is the central question.",
+            "level": "C2",
+            "markers": {
+                "a129": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "has",
+                        "does"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "is_he_she_it_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "Whether the phenomenon {a129} replicable under controlled conditions is the central question."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 130,
+            "question": "{a130} it not paradoxical to advocate transparency while withholding key information?",
+            "level": "C2",
+            "markers": {
+                "a130": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_rhetorical",
+                "is_he_she_it_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "{a130} it not paradoxical to advocate transparency while withholding key information?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 131,
+            "question": "The conclusions drawn from the survey are debatable, {a131}?",
+            "level": "C2",
+            "markers": {
+                "a131": {
+                    "answer": "aren't they",
+                    "options": [
+                        "aren't they",
+                        "isn't they",
+                        "don't they",
+                        "are they"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "The conclusions drawn from the survey are debatable, {a131}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 132,
+            "question": "We must ascertain whether the proposed amendments {a132} constitutional.",
+            "level": "C2",
+            "markers": {
+                "a132": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "have",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "We must ascertain whether the proposed amendments {a132} constitutional."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 133,
+            "question": "The prevailing narrative is misleading, {a133}?",
+            "level": "C2",
+            "markers": {
+                "a133": {
+                    "answer": "isn't it",
+                    "options": [
+                        "isn't it",
+                        "aren't it",
+                        "doesn't it",
+                        "is it"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "The prevailing narrative is misleading, {a133}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 134,
+            "question": "{a134} the criteria for eligibility sufficiently transparent?",
+            "level": "C2",
+            "markers": {
+                "a134": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Do",
+                        "Have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_you_we_they_question",
+                "subject_verb_inversion",
+                "be_pronoun_agreement",
+                "formal_be_question"
+            ],
+            "variants": [
+                "{a134} the criteria for eligibility sufficiently transparent?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 135,
+            "question": "It is incumbent upon us to verify whether the sources {a135} credible.",
+            "level": "C2",
+            "markers": {
+                "a135": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "have",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "It is incumbent upon us to verify whether the sources {a135} credible."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 136,
+            "question": "Isn't the entire premise of the argument {a136}?",
+            "level": "C2",
+            "markers": {
+                "a136": {
+                    "answer": "flawed",
+                    "options": [
+                        "flawed",
+                        "flawing",
+                        "flaw",
+                        "flawedly"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_negative",
+                "is_he_she_it_question",
+                "be_question_rhetorical"
+            ],
+            "variants": [
+                "Isn't the entire premise of the argument {a136}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 137,
+            "question": "The diplomat's position is untenable, {a137}?",
+            "level": "C2",
+            "markers": {
+                "a137": {
+                    "answer": "isn't it",
+                    "options": [
+                        "isn't it",
+                        "aren't it",
+                        "doesn't it",
+                        "is it"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "The diplomat's position is untenable, {a137}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 138,
+            "question": "Be that as it may, {a138} the methodology not open to criticism?",
+            "level": "C2",
+            "markers": {
+                "a138": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_he_she_it_question",
+                "be_question_rhetorical",
+                "formal_be_question"
+            ],
+            "variants": [
+                "Be that as it may, {a138} the methodology not open to criticism?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 139,
+            "question": "The panel's recommendations are far-reaching, {a139}?",
+            "level": "C2",
+            "markers": {
+                "a139": {
+                    "answer": "aren't they",
+                    "options": [
+                        "aren't they",
+                        "isn't they",
+                        "don't they",
+                        "are they"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "are_you_we_they_question"
+            ],
+            "variants": [
+                "The panel's recommendations are far-reaching, {a139}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 140,
+            "question": "Whether such drastic measures {a140} warranted is a matter for the courts.",
+            "level": "C2",
+            "markers": {
+                "a140": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "have",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "Whether such drastic measures {a140} warranted is a matter for the courts."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 141,
+            "question": "{a141} it not incumbent upon leaders to uphold the highest ethical standards?",
+            "level": "C2",
+            "markers": {
+                "a141": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_rhetorical",
+                "is_he_she_it_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "{a141} it not incumbent upon leaders to uphold the highest ethical standards?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 142,
+            "question": "His interpretation of the statute is contentious, {a142}?",
+            "level": "C2",
+            "markers": {
+                "a142": {
+                    "answer": "isn't it",
+                    "options": [
+                        "isn't it",
+                        "aren't it",
+                        "doesn't it",
+                        "is it"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_tag",
+                "is_he_she_it_question"
+            ],
+            "variants": [
+                "His interpretation of the statute is contentious, {a142}?"
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 143,
+            "question": "It would be prudent to establish whether the precedents {a143} applicable here.",
+            "level": "C2",
+            "markers": {
+                "a143": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "have",
+                        "were"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_embedded",
+                "are_you_we_they_question",
+                "formal_be_question"
+            ],
+            "variants": [
+                "It would be prudent to establish whether the precedents {a143} applicable here."
+            ],
+            "source": "theory_page_1289"
+        },
+        {
+            "id": 144,
+            "question": "Aren't the ethical implications of this technology {a144}?",
+            "level": "C2",
+            "markers": {
+                "a144": {
+                    "answer": "profound",
+                    "options": [
+                        "profound",
+                        "profoundly",
+                        "profounding",
+                        "profoundness"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_question_negative",
+                "are_you_we_they_question",
+                "be_question_rhetorical"
+            ],
+            "variants": [
+                "Aren't the ethical implications of this technology {a144}?"
+            ],
+            "source": "theory_page_1289"
+        }
+    ],
+    "saved_test": {
+        "uuid": "verb-tobe-q-opus46-v3-saved",
+        "slug": "verb_to_be_questions_short_answers_opus46",
+        "name": "Verb to Be: Questions & Short Answers — Opus 4.6 V3",
+        "description": "Practice set for to-be question forms (Am I / Is he / Are they) and short answers across A1–C2.",
+        "filters": {
+            "num_questions": 144,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBeQuestionsAndShortAnswersV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1289,
+                "theory_page_ids": [
+                    1289
+                ],
+                "theory_page": {
+                    "id": 1289,
+                    "slug": "verb-to-be-questions",
+                    "title": "Verb to Be: Questions and Short Answers",
+                    "category_slug_path": "basic-grammar/verb-to-be",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-questions"
+                }
+            }
+        }
+    }
+}
