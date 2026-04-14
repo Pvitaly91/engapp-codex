@@ -1,0 +1,4607 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\VerbToBeNegativesV3QuestionsOnlySeeder",
+        "uuid_namespace": "vtbn-cp-sn"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Verb to Be"
+    },
+    "sources": {
+        "theory_page_1122": {
+            "name": "Verb to Be: Negatives"
+        }
+    },
+    "tags": {
+        "verb_to_be_negative": {
+            "name": "Verb to be: negative forms (am not / is not / are not)",
+            "category": "pattern"
+        },
+        "am_not": {
+            "name": "am not — first person singular negative (I + to be negative)",
+            "category": "pattern"
+        },
+        "is_not": {
+            "name": "is not / isn't — third person singular negative (he/she/it + to be negative)",
+            "category": "pattern"
+        },
+        "are_not": {
+            "name": "are not / aren't — plural and second person negative (you/we/they + to be negative)",
+            "category": "pattern"
+        },
+        "be_negative_contraction": {
+            "name": "Contractions with to be negative (isn't, aren't)",
+            "category": "pattern"
+        },
+        "be_negative_formal_register": {
+            "name": "Full negative forms of to be in formal register",
+            "category": "usage"
+        },
+        "be_negative_subject_agreement": {
+            "name": "Subject-verb agreement in to be negatives",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "verb_to_be_negative"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid_segments": [
+                "a1",
+                "q01"
+            ],
+            "question": "I {a1} happy today.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "З займенником I завжди вживається форма am not — єдиний варіант заперечення для першої особи однини.",
+                        "Підмет речення — `I` (я): саме він визначає форму дієслова to be."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not, оскільки am is the only form of to be that goes with I.",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it, а не з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they, але не з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} happy today."
+            ]
+        },
+        {
+            "id": 2,
+            "uuid_segments": [
+                "a1",
+                "q02"
+            ],
+            "question": "He {a1} at school.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "З займенниками he / she / it вживається форма is not у заперечному реченні.",
+                        "Підмет `He` — третя особа однини, тому потрібна форма is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: he відноситься до третьої особи однини, тому вживається is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they, але не з третьою особою однини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "He {a1} at school."
+            ]
+        },
+        {
+            "id": 3,
+            "uuid_segments": [
+                "a1",
+                "q03"
+            ],
+            "question": "She {a1} tired.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник she вимагає форми is not у запереченні.",
+                        "Підмет `She` — третя особа однини, тому форма дієслова to be — is, і заперечення — is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: she belongs to third person singular, яка вимагає is not.",
+                            "am not": "«am not» — хибна форма: am not вживається лише з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they, але не з she."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} tired."
+            ]
+        },
+        {
+            "id": 4,
+            "uuid_segments": [
+                "a1",
+                "q04"
+            ],
+            "question": "It {a1} cold today.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник it вимагає форми is not у заперечному реченні.",
+                        "Підмет `it` — третя особа однини (використовується для погоди), тому форма — is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: it є третьою особою однини, а тому заперечення утворюється через is not.",
+                            "am not": "«am not» — хибна форма: am not вживається тільки з I, але не з it.",
+                            "are not": "«are not» — хибна форма: are not вживається з займенниками you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "It {a1} cold today."
+            ]
+        },
+        {
+            "id": 5,
+            "uuid_segments": [
+                "a1",
+                "q05"
+            ],
+            "question": "You {a1} late.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник you вимагає форми are not у заперечному реченні.",
+                        "Підмет `You` — друга особа (однина або множина), яка завжди вживається з are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: you вживається виключно з are not у запереченні.",
+                            "am not": "«am not» — хибна форма: am not вживається тільки з I.",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it, але not з you."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "You {a1} late."
+            ]
+        },
+        {
+            "id": 6,
+            "uuid_segments": [
+                "a1",
+                "q06"
+            ],
+            "question": "We {a1} ready.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник we вимагає форми are not у запереченні.",
+                        "Підмет `We` — перша особа множини, яка в заперечних реченнях вживається з are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: we завжди вживається з are not у запереченні.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з займенником I.",
+                            "is not": "«is not» — хибна форма: is not використовується лише з третьою особою однини (he / she / it)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "We {a1} ready."
+            ]
+        },
+        {
+            "id": 7,
+            "uuid_segments": [
+                "a1",
+                "q07"
+            ],
+            "question": "They {a1} at home.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник they вимагає форми are not у запереченні.",
+                        "Підмет `They` — третя особа множини, яка в запереченні вживається з are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: they belong to third person plural і вживається з are not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "is not": "«is not» — хибна форма: is not вживається з третьою особою однини, а they — це множина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} at home."
+            ]
+        },
+        {
+            "id": 8,
+            "uuid_segments": [
+                "a1",
+                "q08"
+            ],
+            "question": "The cat {a1} hungry.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Назва тварини в однині (the cat) вимагає форми is not.",
+                        "Підмет `the cat` — іменник третьої особи однини, тому вживається is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: the cat — однина третьої особи, тому заперечення — is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з підметом у множині або з you, але не з однинним іменником."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "The cat {a1} hungry."
+            ]
+        },
+        {
+            "id": 9,
+            "uuid_segments": [
+                "a1",
+                "q09"
+            ],
+            "question": "The children {a1} in the garden.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменник у множині (the children) вимагає форми are not.",
+                        "Підмет `the children` — множина, тому потрібна форма are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: the children — множина, а тому вживається are not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "is not": "«is not» — хибна форма: is not вживається лише з однинним підметом третьої особи."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "The children {a1} in the garden."
+            ]
+        },
+        {
+            "id": 10,
+            "uuid_segments": [
+                "a1",
+                "q10"
+            ],
+            "question": "My friend {a1} a teacher.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменник my friend — однина третьої особи, тому вживається is not.",
+                        "Підмет `my friend` — один конкретний друг (однина), отже форма дієслова to be — is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: my friend є одниною третьої особи і вимагає is not.",
+                            "am not": "«am not» — хибна форма: am not вживається тільки з I, але підмет тут — my friend.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або з you, але my friend — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "My friend {a1} a teacher."
+            ]
+        },
+        {
+            "id": 11,
+            "uuid_segments": [
+                "a1",
+                "q11"
+            ],
+            "question": "I {a1} a student.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "З займенником I завжди вживається am not.",
+                        "Підмет речення — `I`; для першої особи однини форма заперечення — am not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається тільки am not.",
+                            "is not": "«is not» — хибна форма: is not призначене для третьої особи однини (he / she / it).",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they, але не з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} a student."
+            ]
+        },
+        {
+            "id": 12,
+            "uuid_segments": [
+                "a1",
+                "q12"
+            ],
+            "question": "The dog {a1} big.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Однинний іменник (the dog) вимагає форми is not.",
+                        "Підмет `the dog` — однина третьої особи, тому заперечення — is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: the dog — однина, третя особа, тому вживається is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною (dogs) або з you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "The dog {a1} big."
+            ]
+        },
+        {
+            "id": 13,
+            "uuid_segments": [
+                "a1",
+                "q13"
+            ],
+            "question": "Tom {a1} here.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Власні імена (Tom) вживаються як підмети третьої особи однини й вимагають is not.",
+                        "Підмет `Tom` — власне ім'я, третя особа однина, тому форма — is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: Tom — конкретна людина в однині, третя особа, тому вживається is not.",
+                            "am not": "«am not» — хибна форма: am not вживається тільки з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множинним підметом або з you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "Tom {a1} here."
+            ]
+        },
+        {
+            "id": 14,
+            "uuid_segments": [
+                "a1",
+                "q14"
+            ],
+            "question": "Mary and Tom {a1} friends.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Складений підмет (Mary and Tom) вимагає форми are not, як і множина.",
+                        "Підмет `Mary and Tom` — два підмети, з'єднані сполучником and, утворюють множину, тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: Mary and Tom — складений підмет (множина), тому вживається are not.",
+                            "am not": "«am not» — хибна форма: am not вживається тільки з I.",
+                            "is not": "«is not» — хибна форма: is not вживається з одним підметом у третій особі однини, але тут два підмети."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "Mary and Tom {a1} friends."
+            ]
+        },
+        {
+            "id": 15,
+            "uuid_segments": [
+                "a1",
+                "q15"
+            ],
+            "question": "It {a1} Monday today.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник it при вираженні дня тижня вживається з is not.",
+                        "Підмет `It` — займенник третьої особи однини, і тут він виражає поточний день; тому is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: it завжди вживається з is not у запереченні.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they або множиною."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "It {a1} Monday today."
+            ]
+        },
+        {
+            "id": 16,
+            "uuid_segments": [
+                "a1",
+                "q16"
+            ],
+            "question": "The books {a1} on the table.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменник у множині (the books) вимагає форми are not.",
+                        "Підмет `the books` — множина, тому заперечення з to be — are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: the books — множина, тому вживається are not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом третьої особи, але books — множина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "The books {a1} on the table."
+            ]
+        },
+        {
+            "id": 17,
+            "uuid_segments": [
+                "a1",
+                "q17"
+            ],
+            "question": "She {a1} my sister.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник she вимагає форми is not у заперечному реченні.",
+                        "Підмет `She` — третя особа однини (жіночий рід), тому форма — is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: she — третя особа однини, тому вживається is not.",
+                            "am not": "«am not» — хибна форма: am not вживається тільки з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they або множиною."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} my sister."
+            ]
+        },
+        {
+            "id": 18,
+            "uuid_segments": [
+                "a1",
+                "q18"
+            ],
+            "question": "I {a1} angry.",
+            "source": "theory_page_1122",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "З займенником I завжди вживається am not у запереченні.",
+                        "Підмет `I` (я) — перша особа однини; форма заперечення — виключно am not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not.",
+                            "is not": "«is not» — хибна форма: is not вживається з третьою особою однини, а не з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they, але не з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} angry."
+            ]
+        },
+        {
+            "id": 19,
+            "uuid_segments": [
+                "a2",
+                "q01"
+            ],
+            "question": "He {a1} at home right now.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "am not",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник he вимагає форми is not або її скороченого варіанту isn't.",
+                        "Підмет `He` — третя особа однини; скорочена форма is not — це isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: he + is not → isn't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I; скорочення «amn't» не існує в стандартній англійській.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not, яке вживається з you / we / they, але не з he."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "He {a1} at home right now."
+            ]
+        },
+        {
+            "id": 20,
+            "uuid_segments": [
+                "a2",
+                "q02"
+            ],
+            "question": "They {a1} ready for the test.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "am not",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник they вимагає форми are not або її скороченого варіанту aren't.",
+                        "Підмет `They` — третя особа множини; скорочена форма are not — це aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: they + are not → aren't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з he / she / it, але не з they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "They {a1} ready for the test."
+            ]
+        },
+        {
+            "id": 21,
+            "uuid_segments": [
+                "a2",
+                "q03"
+            ],
+            "question": "It {a1} very cold outside.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "am not",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник it вимагає форми is not або скорочення isn't при вираженні погоди.",
+                        "Підмет `It` — третя особа однини (вираз погоди); скорочена форма — isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: it + is not → isn't.",
+                            "am not": "«am not» — хибна форма: am not вживається тільки з I.",
+                            "aren't": "«aren't» — хибна форма: aren't — це are not, яке вживається з you / we / they, але не з it."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "It {a1} very cold outside."
+            ]
+        },
+        {
+            "id": 22,
+            "uuid_segments": [
+                "a2",
+                "q04"
+            ],
+            "question": "We {a1} sure about the answer.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник we вимагає форми are not або скорочення aren't.",
+                        "Підмет `We` — перша особа множини; скорочена форма are not — aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: we + are not → aren't.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з he / she / it, але не з we.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I і не має скороченого варіанту."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "We {a1} sure about the answer."
+            ]
+        },
+        {
+            "id": 23,
+            "uuid_segments": [
+                "a2",
+                "q05"
+            ],
+            "question": "She {a1} my neighbour.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "am not",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник she вимагає форми is not або скорочення isn't.",
+                        "Підмет `She` — третя особа однини; скорочена форма is not — isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: she + is not → isn't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "aren't": "«aren't» — хибна форма: aren't — це are not, яке вживається з you / we / they, але не з she."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "She {a1} my neighbour."
+            ]
+        },
+        {
+            "id": 24,
+            "uuid_segments": [
+                "a2",
+                "q06"
+            ],
+            "question": "I {a1} a doctor.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "isn't",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; ця форма не має скороченого варіанту.",
+                        "Підмет `I` — перша особа однини; єдина правильна форма — am not (скорочення «amn't» не існує)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається виключно am not.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке призначено для he / she / it.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not, яке вживається з you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} a doctor."
+            ]
+        },
+        {
+            "id": 25,
+            "uuid_segments": [
+                "a2",
+                "q07"
+            ],
+            "question": "The film {a1} interesting at all.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "am not",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Однинний іменник the film вимагає форми is not або скорочення isn't.",
+                        "Підмет `the film` — однина третьої особи; скорочення is not → isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: the film — однина, is not → isn't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "aren't": "«aren't» — хибна форма: aren't — це are not, яке вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "The film {a1} interesting at all."
+            ]
+        },
+        {
+            "id": 26,
+            "uuid_segments": [
+                "a2",
+                "q08"
+            ],
+            "question": "You {a1} wrong.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "am not",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник you вимагає форми are not або скорочення aren't.",
+                        "Підмет `You` — друга особа; скорочена форма are not — aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: you + are not → aren't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з he / she / it, але не з you."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "You {a1} wrong."
+            ]
+        },
+        {
+            "id": 27,
+            "uuid_segments": [
+                "a2",
+                "q09"
+            ],
+            "question": "The children {a1} at school today.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Множинний іменник the children вимагає форми are not або скорочення aren't.",
+                        "Підмет `the children` — множина; скорочення are not → aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: the children — множина, are not → aren't.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з однинним підметом третьої особи.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "The children {a1} at school today."
+            ]
+        },
+        {
+            "id": 28,
+            "uuid_segments": [
+                "a2",
+                "q10"
+            ],
+            "question": "Tom {a1} here yet.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "am not",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Власне ім'я Tom (однина третьої особи) вимагає форми is not або скорочення isn't.",
+                        "Підмет `Tom` — однина третьої особи; скорочення is not → isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: Tom — однина третьої особи, is not → isn't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not, яке вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "Tom {a1} here yet."
+            ]
+        },
+        {
+            "id": 29,
+            "uuid_segments": [
+                "a2",
+                "q11"
+            ],
+            "question": "My parents {a1} at work.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "am not",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Множинний іменник my parents вимагає форми are not або скорочення aren't.",
+                        "Підмет `my parents` — множина; скорочення are not → aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: my parents — множина, are not → aren't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з однинним підметом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "My parents {a1} at work."
+            ]
+        },
+        {
+            "id": 30,
+            "uuid_segments": [
+                "a2",
+                "q12"
+            ],
+            "question": "The weather {a1} nice.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "am not",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменник the weather — однина третьої особи, тому форма is not або isn't.",
+                        "Підмет `the weather` — незлічуваний іменник в однині; скорочення is not → isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: the weather — однина, is not → isn't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not, яке вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "The weather {a1} nice."
+            ]
+        },
+        {
+            "id": 31,
+            "uuid_segments": [
+                "a2",
+                "q13"
+            ],
+            "question": "We {a1} from the same city.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "am not",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник we вимагає форми are not або скорочення aren't.",
+                        "Підмет `We` — перша особа множини; скорочення are not → aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: we + are not → aren't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з he / she / it, але не з we."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "We {a1} from the same city."
+            ]
+        },
+        {
+            "id": 32,
+            "uuid_segments": [
+                "a2",
+                "q14"
+            ],
+            "question": "He {a1} ready for the exam.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "am not",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник he вимагає форми is not або скорочення isn't.",
+                        "Підмет `He` — третя особа однини; скорочення is not → isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: he + is not → isn't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not, яке вживається з you / we / they, але не з he."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "He {a1} ready for the exam."
+            ]
+        },
+        {
+            "id": 33,
+            "uuid_segments": [
+                "a2",
+                "q15"
+            ],
+            "question": "The apples {a1} fresh today.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "am not",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Множинний іменник the apples вимагає форми are not або скорочення aren't.",
+                        "Підмет `the apples` — множина; скорочення are not → aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: the apples — множина, are not → aren't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з однинним підметом третьої особи."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "The apples {a1} fresh today."
+            ]
+        },
+        {
+            "id": 34,
+            "uuid_segments": [
+                "a2",
+                "q16"
+            ],
+            "question": "I {a1} late, am I?",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "isn't",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; єдина правильна відповідь — am not (скорочення не існує).",
+                        "Підмет `I` — перша особа однини; розширювальне запитання «am I?» підтверджує, що потрібна форма am not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not, і розширювальне питання «am I?» узгоджується саме з цією формою.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з he / she / it.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not, яке вживається з you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} late, am I?"
+            ]
+        },
+        {
+            "id": 35,
+            "uuid_segments": [
+                "a2",
+                "q17"
+            ],
+            "question": "It {a1} a big problem.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "am not",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник it вимагає форми is not або скорочення isn't.",
+                        "Підмет `It` — третя особа однини; скорочення is not → isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: it + is not → isn't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not, яке вживається з you / we / they або множиною."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "It {a1} a big problem."
+            ]
+        },
+        {
+            "id": 36,
+            "uuid_segments": [
+                "a2",
+                "q18"
+            ],
+            "question": "She and I {a1} colleagues.",
+            "source": "theory_page_1122",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "am not",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Складений підмет she and I вимагає форми are not або скорочення aren't.",
+                        "Підмет `She and I` — два підмети разом утворюють множину; скорочення are not → aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: she and I — множина, are not → aren't.",
+                            "am not": "«am not» — хибна форма: am not вживається тільки з самим I, але не коли I є частиною складеного підмета зі she.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з одним підметом третьої особи однини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "She and I {a1} colleagues."
+            ]
+        },
+        {
+            "id": 37,
+            "uuid_segments": [
+                "b1",
+                "q01"
+            ],
+            "question": "The information in both reports {a1} accurate.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменник information є незлічуваним (uncountable) і вживається в однині, тому потрібна форма is not або isn't.",
+                        "Ядро підмета — `information` (незлічуваний іменник в однині); прийменниковий зворот in both reports не змінює числа підмета."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: information — незлічуваний іменник в однині, тому is not → isn't, незважаючи на фразу «in both reports».",
+                            "aren't": "«aren't» — хибна форма: aren't — це are not для множини або you / we / they, але information — однина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The information in both reports {a1} accurate."
+            ]
+        },
+        {
+            "id": 38,
+            "uuid_segments": [
+                "b1",
+                "q02"
+            ],
+            "question": "My glasses {a1} on the desk.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменник glasses належить до plural-only nouns і вживається виключно з are not або aren't.",
+                        "Підмет `my glasses` — завжди множина (no singular *a glass for eyewear), тому форма — aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: glasses — це plural-only noun, тому are not → aren't.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з однинним підметом, але glasses — завжди множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "My glasses {a1} on the desk."
+            ]
+        },
+        {
+            "id": 39,
+            "uuid_segments": [
+                "b1",
+                "q03"
+            ],
+            "question": "The staff {a1} happy with the decision.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Collective noun staff у британській англійській може вживатися як в однині, так і в множині; у цьому контексті (staff як єдиний колектив) вживається однина — isn't.",
+                        "Підмет `the staff` — колективний іменник; тут він сприймається як єдиний орган, тому is not або isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна форма: the staff тут вживається як єдиний колективний підмет (однина), тому is not → isn't.",
+                            "aren't": "«aren't» — менш точна форма в цьому контексті: aren't вживається, коли акцент на окремих членах колективу; тут мається на увазі рішення щодо всього колективу.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The staff {a1} happy with the decision."
+            ]
+        },
+        {
+            "id": 40,
+            "uuid_segments": [
+                "b1",
+                "q04"
+            ],
+            "question": "Both my brother and sister {a1} at home.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Складений підмет із both ... and ... завжди вимагає форми множини — are not або aren't.",
+                        "Конструкція `Both my brother and sister` — складений підмет (два члени), тому вживається форма множини aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: both ... and ... утворює складений підмет у множині, тому are not → aren't.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not для однини, але тут два підмети (both ... and ...).",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "Both my brother and sister {a1} at home."
+            ]
+        },
+        {
+            "id": 41,
+            "uuid_segments": [
+                "b1",
+                "q05"
+            ],
+            "question": "Neither option {a1} ideal.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник neither вживається з однинним присудком у формальному стилі, тому вживається is not.",
+                        "Підмет `neither option` — ні один з двох (однина), тому форма — is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: neither + однинний іменник вимагає is not у формальному стилі.",
+                            "are not": "«are not» — хибна форма: are not вживається з множинним підметом, але neither option — однина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "Neither option {a1} ideal."
+            ]
+        },
+        {
+            "id": 42,
+            "uuid_segments": [
+                "b1",
+                "q06"
+            ],
+            "question": "The new rules {a1} fair.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Множинний іменник the new rules вимагає форми are not або скорочення aren't.",
+                        "Підмет `the new rules` — множина; скорочення are not → aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: rules — множина, are not → aren't.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з однинним підметом.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "The new rules {a1} fair."
+            ]
+        },
+        {
+            "id": 43,
+            "uuid_segments": [
+                "b1",
+                "q07"
+            ],
+            "question": "I {a1} sure if that's the right answer.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "isn't",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; ця форма не має скороченого варіанту.",
+                        "Підмет `I` — перша особа однини; єдина форма заперечення — am not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається виключно am not.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке призначено для he / she / it.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not, яке вживається з you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} sure if that's the right answer."
+            ]
+        },
+        {
+            "id": 44,
+            "uuid_segments": [
+                "b1",
+                "q08"
+            ],
+            "question": "Your idea {a1} bad at all — I quite like it.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Однинний іменник your idea вимагає форми is not або скорочення isn't.",
+                        "Підмет `your idea` — однина третьої особи; скорочення is not → isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: your idea — однина, is not → isn't.",
+                            "aren't": "«aren't» — хибна форма: aren't — це are not для множини або you / we / they, але idea — однина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "Your idea {a1} bad at all — I quite like it."
+            ]
+        },
+        {
+            "id": 45,
+            "uuid_segments": [
+                "b1",
+                "q09"
+            ],
+            "question": "We {a1} ready to make a final decision yet.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник we вимагає форми are not або скорочення aren't.",
+                        "Підмет `We` — перша особа множини; скорочення are not → aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: we + are not → aren't.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з he / she / it, але не з we.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "We {a1} ready to make a final decision yet."
+            ]
+        },
+        {
+            "id": 46,
+            "uuid_segments": [
+                "b1",
+                "q10"
+            ],
+            "question": "The data {a1} reliable enough to use.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У формальному академічному вживанні data може трактуватися як незлічуваний іменник в однині, тому is not або isn't.",
+                        "Підмет `the data` — у формальному контексті вживається як однина; скорочення is not → isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна форма у формальному контексті: the data вживається як однина (uncountable), is not → isn't.",
+                            "aren't": "«aren't» — менш підходяща форма: aren't вживається, коли data трактується як множина (data = individual data points), але в цьому академічному реченні — однина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The data {a1} reliable enough to use."
+            ]
+        },
+        {
+            "id": 47,
+            "uuid_segments": [
+                "b1",
+                "q11"
+            ],
+            "question": "They {a1} from the same country.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник they вимагає форми are not або скорочення aren't.",
+                        "Підмет `They` — третя особа множини; скорочення are not → aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: they + are not → aren't.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з he / she / it, але не з they.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "They {a1} from the same country."
+            ]
+        },
+        {
+            "id": 48,
+            "uuid_segments": [
+                "b1",
+                "q12"
+            ],
+            "question": "He {a1} the person I thought he was.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник he вимагає форми is not або скорочення isn't.",
+                        "Підмет `He` — третя особа однини; скорочення is not → isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: he + is not → isn't.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not, яке вживається з you / we / they, але не з he.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "He {a1} the person I thought he was."
+            ]
+        },
+        {
+            "id": 49,
+            "uuid_segments": [
+                "b1",
+                "q13"
+            ],
+            "question": "The price {a1} included in the total.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Однинний іменник the price вимагає форми is not або скорочення isn't.",
+                        "Підмет `the price` — однина третьої особи; скорочення is not → isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: the price — однина, is not → isn't.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not для множини, але price — однина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "The price {a1} included in the total."
+            ]
+        },
+        {
+            "id": 50,
+            "uuid_segments": [
+                "b1",
+                "q14"
+            ],
+            "question": "You and I {a1} so different, after all.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "am not",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Складений підмет you and I вимагає форми are not або скорочення aren't.",
+                        "Підмет `You and I` — два підмети разом утворюють множину; скорочення are not → aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: you and I — складений підмет, множина, are not → aren't.",
+                            "am not": "«am not» — хибна форма: хоча I окремо вживається з am not, у складеному підметі you and I вживається are not.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке вживається з однинним підметом третьої особи."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "You and I {a1} so different, after all."
+            ]
+        },
+        {
+            "id": 51,
+            "uuid_segments": [
+                "b1",
+                "q15"
+            ],
+            "question": "I {a1} the only one who made a mistake.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "isn't",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; ця форма не має скороченого варіанту.",
+                        "Підмет `I` — перша особа однини; форма заперечення — виключно am not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not для he / she / it, але підмет тут — I.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not для you / we / they, але підмет тут — I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} the only one who made a mistake."
+            ]
+        },
+        {
+            "id": 52,
+            "uuid_segments": [
+                "b1",
+                "q16"
+            ],
+            "question": "The results {a1} what we expected.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "isn't",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Множинний іменник the results вимагає форми are not або скорочення aren't.",
+                        "Підмет `the results` — множина; скорочення are not → aren't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't": "«aren't» — правильна скорочена форма: the results — множина, are not → aren't.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not для однини, але results — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "The results {a1} what we expected."
+            ]
+        },
+        {
+            "id": 53,
+            "uuid_segments": [
+                "b1",
+                "q17"
+            ],
+            "question": "It {a1} too late to make a change.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "am not",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник it вимагає форми is not або скорочення isn't.",
+                        "Підмет `It` — третя особа однини (безособовий вираз); скорочення is not → isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: it + is not → isn't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not для you / we / they або множини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "It {a1} too late to make a change."
+            ]
+        },
+        {
+            "id": 54,
+            "uuid_segments": [
+                "b1",
+                "q18"
+            ],
+            "question": "She {a1} the kind of person who gives up easily.",
+            "source": "theory_page_1122",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "am not",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник she вимагає форми is not або скорочення isn't.",
+                        "Підмет `She` — третя особа однини; скорочення is not → isn't."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«isn't» — правильна скорочена форма: she + is not → isn't.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not для you / we / they, але підмет тут — she."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "She {a1} the kind of person who gives up easily."
+            ]
+        },
+        {
+            "id": 55,
+            "uuid_segments": [
+                "b2",
+                "q01"
+            ],
+            "question": "The findings of the recent study {a1} consistent with previous research.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — findings (множина), яке вимагає are not у формальному стилі.",
+                        "Підмет `the findings` — множина; прийменниковий зворот of the recent study не змінює числа підмета."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: the findings — множина, тому are not (повна форма доречна у формальному стилі).",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; findings — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "The findings of the recent study {a1} consistent with previous research."
+            ]
+        },
+        {
+            "id": 56,
+            "uuid_segments": [
+                "b2",
+                "q02"
+            ],
+            "question": "I {a1} entirely convinced by his argument.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "isn't",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; у формальному письмовому стилі am not не скорочується.",
+                        "Підмет `I` — перша особа однини; у письмовому формальному стилі вживається am not (не скорочується)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not, і у формальному письмовому контексті скорочення не використовується.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not, яке призначено для he / she / it.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not для you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} entirely convinced by his argument."
+            ]
+        },
+        {
+            "id": 57,
+            "uuid_segments": [
+                "b2",
+                "q03"
+            ],
+            "question": "The committee's recommendations {a1} binding on member states.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — recommendations (множина), яке вимагає are not.",
+                        "Підмет `the committee's recommendations` — множина (recommendations); тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: recommendations — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; recommendations — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "The committee's recommendations {a1} binding on member states."
+            ]
+        },
+        {
+            "id": 58,
+            "uuid_segments": [
+                "b2",
+                "q04"
+            ],
+            "question": "It {a1} clear why the project failed.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник it вимагає форми is not; у формальному стилі вживається повна форма.",
+                        "Підмет `It` — третя особа однини (безособовий вступний вираз); у формальному контексті — is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: it + is not; у формальному письмовому стилі скорочення не використовується.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they, але не з it."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "It {a1} clear why the project failed."
+            ]
+        },
+        {
+            "id": 59,
+            "uuid_segments": [
+                "b2",
+                "q05"
+            ],
+            "question": "The CEO's decision {a1} final until the board reviews it.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — decision (однина третьої особи) вимагає is not.",
+                        "Підмет `the CEO's decision` — однина; у формальному стилі вживається повна форма is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: decision — однина третьої особи, тому is not (повна форма у формальному контексті).",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множинним підметом або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "The CEO's decision {a1} final until the board reviews it."
+            ]
+        },
+        {
+            "id": 60,
+            "uuid_segments": [
+                "b2",
+                "q06"
+            ],
+            "question": "Several of the documents {a1} available to the public.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — several of the documents (множина) вимагає are not.",
+                        "Підмет `several of the documents` — several вказує на множину; тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: several of the documents — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; documents (plural) вимагає are not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "Several of the documents {a1} available to the public."
+            ]
+        },
+        {
+            "id": 61,
+            "uuid_segments": [
+                "b2",
+                "q07"
+            ],
+            "question": "I {a1} sure that the contract covers this situation.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; у формальному письмовому стилі am not не скорочується.",
+                        "Підмет `I` — перша особа однини; форма заперечення — am not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not.",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it або однинним іменником, але не з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they або множиною."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} sure that the contract covers this situation."
+            ]
+        },
+        {
+            "id": 62,
+            "uuid_segments": [
+                "b2",
+                "q08"
+            ],
+            "question": "The statistics {a1} entirely reliable due to the small sample size.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Statistics у значенні 'числові дані' (plural countable) вживається з are not.",
+                        "Підмет `the statistics` — тут statistics означає 'дані/цифри' (множина), тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: statistics у значенні 'numerical data' — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом або коли statistics означає навчальну дисципліну (the subject), але тут — дані.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The statistics {a1} entirely reliable due to the small sample size."
+            ]
+        },
+        {
+            "id": 63,
+            "uuid_segments": [
+                "b2",
+                "q09"
+            ],
+            "question": "His argument {a1} strong enough to persuade the panel.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Однинний іменник his argument вимагає форми is not; у формальному стилі — повна форма.",
+                        "Підмет `his argument` — однина третьої особи; у формальному тексті is not (не isn't)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: his argument — однина, is not (повна форма у формальному контексті).",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "His argument {a1} strong enough to persuade the panel."
+            ]
+        },
+        {
+            "id": 64,
+            "uuid_segments": [
+                "b2",
+                "q10"
+            ],
+            "question": "We {a1} in a position to comment on the ongoing investigation.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник we вимагає форми are not; у формальному офіційному стилі вживається повна форма.",
+                        "Підмет `We` — перша особа множини; у формальному стилі are not (не aren't)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: we + are not (повна форма для формального офіційного контексту).",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it або однинним іменником, але не з we.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "We {a1} in a position to comment on the ongoing investigation."
+            ]
+        },
+        {
+            "id": 65,
+            "uuid_segments": [
+                "b2",
+                "q11"
+            ],
+            "question": "The two proposals {a1} equal in terms of cost.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Підмет the two proposals — множина (два plani), тому are not.",
+                        "Підмет `the two proposals` — множина; тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: the two proposals — множина, are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; proposals — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "The two proposals {a1} equal in terms of cost."
+            ]
+        },
+        {
+            "id": 66,
+            "uuid_segments": [
+                "b2",
+                "q12"
+            ],
+            "question": "I {a1} optimistic about the outcome, frankly.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "isn't",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; ця форма не має скороченого варіанту.",
+                        "Підмет `I` — перша особа однини; форма заперечення — am not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not.",
+                            "isn't": "«isn't» — хибна форма: isn't — скорочення is not для he / she / it.",
+                            "aren't": "«aren't» — хибна форма: aren't — скорочення are not для you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} optimistic about the outcome, frankly."
+            ]
+        },
+        {
+            "id": 67,
+            "uuid_segments": [
+                "b2",
+                "q13"
+            ],
+            "question": "The company's financial reports {a1} audited yet.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — reports (множина) вимагає are not.",
+                        "Підмет `the company's financial reports` — множина (reports); тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: reports — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; reports — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "The company's financial reports {a1} audited yet."
+            ]
+        },
+        {
+            "id": 68,
+            "uuid_segments": [
+                "b2",
+                "q14"
+            ],
+            "question": "It {a1} always easy to distinguish between formal and informal register.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Безособовий займенник it вимагає форми is not; у формальному тексті вживається повна форма.",
+                        "Підмет `It` — безособовий займенник третьої особи однини; у формальному тексті is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: it + is not (повна форма у формальному академічному контексті).",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "It {a1} always easy to distinguish between formal and informal register."
+            ]
+        },
+        {
+            "id": 69,
+            "uuid_segments": [
+                "b2",
+                "q15"
+            ],
+            "question": "She {a1} entirely to blame for the misunderstanding.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник she вимагає форми is not; у формальному контексті вживається повна форма.",
+                        "Підмет `She` — третя особа однини; у формальному письмовому стилі is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: she + is not (повна форма у формальному контексті).",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they або множиною."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "She {a1} entirely to blame for the misunderstanding."
+            ]
+        },
+        {
+            "id": 70,
+            "uuid_segments": [
+                "b2",
+                "q16"
+            ],
+            "question": "The witnesses {a1} willing to testify in court.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Множинний іменник the witnesses вимагає форми are not; у формальному юридичному стилі — повна форма.",
+                        "Підмет `the witnesses` — множина; у формальному контексті are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: the witnesses — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; witnesses — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "The witnesses {a1} willing to testify in court."
+            ]
+        },
+        {
+            "id": 71,
+            "uuid_segments": [
+                "b2",
+                "q17"
+            ],
+            "question": "This approach {a1} without its limitations.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Однинний іменник this approach вимагає форми is not; у формальному тексті — повна форма.",
+                        "Підмет `this approach` — однина третьої особи; у формальному контексті is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: this approach — однина, is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "This approach {a1} without its limitations."
+            ]
+        },
+        {
+            "id": 72,
+            "uuid_segments": [
+                "b2",
+                "q18"
+            ],
+            "question": "We {a1} the only team working on this problem.",
+            "source": "theory_page_1122",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник we вимагає форми are not; у формальному контексті — повна форма.",
+                        "Підмет `We` — перша особа множини; у формальному тексті are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: we + are not (повна форма у формальному контексті).",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it або однинним іменником, але не з we."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "We {a1} the only team working on this problem."
+            ]
+        },
+        {
+            "id": 73,
+            "uuid_segments": [
+                "c1",
+                "q01"
+            ],
+            "question": "The assumptions underlying this theory {a1} always made explicit.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — assumptions (множина); дієприкметниковий зворот underlying this theory не змінює числа.",
+                        "Підмет `the assumptions underlying this theory` — ядро assumptions (множина); тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: assumptions — множина, тому are not, незважаючи на підрядний зворот.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; assumptions — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The assumptions underlying this theory {a1} always made explicit."
+            ]
+        },
+        {
+            "id": 74,
+            "uuid_segments": [
+                "c1",
+                "q02"
+            ],
+            "question": "It {a1} uncommon for such discrepancies to arise in longitudinal studies.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Безособовий займенник it вимагає форми is not; конструкція it is not uncommon — усталена академічна фраза.",
+                        "Підмет `It` — безособовий займенник третьої особи однини; конструкція it is not + adjective — стандартна академічна форма."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: it + is not; конструкція «it is not uncommon» — стандартна академічна фраза.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "It {a1} uncommon for such discrepancies to arise in longitudinal studies."
+            ]
+        },
+        {
+            "id": 75,
+            "uuid_segments": [
+                "c1",
+                "q03"
+            ],
+            "question": "I {a1} suggesting that all previous research is wrong.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; у академічному тексті am not вживається як заперечення present continuous.",
+                        "Підмет `I` — перша особа однини; форма заперечення — am not (також у continuous: I am not suggesting)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not (I am not suggesting = I'm not suggesting).",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it, але підмет тут — I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they або множиною."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} suggesting that all previous research is wrong."
+            ]
+        },
+        {
+            "id": 76,
+            "uuid_segments": [
+                "c1",
+                "q04"
+            ],
+            "question": "The implications of the data {a1} fully understood yet.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — implications (множина); прийменниковий зворот of the data не змінює числа.",
+                        "Підмет `the implications of the data` — ядро implications (множина); тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: implications — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; implications — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The implications of the data {a1} fully understood yet."
+            ]
+        },
+        {
+            "id": 77,
+            "uuid_segments": [
+                "c1",
+                "q05"
+            ],
+            "question": "The policy {a1} expected to have an immediate effect.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Однинний іменник the policy вимагає форми is not; у формальному тексті — повна форма.",
+                        "Підмет `the policy` — однина третьої особи; у формальному академічному стилі is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: the policy — однина, is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "The policy {a1} expected to have an immediate effect."
+            ]
+        },
+        {
+            "id": 78,
+            "uuid_segments": [
+                "c1",
+                "q06"
+            ],
+            "question": "These two variables {a1} independent of each other.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Множинний іменник these two variables вимагає форми are not.",
+                        "Підмет `these two variables` — множина (two variables); тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: these two variables — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; variables — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "These two variables {a1} independent of each other."
+            ]
+        },
+        {
+            "id": 79,
+            "uuid_segments": [
+                "c1",
+                "q07"
+            ],
+            "question": "It {a1} my intention to offend anyone.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Безособовий займенник it вимагає форми is not; конструкція it is not my intention — усталений формальний вираз.",
+                        "Підмет `It` — безособовий займенник третьої особи однини; конструкція it is not my intention — формальний вираз вибачення."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: it + is not; «it is not my intention» — стандартний формальний вираз.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "It {a1} my intention to offend anyone."
+            ]
+        },
+        {
+            "id": 80,
+            "uuid_segments": [
+                "c1",
+                "q08"
+            ],
+            "question": "I {a1} in a position to disclose that information at this time.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; у формальному офіційному стилі am not не скорочується.",
+                        "Підмет `I` — перша особа однини; у формальному контексті am not (без скорочення)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not; у формальному офіційному контексті скорочення не використовується.",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it або однинним іменником.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they або множиною."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "I {a1} in a position to disclose that information at this time."
+            ]
+        },
+        {
+            "id": 81,
+            "uuid_segments": [
+                "c1",
+                "q09"
+            ],
+            "question": "The participants {a1} representative of the general population.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Множинний іменник the participants вимагає форми are not.",
+                        "Підмет `the participants` — множина; тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: participants — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; participants — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The participants {a1} representative of the general population."
+            ]
+        },
+        {
+            "id": 82,
+            "uuid_segments": [
+                "c1",
+                "q10"
+            ],
+            "question": "This solution {a1} without its drawbacks.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Однинний іменник this solution вимагає форми is not; повна форма доречна у формальному контексті.",
+                        "Підмет `this solution` — однина третьої особи; у формальному академічному тексті is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: this solution — однина, is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "This solution {a1} without its drawbacks."
+            ]
+        },
+        {
+            "id": 83,
+            "uuid_segments": [
+                "c1",
+                "q11"
+            ],
+            "question": "It {a1} certain whether the intervention will succeed.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Безособовий займенник it вимагає форми is not; конструкція it is not certain whether — академічна.",
+                        "Підмет `It` — безособовий займенник третьої особи однини; конструкція it is not certain — стандартна академічна фраза."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: it + is not; «it is not certain» — стандартна академічна конструкція.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "It {a1} certain whether the intervention will succeed."
+            ]
+        },
+        {
+            "id": 84,
+            "uuid_segments": [
+                "c1",
+                "q12"
+            ],
+            "question": "We {a1} arguing that all approaches are equivalent.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник we вимагає форми are not; у формальному академічному контексті вживається повна форма.",
+                        "Підмет `We` — перша особа множини; у формальному тексті are not (без скорочення)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: we + are not (повна форма у формальному академічному контексті).",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it або однинним іменником, але не з we.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "We {a1} arguing that all approaches are equivalent."
+            ]
+        },
+        {
+            "id": 85,
+            "uuid_segments": [
+                "c1",
+                "q13"
+            ],
+            "question": "The relationship between these factors {a1} linear.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — relationship (однина); прийменниковий зворот between these factors не змінює числа.",
+                        "Підмет `the relationship between these factors` — ядро relationship (однина); тому is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: relationship — однина третьої особи, тому is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множинним підметом; relationship — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The relationship between these factors {a1} linear."
+            ]
+        },
+        {
+            "id": 86,
+            "uuid_segments": [
+                "c1",
+                "q14"
+            ],
+            "question": "I {a1} claiming that the evidence is conclusive.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; у академічному дискурсі am not claiming — стандартна хеджирувальна фраза.",
+                        "Підмет `I` — перша особа однини; форма заперечення — am not (I am not claiming = хеджирувальна конструкція)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not; «I am not claiming» — стандартна академічна хеджирувальна фраза.",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it, але підмет тут — I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they або множиною."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "I {a1} claiming that the evidence is conclusive."
+            ]
+        },
+        {
+            "id": 87,
+            "uuid_segments": [
+                "c1",
+                "q15"
+            ],
+            "question": "The conclusions drawn from this single study {a1} generalisable.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — conclusions (множина); дієприкметниковий зворот drawn from this single study не змінює числа.",
+                        "Підмет `the conclusions drawn from this single study` — ядро conclusions (множина); тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: conclusions — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; conclusions — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The conclusions drawn from this single study {a1} generalisable."
+            ]
+        },
+        {
+            "id": 88,
+            "uuid_segments": [
+                "c1",
+                "q16"
+            ],
+            "question": "This phenomenon {a1} unique to industrialised societies.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Однинний іменник this phenomenon вимагає форми is not; у академічному тексті — повна форма.",
+                        "Підмет `this phenomenon` — однина третьої особи; у академічному контексті is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: this phenomenon — однина, is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "This phenomenon {a1} unique to industrialised societies."
+            ]
+        },
+        {
+            "id": 89,
+            "uuid_segments": [
+                "c1",
+                "q17"
+            ],
+            "question": "We {a1} the first to propose this hypothesis.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник we вимагає форми are not; у академічному контексті — повна форма.",
+                        "Підмет `We` — перша особа множини; у академічному контексті are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: we + are not (повна форма у академічному контексті).",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it або однинним іменником, але не з we."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "We {a1} the first to propose this hypothesis."
+            ]
+        },
+        {
+            "id": 90,
+            "uuid_segments": [
+                "c1",
+                "q18"
+            ],
+            "question": "The evidence {a1} conclusive enough to support the claim.",
+            "source": "theory_page_1122",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменник evidence є незлічуваним (uncountable) і вживається в однині, тому is not.",
+                        "Підмет `the evidence` — незлічуваний іменник в однині; тому is not у академічному контексті."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: evidence — незлічуваний іменник в однині, is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множинним підметом; evidence — незлічуваний однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "The evidence {a1} conclusive enough to support the claim."
+            ]
+        },
+        {
+            "id": 91,
+            "uuid_segments": [
+                "c2",
+                "q01"
+            ],
+            "question": "The author's central thesis {a1} without merit, though it requires substantial revision.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — thesis (однина третьої особи) вимагає is not у формальному критичному дискурсі.",
+                        "Підмет `the author's central thesis` — ядро thesis (однина); у формальній критиці is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: thesis — однина третьої особи, is not (повна форма у формальному критичному контексті).",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "The author's central thesis {a1} without merit, though it requires substantial revision."
+            ]
+        },
+        {
+            "id": 92,
+            "uuid_segments": [
+                "c2",
+                "q02"
+            ],
+            "question": "Such categorical claims {a1} supported by the available empirical evidence.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Підмет such categorical claims — множина (claims), тому are not.",
+                        "Підмет `such categorical claims` — ядро claims (множина); у формальному науковому тексті are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: claims — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; claims — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "Such categorical claims {a1} supported by the available empirical evidence."
+            ]
+        },
+        {
+            "id": 93,
+            "uuid_segments": [
+                "c2",
+                "q03"
+            ],
+            "question": "I {a1} at liberty to reveal the full details of the inquiry at this stage.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; у формальному офіційному стилі am not не скорочується.",
+                        "Підмет `I` — перша особа однини; у формально-юридичному контексті am not (без скорочення)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not; у формальному юридичному контексті скорочення не використовується.",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it, але підмет тут — I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they або множиною."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "I {a1} at liberty to reveal the full details of the inquiry at this stage."
+            ]
+        },
+        {
+            "id": 94,
+            "uuid_segments": [
+                "c2",
+                "q04"
+            ],
+            "question": "The criteria used to evaluate performance {a1} standardised across all institutions.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Слово criteria — множина від criterion, тому вимагає форми are not.",
+                        "Підмет `the criteria` — латинська множина від criterion; тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: criteria — множина (множина від criterion), тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; criteria — множина (criterion → criteria).",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The criteria used to evaluate performance {a1} standardised across all institutions."
+            ]
+        },
+        {
+            "id": 95,
+            "uuid_segments": [
+                "c2",
+                "q05"
+            ],
+            "question": "It {a1} insignificant that the majority of participants withdrew midway through the trial.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Безособовий займенник it вимагає форми is not; конструкція it is not insignificant — посилювальна формальна фраза.",
+                        "Підмет `It` — безособовий займенник третьої особи однини; конструкція it is not insignificant — риторичне посилення."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: it + is not; «it is not insignificant» — формальний риторичний зворот.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "It {a1} insignificant that the majority of participants withdrew midway through the trial."
+            ]
+        },
+        {
+            "id": 96,
+            "uuid_segments": [
+                "c2",
+                "q06"
+            ],
+            "question": "The conclusions of the Commission {a1} subject to parliamentary approval.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — conclusions (множина); прийменниковий зворот of the Commission не змінює числа.",
+                        "Підмет `the conclusions of the Commission` — ядро conclusions (множина); у формальному юридично-адміністративному тексті are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: conclusions — множина, are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; conclusions — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "The conclusions of the Commission {a1} subject to parliamentary approval."
+            ]
+        },
+        {
+            "id": 97,
+            "uuid_segments": [
+                "c2",
+                "q07"
+            ],
+            "question": "The notion that language {a1} merely a communicative tool has been thoroughly debated.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — the notion (однина третьої особи); підрядне речення that language is not merely a communicative tool входить у підмет як означення.",
+                        "Підмет `The notion ... has been debated` — ядро notion (однина); вставне речення that language is not … є атрибутивним і не змінює числа головного підмета."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: усередині підрядного означального речення «that language is not» — language — однина, тому is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they, але language — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The notion that language {a1} merely a communicative tool has been thoroughly debated."
+            ]
+        },
+        {
+            "id": 98,
+            "uuid_segments": [
+                "c2",
+                "q08"
+            ],
+            "question": "I {a1} entirely persuaded by the argument presented in the final chapter.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; у формальному академічному критичному рецензуванні am not вживається без скорочення.",
+                        "Підмет `I` — перша особа однини; у академічній рецензії am not (без скорочення)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not; у академічній рецензії скорочення не використовується.",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it, але підмет тут — I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they або множиною."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "I {a1} entirely persuaded by the argument presented in the final chapter."
+            ]
+        },
+        {
+            "id": 99,
+            "uuid_segments": [
+                "c2",
+                "q09"
+            ],
+            "question": "These findings {a1} in isolation; they must be understood in broader context.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Множинний іменник these findings вимагає форми are not; у формальному академічному тексті — повна форма.",
+                        "Підмет `these findings` — множина; у академічному контексті are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: findings — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; findings — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "These findings {a1} in isolation; they must be understood in broader context."
+            ]
+        },
+        {
+            "id": 100,
+            "uuid_segments": [
+                "c2",
+                "q10"
+            ],
+            "question": "The existence of such anomalies {a1} disputed by the scientific community.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — existence (однина третьої особи); прийменниковий зворот of such anomalies не змінює числа.",
+                        "Підмет `the existence of such anomalies` — ядро existence (однина); тому is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: existence — однина третьої особи, тому is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множинним підметом; existence — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The existence of such anomalies {a1} disputed by the scientific community."
+            ]
+        },
+        {
+            "id": 101,
+            "uuid_segments": [
+                "c2",
+                "q11"
+            ],
+            "question": "We {a1} the first generation to confront these challenges, nor shall we be the last.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник we вимагає форми are not; конструкція we are not … nor shall we be — риторичне паралельне заперечення.",
+                        "Підмет `We` — перша особа множини; у риторичному формальному висловлюванні are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: we + are not; конструкція «we are not … nor shall we be» — формальне риторичне паралельне заперечення.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it або однинним іменником, але не з we."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "We {a1} the first generation to confront these challenges, nor shall we be the last."
+            ]
+        },
+        {
+            "id": 102,
+            "uuid_segments": [
+                "c2",
+                "q12"
+            ],
+            "question": "It {a1} immediately clear what consequences this will have for future policy.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Безособовий займенник it вимагає форми is not; конструкція it is not clear what … — стандартна академічна фраза.",
+                        "Підмет `It` — безособовий займенник третьої особи однини; конструкція it is not immediately clear — академічний хеджирувальний зворот."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: it + is not; «it is not immediately clear» — стандартний академічний хеджирувальний зворот.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "It {a1} immediately clear what consequences this will have for future policy."
+            ]
+        },
+        {
+            "id": 103,
+            "uuid_segments": [
+                "c2",
+                "q13"
+            ],
+            "question": "The validity of these results {a1} contingent upon proper experimental controls.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — validity (однина); прийменниковий зворот of these results не змінює числа.",
+                        "Підмет `the validity of these results` — ядро validity (однина); тому is not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: validity — однина третьої особи, тому is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множинним підметом; validity — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The validity of these results {a1} contingent upon proper experimental controls."
+            ]
+        },
+        {
+            "id": 104,
+            "uuid_segments": [
+                "c2",
+                "q14"
+            ],
+            "question": "I {a1} unmindful of the risks involved in this course of action.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник I вимагає форми am not; конструкція I am not unmindful — формальна підтверджувальна фраза через подвійне заперечення.",
+                        "Підмет `I` — перша особа однини; конструкція «I am not unmindful of» — усталена формальна фраза, що означає 'I am well aware of'."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am not": "«am not» — правильна форма: з I вживається am not; «I am not unmindful» — формальне подвійне заперечення.",
+                            "is not": "«is not» — хибна форма: is not вживається з he / she / it, але підмет тут — I.",
+                            "are not": "«are not» — хибна форма: are not вживається з you / we / they або множиною."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "am_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "I {a1} unmindful of the risks involved in this course of action."
+            ]
+        },
+        {
+            "id": 105,
+            "uuid_segments": [
+                "c2",
+                "q15"
+            ],
+            "question": "The philosophical traditions of both schools {a1} as incompatible as first appearances suggest.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — traditions (множина); прийменниковий зворот of both schools не змінює числа.",
+                        "Підмет `the philosophical traditions of both schools` — ядро traditions (множина); тому are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: traditions — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; traditions — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_subject_agreement"
+            ],
+            "variants": [
+                "The philosophical traditions of both schools {a1} as incompatible as first appearances suggest."
+            ]
+        },
+        {
+            "id": 106,
+            "uuid_segments": [
+                "c2",
+                "q16"
+            ],
+            "question": "It {a1} simply a matter of semantics; the implications are profound.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Безособовий займенник it вимагає форми is not; конструкція it is not simply a matter of … — формальна спростовна фраза.",
+                        "Підмет `It` — безособовий займенник третьої особи однини; конструкція «it is not simply» — формальна спростовна фраза."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: it + is not; «it is not simply a matter of» — формальна спростовна конструкція.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множиною або you / we / they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "It {a1} simply a matter of semantics; the implications are profound."
+            ]
+        },
+        {
+            "id": 107,
+            "uuid_segments": [
+                "c2",
+                "q17"
+            ],
+            "question": "These mechanisms {a1} well understood, and further research is urgently needed.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Множинний іменник these mechanisms вимагає форми are not; у формальному науковому тексті — повна форма.",
+                        "Підмет `these mechanisms` — множина; у формальному науковому тексті are not."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are not": "«are not» — правильна форма: mechanisms — множина, тому are not.",
+                            "is not": "«is not» — хибна форма: is not вживається з однинним підметом; mechanisms — множина.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "are_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "These mechanisms {a1} well understood, and further research is urgently needed."
+            ]
+        },
+        {
+            "id": 108,
+            "uuid_segments": [
+                "c2",
+                "q18"
+            ],
+            "question": "The very premise of the argument {a1} sound, as subsequent analysis will demonstrate.",
+            "source": "theory_page_1122",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "am not",
+                        "are not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядро підмета — premise (однина третьої особи) вимагає is not; підсилювальне the very не змінює числа.",
+                        "Підмет `the very premise of the argument` — ядро premise (однина); прийменниковий зворот of the argument не змінює числа."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is not": "«is not» — правильна форма: premise — однина третьої особи, is not.",
+                            "am not": "«am not» — хибна форма: am not вживається виключно з I.",
+                            "are not": "«are not» — хибна форма: are not вживається з множинним підметом; premise — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "is_not",
+                "be_negative_formal_register"
+            ],
+            "variants": [
+                "The very premise of the argument {a1} sound, as subsequent analysis will demonstrate."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "vtbn-cp-sn-saved-test",
+        "slug": "verb-to-be-negatives-sonate-v3-test",
+        "name": "Verb to Be: Negatives — Sonate V3 Questions Test",
+        "filters": {
+            "num_questions": 108,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\VerbToBeNegativesV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1122,
+                "theory_page_ids": [
+                    1122
+                ],
+                "theory_page": {
+                    "id": 1122,
+                    "slug": "verb-to-be-negatives",
+                    "title": "Verb to Be: Negatives",
+                    "category_slug_path": "basic-grammar/verb-to-be",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeNegativesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-negatives"
+                }
+            }
+        }
+    }
+}
