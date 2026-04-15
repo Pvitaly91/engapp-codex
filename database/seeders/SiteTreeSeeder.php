@@ -670,6 +670,21 @@ class SiteTreeSeeder extends Seeder
                     ['title' => 'Say / Tell / Ask', 'level' => 'B1–B2'],
                 ],
             ],
+            [
+                'title' => '18. Clauses and Linking Words',
+                'level' => 'B1–B2',
+                'children' => [
+                    ['title' => 'Relative Clauses', 'level' => 'B1'],
+                    ['title' => 'Defining Relative Clauses', 'level' => 'B1'],
+                    ['title' => 'Non-defining Relative Clauses', 'level' => 'B1–B2'],
+                    ['title' => 'Omitting Relative Pronouns', 'level' => 'B1–B2'],
+                    ['title' => 'Linking Words', 'level' => 'B1'],
+                    ['title' => 'Reason: because / since / as', 'level' => 'B1'],
+                    ['title' => 'Result: so / therefore / as a result', 'level' => 'B1–B2'],
+                    ['title' => 'Contrast: although / though / however', 'level' => 'B1–B2'],
+                    ['title' => 'Purpose: to / in order to / so that', 'level' => 'B1–B2'],
+                ],
+            ],
         ];
     }
 }
