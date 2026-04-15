@@ -658,6 +658,18 @@ class SiteTreeSeeder extends Seeder
                     ['title' => 'Punctuation nuances — крапка з комою, тире, дужки, лапки', 'level' => 'C2'],
                 ],
             ],
+            [
+                'title' => '17. Reported Speech',
+                'level' => 'B1–B2',
+                'children' => [
+                    ['title' => 'Reported Statements', 'level' => 'B1'],
+                    ['title' => 'Reported Questions', 'level' => 'B1–B2'],
+                    ['title' => 'Reported Commands and Requests', 'level' => 'B1–B2'],
+                    ['title' => 'Backshift of Tenses', 'level' => 'B1–B2'],
+                    ['title' => 'Time and Place Changes', 'level' => 'B1–B2'],
+                    ['title' => 'Say / Tell / Ask', 'level' => 'B1–B2'],
+                ],
+            ],
         ];
     }
 }

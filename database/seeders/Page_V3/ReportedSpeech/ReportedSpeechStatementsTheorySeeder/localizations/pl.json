@@ -1,0 +1,44 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\ReportedSpeechStatementsTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechStatementsTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Reported Statements</strong> pokazuje, jak przekazywać fakty, opinie i informacje po czasowniku wprowadzającym.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"Używamy <strong>reported statements</strong>, gdy chcemy przekazać czyjąś opinię, informację albo fakt bez dosłownego cytatu.\",\"rules\":[{\"label\":\"Direct → reported\",\"color\":\"emerald\",\"text\":\"Po <strong>say</strong> albo <strong>tell</strong> wbudowujemy wypowiedź w nowe zdanie.\",\"example\":\"He said that he was tired.\"},{\"label\":\"Backshift often happens\",\"color\":\"blue\",\"text\":\"Jeśli czasownik wprowadzający stoi w przeszłości, czas w reported clause często cofa się o jeden krok.\",\"example\":\"I am busy. → She said that she was busy.\"},{\"label\":\"Pronouns may change\",\"color\":\"amber\",\"text\":\"Razem z czasem mogą zmienić się też <strong>zaimki</strong>, <strong>formy dzierżawcze</strong> i szczegóły sytuacji.\",\"example\":\"My brother is here. → He said that his brother was there.\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. Forma i struktura",
+            "body": "<p>Typowy wzór to <strong>subject + said / told + (that) + reported clause</strong>.</p><ul><li><strong>say</strong> zwykle występuje bez dopełnienia: <em>She said (that) she was late.</em></li><li><strong>tell</strong> zwykle potrzebuje dopełnienia: <em>She told me (that) she was late.</em></li><li>Łącznik <strong>that</strong> często można pominąć, zwłaszcza w neutralnym stylu.</li><li>W reported clause zachowujemy zwykły szyk zdania oznajmującego, bo to już nie jest bezpośredni cytat.</li></ul>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Główne użycia i przykłady",
+            "body": "<table><thead><tr><th>Direct statement</th><th>Reported statement</th><th>Co się zmieniło</th></tr></thead><tbody><tr><td>“I work from home.”</td><td>She said that she worked from home.</td><td><strong>I → she</strong>, <strong>work → worked</strong></td></tr><tr><td>“We have finished the task.”</td><td>They said that they had finished the task.</td><td><strong>have finished → had finished</strong></td></tr><tr><td>“My sister will call you.”</td><td>He told me that his sister would call me.</td><td><strong>will → would</strong>, zmieniają się też zaimki</td></tr></tbody></table><p>Tych konstrukcji używamy, gdy relacjonujemy wiadomość, opinię, wyjaśnienie albo wynik rozmowy.</p>"
+        },
+        {
+            "index": 4,
+            "heading": "3. Typowe błędy",
+            "body": "<ul><li><strong>Błąd:</strong> zostawianie bezpośredniego cytatu wewnątrz reported clause. <br><strong>Lepiej:</strong> <em>She said that she was tired</em>, a nie <em>She said that “I am tired”</em>.</li><li><strong>Błąd:</strong> brak zmiany zaimka. <br><strong>Lepiej:</strong> <em>He said that he needed help</em>, jeśli mówiącym jest <em>he</em>.</li><li><strong>Błąd:</strong> traktowanie backshift jako obowiązkowego zawsze. Jeśli fakt nadal jest prawdziwy, backshift może być opcjonalny: <em>The teacher said that water boils at 100°C.</em></li></ul>"
+        },
+        {
+            "index": 5,
+            "heading": "4. Krótka reguła",
+            "body": "<ul><li>Przy zdaniach oznajmujących najczęściej używamy <strong>said (that)</strong> albo <strong>told + object + (that)</strong>.</li><li>Po czasowniku wprowadzającym w przeszłości <strong>backshift</strong> jest bardzo częsty.</li><li>Zawsze sprawdzaj <strong>zaimki</strong>, <strong>formy dzierżawcze</strong> i kontekst, a nie tylko czas.</li></ul>"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Strony w tym dziale\",\"items\":[{\"label\":\"Reported Statements\",\"url\":\"/pl/theory/reported-speech/reported-statements\",\"current\":true},{\"label\":\"Reported Questions\",\"url\":\"/pl/theory/reported-speech/reported-questions\",\"current\":false},{\"label\":\"Reported Commands and Requests\",\"url\":\"/pl/theory/reported-speech/reported-commands-and-requests\",\"current\":false},{\"label\":\"Backshift of Tenses\",\"url\":\"/pl/theory/reported-speech/backshift-of-tenses\",\"current\":false},{\"label\":\"Time and Place Changes\",\"url\":\"/pl/theory/reported-speech/time-and-place-changes\",\"current\":false},{\"label\":\"Say / Tell / Ask\",\"url\":\"/pl/theory/reported-speech/say-tell-ask\",\"current\":false}]}"
+        }
+    ]
+}

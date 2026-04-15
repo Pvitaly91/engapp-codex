@@ -1,0 +1,44 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\ReportedSpeechSayTellAskTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechSayTellAskTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Say / Tell / Ask</strong> pokazuje, jak wybrać właściwy reporting verb dla zdania, pytania albo prośby.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"W reported speech właściwy wybór między <strong>say</strong>, <strong>tell</strong> i <strong>ask</strong> sprawia, że zdanie brzmi naturalnie i poprawnie gramatycznie.\",\"rules\":[{\"label\":\"say\",\"color\":\"emerald\",\"text\":\"<strong>say</strong> zwykle nie potrzebuje bezpośredniego dopełnienia przed reported clause.\",\"example\":\"She said that she was tired.\"},{\"label\":\"tell\",\"color\":\"blue\",\"text\":\"<strong>tell</strong> zwykle potrzebuje dopełnienia, bo mówimy <strong>komu</strong> coś przekazano.\",\"example\":\"She told me that she was tired.\"},{\"label\":\"ask\",\"color\":\"amber\",\"text\":\"<strong>ask</strong> używamy do pytań, próśb i uprzejmych zwrotów.\",\"example\":\"He asked if I was ready. / She asked me to wait.\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. Główna różnica",
+            "body": "<ul><li><strong>say + (that)-clause</strong>: nacisk pada na treść wypowiedzi.</li><li><strong>tell + object + (that)-clause</strong>: ważne jest, kto otrzymał informację.</li><li><strong>ask + question clause</strong>: dla reported questions.</li><li><strong>ask + object + to-infinitive</strong>: dla reported requests.</li></ul><p>Dlatego <em>She said me</em> jest błędne, a <em>She told me</em> - poprawne.</p>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Przykłady użycia",
+            "body": "<table><thead><tr><th>Function</th><th>Natural choice</th><th>Example</th></tr></thead><tbody><tr><td>Zdanie oznajmujące</td><td>say / tell</td><td>He said that he was busy. / He told me that he was busy.</td></tr><tr><td>Pytanie</td><td>ask</td><td>She asked where I lived.</td></tr><tr><td>Prośba</td><td>ask</td><td>They asked us to come early.</td></tr><tr><td>Instrukcja</td><td>tell / order</td><td>The coach told us to keep moving.</td></tr></tbody></table>"
+        },
+        {
+            "index": 4,
+            "heading": "3. Typowe błędy",
+            "body": "<ul><li><strong>Błąd:</strong> <em>She said me that...</em> <br><strong>Lepiej:</strong> <em>She told me that...</em> albo <em>She said that...</em></li><li><strong>Błąd:</strong> używanie <strong>tell</strong> przy reported question. <br><strong>Lepiej:</strong> <em>He asked if I was ready.</em></li><li><strong>Błąd:</strong> zapominanie o dopełnieniu po <strong>tell</strong>. <br><strong>Lepiej:</strong> <em>The teacher told us to listen.</em></li></ul>"
+        },
+        {
+            "index": 5,
+            "heading": "4. Krótka reguła",
+            "body": "<ul><li><strong>say</strong> = przekazać treść.</li><li><strong>tell</strong> = powiedzieć coś <strong>komuś</strong>, więc zwykle potrzebne jest dopełnienie.</li><li><strong>ask</strong> = zadać pytanie albo poprosić o coś.</li></ul>"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Strony w tym dziale\",\"items\":[{\"label\":\"Reported Statements\",\"url\":\"/pl/theory/reported-speech/reported-statements\",\"current\":false},{\"label\":\"Reported Questions\",\"url\":\"/pl/theory/reported-speech/reported-questions\",\"current\":false},{\"label\":\"Reported Commands and Requests\",\"url\":\"/pl/theory/reported-speech/reported-commands-and-requests\",\"current\":false},{\"label\":\"Backshift of Tenses\",\"url\":\"/pl/theory/reported-speech/backshift-of-tenses\",\"current\":false},{\"label\":\"Time and Place Changes\",\"url\":\"/pl/theory/reported-speech/time-and-place-changes\",\"current\":false},{\"label\":\"Say / Tell / Ask\",\"url\":\"/pl/theory/reported-speech/say-tell-ask\",\"current\":true}]}"
+        }
+    ]
+}

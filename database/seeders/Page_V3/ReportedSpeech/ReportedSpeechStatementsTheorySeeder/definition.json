@@ -1,0 +1,66 @@
+{
+    "schema_version": 1,
+    "content_type": "page",
+    "slug": "reported-statements",
+    "page": {
+        "title": "Reported Statements",
+        "subtitle_html": "<p><strong>Reported Statements</strong> показує, як передавати твердження, думки й повідомлення після дієслова повідомлення.</p>",
+        "subtitle_text": "Передавання тверджень, думок і повідомлень у reported speech.",
+        "locale": "uk",
+        "category": {
+            "slug": "reported-speech",
+            "title": "Reported Speech",
+            "language": "uk"
+        },
+        "tags": [
+            "Reported Speech",
+            "Reported Statements",
+            "Backshift",
+            "Pronoun Changes",
+            "Theory",
+            "B1",
+            "B2"
+        ],
+        "blocks": [
+            {
+                "type": "hero",
+                "column": "header",
+                "level": "B1",
+                "body": "{\"level\":\"B1-B2\",\"intro\":\"<strong>Reported statements</strong> використовуємо, коли хочемо передати чиюсь думку, повідомлення або факт без прямих лапок.\",\"rules\":[{\"label\":\"Direct → reported\",\"color\":\"emerald\",\"text\":\"Після <strong>say</strong> або <strong>tell</strong> ми вбудовуємо твердження в нове речення.\",\"example\":\"He said that he was tired.\"},{\"label\":\"Backshift often happens\",\"color\":\"blue\",\"text\":\"Якщо дієслово повідомлення стоїть у минулому, час у reported clause часто зсувається назад.\",\"example\":\"I am busy. → She said that she was busy.\"},{\"label\":\"Pronouns may change\",\"color\":\"amber\",\"text\":\"Разом із часом часто змінюються <strong>займенники</strong>, <strong>присвійні форми</strong> і деякі деталі ситуації.\",\"example\":\"My brother is here. → He said that his brother was there.\"}]}"
+            },
+            {
+                "type": "box",
+                "column": "left",
+                "heading": "1. Форма і структура",
+                "body": "<p>Типова модель має вигляд <strong>subject + said / told + (that) + reported clause</strong>.</p><ul><li><strong>say</strong> зазвичай вживаємо без прямого об'єкта: <em>She said (that) she was late.</em></li><li><strong>tell</strong> зазвичай потребує об'єкта: <em>She told me (that) she was late.</em></li><li>Сполучник <strong>that</strong> часто можна опустити, особливо в нейтральному мовленні.</li><li>У reported clause зберігаємо звичайний порядок слів, бо це вже не пряма цитата.</li></ul>"
+            },
+            {
+                "type": "box",
+                "column": "left",
+                "heading": "2. Основні випадки вживання і приклади",
+                "body": "<table><thead><tr><th>Direct statement</th><th>Reported statement</th><th>Що змінилося</th></tr></thead><tbody><tr><td>“I work from home.”</td><td>She said that she worked from home.</td><td><strong>I → she</strong>, <strong>work → worked</strong></td></tr><tr><td>“We have finished the task.”</td><td>They said that they had finished the task.</td><td><strong>have finished → had finished</strong></td></tr><tr><td>“My sister will call you.”</td><td>He told me that his sister would call me.</td><td><strong>will → would</strong>, займенники теж змінюються</td></tr></tbody></table><p>Такі конструкції потрібні, коли ми переказуємо новину, думку, пояснення або результат розмови.</p>"
+            },
+            {
+                "type": "box",
+                "column": "right",
+                "heading": "3. Типові помилки",
+                "body": "<ul><li><strong>Помилка:</strong> залишати прямий порядок з лапками всередині reported clause. <br><strong>Краще:</strong> <em>She said that she was tired</em>, а не <em>She said that “I am tired”</em>.</li><li><strong>Помилка:</strong> не змінювати займенник. <br><strong>Краще:</strong> <em>He said that he needed help</em>, якщо мовець - <em>he</em>.</li><li><strong>Помилка:</strong> автоматично робити backshift завжди. Якщо факт досі правдивий, backshift інколи не обов'язковий: <em>The teacher said that water boils at 100°C.</em></li></ul>"
+            },
+            {
+                "type": "box",
+                "column": "right",
+                "heading": "4. Коротке правило",
+                "body": "<ul><li>Для тверджень найчастіше використовуємо <strong>said (that)</strong> або <strong>told + object + (that)</strong>.</li><li>Після минулого reporting verb часто з'являється <strong>backshift</strong>.</li><li>Перевіряй <strong>займенники</strong>, <strong>присвійні форми</strong> і контекст речення, а не лише час.</li></ul>"
+            },
+            {
+                "type": "navigation-chips",
+                "column": "footer",
+                "body": "{\"title\":\"Сторінки цього розділу\",\"items\":[{\"label\":\"Reported Statements\",\"url\":\"/theory/reported-speech/reported-statements\",\"current\":true},{\"label\":\"Reported Questions\",\"url\":\"/theory/reported-speech/reported-questions\",\"current\":false},{\"label\":\"Reported Commands and Requests\",\"url\":\"/theory/reported-speech/reported-commands-and-requests\",\"current\":false},{\"label\":\"Backshift of Tenses\",\"url\":\"/theory/reported-speech/backshift-of-tenses\",\"current\":false},{\"label\":\"Time and Place Changes\",\"url\":\"/theory/reported-speech/time-and-place-changes\",\"current\":false},{\"label\":\"Say / Tell / Ask\",\"url\":\"/theory/reported-speech/say-tell-ask\",\"current\":false}]}"
+            }
+        ]
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechStatementsTheorySeeder"
+    },
+    "type": "theory"
+}
