@@ -45,7 +45,7 @@
     @if(!empty($tags))
         <div class="mb-3 flex flex-wrap gap-1">
             @foreach(array_slice($tags, 0, 3) as $tag)
-                <span class="inline-block bg-secondary text-secondary-foreground font-medium text-xs px-2 py-0.5 rounded">{{ $tag }}</span>
+                <span class="inline-block bg-secondary text-secondary-foreground font-medium text-xs px-2 py-0.5 rounded">{{ \App\Support\TheoryTagLabel::display($tag, app()->getLocale()) }}</span>
             @endforeach
             @if(count($tags) > 3)
                 <span class="inline-block bg-secondary text-secondary-foreground font-medium text-xs px-2 py-0.5 rounded">+{{ count($tags) - 3 }}</span>
