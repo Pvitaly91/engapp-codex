@@ -1,0 +1,4551 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\BasicWordOrderV3QuestionsOnlySeeder",
+        "uuid_namespace": "bwo-cp-sn"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Basic Grammar / Word Order"
+    },
+    "sources": {
+        "theory_page_1088": {
+            "name": "Basic Word Order"
+        }
+    },
+    "tags": {
+        "theme": {
+            "name": "Basic Word Order",
+            "category": "topic"
+        },
+        "svo_order": {
+            "name": "Subject-Verb-Object word order",
+            "category": "pattern"
+        },
+        "adverb_of_frequency": {
+            "name": "Position of frequency adverbs",
+            "category": "pattern"
+        },
+        "frequency_adv_with_be": {
+            "name": "Frequency adverb after to be",
+            "category": "pattern"
+        },
+        "adverbial_order_mpt": {
+            "name": "Manner-Place-Time adverbial order",
+            "category": "pattern"
+        },
+        "manner_before_place": {
+            "name": "Manner adverb precedes place adverb",
+            "category": "pattern"
+        },
+        "place_before_time": {
+            "name": "Place adverb precedes time adverb",
+            "category": "pattern"
+        },
+        "indirect_object_order": {
+            "name": "Indirect object position (dative alternation)",
+            "category": "pattern"
+        },
+        "phrasal_verb_particle": {
+            "name": "Phrasal verb particle placement",
+            "category": "pattern"
+        },
+        "negative_inversion": {
+            "name": "Subject-auxiliary inversion after negative adverbials",
+            "category": "pattern"
+        },
+        "fronting": {
+            "name": "Fronting elements for emphasis",
+            "category": "pattern"
+        },
+        "it_cleft": {
+            "name": "It-cleft sentence structure",
+            "category": "pattern"
+        },
+        "wh_cleft": {
+            "name": "Wh-cleft (pseudo-cleft) sentence structure",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "theme",
+        "svo_order"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid_segments": [
+                "a1",
+                "q01"
+            ],
+            "question": "She {a1} every morning.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "drinks tea",
+                    "options": [
+                        "drinks tea",
+                        "tea drinks",
+                        "tea she drinks"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В ствердному реченні порядок слів фіксований: S + V + O. Дієслово стоїть перед додатком.",
+                        "Підмет «She» стоїть першим. Після нього — дієслово «drinks», потім додаток «tea»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "drinks tea": "Правильно: SVO — «drinks» (V) перед «tea» (O).",
+                            "tea drinks": "Неправильно: SOV — додаток перед дієсловом не відповідає нормам англійського речення.",
+                            "tea she drinks": "Неправильно: підмет «she» не може з'являтися між додатком і дієсловом у нейтральному реченні."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "She {a1} every morning."
+            ]
+        },
+        {
+            "id": 2,
+            "uuid_segments": [
+                "a1",
+                "q02"
+            ],
+            "question": "My brother {a1} on weekends.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "plays football",
+                    "options": [
+                        "plays football",
+                        "football plays",
+                        "football is played"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "SVO: підмет + дієслово + додаток. Дієслово не може стояти після додатка.",
+                        "Підмет «My brother» є. Що він робить? → «plays»; що грає? → «football»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "plays football": "Правильно: SVO — «plays» (V) перед «football» (O).",
+                            "football plays": "Неправильно: SOV-порядок — дієслово завжди передує додатку.",
+                            "football is played": "Неправильно: пасивна форма не підходить — підмет є активним виконавцем."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "My brother {a1} on weekends."
+            ]
+        },
+        {
+            "id": 3,
+            "uuid_segments": [
+                "a1",
+                "q03"
+            ],
+            "question": "They {a1} after school.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "do their homework",
+                    "options": [
+                        "do their homework",
+                        "their homework do",
+                        "doing their homework"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ствердне речення: S + V + O — незмінна структура.",
+                        "Підмет «They» → дієслово «do» → додаток «their homework»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "do their homework": "Правильно: SVO — V (do) перед O.",
+                            "their homework do": "Неправильно: SOV — додаток перед дієсловом суперечить нормам.",
+                            "doing their homework": "Неправильно: «doing» без допоміжного дієслова не може бути присудком."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "They {a1} after school."
+            ]
+        },
+        {
+            "id": 4,
+            "uuid_segments": [
+                "a1",
+                "q04"
+            ],
+            "question": "The teacher {a1} every lesson.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "explains new words",
+                    "options": [
+                        "explains new words",
+                        "new words explains",
+                        "new words the teacher explains"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "SVO: дієслово між підметом і додатком; не може стояти після додатка.",
+                        "«The teacher» → «explains» → «new words»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "explains new words": "Правильно: SVO.",
+                            "new words explains": "Неправильно: SOV — додаток перед дієсловом некоректний.",
+                            "new words the teacher explains": "Неправильно: підмет не повторюється між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "The teacher {a1} every lesson."
+            ]
+        },
+        {
+            "id": 5,
+            "uuid_segments": [
+                "a1",
+                "q05"
+            ],
+            "question": "We {a1} together at noon.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "eat lunch",
+                    "options": [
+                        "eat lunch",
+                        "lunch eat",
+                        "lunch we eat"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ствердне речення: S + V + O.",
+                        "Підмет «We» → «eat» → «lunch»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "eat lunch": "Правильно: SVO.",
+                            "lunch eat": "Неправильно: SOV.",
+                            "lunch we eat": "Неправильно: «we» вже є і не повторюється між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "We {a1} together at noon."
+            ]
+        },
+        {
+            "id": 6,
+            "uuid_segments": [
+                "a1",
+                "q06"
+            ],
+            "question": "Tom {a1} to the office every day.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "drives his car",
+                    "options": [
+                        "drives his car",
+                        "his car drives",
+                        "his car Tom drives"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "SVO: підмет + дієслово + додаток.",
+                        "«Tom» → «drives» → «his car»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "drives his car": "Правильно: SVO.",
+                            "his car drives": "Неправильно: SOV.",
+                            "his car Tom drives": "Неправильно: підмет «Tom» не повторюється між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "Tom {a1} to the office every day."
+            ]
+        },
+        {
+            "id": 7,
+            "uuid_segments": [
+                "a1",
+                "q07"
+            ],
+            "question": "Anna {a1} every evening.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "reads books",
+                    "options": [
+                        "reads books",
+                        "books reads",
+                        "books she reads"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Дієслово стоїть після підмета і перед додатком: S + V + O.",
+                        "«Anna» → «reads» → «books»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "reads books": "Правильно: SVO.",
+                            "books reads": "Неправильно: SOV.",
+                            "books she reads": "Неправильно: «she» зайве між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "Anna {a1} every evening."
+            ]
+        },
+        {
+            "id": 8,
+            "uuid_segments": [
+                "a1",
+                "q08"
+            ],
+            "question": "I {a1} at the weekend.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "visit my grandparents",
+                    "options": [
+                        "visit my grandparents",
+                        "my grandparents visit",
+                        "my grandparents I visit"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "SVO: «I» → дієслово → «my grandparents».",
+                        "«I» → «visit» → «my grandparents»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "visit my grandparents": "Правильно: SVO.",
+                            "my grandparents visit": "Неправильно: SOV.",
+                            "my grandparents I visit": "Неправильно: «I» не може з'явитися між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "I {a1} at the weekend."
+            ]
+        },
+        {
+            "id": 9,
+            "uuid_segments": [
+                "a1",
+                "q09"
+            ],
+            "question": "He {a1} to work.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "takes the bus",
+                    "options": [
+                        "takes the bus",
+                        "the bus takes",
+                        "the bus he takes"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "SVO: підмет + дієслово + додаток.",
+                        "«He» → «takes» → «the bus»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "takes the bus": "Правильно: SVO.",
+                            "the bus takes": "Неправильно: SOV.",
+                            "the bus he takes": "Неправильно: «he» не може з'явитися між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "He {a1} to work."
+            ]
+        },
+        {
+            "id": 10,
+            "uuid_segments": [
+                "a1",
+                "q10"
+            ],
+            "question": "The students {a1} in class.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "speak English",
+                    "options": [
+                        "speak English",
+                        "English speak",
+                        "English students speak"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ствердне речення: S + V + O.",
+                        "«The students» → «speak» → «English»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "speak English": "Правильно: SVO.",
+                            "English speak": "Неправильно: SOV.",
+                            "English students speak": "Неправильно: підмет не повторюється між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "The students {a1} in class."
+            ]
+        },
+        {
+            "id": 11,
+            "uuid_segments": [
+                "a1",
+                "q11"
+            ],
+            "question": "They {a1} on Friday evenings.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "watch films",
+                    "options": [
+                        "watch films",
+                        "films watch",
+                        "films they watch"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "V завжди стоїть перед O: S + V + O.",
+                        "«They» → «watch» → «films»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "watch films": "Правильно: SVO.",
+                            "films watch": "Неправильно: SOV.",
+                            "films they watch": "Неправильно: «they» вже є й не повторюється між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "They {a1} on Friday evenings."
+            ]
+        },
+        {
+            "id": 12,
+            "uuid_segments": [
+                "a1",
+                "q12"
+            ],
+            "question": "My parents {a1} every evening.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "cook dinner",
+                    "options": [
+                        "cook dinner",
+                        "dinner cook",
+                        "cook dinner they"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "SVO: після підмета — дієслово, після дієслова — додаток.",
+                        "«My parents» → «cook» → «dinner»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "cook dinner": "Правильно: SVO.",
+                            "dinner cook": "Неправильно: SOV.",
+                            "cook dinner they": "Неправильно: підмет не ставиться після додатка наприкінці."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "My parents {a1} every evening."
+            ]
+        },
+        {
+            "id": 13,
+            "uuid_segments": [
+                "a1",
+                "q13"
+            ],
+            "question": "She {a1} at the mall.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "buys new clothes",
+                    "options": [
+                        "buys new clothes",
+                        "new clothes buys",
+                        "new clothes she buys"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Дієслово стоїть перед додатком: S + V + O.",
+                        "«She» → «buys» → «new clothes»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "buys new clothes": "Правильно: SVO.",
+                            "new clothes buys": "Неправильно: SOV.",
+                            "new clothes she buys": "Неправильно: «she» зайва між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "She {a1} at the mall."
+            ]
+        },
+        {
+            "id": 14,
+            "uuid_segments": [
+                "a1",
+                "q14"
+            ],
+            "question": "We {a1} at seven o'clock.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "have breakfast",
+                    "options": [
+                        "have breakfast",
+                        "breakfast have",
+                        "breakfast we have"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "SVO: підмет + дієслово + додаток.",
+                        "«We» → «have» → «breakfast»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "have breakfast": "Правильно: SVO.",
+                            "breakfast have": "Неправильно: SOV.",
+                            "breakfast we have": "Неправильно: «we» не повторюється між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "We {a1} at seven o'clock."
+            ]
+        },
+        {
+            "id": 15,
+            "uuid_segments": [
+                "a1",
+                "q15"
+            ],
+            "question": "The children {a1} after lunch.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "play games",
+                    "options": [
+                        "play games",
+                        "games play",
+                        "games children play"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "S + V + O: підмет → дієслово → додаток.",
+                        "«The children» → «play» → «games»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "play games": "Правильно: SVO.",
+                            "games play": "Неправильно: SOV.",
+                            "games children play": "Неправильно: «children» не може з'явитися між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "The children {a1} after lunch."
+            ]
+        },
+        {
+            "id": 16,
+            "uuid_segments": [
+                "a1",
+                "q16"
+            ],
+            "question": "He {a1} in the afternoon.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "listens to music",
+                    "options": [
+                        "listens to music",
+                        "music listens to",
+                        "music he listens to"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "S + V + O: дієслово після підмета і перед додатком.",
+                        "«He» → «listens to» → «music»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "listens to music": "Правильно: SVO.",
+                            "music listens to": "Неправильно: SOV.",
+                            "music he listens to": "Неправильно: «he» не може з'явитися між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "He {a1} in the afternoon."
+            ]
+        },
+        {
+            "id": 17,
+            "uuid_segments": [
+                "a1",
+                "q17"
+            ],
+            "question": "My sister {a1} every summer.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "learns new recipes",
+                    "options": [
+                        "learns new recipes",
+                        "new recipes learns",
+                        "new recipes sister learns"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "S + V + O — основна структура ствердного речення.",
+                        "«My sister» → «learns» → «new recipes»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "learns new recipes": "Правильно: SVO.",
+                            "new recipes learns": "Неправильно: SOV.",
+                            "new recipes sister learns": "Неправильно: підмет не повторюється між об'єктом і дієсловом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "My sister {a1} every summer."
+            ]
+        },
+        {
+            "id": 18,
+            "uuid_segments": [
+                "a1",
+                "q18"
+            ],
+            "question": "Our cat {a1} near the window.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "sleeps all day",
+                    "options": [
+                        "sleeps all day",
+                        "all day sleeps",
+                        "all day our cat sleeps"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У простому ствердному реченні присудок стоїть після підмета; обставина часу — після присудка.",
+                        "«Our cat» → «sleeps» → «all day»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "sleeps all day": "Правильно: S + V + Adv.",
+                            "all day sleeps": "Неправильно: «all day» не стоїть перед присудком у нейтральному реченні.",
+                            "all day our cat sleeps": "Неправильно: підмет «our cat» не повторюється після обставини часу."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "Our cat {a1} near the window."
+            ]
+        },
+        {
+            "id": 19,
+            "uuid_segments": [
+                "a2",
+                "q01"
+            ],
+            "question": "She {a1} late for class.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is never",
+                    "options": [
+                        "is never",
+                        "never is",
+                        "never be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після дієслова «to be» прислівник частотності стоїть ПІСЛЯ нього: be + adverb.",
+                        "«is» — форма to be. Прислівники never, always тощо стоять після форм to be."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is never": "Правильно: «never» після «is» (to be) — стандартна позиція.",
+                            "never is": "Неправильно: прислівник стоїть ПІСЛЯ to be, не перед ним.",
+                            "never be": "Неправильно: «be» — інфінітив; потрібна форма «is»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adv_with_be"
+            ],
+            "variants": [
+                "She {a1} late for class."
+            ]
+        },
+        {
+            "id": 20,
+            "uuid_segments": [
+                "a2",
+                "q02"
+            ],
+            "question": "I {a1} breakfast at home.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "always eat",
+                    "options": [
+                        "always eat",
+                        "eat always",
+                        "always to eat"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівники частотності (always, usually, often, sometimes, rarely, never) стоять ПЕРЕД основним дієсловом.",
+                        "Дієслово «eat» — не to be. «always» стоїть перед ним."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "always eat": "Правильно: «always» перед «eat» — стандартна серединна позиція.",
+                            "eat always": "Неправильно: прислівник не ставиться після основного дієслова.",
+                            "always to eat": "Неправильно: «to eat» — інфінітив; після «I» потрібна форма «eat»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverb_of_frequency"
+            ],
+            "variants": [
+                "I {a1} breakfast at home."
+            ]
+        },
+        {
+            "id": 21,
+            "uuid_segments": [
+                "a2",
+                "q03"
+            ],
+            "question": "They {a1} the news in the evening.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "usually watch",
+                    "options": [
+                        "usually watch",
+                        "watch usually",
+                        "usually watching"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Usually» стоїть перед основним дієсловом, але після підмета.",
+                        "«They» → «usually» → «watch» → «the news»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "usually watch": "Правильно: «usually» перед «watch».",
+                            "watch usually": "Неправильно: «usually» не ставиться після основного дієслова.",
+                            "usually watching": "Неправильно: «watching» без допоміжного дієслова не може бути присудком."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverb_of_frequency"
+            ],
+            "variants": [
+                "They {a1} the news in the evening."
+            ]
+        },
+        {
+            "id": 22,
+            "uuid_segments": [
+                "a2",
+                "q04"
+            ],
+            "question": "He {a1} at the gym on Mondays.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "often trains",
+                    "options": [
+                        "often trains",
+                        "trains often",
+                        "often to train"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Often» стоїть перед основним дієсловом у ствердному реченні.",
+                        "Після «He» → «often» → «trains» (форма 3 ос. одн.)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "often trains": "Правильно: «often» перед «trains».",
+                            "trains often": "Неправильно: прислівник стоїть ПЕРЕД дієсловом, а не після.",
+                            "often to train": "Неправильно: «to train» — інфінітив; після «He» потрібна форма «trains»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverb_of_frequency"
+            ],
+            "variants": [
+                "He {a1} at the gym on Mondays."
+            ]
+        },
+        {
+            "id": 23,
+            "uuid_segments": [
+                "a2",
+                "q05"
+            ],
+            "question": "My grandmother {a1} tea in the afternoon.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "sometimes drinks",
+                    "options": [
+                        "sometimes drinks",
+                        "drinks sometimes",
+                        "sometimes drinking"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Sometimes» стоїть перед основним дієсловом.",
+                        "«My grandmother» → «sometimes» → «drinks» (з -s для 3 ос. одн.)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "sometimes drinks": "Правильно: «sometimes» перед «drinks».",
+                            "drinks sometimes": "Неправильно: «sometimes» не ставиться після дієслова в цій позиції.",
+                            "sometimes drinking": "Неправильно: «drinking» без «is» не може бути присудком."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverb_of_frequency"
+            ],
+            "variants": [
+                "My grandmother {a1} tea in the afternoon."
+            ]
+        },
+        {
+            "id": 24,
+            "uuid_segments": [
+                "a2",
+                "q06"
+            ],
+            "question": "The bus {a1} on time.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is rarely",
+                    "options": [
+                        "is rarely",
+                        "rarely is",
+                        "rarely be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "З «to be» прислівники частотності йдуть ПІСЛЯ нього.",
+                        "«is» — форма to be. Прислівник стоїть після «is»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is rarely": "Правильно: «rarely» після «is» (to be).",
+                            "rarely is": "Неправильно: «rarely» не ставиться перед to be.",
+                            "rarely be": "Неправильно: «be» — інфінітив; потрібна форма «is»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adv_with_be"
+            ],
+            "variants": [
+                "The bus {a1} on time."
+            ]
+        },
+        {
+            "id": 25,
+            "uuid_segments": [
+                "a2",
+                "q07"
+            ],
+            "question": "My friends {a1} by bus.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "never travel",
+                    "options": [
+                        "never travel",
+                        "travel never",
+                        "travel never by"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Never» стоїть перед основним дієсловом.",
+                        "«My friends» → «never» → «travel»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "never travel": "Правильно: «never» перед «travel».",
+                            "travel never": "Неправильно: «never» не ставиться після дієслова.",
+                            "travel never by": "Неправильно: прийменник «by» відокремлений від «bus»; порядок хаотичний."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverb_of_frequency"
+            ],
+            "variants": [
+                "My friends {a1} by bus."
+            ]
+        },
+        {
+            "id": 26,
+            "uuid_segments": [
+                "a2",
+                "q08"
+            ],
+            "question": "The children {a1} bored at school.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are never",
+                    "options": [
+                        "are never",
+                        "never are",
+                        "never being"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "З «to be»: be + прислівник частотності — «are» + «never».",
+                        "«are» — форма to be. Прислівники стоять після to be."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are never": "Правильно: «never» після «are» (to be).",
+                            "never are": "Неправильно: прислівник після to be стоїть після нього, не перед.",
+                            "never being": "Неправильно: «being» без допоміжного дієслова не утворює присудка."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adv_with_be"
+            ],
+            "variants": [
+                "The children {a1} bored at school."
+            ]
+        },
+        {
+            "id": 27,
+            "uuid_segments": [
+                "a2",
+                "q09"
+            ],
+            "question": "He {a1} to bed before midnight.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "rarely goes",
+                    "options": [
+                        "rarely goes",
+                        "goes rarely",
+                        "rarely gone"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Rarely» стоїть перед основним дієсловом.",
+                        "«He» (3 ос. одн.) → «rarely» → «goes»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "rarely goes": "Правильно: «rarely» перед «goes».",
+                            "goes rarely": "Неправильно: прислівник стоїть ПЕРЕД основним дієсловом, а не після.",
+                            "rarely gone": "Неправильно: «gone» — минулий дієприкметник, а не Present Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverb_of_frequency"
+            ],
+            "variants": [
+                "He {a1} to bed before midnight."
+            ]
+        },
+        {
+            "id": 28,
+            "uuid_segments": [
+                "a2",
+                "q10"
+            ],
+            "question": "I {a1} on Sundays.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "am always free",
+                    "options": [
+                        "am always free",
+                        "always am free",
+                        "always free am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "З «to be»: am + прислівник + прикметник.",
+                        "«am» — форма to be. Правило: am → «always» → «free»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am always free": "Правильно: «always» після «am» і перед «free».",
+                            "always am free": "Неправильно: «always» не ставиться перед «am».",
+                            "always free am": "Неправильно: порядок «always + прикметник + be» не вживається."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adv_with_be"
+            ],
+            "variants": [
+                "I {a1} on Sundays."
+            ]
+        },
+        {
+            "id": 29,
+            "uuid_segments": [
+                "a2",
+                "q11"
+            ],
+            "question": "My cat {a1} outside at night.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "never goes",
+                    "options": [
+                        "never goes",
+                        "goes never",
+                        "never go"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Never» стоїть перед основним дієсловом.",
+                        "«My cat» (3 ос. одн.) → «never» → «goes»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "never goes": "Правильно: «never» перед «goes».",
+                            "goes never": "Неправильно: «never» не ставиться після дієслова.",
+                            "never go": "Неправильно: «My cat» вимагає форми «goes», а не «go»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverb_of_frequency"
+            ],
+            "variants": [
+                "My cat {a1} outside at night."
+            ]
+        },
+        {
+            "id": 30,
+            "uuid_segments": [
+                "a2",
+                "q12"
+            ],
+            "question": "We {a1} late for meetings.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are seldom",
+                    "options": [
+                        "are seldom",
+                        "seldom are",
+                        "seldom be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Seldom» (= rarely) з «to be» стоїть ПІСЛЯ форми to be.",
+                        "«are» → «seldom»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are seldom": "Правильно: «seldom» після «are» (to be).",
+                            "seldom are": "Неправильно: прислівник після to be стоїть після нього, не перед.",
+                            "seldom be": "Неправильно: «be» — інфінітив; з «We» потрібна форма «are»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adv_with_be"
+            ],
+            "variants": [
+                "We {a1} late for meetings."
+            ]
+        },
+        {
+            "id": 31,
+            "uuid_segments": [
+                "a2",
+                "q13"
+            ],
+            "question": "The manager {a1} the reports carefully.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "always checks",
+                    "options": [
+                        "always checks",
+                        "checks always",
+                        "always checked"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Always» стоїть перед основним дієсловом.",
+                        "«The manager» → «always» → «checks» (Present Simple, 3 ос. одн.)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "always checks": "Правильно: «always» перед «checks».",
+                            "checks always": "Неправильно: прислівник стоїть ПЕРЕД дієсловом, а не після.",
+                            "always checked": "Неправильно: «checked» — минулий час; потрібен Present Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverb_of_frequency"
+            ],
+            "variants": [
+                "The manager {a1} the reports carefully."
+            ]
+        },
+        {
+            "id": 32,
+            "uuid_segments": [
+                "a2",
+                "q14"
+            ],
+            "question": "Tom {a1} at parties.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is often uncomfortable",
+                    "options": [
+                        "is often uncomfortable",
+                        "often is uncomfortable",
+                        "is uncomfortable often"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "З «to be»: is + прислівник + прикметник.",
+                        "«is» → «often» → «uncomfortable»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is often uncomfortable": "Правильно: «often» між «is» та «uncomfortable».",
+                            "often is uncomfortable": "Неправильно: «often» не ставиться перед «is».",
+                            "is uncomfortable often": "Неправильно: «often» не стоїть після прикметника в цій позиції."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adv_with_be"
+            ],
+            "variants": [
+                "Tom {a1} at parties."
+            ]
+        },
+        {
+            "id": 33,
+            "uuid_segments": [
+                "a2",
+                "q15"
+            ],
+            "question": "My students {a1} the homework.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "usually finish",
+                    "options": [
+                        "usually finish",
+                        "finish usually",
+                        "usually finishing"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Usually» стоїть перед основним дієсловом.",
+                        "«My students» (мн.) → «usually» → «finish» (без -s)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "usually finish": "Правильно: «usually» перед «finish».",
+                            "finish usually": "Неправильно: «usually» не стоїть після дієслова.",
+                            "usually finishing": "Неправильно: «finishing» без «are» не утворює присудка."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverb_of_frequency"
+            ],
+            "variants": [
+                "My students {a1} the homework."
+            ]
+        },
+        {
+            "id": 34,
+            "uuid_segments": [
+                "a2",
+                "q16"
+            ],
+            "question": "She {a1} happy when it rains.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is never",
+                    "options": [
+                        "is never",
+                        "never is",
+                        "is not never"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Never» з «to be» стоїть після нього: is + never + прикметник.",
+                        "«is» → «never» → «happy»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is never": "Правильно: «never» після «is» і перед «happy».",
+                            "never is": "Неправильно: «never» не стоїть перед «is» у ствердному реченні.",
+                            "is not never": "Неправильно: подвійне заперечення «not never» неприпустиме."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adv_with_be"
+            ],
+            "variants": [
+                "She {a1} happy when it rains."
+            ]
+        },
+        {
+            "id": 35,
+            "uuid_segments": [
+                "a2",
+                "q17"
+            ],
+            "question": "They {a1} their phones during dinner.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "hardly ever use",
+                    "options": [
+                        "hardly ever use",
+                        "use hardly ever",
+                        "hardly use ever"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Hardly ever» — складений прислівник частотності; стоїть перед основним дієсловом.",
+                        "«hardly» та «ever» завжди разом і перед «use»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "hardly ever use": "Правильно: «hardly ever» перед «use».",
+                            "use hardly ever": "Неправильно: «hardly ever» не ставиться після дієслова.",
+                            "hardly use ever": "Неправильно: «ever» не можна відокремлювати від «hardly»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverb_of_frequency"
+            ],
+            "variants": [
+                "They {a1} their phones during dinner."
+            ]
+        },
+        {
+            "id": 36,
+            "uuid_segments": [
+                "a2",
+                "q18"
+            ],
+            "question": "Our neighbours {a1} their lawn.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "sometimes mow",
+                    "options": [
+                        "sometimes mow",
+                        "mow sometimes",
+                        "sometimes mowing"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Sometimes» стоїть перед основним дієсловом.",
+                        "«Our neighbours» (мн.) → «sometimes» → «mow» (без -s)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "sometimes mow": "Правильно: «sometimes» перед «mow».",
+                            "mow sometimes": "Неправильно: прислівник стоїть ПЕРЕД дієсловом, а не після.",
+                            "sometimes mowing": "Неправильно: «mowing» без «are» не може бути присудком."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverb_of_frequency"
+            ],
+            "variants": [
+                "Our neighbours {a1} their lawn."
+            ]
+        },
+        {
+            "id": 37,
+            "uuid_segments": [
+                "b1",
+                "q01"
+            ],
+            "question": "She sang {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "beautifully at the concert last night",
+                    "options": [
+                        "beautifully at the concert last night",
+                        "at the concert last night beautifully",
+                        "last night beautifully at the concert"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Коли є три типи обставин, їх розставляють у порядку Manner (як?) → Place (де?) → Time (коли?) — правило MPT.",
+                        "«beautifully» — Manner, «at the concert» — Place, «last night» — Time."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "beautifully at the concert last night": "Правильно: M–P–T.",
+                            "at the concert last night beautifully": "Неправильно: P–T–M — обставина способу стоїть останньою.",
+                            "last night beautifully at the concert": "Неправильно: T–M–P — Time стоїть першим."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "She sang {a1}."
+            ]
+        },
+        {
+            "id": 38,
+            "uuid_segments": [
+                "b1",
+                "q02"
+            ],
+            "question": "He works {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "hard at the office every day",
+                    "options": [
+                        "hard at the office every day",
+                        "every day hard at the office",
+                        "at the office hard every day"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Порядок обставин: Manner → Place → Time. «hard» — спосіб, «at the office» — місце, «every day» — час.",
+                        "«як?» (hard) → «де?» (at the office) → «коли?» (every day)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "hard at the office every day": "Правильно: M–P–T.",
+                            "every day hard at the office": "Неправильно: T–M–P — Time стоїть першим.",
+                            "at the office hard every day": "Неправильно: P–M–T — Manner після Place."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "He works {a1}."
+            ]
+        },
+        {
+            "id": 39,
+            "uuid_segments": [
+                "b1",
+                "q03"
+            ],
+            "question": "The children played {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "noisily in the garden yesterday",
+                    "options": [
+                        "noisily in the garden yesterday",
+                        "in the garden noisily yesterday",
+                        "yesterday noisily in the garden"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «noisily» (M) → «in the garden» (P) → «yesterday» (T).",
+                        "«noisily» — Manner, «in the garden» — Place, «yesterday» — Time."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "noisily in the garden yesterday": "Правильно: M–P–T.",
+                            "in the garden noisily yesterday": "Неправильно: P–M–T.",
+                            "yesterday noisily in the garden": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "The children played {a1}."
+            ]
+        },
+        {
+            "id": 40,
+            "uuid_segments": [
+                "b1",
+                "q04"
+            ],
+            "question": "She walks {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "slowly to work every morning",
+                    "options": [
+                        "slowly to work every morning",
+                        "to work slowly every morning",
+                        "every morning slowly to work"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «slowly» (M) → «to work» (P) → «every morning» (T).",
+                        "Обставина способу «slowly» завжди йде першою серед цих трьох."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "slowly to work every morning": "Правильно: M–P–T.",
+                            "to work slowly every morning": "Неправильно: P–M–T.",
+                            "every morning slowly to work": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt",
+                "manner_before_place"
+            ],
+            "variants": [
+                "She walks {a1}."
+            ]
+        },
+        {
+            "id": 41,
+            "uuid_segments": [
+                "b1",
+                "q05"
+            ],
+            "question": "We ate dinner {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "quickly at the table last night",
+                    "options": [
+                        "quickly at the table last night",
+                        "at the table quickly last night",
+                        "last night quickly at the table"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «quickly» (M) → «at the table» (P) → «last night» (T).",
+                        "«quickly» відповідає на «як?» і стоїть першим."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "quickly at the table last night": "Правильно: M–P–T.",
+                            "at the table quickly last night": "Неправильно: P–M–T.",
+                            "last night quickly at the table": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "We ate dinner {a1}."
+            ]
+        },
+        {
+            "id": 42,
+            "uuid_segments": [
+                "b1",
+                "q06"
+            ],
+            "question": "They argued {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "loudly in the kitchen last weekend",
+                    "options": [
+                        "loudly in the kitchen last weekend",
+                        "in the kitchen loudly last weekend",
+                        "last weekend loudly in the kitchen"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «loudly» (M) → «in the kitchen» (P) → «last weekend» (T).",
+                        "«loudly» — Manner; завжди перший серед M–P–T."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "loudly in the kitchen last weekend": "Правильно: M–P–T.",
+                            "in the kitchen loudly last weekend": "Неправильно: P–M–T.",
+                            "last weekend loudly in the kitchen": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "They argued {a1}."
+            ]
+        },
+        {
+            "id": 43,
+            "uuid_segments": [
+                "b1",
+                "q07"
+            ],
+            "question": "The doctor worked {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "tirelessly at the hospital all week",
+                    "options": [
+                        "tirelessly at the hospital all week",
+                        "at the hospital tirelessly all week",
+                        "all week tirelessly at the hospital"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «tirelessly» (M) → «at the hospital» (P) → «all week» (T).",
+                        "«tirelessly» — спосіб дії, стоїть ПЕРЕД місцем і часом."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "tirelessly at the hospital all week": "Правильно: M–P–T.",
+                            "at the hospital tirelessly all week": "Неправильно: P–M–T.",
+                            "all week tirelessly at the hospital": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "The doctor worked {a1}."
+            ]
+        },
+        {
+            "id": 44,
+            "uuid_segments": [
+                "b1",
+                "q08"
+            ],
+            "question": "The musician performed {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "brilliantly in Prague last summer",
+                    "options": [
+                        "brilliantly in Prague last summer",
+                        "in Prague brilliantly last summer",
+                        "last summer brilliantly in Prague"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «brilliantly» (M) → «in Prague» (P) → «last summer» (T).",
+                        "«brilliantly» відповідає на «як?»; стоїть перед «in Prague»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "brilliantly in Prague last summer": "Правильно: M–P–T.",
+                            "in Prague brilliantly last summer": "Неправильно: P–M–T.",
+                            "last summer brilliantly in Prague": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "The musician performed {a1}."
+            ]
+        },
+        {
+            "id": 45,
+            "uuid_segments": [
+                "b1",
+                "q09"
+            ],
+            "question": "She studied {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "hard at the library last semester",
+                    "options": [
+                        "hard at the library last semester",
+                        "at the library hard last semester",
+                        "last semester hard at the library"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «hard» (M) → «at the library» (P) → «last semester» (T).",
+                        "«hard» відповідає на «як?»; стоїть перед «at the library»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "hard at the library last semester": "Правильно: M–P–T.",
+                            "at the library hard last semester": "Неправильно: P–M–T.",
+                            "last semester hard at the library": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "She studied {a1}."
+            ]
+        },
+        {
+            "id": 46,
+            "uuid_segments": [
+                "b1",
+                "q10"
+            ],
+            "question": "He arrived {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "at the station early",
+                    "options": [
+                        "at the station early",
+                        "early at the station",
+                        "the station early at"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Коли є лише місце і час (без способу дії), місце стоїть ПЕРЕД часом: Place → Time.",
+                        "«at the station» — Place; «early» — Time. Місце передує часу."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "at the station early": "Правильно: P → T.",
+                            "early at the station": "Неправильно: T–P — обставина часу не стоїть перед місцем.",
+                            "the station early at": "Неправильно: прийменник «at» не може стояти наприкінці."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "place_before_time"
+            ],
+            "variants": [
+                "He arrived {a1}."
+            ]
+        },
+        {
+            "id": 47,
+            "uuid_segments": [
+                "b1",
+                "q11"
+            ],
+            "question": "They waited {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "patiently at the bus stop for an hour",
+                    "options": [
+                        "patiently at the bus stop for an hour",
+                        "at the bus stop for an hour patiently",
+                        "for an hour patiently at the bus stop"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «patiently» (M) → «at the bus stop» (P) → «for an hour» (T).",
+                        "«patiently» відповідає на «як?»; стоїть першим."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "patiently at the bus stop for an hour": "Правильно: M–P–T.",
+                            "at the bus stop for an hour patiently": "Неправильно: P–T–M.",
+                            "for an hour patiently at the bus stop": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "They waited {a1}."
+            ]
+        },
+        {
+            "id": 48,
+            "uuid_segments": [
+                "b1",
+                "q12"
+            ],
+            "question": "My sister practised {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "diligently at home every evening",
+                    "options": [
+                        "diligently at home every evening",
+                        "at home diligently every evening",
+                        "every evening diligently at home"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «diligently» (M) → «at home» (P) → «every evening» (T).",
+                        "«diligently» — спосіб дії; стоїть перед місцем і часом."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "diligently at home every evening": "Правильно: M–P–T.",
+                            "at home diligently every evening": "Неправильно: P–M–T.",
+                            "every evening diligently at home": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "My sister practised {a1}."
+            ]
+        },
+        {
+            "id": 49,
+            "uuid_segments": [
+                "b1",
+                "q13"
+            ],
+            "question": "The team trained {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "intensely at the stadium last week",
+                    "options": [
+                        "intensely at the stadium last week",
+                        "at the stadium intensely last week",
+                        "last week intensely at the stadium"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «intensely» (M) → «at the stadium» (P) → «last week» (T).",
+                        "«intensely» відповідає на «як?»; передує «at the stadium» і «last week»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "intensely at the stadium last week": "Правильно: M–P–T.",
+                            "at the stadium intensely last week": "Неправильно: P–M–T.",
+                            "last week intensely at the stadium": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "The team trained {a1}."
+            ]
+        },
+        {
+            "id": 50,
+            "uuid_segments": [
+                "b1",
+                "q14"
+            ],
+            "question": "The tourists walked {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "slowly through the old town all afternoon",
+                    "options": [
+                        "slowly through the old town all afternoon",
+                        "through the old town slowly all afternoon",
+                        "all afternoon slowly through the old town"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «slowly» (M) → «through the old town» (P) → «all afternoon» (T).",
+                        "«slowly» — Manner; завжди перший серед трьох."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "slowly through the old town all afternoon": "Правильно: M–P–T.",
+                            "through the old town slowly all afternoon": "Неправильно: P–M–T.",
+                            "all afternoon slowly through the old town": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "The tourists walked {a1}."
+            ]
+        },
+        {
+            "id": 51,
+            "uuid_segments": [
+                "b1",
+                "q15"
+            ],
+            "question": "The baby cried {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "loudly in its cot all night",
+                    "options": [
+                        "loudly in its cot all night",
+                        "in its cot loudly all night",
+                        "all night loudly in its cot"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «loudly» (M) → «in its cot» (P) → «all night» (T).",
+                        "«loudly» — Manner; стоїть перед місцем і часом."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "loudly in its cot all night": "Правильно: M–P–T.",
+                            "in its cot loudly all night": "Неправильно: P–M–T.",
+                            "all night loudly in its cot": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "The baby cried {a1}."
+            ]
+        },
+        {
+            "id": 52,
+            "uuid_segments": [
+                "b1",
+                "q16"
+            ],
+            "question": "The cat sleeps {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "on the sofa every afternoon",
+                    "options": [
+                        "on the sofa every afternoon",
+                        "every afternoon on the sofa",
+                        "afternoon the sofa on every"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Коли є лише місце і час (без способу), місце стоїть ПЕРЕД часом: Place → Time.",
+                        "«on the sofa» — Place; «every afternoon» — Time."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "on the sofa every afternoon": "Правильно: P → T.",
+                            "every afternoon on the sofa": "Неправильно: T–P — обставина часу не стоїть перед місцем.",
+                            "afternoon the sofa on every": "Неправильно: хаотичний порядок слів."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "place_before_time"
+            ],
+            "variants": [
+                "The cat sleeps {a1}."
+            ]
+        },
+        {
+            "id": 53,
+            "uuid_segments": [
+                "b1",
+                "q17"
+            ],
+            "question": "He ran {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "fast around the track twice a day",
+                    "options": [
+                        "fast around the track twice a day",
+                        "around the track fast twice a day",
+                        "twice a day fast around the track"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «fast» (M) → «around the track» (P) → «twice a day» (T).",
+                        "«fast» відповідає на «як?»; стоїть перед «around the track» і «twice a day»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "fast around the track twice a day": "Правильно: M–P–T.",
+                            "around the track fast twice a day": "Неправильно: P–M–T.",
+                            "twice a day fast around the track": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "He ran {a1}."
+            ]
+        },
+        {
+            "id": 54,
+            "uuid_segments": [
+                "b1",
+                "q18"
+            ],
+            "question": "They danced {a1}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "gracefully on the stage for hours",
+                    "options": [
+                        "gracefully on the stage for hours",
+                        "on the stage gracefully for hours",
+                        "for hours gracefully on the stage"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "M–P–T: «gracefully» (M) → «on the stage» (P) → «for hours» (T).",
+                        "«gracefully» — Manner; завжди перший серед обставин."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "gracefully on the stage for hours": "Правильно: M–P–T.",
+                            "on the stage gracefully for hours": "Неправильно: P–M–T.",
+                            "for hours gracefully on the stage": "Неправильно: T–M–P."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "adverbial_order_mpt"
+            ],
+            "variants": [
+                "They danced {a1}."
+            ]
+        },
+        {
+            "id": 55,
+            "uuid_segments": [
+                "b2",
+                "q01"
+            ],
+            "question": "She {a1} a birthday card.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "sent him",
+                    "options": [
+                        "sent him",
+                        "sent to him",
+                        "sent he"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Дієслово «send» з займенниковим IO: V + IO + DO без прийменника.",
+                        "«him» — Object case «he». IO стоїть між дієсловом і прямим додатком."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "sent him": "Правильно: V + IO (him) + DO.",
+                            "sent to him": "Неправильно: у V + to + IO прямий додаток іде першим: «sent a birthday card to him».",
+                            "sent he": "Неправильно: «he» — Subject case; для IO потрібна форма «him»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_object_order"
+            ],
+            "variants": [
+                "She {a1} a birthday card."
+            ]
+        },
+        {
+            "id": 56,
+            "uuid_segments": [
+                "b2",
+                "q02"
+            ],
+            "question": "The teacher {a1} the answer.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "showed us",
+                    "options": [
+                        "showed us",
+                        "showed to us",
+                        "showed we"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«show» + займенниковий IO: V + IO + DO без прийменника.",
+                        "«us» — Object case «we». IO стоїть після дієслова без «to»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "showed us": "Правильно: V + IO (us) + DO.",
+                            "showed to us": "Неправильно: у V + DO + to + IO прямий додаток іде першим.",
+                            "showed we": "Неправильно: «we» — Subject case; потрібна форма «us»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_object_order"
+            ],
+            "variants": [
+                "The teacher {a1} the answer."
+            ]
+        },
+        {
+            "id": 57,
+            "uuid_segments": [
+                "b2",
+                "q03"
+            ],
+            "question": "Can you {a1} a hand?",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "give me",
+                    "options": [
+                        "give me",
+                        "give to me",
+                        "give I"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«give» з коротким IO: V + IO + DO без прийменника.",
+                        "«me» — Object case «I». Стоїть між «give» та «a hand»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "give me": "Правильно: V + IO (me) + DO.",
+                            "give to me": "Неправильно: у V + DO + to + IO прямий додаток іде першим.",
+                            "give I": "Неправильно: «I» — Subject case; потрібна форма «me»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_object_order"
+            ],
+            "variants": [
+                "Can you {a1} a hand?"
+            ]
+        },
+        {
+            "id": 58,
+            "uuid_segments": [
+                "b2",
+                "q04"
+            ],
+            "question": "She {a1} the secret.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "told no one",
+                    "options": [
+                        "told no one",
+                        "told to no one",
+                        "no one told"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«tell» + подвійний об'єкт: V + IO + DO. «no one» — IO після дієслова без «to».",
+                        "«told no one the secret» — IO стоїть після V без прийменника."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "told no one": "Правильно: V + IO (no one) + DO.",
+                            "told to no one": "Неправильно: «told to no one + DO» неприродна конструкція.",
+                            "no one told": "Неправильно: IO не стоїть перед дієсловом у ствердному реченні."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_object_order"
+            ],
+            "variants": [
+                "She {a1} the secret."
+            ]
+        },
+        {
+            "id": 59,
+            "uuid_segments": [
+                "b2",
+                "q05"
+            ],
+            "question": "The company {a1} a good salary.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "offered her",
+                    "options": [
+                        "offered her",
+                        "offered to her",
+                        "offered she"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«offer» з займенниковим IO: V + IO + DO без прийменника.",
+                        "«her» — Object case «she». Стоїть між «offered» та «a good salary»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "offered her": "Правильно: V + IO (her) + DO.",
+                            "offered to her": "Неправильно: прямий додаток іде першим у V + DO + to + IO.",
+                            "offered she": "Неправильно: «she» — Subject case; потрібна форма «her»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_object_order"
+            ],
+            "variants": [
+                "The company {a1} a good salary."
+            ]
+        },
+        {
+            "id": 60,
+            "uuid_segments": [
+                "b2",
+                "q06"
+            ],
+            "question": "Please {a1} the report.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "send them",
+                    "options": [
+                        "send them",
+                        "send to them",
+                        "send they"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«send» з займенниковим IO: V + IO + DO без прийменника.",
+                        "«them» — Object case «they». Стоїть між «send» та «the report»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "send them": "Правильно: V + IO (them) + DO.",
+                            "send to them": "Неправильно: прямий додаток іде першим у V + DO + to + IO.",
+                            "send they": "Неправильно: «they» — Subject case; потрібна форма «them»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_object_order"
+            ],
+            "variants": [
+                "Please {a1} the report."
+            ]
+        },
+        {
+            "id": 61,
+            "uuid_segments": [
+                "b2",
+                "q07"
+            ],
+            "question": "My colleague {a1} a great deal.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "taught me",
+                    "options": [
+                        "taught me",
+                        "taught to me",
+                        "taught I"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«teach» з займенниковим IO: V + IO + DO без прийменника.",
+                        "«me» — Object case «I». Стоїть між «taught» та «a great deal»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "taught me": "Правильно: V + IO (me) + DO.",
+                            "taught to me": "Неправильно: прямий додаток іде першим у V + DO + to + IO.",
+                            "taught I": "Неправильно: «I» — Subject case; потрібна форма «me»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_object_order"
+            ],
+            "variants": [
+                "My colleague {a1} a great deal."
+            ]
+        },
+        {
+            "id": 62,
+            "uuid_segments": [
+                "b2",
+                "q08"
+            ],
+            "question": "Could you {a1} the way to the station?",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "show me",
+                    "options": [
+                        "show me",
+                        "show to me",
+                        "show I"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«show» + займенниковий IO: V + IO + DO без прийменника.",
+                        "«me» — Object case «I». Стоїть між «show» та «the way»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "show me": "Правильно: V + IO (me) + DO.",
+                            "show to me": "Неправильно: прямий додаток іде першим у V + DO + to + IO.",
+                            "show I": "Неправильно: «I» — Subject case; потрібна форма «me»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_object_order"
+            ],
+            "variants": [
+                "Could you {a1} the way to the station?"
+            ]
+        },
+        {
+            "id": 63,
+            "uuid_segments": [
+                "b2",
+                "q09"
+            ],
+            "question": "She {a1} the recipe.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "emailed us",
+                    "options": [
+                        "emailed us",
+                        "emailed to us",
+                        "emailed we"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«email» з займенниковим IO: V + IO + DO без прийменника.",
+                        "«us» — Object case «we». Стоїть між «emailed» та «the recipe»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "emailed us": "Правильно: V + IO (us) + DO.",
+                            "emailed to us": "Неправильно: прямий додаток іде першим у V + DO + to + IO.",
+                            "emailed we": "Неправильно: «we» — Subject case; потрібна форма «us»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_object_order"
+            ],
+            "variants": [
+                "She {a1} the recipe."
+            ]
+        },
+        {
+            "id": 64,
+            "uuid_segments": [
+                "b2",
+                "q10"
+            ],
+            "question": "The lights are still on. Please {a1}.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "turn them off",
+                    "options": [
+                        "turn them off",
+                        "turn off them",
+                        "turning them off"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник-об'єкт фразового дієслова завжди стоїть між дієсловом і часткою: turn + them + off.",
+                        "«them» — займенник; ніколи не стоїть ПІСЛЯ частки."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "turn them off": "Правильно: займенник «them» між «turn» та «off».",
+                            "turn off them": "Неправильно: займенник ніколи не стоїть після частки у фразовому дієслові.",
+                            "turning them off": "Неправильно: після «Please» потрібна основна форма «turn»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "phrasal_verb_particle"
+            ],
+            "variants": [
+                "The lights are still on. Please {a1}."
+            ]
+        },
+        {
+            "id": 65,
+            "uuid_segments": [
+                "b2",
+                "q11"
+            ],
+            "question": "I found an old letter. Let me {a1}.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "read it out",
+                    "options": [
+                        "read it out",
+                        "read out it",
+                        "reading it out"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник-об'єкт стоїть між дієсловом і часткою: read + it + out.",
+                        "«it» — займенник; не може стояти після частки «out»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "read it out": "Правильно: «it» між «read» та «out».",
+                            "read out it": "Неправильно: займенник не ставиться після частки.",
+                            "reading it out": "Неправильно: після «Let me» потрібна основна форма."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "phrasal_verb_particle"
+            ],
+            "variants": [
+                "I found an old letter. Let me {a1}."
+            ]
+        },
+        {
+            "id": 66,
+            "uuid_segments": [
+                "b2",
+                "q12"
+            ],
+            "question": "There was an old box. She decided to {a1}.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "throw it away",
+                    "options": [
+                        "throw it away",
+                        "throw away it",
+                        "throwing it away"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник-об'єкт стоїть між дієсловом і часткою: throw + it + away.",
+                        "«it» — займенник; після «away» стояти не може."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "throw it away": "Правильно: «it» між «throw» та «away».",
+                            "throw away it": "Неправильно: займенник не ставиться після частки.",
+                            "throwing it away": "Неправильно: після «decided to» потрібна основна форма «throw»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "phrasal_verb_particle"
+            ],
+            "variants": [
+                "There was an old box. She decided to {a1}."
+            ]
+        },
+        {
+            "id": 67,
+            "uuid_segments": [
+                "b2",
+                "q13"
+            ],
+            "question": "The music is too loud. Can you {a1}?",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "turn it down",
+                    "options": [
+                        "turn it down",
+                        "turn down it",
+                        "turning it down"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник-об'єкт стоїть між дієсловом і часткою: turn + it + down.",
+                        "«it» — займенник; «turn down it» неможлива форма."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "turn it down": "Правильно: «it» між «turn» та «down».",
+                            "turn down it": "Неправильно: займенник не ставиться після частки.",
+                            "turning it down": "Неправильно: після «Can you» потрібна основна форма «turn»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "phrasal_verb_particle"
+            ],
+            "variants": [
+                "The music is too loud. Can you {a1}?"
+            ]
+        },
+        {
+            "id": 68,
+            "uuid_segments": [
+                "b2",
+                "q14"
+            ],
+            "question": "He hasn't used his gym membership in months. He should {a1}.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "give it up",
+                    "options": [
+                        "give it up",
+                        "give up it",
+                        "gives it up"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник-об'єкт стоїть між дієсловом і часткою: give + it + up.",
+                        "«it» — займенник; після «up» стояти не може."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "give it up": "Правильно: «it» між «give» та «up».",
+                            "give up it": "Неправильно: займенник не ставиться після частки.",
+                            "gives it up": "Неправильно: після «should» потрібна основна форма «give»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "phrasal_verb_particle"
+            ],
+            "variants": [
+                "He hasn't used his gym membership in months. He should {a1}."
+            ]
+        },
+        {
+            "id": 69,
+            "uuid_segments": [
+                "b2",
+                "q15"
+            ],
+            "question": "Your application form has a mistake. Please {a1}.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "fill it in again",
+                    "options": [
+                        "fill it in again",
+                        "fill in it again",
+                        "fill it again in"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник стоїть між дієсловом і часткою: fill + it + in; «again» — після всієї конструкції.",
+                        "«it» між «fill» та «in»; «again» після «fill it in»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "fill it in again": "Правильно: «it» між «fill» та «in», «again» в кінці.",
+                            "fill in it again": "Неправильно: займенник не ставиться після частки «in».",
+                            "fill it again in": "Неправильно: «again» має стояти після «fill it in», а не між займенником і часткою."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "phrasal_verb_particle"
+            ],
+            "variants": [
+                "Your application form has a mistake. Please {a1}."
+            ]
+        },
+        {
+            "id": 70,
+            "uuid_segments": [
+                "b2",
+                "q16"
+            ],
+            "question": "Don't forget to {a1} after the meeting.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "write it down",
+                    "options": [
+                        "write it down",
+                        "write down it",
+                        "writing it down"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник-об'єкт стоїть між дієсловом і часткою: write + it + down.",
+                        "«it» — займенник; після «down» стояти не може."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "write it down": "Правильно: «it» між «write» та «down».",
+                            "write down it": "Неправильно: займенник не ставиться після частки.",
+                            "writing it down": "Неправильно: після «to» потрібна основна форма «write»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "phrasal_verb_particle"
+            ],
+            "variants": [
+                "Don't forget to {a1} after the meeting."
+            ]
+        },
+        {
+            "id": 71,
+            "uuid_segments": [
+                "b2",
+                "q17"
+            ],
+            "question": "She loves old magazines. She never {a1}.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "throws them away",
+                    "options": [
+                        "throws them away",
+                        "throws away them",
+                        "throw them away"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник-об'єкт (them) стоїть між дієсловом і часткою: throws + them + away.",
+                        "«them» між «throws» та «away»; форма «throws» для 3 ос. одн. «She»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "throws them away": "Правильно: «them» між «throws» та «away»; форма «throws» відповідає «She».",
+                            "throws away them": "Неправильно: займенник не ставиться після частки.",
+                            "throw them away": "Неправильно: «She» вимагає форми «throws», а не «throw»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "phrasal_verb_particle"
+            ],
+            "variants": [
+                "She loves old magazines. She never {a1}."
+            ]
+        },
+        {
+            "id": 72,
+            "uuid_segments": [
+                "b2",
+                "q18"
+            ],
+            "question": "The teacher wants you to {a1} the word.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "look it up",
+                    "options": [
+                        "look it up",
+                        "look up it",
+                        "looking it up"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник-об'єкт стоїть між дієсловом і часткою: look + it + up.",
+                        "«it» — займенник; після «up» стояти не може."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "look it up": "Правильно: «it» між «look» та «up».",
+                            "look up it": "Неправильно: займенник не ставиться після частки.",
+                            "looking it up": "Неправильно: після «to» потрібна основна форма «look»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "phrasal_verb_particle"
+            ],
+            "variants": [
+                "The teacher wants you to {a1} the word."
+            ]
+        },
+        {
+            "id": 73,
+            "uuid_segments": [
+                "c1",
+                "q01"
+            ],
+            "question": "Not only {a1} excellent food, but she also runs the best coffee shop in town.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "does she cook",
+                    "options": [
+                        "does she cook",
+                        "she cooks",
+                        "she does cook"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після «Not only» відбувається інверсія: допоміжне дієслово → підмет → основне дієслово.",
+                        "«Not only» — негативна конструкція; після неї обов'язкова інверсія: does + she + cook."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "does she cook": "Правильно: інверсія — does + she + cook.",
+                            "she cooks": "Неправильно: звичайний S+V без інверсії після «Not only» неприпустимий.",
+                            "she does cook": "Неправильно: емфатична конструкція без інверсії після «Not only» граматично некоректна."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "Not only {a1} excellent food, but she also runs the best coffee shop in town."
+            ]
+        },
+        {
+            "id": 74,
+            "uuid_segments": [
+                "c1",
+                "q02"
+            ],
+            "question": "Never {a1} such a beautiful sunset.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had I seen",
+                    "options": [
+                        "had I seen",
+                        "I had seen",
+                        "I have seen"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після «Never» на початку речення — інверсія: had → I → seen (Past Perfect).",
+                        "«Never» — негативний прислівник; після нього: had → I → seen."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had I seen": "Правильно: інверсія — had + I + seen.",
+                            "I had seen": "Неправильно: S+V без інверсії після «Never» неприпустимий.",
+                            "I have seen": "Неправильно: неправильна форма часу і немає інверсії."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "Never {a1} such a beautiful sunset."
+            ]
+        },
+        {
+            "id": 75,
+            "uuid_segments": [
+                "c1",
+                "q03"
+            ],
+            "question": "Rarely {a1} so passionate about a topic.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "have I been",
+                    "options": [
+                        "have I been",
+                        "I have been",
+                        "I am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Rarely» на початку речення викликає інверсію: have → I → been.",
+                        "Після «Rarely»: have → I → been. S+V без інверсії неприпустимий."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "have I been": "Правильно: інверсія — have + I + been.",
+                            "I have been": "Неправильно: S+V без інверсії після «Rarely» неприпустимий.",
+                            "I am": "Неправильно: неправильний час і відсутність інверсії."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "Rarely {a1} so passionate about a topic."
+            ]
+        },
+        {
+            "id": 76,
+            "uuid_segments": [
+                "c1",
+                "q04"
+            ],
+            "question": "Seldom {a1} the real reasons for failure.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "do managers acknowledge",
+                    "options": [
+                        "do managers acknowledge",
+                        "managers acknowledge",
+                        "managers do acknowledge"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Seldom» на початку речення вимагає інверсії: do + підмет + основне дієслово.",
+                        "Після «Seldom»: do → managers → acknowledge."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "do managers acknowledge": "Правильно: інверсія — do + managers + acknowledge.",
+                            "managers acknowledge": "Неправильно: S+V без інверсії після «Seldom» неприпустимий.",
+                            "managers do acknowledge": "Неправильно: «do» тут емфатичне і не замінює інверсію."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "Seldom {a1} the real reasons for failure."
+            ]
+        },
+        {
+            "id": 77,
+            "uuid_segments": [
+                "c1",
+                "q05"
+            ],
+            "question": "Hardly {a1} when the fire alarm went off.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had we arrived",
+                    "options": [
+                        "had we arrived",
+                        "we had arrived",
+                        "we arrived"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Hardly ... when» з Past Perfect вимагає інверсії: had + підмет + PP.",
+                        "Після «Hardly»: had → we → arrived."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had we arrived": "Правильно: інверсія — had + we + arrived.",
+                            "we had arrived": "Неправильно: S+V без інверсії після «Hardly» неприпустимий.",
+                            "we arrived": "Неправильно: простий минулий і відсутність інверсії некоректні."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "Hardly {a1} when the fire alarm went off."
+            ]
+        },
+        {
+            "id": 78,
+            "uuid_segments": [
+                "c1",
+                "q06"
+            ],
+            "question": "No sooner {a1} than the phone rang.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had she sat down",
+                    "options": [
+                        "had she sat down",
+                        "she had sat down",
+                        "she sat down"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«No sooner ... than» вимагає інверсії: had + підмет + PP.",
+                        "Після «No sooner»: had → she → sat down."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had she sat down": "Правильно: інверсія — had + she + sat down.",
+                            "she had sat down": "Неправильно: S+V без інверсії некоректний.",
+                            "she sat down": "Неправильно: немає Past Perfect і немає інверсії."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "No sooner {a1} than the phone rang."
+            ]
+        },
+        {
+            "id": 79,
+            "uuid_segments": [
+                "c1",
+                "q07"
+            ],
+            "question": "Under no circumstances {a1} the building during an emergency.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "should you leave",
+                    "options": [
+                        "should you leave",
+                        "you should leave",
+                        "you leave"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Under no circumstances» — негативна фраза; вимагає інверсії: modal + підмет + дієслово.",
+                        "Після «Under no circumstances»: should → you → leave."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "should you leave": "Правильно: інверсія — should + you + leave.",
+                            "you should leave": "Неправильно: S+V без інверсії неприпустимий.",
+                            "you leave": "Неправильно: відсутнє modal і немає інверсії."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "Under no circumstances {a1} the building during an emergency."
+            ]
+        },
+        {
+            "id": 80,
+            "uuid_segments": [
+                "c1",
+                "q08"
+            ],
+            "question": "Little {a1} that he was about to change history.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did he realise",
+                    "options": [
+                        "did he realise",
+                        "he realised",
+                        "he did realise"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Little» у значенні «майже не» вимагає інверсії: did + підмет + основне дієслово.",
+                        "Після «Little»: did → he → realise."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did he realise": "Правильно: інверсія — did + he + realise.",
+                            "he realised": "Неправильно: S+V без інверсії після «Little» у цьому значенні некоректний.",
+                            "he did realise": "Неправильно: «did» тут емфатичне; без інверсії після «Little» неприпустимо."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "Little {a1} that he was about to change history."
+            ]
+        },
+        {
+            "id": 81,
+            "uuid_segments": [
+                "c1",
+                "q09"
+            ],
+            "question": "On no account {a1} the client's personal details.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must you share",
+                    "options": [
+                        "must you share",
+                        "you must share",
+                        "you share"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«On no account» — негативна фраза; вимагає інверсії: modal + підмет + дієслово.",
+                        "Після «On no account»: must → you → share."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "must you share": "Правильно: інверсія — must + you + share.",
+                            "you must share": "Неправильно: S+V без інверсії некоректний.",
+                            "you share": "Неправильно: відсутнє modal і немає інверсії."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "On no account {a1} the client's personal details."
+            ]
+        },
+        {
+            "id": 82,
+            "uuid_segments": [
+                "c1",
+                "q10"
+            ],
+            "question": "{a1} the CEO himself addressing the audience.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "There stood",
+                    "options": [
+                        "There stood",
+                        "There was stood",
+                        "Stood there"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Конструкція «There + V + S» вводить суб'єкт із дієсловами позиції (stood, sat).",
+                        "«There stood the CEO...» — класичний інвертований порядок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "There stood": "Правильно: «There + V + S» — інверсія для введення суб'єкта.",
+                            "There was stood": "Неправильно: «was stood» — пасивна форма; тут потрібен активний стан.",
+                            "Stood there": "Неправильно: порядок «Stood there the CEO» неприродний у сучасній англійській."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "fronting"
+            ],
+            "variants": [
+                "{a1} the CEO himself addressing the audience."
+            ]
+        },
+        {
+            "id": 83,
+            "uuid_segments": [
+                "c1",
+                "q11"
+            ],
+            "question": "Not until midnight {a1} the news.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did they hear",
+                    "options": [
+                        "did they hear",
+                        "they heard",
+                        "they did hear"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Not until + time» на початку речення вимагає інверсії: did + підмет + дієслово.",
+                        "Після «Not until midnight»: did → they → hear."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did they hear": "Правильно: інверсія — did + they + hear.",
+                            "they heard": "Неправильно: S+V без інверсії після «Not until» неприпустимий.",
+                            "they did hear": "Неправильно: емфатична конструкція без інверсії некоректна."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "Not until midnight {a1} the news."
+            ]
+        },
+        {
+            "id": 84,
+            "uuid_segments": [
+                "c1",
+                "q12"
+            ],
+            "question": "Only then {a1} the full scale of the disaster.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did they understand",
+                    "options": [
+                        "did they understand",
+                        "they understood",
+                        "they did understand"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Only then» вимагає інверсії: did + підмет + основне дієслово.",
+                        "Після «Only then»: did → they → understand."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did they understand": "Правильно: інверсія — did + they + understand.",
+                            "they understood": "Неправильно: S+V без інверсії після «Only then» неприпустимий.",
+                            "they did understand": "Неправильно: емфатична конструкція без інверсії некоректна."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "Only then {a1} the full scale of the disaster."
+            ]
+        },
+        {
+            "id": 85,
+            "uuid_segments": [
+                "c1",
+                "q13"
+            ],
+            "question": "Such was {a1} that no one could sleep.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the noise",
+                    "options": [
+                        "the noise",
+                        "noise the",
+                        "a noise the"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Such was + NP» — інвертована конструкція для наголосу. Після «Such was» — іменна група з означеним артиклем.",
+                        "«the noise» стоїть після «was» — інверсія для емфазису."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "the noise": "Правильно: «Such was the noise» — інверсія «Such was + NP».",
+                            "noise the": "Неправильно: артикль «the» стоїть перед іменником, а не після нього.",
+                            "a noise the": "Неправильно: «a» — неозначений артикль; тут потрібний «the»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "fronting"
+            ],
+            "variants": [
+                "Such was {a1} that no one could sleep."
+            ]
+        },
+        {
+            "id": 86,
+            "uuid_segments": [
+                "c1",
+                "q14"
+            ],
+            "question": "In front of the house {a1} two tall oak trees.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "stood",
+                    "options": [
+                        "stood",
+                        "were standing there",
+                        "there were standing"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Коли обставина місця на початку речення — інверсія: Adv + V + S.",
+                        "«In front of the house stood two tall oak trees» — типова літературна інверсія."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "stood": "Правильно: інверсія Adv + V + S.",
+                            "were standing there": "Неправильно: «there» зайве; конструкція не відображає потрібну інверсію.",
+                            "there were standing": "Неправильно: «there were two trees standing» — цілком інша конструкція."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "fronting"
+            ],
+            "variants": [
+                "In front of the house {a1} two tall oak trees."
+            ]
+        },
+        {
+            "id": 87,
+            "uuid_segments": [
+                "c1",
+                "q15"
+            ],
+            "question": "Nowhere in the world {a1} this music.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will you hear",
+                    "options": [
+                        "will you hear",
+                        "you will hear",
+                        "you hear"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Nowhere» — негативний прислівник місця; вимагає інверсії: modal + підмет + дієслово.",
+                        "Після «Nowhere in the world»: will → you → hear."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will you hear": "Правильно: інверсія — will + you + hear.",
+                            "you will hear": "Неправильно: S+V без інверсії після «Nowhere» неприпустимий.",
+                            "you hear": "Неправильно: відсутнє «will» і немає інверсії."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "Nowhere in the world {a1} this music."
+            ]
+        },
+        {
+            "id": 88,
+            "uuid_segments": [
+                "c1",
+                "q16"
+            ],
+            "question": "At no time {a1} to give up.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did she consider",
+                    "options": [
+                        "did she consider",
+                        "she considered",
+                        "she did consider"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«At no time» — негативна фраза; вимагає інверсії: did + підмет + дієслово.",
+                        "Після «At no time»: did → she → consider."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did she consider": "Правильно: інверсія — did + she + consider.",
+                            "she considered": "Неправильно: S+V без інверсії некоректний.",
+                            "she did consider": "Неправильно: емфатична конструкція без інверсії неприпустима."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "At no time {a1} to give up."
+            ]
+        },
+        {
+            "id": 89,
+            "uuid_segments": [
+                "c1",
+                "q17"
+            ],
+            "question": "Not a word {a1} to anyone about the plan.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did he say",
+                    "options": [
+                        "did he say",
+                        "he said",
+                        "he did say"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Not a word» — негативна фраза; вимагає інверсії: did + підмет + дієслово.",
+                        "Після «Not a word»: did → he → say."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did he say": "Правильно: інверсія — did + he + say.",
+                            "he said": "Неправильно: S+V без інверсії некоректний.",
+                            "he did say": "Неправильно: емфатична конструкція без інверсії неприпустима."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_inversion"
+            ],
+            "variants": [
+                "Not a word {a1} to anyone about the plan."
+            ]
+        },
+        {
+            "id": 90,
+            "uuid_segments": [
+                "c1",
+                "q18"
+            ],
+            "question": "Down {a1} the curtain on the final performance.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "came",
+                    "options": [
+                        "came",
+                        "there came",
+                        "it came"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Коли прислівник напряму (Down, Up, Out) на початку речення — інверсія: Adv + V + S.",
+                        "«Down came the curtain» — класична інверсія Adv + V + S."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "came": "Правильно: «Down came the curtain» — інверсія.",
+                            "there came": "Неправильно: «there» зайве; «Down came» — вже завершена інверсія.",
+                            "it came": "Неправильно: стандартний S+V без інверсії."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "fronting"
+            ],
+            "variants": [
+                "Down {a1} the curtain on the final performance."
+            ]
+        },
+        {
+            "id": 91,
+            "uuid_segments": [
+                "c2",
+                "q01"
+            ],
+            "question": "It was {a1} who first walked on the moon.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Neil Armstrong",
+                    "options": [
+                        "Neil Armstrong",
+                        "by Neil Armstrong",
+                        "Neil Armstrong himself"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В it-cleft: It + be + фокус + who/that. Виділений елемент між «was» і «who» без прийменника.",
+                        "«It was ... who ...» — конструкція для виділення підмета; простий іменник без прийменника."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Neil Armstrong": "Правильно: «It was Neil Armstrong who...» — стандартна it-cleft.",
+                            "by Neil Armstrong": "Неправильно: «by» вносить пасивне значення; в it-cleft прийменника немає.",
+                            "Neil Armstrong himself": "Неправильно: «himself» не вживається як виділений елемент в it-cleft."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "it_cleft"
+            ],
+            "variants": [
+                "It was {a1} who first walked on the moon."
+            ]
+        },
+        {
+            "id": 92,
+            "uuid_segments": [
+                "c2",
+                "q02"
+            ],
+            "question": "It was in 1969 {a1} humans first landed on the moon.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "when",
+                        "which"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В it-cleft «that» з'єднує виділений елемент і клаузу-решту.",
+                        "Конструкція: It + was + [виділена обставина] + that + [решта речення]."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "that": "Правильно: «It was in 1969 that...» — стандартна it-cleft.",
+                            "when": "Неправильно: «when» вводить часові підрядні, але не it-cleft.",
+                            "which": "Неправильно: «which» — відносний займенник; в it-cleft після обставини часу — «that»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "it_cleft"
+            ],
+            "variants": [
+                "It was in 1969 {a1} humans first landed on the moon."
+            ]
+        },
+        {
+            "id": 93,
+            "uuid_segments": [
+                "c2",
+                "q03"
+            ],
+            "question": "It is children {a1} are most vulnerable to such diseases.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "they"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В it-cleft після виділеного підмета-особи вживається «who».",
+                        "«children» — особи. В it-cleft після виділеного особового іменника — «who»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "who": "Правильно: «It is children who are...» — it-cleft із «who».",
+                            "which": "Неправильно: «which» для речей; для «children» потрібне «who».",
+                            "they": "Неправильно: займенник «they» не замінює відносний займенник."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "it_cleft"
+            ],
+            "variants": [
+                "It is children {a1} are most vulnerable to such diseases."
+            ]
+        },
+        {
+            "id": 94,
+            "uuid_segments": [
+                "c2",
+                "q04"
+            ],
+            "question": "It was poverty and despair {a1} drove the family to emigrate.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which had",
+                        "who"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В it-cleft «that» з'єднує виділений елемент і клаузу-решту.",
+                        "«poverty and despair» — абстрактні поняття; в it-cleft після них — «that», не «who»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "that": "Правильно: «It was poverty and despair that drove...» — it-cleft.",
+                            "which had": "Неправильно: «which had» вводить власний підрядний час; в it-cleft потрібне просте «that».",
+                            "who": "Неправильно: «who» для осіб; «poverty and despair» — абстрактні поняття."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "it_cleft"
+            ],
+            "variants": [
+                "It was poverty and despair {a1} drove the family to emigrate."
+            ]
+        },
+        {
+            "id": 95,
+            "uuid_segments": [
+                "c2",
+                "q05"
+            ],
+            "question": "It is on Tuesdays {a1} the committee meets.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "when",
+                        "which"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В it-cleft після виділеної обставини часу або місця вживається «that».",
+                        "«on Tuesdays» — обставина часу; в it-cleft після неї — «that»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "that": "Правильно: «It is on Tuesdays that the committee meets» — it-cleft.",
+                            "when": "Неправильно: «when» вводить підрядне часу, але не it-cleft.",
+                            "which": "Неправильно: «which» — відносний займенник, не сполучник у it-cleft."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "it_cleft"
+            ],
+            "variants": [
+                "It is on Tuesdays {a1} the committee meets."
+            ]
+        },
+        {
+            "id": 96,
+            "uuid_segments": [
+                "c2",
+                "q06"
+            ],
+            "question": "It was not until dawn {a1} the rescue team finally arrived.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "when",
+                        "which"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«It was not until ... that ...» — стала формула для емфатичного часового обмеження.",
+                        "Конструкція: It + was + not until + [час] + that + [речення]."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "that": "Правильно: «It was not until dawn that...» — стандартна it-cleft.",
+                            "when": "Неправильно: у «It was not until ... that» «when» неприпустимий.",
+                            "which": "Неправильно: «which» — відносний займенник; не вживається в цій формулі."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "it_cleft"
+            ],
+            "variants": [
+                "It was not until dawn {a1} the rescue team finally arrived."
+            ]
+        },
+        {
+            "id": 97,
+            "uuid_segments": [
+                "c2",
+                "q07"
+            ],
+            "question": "It is her passion for learning {a1} sets her apart.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "it"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В it-cleft після абстрактного поняття вживається «that».",
+                        "«her passion» — абстрактне, не особа; в it-cleft — «that», не «who»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "that": "Правильно: «It is her passion that sets her apart» — it-cleft.",
+                            "who": "Неправильно: «who» тільки після виділення особи.",
+                            "it": "Неправильно: «it» — займенник, не сполучник."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "it_cleft"
+            ],
+            "variants": [
+                "It is her passion for learning {a1} sets her apart."
+            ]
+        },
+        {
+            "id": 98,
+            "uuid_segments": [
+                "c2",
+                "q08"
+            ],
+            "question": "It was to London {a1} she moved after graduation.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "which"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В it-cleft після виділеної обставини місця вживається «that».",
+                        "«to London» — обставина місця; в it-cleft — «that»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "that": "Правильно: «It was to London that she moved» — it-cleft.",
+                            "where": "Неправильно: «where» вводить підрядне місця, але не it-cleft.",
+                            "which": "Неправильно: «which» — відносний займенник, не сполучник."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "it_cleft"
+            ],
+            "variants": [
+                "It was to London {a1} she moved after graduation."
+            ]
+        },
+        {
+            "id": 99,
+            "uuid_segments": [
+                "c2",
+                "q09"
+            ],
+            "question": "It was the final chapter {a1} moved the readers most deeply.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "it"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В it-cleft після неособового іменника вживається «that».",
+                        "«the final chapter» — річ; в it-cleft — «that», не «who»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "that": "Правильно: «It was the final chapter that moved...» — it-cleft.",
+                            "who": "Неправильно: «who» тільки для виділення осіб.",
+                            "it": "Неправильно: «it» — займенник, не сполучник."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "it_cleft"
+            ],
+            "variants": [
+                "It was the final chapter {a1} moved the readers most deeply."
+            ]
+        },
+        {
+            "id": 100,
+            "uuid_segments": [
+                "c2",
+                "q10"
+            ],
+            "question": "{a1} happened next surprised everyone.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "That",
+                        "Which"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Wh-cleft починається з «What» (= the thing that). «What + clause» виконує роль підмета.",
+                        "«What happened next surprised everyone» — wh-cleft; «What» = «the thing that»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "What": "Правильно: «What happened next surprised everyone» — wh-cleft.",
+                            "That": "Неправильно: «That happened next is...» граматично некоректно.",
+                            "Which": "Неправильно: «Which» — відносний займенник; не починає wh-cleft підмет-клаузу."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_cleft"
+            ],
+            "variants": [
+                "{a1} happened next surprised everyone."
+            ]
+        },
+        {
+            "id": 101,
+            "uuid_segments": [
+                "c2",
+                "q11"
+            ],
+            "question": "What annoyed her most {a1} the constant interruptions.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "has been"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У wh-cleft «What + clause» є однинним підметом → «was».",
+                        "«What annoyed her» — підмет-клауза (однина) → «was»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "Правильно: wh-cleft з «was» — підмет-клауза однинна.",
+                            "were": "Неправильно: wh-клауза-підмет однинна → «was», а не «were».",
+                            "has been": "Неправильно: Present Perfect тут недоречний; потрібен Past Simple «was»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_cleft"
+            ],
+            "variants": [
+                "What annoyed her most {a1} the constant interruptions."
+            ]
+        },
+        {
+            "id": 102,
+            "uuid_segments": [
+                "c2",
+                "q12"
+            ],
+            "question": "{a1} bothers me is the lack of transparency.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "That",
+                        "Which"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Wh-cleft починається з «What». «What + clause» є підметом.",
+                        "«What bothers me is the lack of transparency» — типова wh-cleft."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "What": "Правильно: «What bothers me is...» — wh-cleft.",
+                            "That": "Неправильно: «That bothers me is...» граматично некоректно.",
+                            "Which": "Неправильно: «Which» — відносний займенник; не починає wh-cleft."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_cleft"
+            ],
+            "variants": [
+                "{a1} bothers me is the lack of transparency."
+            ]
+        },
+        {
+            "id": 103,
+            "uuid_segments": [
+                "c2",
+                "q13"
+            ],
+            "question": "What they discovered beneath the ruins {a1} a perfectly preserved mosaic.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "has been"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У wh-cleft «What + clause» — однинний підмет → «was».",
+                        "«What they discovered» — підмет-клауза (однина) → «was»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "Правильно: wh-cleft з «was».",
+                            "were": "Неправильно: wh-клауза-підмет однинна → «was».",
+                            "has been": "Неправильно: Past Perfect тут зайвий; потрібен «was»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_cleft"
+            ],
+            "variants": [
+                "What they discovered beneath the ruins {a1} a perfectly preserved mosaic."
+            ]
+        },
+        {
+            "id": 104,
+            "uuid_segments": [
+                "c2",
+                "q14"
+            ],
+            "question": "{a1} she truly values is honesty and integrity.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "That",
+                        "It is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Wh-cleft починається з «What». «What she truly values» — підмет речення.",
+                        "«What she truly values is honesty» — класична wh-cleft."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "What": "Правильно: «What she truly values is...» — wh-cleft.",
+                            "That": "Неправильно: «That she truly values is...» граматично некоректно.",
+                            "It is": "Неправильно: «It is + focus + that/who» — це it-cleft, не wh-cleft."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_cleft"
+            ],
+            "variants": [
+                "{a1} she truly values is honesty and integrity."
+            ]
+        },
+        {
+            "id": 105,
+            "uuid_segments": [
+                "c2",
+                "q15"
+            ],
+            "question": "What the new policy requires {a1} full compliance from all departments.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "was being"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У wh-cleft «What + clause» — однинний підмет → «is».",
+                        "«What the new policy requires» — підмет-клауза (однина) → «is»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Правильно: wh-cleft з «is».",
+                            "are": "Неправильно: підмет-клауза однинна → «is».",
+                            "was being": "Неправильно: Past Progressive Passive часово невідповідний."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_cleft"
+            ],
+            "variants": [
+                "What the new policy requires {a1} full compliance from all departments."
+            ]
+        },
+        {
+            "id": 106,
+            "uuid_segments": [
+                "c2",
+                "q16"
+            ],
+            "question": "{a1} I find remarkable is his ability to stay calm under pressure.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "That",
+                        "Which"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Wh-cleft починається з «What». «What I find remarkable» — підмет.",
+                        "«What I find remarkable is his ability...» — типова wh-cleft."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "What": "Правильно: wh-cleft.",
+                            "That": "Неправильно: «That I find remarkable is...» граматично некоректно.",
+                            "Which": "Неправильно: «Which» — відносний займенник; не починає wh-cleft."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_cleft"
+            ],
+            "variants": [
+                "{a1} I find remarkable is his ability to stay calm under pressure."
+            ]
+        },
+        {
+            "id": 107,
+            "uuid_segments": [
+                "c2",
+                "q17"
+            ],
+            "question": "What puzzled the archaeologists most {a1} the unusual burial arrangement.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "had been"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У wh-cleft «What + clause» — однинний підмет → «was».",
+                        "«What puzzled the archaeologists» — підмет-клауза (однина) → «was»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "Правильно: wh-cleft з «was».",
+                            "were": "Неправильно: wh-клауза-підмет однинна → «was».",
+                            "had been": "Неправильно: Past Perfect тут зайвий; потрібен «was»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_cleft"
+            ],
+            "variants": [
+                "What puzzled the archaeologists most {a1} the unusual burial arrangement."
+            ]
+        },
+        {
+            "id": 108,
+            "uuid_segments": [
+                "c2",
+                "q18"
+            ],
+            "question": "What he brought to the company {a1} a completely fresh perspective.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "is being"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У wh-cleft «What + clause» — однинний підмет → «was».",
+                        "«What he brought» — підмет-клауза (однина) → «was»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "Правильно: wh-cleft з «was».",
+                            "were": "Неправильно: wh-клауза-підмет однинна → «was».",
+                            "is being": "Неправильно: Present Progressive Passive часово невідповідний; потрібен «was»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_cleft"
+            ],
+            "variants": [
+                "What he brought to the company {a1} a completely fresh perspective."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "bwo-cp-sn-saved-test",
+        "slug": "basic-word-order-sonate-v3-questions-test",
+        "name": "Basic Word Order — Sonate V3 Questions Test",
+        "filters": {
+            "num_questions": 30,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\BasicWordOrderV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1088,
+                "theory_page_ids": [
+                    1088
+                ],
+                "theory_page": {
+                    "id": 1088,
+                    "slug": "theory-basic-word-order",
+                    "title": "Basic Word Order",
+                    "category_slug_path": "basic-grammar/word-order",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+                    "url": "https://gramlyze.com/theory/word-order/theory-basic-word-order"
+                }
+            }
+        }
+    }
+}

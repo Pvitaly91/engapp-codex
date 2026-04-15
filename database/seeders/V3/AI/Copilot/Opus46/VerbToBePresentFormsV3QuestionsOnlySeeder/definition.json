@@ -1,0 +1,3477 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBePresentFormsV3QuestionsOnlySeeder",
+        "uuid_namespace": "VerbToBePresentFormsV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "theory_page_1288": {
+            "name": "Verb to Be: Present Forms"
+        }
+    },
+    "tags": {
+        "verb_to_be_present": {
+            "name": "Verb to be: present tense (am / is / are)",
+            "category": "topic"
+        },
+        "am_first_person": {
+            "name": "am with I (first person singular)",
+            "category": "pattern"
+        },
+        "is_third_person_singular": {
+            "name": "is with he / she / it (third person singular)",
+            "category": "pattern"
+        },
+        "are_plural_second": {
+            "name": "are with you / we / they",
+            "category": "pattern"
+        },
+        "be_contraction_affirmative": {
+            "name": "Contracted affirmative: I'm / he's / they're",
+            "category": "pattern"
+        },
+        "be_negative_not": {
+            "name": "Negative: is not / are not / am not",
+            "category": "pattern"
+        },
+        "be_negative_contraction": {
+            "name": "Contracted negative: isn't / aren't",
+            "category": "pattern"
+        },
+        "be_yes_no_question": {
+            "name": "Yes/No question inversion: Is he…? / Are they…?",
+            "category": "pattern"
+        },
+        "be_wh_question": {
+            "name": "Wh-question with be: Where is…? / Who are…?",
+            "category": "pattern"
+        },
+        "be_subject_verb_agreement": {
+            "name": "Subject–verb agreement with be",
+            "category": "pattern"
+        },
+        "be_predicate_adjective": {
+            "name": "Be + predicate adjective (She is tall)",
+            "category": "usage"
+        },
+        "be_predicate_noun": {
+            "name": "Be + predicate noun (He is a doctor)",
+            "category": "usage"
+        },
+        "be_location": {
+            "name": "Be + location / prepositional phrase",
+            "category": "usage"
+        },
+        "be_age_origin": {
+            "name": "Be + age / nationality / origin",
+            "category": "usage"
+        },
+        "be_there_is_are": {
+            "name": "There is / There are existential",
+            "category": "pattern"
+        },
+        "be_short_answer": {
+            "name": "Short answer with be (Yes, I am / No, she isn't)",
+            "category": "pattern"
+        },
+        "be_question_tag": {
+            "name": "Question tag with be (…, isn't it?)",
+            "category": "pattern"
+        },
+        "be_formal_register": {
+            "name": "Formal / academic use of be",
+            "category": "register"
+        },
+        "be_emphasis_inversion": {
+            "name": "Emphatic / inverted be (Such is life)",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "verb_to_be_present"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "I {a1} a student.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_first_person",
+                "be_predicate_noun"
+            ],
+            "variants": [
+                "I {a1} a student."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 2,
+            "question": "I {a2} happy today.",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_first_person",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "I {a2} happy today."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 3,
+            "question": "I {a3} from Ukraine.",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_first_person",
+                "be_age_origin"
+            ],
+            "variants": [
+                "I {a3} from Ukraine."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 4,
+            "question": "I {a4} ten years old.",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_first_person",
+                "be_age_origin"
+            ],
+            "variants": [
+                "I {a4} ten years old."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 5,
+            "question": "She {a5} a teacher.",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_predicate_noun"
+            ],
+            "variants": [
+                "She {a5} a teacher."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 6,
+            "question": "He {a6} my friend.",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_predicate_noun"
+            ],
+            "variants": [
+                "He {a6} my friend."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 7,
+            "question": "It {a7} a cat.",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_predicate_noun"
+            ],
+            "variants": [
+                "It {a7} a cat."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 8,
+            "question": "The book {a8} on the table.",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_location"
+            ],
+            "variants": [
+                "The book {a8} on the table."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 9,
+            "question": "My mum {a9} at home.",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_location"
+            ],
+            "variants": [
+                "My mum {a9} at home."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 10,
+            "question": "It {a10} cold outside.",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "It {a10} cold outside."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 11,
+            "question": "You {a11} very kind.",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "You {a11} very kind."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 12,
+            "question": "We {a12} in the park.",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_location"
+            ],
+            "variants": [
+                "We {a12} in the park."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 13,
+            "question": "They {a13} students.",
+            "level": "A1",
+            "markers": {
+                "a13": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_predicate_noun"
+            ],
+            "variants": [
+                "They {a13} students."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 14,
+            "question": "You {a14} my best friend.",
+            "level": "A1",
+            "markers": {
+                "a14": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_predicate_noun"
+            ],
+            "variants": [
+                "You {a14} my best friend."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 15,
+            "question": "We {a15} ready for the test.",
+            "level": "A1",
+            "markers": {
+                "a15": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "We {a15} ready for the test."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 16,
+            "question": "They {a16} at school.",
+            "level": "A1",
+            "markers": {
+                "a16": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_location"
+            ],
+            "variants": [
+                "They {a16} at school."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 17,
+            "question": "My name {a17} Anna.",
+            "level": "A1",
+            "markers": {
+                "a17": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_predicate_noun"
+            ],
+            "variants": [
+                "My name {a17} Anna."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 18,
+            "question": "The dogs {a18} in the garden.",
+            "level": "A1",
+            "markers": {
+                "a18": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_location"
+            ],
+            "variants": [
+                "The dogs {a18} in the garden."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 19,
+            "question": "I {a19} tired.",
+            "level": "A1",
+            "markers": {
+                "a19": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_first_person",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "I {a19} tired."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 20,
+            "question": "Tom {a20} seven years old.",
+            "level": "A1",
+            "markers": {
+                "a20": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_age_origin"
+            ],
+            "variants": [
+                "Tom {a20} seven years old."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 21,
+            "question": "The children {a21} hungry.",
+            "level": "A1",
+            "markers": {
+                "a21": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "The children {a21} hungry."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 22,
+            "question": "She {a22} in the kitchen.",
+            "level": "A1",
+            "markers": {
+                "a22": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_location"
+            ],
+            "variants": [
+                "She {a22} in the kitchen."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 23,
+            "question": "We {a23} from Poland.",
+            "level": "A1",
+            "markers": {
+                "a23": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_age_origin"
+            ],
+            "variants": [
+                "We {a23} from Poland."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 24,
+            "question": "It {a24} a beautiful day.",
+            "level": "A1",
+            "markers": {
+                "a24": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_predicate_noun"
+            ],
+            "variants": [
+                "It {a24} a beautiful day."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 25,
+            "question": "I{a25} not ready yet.",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "'m",
+                    "options": [
+                        "'m",
+                        "'s",
+                        "'re"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_first_person",
+                "be_contraction_affirmative",
+                "be_negative_not"
+            ],
+            "variants": [
+                "I{a25} not ready yet."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 26,
+            "question": "She{a26} a really good singer.",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "'s",
+                    "options": [
+                        "'m",
+                        "'s",
+                        "'re"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_contraction_affirmative"
+            ],
+            "variants": [
+                "She{a26} a really good singer."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 27,
+            "question": "They{a27} waiting for you outside.",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "'re",
+                    "options": [
+                        "'m",
+                        "'s",
+                        "'re"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_contraction_affirmative"
+            ],
+            "variants": [
+                "They{a27} waiting for you outside."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 28,
+            "question": "He{a28} from Brazil.",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "'s",
+                    "options": [
+                        "'m",
+                        "'s",
+                        "'re"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_contraction_affirmative",
+                "be_age_origin"
+            ],
+            "variants": [
+                "He{a28} from Brazil."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 29,
+            "question": "She {a29} at school today — she is sick.",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "She {a29} at school today — she is sick."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 30,
+            "question": "They {a30} happy about the news.",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "aren't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "They {a30} happy about the news."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 31,
+            "question": "I {a31} sure about the answer.",
+            "level": "A2",
+            "markers": {
+                "a31": {
+                    "answer": "am not",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_first_person",
+                "be_negative_not"
+            ],
+            "variants": [
+                "I {a31} sure about the answer."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 32,
+            "question": "It {a32} warm enough to swim.",
+            "level": "A2",
+            "markers": {
+                "a32": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "It {a32} warm enough to swim."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 33,
+            "question": "{a33} you a doctor?",
+            "level": "A2",
+            "markers": {
+                "a33": {
+                    "answer": "Are",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_yes_no_question"
+            ],
+            "variants": [
+                "{a33} you a doctor?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 34,
+            "question": "{a34} she your sister?",
+            "level": "A2",
+            "markers": {
+                "a34": {
+                    "answer": "Is",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_yes_no_question"
+            ],
+            "variants": [
+                "{a34} she your sister?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 35,
+            "question": "{a35} they from Spain?",
+            "level": "A2",
+            "markers": {
+                "a35": {
+                    "answer": "Are",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_yes_no_question"
+            ],
+            "variants": [
+                "{a35} they from Spain?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 36,
+            "question": "{a36} it expensive?",
+            "level": "A2",
+            "markers": {
+                "a36": {
+                    "answer": "Is",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_yes_no_question"
+            ],
+            "variants": [
+                "{a36} it expensive?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 37,
+            "question": "There {a37} a park near my house.",
+            "level": "A2",
+            "markers": {
+                "a37": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_there_is_are"
+            ],
+            "variants": [
+                "There {a37} a park near my house."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 38,
+            "question": "There {a38} many people in the room.",
+            "level": "A2",
+            "markers": {
+                "a38": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_there_is_are"
+            ],
+            "variants": [
+                "There {a38} many people in the room."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 39,
+            "question": "There {a39} a cat under the table.",
+            "level": "A2",
+            "markers": {
+                "a39": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_there_is_are"
+            ],
+            "variants": [
+                "There {a39} a cat under the table."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 40,
+            "question": "There {a40} two books on the shelf.",
+            "level": "A2",
+            "markers": {
+                "a40": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_there_is_are"
+            ],
+            "variants": [
+                "There {a40} two books on the shelf."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 41,
+            "question": "My parents {a41} very strict.",
+            "level": "A2",
+            "markers": {
+                "a41": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "My parents {a41} very strict."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 42,
+            "question": "The weather {a42} nice this week.",
+            "level": "A2",
+            "markers": {
+                "a42": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "The weather {a42} nice this week."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 43,
+            "question": "We{a43} not late, are we?",
+            "level": "A2",
+            "markers": {
+                "a43": {
+                    "answer": "'re",
+                    "options": [
+                        "'m",
+                        "'s",
+                        "'re"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_contraction_affirmative"
+            ],
+            "variants": [
+                "We{a43} not late, are we?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 44,
+            "question": "{a44} I wrong?",
+            "level": "A2",
+            "markers": {
+                "a44": {
+                    "answer": "Am",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_first_person",
+                "be_yes_no_question"
+            ],
+            "variants": [
+                "{a44} I wrong?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 45,
+            "question": "Your shoes {a45} dirty.",
+            "level": "A2",
+            "markers": {
+                "a45": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "Your shoes {a45} dirty."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 46,
+            "question": "The bus {a46} always late.",
+            "level": "A2",
+            "markers": {
+                "a46": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "The bus {a46} always late."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 47,
+            "question": "There {a47} some milk in the fridge.",
+            "level": "A2",
+            "markers": {
+                "a47": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_there_is_are"
+            ],
+            "variants": [
+                "There {a47} some milk in the fridge."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 48,
+            "question": "You {a48} the best player on the team.",
+            "level": "A2",
+            "markers": {
+                "a48": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_predicate_noun"
+            ],
+            "variants": [
+                "You {a48} the best player on the team."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 49,
+            "question": "\"Are you a student?\" — \"Yes, I {a49}.\"",
+            "level": "B1",
+            "markers": {
+                "a49": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_first_person",
+                "be_short_answer"
+            ],
+            "variants": [
+                "\"Are you a student?\" — \"Yes, I {a49}.\""
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 50,
+            "question": "\"Is he at work?\" — \"No, he {a50}.\"",
+            "level": "B1",
+            "markers": {
+                "a50": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_short_answer",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "\"Is he at work?\" — \"No, he {a50}.\""
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 51,
+            "question": "\"Are they coming?\" — \"No, they {a51}.\"",
+            "level": "B1",
+            "markers": {
+                "a51": {
+                    "answer": "aren't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_short_answer",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "\"Are they coming?\" — \"No, they {a51}.\""
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 52,
+            "question": "Where {a52} the nearest hospital?",
+            "level": "B1",
+            "markers": {
+                "a52": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_wh_question"
+            ],
+            "variants": [
+                "Where {a52} the nearest hospital?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 53,
+            "question": "Who {a53} those people in the photo?",
+            "level": "B1",
+            "markers": {
+                "a53": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_wh_question"
+            ],
+            "variants": [
+                "Who {a53} those people in the photo?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 54,
+            "question": "Why {a54} she so angry?",
+            "level": "B1",
+            "markers": {
+                "a54": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_wh_question"
+            ],
+            "variants": [
+                "Why {a54} she so angry?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 55,
+            "question": "What {a55} your favourite colour?",
+            "level": "B1",
+            "markers": {
+                "a55": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_wh_question"
+            ],
+            "variants": [
+                "What {a55} your favourite colour?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 56,
+            "question": "How old {a56} your grandparents?",
+            "level": "B1",
+            "markers": {
+                "a56": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_wh_question"
+            ],
+            "variants": [
+                "How old {a56} your grandparents?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 57,
+            "question": "The news {a57} quite surprising.",
+            "level": "B1",
+            "markers": {
+                "a57": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The news {a57} quite surprising."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 58,
+            "question": "Mathematics {a58} my favourite subject.",
+            "level": "B1",
+            "markers": {
+                "a58": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Mathematics {a58} my favourite subject."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 59,
+            "question": "The scissors {a59} on the desk.",
+            "level": "B1",
+            "markers": {
+                "a59": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The scissors {a59} on the desk."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 60,
+            "question": "His trousers {a60} blue.",
+            "level": "B1",
+            "markers": {
+                "a60": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "His trousers {a60} blue."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 61,
+            "question": "I think he{a61} right about the plan.",
+            "level": "B1",
+            "markers": {
+                "a61": {
+                    "answer": "'s",
+                    "options": [
+                        "'m",
+                        "'s",
+                        "'re"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_contraction_affirmative"
+            ],
+            "variants": [
+                "I think he{a61} right about the plan."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 62,
+            "question": "We{a62} really proud of our results.",
+            "level": "B1",
+            "markers": {
+                "a62": {
+                    "answer": "'re",
+                    "options": [
+                        "'m",
+                        "'s",
+                        "'re"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_contraction_affirmative"
+            ],
+            "variants": [
+                "We{a62} really proud of our results."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 63,
+            "question": "The instructions {a63} clear enough; I need more details.",
+            "level": "B1",
+            "markers": {
+                "a63": {
+                    "answer": "aren't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "The instructions {a63} clear enough; I need more details."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 64,
+            "question": "He {a64} interested in sports at all.",
+            "level": "B1",
+            "markers": {
+                "a64": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "He {a64} interested in sports at all."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 65,
+            "question": "{a65} there any milk left?",
+            "level": "B1",
+            "markers": {
+                "a65": {
+                    "answer": "Is",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_there_is_are",
+                "be_yes_no_question"
+            ],
+            "variants": [
+                "{a65} there any milk left?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 66,
+            "question": "{a66} there many students in your class?",
+            "level": "B1",
+            "markers": {
+                "a66": {
+                    "answer": "Are",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_there_is_are",
+                "be_yes_no_question"
+            ],
+            "variants": [
+                "{a66} there many students in your class?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 67,
+            "question": "The reason {a67} simple: we forgot the keys.",
+            "level": "B1",
+            "markers": {
+                "a67": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "The reason {a67} simple: we forgot the keys."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 68,
+            "question": "Your ideas {a68} interesting, but we need more time.",
+            "level": "B1",
+            "markers": {
+                "a68": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "Your ideas {a68} interesting, but we need more time."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 69,
+            "question": "\"Where {a69} you from?\" — \"I'm from Kyiv.\"",
+            "level": "B1",
+            "markers": {
+                "a69": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_wh_question",
+                "be_age_origin"
+            ],
+            "variants": [
+                "\"Where {a69} you from?\" — \"I'm from Kyiv.\""
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 70,
+            "question": "The police {a70} outside the building.",
+            "level": "B1",
+            "markers": {
+                "a70": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The police {a70} outside the building."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 71,
+            "question": "Each student {a71} responsible for their own project.",
+            "level": "B1",
+            "markers": {
+                "a71": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Each student {a71} responsible for their own project."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 72,
+            "question": "Everything {a72} ready for the party.",
+            "level": "B1",
+            "markers": {
+                "a72": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Everything {a72} ready for the party."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 73,
+            "question": "She is from Italy, {a73} she?",
+            "level": "B2",
+            "markers": {
+                "a73": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_question_tag"
+            ],
+            "variants": [
+                "She is from Italy, {a73} she?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 74,
+            "question": "They are professionals, {a74} they?",
+            "level": "B2",
+            "markers": {
+                "a74": {
+                    "answer": "aren't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_question_tag"
+            ],
+            "variants": [
+                "They are professionals, {a74} they?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 75,
+            "question": "You aren't serious, {a75} you?",
+            "level": "B2",
+            "markers": {
+                "a75": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_question_tag"
+            ],
+            "variants": [
+                "You aren't serious, {a75} you?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 76,
+            "question": "He isn't coming, {a76} he?",
+            "level": "B2",
+            "markers": {
+                "a76": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_question_tag"
+            ],
+            "variants": [
+                "He isn't coming, {a76} he?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 77,
+            "question": "The committee {a77} divided on the issue.",
+            "level": "B2",
+            "markers": {
+                "a77": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The committee {a77} divided on the issue."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 78,
+            "question": "The team {a78} all wearing their new uniforms.",
+            "level": "B2",
+            "markers": {
+                "a78": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The team {a78} all wearing their new uniforms."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 79,
+            "question": "A number of complaints {a79} filed every week.",
+            "level": "B2",
+            "markers": {
+                "a79": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "A number of complaints {a79} filed every week."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 80,
+            "question": "The number of applicants {a80} surprisingly high.",
+            "level": "B2",
+            "markers": {
+                "a80": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The number of applicants {a80} surprisingly high."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 81,
+            "question": "The main concern {a81} the lack of funding.",
+            "level": "B2",
+            "markers": {
+                "a81": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_predicate_noun"
+            ],
+            "variants": [
+                "The main concern {a81} the lack of funding."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 82,
+            "question": "One of the problems {a82} that we started too late.",
+            "level": "B2",
+            "markers": {
+                "a82": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "One of the problems {a82} that we started too late."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 83,
+            "question": "There {a83} several reasons for the delay.",
+            "level": "B2",
+            "markers": {
+                "a83": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_there_is_are"
+            ],
+            "variants": [
+                "There {a83} several reasons for the delay."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 84,
+            "question": "Neither of the answers {a84} correct.",
+            "level": "B2",
+            "markers": {
+                "a84": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Neither of the answers {a84} correct."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 85,
+            "question": "The results {a85} satisfactory; we need to redo the experiment.",
+            "level": "B2",
+            "markers": {
+                "a85": {
+                    "answer": "aren't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "The results {a85} satisfactory; we need to redo the experiment."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 86,
+            "question": "This information {a86} accurate, so please double-check it.",
+            "level": "B2",
+            "markers": {
+                "a86": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "This information {a86} accurate, so please double-check it."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 87,
+            "question": "What {a87} the main advantages of this approach?",
+            "level": "B2",
+            "markers": {
+                "a87": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_wh_question"
+            ],
+            "variants": [
+                "What {a87} the main advantages of this approach?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 88,
+            "question": "How {a88} it possible that no one noticed the mistake?",
+            "level": "B2",
+            "markers": {
+                "a88": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_wh_question"
+            ],
+            "variants": [
+                "How {a88} it possible that no one noticed the mistake?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 89,
+            "question": "Either Tom or his brothers {a89} responsible for the mess.",
+            "level": "B2",
+            "markers": {
+                "a89": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Either Tom or his brothers {a89} responsible for the mess."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 90,
+            "question": "Neither the teacher nor the students {a90} aware of the change.",
+            "level": "B2",
+            "markers": {
+                "a90": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Neither the teacher nor the students {a90} aware of the change."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 91,
+            "question": "Not only the manager but also the employees {a91} upset.",
+            "level": "B2",
+            "markers": {
+                "a91": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Not only the manager but also the employees {a91} upset."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 92,
+            "question": "The audience {a92} clapping enthusiastically.",
+            "level": "B2",
+            "markers": {
+                "a92": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The audience {a92} clapping enthusiastically."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 93,
+            "question": "All the furniture {a93} brand new.",
+            "level": "B2",
+            "markers": {
+                "a93": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "All the furniture {a93} brand new."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 94,
+            "question": "The data {a94} available on the website.",
+            "level": "B2",
+            "markers": {
+                "a94": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The data {a94} available on the website."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 95,
+            "question": "Your luggage {a95} too heavy for the overhead bin.",
+            "level": "B2",
+            "markers": {
+                "a95": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Your luggage {a95} too heavy for the overhead bin."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 96,
+            "question": "The majority of voters {a96} in favour of the proposal.",
+            "level": "B2",
+            "markers": {
+                "a96": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The majority of voters {a96} in favour of the proposal."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 97,
+            "question": "It {a97} essential that every participant be informed.",
+            "level": "C1",
+            "markers": {
+                "a97": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_formal_register"
+            ],
+            "variants": [
+                "It {a97} essential that every participant be informed."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 98,
+            "question": "There {a98} no justification for such behaviour.",
+            "level": "C1",
+            "markers": {
+                "a98": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_there_is_are",
+                "be_formal_register"
+            ],
+            "variants": [
+                "There {a98} no justification for such behaviour."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 99,
+            "question": "The criteria for selection {a99} outlined in the document.",
+            "level": "C1",
+            "markers": {
+                "a99": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement",
+                "be_formal_register"
+            ],
+            "variants": [
+                "The criteria for selection {a99} outlined in the document."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 100,
+            "question": "The phenomena described in the article {a100} still poorly understood.",
+            "level": "C1",
+            "markers": {
+                "a100": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement",
+                "be_formal_register"
+            ],
+            "variants": [
+                "The phenomena described in the article {a100} still poorly understood."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 101,
+            "question": "What {a101} needed now is strong leadership.",
+            "level": "C1",
+            "markers": {
+                "a101": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "What {a101} needed now is strong leadership."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 102,
+            "question": "The statistics {a102} misleading without proper context.",
+            "level": "C1",
+            "markers": {
+                "a102": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The statistics {a102} misleading without proper context."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 103,
+            "question": "A series of unfortunate events {a103} to blame.",
+            "level": "C1",
+            "markers": {
+                "a103": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "A series of unfortunate events {a103} to blame."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 104,
+            "question": "The media {a104} often biased in their reporting.",
+            "level": "C1",
+            "markers": {
+                "a104": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The media {a104} often biased in their reporting."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 105,
+            "question": "Such {a105} the nature of progress: it demands sacrifice.",
+            "level": "C1",
+            "markers": {
+                "a105": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_emphasis_inversion"
+            ],
+            "variants": [
+                "Such {a105} the nature of progress: it demands sacrifice."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 106,
+            "question": "Great {a106} the rewards for those who persevere.",
+            "level": "C1",
+            "markers": {
+                "a106": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_emphasis_inversion"
+            ],
+            "variants": [
+                "Great {a106} the rewards for those who persevere."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 107,
+            "question": "The findings are conclusive, {a107} they?",
+            "level": "C1",
+            "markers": {
+                "a107": {
+                    "answer": "aren't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_question_tag"
+            ],
+            "variants": [
+                "The findings are conclusive, {a107} they?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 108,
+            "question": "This evidence isn't reliable, {a108} it?",
+            "level": "C1",
+            "markers": {
+                "a108": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_question_tag"
+            ],
+            "variants": [
+                "This evidence isn't reliable, {a108} it?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 109,
+            "question": "What I find most frustrating {a109} the constant delays.",
+            "level": "C1",
+            "markers": {
+                "a109": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "What I find most frustrating {a109} the constant delays."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 110,
+            "question": "The pros and cons of the proposal {a110} well documented.",
+            "level": "C1",
+            "markers": {
+                "a110": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The pros and cons of the proposal {a110} well documented."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 111,
+            "question": "Whether they succeed or fail {a111} entirely up to them.",
+            "level": "C1",
+            "markers": {
+                "a111": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Whether they succeed or fail {a111} entirely up to them."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 112,
+            "question": "None of the information provided {a112} relevant to our case.",
+            "level": "C1",
+            "markers": {
+                "a112": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "None of the information provided {a112} relevant to our case."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 113,
+            "question": "The authorities {a113} willing to negotiate under these conditions.",
+            "level": "C1",
+            "markers": {
+                "a113": {
+                    "answer": "aren't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_negative_contraction",
+                "be_formal_register"
+            ],
+            "variants": [
+                "The authorities {a113} willing to negotiate under these conditions."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 114,
+            "question": "This {a114} the first time such a mistake has occurred.",
+            "level": "C1",
+            "markers": {
+                "a114": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_negative_contraction"
+            ],
+            "variants": [
+                "This {a114} the first time such a mistake has occurred."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 115,
+            "question": "The dynamics of the situation {a115} constantly changing.",
+            "level": "C1",
+            "markers": {
+                "a115": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The dynamics of the situation {a115} constantly changing."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 116,
+            "question": "Every one of the candidates {a116} highly qualified.",
+            "level": "C1",
+            "markers": {
+                "a116": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Every one of the candidates {a116} highly qualified."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 117,
+            "question": "There {a117} a number of issues that remain unresolved.",
+            "level": "C1",
+            "markers": {
+                "a117": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_there_is_are",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "There {a117} a number of issues that remain unresolved."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 118,
+            "question": "Here {a118} the documents you requested.",
+            "level": "C1",
+            "markers": {
+                "a118": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_emphasis_inversion"
+            ],
+            "variants": [
+                "Here {a118} the documents you requested."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 119,
+            "question": "The only option left {a119} to start over from scratch.",
+            "level": "C1",
+            "markers": {
+                "a119": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_predicate_noun"
+            ],
+            "variants": [
+                "The only option left {a119} to start over from scratch."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 120,
+            "question": "I {a120} not in a position to comment on that matter.",
+            "level": "C1",
+            "markers": {
+                "a120": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_first_person",
+                "be_negative_not",
+                "be_formal_register"
+            ],
+            "variants": [
+                "I {a120} not in a position to comment on that matter."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 121,
+            "question": "Blessed {a121} those who seek the truth.",
+            "level": "C2",
+            "markers": {
+                "a121": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_emphasis_inversion"
+            ],
+            "variants": [
+                "Blessed {a121} those who seek the truth."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 122,
+            "question": "Gone {a122} the days when we could rely on a single income.",
+            "level": "C2",
+            "markers": {
+                "a122": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_emphasis_inversion"
+            ],
+            "variants": [
+                "Gone {a122} the days when we could rely on a single income."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 123,
+            "question": "Such {a123} the paradox of modern life: more connected yet more isolated.",
+            "level": "C2",
+            "markers": {
+                "a123": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_emphasis_inversion"
+            ],
+            "variants": [
+                "Such {a123} the paradox of modern life: more connected yet more isolated."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 124,
+            "question": "Rare {a124} the occasions when all members reach unanimous agreement.",
+            "level": "C2",
+            "markers": {
+                "a124": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_emphasis_inversion"
+            ],
+            "variants": [
+                "Rare {a124} the occasions when all members reach unanimous agreement."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 125,
+            "question": "The onus {a125} on the applicant to demonstrate eligibility.",
+            "level": "C2",
+            "markers": {
+                "a125": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_formal_register"
+            ],
+            "variants": [
+                "The onus {a125} on the applicant to demonstrate eligibility."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 126,
+            "question": "The ramifications of this policy {a126} far-reaching.",
+            "level": "C2",
+            "markers": {
+                "a126": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_formal_register",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The ramifications of this policy {a126} far-reaching."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 127,
+            "question": "There {a127} compelling grounds for reconsidering the verdict.",
+            "level": "C2",
+            "markers": {
+                "a127": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_there_is_are",
+                "be_formal_register"
+            ],
+            "variants": [
+                "There {a127} compelling grounds for reconsidering the verdict."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 128,
+            "question": "The hypothesis, along with its corollaries, {a128} presented in Chapter 3.",
+            "level": "C2",
+            "markers": {
+                "a128": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement",
+                "be_formal_register"
+            ],
+            "variants": [
+                "The hypothesis, along with its corollaries, {a128} presented in Chapter 3."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 129,
+            "question": "Neither the quality nor the aesthetics of the design {a129} up to standard.",
+            "level": "C2",
+            "markers": {
+                "a129": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Neither the quality nor the aesthetics of the design {a129} up to standard."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 130,
+            "question": "The ethics of artificial intelligence {a130} a subject of intense debate.",
+            "level": "C2",
+            "markers": {
+                "a130": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The ethics of artificial intelligence {a130} a subject of intense debate."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 131,
+            "question": "Measles {a131} still a serious concern in many developing countries.",
+            "level": "C2",
+            "markers": {
+                "a131": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Measles {a131} still a serious concern in many developing countries."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 132,
+            "question": "The whereabouts of the suspect {a132} unknown.",
+            "level": "C2",
+            "markers": {
+                "a132": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The whereabouts of the suspect {a132} unknown."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 133,
+            "question": "I am right to question this, {a133} I?",
+            "level": "C2",
+            "markers": {
+                "a133": {
+                    "answer": "aren't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_first_person",
+                "be_question_tag"
+            ],
+            "variants": [
+                "I am right to question this, {a133} I?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 134,
+            "question": "The implications are staggering, {a134} they?",
+            "level": "C2",
+            "markers": {
+                "a134": {
+                    "answer": "aren't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "am not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_question_tag"
+            ],
+            "variants": [
+                "The implications are staggering, {a134} they?"
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 135,
+            "question": "Here {a135} the crux of the matter.",
+            "level": "C2",
+            "markers": {
+                "a135": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_emphasis_inversion"
+            ],
+            "variants": [
+                "Here {a135} the crux of the matter."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 136,
+            "question": "Worthy {a136} the cause for which they fight.",
+            "level": "C2",
+            "markers": {
+                "a136": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_emphasis_inversion"
+            ],
+            "variants": [
+                "Worthy {a136} the cause for which they fight."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 137,
+            "question": "What the reports fail to mention {a137} the environmental costs.",
+            "level": "C2",
+            "markers": {
+                "a137": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "What the reports fail to mention {a137} the environmental costs."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 138,
+            "question": "The extent to which these factors {a138} interconnected remains unclear.",
+            "level": "C2",
+            "markers": {
+                "a138": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The extent to which these factors {a138} interconnected remains unclear."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 139,
+            "question": "It {a139} not for us to judge the decisions of the past.",
+            "level": "C2",
+            "markers": {
+                "a139": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_formal_register"
+            ],
+            "variants": [
+                "It {a139} not for us to judge the decisions of the past."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 140,
+            "question": "Notwithstanding the challenges, the outcomes {a140} broadly positive.",
+            "level": "C2",
+            "markers": {
+                "a140": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_formal_register",
+                "be_predicate_adjective"
+            ],
+            "variants": [
+                "Notwithstanding the challenges, the outcomes {a140} broadly positive."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 141,
+            "question": "The alumni {a141} gathering for the annual reunion.",
+            "level": "C2",
+            "markers": {
+                "a141": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "The alumni {a141} gathering for the annual reunion."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 142,
+            "question": "Each of the hypotheses {a142} tested under controlled conditions.",
+            "level": "C2",
+            "markers": {
+                "a142": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_subject_verb_agreement",
+                "be_formal_register"
+            ],
+            "variants": [
+                "Each of the hypotheses {a142} tested under controlled conditions."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 143,
+            "question": "Whether the data {a143} sufficient to draw conclusions is debatable.",
+            "level": "C2",
+            "markers": {
+                "a143": {
+                    "answer": "are",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_plural_second",
+                "be_subject_verb_agreement"
+            ],
+            "variants": [
+                "Whether the data {a143} sufficient to draw conclusions is debatable."
+            ],
+            "source": "theory_page_1288"
+        },
+        {
+            "id": 144,
+            "question": "There {a144} little doubt that the results are significant.",
+            "level": "C2",
+            "markers": {
+                "a144": {
+                    "answer": "is",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_third_person_singular",
+                "be_there_is_are",
+                "be_formal_register"
+            ],
+            "variants": [
+                "There {a144} little doubt that the results are significant."
+            ],
+            "source": "theory_page_1288"
+        }
+    ],
+    "saved_test": {
+        "uuid": "verb-to-be-pres-opus46-saved",
+        "slug": "verb_to_be_present_forms_opus46",
+        "name": "Verb to Be: Present Forms — Opus 4.6 V3 Questions Test",
+        "description": "Practice set for verb to be present forms: am / is / are in affirmative, negative, contracted, question, and advanced agreement patterns across A1–C2.",
+        "filters": {
+            "num_questions": 144,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBePresentFormsV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1288,
+                "theory_page_ids": [
+                    1288
+                ],
+                "theory_page": {
+                    "id": 1288,
+                    "slug": "verb-to-be-present",
+                    "title": "Verb to Be: Present Forms",
+                    "category_slug_path": "basic-grammar/verb-to-be",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBePresentTheorySeeder",
+                    "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-present"
+                }
+            }
+        }
+    }
+}

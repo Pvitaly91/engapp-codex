@@ -1,0 +1,1526 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\Pl\\AI\\Copilot\\Opus46\\WordOrderWithVerbsAndObjectsV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\WordOrderWithVerbsAndObjectsV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "pl",
+  "hint_provider": "copilot-opus46",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "W języku angielskim standardowy szyk zdania to podmiot + czasownik + dopełnienie (SVO).",
+        "Zwróć uwagę na podmiot `She` — po nim powinien być czasownik, a potem dopełnienie."
+      ],
+      "explanations": {
+        "a1": {
+          "books reads": "Błędny szyk: dopełnienie nie może stać przed czasownikiem w zdaniu twierdzącym.",
+          "reads books": "Poprawnie: czasownik + dopełnienie w szyku SVO.",
+          "books she reads": "Zbędne powtórzenie podmiotu i odwrócony szyk."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Szyk SVO: podmiot (They) + czasownik (drink) + dopełnienie (milk).",
+        "Po `They` oczekujemy czasownika, a potem dopełnienia."
+      ],
+      "explanations": {
+        "a2": {
+          "milk drink": "Dopełnienie nie może stać przed czasownikiem.",
+          "drink milk": "Poprawnie: czasownik + dopełnienie.",
+          "milk they drink": "Zbędne powtórzenie podmiotu i błędny szyk."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "SVO: po podmiocie `He` czasownik stoi przed dopełnieniem.",
+        "Po `He` najpierw `eats`, potem `lunch`."
+      ],
+      "explanations": {
+        "a3": {
+          "lunch eats": "Dopełnienie przed czasownikiem — błędny szyk.",
+          "eats lunch": "Poprawnie: czasownik + dopełnienie.",
+          "lunch he eats": "Zbędny podmiot; standardowy SVO wymaga podmiotu na początku."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Standardowy szyk SVO: podmiot + czasownik + dopełnienie.",
+        "Po `I` czasownik `watch` przed dopełnieniem `TV`."
+      ],
+      "explanations": {
+        "a4": {
+          "TV watch": "Dopełnienie nie może poprzedzać czasownika.",
+          "watch TV": "Poprawnie: czasownik + dopełnienie w szyku SVO.",
+          "TV I watch": "Zaburzony szyk ze zbędnym podmiotem."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "SVO: We + play + football.",
+        "Czasownik `play` musi poprzedzać dopełnienie `football`."
+      ],
+      "explanations": {
+        "a5": {
+          "football play": "Dopełnienie przed czasownikiem — błąd.",
+          "play football": "Poprawnie: standardowy szyk SVO.",
+          "football we play": "Błędny szyk ze zbędnym podmiotem."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Przeczenie z do/does: does + not + czasownik główny + dopełnienie.",
+        "Słowo `not` stoi zaraz po `does`."
+      ],
+      "explanations": {
+        "a6": {
+          "not does watch TV": "`not` nie może stać przed `does`.",
+          "does not watch TV": "Poprawnie: does + not + czasownik + dopełnienie.",
+          "does watch not TV": "`not` musi być między czasownikiem posiłkowym a głównym."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Przeczenie z does: does + not + bezokolicznik.",
+        "Słowo `not` następuje bezpośrednio po `does`."
+      ],
+      "explanations": {
+        "a7": {
+          "not does drink coffee": "Błędny szyk: `not` nie poprzedza `does`.",
+          "does not drink coffee": "Poprawnie: does + not + drink + coffee.",
+          "does drink not coffee": "`not` musi stać przed czasownikiem głównym."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Przeczenie z do: do + not + czasownik główny + dopełnienie.",
+        "Po `do` od razu `not`, potem czasownik `play`."
+      ],
+      "explanations": {
+        "a8": {
+          "not do play games": "`not` nie może stać przed `do`.",
+          "do not play games": "Poprawnie: do + not + play + games.",
+          "do play not games": "`not` musi być między czasownikiem posiłkowym a głównym."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Czasownik modalny + bezokolicznik: can + speak + dopełnienie.",
+        "Po `can` następuje forma podstawowa `speak`, potem dopełnienie."
+      ],
+      "explanations": {
+        "a9": {
+          "speak can English": "Czasownik główny nie może stać przed modalnym.",
+          "can speak English": "Poprawnie: modalny + czasownik + dopełnienie.",
+          "can English speak": "Dopełnienie nie może stać między modalnym a głównym."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Modalny + bezokolicznik + dopełnienie: can + ride + a bike.",
+        "Po `can` następuje `ride`, potem dopełnienie."
+      ],
+      "explanations": {
+        "a10": {
+          "ride can a bike": "Czasownik główny nie może stać przed modalnym.",
+          "can ride a bike": "Poprawnie: can + ride + a bike.",
+          "can a bike ride": "Dopełnienie nie może rozdzielać modalnego i głównego."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "SVO: Tom + washes + the dishes.",
+        "Po podmiocie `Tom` czasownik przed dopełnieniem."
+      ],
+      "explanations": {
+        "a11": {
+          "the dishes washes": "Dopełnienie nie może stać przed czasownikiem.",
+          "washes the dishes": "Poprawnie: czasownik + dopełnienie.",
+          "dishes washes the": "Całkowicie błędny szyk."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "SVO: `brushes` przed dopełnieniem `her teeth`.",
+        "Po podmiocie czasownik, potem dopełnienie."
+      ],
+      "explanations": {
+        "a12": {
+          "her teeth brushes": "Dopełnienie przed czasownikiem — błąd.",
+          "brushes her teeth": "Poprawnie: czasownik + dopełnienie.",
+          "teeth brushes her": "Całkowicie błędny szyk."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Pytania ogólne: czasownik posiłkowy (Do/Does) + podmiot + czasownik główny.",
+        "Aby zadać pytanie z `like`, potrzeba: Do + you + like."
+      ],
+      "explanations": {
+        "a13": {
+          "You do": "To szyk twierdzący; w pytaniu `Do` przed podmiotem.",
+          "Do you": "Poprawnie: inwersja posiłkowego w pytaniu.",
+          "Like you do": "Czasownik główny nie rozpoczyna pytania ogólnego."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Pytanie z does: Does + podmiot + bezokolicznik.",
+        "Dla trzeciej osoby liczby pojedynczej: `Does` na początku pytania."
+      ],
+      "explanations": {
+        "a14": {
+          "She does": "Szyk twierdzący; w pytaniu `Does` przed podmiotem.",
+          "Does she": "Poprawnie: Does + she — szyk pytający.",
+          "Have she does": "Błędny czasownik posiłkowy i zaburzony szyk."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "SVO: podmiot + czasownik + dopełnienie.",
+        "Po `The baby` czasownik `drinks`, potem `water`."
+      ],
+      "explanations": {
+        "a15": {
+          "water drinks": "Dopełnienie nie może stać przed czasownikiem.",
+          "drinks water": "Poprawnie: czasownik + dopełnienie.",
+          "water the baby drinks": "Zbędny podmiot i błędny szyk."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Modalny + bezokolicznik + dopełnienie: can + use + computers.",
+        "Po `can` następuje `use`, potem dopełnienie."
+      ],
+      "explanations": {
+        "a16": {
+          "use can computers": "Czasownik główny nie przed modalnym.",
+          "can use computers": "Poprawnie: modalny + czasownik + dopełnienie.",
+          "can computers use": "Dopełnienie nie rozdziela modalnego i głównego."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "SVO: My mother + cooks + dinner.",
+        "Czasownik `cooks` przed dopełnieniem `dinner`."
+      ],
+      "explanations": {
+        "a17": {
+          "dinner cooks": "Dopełnienie nie przed czasownikiem.",
+          "cooks dinner": "Poprawnie: czasownik + dopełnienie.",
+          "dinner my mother cooks": "Błędny szyk ze zbędnym podmiotem."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Pytanie z can: Can + podmiot + bezokolicznik.",
+        "Modalny `Can` na początku pytania, przed podmiotem."
+      ],
+      "explanations": {
+        "a18": {
+          "You can": "Szyk twierdzący; `Can` przed podmiotem w pytaniu.",
+          "Can you": "Poprawnie: inwersja modalna w pytaniu.",
+          "Swim you can": "Czasownik główny nie rozpoczyna pytania z modalnym."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 19).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a19": {
+          "reading is a book": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "is reading a book": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "is a book reading": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 20).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a20": {
+          "watching are a film": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "are watching a film": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "are a film watching": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 21).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a21": {
+          "finished have my homework": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "have finished my homework": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "have my homework finished": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 22).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a22": {
+          "not has eaten breakfast": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "has not eaten breakfast": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "has eaten not breakfast": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 23).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a23": {
+          "off turn the light": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "turn off the light": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "turn the light off the": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 24).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a24": {
+          "up pick the children": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "pick up the children": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "pick the children pick up": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 25).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a25": {
+          "gave to her friend a present": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "gave a present to her friend": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "a present gave her friend to": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 26).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a26": {
+          "gave homework the students": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "gave the students homework": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "the students gave homework": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 27).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a27": {
+          "sent to my grandma a card": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "sent a card to my grandma": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "a card sent to my grandma": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 28).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a28": {
+          "on put your coat": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "put on your coat": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "put your coat on put": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 29).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a29": {
+          "takes always the bus": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "always takes the bus": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "the bus always takes": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 30).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a30": {
+          "drinks usually tea": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "usually drinks tea": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "tea usually drinks": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 31,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 31).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a31": {
+          "not did visit the museum": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "did not visit the museum": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "did visit not the museum": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 32,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 32).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a32": {
+          "You have finished": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "Have you finished": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Finished have you": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 33,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 33).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a33": {
+          "He is cooking dinner": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "Is he cooking dinner": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Cooking is he dinner": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 34,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 34).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a34": {
+          "down write the address": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "write down the address": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "write the address down write": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 35,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 35).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a35": {
+          "eats often lunch": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "often eats lunch": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "lunch often eats": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 36,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 36).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a36": {
+          "making is a cake": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "is making a cake": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "is a cake making": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 37,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 37).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a37": {
+          "turn down it": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "turn it down": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "it turn down": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 38,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 38).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a38": {
+          "pick up it": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "pick it up": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "it pick up": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 39,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 39).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a39": {
+          "worked out it": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "worked it out": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "it worked out": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 40,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 40).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a40": {
+          "study should the material": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "should study the material": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "should the material study": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 41,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 41).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a41": {
+          "not must use their phones": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "must not use their phones": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "must use not their phones": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 42,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 42).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a42": {
+          "eat should more vegetables": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "should eat more vegetables": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "should more vegetables eat": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 43,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 43).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a43": {
+          "has left never her keys": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "has never left her keys": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "never has her keys left": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 44,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 44).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a44": {
+          "had finished already the report": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "had already finished the report": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "already had the report finished": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 45,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 45).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a45": {
+          "look the children after": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "look after the children": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "after look the children": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 46,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 46).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a46": {
+          "looks his glasses for": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "looks for his glasses": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "for looks his glasses": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 47,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 47).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a47": {
+          "were reading quietly their notes": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "were quietly reading their notes": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "quietly were their notes reading": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 48,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 48).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a48": {
+          "order will the pasta": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "will order the pasta": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "will the pasta order": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 49,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 49).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a49": {
+          "gave a book her brother": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "gave her brother a book": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "her brother gave a book": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 50,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 50).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a50": {
+          "sent an email all employees": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "sent all employees an email": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "all employees sent an email": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 51,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 51).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a51": {
+          "bring back it": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "bring it back": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "it bring back": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 52,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 52).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a52": {
+          "checks always her answers": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "always checks her answers": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "her answers always checks": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 53,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 53).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a53": {
+          "have cleaning been the house": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "have been cleaning the house": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "been have the house cleaning": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 54,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 54).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a54": {
+          "He has called": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "Has he called": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Called has he": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 55,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 55).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a55": {
+          "sent was to the manager": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "was sent to the manager": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "was to the manager sent": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 56,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 56).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a56": {
+          "has postponed been": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "has been postponed": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "been has postponed": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 57,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 57).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a57": {
+          "came an old photo across": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "came across an old photo": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "across came an old photo": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 58,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 58).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a58": {
+          "wrote down it": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "wrote it down": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "it wrote down": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 59,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 59).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a59": {
+          "be must investigated": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "must be investigated": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "must investigated be": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 60,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 60).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a60": {
+          "should been have completed": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "should have been completed": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "have should completed been": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 61,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 61).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a61": {
+          "was writing still the report": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "was still writing the report": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "still was the report writing": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 62,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 62).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a62": {
+          "not could make up": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "could not make up": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "could make not up": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 63,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 63).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a63": {
+          "had put just the children to bed": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "had just put the children to bed": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "just had the children to bed put": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 64,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 64).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a64": {
+          "give back the money to them": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "give the money back to them": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "give to them back the money": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 65,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 65).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a65": {
+          "need signed to be": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "need to be signed": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "to be need signed": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 66,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 66).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a66": {
+          "be will announced": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "will be announced": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "will announced be": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 67,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 67).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a67": {
+          "explained carefully to the audience the concept": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "carefully explained the concept to the audience": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "the concept carefully explained to the audience": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 68,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 68).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a68": {
+          "ran our old professor into": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "ran into our old professor": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "into ran our old professor": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 69,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 69).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a69": {
+          "handed the papers out the class to": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "handed out the papers to the class": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "out handed to the class the papers": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 70,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 70).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a70": {
+          "might to think want it over": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "might want to think it over": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "might want it to think over": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 71,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 71).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a71": {
+          "The email has been sent": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "Has the email been sent": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Been has the email sent": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 72,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 72).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a72": {
+          "has gradually been recovering her strength": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "has been gradually recovering her strength": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "gradually has been her strength recovering": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 73,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 73).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a73": {
+          "They had never before witnessed": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "Never before had they witnessed": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Had never before they witnessed": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 74,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 74).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a74": {
+          "She had no sooner closed the door": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "No sooner had she closed the door": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Had no sooner she closed the door": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 75,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 75).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a75": {
+          "The manager it was who explained": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "It was the manager who explained": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Who the manager it was explained": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 76,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 76).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a76": {
+          "More time what I really want is": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "What I really want is more time": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Is what I really want more time": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 77,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 77).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a77": {
+          "should been have carefully reviewed": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "should have been carefully reviewed": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "should carefully have been reviewed": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 78,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 78).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a78": {
+          "The editor rarely does overlook": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "Rarely does the editor overlook": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Does rarely the editor overlook": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 79,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 79).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a79": {
+          "she did write the entire report": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "did she write the entire report": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "did write she the entire report": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 80,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 80).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a80": {
+          "is being currently reviewed": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "is currently being reviewed": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "currently is reviewed being": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 81,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 81).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a81": {
+          "tracked the original document down": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "tracked down the original document": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "down tracked the original document": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 82,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 82).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a82": {
+          "The budget allocation it is": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "It is the budget allocation": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Is it the budget allocation": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 83,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 83).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a83": {
+          "must thoroughly be investigated": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "must be thoroughly investigated": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "thoroughly must be investigated": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 84,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 84).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a84": {
+          "may accidentally have been sent": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "may have been accidentally sent": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "may have accidentally sent been": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 85,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 85).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a85": {
+          "employees should share": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "should employees share": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "should share employees": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 86,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 86).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a86": {
+          "could not up put with": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "could not put up with": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "could put not up with": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 87,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 87).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a87": {
+          "did completely away with the original design": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "completely did away with the original design": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "did away with completely the original design": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 88,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 88).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a88": {
+          "He did little know": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "Little did he know": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Did he little know": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 89,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 89).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a89": {
+          "will to need be completely renovated": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "will need to be completely renovated": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "will need completely to be renovated": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 90,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 90).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a90": {
+          "After signing the contract only": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "Only after signing the contract": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Signing the contract only after": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 91,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 91).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a91": {
+          "They did not grasp until the report was published": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "Not until the report was published did they grasp": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Did not until the report was published they grasp": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 92,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 92).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a92": {
+          "He not only did conceive the project": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "Not only did he conceive the project": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Did not only he conceive the project": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 93,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 93).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a93": {
+          "should more thoroughly have been vetted": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "should have been more thoroughly vetted": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "should have more been thoroughly vetted": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 94,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 94).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a94": {
+          "The committee what failed to appreciate was": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "What the committee failed to appreciate was": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Was what the committee failed to appreciate": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 95,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 95).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a95": {
+          "will to need have been fully implemented": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "will need to have been fully implemented": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "will need to have fully been implemented": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 96,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 96).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a96": {
+          "The director had scarcely thought": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "Scarcely had the director thought": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Had scarcely the director thought": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 97,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 97).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a97": {
+          "His meticulous attention to detail it was": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "It was his meticulous attention to detail": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Was it his meticulous attention to detail": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 98,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 98).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a98": {
+          "must meticulously have been examined": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "must have been meticulously examined": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "must have meticulously examined been": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 99,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 99).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a99": {
+          "could not brush simply it aside": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "could not simply brush it aside": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "simply could not brush aside it": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 100,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 100).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a100": {
+          "The board had seldom been confronted": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "Seldom had the board been confronted": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Had seldom the board been confronted": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 101,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 101).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a101": {
+          "had repeatedly been turned down by investors": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "had been repeatedly turned down by investors": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "had been turned repeatedly down by investors": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 102,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 102).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a102": {
+          "She chose what to bring up was known": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "What she chose to bring up was known": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Known was what she chose to bring up": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 103,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 103).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a103": {
+          "the company did agree to change": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "did the company agree to change": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "did agree the company to change": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 104,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 104).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a104": {
+          "ought formally to have been submitted": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "ought to have been formally submitted": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "ought to have formally submitted been": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 105,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 105).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a105": {
+          "Her willingness it was to follow up on every lead": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "It was her willingness to follow up on every lead": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "Was it her willingness to follow up on every lead": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 106,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 106).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a106": {
+          "they had switched on the equipment": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "had they switched on the equipment": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "had switched they on the equipment": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 107,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 107).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a107": {
+          "could possibly not have been completed": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "could not possibly have been completed": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "could not have possibly completed been": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    },
+    {
+      "id": 108,
+      "hints": [
+        "Zwróć uwagę na prawidłowy szyk wyrazów w zdaniu angielskim (pytanie 108).",
+        "Sprawdź, czy czasownik posiłkowy, modalny lub frazowy jest na właściwym miejscu."
+      ],
+      "explanations": {
+        "a108": {
+          "going carefully over every clause": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia.",
+          "carefully going over every clause": "Poprawnie: prawidłowy szyk wyrazów w zdaniu angielskim.",
+          "going over carefully every clause": "Błędny szyk: sprawdź kolejność czasownika posiłkowego, modalnego lub frazowego i dopełnienia."
+        }
+      }
+    }
+  ]
+}

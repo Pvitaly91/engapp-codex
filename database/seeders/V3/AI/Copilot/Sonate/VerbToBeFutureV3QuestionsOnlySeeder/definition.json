@@ -1,0 +1,4563 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\VerbToBeFutureV3QuestionsOnlySeeder",
+        "uuid_namespace": "vtbf-cp-sn"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Verb to Be"
+    },
+    "sources": {
+        "theory_page_1178": {
+            "name": "Verb to Be: Future"
+        }
+    },
+    "tags": {
+        "will_be_affirmative": {
+            "name": "will be – affirmative future statements",
+            "category": "tense_usage"
+        },
+        "wont_be_negative": {
+            "name": "won’t be / will not be – future negatives",
+            "category": "tense_usage"
+        },
+        "will_be_question": {
+            "name": "Will … be? – future yes/no questions",
+            "category": "tense_usage"
+        },
+        "will_be_short_answer": {
+            "name": "Short answers with will / won’t",
+            "category": "tense_usage"
+        },
+        "will_be_tag_question": {
+            "name": "Tag questions with will be",
+            "category": "tense_usage"
+        },
+        "will_be_passive": {
+            "name": "Passive voice with will be",
+            "category": "passive_structure"
+        },
+        "will_be_conditional": {
+            "name": "will be in conditional sentences",
+            "category": "tense_usage"
+        },
+        "will_be_time_clause": {
+            "name": "will be with future time clauses",
+            "category": "tense_usage"
+        },
+        "will_be_vs_going_to_be": {
+            "name": "will be vs be going to be",
+            "category": "tense_usage"
+        },
+        "will_be_future_perfect": {
+            "name": "will have been – future perfect",
+            "category": "tense_usage"
+        },
+        "modal_shall_be": {
+            "name": "shall be – formal/legal register",
+            "category": "modal_meaning"
+        },
+        "will_be_formal_register": {
+            "name": "will be in formal/academic register",
+            "category": "tense_usage"
+        }
+    },
+    "default_tag_keys": [
+        "will_be_affirmative"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid_segments": [
+                "a1",
+                "q01"
+            ],
+            "question": "She {a1} at home tomorrow.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Для майбутнього часу дієслово «to be» вживається у формі «will be» незалежно від підмета.",
+                        "Слово «tomorrow» сигналізує про майбутній час і вимагає відповідної форми дієслова."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «tomorrow» вказує на майбутній час, а «will be» — єдина правильна форма з «to be» для всіх підметів.",
+                            "is": "«is» — це форма теперішнього часу (Present Simple), а не майбутній; слово «tomorrow» чітко вказує на майбутнє.",
+                            "was": "«was» — форма минулого часу, що суперечить контексту: «tomorrow» означає майбутнє, а не минуле."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "She {a1} at home tomorrow."
+            ]
+        },
+        {
+            "id": 2,
+            "uuid_segments": [
+                "a1",
+                "q02"
+            ],
+            "question": "I {a1} ready in five minutes.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "am",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Для майбутнього часу з «to be» форма «will be» однакова для всіх підметів, включно з «I».",
+                        "Вираз «in five minutes» позначає найближче майбутнє і вказує, яку форму дієслова слід використати."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «in five minutes» вказує на подію в майбутньому, і «will be» — єдина правильна форма для «I» з «to be».",
+                            "am": "«am» — це форма теперішнього часу для «I», яка не може описати подію через «five minutes», тобто в майбутньому.",
+                            "was": "«was» — форма минулого часу, цілком протилежна значенню «in five minutes», яке позначає майбутній момент."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "I {a1} ready in five minutes."
+            ]
+        },
+        {
+            "id": 3,
+            "uuid_segments": [
+                "a1",
+                "q03"
+            ],
+            "question": "They {a1} here soon.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«will be» вживається з усіма підметами в майбутньому часі: «I», «we», «they» тощо.",
+                        "Слово «soon» означає «скоро» і вказує на майбутній час, а не на теперішній чи минулий."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «soon» вказує на майбутнє, і «will be» незмінна для множинного підмета «they».",
+                            "are": "«are» — форма теперішнього часу для «they», але «soon» означає майбутнє, де потрібне «will be».",
+                            "were": "«were» — форма минулого часу, яка суперечить слову «soon» і контексту майбутнього."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "They {a1} here soon."
+            ]
+        },
+        {
+            "id": 4,
+            "uuid_segments": [
+                "a1",
+                "q04"
+            ],
+            "question": "He {a1} a great doctor one day.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прогноз чи передбачення про майбутнє формується за допомогою «will be» з будь-яким підметом.",
+                        "Вираз «one day» означає «колись у майбутньому» і чітко вказує на потрібний час дієслова."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «one day» вказує на майбутній час, і це прогноз, а не факт теперішнього чи минулого.",
+                            "is": "«is» — теперішній час для «he», але мова йде про майбутнє («one day»), тому потрібне «will be».",
+                            "was": "«was» — минулий час, але «one day» у цьому контексті означає майбутнє, а не минуле."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "He {a1} a great doctor one day."
+            ]
+        },
+        {
+            "id": 5,
+            "uuid_segments": [
+                "a1",
+                "q05"
+            ],
+            "question": "We {a1} in Paris next summer.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Для висловлення плану або припущення про майбутнє з «to be» використовується «will be».",
+                        "Вираз «next summer» прямо вказує на майбутній час і визначає потрібну форму дієслова."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «next summer» — майбутній час, а «will be» однакова для «we» та всіх інших підметів.",
+                            "are": "«are» — теперішній час для «we», але «next summer» однозначно вказує на майбутнє.",
+                            "were": "«were» — минулий час, протилежний значенню «next summer», яке позначає ще не настале літо."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "We {a1} in Paris next summer."
+            ]
+        },
+        {
+            "id": 6,
+            "uuid_segments": [
+                "a1",
+                "q06"
+            ],
+            "question": "It {a1} cold tonight.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прогноз погоди у майбутньому виражається через «will be», яке вживається однаково з підметом «it».",
+                        "Слово «tonight» означає «сьогодні ввечері» і вказує на ще не настале майбутнє відносно моменту мовлення."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «tonight» — майбутнє, і це погодний прогноз, що вимагає «will be».",
+                            "is": "«is» — форма теперішнього часу з «it», але «tonight» означає ще не настав час доби.",
+                            "was": "«was» — форма минулого часу, а «tonight» ніколи не описує вже минулий час."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "It {a1} cold tonight."
+            ]
+        },
+        {
+            "id": 7,
+            "uuid_segments": [
+                "a1",
+                "q07"
+            ],
+            "question": "You {a1} happy with the results.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Обіцянка або передбачення у майбутньому формується з «will be» для всіх підметів, включно з «you».",
+                        "Загальний тон передбачення та відсутність вказівника теперішнього часу підказують майбутній час."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна: це передбачення про майбутнє, і «will be» — правильна форма для «you».",
+                            "are": "«are» — теперішній час для «you», але речення виражає передбачення про майбутню реакцію.",
+                            "were": "«were» — минулий час, а речення описує ще не відому майбутню реакцію."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "You {a1} happy with the results."
+            ]
+        },
+        {
+            "id": 8,
+            "uuid_segments": [
+                "a1",
+                "q08"
+            ],
+            "question": "The test {a1} easy, don't worry.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Запевнення щодо майбутньої події використовує «will be» з будь-яким підметом.",
+                        "Фраза «don't worry» натякає, що мовець заспокоює когось щодо події, яка ще не відбулась."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: запевнення стосується майбутнього іспиту, тому потрібне майбутнє «will be».",
+                            "is": "«is» — теперішній час, але тест ще не відбувся; фраза «don't worry» вказує, що це передбачення.",
+                            "was": "«was» — минулий час, але тест ще попереду, тому минулий час тут неможливий."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "The test {a1} easy, don't worry."
+            ]
+        },
+        {
+            "id": 9,
+            "uuid_segments": [
+                "a1",
+                "q09"
+            ],
+            "question": "Tomorrow {a1} a special day.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Підмет «tomorrow» є вказівником часу в майбутньому і вимагає форму «will be».",
+                        "Саме слово «tomorrow» одночасно є підметом і маркером майбутнього часу в цьому реченні."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «tomorrow» — завтра, тобто майбутнє, і форма «will be» єдина правильна.",
+                            "is": "«is» описує теперішній момент, але «tomorrow» — це ще не сьогодні, тому теперішній час не підходить.",
+                            "was": "«was» — минулий час, а «tomorrow» завжди вказує на майбутнє, ніколи на минуле."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "Tomorrow {a1} a special day."
+            ]
+        },
+        {
+            "id": 10,
+            "uuid_segments": [
+                "a1",
+                "q10"
+            ],
+            "question": "My brother {a1} ten years old next month.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Для опису майбутнього досягнення певного віку вживається «will be», а не теперішній час.",
+                        "Вираз «next month» однозначно вказує на майбутній час і підказує потрібну форму дієслова."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «next month» — майбутнє, а вік описується через «will be» для однини.",
+                            "is": "«is» — теперішній час для однини, але брат досягне десяти років лише наступного місяця.",
+                            "are": "«are» — форма теперішнього часу множини, але підмет «my brother» — однина, і час — майбутній."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "My brother {a1} ten years old next month."
+            ]
+        },
+        {
+            "id": 11,
+            "uuid_segments": [
+                "a1",
+                "q11"
+            ],
+            "question": "The party {a1} amazing!",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Передбачення або очікування щодо майбутньої події виражається через «will be».",
+                        "Контекст показує, що вечірка ще не відбулась, а мовець висловлює очікування або прогноз."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: мовець передбачає, що вечірка буде чудовою, тобто описує майбутнє.",
+                            "is": "«is» — теперішній час, але якщо вечірка ще попереду, то теперішній час не відповідає значенню.",
+                            "was": "«was» — минулий час, що суперечить контексту передбачення про майбутню вечірку."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "The party {a1} amazing!"
+            ]
+        },
+        {
+            "id": 12,
+            "uuid_segments": [
+                "a1",
+                "q12"
+            ],
+            "question": "I {a1} a teacher in the future.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "am",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Мрія або план на далеке майбутнє виражається через «will be» з будь-яким підметом.",
+                        "Вираз «in the future» прямо вказує на час у майбутньому і визначає форму дієслова."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «in the future» вказує на майбутнє, і «will be» — правильна форма для «I».",
+                            "am": "«am» — теперішній час для «I», але «in the future» означає ще не настав момент.",
+                            "was": "«was» — минулий час, тоді як «in the future» однозначно вказує на майбутнє."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "I {a1} a teacher in the future."
+            ]
+        },
+        {
+            "id": 13,
+            "uuid_segments": [
+                "a1",
+                "q13"
+            ],
+            "question": "We {a1} late if we don't hurry.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовному реченні першого типу головне речення вживає «will be» для позначення майбутнього наслідку.",
+                        "Умовна частина «if we don't hurry» використовує теперішній час умови, а головне речення — майбутній наслідок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: це умовне речення першого типу, де наслідок стосується майбутнього.",
+                            "are": "«are» — теперішній час, але мова йде про майбутній наслідок невиконання умови «if we don't hurry».",
+                            "were": "«were» — минулий час, що не відповідає значенню: речення описує можливий майбутній наслідок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative",
+                "will_be_conditional"
+            ],
+            "variants": [
+                "We {a1} late if we don't hurry."
+            ]
+        },
+        {
+            "id": 14,
+            "uuid_segments": [
+                "a1",
+                "q14"
+            ],
+            "question": "He {a1} the best player on the team.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Передбачення або впевненість у майбутньому статусі когось виражається через «will be».",
+                        "Відсутність вказівника теперішнього моменту і тон прогнозу вказують на майбутній час."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: це передбачення про майбутній статус, де «will be» однакова для «he».",
+                            "is": "«is» — теперішній час, але речення висловлює прогноз про майбутнє, а не поточний стан.",
+                            "was": "«was» — минулий час, а передбачення завжди стосується майбутнього, а не минулого."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "He {a1} the best player on the team."
+            ]
+        },
+        {
+            "id": 15,
+            "uuid_segments": [
+                "a1",
+                "q15"
+            ],
+            "question": "The weather {a1} nice this weekend.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Погодний прогноз у майбутньому завжди виражається через «will be» з підметом «the weather».",
+                        "Вираз «this weekend» вказує на ще не настале майбутнє (наступні вихідні) і визначає потрібну форму."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «this weekend» — ще не настав час, і це прогноз погоди на майбутнє.",
+                            "is": "«is» описує теперішній стан, але «this weekend» означає ще не настав момент.",
+                            "was": "«was» — минулий час, а «this weekend» у поєднанні з прогнозом завжди вказує на майбутнє."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "The weather {a1} nice this weekend."
+            ]
+        },
+        {
+            "id": 16,
+            "uuid_segments": [
+                "a1",
+                "q16"
+            ],
+            "question": "You {a1} tired after the long journey.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Передбачення результату або стану після майбутньої події виражається через «will be».",
+                        "Фраза «after the long journey» вказує на стан після подорожі, яка ще має відбутись."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: подорож ще попереду, а «will be» описує очікуваний стан після неї.",
+                            "are": "«are» — теперішній час, але подорож ще не відбулась і втома наступить лише після неї.",
+                            "were": "«were» — минулий час, тоді як «after the long journey» вказує на майбутню подію."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "You {a1} tired after the long journey."
+            ]
+        },
+        {
+            "id": 17,
+            "uuid_segments": [
+                "a1",
+                "q17"
+            ],
+            "question": "She {a1} very surprised.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прогноз про майбутню реакцію або стан людини виражається через «will be».",
+                        "Загальний тон прогнозу і відсутність вказівника на теперішній момент підказують майбутній час."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: це передбачення, що «she» буде здивована після ще не відомої події.",
+                            "is": "«is» — теперішній час для «she», але здивування ще не настало — це прогноз.",
+                            "was": "«was» — минулий час, але мовець говорить про майбутню реакцію, а не минулу."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "She {a1} very surprised."
+            ]
+        },
+        {
+            "id": 18,
+            "uuid_segments": [
+                "a1",
+                "q18"
+            ],
+            "question": "Life {a1} better.",
+            "source": "theory_page_1178",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Оптимістичне передбачення щодо майбутнього виражається через «will be» без прив'язки до конкретного часу.",
+                        "Тон обіцянки чи передбачення без вказівника теперішнього стану підказує майбутній час."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: це обіцянка або оптимістичне передбачення майбутнього стану.",
+                            "is": "«is» описує теперішній стан, тоді як речення висловлює надію чи прогноз на майбутнє.",
+                            "was": "«was» — минулий час, але мовець говорить про очікуване поліпшення у майбутньому."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "Life {a1} better."
+            ]
+        },
+        {
+            "id": 19,
+            "uuid_segments": [
+                "a2",
+                "q01"
+            ],
+            "question": "{a1} she at home tomorrow?",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Does",
+                        "Is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання у майбутньому часі будується за схемою: «Will + підмет + be + решта речення?»",
+                        "Слово «tomorrow» вказує на майбутній час і підказує, яке допоміжне дієслово потрібне на початку питання."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will": "«Will» правильна форма: питання будується через інверсію «Will + she + be», і «tomorrow» підтверджує майбутній час.",
+                            "Does": "«Does» — допоміжне дієслово для Present Simple, але тут потрібне майбутнє, бо є слово «tomorrow».",
+                            "Is": "«Is» — теперішній час, тому не підходить: «tomorrow» вимагає питальної форми майбутнього з «Will»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_question"
+            ],
+            "variants": [
+                "{a1} she at home tomorrow?"
+            ]
+        },
+        {
+            "id": 20,
+            "uuid_segments": [
+                "a2",
+                "q02"
+            ],
+            "question": "He {a1} here tonight — he has a meeting.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "will be",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечення у майбутньому часі утворюється через «will not be», скорочено «won't be».",
+                        "Слово «tonight» вказує на майбутнє, а пояснення «he has a meeting» підтверджує майбутню відсутність."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't be": "«won't be» правильна форма: «tonight» — майбутнє, і наявність зустрічі пояснює майбутню відсутність.",
+                            "will be": "«will be» — стверджувальна форма, але зміст речення заперечує присутність (через наявну зустріч).",
+                            "isn't": "«isn't» — теперішній час заперечення, але «tonight» вказує на майбутній час, де потрібне «won't be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wont_be_negative"
+            ],
+            "variants": [
+                "He {a1} here tonight — he has a meeting."
+            ]
+        },
+        {
+            "id": 21,
+            "uuid_segments": [
+                "a2",
+                "q03"
+            ],
+            "question": "I promise I {a1} late.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "will be",
+                        "am not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Обіцянка у майбутньому заперечної форми використовує «won't be» (= will not be).",
+                        "Слово «promise» підтверджує, що мовець говорить про майбутнє, а зміст обіцянки — заперечний."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't be": "«won't be» правильна форма: це обіцянка не запізнитись, і «won't be» — правильне заперечне майбутнє.",
+                            "will be": "«will be» — стверджувальна форма, але обіцянка «I promise I ___ late» передбачає заперечення.",
+                            "am not": "«am not» — теперішній час, але обіцянка стосується майбутньої поведінки, де потрібне «won't be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wont_be_negative"
+            ],
+            "variants": [
+                "I promise I {a1} late."
+            ]
+        },
+        {
+            "id": 22,
+            "uuid_segments": [
+                "a2",
+                "q04"
+            ],
+            "question": "{a1} they ready in time?",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Are",
+                        "Do"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання у майбутньому будується з «Will» на початку: «Will + підмет + (be) + доповнення?»",
+                        "Прислівник «in time» (вчасно) вказує на майбутній результат і підтверджує потрібне допоміжне дієслово."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will": "«Will» правильна форма: питання про майбутній стан будується через «Will they be ready in time?»",
+                            "Are": "«Are» — теперішній час, але «in time» вказує на майбутнє, де потрібне «Will».",
+                            "Do": "«Do» — допоміжне для смислових дієслів у Present Simple, але «be» — зв'язкове і питання стосується майбутнього."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_question"
+            ],
+            "variants": [
+                "{a1} they ready in time?"
+            ]
+        },
+        {
+            "id": 23,
+            "uuid_segments": [
+                "a2",
+                "q05"
+            ],
+            "question": "The results {a1} available until Friday.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "will be",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Won't be» виражає відсутність або недоступність у майбутньому, часто з часовим обмежувачем «until».",
+                        "Слово «until Friday» означає «до п'ятниці» і підказує, що результати стануть доступні лише з п'ятниці — зараз їх ще нема."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't be": "«won't be» правильна форма: результати не будуть доступні до п'ятниці — це майбутнє заперечення з «until».",
+                            "will be": "«will be» — стверджувальна форма, але зміст «not available until Friday» вимагає заперечення.",
+                            "aren't": "«aren't» — теперішній час, але «until Friday» вказує на майбутній часовий обмежувач."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wont_be_negative"
+            ],
+            "variants": [
+                "The results {a1} available until Friday."
+            ]
+        },
+        {
+            "id": 24,
+            "uuid_segments": [
+                "a2",
+                "q06"
+            ],
+            "question": "We {a1} at the concert this Saturday.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Запланована майбутня подія описується через «will be» з будь-яким підметом.",
+                        "«This Saturday» вказує на ще не настале суботнє свято, підтверджуючи майбутній час."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «this Saturday» — майбутнє, і відвідування концерту — запланована подія.",
+                            "are": "«are» — теперішній час, але «this Saturday» означає ще не настав момент.",
+                            "were": "«were» — минулий час, а «this Saturday» завжди вказує на майбутнє в контексті планів."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "We {a1} at the concert this Saturday."
+            ]
+        },
+        {
+            "id": 25,
+            "uuid_segments": [
+                "a2",
+                "q07"
+            ],
+            "question": "{a1} you free this afternoon?",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Are",
+                        "Do"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Питання про майбутню доступність або плани будується через «Will + підмет + be + ...?»",
+                        "Вираз «this afternoon» вказує на ще не настале після обіднє, тому потрібна майбутня питальна форма."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will": "«Will» правильна форма: питання про майбутню наявність часу будується через «Will you be free?»",
+                            "Are": "«Are» — теперішній час, але «this afternoon» означає ще не настав час доби.",
+                            "Do": "«Do» — допоміжне для смислових дієслів, але «be» — зв'язкове, і питання стосується майбутнього."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_question"
+            ],
+            "variants": [
+                "{a1} you free this afternoon?"
+            ]
+        },
+        {
+            "id": 26,
+            "uuid_segments": [
+                "a2",
+                "q08"
+            ],
+            "question": "Don't worry — it {a1} a long wait.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "will be",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Запевнення у формі заперечення у майбутньому використовує «won't be» (= will not be).",
+                        "Фраза «don't worry» підказує, що мовець каже про те, чого не станеться в майбутньому."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't be": "«won't be» правильна форма: запевнення, що очікування не буде довгим — це заперечення в майбутньому.",
+                            "will be": "«will be» — стверджувальна форма, але зміст запевнення передбачає заперечення (не довге очікування).",
+                            "isn't": "«isn't» — теперішній час, але мовець говорить про майбутнє очікування, де потрібне «won't be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wont_be_negative"
+            ],
+            "variants": [
+                "Don't worry — it {a1} a long wait."
+            ]
+        },
+        {
+            "id": 27,
+            "uuid_segments": [
+                "a2",
+                "q09"
+            ],
+            "question": "There {a1} a meeting at 3 o'clock tomorrow.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Конструкція «there will be» описує майбутнє існування або наявність чогось.",
+                        "Часовий вираз «at 3 o'clock tomorrow» однозначно вказує на майбутнє і визначає потрібну форму."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «tomorrow at 3» — майбутнє, і «there will be» описує майбутню наявність події.",
+                            "is": "«there is» описує теперішній час, але зустріч призначена на завтра.",
+                            "was": "«there was» описує минулий час, але зустріч ще попереду."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "There {a1} a meeting at 3 o'clock tomorrow."
+            ]
+        },
+        {
+            "id": 28,
+            "uuid_segments": [
+                "a2",
+                "q10"
+            ],
+            "question": "{a1} it difficult?",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Is",
+                        "Does"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання у майбутньому будується через «Will + підмет + (be/прикметник)?»",
+                        "Контекст питання без маркера теперішнього часу та тон передбачення вказують, що потрібне майбутнє допоміжне."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will": "«Will» правильна форма: «Will it be difficult?» — питання про майбутню складність.",
+                            "Is": "«Is» — теперішній час, але питання стосується майбутньої складності, де потрібне «Will».",
+                            "Does": "«Does» — допоміжне для смислових дієслів у Present Simple; «be» — зв'язкове, і питання про майбутнє."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_question"
+            ],
+            "variants": [
+                "{a1} it difficult?"
+            ]
+        },
+        {
+            "id": 29,
+            "uuid_segments": [
+                "a2",
+                "q11"
+            ],
+            "question": "I don't think she {a1} angry.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "won't be",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У підрядному реченні після «I don't think» стверджувальна форма «will be» передає заперечну думку.",
+                        "Фраза «I don't think» вже містить заперечення, тому підрядне речення зберігає стверджувальну форму."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: після «I don't think» заперечення вже в головному реченні, тому в підрядному — «will be».",
+                            "won't be": "«won't be» утворює подвійне заперечення («I don't think she won't be»), що суперечить задуму.",
+                            "is": "«is» — теперішній час, але речення виражає передбачення про майбутній стан після якоїсь події."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "I don't think she {a1} angry."
+            ]
+        },
+        {
+            "id": 30,
+            "uuid_segments": [
+                "a2",
+                "q12"
+            ],
+            "question": "He {a1} at school tomorrow — he is sick.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "will be",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечення у майбутньому «won't be» пояснює, чому когось не буде в певному місці.",
+                        "«Tomorrow» вказує на майбутній час, а пояснення «he is sick» підтверджує завтрашню відсутність."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't be": "«won't be» правильна форма: «tomorrow» — майбутнє, і хвороба пояснює майбутню відсутність у школі.",
+                            "will be": "«will be» — стверджувальна форма, але хворий учень не прийде завтра до школи.",
+                            "isn't": "«isn't» — теперішній час, але «tomorrow» вимагає майбутньої форми «won't be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wont_be_negative"
+            ],
+            "variants": [
+                "He {a1} at school tomorrow — he is sick."
+            ]
+        },
+        {
+            "id": 31,
+            "uuid_segments": [
+                "a2",
+                "q13"
+            ],
+            "question": "The café {a1} open on Sunday.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "was",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Майбутні плани або розклад виражаються через «will be» у стверджувальному реченні.",
+                        "«On Sunday» вказує на майбутній день тижня і підтверджує, що потрібна форма майбутнього."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «on Sunday» — майбутнє, і «will be» описує заплановану роботу кафе.",
+                            "was": "«was» — минулий час, але «on Sunday» у контексті розкладу вказує на майбутнє.",
+                            "is": "«is» — теперішній час, але «on Sunday» означає ще не настале майбутнє."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "The café {a1} open on Sunday."
+            ]
+        },
+        {
+            "id": 32,
+            "uuid_segments": [
+                "a2",
+                "q14"
+            ],
+            "question": "{a1} the train on time?",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Is",
+                        "Does"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Питання про майбутню пунктуальність або стан будується через «Will + підмет + be + ...?»",
+                        "Контекст питання (пунктуальність потяга) і загальний тон вказують на питання про майбутнє."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will": "«Will» правильна форма: «Will the train be on time?» — питання про майбутнє прибуття потяга.",
+                            "Is": "«Is» — теперішній час і не може описати стан, що ще не настав.",
+                            "Does": "«Does» використовується з дієсловами дії, але «be on time» — стан, і питання про майбутнє."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_question"
+            ],
+            "variants": [
+                "{a1} the train on time?"
+            ]
+        },
+        {
+            "id": 33,
+            "uuid_segments": [
+                "a2",
+                "q15"
+            ],
+            "question": "She {a1} lonely — her friends will visit.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "will be",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечення у майбутньому «won't be» виражає відсутність стану або почуття в майбутньому.",
+                        "Пояснення «her friends will visit» підтверджує, що мова йде про майбутню відсутність самотності."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't be": "«won't be» правильна форма: друзі прийдуть, тому вона не буде самотньою — це заперечення в майбутньому.",
+                            "will be": "«will be» означало б, що вона буде самотньою, але пояснення про друзів суперечить цьому.",
+                            "isn't": "«isn't» — теперішній час, але речення говорить про майбутній стан після приходу друзів."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wont_be_negative"
+            ],
+            "variants": [
+                "She {a1} lonely — her friends will visit."
+            ]
+        },
+        {
+            "id": 34,
+            "uuid_segments": [
+                "a2",
+                "q16"
+            ],
+            "question": "The children {a1} very excited!",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Передбачення майбутньої реакції або стану групи людей виражається через «will be».",
+                        "Загальний тон захоплення і відсутність вказівника теперішнього часу підказують майбутній час."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: це передбачення про майбутню реакцію дітей — захоплення.",
+                            "are": "«are» — теперішній час для «the children», але мова йде про майбутнє захоплення.",
+                            "were": "«were» — минулий час, а речення описує ще не відому майбутню реакцію."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "The children {a1} very excited!"
+            ]
+        },
+        {
+            "id": 35,
+            "uuid_segments": [
+                "a2",
+                "q17"
+            ],
+            "question": "{a1} it cold tomorrow?",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Is",
+                        "Does"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Питання про майбутню погоду будується через «Will + підмет + be + прикметник?»",
+                        "Слово «tomorrow» прямо вказує на майбутній час і підтверджує потрібне допоміжне дієслово."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will": "«Will» правильна форма: «Will it be cold tomorrow?» — класичне питання про погоду в майбутньому.",
+                            "Is": "«Is» — теперішній час, але «tomorrow» однозначно вказує на майбутнє.",
+                            "Does": "«Does» не вживається з дієсловом «be» у таких питаннях; для майбутнього потрібне «Will»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_question"
+            ],
+            "variants": [
+                "{a1} it cold tomorrow?"
+            ]
+        },
+        {
+            "id": 36,
+            "uuid_segments": [
+                "a2",
+                "q18"
+            ],
+            "question": "I {a1} happy about it, I promise.",
+            "source": "theory_page_1178",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "am",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Обіцянка щодо майбутнього стану виражається через «will be», що є незмінною формою для «I».",
+                        "Слово «promise» підтверджує, що мовець дає запевнення про майбутню реакцію або стан."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: обіцянка стосується майбутнього задоволення, де «will be» — єдина правильна форма.",
+                            "am": "«am» — теперішній час для «I», але «I promise» підкреслює, що мовець говорить про майбутнє.",
+                            "was": "«was» — минулий час, але обіцянка завжди стосується майбутньої поведінки, а не минулої."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "I {a1} will be happy about it, I promise."
+            ]
+        },
+        {
+            "id": 37,
+            "uuid_segments": [
+                "b1",
+                "q01"
+            ],
+            "question": "If you study hard, you {a1} successful.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В умовному реченні першого типу (Type 1 Conditional) головне речення використовує «will + інфінітив» для вираження майбутнього наслідку.",
+                        "Підрядна частина «if you study hard» стоїть у Present Simple, а в головній частині перед прикметником «successful» потрібна форма майбутнього з «to be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: це Type 1 Conditional — реальна умова в теперішньому призводить до майбутнього результату «will be successful».",
+                            "are": "«are» — Present Simple для «you», але в Type 1 Conditional головне речення завжди вживає «will», а не теперішній час.",
+                            "were": "«were» — минулий час або форма для Type 2 Conditional; тут умова реальна і наслідок у майбутньому вимагає «will be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional"
+            ],
+            "variants": [
+                "If you study hard, you {a1} successful."
+            ]
+        },
+        {
+            "id": 38,
+            "uuid_segments": [
+                "b1",
+                "q02"
+            ],
+            "question": "By the time you arrive, dinner {a1} ready.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У складносурядних реченнях з часовою підрядною частиною на «by the time» головне речення вживає «will be» для позначення майбутнього стану.",
+                        "Конструкція «by the time you arrive» вказує на момент у майбутньому — саме тоді вечеря буде готова."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «by the time you arrive» — майбутнє, і вечеря буде готова до того моменту.",
+                            "is": "«is» — теперішній час, але «by the time you arrive» описує майбутній момент, де потрібне «will be».",
+                            "was": "«was» — минулий час, тоді як речення говорить про стан у майбутній момент."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_time_clause"
+            ],
+            "variants": [
+                "By the time you arrive, dinner {a1} ready."
+            ]
+        },
+        {
+            "id": 39,
+            "uuid_segments": [
+                "b1",
+                "q03"
+            ],
+            "question": "There {a1} over a hundred guests at the wedding.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Конструкція «there will be» описує майбутню кількість або наявність людей/речей.",
+                        "Контекст майбутнього весілля (ще не відбулось) вказує, що потрібна форма «will be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: весілля ще попереду, і «there will be» коректно описує кількість гостей.",
+                            "are": "«there are» — теперішній час, але весілля ще не відбулось, тому теперішній час не підходить.",
+                            "were": "«there were» — минулий час, але весілля — майбутня подія, де потрібне «will be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "There {a1} over a hundred guests at the wedding."
+            ]
+        },
+        {
+            "id": 40,
+            "uuid_segments": [
+                "b1",
+                "q04"
+            ],
+            "question": "The new hospital {a1} built next year.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у майбутньому часі утворюється за схемою: «will be + дієприкметник минулого часу».",
+                        "Слово «next year» однозначно вказує на майбутній час, а «built» — дієприкметник пасивного стану."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be built» — пасивний стан майбутнього, і «next year» підтверджує час.",
+                            "is": "«is built» — теперішній пасивний стан, але «next year» означає майбутнє, де потрібне «will be».",
+                            "was": "«was built» — пасивний минулий час, а «next year» вказує на ще не настале будівництво."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "The new hospital {a1} built next year."
+            ]
+        },
+        {
+            "id": 41,
+            "uuid_segments": [
+                "b1",
+                "q05"
+            ],
+            "question": "When she grows up, she {a1} a scientist.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У складному реченні з часовою підрядною частиною на «when» для опису майбутнього в головній частині використовується «will».",
+                        "Підрядна частина «when she grows up» вжита у Present Simple, а в головній — майбутній наслідок із «will be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «when she grows up» — майбутній момент, і «will be a scientist» — майбутній стан.",
+                            "is": "«is» — теперішній час, але «when she grows up» описує майбутній момент, не поточний стан.",
+                            "was": "«was» — минулий час, тоді як «when she grows up» вказує на майбутнє."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_time_clause"
+            ],
+            "variants": [
+                "When she grows up, she {a1} a scientist."
+            ]
+        },
+        {
+            "id": 42,
+            "uuid_segments": [
+                "b1",
+                "q06"
+            ],
+            "question": "I {a1} more careful in the future.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "am",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Особиста обіцянка або рішення, прийняте в момент мовлення, виражається через «will».",
+                        "Вираз «in the future» вказує на намір змінити поведінку в майбутньому."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: це рішення або обіцянка бути обережнішим — «will be» передає майбутній намір.",
+                            "am": "«am» — теперішній час, але «in the future» вказує на майбутній намір, де потрібне «will be».",
+                            "was": "«was» — минулий час, але мовець говорить про майбутню зміну поведінки."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "I {a1} more careful in the future."
+            ]
+        },
+        {
+            "id": 43,
+            "uuid_segments": [
+                "b1",
+                "q07"
+            ],
+            "question": "{a1} there any problems with the new system?",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Are",
+                        "Is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Питальна конструкція «Will there be» використовується для запиту про майбутню наявність або виникнення проблем.",
+                        "Контекст «нова система» і тон побоювання про майбутнє вказують на питання у майбутньому часі."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will": "«Will» правильна форма: «Will there be any problems?» — стандартне питання про майбутню наявність.",
+                            "Are": "«Are there any problems?» — питання у теперішньому часі, але тут мова йде про майбутню систему.",
+                            "Is": "«Is there any problem?» — теперішній час і однина, але «problems» — множина і питання про майбутнє."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_question"
+            ],
+            "variants": [
+                "{a1} there any problems with the new system?"
+            ]
+        },
+        {
+            "id": 44,
+            "uuid_segments": [
+                "b1",
+                "q08"
+            ],
+            "question": "The documents {a1} ready by Thursday.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Обіцянка або очікування щодо готовності чогось у майбутньому виражається через «will be».",
+                        "«By Thursday» означає «до четверга» і вказує на майбутній дедлайн, де потрібна форма майбутнього."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «by Thursday» — майбутній дедлайн, і «will be ready» описує стан документів.",
+                            "are": "«are» — теперішній час, але «by Thursday» вказує на майбутнє — документи ще не готові.",
+                            "were": "«were» — минулий час, але дедлайн «by Thursday» ще не настав."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "The documents {a1} ready by Thursday."
+            ]
+        },
+        {
+            "id": 45,
+            "uuid_segments": [
+                "b1",
+                "q09"
+            ],
+            "question": "If he works harder, his grades {a1} better.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Type 1 Conditional: якщо підрядна частина вжита у Present Simple, то в головній частині — «will + інфінітив» для опису майбутнього наслідку.",
+                        "Підрядна умова «if he works harder» стоїть у теперішньому часі, що вказує на потрібну форму в головній частині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: Type 1 Conditional — реальна умова призводить до майбутнього результату «will be better».",
+                            "are": "«are» — теперішній час, але в Type 1 Conditional головна частина завжди вживає «will».",
+                            "were": "«were» — форма для Type 2 Conditional (нереальна умова), але тут умова реальна і майбутня."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional"
+            ],
+            "variants": [
+                "If he works harder, his grades {a1} better."
+            ]
+        },
+        {
+            "id": 46,
+            "uuid_segments": [
+                "b1",
+                "q10"
+            ],
+            "question": "The match {a1} broadcast live on television.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у майбутньому будується за схемою: «will be + дієприкметник минулого часу» (Past Participle).",
+                        "«Broadcast» — неправильне дієслово, де Past Participle збігається з основною формою; контекст майбутнього трансляції підтверджує час."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be broadcast» — майбутній пасивний стан трансляції матчу.",
+                            "is": "«is broadcast» — теперішній пасивний стан, але матч ще не транслюється — він у майбутньому.",
+                            "was": "«was broadcast» — минулий пасивний стан, але матч ще не відбувся."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "The match {a1} broadcast live on television."
+            ]
+        },
+        {
+            "id": 47,
+            "uuid_segments": [
+                "b1",
+                "q11"
+            ],
+            "question": "I know it {a1} easy, but we must try.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "will be",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після «I know it» у значенні визнання складності використовується заперечне «won't be» для опису майбутнього.",
+                        "Фраза «but we must try» є підказкою: вона виражає подолання труднощів, що передбачає визнання складності через «won't be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't be": "«won't be» правильна форма: визнання того, що завдання не буде легким — це заперечення в майбутньому.",
+                            "will be": "«will be» означало б, що завдання буде легким, але «but we must try» показує, що воно важке.",
+                            "isn't": "«isn't» — теперішній час, але «I know it won't be easy» говорить про майбутнє завдання."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wont_be_negative"
+            ],
+            "variants": [
+                "I know it {a1} easy, but we must try."
+            ]
+        },
+        {
+            "id": 48,
+            "uuid_segments": [
+                "b1",
+                "q12"
+            ],
+            "question": "As soon as the work is done, I {a1} in touch.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "am",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У реченнях з часовою підрядною частиною «as soon as» (щойно) для майбутнього головна частина вживає «will».",
+                        "Підрядна частина «as soon as the work is done» стоїть у Present Simple — це стандартне правило для часових підрядних у майбутньому."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: після «as soon as» у головному реченні завжди вживається «will be» для майбутнього.",
+                            "am": "«am» — теперішній час, але «as soon as the work is done» описує майбутній момент, де потрібне «will be».",
+                            "was": "«was» — минулий час, але обіцянка зв'язку стосується майбутнього після завершення роботи."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_time_clause"
+            ],
+            "variants": [
+                "As soon as the work is done, I {a1} in touch."
+            ]
+        },
+        {
+            "id": 49,
+            "uuid_segments": [
+                "b1",
+                "q13"
+            ],
+            "question": "{a1} all the seats taken by the time we arrive?",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Are",
+                        "Were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Питання про майбутній пасивний стан будується через «Will + підмет + be + Past Participle?»",
+                        "Конструкція «by the time we arrive» вказує на майбутній момент і вимагає питальної форми майбутнього пасивного стану."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will": "«Will» правильна форма: «Will all the seats be taken by the time we arrive?» — питання про майбутній пасивний стан.",
+                            "Are": "«Are all the seats taken?» — теперішній пасив, але «by the time we arrive» вказує на майбутнє.",
+                            "Were": "«Were all the seats taken?» — минулий пасив, але питання стосується майбутнього прибуття."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive",
+                "will_be_question"
+            ],
+            "variants": [
+                "{a1} all the seats taken by the time we arrive?"
+            ]
+        },
+        {
+            "id": 50,
+            "uuid_segments": [
+                "b1",
+                "q14"
+            ],
+            "question": "The new bridge {a1} completed in two years.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у майбутньому для опису результату будівництва або проекту будується через «will be + Past Participle».",
+                        "Вираз «in two years» вказує на майбутній термін завершення, підтверджуючи потребу в «will be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be completed» — майбутній пасив, і «in two years» підтверджує часовий горизонт.",
+                            "is": "«is completed» — теперішній пасив, але міст будується і «in two years» вказує на майбутнє.",
+                            "was": "«was completed» — минулий пасив, а «in two years» означає ще не настале завершення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "The new bridge {a1} completed in two years."
+            ]
+        },
+        {
+            "id": 51,
+            "uuid_segments": [
+                "b1",
+                "q15"
+            ],
+            "question": "Unless you hurry, you {a1} on time.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "will be",
+                        "aren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Unless» означає «якщо не» і вводить негативну умову: якщо умова не виконується, наслідок теж заперечний — «won't be».",
+                        "«Unless you hurry» = «if you don't hurry», тому наслідок у головному реченні буде заперечним «won't be on time»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't be": "«won't be» правильна форма: «unless» вводить умову «якщо не поспішаєш», і наслідок — «не встигнеш вчасно».",
+                            "will be": "«will be» означало б, що вчасно без поспіху — але «unless» передбачає заперечний наслідок.",
+                            "aren't": "«aren't» — теперішній час, але «unless you hurry» вказує на майбутній наслідок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional",
+                "wont_be_negative"
+            ],
+            "variants": [
+                "Unless you hurry, you {a1} on time."
+            ]
+        },
+        {
+            "id": 52,
+            "uuid_segments": [
+                "b1",
+                "q16"
+            ],
+            "question": "We think the project {a1} finished before the deadline.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У підрядному реченні після «we think» майбутня дія або стан виражається через «will be».",
+                        "«Before the deadline» вказує на майбутній момент завершення, підтверджуючи потрібну форму."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «we think» виражає прогноз, і «will be finished» — майбутній пасив.",
+                            "is": "«is finished» — теперішній пасив, але «before the deadline» вказує на майбутнє завершення.",
+                            "was": "«was finished» — минулий пасив, але проект ще не завершений і дедлайн ще попереду."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "We think the project {a1} finished before the deadline."
+            ]
+        },
+        {
+            "id": 53,
+            "uuid_segments": [
+                "b1",
+                "q17"
+            ],
+            "question": "The film {a1} shown in three different cinemas.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан для опису розповсюдження фільму в майбутньому будується через «will be + Past Participle».",
+                        "Контекст анонсу або майбутнього показу підтверджує, що потрібна форма «will be shown»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be shown» — майбутній пасивний стан показу фільму.",
+                            "is": "«is shown» — теперішній пасив, але фільм ще не показують, це планований майбутній показ.",
+                            "was": "«was shown» — минулий пасив, але фільм ще не демонструвався в цих кінотеатрах."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "The film {a1} shown in three different cinemas."
+            ]
+        },
+        {
+            "id": 54,
+            "uuid_segments": [
+                "b1",
+                "q18"
+            ],
+            "question": "If the weather is bad, the picnic {a1} cancelled.",
+            "source": "theory_page_1178",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Type 1 Conditional з пасивним станом: якщо умова у Present Simple, то головна частина — «will be + Past Participle».",
+                        "Підрядна умова «if the weather is bad» стоїть у теперішньому, а наслідок у майбутньому пасивному стані."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: Type 1 Conditional з пасивом — «will be cancelled» описує майбутній пасивний наслідок.",
+                            "is": "«is cancelled» — теперішній пасив, але наслідок умови реалізується в майбутньому.",
+                            "was": "«was cancelled» — минулий пасив, але пікнік ще не скасований — це ще тільки можливий майбутній наслідок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional",
+                "will_be_passive"
+            ],
+            "variants": [
+                "If the weather is bad, the picnic {a1} cancelled."
+            ]
+        },
+        {
+            "id": 55,
+            "uuid_segments": [
+                "b2",
+                "q01"
+            ],
+            "question": "A: Will the meeting be long? B: Yes, it {a1}.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will be",
+                        "does"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У коротких стверджувальних відповідях на питання з «Will» повторюється лише допоміжне дієслово «will», а не повна форма «will be».",
+                        "Схема короткої відповіді: «Yes, підмет + will» — без додавання «be» чи іншої частини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "«will» правильна форма: коротка відповідь «Yes, it will» — лише допоміжне дієслово без «be».",
+                            "will be": "«will be» — занадто повна форма для короткої відповіді; стандарт вимагає лише «Yes, it will».",
+                            "does": "«does» — допоміжне дієслово для Present Simple, але питання було задано через «Will», тому відповідь — «will»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_short_answer"
+            ],
+            "variants": [
+                "A: Will the meeting be long? B: Yes, it {a1}."
+            ]
+        },
+        {
+            "id": 56,
+            "uuid_segments": [
+                "b2",
+                "q02"
+            ],
+            "question": "A: Will they be here on time? B: No, they {a1}.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "won't",
+                    "options": [
+                        "won't",
+                        "won't be",
+                        "don't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У коротких заперечних відповідях на питання з «Will» вживається «won't» без подальшого «be».",
+                        "Схема короткої заперечної відповіді: «No, підмет + won't» — «be» не повторюється."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't": "«won't» правильна форма: коротка заперечна відповідь «No, they won't» — тільки допоміжне з запереченням.",
+                            "won't be": "«won't be» — занадто повна форма; коротка відповідь вимагає лише «No, they won't».",
+                            "don't": "«don't» — заперечне допоміжне Present Simple, але питання ставилось з «Will», тому відповідь — «won't»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_short_answer"
+            ],
+            "variants": [
+                "A: Will they be here on time? B: No, they {a1}."
+            ]
+        },
+        {
+            "id": 57,
+            "uuid_segments": [
+                "b2",
+                "q03"
+            ],
+            "question": "A: Will it be difficult? B: Yes, I think it {a1}.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will be",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Коротка стверджувальна відповідь на питання з «Will» завжди містить лише «will» як допоміжне дієслово.",
+                        "Після «I think» у короткій відповіді так само вживається лише «will» без «be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "«will» правильна форма: «Yes, I think it will» — коротка відповідь зберігає лише допоміжне дієслово.",
+                            "will be": "«will be» — надмірна форма; стандартна коротка відповідь використовує лише «will».",
+                            "is": "«is» — Present Simple, але питання задане з «Will», тому в короткій відповіді потрібне «will»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_short_answer"
+            ],
+            "variants": [
+                "A: Will it be difficult? B: Yes, I think it {a1}."
+            ]
+        },
+        {
+            "id": 58,
+            "uuid_segments": [
+                "b2",
+                "q04"
+            ],
+            "question": "A: Will she be nervous? B: No, she {a1}.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "won't",
+                    "options": [
+                        "won't",
+                        "won't be",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Коротка заперечна відповідь на питання з «Will» містить тільки «won't», а не «won't be».",
+                        "Правило: «No, підмет + won't» — «be» ніколи не додається до короткої відповіді."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't": "«won't» правильна форма: коротка відповідь «No, she won't» — лише допоміжне з запереченням.",
+                            "won't be": "«won't be» — надмірна форма для короткої відповіді; достатньо «No, she won't».",
+                            "isn't": "«isn't» — Present Simple заперечення для «she», але питання ставилось з «Will»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_short_answer"
+            ],
+            "variants": [
+                "A: Will she be nervous? B: No, she {a1}."
+            ]
+        },
+        {
+            "id": 59,
+            "uuid_segments": [
+                "b2",
+                "q05"
+            ],
+            "question": "It will be sunny tomorrow, {a1} it?",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "won't",
+                    "options": [
+                        "won't",
+                        "isn't",
+                        "will"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Розділове питання (tag question) до стверджувального речення з «will» завжди заперечне: «won't + підмет».",
+                        "Якщо в головній частині «it will be», то розділове питання будується як «won't it?» — із запереченням і тим самим підметом."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't": "«won't» правильна форма: стверджувальне «it will be» вимагає заперечного розділового питання «won't it?»",
+                            "isn't": "«isn't» — розділове питання для Present Simple або структур з «is», але тут вживається «will be».",
+                            "will": "«will it?» — стверджувальне розділове питання, але воно використовується лише після заперечних головних речень."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_tag_question"
+            ],
+            "variants": [
+                "It will be sunny tomorrow, {a1} it?"
+            ]
+        },
+        {
+            "id": 60,
+            "uuid_segments": [
+                "b2",
+                "q06"
+            ],
+            "question": "They will be surprised, {a1} they?",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "won't",
+                    "options": [
+                        "won't",
+                        "aren't",
+                        "will"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Розділове питання до стверджувального речення з «will» утворюється за схемою «won't + підмет?»",
+                        "Після стверджувального «they will be surprised» розділове питання є заперечним «won't they?»"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't": "«won't» правильна форма: після стверджувального «they will be» розділове питання «won't they?»",
+                            "aren't": "«aren't» — розділове питання для Present Simple з «are», а не для конструкцій з «will».",
+                            "will": "«will they?» використовується після заперечних речень; після стверджувального потрібне «won't»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_tag_question"
+            ],
+            "variants": [
+                "They will be surprised, {a1} they?"
+            ]
+        },
+        {
+            "id": 61,
+            "uuid_segments": [
+                "b2",
+                "q07"
+            ],
+            "question": "You will be home by midnight, {a1} you?",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "won't",
+                    "options": [
+                        "won't",
+                        "aren't",
+                        "will"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "До стверджувального речення з «will be» завжди додається заперечне розділове питання «won't + підмет?»",
+                        "«You will be home» — стверджувальне, тому розділове питання заперечне: «won't you?»"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't": "«won't» правильна форма: «You will be home» → розділове питання «won't you?»",
+                            "aren't": "«aren't you?» — розділове для «you are», але речення використовує «will be».",
+                            "will": "«will you?» — стверджувальне розділове, яке вживається лише після заперечних головних речень."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_tag_question"
+            ],
+            "variants": [
+                "You will be home by midnight, {a1} you?"
+            ]
+        },
+        {
+            "id": 62,
+            "uuid_segments": [
+                "b2",
+                "q08"
+            ],
+            "question": "It won't be a problem, {a1} it?",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "won't",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Розділове питання до заперечного речення з «won't» утворюється стверджувальним «will + підмет?»",
+                        "Після заперечного «It won't be a problem» розділове питання стверджувальне: «will it?»"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "«will» правильна форма: після заперечного «It won't be» розділове питання — стверджувальне «will it?»",
+                            "won't": "«won't it?» — заперечне розділове, але воно вживається лише після стверджувальних головних речень.",
+                            "is": "«is it?» — розділове для теперішнього часу, але речення використовує «will/won't»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_tag_question"
+            ],
+            "variants": [
+                "It won't be a problem, {a1} it?"
+            ]
+        },
+        {
+            "id": 63,
+            "uuid_segments": [
+                "b2",
+                "q09"
+            ],
+            "question": "I think this film {a1} brilliant — the director is excellent.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is going to be",
+                        "would be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will be» вживається для спонтанних прогнозів або думок, що виникли в момент мовлення, тоді як «is going to be» — для вже запланованого або очевидного.",
+                        "Вираз «I think» вказує на спонтанний прогноз мовця (не засновений на видимих ознаках), де типовіше «will be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «I think» передає думку або спонтанний прогноз, де «will be» є найприроднішим вибором.",
+                            "is going to be": "«is going to be» краще вживати, коли є конкретні видимі ознаки або запланований результат — «I think» самостійно не вказує на це.",
+                            "would be": "«would be» — умовний спосіб, що передбачає нереальну умову; тут немає жодної умовної конструкції."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_vs_going_to_be"
+            ],
+            "variants": [
+                "I think this film {a1} brilliant — the director is excellent."
+            ]
+        },
+        {
+            "id": 64,
+            "uuid_segments": [
+                "b2",
+                "q10"
+            ],
+            "question": "Look at those clouds — it {a1} a terrible day.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is going to be",
+                    "options": [
+                        "is going to be",
+                        "will be",
+                        "would be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Is going to be» вживається, коли є видимі ознаки або конкретні докази майбутньої події в теперішньому.",
+                        "Вказівна фраза «look at those clouds» — це видима ознака в теперішньому, яка є підставою для прогнозу."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to be": "«is going to be» правильна форма: хмари — видима ознака в теперішньому, що є підставою для прогнозу «is going to be».",
+                            "will be": "«will be» підходить для спонтанних прогнозів без видимих ознак; «look at those clouds» вказує на конкретний доказ.",
+                            "would be": "«would be» — умовний спосіб без умовної конструкції; тут потрібен майбутній прогноз."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_vs_going_to_be"
+            ],
+            "variants": [
+                "Look at those clouds — it {a1} a terrible day."
+            ]
+        },
+        {
+            "id": 65,
+            "uuid_segments": [
+                "b2",
+                "q11"
+            ],
+            "question": "They've already booked the venue — the party {a1} huge.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is going to be",
+                    "options": [
+                        "is going to be",
+                        "will be",
+                        "would be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Is going to be» вживається, коли вже є конкретне підтвердження або існуючий план майбутнього.",
+                        "«They've already booked the venue» — це існуючий план, підтверджений дією у Present Perfect."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is going to be": "«is going to be» правильна форма: бронювання приміщення — конкретний план, що підтверджує «is going to be huge».",
+                            "will be": "«will be» використовується для спонтанних прогнозів, а тут є конкретний план (бронювання), що вказує на «is going to be».",
+                            "would be": "«would be» — умовний спосіб; тут немає умовної конструкції, а є конкретний майбутній план."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_vs_going_to_be"
+            ],
+            "variants": [
+                "They've already booked the venue — the party {a1} huge."
+            ]
+        },
+        {
+            "id": 66,
+            "uuid_segments": [
+                "b2",
+                "q12"
+            ],
+            "question": "I'm sure everything {a1} fine — these things always work out.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is going to be",
+                        "would be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will be» вживається для загальних запевнень або оптимістичних прогнозів без конкретних видимих підстав.",
+                        "«I'm sure» і «these things always work out» — загальне запевнення без конкретної видимої ознаки."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «I'm sure» передає впевненість без конкретного доказу — спонтанний оптимістичний прогноз.",
+                            "is going to be": "«is going to be» вимагає видимих ознак або конкретних планів; «I'm sure everything will be fine» — загальне запевнення.",
+                            "would be": "«would be» — умовний спосіб, не доречний для простого запевнення без умовної конструкції."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_vs_going_to_be"
+            ],
+            "variants": [
+                "I'm sure everything {a1} fine — these things always work out."
+            ]
+        },
+        {
+            "id": 67,
+            "uuid_segments": [
+                "b2",
+                "q13"
+            ],
+            "question": "All participants {a1} informed of the results within 24 hours.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан у майбутньому будується через «will be + Past Participle»; «informed» — Past Participle.",
+                        "«Within 24 hours» вказує на майбутній часовий ліміт і підтверджує потрібну форму."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be informed» — майбутній пасив, і «within 24 hours» підтверджує час.",
+                            "are": "«are informed» — теперішній пасив, але «within 24 hours» вказує на майбутнє повідомлення.",
+                            "were": "«were informed» — минулий пасив, але учасників ще не повідомили — це майбутнє."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "All participants {a1} informed of the results within 24 hours."
+            ]
+        },
+        {
+            "id": 68,
+            "uuid_segments": [
+                "b2",
+                "q14"
+            ],
+            "question": "The announcement {a1} made public next Tuesday.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will be + Past Participle» — стандартна форма майбутнього пасивного стану для офіційних оголошень.",
+                        "«Next Tuesday» є прямим маркером майбутнього часу і визначає потрібну форму дієслова."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be made public» — майбутній пасив, і «next Tuesday» підтверджує час.",
+                            "is": "«is made public» — теперішній пасив, але «next Tuesday» означає ще не настале оголошення.",
+                            "was": "«was made public» — минулий пасив, але «next Tuesday» вказує на майбутнє."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "The announcement {a1} made public next Tuesday."
+            ]
+        },
+        {
+            "id": 69,
+            "uuid_segments": [
+                "b2",
+                "q15"
+            ],
+            "question": "New security measures {a1} introduced following the incident.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will be introduced» — майбутній пасивний стан для опису заходів, що плануються після події.",
+                        "«Following the incident» вказує на причину, через яку заходи будуть введені в майбутньому."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be introduced» — майбутній пасив, заходи ще не введені.",
+                            "are": "«are introduced» — теперішній пасив, але заходи ще лише планують ввести після інциденту.",
+                            "were": "«were introduced» — минулий пасив, але якщо заходи ще в майбутньому, минулий час не підходить."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "New security measures {a1} introduced following the incident."
+            ]
+        },
+        {
+            "id": 70,
+            "uuid_segments": [
+                "b2",
+                "q16"
+            ],
+            "question": "The decision {a1} announced on Monday.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Запланована публічна дія в майбутньому передається через «will be + Past Participle» у пасивному стані.",
+                        "«On Monday» — майбутній день тижня, де ще не настав момент оголошення."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be announced on Monday» — майбутній пасив для запланованої дії.",
+                            "is": "«is announced» — теперішній пасив, але «on Monday» вказує на ще не настале майбутнє.",
+                            "was": "«was announced» — минулий пасив, але «on Monday» ще не настав."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "The decision {a1} announced on Monday."
+            ]
+        },
+        {
+            "id": 71,
+            "uuid_segments": [
+                "b2",
+                "q17"
+            ],
+            "question": "By the end of the year, the construction {a1} completed.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "has been"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«By the end of the year» вказує на майбутній дедлайн, де для майбутнього пасиву вживається «will be + Past Participle».",
+                        "«Will be completed» — майбутній пасивний стан для описання завершення проекту до певного часу."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be completed by the end of the year» — майбутній пасив із дедлайном.",
+                            "is": "«is completed» — теперішній пасив, але «by the end of the year» вказує на майбутній дедлайн.",
+                            "has been": "«has been completed» — Present Perfect Passive, що описує вже завершене; тут будівництво ще в процесі."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "By the end of the year, the construction {a1} completed."
+            ]
+        },
+        {
+            "id": 72,
+            "uuid_segments": [
+                "b2",
+                "q18"
+            ],
+            "question": "The conference {a1} attended by over 500 delegates.",
+            "source": "theory_page_1178",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will be attended by» — майбутній пасивний стан для опису кількості учасників майбутнього заходу.",
+                        "Контекст майбутньої конференції (ще не відбулась) підтверджує потрібну форму майбутнього пасиву."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be attended by 500 delegates» — майбутній пасив для ще не відбулась конференції.",
+                            "is": "«is attended by» — теперішній пасив, але конференція ще не відбулась.",
+                            "was": "«was attended by» — минулий пасив, але конференція запланована на майбутнє."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "The conference {a1} attended by over 500 delegates."
+            ]
+        },
+        {
+            "id": 73,
+            "uuid_segments": [
+                "c1",
+                "q01"
+            ],
+            "question": "By this time next year, they {a1} married for a decade.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will have been",
+                    "options": [
+                        "will have been",
+                        "will be",
+                        "have been"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will have been» — форма Future Perfect з «to be», яка описує стан, що триватиме до певного моменту в майбутньому.",
+                        "Вираз «by this time next year» вказує на точний момент у майбутньому, до якого стан (шлюб) вже відбуватиметься протягом тривалого часу."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been": "«will have been» правильна форма: Future Perfect — до наступного року шлюб вже триватиме десять років.",
+                            "will be": "«will be» — Future Simple, що описує стан у майбутньому, але не передає тривалість до певного моменту.",
+                            "have been": "«have been» — Present Perfect, що описує завершену дію до теперішнього, а не до майбутнього моменту."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_future_perfect"
+            ],
+            "variants": [
+                "By this time next year, they {a1} married for a decade."
+            ]
+        },
+        {
+            "id": 74,
+            "uuid_segments": [
+                "c1",
+                "q02"
+            ],
+            "question": "By the end of the project, she {a1} with us for five years.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will have been",
+                    "options": [
+                        "will have been",
+                        "will be",
+                        "has been"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Future Perfect з «to be» («will have been») описує тривалість стану, що завершиться до певного моменту в майбутньому.",
+                        "«By the end of the project» — майбутній момент-дедлайн, до якого п'ять років вже будуть відраховані."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been": "«will have been» правильна форма: до кінця проекту вже пройде п'ять років — Future Perfect передає цю тривалість.",
+                            "will be": "«will be» описує стан у майбутньому, але не передає тривалість, що закінчиться до певного моменту.",
+                            "has been": "«has been» — Present Perfect, що відраховує тривалість до теперішнього, а не до майбутнього дедлайну."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_future_perfect"
+            ],
+            "variants": [
+                "By the end of the project, she {a1} with us for five years."
+            ]
+        },
+        {
+            "id": 75,
+            "uuid_segments": [
+                "c1",
+                "q03"
+            ],
+            "question": "We expect that the report {a1} submitted before the deadline.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "would be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після «we expect that» у підрядному реченні для вираження майбутнього очікування вживається «will be».",
+                        "«Before the deadline» — майбутній часовий орієнтир, що підтверджує потребу в майбутньому часі."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «we expect that» передає очікування щодо майбутнього, де «will be submitted» — майбутній пасив.",
+                            "is": "«is submitted» — теперішній пасив, але «before the deadline» описує ще не настале майбутнє.",
+                            "would be": "«would be» — умовний спосіб, але тут немає умовної конструкції, лише очікування майбутньої події."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_formal_register",
+                "will_be_passive"
+            ],
+            "variants": [
+                "We expect that the report {a1} submitted before the deadline."
+            ]
+        },
+        {
+            "id": 76,
+            "uuid_segments": [
+                "c1",
+                "q04"
+            ],
+            "question": "The winning team {a1} awarded the trophy at the ceremony.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Майбутній пасивний стан для офіційних церемоній будується через «will be + Past Participle».",
+                        "Контекст церемонії нагородження, яка ще не відбулась, підтверджує майбутній час і пасивний стан."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be awarded» — майбутній пасив для запланованої церемонії нагородження.",
+                            "is": "«is awarded» — теперішній пасив, але церемонія ще не відбулась.",
+                            "was": "«was awarded» — минулий пасив, але команда ще не отримала трофей."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "The winning team {a1} awarded the trophy at the ceremony."
+            ]
+        },
+        {
+            "id": 77,
+            "uuid_segments": [
+                "c1",
+                "q05"
+            ],
+            "question": "In formal legal writing, 'the obligation {a1} fulfilled' uses an obligatory modal.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "shall be",
+                    "options": [
+                        "shall be",
+                        "will be",
+                        "should be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Shall be» — формальний юридичний модальний пасив, що виражає обов'язковість або зобов'язання в офіційних документах.",
+                        "Підказка у реченні — слово «obligatory modal» (обов'язковий модальний), що вказує саме на «shall be» у юридичному контексті."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "shall be": "«shall be» правильна форма: в юридичних і формальних текстах «shall be» виражає нормативне зобов'язання.",
+                            "will be": "«will be» — нейтральне майбутнє; в юридичних документах замінюється на «shall be» для позначення зобов'язань.",
+                            "should be": "«should be» виражає рекомендацію або бажаність, а не юридичне зобов'язання, яке передає «shall be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "modal_shall_be"
+            ],
+            "variants": [
+                "In formal legal writing, 'the obligation {a1} fulfilled' uses an obligatory modal."
+            ]
+        },
+        {
+            "id": 78,
+            "uuid_segments": [
+                "c1",
+                "q06"
+            ],
+            "question": "By 2030, many traditional jobs {a1} replaced by automation.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will have been",
+                    "options": [
+                        "will have been",
+                        "will be",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will have been replaced» — Future Perfect Passive для опису заміни, що завершиться до певного майбутнього моменту.",
+                        "«By 2030» — конкретний майбутній рік-дедлайн, що вимагає Future Perfect, а не Future Simple."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been": "«will have been» правильна форма: «will have been replaced by 2030» — Future Perfect Passive описує завершення до 2030.",
+                            "will be": "«will be replaced» — Future Simple Passive, що описує заміну в майбутньому, але не передає завершеність до дедлайну.",
+                            "are": "«are replaced» — Present Simple Passive, але «by 2030» вказує на майбутній часовий горизонт."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_future_perfect",
+                "will_be_passive"
+            ],
+            "variants": [
+                "By 2030, many traditional jobs {a1} replaced by automation."
+            ]
+        },
+        {
+            "id": 79,
+            "uuid_segments": [
+                "c1",
+                "q07"
+            ],
+            "question": "Had they not intervened, the situation {a1} much worse.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would have been",
+                    "options": [
+                        "would have been",
+                        "would be",
+                        "will be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Інвертована умовна конструкція «Had + підмет + Past Participle» відповідає Type 3 Conditional, де наслідок виражається через «would have been».",
+                        "«Had they not intervened» = «If they had not intervened» — нереальна умова в минулому, що вимагає «would have been» у головній частині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would have been": "«would have been» правильна форма: Type 3 Conditional — нереальна минула умова → «would have been worse» у головній частині.",
+                            "would be": "«would be» — форма Type 2 Conditional (нереальна теперішня умова), але «Had they not intervened» описує минулу умову.",
+                            "will be": "«will be» — Future Simple, але нереальна минула умова вимагає «would have been», а не «will be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional"
+            ],
+            "variants": [
+                "Had they not intervened, the situation {a1} much worse."
+            ]
+        },
+        {
+            "id": 80,
+            "uuid_segments": [
+                "c1",
+                "q08"
+            ],
+            "question": "The old library {a1} demolished to make way for the new building.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will be demolished» — майбутній пасивний стан для запланованого знесення будівлі.",
+                        "Контекст «to make way for the new building» підказує, що знесення є запланованою майбутньою подією."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be demolished» — майбутній пасив для запланованого знесення.",
+                            "is": "«is demolished» — теперішній пасив, але бібліотека ще не знесена — це майбутній план.",
+                            "was": "«was demolished» — минулий пасив, але якщо план ще в майбутньому, минулий час неможливий."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "The old library {a1} demolished to make way for the new building."
+            ]
+        },
+        {
+            "id": 81,
+            "uuid_segments": [
+                "c1",
+                "q09"
+            ],
+            "question": "If interest rates rise sharply, inflation {a1} a major concern.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Type 1 Conditional з економічним контекстом: реальна майбутня умова → «will be» у головній частині.",
+                        "Підрядна частина «if interest rates rise» стоїть у Present Simple, що є ознакою Type 1 Conditional."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: Type 1 Conditional — реальна умова «if rates rise» → майбутній наслідок «will be a concern».",
+                            "would be": "«would be» — Type 2 Conditional (нереальна умова), але «if interest rates rise» — реальна і цілком можлива умова.",
+                            "is": "«is» — теперішній час, але наслідок стосується майбутнього стану після підвищення ставок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional"
+            ],
+            "variants": [
+                "If interest rates rise sharply, inflation {a1} a major concern."
+            ]
+        },
+        {
+            "id": 82,
+            "uuid_segments": [
+                "c1",
+                "q10"
+            ],
+            "question": "The matter {a1} dealt with at the next board meeting.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "shall be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will be dealt with» — майбутній пасив для запланованого розгляду питання на зборах.",
+                        "«At the next board meeting» вказує на конкретний майбутній час і підтверджує потрібну форму."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be dealt with at the next board meeting» — майбутній пасив для запланованої події.",
+                            "is": "«is dealt with» — теперішній пасив, але наступне засідання ще не відбулось.",
+                            "shall be": "«shall be dealt with» — формальний юридичний варіант; тут нейтральне «will be» доречніше без юридичного контексту."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The matter {a1} dealt with at the next board meeting."
+            ]
+        },
+        {
+            "id": 83,
+            "uuid_segments": [
+                "c1",
+                "q11"
+            ],
+            "question": "She {a1} the first woman in her family to hold this position.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прогноз або очікування щодо значної майбутньої події виражається через «will be».",
+                        "Контекст «first woman … to hold this position» підказує, що посаду ще не зайнято — це майбутня подія."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: посаду ще не зайнято, і «will be the first» — прогноз майбутнього досягнення.",
+                            "is": "«is» — теперішній час, але якщо вона ще не обійняла посаду, теперішній час невідповідний.",
+                            "was": "«was» — минулий час, але мова йде про майбутнє значне досягнення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "She {a1} the first woman in her family to hold this position."
+            ]
+        },
+        {
+            "id": 84,
+            "uuid_segments": [
+                "c1",
+                "q12"
+            ],
+            "question": "By the time the investigation concludes, months {a1} spent on research.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will have been",
+                    "options": [
+                        "will have been",
+                        "will be",
+                        "have been"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Future Perfect Passive («will have been + Past Participle») описує час, витрачений до певного майбутнього моменту.",
+                        "«By the time the investigation concludes» — майбутній момент завершення, до якого вже пройдуть місяці."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been": "«will have been» правильна форма: «will have been spent» — Future Perfect Passive для тривалості до майбутнього моменту.",
+                            "will be": "«will be spent» — Future Simple Passive, що не передає завершеність до конкретного майбутнього моменту.",
+                            "have been": "«have been spent» — Present Perfect Passive, що описує тривалість до теперішнього, а не до майбутнього."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_future_perfect",
+                "will_be_passive"
+            ],
+            "variants": [
+                "By the time the investigation concludes, months {a1} spent on research."
+            ]
+        },
+        {
+            "id": 85,
+            "uuid_segments": [
+                "c1",
+                "q13"
+            ],
+            "question": "Unless immediate action is taken, the species {a1} extinct by 2100.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Unless» + Present Simple → «will» у головній частині (Type 1 Conditional із запереченою умовою).",
+                        "«Unless immediate action is taken» = «if immediate action is not taken» — реальна, але критична умова."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «unless» + Present Passive Conditional → «will be extinct» у майбутньому.",
+                            "would be": "«would be» — Type 2 Conditional (нереальна умова), але загроза вимирання цілком реальна.",
+                            "is": "«is» — теперішній час, але «by 2100» вказує на майбутній часовий горизонт."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional"
+            ],
+            "variants": [
+                "Unless immediate action is taken, the species {a1} extinct by 2100."
+            ]
+        },
+        {
+            "id": 86,
+            "uuid_segments": [
+                "c1",
+                "q14"
+            ],
+            "question": "The terms {a1} negotiated and agreed upon before the contract is signed.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "are",
+                        "shall be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will be + Past Participle» — майбутній пасив для опису процесу переговорів, що ще попереду.",
+                        "«Before the contract is signed» — майбутня умова, що підтверджує потребу в «will be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be negotiated and agreed» — майбутній пасив до підписання контракту.",
+                            "are": "«are negotiated» — теперішній пасив, але переговори ще попереду («before the contract is signed»).",
+                            "shall be": "«shall be» — формальний юридичний варіант; тут нейтральне «will be» є більш типовим у звичайному діловому контексті."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive"
+            ],
+            "variants": [
+                "The terms {a1} negotiated and agreed upon before the contract is signed."
+            ]
+        },
+        {
+            "id": 87,
+            "uuid_segments": [
+                "c1",
+                "q15"
+            ],
+            "question": "In the resolution, it states that all funds {a1} allocated to education.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "shall be",
+                    "options": [
+                        "shall be",
+                        "will be",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Shall be» вживається в офіційних резолюціях та постановах для вираження нормативних зобов'язань або рішень.",
+                        "Слово «resolution» (резолюція) є ключовим маркером формального/юридичного контексту, де типово вживається «shall be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "shall be": "«shall be» правильна форма: в резолюціях «shall be allocated» виражає офіційне зобов'язання або постанову.",
+                            "will be": "«will be» — нейтральне майбутнє; у формальних резолюціях «shall be» є конвенційним вибором для зобов'язань.",
+                            "are": "«are allocated» — теперішній час, але резолюція говорить про майбутній розподіл коштів."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "modal_shall_be"
+            ],
+            "variants": [
+                "In the resolution, it states that all funds {a1} allocated to education."
+            ]
+        },
+        {
+            "id": 88,
+            "uuid_segments": [
+                "c1",
+                "q16"
+            ],
+            "question": "By the time the course ends, students {a1} exposed to over 200 hours of instruction.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will have been",
+                    "options": [
+                        "will have been",
+                        "will be",
+                        "have been"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Future Perfect Passive («will have been + Past Participle») описує накопичений досвід або кількість годин до майбутнього моменту закінчення курсу.",
+                        "«By the time the course ends» — майбутній момент, до якого 200 годин вже будуть пройдені."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been": "«will have been» правильна форма: «will have been exposed» — Future Perfect Passive для накопиченого досвіду до кінця курсу.",
+                            "will be": "«will be exposed» — Future Simple Passive, що не передає завершеність накопичення до певного майбутнього моменту.",
+                            "have been": "«have been exposed» — Present Perfect Passive для дії до теперішнього, а не до майбутнього моменту."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_future_perfect",
+                "will_be_passive"
+            ],
+            "variants": [
+                "By the time the course ends, students {a1} exposed to over 200 hours of instruction."
+            ]
+        },
+        {
+            "id": 89,
+            "uuid_segments": [
+                "c1",
+                "q17"
+            ],
+            "question": "I {a1} there to support you, no matter what happens.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "shall be",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Особиста тверда обіцянка або запевнення у майбутньому виражається через «will be» з «I» — у розмовному та нейтральному стилі.",
+                        "«No matter what happens» підкреслює безумовну обіцянку на майбутнє, що вимагає «will be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: особиста безумовна обіцянка «I will be there» для майбутньої підтримки.",
+                            "shall be": "«shall be» можна вжити як дуже формальне або архаїчне запевнення, але в сучасному мовленні «will be» природніше.",
+                            "am": "«am» — теперішній час, але обіцянка «no matter what happens» стосується майбутнього, де потрібне «will be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_affirmative"
+            ],
+            "variants": [
+                "I {a1} there to support you, no matter what happens."
+            ]
+        },
+        {
+            "id": 90,
+            "uuid_segments": [
+                "c1",
+                "q18"
+            ],
+            "question": "The new policy {a1} implemented across all departments next quarter.",
+            "source": "theory_page_1178",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will be implemented» — майбутній пасивний стан для опису запровадження нової політики в організації.",
+                        "«Next quarter» — конкретний майбутній квартал, що підтверджує потребу в майбутньому пасиві."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be implemented next quarter» — майбутній пасив для запланованого впровадження.",
+                            "is": "«is implemented» — теперішній пасив, але «next quarter» вказує на ще не настале майбутнє.",
+                            "was": "«was implemented» — минулий пасив, але «next quarter» ще не настав."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_passive",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "The new policy {a1} implemented across all departments next quarter."
+            ]
+        },
+        {
+            "id": 91,
+            "uuid_segments": [
+                "c2",
+                "q01"
+            ],
+            "question": "All disputes arising under this agreement {a1} resolved through binding arbitration.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "shall be",
+                    "options": [
+                        "shall be",
+                        "will be",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Shall be» є стандартним юридичним виразом зобов'язання в контрактах і угодах, виражаючи нормативну вимогу.",
+                        "Слова «this agreement» і «binding arbitration» є маркерами юридичного контексту, де типово вживається «shall be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "shall be": "«shall be» правильна форма: у юридичних угодах «shall be resolved» виражає нормативне зобов'язання, а не просте майбутнє.",
+                            "will be": "«will be» — нейтральне майбутнє; в юридичних документах «shall be» є конвенційним вибором для зобов'язань.",
+                            "are": "«are resolved» — теперішній час, але угода говорить про майбутні суперечки, які виникнуть після підписання."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "modal_shall_be"
+            ],
+            "variants": [
+                "All disputes arising under this agreement {a1} resolved through binding arbitration."
+            ]
+        },
+        {
+            "id": 92,
+            "uuid_segments": [
+                "c2",
+                "q02"
+            ],
+            "question": "Were the proposal to fail, the fallback option {a1} the original plan.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Інвертована умовна конструкція «Were + підмет + to + інфінітив» відповідає Type 2 Conditional з «would» у головній частині.",
+                        "«Were the proposal to fail» = «If the proposal were to fail» — нереальна або малоймовірна умова, де наслідок — «would be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would be": "«would be» правильна форма: Type 2 Conditional із інверсією — «Were … to fail, … would be» — нереальна гіпотетична умова.",
+                            "will be": "«will be» — Future Simple для реальних умов (Type 1); але «Were the proposal to fail» — нереальна або малоймовірна умова.",
+                            "is": "«is» — теперішній час, але речення описує гіпотетичний майбутній наслідок, а не поточний стан."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional"
+            ],
+            "variants": [
+                "Were the proposal to fail, the fallback option {a1} the original plan."
+            ]
+        },
+        {
+            "id": 93,
+            "uuid_segments": [
+                "c2",
+                "q03"
+            ],
+            "question": "By the time the final report is submitted, the team {a1} analysing data for over a year.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will have been",
+                    "options": [
+                        "will have been",
+                        "will be",
+                        "has been"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Future Perfect Continuous / Future Perfect з «be» описує тривалу дію, що продовжується до певного майбутнього моменту.",
+                        "«By the time the final report is submitted» — майбутній момент, до якого рік аналізу вже пройде."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been": "«will have been» правильна форма: Future Perfect — тривалість аналізу понад рік завершиться до здачі звіту.",
+                            "will be": "«will be analysing» — Future Continuous, але «will have been» краще передає тривалість до певного моменту.",
+                            "has been": "«has been analysing» — Present Perfect Continuous, що відраховує тривалість до теперішнього, а не до майбутнього."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_future_perfect"
+            ],
+            "variants": [
+                "By the time the final report is submitted, the team {a1} analysing data for over a year."
+            ]
+        },
+        {
+            "id": 94,
+            "uuid_segments": [
+                "c2",
+                "q04"
+            ],
+            "question": "Notwithstanding the delay, the project {a1} completed within the fiscal year.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "shall be",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У формальному діловому мовленні «will be + Past Participle» виражає майбутній пасив для планованих результатів.",
+                        "Слово «notwithstanding» — формальне прислівникове прийменникове слово, але контекст залишається нейтральним бізнесовим, де «will be» природніше за «shall be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be completed» — майбутній пасив, природний у бізнесовому прогнозі попри затримку.",
+                            "shall be": "«shall be» надасть тексту юридичного відтінку нормативного зобов'язання, але для бізнесового прогнозу «will be» нейтральніше.",
+                            "is": "«is completed» — теперішній пасив, але «within the fiscal year» вказує на майбутній дедлайн."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_formal_register",
+                "will_be_passive"
+            ],
+            "variants": [
+                "Notwithstanding the delay, the project {a1} completed within the fiscal year."
+            ]
+        },
+        {
+            "id": 95,
+            "uuid_segments": [
+                "c2",
+                "q05"
+            ],
+            "question": "Pursuant to the regulations, all new employees {a1} required to complete a training programme.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "shall be",
+                    "options": [
+                        "shall be",
+                        "will be",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Shall be» у нормативних документах і регламентах виражає юридичний або адміністративний обов'язок.",
+                        "«Pursuant to the regulations» — латинський юридичний вираз, що сигналізує про нормативний контекст, де традиційно вживається «shall be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "shall be": "«shall be» правильна форма: «pursuant to the regulations» — нормативний контекст, де «shall be required» виражає обов'язковість.",
+                            "will be": "«will be» — нейтральне майбутнє; юридичний регламент («pursuant to regulations») традиційно вимагає «shall be».",
+                            "are": "«are required» — теперішній час, але регламент говорить про майбутній обов'язок нових співробітників."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "modal_shall_be"
+            ],
+            "variants": [
+                "Pursuant to the regulations, all new employees {a1} required to complete a training programme."
+            ]
+        },
+        {
+            "id": 96,
+            "uuid_segments": [
+                "c2",
+                "q06"
+            ],
+            "question": "Were the conditions different, this decision {a1} far more straightforward.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "will be",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Were + підмет + прикметник» — інвертована форма Type 2 Conditional, де наслідок виражається через «would be».",
+                        "«Were the conditions different» = «If the conditions were different» — гіпотетична нереальна умова в теперішньому."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would be": "«would be» правильна форма: Type 2 Conditional із інверсією — «Were the conditions different, … would be more straightforward».",
+                            "will be": "«will be» — Future Simple для реальних умов (Type 1); але «were the conditions different» — нереальна гіпотетична умова.",
+                            "is": "«is» — теперішній час, але йдеться про гіпотетичний наслідок нереальної умови."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional"
+            ],
+            "variants": [
+                "Were the conditions different, this decision {a1} far more straightforward."
+            ]
+        },
+        {
+            "id": 97,
+            "uuid_segments": [
+                "c2",
+                "q07"
+            ],
+            "question": "As stipulated in the contract, payment {a1} made within 30 days of invoice.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "shall be",
+                    "options": [
+                        "shall be",
+                        "will be",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«As stipulated in the contract» — юридична фраза, що вказує на нормативний обов'язок, де традиційно вживається «shall be».",
+                        "«Shall be made» у юридичному контексті виражає зобов'язання здійснити платіж, а не просте майбутнє."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "shall be": "«shall be» правильна форма: «as stipulated in the contract» → юридичне зобов'язання «shall be made within 30 days».",
+                            "will be": "«will be» — нейтральне майбутнє; у контракті «shall be» є конвенційною формою для зобов'язань.",
+                            "is": "«is made» — теперішній час, але контракт говорить про майбутній платіж після отримання рахунку."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "modal_shall_be"
+            ],
+            "variants": [
+                "As stipulated in the contract, payment {a1} made within 30 days of invoice."
+            ]
+        },
+        {
+            "id": 98,
+            "uuid_segments": [
+                "c2",
+                "q08"
+            ],
+            "question": "Had she followed the protocol, the error {a1} avoided.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would have been",
+                    "options": [
+                        "would have been",
+                        "will have been",
+                        "would be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Had + підмет + Past Participle» — інвертована форма Type 3 Conditional, де наслідок виражається через «would have been».",
+                        "«Had she followed the protocol» = «If she had followed the protocol» — нереальна умова в минулому."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would have been": "«would have been» правильна форма: Type 3 Conditional — нереальна минула умова → «would have been avoided» у головній частині.",
+                            "will have been": "«will have been» — Future Perfect, що описує майбутнє; але «Had she followed» — минула нереальна умова.",
+                            "would be": "«would be» — Type 2 Conditional (нереальна теперішня умова), але «Had she followed» вказує на минулу умову (Type 3)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional"
+            ],
+            "variants": [
+                "Had she followed the protocol, the error {a1} avoided."
+            ]
+        },
+        {
+            "id": 99,
+            "uuid_segments": [
+                "c2",
+                "q09"
+            ],
+            "question": "By the centenary celebration, this institution {a1} providing education for over 100 years.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will have been",
+                    "options": [
+                        "will have been",
+                        "will be",
+                        "has been"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Future Perfect («will have been») описує тривалу дію або стан, що продовжиться до певного майбутнього моменту.",
+                        "«By the centenary celebration» — конкретний майбутній момент (100-річчя), до якого вже пройде понад сто років діяльності."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been": "«will have been» правильна форма: до ювілею вже пройде понад 100 років — Future Perfect передає цю тривалість.",
+                            "will be": "«will be» — Future Simple, що описує стан у майбутньому, але не передає тривалість до певного моменту.",
+                            "has been": "«has been» — Present Perfect для тривалості до теперішнього, а не до майбутнього ювілею."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_future_perfect"
+            ],
+            "variants": [
+                "By the centenary celebration, this institution {a1} providing education for over 100 years."
+            ]
+        },
+        {
+            "id": 100,
+            "uuid_segments": [
+                "c2",
+                "q10"
+            ],
+            "question": "The panel {a1} convened at the earliest opportunity to review the evidence.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "shall be",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will be convened» — майбутній пасив у формальному/академічному регістрі для опису скликання комісії.",
+                        "«At the earliest opportunity» — майбутній часовий вираз, що підтверджує потребу в майбутньому пасиві."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be convened at the earliest opportunity» — майбутній пасив у формальному тоні.",
+                            "shall be": "«shall be convened» надало б тексту суворішого нормативного або юридичного відтінку; тут нейтральне «will be» доречніше.",
+                            "is": "«is convened» — теперішній пасив, але «at the earliest opportunity» вказує на ще не настале майбутнє скликання."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_formal_register",
+                "will_be_passive"
+            ],
+            "variants": [
+                "The panel {a1} convened at the earliest opportunity to review the evidence."
+            ]
+        },
+        {
+            "id": 101,
+            "uuid_segments": [
+                "c2",
+                "q11"
+            ],
+            "question": "Provided that funding is secured, the programme {a1} launched in autumn.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "would be",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Provided that» + Present Simple → «will» у головній частині (аналог Type 1 Conditional).",
+                        "«Provided that funding is secured» — реальна умова для майбутнього запуску, де «will be» є правильною формою."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «provided that» + реальна умова → «will be launched» — майбутній пасив.",
+                            "would be": "«would be» — умовний спосіб для нереальних умов (Type 2), але «provided that funding is secured» — реальна умова.",
+                            "is": "«is launched» — теперішній пасив, але «in autumn» вказує на майбутній запуск."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_conditional",
+                "will_be_passive"
+            ],
+            "variants": [
+                "Provided that funding is secured, the programme {a1} launched in autumn."
+            ]
+        },
+        {
+            "id": 102,
+            "uuid_segments": [
+                "c2",
+                "q12"
+            ],
+            "question": "The data {a1} verified independently before any conclusions are drawn.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "shall be",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will be verified» — майбутній пасив у академічному регістрі для опису запланованої незалежної верифікації.",
+                        "«Before any conclusions are drawn» — часова підрядна частина у Present Passive, що підтверджує майбутній час у головній частині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be verified before conclusions are drawn» — майбутній пасив у академічному контексті.",
+                            "shall be": "«shall be verified» — юридично-нормативне; у науковому/академічному тексті «will be» природніше.",
+                            "are": "«are verified» — теперішній пасив, але «before any conclusions are drawn» описує майбутній порядок дій."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_formal_register",
+                "will_be_passive"
+            ],
+            "variants": [
+                "The data {a1} verified independently before any conclusions are drawn."
+            ]
+        },
+        {
+            "id": 103,
+            "uuid_segments": [
+                "c2",
+                "q13"
+            ],
+            "question": "By the end of the trial period, the prototype {a1} tested under 50 different conditions.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will have been",
+                    "options": [
+                        "will have been",
+                        "will be",
+                        "has been"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Future Perfect Passive («will have been + Past Participle») описує завершену кількість тестів до майбутнього моменту.",
+                        "«By the end of the trial period» — майбутній дедлайн, до якого 50 умов тестування вже будуть пройдені."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will have been": "«will have been» правильна форма: «will have been tested under 50 conditions» — Future Perfect Passive до кінця пробного терміну.",
+                            "will be": "«will be tested» — Future Simple Passive, що не передає завершеність до конкретного майбутнього моменту.",
+                            "has been": "«has been tested» — Present Perfect Passive для дій до теперішнього, а не до майбутнього дедлайну."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_future_perfect",
+                "will_be_passive"
+            ],
+            "variants": [
+                "By the end of the trial period, the prototype {a1} tested under 50 different conditions."
+            ]
+        },
+        {
+            "id": 104,
+            "uuid_segments": [
+                "c2",
+                "q14"
+            ],
+            "question": "The recommendation {a1} considered binding on all member states.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "shall be",
+                    "options": [
+                        "shall be",
+                        "will be",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Shall be considered binding» — юридична формула, що робить рекомендацію обов'язковою для всіх держав-членів.",
+                        "«Binding on all member states» — юридичне вираження обов'язковості, де «shall be» є конвенційним вибором."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "shall be": "«shall be» правильна форма: «shall be considered binding» — нормативне зобов'язання в міжнародному юридичному документі.",
+                            "will be": "«will be» — нейтральне майбутнє; у нормативних документах «shall be» є стандартом для зобов'язань.",
+                            "is": "«is considered binding» — теперішній час, але мова йде про майбутнє правове визначення рекомендації."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "modal_shall_be"
+            ],
+            "variants": [
+                "The recommendation {a1} considered binding on all member states."
+            ]
+        },
+        {
+            "id": 105,
+            "uuid_segments": [
+                "c2",
+                "q15"
+            ],
+            "question": "It is anticipated that the policy {a1} reviewed every five years.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "shall be",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після «it is anticipated that» у підрядному реченні майбутня регулярна дія виражається через «will be + Past Participle».",
+                        "«Every five years» вказує на майбутню регулярність перегляду, де «will be» є природним вибором."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «it is anticipated that the policy will be reviewed» — майбутній пасив для очікуваного перегляду.",
+                            "shall be": "«shall be reviewed» надало б тексту нормативного/юридичного відтінку; «it is anticipated» описує очікування, де «will be» природніше.",
+                            "is": "«is reviewed» — теперішній час, але «every five years» у контексті «anticipated» описує майбутні цикли перегляду."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_formal_register",
+                "will_be_passive"
+            ],
+            "variants": [
+                "It is anticipated that the policy {a1} reviewed every five years."
+            ]
+        },
+        {
+            "id": 106,
+            "uuid_segments": [
+                "c2",
+                "q16"
+            ],
+            "question": "In formal institutional writing, 'the obligation {a1} fulfilled' requires a modal of obligation.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "shall be",
+                    "options": [
+                        "shall be",
+                        "will be",
+                        "should be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Модаль «shall be» виражає юридичне або інституційне зобов'язання і є конвенційним вибором для «modal of obligation» у формальному письмі.",
+                        "Фраза «modal of obligation» у самому реченні є прямою підказкою: серед варіантів лише «shall be» виражає обов'язковість, а не просте майбутнє чи рекомендацію."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "shall be": "«shall be» правильна форма: у формальних документах «shall be fulfilled» виражає нормативне зобов'язання, що є «modal of obligation».",
+                            "will be": "«will be» — нейтральне майбутнє, а не модаль зобов'язання; у формальному письмі «shall be» є стандартом.",
+                            "should be": "«should be» виражає рекомендацію або бажаність, а не юридичне зобов'язання, позначене терміном «modal of obligation»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "modal_shall_be"
+            ],
+            "variants": [
+                "In formal institutional writing, 'the obligation {a1} fulfilled' requires a modal of obligation."
+            ]
+        },
+        {
+            "id": 107,
+            "uuid_segments": [
+                "c2",
+                "q17"
+            ],
+            "question": "Regardless of whether the motion passes, the committee {a1} bound by its earlier resolution.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "shall be",
+                        "would be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will be bound by» — майбутній пасив у формальному контексті для опису обов'язкового дотримання попередніх рішень.",
+                        "«Regardless of whether» — умовний зворот, але він не змінює вибір: обов'язок комітету реальний і майбутній, тому «will be» природніше за «shall be» тут."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will be": "«will be» правильна форма: «will be bound by its earlier resolution» — майбутній пасив для реального майбутнього зобов'язання.",
+                            "shall be": "«shall be» можна вжити у юридичному контексті, але тут нейтральне «will be» описує факт залежності від попередньої резолюції.",
+                            "would be": "«would be» — умовний спосіб, що передбачає нереальну умову; але тут обов'язок реальний, незалежно від результату голосування."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "will_be_formal_register",
+                "will_be_passive"
+            ],
+            "variants": [
+                "Regardless of whether the motion passes, the committee {a1} bound by its earlier resolution."
+            ]
+        },
+        {
+            "id": 108,
+            "uuid_segments": [
+                "c2",
+                "q18"
+            ],
+            "question": "As things stand, the merger {a1} finalised before the end of the financial year, given the regulatory delays.",
+            "source": "theory_page_1178",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "won't be",
+                    "options": [
+                        "won't be",
+                        "will be",
+                        "wouldn't be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Won't be finalised» — майбутній заперечний пасив, що виражає неможливість завершення злиття до кінця фінансового року через затримки.",
+                        "Фраза «as things stand» (у теперішньому стані справ) і «given the regulatory delays» є підказками: поточна ситуація робить завершення неможливим."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't be": "«won't be» правильна форма: «as things stand» і «regulatory delays» підтверджують, що злиття не буде завершене — заперечний майбутній пасив.",
+                            "will be": "«will be» означало б, що злиття буде завершене, але «regulatory delays» і «as things stand» показують протилежне.",
+                            "wouldn't be": "«wouldn't be» — умовний спосіб для нереальної умови; тут ситуація реальна і потрібне просте заперечне майбутнє «won't be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wont_be_negative",
+                "will_be_formal_register"
+            ],
+            "variants": [
+                "As things stand, the merger {a1} finalised before the end of the financial year, given the regulatory delays."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "vtbf-cp-sn-saved-test",
+        "slug": "verb-to-be-future-sonate-v3-test",
+        "name": "Verb to Be: Future — Sonate V3 Test",
+        "filters": {
+            "num_questions": 30,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\VerbToBeFutureV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1178,
+                "theory_page_ids": [
+                    1178
+                ],
+                "theory_page": {
+                    "id": 1178,
+                    "slug": "verb-to-be-future",
+                    "title": "Verb to Be: Future",
+                    "category_slug_path": "basic-grammar/verb-to-be",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeFutureTheorySeeder",
+                    "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-future"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,2616 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\BasicWordOrderV3QuestionsOnlySeeder",
+        "uuid_namespace": "BasicWordOrderV3QuestionsOnlySeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Word Order"
+    },
+    "sources": {
+        "theory_page_1088": {
+            "name": "Basic Word Order"
+        }
+    },
+    "tags": {
+        "svo_order": {
+            "name": "Subject–Verb–Object order",
+            "category": "pattern"
+        },
+        "adverb_frequency_position": {
+            "name": "Adverb of frequency placement",
+            "category": "pattern"
+        },
+        "time_place_position": {
+            "name": "Time and place adverbial position",
+            "category": "pattern"
+        },
+        "adjective_order": {
+            "name": "Adjective order before noun",
+            "category": "pattern"
+        },
+        "indirect_object_position": {
+            "name": "Indirect object placement",
+            "category": "pattern"
+        },
+        "adverb_manner_position": {
+            "name": "Adverb of manner placement",
+            "category": "pattern"
+        },
+        "negation_order": {
+            "name": "Negation word order",
+            "category": "pattern"
+        },
+        "question_inversion": {
+            "name": "Subject–auxiliary inversion in questions",
+            "category": "pattern"
+        },
+        "fronting_emphasis": {
+            "name": "Fronting for emphasis",
+            "category": "pattern"
+        },
+        "cleft_sentence": {
+            "name": "Cleft sentence structure",
+            "category": "pattern"
+        },
+        "inversion_after_negative": {
+            "name": "Inversion after negative adverbial",
+            "category": "pattern"
+        },
+        "participle_clause_order": {
+            "name": "Participle clause positioning",
+            "category": "pattern"
+        },
+        "end_weight_principle": {
+            "name": "End-weight principle",
+            "category": "pattern"
+        },
+        "reported_speech_order": {
+            "name": "Word order in reported speech",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "svo_order"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "She {a1} every day.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "reads books",
+                    "options": [
+                        "reads books",
+                        "books reads",
+                        "books she reads"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "She {a1} every day."
+            ]
+        },
+        {
+            "id": 2,
+            "question": "They {a2} at school.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "learn English",
+                    "options": [
+                        "learn English",
+                        "English learn",
+                        "learn they English"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "They {a2} at school."
+            ]
+        },
+        {
+            "id": 3,
+            "question": "My brother {a3} in the morning.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "drinks coffee",
+                    "options": [
+                        "drinks coffee",
+                        "coffee drinks",
+                        "coffee he drinks"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "My brother {a3} in the morning."
+            ]
+        },
+        {
+            "id": 4,
+            "question": "The cat {a4} on the sofa.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "is sleeping",
+                    "options": [
+                        "is sleeping",
+                        "sleeping is",
+                        "sleeping"
+                    ],
+                    "verb_hint": "SV order"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "The cat {a4} on the sofa."
+            ]
+        },
+        {
+            "id": 5,
+            "question": "I {a5} eat breakfast at 7 a.m.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "always",
+                    "options": [
+                        "always",
+                        "eat always",
+                        "always am"
+                    ],
+                    "verb_hint": "frequency adverb position"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "I {a5} eat breakfast at 7 a.m."
+            ]
+        },
+        {
+            "id": 6,
+            "question": "We {a6} play in the park.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "often",
+                    "options": [
+                        "often",
+                        "play often",
+                        "often are"
+                    ],
+                    "verb_hint": "frequency adverb position"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "We {a6} play in the park."
+            ]
+        },
+        {
+            "id": 7,
+            "question": "He is {a7} late for class.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "never",
+                    "options": [
+                        "never",
+                        "is never",
+                        "never is"
+                    ],
+                    "verb_hint": "frequency adverb after be"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "He is {a7} late for class."
+            ]
+        },
+        {
+            "id": 8,
+            "question": "She watched TV {a8}.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "at home yesterday",
+                    "options": [
+                        "at home yesterday",
+                        "yesterday at home",
+                        "home yesterday at"
+                    ],
+                    "verb_hint": "place before time"
+                }
+            },
+            "tag_keys": [
+                "time_place_position"
+            ],
+            "variants": [
+                "She watched TV {a8}."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "We played football {a9}.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "in the park on Saturday",
+                    "options": [
+                        "in the park on Saturday",
+                        "on Saturday in the park",
+                        "Saturday park in the on"
+                    ],
+                    "verb_hint": "place before time"
+                }
+            },
+            "tag_keys": [
+                "time_place_position"
+            ],
+            "variants": [
+                "We played football {a9}."
+            ]
+        },
+        {
+            "id": 10,
+            "question": "Tom {a10} to his friend.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "gave a present",
+                    "options": [
+                        "gave a present",
+                        "a present gave",
+                        "present gave a"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "Tom {a10} to his friend."
+            ]
+        },
+        {
+            "id": 11,
+            "question": "Anna {a11} after school.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "does her homework",
+                    "options": [
+                        "does her homework",
+                        "her homework does",
+                        "homework does her"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "Anna {a11} after school."
+            ]
+        },
+        {
+            "id": 12,
+            "question": "My parents {a12} dinner every evening.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "cook",
+                    "options": [
+                        "cook",
+                        "dinner cook",
+                        "cooks"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "My parents {a12} dinner every evening."
+            ]
+        },
+        {
+            "id": 13,
+            "question": "She {a13} go to the gym.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a13": {
+                    "answer": "usually",
+                    "options": [
+                        "usually",
+                        "goes usually",
+                        "usual"
+                    ],
+                    "verb_hint": "frequency adverb position"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "She {a13} go to the gym."
+            ]
+        },
+        {
+            "id": 14,
+            "question": "The dog {a14} in the garden.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a14": {
+                    "answer": "is running",
+                    "options": [
+                        "is running",
+                        "running is",
+                        "runs is"
+                    ],
+                    "verb_hint": "SV order"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "The dog {a14} in the garden."
+            ]
+        },
+        {
+            "id": 15,
+            "question": "I met my friend {a15}.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a15": {
+                    "answer": "at the café yesterday",
+                    "options": [
+                        "at the café yesterday",
+                        "yesterday at the café",
+                        "café yesterday the at"
+                    ],
+                    "verb_hint": "place before time"
+                }
+            },
+            "tag_keys": [
+                "time_place_position"
+            ],
+            "variants": [
+                "I met my friend {a15}."
+            ]
+        },
+        {
+            "id": 16,
+            "question": "They {a16} every morning.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a16": {
+                    "answer": "walk to school",
+                    "options": [
+                        "walk to school",
+                        "to school walk",
+                        "school walk to"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "They {a16} every morning."
+            ]
+        },
+        {
+            "id": 17,
+            "question": "She is {a17} happy.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a17": {
+                    "answer": "always",
+                    "options": [
+                        "always",
+                        "is always",
+                        "happy always"
+                    ],
+                    "verb_hint": "frequency adverb after be"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "She is {a17} happy."
+            ]
+        },
+        {
+            "id": 18,
+            "question": "We had lunch {a18}.",
+            "source": "theory_page_1088",
+            "level": "A1",
+            "markers": {
+                "a18": {
+                    "answer": "at the restaurant on Sunday",
+                    "options": [
+                        "at the restaurant on Sunday",
+                        "on Sunday at the restaurant",
+                        "Sunday restaurant at the on"
+                    ],
+                    "verb_hint": "place before time"
+                }
+            },
+            "tag_keys": [
+                "time_place_position"
+            ],
+            "variants": [
+                "We had lunch {a18}."
+            ]
+        },
+        {
+            "id": 19,
+            "question": "My sister {a19} a letter to her friend.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a19": {
+                    "answer": "wrote",
+                    "options": [
+                        "wrote",
+                        "a letter wrote",
+                        "friend wrote a"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "My sister {a19} a letter to her friend."
+            ]
+        },
+        {
+            "id": 20,
+            "question": "He {a20} eats vegetables.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a20": {
+                    "answer": "rarely",
+                    "options": [
+                        "rarely",
+                        "eats rarely",
+                        "rare"
+                    ],
+                    "verb_hint": "frequency adverb position"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "He {a20} eats vegetables."
+            ]
+        },
+        {
+            "id": 21,
+            "question": "The teacher gave {a21}.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a21": {
+                    "answer": "the students homework",
+                    "options": [
+                        "the students homework",
+                        "homework the students",
+                        "students the homework"
+                    ],
+                    "verb_hint": "indirect object before direct object"
+                }
+            },
+            "tag_keys": [
+                "indirect_object_position"
+            ],
+            "variants": [
+                "The teacher gave {a21}."
+            ]
+        },
+        {
+            "id": 22,
+            "question": "She {a22} the piano.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a22": {
+                    "answer": "plays beautifully",
+                    "options": [
+                        "plays beautifully",
+                        "beautifully plays",
+                        "plays beautiful"
+                    ],
+                    "verb_hint": "adverb of manner after verb"
+                }
+            },
+            "tag_keys": [
+                "adverb_manner_position"
+            ],
+            "variants": [
+                "She {a22} the piano."
+            ]
+        },
+        {
+            "id": 23,
+            "question": "I bought a {a23} bag.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a23": {
+                    "answer": "big red leather",
+                    "options": [
+                        "big red leather",
+                        "red big leather",
+                        "leather big red"
+                    ],
+                    "verb_hint": "adjective order"
+                }
+            },
+            "tag_keys": [
+                "adjective_order"
+            ],
+            "variants": [
+                "I bought a {a23} bag."
+            ]
+        },
+        {
+            "id": 24,
+            "question": "They {a24} go swimming.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a24": {
+                    "answer": "sometimes",
+                    "options": [
+                        "sometimes",
+                        "go sometimes",
+                        "sometime"
+                    ],
+                    "verb_hint": "frequency adverb position"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "They {a24} go swimming."
+            ]
+        },
+        {
+            "id": 25,
+            "question": "She {a25} understand the question.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "did not",
+                    "options": [
+                        "did not",
+                        "not did",
+                        "did she not"
+                    ],
+                    "verb_hint": "negation order"
+                }
+            },
+            "tag_keys": [
+                "negation_order"
+            ],
+            "variants": [
+                "She {a25} understand the question."
+            ]
+        },
+        {
+            "id": 26,
+            "question": "He drove the car {a26}.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "carefully",
+                    "options": [
+                        "carefully",
+                        "careful",
+                        "he carefully drove"
+                    ],
+                    "verb_hint": "adverb of manner after object"
+                }
+            },
+            "tag_keys": [
+                "adverb_manner_position"
+            ],
+            "variants": [
+                "He drove the car {a26}."
+            ]
+        },
+        {
+            "id": 27,
+            "question": "She wore a {a27} dress.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "beautiful long white",
+                    "options": [
+                        "beautiful long white",
+                        "white long beautiful",
+                        "long beautiful white"
+                    ],
+                    "verb_hint": "adjective order"
+                }
+            },
+            "tag_keys": [
+                "adjective_order"
+            ],
+            "variants": [
+                "She wore a {a27} dress."
+            ]
+        },
+        {
+            "id": 28,
+            "question": "My mother sent {a28}.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "me a postcard",
+                    "options": [
+                        "me a postcard",
+                        "a postcard me",
+                        "postcard a me"
+                    ],
+                    "verb_hint": "indirect object before direct object"
+                }
+            },
+            "tag_keys": [
+                "indirect_object_position"
+            ],
+            "variants": [
+                "My mother sent {a28}."
+            ]
+        },
+        {
+            "id": 29,
+            "question": "They are {a29} tired after work.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "usually",
+                    "options": [
+                        "usually",
+                        "tired usually",
+                        "are usually"
+                    ],
+                    "verb_hint": "frequency adverb after be"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "They are {a29} tired after work."
+            ]
+        },
+        {
+            "id": 30,
+            "question": "We studied {a30}.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "in the library all afternoon",
+                    "options": [
+                        "in the library all afternoon",
+                        "all afternoon in the library",
+                        "library all afternoon in"
+                    ],
+                    "verb_hint": "place before time"
+                }
+            },
+            "tag_keys": [
+                "time_place_position"
+            ],
+            "variants": [
+                "We studied {a30}."
+            ]
+        },
+        {
+            "id": 31,
+            "question": "She will {a31} tomorrow.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a31": {
+                    "answer": "visit her grandmother",
+                    "options": [
+                        "visit her grandmother",
+                        "her grandmother visit",
+                        "grandmother her visit"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "She will {a31} tomorrow."
+            ]
+        },
+        {
+            "id": 32,
+            "question": "He {a32} not like spicy food.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a32": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "not does",
+                        "is"
+                    ],
+                    "verb_hint": "negation order"
+                }
+            },
+            "tag_keys": [
+                "negation_order"
+            ],
+            "variants": [
+                "He {a32} not like spicy food."
+            ]
+        },
+        {
+            "id": 33,
+            "question": "She sang the song {a33}.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a33": {
+                    "answer": "perfectly",
+                    "options": [
+                        "perfectly",
+                        "perfect",
+                        "she perfectly sang"
+                    ],
+                    "verb_hint": "adverb of manner after object"
+                }
+            },
+            "tag_keys": [
+                "adverb_manner_position"
+            ],
+            "variants": [
+                "She sang the song {a33}."
+            ]
+        },
+        {
+            "id": 34,
+            "question": "He has a {a34} car.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a34": {
+                    "answer": "small black Japanese",
+                    "options": [
+                        "small black Japanese",
+                        "Japanese small black",
+                        "black small Japanese"
+                    ],
+                    "verb_hint": "adjective order"
+                }
+            },
+            "tag_keys": [
+                "adjective_order"
+            ],
+            "variants": [
+                "He has a {a34} car."
+            ]
+        },
+        {
+            "id": 35,
+            "question": "The manager showed {a35}.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a35": {
+                    "answer": "us the new office",
+                    "options": [
+                        "us the new office",
+                        "the new office us",
+                        "office us new the"
+                    ],
+                    "verb_hint": "indirect object before direct object"
+                }
+            },
+            "tag_keys": [
+                "indirect_object_position"
+            ],
+            "variants": [
+                "The manager showed {a35}."
+            ]
+        },
+        {
+            "id": 36,
+            "question": "They {a36} forget their keys.",
+            "source": "theory_page_1088",
+            "level": "A2",
+            "markers": {
+                "a36": {
+                    "answer": "frequently",
+                    "options": [
+                        "frequently",
+                        "forget frequently",
+                        "frequent"
+                    ],
+                    "verb_hint": "frequency adverb position"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "They {a36} forget their keys."
+            ]
+        },
+        {
+            "id": 37,
+            "question": "{a37} like your new job?",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a37": {
+                    "answer": "Do you",
+                    "options": [
+                        "Do you",
+                        "You do",
+                        "Like you do"
+                    ],
+                    "verb_hint": "question inversion"
+                }
+            },
+            "tag_keys": [
+                "question_inversion"
+            ],
+            "variants": [
+                "{a37} like your new job?"
+            ]
+        },
+        {
+            "id": 38,
+            "question": "Not only {a38} the exam, but she also got the highest mark.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a38": {
+                    "answer": "did she pass",
+                    "options": [
+                        "did she pass",
+                        "she passed",
+                        "she did pass"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "Not only {a38} the exam, but she also got the highest mark."
+            ]
+        },
+        {
+            "id": 39,
+            "question": "She speaks English {a39}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a39": {
+                    "answer": "fluently",
+                    "options": [
+                        "fluently",
+                        "fluent",
+                        "she fluently speaks"
+                    ],
+                    "verb_hint": "adverb of manner after object"
+                }
+            },
+            "tag_keys": [
+                "adverb_manner_position"
+            ],
+            "variants": [
+                "She speaks English {a39}."
+            ]
+        },
+        {
+            "id": 40,
+            "question": "I have {a40} seen such a beautiful sunset.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a40": {
+                    "answer": "never",
+                    "options": [
+                        "never",
+                        "have never",
+                        "seen never"
+                    ],
+                    "verb_hint": "frequency adverb between auxiliary and main verb"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "I have {a40} seen such a beautiful sunset."
+            ]
+        },
+        {
+            "id": 41,
+            "question": "She told {a41} about the meeting.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a41": {
+                    "answer": "him everything",
+                    "options": [
+                        "him everything",
+                        "everything him",
+                        "to him everything about"
+                    ],
+                    "verb_hint": "indirect object before direct object"
+                }
+            },
+            "tag_keys": [
+                "indirect_object_position"
+            ],
+            "variants": [
+                "She told {a41} about the meeting."
+            ]
+        },
+        {
+            "id": 42,
+            "question": "{a42} your sister been to London?",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a42": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "question inversion with auxiliary"
+                }
+            },
+            "tag_keys": [
+                "question_inversion"
+            ],
+            "variants": [
+                "{a42} your sister been to London?"
+            ]
+        },
+        {
+            "id": 43,
+            "question": "He {a43} to work by bus.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a43": {
+                    "answer": "does not usually go",
+                    "options": [
+                        "does not usually go",
+                        "usually does not go",
+                        "does usually not go"
+                    ],
+                    "verb_hint": "negation + frequency adverb order"
+                }
+            },
+            "tag_keys": [
+                "negation_order",
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "He {a43} to work by bus."
+            ]
+        },
+        {
+            "id": 44,
+            "question": "She has an {a44} scarf.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a44": {
+                    "answer": "elegant new Italian silk",
+                    "options": [
+                        "elegant new Italian silk",
+                        "new silk Italian elegant",
+                        "Italian elegant silk new"
+                    ],
+                    "verb_hint": "adjective order"
+                }
+            },
+            "tag_keys": [
+                "adjective_order"
+            ],
+            "variants": [
+                "She has an {a44} scarf."
+            ]
+        },
+        {
+            "id": 45,
+            "question": "{a45} the window, I noticed a bird.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a45": {
+                    "answer": "Looking through",
+                    "options": [
+                        "Looking through",
+                        "Through looking",
+                        "I looking through"
+                    ],
+                    "verb_hint": "participle clause at sentence start"
+                }
+            },
+            "tag_keys": [
+                "participle_clause_order"
+            ],
+            "variants": [
+                "{a45} the window, I noticed a bird."
+            ]
+        },
+        {
+            "id": 46,
+            "question": "He said that {a46} the book.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a46": {
+                    "answer": "he had finished",
+                    "options": [
+                        "he had finished",
+                        "had he finished",
+                        "finished he had"
+                    ],
+                    "verb_hint": "reported speech word order"
+                }
+            },
+            "tag_keys": [
+                "reported_speech_order"
+            ],
+            "variants": [
+                "He said that {a46} the book."
+            ]
+        },
+        {
+            "id": 47,
+            "question": "She always {a47} her coffee slowly in the morning.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a47": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "slowly drinks",
+                        "coffee drinks"
+                    ],
+                    "verb_hint": "SVO with manner adverb after object"
+                }
+            },
+            "tag_keys": [
+                "svo_order",
+                "adverb_manner_position"
+            ],
+            "variants": [
+                "She always {a47} her coffee slowly in the morning."
+            ]
+        },
+        {
+            "id": 48,
+            "question": "The children {a48} quickly.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a48": {
+                    "answer": "finished their homework",
+                    "options": [
+                        "finished their homework",
+                        "their homework finished",
+                        "homework their finished"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "svo_order"
+            ],
+            "variants": [
+                "The children {a48} quickly."
+            ]
+        },
+        {
+            "id": 49,
+            "question": "Hardly {a49} when it started to rain.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a49": {
+                    "answer": "had we left",
+                    "options": [
+                        "had we left",
+                        "we had left",
+                        "we left had"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "Hardly {a49} when it started to rain."
+            ]
+        },
+        {
+            "id": 50,
+            "question": "She asked me {a50}.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a50": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where lived I"
+                    ],
+                    "verb_hint": "reported speech word order"
+                }
+            },
+            "tag_keys": [
+                "reported_speech_order"
+            ],
+            "variants": [
+                "She asked me {a50}."
+            ]
+        },
+        {
+            "id": 51,
+            "question": "We {a51} enjoyed the performance at the theatre last night.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a51": {
+                    "answer": "really",
+                    "options": [
+                        "really",
+                        "enjoyed really",
+                        "real"
+                    ],
+                    "verb_hint": "adverb of degree before main verb"
+                }
+            },
+            "tag_keys": [
+                "adverb_manner_position"
+            ],
+            "variants": [
+                "We {a51} enjoyed the performance at the theatre last night."
+            ]
+        },
+        {
+            "id": 52,
+            "question": "{a52} been studying all night?",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a52": {
+                    "answer": "Have you",
+                    "options": [
+                        "Have you",
+                        "You have",
+                        "Do you have"
+                    ],
+                    "verb_hint": "question inversion"
+                }
+            },
+            "tag_keys": [
+                "question_inversion"
+            ],
+            "variants": [
+                "{a52} been studying all night?"
+            ]
+        },
+        {
+            "id": 53,
+            "question": "{a53} the children played, the adults talked in the kitchen.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a53": {
+                    "answer": "While",
+                    "options": [
+                        "While",
+                        "During",
+                        "Meanwhile"
+                    ],
+                    "verb_hint": "subordinate clause before main clause"
+                }
+            },
+            "tag_keys": [
+                "fronting_emphasis"
+            ],
+            "variants": [
+                "{a53} the children played, the adults talked in the kitchen."
+            ]
+        },
+        {
+            "id": 54,
+            "question": "He handed {a54} during the meeting.",
+            "source": "theory_page_1088",
+            "level": "B1",
+            "markers": {
+                "a54": {
+                    "answer": "his boss the report",
+                    "options": [
+                        "his boss the report",
+                        "the report his boss",
+                        "report the his boss"
+                    ],
+                    "verb_hint": "indirect object before direct object"
+                }
+            },
+            "tag_keys": [
+                "indirect_object_position"
+            ],
+            "variants": [
+                "He handed {a54} during the meeting."
+            ]
+        },
+        {
+            "id": 55,
+            "question": "Seldom {a55} such generosity in the business world.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a55": {
+                    "answer": "do we see",
+                    "options": [
+                        "do we see",
+                        "we see",
+                        "we do see"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "Seldom {a55} such generosity in the business world."
+            ]
+        },
+        {
+            "id": 56,
+            "question": "It was the manager {a56} approved the proposal.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a56": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "whom",
+                        "which"
+                    ],
+                    "verb_hint": "cleft sentence structure"
+                }
+            },
+            "tag_keys": [
+                "cleft_sentence"
+            ],
+            "variants": [
+                "It was the manager {a56} approved the proposal."
+            ]
+        },
+        {
+            "id": 57,
+            "question": "She explained {a57} very clearly.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a57": {
+                    "answer": "the problem to us",
+                    "options": [
+                        "the problem to us",
+                        "to us the problem",
+                        "us the problem to"
+                    ],
+                    "verb_hint": "direct object + to + indirect object"
+                }
+            },
+            "tag_keys": [
+                "indirect_object_position"
+            ],
+            "variants": [
+                "She explained {a57} very clearly."
+            ]
+        },
+        {
+            "id": 58,
+            "question": "Only after the presentation {a58} the audience ask questions.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a58": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "had"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "Only after the presentation {a58} the audience ask questions."
+            ]
+        },
+        {
+            "id": 59,
+            "question": "What {a59} about the new policy?",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a59": {
+                    "answer": "does she think",
+                    "options": [
+                        "does she think",
+                        "she thinks",
+                        "she does think"
+                    ],
+                    "verb_hint": "question inversion"
+                }
+            },
+            "tag_keys": [
+                "question_inversion"
+            ],
+            "variants": [
+                "What {a59} about the new policy?"
+            ]
+        },
+        {
+            "id": 60,
+            "question": "{a60}, we decided to cancel the picnic.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a60": {
+                    "answer": "Having checked the weather forecast",
+                    "options": [
+                        "Having checked the weather forecast",
+                        "Checked the weather forecast having",
+                        "The weather forecast having checked"
+                    ],
+                    "verb_hint": "participle clause at sentence start"
+                }
+            },
+            "tag_keys": [
+                "participle_clause_order"
+            ],
+            "variants": [
+                "{a60}, we decided to cancel the picnic."
+            ]
+        },
+        {
+            "id": 61,
+            "question": "He wanted to know {a61} the next day.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a61": {
+                    "answer": "whether she would come",
+                    "options": [
+                        "whether she would come",
+                        "whether would she come",
+                        "would she whether come"
+                    ],
+                    "verb_hint": "reported speech word order"
+                }
+            },
+            "tag_keys": [
+                "reported_speech_order"
+            ],
+            "variants": [
+                "He wanted to know {a61} the next day."
+            ]
+        },
+        {
+            "id": 62,
+            "question": "She lives in a {a62} house.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a62": {
+                    "answer": "lovely old stone",
+                    "options": [
+                        "lovely old stone",
+                        "stone old lovely",
+                        "old lovely stone"
+                    ],
+                    "verb_hint": "adjective order"
+                }
+            },
+            "tag_keys": [
+                "adjective_order"
+            ],
+            "variants": [
+                "She lives in a {a62} house."
+            ]
+        },
+        {
+            "id": 63,
+            "question": "It was {a63} that the team won the championship.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a63": {
+                    "answer": "in 2019",
+                    "options": [
+                        "in 2019",
+                        "2019 in",
+                        "when 2019"
+                    ],
+                    "verb_hint": "cleft sentence structure"
+                }
+            },
+            "tag_keys": [
+                "cleft_sentence"
+            ],
+            "variants": [
+                "It was {a63} that the team won the championship."
+            ]
+        },
+        {
+            "id": 64,
+            "question": "She {a64} been given the opportunity to present her research.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a64": {
+                    "answer": "has recently",
+                    "options": [
+                        "has recently",
+                        "recently has",
+                        "has been recently"
+                    ],
+                    "verb_hint": "adverb between auxiliary and past participle"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "She {a64} been given the opportunity to present her research."
+            ]
+        },
+        {
+            "id": 65,
+            "question": "Under no circumstances {a65} leave the building during the drill.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a65": {
+                    "answer": "should you",
+                    "options": [
+                        "should you",
+                        "you should",
+                        "you should not"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "Under no circumstances {a65} leave the building during the drill."
+            ]
+        },
+        {
+            "id": 66,
+            "question": "They explained to us {a66}.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a66": {
+                    "answer": "what the procedure involved",
+                    "options": [
+                        "what the procedure involved",
+                        "what did the procedure involve",
+                        "what involved the procedure"
+                    ],
+                    "verb_hint": "embedded question word order"
+                }
+            },
+            "tag_keys": [
+                "reported_speech_order"
+            ],
+            "variants": [
+                "They explained to us {a66}."
+            ]
+        },
+        {
+            "id": 67,
+            "question": "The team, {a67}, won the championship.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a67": {
+                    "answer": "having trained for months",
+                    "options": [
+                        "having trained for months",
+                        "trained having for months",
+                        "for months having trained"
+                    ],
+                    "verb_hint": "participle clause insertion"
+                }
+            },
+            "tag_keys": [
+                "participle_clause_order"
+            ],
+            "variants": [
+                "The team, {a67}, won the championship."
+            ]
+        },
+        {
+            "id": 68,
+            "question": "We gave the charity {a68}.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a68": {
+                    "answer": "all the money that we had collected during the event last Saturday",
+                    "options": [
+                        "all the money that we had collected during the event last Saturday",
+                        "last Saturday all the money during the event that we had collected",
+                        "during the event last Saturday all the money that we had collected"
+                    ],
+                    "verb_hint": "end-weight principle"
+                }
+            },
+            "tag_keys": [
+                "end_weight_principle"
+            ],
+            "variants": [
+                "We gave the charity {a68}."
+            ]
+        },
+        {
+            "id": 69,
+            "question": "Rarely {a69} such dedication from a young employee.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a69": {
+                    "answer": "have I witnessed",
+                    "options": [
+                        "have I witnessed",
+                        "I have witnessed",
+                        "I witnessed have"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "Rarely {a69} such dedication from a young employee."
+            ]
+        },
+        {
+            "id": 70,
+            "question": "She bought a {a70} table.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a70": {
+                    "answer": "gorgeous round antique wooden",
+                    "options": [
+                        "gorgeous round antique wooden",
+                        "antique wooden gorgeous round",
+                        "round gorgeous wooden antique"
+                    ],
+                    "verb_hint": "adjective order"
+                }
+            },
+            "tag_keys": [
+                "adjective_order"
+            ],
+            "variants": [
+                "She bought a {a70} table."
+            ]
+        },
+        {
+            "id": 71,
+            "question": "How long {a71} for this company?",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a71": {
+                    "answer": "have you been working",
+                    "options": [
+                        "have you been working",
+                        "you have been working",
+                        "been working have you"
+                    ],
+                    "verb_hint": "question inversion"
+                }
+            },
+            "tag_keys": [
+                "question_inversion"
+            ],
+            "variants": [
+                "How long {a71} for this company?"
+            ]
+        },
+        {
+            "id": 72,
+            "question": "She {a72} fully understood the implications of that decision until much later.",
+            "source": "theory_page_1088",
+            "level": "B2",
+            "markers": {
+                "a72": {
+                    "answer": "had not",
+                    "options": [
+                        "had not",
+                        "not had",
+                        "did not had"
+                    ],
+                    "verb_hint": "negation order with past perfect"
+                }
+            },
+            "tag_keys": [
+                "negation_order"
+            ],
+            "variants": [
+                "She {a72} fully understood the implications of that decision until much later."
+            ]
+        },
+        {
+            "id": 73,
+            "question": "Never before {a73} such a compelling argument in a student paper.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a73": {
+                    "answer": "had the professor encountered",
+                    "options": [
+                        "had the professor encountered",
+                        "the professor had encountered",
+                        "encountered the professor had"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "Never before {a73} such a compelling argument in a student paper."
+            ]
+        },
+        {
+            "id": 74,
+            "question": "It was her unwavering determination {a74} ultimately secured the contract.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a74": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "what"
+                    ],
+                    "verb_hint": "cleft sentence structure"
+                }
+            },
+            "tag_keys": [
+                "cleft_sentence"
+            ],
+            "variants": [
+                "It was her unwavering determination {a74} ultimately secured the contract."
+            ]
+        },
+        {
+            "id": 75,
+            "question": "Only when the results were published {a75} the significance of the study.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a75": {
+                    "answer": "did the researchers understand",
+                    "options": [
+                        "did the researchers understand",
+                        "the researchers understood",
+                        "the researchers did understand"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "Only when the results were published {a75} the significance of the study."
+            ]
+        },
+        {
+            "id": 76,
+            "question": "{a76}, the committee decided to postpone the vote indefinitely.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a76": {
+                    "answer": "Having considered all the objections raised by the opposition",
+                    "options": [
+                        "Having considered all the objections raised by the opposition",
+                        "All the objections raised by the opposition having considered",
+                        "Considered having all the objections by the opposition raised"
+                    ],
+                    "verb_hint": "participle clause at sentence start"
+                }
+            },
+            "tag_keys": [
+                "participle_clause_order"
+            ],
+            "variants": [
+                "{a76}, the committee decided to postpone the vote indefinitely."
+            ]
+        },
+        {
+            "id": 77,
+            "question": "What the investigation {a77} was far more alarming than anyone had anticipated.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a77": {
+                    "answer": "revealed",
+                    "options": [
+                        "revealed",
+                        "did reveal",
+                        "reveal did"
+                    ],
+                    "verb_hint": "nominal clause word order"
+                }
+            },
+            "tag_keys": [
+                "fronting_emphasis"
+            ],
+            "variants": [
+                "What the investigation {a77} was far more alarming than anyone had anticipated."
+            ]
+        },
+        {
+            "id": 78,
+            "question": "She donated to the foundation {a78}.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a78": {
+                    "answer": "all the proceeds from her latest exhibition at the national gallery last autumn",
+                    "options": [
+                        "all the proceeds from her latest exhibition at the national gallery last autumn",
+                        "last autumn all the proceeds at the national gallery from her latest exhibition",
+                        "at the national gallery last autumn all the proceeds from her latest exhibition"
+                    ],
+                    "verb_hint": "end-weight principle"
+                }
+            },
+            "tag_keys": [
+                "end_weight_principle"
+            ],
+            "variants": [
+                "She donated to the foundation {a78}."
+            ]
+        },
+        {
+            "id": 79,
+            "question": "No sooner {a79} than the phone rang.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a79": {
+                    "answer": "had she sat down",
+                    "options": [
+                        "had she sat down",
+                        "she had sat down",
+                        "sat she had down"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "No sooner {a79} than the phone rang."
+            ]
+        },
+        {
+            "id": 80,
+            "question": "She asked the interviewer {a80}.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a80": {
+                    "answer": "how many candidates had been shortlisted",
+                    "options": [
+                        "how many candidates had been shortlisted",
+                        "how many had candidates been shortlisted",
+                        "how many candidates been had shortlisted"
+                    ],
+                    "verb_hint": "embedded question word order"
+                }
+            },
+            "tag_keys": [
+                "reported_speech_order"
+            ],
+            "variants": [
+                "She asked the interviewer {a80}."
+            ]
+        },
+        {
+            "id": 81,
+            "question": "It is the lack of transparency {a81} most concerns the stakeholders.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a81": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "what",
+                        "which"
+                    ],
+                    "verb_hint": "cleft sentence structure"
+                }
+            },
+            "tag_keys": [
+                "cleft_sentence"
+            ],
+            "variants": [
+                "It is the lack of transparency {a81} most concerns the stakeholders."
+            ]
+        },
+        {
+            "id": 82,
+            "question": "She {a82} been able to reconcile the conflicting reports from both departments.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a82": {
+                    "answer": "has never",
+                    "options": [
+                        "has never",
+                        "never has",
+                        "has been never"
+                    ],
+                    "verb_hint": "adverb between auxiliary and main verb"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "She {a82} been able to reconcile the conflicting reports from both departments."
+            ]
+        },
+        {
+            "id": 83,
+            "question": "{a83} the CEO arrived did the board begin deliberations.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a83": {
+                    "answer": "Not until",
+                    "options": [
+                        "Not until",
+                        "Until not",
+                        "Not when"
+                    ],
+                    "verb_hint": "negative fronting trigger"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "{a83} the CEO arrived did the board begin deliberations."
+            ]
+        },
+        {
+            "id": 84,
+            "question": "The research team presented to the committee {a84}.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a84": {
+                    "answer": "a comprehensive report detailing the environmental impact of the proposed development",
+                    "options": [
+                        "a comprehensive report detailing the environmental impact of the proposed development",
+                        "the environmental impact a comprehensive report of the proposed development detailing",
+                        "detailing a comprehensive report the proposed development the environmental impact of"
+                    ],
+                    "verb_hint": "end-weight principle"
+                }
+            },
+            "tag_keys": [
+                "end_weight_principle"
+            ],
+            "variants": [
+                "The research team presented to the committee {a84}."
+            ]
+        },
+        {
+            "id": 85,
+            "question": "{a85} finished the initial phase of the project, the engineers moved on to testing.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a85": {
+                    "answer": "Having",
+                    "options": [
+                        "Having",
+                        "Have",
+                        "Had"
+                    ],
+                    "verb_hint": "perfect participle clause"
+                }
+            },
+            "tag_keys": [
+                "participle_clause_order"
+            ],
+            "variants": [
+                "{a85} finished the initial phase of the project, the engineers moved on to testing."
+            ]
+        },
+        {
+            "id": 86,
+            "question": "She inherited a {a86} necklace.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a86": {
+                    "answer": "stunning antique gold French",
+                    "options": [
+                        "stunning antique gold French",
+                        "French antique stunning gold",
+                        "gold stunning French antique"
+                    ],
+                    "verb_hint": "adjective order"
+                }
+            },
+            "tag_keys": [
+                "adjective_order"
+            ],
+            "variants": [
+                "She inherited a {a86} necklace."
+            ]
+        },
+        {
+            "id": 87,
+            "question": "The journalist wondered {a87} the investigation.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a87": {
+                    "answer": "why the government had blocked",
+                    "options": [
+                        "why the government had blocked",
+                        "why had the government blocked",
+                        "why blocked the government had"
+                    ],
+                    "verb_hint": "embedded question word order"
+                }
+            },
+            "tag_keys": [
+                "reported_speech_order"
+            ],
+            "variants": [
+                "The journalist wondered {a87} the investigation."
+            ]
+        },
+        {
+            "id": 88,
+            "question": "At no point during the negotiations {a88} willing to compromise.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a88": {
+                    "answer": "was the delegation",
+                    "options": [
+                        "was the delegation",
+                        "the delegation was",
+                        "the delegation were"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "At no point during the negotiations {a88} willing to compromise."
+            ]
+        },
+        {
+            "id": 89,
+            "question": "She {a89} articulated the need for comprehensive reforms at every board meeting.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a89": {
+                    "answer": "has consistently",
+                    "options": [
+                        "has consistently",
+                        "consistently has",
+                        "has been consistently"
+                    ],
+                    "verb_hint": "adverb between auxiliary and main verb"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "She {a89} articulated the need for comprehensive reforms at every board meeting."
+            ]
+        },
+        {
+            "id": 90,
+            "question": "We offered {a90} the revised terms of the agreement.",
+            "source": "theory_page_1088",
+            "level": "C1",
+            "markers": {
+                "a90": {
+                    "answer": "the client",
+                    "options": [
+                        "the client",
+                        "to the client them",
+                        "them the client"
+                    ],
+                    "verb_hint": "indirect object before direct object"
+                }
+            },
+            "tag_keys": [
+                "indirect_object_position"
+            ],
+            "variants": [
+                "We offered {a90} the revised terms of the agreement."
+            ]
+        },
+        {
+            "id": 91,
+            "question": "So profound {a91} that it reshaped the entire discipline for decades to come.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a91": {
+                    "answer": "was the impact of her research",
+                    "options": [
+                        "was the impact of her research",
+                        "the impact of her research was",
+                        "her research the impact was of"
+                    ],
+                    "verb_hint": "inversion after fronted adjective complement"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative",
+                "fronting_emphasis"
+            ],
+            "variants": [
+                "So profound {a91} that it reshaped the entire discipline for decades to come."
+            ]
+        },
+        {
+            "id": 92,
+            "question": "What {a92} was not mere coincidence but the culmination of years of meticulous preparation.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a92": {
+                    "answer": "appeared to be a sudden breakthrough",
+                    "options": [
+                        "appeared to be a sudden breakthrough",
+                        "a sudden breakthrough appeared to be",
+                        "to be appeared a sudden breakthrough"
+                    ],
+                    "verb_hint": "nominal clause word order"
+                }
+            },
+            "tag_keys": [
+                "fronting_emphasis"
+            ],
+            "variants": [
+                "What {a92} was not mere coincidence but the culmination of years of meticulous preparation."
+            ]
+        },
+        {
+            "id": 93,
+            "question": "Not only {a93} the structural integrity of the original design, but it also introduced unforeseen aerodynamic advantages.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a93": {
+                    "answer": "did the modification preserve",
+                    "options": [
+                        "did the modification preserve",
+                        "the modification preserved",
+                        "the modification did preserve"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "Not only {a93} the structural integrity of the original design, but it also introduced unforeseen aerodynamic advantages."
+            ]
+        },
+        {
+            "id": 94,
+            "question": "It was not until the manuscript had been independently verified {a94} its publication.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a94": {
+                    "answer": "that the journal authorised",
+                    "options": [
+                        "that the journal authorised",
+                        "the journal authorised that",
+                        "that authorised the journal"
+                    ],
+                    "verb_hint": "cleft sentence structure with negative fronting"
+                }
+            },
+            "tag_keys": [
+                "cleft_sentence",
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "It was not until the manuscript had been independently verified {a94} its publication."
+            ]
+        },
+        {
+            "id": 95,
+            "question": "{a95} in the archives for over a century, the documents shed entirely new light on the origins of the conflict.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a95": {
+                    "answer": "Having lain undiscovered",
+                    "options": [
+                        "Having lain undiscovered",
+                        "Undiscovered having lain",
+                        "Lain having undiscovered"
+                    ],
+                    "verb_hint": "perfect participle clause at sentence start"
+                }
+            },
+            "tag_keys": [
+                "participle_clause_order"
+            ],
+            "variants": [
+                "{a95} in the archives for over a century, the documents shed entirely new light on the origins of the conflict."
+            ]
+        },
+        {
+            "id": 96,
+            "question": "The board allocated to the research division {a96}.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a96": {
+                    "answer": "a substantial proportion of the newly approved budget earmarked for technological innovation across all subsidiaries",
+                    "options": [
+                        "a substantial proportion of the newly approved budget earmarked for technological innovation across all subsidiaries",
+                        "across all subsidiaries a substantial proportion for technological innovation of the newly approved budget earmarked",
+                        "the newly approved budget a substantial proportion earmarked across all subsidiaries for technological innovation of"
+                    ],
+                    "verb_hint": "end-weight principle"
+                }
+            },
+            "tag_keys": [
+                "end_weight_principle"
+            ],
+            "variants": [
+                "The board allocated to the research division {a96}."
+            ]
+        },
+        {
+            "id": 97,
+            "question": "Little {a97} that the findings would eventually overturn decades of established orthodoxy.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a97": {
+                    "answer": "did the researchers suspect",
+                    "options": [
+                        "did the researchers suspect",
+                        "the researchers suspected",
+                        "the researchers did suspect"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "Little {a97} that the findings would eventually overturn decades of established orthodoxy."
+            ]
+        },
+        {
+            "id": 98,
+            "question": "The diplomat enquired {a98} before the summit convened.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a98": {
+                    "answer": "whether all parties had ratified the preliminary accord",
+                    "options": [
+                        "whether all parties had ratified the preliminary accord",
+                        "whether had all parties ratified the preliminary accord",
+                        "whether ratified all parties had the preliminary accord"
+                    ],
+                    "verb_hint": "embedded question word order"
+                }
+            },
+            "tag_keys": [
+                "reported_speech_order"
+            ],
+            "variants": [
+                "The diplomat enquired {a98} before the summit convened."
+            ]
+        },
+        {
+            "id": 99,
+            "question": "Scarcely {a99} when the second tremor struck with even greater force.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a99": {
+                    "answer": "had the evacuees reached safety",
+                    "options": [
+                        "had the evacuees reached safety",
+                        "the evacuees had reached safety",
+                        "reached the evacuees had safety"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "Scarcely {a99} when the second tremor struck with even greater force."
+            ]
+        },
+        {
+            "id": 100,
+            "question": "It is her singular ability to synthesise disparate strands of evidence {a100} distinguishes her scholarship.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a100": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "what"
+                    ],
+                    "verb_hint": "cleft sentence structure"
+                }
+            },
+            "tag_keys": [
+                "cleft_sentence"
+            ],
+            "variants": [
+                "It is her singular ability to synthesise disparate strands of evidence {a100} distinguishes her scholarship."
+            ]
+        },
+        {
+            "id": 101,
+            "question": "She {a101} acknowledged the methodological limitations of her earlier work.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a101": {
+                    "answer": "has only recently",
+                    "options": [
+                        "has only recently",
+                        "only recently has",
+                        "has recently only"
+                    ],
+                    "verb_hint": "adverb cluster between auxiliary and main verb"
+                }
+            },
+            "tag_keys": [
+                "adverb_frequency_position"
+            ],
+            "variants": [
+                "She {a101} acknowledged the methodological limitations of her earlier work."
+            ]
+        },
+        {
+            "id": 102,
+            "question": "On no account {a102} be disclosed to unauthorised personnel.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a102": {
+                    "answer": "must this information",
+                    "options": [
+                        "must this information",
+                        "this information must",
+                        "this must information"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "On no account {a102} be disclosed to unauthorised personnel."
+            ]
+        },
+        {
+            "id": 103,
+            "question": "The curator displayed in the newly refurbished west wing {a103}.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a103": {
+                    "answer": "a remarkable collection of seventeenth-century Flemish oil paintings acquired through a series of anonymous bequests",
+                    "options": [
+                        "a remarkable collection of seventeenth-century Flemish oil paintings acquired through a series of anonymous bequests",
+                        "through a series of anonymous bequests a remarkable collection of seventeenth-century Flemish oil paintings acquired",
+                        "acquired a remarkable collection through a series of anonymous bequests of seventeenth-century Flemish oil paintings"
+                    ],
+                    "verb_hint": "end-weight principle"
+                }
+            },
+            "tag_keys": [
+                "end_weight_principle"
+            ],
+            "variants": [
+                "The curator displayed in the newly refurbished west wing {a103}."
+            ]
+        },
+        {
+            "id": 104,
+            "question": "{a104} by years of political instability, the nation's economy finally began to recover under the new administration.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a104": {
+                    "answer": "Weakened though it had been",
+                    "options": [
+                        "Weakened though it had been",
+                        "Though weakened it had been",
+                        "It had been weakened though"
+                    ],
+                    "verb_hint": "concessive participle clause fronting"
+                }
+            },
+            "tag_keys": [
+                "participle_clause_order",
+                "fronting_emphasis"
+            ],
+            "variants": [
+                "{a104} by years of political instability, the nation's economy finally began to recover under the new administration."
+            ]
+        },
+        {
+            "id": 105,
+            "question": "She possesses a {a105} vase.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a105": {
+                    "answer": "magnificent tall hand-painted Chinese porcelain",
+                    "options": [
+                        "magnificent tall hand-painted Chinese porcelain",
+                        "Chinese porcelain magnificent tall hand-painted",
+                        "hand-painted tall magnificent porcelain Chinese"
+                    ],
+                    "verb_hint": "adjective order"
+                }
+            },
+            "tag_keys": [
+                "adjective_order"
+            ],
+            "variants": [
+                "She possesses a {a105} vase."
+            ]
+        },
+        {
+            "id": 106,
+            "question": "The ambassador wished to ascertain {a106} prior to the formal proceedings.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a106": {
+                    "answer": "whether the delegations had received the amended agenda",
+                    "options": [
+                        "whether the delegations had received the amended agenda",
+                        "whether had the delegations received the amended agenda",
+                        "whether received the delegations had the amended agenda"
+                    ],
+                    "verb_hint": "embedded question word order"
+                }
+            },
+            "tag_keys": [
+                "reported_speech_order"
+            ],
+            "variants": [
+                "The ambassador wished to ascertain {a106} prior to the formal proceedings."
+            ]
+        },
+        {
+            "id": 107,
+            "question": "In no way {a107} be construed as an admission of liability by the corporation.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a107": {
+                    "answer": "should this settlement",
+                    "options": [
+                        "should this settlement",
+                        "this settlement should",
+                        "this should settlement"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative"
+            ],
+            "variants": [
+                "In no way {a107} be construed as an admission of liability by the corporation."
+            ]
+        },
+        {
+            "id": 108,
+            "question": "So intricate {a108} that only a handful of specialists worldwide could fully appreciate its elegance.",
+            "source": "theory_page_1088",
+            "level": "C2",
+            "markers": {
+                "a108": {
+                    "answer": "was the mathematical proof",
+                    "options": [
+                        "was the mathematical proof",
+                        "the mathematical proof was",
+                        "the proof mathematical was"
+                    ],
+                    "verb_hint": "inversion after fronted adjective complement"
+                }
+            },
+            "tag_keys": [
+                "inversion_after_negative",
+                "fronting_emphasis"
+            ],
+            "variants": [
+                "So intricate {a108} that only a handful of specialists worldwide could fully appreciate its elegance."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "bwo-opus46-v3-saved-test",
+        "slug": "basic_word_order_opus46_v3_questions_only",
+        "name": "Basic Word Order — Opus 4.6 V3 Questions Test",
+        "description": "Practice set for basic English word order: SVO structure, adverb placement, adjective order, question inversion, negative adverbial inversion, cleft sentences, participle clauses, end-weight principle, and reported speech across A1–C2.",
+        "filters": {
+            "num_questions": 108,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\BasicWordOrderV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1088,
+                "theory_page_ids": [
+                    1088
+                ],
+                "theory_page": {
+                    "id": 1088,
+                    "slug": "theory-basic-word-order",
+                    "title": "Basic Word Order",
+                    "category_slug_path": "basic-grammar/word-order",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+                    "url": "https://gramlyze.com/theory/word-order/theory-basic-word-order"
+                }
+            }
+        }
+    }
+}

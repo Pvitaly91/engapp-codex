@@ -1,0 +1,1328 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\WordOrderWithAdverbsAndAdverbialsV3QuestionsOnlySeeder",
+        "uuid_namespace": "wo-adv-cp-sn"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Word Order"
+    },
+    "sources": {
+        "word_order_adverbs_theory": {
+            "name": "Word Order with Adverbs and Adverbials"
+        }
+    },
+    "tags": {
+        "frequency_adverbs": {
+            "name": "Frequency adverbs",
+            "category": "adverb_type"
+        },
+        "manner_adverbs": {
+            "name": "Adverbs of manner",
+            "category": "adverb_type"
+        },
+        "degree_adverbs": {
+            "name": "Adverbs of degree",
+            "category": "adverb_type"
+        },
+        "place_adverbs": {
+            "name": "Adverbs of place",
+            "category": "adverb_type"
+        },
+        "time_adverbs": {
+            "name": "Adverbs of time",
+            "category": "adverb_type"
+        },
+        "already_yet_still": {
+            "name": "Already, yet, still",
+            "category": "adverb_type"
+        },
+        "adverb_order": {
+            "name": "Manner-Place-Time order",
+            "category": "word_order_rule"
+        }
+    },
+    "default_tag_keys": [
+        "frequency_adverbs",
+        "adverb_order"
+    ],
+    "saved_test": {
+        "uuid": "wo-adv-cp-sn-saved-test",
+        "slug": "word-order-adverbs-sonate-v3-test",
+        "name": "Word Order with Adverbs — Sonate V3 Test",
+        "filters": {
+            "num_questions": 30,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\WordOrderWithAdverbsAndAdverbialsV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 0,
+                "theory_page_ids": [
+                    0
+                ],
+                "theory_page": {
+                    "id": 0,
+                    "slug": "word-order-adverbs-adverbials",
+                    "title": "Word Order with Adverbs and Adverbials",
+                    "category_slug_path": "word-order",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderAdverbsAdverbialsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/word-order/word-order-adverbs-adverbials"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid_segments": [
+                "a1",
+                "q01"
+            ],
+            "question": "She {a1} coffee every morning.",
+            "source": "word_order_adverbs_theory",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "always drinks",
+                    "options": [
+                        "always drinks",
+                        "drinks always",
+                        "always drink"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівники частотності (always, usually, often) стоять перед смисловим дієсловом.",
+                        "Якщо є дієслово to be або допоміжне дієслово, прислівник частотності стоїть після нього."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "always drinks": "✅ «always drinks» — правильно: прислівник частотності «always» стоїть перед смисловим дієсловом «drinks», а форма «drinks» узгоджується з підметом «she».",
+                            "drinks always": "❌ «drinks always» — неправильно: прислівник частотності не ставиться після смислового дієслова в середині речення.",
+                            "always drink": "❌ «always drink» — неправильно: форма «drink» не узгоджується з підметом «she» (потрібна форма «drinks»)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adverbs"
+            ],
+            "variants": [
+                "She {a1} coffee every morning."
+            ]
+        },
+        {
+            "id": 2,
+            "uuid_segments": [
+                "a1",
+                "q02"
+            ],
+            "question": "He is {a1} on time for class.",
+            "source": "word_order_adverbs_theory",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "never",
+                    "options": [
+                        "never",
+                        "not never",
+                        "never not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після дієслова «to be» прислівник частотності стоїть одразу після нього.",
+                        "«not never» та «never not» — граматично некоректні подвійні заперечення, яких слід уникати."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "never": "✅ «never» — правильно: після дієслова «is» прислівник частотності «never» стоїть одразу після нього.",
+                            "not never": "❌ «not never» — неправильно: подвійне заперечення в англійській мові граматично неприпустиме.",
+                            "never not": "❌ «never not» — неправильно: це також подвійне заперечення; правильна форма — просто «never»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adverbs"
+            ],
+            "variants": [
+                "He is {a1} on time for class."
+            ]
+        },
+        {
+            "id": 3,
+            "uuid_segments": [
+                "a1",
+                "q03"
+            ],
+            "question": "I {a1} to bed at ten o'clock.",
+            "source": "word_order_adverbs_theory",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "always go",
+                    "options": [
+                        "always go",
+                        "go always",
+                        "always goes"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівники частотності (always, usually, often) стоять перед смисловим дієсловом.",
+                        "Підмет «I» вимагає форму дієслова без закінчення -s: «go», а не «goes»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "always go": "✅ «always go» — правильно: «always» стоїть перед дієсловом «go», а форма «go» узгоджується з «I».",
+                            "go always": "❌ «go always» — неправильно: прислівник частотності не ставиться після смислового дієслова.",
+                            "always goes": "❌ «always goes» — неправильно: форма «goes» вживається з he/she/it, а не з «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adverbs"
+            ],
+            "variants": [
+                "I {a1} to bed at ten o'clock."
+            ]
+        },
+        {
+            "id": 4,
+            "uuid_segments": [
+                "a1",
+                "q04"
+            ],
+            "question": "They are {a1} bored on Sundays.",
+            "source": "word_order_adverbs_theory",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "usually",
+                    "options": [
+                        "usually",
+                        "usually not",
+                        "usual"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після дієслова «to be» прислівник частотності займає позицію одразу після нього.",
+                        "«usual» — прикметник, а не прислівник; для опису частотності потрібна форма «usually»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "usually": "✅ «usually» — правильно: прислівник частотності «usually» стоїть після «are», описуючи регулярний стан.",
+                            "usually not": "❌ «usually not» — неправильно: «usually» не поєднується з «not» у цій конструкції; для заперечення вживають «not usually».",
+                            "usual": "❌ «usual» — неправильно: «usual» — прикметник (звичайний), а потрібен прислівник «usually» (зазвичай)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adverbs"
+            ],
+            "variants": [
+                "They are {a1} bored on Sundays."
+            ]
+        },
+        {
+            "id": 5,
+            "uuid_segments": [
+                "a1",
+                "q05"
+            ],
+            "question": "We go to the gym {a1}.",
+            "source": "word_order_adverbs_theory",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "every day",
+                    "options": [
+                        "every day",
+                        "every days",
+                        "everyday"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівникові вирази часу (every day, every week) зазвичай стоять у кінці речення.",
+                        "«every day» (кожен день) пишеться двома словами; «everyday» — прикметник, що означає «повсякденний»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "every day": "✅ «every day» — правильно: прислівниковий вираз часу стоїть у кінці речення і пишеться двома словами.",
+                            "every days": "❌ «every days» — неправильно: «every» вживається з іменником в однині — «every day», не «every days».",
+                            "everyday": "❌ «everyday» — неправильно: «everyday» — прикметник (повсякденний), а не прислівниковий вираз часу."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adverbs"
+            ],
+            "variants": [
+                "We go to the gym {a1}."
+            ]
+        },
+        {
+            "id": 6,
+            "uuid_segments": [
+                "a2",
+                "q06"
+            ],
+            "question": "She speaks French {a1}.",
+            "source": "word_order_adverbs_theory",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "very well",
+                    "options": [
+                        "very well",
+                        "well very",
+                        "very good"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівник ступеня «very» стоїть перед прислівником, який він підсилює (very well, very quickly).",
+                        "«Good» — прикметник; для опису дієслова «speaks» потрібен прислівник «well»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "very well": "✅ «very well» — правильно: «very» підсилює прислівник «well», вся конструкція стоїть у кінці речення.",
+                            "well very": "❌ «well very» — неправильно: «very» має стояти перед словом, яке воно підсилює, а не після.",
+                            "very good": "❌ «very good» — неправильно: «good» — прикметник; для опису дії «speaks» потрібен прислівник «well»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "She speaks French {a1}."
+            ]
+        },
+        {
+            "id": 7,
+            "uuid_segments": [
+                "a2",
+                "q07"
+            ],
+            "question": "He plays the piano {a1}.",
+            "source": "word_order_adverbs_theory",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "beautifully",
+                    "options": [
+                        "beautifully",
+                        "beautiful",
+                        "beautifuly"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівники способу дії стоять після об'єкта або в кінці речення.",
+                        "«Beautiful» — прикметник; для опису дії потрібен прислівник «beautifully»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "beautifully": "✅ «beautifully» — правильно: прислівник способу дії від «beautiful», стоїть після об'єкта «the piano».",
+                            "beautiful": "❌ «beautiful» — неправильно: «beautiful» — прикметник і описує іменники, а не дії.",
+                            "beautifuly": "❌ «beautifuly» — неправильно: орфографічна помилка; правильне написання — «beautifully» (два l)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "He plays the piano {a1}."
+            ]
+        },
+        {
+            "id": 8,
+            "uuid_segments": [
+                "a2",
+                "q08"
+            ],
+            "question": "I have {a1} been to Paris.",
+            "source": "word_order_adverbs_theory",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "never",
+                    "options": [
+                        "never",
+                        "not never",
+                        "ever never"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Present Perfect прислівники частотності (never, always, already) стоять між «have/has» і дієприкметником.",
+                        "«not never» — подвійне заперечення, яке в англійській мові є граматично неприпустимим."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "never": "✅ «never» — правильно: у Present Perfect «never» стоїть між «have» і «been», висловлюючи відсутність досвіду.",
+                            "not never": "❌ «not never» — неправильно: подвійне заперечення в англійській мові граматично неприпустиме.",
+                            "ever never": "❌ «ever never» — неправильно: це безглузде поєднання двох несумісних прислівників."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adverbs"
+            ],
+            "variants": [
+                "I have {a1} been to Paris."
+            ]
+        },
+        {
+            "id": 9,
+            "uuid_segments": [
+                "a2",
+                "q09"
+            ],
+            "question": "The exam was {a1} difficult.",
+            "source": "word_order_adverbs_theory",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "extremely",
+                    "options": [
+                        "extremely",
+                        "extreme",
+                        "extremelly"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівники ступеня (very, quite, extremely) стоять перед прикметником, який вони підсилюють.",
+                        "«Extreme» — прикметник; для підсилення іншого прикметника потрібен прислівник «extremely»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "extremely": "✅ «extremely» — правильно: прислівник ступеня стоїть перед прикметником «difficult» і підсилює його.",
+                            "extreme": "❌ «extreme» — неправильно: «extreme» — прикметник, а не прислівник; не може підсилювати інший прикметник.",
+                            "extremelly": "❌ «extremelly» — неправильно: орфографічна помилка; правильне написання — «extremely» (одне l)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "degree_adverbs"
+            ],
+            "variants": [
+                "The exam was {a1} difficult."
+            ]
+        },
+        {
+            "id": 10,
+            "uuid_segments": [
+                "a2",
+                "q10"
+            ],
+            "question": "The dog ran {a1}.",
+            "source": "word_order_adverbs_theory",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "quickly",
+                    "options": [
+                        "quickly",
+                        "quick",
+                        "fastly"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівники способу дії відповідають на питання «як?» і зазвичай стоять у кінці речення.",
+                        "«Fast» — і прикметник, і прислівник без -ly; «fastly» не існує в англійській мові."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "quickly": "✅ «quickly» — правильно: прислівник способу дії, утворений від прикметника «quick» додаванням -ly.",
+                            "quick": "❌ «quick» — неправильно: у цьому контексті «quick» — прикметник; потрібен прислівник «quickly».",
+                            "fastly": "❌ «fastly» — неправильно: такого слова не існує; правильний прислівник — «fast» або «quickly»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "The dog ran {a1}."
+            ]
+        },
+        {
+            "id": 11,
+            "uuid_segments": [
+                "b1",
+                "q11"
+            ],
+            "question": "She has {a1} finished her essay.",
+            "source": "word_order_adverbs_theory",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "already",
+                    "options": [
+                        "already",
+                        "yet",
+                        "still already"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Already» вживається у стверджувальних реченнях між допоміжним дієсловом і дієприкметником.",
+                        "«Yet» вживається в заперечних реченнях і запитаннях, а не у стверджувальних."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "already": "✅ «already» — правильно: у Present Perfect у стверджувальних реченнях «already» стоїть між «has» і дієприкметником «finished».",
+                            "yet": "❌ «yet» — неправильно: «yet» вживається в заперечних реченнях (hasn't... yet) і запитаннях, а не у стверджувальних.",
+                            "still already": "❌ «still already» — неправильно: це безглузде поєднання двох несумісних прислівників."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "already_yet_still"
+            ],
+            "variants": [
+                "She has {a1} finished her essay."
+            ]
+        },
+        {
+            "id": 12,
+            "uuid_segments": [
+                "b1",
+                "q12"
+            ],
+            "question": "I haven't read that book {a1}.",
+            "source": "word_order_adverbs_theory",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "yet",
+                    "options": [
+                        "yet",
+                        "already",
+                        "just yet"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Yet» у заперечних реченнях стоїть у кінці речення і означає «ще (не)».",
+                        "«Already» вживається у стверджувальних реченнях або в запитаннях із відтінком подиву."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "yet": "✅ «yet» — правильно: у заперечному реченні «yet» стоїть у кінці і означає «ще (не прочитав)».",
+                            "already": "❌ «already» — неправильно: «already» вживається у стверджувальних реченнях або в запитаннях (Have you already read it?).",
+                            "just yet": "❌ «just yet» — неправильно: вираз «not just yet» можливий, але окреме «just yet» після «haven't» некоректне."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "already_yet_still"
+            ],
+            "variants": [
+                "I haven't read that book {a1}."
+            ]
+        },
+        {
+            "id": 13,
+            "uuid_segments": [
+                "b1",
+                "q13"
+            ],
+            "question": "He is {a1} working on the project.",
+            "source": "word_order_adverbs_theory",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "still",
+                    "options": [
+                        "still",
+                        "yet",
+                        "already still"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Still» означає «все ще» і стоїть після допоміжного дієслова або після підмета.",
+                        "«Yet» не вживається у стверджувальних реченнях у Present Continuous; воно належить до заперечень і запитань."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "still": "✅ «still» — правильно: означає «все ще» і стоїть після допоміжного дієслова «is», вказуючи на тривалість дії.",
+                            "yet": "❌ «yet» — неправильно: «yet» не вживається у стверджувальних реченнях у цьому контексті.",
+                            "already still": "❌ «already still» — неправильно: це поєднання двох несумісних прислівників, яке не має сенсу."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "already_yet_still"
+            ],
+            "variants": [
+                "He is {a1} working on the project."
+            ]
+        },
+        {
+            "id": 14,
+            "uuid_segments": [
+                "b1",
+                "q14"
+            ],
+            "question": "She drove {a1} through the city streets.",
+            "source": "word_order_adverbs_theory",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "carefully",
+                    "options": [
+                        "carefully",
+                        "careful",
+                        "caringly"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівники способу дії (carefully, slowly) описують дієслово і стоять після нього або після об'єкта.",
+                        "«Careful» — прикметник; «caringly» означає «з ніжністю/турботою» і не підходить для опису водіння."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "carefully": "✅ «carefully» — правильно: прислівник способу дії «carefully» (обережно) описує дієслово «drove».",
+                            "careful": "❌ «careful» — неправильно: «careful» — прикметник і не може описувати дієслово «drove».",
+                            "caringly": "❌ «caringly» — неправильно: «caringly» означає «з ніжністю» і семантично не підходить для опису водіння автомобіля."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "She drove {a1} through the city streets."
+            ]
+        },
+        {
+            "id": 15,
+            "uuid_segments": [
+                "b1",
+                "q15"
+            ],
+            "question": "They have {a1} worked here for ten years.",
+            "source": "word_order_adverbs_theory",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "always",
+                    "options": [
+                        "always",
+                        "all ways",
+                        "ever"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Always» у Present Perfect стоїть між «have/has» і дієприкметником минулого часу.",
+                        "«All ways» — іменниковий вираз (усіма шляхами); «ever» у стверджувальних реченнях означає «будь-коли»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "always": "✅ «always» — правильно: у Present Perfect «always» стоїть між «have» і «worked», підкреслюючи постійність.",
+                            "all ways": "❌ «all ways» — неправильно: це іменниковий вираз «усіма шляхами»; не є прислівником частотності.",
+                            "ever": "❌ «ever» — неправильно: «ever» у стверджувальних реченнях означає «будь-коли» і не передає сенсу «завжди»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adverbs"
+            ],
+            "variants": [
+                "They have {a1} worked here for ten years."
+            ]
+        },
+        {
+            "id": 16,
+            "uuid_segments": [
+                "b2",
+                "q16"
+            ],
+            "question": "He worked {a1} to meet the deadline.",
+            "source": "word_order_adverbs_theory",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "hard",
+                    "options": [
+                        "hard",
+                        "hardly",
+                        "hardily"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Hard» (прислівник) означає «старанно, наполегливо»; «hardly» означає «ледве, майже не» — зовсім різні значення.",
+                        "Це «хибні друзі»: hard ≠ hardly за значенням, незважаючи на схожість форм."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "hard": "✅ «hard» — правильно: прислівник «hard» означає «старанно» і логічно поєднується з контекстом дедлайну.",
+                            "hardly": "❌ «hardly» — неправильно: «hardly» означає «ледве, майже не» і змінює зміст речення на протилежний.",
+                            "hardily": "❌ «hardily» — неправильно: ця форма практично не вживається в сучасній англійській мові в цьому значенні."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "He worked {a1} to meet the deadline."
+            ]
+        },
+        {
+            "id": 17,
+            "uuid_segments": [
+                "b2",
+                "q17"
+            ],
+            "question": "She is {a1} regarded as an expert.",
+            "source": "word_order_adverbs_theory",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "widely",
+                    "options": [
+                        "widely",
+                        "wide",
+                        "widelye"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Widely» — прислівник, що означає «широко, загально»; вживається з пасивними дієприкметниками (widely regarded, widely known).",
+                        "«Wide» вживається у фізичному значенні (wide open), а не в переносному (widely regarded)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "widely": "✅ «widely» — правильно: «widely regarded» — усталений вираз, що означає «загально визнана як».",
+                            "wide": "❌ «wide» — неправильно: «wide» вживається у значенні «широко відкритий», але не «wide regarded».",
+                            "widelye": "❌ «widelye» — неправильно: орфографічна помилка; правильне написання — «widely»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "She is {a1} regarded as an expert."
+            ]
+        },
+        {
+            "id": 18,
+            "uuid_segments": [
+                "b2",
+                "q18"
+            ],
+            "question": "The criticism was {a1} received.",
+            "source": "word_order_adverbs_theory",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "badly",
+                    "options": [
+                        "badly",
+                        "bad",
+                        "badely"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівник «badly» описує дієприкметник «received» у пасивній конструкції і стоїть перед ним.",
+                        "«Bad» — прикметник; «badely» — орфографічна помилка; правильна форма — «badly»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "badly": "✅ «badly» — правильно: «badly received» означає «погано сприйнятий»; «badly» — прислівник, що описує «received».",
+                            "bad": "❌ «bad» — неправильно: «bad» — прикметник і не може описувати дієприкметник «received».",
+                            "badely": "❌ «badely» — неправильно: орфографічна помилка; правильне написання — «badly»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "The criticism was {a1} received."
+            ]
+        },
+        {
+            "id": 19,
+            "uuid_segments": [
+                "b2",
+                "q19"
+            ],
+            "question": "He {a1} admits when he is wrong.",
+            "source": "word_order_adverbs_theory",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "rarely",
+                    "options": [
+                        "rarely",
+                        "rare",
+                        "rarey"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Rarely» — прислівник частотності, що стоїть перед смисловим дієсловом.",
+                        "«Rare» — прикметник; «rarey» — неіснуюче слово; правильна форма — «rarely»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "rarely": "✅ «rarely» — правильно: прислівник частотності «rarely» стоїть перед смисловим дієсловом «admits».",
+                            "rare": "❌ «rare» — неправильно: «rare» — прикметник (рідкісний); для опису частотності дії потрібен прислівник «rarely».",
+                            "rarey": "❌ «rarey» — неправильно: такого слова не існує; правильна форма — «rarely»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adverbs"
+            ],
+            "variants": [
+                "He {a1} admits when he is wrong."
+            ]
+        },
+        {
+            "id": 20,
+            "uuid_segments": [
+                "b2",
+                "q20"
+            ],
+            "question": "She plays chess {a1}.",
+            "source": "word_order_adverbs_theory",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "remarkably well",
+                    "options": [
+                        "remarkably well",
+                        "remarkable well",
+                        "remarkably good"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Remarkably» — прислівник ступеня, що підсилює прислівник «well»; обидва стоять у кінці речення.",
+                        "«Good» — прикметник; для опису дієслова «plays» потрібен прислівник «well», а не прикметник «good»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "remarkably well": "✅ «remarkably well» — правильно: «remarkably» підсилює прислівник «well», який описує гру.",
+                            "remarkable well": "❌ «remarkable well» — неправильно: «remarkable» — прикметник, а не прислівник; потрібна форма «remarkably».",
+                            "remarkably good": "❌ «remarkably good» — неправильно: «good» — прикметник; для опису дієслова «plays» потрібен прислівник «well»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "She plays chess {a1}."
+            ]
+        },
+        {
+            "id": 21,
+            "uuid_segments": [
+                "c1",
+                "q21"
+            ],
+            "question": "The aria was performed {a1}.",
+            "source": "word_order_adverbs_theory",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "magnificently",
+                    "options": [
+                        "magnificently",
+                        "magnificent",
+                        "magnificentely"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівники способу дії в пасивних конструкціях описують, як була виконана дія, і стоять після дієприкметника.",
+                        "«Magnificent» — прикметник; «magnificentely» — орфографічна помилка."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "magnificently": "✅ «magnificently» — правильно: прислівник способу дії від «magnificent» стоїть після «performed», описуючи виконання.",
+                            "magnificent": "❌ «magnificent» — неправильно: «magnificent» — прикметник і не може описувати дієприкметник «performed».",
+                            "magnificentely": "❌ «magnificentely» — неправильно: орфографічна помилка; правильне написання — «magnificently»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "The aria was performed {a1}."
+            ]
+        },
+        {
+            "id": 22,
+            "uuid_segments": [
+                "c1",
+                "q22"
+            ],
+            "question": "{a1} have I encountered such generosity.",
+            "source": "word_order_adverbs_theory",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Rarely",
+                    "options": [
+                        "Rarely",
+                        "Rare",
+                        "Seldomly"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Розміщення прислівника частотності на початку речення (фронтинг) вимагає граматичної інверсії: допоміжне дієслово стоїть перед підметом.",
+                        "«Seldomly» — неіснуюча форма; «seldom» вже є прислівником і не потребує суфікса -ly. «Rare» — прикметник."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Rarely": "✅ «Rarely» — правильно: прислівник частотності на початку речення викликає інверсію (Rarely have I...), що надає реченню емфатичного відтінку.",
+                            "Rare": "❌ «Rare» — неправильно: «rare» — прикметник і не може починати речення з інверсією замість прислівника.",
+                            "Seldomly": "❌ «Seldomly» — неправильно: «seldom» вже є прислівником і не потребує суфікса -ly; форма «seldomly» не існує."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "frequency_adverbs"
+            ],
+            "variants": [
+                "{a1} have I encountered such generosity."
+            ]
+        },
+        {
+            "id": 23,
+            "uuid_segments": [
+                "c1",
+                "q23"
+            ],
+            "question": "She responded to every challenge {a1}.",
+            "source": "word_order_adverbs_theory",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "with great composure",
+                    "options": [
+                        "with great composure",
+                        "with great composures",
+                        "in great composure"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прийменникові вирази способу дії (with + іменник) можуть замінювати прислівники способу дії.",
+                        "«Composure» — незлічуваний іменник (самовладання, спокій), тому форма множини «composures» є неправильною."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "with great composure": "✅ «with great composure» — правильно: прийменниковий вираз з «with» описує спосіб дії; «composure» — незлічуваний іменник.",
+                            "with great composures": "❌ «with great composures» — неправильно: «composure» — незлічуваний іменник і не має форми множини.",
+                            "in great composure": "❌ «in great composure» — неправильно: правильний прийменник у цьому усталеному виразі — «with», а не «in»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "She responded to every challenge {a1}."
+            ]
+        },
+        {
+            "id": 24,
+            "uuid_segments": [
+                "c1",
+                "q24"
+            ],
+            "question": "The new policy has been {a1} criticized.",
+            "source": "word_order_adverbs_theory",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "strongly",
+                    "options": [
+                        "strongly",
+                        "strong",
+                        "strongely"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У пасивних конструкціях з Present Perfect прислівник стоїть між допоміжним дієсловом і дієприкметником або перед ним.",
+                        "«Strong» — прикметник; «strongely» — орфографічна помилка; правильна форма — «strongly»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "strongly": "✅ «strongly» — правильно: «strongly criticized» — усталений вираз; «strongly» підсилює «criticized».",
+                            "strong": "❌ «strong» — неправильно: «strong» — прикметник і не може описувати дієприкметник «criticized».",
+                            "strongely": "❌ «strongely» — неправильно: орфографічна помилка; правильне написання — «strongly»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "The new policy has been {a1} criticized."
+            ]
+        },
+        {
+            "id": 25,
+            "uuid_segments": [
+                "c1",
+                "q25"
+            ],
+            "question": "He spoke {a1} on the subject.",
+            "source": "word_order_adverbs_theory",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "at length",
+                    "options": [
+                        "at length",
+                        "in length",
+                        "on length"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«At length» — усталений прислівниковий вираз, що означає «докладно, тривало».",
+                        "«In length» означає «завдовжки (певну відстань)», а «on length» взагалі не є усталеним виразом."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "at length": "✅ «at length» — правильно: це усталений прислівниковий вираз зі значенням «докладно, протягом тривалого часу».",
+                            "in length": "❌ «in length» — неправильно: «in length» означає «завдовжки (розмір)» і не підходить в цьому контексті.",
+                            "on length": "❌ «on length» — неправильно: такого усталеного прислівникового виразу не існує."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "He spoke {a1} on the subject."
+            ]
+        },
+        {
+            "id": 26,
+            "uuid_segments": [
+                "c2",
+                "q26"
+            ],
+            "question": "The data was {a1} analyzed before conclusions were drawn.",
+            "source": "word_order_adverbs_theory",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "painstakingly",
+                    "options": [
+                        "painstakingly",
+                        "painstaking",
+                        "painstakinly"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Painstakingly» — прислівник способу дії від прикметника «painstaking» (ретельний, педантичний), що означає «надзвичайно ретельно».",
+                        "«Painstaking» — прикметник; «painstakinly» — орфографічна помилка (пропущена буква «g»)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "painstakingly": "✅ «painstakingly» — правильно: прислівник способу дії, що означає «ретельно, педантично», стоїть перед «analyzed».",
+                            "painstaking": "❌ «painstaking» — неправильно: «painstaking» — прикметник і не може описувати дієприкметник «analyzed».",
+                            "painstakinly": "❌ «painstakinly» — неправильно: орфографічна помилка; правильне написання — «painstakingly»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "The data was {a1} analyzed before conclusions were drawn."
+            ]
+        },
+        {
+            "id": 27,
+            "uuid_segments": [
+                "c2",
+                "q27"
+            ],
+            "question": "She is {a1} respected in her field.",
+            "source": "word_order_adverbs_theory",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "highly",
+                    "options": [
+                        "highly",
+                        "high",
+                        "highlily"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Highly» — прислівник ступеня у переносному значенні «дуже, надзвичайно»; «high» вживається у фізичному значенні «високо».",
+                        "«Highlily» — неіснуюче слово; правильна форма — «highly»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "highly": "✅ «highly» — правильно: «highly respected» — усталений вираз, де «highly» підсилює пасивний дієприкметник «respected».",
+                            "high": "❌ «high» — неправильно: «high» вживається у фізичному значенні (jumped high), а «highly» — у переносному (highly respected).",
+                            "highlily": "❌ «highlily» — неправильно: такого слова не існує; правильна форма — «highly»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "degree_adverbs"
+            ],
+            "variants": [
+                "She is {a1} respected in her field."
+            ]
+        },
+        {
+            "id": 28,
+            "uuid_segments": [
+                "c2",
+                "q28"
+            ],
+            "question": "The bridge was {a1} designed and built.",
+            "source": "word_order_adverbs_theory",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "brilliantly",
+                    "options": [
+                        "brilliantly",
+                        "brilliant",
+                        "brilliantely"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Прислівники способу дії в пасивних конструкціях стоять перед дієприкметниками, які вони описують.",
+                        "«Brilliant» — прикметник; «brilliantely» — орфографічна помилка; правильна форма — «brilliantly»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "brilliantly": "✅ «brilliantly» — правильно: прислівник способу дії описує обидва дієприкметники «designed and built».",
+                            "brilliant": "❌ «brilliant» — неправильно: «brilliant» — прикметник і не може описувати дієприкметники.",
+                            "brilliantely": "❌ «brilliantely» — неправильно: орфографічна помилка; правильне написання — «brilliantly»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "The bridge was {a1} designed and built."
+            ]
+        },
+        {
+            "id": 29,
+            "uuid_segments": [
+                "c2",
+                "q29"
+            ],
+            "question": "He responded to every question {a1}.",
+            "source": "word_order_adverbs_theory",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "thoughtfully",
+                    "options": [
+                        "thoughtfully",
+                        "thoughtful",
+                        "thoughtfuly"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Thoughtfully» — прислівник способу дії, що означає «вдумливо, зважено»; стоїть після об'єкта або в кінці речення.",
+                        "«Thoughtful» — прикметник; «thoughtfuly» — орфографічна помилка (пропущена буква l)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "thoughtfully": "✅ «thoughtfully» — правильно: прислівник способу дії від «thoughtful», стоїть у кінці речення.",
+                            "thoughtful": "❌ «thoughtful» — неправильно: «thoughtful» — прикметник і не може описувати дієслово «responded».",
+                            "thoughtfuly": "❌ «thoughtfuly» — неправильно: орфографічна помилка; правильне написання — «thoughtfully» (два l)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "manner_adverbs"
+            ],
+            "variants": [
+                "He responded to every question {a1}."
+            ]
+        },
+        {
+            "id": 30,
+            "uuid_segments": [
+                "c2",
+                "q30"
+            ],
+            "question": "The results were {a1} encouraging.",
+            "source": "word_order_adverbs_theory",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "by no means",
+                    "options": [
+                        "by no means",
+                        "by not means",
+                        "in no means"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«By no means» — усталений вираз-підсилювач заперечення, що означає «аж ніяк не, зовсім не».",
+                        "«By not means» і «in no means» — граматично неправильні варіанти, які не існують як усталені вирази."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "by no means": "✅ «by no means» — правильно: усталений вираз, що означає «аж ніяк не»; підсилює заперечення щодо «encouraging».",
+                            "by not means": "❌ «by not means» — неправильно: такого виразу не існує; правильна форма — «by no means».",
+                            "in no means": "❌ «in no means» — неправильно: неправильний прийменник; правильна форма — «by no means»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "degree_adverbs"
+            ],
+            "variants": [
+                "The results were {a1} encouraging."
+            ]
+        }
+    ]
+}

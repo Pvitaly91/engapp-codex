@@ -1,0 +1,3595 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBeNegativesV3QuestionsOnlySeeder",
+    "uuid_namespace": "VerbToBeNegativesV3QuestionsOnlySeeder"
+  },
+  "defaults": {
+    "default_locale": "uk",
+    "flag": 0,
+    "type": 0,
+    "level_difficulty": {
+      "A1": 1,
+      "A2": 2,
+      "B1": 3,
+      "B2": 4,
+      "C1": 5,
+      "C2": 5
+    }
+  },
+  "category": {
+    "name": "Базова граматика / Verb to Be"
+  },
+  "sources": {
+    "theory_page_1287": {
+      "name": "Verb to Be: Negatives"
+    }
+  },
+  "tags": {
+    "verb_to_be_negative": {
+      "name": "Verb to Be negative forms",
+      "category": "topic"
+    },
+    "am_not_first_person": {
+      "name": "I am not (first person negative)",
+      "category": "pattern"
+    },
+    "is_not_third_person": {
+      "name": "He/She/It is not (third person singular negative)",
+      "category": "pattern"
+    },
+    "are_not_second_plural": {
+      "name": "You/We/They are not (second person & plural negative)",
+      "category": "pattern"
+    },
+    "isnt_contraction": {
+      "name": "isn't (contracted is not)",
+      "category": "pattern"
+    },
+    "arent_contraction": {
+      "name": "aren't (contracted are not)",
+      "category": "pattern"
+    },
+    "negative_full_form": {
+      "name": "Full negative form (am not / is not / are not)",
+      "category": "pattern"
+    },
+    "negative_contraction": {
+      "name": "Contracted negative (isn't / aren't)",
+      "category": "pattern"
+    },
+    "short_answer_negative": {
+      "name": "Negative short answer (No, I am not / No, she isn't)",
+      "category": "pattern"
+    },
+    "subject_be_agreement_negative": {
+      "name": "Subject-verb agreement in negative Be",
+      "category": "pattern"
+    },
+    "there_be_negative": {
+      "name": "There isn't / There aren't",
+      "category": "pattern"
+    },
+    "negative_be_in_subordinate": {
+      "name": "Negative Be in subordinate clause",
+      "category": "structure"
+    },
+    "negative_tag_question_be": {
+      "name": "Negative Be in tag question",
+      "category": "pattern"
+    },
+    "litotes_double_negative": {
+      "name": "Litotes: not + negative adjective (softened affirmative)",
+      "category": "usage"
+    },
+    "formal_register_negative": {
+      "name": "Formal/academic negative register with Be",
+      "category": "register"
+    },
+    "emphatic_negation": {
+      "name": "Emphatic negation with Be",
+      "category": "usage"
+    },
+    "hedging_with_negative_be": {
+      "name": "Hedging: not altogether / not necessarily",
+      "category": "usage"
+    },
+    "concessive_negative_be": {
+      "name": "Concessive negative (is not without merit)",
+      "category": "usage"
+    },
+    "literary_be_not_imperative": {
+      "name": "Literary 'Be not + adjective' imperative",
+      "category": "register"
+    },
+    "formal_pronoun_one_negative": {
+      "name": "One is not... (formal pronoun negative)",
+      "category": "register"
+    }
+  },
+  "default_tag_keys": [
+    "verb_to_be_negative"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "I {a1} tired today.",
+      "level": "A1",
+      "markers": {
+        "a1": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "is not",
+            "are not"
+          ],
+          "verb_hint": "I + am not"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person",
+        "negative_full_form"
+      ],
+      "variants": [
+        "I {a1} tired today."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 2,
+      "question": "She {a2} at home right now.",
+      "level": "A1",
+      "markers": {
+        "a2": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "am not",
+            "are not"
+          ],
+          "verb_hint": "she + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "negative_full_form"
+      ],
+      "variants": [
+        "She {a2} at home right now."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 3,
+      "question": "They {a3} in the classroom.",
+      "level": "A1",
+      "markers": {
+        "a3": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "they + are not"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "negative_full_form"
+      ],
+      "variants": [
+        "They {a3} in the classroom."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 4,
+      "question": "He {a4} happy.",
+      "level": "A1",
+      "markers": {
+        "a4": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "am not",
+            "are not"
+          ],
+          "verb_hint": "he + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "negative_full_form"
+      ],
+      "variants": [
+        "He {a4} happy."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 5,
+      "question": "We {a5} ready for the test.",
+      "level": "A1",
+      "markers": {
+        "a5": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "we + are not"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "negative_full_form"
+      ],
+      "variants": [
+        "We {a5} ready for the test."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 6,
+      "question": "I {a6} a student.",
+      "level": "A1",
+      "markers": {
+        "a6": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "is not",
+            "are not"
+          ],
+          "verb_hint": "I + am not"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person",
+        "negative_full_form"
+      ],
+      "variants": [
+        "I {a6} a student."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 7,
+      "question": "The cat {a7} on the bed.",
+      "level": "A1",
+      "markers": {
+        "a7": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "am not",
+            "are not"
+          ],
+          "verb_hint": "singular noun + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "negative_full_form"
+      ],
+      "variants": [
+        "The cat {a7} on the bed."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 8,
+      "question": "You {a8} late.",
+      "level": "A1",
+      "markers": {
+        "a8": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "you + are not"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "negative_full_form"
+      ],
+      "variants": [
+        "You {a8} late."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 9,
+      "question": "It {a9} cold today.",
+      "level": "A1",
+      "markers": {
+        "a9": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "it + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "It {a9} cold today."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 10,
+      "question": "My friends {a10} here.",
+      "level": "A1",
+      "markers": {
+        "a10": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "plural + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "My friends {a10} here."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 11,
+      "question": "She {a11} hungry.",
+      "level": "A1",
+      "markers": {
+        "a11": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "she + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "She {a11} hungry."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 12,
+      "question": "They {a12} at school.",
+      "level": "A1",
+      "markers": {
+        "a12": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "they + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "They {a12} at school."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 13,
+      "question": "He {a13} my brother.",
+      "level": "A1",
+      "markers": {
+        "a13": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "he + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "He {a13} my brother."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 14,
+      "question": "We {a14} from London.",
+      "level": "A1",
+      "markers": {
+        "a14": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "we + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "We {a14} from London."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 15,
+      "question": "The book {a15} on the table.",
+      "level": "A1",
+      "markers": {
+        "a15": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "singular + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "The book {a15} on the table."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 16,
+      "question": "I {a16} sad.",
+      "level": "A1",
+      "markers": {
+        "a16": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "isn't",
+            "aren't"
+          ],
+          "verb_hint": "I + am not"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person"
+      ],
+      "variants": [
+        "I {a16} sad."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 17,
+      "question": "Tom {a17} in the garden.",
+      "level": "A1",
+      "markers": {
+        "a17": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "Tom (he) + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction"
+      ],
+      "variants": [
+        "Tom {a17} in the garden."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 18,
+      "question": "The dogs {a18} in the house.",
+      "level": "A1",
+      "markers": {
+        "a18": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "plural noun + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction"
+      ],
+      "variants": [
+        "The dogs {a18} in the house."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 19,
+      "question": "She {a19} a teacher.",
+      "level": "A1",
+      "markers": {
+        "a19": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "she + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "negative_full_form"
+      ],
+      "variants": [
+        "She {a19} a teacher."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 20,
+      "question": "It {a20} a good idea.",
+      "level": "A1",
+      "markers": {
+        "a20": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "it + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "negative_full_form"
+      ],
+      "variants": [
+        "It {a20} a good idea."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 21,
+      "question": "You {a21} wrong.",
+      "level": "A1",
+      "markers": {
+        "a21": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "you + are not"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "negative_full_form"
+      ],
+      "variants": [
+        "You {a21} wrong."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 22,
+      "question": "I {a22} from Spain.",
+      "level": "A1",
+      "markers": {
+        "a22": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "is not",
+            "are not"
+          ],
+          "verb_hint": "I + am not"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person",
+        "negative_full_form"
+      ],
+      "variants": [
+        "I {a22} from Spain."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 23,
+      "question": "The children {a23} asleep.",
+      "level": "A1",
+      "markers": {
+        "a23": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "negative_full_form"
+      ],
+      "variants": [
+        "The children {a23} asleep."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 24,
+      "question": "My sister {a24} tall.",
+      "level": "A1",
+      "markers": {
+        "a24": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "am not",
+            "are not"
+          ],
+          "verb_hint": "singular + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "negative_full_form"
+      ],
+      "variants": [
+        "My sister {a24} tall."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 25,
+      "question": "My parents {a25} at work today.",
+      "level": "A2",
+      "markers": {
+        "a25": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "plural + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "My parents {a25} at work today."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 26,
+      "question": "This movie {a26} very interesting.",
+      "level": "A2",
+      "markers": {
+        "a26": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "singular + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "This movie {a26} very interesting."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 27,
+      "question": "I {a27} sure about the answer.",
+      "level": "A2",
+      "markers": {
+        "a27": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "isn't",
+            "aren't"
+          ],
+          "verb_hint": "I + am not"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person"
+      ],
+      "variants": [
+        "I {a27} sure about the answer."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 28,
+      "question": "The weather {a28} warm enough for swimming.",
+      "level": "A2",
+      "markers": {
+        "a28": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "uncountable + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "The weather {a28} warm enough for swimming."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 29,
+      "question": "Those shoes {a29} mine.",
+      "level": "A2",
+      "markers": {
+        "a29": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "plural + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "Those shoes {a29} mine."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 30,
+      "question": "The shop {a30} open on Sundays.",
+      "level": "A2",
+      "markers": {
+        "a30": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "singular + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "The shop {a30} open on Sundays."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 31,
+      "question": "We {a31} interested in football.",
+      "level": "A2",
+      "markers": {
+        "a31": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "we + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "We {a31} interested in football."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 32,
+      "question": "Lisa {a32} feeling well today.",
+      "level": "A2",
+      "markers": {
+        "a32": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "name (she) + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "Lisa {a32} feeling well today."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 33,
+      "question": "— Is the test easy? — No, it {a33}.",
+      "level": "A2",
+      "markers": {
+        "a33": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "it + isn't in short answer"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "short_answer_negative"
+      ],
+      "variants": [
+        "— Is the test easy? — No, it {a33}."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 34,
+      "question": "— Are you coming? — No, I {a34}.",
+      "level": "A2",
+      "markers": {
+        "a34": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "isn't",
+            "aren't"
+          ],
+          "verb_hint": "I + am not in short answer"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person",
+        "short_answer_negative"
+      ],
+      "variants": [
+        "— Are you coming? — No, I {a34}."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 35,
+      "question": "— Are they French? — No, they {a35}.",
+      "level": "A2",
+      "markers": {
+        "a35": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "they + aren't in short answer"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "short_answer_negative"
+      ],
+      "variants": [
+        "— Are they French? — No, they {a35}."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 36,
+      "question": "The rooms {a36} clean enough.",
+      "level": "A2",
+      "markers": {
+        "a36": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "negative_full_form"
+      ],
+      "variants": [
+        "The rooms {a36} clean enough."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 37,
+      "question": "This {a37} the right bus.",
+      "level": "A2",
+      "markers": {
+        "a37": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "this + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "negative_full_form"
+      ],
+      "variants": [
+        "This {a37} the right bus."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 38,
+      "question": "My homework {a38} finished yet.",
+      "level": "A2",
+      "markers": {
+        "a38": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "uncountable + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "negative_full_form"
+      ],
+      "variants": [
+        "My homework {a38} finished yet."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 39,
+      "question": "The keys {a39} in my bag.",
+      "level": "A2",
+      "markers": {
+        "a39": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "negative_full_form"
+      ],
+      "variants": [
+        "The keys {a39} in my bag."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 40,
+      "question": "The coffee {a40} hot anymore.",
+      "level": "A2",
+      "markers": {
+        "a40": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "uncountable + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "The coffee {a40} hot anymore."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 41,
+      "question": "I {a41} angry with you.",
+      "level": "A2",
+      "markers": {
+        "a41": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "isn't",
+            "aren't"
+          ],
+          "verb_hint": "I + am not"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person"
+      ],
+      "variants": [
+        "I {a41} angry with you."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 42,
+      "question": "Your friends {a42} very polite.",
+      "level": "A2",
+      "markers": {
+        "a42": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "plural + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "Your friends {a42} very polite."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 43,
+      "question": "That restaurant {a43} cheap.",
+      "level": "A2",
+      "markers": {
+        "a43": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "singular + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "That restaurant {a43} cheap."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 44,
+      "question": "We {a44} lost — I know the way.",
+      "level": "A2",
+      "markers": {
+        "a44": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "we + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "We {a44} lost — I know the way."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 45,
+      "question": "The bus {a45} here yet.",
+      "level": "A2",
+      "markers": {
+        "a45": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "singular + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "The bus {a45} here yet."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 46,
+      "question": "These questions {a46} difficult.",
+      "level": "A2",
+      "markers": {
+        "a46": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "plural + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "These questions {a46} difficult."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 47,
+      "question": "The teacher {a47} in the staffroom.",
+      "level": "A2",
+      "markers": {
+        "a47": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "singular + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "The teacher {a47} in the staffroom."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 48,
+      "question": "My phone {a48} working properly.",
+      "level": "A2",
+      "markers": {
+        "a48": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "singular + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_contraction"
+      ],
+      "variants": [
+        "My phone {a48} working properly."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 49,
+      "question": "There {a49} enough chairs for everyone.",
+      "level": "B1",
+      "markers": {
+        "a49": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "there + plural → aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "there_be_negative"
+      ],
+      "variants": [
+        "There {a49} enough chairs for everyone."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 50,
+      "question": "The information on the website {a50} correct.",
+      "level": "B1",
+      "markers": {
+        "a50": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "uncountable 'information' + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "The information on the website {a50} correct."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 51,
+      "question": "The news {a51} as bad as we expected.",
+      "level": "B1",
+      "markers": {
+        "a51": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "uncountable 'news' + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "The news {a51} as bad as we expected."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 52,
+      "question": "I think this plan {a52} practical.",
+      "level": "B1",
+      "markers": {
+        "a52": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular + is not in embedded clause"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "negative_be_in_subordinate"
+      ],
+      "variants": [
+        "I think this plan {a52} practical."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 53,
+      "question": "She says the results {a53} ready yet.",
+      "level": "B1",
+      "markers": {
+        "a53": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not in reported speech"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "negative_be_in_subordinate"
+      ],
+      "variants": [
+        "She says the results {a53} ready yet."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 54,
+      "question": "The team {a54} performing well this season.",
+      "level": "B1",
+      "markers": {
+        "a54": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "collective noun 'team' + is not (BrE/AmE)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "The team {a54} performing well this season."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 55,
+      "question": "There {a55} a single cloud in the sky.",
+      "level": "B1",
+      "markers": {
+        "a55": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "there + singular → isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "there_be_negative"
+      ],
+      "variants": [
+        "There {a55} a single cloud in the sky."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 56,
+      "question": "The children {a56} behaving themselves today.",
+      "level": "B1",
+      "markers": {
+        "a56": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "plural + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction"
+      ],
+      "variants": [
+        "The children {a56} behaving themselves today."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 57,
+      "question": "It {a57} clear why they left early.",
+      "level": "B1",
+      "markers": {
+        "a57": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "it + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction"
+      ],
+      "variants": [
+        "It {a57} clear why they left early."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 58,
+      "question": "My advice {a58} always welcome here.",
+      "level": "B1",
+      "markers": {
+        "a58": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "uncountable 'advice' + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "My advice {a58} always welcome here."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 59,
+      "question": "The trousers {a59} long enough.",
+      "level": "B1",
+      "markers": {
+        "a59": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "plural-only noun + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "The trousers {a59} long enough."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 60,
+      "question": "None of the food {a60} fresh.",
+      "level": "B1",
+      "markers": {
+        "a60": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "none of + uncountable → is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "None of the food {a60} fresh."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 61,
+      "question": "Each student {a61} required to bring a laptop.",
+      "level": "B1",
+      "markers": {
+        "a61": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "each + singular → is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "Each student {a61} required to bring a laptop."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 62,
+      "question": "The police {a62} able to find the suspect.",
+      "level": "B1",
+      "markers": {
+        "a62": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "collective-plural 'police' + are not"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "The police {a62} able to find the suspect."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 63,
+      "question": "His behaviour {a63} acceptable in this workplace.",
+      "level": "B1",
+      "markers": {
+        "a63": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "uncountable + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "His behaviour {a63} acceptable in this workplace."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 64,
+      "question": "This {a64} the first time she has been late.",
+      "level": "B1",
+      "markers": {
+        "a64": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "this + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction"
+      ],
+      "variants": [
+        "This {a64} the first time she has been late."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 65,
+      "question": "Mathematics {a65} an easy subject for everyone.",
+      "level": "B1",
+      "markers": {
+        "a65": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "'mathematics' looks plural but + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "Mathematics {a65} an easy subject for everyone."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 66,
+      "question": "The United States {a66} a small country.",
+      "level": "B1",
+      "markers": {
+        "a66": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "proper noun treated as singular + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "The United States {a66} a small country."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 67,
+      "question": "Your glasses {a67} on the desk.",
+      "level": "B1",
+      "markers": {
+        "a67": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "plural-only noun 'glasses' + aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "Your glasses {a67} on the desk."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 68,
+      "question": "Everything {a68} as simple as it looks.",
+      "level": "B1",
+      "markers": {
+        "a68": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "'everything' + isn't (singular)"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "Everything {a68} as simple as it looks."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 69,
+      "question": "These data {a69} accurate enough for the report.",
+      "level": "B1",
+      "markers": {
+        "a69": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "'data' (plural) + are not"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "These data {a69} accurate enough for the report."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 70,
+      "question": "Either the teacher or the students {a70} responsible.",
+      "level": "B1",
+      "markers": {
+        "a70": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "either...or nearest subject plural → are not"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "Either the teacher or the students {a70} responsible."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 71,
+      "question": "I believe the answer {a71} correct.",
+      "level": "B1",
+      "markers": {
+        "a71": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular in embedded clause + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "negative_be_in_subordinate"
+      ],
+      "variants": [
+        "I believe the answer {a71} correct."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 72,
+      "question": "There {a72} any good restaurants nearby.",
+      "level": "B1",
+      "markers": {
+        "a72": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "there + plural → aren't"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "there_be_negative"
+      ],
+      "variants": [
+        "There {a72} any good restaurants nearby."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 73,
+      "question": "The figures in the report {a73} entirely reliable, are they?",
+      "level": "B2",
+      "markers": {
+        "a73": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not + tag question"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "negative_tag_question_be"
+      ],
+      "variants": [
+        "The figures in the report {a73} entirely reliable, are they?"
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 74,
+      "question": "She {a74} convinced that the project will succeed, is she?",
+      "level": "B2",
+      "markers": {
+        "a74": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "she + isn't + tag question"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_tag_question_be"
+      ],
+      "variants": [
+        "She {a74} convinced that the project will succeed, is she?"
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 75,
+      "question": "The proposal {a75} without its flaws.",
+      "level": "B2",
+      "markers": {
+        "a75": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular + is not (formal register)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The proposal {a75} without its flaws."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 76,
+      "question": "We {a76} in a position to offer further discounts.",
+      "level": "B2",
+      "markers": {
+        "a76": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "we + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "We {a76} in a position to offer further discounts."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 77,
+      "question": "I {a77} entirely comfortable with this arrangement.",
+      "level": "B2",
+      "markers": {
+        "a77": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "isn't",
+            "aren't"
+          ],
+          "verb_hint": "I + am not (formal hedge)"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "I {a77} entirely comfortable with this arrangement."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 78,
+      "question": "The allegations {a78} supported by evidence.",
+      "level": "B2",
+      "markers": {
+        "a78": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The allegations {a78} supported by evidence."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 79,
+      "question": "It {a79} unheard of for prices to drop this sharply.",
+      "level": "B2",
+      "markers": {
+        "a79": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "it + is not (litotes)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "litotes_double_negative"
+      ],
+      "variants": [
+        "It {a79} unheard of for prices to drop this sharply."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 80,
+      "question": "His conclusions {a80} based on solid data.",
+      "level": "B2",
+      "markers": {
+        "a80": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "His conclusions {a80} based on solid data."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 81,
+      "question": "The witnesses {a81} telling the whole truth, are they?",
+      "level": "B2",
+      "markers": {
+        "a81": {
+          "answer": "aren't",
+          "options": [
+            "aren't",
+            "isn't",
+            "am not"
+          ],
+          "verb_hint": "plural + aren't + tag question"
+        }
+      },
+      "tag_keys": [
+        "arent_contraction",
+        "negative_tag_question_be"
+      ],
+      "variants": [
+        "The witnesses {a81} telling the whole truth, are they?"
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 82,
+      "question": "Your performance this quarter {a82} up to standard.",
+      "level": "B2",
+      "markers": {
+        "a82": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "uncountable + is not (formal)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "Your performance this quarter {a82} up to standard."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 83,
+      "question": "These measures {a83} sufficient to address the problem.",
+      "level": "B2",
+      "markers": {
+        "a83": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "These measures {a83} sufficient to address the problem."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 84,
+      "question": "It {a84} unreasonable to ask for more time.",
+      "level": "B2",
+      "markers": {
+        "a84": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "it + is not (litotes)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "litotes_double_negative"
+      ],
+      "variants": [
+        "It {a84} unreasonable to ask for more time."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 85,
+      "question": "The committee {a85} ready to make a decision.",
+      "level": "B2",
+      "markers": {
+        "a85": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "collective singular + isn't"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "The committee {a85} ready to make a decision."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 86,
+      "question": "The details {a86} yet finalised.",
+      "level": "B2",
+      "markers": {
+        "a86": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The details {a86} yet finalised."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 87,
+      "question": "I {a87} sure this is the right approach.",
+      "level": "B2",
+      "markers": {
+        "a87": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "isn't",
+            "aren't"
+          ],
+          "verb_hint": "I + am not (hedging)"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person",
+        "hedging_with_negative_be"
+      ],
+      "variants": [
+        "I {a87} sure this is the right approach."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 88,
+      "question": "He {a88} the only candidate for the role, is he?",
+      "level": "B2",
+      "markers": {
+        "a88": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "he + isn't + tag question"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "negative_tag_question_be"
+      ],
+      "variants": [
+        "He {a88} the only candidate for the role, is he?"
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 89,
+      "question": "The terms of the agreement {a89} negotiable.",
+      "level": "B2",
+      "markers": {
+        "a89": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The terms of the agreement {a89} negotiable."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 90,
+      "question": "Your analysis {a90} consistent with the findings.",
+      "level": "B2",
+      "markers": {
+        "a90": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "uncountable + is not (formal)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "Your analysis {a90} consistent with the findings."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 91,
+      "question": "It {a91} advisable to proceed without further testing.",
+      "level": "B2",
+      "markers": {
+        "a91": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "it + is not (formal)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "It {a91} advisable to proceed without further testing."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 92,
+      "question": "We {a92} obliged to accept these conditions.",
+      "level": "B2",
+      "markers": {
+        "a92": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "we + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "We {a92} obliged to accept these conditions."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 93,
+      "question": "The system {a93} designed for this kind of workload.",
+      "level": "B2",
+      "markers": {
+        "a93": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular + is not (formal)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The system {a93} designed for this kind of workload."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 94,
+      "question": "Those policies {a94} applicable in this context.",
+      "level": "B2",
+      "markers": {
+        "a94": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "Those policies {a94} applicable in this context."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 95,
+      "question": "That {a95} what I meant at all.",
+      "level": "B2",
+      "markers": {
+        "a95": {
+          "answer": "isn't",
+          "options": [
+            "isn't",
+            "aren't",
+            "am not"
+          ],
+          "verb_hint": "that + isn't (emphatic)"
+        }
+      },
+      "tag_keys": [
+        "isnt_contraction",
+        "emphatic_negation"
+      ],
+      "variants": [
+        "That {a95} what I meant at all."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 96,
+      "question": "The assumptions underlying the model {a96} valid.",
+      "level": "B2",
+      "markers": {
+        "a96": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The assumptions underlying the model {a96} valid."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 97,
+      "question": "It {a97} uncommon for negotiations to stall at this stage.",
+      "level": "C1",
+      "markers": {
+        "a97": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "it + is not (litotes: not uncommon = fairly common)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "litotes_double_negative"
+      ],
+      "variants": [
+        "It {a97} uncommon for negotiations to stall at this stage."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 98,
+      "question": "The implications of this decision {a98} to be underestimated.",
+      "level": "C1",
+      "markers": {
+        "a98": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (emphatic)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "emphatic_negation"
+      ],
+      "variants": [
+        "The implications of this decision {a98} to be underestimated."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 99,
+      "question": "I {a99} under any illusion that this will be easy.",
+      "level": "C1",
+      "markers": {
+        "a99": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "isn't",
+            "aren't"
+          ],
+          "verb_hint": "I + am not (emphatic)"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person",
+        "emphatic_negation"
+      ],
+      "variants": [
+        "I {a99} under any illusion that this will be easy."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 100,
+      "question": "The benefits of early intervention {a100} always immediately apparent.",
+      "level": "C1",
+      "markers": {
+        "a100": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (hedging)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "hedging_with_negative_be"
+      ],
+      "variants": [
+        "The benefits of early intervention {a100} always immediately apparent."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 101,
+      "question": "It {a101} beyond the realm of possibility that they will agree.",
+      "level": "C1",
+      "markers": {
+        "a101": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "it + is not (litotes)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "litotes_double_negative"
+      ],
+      "variants": [
+        "It {a101} beyond the realm of possibility that they will agree."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 102,
+      "question": "These findings {a102} necessarily indicative of a broader trend.",
+      "level": "C1",
+      "markers": {
+        "a102": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (hedging: not necessarily)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "hedging_with_negative_be"
+      ],
+      "variants": [
+        "These findings {a102} necessarily indicative of a broader trend."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 103,
+      "question": "The correlation between the variables {a103} statistically significant.",
+      "level": "C1",
+      "markers": {
+        "a103": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular + is not (academic)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The correlation between the variables {a103} statistically significant."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 104,
+      "question": "We {a104} at liberty to disclose the details of the investigation.",
+      "level": "C1",
+      "markers": {
+        "a104": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "we + are not (formal restriction)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "We {a104} at liberty to disclose the details of the investigation."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 105,
+      "question": "Her expertise in this field {a105} in question.",
+      "level": "C1",
+      "markers": {
+        "a105": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "uncountable + is not (formal)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "Her expertise in this field {a105} in question."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 106,
+      "question": "The proposed amendments {a106} consistent with the original intent of the legislation.",
+      "level": "C1",
+      "markers": {
+        "a106": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The proposed amendments {a106} consistent with the original intent of the legislation."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 107,
+      "question": "It {a107} entirely clear what the long-term consequences will be.",
+      "level": "C1",
+      "markers": {
+        "a107": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "it + is not (hedging)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "hedging_with_negative_be"
+      ],
+      "variants": [
+        "It {a107} entirely clear what the long-term consequences will be."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 108,
+      "question": "The resources allocated to this project {a108} adequate.",
+      "level": "C1",
+      "markers": {
+        "a108": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The resources allocated to this project {a108} adequate."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 109,
+      "question": "I {a109} altogether opposed to the idea, but it needs refinement.",
+      "level": "C1",
+      "markers": {
+        "a109": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "isn't",
+            "aren't"
+          ],
+          "verb_hint": "I + am not (hedging: not altogether)"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person",
+        "hedging_with_negative_be"
+      ],
+      "variants": [
+        "I {a109} altogether opposed to the idea, but it needs refinement."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 110,
+      "question": "The evidence presented {a110} compelling enough to warrant a change in policy.",
+      "level": "C1",
+      "markers": {
+        "a110": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular + is not (formal evaluation)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The evidence presented {a110} compelling enough to warrant a change in policy."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 111,
+      "question": "The criteria for selection {a111} transparent to all applicants.",
+      "level": "C1",
+      "markers": {
+        "a111": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "'criteria' (plural) + are not"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "The criteria for selection {a111} transparent to all applicants."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 112,
+      "question": "This approach {a112} without its merits, but the risks are considerable.",
+      "level": "C1",
+      "markers": {
+        "a112": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular + is not (concessive: not without merit)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "concessive_negative_be"
+      ],
+      "variants": [
+        "This approach {a112} without its merits, but the risks are considerable."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 113,
+      "question": "The government {a113} willing to make concessions at this point.",
+      "level": "C1",
+      "markers": {
+        "a113": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "collective singular + is not (formal)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The government {a113} willing to make concessions at this point."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 114,
+      "question": "Such assumptions {a114} always warranted.",
+      "level": "C1",
+      "markers": {
+        "a114": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (hedging)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "hedging_with_negative_be"
+      ],
+      "variants": [
+        "Such assumptions {a114} always warranted."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 115,
+      "question": "It {a115} improbable that further sanctions will follow.",
+      "level": "C1",
+      "markers": {
+        "a115": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "it + is not (litotes: not improbable = quite likely)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "litotes_double_negative"
+      ],
+      "variants": [
+        "It {a115} improbable that further sanctions will follow."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 116,
+      "question": "The existing regulations {a116} equipped to deal with emerging technologies.",
+      "level": "C1",
+      "markers": {
+        "a116": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The existing regulations {a116} equipped to deal with emerging technologies."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 117,
+      "question": "Her account of events {a117} entirely consistent with the CCTV footage.",
+      "level": "C1",
+      "markers": {
+        "a117": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular + is not (formal evaluation)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "Her account of events {a117} entirely consistent with the CCTV footage."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 118,
+      "question": "The stakeholders {a118} unanimous in their support for the proposal.",
+      "level": "C1",
+      "markers": {
+        "a118": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The stakeholders {a118} unanimous in their support for the proposal."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 119,
+      "question": "I {a119} in a position to comment on the matter publicly.",
+      "level": "C1",
+      "markers": {
+        "a119": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "isn't",
+            "aren't"
+          ],
+          "verb_hint": "I + am not (formal restriction)"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "I {a119} in a position to comment on the matter publicly."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 120,
+      "question": "The committee's findings {a120} binding upon the executive board.",
+      "level": "C1",
+      "markers": {
+        "a120": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The committee's findings {a120} binding upon the executive board."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 121,
+      "question": "{a121} not afraid — the night is dark, but the path is clear.",
+      "level": "C2",
+      "markers": {
+        "a121": {
+          "answer": "Be",
+          "options": [
+            "Be",
+            "Is",
+            "Are"
+          ],
+          "verb_hint": "literary imperative: Be not afraid"
+        }
+      },
+      "tag_keys": [
+        "literary_be_not_imperative"
+      ],
+      "variants": [
+        "{a121} not afraid — the night is dark, but the path is clear."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 122,
+      "question": "The manuscript, though meticulously researched, {a122} without significant methodological shortcomings.",
+      "level": "C2",
+      "markers": {
+        "a122": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular + is not (concessive academic)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "concessive_negative_be"
+      ],
+      "variants": [
+        "The manuscript, though meticulously researched, {a122} without significant methodological shortcomings."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 123,
+      "question": "I {a123} unaware of the precedent this decision may set.",
+      "level": "C2",
+      "markers": {
+        "a123": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "isn't",
+            "aren't"
+          ],
+          "verb_hint": "I + am not (litotes: not unaware = well aware)"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person",
+        "litotes_double_negative"
+      ],
+      "variants": [
+        "I {a123} unaware of the precedent this decision may set."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 124,
+      "question": "These objections, however well-intentioned, {a124} germane to the matter at hand.",
+      "level": "C2",
+      "markers": {
+        "a124": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal academic)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "These objections, however well-intentioned, {a124} germane to the matter at hand."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 125,
+      "question": "It {a125} inconceivable that a paradigm shift could occur within the decade.",
+      "level": "C2",
+      "markers": {
+        "a125": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "it + is not (litotes: not inconceivable)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "litotes_double_negative"
+      ],
+      "variants": [
+        "It {a125} inconceivable that a paradigm shift could occur within the decade."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 126,
+      "question": "The ramifications of this policy {a126} confined to the domestic sphere.",
+      "level": "C2",
+      "markers": {
+        "a126": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal academic)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The ramifications of this policy {a126} confined to the domestic sphere."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 127,
+      "question": "The witness's testimony {a127} entirely devoid of contradictions.",
+      "level": "C2",
+      "markers": {
+        "a127": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular possessive + is not (formal)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The witness's testimony {a127} entirely devoid of contradictions."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 128,
+      "question": "We {a128} unmindful of the sacrifices that have been made.",
+      "level": "C2",
+      "markers": {
+        "a128": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "we + are not (litotes: not unmindful)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "litotes_double_negative"
+      ],
+      "variants": [
+        "We {a128} unmindful of the sacrifices that have been made."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 129,
+      "question": "The phenomena observed in the experiment {a129} attributable to a single variable.",
+      "level": "C2",
+      "markers": {
+        "a129": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "'phenomena' (plural of phenomenon) + are not"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "The phenomena observed in the experiment {a129} attributable to a single variable."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 130,
+      "question": "One {a130} wrong in surmising that ulterior motives may be at play.",
+      "level": "C2",
+      "markers": {
+        "a130": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "formal pronoun 'one' + is not"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_pronoun_one_negative"
+      ],
+      "variants": [
+        "One {a130} wrong in surmising that ulterior motives may be at play."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 131,
+      "question": "{a131} not deceived by appearances — substance matters more than form.",
+      "level": "C2",
+      "markers": {
+        "a131": {
+          "answer": "Be",
+          "options": [
+            "Be",
+            "Is",
+            "Are"
+          ],
+          "verb_hint": "literary imperative: Be not deceived"
+        }
+      },
+      "tag_keys": [
+        "literary_be_not_imperative"
+      ],
+      "variants": [
+        "{a131} not deceived by appearances — substance matters more than form."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 132,
+      "question": "The thesis, for all its originality, {a132} impervious to criticism.",
+      "level": "C2",
+      "markers": {
+        "a132": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular + is not (concessive academic)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "concessive_negative_be"
+      ],
+      "variants": [
+        "The thesis, for all its originality, {a132} impervious to criticism."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 133,
+      "question": "The data, though voluminous, {a133} amenable to straightforward interpretation.",
+      "level": "C2",
+      "markers": {
+        "a133": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "'data' (plural) + are not (academic)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "subject_be_agreement_negative"
+      ],
+      "variants": [
+        "The data, though voluminous, {a133} amenable to straightforward interpretation."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 134,
+      "question": "I {a134} insensible to the gravity of the situation.",
+      "level": "C2",
+      "markers": {
+        "a134": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "isn't",
+            "aren't"
+          ],
+          "verb_hint": "I + am not (litotes: not insensible = fully aware)"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person",
+        "litotes_double_negative"
+      ],
+      "variants": [
+        "I {a134} insensible to the gravity of the situation."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 135,
+      "question": "It {a135} without precedent for courts to overturn long-standing rulings.",
+      "level": "C2",
+      "markers": {
+        "a135": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "it + is not (concessive formal)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "concessive_negative_be"
+      ],
+      "variants": [
+        "It {a135} without precedent for courts to overturn long-standing rulings."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 136,
+      "question": "The delegates {a136} beholden to any single faction within the coalition.",
+      "level": "C2",
+      "markers": {
+        "a136": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The delegates {a136} beholden to any single faction within the coalition."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 137,
+      "question": "The efficacy of the proposed intervention {a137} empirically established.",
+      "level": "C2",
+      "markers": {
+        "a137": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular + is not (academic)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The efficacy of the proposed intervention {a137} empirically established."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 138,
+      "question": "{a138} not hasty — deliberation yields better outcomes than impulse.",
+      "level": "C2",
+      "markers": {
+        "a138": {
+          "answer": "Be",
+          "options": [
+            "Be",
+            "Is",
+            "Are"
+          ],
+          "verb_hint": "literary imperative: Be not hasty"
+        }
+      },
+      "tag_keys": [
+        "literary_be_not_imperative"
+      ],
+      "variants": [
+        "{a138} not hasty — deliberation yields better outcomes than impulse."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 139,
+      "question": "These considerations {a139} merely academic; they have tangible policy implications.",
+      "level": "C2",
+      "markers": {
+        "a139": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (emphatic)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "emphatic_negation"
+      ],
+      "variants": [
+        "These considerations {a139} merely academic; they have tangible policy implications."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 140,
+      "question": "Her prose, though elegant, {a140} above reproach in matters of factual accuracy.",
+      "level": "C2",
+      "markers": {
+        "a140": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "singular + is not (concessive)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "concessive_negative_be"
+      ],
+      "variants": [
+        "Her prose, though elegant, {a140} above reproach in matters of factual accuracy."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 141,
+      "question": "The parameters established in the original study {a141} universally applicable.",
+      "level": "C2",
+      "markers": {
+        "a141": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (academic)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The parameters established in the original study {a141} universally applicable."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 142,
+      "question": "I {a142} disposed to accept the argument without further corroboration.",
+      "level": "C2",
+      "markers": {
+        "a142": {
+          "answer": "am not",
+          "options": [
+            "am not",
+            "isn't",
+            "aren't"
+          ],
+          "verb_hint": "I + am not (formal: not disposed)"
+        }
+      },
+      "tag_keys": [
+        "am_not_first_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "I {a142} disposed to accept the argument without further corroboration."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 143,
+      "question": "It {a143} for the faint-hearted to undertake such an endeavour.",
+      "level": "C2",
+      "markers": {
+        "a143": {
+          "answer": "is not",
+          "options": [
+            "is not",
+            "are not",
+            "am not"
+          ],
+          "verb_hint": "it + is not (idiomatic)"
+        }
+      },
+      "tag_keys": [
+        "is_not_third_person",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "It {a143} for the faint-hearted to undertake such an endeavour."
+      ],
+      "source": "theory_page_1287"
+    },
+    {
+      "id": 144,
+      "question": "The foundations upon which this theory rests {a144} as secure as its proponents claim.",
+      "level": "C2",
+      "markers": {
+        "a144": {
+          "answer": "are not",
+          "options": [
+            "are not",
+            "is not",
+            "am not"
+          ],
+          "verb_hint": "plural + are not (academic formal)"
+        }
+      },
+      "tag_keys": [
+        "are_not_second_plural",
+        "formal_register_negative"
+      ],
+      "variants": [
+        "The foundations upon which this theory rests {a144} as secure as its proponents claim."
+      ],
+      "source": "theory_page_1287"
+    }
+  ],
+  "saved_test": {
+    "uuid": "verb-to-be-neg-opus46-v3-saved",
+    "slug": "verb_to_be_negatives_opus46",
+    "name": "Verb to Be: Negatives — Opus 4.6 V3 Questions Test",
+    "description": "Practice set for negative forms of verb to be: am not, is not, are not, contractions isn't / aren't, subject-verb agreement, tag questions, litotes, formal register, and literary imperatives across A1–C2.",
+    "filters": {
+      "num_questions": 144,
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "seeder_classes": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\VerbToBeNegativesV3QuestionsOnlySeeder"
+      ],
+      "prompt_generator": {
+        "source_type": "theory_page",
+        "theory_page_id": 1287,
+        "theory_page_ids": [
+          1287
+        ],
+        "theory_page": {
+          "id": 1287,
+          "slug": "verb-to-be-negatives",
+          "title": "Verb to Be: Negatives",
+          "category_slug_path": "basic-grammar/verb-to-be",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeNegativesTheorySeeder",
+          "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-negatives"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1526 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\Uk\\AI\\Copilot\\Opus46\\WordOrderWithVerbsAndObjectsV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\WordOrderWithVerbsAndObjectsV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "uk",
+  "hint_provider": "copilot-opus46",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "В англійській мові стандартний порядок слів — підмет + дієслово + додаток (SVO): She reads books.",
+        "Зверніть увагу на слово `She` — це підмет; після нього має йти дієслово, а потім — додаток."
+      ],
+      "explanations": {
+        "a1": {
+          "books reads": "Неправильний порядок: додаток `books` не може стояти перед дієсловом. В англійській дієслово завжди передує прямому додатку.",
+          "reads books": "Правильно: дієслово `reads` стоїть перед додатком `books` — це стандартний порядок SVO (підмет–дієслово–додаток).",
+          "books she reads": "Тут зайвий підмет `she` і порушений порядок. В простому реченні після підмета ідуть дієслово та додаток, а не навпаки."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Порядок SVO: підмет (They) + дієслово (drink) + додаток (milk).",
+        "Слово `They` вже є підметом — далі очікується дієслово, а потім додаток."
+      ],
+      "explanations": {
+        "a2": {
+          "milk drink": "Порушений порядок: додаток `milk` не ставиться перед дієсловом у стверджувальному реченні.",
+          "drink milk": "Правильно: `drink milk` дотримується порядку дієслово + додаток.",
+          "milk they drink": "Зайве повторення підмета `they` та порушений порядок слів."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Правило SVO: після підмета `He` дієслово стоїть перед додатком.",
+        "Підказка: `He` — підмет, далі має бути дієслово `eats`, потім додаток `lunch`."
+      ],
+      "explanations": {
+        "a3": {
+          "lunch eats": "Додаток `lunch` не може стояти перед дієсловом `eats` у звичайному стверджувальному реченні.",
+          "eats lunch": "Правильно: порядок дієслово + додаток — `eats lunch`.",
+          "lunch he eats": "Порушений порядок із зайвим підметом; у звичайному реченні SVO підмет стоїть на початку."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Стандартний порядок: підмет + дієслово + додаток. Після `I` має йти дієслово.",
+        "Зверніть увагу: `I` — підмет, дієслово `watch` передує додатку `TV`."
+      ],
+      "explanations": {
+        "a4": {
+          "TV watch": "Додаток `TV` не може передувати дієслову `watch` у стверджувальному реченні.",
+          "watch TV": "Правильно: `watch TV` — дієслово + додаток у стандартному порядку SVO.",
+          "TV I watch": "Порушена структура: в простому реченні підмет і дієслово не розділяються додатком."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "Порядок SVO: We (підмет) + play (дієслово) + football (додаток).",
+        "Після `We` очікується дієслово, а потім його додаток."
+      ],
+      "explanations": {
+        "a5": {
+          "football play": "Порушений порядок: `football` (додаток) не може стояти перед дієсловом `play`.",
+          "play football": "Правильно: дієслово + додаток — класичний порядок SVO.",
+          "football we play": "Помилка: зайве повторення підмета `we` із додатком на початку."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Заперечення з do/does: does + not + основне дієслово + додаток.",
+        "Конструкція `does not` стоїть перед основним дієсловом `watch`; слово `not` йде одразу після `does`."
+      ],
+      "explanations": {
+        "a6": {
+          "not does watch TV": "Помилка: `not` не може стояти перед `does`. Правильний порядок: `does not + дієслово`.",
+          "does not watch TV": "Правильно: `does not watch TV` — допоміжне дієслово + not + основне дієслово + додаток.",
+          "does watch not TV": "`not` має стояти одразу після допоміжного `does`, а не після основного дієслова."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Заперечення Present Simple з does: does + not + інфінітив без to.",
+        "Слово `does` — допоміжне дієслово; `not` ставиться одразу після нього, перед основним дієсловом `drink`."
+      ],
+      "explanations": {
+        "a7": {
+          "not does drink coffee": "Порядок хибний: `not` не передує допоміжному `does`.",
+          "does not drink coffee": "Правильно: допоміжне + not + основне дієслово + додаток.",
+          "does drink not coffee": "`not` має стояти перед основним дієсловом, а не після нього."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Заперечення з do: do + not + основне дієслово + додаток.",
+        "Після `do` одразу йде `not`, потім — дієслово `play` і додаток `games`."
+      ],
+      "explanations": {
+        "a8": {
+          "not do play games": "`not` не може стояти перед `do`; правильно: `do not + дієслово`.",
+          "do not play games": "Правильно: `do not play games` дотримується структури заперечення.",
+          "do play not games": "`not` має бути між допоміжним і основним дієсловом, а не після основного."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Модальне дієслово + інфінітив без to: can + speak + додаток.",
+        "Слово `can` — модальне дієслово; після нього стоїть основне дієслово в базовій формі `speak`, потім додаток `English`."
+      ],
+      "explanations": {
+        "a9": {
+          "speak can English": "Основне дієслово `speak` не може стояти перед модальним `can`.",
+          "can speak English": "Правильно: модальне дієслово + основне дієслово + додаток.",
+          "can English speak": "Додаток `English` не може стояти між модальним і основним дієсловом."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Модальне дієслово can + основне дієслово у базовій формі + додаток.",
+        "Після `can` має йти `ride`, а потім — додаток `a bike`."
+      ],
+      "explanations": {
+        "a10": {
+          "ride can a bike": "Основне дієслово не ставиться перед модальним; `can` має стояти першим.",
+          "can ride a bike": "Правильно: can + ride + a bike — модальне + дієслово + додаток.",
+          "can a bike ride": "Додаток `a bike` не може стояти між модальним дієсловом і основним дієсловом."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "Підмет Tom + дієслово washes + додаток the dishes — порядок SVO.",
+        "Після власного імені `Tom` очікується дієслово, а потім додаток із артиклем."
+      ],
+      "explanations": {
+        "a11": {
+          "the dishes washes": "Додаток `the dishes` не може стояти перед дієсловом у стверджувальному реченні.",
+          "washes the dishes": "Правильно: дієслово + додаток — стандартний порядок SVO.",
+          "dishes washes the": "Повністю порушений порядок; артикль `the` відірваний від іменника."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "Порядок SVO: дієслово `brushes` стоїть перед додатком `her teeth`.",
+        "Після підмета `My sister` має йти дієслово, а потім додаток."
+      ],
+      "explanations": {
+        "a12": {
+          "her teeth brushes": "Порушений порядок: додаток не ставиться перед дієсловом.",
+          "brushes her teeth": "Правильно: `brushes her teeth` — дієслово + додаток.",
+          "teeth brushes her": "Повністю хибний порядок; займенник `her` відірваний від іменника `teeth`."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "У загальних питаннях допоміжне дієслово `Do/Does` стоїть перед підметом.",
+        "Щоб утворити питання з `like`, потрібно: Do/Does + підмет + основне дієслово."
+      ],
+      "explanations": {
+        "a13": {
+          "You do": "Це порядок для стверджувального речення; у питанні допоміжне `Do` має стояти перед підметом `you`.",
+          "Do you": "Правильно: `Do you` — інверсія допоміжного дієслова перед підметом для утворення питання.",
+          "Like you do": "Основне дієслово `like` не може починати загальне питання; потрібне допоміжне `Do`."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Питання з does: Does + підмет + основне дієслово (без -s).",
+        "Для третьої особи однини (she) використовуємо `Does` на початку питання."
+      ],
+      "explanations": {
+        "a14": {
+          "She does": "Це порядок для стверджувального речення або short answer; у питанні `Does` стоїть першим.",
+          "Does she": "Правильно: `Does she` — допоміжне дієслово + підмет у питальному порядку.",
+          "Have she does": "Помилка: `have` тут зайве, а порядок слів повністю порушений."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "Стандартний порядок SVO: підмет + дієслово + додаток.",
+        "Після `The baby` має йти дієслово `drinks`, потім додаток `water`."
+      ],
+      "explanations": {
+        "a15": {
+          "water drinks": "Додаток `water` не може передувати дієслову `drinks` у стверджувальному реченні.",
+          "drinks water": "Правильно: дієслово + додаток — класичний порядок SVO.",
+          "water the baby drinks": "Зайве повторення підмета й порушений порядок слів."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Модальне дієслово can + основне дієслово + додаток.",
+        "Після `can` стоїть `use`, а потім додаток `computers`."
+      ],
+      "explanations": {
+        "a16": {
+          "use can computers": "Основне дієслово не може стояти перед модальним `can`.",
+          "can use computers": "Правильно: модальне + дієслово + додаток.",
+          "can computers use": "Додаток `computers` не ставиться між модальним і основним дієсловом."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "SVO: підмет (My mother) + дієслово (cooks) + додаток (dinner).",
+        "Після підмета `My mother` очікується дієслово, потім додаток."
+      ],
+      "explanations": {
+        "a17": {
+          "dinner cooks": "Додаток `dinner` не може стояти перед дієсловом `cooks`.",
+          "cooks dinner": "Правильно: дієслово + додаток у стандартному порядку.",
+          "dinner my mother cooks": "Порушений порядок із зайвим підметом і додатком на початку."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Питання з модальним can: Can + підмет + основне дієслово.",
+        "Модальне `Can` ставиться на початок питання, перед підметом `you`."
+      ],
+      "explanations": {
+        "a18": {
+          "You can": "Це порядок для стверджувального речення; у питанні `Can` має стояти перед підметом.",
+          "Can you": "Правильно: `Can you` — модальне дієслово перед підметом у питальному реченні.",
+          "Swim you can": "Основне дієслово `swim` не починає питання з модальним дієсловом."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "У Present Continuous допоміжне дієслово `is` стоїть перед `-ing` формою, а додаток іде після дієслова.",
+        "Структура: is + reading + a book — допоміжне + дієслово + додаток."
+      ],
+      "explanations": {
+        "a19": {
+          "reading is a book": "Допоміжне `is` має стояти перед дієсловом `-ing`, а не після нього.",
+          "is reading a book": "Правильно: допоміжне + дієслово у формі -ing + додаток.",
+          "is a book reading": "Додаток `a book` не може стояти між допоміжним і дієсловом -ing."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Present Continuous: are + watching + a film — допоміжне перед -ing дієсловом.",
+        "Слово `are` — допоміжне дієслово; воно стоїть перед `watching`, а додаток `a film` іде після."
+      ],
+      "explanations": {
+        "a20": {
+          "watching are a film": "Дієслово `-ing` не ставиться перед допоміжним `are`.",
+          "are watching a film": "Правильно: are + watching + a film — стандартний порядок у тривалому часі.",
+          "are a film watching": "Додаток не може розділяти допоміжне і основне дієслово."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "Present Perfect: have + past participle + додаток.",
+        "Після допоміжного `have` стоїть `finished` (дієприкметник), потім додаток `my homework`."
+      ],
+      "explanations": {
+        "a21": {
+          "finished have my homework": "Дієприкметник `finished` не може стояти перед допоміжним `have`.",
+          "have finished my homework": "Правильно: допоміжне + past participle + додаток.",
+          "have my homework finished": "Додаток `my homework` не ставиться між допоміжним і дієприкметником."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "Заперечення у Present Perfect: has + not + past participle + додаток.",
+        "Слово `not` стоїть одразу після допоміжного `has`, перед дієприкметником `eaten`."
+      ],
+      "explanations": {
+        "a22": {
+          "not has eaten breakfast": "`not` не може стояти перед допоміжним `has`; правильно: `has not`.",
+          "has not eaten breakfast": "Правильно: has + not + eaten + breakfast — заперечення у Present Perfect.",
+          "has eaten not breakfast": "`not` має стояти між допоміжним і дієприкметником, а не після нього."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Фразове дієслово `turn off` є розділюваним: turn off + іменник-додаток або turn + іменник + off.",
+        "У цьому реченні `turn off the light` — стандартний порядок: частка одразу після дієслова, потім додаток."
+      ],
+      "explanations": {
+        "a23": {
+          "off turn the light": "Частка `off` не може стояти перед дієсловом `turn`.",
+          "turn off the light": "Правильно: `turn off + the light` — фразове дієслово + іменний додаток.",
+          "turn the light off the": "Зайвий артикль `the` наприкінці; правильно: `turn the light off` або `turn off the light`."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Фразове дієслово `pick up` — розділюване: частка `up` може стояти перед або після іменного додатка.",
+        "Стандартний порядок: `pick up the children` — частка `up` одразу після дієслова `pick`."
+      ],
+      "explanations": {
+        "a24": {
+          "up pick the children": "Частка `up` не може стояти перед дієсловом `pick`.",
+          "pick up the children": "Правильно: `pick up + the children` — фразове дієслово з часткою перед додатком.",
+          "pick the children pick up": "Повторення дієслова `pick` — хибна конструкція."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "Конструкція з непрямим додатком: give + прямий додаток + to + непрямий додаток.",
+        "У реченні: `gave a present to her friend` — прямий додаток перед `to`."
+      ],
+      "explanations": {
+        "a25": {
+          "gave to her friend a present": "Якщо використовуєте `to`, прямий додаток стоїть перед `to + непрямий додаток`.",
+          "gave a present to her friend": "Правильно: дієслово + прямий додаток + to + непрямий додаток.",
+          "a present gave her friend to": "Повністю порушений порядок; дієслово має стояти на початку фрази."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "Конструкція без `to`: give + непрямий додаток + прямий додаток.",
+        "У реченні: `gave the students homework` — непрямий додаток стоїть перед прямим."
+      ],
+      "explanations": {
+        "a26": {
+          "gave homework the students": "Якщо немає `to`, непрямий додаток (the students) має стояти перед прямим (homework).",
+          "gave the students homework": "Правильно: give + непрямий + прямий додаток без прийменника.",
+          "the students gave homework": "Помилка: `the students` тут виглядає як підмет, а підмет — `The teacher`."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "Структура з `to`: sent + прямий додаток + to + непрямий додаток.",
+        "Прямий додаток `a card` стоїть перед `to my grandma`."
+      ],
+      "explanations": {
+        "a27": {
+          "sent to my grandma a card": "Якщо є `to`, прямий додаток ставиться перед `to`, а не після.",
+          "sent a card to my grandma": "Правильно: дієслово + прямий додаток + to + непрямий додаток.",
+          "a card sent to my grandma": "Додаток не може стояти перед дієсловом у стверджувальному реченні."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "Фразове дієслово `put on` — розділюване: put on + іменник-додаток.",
+        "Стандартний порядок: `put on your coat` — частка одразу після дієслова."
+      ],
+      "explanations": {
+        "a28": {
+          "on put your coat": "Частка `on` не може передувати дієслову `put`.",
+          "put on your coat": "Правильно: `put on + your coat` — фразове дієслово + додаток.",
+          "put your coat on put": "Зайве повторення дієслова `put` — це граматична помилка."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "Прислівник частотності `always` стоїть перед основним дієсловом: always takes.",
+        "Зверніть увагу: `always` — прислівник частотності; він стоїть між підметом і основним дієсловом."
+      ],
+      "explanations": {
+        "a29": {
+          "takes always the bus": "Прислівник `always` не ставиться після основного дієслова; він має стояти перед ним.",
+          "always takes the bus": "Правильно: прислівник частотності + дієслово + додаток.",
+          "the bus always takes": "Додаток `the bus` не може стояти на початку фрази в стандартному порядку."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "Прислівник частотності `usually` стоїть перед основним дієсловом.",
+        "Порядок: usually + drinks + tea — прислівник перед дієсловом, додаток після."
+      ],
+      "explanations": {
+        "a30": {
+          "drinks usually tea": "Прислівник `usually` не ставиться між дієсловом і додатком.",
+          "usually drinks tea": "Правильно: прислівник частотності перед основним дієсловом.",
+          "tea usually drinks": "Додаток `tea` не може стояти на початку стандартного стверджувального речення."
+        }
+      }
+    },
+    {
+      "id": 31,
+      "hints": [
+        "Заперечення у Past Simple: did + not + основне дієслово + додаток.",
+        "Допоміжне `did` + `not` стоять перед основним дієсловом `visit`."
+      ],
+      "explanations": {
+        "a31": {
+          "not did visit the museum": "`not` не може передувати допоміжному `did`.",
+          "did not visit the museum": "Правильно: did + not + visit + the museum.",
+          "did visit not the museum": "`not` має стояти одразу після `did`, а не після основного дієслова."
+        }
+      }
+    },
+    {
+      "id": 32,
+      "hints": [
+        "Питання у Present Perfect: Have/Has + підмет + past participle + додаток.",
+        "Допоміжне `Have` ставиться на початок питання, перед підметом `you`."
+      ],
+      "explanations": {
+        "a32": {
+          "You have finished": "Це стверджувальний порядок; для питання `Have` має стояти перед `you`.",
+          "Have you finished": "Правильно: інверсія допоміжного Have + підмет + past participle.",
+          "Finished have you": "Дієприкметник не може починати питання; потрібне допоміжне `Have`."
+        }
+      }
+    },
+    {
+      "id": 33,
+      "hints": [
+        "Питання у Present Continuous: Is/Are + підмет + -ing дієслово + додаток.",
+        "Допоміжне `Is` стоїть першим, потім підмет `he`, потім `-ing` дієслово."
+      ],
+      "explanations": {
+        "a33": {
+          "He is cooking dinner": "Це стверджувальний порядок; у питанні `Is` має передувати підмету.",
+          "Is he cooking dinner": "Правильно: Is + he + cooking + dinner — питальний порядок у Present Continuous.",
+          "Cooking is he dinner": "Дієслово `-ing` не може починати так зване yes/no питання."
+        }
+      }
+    },
+    {
+      "id": 34,
+      "hints": [
+        "Фразове дієслово `write down` — розділюване: write down + іменний додаток.",
+        "Частка `down` стоїть одразу після дієслова `write`, перед додатком `the address`."
+      ],
+      "explanations": {
+        "a34": {
+          "down write the address": "Частка `down` не може стояти перед дієсловом `write`.",
+          "write down the address": "Правильно: write down + the address — фразове дієслово + додаток.",
+          "write the address down write": "Зайве повторення дієслова `write` — це помилка."
+        }
+      }
+    },
+    {
+      "id": 35,
+      "hints": [
+        "Прислівник частотності `often` стоїть перед основним дієсловом.",
+        "Порядок: often + eats + lunch — прислівник перед дієсловом, додаток після."
+      ],
+      "explanations": {
+        "a35": {
+          "eats often lunch": "Прислівник `often` не ставиться між дієсловом і його додатком.",
+          "often eats lunch": "Правильно: прислівник частотності + дієслово + додаток.",
+          "lunch often eats": "Додаток `lunch` не може починати фразу в стандартному порядку."
+        }
+      }
+    },
+    {
+      "id": 36,
+      "hints": [
+        "Present Continuous: is + making + a cake — допоміжне + -ing + додаток.",
+        "Допоміжне `is` стоїть перед дієсловом у формі -ing."
+      ],
+      "explanations": {
+        "a36": {
+          "making is a cake": "Дієслово `-ing` не може стояти перед допоміжним `is`.",
+          "is making a cake": "Правильно: is + making + a cake — стандартний Present Continuous.",
+          "is a cake making": "Додаток `a cake` не може стояти між допоміжним і дієсловом -ing."
+        }
+      }
+    },
+    {
+      "id": 37,
+      "hints": [
+        "Коли додаток фразового дієслова — займенник (it, them, him…), він обов'язково стоїть між дієсловом і часткою: turn it down.",
+        "Зверніть увагу на займенник `it` — він не може стояти після частки `down`."
+      ],
+      "explanations": {
+        "a37": {
+          "turn down it": "Займенник `it` не може стояти після частки; правильно: turn + it + down.",
+          "turn it down": "Правильно: із займенниковим додатком частка завжди йде після займенника.",
+          "it turn down": "Займенник не може стояти перед дієсловом `turn`."
+        }
+      }
+    },
+    {
+      "id": 38,
+      "hints": [
+        "Правило: якщо додаток — займенник, він ставиться між дієсловом і часткою фразового дієслова.",
+        "Тут `it` замінює `her jacket`; тому: pick + it + up."
+      ],
+      "explanations": {
+        "a38": {
+          "pick up it": "Займенник `it` обов'язково розділяє дієслово і частку: pick it up, а не pick up it.",
+          "pick it up": "Правильно: дієслово + займенник + частка — обов'язковий порядок із займенником.",
+          "it pick up": "Займенник не ставиться перед дієсловом `pick`."
+        }
+      }
+    },
+    {
+      "id": 39,
+      "hints": [
+        "Займенник `it` у фразовому дієслові `work out` має стояти між дієсловом і часткою.",
+        "Підказка: `it` замінює `the homework` — тому: worked + it + out."
+      ],
+      "explanations": {
+        "a39": {
+          "worked out it": "Займенник `it` не може стояти після частки `out`; обов'язковий порядок: worked it out.",
+          "worked it out": "Правильно: дієслово + займенник + частка.",
+          "it worked out": "Тут `it` стоїть як підмет, а не додаток; потрібен порядок worked + it + out."
+        }
+      }
+    },
+    {
+      "id": 40,
+      "hints": [
+        "Модальне дієслово should + основне дієслово у базовій формі + додаток.",
+        "Після `should` має йти інфінітив `study`, потім додаток `the material`."
+      ],
+      "explanations": {
+        "a40": {
+          "study should the material": "Основне дієслово не може стояти перед модальним `should`.",
+          "should study the material": "Правильно: модальне + дієслово + додаток.",
+          "should the material study": "Додаток `the material` не може стояти між модальним і основним дієсловом."
+        }
+      }
+    },
+    {
+      "id": 41,
+      "hints": [
+        "Заперечення з модальним дієсловом: must + not + основне дієслово + додаток.",
+        "`not` ставиться одразу після модального `must`, перед основним дієсловом `use`."
+      ],
+      "explanations": {
+        "a41": {
+          "not must use their phones": "`not` не може стояти перед модальним `must`.",
+          "must not use their phones": "Правильно: must + not + use + their phones.",
+          "must use not their phones": "`not` має стояти між модальним і основним дієсловом, а не після основного."
+        }
+      }
+    },
+    {
+      "id": 42,
+      "hints": [
+        "Модальне should + інфінітив eat + додаток more vegetables.",
+        "Після `should` одразу стоїть основне дієслово у базовій формі."
+      ],
+      "explanations": {
+        "a42": {
+          "eat should more vegetables": "Основне дієслово не може передувати модальному.",
+          "should eat more vegetables": "Правильно: should + eat + more vegetables.",
+          "should more vegetables eat": "Додаток не ставиться між модальним і основним дієсловом."
+        }
+      }
+    },
+    {
+      "id": 43,
+      "hints": [
+        "У Present Perfect прислівник `never` стоїть між допоміжним has і дієприкметником left.",
+        "Порядок: has + never + left + her keys — допоміжне + прислівник + past participle + додаток."
+      ],
+      "explanations": {
+        "a43": {
+          "has left never her keys": "Прислівник `never` має стояти перед дієприкметником `left`, а не після нього.",
+          "has never left her keys": "Правильно: has + never + left + her keys.",
+          "never has her keys left": "Порушений порядок: допоміжне `has` має стояти перед прислівником у стандартному реченні."
+        }
+      }
+    },
+    {
+      "id": 44,
+      "hints": [
+        "У Past Perfect прислівник `already` стоїть між допоміжним had і дієприкметником finished.",
+        "Порядок: had + already + finished + the report."
+      ],
+      "explanations": {
+        "a44": {
+          "had finished already the report": "`already` не ставиться між дієприкметником і додатком; правильне місце — між `had` і `finished`.",
+          "had already finished the report": "Правильно: had + already + finished + the report.",
+          "already had the report finished": "Порушений порядок: допоміжне `had` має бути перед прислівником у стверджувальному реченні."
+        }
+      }
+    },
+    {
+      "id": 45,
+      "hints": [
+        "Фразове дієслово `look after` — нерозділюване: додаток стоїть після обох частин.",
+        "Не можна ставити додаток між `look` і `after` — це єдиний блок."
+      ],
+      "explanations": {
+        "a45": {
+          "look the children after": "`look after` нерозділюване; додаток не може стояти між `look` і `after`.",
+          "look after the children": "Правильно: нерозділюване фразове дієслово + додаток.",
+          "after look the children": "Частка `after` не може стояти перед дієсловом `look`."
+        }
+      }
+    },
+    {
+      "id": 46,
+      "hints": [
+        "Фразове дієслово `look for` — нерозділюване: додаток іде після `for`.",
+        "Не можна розділити `look` і `for` додатком."
+      ],
+      "explanations": {
+        "a46": {
+          "looks his glasses for": "Нерозділюване: додаток не може стояти між `looks` і `for`.",
+          "looks for his glasses": "Правильно: looks for + his glasses — нерозділюване фразове дієслово.",
+          "for looks his glasses": "Частка `for` не ставиться перед дієсловом `looks`."
+        }
+      }
+    },
+    {
+      "id": 47,
+      "hints": [
+        "Прислівник способу дії `quietly` стоїть між допоміжним were і дієсловом -ing.",
+        "Порядок: were + quietly + reading + their notes."
+      ],
+      "explanations": {
+        "a47": {
+          "were reading quietly their notes": "Прислівник `quietly` краще ставити перед дієсловом -ing, а не між дієсловом і додатком.",
+          "were quietly reading their notes": "Правильно: допоміжне + прислівник + дієслово -ing + додаток.",
+          "quietly were their notes reading": "Повністю порушений порядок; допоміжне `were` має стояти перед прислівником."
+        }
+      }
+    },
+    {
+      "id": 48,
+      "hints": [
+        "Модальне will + основне дієслово + додаток.",
+        "Після `will` стоїть `order`, потім додаток `the pasta`."
+      ],
+      "explanations": {
+        "a48": {
+          "order will the pasta": "Основне дієслово не ставиться перед модальним `will`.",
+          "will order the pasta": "Правильно: will + order + the pasta.",
+          "will the pasta order": "Додаток не може стояти між модальним і основним дієсловом."
+        }
+      }
+    },
+    {
+      "id": 49,
+      "hints": [
+        "Конструкція без to: give + непрямий додаток + прямий додаток.",
+        "У реченні: `gave her brother a book` — непрямий додаток передує прямому."
+      ],
+      "explanations": {
+        "a49": {
+          "gave a book her brother": "Без `to` непрямий додаток (her brother) ставиться перед прямим (a book).",
+          "gave her brother a book": "Правильно: дієслово + непрямий + прямий додаток.",
+          "her brother gave a book": "Помилка: `her brother` виглядає як підмет, а підмет — `She`."
+        }
+      }
+    },
+    {
+      "id": 50,
+      "hints": [
+        "Без to: send + непрямий додаток + прямий додаток.",
+        "Порядок: sent + all employees + an email."
+      ],
+      "explanations": {
+        "a50": {
+          "sent an email all employees": "Без `to` непрямий додаток має стояти перед прямим.",
+          "sent all employees an email": "Правильно: дієслово + непрямий + прямий додаток.",
+          "all employees sent an email": "`all employees` виглядає як підмет; підмет — `The company`."
+        }
+      }
+    },
+    {
+      "id": 51,
+      "hints": [
+        "Займенник `it` у фразовому дієслові `bring back` обов'язково стоїть між дієсловом і часткою.",
+        "Правило: bring + it + back — займенник розділяє дієслово і частку."
+      ],
+      "explanations": {
+        "a51": {
+          "bring back it": "Займенник `it` не може стояти після частки `back`; правильно: bring it back.",
+          "bring it back": "Правильно: дієслово + займенник + частка.",
+          "it bring back": "Займенник не ставиться перед дієсловом `bring`."
+        }
+      }
+    },
+    {
+      "id": 52,
+      "hints": [
+        "Прислівник частотності `always` стоїть перед основним дієсловом checks.",
+        "Порядок: always + checks + her answers."
+      ],
+      "explanations": {
+        "a52": {
+          "checks always her answers": "Прислівник `always` не ставиться між дієсловом і додатком.",
+          "always checks her answers": "Правильно: прислівник частотності перед основним дієсловом.",
+          "her answers always checks": "Додаток не може стояти на початку стандартного стверджувального речення."
+        }
+      }
+    },
+    {
+      "id": 53,
+      "hints": [
+        "Present Perfect Continuous: have + been + -ing дієслово + додаток.",
+        "Порядок: have + been + cleaning + the house — три елементи дієслівної фрази, потім додаток."
+      ],
+      "explanations": {
+        "a53": {
+          "have cleaning been the house": "Порушений порядок: `been` має стояти перед дієсловом -ing.",
+          "have been cleaning the house": "Правильно: have + been + cleaning + the house.",
+          "been have the house cleaning": "Допоміжне `have` має стояти першим, перед `been`."
+        }
+      }
+    },
+    {
+      "id": 54,
+      "hints": [
+        "Питання у Present Perfect: Has + підмет + past participle + додаток.",
+        "Допоміжне `Has` ставиться перед підметом `he` у питальному реченні."
+      ],
+      "explanations": {
+        "a54": {
+          "He has called": "Це стверджувальний порядок; для питання `Has` має передувати підмету.",
+          "Has he called": "Правильно: Has + he + called — інверсія допоміжного у питанні.",
+          "Called has he": "Дієприкметник не починає питання; потрібне допоміжне `Has`."
+        }
+      }
+    },
+    {
+      "id": 55,
+      "hints": [
+        "Пасивний стан: was + past participle + прийменник + непрямий додаток.",
+        "Структура: was + sent + to the manager — допоміжне be + past participle."
+      ],
+      "explanations": {
+        "a55": {
+          "sent was to the manager": "Допоміжне `was` має стояти перед дієприкметником `sent`.",
+          "was sent to the manager": "Правильно: was + sent + to the manager — пасивний стан.",
+          "was to the manager sent": "Прийменникова фраза не може стояти між допоміжним і дієприкметником."
+        }
+      }
+    },
+    {
+      "id": 56,
+      "hints": [
+        "Present Perfect Passive: has + been + past participle.",
+        "Порядок: has + been + postponed — три компоненти пасивної конструкції."
+      ],
+      "explanations": {
+        "a56": {
+          "has postponed been": "`been` має стояти перед дієприкметником `postponed`, а не після.",
+          "has been postponed": "Правильно: has + been + postponed — Present Perfect Passive.",
+          "been has postponed": "Допоміжне `has` завжди стоїть першим у дієслівній фразі."
+        }
+      }
+    },
+    {
+      "id": 57,
+      "hints": [
+        "Фразове дієслово `come across` — нерозділюване: додаток стоїть після обох частин.",
+        "Не можна розмістити додаток між `came` і `across`."
+      ],
+      "explanations": {
+        "a57": {
+          "came an old photo across": "`come across` нерозділюване; додаток не може стояти між `came` і `across`.",
+          "came across an old photo": "Правильно: came across + an old photo — нерозділюване фразове дієслово.",
+          "across came an old photo": "Частка `across` не може передувати дієслову `came`."
+        }
+      }
+    },
+    {
+      "id": 58,
+      "hints": [
+        "Займенник `it` у розділюваному фразовому дієслові `write down` обов'язково стоїть між дієсловом і часткою.",
+        "Правило: write + it + down — займенник завжди розділяє дієслово і частку."
+      ],
+      "explanations": {
+        "a58": {
+          "wrote down it": "Займенник `it` не може стояти після частки; правильно: wrote it down.",
+          "wrote it down": "Правильно: дієслово + займенник + частка.",
+          "it wrote down": "`it` тут стоїть як підмет, а не як додаток; потрібен порядок wrote + it + down."
+        }
+      }
+    },
+    {
+      "id": 59,
+      "hints": [
+        "Модальне + пасив: must + be + past participle.",
+        "Порядок: must + be + investigated — модальне перед пасивним інфінітивом."
+      ],
+      "explanations": {
+        "a59": {
+          "be must investigated": "`must` (модальне) завжди стоїть перед `be`, а не після.",
+          "must be investigated": "Правильно: модальне + be + past participle.",
+          "must investigated be": "`be` має стояти перед дієприкметником, а не після."
+        }
+      }
+    },
+    {
+      "id": 60,
+      "hints": [
+        "Складна конструкція: should + have + been + past participle.",
+        "Порядок: should + have + been + completed — модальне + перфект + пасив."
+      ],
+      "explanations": {
+        "a60": {
+          "should been have completed": "`have` має стояти перед `been` у перфектній конструкції.",
+          "should have been completed": "Правильно: should + have + been + completed.",
+          "have should completed been": "Модальне `should` завжди стоїть першим у дієслівній фразі."
+        }
+      }
+    },
+    {
+      "id": 61,
+      "hints": [
+        "Прислівник `still` стоїть між допоміжним was і дієсловом -ing: was still writing.",
+        "Порядок: was + still + writing + the report."
+      ],
+      "explanations": {
+        "a61": {
+          "was writing still the report": "Прислівник `still` не ставиться між дієсловом -ing і додатком.",
+          "was still writing the report": "Правильно: допоміжне + still + дієслово -ing + додаток.",
+          "still was the report writing": "Порушений порядок: допоміжне `was` має стояти перед `still`."
+        }
+      }
+    },
+    {
+      "id": 62,
+      "hints": [
+        "Заперечення з модальним: could + not + фразове дієслово.",
+        "`not` стоїть одразу після модального `could`, перед фразовим дієсловом `make up`."
+      ],
+      "explanations": {
+        "a62": {
+          "not could make up": "`not` не може стояти перед модальним `could`.",
+          "could not make up": "Правильно: could + not + make up — заперечення з модальним.",
+          "could make not up": "`not` має стояти між модальним і основним дієсловом, а не після основного."
+        }
+      }
+    },
+    {
+      "id": 63,
+      "hints": [
+        "Прислівник `just` стоїть між допоміжним had і дієприкметником put: had just put.",
+        "Порядок: had + just + put + the children + to bed."
+      ],
+      "explanations": {
+        "a63": {
+          "had put just the children to bed": "`just` не ставиться після дієприкметника; його місце — між `had` і `put`.",
+          "had just put the children to bed": "Правильно: had + just + put + the children to bed.",
+          "just had the children to bed put": "Порушений порядок: допоміжне `had` має стояти перед прислівником."
+        }
+      }
+    },
+    {
+      "id": 64,
+      "hints": [
+        "Фразове дієслово `give back`: з іменним додатком частка може стояти після додатка.",
+        "Порядок: give + the money + back + to them — додаток між дієсловом і часткою, потім `to`."
+      ],
+      "explanations": {
+        "a64": {
+          "give back the money to them": "Хоча `give back the money` можливе, у цьому контексті більш природний порядок — `give the money back to them`.",
+          "give the money back to them": "Правильно: дієслово + прямий додаток + частка + to + непрямий додаток.",
+          "give to them back the money": "Прийменникова фраза `to them` не може стояти перед часткою і прямим додатком."
+        }
+      }
+    },
+    {
+      "id": 65,
+      "hints": [
+        "Пасивний інфінітив: to + be + past participle.",
+        "Порядок: need + to be + signed — дієслово + пасивний інфінітив."
+      ],
+      "explanations": {
+        "a65": {
+          "need signed to be": "Пасивний інфінітив має форму `to be + past participle`, а не навпаки.",
+          "need to be signed": "Правильно: need + to be + signed — пасивний інфінітив.",
+          "to be need signed": "Дієслово `need` має стояти перед пасивним інфінітивом."
+        }
+      }
+    },
+    {
+      "id": 66,
+      "hints": [
+        "Future Passive: will + be + past participle.",
+        "Порядок: will + be + announced — модальне + be + дієприкметник."
+      ],
+      "explanations": {
+        "a66": {
+          "be will announced": "`will` завжди стоїть перед `be` у дієслівній фразі.",
+          "will be announced": "Правильно: will + be + announced — Future Passive.",
+          "will announced be": "`be` має стояти перед дієприкметником `announced`."
+        }
+      }
+    },
+    {
+      "id": 67,
+      "hints": [
+        "Прислівник `carefully` може стояти перед дієсловом: carefully explained + прямий додаток + to + непрямий.",
+        "Порядок: carefully + explained + the concept + to the audience."
+      ],
+      "explanations": {
+        "a67": {
+          "explained carefully to the audience the concept": "Прямий додаток `the concept` має стояти одразу після дієслова, перед `to the audience`.",
+          "carefully explained the concept to the audience": "Правильно: прислівник + дієслово + прямий додаток + to + непрямий додаток.",
+          "the concept carefully explained to the audience": "Додаток не може стояти перед дієсловом у стандартному стверджувальному реченні."
+        }
+      }
+    },
+    {
+      "id": 68,
+      "hints": [
+        "Фразове дієслово `run into` — нерозділюване: додаток стоїть після `into`.",
+        "Не можна розмістити додаток між `ran` і `into`."
+      ],
+      "explanations": {
+        "a68": {
+          "ran our old professor into": "`run into` нерозділюване; додаток не може стояти між `ran` і `into`.",
+          "ran into our old professor": "Правильно: ran into + our old professor — нерозділюване фразове дієслово.",
+          "into ran our old professor": "Частка `into` не може передувати дієслову."
+        }
+      }
+    },
+    {
+      "id": 69,
+      "hints": [
+        "Фразове дієслово `hand out` — розділюване: hand out + прямий додаток + to + непрямий.",
+        "Порядок: handed out + the papers + to the class."
+      ],
+      "explanations": {
+        "a69": {
+          "handed the papers out the class to": "Порушений порядок прийменникової фрази; `to` має стояти перед непрямим додатком.",
+          "handed out the papers to the class": "Правильно: фразове дієслово + прямий додаток + to + непрямий додаток.",
+          "out handed to the class the papers": "Частка `out` не може стояти перед дієсловом `handed`."
+        }
+      }
+    },
+    {
+      "id": 70,
+      "hints": [
+        "Складна конструкція: might + want + to + think + it + over.",
+        "Займенник `it` стоїть між `think` і `over`, бо `think over` — розділюване фразове дієслово."
+      ],
+      "explanations": {
+        "a70": {
+          "might to think want it over": "Модальне `might` не потребує `to` перед основним дієсловом; `want` має стояти після `might`.",
+          "might want to think it over": "Правильно: модальне + want + to + phrasal verb із займенником між дієсловом і часткою.",
+          "might want it to think over": "Займенник `it` відноситься до `think over`, а не до `want`."
+        }
+      }
+    },
+    {
+      "id": 71,
+      "hints": [
+        "Питання у Present Perfect Passive: Has + підмет + been + past participle.",
+        "Допоміжне `Has` стоїть на початку, перед підметом `the email`."
+      ],
+      "explanations": {
+        "a71": {
+          "The email has been sent": "Це стверджувальний порядок; для питання `Has` має стояти перед підметом.",
+          "Has the email been sent": "Правильно: Has + the email + been + sent — інверсія у пасивному Present Perfect.",
+          "Been has the email sent": "`has` має стояти першим у дієслівній фразі, перед `been`."
+        }
+      }
+    },
+    {
+      "id": 72,
+      "hints": [
+        "Present Perfect Continuous + прислівник: has + been + gradually + recovering + her strength.",
+        "Прислівник `gradually` стоїть між `been` і дієсловом -ing."
+      ],
+      "explanations": {
+        "a72": {
+          "has gradually been recovering her strength": "Хоча `has gradually been` можливе, стандартніший порядок — `has been gradually recovering`.",
+          "has been gradually recovering her strength": "Правильно: has + been + gradually + recovering + her strength.",
+          "gradually has been her strength recovering": "Порушений порядок; допоміжне `has` має бути першим."
+        }
+      }
+    },
+    {
+      "id": 73,
+      "hints": [
+        "Інверсія з негативним прислівником: Never before + had + підмет + past participle + додаток.",
+        "Коли речення починається з `Never before`, допоміжне дієслово стоїть перед підметом."
+      ],
+      "explanations": {
+        "a73": {
+          "They had never before witnessed": "Це звичайний порядок; після `Never before` на початку потрібна інверсія.",
+          "Never before had they witnessed": "Правильно: інверсія — Never before + had + they + witnessed.",
+          "Had never before they witnessed": "`Never before` має стояти перед допоміжним, а підмет — після допоміжного."
+        }
+      }
+    },
+    {
+      "id": 74,
+      "hints": [
+        "Інверсія з `No sooner`: No sooner + had + підмет + past participle + додаток + than…",
+        "Після `No sooner` допоміжне `had` стоїть перед підметом."
+      ],
+      "explanations": {
+        "a74": {
+          "She had no sooner closed the door": "Це стандартний порядок; `No sooner` на початку вимагає інверсії had + підмет.",
+          "No sooner had she closed the door": "Правильно: No sooner + had + she + closed + the door.",
+          "Had no sooner she closed the door": "`No sooner` має стояти першим, потім інверсія had + підмет."
+        }
+      }
+    },
+    {
+      "id": 75,
+      "hints": [
+        "Розщеплене речення (cleft): It was + підмет/додаток + who/that + решта.",
+        "Структура: `It was the manager who explained` виділяє саме менеджера."
+      ],
+      "explanations": {
+        "a75": {
+          "The manager it was who explained": "Порушена структура cleft; `It was` має стояти на початку.",
+          "It was the manager who explained": "Правильно: It was + the manager + who + explained — cleft sentence.",
+          "Who the manager it was explained": "Некоректний порядок; `It was` починає розщеплене речення."
+        }
+      }
+    },
+    {
+      "id": 76,
+      "hints": [
+        "Псевдо-розщеплене речення: What + підрядне + is + виділений елемент.",
+        "Структура: `What I really want is more time` — виділення через what-clause."
+      ],
+      "explanations": {
+        "a76": {
+          "More time what I really want is": "Порушений порядок: what-підрядне має стояти першим.",
+          "What I really want is more time": "Правильно: What-clause + is + виділений елемент — pseudo-cleft.",
+          "Is what I really want more time": "Дієслово `is` не може починати стверджувальне pseudo-cleft речення."
+        }
+      }
+    },
+    {
+      "id": 77,
+      "hints": [
+        "Складна конструкція: should + have + been + прислівник + past participle.",
+        "Порядок: should + have + been + carefully + reviewed."
+      ],
+      "explanations": {
+        "a77": {
+          "should been have carefully reviewed": "`have` має стояти перед `been` у перфектній конструкції.",
+          "should have been carefully reviewed": "Правильно: модальне + перфект + пасив + прислівник + дієприкметник.",
+          "should carefully have been reviewed": "Прислівник `carefully` найприродніше стоїть після `been`, перед дієприкметником."
+        }
+      }
+    },
+    {
+      "id": 78,
+      "hints": [
+        "Інверсія з `Rarely`: Rarely + does + підмет + основне дієслово + додаток.",
+        "Після `Rarely` на початку речення потрібна інверсія з допоміжним `does`."
+      ],
+      "explanations": {
+        "a78": {
+          "The editor rarely does overlook": "Це не інверсія; `Rarely` на початку вимагає does + підмет.",
+          "Rarely does the editor overlook": "Правильно: Rarely + does + the editor + overlook — інверсія.",
+          "Does rarely the editor overlook": "`Rarely` має стояти першим, потім інверсія does + підмет."
+        }
+      }
+    },
+    {
+      "id": 79,
+      "hints": [
+        "Інверсія з `Not only`: Not only + did + підмет + основне дієслово + додаток.",
+        "Після `Not only` допоміжне `did` стоїть перед підметом."
+      ],
+      "explanations": {
+        "a79": {
+          "she did write the entire report": "Після `Not only` потрібна інверсія: did + she, а не she + did.",
+          "did she write the entire report": "Правильно: did + she + write — інверсія після `Not only`.",
+          "did write she the entire report": "Підмет `she` має стояти між допоміжним `did` і основним дієсловом `write`."
+        }
+      }
+    },
+    {
+      "id": 80,
+      "hints": [
+        "Passive Progressive + прислівник: is + currently + being + reviewed.",
+        "Прислівник `currently` стоїть між `is` і `being`."
+      ],
+      "explanations": {
+        "a80": {
+          "is being currently reviewed": "Прислівник `currently` найприродніше стоїть перед `being`, а не після.",
+          "is currently being reviewed": "Правильно: is + currently + being + reviewed — Passive Progressive + прислівник.",
+          "currently is reviewed being": "Порушений порядок; допоміжне `is` має стояти перед прислівником."
+        }
+      }
+    },
+    {
+      "id": 81,
+      "hints": [
+        "Фразове дієслово `track down` з довгим іменним додатком: частка зазвичай стоїть одразу після дієслова.",
+        "Коли додаток довгий (the original document), частку `down` ставлять поруч із дієсловом: tracked down + long NP."
+      ],
+      "explanations": {
+        "a81": {
+          "tracked the original document down": "Хоча розділення можливе, з довгим додатком природніше: tracked down + the original document.",
+          "tracked down the original document": "Правильно: з довгим іменним додатком частка зазвичай стоїть поруч із дієсловом.",
+          "down tracked the original document": "Частка `down` не може стояти перед дієсловом."
+        }
+      }
+    },
+    {
+      "id": 82,
+      "hints": [
+        "Розщеплене речення: It is + виділений елемент + that + підрядне.",
+        "Структура: `It is the budget allocation that we need to discuss`."
+      ],
+      "explanations": {
+        "a82": {
+          "The budget allocation it is": "Порушена структура cleft; `It is` має починати речення.",
+          "It is the budget allocation": "Правильно: It is + виділений елемент — cleft sentence.",
+          "Is it the budget allocation": "Для стверджувального речення `It is` без інверсії."
+        }
+      }
+    },
+    {
+      "id": 83,
+      "hints": [
+        "Modal Passive + прислівник: must + be + thoroughly + past participle.",
+        "Прислівник `thoroughly` стоїть між `be` і дієприкметником `investigated`."
+      ],
+      "explanations": {
+        "a83": {
+          "must thoroughly be investigated": "Прислівник `thoroughly` найприродніше стоїть після `be`, перед дієприкметником.",
+          "must be thoroughly investigated": "Правильно: must + be + thoroughly + investigated.",
+          "thoroughly must be investigated": "Прислівник не ставиться перед модальним дієсловом у стандартному порядку."
+        }
+      }
+    },
+    {
+      "id": 84,
+      "hints": [
+        "Складна конструкція: may + have + been + accidentally + past participle.",
+        "Порядок: may + have + been + accidentally + sent."
+      ],
+      "explanations": {
+        "a84": {
+          "may accidentally have been sent": "Прислівник `accidentally` найприродніше стоїть після `been`, а не перед `have`.",
+          "may have been accidentally sent": "Правильно: модальне + перфект + пасив + прислівник + дієприкметник.",
+          "may have accidentally sent been": "`been` має стояти перед прислівником і дієприкметником, а не після."
+        }
+      }
+    },
+    {
+      "id": 85,
+      "hints": [
+        "Інверсія з `Under no circumstances`: Under no circumstances + should + підмет + дієслово + додаток.",
+        "Після негативної фрази на початку модальне `should` стоїть перед підметом."
+      ],
+      "explanations": {
+        "a85": {
+          "employees should share": "Це звичайний порядок; `Under no circumstances` вимагає інверсії should + підмет.",
+          "should employees share": "Правильно: інверсія — should + employees + share.",
+          "should share employees": "Підмет `employees` має стояти між модальним і основним дієсловом."
+        }
+      }
+    },
+    {
+      "id": 86,
+      "hints": [
+        "Заперечення модального + нерозділюване фразове дієслово: could + not + put up with.",
+        "Фразове дієслово `put up with` нерозділюване; `not` стоїть після `could`."
+      ],
+      "explanations": {
+        "a86": {
+          "could not up put with": "Частки `up` і `with` не можуть бути розділені або переставлені.",
+          "could not put up with": "Правильно: could + not + put up with — модальне заперечення + нерозділюване phrasal verb.",
+          "could put not up with": "`not` має стояти після модального `could`, а не після основного дієслова."
+        }
+      }
+    },
+    {
+      "id": 87,
+      "hints": [
+        "Прислівник `completely` + нерозділюване фразове дієслово `do away with` + додаток.",
+        "Прислівник стоїть перед фразовим дієсловом, а додаток — після всіх часток."
+      ],
+      "explanations": {
+        "a87": {
+          "did completely away with the original design": "Прислівник `completely` не ставиться між дієсловом і часткою нерозділюваного phrasal verb.",
+          "completely did away with the original design": "Правильно: прислівник + нерозділюване фразове дієслово + додаток.",
+          "did away with completely the original design": "Прислівник не ставиться між часткою і додатком."
+        }
+      }
+    },
+    {
+      "id": 88,
+      "hints": [
+        "Інверсія з `Little`: Little + did + підмет + основне дієслово.",
+        "Після `Little` на початку допоміжне `did` стоїть перед підметом."
+      ],
+      "explanations": {
+        "a88": {
+          "He did little know": "Це не інверсія; `Little` на початку вимагає did + he.",
+          "Little did he know": "Правильно: Little + did + he + know — інверсія.",
+          "Did he little know": "`Little` має стояти першим у реченні для інверсії."
+        }
+      }
+    },
+    {
+      "id": 89,
+      "hints": [
+        "Складна конструкція: will + need + to be + completely + past participle.",
+        "Порядок: will + need + to be + completely + renovated."
+      ],
+      "explanations": {
+        "a89": {
+          "will to need be completely renovated": "`to` не ставиться після `will`; `will` + інфінітив без `to`.",
+          "will need to be completely renovated": "Правильно: will + need + to be + completely + renovated.",
+          "will need completely to be renovated": "Прислівник `completely` стоїть перед дієприкметником, а не перед `to be`."
+        }
+      }
+    },
+    {
+      "id": 90,
+      "hints": [
+        "Інверсія з `Only after`: Only after + підрядне + did + підмет + дієслово.",
+        "Після `Only after signing the contract` потрібна інверсія: did + he + realize."
+      ],
+      "explanations": {
+        "a90": {
+          "After signing the contract only": "`Only` має стояти на початку для інверсії.",
+          "Only after signing the contract": "Правильно: Only after + підрядне — тригер інверсії у головному реченні.",
+          "Signing the contract only after": "Порушений порядок; `Only after` — цілісна конструкція на початку."
+        }
+      }
+    },
+    {
+      "id": 91,
+      "hints": [
+        "Інверсія з `Not until`: Not until + підрядне + did + підмет + дієслово + додаток.",
+        "Після `Not until the report was published` — інверсія: did + they + grasp."
+      ],
+      "explanations": {
+        "a91": {
+          "They did not grasp until the report was published": "Це звичайний порядок; `Not until` на початку вимагає інверсії.",
+          "Not until the report was published did they grasp": "Правильно: Not until-підрядне + інверсія did + they + grasp.",
+          "Did not until the report was published they grasp": "`Not until`-підрядне має стояти першим, потім інверсія."
+        }
+      }
+    },
+    {
+      "id": 92,
+      "hints": [
+        "Корелятивна інверсія: Not only + did + підмет + дієслово, but … also.",
+        "Після `Not only` допоміжне `did` стоїть перед підметом `he`."
+      ],
+      "explanations": {
+        "a92": {
+          "He not only did conceive the project": "Після `Not only` на початку потрібна повна інверсія: did + he.",
+          "Not only did he conceive the project": "Правильно: Not only + did + he + conceive — корелятивна інверсія.",
+          "Did not only he conceive the project": "`Not only` має стояти першим, потім інверсія did + підмет."
+        }
+      }
+    },
+    {
+      "id": 93,
+      "hints": [
+        "Складна конструкція: should + have + been + more thoroughly + past participle.",
+        "Прислівник `more thoroughly` стоїть після `been`, перед дієприкметником `vetted`."
+      ],
+      "explanations": {
+        "a93": {
+          "should more thoroughly have been vetted": "Прислівник `more thoroughly` не ставиться перед `have`; його місце — після `been`.",
+          "should have been more thoroughly vetted": "Правильно: should + have + been + more thoroughly + vetted.",
+          "should have more been thoroughly vetted": "`been` має стояти перед прислівником, а не після."
+        }
+      }
+    },
+    {
+      "id": 94,
+      "hints": [
+        "Pseudo-cleft: What + підрядне + was + виділений елемент.",
+        "Структура: `What the committee failed to appreciate was` — what-clause виділяє елемент."
+      ],
+      "explanations": {
+        "a94": {
+          "The committee what failed to appreciate was": "What-підрядне має починатися зі слова `What`, а не розриватися підметом.",
+          "What the committee failed to appreciate was": "Правильно: What-clause + was — pseudo-cleft sentence.",
+          "Was what the committee failed to appreciate": "Дієслово `was` не починає стверджувальне pseudo-cleft речення."
+        }
+      }
+    },
+    {
+      "id": 95,
+      "hints": [
+        "Складна конструкція: will + need + to have been + fully + past participle.",
+        "Порядок: will + need + to have been + fully + implemented."
+      ],
+      "explanations": {
+        "a95": {
+          "will to need have been fully implemented": "`to` не ставиться після `will`; `will` + інфінітив без `to`.",
+          "will need to have been fully implemented": "Правильно: will + need + to have been + fully + implemented — perfect passive infinitive.",
+          "will need to have fully been implemented": "`been` має стояти перед прислівником і дієприкметником."
+        }
+      }
+    },
+    {
+      "id": 96,
+      "hints": [
+        "Інверсія з `Scarcely`: Scarcely + had + підмет + past participle + додаток.",
+        "Після `Scarcely` допоміжне `had` стоїть перед підметом."
+      ],
+      "explanations": {
+        "a96": {
+          "The director had scarcely thought": "Це звичайний порядок; `Scarcely` на початку вимагає інверсії had + підмет.",
+          "Scarcely had the director thought": "Правильно: Scarcely + had + the director + thought — інверсія.",
+          "Had scarcely the director thought": "`Scarcely` має стояти першим, потім інверсія had + підмет."
+        }
+      }
+    },
+    {
+      "id": 97,
+      "hints": [
+        "Розщеплене речення: It was + виділений елемент + that + підрядне.",
+        "Структура: `It was his meticulous attention to detail that we noticed`."
+      ],
+      "explanations": {
+        "a97": {
+          "His meticulous attention to detail it was": "Порушена структура cleft; `It was` має починати речення.",
+          "It was his meticulous attention to detail": "Правильно: It was + виділений елемент — cleft sentence.",
+          "Was it his meticulous attention to detail": "Для стверджувального cleft `It was` без інверсії."
+        }
+      }
+    },
+    {
+      "id": 98,
+      "hints": [
+        "Складна конструкція: must + have + been + meticulously + past participle.",
+        "Порядок: must + have + been + meticulously + examined."
+      ],
+      "explanations": {
+        "a98": {
+          "must meticulously have been examined": "Прислівник `meticulously` не ставиться перед `have`; його місце — після `been`.",
+          "must have been meticulously examined": "Правильно: must + have + been + meticulously + examined.",
+          "must have meticulously examined been": "`been` має стояти перед прислівником і дієприкметником."
+        }
+      }
+    },
+    {
+      "id": 99,
+      "hints": [
+        "Modal negative + прислівник + phrasal verb + займенник: could + not + simply + brush + it + aside.",
+        "Займенник `it` обов'язково стоїть між дієсловом `brush` і часткою `aside`."
+      ],
+      "explanations": {
+        "a99": {
+          "could not brush simply it aside": "Прислівник `simply` має стояти перед дієсловом `brush`, а не між дієсловом і займенником.",
+          "could not simply brush it aside": "Правильно: модальне + not + прислівник + дієслово + займенник + частка.",
+          "simply could not brush aside it": "Займенник `it` не може стояти після частки `aside`; він обов'язково між дієсловом і часткою."
+        }
+      }
+    },
+    {
+      "id": 100,
+      "hints": [
+        "Інверсія з `Seldom` + пасив: Seldom + had + підмет + been + past participle.",
+        "Після `Seldom` допоміжне `had` стоїть перед підметом `the board`."
+      ],
+      "explanations": {
+        "a100": {
+          "The board had seldom been confronted": "Це звичайний порядок; `Seldom` на початку вимагає інверсії.",
+          "Seldom had the board been confronted": "Правильно: Seldom + had + the board + been + confronted — інверсія + пасив.",
+          "Had seldom the board been confronted": "`Seldom` має стояти першим, потім інверсія had + підмет."
+        }
+      }
+    },
+    {
+      "id": 101,
+      "hints": [
+        "Passive + прислівник + phrasal verb: had + been + repeatedly + turned down.",
+        "Прислівник `repeatedly` стоїть після `been`, перед фразовим дієсловом у пасиві."
+      ],
+      "explanations": {
+        "a101": {
+          "had repeatedly been turned down by investors": "Хоча `had repeatedly been` можливе, стандартніший порядок — `had been repeatedly turned down`.",
+          "had been repeatedly turned down by investors": "Правильно: had + been + repeatedly + turned down — пасив із прислівником.",
+          "had been turned repeatedly down by investors": "Прислівник не ставиться між дієсловом і часткою phrasal verb у пасиві."
+        }
+      }
+    },
+    {
+      "id": 102,
+      "hints": [
+        "Pseudo-cleft з фразовим дієсловом: What + підрядне + was + past participle.",
+        "Структура: `What she chose to bring up was known` — what-clause із phrasal verb."
+      ],
+      "explanations": {
+        "a102": {
+          "She chose what to bring up was known": "What-підрядне має починатися зі слова `What` і бути цілісним.",
+          "What she chose to bring up was known": "Правильно: What-clause + was + виділений елемент.",
+          "Known was what she chose to bring up": "Порушена структура pseudo-cleft; `What` має починати речення."
+        }
+      }
+    },
+    {
+      "id": 103,
+      "hints": [
+        "Інверсія з `At no point`: At no point + did + підмет + дієслово + додаток.",
+        "Після негативної фрази `At no point` допоміжне `did` стоїть перед підметом."
+      ],
+      "explanations": {
+        "a103": {
+          "the company did agree to change": "Після `At no point` потрібна інверсія: did + the company.",
+          "did the company agree to change": "Правильно: did + the company + agree — інверсія.",
+          "did agree the company to change": "Підмет `the company` має стояти між `did` і `agree`."
+        }
+      }
+    },
+    {
+      "id": 104,
+      "hints": [
+        "Складна конструкція: ought to + have + been + formally + past participle.",
+        "Порядок: ought to + have + been + formally + submitted."
+      ],
+      "explanations": {
+        "a104": {
+          "ought formally to have been submitted": "Прислівник `formally` не ставиться перед `to`; його місце — після `been`.",
+          "ought to have been formally submitted": "Правильно: ought to + have + been + formally + submitted.",
+          "ought to have formally submitted been": "`been` має стояти перед прислівником і дієприкметником."
+        }
+      }
+    },
+    {
+      "id": 105,
+      "hints": [
+        "Cleft sentence з фразовим дієсловом: It was + виділений елемент + that + підрядне.",
+        "Структура: `It was her willingness to follow up on every lead that led to the breakthrough`."
+      ],
+      "explanations": {
+        "a105": {
+          "Her willingness it was to follow up on every lead": "Порушена структура cleft; `It was` має починати речення.",
+          "It was her willingness to follow up on every lead": "Правильно: It was + виділений елемент із фразовим дієсловом — cleft sentence.",
+          "Was it her willingness to follow up on every lead": "Для стверджувального cleft `It was` без інверсії."
+        }
+      }
+    },
+    {
+      "id": 106,
+      "hints": [
+        "Інверсія з `Hardly`: Hardly + had + підмет + past participle + додаток.",
+        "Після `Hardly` допоміжне `had` стоїть перед підметом."
+      ],
+      "explanations": {
+        "a106": {
+          "they had switched on the equipment": "Це звичайний порядок; `Hardly` на початку вимагає інверсії had + they.",
+          "had they switched on the equipment": "Правильно: had + they + switched on — інверсія після `Hardly`.",
+          "had switched they on the equipment": "Підмет `they` має стояти між `had` і `switched`."
+        }
+      }
+    },
+    {
+      "id": 107,
+      "hints": [
+        "Складна конструкція з запереченням: could + not + possibly + have + been + past participle.",
+        "Порядок: could + not + possibly + have + been + completed."
+      ],
+      "explanations": {
+        "a107": {
+          "could possibly not have been completed": "`not` має стояти одразу після `could`, перед `possibly`.",
+          "could not possibly have been completed": "Правильно: could + not + possibly + have + been + completed.",
+          "could not have possibly completed been": "`been` має стояти перед дієприкметником, а `possibly` — перед `have`."
+        }
+      }
+    },
+    {
+      "id": 108,
+      "hints": [
+        "Прислівник + нерозділюване фразове дієслово: carefully + going over + додаток.",
+        "Прислівник `carefully` стоїть перед фразовим дієсловом `going over`."
+      ],
+      "explanations": {
+        "a108": {
+          "going carefully over every clause": "Прислівник `carefully` не ставиться між дієсловом і часткою нерозділюваного phrasal verb.",
+          "carefully going over every clause": "Правильно: прислівник + нерозділюване фразове дієслово + додаток.",
+          "going over carefully every clause": "Прислівник не ставиться між часткою і додатком."
+        }
+      }
+    }
+  ]
+}

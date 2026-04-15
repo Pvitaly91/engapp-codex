@@ -1,0 +1,1343 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\WordOrderWithVerbsAndObjectsV3QuestionsOnlySeeder",
+        "uuid_namespace": "wo-vo-cp-sn"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Порядок слів / Word Order"
+    },
+    "sources": {
+        "theory_page_1091": {
+            "name": "Word Order with Verbs and Objects"
+        }
+    },
+    "tags": {
+        "auxiliary_verb_position": {
+            "name": "Auxiliary verb position",
+            "category": "pattern"
+        },
+        "modal_verb_order": {
+            "name": "Modal verb + base form order",
+            "category": "pattern"
+        },
+        "phrasal_verb_separable": {
+            "name": "Separable phrasal verb particle placement",
+            "category": "pattern"
+        },
+        "phrasal_verb_pronoun_object": {
+            "name": "Pronoun object before particle",
+            "category": "pattern"
+        },
+        "do_support_questions": {
+            "name": "Do/does/did question formation",
+            "category": "pattern"
+        },
+        "negative_word_order": {
+            "name": "Not position after auxiliary",
+            "category": "pattern"
+        },
+        "double_object_order": {
+            "name": "Direct and indirect object order",
+            "category": "pattern"
+        },
+        "inversion_negative_adverbials": {
+            "name": "Inversion after negative adverbials",
+            "category": "pattern"
+        },
+        "causative_word_order": {
+            "name": "Causative have/get + object + pp",
+            "category": "pattern"
+        },
+        "emphatic_do": {
+            "name": "Emphatic do/does/did",
+            "category": "pattern"
+        },
+        "passive_word_order": {
+            "name": "Passive voice be + past participle",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "auxiliary_verb_position"
+    ],
+    "saved_test": {
+        "uuid": "wo-vo-cp-sn-saved-test",
+        "slug": "word-order-verbs-objects-sonate-v3-test",
+        "name": "Word Order with Verbs and Objects — Sonate V3 Test",
+        "filters": {
+            "num_questions": 30,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\WordOrderWithVerbsAndObjectsV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1091,
+                "theory_page_ids": [
+                    1091
+                ],
+                "theory_page": {
+                    "id": 1091,
+                    "slug": "theory-word-order-verbs-objects",
+                    "title": "Word Order with Verbs and Objects",
+                    "category_slug_path": "basic-grammar/word-order",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderVerbsObjectsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/word-order/theory-word-order-verbs-objects"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid_segments": [
+                "a1",
+                "q01"
+            ],
+            "question": "She does {a1} like vegetables.",
+            "source": "theory_page_1091",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "n't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У заперечних реченнях у Present Simple слово «not» ставиться відразу після допоміжного дієслова «does».",
+                        "Речення вже містить «does», тому між ним і «like» потрібен лише заперечний елемент."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "not": "«does not» — стандартна заперечна форма Present Simple для третьої особи: «does» + «not» + основне дієслово.",
+                            "no": "«no» не може стояти між допоміжним дієсловом і основним; воно вживається як самостійне слово перед іменником або у відповідях.",
+                            "n't": "«n't» приєднується до допоміжного дієслова, утворюючи «doesn't»; окремо після «does» воно неможливе."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_word_order"
+            ],
+            "variants": [
+                "She does {a1} like vegetables."
+            ]
+        },
+        {
+            "id": 2,
+            "uuid_segments": [
+                "a1",
+                "q02"
+            ],
+            "question": "{a1} you speak English?",
+            "source": "theory_page_1091",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальні питання у Present Simple утворюються з допоміжного «do/does» на початку речення.",
+                        "Підмет «you» — друга особа; допоміжне дієслово для неї — «Do»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Do": "«Do» — правильне допоміжне для «you» у Present Simple; загальне питання: Do + підмет + основне дієслово.",
+                            "Does": "«Does» вживається лише для третьої особи однини (he/she/it), але «you» — друга особа.",
+                            "Are": "«Are» є формою дієслова «to be» і не виступає допоміжним для основних дієслів у Present Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "do_support_questions"
+            ],
+            "variants": [
+                "{a1} you speak English?"
+            ]
+        },
+        {
+            "id": 3,
+            "uuid_segments": [
+                "a1",
+                "q03"
+            ],
+            "question": "He can {a1} the guitar.",
+            "source": "theory_page_1091",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "play",
+                    "options": [
+                        "play",
+                        "plays",
+                        "playing"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після модальних дієслів (can, will, should тощо) основне дієслово завжди стоїть у формі інфінітива без «to».",
+                        "«can» у реченні — сигнал: наступне дієслово не отримує закінчення -s або -ing."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "play": "«play» — правильна форма: після «can» обов'язково вживається голий інфінітив (bare infinitive).",
+                            "plays": "«plays» — форма третьої особи однини Present Simple, але після модального «can» закінчення -s не додається.",
+                            "playing": "«playing» — форма Present Participle; вона не вживається безпосередньо після модальних дієслів."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "modal_verb_order"
+            ],
+            "variants": [
+                "He can {a1} the guitar."
+            ]
+        },
+        {
+            "id": 4,
+            "uuid_segments": [
+                "a1",
+                "q04"
+            ],
+            "question": "She is {a1} a book right now.",
+            "source": "theory_page_1091",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "reading",
+                    "options": [
+                        "reading",
+                        "read",
+                        "reads"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Present Continuous утворюється з допоміжного «is/am/are» і дієслова з закінченням -ing.",
+                        "Слова «right now» вказують на дію в момент мовлення — тривалий теперішній час."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "reading": "«reading» правильно: «is» + дієслово на -ing утворює Present Continuous для дії, що відбувається зараз.",
+                            "read": "«read» — форма інфінітива або Past Simple; з «is» вона не утворює Present Continuous.",
+                            "reads": "«reads» — форма Present Simple третьої особи; з допоміжним «is» вона не утворює тривалого часу."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verb_position"
+            ],
+            "variants": [
+                "She is {a1} a book right now."
+            ]
+        },
+        {
+            "id": 5,
+            "uuid_segments": [
+                "a1",
+                "q05"
+            ],
+            "question": "They do not {a1} to school on Sunday.",
+            "source": "theory_page_1091",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "go",
+                    "options": [
+                        "go",
+                        "goes",
+                        "going"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після «do not» основне дієслово стоїть у формі голого інфінітива (без закінчень і без «to»).",
+                        "«do not» вже несе значення заперечення — зміна форми дієслова не потрібна."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "go": "«go» — правильна форма: «do not» + інфінітив без «to».",
+                            "goes": "«goes» — форма третьої особи однини Present Simple; після «do not» закінчення -s неможливе.",
+                            "going": "«going» після «do not» помилкове: потрібен голий інфінітив, а не форма -ing."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_word_order"
+            ],
+            "variants": [
+                "They do not {a1} to school on Sunday."
+            ]
+        },
+        {
+            "id": 6,
+            "uuid_segments": [
+                "a2",
+                "q01"
+            ],
+            "question": "{a1} you go to the party last night?",
+            "source": "theory_page_1091",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Питання у Past Simple утворюються з «Did» на початку речення, незалежно від особи.",
+                        "Слова «last night» вказують на минулий час — потрібне відповідне допоміжне."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Did": "«Did» — правильне допоміжне для Past Simple питань; після нього «go» стоїть в інфінітиві.",
+                            "Do": "«Do» вживається у Present Simple питаннях, але «last night» вимагає минулого часу.",
+                            "Were": "«Were» — форма «to be» у минулому; для дієслова «go» у Past Simple потрібне «Did»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "do_support_questions"
+            ],
+            "variants": [
+                "{a1} you go to the party last night?"
+            ]
+        },
+        {
+            "id": 7,
+            "uuid_segments": [
+                "a2",
+                "q02"
+            ],
+            "question": "She has {a1} her homework.",
+            "source": "theory_page_1091",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "finished",
+                    "options": [
+                        "finished",
+                        "finishes",
+                        "finishing"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Present Perfect утворюється: «have/has» + Past Participle (третя форма дієслова).",
+                        "«has» — допоміжне у Present Perfect для третьої особи; основне дієслово повинне стояти у Past Participle."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "finished": "«finished» — правильна форма Past Participle; «has finished» = Present Perfect.",
+                            "finishes": "«finishes» — Present Simple третьої особи; з «has» вона не утворює Present Perfect.",
+                            "finishing": "«finishing» — форма -ing; після «has» вона утворює Present Perfect Continuous лише разом з «been»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verb_position"
+            ],
+            "variants": [
+                "She has {a1} her homework."
+            ]
+        },
+        {
+            "id": 8,
+            "uuid_segments": [
+                "a2",
+                "q03"
+            ],
+            "question": "Please turn {a1} the light.",
+            "source": "theory_page_1091",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "off",
+                    "options": [
+                        "off",
+                        "on",
+                        "up"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Phrasal verb «turn off» означає «вимкнути»; частинка «off» розміщується після дієслова «turn».",
+                        "Для вимикання потрібна саме частинка «off», а не інші частинки."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "off": "«turn off» означає «вимкнути» — правильна частинка для цього значення.",
+                            "on": "«turn on» означає «увімкнути» — протилежне значення; не підходить до прохання вимкнути світло.",
+                            "up": "«turn up» означає «збільшити гучність/яскравість» — не підходить до контексту."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "phrasal_verb_separable"
+            ],
+            "variants": [
+                "Please turn {a1} the light."
+            ]
+        },
+        {
+            "id": 9,
+            "uuid_segments": [
+                "a2",
+                "q04"
+            ],
+            "question": "He would {a1} to help you.",
+            "source": "theory_page_1091",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "like",
+                    "options": [
+                        "like",
+                        "likes",
+                        "liked"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після «would» основне дієслово стоїть у формі голого інфінітива.",
+                        "«would» вже є модальним дієсловом; після нього форма наступного дієслова не змінюється."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "like": "«like» — правильний голий інфінітив після «would»; «would like» = ввічливе бажання.",
+                            "likes": "«likes» — форма третьої особи однини; після «would» закінчення -s не додається.",
+                            "liked": "«liked» — Past Simple; після «would» основне дієслово завжди стоїть у формі інфінітива."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "modal_verb_order"
+            ],
+            "variants": [
+                "He would {a1} to help you."
+            ]
+        },
+        {
+            "id": 10,
+            "uuid_segments": [
+                "a2",
+                "q05"
+            ],
+            "question": "We did not {a1} the meeting.",
+            "source": "theory_page_1091",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "attend",
+                    "options": [
+                        "attend",
+                        "attended",
+                        "attending"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після «did not» основне дієслово стоїть у формі голого інфінітива, а не у Past Simple.",
+                        "«did» вже несе значення минулого часу — додавати -ed до основного дієслова не потрібно."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "attend": "«attend» — правильний голий інфінітив після «did not»; Past Simple виражається через «did».",
+                            "attended": "«attended» — Past Simple; але «did» вже забезпечує минулий час, тому подвійне -ed помилкове.",
+                            "attending": "«attending» — форма -ing; після «did not» вона неможлива без додаткового допоміжного."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_word_order"
+            ],
+            "variants": [
+                "We did not {a1} the meeting."
+            ]
+        },
+        {
+            "id": 11,
+            "uuid_segments": [
+                "b1",
+                "q01"
+            ],
+            "question": "Please turn {a1} off.",
+            "source": "theory_page_1091",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "it",
+                    "options": [
+                        "it",
+                        "the lamp",
+                        "up it"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Якщо додаток при роздільному фразовому дієслові — займенник, він обов'язково стоїть між дієсловом і частинкою.",
+                        "Частинка «off» вже стоїть після пробілу; займенник повинен передувати їй."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "it": "«it» — правильно: займенник-додаток при роздільному phrasal verb завжди ставиться між дієсловом і частинкою: «turn it off».",
+                            "the lamp": "«the lamp» — іменниковий додаток; він може стояти і після частинки: «turn off the lamp», але з займенником порядок фіксований.",
+                            "up it": "«up it» — неможливо: займенник не може стояти після частинки у роздільних phrasal verbs."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "phrasal_verb_pronoun_object"
+            ],
+            "variants": [
+                "Please turn {a1} off."
+            ]
+        },
+        {
+            "id": 12,
+            "uuid_segments": [
+                "b1",
+                "q02"
+            ],
+            "question": "She gave {a1} a present.",
+            "source": "theory_page_1091",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "him",
+                    "options": [
+                        "him",
+                        "to him",
+                        "he"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "З дієсловом «give» можлива конструкція: «give» + непрямий додаток (без «to») + прямий додаток.",
+                        "Якщо непрямий додаток — займенник і стоїть перед прямим, прийменник «to» не потрібен."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "him": "«him» — правильно: «give» + непрямий додаток у знахідному відмінку + прямий додаток: «gave him a present».",
+                            "to him": "«to him» також граматично можливе, але лише після прямого додатка: «gave a present to him».",
+                            "he": "«he» — називний відмінок; у ролі додатка вживається знахідна форма «him»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "double_object_order"
+            ],
+            "variants": [
+                "She gave {a1} a present."
+            ]
+        },
+        {
+            "id": 13,
+            "uuid_segments": [
+                "b1",
+                "q03"
+            ],
+            "question": "The letter was {a1} yesterday.",
+            "source": "theory_page_1091",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "written",
+                    "options": [
+                        "written",
+                        "wrote",
+                        "writing"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Пасивний стан утворюється: «to be» + Past Participle (третя форма дієслова).",
+                        "«was» — допоміжне пасивного стану; після нього потрібна форма Past Participle."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "written": "«written» — правильна форма Past Participle; «was written» = пасивний стан минулого часу.",
+                            "wrote": "«wrote» — Past Simple активного стану; пасивний стан з «was» вимагає Past Participle.",
+                            "writing": "«writing» — форма -ing; після «was» вона утворює Past Continuous, а не пасивний стан."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "passive_word_order"
+            ],
+            "variants": [
+                "The letter was {a1} yesterday."
+            ]
+        },
+        {
+            "id": 14,
+            "uuid_segments": [
+                "b1",
+                "q04"
+            ],
+            "question": "Could you pick {a1} up?",
+            "source": "theory_page_1091",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "me",
+                    "options": [
+                        "me",
+                        "up me",
+                        "to me"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник-додаток при роздільному фразовому дієслові завжди стоїть між дієсловом і частинкою.",
+                        "«pick up» — роздільний phrasal verb; займенник «me» не може стояти після частинки «up»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "me": "«me» — правильно: «pick me up» = займенник між дієсловом і частинкою.",
+                            "up me": "«up me» — неможливо: займенник не може стояти після частинки у роздільних phrasal verbs.",
+                            "to me": "«to me» — прийменникова конструкція, яка тут не підходить; phrasal verb «pick up» не вимагає «to»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "phrasal_verb_pronoun_object"
+            ],
+            "variants": [
+                "Could you pick {a1} up?"
+            ]
+        },
+        {
+            "id": 15,
+            "uuid_segments": [
+                "b1",
+                "q05"
+            ],
+            "question": "She told {a1} the truth.",
+            "source": "theory_page_1091",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "us",
+                    "options": [
+                        "us",
+                        "to us",
+                        "we"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«tell» + непрямий додаток + прямий додаток: займенник у ролі непрямого додатка стоїть у знахідному відмінку і без «to».",
+                        "Якщо непрямий додаток передує прямому з «tell», прийменник «to» не потрібен."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "us": "«us» — правильно: «told us the truth» = «tell» + непрямий додаток (знахідний відмінок) + прямий додаток.",
+                            "to us": "«to us» можливе лише після прямого додатка: «told the truth to us»; перед прямим додатком «to» не вживається.",
+                            "we": "«we» — називний відмінок; у ролі непрямого додатка потрібна форма «us»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "double_object_order"
+            ],
+            "variants": [
+                "She told {a1} the truth."
+            ]
+        },
+        {
+            "id": 16,
+            "uuid_segments": [
+                "b2",
+                "q01"
+            ],
+            "question": "I {a1} enjoy your company!",
+            "source": "theory_page_1091",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "am",
+                        "have"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Емфатичне «do/does/did» додається перед основним дієсловом для підсилення стверджувального значення.",
+                        "Наявність знаку оклику вказує на підсилений акцент; між підметом і основним дієсловом потрібне «do»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "do": "«do» — правильне емфатичне допоміжне для першої особи у Present Simple; «I do enjoy» = щиро насолоджуюся.",
+                            "am": "«am» — форма «to be»; вона не виступає емфатичним допоміжним для дієслова «enjoy».",
+                            "have": "«have» як допоміжне утворює Present Perfect, а не емфатичне стверджувальне речення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "emphatic_do"
+            ],
+            "variants": [
+                "I {a1} enjoy your company!"
+            ]
+        },
+        {
+            "id": 17,
+            "uuid_segments": [
+                "b2",
+                "q02"
+            ],
+            "question": "Never {a1} I seen such a view!",
+            "source": "theory_page_1091",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після негативного прислівника «Never» на початку речення відбувається інверсія: допоміжне дієслово стає перед підметом.",
+                        "«I have seen» — Present Perfect; при інверсії після «Never» допоміжне «have» виноситься на початок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "have": "«have» — правильно: «Never have I seen» = інверсія у Present Perfect після «Never».",
+                            "had": "«had» утворило б інверсію Past Perfect: «Never had I seen»; але вигук про враження типово вживає Present Perfect.",
+                            "did": "«did» утворює інверсію Past Simple, але «seen» є Past Participle, а не Past Simple — ця комбінація неможлива."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "inversion_negative_adverbials"
+            ],
+            "variants": [
+                "Never {a1} I seen such a view!"
+            ]
+        },
+        {
+            "id": 18,
+            "uuid_segments": [
+                "b2",
+                "q03"
+            ],
+            "question": "She got her hair {a1}.",
+            "source": "theory_page_1091",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "cutting",
+                        "to cut"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Каузативна конструкція «get + об'єкт + Past Participle» означає, що хтось інший виконує дію для суб'єкта.",
+                        "Після «got her hair» стоїть Past Participle, а не інфінітив чи форма -ing."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "cut": "«cut» — правильна форма Past Participle (cut-cut-cut); «got her hair cut» = вона дала комусь підстригти собі волосся.",
+                            "cutting": "«cutting» — форма -ing; у каузативній конструкції «get + об'єкт» після іменника стоїть Past Participle.",
+                            "to cut": "«to cut» — інфінітив з «to»; каузативне «get» + об'єкт вимагає Past Participle, а не повного інфінітива."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "causative_word_order"
+            ],
+            "variants": [
+                "She got her hair {a1}."
+            ]
+        },
+        {
+            "id": 19,
+            "uuid_segments": [
+                "b2",
+                "q04"
+            ],
+            "question": "Not only {a1} she speak French, but she also writes poetry.",
+            "source": "theory_page_1091",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "is",
+                        "has"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після «Not only» на початку речення відбувається інверсія: допоміжне дієслово стає перед підметом.",
+                        "«she speak French» — Present Simple третьої особи; допоміжне для інверсії — «does»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "does": "«does» — правильно: «Not only does she speak French» = інверсія у Present Simple для третьої особи.",
+                            "is": "«is» — форма «to be»; для основного дієслова «speak» потрібне «does», а не «is».",
+                            "has": "«has» утворило б інверсію Present Perfect; але голе «speak» вказує на Present Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "inversion_negative_adverbials"
+            ],
+            "variants": [
+                "Not only {a1} she speak French, but she also writes poetry."
+            ]
+        },
+        {
+            "id": 20,
+            "uuid_segments": [
+                "b2",
+                "q05"
+            ],
+            "question": "They had their house {a1} last summer.",
+            "source": "theory_page_1091",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "painted",
+                    "options": [
+                        "painted",
+                        "painting",
+                        "to paint"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Каузативна конструкція «have + об'єкт + Past Participle» означає, що хтось виконав дію на замовлення суб'єкта.",
+                        "«their house» — об'єкт; після нього стоїть Past Participle, що вказує на виконану для них дію."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "painted": "«painted» — правильна форма Past Participle; «had their house painted» = дали пофарбувати будинок.",
+                            "painting": "«painting» — форма -ing; у каузативній конструкції «have + об'єкт» стоїть Past Participle.",
+                            "to paint": "«to paint» — повний інфінітив; каузативне «have» + об'єкт вимагає Past Participle, а не інфінітива з «to»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "causative_word_order"
+            ],
+            "variants": [
+                "They had their house {a1} last summer."
+            ]
+        },
+        {
+            "id": 21,
+            "uuid_segments": [
+                "c1",
+                "q01"
+            ],
+            "question": "Hardly {a1} I sat down when the phone rang.",
+            "source": "theory_page_1091",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "have",
+                        "did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Hardly ... when» — конструкція для вираження того, що одна дія сталася одразу після іншої; вживається інверсія Past Perfect.",
+                        "«sat down» — Past Simple, що описує другу дію; перша частина з «Hardly» потребує Past Perfect інверсії."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had": "«had» — правильно: «Hardly had I sat down when» = інверсія Past Perfect після «Hardly».",
+                            "have": "«have» утворює Present Perfect інверсію: «Hardly have I sat down»; але обидві дії — у минулому.",
+                            "did": "«did» утворює Past Simple інверсію: «Hardly did I sit down»; але «sat» є Past Simple, а не інфінітив, що унеможливлює цю форму."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "inversion_negative_adverbials"
+            ],
+            "variants": [
+                "Hardly {a1} I sat down when the phone rang."
+            ]
+        },
+        {
+            "id": 22,
+            "uuid_segments": [
+                "c1",
+                "q02"
+            ],
+            "question": "She suggested that he {a1} the project alone.",
+            "source": "theory_page_1091",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "handle",
+                    "options": [
+                        "handle",
+                        "handles",
+                        "handling"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після «suggest that» вживається суб'юнктив (subjunctive): «that + підмет + голий інфінітив», незалежно від особи.",
+                        "Суб'юнктив не додає закінчення -s для третьої особи і не змінює форму дієслова."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "handle": "«handle» — правильна форма суб'юнктива (голий інфінітив); «suggested that he handle» = formal subjunctive.",
+                            "handles": "«handles» — форма Present Simple третьої особи; суб'юнктив не додає -s після «that».",
+                            "handling": "«handling» — форма -ing; вона не вживається у суб'юнктиві після «suggest that»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "modal_verb_order"
+            ],
+            "variants": [
+                "She suggested that he {a1} the project alone."
+            ]
+        },
+        {
+            "id": 23,
+            "uuid_segments": [
+                "c1",
+                "q03"
+            ],
+            "question": "Under no circumstances {a1} you reveal this information.",
+            "source": "theory_page_1091",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "would",
+                        "could"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Under no circumstances» — негативна адвербіальна фраза; при виносі на початок вона викликає інверсію.",
+                        "Речення містить заборону; «should» найбільш підходить для категоричної заборони в інвертованій конструкції."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "should": "«should» — правильно: «Under no circumstances should you reveal» = інверсія з модальним для суворої заборони.",
+                            "would": "«would» виражає умовне або майбутнє значення, але не категоричну заборону у цьому контексті.",
+                            "could": "«could» виражає можливість або здатність; для заборони під «Under no circumstances» «should» є стандартним вибором."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "inversion_negative_adverbials"
+            ],
+            "variants": [
+                "Under no circumstances {a1} you reveal this information."
+            ]
+        },
+        {
+            "id": 24,
+            "uuid_segments": [
+                "c1",
+                "q04"
+            ],
+            "question": "It is essential that the report {a1} submitted by Friday.",
+            "source": "theory_page_1091",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після «it is essential/important/necessary that» вживається суб'юнктив: «that + підмет + голий інфінітив».",
+                        "Пасивна форма суб'юнктива: «be» + Past Participle; форма «be» не змінюється залежно від особи."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "be": "«be» — правильна форма суб'юнктива пасивного стану: «that the report be submitted» = formal subjunctive passive.",
+                            "is": "«is» — Present Simple; суб'юнктив вимагає незмінне «be», а не відмінювану форму «is».",
+                            "was": "«was» — Past Simple «to be»; суб'юнктив завжди використовує «be», незалежно від часу головного речення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "modal_verb_order"
+            ],
+            "variants": [
+                "It is essential that the report {a1} submitted by Friday."
+            ]
+        },
+        {
+            "id": 25,
+            "uuid_segments": [
+                "c1",
+                "q05"
+            ],
+            "question": "She had the secretary {a1} all the letters.",
+            "source": "theory_page_1091",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "type",
+                    "options": [
+                        "type",
+                        "typed",
+                        "typing"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Каузативна конструкція «have + особа + голий інфінітив» означає доручення виконання дії.",
+                        "«the secretary» — особа-виконавець; після неї стоїть голий інфінітив дії."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "type": "«type» — правильний голий інфінітив після «had the secretary»; означає: доручила секретарю надрукувати.",
+                            "typed": "«typed» — Past Participle; він вживається у конструкціях «have + об'єкт-річ», але коли виконавець — особа, потрібен голий інфінітив.",
+                            "typing": "«typing» — форма -ing; у каузативній конструкції «have + особа» вона не вживається."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "causative_word_order"
+            ],
+            "variants": [
+                "She had the secretary {a1} all the letters."
+            ]
+        },
+        {
+            "id": 26,
+            "uuid_segments": [
+                "c2",
+                "q01"
+            ],
+            "question": "Were he to {a1} the proposal, the deal would proceed.",
+            "source": "theory_page_1091",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "accept",
+                    "options": [
+                        "accept",
+                        "accepted",
+                        "accepting"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Were + підмет + to + інфінітив» — формальна умовна інверсія (тип 2 без «if»).",
+                        "Після «Were he to» стоїть голий інфінітив основного дієслова."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "accept": "«accept» — правильна форма: «Were he to accept» = умовна інверсія без «if»; голий інфінітив після «to».",
+                            "accepted": "«accepted» — Past Simple/Participle; умовна інверсія «Were ... to» вимагає голого інфінітива.",
+                            "accepting": "«accepting» — форма -ing; після «to» у цій конструкції вживається голий інфінітив, а не -ing."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "inversion_negative_adverbials"
+            ],
+            "variants": [
+                "Were he to {a1} the proposal, the deal would proceed."
+            ]
+        },
+        {
+            "id": 27,
+            "uuid_segments": [
+                "c2",
+                "q02"
+            ],
+            "question": "Had they {a1} the warning, the accident could have been prevented.",
+            "source": "theory_page_1091",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "heeded",
+                    "options": [
+                        "heeded",
+                        "heed",
+                        "heeding"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Had + підмет + Past Participle» — умовна інверсія Past Perfect (тип 3 без «if»).",
+                        "«had they» замість «if they had»; основне дієслово після підмета стоїть у формі Past Participle."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "heeded": "«heeded» — правильна форма Past Participle; «Had they heeded» = інвертоване «If they had heeded» (умова типу 3).",
+                            "heed": "«heed» — голий інфінітив; «Had + підмет» у цій конструкції вимагає Past Participle.",
+                            "heeding": "«heeding» — форма -ing; умовна інверсія з «Had» вимагає Past Participle, а не -ing."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verb_position"
+            ],
+            "variants": [
+                "Had they {a1} the warning, the accident could have been prevented."
+            ]
+        },
+        {
+            "id": 28,
+            "uuid_segments": [
+                "c2",
+                "q03"
+            ],
+            "question": "Should you {a1} any difficulties, please contact support.",
+            "source": "theory_page_1091",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "encounter",
+                    "options": [
+                        "encounter",
+                        "encountered",
+                        "encountering"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Should + підмет + голий інфінітив» — умовна інверсія майбутньої малоймовірної події.",
+                        "«Should you» замість «If you should»; після підмета стоїть голий інфінітив."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "encounter": "«encounter» — правильна форма голого інфінітива після «Should you»; «Should you encounter» = «If you should encounter».",
+                            "encountered": "«encountered» — Past Simple; «Should + підмет» вимагає голого інфінітива, а не Past Simple.",
+                            "encountering": "«encountering» — форма -ing; умовна інверсія «Should» вимагає голого інфінітива."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "modal_verb_order"
+            ],
+            "variants": [
+                "Should you {a1} any difficulties, please contact support."
+            ]
+        },
+        {
+            "id": 29,
+            "uuid_segments": [
+                "c2",
+                "q04"
+            ],
+            "question": "The suspect is believed to {a1} fled before dawn.",
+            "source": "theory_page_1091",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«is believed to» + perfect infinitive — пасивна конструкція для вираження припущення про минулу дію.",
+                        "«Perfect infinitive» = «have» + Past Participle; «fled» — Past Participle від «flee»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "have": "«have» — правильна форма perfect infinitive: «believed to have fled» = вважається, що він утік (у минулому).",
+                            "had": "«had» з «fled» утворило б Past Perfect, але конструкція «is believed to» вимагає «have» (perfect infinitive).",
+                            "be": "«be» утворює пасивний інфінітив «to be fled», що граматично невірно; тут потрібен perfect infinitive."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "passive_word_order"
+            ],
+            "variants": [
+                "The suspect is believed to {a1} fled before dawn."
+            ]
+        },
+        {
+            "id": 30,
+            "uuid_segments": [
+                "c2",
+                "q05"
+            ],
+            "question": "So thoroughly {a1} she prepared that nothing surprised her.",
+            "source": "theory_page_1091",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "did",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«So + прислівник + допоміжне + підмет» — інверсія для підсилення; часовий контекст — Past Perfect.",
+                        "«prepared» тут є Past Participle після «had»; інверсія: «had» + підмет + Past Participle."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had": "«had» — правильно: «So thoroughly had she prepared» = інверсія Past Perfect; «prepared» — Past Participle.",
+                            "did": "«did» утворило б «So thoroughly did she prepare» (Past Simple); але «prepared» тут є Past Participle, що підтверджує Past Perfect.",
+                            "was": "«was» — форма «to be»; для Past Perfect «prepared» потрібне «had»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "inversion_negative_adverbials"
+            ],
+            "variants": [
+                "So thoroughly {a1} she prepared that nothing surprised her."
+            ]
+        }
+    ]
+}
