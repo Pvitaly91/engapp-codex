@@ -1,0 +1,42 @@
+{
+    "locale": "en",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\En\\SentenceTransformationsReportedSpeechTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsReportedSpeechTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Sentence Transformations — Reported Speech</strong> shows how to rewrite statements, questions, and commands into reported speech without losing the logic, tense, or speaker roles.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"In reported-speech transformations, you change more than the verb form. You also need to control <strong>backshift</strong>, pronouns, word order, time expressions, and the type of utterance.\",\"rules\":[{\"label\":\"STATEMENT, QUESTION, COMMAND\",\"color\":\"emerald\",\"text\":\"First decide whether the original sentence is a <strong>statement</strong>, a <strong>question</strong>, or a <strong>command / request</strong>. The pattern depends on that choice.\",\"example\":\"said that / asked if / told me to\"},{\"label\":\"BACKSHIFT WHEN NEEDED\",\"color\":\"blue\",\"text\":\"When the reporting verb is in the past, <strong>backshift</strong> often appears, but not mechanically in every case.\",\"example\":\"am -> was, have done -> had done\"},{\"label\":\"CHANGE THE FRAME\",\"color\":\"amber\",\"text\":\"Together with the tense, you often need to change <strong>pronouns</strong>, <strong>time expressions</strong>, and the <strong>word order</strong> of questions.\",\"example\":\"tomorrow -> the next day, Where are you? -> where I was\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. How to Spot the Needed Rewrite",
+            "body": "<p>In reported-speech transformation tasks, start with the utterance type and the supporting changes it triggers.</p><ul><li><strong>Statement</strong> -> most often <em>said (that)</em> or <em>told + object + (that)</em>.</li><li><strong>Question</strong> -> <em>asked</em>, <em>wanted to know</em>, or <em>wondered</em>; in a reported question, you return to <strong>statement word order</strong>.</li><li><strong>Command / request</strong> -> usually <em>told / asked + object + to-infinitive</em>.</li><li>Then check <strong>backshift</strong>, <strong>pronoun shift</strong>, and changes such as <em>today -> that day</em> and <em>here -> there</em>.</li></ul>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Core Transformation Patterns",
+            "body": "<table><thead><tr><th>Base sentence</th><th>Target sentence</th><th>Rule focus</th></tr></thead><tbody><tr><td>Anna said, “I can't stay long.”</td><td>Anna said that she couldn't stay long.</td><td><strong>statement + backshift + pronoun change</strong>.</td></tr><tr><td>He asked me, “Where do you work?”</td><td>He asked me where I worked.</td><td><strong>reported question</strong> with no inversion after <em>asked</em>.</td></tr><tr><td>The teacher said, “Please close the window.”</td><td>The teacher told us to close the window.</td><td><strong>request / command -> told + object + to-infinitive</strong>.</td></tr><tr><td>They said, “We are meeting tomorrow.”</td><td>They said that they were meeting the next day.</td><td><strong>time expression shift</strong> together with backshift.</td></tr></tbody></table><p>In exam tasks, reported questions, commands, and short time-word shifts are especially common.</p>"
+        },
+        {
+            "index": 4,
+            "body": "{\"title\":\"3. Common mistakes\",\"items\":[{\"label\":\"Mistake 1\",\"color\":\"rose\",\"title\":\"Keeping inversion in a reported question.\",\"wrong\":\"He asked where did I work.\",\"right\":\"He asked where I worked.\",\"hint\":\"After <strong>asked</strong>, the indirect question returns to normal statement order.\"},{\"label\":\"Mistake 2\",\"color\":\"amber\",\"title\":\"Leaving out the object before the <strong>to-infinitive</strong> in commands and requests.\",\"wrong\":\"She told to sit down.\",\"right\":\"She told me to sit down.\",\"hint\":\"<strong>Tell</strong> usually needs the person who receives the instruction.\"},{\"label\":\"Mistake 3\",\"color\":\"sky\",\"title\":\"Applying backshift mechanically even when the fact is still generally true.\",\"wrong\":\"The teacher said that water boiled at 100°C.\",\"right\":\"The teacher said that water boils at 100°C.\",\"hint\":\"General truths often keep the present form.\"},{\"label\":\"Mistake 4\",\"color\":\"rose\",\"title\":\"Forgetting pronoun and time-word changes.\",\"wrong\":\"She said that I would finish this tomorrow.\",\"right\":\"She said that she would finish it the next day.\",\"hint\":\"Always check who is speaking, who is listening, and when the message is being reported.\"}]}"
+        },
+        {
+            "index": 5,
+            "body": "{\"title\":\"4. Quick Exam Check\",\"items\":[\"Start by identifying the utterance type: <strong>statement, question, or command</strong>.\",\"In reported questions, return to <strong>statement word order</strong>.\",\"In commands and requests, check the pattern <strong>told / asked + object + to-infinitive</strong>.\",\"After rewriting, confirm the <strong>backshift, pronouns, time expressions</strong>, and overall meaning.\"]}"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Pages in this section\",\"items\":[{\"label\":\"Sentence Transformations — Tenses\",\"url\":\"/en/theory/sentence-transformations/tenses\",\"current\":false},{\"label\":\"Sentence Transformations — Modals\",\"url\":\"/en/theory/sentence-transformations/modals\",\"current\":false},{\"label\":\"Sentence Transformations — Passive\",\"url\":\"/en/theory/sentence-transformations/passive\",\"current\":false},{\"label\":\"Sentence Transformations — Reported Speech\",\"url\":\"/en/theory/sentence-transformations/reported-speech\",\"current\":true},{\"label\":\"Sentence Transformations — Conditionals\",\"url\":\"/en/theory/sentence-transformations/conditionals\",\"current\":false},{\"label\":\"Sentence Transformations — Relative Clauses / Linking Words\",\"url\":\"/en/theory/sentence-transformations/relative-clauses-linking-words\",\"current\":false},{\"label\":\"Sentence Transformations — Articles / Quantifiers\",\"url\":\"/en/theory/sentence-transformations/articles-quantifiers\",\"current\":false},{\"label\":\"Sentence Transformations — Word Order / Emphasis\",\"url\":\"/en/theory/sentence-transformations/word-order-emphasis\",\"current\":false}]}"
+        }
+    ]
+}

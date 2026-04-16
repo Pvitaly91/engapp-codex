@@ -1,0 +1,42 @@
+{
+    "locale": "en",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\En\\SentenceTransformationsPassiveTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsPassiveTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Sentence Transformations — Passive</strong> shows how to move the focus from the doer to the action or result while keeping the correct tense and passive form.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"In passive transformations, you are not just rearranging words. You need to <strong>keep the tense, aspect, modality, and focus</strong>, but move attention to the action or the result.\",\"rules\":[{\"label\":\"OBJECT -> SUBJECT\",\"color\":\"emerald\",\"text\":\"In most rewrites, the <strong>object of the active sentence</strong> becomes the subject of the passive sentence.\",\"example\":\"The bridge is being repaired.\"},{\"label\":\"KEEP THE TENSE\",\"color\":\"blue\",\"text\":\"The form <strong>be + V3</strong> must reflect the same tense: <em>is built</em>, <em>was built</em>, <em>has been built</em>, <em>will be built</em>.\",\"example\":\"The meeting has been cancelled.\"},{\"label\":\"BY ONLY WHEN NEEDED\",\"color\":\"amber\",\"text\":\"Use <strong>by + agent</strong> only when the doer matters to the meaning. Otherwise, leaving it out is often better.\",\"example\":\"The novel was written by Orwell.\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. How to Spot the Needed Rewrite",
+            "body": "<p>A passive transformation is useful when the centre of attention is not the doer, but the action, the result, or the affected object.</p><ul><li>First find the <strong>direct object</strong> of the active sentence. It often becomes the new subject.</li><li>Then identify the <strong>tense and verb form</strong>: simple, continuous, perfect, or modal structure.</li><li>After that, build the correct <strong>be + V3</strong> or <strong>modal + be + V3</strong> pattern.</li><li>At the end, decide whether you really need a <strong>by-phrase</strong>. If the doer is obvious or unimportant, it is better to omit it.</li></ul>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Core Transformation Patterns",
+            "body": "<table><thead><tr><th>Base sentence</th><th>Target sentence</th><th>Rule focus</th></tr></thead><tbody><tr><td>People speak English in many offices.</td><td>English is spoken in many offices.</td><td><strong>Present Simple active -> passive</strong>.</td></tr><tr><td>They have cancelled the meeting.</td><td>The meeting has been cancelled.</td><td><strong>Present Perfect passive</strong> with <em>has been + V3</em>.</td></tr><tr><td>Someone will send you the link tomorrow.</td><td>The link will be sent to you tomorrow.</td><td><strong>will + be + V3</strong>; the indirect object can stay after the verb.</td></tr><tr><td>They are repairing the bridge.</td><td>The bridge is being repaired.</td><td><strong>Continuous passive</strong> with <em>being</em>.</td></tr></tbody></table><p>If the sentence has two objects, two passive versions may be possible, but exam tasks usually want the most natural one.</p>"
+        },
+        {
+            "index": 4,
+            "body": "{\"title\":\"3. Common mistakes\",\"items\":[{\"label\":\"Mistake 1\",\"color\":\"rose\",\"title\":\"Forgetting the verb <strong>be</strong> in the passive.\",\"wrong\":\"The bridge repaired every year.\",\"right\":\"The bridge is repaired every year.\",\"hint\":\"Without the correct form of <strong>be</strong>, the passive does not work.\"},{\"label\":\"Mistake 2\",\"color\":\"amber\",\"title\":\"Using the second form instead of the third.\",\"wrong\":\"The report was wrote yesterday.\",\"right\":\"The report was written yesterday.\",\"hint\":\"The passive needs the <strong>past participle (V3)</strong>, not Past Simple.\"},{\"label\":\"Mistake 3\",\"color\":\"sky\",\"title\":\"Mixing up the simple and continuous passive.\",\"wrong\":\"The room is cleaned right now.\",\"right\":\"The room is being cleaned right now.\",\"hint\":\"If the action is in progress now, you need <strong>being</strong>.\"},{\"label\":\"Mistake 4\",\"color\":\"rose\",\"title\":\"Adding <strong>by</strong> automatically even when the agent is not important.\",\"wrong\":\"The road was closed by the authorities.\",\"right\":\"The road was closed.\",\"hint\":\"Keep the <strong>by-phrase</strong> only when it adds real information.\"}]}"
+        },
+        {
+            "index": 5,
+            "body": "{\"title\":\"4. Quick Exam Check\",\"items\":[\"Find the <strong>object of the active sentence</strong> and make it the new subject.\",\"Carry the same <strong>tense and aspect</strong> into the <strong>be + V3</strong> pattern.\",\"Decide whether <strong>by + agent</strong> is needed or whether it only makes the sentence heavier.\",\"Before finalising the answer, check that the meaning is still the same even though the focus has changed.\"]}"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Pages in this section\",\"items\":[{\"label\":\"Sentence Transformations — Tenses\",\"url\":\"/en/theory/sentence-transformations/tenses\",\"current\":false},{\"label\":\"Sentence Transformations — Modals\",\"url\":\"/en/theory/sentence-transformations/modals\",\"current\":false},{\"label\":\"Sentence Transformations — Passive\",\"url\":\"/en/theory/sentence-transformations/passive\",\"current\":true},{\"label\":\"Sentence Transformations — Reported Speech\",\"url\":\"/en/theory/sentence-transformations/reported-speech\",\"current\":false},{\"label\":\"Sentence Transformations — Conditionals\",\"url\":\"/en/theory/sentence-transformations/conditionals\",\"current\":false},{\"label\":\"Sentence Transformations — Relative Clauses / Linking Words\",\"url\":\"/en/theory/sentence-transformations/relative-clauses-linking-words\",\"current\":false},{\"label\":\"Sentence Transformations — Articles / Quantifiers\",\"url\":\"/en/theory/sentence-transformations/articles-quantifiers\",\"current\":false},{\"label\":\"Sentence Transformations — Word Order / Emphasis\",\"url\":\"/en/theory/sentence-transformations/word-order-emphasis\",\"current\":false}]}"
+        }
+    ]
+}

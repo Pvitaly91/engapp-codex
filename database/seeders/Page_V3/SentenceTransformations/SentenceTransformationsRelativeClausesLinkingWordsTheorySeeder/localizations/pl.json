@@ -1,0 +1,42 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\SentenceTransformationsRelativeClausesLinkingWordsTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsRelativeClausesLinkingWordsTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Transformacje zdań — zdania względne / wyrazy łączące</strong> pokazują, jak łączyć, skracać albo przebudowywać części zdania przez relative clauses i linkers.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"W tych transformacjach przepisujesz nie pojedyncze słowo, ale <strong>relację między dwiema częściami zdania</strong>: dodajesz relative clause, skracasz ją albo zmieniasz linker bez zmiany logiki.\",\"rules\":[{\"label\":\"ŁĄCZ ALBO SKRACAJ\",\"color\":\"emerald\",\"text\":\"Czasem trzeba połączyć dwa proste zdania w jedno, a czasem skrócić konstrukcję przez inny model gramatyczny.\",\"example\":\"The woman who lives next door...\"},{\"label\":\"ZACHOWAJ RELACJĘ\",\"color\":\"blue\",\"text\":\"Sprawdź, jaka relacja musi pozostać bez zmian: <strong>reason, result, contrast, purpose, place, person, thing</strong>.\",\"example\":\"although / because of / where / which\"},{\"label\":\"SPRAWDŹ FORMĘ PO LINKERZE\",\"color\":\"amber\",\"text\":\"Po jednych linkerach potrzebna jest <strong>noun phrase</strong>, a po innych <strong>full clause</strong>. Właśnie tutaj pojawia się wiele błędów.\",\"example\":\"despite being tired / although he was tired\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. Jak rozpoznać potrzebną przebudowę",
+            "body": "<p>Zacznij od logicznego związku między pomysłami.</p><ul><li>Jeśli dwie części opisują <strong>tę samą osobę, rzecz albo miejsce</strong>, często potrzebujesz relative clause: <em>who, which, that, where</em>.</li><li>Jeśli zadanie wymaga zmiany <strong>clause -> phrase</strong>, szukaj par takich jak <em>although</em> -> <em>in spite of</em> albo <em>because</em> -> <em>because of</em>.</li><li>Jeżeli chodzi o <strong>purpose</strong>, <strong>reason</strong> albo <strong>result</strong>, zachowaj dokładnie ten typ relacji.</li><li>W transformacjach egzaminacyjnych prawdziwy test polega na tym, czy umiesz zmienić gramatykę bez zmiany logiki.</li></ul>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Główne wzorce transformacji",
+            "body": "<table><thead><tr><th>Zdanie bazowe</th><th>Zdanie docelowe</th><th>Na czym polega reguła</th></tr></thead><tbody><tr><td>The woman lives next door. She teaches chemistry.</td><td>The woman who lives next door teaches chemistry.</td><td><strong>łączenie przez relative clause</strong>.</td></tr><tr><td>Although he was tired, he finished the report.</td><td>In spite of being tired, he finished the report.</td><td><strong>although + clause -> in spite of + -ing</strong>.</td></tr><tr><td>The cafe is near the station. We met there.</td><td>The cafe where we met is near the station.</td><td><strong>odniesienie do miejsca -> where</strong>.</td></tr><tr><td>She went to bed early because she had an exam.</td><td>She went to bed early because of her exam.</td><td><strong>because + clause -> because of + noun phrase</strong>.</td></tr></tbody></table><p>Jeśli słowo kluczowe zawęża wybór, sprawdź, czy po nowym linkerze powinna stać pełna fraza zdaniowa, noun phrase czy gerund.</p>"
+        },
+        {
+            "index": 4,
+            "body": "{\"title\":\"3. Typowe błędy\",\"items\":[{\"label\":\"Błąd 1\",\"color\":\"rose\",\"title\":\"Zostawianie pełnego zdania po linkerze, który wymaga noun phrase.\",\"wrong\":\"Despite he was tired, he kept working.\",\"right\":\"Despite being tired, he kept working. / Although he was tired, he kept working.\",\"hint\":\"<strong>Despite / in spite of</strong> zwykle nie łączą się samodzielnie z pełnym zdaniem.\"},{\"label\":\"Błąd 2\",\"color\":\"amber\",\"title\":\"Mylenie <strong>who</strong>, <strong>which</strong> i <strong>where</strong>.\",\"wrong\":\"The office who we visited was closed.\",\"right\":\"The office which we visited was closed.\",\"hint\":\"Dobierz marker do tego, czy mówisz o osobie, rzeczy czy miejscu.\"},{\"label\":\"Błąd 3\",\"color\":\"sky\",\"title\":\"Zmiana relacji logicznej podczas parafrazy.\",\"wrong\":\"He was ill, so he went to work. -> Although he was ill, he went to work.\",\"right\":\"Wybierz linker, który zachowuje tę samą relację.\",\"hint\":\"W transformacjach nie wolno zamieniać reason na contrast ani result na purpose.\"},{\"label\":\"Błąd 4\",\"color\":\"rose\",\"title\":\"Zapominanie o wymaganej formie po nowym linkerze.\",\"wrong\":\"Because of he was late, we started without him.\",\"right\":\"Because he was late, we started without him. / Because of his delay, we started without him.\",\"hint\":\"Po <strong>because of</strong> potrzebujesz noun phrase, a nie pełnego zdania.\"}]}"
+        },
+        {
+            "index": 5,
+            "body": "{\"title\":\"4. Szybka lista kontrolna na egzamin\",\"items\":[\"Najpierw rozpoznaj relację logiczną: <strong>person, thing, place, reason, result, contrast, purpose</strong>.\",\"Sprawdź, czy nowy linker wymaga <strong>clause, noun phrase czy -ing form</strong>.\",\"W relative clauses dobierz właściwy marker: <strong>who, which, that, where</strong>.\",\"Po transformacji przeczytaj obie części jak jeden komunikat: czy logika nadal pozostała dokładnie taka sama?\"]}"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Strony w tym dziale\",\"items\":[{\"label\":\"Transformacje zdań — czasy\",\"url\":\"/pl/theory/sentence-transformations/tenses\",\"current\":false},{\"label\":\"Transformacje zdań — czasowniki modalne\",\"url\":\"/pl/theory/sentence-transformations/modals\",\"current\":false},{\"label\":\"Transformacje zdań — strona bierna\",\"url\":\"/pl/theory/sentence-transformations/passive\",\"current\":false},{\"label\":\"Transformacje zdań — mowa zależna\",\"url\":\"/pl/theory/sentence-transformations/reported-speech\",\"current\":false},{\"label\":\"Transformacje zdań — okresy warunkowe\",\"url\":\"/pl/theory/sentence-transformations/conditionals\",\"current\":false},{\"label\":\"Transformacje zdań — zdania względne / wyrazy łączące\",\"url\":\"/pl/theory/sentence-transformations/relative-clauses-linking-words\",\"current\":true},{\"label\":\"Transformacje zdań — rodzajniki / określniki ilości\",\"url\":\"/pl/theory/sentence-transformations/articles-quantifiers\",\"current\":false},{\"label\":\"Transformacje zdań — szyk wyrazów / emfaza\",\"url\":\"/pl/theory/sentence-transformations/word-order-emphasis\",\"current\":false}]}"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "locale": "en",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\En\\SentenceTransformationsModalsTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsModalsTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Sentence Transformations — Modals</strong> shows how to rewrite meanings of ability, obligation, advice, and logical deduction through modal structures.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"In modal transformations, you need to preserve not the word itself but the <strong>meaning</strong>: ability, necessity, advice, permission, prohibition, or deduction. That is what controls the rewrite.\",\"rules\":[{\"label\":\"SAME MEANING\",\"color\":\"emerald\",\"text\":\"Pairs such as <strong>can -> be able to</strong>, <strong>must -> have to</strong>, and <strong>should -> ought to</strong> work only when the meaning and context still match.\",\"example\":\"We have to leave now.\"},{\"label\":\"CHECK THE NUANCE\",\"color\":\"blue\",\"text\":\"Some modal rewrites look similar but carry a different force: <strong>mustn't</strong> is not the same as <strong>don't have to</strong>.\",\"example\":\"You mustn't park here.\"},{\"label\":\"LOOK AT TIME\",\"color\":\"amber\",\"text\":\"In past contexts, modal meaning often moves into <strong>was able to</strong>, <strong>had to</strong>, <strong>should have</strong>, or <strong>can't have</strong> with a perfect infinitive.\",\"example\":\"He must have forgotten.\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. How to Spot the Needed Rewrite",
+            "body": "<p>Before rewriting, ask what the original sentence actually expresses.</p><ul><li><strong>Ability</strong> -> is it a general ability, one successful past event, or a possible action?</li><li><strong>Obligation / necessity</strong> -> is the rule external, or is the speaker drawing a strong conclusion?</li><li><strong>Advice</strong> -> is it gentle advice, or criticism of a past action through <em>should have</em>?</li><li><strong>Deduction</strong> -> is the conclusion about the present, or about a past event through <em>must have / can't have</em>?</li></ul>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Core Transformation Patterns",
+            "body": "<table><thead><tr><th>Base sentence</th><th>Target sentence</th><th>Rule focus</th></tr></thead><tbody><tr><td>I managed to solve the puzzle.</td><td>I was able to solve the puzzle.</td><td><strong>managed to -> was able to</strong> for one successful result.</td></tr><tr><td>It is necessary for all visitors to wear badges.</td><td>All visitors have to wear badges.</td><td><strong>it is necessary to -> have to</strong>.</td></tr><tr><td>It would be a good idea to leave earlier.</td><td>We should leave earlier.</td><td><strong>good idea -> should</strong> as advice.</td></tr><tr><td>I'm sure he isn't at home.</td><td>He can't be at home.</td><td><strong>certainty about impossibility -> can't</strong> for deduction.</td></tr></tbody></table><p>Always check whether the rewritten sentence keeps the same force: obligation, prohibition, advice, and deduction are not automatically interchangeable.</p>"
+        },
+        {
+            "index": 4,
+            "body": "{\"title\":\"3. Common mistakes\",\"items\":[{\"label\":\"Mistake 1\",\"color\":\"rose\",\"title\":\"Confusing <strong>mustn't</strong> and <strong>don't have to</strong>.\",\"wrong\":\"You don't have to smoke here. = Smoking is forbidden.\",\"right\":\"You mustn't smoke here.\",\"hint\":\"<strong>Mustn't</strong> = prohibition, <strong>don't have to</strong> = no obligation.\"},{\"label\":\"Mistake 2\",\"color\":\"amber\",\"title\":\"Using <strong>can</strong> instead of the form for one successful past event.\",\"wrong\":\"We could finish the report yesterday, and we did.\",\"right\":\"We were able to finish the report yesterday.\",\"hint\":\"For one real achievement in the past, <strong>was / were able to</strong> is often the better match.\"},{\"label\":\"Mistake 3\",\"color\":\"sky\",\"title\":\"Forgetting the perfect infinitive in deductions about the past.\",\"wrong\":\"He can't forget the meeting yesterday.\",\"right\":\"He can't have forgotten the meeting.\",\"hint\":\"Past deduction often needs <strong>must have / can't have + V3</strong>.\"},{\"label\":\"Mistake 4\",\"color\":\"rose\",\"title\":\"Making a modal swap without checking the strength of meaning.\",\"wrong\":\"You must leave early. -> You should leave early.\",\"right\":\"You have to leave early. / You should leave early. (only if the meaning is advice)\",\"hint\":\"Not every similar-looking form keeps the same degree of obligation.\"}]}"
+        },
+        {
+            "index": 5,
+            "body": "{\"title\":\"4. Quick Exam Check\",\"items\":[\"Name the meaning first: <strong>ability, obligation, advice, deduction</strong>, or prohibition.\",\"Check whether the <strong>strength of meaning</strong> stayed the same after the rewrite.\",\"Look at time: do you need a <strong>perfect infinitive</strong> or a form such as <strong>had to / was able to</strong>?\",\"At the end, read the sentence as real communication, not just as grammar: does it still sound logical and natural?\"]}"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Pages in this section\",\"items\":[{\"label\":\"Sentence Transformations — Tenses\",\"url\":\"/en/theory/sentence-transformations/tenses\",\"current\":false},{\"label\":\"Sentence Transformations — Modals\",\"url\":\"/en/theory/sentence-transformations/modals\",\"current\":true},{\"label\":\"Sentence Transformations — Passive\",\"url\":\"/en/theory/sentence-transformations/passive\",\"current\":false},{\"label\":\"Sentence Transformations — Reported Speech\",\"url\":\"/en/theory/sentence-transformations/reported-speech\",\"current\":false},{\"label\":\"Sentence Transformations — Conditionals\",\"url\":\"/en/theory/sentence-transformations/conditionals\",\"current\":false},{\"label\":\"Sentence Transformations — Relative Clauses / Linking Words\",\"url\":\"/en/theory/sentence-transformations/relative-clauses-linking-words\",\"current\":false},{\"label\":\"Sentence Transformations — Articles / Quantifiers\",\"url\":\"/en/theory/sentence-transformations/articles-quantifiers\",\"current\":false},{\"label\":\"Sentence Transformations — Word Order / Emphasis\",\"url\":\"/en/theory/sentence-transformations/word-order-emphasis\",\"current\":false}]}"
+        }
+    ]
+}

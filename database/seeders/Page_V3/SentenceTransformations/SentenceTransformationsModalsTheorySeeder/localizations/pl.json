@@ -1,0 +1,42 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\SentenceTransformationsModalsTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsModalsTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Transformacje zdań — czasowniki modalne</strong> pokazują, jak parafrazować znaczenie zdolności, obowiązku, rady i logicznego wniosku przez konstrukcje modalne.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"W transformacjach z modalami trzeba zachować nie samo słowo, ale <strong>znaczenie</strong>: ability, necessity, advice, permission, prohibition albo deduction. To właśnie ono steruje poprawną przebudową.\",\"rules\":[{\"label\":\"TO SAMO ZNACZENIE\",\"color\":\"emerald\",\"text\":\"Pary takie jak <strong>can -> be able to</strong>, <strong>must -> have to</strong> czy <strong>should -> ought to</strong> działają tylko wtedy, gdy zgadza się sens i kontekst.\",\"example\":\"We have to leave now.\"},{\"label\":\"SPRAWDŹ ODCIEŃ\",\"color\":\"blue\",\"text\":\"Niektóre parafrazy modalne wyglądają podobnie, ale mają inny ciężar znaczeniowy: <strong>mustn't</strong> nie znaczy tego samego co <strong>don't have to</strong>.\",\"example\":\"You mustn't park here.\"},{\"label\":\"SPÓJRZ NA CZAS\",\"color\":\"amber\",\"text\":\"W kontekście przeszłym znaczenie modalne często przechodzi w <strong>was able to</strong>, <strong>had to</strong>, <strong>should have</strong> albo <strong>can't have</strong> z perfect infinitive.\",\"example\":\"He must have forgotten.\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. Jak rozpoznać potrzebną przebudowę",
+            "body": "<p>Przed parafrazą zadaj sobie pytanie: co dokładnie wyraża zdanie wyjściowe?</p><ul><li><strong>Ability</strong> -> czy chodzi o ogólną zdolność, jeden konkretny udany przypadek czy o możliwość.</li><li><strong>Obligation / necessity</strong> -> czy to zewnętrzna reguła, czy mocny wniosek mówiącego.</li><li><strong>Advice</strong> -> czy to łagodna rada, czy krytyka przeszłego działania przez <em>should have</em>.</li><li><strong>Deduction</strong> -> czy wniosek dotyczy teraźniejszości, czy przeszłości przez <em>must have / can't have</em>.</li></ul>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Główne wzorce transformacji",
+            "body": "<table><thead><tr><th>Zdanie bazowe</th><th>Zdanie docelowe</th><th>Na czym polega reguła</th></tr></thead><tbody><tr><td>I managed to solve the puzzle.</td><td>I was able to solve the puzzle.</td><td><strong>managed to -> was able to</strong> dla jednego zakończonego sukcesu.</td></tr><tr><td>It is necessary for all visitors to wear badges.</td><td>All visitors have to wear badges.</td><td><strong>it is necessary to -> have to</strong>.</td></tr><tr><td>It would be a good idea to leave earlier.</td><td>We should leave earlier.</td><td><strong>good idea -> should</strong> jako rada.</td></tr><tr><td>I'm sure he isn't at home.</td><td>He can't be at home.</td><td><strong>certainty about impossibility -> can't</strong> dla deduction.</td></tr></tbody></table><p>Zawsze sprawdzaj, czy po transformacji nie zmieniła się siła wypowiedzi: obowiązek, zakaz, rada i wniosek nie są automatycznie wymienne.</p>"
+        },
+        {
+            "index": 4,
+            "body": "{\"title\":\"3. Typowe błędy\",\"items\":[{\"label\":\"Błąd 1\",\"color\":\"rose\",\"title\":\"Mylenie <strong>mustn't</strong> i <strong>don't have to</strong>.\",\"wrong\":\"You don't have to smoke here. = Smoking is forbidden.\",\"right\":\"You mustn't smoke here.\",\"hint\":\"<strong>Mustn't</strong> = zakaz, <strong>don't have to</strong> = brak konieczności.\"},{\"label\":\"Błąd 2\",\"color\":\"amber\",\"title\":\"Używanie <strong>can</strong> zamiast formy dla jednego udanego przypadku w przeszłości.\",\"wrong\":\"We could finish the report yesterday, and we did.\",\"right\":\"We were able to finish the report yesterday.\",\"hint\":\"Dla jednego realnego osiągnięcia w przeszłości często lepsze jest <strong>was / were able to</strong>.\"},{\"label\":\"Błąd 3\",\"color\":\"sky\",\"title\":\"Zapominanie o perfect infinitive przy wnioskach o przeszłości.\",\"wrong\":\"He can't forget the meeting yesterday.\",\"right\":\"He can't have forgotten the meeting.\",\"hint\":\"Wniosek o przeszłości często wymaga <strong>must have / can't have + V3</strong>.\"},{\"label\":\"Błąd 4\",\"color\":\"rose\",\"title\":\"Zamiana modalna bez sprawdzenia siły znaczenia.\",\"wrong\":\"You must leave early. -> You should leave early.\",\"right\":\"You have to leave early. / You should leave early. (tylko jeśli sens = rada)\",\"hint\":\"Nie każda podobna forma zachowuje ten sam stopień obowiązku.\"}]}"
+        },
+        {
+            "index": 5,
+            "body": "{\"title\":\"4. Szybka lista kontrolna na egzamin\",\"items\":[\"Najpierw nazwij znaczenie: <strong>ability, obligation, advice, deduction</strong> albo prohibition.\",\"Sprawdź, czy po zamianie zachował się <strong>ten sam stopień siły</strong> wypowiedzi.\",\"Zwróć uwagę na czas: czy potrzebujesz <strong>perfect infinitive</strong> albo formy typu <strong>had to / was able to</strong>.\",\"Na końcu przeczytaj zdanie jak prawdziwy komunikat, a nie tylko regułę: czy nadal brzmi logicznie i naturalnie?\"]}"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Strony w tym dziale\",\"items\":[{\"label\":\"Transformacje zdań — czasy\",\"url\":\"/pl/theory/sentence-transformations/tenses\",\"current\":false},{\"label\":\"Transformacje zdań — czasowniki modalne\",\"url\":\"/pl/theory/sentence-transformations/modals\",\"current\":true},{\"label\":\"Transformacje zdań — strona bierna\",\"url\":\"/pl/theory/sentence-transformations/passive\",\"current\":false},{\"label\":\"Transformacje zdań — mowa zależna\",\"url\":\"/pl/theory/sentence-transformations/reported-speech\",\"current\":false},{\"label\":\"Transformacje zdań — okresy warunkowe\",\"url\":\"/pl/theory/sentence-transformations/conditionals\",\"current\":false},{\"label\":\"Transformacje zdań — zdania względne / wyrazy łączące\",\"url\":\"/pl/theory/sentence-transformations/relative-clauses-linking-words\",\"current\":false},{\"label\":\"Transformacje zdań — rodzajniki / określniki ilości\",\"url\":\"/pl/theory/sentence-transformations/articles-quantifiers\",\"current\":false},{\"label\":\"Transformacje zdań — szyk wyrazów / emfaza\",\"url\":\"/pl/theory/sentence-transformations/word-order-emphasis\",\"current\":false}]}"
+        }
+    ]
+}

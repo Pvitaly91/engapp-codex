@@ -710,6 +710,20 @@ class SiteTreeSeeder extends Seeder
                     ['title' => 'B1/B2 Grammar Traps', 'level' => 'B1–B2'],
                 ],
             ],
+            [
+                'title' => '21. Sentence Transformations',
+                'level' => 'B1–C1',
+                'children' => [
+                    ['title' => 'Sentence Transformations — Tenses', 'level' => 'B1–B2'],
+                    ['title' => 'Sentence Transformations — Modals', 'level' => 'B1–B2'],
+                    ['title' => 'Sentence Transformations — Passive', 'level' => 'B1–B2'],
+                    ['title' => 'Sentence Transformations — Reported Speech', 'level' => 'B1–B2'],
+                    ['title' => 'Sentence Transformations — Conditionals', 'level' => 'B1–B2'],
+                    ['title' => 'Sentence Transformations — Relative Clauses / Linking Words', 'level' => 'B1–B2'],
+                    ['title' => 'Sentence Transformations — Articles / Quantifiers', 'level' => 'B1–B2'],
+                    ['title' => 'Sentence Transformations — Word Order / Emphasis', 'level' => 'B2–C1'],
+                ],
+            ],
         ];
     }
 }

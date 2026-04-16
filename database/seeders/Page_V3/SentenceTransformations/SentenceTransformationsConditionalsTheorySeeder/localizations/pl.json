@@ -1,0 +1,42 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\SentenceTransformationsConditionalsTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsConditionalsTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Transformacje zdań — okresy warunkowe</strong> pokazują, jak parafrazować warunek, skutek, żal i mocną radę przez równoważne wzorce conditional.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"W transformacjach warunkowych trzeba zachować <strong>ten sam typ warunku albo nastawienia mówiącego</strong>: ostrzeżenie, żal, preferencję, mocną radę albo warunek dopuszczający.\",\"rules\":[{\"label\":\"UNLESS = IF NOT\",\"color\":\"emerald\",\"text\":\"Pary z <strong>unless</strong> działają tylko wtedy, gdy nowe zdanie naprawdę oznacza <strong>if not</strong> i nie tworzy podwójnego przeczenia.\",\"example\":\"Unless you hurry, you'll miss it.\"},{\"label\":\"WISH / WOULD RATHER\",\"color\":\"blue\",\"text\":\"Przez <strong>wish</strong> i <strong>would rather</strong> często parafrazujemy żal, sytuację nierealną albo preferencję dotyczącą innego działania.\",\"example\":\"I wish I had studied more.\"},{\"label\":\"HAD BETTER\",\"color\":\"amber\",\"text\":\"<strong>Had better</strong> wyraża mocną radę albo ostrzeżenie przed skutkiem, a nie zwykłą neutralną sugestię.\",\"example\":\"You had better leave now.\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. Jak rozpoznać potrzebną przebudowę",
+            "body": "<p>Transformacje warunkowe rzadko sprowadzają się tylko do <em>if</em>. Zwykle trzeba zobaczyć funkcję całej wypowiedzi.</p><ul><li><strong>Unless</strong> -> sprawdź, czy zdanie wyjściowe rzeczywiście znaczy <strong>if not</strong>.</li><li><strong>Wish / if only</strong> -> szukaj żalu dotyczącego teraźniejszości albo przeszłości.</li><li><strong>Would rather</strong> -> ustal, czy preferencja dotyczy twojego działania, czy działania innej osoby.</li><li><strong>Had better</strong> -> użyj wtedy, gdy zdanie niesie ostrzeżenie albo niepożądany skutek.</li></ul>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Główne wzorce transformacji",
+            "body": "<table><thead><tr><th>Zdanie bazowe</th><th>Zdanie docelowe</th><th>Na czym polega reguła</th></tr></thead><tbody><tr><td>If you don't hurry, you'll miss the train.</td><td>Unless you hurry, you'll miss the train.</td><td><strong>if ... not -> unless</strong>.</td></tr><tr><td>I regret not studying harder.</td><td>I wish I had studied harder.</td><td><strong>żal o przeszłość -> wish + Past Perfect</strong>.</td></tr><tr><td>I'd prefer you not to call so late.</td><td>I'd rather you didn't call so late.</td><td><strong>would prefer -> would rather + past form</strong> przy innym podmiocie.</td></tr><tr><td>You should leave now.</td><td>You had better leave now.</td><td><strong>mocna rada / ostrzeżenie -> had better</strong>.</td></tr></tbody></table><p>Na egzaminie najtrudniejsze jest zachowanie tej samej siły i tego samego nastawienia mówiącego.</p>"
+        },
+        {
+            "index": 4,
+            "body": "{\"title\":\"3. Typowe błędy\",\"items\":[{\"label\":\"Błąd 1\",\"color\":\"rose\",\"title\":\"Dodawanie drugiego przeczenia po <strong>unless</strong>.\",\"wrong\":\"Unless you don't hurry, you'll miss the train.\",\"right\":\"Unless you hurry, you'll miss the train.\",\"hint\":\"<strong>Unless</strong> już zawiera znaczenie <strong>if not</strong>.\"},{\"label\":\"Błąd 2\",\"color\":\"amber\",\"title\":\"Używanie niewłaściwego czasu po <strong>wish</strong>.\",\"wrong\":\"I wish I studied harder last year.\",\"right\":\"I wish I had studied harder last year.\",\"hint\":\"Żal o przeszłość wymaga <strong>Past Perfect</strong>.\"},{\"label\":\"Błąd 3\",\"color\":\"sky\",\"title\":\"Dodawanie <strong>to</strong> po <strong>had better</strong>.\",\"wrong\":\"You had better to leave now.\",\"right\":\"You had better leave now.\",\"hint\":\"Po <strong>had better</strong> używamy bezokolicznika bez <strong>to</strong>.\"},{\"label\":\"Błąd 4\",\"color\":\"rose\",\"title\":\"Używanie <strong>would rather</strong> z innym podmiotem bez formy przeszłej.\",\"wrong\":\"I'd rather you don't call late.\",\"right\":\"I'd rather you didn't call late.\",\"hint\":\"Gdy podmiot jest inny, po <strong>would rather</strong> często pojawia się past form.\"}]}"
+        },
+        {
+            "index": 5,
+            "body": "{\"title\":\"4. Szybka lista kontrolna na egzamin\",\"items\":[\"Najpierw ustal, czy zdanie wyraża <strong>warunek, żal, preferencję czy mocną radę</strong>.\",\"Upewnij się, że nowa forma zachowuje <strong>ten sam odcień znaczenia</strong>.\",\"Po <strong>unless</strong> unikaj dodatkowego przeczenia, a po <strong>had better</strong> nie dodawaj <strong>to</strong>.\",\"Na końcu sprawdź, czy czas po <strong>wish</strong> i <strong>would rather</strong> nadal działa poprawnie.\"]}"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Strony w tym dziale\",\"items\":[{\"label\":\"Transformacje zdań — czasy\",\"url\":\"/pl/theory/sentence-transformations/tenses\",\"current\":false},{\"label\":\"Transformacje zdań — czasowniki modalne\",\"url\":\"/pl/theory/sentence-transformations/modals\",\"current\":false},{\"label\":\"Transformacje zdań — strona bierna\",\"url\":\"/pl/theory/sentence-transformations/passive\",\"current\":false},{\"label\":\"Transformacje zdań — mowa zależna\",\"url\":\"/pl/theory/sentence-transformations/reported-speech\",\"current\":false},{\"label\":\"Transformacje zdań — okresy warunkowe\",\"url\":\"/pl/theory/sentence-transformations/conditionals\",\"current\":true},{\"label\":\"Transformacje zdań — zdania względne / wyrazy łączące\",\"url\":\"/pl/theory/sentence-transformations/relative-clauses-linking-words\",\"current\":false},{\"label\":\"Transformacje zdań — rodzajniki / określniki ilości\",\"url\":\"/pl/theory/sentence-transformations/articles-quantifiers\",\"current\":false},{\"label\":\"Transformacje zdań — szyk wyrazów / emfaza\",\"url\":\"/pl/theory/sentence-transformations/word-order-emphasis\",\"current\":false}]}"
+        }
+    ]
+}

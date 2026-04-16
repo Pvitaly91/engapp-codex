@@ -1,0 +1,42 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\SentenceTransformationsArticlesQuantifiersTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsArticlesQuantifiersTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Transformacje zdań — rodzajniki / określniki ilości</strong> pokazują, jak przebudowywać zdania z rodzajnikami i ilością bez utraty znaczenia countable / uncountable ani odcienia quantity.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"W tych transformacjach najwięcej robią drobne formy: <strong>a / an / the / zero article</strong> oraz to, czy rzeczownik jest <strong>countable</strong> czy <strong>uncountable</strong>. Jedna mała zmiana może przesunąć cały sens.\",\"rules\":[{\"label\":\"COUNTABLE CZY UNCOUNTABLE\",\"color\":\"emerald\",\"text\":\"Zanim zmienisz quantifier, ustal typ rzeczownika. Od tego zależą <strong>many / much, few / little, a few / a little</strong>.\",\"example\":\"few chairs / little time\"},{\"label\":\"RODZAJNIK SYGNALIZUJE ODNIESIENIE\",\"color\":\"blue\",\"text\":\"W parafrazie sprawdź, czy mówisz o <strong>jednym przedstawicielu klasy</strong>, <strong>konkretnym znanym obiekcie</strong> czy <strong>znaczeniu ogólnym</strong>.\",\"example\":\"a teacher / the teacher / teachers\"},{\"label\":\"NIE GUB ILOŚCI\",\"color\":\"amber\",\"text\":\"Pary takie jak <strong>not many -> only a few</strong> i <strong>not much -> only a little</strong> działają tylko wtedy, gdy zachowują ten sam odcień ilości.\",\"example\":\"We have only a few options.\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. Jak rozpoznać potrzebną przebudowę",
+            "body": "<p>W tych zadaniach najpierw sprawdź typ rzeczownika, a dopiero potem szukaj nowej konstrukcji.</p><ul><li>Jeśli rzeczownik jest <strong>countable singular</strong>, często potrzebuje rodzajnika albo innego określnika.</li><li>Jeżeli rzeczownik jest <strong>uncountable</strong>, nie możesz automatycznie dodawać <em>a / an</em> albo <em>many</em>.</li><li>Pary <em>few / a few</em> i <em>little / a little</em> różnią się nie tylko formą, ale też nastawieniem: brak vs niewielka, ale wystarczająca ilość.</li><li>W transformacjach egzaminacyjnych często sprawdza się, czy umiesz zachować sens przez formy takie jak <em>only a few</em>, <em>very little</em>, <em>no</em>, <em>any</em> czy <em>a piece of</em>.</li></ul>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Główne wzorce transformacji",
+            "body": "<table><thead><tr><th>Zdanie bazowe</th><th>Zdanie docelowe</th><th>Na czym polega reguła</th></tr></thead><tbody><tr><td>There aren't many chairs left.</td><td>There are only a few chairs left.</td><td><strong>not many -> only a few</strong> dla rzeczownika policzalnego w liczbie mnogiej.</td></tr><tr><td>We have very little time.</td><td>We don't have much time.</td><td><strong>little -> not much</strong> dla rzeczownika niepoliczalnego.</td></tr><tr><td>I didn't see any mistakes.</td><td>I saw no mistakes.</td><td><strong>not any -> no</strong> bez zmiany sensu.</td></tr><tr><td>She gave me some useful advice.</td><td>She gave me a useful piece of advice.</td><td><strong>rzeczownik niepoliczalny -> konstrukcja partitive</strong>.</td></tr></tbody></table><p>W transformacjach z rodzajnikami i określnikami ilości o wyniku często decyduje jedna mała forma, a nie złożona struktura zdania.</p>"
+        },
+        {
+            "index": 4,
+            "body": "{\"title\":\"3. Typowe błędy\",\"items\":[{\"label\":\"Błąd 1\",\"color\":\"rose\",\"title\":\"Używanie <strong>much</strong> z rzeczownikiem policzalnym.\",\"wrong\":\"We don't have much chairs.\",\"right\":\"We don't have many chairs.\",\"hint\":\"<strong>Much</strong> łączy się z rzeczownikami niepoliczalnymi, a <strong>many</strong> z policzalnymi w liczbie mnogiej.\"},{\"label\":\"Błąd 2\",\"color\":\"amber\",\"title\":\"Mylenie <strong>few</strong> i <strong>a few</strong>.\",\"wrong\":\"We have few options, so we can choose freely.\",\"right\":\"We have a few options, so we can choose freely.\",\"hint\":\"<strong>Few</strong> sugeruje brak, a <strong>a few</strong> niewielką, ale użyteczną liczbę.\"},{\"label\":\"Błąd 3\",\"color\":\"sky\",\"title\":\"Dodawanie rodzajnika do rzeczownika niepoliczalnego.\",\"wrong\":\"She gave me an advice.\",\"right\":\"She gave me some advice. / She gave me a piece of advice.\",\"hint\":\"<strong>Advice, information, furniture</strong> zwykle nie łączą się z <em>a / an</em>.\"},{\"label\":\"Błąd 4\",\"color\":\"rose\",\"title\":\"Zmiana odcienia ilości podczas parafrazy.\",\"wrong\":\"There is little water left. -> There is a little water left.\",\"right\":\"Sprawdź, czy nowe zdanie nadal pokazuje ten sam brak albo wystarczalność.\",\"hint\":\"Jedno małe <strong>a</strong> zmienia nastawienie całego zdania.\"}]}"
+        },
+        {
+            "index": 5,
+            "body": "{\"title\":\"4. Szybka lista kontrolna na egzamin\",\"items\":[\"Najpierw ustal, czy rzeczownik jest countable czy uncountable.\",\"Sprawdź, czy odcień ilości ma znaczyć za mało czy mało, ale wystarczająco.\",\"Jeżeli pojawia się article, sprawdź reference i ogólne meaning.\",\"Na końcu przeczytaj samą noun phrase - właśnie tam najczęściej ukrywa się błąd.\"]}"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Strony w tym dziale\",\"items\":[{\"label\":\"Transformacje zdań — czasy\",\"url\":\"/pl/theory/sentence-transformations/tenses\",\"current\":false},{\"label\":\"Transformacje zdań — czasowniki modalne\",\"url\":\"/pl/theory/sentence-transformations/modals\",\"current\":false},{\"label\":\"Transformacje zdań — strona bierna\",\"url\":\"/pl/theory/sentence-transformations/passive\",\"current\":false},{\"label\":\"Transformacje zdań — mowa zależna\",\"url\":\"/pl/theory/sentence-transformations/reported-speech\",\"current\":false},{\"label\":\"Transformacje zdań — okresy warunkowe\",\"url\":\"/pl/theory/sentence-transformations/conditionals\",\"current\":false},{\"label\":\"Transformacje zdań — zdania względne / wyrazy łączące\",\"url\":\"/pl/theory/sentence-transformations/relative-clauses-linking-words\",\"current\":false},{\"label\":\"Transformacje zdań — rodzajniki / określniki ilości\",\"url\":\"/pl/theory/sentence-transformations/articles-quantifiers\",\"current\":true},{\"label\":\"Transformacje zdań — szyk wyrazów / emfaza\",\"url\":\"/pl/theory/sentence-transformations/word-order-emphasis\",\"current\":false}]}"
+        }
+    ]
+}

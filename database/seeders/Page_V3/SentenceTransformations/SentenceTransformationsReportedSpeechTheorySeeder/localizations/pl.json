@@ -1,0 +1,42 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\SentenceTransformationsReportedSpeechTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsReportedSpeechTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Transformacje zdań — mowa zależna</strong> pokazują, jak przekształcać twierdzenia, pytania i polecenia w mowę zależną bez utraty logiki, czasu i ról uczestników.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"W transformacjach do mowy zależnej zmienia się nie tylko forma czasownika. Trzeba też pilnować <strong>backshift</strong>, zaimków, szyku wyrazów, określeń czasu i typu wypowiedzi.\",\"rules\":[{\"label\":\"TWIERDZENIE, PYTANIE, POLECENIE\",\"color\":\"emerald\",\"text\":\"Najpierw ustal, czy zdanie wyjściowe jest <strong>statement</strong>, <strong>question</strong> czy <strong>command / request</strong>. Od tego zależy cały wzorzec przebudowy.\",\"example\":\"said that / asked if / told me to\"},{\"label\":\"BACKSHIFT GDY POTRZEBNY\",\"color\":\"blue\",\"text\":\"Jeśli czasownik wprowadzający stoi w przeszłości, często pojawia się <strong>backshift</strong>, ale nie mechanicznie w każdym przypadku.\",\"example\":\"am -> was, have done -> had done\"},{\"label\":\"ZMIEŃ CAŁĄ RAMĘ\",\"color\":\"amber\",\"text\":\"Razem z czasem często zmieniają się <strong>zaimki</strong>, <strong>określenia czasu</strong> oraz <strong>szyk wyrazów</strong> w pytaniach.\",\"example\":\"tomorrow -> the next day, Where are you? -> where I was\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. Jak rozpoznać potrzebną przebudowę",
+            "body": "<p>W zadaniach z mowy zależnej zacznij od typu wypowiedzi i zmian, które on uruchamia.</p><ul><li><strong>Statement</strong> -> najczęściej <em>said (that)</em> albo <em>told + object + (that)</em>.</li><li><strong>Question</strong> -> <em>asked</em>, <em>wanted to know</em>, <em>wondered</em>; w pytaniu zależnym wracamy do <strong>statement word order</strong>.</li><li><strong>Command / request</strong> -> zwykle <em>told / asked + object + to-infinitive</em>.</li><li>Potem sprawdź <strong>backshift</strong>, zmianę zaimków i zamiany typu <em>today -> that day</em>, <em>here -> there</em>.</li></ul>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Główne wzorce transformacji",
+            "body": "<table><thead><tr><th>Zdanie bazowe</th><th>Zdanie docelowe</th><th>Na czym polega reguła</th></tr></thead><tbody><tr><td>Anna said, “I can't stay long.”</td><td>Anna said that she couldn't stay long.</td><td><strong>statement + backshift + zmiana zaimka</strong>.</td></tr><tr><td>He asked me, “Where do you work?”</td><td>He asked me where I worked.</td><td><strong>reported question</strong> bez inwersji po <em>asked</em>.</td></tr><tr><td>The teacher said, “Please close the window.”</td><td>The teacher told us to close the window.</td><td><strong>request / command -> told + object + to-infinitive</strong>.</td></tr><tr><td>They said, “We are meeting tomorrow.”</td><td>They said that they were meeting the next day.</td><td><strong>zmiana określenia czasu</strong> razem z backshift.</td></tr></tbody></table><p>Na egzaminie szczególnie często pojawiają się pytania zależne, polecenia oraz krótkie zmiany wyrażeń czasowych.</p>"
+        },
+        {
+            "index": 4,
+            "body": "{\"title\":\"3. Typowe błędy\",\"items\":[{\"label\":\"Błąd 1\",\"color\":\"rose\",\"title\":\"Zostawianie inwersji w pytaniu zależnym.\",\"wrong\":\"He asked where did I work.\",\"right\":\"He asked where I worked.\",\"hint\":\"Po <strong>asked</strong> pytanie zależne wraca do zwykłego szyku zdania oznajmującego.\"},{\"label\":\"Błąd 2\",\"color\":\"amber\",\"title\":\"Pomijanie dopełnienia przed <strong>to-infinitive</strong> w poleceniach i prośbach.\",\"wrong\":\"She told to sit down.\",\"right\":\"She told me to sit down.\",\"hint\":\"<strong>Tell</strong> zwykle potrzebuje osoby, do której kierowana jest instrukcja.\"},{\"label\":\"Błąd 3\",\"color\":\"sky\",\"title\":\"Mechaniczne stosowanie backshift nawet wtedy, gdy fakt nadal jest ogólnie prawdziwy.\",\"wrong\":\"The teacher said that water boiled at 100°C.\",\"right\":\"The teacher said that water boils at 100°C.\",\"hint\":\"Ogólne prawdy często zachowują czas teraźniejszy.\"},{\"label\":\"Błąd 4\",\"color\":\"rose\",\"title\":\"Zapominanie o zmianach zaimków i wyrażeń czasowych.\",\"wrong\":\"She said that I would finish this tomorrow.\",\"right\":\"She said that she would finish it the next day.\",\"hint\":\"Zawsze sprawdź, kto mówi, kto słucha i kiedy wypowiedź jest relacjonowana.\"}]}"
+        },
+        {
+            "index": 5,
+            "body": "{\"title\":\"4. Szybka lista kontrolna na egzamin\",\"items\":[\"Najpierw rozpoznaj typ wypowiedzi: <strong>statement, question czy command</strong>.\",\"W reported questions wróć do <strong>statement word order</strong>.\",\"W poleceniach i prośbach sprawdź schemat <strong>told / asked + object + to-infinitive</strong>.\",\"Po transformacji zweryfikuj <strong>backshift, zaimki, wyrażenia czasu</strong> i ogólny sens zdania.\"]}"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Strony w tym dziale\",\"items\":[{\"label\":\"Transformacje zdań — czasy\",\"url\":\"/pl/theory/sentence-transformations/tenses\",\"current\":false},{\"label\":\"Transformacje zdań — czasowniki modalne\",\"url\":\"/pl/theory/sentence-transformations/modals\",\"current\":false},{\"label\":\"Transformacje zdań — strona bierna\",\"url\":\"/pl/theory/sentence-transformations/passive\",\"current\":false},{\"label\":\"Transformacje zdań — mowa zależna\",\"url\":\"/pl/theory/sentence-transformations/reported-speech\",\"current\":true},{\"label\":\"Transformacje zdań — okresy warunkowe\",\"url\":\"/pl/theory/sentence-transformations/conditionals\",\"current\":false},{\"label\":\"Transformacje zdań — zdania względne / wyrazy łączące\",\"url\":\"/pl/theory/sentence-transformations/relative-clauses-linking-words\",\"current\":false},{\"label\":\"Transformacje zdań — rodzajniki / określniki ilości\",\"url\":\"/pl/theory/sentence-transformations/articles-quantifiers\",\"current\":false},{\"label\":\"Transformacje zdań — szyk wyrazów / emfaza\",\"url\":\"/pl/theory/sentence-transformations/word-order-emphasis\",\"current\":false}]}"
+        }
+    ]
+}

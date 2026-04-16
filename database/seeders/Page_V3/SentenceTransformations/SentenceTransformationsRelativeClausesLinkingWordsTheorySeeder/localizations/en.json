@@ -1,0 +1,42 @@
+{
+    "locale": "en",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\En\\SentenceTransformationsRelativeClausesLinkingWordsTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsRelativeClausesLinkingWordsTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Sentence Transformations — Relative Clauses / Linking Words</strong> shows how to join, reduce, or reshape parts of a sentence through relative clauses and linkers.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"In these transformations, you are not rewriting one word but the <strong>relationship between two parts of the sentence</strong>: you add a relative clause, reduce one, or swap the linker without changing the logic.\",\"rules\":[{\"label\":\"JOIN OR REDUCE\",\"color\":\"emerald\",\"text\":\"Sometimes you need to join two simple sentences into one, and sometimes you need to make the structure shorter through a different pattern.\",\"example\":\"The woman who lives next door...\"},{\"label\":\"KEEP THE RELATION\",\"color\":\"blue\",\"text\":\"Check which relation must stay the same: <strong>reason, result, contrast, purpose, place, person, thing</strong>.\",\"example\":\"although / because of / where / which\"},{\"label\":\"WATCH THE FORM AFTER LINKERS\",\"color\":\"amber\",\"text\":\"Some linkers need a <strong>noun phrase</strong>, while others need a <strong>full clause</strong>. That is where many errors appear.\",\"example\":\"despite being tired / although he was tired\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. How to Spot the Needed Rewrite",
+            "body": "<p>Start with the logical link between the ideas.</p><ul><li>If the two parts describe the <strong>same person, thing, or place</strong>, you often need a relative clause: <em>who, which, that, where</em>.</li><li>If the task needs <strong>clause -> phrase</strong>, look for pairs such as <em>although</em> -> <em>in spite of</em> or <em>because</em> -> <em>because of</em>.</li><li>If the meaning is <strong>purpose</strong>, <strong>reason</strong>, or <strong>result</strong>, keep exactly that type of link.</li><li>In exam transformations, the real test is whether you can change the grammar without changing the logic.</li></ul>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Core Transformation Patterns",
+            "body": "<table><thead><tr><th>Base sentence</th><th>Target sentence</th><th>Rule focus</th></tr></thead><tbody><tr><td>The woman lives next door. She teaches chemistry.</td><td>The woman who lives next door teaches chemistry.</td><td><strong>joining with a relative clause</strong>.</td></tr><tr><td>Although he was tired, he finished the report.</td><td>In spite of being tired, he finished the report.</td><td><strong>although + clause -> in spite of + -ing</strong>.</td></tr><tr><td>The cafe is near the station. We met there.</td><td>The cafe where we met is near the station.</td><td><strong>place reference -> where</strong>.</td></tr><tr><td>She went to bed early because she had an exam.</td><td>She went to bed early because of her exam.</td><td><strong>because + clause -> because of + noun phrase</strong>.</td></tr></tbody></table><p>If the keyword narrows your choice, make sure the new linker is followed by the right structure: a full clause, a noun phrase, or a gerund.</p>"
+        },
+        {
+            "index": 4,
+            "body": "{\"title\":\"3. Common mistakes\",\"items\":[{\"label\":\"Mistake 1\",\"color\":\"rose\",\"title\":\"Keeping a full clause after a linker that needs a noun phrase.\",\"wrong\":\"Despite he was tired, he kept working.\",\"right\":\"Despite being tired, he kept working. / Although he was tired, he kept working.\",\"hint\":\"<strong>Despite / in spite of</strong> do not normally take a full clause by themselves.\"},{\"label\":\"Mistake 2\",\"color\":\"amber\",\"title\":\"Mixing up <strong>who</strong>, <strong>which</strong>, and <strong>where</strong>.\",\"wrong\":\"The office who we visited was closed.\",\"right\":\"The office which we visited was closed.\",\"hint\":\"Choose the marker according to whether the noun is a person, a thing, or a place.\"},{\"label\":\"Mistake 3\",\"color\":\"sky\",\"title\":\"Changing the logical relation during the rewrite.\",\"wrong\":\"He was ill, so he went to work. -> Although he was ill, he went to work.\",\"right\":\"Choose a linker that keeps the same relation.\",\"hint\":\"In transformation tasks, you cannot turn reason into contrast or result into purpose.\"},{\"label\":\"Mistake 4\",\"color\":\"rose\",\"title\":\"Forgetting the required form after the new linker.\",\"wrong\":\"Because of he was late, we started without him.\",\"right\":\"Because he was late, we started without him. / Because of his delay, we started without him.\",\"hint\":\"After <strong>because of</strong>, you need a noun phrase, not a full clause.\"}]}"
+        },
+        {
+            "index": 5,
+            "body": "{\"title\":\"4. Quick Exam Check\",\"items\":[\"Identify the logical relation first: <strong>person, thing, place, reason, result, contrast, purpose</strong>.\",\"Check whether the new linker needs a <strong>clause, noun phrase, or -ing form</strong>.\",\"In relative clauses, choose the right marker: <strong>who, which, that, where</strong>.\",\"After rewriting, read both parts as one message: does the logic still stay exactly the same?\"]}"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Pages in this section\",\"items\":[{\"label\":\"Sentence Transformations — Tenses\",\"url\":\"/en/theory/sentence-transformations/tenses\",\"current\":false},{\"label\":\"Sentence Transformations — Modals\",\"url\":\"/en/theory/sentence-transformations/modals\",\"current\":false},{\"label\":\"Sentence Transformations — Passive\",\"url\":\"/en/theory/sentence-transformations/passive\",\"current\":false},{\"label\":\"Sentence Transformations — Reported Speech\",\"url\":\"/en/theory/sentence-transformations/reported-speech\",\"current\":false},{\"label\":\"Sentence Transformations — Conditionals\",\"url\":\"/en/theory/sentence-transformations/conditionals\",\"current\":false},{\"label\":\"Sentence Transformations — Relative Clauses / Linking Words\",\"url\":\"/en/theory/sentence-transformations/relative-clauses-linking-words\",\"current\":true},{\"label\":\"Sentence Transformations — Articles / Quantifiers\",\"url\":\"/en/theory/sentence-transformations/articles-quantifiers\",\"current\":false},{\"label\":\"Sentence Transformations — Word Order / Emphasis\",\"url\":\"/en/theory/sentence-transformations/word-order-emphasis\",\"current\":false}]}"
+        }
+    ]
+}

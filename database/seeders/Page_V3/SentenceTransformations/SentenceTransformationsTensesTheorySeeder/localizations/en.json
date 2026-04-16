@@ -1,0 +1,42 @@
+{
+    "locale": "en",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\En\\SentenceTransformationsTensesTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsTensesTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Sentence Transformations — Tenses</strong> shows how to change tense during a rewrite without losing the meaning, the time signal, or the logic of events.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"In tense-based transformation tasks, the key is to <strong>keep the time perspective</strong>: what happened earlier, what still continues now, and what belongs to a finished moment in the past.\",\"rules\":[{\"label\":\"TIME REFERENCE\",\"color\":\"emerald\",\"text\":\"Start by finding the <strong>finished time marker</strong>, the <strong>duration</strong>, or the <strong>earlier past event</strong>. That usually tells you whether you need Simple, Perfect, or Perfect Continuous.\",\"example\":\"yesterday / for three years / by the time\"},{\"label\":\"MEANING BEFORE FORM\",\"color\":\"blue\",\"text\":\"Do not swap a form mechanically. Check whether the sentence expresses a <strong>present result</strong>, an <strong>ongoing duration</strong>, or a <strong>sequence in the past</strong>.\",\"example\":\"I have known her for years.\"},{\"label\":\"WATCH THE SMALL WORDS\",\"color\":\"amber\",\"text\":\"Tense rewrites are often controlled by <strong>since, for, already, yet, just, before, after, by the time, the last time</strong>.\",\"example\":\"I haven't seen him since Monday.\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. How to Spot the Needed Rewrite",
+            "body": "<p>Start with the time signal, not with the verb form.</p><ul><li>If the action started in the past and still continues now, you often need <strong>Present Perfect</strong> or <strong>Present Perfect Continuous</strong>.</li><li>If one action happened <strong>before another past action</strong>, transformation tasks often require <strong>Past Perfect</strong>.</li><li>If the sentence contains a <strong>finished time marker</strong> such as <em>yesterday</em>, <em>last year</em>, or <em>in 2022</em>, Present Perfect is usually the wrong choice.</li><li>Pairs such as <em>the last time</em>, <em>it's the first time</em>, and <em>started ... ago</em> often trigger standard exam rewrites.</li></ul>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Core Transformation Patterns",
+            "body": "<table><thead><tr><th>Base sentence</th><th>Target sentence</th><th>Rule focus</th></tr></thead><tbody><tr><td>I started learning French three years ago.</td><td>I have been learning French for three years.</td><td><strong>ago -> for</strong>; the action still continues now.</td></tr><tr><td>The last time I saw Marta was in May.</td><td>I haven't seen Marta since May.</td><td><strong>the last time ... was -> haven't ... since</strong>.</td></tr><tr><td>When we arrived, the film started.</td><td>By the time we arrived, the film had started.</td><td><strong>Past Perfect</strong> for the earlier past action.</td></tr><tr><td>It is the first time he has driven on the left.</td><td>He has never driven on the left before.</td><td><strong>the first time -> never ... before</strong>.</td></tr></tbody></table><p>In exam tasks, check whether only the tense changes or whether the marker also changes: <em>ago</em>, <em>for</em>, <em>since</em>, <em>before</em>, <em>already</em>, <em>yet</em>.</p>"
+        },
+        {
+            "index": 4,
+            "body": "{\"title\":\"3. Common mistakes\",\"items\":[{\"label\":\"Mistake 1\",\"color\":\"rose\",\"title\":\"Using Present Perfect with a finished past marker.\",\"wrong\":\"I have seen him yesterday.\",\"right\":\"I saw him yesterday.\",\"hint\":\"After <strong>yesterday, last week, in 2021</strong>, you usually need Past Simple.\"},{\"label\":\"Mistake 2\",\"color\":\"amber\",\"title\":\"Confusing <strong>for</strong> and <strong>since</strong>.\",\"wrong\":\"She has lived here since five years.\",\"right\":\"She has lived here for five years.\",\"hint\":\"<strong>For</strong> = duration, <strong>since</strong> = starting point.\"},{\"label\":\"Mistake 3\",\"color\":\"sky\",\"title\":\"Using Past Perfect with no second past reference point.\",\"wrong\":\"Yesterday I had gone to the shop.\",\"right\":\"Yesterday I went to the shop.\",\"hint\":\"<strong>Past Perfect</strong> usually needs a later past event or a clear past frame.\"},{\"label\":\"Mistake 4\",\"color\":\"rose\",\"title\":\"Losing the idea of duration when the action still continues.\",\"wrong\":\"I learn English for three years.\",\"right\":\"I have been learning English for three years.\",\"hint\":\"If the action began earlier and still continues now, a perfect form is usually needed.\"}]}"
+        },
+        {
+            "index": 5,
+            "body": "{\"title\":\"4. Quick Exam Check\",\"items\":[\"Mark the <strong>time signal</strong> before you change the verb form.\",\"Check whether the action <strong>still continues now</strong> or belongs to a finished past point.\",\"If there are <strong>two past actions</strong>, decide which one happened earlier.\",\"After rewriting, read the whole sentence again: does the meaning still match, and do <strong>since / for / before / by the time</strong> sound natural?\"]}"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Pages in this section\",\"items\":[{\"label\":\"Sentence Transformations — Tenses\",\"url\":\"/en/theory/sentence-transformations/tenses\",\"current\":true},{\"label\":\"Sentence Transformations — Modals\",\"url\":\"/en/theory/sentence-transformations/modals\",\"current\":false},{\"label\":\"Sentence Transformations — Passive\",\"url\":\"/en/theory/sentence-transformations/passive\",\"current\":false},{\"label\":\"Sentence Transformations — Reported Speech\",\"url\":\"/en/theory/sentence-transformations/reported-speech\",\"current\":false},{\"label\":\"Sentence Transformations — Conditionals\",\"url\":\"/en/theory/sentence-transformations/conditionals\",\"current\":false},{\"label\":\"Sentence Transformations — Relative Clauses / Linking Words\",\"url\":\"/en/theory/sentence-transformations/relative-clauses-linking-words\",\"current\":false},{\"label\":\"Sentence Transformations — Articles / Quantifiers\",\"url\":\"/en/theory/sentence-transformations/articles-quantifiers\",\"current\":false},{\"label\":\"Sentence Transformations — Word Order / Emphasis\",\"url\":\"/en/theory/sentence-transformations/word-order-emphasis\",\"current\":false}]}"
+        }
+    ]
+}

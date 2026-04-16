@@ -1,0 +1,42 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\SentenceTransformationsPassiveTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsPassiveTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Transformacje zdań — strona bierna</strong> pokazują, jak przenieść fokus z wykonawcy na działanie lub rezultat i jednocześnie zachować poprawny czas oraz formę strony biernej.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\"level\":\"B1-B2\",\"intro\":\"W transformacjach do strony biernej nie chodzi tylko o przestawienie słów. Trzeba <strong>zachować czas, aspekt, modalność i fokus znaczeniowy</strong>, ale przesunąć uwagę na działanie albo rezultat.\",\"rules\":[{\"label\":\"DOPEŁNIENIE -> PODMIOT\",\"color\":\"emerald\",\"text\":\"W większości parafraz <strong>dopełnienie zdania czynnego</strong> staje się podmiotem zdania w stronie biernej.\",\"example\":\"The bridge is being repaired.\"},{\"label\":\"ZACHOWAJ CZAS\",\"color\":\"blue\",\"text\":\"Forma <strong>be + V3</strong> musi oddać ten sam czas: <em>is built</em>, <em>was built</em>, <em>has been built</em>, <em>will be built</em>.\",\"example\":\"The meeting has been cancelled.\"},{\"label\":\"BY TYLKO GDY POTRZEBNE\",\"color\":\"amber\",\"text\":\"<strong>By + agent</strong> dodajemy tylko wtedy, gdy wykonawca jest ważny dla sensu. W innych sytuacjach lepiej go pominąć.\",\"example\":\"The novel was written by Orwell.\"}]}"
+        },
+        {
+            "index": 2,
+            "heading": "1. Jak rozpoznać potrzebną przebudowę",
+            "body": "<p>Transformacja do strony biernej jest potrzebna wtedy, gdy w centrum uwagi stoi nie wykonawca, ale czynność, rezultat albo obiekt, którego działanie dotyczy.</p><ul><li>Najpierw znajdź <strong>dopełnienie bliższe</strong> zdania czynnego. To ono często stanie się nowym podmiotem.</li><li>Potem określ <strong>czas i formę czasownika</strong>: simple, continuous, perfect albo konstrukcję modalną.</li><li>Następnie zbuduj poprawny układ <strong>be + V3</strong> albo <strong>modal + be + V3</strong>.</li><li>Na końcu zdecyduj, czy naprawdę potrzebujesz <strong>by-phrase</strong>. Jeśli wykonawca jest oczywisty lub nieważny, lepiej go pominąć.</li></ul>"
+        },
+        {
+            "index": 3,
+            "heading": "2. Główne wzorce transformacji",
+            "body": "<table><thead><tr><th>Zdanie bazowe</th><th>Zdanie docelowe</th><th>Na czym polega reguła</th></tr></thead><tbody><tr><td>People speak English in many offices.</td><td>English is spoken in many offices.</td><td><strong>Present Simple active -> passive</strong>.</td></tr><tr><td>They have cancelled the meeting.</td><td>The meeting has been cancelled.</td><td><strong>Present Perfect passive</strong> z <em>has been + V3</em>.</td></tr><tr><td>Someone will send you the link tomorrow.</td><td>The link will be sent to you tomorrow.</td><td><strong>will + be + V3</strong>; dopełnienie pośrednie może pozostać po czasowniku.</td></tr><tr><td>They are repairing the bridge.</td><td>The bridge is being repaired.</td><td><strong>Continuous passive</strong> z <em>being</em>.</td></tr></tbody></table><p>Jeśli zdanie ma dwa dopełnienia, czasem możliwe są dwie wersje strony biernej, ale na egzaminie zwykle szuka się tej najbardziej naturalnej.</p>"
+        },
+        {
+            "index": 4,
+            "body": "{\"title\":\"3. Typowe błędy\",\"items\":[{\"label\":\"Błąd 1\",\"color\":\"rose\",\"title\":\"Pomijanie czasownika <strong>be</strong> w stronie biernej.\",\"wrong\":\"The bridge repaired every year.\",\"right\":\"The bridge is repaired every year.\",\"hint\":\"Bez poprawnej formy <strong>be</strong> strona bierna nie działa.\"},{\"label\":\"Błąd 2\",\"color\":\"amber\",\"title\":\"Używanie drugiej formy zamiast trzeciej.\",\"wrong\":\"The report was wrote yesterday.\",\"right\":\"The report was written yesterday.\",\"hint\":\"Strona bierna wymaga <strong>past participle (V3)</strong>, a nie Past Simple.\"},{\"label\":\"Błąd 3\",\"color\":\"sky\",\"title\":\"Mylenie strony biernej prostej i ciągłej.\",\"wrong\":\"The room is cleaned right now.\",\"right\":\"The room is being cleaned right now.\",\"hint\":\"Jeśli czynność trwa teraz, potrzebujesz <strong>being</strong>.\"},{\"label\":\"Błąd 4\",\"color\":\"rose\",\"title\":\"Automatyczne dodawanie <strong>by</strong>, nawet gdy wykonawca nie jest ważny.\",\"wrong\":\"The road was closed by the authorities.\",\"right\":\"The road was closed.\",\"hint\":\"Zostawiaj <strong>by-phrase</strong> tylko wtedy, gdy wnosi ważną informację.\"}]}"
+        },
+        {
+            "index": 5,
+            "body": "{\"title\":\"4. Szybka lista kontrolna na egzamin\",\"items\":[\"Znajdź <strong>dopełnienie w zdaniu czynnym</strong> i zrób z niego nowy podmiot.\",\"Przenieś ten sam <strong>czas i aspekt</strong> do układu <strong>be + V3</strong>.\",\"Zastanów się, czy <strong>by + agent</strong> jest naprawdę potrzebne, czy tylko przeciąża zdanie.\",\"Przed oddaniem odpowiedzi sprawdź, czy nowe zdanie nadal znaczy to samo, tylko z innym fokusem.\"]}"
+        },
+        {
+            "index": 6,
+            "body": "{\"title\":\"Strony w tym dziale\",\"items\":[{\"label\":\"Transformacje zdań — czasy\",\"url\":\"/pl/theory/sentence-transformations/tenses\",\"current\":false},{\"label\":\"Transformacje zdań — czasowniki modalne\",\"url\":\"/pl/theory/sentence-transformations/modals\",\"current\":false},{\"label\":\"Transformacje zdań — strona bierna\",\"url\":\"/pl/theory/sentence-transformations/passive\",\"current\":true},{\"label\":\"Transformacje zdań — mowa zależna\",\"url\":\"/pl/theory/sentence-transformations/reported-speech\",\"current\":false},{\"label\":\"Transformacje zdań — okresy warunkowe\",\"url\":\"/pl/theory/sentence-transformations/conditionals\",\"current\":false},{\"label\":\"Transformacje zdań — zdania względne / wyrazy łączące\",\"url\":\"/pl/theory/sentence-transformations/relative-clauses-linking-words\",\"current\":false},{\"label\":\"Transformacje zdań — rodzajniki / określniki ilości\",\"url\":\"/pl/theory/sentence-transformations/articles-quantifiers\",\"current\":false},{\"label\":\"Transformacje zdań — szyk wyrazów / emfaza\",\"url\":\"/pl/theory/sentence-transformations/word-order-emphasis\",\"current\":false}]}"
+        }
+    ]
+}
