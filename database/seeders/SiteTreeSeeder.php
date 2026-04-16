@@ -724,6 +724,20 @@ class SiteTreeSeeder extends Seeder
                     ['title' => 'Sentence Transformations — Word Order / Emphasis', 'level' => 'B2–C1'],
                 ],
             ],
+            [
+                'title' => '22. Verb Patterns',
+                'level' => 'A2–B2',
+                'children' => [
+                    ['title' => 'Gerund', 'level' => 'A2–B1'],
+                    ['title' => 'To-Infinitive', 'level' => 'A2–B1'],
+                    ['title' => 'Bare Infinitive', 'level' => 'A2–B1'],
+                    ['title' => 'Gerund vs Infinitive', 'level' => 'B1'],
+                    ['title' => 'Verbs + Gerund', 'level' => 'B1'],
+                    ['title' => 'Verbs + Infinitive', 'level' => 'B1'],
+                    ['title' => 'Stop / Remember / Forget / Try / Regret', 'level' => 'B1–B2'],
+                    ['title' => 'Be used to / Get used to / Used to', 'level' => 'B1–B2'],
+                ],
+            ],
         ];
     }
 }
