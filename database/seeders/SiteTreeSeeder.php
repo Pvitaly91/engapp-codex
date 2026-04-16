@@ -698,6 +698,18 @@ class SiteTreeSeeder extends Seeder
                     ['title' => 'Common Phrasal Verbs by Topic', 'level' => 'B1–B2'],
                 ],
             ],
+            [
+                'title' => '20. Common Mistakes',
+                'level' => 'A2–B2',
+                'children' => [
+                    ['title' => 'Articles: Common Mistakes', 'level' => 'A2–B1'],
+                    ['title' => 'Word Order: Common Mistakes', 'level' => 'A2–B1'],
+                    ['title' => 'Present Perfect: Common Mistakes', 'level' => 'A2–B1'],
+                    ['title' => 'Countable vs Uncountable Nouns: Common Mistakes', 'level' => 'A2–B1'],
+                    ['title' => 'Prepositions: Common Mistakes', 'level' => 'A2–B1'],
+                    ['title' => 'B1/B2 Grammar Traps', 'level' => 'B1–B2'],
+                ],
+            ],
         ];
     }
 }
