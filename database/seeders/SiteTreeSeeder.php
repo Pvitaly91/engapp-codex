@@ -375,10 +375,9 @@ class SiteTreeSeeder extends Seeder
                         'title' => 'Some / Any',
                         'level' => 'A1–A2',
                         'children' => [
-                            ['title' => 'Some / Any — Кількість у ствердженні та запереченні', 'level' => 'A1–A2'],
-                            ['title' => 'Some / Any — Люди', 'level' => 'A2'],
-                            ['title' => 'Somewhere / Anywhere / Nowhere / Everywhere — місця з Some / Any', 'level' => 'A2'],
-                            ['title' => 'Some / Any — Речі', 'level' => 'A2'],
+                            ['title' => 'Some / Any — Places', 'level' => 'A2'],
+                            ['title' => 'Some / Any — People', 'level' => 'A2'],
+                            ['title' => 'Some / Any — Things', 'level' => 'A2'],
                         ],
                     ],
                     ['title' => 'Articles with geographical names — артиклі з географічними назвами', 'level' => 'B2'],

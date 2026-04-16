@@ -626,7 +626,9 @@ class PageController extends Controller
         $this->siteTreeOrdering = $this->siteTreeOrdering ?? $this->siteTreeLinkOrdering($availableTitles);
         $ordering = $this->siteTreeOrdering;
 
-        return $this->applySiteTreeOrdering($categories, $ordering);
+        return $this->applyTheoryRootCategoryOrdering(
+            $this->applySiteTreeOrdering($categories, $ordering)
+        );
     }
 
     protected function attachRecursivePageCounts(Collection $categories): void
@@ -746,6 +748,45 @@ class PageController extends Controller
         });
 
         return $this->sortCollectionByOrdering($sorted, $ordering, fn (PageCategory $category) => $category->title);
+    }
+
+    protected function applyTheoryRootCategoryOrdering(Collection $categories): Collection
+    {
+        if ($categories->isEmpty()) {
+            return $categories;
+        }
+
+        $ordering = array_flip($this->theoryRootCategorySlugs());
+
+        return $categories
+            ->sortBy(fn (PageCategory $category) => [
+                $ordering[$category->slug] ?? PHP_INT_MAX,
+                mb_strtolower($category->title),
+            ])
+            ->values();
+    }
+
+    protected function theoryRootCategorySlugs(): array
+    {
+        return [
+            'basic-grammar',
+            'imennyky-artykli-ta-kilkist',
+            'zaimennyky-ta-vkazivni-slova',
+            'maibutni-formy',
+            'pytalni-rechennia-ta-zaperechennia',
+            'prykmetniky-ta-pryslinknyky',
+            'some-any',
+            'tenses',
+            'passive-voice',
+            'modal-verbs',
+            'conditionals',
+            'reported-speech',
+            'clauses-and-linking-words',
+            'prepositions-and-phrasal-verbs',
+            'common-mistakes',
+            'sentence-transformations',
+            'verb-patterns',
+        ];
     }
 
     protected function sortPagesWithOrdering(Collection $pages, array $ordering): Collection

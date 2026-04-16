@@ -10,6 +10,7 @@ use App\Support\TextBlock\TextBlockUuidGenerator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use RuntimeException;
 
 abstract class JsonPageSeeder extends Seeder
@@ -160,8 +161,12 @@ abstract class JsonPageSeeder extends Seeder
 
         $pageAnchorTags = $this->normalizeStringList($config['tags'] ?? []);
         $categorySlug = $category?->slug ?? trim((string) Arr::get($config, 'category.slug', ''));
+        $normalizedAnchorTagSlugs = array_values(array_filter(array_map(
+            fn (string $tag): string => Str::slug($tag),
+            $pageAnchorTags
+        )));
 
-        if ($categorySlug !== '' && ! in_array($categorySlug, $pageAnchorTags, true)) {
+        if ($categorySlug !== '' && ! in_array(Str::slug($categorySlug), $normalizedAnchorTagSlugs, true)) {
             $pageAnchorTags[] = $categorySlug;
         }
 

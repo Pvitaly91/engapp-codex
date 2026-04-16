@@ -4,28 +4,62 @@
     $questions = $questions ?? collect();
     $uniqueId = $blockUuid ? 'practice-' . \Illuminate\Support\Str::slug($blockUuid) : 'practice-' . uniqid();
     $isAdmin = (bool) (auth()->user()?->is_admin ?? session('admin_authenticated', false));
+    $locale = app()->getLocale();
+
+    $normalizeTags = function ($tags, $matchedTagIds = null) use ($locale) {
+        return collect($tags)
+            ->map(function ($tag) use ($matchedTagIds, $locale) {
+                $name = \App\Support\TheoryTagLabel::display($tag->name ?? '', $locale);
+
+                if ($name === '') {
+                    return null;
+                }
+
+                return [
+                    'id' => $tag->id,
+                    'name' => $name,
+                    'matched' => $matchedTagIds?->contains($tag->id) ?? false,
+                ];
+            })
+            ->filter()
+            ->groupBy(fn (array $tag) => mb_strtolower($tag['name']))
+            ->map(function ($group) {
+                $tag = $group->first();
+                $tag['matched'] = $group->contains(fn (array $item) => $item['matched']);
+
+                return $tag;
+            })
+            ->values();
+    };
+
+    $normalizeMarkerTags = function ($tags) use ($locale) {
+        return collect($tags)
+            ->map(function ($tag) use ($locale) {
+                $name = \App\Support\TheoryTagLabel::display($tag['name'] ?? '', $locale);
+
+                if ($name === '') {
+                    return null;
+                }
+
+                return [
+                    'id' => $tag['id'] ?? null,
+                    'name' => $name,
+                    'category' => $tag['category'] ?? null,
+                ];
+            })
+            ->filter()
+            ->unique(fn (array $tag) => mb_strtolower($tag['name']))
+            ->values();
+    };
     
     // Prepare questions data for JavaScript
-    $questionsData = $questions->map(function($q) use ($isAdmin) {
+    $questionsData = $questions->map(function($q) use ($isAdmin, $normalizeTags, $normalizeMarkerTags) {
         $matchedTagIds = collect($q->getAttribute('matched_tag_ids') ?? []);
-
-        $tags = $q->tags->map(function($tag) use ($matchedTagIds) {
-            return [
-                'id' => $tag->id,
-                'name' => $tag->name,
-                'matched' => $matchedTagIds->contains($tag->id),
-            ];
-        });
+        $tags = $normalizeTags($q->tags, $matchedTagIds);
 
         $markerTags = $isAdmin
-            ? collect($q->getAttribute('marker_tags') ?? [])->map(function($tags, $marker) {
-                return collect($tags)->map(function($tag) {
-                    return [
-                        'id' => $tag['id'] ?? null,
-                        'name' => $tag['name'] ?? '',
-                        'category' => $tag['category'] ?? null,
-                    ];
-                })->values();
+            ? collect($q->getAttribute('marker_tags') ?? [])->map(function($tags, $marker) use ($normalizeMarkerTags) {
+                return $normalizeMarkerTags($tags);
             })
             : collect();
 
