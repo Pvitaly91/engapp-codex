@@ -16,6 +16,8 @@ abstract class SeededTheoryTestCase extends TestCase
 {
     private static bool $fixtureBootstrapped = false;
 
+    private static bool $compiledViewsRefreshed = false;
+
     private static ?string $databasePath = null;
 
     protected function setUp(): void
@@ -98,13 +100,32 @@ abstract class SeededTheoryTestCase extends TestCase
 
     private function prepareCompiledViews(): void
     {
+        $defaultViewsPath = storage_path('framework/views');
         $viewsPath = storage_path('framework/views-theory-tests');
 
-        if (! is_dir($viewsPath)) {
-            mkdir($viewsPath, 0777, true);
+        foreach ([$defaultViewsPath, $viewsPath] as $path) {
+            if (! is_dir($path)) {
+                mkdir($path, 0777, true);
+            }
         }
 
         config(['view.compiled' => $viewsPath]);
+
+        if (! self::$compiledViewsRefreshed) {
+            // Clear stale compiled Blade views so Livewire directives are recompiled
+            // against the currently installed version instead of cached legacy output.
+            $this->flushCompiledViews($defaultViewsPath);
+            $this->flushCompiledViews($viewsPath);
+
+            self::$compiledViewsRefreshed = true;
+        }
+    }
+
+    private function flushCompiledViews(string $path): void
+    {
+        foreach (glob($path . DIRECTORY_SEPARATOR . '*.php') ?: [] as $compiledView) {
+            @unlink($compiledView);
+        }
     }
 
     private function bindTheoryServiceMocks(): void
