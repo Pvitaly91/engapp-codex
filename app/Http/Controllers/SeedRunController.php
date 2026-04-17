@@ -13,6 +13,7 @@ use App\Services\QuestionDeletionService;
 use App\Support\Database\JsonPageSeeder;
 use App\Support\Database\JsonPageLocalizationManager;
 use App\Support\Database\JsonTestLocalizationManager;
+use Database\Seeders\Pages\Concerns\GrammarPageVariantSeeder as GrammarPageVariantSeederBase;
 use Database\Seeders\Page_v2\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
 use Database\Seeders\Page_v2\Concerns\PageCategoryDescriptionSeeder as PageCategoryDescriptionSeederBase;
 use Database\Seeders\QuestionSeeder as QuestionSeederBase;
@@ -1658,6 +1659,10 @@ class SeedRunController extends Controller
             return $this->buildQuestionSeederPreview($className);
         }
 
+        if (is_subclass_of($className, GrammarPageVariantSeederBase::class)) {
+            return $this->buildTheoryVariantSeederPreview($className);
+        }
+
         if (is_subclass_of($className, GrammarPageSeederBase::class)) {
             return $this->buildPageSeederPreview($className);
         }
@@ -1667,6 +1672,47 @@ class SeedRunController extends Controller
         }
 
         throw new \RuntimeException(__('Сидер :class не підтримує попередній перегляд.', ['class' => $className]));
+    }
+
+    protected function buildTheoryVariantSeederPreview(string $className): array
+    {
+        $seeder = app($className);
+
+        if (! $seeder instanceof GrammarPageVariantSeederBase) {
+            throw new \RuntimeException(__('Сидер :class не підтримує попередній перегляд варіанта.', ['class' => $className]));
+        }
+
+        $definition = $seeder->previewDefinition();
+        $targetType = trim((string) ($definition['target_type'] ?? ''));
+        $categorySlug = trim((string) ($definition['category_slug'] ?? ''));
+        $pageSlug = trim((string) ($definition['page_slug'] ?? ''));
+        $payload = is_array($definition['payload'] ?? null) ? $definition['payload'] : [];
+        $targetUrl = $this->buildTheoryVariantTargetUrl($targetType, $categorySlug, $pageSlug);
+
+        return [
+            'type' => 'theory_variant',
+            'questions' => collect(),
+            'existingQuestionCount' => null,
+            'variant' => [
+                'target_type' => $targetType,
+                'category_slug' => $categorySlug,
+                'page_slug' => $pageSlug !== '' ? $pageSlug : null,
+                'locale' => $definition['locale'] ?? null,
+                'variant_key' => $definition['variant_key'] ?? null,
+                'label' => $definition['label'] ?? null,
+                'provider' => $definition['provider'] ?? null,
+                'model' => $definition['model'] ?? null,
+                'prompt_version' => $definition['prompt_version'] ?? null,
+                'target_exists' => $this->theoryVariantPreviewTargetExists($targetType, $categorySlug, $pageSlug),
+                'target_url' => $targetUrl,
+                'title' => data_get($payload, 'title'),
+                'subtitle_html' => data_get($payload, 'subtitle_html'),
+                'blocks' => $this->buildTheoryVariantPreviewBlocks(data_get($payload, 'blocks', [])),
+                'block_count' => count(data_get($payload, 'blocks', [])),
+            ],
+            'levelsSummary' => collect(),
+            'answersSummary' => collect(),
+        ];
     }
 
     protected function buildQuestionSeederPreview(string $className): array
@@ -2048,6 +2094,152 @@ class SeedRunController extends Controller
             'levelsSummary' => collect(),
             'answersSummary' => collect(),
         ];
+    }
+
+    protected function buildTheoryVariantTargetUrl(string $targetType, string $categorySlug, string $pageSlug): ?string
+    {
+        if ($categorySlug === '') {
+            return null;
+        }
+
+        if ($targetType === 'page' && $pageSlug !== '') {
+            return localized_route('theory.show', [$categorySlug, $pageSlug]);
+        }
+
+        if ($targetType === 'category') {
+            return localized_route('theory.category', $categorySlug);
+        }
+
+        return null;
+    }
+
+    protected function theoryVariantPreviewTargetExists(string $targetType, string $categorySlug, string $pageSlug): bool
+    {
+        $category = PageCategory::query()
+            ->where('slug', $categorySlug)
+            ->where('type', 'theory')
+            ->first();
+
+        if (! $category) {
+            return false;
+        }
+
+        if ($targetType === 'category') {
+            return true;
+        }
+
+        if ($targetType !== 'page' || $pageSlug === '') {
+            return false;
+        }
+
+        return Page::query()
+            ->where('slug', $pageSlug)
+            ->where('type', 'theory')
+            ->where('page_category_id', $category->getKey())
+            ->exists();
+    }
+
+    protected function buildTheoryVariantPreviewBlocks(array $blocks): Collection
+    {
+        return collect($blocks)
+            ->filter(fn ($block) => is_array($block))
+            ->values()
+            ->map(function (array $block, int $index) {
+                return [
+                    'index' => $index + 1,
+                    'type' => $block['type'] ?? 'box',
+                    'column' => $block['column'] ?? 'left',
+                    'heading' => $block['heading'] ?? null,
+                    'preview_html' => $this->buildTheoryVariantBlockPreviewHtml($block),
+                ];
+            });
+    }
+
+    protected function buildTheoryVariantBlockPreviewHtml(array $block): string
+    {
+        $body = trim((string) ($block['body'] ?? ''));
+
+        if ($body === '') {
+            return '';
+        }
+
+        $decoded = json_decode($body, true);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            return $body;
+        }
+
+        $snippets = [];
+        $this->collectTheoryVariantPreviewSnippets($decoded, $snippets, 6);
+
+        if ($snippets === []) {
+            return '';
+        }
+
+        return collect($snippets)
+            ->take(6)
+            ->map(fn (string $snippet) => '<p>' . $snippet . '</p>')
+            ->implode('');
+    }
+
+    /**
+     * @param  array<int, string>  $results
+     */
+    protected function collectTheoryVariantPreviewSnippets(mixed $value, array &$results, int $limit): void
+    {
+        if (count($results) >= $limit) {
+            return;
+        }
+
+        if (is_string($value)) {
+            $trimmed = trim($value);
+
+            if ($trimmed !== '') {
+                $results[] = $trimmed;
+            }
+
+            return;
+        }
+
+        if (! is_array($value)) {
+            return;
+        }
+
+        $preferredKeys = [
+            'title',
+            'intro',
+            'description',
+            'warning',
+            'note',
+            'label',
+            'text',
+            'example',
+            'subtitle',
+            'prompt',
+            'before',
+            'after',
+            'original',
+            'wrong',
+            'right',
+            'en',
+            'ua',
+        ];
+
+        foreach ($preferredKeys as $key) {
+            if (! array_key_exists($key, $value) || count($results) >= $limit) {
+                continue;
+            }
+
+            $this->collectTheoryVariantPreviewSnippets($value[$key], $results, $limit);
+        }
+
+        foreach ($value as $key => $item) {
+            if (in_array($key, $preferredKeys, true) || count($results) >= $limit) {
+                continue;
+            }
+
+            $this->collectTheoryVariantPreviewSnippets($item, $results, $limit);
+        }
     }
 
     public function loadFolderChildren(Request $request): JsonResponse

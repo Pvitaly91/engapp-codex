@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\PageV3PromptGeneratorController;
+use App\Http\Controllers\Admin\TheoryVariantController;
 use App\Http\Controllers\Admin\V3PromptGeneratorController;
 use App\Http\Controllers\Admin\WordsExportController;
 use App\Http\Controllers\AiTestController;
@@ -65,10 +66,16 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
     Route::get('/test/{slug}/js/match', [GrammarTestController::class, 'showSavedTestJsMatch'])->name('saved-test.js.match');
     Route::get('/test/{slug}/js/dialogue', [GrammarTestController::class, 'showSavedTestJsDialogue'])->name('saved-test.js.dialogue');
 
-    Route::prefix('admin')->group(function () {
-        Route::get('/', [GitDeploymentController::class, 'index'])->name('admin.dashboard');
+        Route::prefix('admin')->group(function () {
+            Route::get('/', [GitDeploymentController::class, 'index'])->name('admin.dashboard');
 
-        Route::get('/site-tree', [SiteTreeController::class, 'index'])->name('site-tree.index');
+            Route::prefix('theory-variants')->name('theory-variants.')->group(function () {
+                Route::post('/{theoryVariant}/publish', [TheoryVariantController::class, 'publish'])->name('publish');
+                Route::post('/reset', [TheoryVariantController::class, 'resetToBase'])->name('reset');
+                Route::delete('/{theoryVariant}', [TheoryVariantController::class, 'destroy'])->name('destroy');
+            });
+
+            Route::get('/site-tree', [SiteTreeController::class, 'index'])->name('site-tree.index');
         Route::get('/site-tree/variant/{variantSlug}', [SiteTreeController::class, 'index'])->name('site-tree.variant');
         Route::get('/site-tree/api', [SiteTreeController::class, 'getTree'])->name('site-tree.api');
         Route::post('/site-tree', [SiteTreeController::class, 'store'])->name('site-tree.store');

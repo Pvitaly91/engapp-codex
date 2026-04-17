@@ -1,6 +1,6 @@
 @extends('layouts.catalog-public')
 
-@section('title', $page->title)
+@section('title', $resolvedTitle ?? $page->title)
 @section('body_class', 'scroll-optimized')
 
 @section('content')
@@ -33,8 +33,20 @@
             <a href="{{ localized_route($routePrefix . '.category', $selectedCategory->slug) }}" class="transition hover:text-ocean">{{ $selectedCategory->title }}</a>
         @endif
         <span>/</span>
-        <span style="color: var(--text);">{{ $page->title }}</span>
+        <span style="color: var(--text);">{{ $resolvedTitle ?? $page->title }}</span>
     </nav>
+
+    @include('theory.partials.variant-switcher', [
+        'availableVariants' => $availableVariants ?? collect(),
+        'currentVariant' => $currentVariant ?? null,
+        'currentVariantKey' => $currentVariantKey ?? 'base',
+        'currentVariantSource' => $currentVariantSource ?? 'base',
+        'publishedVariant' => $publishedVariant ?? null,
+        'publishedVariantKey' => $publishedVariantKey ?? 'base',
+        'variantTargetType' => $variantTargetType ?? 'page',
+        'variantTargetId' => $variantTargetId ?? $page->getKey(),
+        'variantLocale' => $variantLocale ?? $locale ?? app()->getLocale(),
+    ])
 
     <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
         <div class="absolute -right-10 top-0 hidden h-36 w-36 rounded-full border-[18px] border-ocean/30 lg:block"></div>
@@ -45,7 +57,7 @@
                     {{ __('theory_blocks.hero.level', ['level' => $heroData['level']]) }}
                 </span>
             @endif
-            <h1 class="mt-4 max-w-4xl font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $page->title }}</h1>
+            <h1 class="mt-4 max-w-4xl font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $resolvedTitle ?? $page->title }}</h1>
             @if(!empty($heroData['intro']))
                 <div class="mt-5 max-w-3xl text-sm leading-7 sm:text-base" style="color: var(--muted);">
                     {!! $heroData['intro'] !!}

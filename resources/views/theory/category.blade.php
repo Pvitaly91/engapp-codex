@@ -1,6 +1,6 @@
 @extends('layouts.catalog-public')
 
-@section('title', ($selectedCategory->title ?? __('frontend.copilot_theory.category')) . ' - ' . ($sectionTitle ?? __('frontend.copilot_theory.theory')))
+@section('title', ($resolvedTitle ?? $selectedCategory->title ?? __('frontend.copilot_theory.category')) . ' - ' . ($sectionTitle ?? __('frontend.copilot_theory.theory')))
 @section('body_class', 'scroll-optimized')
 
 @section('content')
@@ -23,8 +23,20 @@
         <span>/</span>
         <a href="{{ localized_route($routePrefix . '.index') }}" class="transition hover:text-ocean">{{ $sectionTitle ?? __('frontend.copilot_theory.theory') }}</a>
         <span>/</span>
-        <span style="color: var(--text);">{{ $selectedCategory->title }}</span>
+        <span style="color: var(--text);">{{ $resolvedTitle ?? $selectedCategory->title }}</span>
     </nav>
+
+    @include('theory.partials.variant-switcher', [
+        'availableVariants' => $availableVariants ?? collect(),
+        'currentVariant' => $currentVariant ?? null,
+        'currentVariantKey' => $currentVariantKey ?? 'base',
+        'currentVariantSource' => $currentVariantSource ?? 'base',
+        'publishedVariant' => $publishedVariant ?? null,
+        'publishedVariantKey' => $publishedVariantKey ?? 'base',
+        'variantTargetType' => $variantTargetType ?? 'category',
+        'variantTargetId' => $variantTargetId ?? $selectedCategory->getKey(),
+        'variantLocale' => $variantLocale ?? ($categoryDescription['locale'] ?? app()->getLocale()),
+    ])
 
     <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
         <div class="absolute -right-8 top-0 hidden h-32 w-32 rounded-full border-[18px] border-ocean/30 lg:block"></div>
@@ -32,9 +44,9 @@
         <div class="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div class="max-w-3xl">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.category') }}</p>
-                <h1 class="mt-3 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $selectedCategory->title }}</h1>
+                <h1 class="mt-3 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $resolvedTitle ?? $selectedCategory->title }}</h1>
                 <p class="mt-4 max-w-2xl text-sm leading-7 sm:text-base" style="color: var(--muted);">
-                    {{ __('frontend.copilot_theory.materials_in_category', ['category' => $selectedCategory->title]) }}
+                    {{ __('frontend.copilot_theory.materials_in_category', ['category' => $resolvedTitle ?? $selectedCategory->title]) }}
                 </p>
             </div>
             <div class="grid gap-3 sm:grid-cols-2">
@@ -93,17 +105,18 @@
 
         <div class="min-w-0 space-y-8">
             @if($categoryDescription['hasBlocks'] ?? false)
-                @include('theory.partials.category-description', [
-                    'page' => $selectedCategory,
-                    'categoryDescription' => $categoryDescription,
-                ])
+                        @include('theory.partials.category-description', [
+                            'page' => $selectedCategory,
+                            'categoryDescription' => $categoryDescription,
+                            'resolvedTitle' => $resolvedTitle ?? $selectedCategory->title,
+                        ])
             @endif
 
             <section class="theory-lazy-section rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
                 <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                     <div>
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.section_pages') }}</p>
-                        <h2 class="mt-2 font-display text-2xl font-extrabold leading-none">{{ $selectedCategory->title }}</h2>
+                        <h2 class="mt-2 font-display text-2xl font-extrabold leading-none">{{ $resolvedTitle ?? $selectedCategory->title }}</h2>
                     </div>
                     <p class="text-sm leading-6" style="color: var(--muted);">{{ $categoryPages->count() }} {{ __('public.theory.lessons_count') }}</p>
                 </div>

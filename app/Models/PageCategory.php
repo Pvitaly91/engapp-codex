@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class PageCategory extends Model
 {
@@ -38,6 +39,16 @@ class PageCategory extends Model
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function theoryVariants(): MorphMany
+    {
+        return $this->morphMany(TheoryVariant::class, 'variantable');
+    }
+
+    public function theoryVariantSelections(): MorphMany
+    {
+        return $this->morphMany(TheoryVariantSelection::class, 'variantable');
     }
 
     public function parent(): BelongsTo

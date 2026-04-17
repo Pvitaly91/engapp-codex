@@ -10,6 +10,7 @@
         $previewTypeLabel = match ($previewType) {
             'page' => __('Сторінка'),
             'category' => __('Категорія'),
+            'theory_variant' => __('Варіант теорії'),
             'question_localizations' => __('Локалізації'),
             'page_localizations' => __('Локалізації сторінок'),
             default => __('Питання'),
@@ -23,6 +24,7 @@
         $existingQuestionCount = $preview['existingQuestionCount'] ?? null;
         $pagePreview = $previewType === 'page' ? ($preview['page'] ?? null) : null;
         $categoryPreview = $previewType === 'category' ? ($preview['category'] ?? null) : null;
+        $variantPreview = $previewType === 'theory_variant' ? ($preview['variant'] ?? null) : null;
         $localizationsPreview = $previewType === 'question_localizations' ? ($preview['questions'] ?? collect()) : collect();
         $pageLocalizationsPreview = $previewType === 'page_localizations' ? ($preview['blocks'] ?? collect()) : collect();
 
@@ -49,6 +51,7 @@
                         {{ match ($previewType) {
                             'page' => __('Переконайтеся, що сторінка виглядає коректно, перш ніж запускати сидер.'),
                             'category' => __('Переконайтеся, що опис категорії виглядає коректно, перш ніж запускати сидер.'),
+                            'theory_variant' => __('Перевірте ціль, locale та компактний попередній перегляд блоків варіанта перед запуском сидера.'),
                             'question_localizations' => __('Переконайтеся, що локалізовані hints та explanations прив’язані до правильних питань і locale.'),
                             'page_localizations' => __('Переконайтеся, що локалізовані блоки прив’язані до правильної сторінки або категорії та locale.'),
                             default => __('Переконайтеся, що питання та пов’язані дані виглядають коректно, перш ніж запускати сидер.'),
@@ -126,6 +129,43 @@
                     <div>
                         <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('URL категорії') }}</dt>
                         <dd>{{ $categoryPreview['url'] ?? __('Немає посилання') }}</dd>
+                    </div>
+                @elseif($previewType === 'theory_variant' && $variantPreview)
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Тип цілі') }}</dt>
+                        <dd>{{ $variantPreview['target_type'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Locale') }}</dt>
+                        <dd>{{ strtoupper((string) ($variantPreview['locale'] ?? '')) ?: __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Slug категорії') }}</dt>
+                        <dd>{{ $variantPreview['category_slug'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Slug сторінки') }}</dt>
+                        <dd>{{ $variantPreview['page_slug'] ?? __('—') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Variant key') }}</dt>
+                        <dd>{{ $variantPreview['variant_key'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Label') }}</dt>
+                        <dd>{{ $variantPreview['label'] ?? __('Без назви') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Provider / model') }}</dt>
+                        <dd>{{ trim(($variantPreview['provider'] ?? '—') . ' / ' . ($variantPreview['model'] ?? '—'), ' ') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Ціль існує в БД') }}</dt>
+                        <dd>{{ !empty($variantPreview['target_exists']) ? __('Так') : __('Ні') }}</dd>
+                    </div>
+                    <div class="md:col-span-2">
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('URL цілі') }}</dt>
+                        <dd>{{ $variantPreview['target_url'] ?? __('Немає посилання') }}</dd>
                     </div>
                 @elseif($previewType === 'question_localizations')
                     <div>
@@ -816,6 +856,71 @@
                 @else
                     <div class="rounded border border-dashed border-gray-300 bg-gray-50 px-4 py-6 text-sm text-gray-500">
                         {{ __('Сидер не надав HTML для попереднього перегляду категорії.') }}
+                    </div>
+                @endif
+            </div>
+        @elseif($previewType === 'theory_variant')
+            <div class="bg-white shadow rounded-lg p-6 space-y-5">
+                <div>
+                    <h2 class="text-lg font-semibold text-gray-800">{{ __('Попередній перегляд варіанта теорії') }}</h2>
+                    <p class="text-sm text-gray-500">
+                        {{ __('Нижче показано компактний рендер заголовка, підзаголовка та блоків, які будуть записані у theory_variants.') }}
+                    </p>
+                </div>
+
+                @if($variantPreview)
+                    <div class="rounded-lg border border-slate-200 bg-slate-50 px-5 py-5 space-y-5">
+                        <div class="space-y-2">
+                            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">{{ __('Заголовок') }}</p>
+                            <h3 class="text-2xl font-semibold text-slate-900">{{ $variantPreview['title'] ?? __('Без назви') }}</h3>
+                        </div>
+
+                        @if(!empty($variantPreview['subtitle_html']))
+                            <div class="space-y-2">
+                                <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">{{ __('Підзаголовок') }}</p>
+                                <div class="prose prose-sm max-w-none text-slate-700">
+                                    {!! $variantPreview['subtitle_html'] !!}
+                                </div>
+                            </div>
+                        @endif
+
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between gap-3">
+                                <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">{{ __('Блоки') }}</p>
+                                <span class="text-xs text-slate-500">{{ $variantPreview['block_count'] ?? 0 }}</span>
+                            </div>
+
+                            @forelse(($variantPreview['blocks'] ?? collect()) as $block)
+                                <article class="rounded-lg border border-slate-200 bg-white px-4 py-4 space-y-3">
+                                    <div class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                        <span>#{{ $block['index'] ?? $loop->iteration }}</span>
+                                        <span>{{ $block['type'] ?? 'box' }}</span>
+                                        <span>•</span>
+                                        <span>{{ $block['column'] ?? 'left' }}</span>
+                                    </div>
+
+                                    @if(!empty($block['heading']))
+                                        <h4 class="text-base font-semibold text-slate-900">{{ $block['heading'] }}</h4>
+                                    @endif
+
+                                    @if(!empty($block['preview_html']))
+                                        <div class="prose prose-sm max-w-none text-slate-700">
+                                            {!! $block['preview_html'] !!}
+                                        </div>
+                                    @else
+                                        <p class="text-sm text-slate-400">{{ __('У блоці немає короткого прев’ю.') }}</p>
+                                    @endif
+                                </article>
+                            @empty
+                                <div class="rounded border border-dashed border-slate-300 bg-white px-4 py-6 text-sm text-slate-500">
+                                    {{ __('У варіанті немає блоків для попереднього перегляду.') }}
+                                </div>
+                            @endforelse
+                        </div>
+                    </div>
+                @else
+                    <div class="rounded border border-dashed border-gray-300 bg-gray-50 px-4 py-6 text-sm text-gray-500">
+                        {{ __('Сидер не надав даних для попереднього перегляду варіанта.') }}
                     </div>
                 @endif
             </div>
