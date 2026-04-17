@@ -1,0 +1,127 @@
+name: Admin Flows Smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+      - '.env.example'
+      - 'composer.json'
+      - 'composer.lock'
+      - 'phpunit.xml'
+      - 'routes/admin.php'
+      - 'routes/web.php'
+      - 'app/Http/Middleware/AdminAuthenticate.php'
+      - 'app/Http/Controllers/AuthController.php'
+      - 'app/Http/Controllers/GrammarTestController.php'
+      - 'app/Http/Controllers/SeedRunController.php'
+      - 'app/Http/Controllers/SiteTreeController.php'
+      - 'app/Http/Controllers/TestTagController.php'
+      - 'app/Models/Category.php'
+      - 'app/Models/Page.php'
+      - 'app/Models/PageCategory.php'
+      - 'app/Models/Question.php'
+      - 'app/Models/SavedGrammarTest.php'
+      - 'app/Models/SiteTreeItem.php'
+      - 'app/Models/SiteTreeVariant.php'
+      - 'app/Models/Source.php'
+      - 'app/Models/Tag.php'
+      - 'app/Models/Test.php'
+      - 'app/Modules/GitDeployment/**'
+      - 'resources/views/admin/**'
+      - 'resources/views/auth/**'
+      - 'resources/views/seed-runs/**'
+      - 'resources/views/test-tags/**'
+      - 'resources/views/grammar-test.blade.php'
+      - 'resources/views/grammar-test-result.blade.php'
+      - 'resources/views/saved-test*.blade.php'
+      - 'resources/views/saved-tests*.blade.php'
+      - 'resources/views/components/grammar-test-question-item.blade.php'
+      - 'resources/views/components/question-*.blade.php'
+      - 'resources/views/components/saved-test-*.blade.php'
+      - 'resources/views/components/sticky-header-scroll.blade.php'
+      - 'resources/views/components/test-mode-nav*.blade.php'
+      - 'tests/Feature/AdminFlows/**'
+      - 'tests/Support/AdminRouteMatrix.php'
+      - 'tests/CreatesApplication.php'
+      - 'tests/TestCase.php'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+      - '.env.example'
+      - 'composer.json'
+      - 'composer.lock'
+      - 'phpunit.xml'
+      - 'routes/admin.php'
+      - 'routes/web.php'
+      - 'app/Http/Middleware/AdminAuthenticate.php'
+      - 'app/Http/Controllers/AuthController.php'
+      - 'app/Http/Controllers/GrammarTestController.php'
+      - 'app/Http/Controllers/SeedRunController.php'
+      - 'app/Http/Controllers/SiteTreeController.php'
+      - 'app/Http/Controllers/TestTagController.php'
+      - 'app/Models/Category.php'
+      - 'app/Models/Page.php'
+      - 'app/Models/PageCategory.php'
+      - 'app/Models/Question.php'
+      - 'app/Models/SavedGrammarTest.php'
+      - 'app/Models/SiteTreeItem.php'
+      - 'app/Models/SiteTreeVariant.php'
+      - 'app/Models/Source.php'
+      - 'app/Models/Tag.php'
+      - 'app/Models/Test.php'
+      - 'app/Modules/GitDeployment/**'
+      - 'resources/views/admin/**'
+      - 'resources/views/auth/**'
+      - 'resources/views/seed-runs/**'
+      - 'resources/views/test-tags/**'
+      - 'resources/views/grammar-test.blade.php'
+      - 'resources/views/grammar-test-result.blade.php'
+      - 'resources/views/saved-test*.blade.php'
+      - 'resources/views/saved-tests*.blade.php'
+      - 'resources/views/components/grammar-test-question-item.blade.php'
+      - 'resources/views/components/question-*.blade.php'
+      - 'resources/views/components/saved-test-*.blade.php'
+      - 'resources/views/components/sticky-header-scroll.blade.php'
+      - 'resources/views/components/test-mode-nav*.blade.php'
+      - 'tests/Feature/AdminFlows/**'
+      - 'tests/Support/AdminRouteMatrix.php'
+      - 'tests/CreatesApplication.php'
+      - 'tests/TestCase.php'
+
+permissions:
+  contents: read
+
+jobs:
+  admin-flows-smoke:
+    name: Admin content-management smoke suite
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+          tools: composer:v2
+          extensions: mbstring, dom, fileinfo, sqlite3, pdo_sqlite
+
+      - name: Prepare environment file
+        run: cp .env.example .env
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Generate application key
+        run: php artisan key:generate --ansi
+
+      - name: Run admin content-management smoke suite
+        run: php artisan test tests/Feature/AdminFlows
