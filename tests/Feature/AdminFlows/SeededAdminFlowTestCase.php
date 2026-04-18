@@ -244,11 +244,13 @@ abstract class SeededAdminFlowTestCase extends TestCase
             'saved_grammar_tests',
             'tests',
             'question_tag',
+            'tag_word',
             'questions',
             'sources',
             'categories',
             'page_tag',
             'page_category_tag',
+            'words',
             'tags',
             'pages',
             'page_categories',
@@ -331,6 +333,12 @@ abstract class SeededAdminFlowTestCase extends TestCase
             $table->timestamps();
         });
 
+        Schema::create('words', function (Blueprint $table) {
+            $table->id();
+            $table->string('word');
+            $table->timestamps();
+        });
+
         Schema::create('page_tag', function (Blueprint $table) {
             $table->unsignedBigInteger('page_id');
             $table->unsignedBigInteger('tag_id');
@@ -375,6 +383,12 @@ abstract class SeededAdminFlowTestCase extends TestCase
             $table->unsignedBigInteger('question_id');
             $table->unsignedBigInteger('tag_id');
             $table->unique(['question_id', 'tag_id']);
+        });
+
+        Schema::create('tag_word', function (Blueprint $table) {
+            $table->unsignedBigInteger('tag_id');
+            $table->unsignedBigInteger('word_id');
+            $table->unique(['tag_id', 'word_id']);
         });
 
         Schema::create('tests', function (Blueprint $table) {
