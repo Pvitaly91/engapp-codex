@@ -7,6 +7,26 @@ use App\Models\SiteTreeVariant;
 
 class AdminSiteTreeWriteTest extends SeededAdminFlowTestCase
 {
+    public function test_authenticated_admin_can_toggle_a_site_tree_item(): void
+    {
+        $item = $this->createSiteTreeItem('Admin Write Toggle Node');
+
+        $response = $this->withSession($this->adminSession())
+            ->postJson(route('site-tree.toggle', $item), [
+                'is_checked' => false,
+            ]);
+
+        $response->assertOk();
+        $response->assertJsonPath('success', true);
+        $response->assertJsonPath('is_checked', false);
+
+        $this->assertDatabaseHas('site_tree_items', [
+            'id' => $item->id,
+            'title' => 'Admin Write Toggle Node',
+            'is_checked' => 0,
+        ]);
+    }
+
     public function test_authenticated_admin_can_create_a_site_tree_item(): void
     {
         $response = $this->withSession($this->adminSession())
@@ -117,6 +137,16 @@ class AdminSiteTreeWriteTest extends SeededAdminFlowTestCase
         $this->assertDatabaseHas('site_tree_items', [
             'id' => $item->id,
             'title' => 'Admin Write Protected Node',
+        ]);
+
+        $toggleResponse = $this->post(route('site-tree.toggle', $item), [
+            'is_checked' => false,
+        ]);
+        $this->assertRedirectsToLogin($toggleResponse, route('site-tree.toggle', $item));
+        $this->assertDatabaseHas('site_tree_items', [
+            'id' => $item->id,
+            'title' => 'Admin Write Protected Node',
+            'is_checked' => 1,
         ]);
 
         $deleteResponse = $this->delete(route('site-tree.destroy', $item));
