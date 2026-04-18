@@ -43,48 +43,13 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - '.github/workflows/**'
-      - '.env.example'
-      - 'composer.json'
-      - 'composer.lock'
-      - 'phpunit.xml'
-      - 'routes/admin.php'
-      - 'routes/web.php'
-      - 'app/Http/Middleware/AdminAuthenticate.php'
-      - 'app/Http/Controllers/AuthController.php'
-      - 'app/Http/Controllers/GrammarTestController.php'
-      - 'app/Http/Controllers/SeedRunController.php'
-      - 'app/Http/Controllers/SiteTreeController.php'
-      - 'app/Http/Controllers/TestTagController.php'
-      - 'app/Models/**'
-      - 'app/Modules/GitDeployment/**'
-      - 'resources/views/admin/**'
-      - 'resources/views/auth/**'
-      - 'resources/views/seed-runs/**'
-      - 'resources/views/test-tags/**'
-      - 'resources/views/layouts/app.blade.php'
-      - 'resources/views/grammar-test.blade.php'
-      - 'resources/views/grammar-test-result.blade.php'
-      - 'resources/views/saved-test*.blade.php'
-      - 'resources/views/saved-tests*.blade.php'
-      - 'resources/views/components/breadcrumbs.blade.php'
-      - 'resources/views/components/grammar-test-question-item.blade.php'
-      - 'resources/views/components/question-*.blade.php'
-      - 'resources/views/components/saved-test-*.blade.php'
-      - 'resources/views/components/sticky-header-scroll.blade.php'
-      - 'resources/views/components/test-mode-nav*.blade.php'
-      - 'tests/Feature/AdminFlows/**'
-      - 'tests/Support/AdminRouteMatrix.php'
-      - 'tests/CreatesApplication.php'
-      - 'tests/TestCase.php'
 
 permissions:
   contents: read
 
 jobs:
   admin-flows-smoke:
-    name: Admin content-management smoke suite
+    name: Admin Flows Smoke
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
