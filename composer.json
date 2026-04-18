@@ -59,6 +59,20 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "test:theory-smoke": [
+            "@php artisan test tests/Feature/Theory"
+        ],
+        "test:public-flows-smoke": [
+            "@php artisan test tests/Feature/PublicFlows"
+        ],
+        "test:admin-flows-smoke": [
+            "@php artisan test --stop-on-failure tests/Feature/AdminFlows"
+        ],
+        "test:smoke-all": [
+            "@test:theory-smoke",
+            "@test:public-flows-smoke",
+            "@test:admin-flows-smoke"
         ]
     },
     "extra": {
