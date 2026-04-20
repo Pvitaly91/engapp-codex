@@ -34,6 +34,7 @@ use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
 use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
 use Database\Seeders\V2\IfClausesType012WorksheetV2Seeder;
 use Database\Seeders\V2\MixedConditionalsBridgePracticeV2Seeder;
+use Database\Seeders\V2\MuchManyLotLittleFewTestV2Seeder;
 use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22Dialogue1Seeder;
 use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22Dialogue2Seeder;
 use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22DialogueSeeder;
@@ -153,6 +154,7 @@ class DatabaseSeeder extends Seeder
             ModalDeductionPossibilityPracticeV22Dialogue1Seeder::class,
             ModalDeductionPossibilityPracticeV22Dialogue2Seeder::class,
             ContractionsMatchSeeder::class,
+            MuchManyLotLittleFewTestV2Seeder::class,
             FirstConditionalPracticeV2Seeder::class,
             FirstConditionalChooseABCV2Seeder::class,
             SecondConditionalTestV2Seeder::class,
