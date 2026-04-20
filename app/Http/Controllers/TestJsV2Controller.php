@@ -171,6 +171,7 @@ class TestJsV2Controller extends Controller
                     $options[] = $ans;
                 }
             }
+            shuffle($options);
 
             $verbHints = $q->verbHints
                 ->mapWithKeys(fn ($vh) => [$vh->marker => $vh->option->option ?? ''])
@@ -304,6 +305,7 @@ class TestJsV2Controller extends Controller
             $options = $rawOptions[$marker] ?? $rawOptions[$index] ?? [];
             $options = is_array($options) ? $this->filterOptionArray($options) : [];
             if (! empty($options)) {
+                shuffle($options);
                 $hasValues = true;
             }
             $normalized[] = $options;
