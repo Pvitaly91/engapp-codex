@@ -826,6 +826,7 @@
     $templateView = $templateView ?? 'test-modes.card-easy';
     $heroBadge = $heroBadge ?? __('frontend.tests.hero.interactive');
     $heroDescription = $heroDescription ?? __('frontend.tests.hero.card_description');
+    $courseContext = $courseContext ?? null;
     $levels = collect($questionData)->pluck('level')->filter()->unique()->values();
     $questionCount = count($questionData ?? []);
     $templatePath = resource_path('views/' . str_replace('.', '/', $templateView) . '.blade.php');
@@ -847,6 +848,10 @@
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">{{ __('public.common.home') }}</a>
         <span>/</span>
         <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-ocean">{{ __('public.nav.catalog') }}</a>
+        @if(!empty(data_get($courseContext, 'course_url')) && !empty(data_get($courseContext, 'course_name')))
+            <span>/</span>
+            <a href="{{ data_get($courseContext, 'course_url') }}" class="transition hover:text-ocean">{{ data_get($courseContext, 'course_name') }}</a>
+        @endif
         <span>/</span>
         <span style="color: var(--text);">{{ $test->name }}</span>
     </nav>
@@ -896,6 +901,7 @@
             'usesUuidLinks' => $usesUuidLinks,
             'isAdmin' => $isAdmin ?? false,
             'showTechnicalInfo' => $showTechnicalInfo ?? false,
+            'courseContext' => $courseContext,
         ]) !!}
     </div>
 </div>

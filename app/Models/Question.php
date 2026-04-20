@@ -12,6 +12,8 @@ class Question extends Model
 
     public const TYPE_DRAG_DROP = '3';
 
+    public const TYPE_COMPOSE_TOKENS = '4';
+
     protected $casts = [
         'flag' => 'integer',
         'options_by_marker' => 'array',
@@ -57,6 +59,7 @@ class Question extends Model
             self::TYPE_MATCH => 'Match (відповідність пар)',
             self::TYPE_DIALOGUE => 'Dialogue (діалог)',
             self::TYPE_DRAG_DROP => 'Drag & Drop (перетягування)',
+            self::TYPE_COMPOSE_TOKENS => 'Compose Tokens (побудова речення)',
         ];
     }
 

@@ -1,10 +1,16 @@
 @php
     $routeName = request()->route()?->getName() ?? '';
+    $composeModeAvailable = \App\Support\ComposeModeEligibility::isAvailableForTest($test);
+    $normalizedFilters = \App\Support\ComposeModeEligibility::normalizedFilters($test);
+    $courseSlug = trim((string) ($normalizedFilters['course_slug'] ?? ''));
+    $courseUrl = $courseSlug !== '' ? localized_route('courses.show', $courseSlug) : null;
+    $isComposeRoute = request()->routeIs('test.step-compose');
     $isStepMode = request()->routeIs(
         'test.step',
         'test.step-select',
         'test.step-input',
-        'test.step-manual'
+        'test.step-manual',
+        'test.step-compose'
     );
 
     $difficulty = match (true) {
@@ -66,69 +72,89 @@
 
 <nav class="mt-10 mb-10">
     <div class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
-        <div class="grid gap-6 xl:grid-cols-3">
+        @if($composeModeAvailable)
             <div class="space-y-4">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.mode.view') }}</p>
                 <div class="flex flex-wrap gap-2">
-                    <a href="{{ $testRoute($cardRouteName) }}"
+                    <a href="{{ $testRoute('test.step-compose') }}"
                        class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
-                       style="{{ $pillClass(! $isStepMode && ! request()->routeIs('test.drag-drop', 'test.match', 'test.dialogue')) }}">
-                        {{ __('frontend.tests.mode.card') }}
+                       style="{{ $pillClass($isComposeRoute) }}">
+                        {{ __('frontend.tests.mode.compose') }}
                     </a>
-                    <a href="{{ $testRoute($stepRouteName) }}"
-                       class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
-                       style="{{ $pillClass($isStepMode) }}">
-                        {{ __('frontend.tests.mode.step') }}
-                    </a>
+                    @if($courseUrl)
+                        <a href="{{ $courseUrl }}"
+                           class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
+                           style="{{ $pillClass(false, 'soft') }}">
+                            {{ __('frontend.tests.course.course') }}
+                        </a>
+                    @endif
                 </div>
             </div>
+        @else
+            <div class="grid gap-6 xl:grid-cols-3">
+                <div class="space-y-4">
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.mode.view') }}</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="{{ $testRoute($cardRouteName) }}"
+                           class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
+                           style="{{ $pillClass(! $isStepMode && ! request()->routeIs('test.drag-drop', 'test.match', 'test.dialogue')) }}">
+                            {{ __('frontend.tests.mode.card') }}
+                        </a>
+                        <a href="{{ $testRoute($stepRouteName) }}"
+                           class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
+                           style="{{ $pillClass($isStepMode) }}">
+                            {{ __('frontend.tests.mode.step') }}
+                        </a>
+                    </div>
+                </div>
 
-            <div class="space-y-4">
-                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.mode.difficulty') }}</p>
-                <div class="flex flex-wrap gap-2">
-                    <a href="{{ $testRoute($difficultyRoutes['easy']) }}"
-                       class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
-                       style="{{ $pillClass($routeName === $difficultyRoutes['easy'], 'soft') }}">
-                        {{ __('frontend.tests.mode.easy') }}
-                    </a>
-                    <a href="{{ $testRoute($difficultyRoutes['medium']) }}"
-                       class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
-                       style="{{ $pillClass($routeName === $difficultyRoutes['medium'], 'soft') }}">
-                        {{ __('frontend.tests.mode.medium') }}
-                    </a>
-                    <a href="{{ $testRoute($difficultyRoutes['hard']) }}"
-                       class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
-                       style="{{ $pillClass($routeName === $difficultyRoutes['hard'], 'soft') }}">
-                        {{ __('frontend.tests.mode.hard') }}
-                    </a>
-                    <a href="{{ $testRoute($difficultyRoutes['expert']) }}"
-                       class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
-                       style="{{ $pillClass($routeName === $difficultyRoutes['expert'], 'soft') }}">
-                        {{ __('frontend.tests.mode.expert') }}
-                    </a>
+                <div class="space-y-4">
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.mode.difficulty') }}</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="{{ $testRoute($difficultyRoutes['easy']) }}"
+                           class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
+                           style="{{ $pillClass($routeName === $difficultyRoutes['easy'], 'soft') }}">
+                            {{ __('frontend.tests.mode.easy') }}
+                        </a>
+                        <a href="{{ $testRoute($difficultyRoutes['medium']) }}"
+                           class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
+                           style="{{ $pillClass($routeName === $difficultyRoutes['medium'], 'soft') }}">
+                            {{ __('frontend.tests.mode.medium') }}
+                        </a>
+                        <a href="{{ $testRoute($difficultyRoutes['hard']) }}"
+                           class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
+                           style="{{ $pillClass($routeName === $difficultyRoutes['hard'], 'soft') }}">
+                            {{ __('frontend.tests.mode.hard') }}
+                        </a>
+                        <a href="{{ $testRoute($difficultyRoutes['expert']) }}"
+                           class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
+                           style="{{ $pillClass($routeName === $difficultyRoutes['expert'], 'soft') }}">
+                            {{ __('frontend.tests.mode.expert') }}
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space-y-4">
-                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.mode.games') }}</p>
-                <div class="flex flex-wrap gap-2">
-                    <a href="{{ $testRoute('test.drag-drop') }}"
-                       class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
-                       style="{{ $pillClass(request()->routeIs('test.drag-drop')) }}">
-                        {{ __('frontend.tests.mode.drag_drop') }}
-                    </a>
-                    <a href="{{ $testRoute('test.match') }}"
-                       class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
-                       style="{{ $pillClass(request()->routeIs('test.match')) }}">
-                        {{ __('frontend.tests.mode.match') }}
-                    </a>
-                    <a href="{{ $testRoute('test.dialogue') }}"
-                       class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
-                       style="{{ $pillClass(request()->routeIs('test.dialogue')) }}">
-                        {{ __('frontend.tests.mode.dialogue') }}
-                    </a>
+                <div class="space-y-4">
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.mode.games') }}</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="{{ $testRoute('test.drag-drop') }}"
+                           class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
+                           style="{{ $pillClass(request()->routeIs('test.drag-drop')) }}">
+                            {{ __('frontend.tests.mode.drag_drop') }}
+                        </a>
+                        <a href="{{ $testRoute('test.match') }}"
+                           class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
+                           style="{{ $pillClass(request()->routeIs('test.match')) }}">
+                            {{ __('frontend.tests.mode.match') }}
+                        </a>
+                        <a href="{{ $testRoute('test.dialogue') }}"
+                           class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
+                           style="{{ $pillClass(request()->routeIs('test.dialogue')) }}">
+                            {{ __('frontend.tests.mode.dialogue') }}
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
     </div>
 </nav>

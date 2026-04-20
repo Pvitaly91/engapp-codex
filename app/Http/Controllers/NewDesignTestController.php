@@ -59,6 +59,20 @@ class NewDesignTestController extends TestJsV2Controller
         );
     }
 
+    public function showSavedTestJsStepComposeNewDesign(string $slug)
+    {
+        return $this->renderSavedTestComposeShell(
+            $slug,
+            'saved-test-js-step-compose-v2',
+            'test-show',
+            [
+                'templateView' => 'test-modes.step-compose',
+                'heroBadge' => __('frontend.tests.templates.compose.badge'),
+                'heroDescription' => __('frontend.tests.templates.compose.description'),
+            ]
+        );
+    }
+
     public function showSavedTestJsSelectNewDesign(string $slug)
     {
         return $this->renderNewDesignMode(

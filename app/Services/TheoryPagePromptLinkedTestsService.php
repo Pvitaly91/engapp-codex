@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Page;
 use App\Models\Question;
 use App\Models\SavedGrammarTest;
+use App\Support\ComposeModeEligibility;
 use App\Support\Database\JsonTestSeeder;
 use App\Support\PromptGeneratorFilterNormalizer;
 use Illuminate\Database\Eloquent\Builder;
@@ -34,11 +35,25 @@ class TheoryPagePromptLinkedTestsService
     public function buildForPage(Page $page): Collection
     {
         $linkedTests = $this->findForPage($page);
-        $definitionsBySeeder = $this->promptLinkedSeederDefinitionsForPage($page);
-        $seederClasses = $this->aggregateSeederClassesForPage($linkedTests, $definitionsBySeeder);
+        $directLinkedTests = $this->extractDirectLinkedTests($linkedTests);
+        $directSeederClasses = $this->normalizeSeederClasses(
+            $directLinkedTests
+                ->flatMap(function (SavedGrammarTest $test) {
+                    $filters = is_array($test->filters) ? $test->filters : [];
+
+                    return $filters['seeder_classes'] ?? [];
+                })
+                ->all()
+        );
+        $definitionsBySeeder = $this->promptLinkedSeederDefinitionsForPage($page)
+            ->reject(fn ($definition, string $className) => in_array(Str::lower($className), $directSeederClasses, true));
+        $seederClasses = $this->aggregateSeederClassesForPage(
+            $linkedTests->reject(fn (SavedGrammarTest $test) => $this->shouldDisplayDirectly($test)),
+            $definitionsBySeeder
+        );
 
         if ($seederClasses->isEmpty()) {
-            return collect();
+            return $directLinkedTests->values();
         }
 
         $baseFilters = $this->aggregateBaseFilters($page, $linkedTests, $definitionsBySeeder);
@@ -47,7 +62,7 @@ class TheoryPagePromptLinkedTestsService
             ->whereNotNull('level')
             ->get(['level']);
 
-        return collect(self::LEVEL_PAIRS)
+        $aggregatedTests = collect(self::LEVEL_PAIRS)
             ->map(function (array $levelPair) use ($page, $baseFilters, $seederClasses, $questionRows) {
                 $availableCount = $questionRows
                     ->whereIn('level', $levelPair)
@@ -66,6 +81,15 @@ class TheoryPagePromptLinkedTestsService
                 );
             })
             ->filter()
+            ->values();
+
+        if ($directLinkedTests->isEmpty()) {
+            return $aggregatedTests;
+        }
+
+        return $directLinkedTests
+            ->merge($aggregatedTests)
+            ->unique(fn ($test) => Str::lower(trim((string) ($test->slug ?? $test->name ?? spl_object_hash($test)))))
             ->values();
     }
 
@@ -122,6 +146,26 @@ class TheoryPagePromptLinkedTestsService
         $slug = trim((string) ($test->slug ?? ''));
 
         return $slug !== '' ? 'slug:' . Str::lower($slug) : null;
+    }
+
+    protected function extractDirectLinkedTests(Collection $linkedTests): Collection
+    {
+        return $linkedTests
+            ->filter(fn (SavedGrammarTest $test) => $this->shouldDisplayDirectly($test))
+            ->values();
+    }
+
+    protected function shouldDisplayDirectly(SavedGrammarTest $test): bool
+    {
+        $filters = is_array($test->filters) ? $test->filters : [];
+        $lessonType = Str::lower(trim((string) ($filters['lesson_type'] ?? '')));
+        $courseSlug = Str::lower(trim((string) ($filters['course_slug'] ?? '')));
+
+        if ($lessonType === 'polyglot' || Str::startsWith($courseSlug, 'polyglot-')) {
+            return ComposeModeEligibility::supportsFilters($filters);
+        }
+
+        return false;
     }
 
     /**

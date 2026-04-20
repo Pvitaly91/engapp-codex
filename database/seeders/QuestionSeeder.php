@@ -2,14 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\ChatGPTExplanation;
-use App\Models\Question;
-use App\Models\QuestionHint;
 use App\Models\Tag;
+use App\Services\QuestionMetaSyncService;
 use App\Services\QuestionSeedingService;
 use App\Support\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
 abstract class QuestionSeeder extends Seeder
@@ -64,54 +61,7 @@ abstract class QuestionSeeder extends Seeder
 
         $service = new QuestionSeedingService;
         $service->seed($items);
-
-        foreach ($meta as $data) {
-            $question = Question::where('uuid', $data['uuid'] ?? null)->first();
-
-            if (! $question) {
-                continue;
-            }
-
-            if (Schema::hasColumn('questions', 'seeder') && empty($question->seeder)) {
-                $question->forceFill(['seeder' => static::class])->save();
-            }
-
-            $hintText = $this->formatHints($data['hints'] ?? []);
-            if ($hintText !== null) {
-                QuestionHint::updateOrCreate(
-                    ['question_id' => $question->id, 'provider' => 'chatgpt', 'locale' => 'uk'],
-                    ['hint' => $hintText]
-                );
-            }
-
-            // Process gap_tags if present (map of marker => array of tag names)
-            $gapTags = $data['gap_tags'] ?? [];
-            if (! empty($gapTags) && Schema::hasTable('question_marker_tag')) {
-                $this->syncMarkerTags($question->id, $gapTags);
-            }
-
-            $answers = $data['answers'] ?? [];
-            $optionMarkers = $data['option_markers'] ?? [];
-
-            foreach ($data['explanations'] ?? [] as $option => $text) {
-                $marker = $optionMarkers[$option] ?? array_key_first($answers);
-                $correct = $marker !== null ? ($answers[$marker] ?? reset($answers)) : reset($answers);
-
-                if (! is_string($correct)) {
-                    $correct = (string) $correct;
-                }
-
-                ChatGPTExplanation::updateOrCreate(
-                    [
-                        'question' => $question->question,
-                        'wrong_answer' => $option,
-                        'correct_answer' => $correct,
-                        'language' => 'ua',
-                    ],
-                    ['explanation' => $text]
-                );
-            }
-        }
+        app(QuestionMetaSyncService::class)->sync($meta, static::class, 'uk');
     }
 
     /**

@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IrregularVerbsTestController;
 use App\Http\Controllers\NewDesignTestController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PolyglotCourseController;
 use App\Http\Controllers\SiteSearchController;
 use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\WordSearchController;
@@ -103,6 +104,7 @@ Route::get('/catalog-tests/cards', fn () => redirect()->route('catalog.tests-car
 Route::get('/tests/cards', fn () => redirect()->route('catalog.tests-cards')); // legacy
 
 Route::get('/search', SiteSearchController::class)->name('site.search');
+Route::get('/courses/{courseSlug}', [PolyglotCourseController::class, 'show'])->name('courses.show');
 
 // Copilot layout demo
 Route::get('/copilot', fn () => view('copilot.index'))->name('copilot.index');
@@ -121,6 +123,7 @@ Route::prefix('test')->group(function () {
     Route::get('/{slug}/step/input', [NewDesignTestController::class, 'showSavedTestJsStepInputNewDesign'])->name('test.step-input');
     Route::get('/{slug}/step/manual', [NewDesignTestController::class, 'showSavedTestJsStepManualNewDesign'])->name('test.step-manual');
     Route::get('/{slug}/step/select', [NewDesignTestController::class, 'showSavedTestJsStepSelectNewDesign'])->name('test.step-select');
+    Route::get('/{slug}/step/compose', [NewDesignTestController::class, 'showSavedTestJsStepComposeNewDesign'])->name('test.step-compose');
     Route::get('/{slug}/select', [NewDesignTestController::class, 'showSavedTestJsSelectNewDesign'])->name('test.select');
     Route::get('/{slug}/input', [NewDesignTestController::class, 'showSavedTestJsInputNewDesign'])->name('test.input');
     Route::get('/{slug}/manual', [NewDesignTestController::class, 'showSavedTestJsManualNewDesign'])->name('test.manual');

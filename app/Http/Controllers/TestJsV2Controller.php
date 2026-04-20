@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Question;
 use App\Models\TextBlock;
+use App\Support\ComposeModeEligibility;
 use App\Services\MarkerTheoryMatcherService;
+use App\Services\PolyglotCourseManifestService;
 use App\Services\QuestionTechnicalInfoService;
 use App\Services\QuestionVariantService;
 use App\Services\SavedTestResolver;
 use App\Support\SavedTestJsState;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use Illuminate\Support\Str;
 
 class TestJsV2Controller extends Controller
 {
@@ -16,6 +21,7 @@ class TestJsV2Controller extends Controller
         private SavedTestResolver $savedTestResolver,
         private MarkerTheoryMatcherService $markerTheoryMatcher,
         private QuestionTechnicalInfoService $questionTechnicalInfoService,
+        private PolyglotCourseManifestService $polyglotCourseManifestService,
     ) {}
 
     /**
@@ -87,6 +93,32 @@ class TestJsV2Controller extends Controller
         return $this->renderSavedTestShell($slug, $mode, $view ?? "tests.$mode");
     }
 
+    protected function renderSavedTestComposeShell(string $slug, string $mode, string $view, array $extra = [])
+    {
+        $resolved = $this->savedTestResolver->resolve($slug);
+        $test = $resolved->model;
+        $isAdmin = $this->isAdminUser();
+        $showTechnicalInfo = $this->shouldShowTechnicalInfo($isAdmin);
+
+        abort_unless(ComposeModeEligibility::isAvailableForTest($test), 404);
+
+        $questions = $this->buildComposeQuestionDataset($resolved, $showTechnicalInfo);
+        $courseContext = $this->buildPolyglotCourseContext($test);
+
+        abort_if($questions === [], 404);
+
+        return view($view, array_merge([
+            'test' => $test,
+            'questionData' => $questions,
+            'jsStateMode' => $mode,
+            'savedState' => null,
+            'usesUuidLinks' => $resolved->usesUuidLinks,
+            'isAdmin' => $isAdmin,
+            'showTechnicalInfo' => $showTechnicalInfo,
+            'courseContext' => $courseContext,
+        ], $extra));
+    }
+
     protected function renderSavedTestShell(string $slug, string $mode, string $view, array $extra = [])
     {
         $resolved = $this->savedTestResolver->resolve($slug);
@@ -148,9 +180,7 @@ class TestJsV2Controller extends Controller
         $controller = $this;
 
         return $questions->map(function ($q) use ($controller, $technicalInfoByQuestionId) {
-            $answers = $q->answers
-                ->sortBy('marker')
-                ->values()
+            $answers = $controller->sortAnswersByMarker($q->answers)
                 ->map(function ($a) {
                     return [
                         'marker' => $a->marker,
@@ -268,6 +298,38 @@ class TestJsV2Controller extends Controller
         return is_array($questionData) ? $questionData : null;
     }
 
+    protected function buildComposeQuestionDataset($resolved, bool $includeTechnicalInfo = false): array
+    {
+        $filters = ComposeModeEligibility::normalizedFilters($resolved->model);
+        $relations = ['answers.option', 'options', 'hints', 'chatgptExplanations'];
+        if ($includeTechnicalInfo) {
+            $relations[] = 'category';
+            $relations[] = 'source';
+            $relations[] = 'tags';
+        }
+
+        $questions = $this->savedTestResolver->loadQuestions($resolved, $relations)
+            ->filter(fn (Question $question) => ComposeModeEligibility::supportsQuestion($question, $filters))
+            ->values();
+
+        if ($questions->isEmpty()) {
+            return [];
+        }
+
+        $technicalInfoByQuestionId = $includeTechnicalInfo
+            ? $this->questionTechnicalInfoService->mapForQuestions($questions)
+            : [];
+
+        return $questions
+            ->map(fn (Question $question) => $this->buildComposeQuestionPayload(
+                $question,
+                $technicalInfoByQuestionId[$question->id] ?? null
+            ))
+            ->filter()
+            ->values()
+            ->all();
+    }
+
     protected function isAdminUser(): bool
     {
         return (bool) (auth()->user()?->is_admin ?? session('admin_authenticated', false));
@@ -328,6 +390,118 @@ class TestJsV2Controller extends Controller
         return $clean;
     }
 
+    protected function sortAnswersByMarker(EloquentCollection $answers): EloquentCollection
+    {
+        return $answers
+            ->sortBy(fn ($answer) => $this->markerSortValue($answer->marker))
+            ->values();
+    }
+
+    protected function markerSortValue(?string $marker): string
+    {
+        $normalized = strtolower(trim((string) $marker));
+
+        if (preg_match('/^([a-z_]+)(\d+)$/', $normalized, $matches) === 1) {
+            return sprintf('%s%08d', $matches[1], (int) $matches[2]);
+        }
+
+        return $normalized;
+    }
+
+    protected function normalizedTestFilters($test): array
+    {
+        return ComposeModeEligibility::normalizedFilters($test);
+    }
+
+    protected function buildPolyglotCourseContext(mixed $test): ?array
+    {
+        $filters = $this->normalizedTestFilters($test);
+        $courseSlug = trim((string) ($filters['course_slug'] ?? ''));
+        $testSlug = trim((string) ($test->slug ?? ''));
+
+        if ($courseSlug === '' || $testSlug === '') {
+            return null;
+        }
+
+        $manifest = $this->polyglotCourseManifestService->build($courseSlug);
+        $lesson = $this->polyglotCourseManifestService->findLesson($manifest, $testSlug);
+
+        if (! $lesson) {
+            return null;
+        }
+
+        $previousLesson = $this->polyglotCourseManifestService->previousLesson($manifest, $testSlug);
+        $nextLesson = $this->polyglotCourseManifestService->nextLesson($manifest, $testSlug);
+
+        return [
+            'course_slug' => $courseSlug,
+            'course_name' => $manifest['course']['name'] ?? null,
+            'course_description' => $manifest['course']['description'] ?? null,
+            'course_url' => localized_route('courses.show', $courseSlug),
+            'lesson_slug' => $lesson['slug'],
+            'lesson_order' => $lesson['lesson_order'],
+            'topic' => $lesson['topic'],
+            'level' => $lesson['level'],
+            'previous_lesson_slug' => $previousLesson['slug'] ?? ($lesson['previous_lesson_slug'] ?? null),
+            'previous_lesson_url' => $previousLesson['compose_url'] ?? null,
+            'next_lesson_slug' => $nextLesson['slug'] ?? ($lesson['next_lesson_slug'] ?? null),
+            'next_lesson_url' => $nextLesson['compose_url'] ?? null,
+            'total_lessons' => $this->polyglotCourseManifestService->totalLessons($manifest),
+            'completion' => $lesson['completion'] ?? [],
+            'mode' => $lesson['mode'] ?? null,
+            'lessons' => $manifest['lessons'] ?? [],
+        ];
+    }
+
+    protected function composePunctuationForSource(?string $sourceText): string
+    {
+        return Str::endsWith(trim((string) $sourceText), '?') ? '?' : '.';
+    }
+
+    protected function buildComposeSentence(array $tokens, string $punctuation): string
+    {
+        $sentence = trim(implode(' ', array_map(fn ($token) => trim((string) $token), $tokens)));
+
+        if ($sentence === '') {
+            return '';
+        }
+
+        return preg_replace('/\s+([?.!,;:])/u', '$1', $sentence.$punctuation) ?? ($sentence.$punctuation);
+    }
+
+    protected function composeHintText(Question $question): ?string
+    {
+        if (! $question->relationLoaded('hints')) {
+            return null;
+        }
+
+        $hint = $question->hints
+            ->sortByDesc(fn ($item) => ($item->locale === 'uk' ? 1 : 0))
+            ->first(fn ($item) => filled($item->hint));
+
+        return $hint ? trim((string) $hint->hint) : null;
+    }
+
+    protected function composeExplanationMap(Question $question): array
+    {
+        if (! $question->relationLoaded('chatgptExplanations')) {
+            return [];
+        }
+
+        return $question->chatgptExplanations
+            ->filter(function ($item) {
+                $language = strtolower(trim((string) ($item->language ?? '')));
+
+                return in_array($language, ['', 'ua', 'uk'], true)
+                    && filled($item->wrong_answer)
+                    && filled($item->explanation);
+            })
+            ->mapWithKeys(fn ($item) => [
+                trim((string) $item->wrong_answer) => trim((string) $item->explanation),
+            ])
+            ->toArray();
+    }
+
     protected function sanitizeJsLaunchToken(mixed $value): ?string
     {
         if (! is_string($value)) {
@@ -341,5 +515,92 @@ class TestJsV2Controller extends Controller
         }
 
         return preg_match('/^[A-Za-z0-9_-]+$/', $token) === 1 ? $token : null;
+    }
+
+    protected function buildComposeQuestionPayload(Question $question, mixed $technicalInfo = null): ?array
+    {
+        $orderedAnswers = $this->sortAnswersByMarker($question->answers);
+        $correctTokens = $orderedAnswers
+            ->map(fn ($answer) => trim((string) ($answer->option->option ?? $answer->answer ?? '')))
+            ->filter(fn ($value) => $value !== '')
+            ->values()
+            ->all();
+
+        if ($correctTokens === []) {
+            return null;
+        }
+
+        $punctuation = $this->composePunctuationForSource($question->question);
+        $tokenBank = $this->buildComposeTokenBank(
+            $correctTokens,
+            $question->options->pluck('option')->all()
+        );
+        $correctTokenIds = collect($tokenBank)
+            ->where('isCorrect', true)
+            ->sortBy('correctIndex')
+            ->pluck('id')
+            ->values()
+            ->all();
+
+        return [
+            'id' => $question->id,
+            'uuid' => $question->uuid,
+            'type' => $question->type,
+            'level' => $question->level,
+            'sourceTextUk' => $question->question,
+            'correctTokens' => $correctTokens,
+            'correctTokenValues' => $correctTokens,
+            'correctTokenIds' => $correctTokenIds,
+            'tokenBank' => $tokenBank,
+            'tokensPool' => collect($tokenBank)->pluck('value')->unique()->values()->all(),
+            'correctText' => $this->buildComposeSentence($correctTokens, $punctuation),
+            'hintUk' => $this->composeHintText($question),
+            'explanations' => $this->composeExplanationMap($question),
+            'punctuation' => $punctuation,
+            'tech_info' => $technicalInfo,
+        ];
+    }
+
+    protected function buildComposeTokenBank(array $correctTokens, array $optionValues): array
+    {
+        $instances = [];
+
+        foreach (array_values($correctTokens) as $index => $token) {
+            $value = trim((string) $token);
+
+            if ($value === '') {
+                continue;
+            }
+
+            $instances[] = [
+                'id' => 'c'.($index + 1),
+                'value' => $value,
+                'isCorrect' => true,
+                'correctIndex' => $index,
+            ];
+        }
+
+        $correctLookup = [];
+        foreach ($instances as $instance) {
+            $correctLookup[$instance['value']] = true;
+        }
+
+        $distractorIndex = 1;
+        foreach ($this->filterOptionArray($optionValues) as $optionValue) {
+            if (isset($correctLookup[$optionValue])) {
+                continue;
+            }
+
+            $instances[] = [
+                'id' => 'd'.$distractorIndex,
+                'value' => $optionValue,
+                'isCorrect' => false,
+                'correctIndex' => null,
+            ];
+
+            $distractorIndex += 1;
+        }
+
+        return $instances;
     }
 }

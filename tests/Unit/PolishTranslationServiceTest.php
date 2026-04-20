@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 
-class TranslationServiceTest extends TestCase
+class PolishTranslationServiceTest extends TestCase
 {
     private function createTestService()
     {

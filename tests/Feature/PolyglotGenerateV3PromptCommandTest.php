@@ -1,0 +1,574 @@
+<?php
+
+namespace Tests\Feature;
+
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
+use Tests\Support\RebuildsComposeTestSchema;
+use Tests\TestCase;
+
+class PolyglotGenerateV3PromptCommandTest extends TestCase
+{
+    use RebuildsComposeTestSchema;
+
+    /**
+     * @var array<int, string>
+     */
+    private array $cleanupPaths = [];
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->rebuildComposeTestSchema();
+    }
+
+    protected function tearDown(): void
+    {
+        foreach (array_reverse($this->cleanupPaths) as $path) {
+            if (File::isDirectory($path)) {
+                File::deleteDirectory($path);
+                continue;
+            }
+
+            File::delete($path);
+        }
+
+        parent::tearDown();
+    }
+
+    public function test_command_prints_prompt_for_existing_theory_page(): void
+    {
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'verb-to-be',
+            'theoryPageSlug' => 'verb-to-be-present',
+            'lessonSlug' => 'polyglot-sample-v3-lesson',
+            'lessonOrder' => 3,
+            '--title' => 'Polyglot Sample Lesson',
+            '--topic' => 'verb to be',
+            '--seeder' => 'PolyglotSampleLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-there-is-there-are-a1',
+            '--items' => 24,
+        ]);
+
+        $output = Artisan::output();
+
+        $this->assertSame(0, $exitCode);
+        $this->assertStringContainsString('Resolved theory page: Verb to Be: Present Forms', $output);
+        $this->assertStringContainsString('/theory/verb-to-be/verb-to-be-present', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotSampleLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('Codex Summary (Top):', $output);
+        $this->assertMatchesRegularExpression('/PROMPT ID: GLZ-PROMPT-[A-F0-9]{8}/', $output);
+    }
+
+    public function test_command_writes_output_file(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-sample-v3-there-lesson.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'verb-to-be',
+            'theoryPageSlug' => 'there-is-there-are',
+            'lessonSlug' => 'polyglot-sample-v3-there-lesson',
+            'lessonOrder' => 4,
+            '--title' => 'Polyglot There Sample',
+            '--topic' => 'there is / there are',
+            '--seeder' => 'PolyglotSampleThereLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-sample-v3-lesson',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-TEST-WRITE',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Prompt output: ' . $outputRelativePath, $output);
+        $this->assertStringStartsWith(
+            'PROMPT ID: GLZ-PROMPT-TEST-WRITE' . "\n\n" . 'Codex Summary (Top):',
+            $contents
+        );
+        $this->assertStringEndsWith("\n\nPROMPT ID: GLZ-PROMPT-TEST-WRITE", $contents);
+        $this->assertStringContainsString('Codex Summary (Top):', $contents);
+        $this->assertStringContainsString('Codex Summary (Bottom):', $contents);
+    }
+
+    public function test_command_writes_have_got_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-have-got-has-got-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'basic-grammar',
+            'theoryPageSlug' => 'have-got-has-got',
+            'lessonSlug' => 'polyglot-have-got-has-got-a1',
+            'lessonOrder' => 3,
+            '--title' => 'Polyglot Have Got / Has Got',
+            '--topic' => 'have got / has got',
+            '--seeder' => 'PolyglotHaveGotHasGotLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-there-is-there-are-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-HAVE-GOT-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Have Got / Has Got', $output);
+        $this->assertStringContainsString('/theory/basic-grammar/have-got-has-got', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotHaveGotHasGotLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-HAVE-GOT-TEST', $contents);
+        $this->assertStringContainsString('polyglot-have-got-has-got-a1', $contents);
+    }
+
+    public function test_command_writes_present_simple_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-present-simple-verbs-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'present-simple',
+            'theoryPageSlug' => 'present-simple-questions',
+            'lessonSlug' => 'polyglot-present-simple-verbs-a1',
+            'lessonOrder' => 4,
+            '--title' => 'Polyglot Present Simple Verbs',
+            '--topic' => 'present simple lexical verbs',
+            '--seeder' => 'PolyglotPresentSimpleVerbsLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-have-got-has-got-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PRESENT-SIMPLE-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString(
+            'Resolved theory page: Present Simple: Questions and Short Answers',
+            $output
+        );
+        $this->assertStringContainsString('/theory/present-simple/present-simple-questions', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPresentSimpleVerbsLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-PRESENT-SIMPLE-TEST', $contents);
+        $this->assertStringContainsString('polyglot-present-simple-verbs-a1', $contents);
+    }
+
+    public function test_command_writes_can_cannot_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-can-cannot-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'modal-verbs',
+            'theoryPageSlug' => 'can-could',
+            'lessonSlug' => 'polyglot-can-cannot-a1',
+            'lessonOrder' => 5,
+            '--title' => 'Polyglot Can / Cannot',
+            '--topic' => 'can / cannot',
+            '--seeder' => 'PolyglotCanCannotLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-present-simple-verbs-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-CAN-CANNOT-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Can / Could', $output);
+        $this->assertStringContainsString('/theory/modal-verbs/can-could', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotCanCannotLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-CAN-CANNOT-TEST', $contents);
+        $this->assertStringContainsString('polyglot-can-cannot-a1', $contents);
+    }
+
+    public function test_command_writes_present_continuous_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-present-continuous-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'present-continuous',
+            'theoryPageSlug' => 'present-continuous-forms',
+            'lessonSlug' => 'polyglot-present-continuous-a1',
+            'lessonOrder' => 6,
+            '--title' => 'Polyglot Present Continuous',
+            '--topic' => 'present continuous',
+            '--seeder' => 'PolyglotPresentContinuousLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-can-cannot-a1',
+            '--next' => 'polyglot-past-simple-to-be-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PRESENT-CONTINUOUS-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString(
+            'Resolved theory page: Present Continuous: Forms and Use',
+            $output
+        );
+        $this->assertStringContainsString(
+            '/theory/present-continuous/present-continuous-forms',
+            $output
+        );
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPresentContinuousLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-PRESENT-CONTINUOUS-TEST', $contents);
+        $this->assertStringContainsString('polyglot-present-continuous-a1', $contents);
+    }
+
+    public function test_command_writes_past_simple_to_be_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-past-simple-to-be-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'verb-to-be',
+            'theoryPageSlug' => 'verb-to-be-past',
+            'lessonSlug' => 'polyglot-past-simple-to-be-a1',
+            'lessonOrder' => 7,
+            '--title' => 'Polyglot: past simple of to be (A1)',
+            '--topic' => 'past simple of to be',
+            '--seeder' => 'PolyglotPastSimpleToBeLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-present-continuous-a1',
+            '--next' => 'polyglot-past-simple-regular-verbs-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PAST-SIMPLE-TO-BE-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Verb to Be: Past Forms', $output);
+        $this->assertStringContainsString('/theory/verb-to-be/verb-to-be-past', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPastSimpleToBeLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-PAST-SIMPLE-TO-BE-TEST', $contents);
+        $this->assertStringContainsString('polyglot-past-simple-to-be-a1', $contents);
+    }
+
+    public function test_command_writes_past_simple_regular_verbs_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-past-simple-regular-verbs-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'past-simple',
+            'theoryPageSlug' => 'past-simple-forms',
+            'lessonSlug' => 'polyglot-past-simple-regular-verbs-a1',
+            'lessonOrder' => 8,
+            '--title' => 'Polyglot: past simple regular verbs (A1)',
+            '--topic' => 'past simple regular verbs',
+            '--seeder' => 'PolyglotPastSimpleRegularVerbsLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-past-simple-to-be-a1',
+            '--next' => 'polyglot-past-simple-irregular-verbs-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PAST-SIMPLE-REGULAR-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Past Simple: Forms and Use', $output);
+        $this->assertStringContainsString('/theory/past-simple/past-simple-forms', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPastSimpleRegularVerbsLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-PAST-SIMPLE-REGULAR-TEST', $contents);
+        $this->assertStringContainsString('polyglot-past-simple-regular-verbs-a1', $contents);
+    }
+
+    public function test_command_writes_past_simple_irregular_verbs_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-past-simple-irregular-verbs-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'past-simple',
+            'theoryPageSlug' => 'past-simple-forms',
+            'lessonSlug' => 'polyglot-past-simple-irregular-verbs-a1',
+            'lessonOrder' => 9,
+            '--title' => 'Polyglot: past simple irregular verbs (A1)',
+            '--topic' => 'past simple irregular verbs',
+            '--seeder' => 'PolyglotPastSimpleIrregularVerbsLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-past-simple-regular-verbs-a1',
+            '--next' => 'polyglot-future-simple-will-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PAST-SIMPLE-IRREGULAR-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Past Simple: Forms and Use', $output);
+        $this->assertStringContainsString('/theory/past-simple/past-simple-forms', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPastSimpleIrregularVerbsLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-PAST-SIMPLE-IRREGULAR-TEST', $contents);
+        $this->assertStringContainsString('polyglot-past-simple-irregular-verbs-a1', $contents);
+    }
+
+    public function test_command_writes_future_simple_will_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-future-simple-will-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'maibutni-formy',
+            'theoryPageSlug' => 'will-vs-be-going-to',
+            'lessonSlug' => 'polyglot-future-simple-will-a1',
+            'lessonOrder' => 10,
+            '--title' => 'Polyglot: future simple with will (A1)',
+            '--topic' => 'future simple with will',
+            '--seeder' => 'PolyglotFutureSimpleWillLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-past-simple-irregular-verbs-a1',
+            '--next' => 'polyglot-articles-a-an-the-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-FUTURE-SIMPLE-WILL-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Will vs Be Going To — Вибір форми', $output);
+        $this->assertStringContainsString('/theory/maibutni-formy/will-vs-be-going-to', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotFutureSimpleWillLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-FUTURE-SIMPLE-WILL-TEST', $contents);
+        $this->assertStringContainsString('polyglot-future-simple-will-a1', $contents);
+    }
+
+    public function test_command_writes_articles_a_an_the_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-articles-a-an-the-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'common-mistakes',
+            'theoryPageSlug' => 'articles-common-mistakes',
+            'lessonSlug' => 'polyglot-articles-a-an-the-a1',
+            'lessonOrder' => 11,
+            '--title' => 'Polyglot: articles a / an / the (A1)',
+            '--topic' => 'articles a / an / the',
+            '--seeder' => 'PolyglotArticlesAAnTheLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-future-simple-will-a1',
+            '--next' => 'polyglot-some-any-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-ARTICLES-A-AN-THE-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Articles: Common Mistakes', $output);
+        $this->assertStringContainsString('/theory/common-mistakes/articles-common-mistakes', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotArticlesAAnTheLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-ARTICLES-A-AN-THE-TEST', $contents);
+        $this->assertStringContainsString('polyglot-articles-a-an-the-a1', $contents);
+    }
+
+    public function test_skeleton_writer_creates_canonical_package_and_respects_force_flag(): void
+    {
+        $seeder = 'PolyglotSkeletonDemoTestSeeder';
+        $loaderPath = base_path('database/seeders/V3/Polyglot/' . $seeder . '.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/' . $seeder);
+        $definitionPath = $packagePath . '/definition.json';
+        $realSeederPath = $packagePath . '/' . $seeder . '.php';
+        $ukPath = $packagePath . '/localizations/uk.json';
+        $enPath = $packagePath . '/localizations/en.json';
+        $plPath = $packagePath . '/localizations/pl.json';
+
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $firstExitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'verb-to-be',
+            'theoryPageSlug' => 'verb-to-be-present',
+            'lessonSlug' => 'polyglot-skeleton-demo-test',
+            'lessonOrder' => 5,
+            '--title' => 'Polyglot Skeleton Demo Test',
+            '--topic' => 'verb to be',
+            '--seeder' => $seeder,
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--items' => 24,
+            '--write-skeleton' => true,
+        ]);
+
+        $this->assertSame(0, $firstExitCode);
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($definitionPath);
+        $this->assertFileExists($realSeederPath);
+        $this->assertFileExists($ukPath);
+        $this->assertFileExists($enPath);
+        $this->assertFileExists($plPath);
+        $this->assertStringContainsString(
+            "require_once __DIR__ . '/{$seeder}/{$seeder}.php';",
+            File::get($loaderPath)
+        );
+        $definition = json_decode(File::get($definitionPath), true, 512, JSON_THROW_ON_ERROR);
+        $ukLocalization = json_decode(File::get($ukPath), true, 512, JSON_THROW_ON_ERROR);
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Polyglot\\' . $seeder,
+            $definition['seeder']['class'] ?? null
+        );
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Localizations\\Uk\\Polyglot\\PolyglotSkeletonDemoTestLocalizationSeeder',
+            $ukLocalization['seeder']['class'] ?? null
+        );
+
+        File::put($loaderPath, 'do-not-overwrite');
+
+        $secondExitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'verb-to-be',
+            'theoryPageSlug' => 'verb-to-be-present',
+            'lessonSlug' => 'polyglot-skeleton-demo-test',
+            'lessonOrder' => 5,
+            '--title' => 'Polyglot Skeleton Demo Test',
+            '--topic' => 'verb to be',
+            '--seeder' => $seeder,
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--items' => 24,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+
+        $this->assertSame(1, $secondExitCode);
+        $this->assertStringContainsString('Refusing to overwrite existing files without --force', $output);
+        $this->assertSame('do-not-overwrite', File::get($loaderPath));
+    }
+
+    public function test_invalid_theory_page_is_rejected_without_writing_files(): void
+    {
+        $seeder = 'PolyglotInvalidTheorySeeder';
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-invalid-theory.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $loaderPath = base_path('database/seeders/V3/Polyglot/' . $seeder . '.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/' . $seeder);
+
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $outputAbsolutePath,
+            dirname($outputAbsolutePath),
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'verb-to-be',
+            'theoryPageSlug' => 'missing-theory-page',
+            'lessonSlug' => 'polyglot-invalid-theory',
+            'lessonOrder' => 9,
+            '--title' => 'Polyglot Invalid Theory',
+            '--topic' => 'verb to be',
+            '--seeder' => $seeder,
+            '--output' => $outputRelativePath,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+
+        $this->assertSame(1, $exitCode);
+        $this->assertStringContainsString('Theory page [verb-to-be/missing-theory-page] was not found', $output);
+        $this->assertFileDoesNotExist($outputAbsolutePath);
+        $this->assertFileDoesNotExist($loaderPath);
+        $this->assertFalse(File::isDirectory($packagePath));
+    }
+}

@@ -48,6 +48,7 @@ class GrammarTestController extends Controller
         'saved-test-js-drag-drop',
         'saved-test-js-match',
         'saved-test-js-dialogue',
+        'saved-test-js-step-compose-v2',
     ];
 
     public function __construct(
@@ -541,9 +542,7 @@ class GrammarTestController extends Controller
         $controller = $this;
 
         return $questions->map(function ($q) use ($controller, $technicalInfoByQuestionId) {
-            $answers = $q->answers
-                ->sortBy('marker')
-                ->values()
+            $answers = $this->sortAnswersByMarker($q->answers)
                 ->map(function ($a) {
                     return [
                         'marker' => $a->marker,
@@ -2228,6 +2227,24 @@ class GrammarTestController extends Controller
         }
 
         return preg_match('/^[A-Za-z0-9_-]+$/', $token) === 1 ? $token : null;
+    }
+
+    private function sortAnswersByMarker(\Illuminate\Database\Eloquent\Collection $answers): \Illuminate\Database\Eloquent\Collection
+    {
+        return $answers
+            ->sortBy(fn ($answer) => $this->markerSortValue($answer->marker))
+            ->values();
+    }
+
+    private function markerSortValue(?string $marker): string
+    {
+        $normalized = strtolower(trim((string) $marker));
+
+        if (preg_match('/^([a-z_]+)(\d+)$/', $normalized, $matches) === 1) {
+            return sprintf('%s%08d', $matches[1], (int) $matches[2]);
+        }
+
+        return $normalized;
     }
 
     private function paginateSavedTests(Request $request): LengthAwarePaginator

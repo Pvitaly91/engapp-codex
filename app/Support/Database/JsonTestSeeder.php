@@ -220,18 +220,22 @@ abstract class JsonTestSeeder extends QuestionSeeder
         $explicitUuid = trim((string) ($questionDefinition['uuid'] ?? ''));
 
         if ($explicitUuid !== '') {
-            return $explicitUuid;
+            return $this->persistentQuestionUuid($explicitUuid);
         }
 
         $segments = $questionDefinition['uuid_segments'] ?? null;
 
         if (is_array($segments) && $segments !== []) {
-            return $this->generateScopedQuestionUuid($uuidNamespace, ...$segments);
+            return $this->persistentQuestionUuid(
+                $this->generateScopedQuestionUuid($uuidNamespace, ...$segments)
+            );
         }
 
         $idSegment = $questionDefinition['id'] ?? ($index + 1);
 
-        return $this->generateScopedQuestionUuid($uuidNamespace, $idSegment, $questionText);
+        return $this->persistentQuestionUuid(
+            $this->generateScopedQuestionUuid($uuidNamespace, $idSegment, $questionText)
+        );
     }
 
     protected function generateScopedQuestionUuid(string $scope, int|string ...$segments): string
@@ -1069,7 +1073,7 @@ abstract class JsonTestSeeder extends QuestionSeeder
         $normalized = [];
 
         foreach ($payload as $questionUuid) {
-            $uuid = trim((string) $questionUuid);
+            $uuid = $this->persistentQuestionUuid((string) $questionUuid);
 
             if ($uuid === '' || in_array($uuid, $normalized, true)) {
                 continue;
@@ -1079,6 +1083,11 @@ abstract class JsonTestSeeder extends QuestionSeeder
         }
 
         return $normalized === [] ? $fallback : $normalized;
+    }
+
+    protected function persistentQuestionUuid(string $uuid): string
+    {
+        return app(QuestionUuidResolver::class)->toPersistent($uuid);
     }
 
     protected function explanationLanguagesForLocale(string $locale): array

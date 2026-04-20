@@ -1,0 +1,856 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotArticlesAAnTheLessonSeeder",
+        "uuid_namespace": "PolyglotArticlesAAnTheLessonSeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Polyglot English A1"
+    },
+    "sources": {
+        "theory_page_articles_common_mistakes": {
+            "name": "Articles: Common Mistakes"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot compose tokens",
+            "category": "mode"
+        },
+        "articles_a_an_the": {
+            "name": "articles a / an / the",
+            "category": "topic"
+        },
+        "articles": {
+            "name": "articles",
+            "category": "topic"
+        },
+        "a_article": {
+            "name": "a article",
+            "category": "article"
+        },
+        "an_article": {
+            "name": "an article",
+            "category": "article"
+        },
+        "the_article": {
+            "name": "the article",
+            "category": "article"
+        },
+        "affirmative": {
+            "name": "affirmative",
+            "category": "pattern"
+        },
+        "question": {
+            "name": "question",
+            "category": "pattern"
+        },
+        "wh_question": {
+            "name": "wh question",
+            "category": "pattern"
+        },
+        "a1": {
+            "name": "A1",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "articles_a_an_the",
+        "articles"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "polyglot-articles-a-an-the-q01",
+            "question": "Це книга.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "It",
+                "a2": "is",
+                "a3": "a",
+                "a4": "book"
+            },
+            "options": [
+                "It",
+                "is",
+                "a",
+                "book",
+                "an",
+                "the",
+                "chair"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "a_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 2,
+            "uuid": "polyglot-articles-a-an-the-q02",
+            "question": "У мене є сумка.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "have",
+                "a3": "a",
+                "a4": "bag"
+            },
+            "options": [
+                "I",
+                "have",
+                "a",
+                "bag",
+                "an",
+                "the",
+                "dog"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "a_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 3,
+            "uuid": "polyglot-articles-a-an-the-q03",
+            "question": "У нього є собака.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "He",
+                "a2": "has",
+                "a3": "a",
+                "a4": "dog"
+            },
+            "options": [
+                "He",
+                "has",
+                "a",
+                "dog",
+                "an",
+                "the",
+                "cat"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "a_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 4,
+            "uuid": "polyglot-articles-a-an-the-q04",
+            "question": "Вона хоче машину.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "wants",
+                "a3": "a",
+                "a4": "car"
+            },
+            "options": [
+                "She",
+                "wants",
+                "a",
+                "car",
+                "an",
+                "the",
+                "book"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "a_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 5,
+            "uuid": "polyglot-articles-a-an-the-q05",
+            "question": "Це стілець?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Is",
+                "a2": "it",
+                "a3": "a",
+                "a4": "chair"
+            },
+            "options": [
+                "Is",
+                "it",
+                "a",
+                "chair",
+                "an",
+                "the",
+                "book"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "a_article",
+                "question",
+                "a1"
+            ]
+        },
+        {
+            "id": 6,
+            "uuid": "polyglot-articles-a-an-the-q06",
+            "question": "Тобі потрібен лікар?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "you",
+                "a3": "need",
+                "a4": "a",
+                "a5": "doctor"
+            },
+            "options": [
+                "Do",
+                "you",
+                "need",
+                "a",
+                "doctor",
+                "an",
+                "the",
+                "teacher"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "a_article",
+                "question",
+                "a1"
+            ]
+        },
+        {
+            "id": 7,
+            "uuid": "polyglot-articles-a-an-the-q07",
+            "question": "Я бачу будинок.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "see",
+                "a3": "a",
+                "a4": "house"
+            },
+            "options": [
+                "I",
+                "see",
+                "a",
+                "house",
+                "an",
+                "the",
+                "car"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "a_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 8,
+            "uuid": "polyglot-articles-a-an-the-q08",
+            "question": "Нам потрібен готель.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "a",
+                "a4": "hotel"
+            },
+            "options": [
+                "We",
+                "need",
+                "a",
+                "hotel",
+                "an",
+                "the",
+                "doctor"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "a_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 9,
+            "uuid": "polyglot-articles-a-an-the-q09",
+            "question": "Це яблуко.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "It",
+                "a2": "is",
+                "a3": "an",
+                "a4": "apple"
+            },
+            "options": [
+                "It",
+                "is",
+                "an",
+                "apple",
+                "a",
+                "the",
+                "book"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "an_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 10,
+            "uuid": "polyglot-articles-a-an-the-q10",
+            "question": "У мене є ідея.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "have",
+                "a3": "an",
+                "a4": "idea"
+            },
+            "options": [
+                "I",
+                "have",
+                "an",
+                "idea",
+                "a",
+                "the",
+                "answer"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "an_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 11,
+            "uuid": "polyglot-articles-a-an-the-q11",
+            "question": "Вона бачить яйце.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "sees",
+                "a3": "an",
+                "a4": "egg"
+            },
+            "options": [
+                "She",
+                "sees",
+                "an",
+                "egg",
+                "a",
+                "the",
+                "apple"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "an_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 12,
+            "uuid": "polyglot-articles-a-an-the-q12",
+            "question": "Він хоче апельсин.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "He",
+                "a2": "wants",
+                "a3": "an",
+                "a4": "orange"
+            },
+            "options": [
+                "He",
+                "wants",
+                "an",
+                "orange",
+                "a",
+                "the",
+                "book"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "an_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 13,
+            "uuid": "polyglot-articles-a-an-the-q13",
+            "question": "Це старий будинок.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "It",
+                "a2": "is",
+                "a3": "an",
+                "a4": "old",
+                "a5": "house"
+            },
+            "options": [
+                "It",
+                "is",
+                "an",
+                "old",
+                "house",
+                "a",
+                "the",
+                "new"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "an_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 14,
+            "uuid": "polyglot-articles-a-an-the-q14",
+            "question": "Тобі потрібна парасоля?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "you",
+                "a3": "need",
+                "a4": "an",
+                "a5": "umbrella"
+            },
+            "options": [
+                "Do",
+                "you",
+                "need",
+                "an",
+                "umbrella",
+                "a",
+                "the",
+                "bag"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "an_article",
+                "question",
+                "a1"
+            ]
+        },
+        {
+            "id": 15,
+            "uuid": "polyglot-articles-a-an-the-q15",
+            "question": "Він інженер.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "He",
+                "a2": "is",
+                "a3": "an",
+                "a4": "engineer"
+            },
+            "options": [
+                "He",
+                "is",
+                "an",
+                "engineer",
+                "a",
+                "the",
+                "doctor"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "an_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 16,
+            "uuid": "polyglot-articles-a-an-the-q16",
+            "question": "У мене є відповідь.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "have",
+                "a3": "an",
+                "a4": "answer"
+            },
+            "options": [
+                "I",
+                "have",
+                "an",
+                "answer",
+                "a",
+                "the",
+                "question"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "an_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 17,
+            "uuid": "polyglot-articles-a-an-the-q17",
+            "question": "Де книга?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Where",
+                "a2": "is",
+                "a3": "the",
+                "a4": "book"
+            },
+            "options": [
+                "Where",
+                "is",
+                "the",
+                "book",
+                "a",
+                "an",
+                "bag"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "the_article",
+                "wh_question",
+                "a1"
+            ]
+        },
+        {
+            "id": 18,
+            "uuid": "polyglot-articles-a-an-the-q18",
+            "question": "Де машина?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Where",
+                "a2": "is",
+                "a3": "the",
+                "a4": "car"
+            },
+            "options": [
+                "Where",
+                "is",
+                "the",
+                "car",
+                "a",
+                "an",
+                "house"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "the_article",
+                "wh_question",
+                "a1"
+            ]
+        },
+        {
+            "id": 19,
+            "uuid": "polyglot-articles-a-an-the-q19",
+            "question": "Я бачу сонце.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "can",
+                "a3": "see",
+                "a4": "the",
+                "a5": "sun"
+            },
+            "options": [
+                "I",
+                "can",
+                "see",
+                "the",
+                "sun",
+                "a",
+                "an",
+                "moon"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "the_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 20,
+            "uuid": "polyglot-articles-a-an-the-q20",
+            "question": "Де кухня?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Where",
+                "a2": "is",
+                "a3": "the",
+                "a4": "kitchen"
+            },
+            "options": [
+                "Where",
+                "is",
+                "the",
+                "kitchen",
+                "a",
+                "an",
+                "bathroom"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "the_article",
+                "wh_question",
+                "a1"
+            ]
+        },
+        {
+            "id": 21,
+            "uuid": "polyglot-articles-a-an-the-q21",
+            "question": "Де двері?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Where",
+                "a2": "is",
+                "a3": "the",
+                "a4": "door"
+            },
+            "options": [
+                "Where",
+                "is",
+                "the",
+                "door",
+                "a",
+                "an",
+                "window"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "the_article",
+                "wh_question",
+                "a1"
+            ]
+        },
+        {
+            "id": 22,
+            "uuid": "polyglot-articles-a-an-the-q22",
+            "question": "Вікно відчинене.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "window",
+                "a3": "is",
+                "a4": "open"
+            },
+            "options": [
+                "The",
+                "window",
+                "is",
+                "open",
+                "A",
+                "An",
+                "closed"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "the_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 23,
+            "uuid": "polyglot-articles-a-an-the-q23",
+            "question": "Кухня маленька.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "kitchen",
+                "a3": "is",
+                "a4": "small"
+            },
+            "options": [
+                "The",
+                "kitchen",
+                "is",
+                "small",
+                "A",
+                "An",
+                "big"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "the_article",
+                "affirmative",
+                "a1"
+            ]
+        },
+        {
+            "id": 24,
+            "uuid": "polyglot-articles-a-an-the-q24",
+            "question": "Книга на столі?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Is",
+                "a2": "the",
+                "a3": "book",
+                "a4": "on",
+                "a5": "the",
+                "a6": "table"
+            },
+            "options": [
+                "Is",
+                "the",
+                "book",
+                "on",
+                "table",
+                "a",
+                "an",
+                "under"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_common_mistakes",
+            "tag_keys": [
+                "the_article",
+                "question",
+                "a1"
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "polyglot-articles-a-an-the-a1-9c8d42",
+        "slug": "polyglot-articles-a-an-the-a1",
+        "name": "Polyglot: articles a / an / the (A1)",
+        "description": "Polyglot-style урок на articles a / an / the з простими A1 реченнями без zero article як правильної відповіді.",
+        "question_uuids": [
+            "polyglot-articles-a-an-the-q01",
+            "polyglot-articles-a-an-the-q02",
+            "polyglot-articles-a-an-the-q03",
+            "polyglot-articles-a-an-the-q04",
+            "polyglot-articles-a-an-the-q05",
+            "polyglot-articles-a-an-the-q06",
+            "polyglot-articles-a-an-the-q07",
+            "polyglot-articles-a-an-the-q08",
+            "polyglot-articles-a-an-the-q09",
+            "polyglot-articles-a-an-the-q10",
+            "polyglot-articles-a-an-the-q11",
+            "polyglot-articles-a-an-the-q12",
+            "polyglot-articles-a-an-the-q13",
+            "polyglot-articles-a-an-the-q14",
+            "polyglot-articles-a-an-the-q15",
+            "polyglot-articles-a-an-the-q16",
+            "polyglot-articles-a-an-the-q17",
+            "polyglot-articles-a-an-the-q18",
+            "polyglot-articles-a-an-the-q19",
+            "polyglot-articles-a-an-the-q20",
+            "polyglot-articles-a-an-the-q21",
+            "polyglot-articles-a-an-the-q22",
+            "polyglot-articles-a-an-the-q23",
+            "polyglot-articles-a-an-the-q24"
+        ],
+        "filters": {
+            "mode": "compose_tokens",
+            "question_type": 4,
+            "lesson_type": "polyglot",
+            "payload_version": 2,
+            "import_format": "gramlyze_v3_polyglot",
+            "supports_duplicate_tokens": true,
+            "course_slug": "polyglot-english-a1",
+            "lesson_order": 11,
+            "previous_lesson_slug": "polyglot-future-simple-will-a1",
+            "next_lesson_slug": "polyglot-some-any-a1",
+            "completion": {
+                "rolling_window": 100,
+                "min_rating": 4.5
+            },
+            "interface_locale": "uk",
+            "study_locale": "uk",
+            "target_locale": "en",
+            "topic": "articles a / an / the",
+            "level": "A1",
+            "levels": [
+                "A1"
+            ],
+            "tags": [
+                "Polyglot",
+                "Compose Tokens",
+                "Articles A An The",
+                "A1"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "articles-common-mistakes",
+                    "title": "Articles: Common Mistakes",
+                    "category_slug_path": "common-mistakes",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesArticlesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/common-mistakes/articles-common-mistakes"
+                }
+            }
+        }
+    }
+}

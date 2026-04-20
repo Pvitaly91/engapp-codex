@@ -8,6 +8,7 @@ use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\QuestionVariant;
 use App\Models\VerbHint;
+use App\Support\Database\QuestionUuidResolver;
 use Illuminate\Database\Seeder as LaravelSeeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -57,15 +58,19 @@ class QuestionSeedingService
         return $option;
     }
 
-    public function seed(array $items): void
+    public function seed(array $items, bool $allowQuestionTextFallback = true): void
     {
         $defaultSeederClass = $this->detectSeederClassName();
 
         foreach ($items as $data) {
-            DB::transaction(function () use ($data, $defaultSeederClass) {
+            if (array_key_exists('uuid', $data)) {
+                $data['uuid'] = app(QuestionUuidResolver::class)->toPersistent((string) $data['uuid']);
+            }
+
+            DB::transaction(function () use ($data, $defaultSeederClass, $allowQuestionTextFallback) {
                 $seederClass = $data['seeder'] ?? $defaultSeederClass;
 
-                $question = $this->locateExistingQuestion($data);
+                $question = $this->locateExistingQuestion($data, $allowQuestionTextFallback);
 
                 if (! empty($data['category_id'])) {
                     $this->ensureCategoryExists((int) $data['category_id']);
@@ -86,12 +91,16 @@ class QuestionSeedingService
         }
     }
 
-    private function locateExistingQuestion(array $data): ?Question
+    private function locateExistingQuestion(array $data, bool $allowQuestionTextFallback = true): ?Question
     {
         $question = Question::where('uuid', $data['uuid'])->first();
 
         if ($question) {
             return $question;
+        }
+
+        if (! $allowQuestionTextFallback) {
+            return null;
         }
 
         return Question::where('question', $data['question'])->first();
