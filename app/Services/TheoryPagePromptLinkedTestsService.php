@@ -36,6 +36,11 @@ class TheoryPagePromptLinkedTestsService
     {
         $linkedTests = $this->findForPage($page);
         $directLinkedTests = $this->extractDirectLinkedTests($linkedTests);
+
+        if ($directLinkedTests->isNotEmpty()) {
+            return $directLinkedTests->values();
+        }
+
         $definitionsBySeeder = $this->promptLinkedSeederDefinitionsForPage($page);
         $seederClasses = $this->aggregateSeederClassesForPage($linkedTests, $definitionsBySeeder);
 

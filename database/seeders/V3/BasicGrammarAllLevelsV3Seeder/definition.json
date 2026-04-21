@@ -1,0 +1,1107 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\BasicGrammarAllLevelsV3Seeder",
+        "uuid_namespace": "BasicGrammarAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Basic Grammar"
+    },
+    "sources": {
+        "basic_grammar_overview": {
+            "name": "Basic Grammar - All Levels Overview"
+        }
+    },
+    "tags": {
+        "parts_of_speech": {
+            "name": "Parts of speech identification",
+            "category": "topic"
+        },
+        "sentence_types": {
+            "name": "Sentence types",
+            "category": "topic"
+        },
+        "conjunctions": {
+            "name": "Coordinating conjunctions",
+            "category": "topic"
+        },
+        "imperatives": {
+            "name": "Imperative sentences",
+            "category": "topic"
+        },
+        "svo": {
+            "name": "S-V-O word order",
+            "category": "topic"
+        },
+        "subject_verb_object": {
+            "name": "Subject–Verb–Object order",
+            "category": "topic"
+        },
+        "word_order": {
+            "name": "Word order in English sentences",
+            "category": "topic"
+        },
+        "there_is_are": {
+            "name": "There is / There are constructions",
+            "category": "topic"
+        },
+        "verb_to_be_present": {
+            "name": "Verb to be: present tense (am / is / are)",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "question": "In the sentence \"They sing loudly,\" the word \"loudly\" is an {a1}.",
+            "source": "basic_grammar_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "adverb",
+                    "options": [
+                        "adverb",
+                        "adjective",
+                        "noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "parts_of_speech"
+            ]
+        },
+        {
+            "id": 2,
+            "question": "\"Close the window.\" is an {a1} sentence.",
+            "source": "basic_grammar_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "imperative",
+                    "options": [
+                        "imperative",
+                        "question",
+                        "negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_types",
+                "imperatives"
+            ]
+        },
+        {
+            "id": 3,
+            "question": "I like tea {a1} coffee.",
+            "source": "basic_grammar_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "conjunctions"
+            ]
+        },
+        {
+            "id": 4,
+            "question": "Choose the sentence with correct S-V-O order: {a1}",
+            "source": "basic_grammar_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Tom reads books every evening.",
+                    "options": [
+                        "Tom reads books every evening.",
+                        "Reads Tom books every evening.",
+                        "Books Tom reads every evening."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "svo",
+                "subject_verb_object"
+            ]
+        },
+        {
+            "id": 5,
+            "question": "Choose the natural sentence: {a1}",
+            "source": "basic_grammar_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "She often walks to school.",
+                    "options": [
+                        "She often walks to school.",
+                        "Often she walks to school every day.",
+                        "She walks often to school."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "word_order"
+            ]
+        },
+        {
+            "id": 6,
+            "question": "There {a1} a cat on the chair.",
+            "source": "basic_grammar_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_are"
+            ]
+        },
+        {
+            "id": 7,
+            "question": "There {a1} two pens in my bag.",
+            "source": "basic_grammar_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_are"
+            ]
+        },
+        {
+            "id": 8,
+            "question": "I {a1} ready for class.",
+            "source": "basic_grammar_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_present"
+            ]
+        },
+        {
+            "id": 9,
+            "question": "\"Do you like chocolate?\" is a {a1} sentence.",
+            "source": "basic_grammar_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "question",
+                    "options": [
+                        "question",
+                        "statement",
+                        "imperative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ]
+        },
+        {
+            "id": 10,
+            "question": "In \"A careful driver checks mirrors first,\" the word \"careful\" is an {a1}.",
+            "source": "basic_grammar_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "adjective",
+                    "options": [
+                        "adjective",
+                        "adverb",
+                        "verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "parts_of_speech"
+            ]
+        },
+        {
+            "id": 11,
+            "question": "\"Don't touch the wire.\" is a {a1} imperative.",
+            "source": "basic_grammar_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "negative",
+                    "options": [
+                        "negative",
+                        "positive",
+                        "question"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_types",
+                "imperatives"
+            ]
+        },
+        {
+            "id": 12,
+            "question": "I was tired, {a1} I went home early.",
+            "source": "basic_grammar_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "or",
+                        "and"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "conjunctions"
+            ]
+        },
+        {
+            "id": 13,
+            "question": "Choose the correct sentence order: {a1}",
+            "source": "basic_grammar_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "My sister sends her friend postcards.",
+                    "options": [
+                        "My sister sends her friend postcards.",
+                        "My sister her friend sends postcards.",
+                        "Sends my sister her friend postcards."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "svo",
+                "subject_verb_object"
+            ]
+        },
+        {
+            "id": 14,
+            "question": "Choose the best word order: {a1}",
+            "source": "basic_grammar_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "We meet at the station at six.",
+                    "options": [
+                        "We meet at the station at six.",
+                        "We meet at six at the station.",
+                        "We at the station meet at six."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "word_order"
+            ]
+        },
+        {
+            "id": 15,
+            "question": "There {a1} any milk in the fridge.",
+            "source": "basic_grammar_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "don't"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_are"
+            ]
+        },
+        {
+            "id": 16,
+            "question": "There {a1} a lot of noise outside tonight.",
+            "source": "basic_grammar_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_are"
+            ]
+        },
+        {
+            "id": 17,
+            "question": "She {a1} at home today.",
+            "source": "basic_grammar_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_present"
+            ]
+        },
+        {
+            "id": 18,
+            "question": "\"Are they in the library?\" is a {a1} sentence.",
+            "source": "basic_grammar_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "question",
+                    "options": [
+                        "question",
+                        "statement",
+                        "imperative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ]
+        },
+        {
+            "id": 19,
+            "question": "In \"Their agreement surprised everyone,\" the word \"agreement\" is a {a1}.",
+            "source": "basic_grammar_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "noun",
+                    "options": [
+                        "noun",
+                        "adverb",
+                        "conjunction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "parts_of_speech"
+            ]
+        },
+        {
+            "id": 20,
+            "question": "\"Please check the figures before you send them\" is best described as an {a1}.",
+            "source": "basic_grammar_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "imperative",
+                    "options": [
+                        "imperative",
+                        "question",
+                        "negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_types",
+                "imperatives"
+            ]
+        },
+        {
+            "id": 21,
+            "question": "Choose the conjunction that shows contrast: \"The room was small, {a1} it felt comfortable.\"",
+            "source": "basic_grammar_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "conjunctions"
+            ]
+        },
+        {
+            "id": 22,
+            "question": "Choose the sentence with correct English order: {a1}",
+            "source": "basic_grammar_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The committee approved the proposal yesterday.",
+                    "options": [
+                        "The committee approved the proposal yesterday.",
+                        "Approved the committee yesterday the proposal.",
+                        "The proposal approved the committee yesterday."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "svo",
+                "subject_verb_object"
+            ]
+        },
+        {
+            "id": 23,
+            "question": "Choose the natural order with an adverb: {a1}",
+            "source": "basic_grammar_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "She carefully explained the rule to us.",
+                    "options": [
+                        "She carefully explained the rule to us.",
+                        "She explained carefully the rule to us.",
+                        "Carefully she explained to us the rule."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "word_order"
+            ]
+        },
+        {
+            "id": 24,
+            "question": "There {a1} a good reason to delay the launch.",
+            "source": "basic_grammar_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_are"
+            ]
+        },
+        {
+            "id": 25,
+            "question": "There {a1} several errors in the draft, so I revised it.",
+            "source": "basic_grammar_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "was",
+                        "is"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_are"
+            ]
+        },
+        {
+            "id": 26,
+            "question": "The main problem {a1} unclear instructions.",
+            "source": "basic_grammar_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_present"
+            ]
+        },
+        {
+            "id": 27,
+            "question": "\"Could you send the link again?\" is a {a1} sentence.",
+            "source": "basic_grammar_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "question",
+                    "options": [
+                        "question",
+                        "statement",
+                        "imperative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ]
+        },
+        {
+            "id": 28,
+            "question": "In \"The manager sounded confident,\" the word \"confident\" is an {a1}.",
+            "source": "basic_grammar_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "adjective",
+                    "options": [
+                        "adjective",
+                        "adverb",
+                        "noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "parts_of_speech"
+            ]
+        },
+        {
+            "id": 29,
+            "question": "Which sentence is an imperative with a polite marker? {a1}",
+            "source": "basic_grammar_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Please leave a detailed note for the next shift.",
+                    "options": [
+                        "Please leave a detailed note for the next shift.",
+                        "You leave a detailed note for the next shift.",
+                        "Do you leave a detailed note for the next shift?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_types",
+                "imperatives"
+            ]
+        },
+        {
+            "id": 30,
+            "question": "Choose the best coordinating conjunction: \"We can leave now, {a1} we can wait for the final update.\"",
+            "source": "basic_grammar_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "but",
+                        "so"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "conjunctions"
+            ]
+        },
+        {
+            "id": 31,
+            "question": "Choose the sentence with correct S-V-O order: {a1}",
+            "source": "basic_grammar_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The analyst gave the board a concise summary.",
+                    "options": [
+                        "The analyst gave the board a concise summary.",
+                        "The board gave the analyst a concise summary.",
+                        "Gave the analyst the board a concise summary."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "svo",
+                "subject_verb_object"
+            ]
+        },
+        {
+            "id": 32,
+            "question": "Choose the most natural order: {a1}",
+            "source": "basic_grammar_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "They almost always arrive on time.",
+                    "options": [
+                        "They almost always arrive on time.",
+                        "They arrive almost always on time.",
+                        "Almost always they arrive on time."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "word_order"
+            ]
+        },
+        {
+            "id": 33,
+            "question": "There {a1} only one realistic option left.",
+            "source": "basic_grammar_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_are"
+            ]
+        },
+        {
+            "id": 34,
+            "question": "There {a1} too many variables to ignore in that model.",
+            "source": "basic_grammar_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_are"
+            ]
+        },
+        {
+            "id": 35,
+            "question": "The likely answer {a1} somewhere in the appendix.",
+            "source": "basic_grammar_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_present"
+            ]
+        },
+        {
+            "id": 36,
+            "question": "\"Don't assume the audience knows the context\" is a {a1} command.",
+            "source": "basic_grammar_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "negative",
+                    "options": [
+                        "negative",
+                        "polite",
+                        "question"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_types",
+                "imperatives"
+            ]
+        },
+        {
+            "id": 37,
+            "question": "In \"They reached a tentative consensus,\" the word \"tentative\" is an {a1}.",
+            "source": "basic_grammar_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "adjective",
+                    "options": [
+                        "adjective",
+                        "adverb",
+                        "verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "parts_of_speech"
+            ]
+        },
+        {
+            "id": 38,
+            "question": "\"Do not disclose the source without written permission\" is an {a1}.",
+            "source": "basic_grammar_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "imperative",
+                    "options": [
+                        "imperative",
+                        "statement",
+                        "question"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_types",
+                "imperatives"
+            ]
+        },
+        {
+            "id": 39,
+            "question": "Choose the conjunction that shows result: \"The evidence was incomplete, {a1} the review was postponed.\"",
+            "source": "basic_grammar_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "conjunctions"
+            ]
+        },
+        {
+            "id": 40,
+            "question": "Choose the sentence with correct order: {a1}",
+            "source": "basic_grammar_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The new policy gives employees clearer guidance.",
+                    "options": [
+                        "The new policy gives employees clearer guidance.",
+                        "Gives the new policy employees clearer guidance.",
+                        "Employees clearer guidance gives the new policy."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "svo",
+                "subject_verb_object"
+            ]
+        },
+        {
+            "id": 41,
+            "question": "Choose the most natural sentence: {a1}",
+            "source": "basic_grammar_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "We normally discuss budget changes at the end of the meeting.",
+                    "options": [
+                        "We normally discuss budget changes at the end of the meeting.",
+                        "We discuss normally budget changes at the end of the meeting.",
+                        "Normally we discuss at the end of the meeting budget changes."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "word_order"
+            ]
+        },
+        {
+            "id": 42,
+            "question": "There {a1} a significant gap between the stated aim and the actual result.",
+            "source": "basic_grammar_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_are"
+            ]
+        },
+        {
+            "id": 43,
+            "question": "There {a1} numerous assumptions underlying the forecast.",
+            "source": "basic_grammar_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_are"
+            ]
+        },
+        {
+            "id": 44,
+            "question": "The real difficulty {a1} the lack of reliable data.",
+            "source": "basic_grammar_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_present"
+            ]
+        },
+        {
+            "id": 45,
+            "question": "\"Which proposal should move forward first?\" is a {a1} sentence.",
+            "source": "basic_grammar_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "question",
+                    "options": [
+                        "question",
+                        "negative",
+                        "imperative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ]
+        },
+        {
+            "id": 46,
+            "question": "In \"Their objection was purely procedural,\" the word \"procedural\" is an {a1}.",
+            "source": "basic_grammar_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "adjective",
+                    "options": [
+                        "adjective",
+                        "adverb",
+                        "conjunction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "parts_of_speech"
+            ]
+        },
+        {
+            "id": 47,
+            "question": "\"Kindly refrain from altering the baseline assumptions\" is best described as an {a1}.",
+            "source": "basic_grammar_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "imperative",
+                    "options": [
+                        "imperative",
+                        "statement",
+                        "question"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_types",
+                "imperatives"
+            ]
+        },
+        {
+            "id": 48,
+            "question": "Choose the conjunction that signals contrast most clearly: \"The argument was elegant, {a1} it remained unconvincing.\"",
+            "source": "basic_grammar_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "yet",
+                    "options": [
+                        "yet",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "conjunctions"
+            ]
+        },
+        {
+            "id": 49,
+            "question": "Choose the sentence with correct English order: {a1}",
+            "source": "basic_grammar_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The revised framework gives researchers a clearer comparative lens.",
+                    "options": [
+                        "The revised framework gives researchers a clearer comparative lens.",
+                        "Gives the revised framework researchers a clearer comparative lens.",
+                        "Researchers a clearer comparative lens gives the revised framework."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "svo",
+                "subject_verb_object"
+            ]
+        },
+        {
+            "id": 50,
+            "question": "Choose the most natural word order: {a1}",
+            "source": "basic_grammar_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "They rarely discuss methodology so openly in public.",
+                    "options": [
+                        "They rarely discuss methodology so openly in public.",
+                        "They discuss rarely methodology so openly in public.",
+                        "Rarely they discuss methodology so openly in public."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "word_order"
+            ]
+        },
+        {
+            "id": 51,
+            "question": "There {a1} no simple explanation for the discrepancy.",
+            "source": "basic_grammar_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_are"
+            ]
+        },
+        {
+            "id": 52,
+            "question": "There {a1} several competing interpretations in the literature.",
+            "source": "basic_grammar_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_are"
+            ]
+        },
+        {
+            "id": 53,
+            "question": "The central issue {a1} whether the evidence can bear that claim.",
+            "source": "basic_grammar_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_present"
+            ]
+        },
+        {
+            "id": 54,
+            "question": "\"Could you outline the limitation in one sentence?\" is ultimately a {a1}.",
+            "source": "basic_grammar_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "question",
+                    "options": [
+                        "question",
+                        "statement",
+                        "imperative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ]
+        }
+    ]
+}

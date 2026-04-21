@@ -1,0 +1,1162 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\WordOrderAllLevelsV3Seeder",
+        "uuid_namespace": "WordOrderAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Word Order"
+    },
+    "sources": {
+        "word_order_overview": {
+            "name": "Word Order - All Levels Overview"
+        }
+    },
+    "tags": {
+        "word_order": {
+            "name": "Word Order",
+            "category": "topic"
+        },
+        "sentence_structure": {
+            "name": "Sentence Structure",
+            "category": "topic"
+        },
+        "svo": {
+            "name": "S-V-O",
+            "category": "topic"
+        },
+        "questions": {
+            "name": "Questions",
+            "category": "topic"
+        },
+        "negatives": {
+            "name": "Negatives",
+            "category": "topic"
+        },
+        "adverbs": {
+            "name": "Adverbs",
+            "category": "topic"
+        },
+        "inversion": {
+            "name": "Inversion",
+            "category": "topic"
+        },
+        "subject_verb_object": {
+            "name": "Subject–Verb–Object order",
+            "category": "topic"
+        },
+        "english_word_order": {
+            "name": "Word order in English sentences",
+            "category": "topic"
+        },
+        "adverb_word_order": {
+            "name": "Adverb word order",
+            "category": "topic"
+        },
+        "question_word_order": {
+            "name": "Question word order",
+            "category": "topic"
+        },
+        "advanced_word_order": {
+            "name": "Advanced word order for emphasis",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "word_order"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "Choose the correct sentence: {a1}",
+            "source": "word_order_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "She reads books every night.",
+                    "options": [
+                        "She reads books every night.",
+                        "Reads she books every night.",
+                        "Books reads she every night."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_structure",
+                "svo",
+                "subject_verb_object"
+            ]
+        },
+        {
+            "id": 2,
+            "question": "Choose the correct frequency adverb order: {a1}",
+            "source": "word_order_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "I always drink tea in the morning.",
+                    "options": [
+                        "I always drink tea in the morning.",
+                        "I drink always tea in the morning.",
+                        "Always I drink tea in the morning."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "adverb_word_order"
+            ]
+        },
+        {
+            "id": 3,
+            "question": "Choose the correct place and time order: {a1}",
+            "source": "word_order_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "We play football in the park on Sundays.",
+                    "options": [
+                        "We play football in the park on Sundays.",
+                        "We play football on Sundays in the park.",
+                        "Play we football in the park on Sundays."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 4,
+            "question": "Choose the correct yes/no question: {a1}",
+            "source": "word_order_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Do they work here?",
+                    "options": [
+                        "Do they work here?",
+                        "They do work here?",
+                        "Work they here?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "question_word_order"
+            ]
+        },
+        {
+            "id": 5,
+            "question": "Choose the correct negative sentence: {a1}",
+            "source": "word_order_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "She doesn't like spicy food.",
+                    "options": [
+                        "She doesn't like spicy food.",
+                        "She not likes spicy food.",
+                        "Doesn't she like spicy food."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 6,
+            "question": "Choose the correct question with to be: {a1}",
+            "source": "word_order_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Are you ready?",
+                    "options": [
+                        "Are you ready?",
+                        "You are ready?",
+                        "Do you are ready?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "question_word_order"
+            ]
+        },
+        {
+            "id": 7,
+            "question": "Choose the correct order with an object: {a1}",
+            "source": "word_order_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "The teacher gave us homework.",
+                    "options": [
+                        "The teacher gave us homework.",
+                        "The teacher homework gave us.",
+                        "Gave the teacher us homework."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_structure",
+                "subject_verb_object"
+            ]
+        },
+        {
+            "id": 8,
+            "question": "Choose the correct order with a time adverbial: {a1}",
+            "source": "word_order_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "I study English after dinner.",
+                    "options": [
+                        "I study English after dinner.",
+                        "I after dinner study English.",
+                        "Study I English after dinner."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 9,
+            "question": "Choose the correct wh-question: {a1}",
+            "source": "word_order_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Where do you live?",
+                    "options": [
+                        "Where do you live?",
+                        "Where you live?",
+                        "Do you live where?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "question_word_order"
+            ]
+        },
+        {
+            "id": 10,
+            "question": "Choose the correct order with to be and an adverb: {a1}",
+            "source": "word_order_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "He is often late for class.",
+                    "options": [
+                        "He is often late for class.",
+                        "He often is late for class.",
+                        "Often he is late for class every day."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "adverb_word_order"
+            ]
+        },
+        {
+            "id": 11,
+            "question": "Choose the correct modal sentence: {a1}",
+            "source": "word_order_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "My brother can play the guitar well.",
+                    "options": [
+                        "My brother can play the guitar well.",
+                        "My brother can well play the guitar.",
+                        "Can play my brother the guitar well."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_structure",
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 12,
+            "question": "Choose the correct wh-question order: {a1}",
+            "source": "word_order_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Why did she leave early?",
+                    "options": [
+                        "Why did she leave early?",
+                        "Why she did leave early?",
+                        "Did why she leave early?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "question_word_order"
+            ]
+        },
+        {
+            "id": 13,
+            "question": "Choose the correct negative order: {a1}",
+            "source": "word_order_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "We didn't see the final version yesterday.",
+                    "options": [
+                        "We didn't see the final version yesterday.",
+                        "We didn't yesterday see the final version.",
+                        "Didn't we saw the final version yesterday."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 14,
+            "question": "Choose the natural sentence with a manner adverb: {a1}",
+            "source": "word_order_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "She explains the rule clearly to new students.",
+                    "options": [
+                        "She explains the rule clearly to new students.",
+                        "She explains clearly the rule to new students.",
+                        "Clearly she explains the rule to new students."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "adverb_word_order"
+            ]
+        },
+        {
+            "id": 15,
+            "question": "Choose the correct place and time order: {a1}",
+            "source": "word_order_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "They met in Kyiv last summer.",
+                    "options": [
+                        "They met in Kyiv last summer.",
+                        "They met last summer in Kyiv.",
+                        "Met they in Kyiv last summer."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 16,
+            "question": "Choose the correct indirect object order: {a1}",
+            "source": "word_order_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "She sent her client the draft.",
+                    "options": [
+                        "She sent her client the draft.",
+                        "She sent the draft her client.",
+                        "Sent she her client the draft."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_structure",
+                "subject_verb_object"
+            ]
+        },
+        {
+            "id": 17,
+            "question": "Which sentence sounds natural? {a1}",
+            "source": "word_order_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Sometimes we eat lunch outside.",
+                    "options": [
+                        "Sometimes we eat lunch outside.",
+                        "We eat sometimes lunch outside.",
+                        "Eat we sometimes lunch outside."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "adverb_word_order"
+            ]
+        },
+        {
+            "id": 18,
+            "question": "Choose the correct question with do-support: {a1}",
+            "source": "word_order_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "When do they usually arrive?",
+                    "options": [
+                        "When do they usually arrive?",
+                        "When they usually arrive?",
+                        "Do when they usually arrive?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "question_word_order",
+                "adverbs"
+            ]
+        },
+        {
+            "id": 19,
+            "question": "Choose the correct phrasal verb order with a pronoun: {a1}",
+            "source": "word_order_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Turn it off before the call starts.",
+                    "options": [
+                        "Turn it off before the call starts.",
+                        "Turn off it before the call starts.",
+                        "Off turn it before the call starts."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 20,
+            "question": "Which sentence is correct? {a1}",
+            "source": "word_order_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Can you send me the minutes later?",
+                    "options": [
+                        "Can you send me the minutes later?",
+                        "Can send you me the minutes later?",
+                        "You can send me the minutes later?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "question_word_order"
+            ]
+        },
+        {
+            "id": 21,
+            "question": "Choose the correct adverb position with an auxiliary: {a1}",
+            "source": "word_order_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "She has never mentioned the error publicly.",
+                    "options": [
+                        "She has never mentioned the error publicly.",
+                        "She never has mentioned the error publicly.",
+                        "Never she has mentioned the error publicly."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "adverb_word_order"
+            ]
+        },
+        {
+            "id": 22,
+            "question": "Choose the correct question order: {a1}",
+            "source": "word_order_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Why are they still discussing the proposal?",
+                    "options": [
+                        "Why are they still discussing the proposal?",
+                        "Why they are still discussing the proposal?",
+                        "Are why they still discussing the proposal?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "question_word_order"
+            ]
+        },
+        {
+            "id": 23,
+            "question": "Choose the correct negative with an adverb: {a1}",
+            "source": "word_order_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "He didn't entirely understand the instructions.",
+                    "options": [
+                        "He didn't entirely understand the instructions.",
+                        "He entirely didn't understand the instructions.",
+                        "Didn't he entirely understood the instructions."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "adverbs"
+            ]
+        },
+        {
+            "id": 24,
+            "question": "Choose the best order for manner, place, and time: {a1}",
+            "source": "word_order_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "We worked carefully in silence all afternoon.",
+                    "options": [
+                        "We worked carefully in silence all afternoon.",
+                        "We worked in silence carefully all afternoon.",
+                        "Carefully we worked all afternoon in silence."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 25,
+            "question": "Which sentence is correct? {a1}",
+            "source": "word_order_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The manager handed the interns the schedule.",
+                    "options": [
+                        "The manager handed the interns the schedule.",
+                        "The manager handed the schedule the interns.",
+                        "Handed the manager the interns the schedule."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_structure",
+                "subject_verb_object"
+            ]
+        },
+        {
+            "id": 26,
+            "question": "Choose the correct emphasis pattern: {a1}",
+            "source": "word_order_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Only then did I understand the problem.",
+                    "options": [
+                        "Only then did I understand the problem.",
+                        "Only then I understood the problem.",
+                        "Did only then I understand the problem."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion",
+                "advanced_word_order"
+            ]
+        },
+        {
+            "id": 27,
+            "question": "Choose the correct question with already: {a1}",
+            "source": "word_order_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Have they already sent the invoice?",
+                    "options": [
+                        "Have they already sent the invoice?",
+                        "They have already sent the invoice?",
+                        "Already have they sent the invoice?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "question_word_order",
+                "adverbs"
+            ]
+        },
+        {
+            "id": 28,
+            "question": "Choose the correct inversion pattern: {a1}",
+            "source": "word_order_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Rarely do we get such clear feedback.",
+                    "options": [
+                        "Rarely do we get such clear feedback.",
+                        "Rarely we get such clear feedback.",
+                        "Do rarely we get such clear feedback."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion",
+                "advanced_word_order"
+            ]
+        },
+        {
+            "id": 29,
+            "question": "Choose the correct phrasal verb order: {a1}",
+            "source": "word_order_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "She turned the offer down politely.",
+                    "options": [
+                        "She turned the offer down politely.",
+                        "She turned down the offer politely.",
+                        "She turned down politely the offer."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 30,
+            "question": "Choose the correct question order: {a1}",
+            "source": "word_order_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Have you already sent the revised figures?",
+                    "options": [
+                        "Have you already sent the revised figures?",
+                        "Have already you sent the revised figures?",
+                        "Already have you sent the revised figures?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "question_word_order",
+                "adverbs"
+            ]
+        },
+        {
+            "id": 31,
+            "question": "Which sentence is correct? {a1}",
+            "source": "word_order_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Why did the auditor reject the file so quickly?",
+                    "options": [
+                        "Why did the auditor reject the file so quickly?",
+                        "Why the auditor did reject the file so quickly?",
+                        "Did why the auditor reject the file so quickly?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "question_word_order"
+            ]
+        },
+        {
+            "id": 32,
+            "question": "Choose the correct adverb placement after a modal: {a1}",
+            "source": "word_order_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "He will probably revise the draft tomorrow.",
+                    "options": [
+                        "He will probably revise the draft tomorrow.",
+                        "He probably will revise the draft tomorrow.",
+                        "Will he probably revise the draft tomorrow."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "adverb_word_order"
+            ]
+        },
+        {
+            "id": 33,
+            "question": "Choose the correct emphasis structure: {a1}",
+            "source": "word_order_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Not only did she apologise, but she also proposed a fix.",
+                    "options": [
+                        "Not only did she apologise, but she also proposed a fix.",
+                        "Not only she apologised, but she also proposed a fix.",
+                        "Did not only she apologise, but she also proposed a fix."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion",
+                "advanced_word_order"
+            ]
+        },
+        {
+            "id": 34,
+            "question": "Choose the natural order for place and time: {a1}",
+            "source": "word_order_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "They discussed the issue openly at the meeting yesterday.",
+                    "options": [
+                        "They discussed the issue openly at the meeting yesterday.",
+                        "They discussed openly the issue yesterday at the meeting.",
+                        "Discussed they the issue openly at the meeting yesterday."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 35,
+            "question": "Which sentence is correct? {a1}",
+            "source": "word_order_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The consultant explained the process to the board clearly.",
+                    "options": [
+                        "The consultant explained the process to the board clearly.",
+                        "The consultant explained clearly the process to the board.",
+                        "Explained the consultant the process to the board clearly."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_structure",
+                "adverb_word_order"
+            ]
+        },
+        {
+            "id": 36,
+            "question": "Choose the correct negative with to be and an adverb: {a1}",
+            "source": "word_order_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "We aren't usually this late.",
+                    "options": [
+                        "We aren't usually this late.",
+                        "We usually aren't this late.",
+                        "Aren't we usually this late."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "adverbs",
+                "adverb_word_order"
+            ]
+        },
+        {
+            "id": 37,
+            "question": "Choose the correct inversion: {a1}",
+            "source": "word_order_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Seldom have the researchers published results so cautiously.",
+                    "options": [
+                        "Seldom have the researchers published results so cautiously.",
+                        "Seldom the researchers have published results so cautiously.",
+                        "Have seldom the researchers published results so cautiously."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion",
+                "advanced_word_order"
+            ]
+        },
+        {
+            "id": 38,
+            "question": "Choose the correct sentence: {a1}",
+            "source": "word_order_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "She has carefully framed the conclusion in the final paragraph.",
+                    "options": [
+                        "She has carefully framed the conclusion in the final paragraph.",
+                        "She carefully has framed the conclusion in the final paragraph.",
+                        "Carefully she has framed the conclusion in the final paragraph."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "adverb_word_order"
+            ]
+        },
+        {
+            "id": 39,
+            "question": "Choose the correct question order: {a1}",
+            "source": "word_order_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Where should the remaining funds be allocated next year?",
+                    "options": [
+                        "Where should the remaining funds be allocated next year?",
+                        "Where the remaining funds should be allocated next year?",
+                        "Should where the remaining funds be allocated next year?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "question_word_order"
+            ]
+        },
+        {
+            "id": 40,
+            "question": "Choose the correct negative sentence: {a1}",
+            "source": "word_order_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The committee did not fully appreciate the downstream risk.",
+                    "options": [
+                        "The committee did not fully appreciate the downstream risk.",
+                        "The committee fully did not appreciate the downstream risk.",
+                        "Did not the committee fully appreciate the downstream risk."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "adverbs"
+            ]
+        },
+        {
+            "id": 41,
+            "question": "Choose the natural order for manner, place, and time: {a1}",
+            "source": "word_order_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "We reviewed the evidence methodically in private for two hours.",
+                    "options": [
+                        "We reviewed the evidence methodically in private for two hours.",
+                        "We reviewed methodically the evidence in private for two hours.",
+                        "Reviewed we the evidence methodically in private for two hours."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 42,
+            "question": "Choose the correct cleft sentence: {a1}",
+            "source": "word_order_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "It was the timing that caused most of the confusion.",
+                    "options": [
+                        "It was the timing that caused most of the confusion.",
+                        "It the timing was that caused most of the confusion.",
+                        "Was it the timing that caused most of the confusion."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_word_order"
+            ]
+        },
+        {
+            "id": 43,
+            "question": "Choose the correct inversion after an adverbial: {a1}",
+            "source": "word_order_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Only after the second interview did they reveal the salary range.",
+                    "options": [
+                        "Only after the second interview did they reveal the salary range.",
+                        "Only after the second interview they revealed the salary range.",
+                        "Did only after the second interview they reveal the salary range."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion",
+                "advanced_word_order"
+            ]
+        },
+        {
+            "id": 44,
+            "question": "Choose the correct object order: {a1}",
+            "source": "word_order_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The editor asked the author several detailed questions about the appendix.",
+                    "options": [
+                        "The editor asked the author several detailed questions about the appendix.",
+                        "The editor asked several detailed questions the author about the appendix.",
+                        "Asked the editor the author several detailed questions about the appendix."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_structure",
+                "subject_verb_object"
+            ]
+        },
+        {
+            "id": 45,
+            "question": "Which sentence is correct? {a1}",
+            "source": "word_order_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "They had already set the chairs out before the guests arrived.",
+                    "options": [
+                        "They had already set the chairs out before the guests arrived.",
+                        "They had already set out the chairs before the guests arrived.",
+                        "They had set already out the chairs before the guests arrived."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 46,
+            "question": "Choose the correct inversion pattern: {a1}",
+            "source": "word_order_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Never again will the board ignore a discrepancy of that scale.",
+                    "options": [
+                        "Never again will the board ignore a discrepancy of that scale.",
+                        "Never again the board will ignore a discrepancy of that scale.",
+                        "Will never again the board ignore a discrepancy of that scale."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion",
+                "advanced_word_order"
+            ]
+        },
+        {
+            "id": 47,
+            "question": "Which sentence is correct? {a1}",
+            "source": "word_order_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Hardly had the witness finished when counsel interrupted.",
+                    "options": [
+                        "Hardly had the witness finished when counsel interrupted.",
+                        "Hardly the witness had finished when counsel interrupted.",
+                        "Had hardly the witness finished when counsel interrupted."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion",
+                "advanced_word_order"
+            ]
+        },
+        {
+            "id": 48,
+            "question": "Choose the correct negative with an adverb: {a1}",
+            "source": "word_order_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The reviewers had not entirely dismissed the alternative model.",
+                    "options": [
+                        "The reviewers had not entirely dismissed the alternative model.",
+                        "The reviewers had entirely not dismissed the alternative model.",
+                        "Had not the reviewers entirely dismissed the alternative model."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "adverbs"
+            ]
+        },
+        {
+            "id": 49,
+            "question": "Choose the correct emphasis structure: {a1}",
+            "source": "word_order_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "What the report lacks is a coherent causal explanation.",
+                    "options": [
+                        "What the report lacks is a coherent causal explanation.",
+                        "What lacks the report is a coherent causal explanation.",
+                        "Is what the report lacks a coherent causal explanation."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_word_order"
+            ]
+        },
+        {
+            "id": 50,
+            "question": "Choose the natural order: {a1}",
+            "source": "word_order_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "She articulated the objection with unusual precision in the closing paragraph.",
+                    "options": [
+                        "She articulated the objection with unusual precision in the closing paragraph.",
+                        "She articulated with unusual precision the objection in the closing paragraph.",
+                        "Articulated she the objection with unusual precision in the closing paragraph."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "english_word_order"
+            ]
+        },
+        {
+            "id": 51,
+            "question": "Choose the correct inverted warning: {a1}",
+            "source": "word_order_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Under no circumstances should the raw files be altered.",
+                    "options": [
+                        "Under no circumstances should the raw files be altered.",
+                        "Under no circumstances the raw files should be altered.",
+                        "Should under no circumstances the raw files be altered."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion",
+                "advanced_word_order"
+            ]
+        },
+        {
+            "id": 52,
+            "question": "Choose the correct question order: {a1}",
+            "source": "word_order_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Why would the negotiators suddenly abandon a workable compromise?",
+                    "options": [
+                        "Why would the negotiators suddenly abandon a workable compromise?",
+                        "Why the negotiators would suddenly abandon a workable compromise?",
+                        "Would why the negotiators suddenly abandon a workable compromise?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "question_word_order"
+            ]
+        },
+        {
+            "id": 53,
+            "question": "Choose the correct adverb placement: {a1}",
+            "source": "word_order_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "They have consistently argued against the narrower reading in public.",
+                    "options": [
+                        "They have consistently argued against the narrower reading in public.",
+                        "They consistently have argued against the narrower reading in public.",
+                        "Consistently they have argued against the narrower reading in public."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "adverb_word_order"
+            ]
+        },
+        {
+            "id": 54,
+            "question": "Choose the most natural sentence: {a1}",
+            "source": "word_order_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The chair briefly handed the floor to the external investigator.",
+                    "options": [
+                        "The chair briefly handed the floor to the external investigator.",
+                        "The chair handed briefly the floor to the external investigator.",
+                        "Briefly the chair handed the floor to the external investigator."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbs",
+                "sentence_structure"
+            ]
+        }
+    ]
+}

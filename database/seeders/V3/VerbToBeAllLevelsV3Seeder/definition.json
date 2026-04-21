@@ -1,0 +1,1203 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\VerbToBeAllLevelsV3Seeder",
+        "uuid_namespace": "VerbToBeAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Verb to Be"
+    },
+    "sources": {
+        "verb_to_be_overview": {
+            "name": "Verb to Be - All Levels Overview"
+        }
+    },
+    "tags": {
+        "verb_to_be": {
+            "name": "Verb to Be",
+            "category": "topic"
+        },
+        "am_is_are": {
+            "name": "Am Is Are",
+            "category": "topic"
+        },
+        "was_were": {
+            "name": "Was Were",
+            "category": "topic"
+        },
+        "will_be": {
+            "name": "Will Be",
+            "category": "topic"
+        },
+        "negatives": {
+            "name": "Negatives",
+            "category": "topic"
+        },
+        "questions": {
+            "name": "Questions",
+            "category": "topic"
+        },
+        "short_answers": {
+            "name": "Short Answers",
+            "category": "topic"
+        },
+        "there_is_there_are": {
+            "name": "There Is There Are",
+            "category": "topic"
+        },
+        "present_forms": {
+            "name": "Verb to be: present tense (am / is / are)",
+            "category": "topic"
+        },
+        "past_forms": {
+            "name": "Verb to Be: Past Forms",
+            "category": "topic"
+        },
+        "future_forms": {
+            "name": "Verb to Be: Future (will be / won't be)",
+            "category": "topic"
+        },
+        "negative_forms": {
+            "name": "Verb to Be negative forms",
+            "category": "topic"
+        },
+        "questions_forms": {
+            "name": "Verb to be — questions",
+            "category": "topic"
+        },
+        "there_is_are_constructions": {
+            "name": "There is / There are constructions",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "verb_to_be"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "I {a1} at school now.",
+            "source": "verb_to_be_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_is_are",
+                "present_forms"
+            ]
+        },
+        {
+            "id": 2,
+            "question": "She {a1} very happy today.",
+            "source": "verb_to_be_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_is_are",
+                "present_forms"
+            ]
+        },
+        {
+            "id": 3,
+            "question": "They {a1} my friends.",
+            "source": "verb_to_be_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_is_are",
+                "present_forms"
+            ]
+        },
+        {
+            "id": 4,
+            "question": "Choose the correct question: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Are you tired?",
+                    "options": [
+                        "Are you tired?",
+                        "You are tired?",
+                        "Do you are tired?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "questions_forms"
+            ]
+        },
+        {
+            "id": 5,
+            "question": "There {a1} a book on the desk.",
+            "source": "verb_to_be_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_there_are",
+                "there_is_are_constructions"
+            ]
+        },
+        {
+            "id": 6,
+            "question": "There {a1} two windows in the room.",
+            "source": "verb_to_be_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_there_are",
+                "there_is_are_constructions"
+            ]
+        },
+        {
+            "id": 7,
+            "question": "Choose the correct negative: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "He isn't late.",
+                    "options": [
+                        "He isn't late.",
+                        "He doesn't late.",
+                        "He not is late."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "negative_forms"
+            ]
+        },
+        {
+            "id": 8,
+            "question": "\"Is she at home?\" - \"Yes, she {a1}.\"",
+            "source": "verb_to_be_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "has"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "short_answers"
+            ]
+        },
+        {
+            "id": 9,
+            "question": "\"Are they students?\" - \"No, they {a1}.\"",
+            "source": "verb_to_be_overview",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "don't",
+                        "isn't"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "short_answers",
+                "negative_forms"
+            ]
+        },
+        {
+            "id": 10,
+            "question": "We {a1} not ready yet.",
+            "source": "verb_to_be_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "am_is_are",
+                "negative_forms"
+            ]
+        },
+        {
+            "id": 11,
+            "question": "Yesterday, I {a1} at the office until six.",
+            "source": "verb_to_be_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "am"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "was_were",
+                "past_forms"
+            ]
+        },
+        {
+            "id": 12,
+            "question": "They {a1} very tired after the trip last night.",
+            "source": "verb_to_be_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "was",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "was_were",
+                "past_forms"
+            ]
+        },
+        {
+            "id": 13,
+            "question": "Choose the correct past question: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Was he at the station yesterday?",
+                    "options": [
+                        "Was he at the station yesterday?",
+                        "Did he was at the station yesterday?",
+                        "He was at the station yesterday?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "was_were",
+                "questions_forms"
+            ]
+        },
+        {
+            "id": 14,
+            "question": "There {a1} a lot of people at the concert last night.",
+            "source": "verb_to_be_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "was",
+                        "are"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_there_are",
+                "past_forms",
+                "there_is_are_constructions"
+            ]
+        },
+        {
+            "id": 15,
+            "question": "Tomorrow, she {a1} at the meeting all day.",
+            "source": "verb_to_be_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_be",
+                "future_forms"
+            ]
+        },
+        {
+            "id": 16,
+            "question": "Choose the correct negative future sentence: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "I won't be late tomorrow.",
+                    "options": [
+                        "I won't be late tomorrow.",
+                        "I don't be late tomorrow.",
+                        "I won't late tomorrow."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_be",
+                "negatives",
+                "future_forms",
+                "negative_forms"
+            ]
+        },
+        {
+            "id": 17,
+            "question": "\"Were they at the cafe?\" - \"No, they {a1}.\"",
+            "source": "verb_to_be_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "weren't",
+                    "options": [
+                        "weren't",
+                        "didn't",
+                        "aren't"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "short_answers",
+                "was_were",
+                "negative_forms"
+            ]
+        },
+        {
+            "id": 18,
+            "question": "\"Will you be in class tomorrow?\" - \"Yes, I {a1}.\"",
+            "source": "verb_to_be_overview",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "am",
+                        "do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "short_answers",
+                "will_be"
+            ]
+        },
+        {
+            "id": 19,
+            "question": "Choose the correct sentence: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The main issue is communication, not timing.",
+                    "options": [
+                        "The main issue is communication, not timing.",
+                        "The main issue are communication, not timing.",
+                        "The main issue be communication, not timing."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_is_are",
+                "present_forms"
+            ]
+        },
+        {
+            "id": 20,
+            "question": "Choose the correct contrast: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The offices were quiet, but the lobby was crowded.",
+                    "options": [
+                        "The offices were quiet, but the lobby was crowded.",
+                        "The offices was quiet, but the lobby were crowded.",
+                        "The offices were quiet, but the lobby were crowded."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "was_were",
+                "past_forms"
+            ]
+        },
+        {
+            "id": 21,
+            "question": "Choose the correct future question: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Will the documents be ready by noon?",
+                    "options": [
+                        "Will the documents be ready by noon?",
+                        "Will be the documents ready by noon?",
+                        "Do the documents will be ready by noon?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "will_be",
+                "questions_forms"
+            ]
+        },
+        {
+            "id": 22,
+            "question": "There {a1} several reasons for the delay, according to the note.",
+            "source": "verb_to_be_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_there_are",
+                "there_is_are_constructions"
+            ]
+        },
+        {
+            "id": 23,
+            "question": "Choose the correct negative sentence: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The results weren't convincing enough to publish.",
+                    "options": [
+                        "The results weren't convincing enough to publish.",
+                        "The results didn't be convincing enough to publish.",
+                        "The results not were convincing enough to publish."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "was_were",
+                "negative_forms"
+            ]
+        },
+        {
+            "id": 24,
+            "question": "\"Was the venue available?\" - \"No, it {a1}.\"",
+            "source": "verb_to_be_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "didn't"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "short_answers",
+                "was_were",
+                "negative_forms"
+            ]
+        },
+        {
+            "id": 25,
+            "question": "\"Are the backups on the server?\" - \"Yes, they {a1}.\"",
+            "source": "verb_to_be_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "do",
+                        "have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "short_answers",
+                "am_is_are"
+            ]
+        },
+        {
+            "id": 26,
+            "question": "Choose the correct sentence about the near future: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The speakers will be available after the session.",
+                    "options": [
+                        "The speakers will be available after the session.",
+                        "The speakers will available after the session.",
+                        "The speakers are be available after the session."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_be",
+                "future_forms"
+            ]
+        },
+        {
+            "id": 27,
+            "question": "There {a1} a risk of confusion if we change the format now.",
+            "source": "verb_to_be_overview",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_there_are",
+                "there_is_are_constructions"
+            ]
+        },
+        {
+            "id": 28,
+            "question": "Choose the sentence with the correct form: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The committee is unlikely to change its position today.",
+                    "options": [
+                        "The committee is unlikely to change its position today.",
+                        "The committee are unlikely to change its position today.",
+                        "The committee be unlikely to change its position today."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_is_are",
+                "present_forms"
+            ]
+        },
+        {
+            "id": 29,
+            "question": "Choose the best correction: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Neither of the explanations was convincing.",
+                    "options": [
+                        "Neither of the explanations was convincing.",
+                        "Neither of the explanations were convincing.",
+                        "Neither of the explanations be convincing."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "was_were",
+                "past_forms"
+            ]
+        },
+        {
+            "id": 30,
+            "question": "Choose the correct short answer: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "\"Will the next phase be shorter?\" - \"No, it won't.\"",
+                    "options": [
+                        "\"Will the next phase be shorter?\" - \"No, it won't.\"",
+                        "\"Will the next phase be shorter?\" - \"No, it isn't.\"",
+                        "\"Will the next phase be shorter?\" - \"No, it doesn't.\""
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "short_answers",
+                "will_be"
+            ]
+        },
+        {
+            "id": 31,
+            "question": "Choose the correct negative sentence: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The figures aren't consistent with the appendix.",
+                    "options": [
+                        "The figures aren't consistent with the appendix.",
+                        "The figures don't consistent with the appendix.",
+                        "The figures not are consistent with the appendix."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "negative_forms"
+            ]
+        },
+        {
+            "id": 32,
+            "question": "Choose the correct sentence about an empty location: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "There were hardly any seats left near the front.",
+                    "options": [
+                        "There were hardly any seats left near the front.",
+                        "There was hardly any seats left near the front.",
+                        "There had seats left hardly near the front."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_there_are",
+                "there_is_are_constructions",
+                "past_forms"
+            ]
+        },
+        {
+            "id": 33,
+            "question": "Choose the correct question: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Why were the final slides still incomplete at noon?",
+                    "options": [
+                        "Why were the final slides still incomplete at noon?",
+                        "Why the final slides were still incomplete at noon?",
+                        "Why did the final slides were still incomplete at noon?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "questions_forms",
+                "was_were"
+            ]
+        },
+        {
+            "id": 34,
+            "question": "Choose the correct contrastive sentence: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The first draft was unclear, but the summary was precise.",
+                    "options": [
+                        "The first draft was unclear, but the summary was precise.",
+                        "The first draft were unclear, but the summary was precise.",
+                        "The first draft was unclear, but the summary were precise."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "was_were",
+                "past_forms"
+            ]
+        },
+        {
+            "id": 35,
+            "question": "Choose the correct future sentence: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "There will be a formal response by the end of the week.",
+                    "options": [
+                        "There will be a formal response by the end of the week.",
+                        "There will have a formal response by the end of the week.",
+                        "There is be a formal response by the end of the week."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_be",
+                "future_forms",
+                "there_is_are_constructions"
+            ]
+        },
+        {
+            "id": 36,
+            "question": "\"Were the preliminary findings reliable?\" - \"Only partly; they {a1}.\"",
+            "source": "verb_to_be_overview",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "weren't entirely stable",
+                    "options": [
+                        "weren't entirely stable",
+                        "didn't entirely stable",
+                        "wasn't entirely stable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers",
+                "negative_forms",
+                "was_were"
+            ]
+        },
+        {
+            "id": 37,
+            "question": "Choose the correct sentence: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "What matters most is whether the evidence is reproducible.",
+                    "options": [
+                        "What matters most is whether the evidence is reproducible.",
+                        "What matters most are whether the evidence is reproducible.",
+                        "What matters most be whether the evidence is reproducible."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_is_are",
+                "present_forms"
+            ]
+        },
+        {
+            "id": 38,
+            "question": "Choose the best correction: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The data were incomplete, but the trend was still visible.",
+                    "options": [
+                        "The data were incomplete, but the trend was still visible.",
+                        "The data was incomplete, but the trend were still visible.",
+                        "The data were incomplete, but the trend were still visible."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "was_were",
+                "past_forms"
+            ]
+        },
+        {
+            "id": 39,
+            "question": "Choose the correct question about a future state: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Will the revised terms be acceptable to both sides?",
+                    "options": [
+                        "Will the revised terms be acceptable to both sides?",
+                        "Will be the revised terms acceptable to both sides?",
+                        "Do the revised terms will be acceptable to both sides?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "questions_forms",
+                "will_be"
+            ]
+        },
+        {
+            "id": 40,
+            "question": "Choose the correct negative statement: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The discrepancy isn't merely technical; it's procedural as well.",
+                    "options": [
+                        "The discrepancy isn't merely technical; it's procedural as well.",
+                        "The discrepancy doesn't merely technical; it's procedural as well.",
+                        "The discrepancy not is merely technical; it's procedural as well."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "negative_forms"
+            ]
+        },
+        {
+            "id": 41,
+            "question": "Choose the correct sentence with there is / there are: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "There are strong grounds for revisiting the policy.",
+                    "options": [
+                        "There are strong grounds for revisiting the policy.",
+                        "There is strong grounds for revisiting the policy.",
+                        "There have strong grounds for revisiting the policy."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_there_are",
+                "there_is_are_constructions"
+            ]
+        },
+        {
+            "id": 42,
+            "question": "\"Was the earlier assumption justified?\" - \"Not entirely; it {a1}.\"",
+            "source": "verb_to_be_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "was open to challenge",
+                    "options": [
+                        "was open to challenge",
+                        "were open to challenge",
+                        "did open to challenge"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers",
+                "was_were"
+            ]
+        },
+        {
+            "id": 43,
+            "question": "Choose the most natural sentence: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The final sections are likely to be shorter than the introduction.",
+                    "options": [
+                        "The final sections are likely to be shorter than the introduction.",
+                        "The final sections is likely to be shorter than the introduction.",
+                        "The final sections likely are to be shorter than the introduction."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_is_are",
+                "present_forms",
+                "will_be"
+            ]
+        },
+        {
+            "id": 44,
+            "question": "Choose the correct future contrast: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "There will be pressure to simplify the framework, but the core ideas will be stable.",
+                    "options": [
+                        "There will be pressure to simplify the framework, but the core ideas will be stable.",
+                        "There will have pressure to simplify the framework, but the core ideas will be stable.",
+                        "There will be pressure to simplify the framework, but the core ideas will stable."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_be",
+                "future_forms",
+                "there_is_are_constructions"
+            ]
+        },
+        {
+            "id": 45,
+            "question": "Choose the correct sentence: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "What was once marginal is now central to the debate.",
+                    "options": [
+                        "What was once marginal is now central to the debate.",
+                        "What were once marginal is now central to the debate.",
+                        "What was once marginal are now central to the debate."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "was_were",
+                "am_is_are",
+                "past_forms",
+                "present_forms"
+            ]
+        },
+        {
+            "id": 46,
+            "question": "Choose the best correction: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The terms are not as neutral as they first appear to be.",
+                    "options": [
+                        "The terms are not as neutral as they first appear to be.",
+                        "The terms do not as neutral as they first appear to be.",
+                        "The terms are not as neutral as they first appear be."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "negative_forms",
+                "am_is_are"
+            ]
+        },
+        {
+            "id": 47,
+            "question": "Choose the correct question: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Why were the provisional categories treated as definitive?",
+                    "options": [
+                        "Why were the provisional categories treated as definitive?",
+                        "Why the provisional categories were treated as definitive?",
+                        "Why did the provisional categories were treated as definitive?"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions",
+                "questions_forms",
+                "was_were"
+            ]
+        },
+        {
+            "id": 48,
+            "question": "Choose the correct sentence with there is / there are: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "There are few conclusions in the literature that are genuinely uncontested.",
+                    "options": [
+                        "There are few conclusions in the literature that are genuinely uncontested.",
+                        "There is few conclusions in the literature that are genuinely uncontested.",
+                        "There be few conclusions in the literature that are genuinely uncontested."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_there_are",
+                "there_is_are_constructions"
+            ]
+        },
+        {
+            "id": 49,
+            "question": "Choose the most natural short answer: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "\"Will the implications be obvious at once?\" - \"Probably not; they won't be.\"",
+                    "options": [
+                        "\"Will the implications be obvious at once?\" - \"Probably not; they won't be.\"",
+                        "\"Will the implications be obvious at once?\" - \"Probably not; they aren't.\"",
+                        "\"Will the implications be obvious at once?\" - \"Probably not; they don't.\""
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers",
+                "will_be",
+                "questions"
+            ]
+        },
+        {
+            "id": 50,
+            "question": "Choose the best contrastive sentence: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The objection was understandable, but the proposed remedy was disproportionate.",
+                    "options": [
+                        "The objection was understandable, but the proposed remedy was disproportionate.",
+                        "The objection were understandable, but the proposed remedy was disproportionate.",
+                        "The objection was understandable, but the proposed remedy were disproportionate."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "was_were",
+                "past_forms"
+            ]
+        },
+        {
+            "id": 51,
+            "question": "Choose the correct sentence about the future: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Several assumptions will be untenable once the full archive is released.",
+                    "options": [
+                        "Several assumptions will be untenable once the full archive is released.",
+                        "Several assumptions will untenable once the full archive is released.",
+                        "Several assumptions are be untenable once the full archive is released."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_be",
+                "future_forms"
+            ]
+        },
+        {
+            "id": 52,
+            "question": "Choose the best correction: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The central difficulty is not that the evidence is scarce, but that it is inconsistent.",
+                    "options": [
+                        "The central difficulty is not that the evidence is scarce, but that it is inconsistent.",
+                        "The central difficulty are not that the evidence is scarce, but that it is inconsistent.",
+                        "The central difficulty is not that the evidence scarce, but that it is inconsistent."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives",
+                "am_is_are",
+                "negative_forms",
+                "present_forms"
+            ]
+        },
+        {
+            "id": 53,
+            "question": "Choose the correct sentence: {a1}",
+            "source": "verb_to_be_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "There will be no tidy resolution if the premises themselves are unstable.",
+                    "options": [
+                        "There will be no tidy resolution if the premises themselves are unstable.",
+                        "There will have no tidy resolution if the premises themselves are unstable.",
+                        "There will be no tidy resolution if the premises themselves unstable."
+                    ]
+                }
+            },
+            "tag_keys": [
+                "there_is_there_are",
+                "will_be",
+                "future_forms",
+                "there_is_are_constructions"
+            ]
+        },
+        {
+            "id": 54,
+            "question": "\"Were the categories ever truly comparable?\" - \"At best, they {a1}.\"",
+            "source": "verb_to_be_overview",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "were only loosely aligned",
+                    "options": [
+                        "were only loosely aligned",
+                        "was only loosely aligned",
+                        "did only loosely align"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers",
+                "was_were",
+                "questions"
+            ]
+        }
+    ]
+}
