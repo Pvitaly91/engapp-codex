@@ -43,4 +43,12 @@ class PolyglotQuestionUuidResolverTest extends TestCase
 
         $this->assertSame($canonical, $resolver->toPersistent($canonical));
     }
+
+    public function test_some_any_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-some-any-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
 }

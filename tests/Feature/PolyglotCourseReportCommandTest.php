@@ -7,6 +7,7 @@ use Database\Seeders\V2\Polyglot\PolyglotArticlesAAnTheLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotHaveGotHasGotLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotSomeAnyLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPresentContinuousLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
@@ -41,6 +42,7 @@ class PolyglotCourseReportCommandTest extends TestCase
         $this->seed(PolyglotPastSimpleIrregularVerbsLessonSeeder::class);
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
+        $this->seed(PolyglotSomeAnyLessonSeeder::class);
     }
 
     public function test_course_report_command_outputs_planned_and_implemented_status(): void
@@ -49,10 +51,10 @@ class PolyglotCourseReportCommandTest extends TestCase
             'courseSlug' => 'polyglot-english-a1',
         ])
             ->expectsOutputToContain('Planned total: 16')
-            ->expectsOutputToContain('Implemented total: 11')
-            ->expectsOutputToContain('Missing / planned lessons: polyglot-some-any-a1')
-            ->expectsOutputToContain('Next recommended lesson: polyglot-some-any-a1')
-            ->expectsOutputToContain('/test/polyglot-articles-a-an-the-a1/step/compose')
+            ->expectsOutputToContain('Implemented total: 12')
+            ->expectsOutputToContain('Missing / planned lessons: polyglot-much-many-a-lot-of-a1')
+            ->expectsOutputToContain('Next recommended lesson: polyglot-much-many-a-lot-of-a1')
+            ->expectsOutputToContain('/test/polyglot-some-any-a1/step/compose')
             ->expectsOutputToContain('Broken previous/next refs: none')
             ->assertExitCode(0);
     }

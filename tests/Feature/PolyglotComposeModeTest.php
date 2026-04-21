@@ -16,6 +16,7 @@ use Database\Seeders\V2\Polyglot\PolyglotPresentContinuousLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPresentSimpleVerbsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotSomeAnyLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotThereIsThereAreLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotToBeLessonSeeder;
 use Illuminate\Support\Str;
@@ -229,6 +230,48 @@ class PolyglotComposeModeTest extends TestCase
         );
     }
 
+    public function test_compose_route_works_for_generator_driven_some_any_lesson(): void
+    {
+        $this->seed(PolyglotSomeAnyLessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-some-any-a1/step/compose');
+
+        $response->assertOk();
+        $response->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
+
+        $questionData = $response->viewData('questionData');
+
+        $this->assertIsArray($questionData);
+        $this->assertNotEmpty($questionData);
+        $this->assertSame(
+            ['There', 'is', 'some', 'water', 'on', 'the', 'table'],
+            $questionData[0]['correctTokenValues']
+        );
+    }
+
+    public function test_standard_polyglot_route_enables_translation_preview_for_polyglot_lessons(): void
+    {
+        $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-future-simple-will-a1');
+
+        $response->assertOk();
+        $response->assertSee('const IS_POLYGLOT_STEP_PREVIEW = true;', false);
+        $response->assertSee('const POLYGLOT_OPTIONS_PER_SLOT = 4;', false);
+        $response->assertSee('data-polyglot-translation-preview="true"', false);
+        $response->assertSee('data-polyglot-translation-status="done"', false);
+    }
+
+    public function test_standard_non_polyglot_route_keeps_translation_preview_disabled(): void
+    {
+        $test = $this->createSavedTestWithQuestion('standard-step-preview-test');
+
+        $response = $this->get("/test/{$test->slug}");
+
+        $response->assertOk();
+        $response->assertSee('const IS_POLYGLOT_STEP_PREVIEW = false;', false);
+    }
+
     public function test_incompatible_test_is_guarded_from_compose_route(): void
     {
         $test = $this->createSavedTestWithQuestion('incompatible-grammar-test');
@@ -303,6 +346,7 @@ class PolyglotComposeModeTest extends TestCase
         $this->seed(PolyglotPastSimpleIrregularVerbsLessonSeeder::class);
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
+        $this->seed(PolyglotSomeAnyLessonSeeder::class);
 
         $response = $this->get('/test/polyglot-to-be-a1/step/compose');
         $courseContext = $response->viewData('courseContext');
@@ -314,7 +358,7 @@ class PolyglotComposeModeTest extends TestCase
         $this->assertSame(1, $courseContext['lesson_order']);
         $this->assertNull($courseContext['previous_lesson_slug']);
         $this->assertSame('polyglot-there-is-there-are-a1', $courseContext['next_lesson_slug']);
-        $this->assertSame(11, $courseContext['total_lessons']);
+        $this->assertSame(12, $courseContext['total_lessons']);
     }
 
     public function test_step_compose_renders_polyglot_progress_data_hooks(): void
@@ -330,6 +374,7 @@ class PolyglotComposeModeTest extends TestCase
         $this->seed(PolyglotPastSimpleIrregularVerbsLessonSeeder::class);
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
+        $this->seed(PolyglotSomeAnyLessonSeeder::class);
 
         $response = $this->get('/test/polyglot-there-is-there-are-a1/step/compose');
 

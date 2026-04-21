@@ -10,6 +10,8 @@ use Database\Seeders\Page_V3\BasicGrammar\VerbToBe\ThereIsThereAreTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\VerbToBe\VerbToBeCategorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\VerbToBe\VerbToBePastTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\VerbToBe\VerbToBePresentTheorySeeder;
+use Database\Seeders\Page_V3\Articles\SomeAny\SomeAnyCategorySeeder;
+use Database\Seeders\Page_V3\Articles\SomeAny\SomeAnyThingsTheorySeeder;
 use Database\Seeders\Page_V3\CommonMistakes\CommonMistakesArticlesTheorySeeder;
 use Database\Seeders\Page_V3\CommonMistakes\CommonMistakesCategorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsCategorySeeder;
@@ -28,6 +30,7 @@ use Database\Seeders\V3\Polyglot\PolyglotArticlesAAnTheLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotHaveGotHasGotLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotSomeAnyLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentContinuousLessonSeeder;
@@ -70,6 +73,7 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(PolyglotPastSimpleIrregularVerbsLessonSeeder::class);
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
+        $this->seed(PolyglotSomeAnyLessonSeeder::class);
 
         $toBePage = Page::query()
             ->where('slug', 'verb-to-be-present')
@@ -101,6 +105,9 @@ class PolyglotTheoryPageTest extends TestCase
         $articlesPage = Page::query()
             ->where('slug', 'articles-common-mistakes')
             ->firstOrFail();
+        $someAnyPage = Page::query()
+            ->where('slug', 'theory-some-any-things')
+            ->firstOrFail();
 
         $toBeResponse = $this->get(route('theory.show', ['verb-to-be', $toBePage->slug]));
         $thereResponse = $this->get(route('theory.show', ['verb-to-be', $therePage->slug]));
@@ -112,6 +119,7 @@ class PolyglotTheoryPageTest extends TestCase
         $pastSimpleRegularResponse = $this->get(route('theory.show', ['past-simple', $pastSimpleRegularPage->slug]));
         $futureSimpleResponse = $this->get(route('theory.show', ['maibutni-formy', $futureSimplePage->slug]));
         $articlesResponse = $this->get(route('theory.show', ['common-mistakes', $articlesPage->slug]));
+        $someAnyResponse = $this->get(route('theory.show', ['some-any', $someAnyPage->slug]));
 
         $toBeResponse->assertOk();
         $toBeResponse->assertSee('Polyglot: to be (A1)');
@@ -176,6 +184,12 @@ class PolyglotTheoryPageTest extends TestCase
         $articlesResponse->assertViewHas('topicTests', function ($tests) {
             return collect($tests)->pluck('slug')->contains('polyglot-articles-a-an-the-a1');
         });
+
+        $someAnyResponse->assertOk();
+        $someAnyResponse->assertSee('Polyglot: some / any (A1)');
+        $someAnyResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->pluck('slug')->contains('polyglot-some-any-a1');
+        });
     }
 
     public function test_non_related_theory_page_does_not_show_unrelated_polyglot_lessons(): void
@@ -193,6 +207,7 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(PolyglotPastSimpleIrregularVerbsLessonSeeder::class);
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
+        $this->seed(PolyglotSomeAnyLessonSeeder::class);
 
         $page = Page::query()
             ->where('slug', 'sentence-types')
@@ -212,6 +227,7 @@ class PolyglotTheoryPageTest extends TestCase
         $response->assertDontSee('Polyglot: past simple irregular verbs (A1)');
         $response->assertDontSee('Polyglot: future simple with will (A1)');
         $response->assertDontSee('Polyglot: articles a / an / the (A1)');
+        $response->assertDontSee('Polyglot: some / any (A1)');
         $response->assertViewHas('topicTests', function ($tests) {
             return collect($tests)->doesntContain(fn ($test) => in_array(
                 $test->slug ?? null,
@@ -227,6 +243,7 @@ class PolyglotTheoryPageTest extends TestCase
                     'polyglot-past-simple-irregular-verbs-a1',
                     'polyglot-future-simple-will-a1',
                     'polyglot-articles-a-an-the-a1',
+                    'polyglot-some-any-a1',
                 ],
                 true
             ));
@@ -310,6 +327,7 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(ModalVerbsCategorySeeder::class);
         $this->seed(FutureFormsCategorySeeder::class);
         $this->seed(CommonMistakesCategorySeeder::class);
+        $this->seed(SomeAnyCategorySeeder::class);
         $this->seed(VerbToBePresentTheorySeeder::class);
         $this->seed(ThereIsThereAreTheorySeeder::class);
         $this->seed(BasicGrammarHaveGotHasGotTheorySeeder::class);
@@ -320,5 +338,6 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(ModalVerbsCanCouldTheorySeeder::class);
         $this->seed(FutureFormsWillVsBeGoingToTheorySeeder::class);
         $this->seed(CommonMistakesArticlesTheorySeeder::class);
+        $this->seed(SomeAnyThingsTheorySeeder::class);
     }
 }

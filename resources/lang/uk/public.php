@@ -11,6 +11,7 @@ return [
     'nav' => [
         'catalog' => 'Каталог',
         'theory' => 'Теорія',
+        'polyglot_course' => 'Polyglot курс',
         'words_test' => 'Слова',
         'verbs_test' => 'Дієслова',
         'explore' => 'Дослідження',
@@ -134,6 +135,8 @@ return [
         'catalog_desc' => 'Готові картки тестів за темами та складністю.',
         'theory_title' => 'Граматика по темах',
         'theory_desc' => 'Структуровані пояснення граматики з дружніми URL.',
+        'polyglot_title' => 'Polyglot English A1',
+        'polyglot_desc' => 'Покроковий курс з compose-token уроками, прогресом і розблокуванням наступних lesson.',
         'words_title' => 'Лексичний тренажер',
         'words_desc' => 'Тренуйте лексику з адаптивною складністю.',
         'verbs_title' => 'Практика форм',

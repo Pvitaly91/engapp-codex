@@ -138,12 +138,13 @@ window.__IS_ADMIN__ = JS_IS_ADMIN;
 const EXPLAIN_URL = '{{ localized_route('question.explain') }}';
 const MARKER_THEORY_URL = '{{ localized_route('question.marker-theory') }}';
 const TEST_SLUG = @json($test->slug);
+const IS_POLYGLOT_STEP_PREVIEW = @json(\Illuminate\Support\Str::startsWith((string) $test->slug, 'polyglot-'));
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
 @include('components.marker-theory-js')
 <script>
-const FALLBACK_OPTIONS_PER_SLOT = 3;
+const POLYGLOT_OPTIONS_PER_SLOT = 4;
 
 function getMarkersCount(q) {
   if (Number.isInteger(q?.markers_count)) {
@@ -172,7 +173,28 @@ function normalizeAnswer(value) {
   return String(value ?? '').trim().toLowerCase();
 }
 
-function buildFallbackOptionsBySlot(options, markersCount) {
+function limitOptionsForSlot(q, options, slotIndex) {
+  const normalized = sanitizeOptions(options);
+
+  if (!IS_POLYGLOT_STEP_PREVIEW || normalized.length <= POLYGLOT_OPTIONS_PER_SLOT) {
+    return normalized;
+  }
+
+  const expected = String(Array.isArray(q?.answers) ? (q.answers[slotIndex] ?? '') : '').trim();
+  const expectedNormalized = normalizeAnswer(expected);
+  const distractors = normalized.filter((option) => normalizeAnswer(option) !== expectedNormalized);
+  shuffle(distractors);
+
+  const limited = expected !== ''
+    ? [expected, ...distractors.slice(0, POLYGLOT_OPTIONS_PER_SLOT - 1)]
+    : distractors.slice(0, POLYGLOT_OPTIONS_PER_SLOT);
+
+  shuffle(limited);
+
+  return limited;
+}
+
+function buildFallbackOptionsBySlot(q, options, markersCount) {
   const normalized = sanitizeOptions(options);
   const optionsBySlot = [];
   if (markersCount > 0 && normalized.length % markersCount === 0) {
@@ -181,7 +203,7 @@ function buildFallbackOptionsBySlot(options, markersCount) {
       for (let i = 0; i < markersCount; i++) {
         const chunk = normalized.slice(i * chunkSize, (i + 1) * chunkSize);
         shuffle(chunk);
-        optionsBySlot.push(chunk);
+        optionsBySlot.push(limitOptionsForSlot(q, chunk, i));
       }
       return optionsBySlot;
     }
@@ -189,7 +211,7 @@ function buildFallbackOptionsBySlot(options, markersCount) {
   for (let i = 0; i < markersCount; i++) {
     const all = [...normalized];
     shuffle(all);
-    optionsBySlot.push(all);
+    optionsBySlot.push(limitOptionsForSlot(q, all, i));
   }
   return optionsBySlot;
 }
@@ -208,15 +230,15 @@ function normalizeOptionsBySlot(q) {
         : Array.isArray(raw[i])
           ? raw[i]
           : [];
-      optionsBySlot.push(buildShuffledOptions(markerOptions));
+      optionsBySlot.push(limitOptionsForSlot(q, buildShuffledOptions(markerOptions), i));
     }
     const hasValues = optionsBySlot.some((arr) => Array.isArray(arr) && arr.length > 0);
     if (hasValues) {
-      return optionsBySlot.map((arr) => (arr.length ? arr : buildShuffledOptions(q.options || [])));
+      return optionsBySlot.map((arr, idx) => (arr.length ? arr : limitOptionsForSlot(q, buildShuffledOptions(q.options || []), idx)));
     }
   }
 
-  return buildFallbackOptionsBySlot(q.options || [], markersCount);
+  return buildFallbackOptionsBySlot(q, q.options || [], markersCount);
 }
 
 /**
@@ -227,7 +249,7 @@ function getActiveOptions(q) {
     return q.optionsBySlot[q.activeSlot];
   }
   // Fallback to full options list
-  return q.options || [];
+  return limitOptionsForSlot(q, q.options || [], q.activeSlot);
 }
 
 /**
@@ -367,6 +389,7 @@ function render() {
   const q = state.items[state.current];
   clampActiveSlot(q);
   const sentence = renderSentence(q, state.current);
+  const polyglotTranslationPreview = renderPolyglotTranslationPreview(q);
   const activeOptions = getActiveOptions(q);
   wrap.innerHTML = `
     <article class="group bg-white rounded-3xl shadow-md hover:shadow-xl border-2 border-gray-100 hover:border-indigo-200 p-4 sm:p-6 lg:p-8 transition-all duration-300 focus-within:ring-4 ring-indigo-100 outline-none transform hover:-translate-y-1" data-idx="${state.current}">
@@ -379,6 +402,7 @@ function render() {
             <span class="text-xs sm:text-sm text-gray-500 font-medium">${q.tense || testUi('question.grammar')}</span>
           </div>
           <div class="text-base sm:text-xl leading-relaxed text-gray-900 font-medium mb-2.5 sm:mb-3">${sentence}</div>
+          ${polyglotTranslationPreview}
           <button type="button" id="help" class="inline-flex items-center text-[13px] sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -657,6 +681,59 @@ function renderSentence(q, idx) {
     text = text.replace(regex, replacement + hint + theoryBtn + tagsDebug);
   });
   return text;
+}
+
+function shouldRenderPolyglotTranslationPreview(q) {
+  return IS_POLYGLOT_STEP_PREVIEW
+    && Array.isArray(q?.answers)
+    && q.answers.length > 0;
+}
+
+function renderPolyglotTranslationPreview(q) {
+  if (!shouldRenderPolyglotTranslationPreview(q)) {
+    return '';
+  }
+
+  const total = getMarkersCount(q);
+  const slots = q.answers.map((_, slotIndex) => {
+    const isFilled = typeof q.chosen?.[slotIndex] === 'string' && q.chosen[slotIndex].trim() !== '';
+    const isActive = slotIndex === q.activeSlot;
+    const value = isFilled
+      ? html(q.chosen[slotIndex])
+      : html(testUi('question.translation_slot_pending'));
+    const baseClass = 'inline-flex min-h-[2.6rem] items-center rounded-xl border px-3 py-2 text-sm sm:text-base font-semibold transition-all duration-200';
+    const stateClass = isFilled
+      ? (isActive
+          ? 'border-indigo-300 bg-gradient-to-r from-indigo-50 to-blue-50 text-indigo-700 ring-2 ring-indigo-100'
+          : 'border-gray-200 bg-white text-gray-800 hover:border-indigo-200 hover:bg-indigo-50')
+      : (isActive
+          ? 'border-indigo-300 bg-gradient-to-r from-amber-100 to-yellow-100 text-indigo-700 ring-2 ring-indigo-100'
+          : 'border-dashed border-gray-300 bg-gray-50 text-gray-400 hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-500');
+
+    return `<button type="button"
+        class="${baseClass} ${stateClass}"
+        data-gap="${slotIndex}"
+        data-polyglot-translation-slot="${slotIndex}"
+        aria-label="${html(testUi('question.gap', { label: getMarkerLabel(q, slotIndex), current: slotIndex + 1, total }))}">${value}</button>`;
+  }).join('');
+
+  const completionNotice = q.done
+    ? `<div class="rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-800" data-polyglot-translation-status="done">
+        ${html(testUi('question.translation_completed'))}
+      </div>`
+    : '';
+
+  return `
+    <div class="mt-3 sm:mt-4 space-y-2.5" data-polyglot-translation-preview="true">
+      <div class="text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 sm:text-xs">
+        ${html(testUi('question.translation_preview'))}
+      </div>
+      <div class="flex flex-wrap gap-2.5">
+        ${slots}
+      </div>
+      ${completionNotice}
+    </div>
+  `;
 }
 
 function buildExplanationKey(selected, expected) {

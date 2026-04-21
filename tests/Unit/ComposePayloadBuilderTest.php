@@ -18,6 +18,7 @@ use Database\Seeders\V3\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentContinuousLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentSimpleVerbsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotSomeAnyLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotThereIsThereAreLessonSeeder;
 use Illuminate\Support\Str;
 use ReflectionMethod;
@@ -414,6 +415,32 @@ class ComposePayloadBuilderTest extends TestCase
         $this->assertSame('Is the book on the table?', $payload['correctText']);
         $this->assertSame(
             'Ставимо the, коли говоримо про конкретні або вже відомі предмети; тут правильна форма містить два the.',
+            $payload['hintUk']
+        );
+    }
+
+    public function test_some_any_v3_polyglot_lesson_payload_remains_compose_compatible(): void
+    {
+        $this->seed(PolyglotSomeAnyLessonSeeder::class);
+
+        $question = Question::query()
+            ->where('uuid', app(QuestionUuidResolver::class)->toPersistent('polyglot-some-any-q24'))
+            ->firstOrFail()
+            ->load(['answers.option', 'options', 'hints', 'chatgptExplanations']);
+
+        $payload = $this->buildComposePayload($question);
+
+        $this->assertSame(
+            ['Do', 'you', 'see', 'any', 'birds'],
+            $payload['correctTokenValues']
+        );
+        $this->assertEqualsCanonicalizing(
+            ['Do', 'you', 'see', 'any', 'birds', 'some', 'Does', 'cat'],
+            collect($payload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('Do you see any birds?', $payload['correctText']);
+        $this->assertSame(
+            'Схема питання: Do + you + see + any + plural noun?',
             $payload['hintUk']
         );
     }

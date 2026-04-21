@@ -8,6 +8,7 @@ return [
     'nav' => [
         'catalog' => 'Katalog',
         'theory' => 'Teoria',
+        'polyglot_course' => 'Kurs Polyglot',
         'words_test' => 'Słowa',
         'verbs_test' => 'Czasowniki',
         'reviews' => 'Opinie',
@@ -180,6 +181,8 @@ return [
         'catalog_desc' => 'Gotowe karty testów według tematów i poziomu trudności.',
         'theory_title' => 'Gramatyka według tematów',
         'theory_desc' => 'Uporządkowane wyjaśnienia gramatyki z przyjaznymi adresami URL.',
+        'polyglot_title' => 'Polyglot English A1',
+        'polyglot_desc' => 'Prowadzony kurs z lekcjami compose-token, śledzeniem postępów i odblokowywaniem kolejnych etapów.',
         'words_title' => 'Trening słownictwa',
         'words_desc' => 'Trenuj słownictwo z adaptacyjnym poziomem trudności.',
         'verbs_title' => 'Ćwiczenie form',

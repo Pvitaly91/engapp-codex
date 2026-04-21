@@ -117,14 +117,14 @@
             <div id="compose-workspace" class="{{ count($questionData ?? []) > 0 && ! $startsLockedPending ? '' : 'hidden' }}">
                 <div class="mb-6 rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.source_sentence') }}</p>
-                    <div id="compose-source-text" class="mt-4 text-2xl font-extrabold leading-[1.35] sm:text-[2rem]"></div>
+                    <div id="compose-source-text" class="mt-4 text-[2.15rem] font-extrabold leading-[1.3] sm:text-[2.55rem]"></div>
                 </div>
 
                 <div class="grid gap-5 xl:grid-cols-[1.08fr_0.92fr]">
                     <section class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
                         <div class="flex flex-wrap items-center justify-between gap-3">
                             <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.build_translation') }}</p>
-                            <span class="rounded-full border px-3 py-1 text-xs font-semibold" id="compose-punctuation" style="border-color: var(--line); color: var(--muted);"></span>
+                            <span class="rounded-[12px] border px-3 py-2 text-sm font-semibold leading-none" id="compose-punctuation" style="border-color: var(--line); color: var(--muted);"></span>
                         </div>
                         <div id="compose-answer-zone" class="mt-4 min-h-[8rem] rounded-[22px] border border-dashed p-4 sm:p-5" style="border-color: var(--line); background: color-mix(in srgb, var(--surface) 88%, white);"></div>
                         <div class="mt-5 flex flex-wrap gap-3">
@@ -736,6 +736,12 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         `;
     }
 
+    const chipBaseClass = 'inline-flex items-center border font-bold leading-none transition';
+    const chipLayoutStyle = 'min-height: 1.45rem; padding: 0.16rem 0.9rem; border-radius: 10px; font-size: 1.38rem;';
+    const answerChipStyle = `${chipLayoutStyle} border-color: var(--line); background: color-mix(in srgb, var(--accent-soft) 88%, white); color: var(--text);`;
+    const bankChipStyle = `${chipLayoutStyle} border-color: var(--line); background: var(--surface); color: var(--text);`;
+    const punctuationChipStyle = `${chipLayoutStyle} border-color: var(--line); background: color-mix(in srgb, var(--surface) 90%, white); color: var(--muted);`;
+
     function answerZoneMarkup(question) {
         const chips = state.selectedTokenIds.map((tokenId) => {
             const token = question.tokenMap[tokenId];
@@ -746,10 +752,10 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
             return `
                 <button type="button"
                     data-answer-token-id="${html(token.id)}"
-                    class="inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-bold transition hover:opacity-90"
-                    style="border-color: var(--line); background: var(--accent-soft); color: var(--text);">
+                    class="${chipBaseClass} gap-2.5 hover:opacity-90"
+                    style="${answerChipStyle}">
                     <span>${html(token.value)}</span>
-                    <span class="text-xs" style="color: var(--muted);">&times;</span>
+                    <span class="text-sm leading-none" style="color: var(--muted);">&times;</span>
                 </button>
             `;
         }).join('');
@@ -761,7 +767,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         return `
             <div class="flex min-h-[5rem] flex-wrap gap-3">
                 ${placeholder}
-                <span class="inline-flex items-center rounded-full border px-4 py-2.5 text-sm font-semibold" style="border-color: var(--line); color: var(--muted);">${html(question.punctuation)}</span>
+                <span class="${chipBaseClass}" style="${punctuationChipStyle}">${html(question.punctuation)}</span>
             </div>
         `;
     }
@@ -782,8 +788,8 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
             return `
                 <button type="button"
                     data-bank-token-id="${html(token.id)}"
-                    class="inline-flex items-center rounded-full border px-4 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 hover:shadow-sm"
-                    style="border-color: var(--line); background: var(--surface); color: var(--text);">
+                    class="${chipBaseClass} hover:-translate-y-0.5 hover:shadow-sm"
+                    style="${bankChipStyle}">
                     ${html(token.value)}
                 </button>
             `;

@@ -386,6 +386,7 @@
                     <nav class="hidden items-center gap-6 text-[15px] font-semibold xl:flex">
                         <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-ocean">{{ __('public.nav.catalog') }}</a>
                         <a href="{{ localized_route('theory.index') }}" class="transition hover:text-ocean">{{ __('public.nav.theory') }}</a>
+                        <a href="{{ localized_route('courses.show', 'polyglot-english-a1') }}" class="transition hover:text-ocean">{{ __('public.nav.polyglot_course') }}</a>
                         <a href="{{ localized_route('words.test') }}" class="transition hover:text-ocean">{{ __('public.nav.words_test') }}</a>
                         <a href="{{ localized_route('verbs.test') }}" class="transition hover:text-ocean">{{ __('public.nav.verbs_test') }}</a>
                     </nav>
@@ -459,6 +460,7 @@
                     <nav class="grid gap-2 text-sm font-semibold">
                         <a href="{{ localized_route('catalog.tests-cards') }}" class="rounded-2xl border px-4 py-3 transition hover:border-ocean surface-card-strong">{{ __('public.nav.catalog') }}</a>
                         <a href="{{ localized_route('theory.index') }}" class="rounded-2xl border px-4 py-3 transition hover:border-ocean surface-card-strong">{{ __('public.nav.theory') }}</a>
+                        <a href="{{ localized_route('courses.show', 'polyglot-english-a1') }}" class="rounded-2xl border px-4 py-3 transition hover:border-ocean surface-card-strong">{{ __('public.nav.polyglot_course') }}</a>
                         <a href="{{ localized_route('words.test') }}" class="rounded-2xl border px-4 py-3 transition hover:border-ocean surface-card-strong">{{ __('public.nav.words_test') }}</a>
                         <a href="{{ localized_route('verbs.test') }}" class="rounded-2xl border px-4 py-3 transition hover:border-ocean surface-card-strong">{{ __('public.nav.verbs_test') }}</a>
                     </nav>
@@ -522,6 +524,7 @@
                         <div class="mt-4 grid gap-3 text-sm text-white/80">
                             <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-white">{{ __('public.nav.catalog') }}</a>
                             <a href="{{ localized_route('theory.index') }}" class="transition hover:text-white">{{ __('public.nav.theory') }}</a>
+                            <a href="{{ localized_route('courses.show', 'polyglot-english-a1') }}" class="transition hover:text-white">{{ __('public.nav.polyglot_course') }}</a>
                             <a href="{{ localized_route('words.test') }}" class="transition hover:text-white">{{ __('public.nav.words_test') }}</a>
                             <a href="{{ localized_route('verbs.test') }}" class="transition hover:text-white">{{ __('public.nav.verbs_test') }}</a>
                         </div>

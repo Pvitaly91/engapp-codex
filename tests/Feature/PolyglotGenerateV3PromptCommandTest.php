@@ -461,6 +461,45 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
         $this->assertStringContainsString('polyglot-articles-a-an-the-a1', $contents);
     }
 
+    public function test_command_writes_some_any_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-some-any-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'some-any',
+            'theoryPageSlug' => 'theory-some-any-things',
+            'lessonSlug' => 'polyglot-some-any-a1',
+            'lessonOrder' => 12,
+            '--title' => 'Polyglot: some / any (A1)',
+            '--topic' => 'some / any',
+            '--seeder' => 'PolyglotSomeAnyLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-articles-a-an-the-a1',
+            '--next' => 'polyglot-much-many-a-lot-of-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-SOME-ANY-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Some / Any — Things', $output);
+        $this->assertStringContainsString('/theory/some-any/theory-some-any-things', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotSomeAnyLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-SOME-ANY-TEST', $contents);
+        $this->assertStringContainsString('polyglot-some-any-a1', $contents);
+    }
+
     public function test_skeleton_writer_creates_canonical_package_and_respects_force_flag(): void
     {
         $seeder = 'PolyglotSkeletonDemoTestSeeder';

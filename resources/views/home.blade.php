@@ -62,6 +62,15 @@
             'accent' => 'bg-emerald-500',
             'icon' => 'VB',
         ],
+        [
+            'href' => localized_route('courses.show', 'polyglot-english-a1'),
+            'eyebrow' => __('public.nav.polyglot_course'),
+            'title' => __('public.home.polyglot_title'),
+            'description' => __('public.home.polyglot_desc'),
+            'badge' => '05',
+            'accent' => 'bg-brand-600',
+            'icon' => 'PG',
+        ],
     ];
 
     $steps = [
@@ -167,7 +176,7 @@
             </p>
         </div>
 
-        <div class="mt-8 grid gap-5 xl:grid-cols-4">
+        <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
             @foreach($pathCards as $card)
                 <a href="{{ $card['href'] }}" class="group overflow-hidden rounded-[24px] border shadow-card transition hover:-translate-y-1 surface-card-strong">
                     <div class="relative border-b p-5" style="border-color: var(--line);">

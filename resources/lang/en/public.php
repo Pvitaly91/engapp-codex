@@ -11,6 +11,7 @@ return [
     'nav' => [
         'catalog' => 'Catalog',
         'theory' => 'Theory',
+        'polyglot_course' => 'Polyglot course',
         'words_test' => 'Words Test',
         'verbs_test' => 'Verbs Test',
         'explore' => 'Explore',
@@ -134,6 +135,8 @@ return [
         'catalog_desc' => 'Browse curated test cards grouped by topic and difficulty.',
         'theory_title' => 'Grammar by topic',
         'theory_desc' => 'Structured explanations for grammar topics with friendly URLs.',
+        'polyglot_title' => 'Polyglot English A1',
+        'polyglot_desc' => 'A guided course with compose-token lessons, progress tracking and unlock flow.',
         'words_title' => 'Vocabulary trainer',
         'words_desc' => 'Train vocabulary with adaptive difficulty levels.',
         'verbs_title' => 'Verb form practice',
