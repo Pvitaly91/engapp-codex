@@ -51,4 +51,36 @@ class PolyglotQuestionUuidResolverTest extends TestCase
 
         $this->assertSame($canonical, $resolver->toPersistent($canonical));
     }
+
+    public function test_much_many_a_lot_of_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-much-many-a-lot-of-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
+
+    public function test_comparatives_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-comparatives-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
+
+    public function test_superlatives_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-superlatives-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
+
+    public function test_final_drill_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-final-drill-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
 }

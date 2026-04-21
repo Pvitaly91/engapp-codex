@@ -7,14 +7,18 @@ use App\Models\SavedGrammarTest;
 use App\Support\Database\QuestionUuidResolver;
 use Database\Seeders\V3\Polyglot\PolyglotCanCannotLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotArticlesAAnTheLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotComparativesLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotFinalDrillLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotHaveGotHasGotLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotMuchManyALotOfLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentContinuousLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentSimpleVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotSomeAnyLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotSuperlativesLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotThereIsThereAreLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotToBeLessonSeeder;
 use Illuminate\Support\Facades\File;
@@ -51,6 +55,10 @@ class PolyglotV3SeedersTest extends TestCase
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
         $this->seed(PolyglotSomeAnyLessonSeeder::class);
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
 
         $lessonOne = SavedGrammarTest::query()
             ->with('questionLinks')
@@ -100,6 +108,22 @@ class PolyglotV3SeedersTest extends TestCase
             ->with('questionLinks')
             ->where('slug', 'polyglot-some-any-a1')
             ->firstOrFail();
+        $lessonThirteen = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-much-many-a-lot-of-a1')
+            ->firstOrFail();
+        $lessonFourteen = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-comparatives-a1')
+            ->firstOrFail();
+        $lessonFifteen = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-superlatives-a1')
+            ->firstOrFail();
+        $lessonSixteen = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-final-drill-a1')
+            ->firstOrFail();
 
         $questions = Question::query()
             ->whereIn('uuid', array_merge(
@@ -114,7 +138,11 @@ class PolyglotV3SeedersTest extends TestCase
                 $lessonNine->questionLinks->pluck('question_uuid')->all(),
                 $lessonTen->questionLinks->pluck('question_uuid')->all(),
                 $lessonEleven->questionLinks->pluck('question_uuid')->all(),
-                $lessonTwelve->questionLinks->pluck('question_uuid')->all()
+                $lessonTwelve->questionLinks->pluck('question_uuid')->all(),
+                $lessonThirteen->questionLinks->pluck('question_uuid')->all(),
+                $lessonFourteen->questionLinks->pluck('question_uuid')->all(),
+                $lessonFifteen->questionLinks->pluck('question_uuid')->all(),
+                $lessonSixteen->questionLinks->pluck('question_uuid')->all()
             ))
             ->get();
 
@@ -130,6 +158,10 @@ class PolyglotV3SeedersTest extends TestCase
         $this->assertSame('polyglot-future-simple-will-a1', $lessonTen->slug);
         $this->assertSame('polyglot-articles-a-an-the-a1', $lessonEleven->slug);
         $this->assertSame('polyglot-some-any-a1', $lessonTwelve->slug);
+        $this->assertSame('polyglot-much-many-a-lot-of-a1', $lessonThirteen->slug);
+        $this->assertSame('polyglot-comparatives-a1', $lessonFourteen->slug);
+        $this->assertSame('polyglot-superlatives-a1', $lessonFifteen->slug);
+        $this->assertSame('polyglot-final-drill-a1', $lessonSixteen->slug);
         $this->assertCount(24, $lessonOne->questionLinks);
         $this->assertCount(24, $lessonTwo->questionLinks);
         $this->assertCount(24, $lessonThree->questionLinks);
@@ -142,6 +174,10 @@ class PolyglotV3SeedersTest extends TestCase
         $this->assertCount(24, $lessonTen->questionLinks);
         $this->assertCount(24, $lessonEleven->questionLinks);
         $this->assertCount(24, $lessonTwelve->questionLinks);
+        $this->assertCount(24, $lessonThirteen->questionLinks);
+        $this->assertCount(24, $lessonFourteen->questionLinks);
+        $this->assertCount(24, $lessonFifteen->questionLinks);
+        $this->assertCount(24, $lessonSixteen->questionLinks);
         $this->assertTrue($questions->every(
             fn (Question $question) => (string) $question->type === Question::TYPE_COMPOSE_TOKENS
         ));
@@ -438,6 +474,138 @@ class PolyglotV3SeedersTest extends TestCase
         $this->assertStringContainsString('theory-some-any-things', File::get($promptPath));
     }
 
+    public function test_generator_driven_lesson_thirteen_package_exists_in_canonical_v3_structure(): void
+    {
+        $loaderPath = database_path('seeders/V3/Polyglot/PolyglotMuchManyALotOfLessonSeeder.php');
+        $packagePath = database_path('seeders/V3/Polyglot/PolyglotMuchManyALotOfLessonSeeder');
+        $definitionPath = $packagePath . '/definition.json';
+        $realSeederPath = $packagePath . '/PolyglotMuchManyALotOfLessonSeeder.php';
+        $ukPath = $packagePath . '/localizations/uk.json';
+        $enPath = $packagePath . '/localizations/en.json';
+        $plPath = $packagePath . '/localizations/pl.json';
+        $promptPath = storage_path('app/polyglot-prompts/polyglot-much-many-a-lot-of-a1.txt');
+
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($definitionPath);
+        $this->assertFileExists($realSeederPath);
+        $this->assertFileExists($ukPath);
+        $this->assertFileExists($enPath);
+        $this->assertFileExists($plPath);
+        $this->assertFileExists($promptPath);
+        $ukLocalization = json_decode(File::get($ukPath), true, 512, JSON_THROW_ON_ERROR);
+        $this->assertStringContainsString(
+            "require_once __DIR__ . '/PolyglotMuchManyALotOfLessonSeeder/PolyglotMuchManyALotOfLessonSeeder.php';",
+            File::get($loaderPath)
+        );
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Localizations\\Uk\\Polyglot\\PolyglotMuchManyALotOfLessonLocalizationSeeder',
+            $ukLocalization['seeder']['class'] ?? null
+        );
+        $this->assertStringContainsString(
+            'quantifiers-much-many-a-lot-few-little',
+            File::get($promptPath)
+        );
+    }
+
+    public function test_generator_driven_lesson_fourteen_package_exists_in_canonical_v3_structure(): void
+    {
+        $loaderPath = database_path('seeders/V3/Polyglot/PolyglotComparativesLessonSeeder.php');
+        $packagePath = database_path('seeders/V3/Polyglot/PolyglotComparativesLessonSeeder');
+        $definitionPath = $packagePath . '/definition.json';
+        $realSeederPath = $packagePath . '/PolyglotComparativesLessonSeeder.php';
+        $ukPath = $packagePath . '/localizations/uk.json';
+        $enPath = $packagePath . '/localizations/en.json';
+        $plPath = $packagePath . '/localizations/pl.json';
+        $promptPath = storage_path('app/polyglot-prompts/polyglot-comparatives-a1.txt');
+
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($definitionPath);
+        $this->assertFileExists($realSeederPath);
+        $this->assertFileExists($ukPath);
+        $this->assertFileExists($enPath);
+        $this->assertFileExists($plPath);
+        $this->assertFileExists($promptPath);
+        $ukLocalization = json_decode(File::get($ukPath), true, 512, JSON_THROW_ON_ERROR);
+        $this->assertStringContainsString(
+            "require_once __DIR__ . '/PolyglotComparativesLessonSeeder/PolyglotComparativesLessonSeeder.php';",
+            File::get($loaderPath)
+        );
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Localizations\\Uk\\Polyglot\\PolyglotComparativesLessonLocalizationSeeder',
+            $ukLocalization['seeder']['class'] ?? null
+        );
+        $this->assertStringContainsString(
+            'theory-degrees-of-comparison',
+            File::get($promptPath)
+        );
+    }
+
+    public function test_generator_driven_lesson_fifteen_package_exists_in_canonical_v3_structure(): void
+    {
+        $loaderPath = database_path('seeders/V3/Polyglot/PolyglotSuperlativesLessonSeeder.php');
+        $packagePath = database_path('seeders/V3/Polyglot/PolyglotSuperlativesLessonSeeder');
+        $definitionPath = $packagePath . '/definition.json';
+        $realSeederPath = $packagePath . '/PolyglotSuperlativesLessonSeeder.php';
+        $ukPath = $packagePath . '/localizations/uk.json';
+        $enPath = $packagePath . '/localizations/en.json';
+        $plPath = $packagePath . '/localizations/pl.json';
+        $promptPath = storage_path('app/polyglot-prompts/polyglot-superlatives-a1.txt');
+
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($definitionPath);
+        $this->assertFileExists($realSeederPath);
+        $this->assertFileExists($ukPath);
+        $this->assertFileExists($enPath);
+        $this->assertFileExists($plPath);
+        $this->assertFileExists($promptPath);
+        $ukLocalization = json_decode(File::get($ukPath), true, 512, JSON_THROW_ON_ERROR);
+        $this->assertStringContainsString(
+            "require_once __DIR__ . '/PolyglotSuperlativesLessonSeeder/PolyglotSuperlativesLessonSeeder.php';",
+            File::get($loaderPath)
+        );
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Localizations\\Uk\\Polyglot\\PolyglotSuperlativesLessonLocalizationSeeder',
+            $ukLocalization['seeder']['class'] ?? null
+        );
+        $this->assertStringContainsString(
+            'comparative-vs-superlative',
+            File::get($promptPath)
+        );
+    }
+
+    public function test_generator_driven_lesson_sixteen_package_exists_in_canonical_v3_structure(): void
+    {
+        $loaderPath = database_path('seeders/V3/Polyglot/PolyglotFinalDrillLessonSeeder.php');
+        $packagePath = database_path('seeders/V3/Polyglot/PolyglotFinalDrillLessonSeeder');
+        $definitionPath = $packagePath . '/definition.json';
+        $realSeederPath = $packagePath . '/PolyglotFinalDrillLessonSeeder.php';
+        $ukPath = $packagePath . '/localizations/uk.json';
+        $enPath = $packagePath . '/localizations/en.json';
+        $plPath = $packagePath . '/localizations/pl.json';
+        $promptPath = storage_path('app/polyglot-prompts/polyglot-final-drill-a1.txt');
+
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($definitionPath);
+        $this->assertFileExists($realSeederPath);
+        $this->assertFileExists($ukPath);
+        $this->assertFileExists($enPath);
+        $this->assertFileExists($plPath);
+        $this->assertFileExists($promptPath);
+        $ukLocalization = json_decode(File::get($ukPath), true, 512, JSON_THROW_ON_ERROR);
+        $this->assertStringContainsString(
+            "require_once __DIR__ . '/PolyglotFinalDrillLessonSeeder/PolyglotFinalDrillLessonSeeder.php';",
+            File::get($loaderPath)
+        );
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Localizations\\Uk\\Polyglot\\PolyglotFinalDrillLessonLocalizationSeeder',
+            $ukLocalization['seeder']['class'] ?? null
+        );
+        $this->assertStringContainsString(
+            'a1-mixed-revision',
+            File::get($promptPath)
+        );
+    }
+
     public function test_v3_definition_and_locale_json_are_used_by_seeder(): void
     {
         $definitionPath = database_path('seeders/V3/Polyglot/PolyglotToBeLessonSeeder/definition.json');
@@ -482,6 +650,10 @@ class PolyglotV3SeedersTest extends TestCase
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
         $this->seed(PolyglotSomeAnyLessonSeeder::class);
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
 
         $this->get('/test/polyglot-to-be-a1/step/compose')->assertOk();
         $this->get('/test/polyglot-there-is-there-are-a1/step/compose')->assertOk();
@@ -495,6 +667,10 @@ class PolyglotV3SeedersTest extends TestCase
         $this->get('/test/polyglot-future-simple-will-a1/step/compose')->assertOk();
         $this->get('/test/polyglot-articles-a-an-the-a1/step/compose')->assertOk();
         $this->get('/test/polyglot-some-any-a1/step/compose')->assertOk();
+        $this->get('/test/polyglot-much-many-a-lot-of-a1/step/compose')->assertOk();
+        $this->get('/test/polyglot-comparatives-a1/step/compose')->assertOk();
+        $this->get('/test/polyglot-superlatives-a1/step/compose')->assertOk();
+        $this->get('/test/polyglot-final-drill-a1/step/compose')->assertOk();
         $this->get('/courses/polyglot-english-a1')->assertOk();
     }
 
@@ -512,6 +688,10 @@ class PolyglotV3SeedersTest extends TestCase
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
         $this->seed(PolyglotSomeAnyLessonSeeder::class);
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
 
         $lessonOne = SavedGrammarTest::query()
             ->where('slug', 'polyglot-to-be-a1')
@@ -549,6 +729,18 @@ class PolyglotV3SeedersTest extends TestCase
         $lessonTwelve = SavedGrammarTest::query()
             ->where('slug', 'polyglot-some-any-a1')
             ->firstOrFail();
+        $lessonThirteen = SavedGrammarTest::query()
+            ->where('slug', 'polyglot-much-many-a-lot-of-a1')
+            ->firstOrFail();
+        $lessonFourteen = SavedGrammarTest::query()
+            ->where('slug', 'polyglot-comparatives-a1')
+            ->firstOrFail();
+        $lessonFifteen = SavedGrammarTest::query()
+            ->where('slug', 'polyglot-superlatives-a1')
+            ->firstOrFail();
+        $lessonSixteen = SavedGrammarTest::query()
+            ->where('slug', 'polyglot-final-drill-a1')
+            ->firstOrFail();
 
         $lessonOneTheory = $lessonOne->filters['prompt_generator']['theory_page'] ?? [];
         $lessonTwoTheory = $lessonTwo->filters['prompt_generator']['theory_page'] ?? [];
@@ -562,6 +754,10 @@ class PolyglotV3SeedersTest extends TestCase
         $lessonTenTheory = $lessonTen->filters['prompt_generator']['theory_page'] ?? [];
         $lessonElevenTheory = $lessonEleven->filters['prompt_generator']['theory_page'] ?? [];
         $lessonTwelveTheory = $lessonTwelve->filters['prompt_generator']['theory_page'] ?? [];
+        $lessonThirteenTheory = $lessonThirteen->filters['prompt_generator']['theory_page'] ?? [];
+        $lessonFourteenTheory = $lessonFourteen->filters['prompt_generator']['theory_page'] ?? [];
+        $lessonFifteenTheory = $lessonFifteen->filters['prompt_generator']['theory_page'] ?? [];
+        $lessonSixteenTheory = $lessonSixteen->filters['prompt_generator']['theory_page'] ?? [];
 
         $this->assertSame(
             'Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBePresentTheorySeeder',
@@ -637,6 +833,30 @@ class PolyglotV3SeedersTest extends TestCase
         );
         $this->assertSame('theory-some-any-things', $lessonTwelveTheory['slug'] ?? null);
         $this->assertSame('some-any', $lessonTwelveTheory['category_slug_path'] ?? null);
+        $this->assertSame(
+            'Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityQuantifiersTheorySeeder',
+            $lessonThirteenTheory['page_seeder_class'] ?? null
+        );
+        $this->assertSame('quantifiers-much-many-a-lot-few-little', $lessonThirteenTheory['slug'] ?? null);
+        $this->assertSame('imennyky-artykli-ta-kilkist', $lessonThirteenTheory['category_slug_path'] ?? null);
+        $this->assertSame(
+            'Database\\Seeders\\Page_V3\\Adjectives\\AdjectivesDegreesOfComparisonTheorySeeder',
+            $lessonFourteenTheory['page_seeder_class'] ?? null
+        );
+        $this->assertSame('theory-degrees-of-comparison', $lessonFourteenTheory['slug'] ?? null);
+        $this->assertSame('prykmetniky-ta-pryslinknyky', $lessonFourteenTheory['category_slug_path'] ?? null);
+        $this->assertSame(
+            'Database\\Seeders\\Page_V3\\Adjectives\\AdjectivesComparativeVsSuperlativeTheorySeeder',
+            $lessonFifteenTheory['page_seeder_class'] ?? null
+        );
+        $this->assertSame('comparative-vs-superlative', $lessonFifteenTheory['slug'] ?? null);
+        $this->assertSame('prykmetniky-ta-pryslinknyky', $lessonFifteenTheory['category_slug_path'] ?? null);
+        $this->assertSame(
+            'Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarA1MixedRevisionTheorySeeder',
+            $lessonSixteenTheory['page_seeder_class'] ?? null
+        );
+        $this->assertSame('a1-mixed-revision', $lessonSixteenTheory['slug'] ?? null);
+        $this->assertSame('basic-grammar', $lessonSixteenTheory['category_slug_path'] ?? null);
         $this->assertSame('polyglot-have-got-has-got-a1', $lessonTwo->filters['next_lesson_slug'] ?? null);
         $this->assertSame('polyglot-there-is-there-are-a1', $lessonThree->filters['previous_lesson_slug'] ?? null);
         $this->assertSame('polyglot-present-simple-verbs-a1', $lessonThree->filters['next_lesson_slug'] ?? null);
@@ -658,6 +878,14 @@ class PolyglotV3SeedersTest extends TestCase
         $this->assertSame('polyglot-some-any-a1', $lessonEleven->filters['next_lesson_slug'] ?? null);
         $this->assertSame('polyglot-articles-a-an-the-a1', $lessonTwelve->filters['previous_lesson_slug'] ?? null);
         $this->assertSame('polyglot-much-many-a-lot-of-a1', $lessonTwelve->filters['next_lesson_slug'] ?? null);
+        $this->assertSame('polyglot-some-any-a1', $lessonThirteen->filters['previous_lesson_slug'] ?? null);
+        $this->assertSame('polyglot-comparatives-a1', $lessonThirteen->filters['next_lesson_slug'] ?? null);
+        $this->assertSame('polyglot-much-many-a-lot-of-a1', $lessonFourteen->filters['previous_lesson_slug'] ?? null);
+        $this->assertSame('polyglot-superlatives-a1', $lessonFourteen->filters['next_lesson_slug'] ?? null);
+        $this->assertSame('polyglot-comparatives-a1', $lessonFifteen->filters['previous_lesson_slug'] ?? null);
+        $this->assertSame('polyglot-final-drill-a1', $lessonFifteen->filters['next_lesson_slug'] ?? null);
+        $this->assertSame('polyglot-superlatives-a1', $lessonSixteen->filters['previous_lesson_slug'] ?? null);
+        $this->assertNull($lessonSixteen->filters['next_lesson_slug'] ?? null);
     }
 
     public function test_long_question_uuid_mapping_is_deterministic_for_polyglot_lessons(): void
@@ -693,28 +921,68 @@ class PolyglotV3SeedersTest extends TestCase
             512,
             JSON_THROW_ON_ERROR
         );
+        $lessonThirteenDefinition = json_decode(
+            File::get(database_path('seeders/V3/Polyglot/PolyglotMuchManyALotOfLessonSeeder/definition.json')),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        );
+        $lessonFourteenDefinition = json_decode(
+            File::get(database_path('seeders/V3/Polyglot/PolyglotComparativesLessonSeeder/definition.json')),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        );
+        $lessonFifteenDefinition = json_decode(
+            File::get(database_path('seeders/V3/Polyglot/PolyglotSuperlativesLessonSeeder/definition.json')),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        );
+        $lessonSixteenDefinition = json_decode(
+            File::get(database_path('seeders/V3/Polyglot/PolyglotFinalDrillLessonSeeder/definition.json')),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        );
 
         $lessonEightExternalUuids = array_column($lessonEightDefinition['questions'], 'uuid');
         $lessonNineExternalUuids = array_column($lessonNineDefinition['questions'], 'uuid');
         $lessonTenExternalUuids = array_column($lessonTenDefinition['questions'], 'uuid');
         $lessonElevenExternalUuids = array_column($lessonElevenDefinition['questions'], 'uuid');
         $lessonTwelveExternalUuids = array_column($lessonTwelveDefinition['questions'], 'uuid');
+        $lessonThirteenExternalUuids = array_column($lessonThirteenDefinition['questions'], 'uuid');
+        $lessonFourteenExternalUuids = array_column($lessonFourteenDefinition['questions'], 'uuid');
+        $lessonFifteenExternalUuids = array_column($lessonFifteenDefinition['questions'], 'uuid');
+        $lessonSixteenExternalUuids = array_column($lessonSixteenDefinition['questions'], 'uuid');
         $lessonEightPersistentUuids = $resolver->toPersistentMany($lessonEightExternalUuids);
         $lessonNinePersistentUuids = $resolver->toPersistentMany($lessonNineExternalUuids);
         $lessonTenPersistentUuids = $resolver->toPersistentMany($lessonTenExternalUuids);
         $lessonElevenPersistentUuids = $resolver->toPersistentMany($lessonElevenExternalUuids);
         $lessonTwelvePersistentUuids = $resolver->toPersistentMany($lessonTwelveExternalUuids);
+        $lessonThirteenPersistentUuids = $resolver->toPersistentMany($lessonThirteenExternalUuids);
+        $lessonFourteenPersistentUuids = $resolver->toPersistentMany($lessonFourteenExternalUuids);
+        $lessonFifteenPersistentUuids = $resolver->toPersistentMany($lessonFifteenExternalUuids);
+        $lessonSixteenPersistentUuids = $resolver->toPersistentMany($lessonSixteenExternalUuids);
 
         $this->assertContains('polyglot-past-simple-regular-verbs-q24', $lessonEightExternalUuids);
         $this->assertContains('polyglot-past-simple-irregular-verbs-q24', $lessonNineExternalUuids);
         $this->assertContains('polyglot-future-simple-will-q24', $lessonTenExternalUuids);
         $this->assertContains('polyglot-articles-a-an-the-q24', $lessonElevenExternalUuids);
         $this->assertContains('polyglot-some-any-q24', $lessonTwelveExternalUuids);
+        $this->assertContains('polyglot-much-many-a-lot-of-q24', $lessonThirteenExternalUuids);
+        $this->assertContains('polyglot-comparatives-q24', $lessonFourteenExternalUuids);
+        $this->assertContains('polyglot-superlatives-q24', $lessonFifteenExternalUuids);
+        $this->assertContains('polyglot-final-drill-q24', $lessonSixteenExternalUuids);
         $this->assertCount(24, array_unique($lessonEightPersistentUuids));
         $this->assertCount(24, array_unique($lessonNinePersistentUuids));
         $this->assertCount(24, array_unique($lessonTenPersistentUuids));
         $this->assertCount(24, array_unique($lessonElevenPersistentUuids));
         $this->assertCount(24, array_unique($lessonTwelvePersistentUuids));
+        $this->assertCount(24, array_unique($lessonThirteenPersistentUuids));
+        $this->assertCount(24, array_unique($lessonFourteenPersistentUuids));
+        $this->assertCount(24, array_unique($lessonFifteenPersistentUuids));
+        $this->assertCount(24, array_unique($lessonSixteenPersistentUuids));
         $this->assertSame(
             $resolver->toPersistent('polyglot-past-simple-regular-verbs-q24'),
             $resolver->toPersistent('polyglot-past-simple-regular-verbs-q24')
@@ -735,9 +1003,29 @@ class PolyglotV3SeedersTest extends TestCase
             'polyglot-some-any-q24',
             $resolver->toPersistent('polyglot-some-any-q24')
         );
+        $this->assertSame(
+            'polyglot-much-many-a-lot-of-q24',
+            $resolver->toPersistent('polyglot-much-many-a-lot-of-q24')
+        );
+        $this->assertSame(
+            'polyglot-comparatives-q24',
+            $resolver->toPersistent('polyglot-comparatives-q24')
+        );
+        $this->assertSame(
+            'polyglot-superlatives-q24',
+            $resolver->toPersistent('polyglot-superlatives-q24')
+        );
+        $this->assertSame(
+            'polyglot-final-drill-q24',
+            $resolver->toPersistent('polyglot-final-drill-q24')
+        );
         $this->assertSame($lessonTenExternalUuids, $lessonTenPersistentUuids);
         $this->assertSame($lessonElevenExternalUuids, $lessonElevenPersistentUuids);
         $this->assertSame($lessonTwelveExternalUuids, $lessonTwelvePersistentUuids);
+        $this->assertSame($lessonThirteenExternalUuids, $lessonThirteenPersistentUuids);
+        $this->assertSame($lessonFourteenExternalUuids, $lessonFourteenPersistentUuids);
+        $this->assertSame($lessonFifteenExternalUuids, $lessonFifteenPersistentUuids);
+        $this->assertSame($lessonSixteenExternalUuids, $lessonSixteenPersistentUuids);
 
         $this->seed(PolyglotPastSimpleRegularVerbsLessonSeeder::class);
         $this->seed(PolyglotPastSimpleRegularVerbsLessonSeeder::class);
@@ -749,6 +1037,14 @@ class PolyglotV3SeedersTest extends TestCase
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
         $this->seed(PolyglotSomeAnyLessonSeeder::class);
         $this->seed(PolyglotSomeAnyLessonSeeder::class);
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
 
         $lessonEight = SavedGrammarTest::query()
             ->with('questionLinks')
@@ -770,17 +1066,33 @@ class PolyglotV3SeedersTest extends TestCase
             ->with('questionLinks')
             ->where('slug', 'polyglot-some-any-a1')
             ->firstOrFail();
+        $lessonThirteen = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-much-many-a-lot-of-a1')
+            ->firstOrFail();
+        $lessonFourteen = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-comparatives-a1')
+            ->firstOrFail();
+        $lessonFifteen = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-superlatives-a1')
+            ->firstOrFail();
+        $lessonSixteen = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-final-drill-a1')
+            ->firstOrFail();
 
-        $this->assertSame(24, Question::query()->whereIn('uuid', $lessonEightPersistentUuids)->count());
-        $this->assertSame(24, Question::query()->whereIn('uuid', $lessonNinePersistentUuids)->count());
-        $this->assertSame(24, Question::query()->whereIn('uuid', $lessonTenPersistentUuids)->count());
-        $this->assertSame(24, Question::query()->whereIn('uuid', $lessonElevenPersistentUuids)->count());
-        $this->assertSame(24, Question::query()->whereIn('uuid', $lessonTwelvePersistentUuids)->count());
+        $this->assertSame(24, Question::query()->whereIn('uuid', $lessonSixteenPersistentUuids)->count());
         $this->assertSame($lessonEightPersistentUuids, $lessonEight->questionLinks->pluck('question_uuid')->all());
         $this->assertSame($lessonNinePersistentUuids, $lessonNine->questionLinks->pluck('question_uuid')->all());
         $this->assertSame($lessonTenPersistentUuids, $lessonTen->questionLinks->pluck('question_uuid')->all());
         $this->assertSame($lessonElevenPersistentUuids, $lessonEleven->questionLinks->pluck('question_uuid')->all());
         $this->assertSame($lessonTwelvePersistentUuids, $lessonTwelve->questionLinks->pluck('question_uuid')->all());
+        $this->assertSame($lessonThirteenPersistentUuids, $lessonThirteen->questionLinks->pluck('question_uuid')->all());
+        $this->assertSame($lessonFourteenPersistentUuids, $lessonFourteen->questionLinks->pluck('question_uuid')->all());
+        $this->assertSame($lessonFifteenPersistentUuids, $lessonFifteen->questionLinks->pluck('question_uuid')->all());
+        $this->assertSame($lessonSixteenPersistentUuids, $lessonSixteen->questionLinks->pluck('question_uuid')->all());
         $this->assertSame(
             1,
             SavedGrammarTest::query()->where('slug', 'polyglot-past-simple-regular-verbs-a1')->count()
@@ -800,6 +1112,22 @@ class PolyglotV3SeedersTest extends TestCase
         $this->assertSame(
             1,
             SavedGrammarTest::query()->where('slug', 'polyglot-some-any-a1')->count()
+        );
+        $this->assertSame(
+            1,
+            SavedGrammarTest::query()->where('slug', 'polyglot-much-many-a-lot-of-a1')->count()
+        );
+        $this->assertSame(
+            1,
+            SavedGrammarTest::query()->where('slug', 'polyglot-comparatives-a1')->count()
+        );
+        $this->assertSame(
+            1,
+            SavedGrammarTest::query()->where('slug', 'polyglot-superlatives-a1')->count()
+        );
+        $this->assertSame(
+            1,
+            SavedGrammarTest::query()->where('slug', 'polyglot-final-drill-a1')->count()
         );
     }
 

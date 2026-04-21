@@ -3,7 +3,11 @@
 namespace Tests\Feature;
 
 use App\Models\Page;
+use Database\Seeders\Page_V3\Adjectives\AdjectivesCategorySeeder;
+use Database\Seeders\Page_V3\Adjectives\AdjectivesComparativeVsSuperlativeTheorySeeder;
+use Database\Seeders\Page_V3\Adjectives\AdjectivesDegreesOfComparisonTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarCategorySeeder;
+use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarA1MixedRevisionTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarHaveGotHasGotTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarSentenceTypesTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\VerbToBe\ThereIsThereAreTheorySeeder;
@@ -18,6 +22,8 @@ use Database\Seeders\Page_V3\FutureForms\FutureFormsCategorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsWillVsBeGoingToTheorySeeder;
 use Database\Seeders\Page_V3\ModalVerbs\ModalVerbsCanCouldTheorySeeder;
 use Database\Seeders\Page_V3\ModalVerbs\ModalVerbsCategorySeeder;
+use Database\Seeders\Page_V3\NounsArticlesQuantity\NounsArticlesQuantityCategorySeeder;
+use Database\Seeders\Page_V3\NounsArticlesQuantity\NounsArticlesQuantityQuantifiersTheorySeeder;
 use Database\Seeders\Page_V3\Tenses\PastSimple\PastSimpleCategorySeeder;
 use Database\Seeders\Page_V3\Tenses\PastSimple\PastSimpleFormsTheorySeeder;
 use Database\Seeders\Page_V3\Tenses\PresentContinuous\PresentContinuousCategorySeeder;
@@ -27,10 +33,14 @@ use Database\Seeders\Page_V3\Tenses\PresentSimple\PresentSimpleQuestionsTheorySe
 use Database\Seeders\Page_V3\Tenses\TensesCategorySeeder;
 use Database\Seeders\V3\Polyglot\PolyglotCanCannotLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotArticlesAAnTheLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotComparativesLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotFinalDrillLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotHaveGotHasGotLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotSuperlativesLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotSomeAnyLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotMuchManyALotOfLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentContinuousLessonSeeder;
@@ -59,7 +69,7 @@ class PolyglotTheoryPageTest extends TestCase
         $this->augmentTheorySchema();
     }
 
-    public function test_theory_page_shows_related_polyglot_lessons_in_tests_on_topic_block(): void
+    public function test_theory_page_merges_related_polyglot_lessons_into_topic_tests_block(): void
     {
         $this->seedTheoryPages();
         $this->seed(PolyglotToBeLessonSeeder::class);
@@ -74,6 +84,10 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
         $this->seed(PolyglotSomeAnyLessonSeeder::class);
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
 
         $toBePage = Page::query()
             ->where('slug', 'verb-to-be-present')
@@ -108,6 +122,18 @@ class PolyglotTheoryPageTest extends TestCase
         $someAnyPage = Page::query()
             ->where('slug', 'theory-some-any-things')
             ->firstOrFail();
+        $quantifiersPage = Page::query()
+            ->where('slug', 'quantifiers-much-many-a-lot-few-little')
+            ->firstOrFail();
+        $comparativesPage = Page::query()
+            ->where('slug', 'theory-degrees-of-comparison')
+            ->firstOrFail();
+        $superlativesPage = Page::query()
+            ->where('slug', 'comparative-vs-superlative')
+            ->firstOrFail();
+        $finalDrillPage = Page::query()
+            ->where('slug', 'a1-mixed-revision')
+            ->firstOrFail();
 
         $toBeResponse = $this->get(route('theory.show', ['verb-to-be', $toBePage->slug]));
         $thereResponse = $this->get(route('theory.show', ['verb-to-be', $therePage->slug]));
@@ -120,76 +146,40 @@ class PolyglotTheoryPageTest extends TestCase
         $futureSimpleResponse = $this->get(route('theory.show', ['maibutni-formy', $futureSimplePage->slug]));
         $articlesResponse = $this->get(route('theory.show', ['common-mistakes', $articlesPage->slug]));
         $someAnyResponse = $this->get(route('theory.show', ['some-any', $someAnyPage->slug]));
+        $quantifiersResponse = $this->get(route('theory.show', ['imennyky-artykli-ta-kilkist', $quantifiersPage->slug]));
+        $comparativesResponse = $this->get(route('theory.show', ['prykmetniky-ta-pryslinknyky', $comparativesPage->slug]));
+        $superlativesResponse = $this->get(route('theory.show', ['prykmetniky-ta-pryslinknyky', $superlativesPage->slug]));
+        $finalDrillResponse = $this->get(route('theory.show', ['basic-grammar', $finalDrillPage->slug]));
 
-        $toBeResponse->assertOk();
-        $toBeResponse->assertSee('Polyglot: to be (A1)');
-        $toBeResponse->assertViewHas('topicTests', function ($tests) {
-            return collect($tests)->pluck('slug')->contains('polyglot-to-be-a1');
-        });
+        $assertMergedTopicTests = function ($response): void {
+            $response->assertOk();
+            $response->assertDontSee('Polyglot:');
+            $response->assertViewHas('topicTests', function ($tests) {
+                $topicTests = collect($tests);
+                $hasDirectPolyglotSlug = $topicTests->pluck('slug')
+                    ->filter()
+                    ->contains(fn ($slug) => is_string($slug) && str_starts_with($slug, 'polyglot-'));
 
-        $thereResponse->assertOk();
-        $thereResponse->assertSee('Polyglot: there is / there are (A1)');
-        $thereResponse->assertViewHas('topicTests', function ($tests) {
-            return collect($tests)->pluck('slug')->contains('polyglot-there-is-there-are-a1');
-        });
+                return $topicTests->isNotEmpty()
+                    && ! $hasDirectPolyglotSlug;
+            });
+        };
 
-        $haveGotResponse->assertOk();
-        $haveGotResponse->assertSee('Polyglot: have got / has got (A1)');
-        $haveGotResponse->assertViewHas('topicTests', function ($tests) {
-            return collect($tests)->pluck('slug')->contains('polyglot-have-got-has-got-a1');
-        });
-
-        $presentSimpleResponse->assertOk();
-        $presentSimpleResponse->assertSee('Polyglot: present simple verbs (A1)');
-        $presentSimpleResponse->assertViewHas('topicTests', function ($tests) {
-            return collect($tests)->pluck('slug')->contains('polyglot-present-simple-verbs-a1');
-        });
-
-        $canCouldResponse->assertOk();
-        $canCouldResponse->assertSee('Polyglot: can / cannot (A1)');
-        $canCouldResponse->assertViewHas('topicTests', function ($tests) {
-            return collect($tests)->pluck('slug')->contains('polyglot-can-cannot-a1');
-        });
-
-        $presentContinuousResponse->assertOk();
-        $presentContinuousResponse->assertSee('Polyglot: present continuous (A1)');
-        $presentContinuousResponse->assertViewHas('topicTests', function ($tests) {
-            return collect($tests)->pluck('slug')->contains('polyglot-present-continuous-a1');
-        });
-
-        $pastToBeResponse->assertOk();
-        $pastToBeResponse->assertSee('Polyglot: past simple of to be (A1)');
-        $pastToBeResponse->assertViewHas('topicTests', function ($tests) {
-            return collect($tests)->pluck('slug')->contains('polyglot-past-simple-to-be-a1');
-        });
-
-        $pastSimpleRegularResponse->assertOk();
-        $pastSimpleRegularResponse->assertSee('Polyglot: past simple regular verbs (A1)');
-        $pastSimpleRegularResponse->assertSee('Polyglot: past simple irregular verbs (A1)');
-        $pastSimpleRegularResponse->assertViewHas('topicTests', function ($tests) {
-            $slugs = collect($tests)->pluck('slug');
-
-            return $slugs->contains('polyglot-past-simple-regular-verbs-a1')
-                && $slugs->contains('polyglot-past-simple-irregular-verbs-a1');
-        });
-
-        $futureSimpleResponse->assertOk();
-        $futureSimpleResponse->assertSee('Polyglot: future simple with will (A1)');
-        $futureSimpleResponse->assertViewHas('topicTests', function ($tests) {
-            return collect($tests)->pluck('slug')->contains('polyglot-future-simple-will-a1');
-        });
-
-        $articlesResponse->assertOk();
-        $articlesResponse->assertSee('Polyglot: articles a / an / the (A1)');
-        $articlesResponse->assertViewHas('topicTests', function ($tests) {
-            return collect($tests)->pluck('slug')->contains('polyglot-articles-a-an-the-a1');
-        });
-
-        $someAnyResponse->assertOk();
-        $someAnyResponse->assertSee('Polyglot: some / any (A1)');
-        $someAnyResponse->assertViewHas('topicTests', function ($tests) {
-            return collect($tests)->pluck('slug')->contains('polyglot-some-any-a1');
-        });
+        $assertMergedTopicTests($toBeResponse);
+        $assertMergedTopicTests($thereResponse);
+        $assertMergedTopicTests($haveGotResponse);
+        $assertMergedTopicTests($presentSimpleResponse);
+        $assertMergedTopicTests($canCouldResponse);
+        $assertMergedTopicTests($presentContinuousResponse);
+        $assertMergedTopicTests($pastToBeResponse);
+        $assertMergedTopicTests($pastSimpleRegularResponse);
+        $assertMergedTopicTests($futureSimpleResponse);
+        $assertMergedTopicTests($articlesResponse);
+        $assertMergedTopicTests($someAnyResponse);
+        $assertMergedTopicTests($quantifiersResponse);
+        $assertMergedTopicTests($comparativesResponse);
+        $assertMergedTopicTests($superlativesResponse);
+        $assertMergedTopicTests($finalDrillResponse);
     }
 
     public function test_non_related_theory_page_does_not_show_unrelated_polyglot_lessons(): void
@@ -208,6 +198,10 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
         $this->seed(PolyglotSomeAnyLessonSeeder::class);
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
 
         $page = Page::query()
             ->where('slug', 'sentence-types')
@@ -228,6 +222,10 @@ class PolyglotTheoryPageTest extends TestCase
         $response->assertDontSee('Polyglot: future simple with will (A1)');
         $response->assertDontSee('Polyglot: articles a / an / the (A1)');
         $response->assertDontSee('Polyglot: some / any (A1)');
+        $response->assertDontSee('Polyglot: much / many / a lot of (A1)');
+        $response->assertDontSee('Polyglot: comparative adjectives (A1)');
+        $response->assertDontSee('Polyglot: superlatives (A1)');
+        $response->assertDontSee('Polyglot: mixed revision / final drill (A1)');
         $response->assertViewHas('topicTests', function ($tests) {
             return collect($tests)->doesntContain(fn ($test) => in_array(
                 $test->slug ?? null,
@@ -244,6 +242,10 @@ class PolyglotTheoryPageTest extends TestCase
                     'polyglot-future-simple-will-a1',
                     'polyglot-articles-a-an-the-a1',
                     'polyglot-some-any-a1',
+                    'polyglot-much-many-a-lot-of-a1',
+                    'polyglot-comparatives-a1',
+                    'polyglot-superlatives-a1',
+                    'polyglot-final-drill-a1',
                 ],
                 true
             ));
@@ -328,9 +330,12 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(FutureFormsCategorySeeder::class);
         $this->seed(CommonMistakesCategorySeeder::class);
         $this->seed(SomeAnyCategorySeeder::class);
+        $this->seed(NounsArticlesQuantityCategorySeeder::class);
+        $this->seed(AdjectivesCategorySeeder::class);
         $this->seed(VerbToBePresentTheorySeeder::class);
         $this->seed(ThereIsThereAreTheorySeeder::class);
         $this->seed(BasicGrammarHaveGotHasGotTheorySeeder::class);
+        $this->seed(BasicGrammarA1MixedRevisionTheorySeeder::class);
         $this->seed(VerbToBePastTheorySeeder::class);
         $this->seed(PastSimpleFormsTheorySeeder::class);
         $this->seed(PresentContinuousFormsTheorySeeder::class);
@@ -339,5 +344,8 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(FutureFormsWillVsBeGoingToTheorySeeder::class);
         $this->seed(CommonMistakesArticlesTheorySeeder::class);
         $this->seed(SomeAnyThingsTheorySeeder::class);
+        $this->seed(NounsArticlesQuantityQuantifiersTheorySeeder::class);
+        $this->seed(AdjectivesDegreesOfComparisonTheorySeeder::class);
+        $this->seed(AdjectivesComparativeVsSuperlativeTheorySeeder::class);
     }
 }

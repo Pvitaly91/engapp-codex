@@ -572,6 +572,8 @@ class GrammarTestController extends Controller
 
             return [
                 'id' => $q->id,
+                'uuid' => $q->uuid,
+                'type' => $q->type,
                 'question' => $q->question,
                 'answer' => $answerList[0] ?? '',
                 'answers' => $answerList,

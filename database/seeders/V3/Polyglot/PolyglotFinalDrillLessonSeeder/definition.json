@@ -1,0 +1,923 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotFinalDrillLessonSeeder",
+        "uuid_namespace": "PolyglotFinalDrillLessonSeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Polyglot English A1"
+    },
+    "sources": {
+        "theory_page_a1_mixed_revision": {
+            "name": "A1 Mixed Revision"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot compose tokens",
+            "category": "mode"
+        },
+        "final_drill": {
+            "name": "final-drill",
+            "category": "topic"
+        },
+        "mixed_revision": {
+            "name": "mixed-revision",
+            "category": "topic"
+        },
+        "to_be": {
+            "name": "to be",
+            "category": "grammar"
+        },
+        "articles_a_an_the": {
+            "name": "articles a / an / the",
+            "category": "grammar"
+        },
+        "there_is_there_are": {
+            "name": "there is / there are",
+            "category": "grammar"
+        },
+        "much_many_a_lot_of": {
+            "name": "much / many / a lot of",
+            "category": "grammar"
+        },
+        "have_got_has_got": {
+            "name": "have got / has got",
+            "category": "grammar"
+        },
+        "some_any": {
+            "name": "some / any",
+            "category": "grammar"
+        },
+        "can_cannot": {
+            "name": "can / cannot",
+            "category": "grammar"
+        },
+        "present_continuous": {
+            "name": "present continuous",
+            "category": "grammar"
+        },
+        "past_simple_to_be": {
+            "name": "past simple of to be",
+            "category": "grammar"
+        },
+        "past_simple_regular_verbs": {
+            "name": "past simple regular verbs",
+            "category": "grammar"
+        },
+        "future_simple_will": {
+            "name": "future simple with will",
+            "category": "grammar"
+        },
+        "comparatives": {
+            "name": "comparatives",
+            "category": "grammar"
+        },
+        "superlatives": {
+            "name": "superlatives",
+            "category": "grammar"
+        },
+        "past_simple_irregular_verbs": {
+            "name": "past simple irregular verbs",
+            "category": "grammar"
+        },
+        "present_simple_lexical_verbs": {
+            "name": "present simple lexical verbs",
+            "category": "grammar"
+        },
+        "a1": {
+            "name": "A1",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "final_drill",
+        "mixed_revision"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "polyglot-final-drill-q01",
+            "question": "Це яблуко.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "It",
+                "a2": "is",
+                "a3": "an",
+                "a4": "apple"
+            },
+            "options": [
+                "It",
+                "is",
+                "an",
+                "apple",
+                "a",
+                "the",
+                "book"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "to_be",
+                "articles_a_an_the",
+                "a1"
+            ]
+        },
+        {
+            "id": 2,
+            "uuid": "polyglot-final-drill-q02",
+            "question": "На столі багато яблук.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "are",
+                "a3": "a",
+                "a4": "lot",
+                "a5": "of",
+                "a6": "apples",
+                "a7": "on",
+                "a8": "the",
+                "a9": "table"
+            },
+            "options": [
+                "There",
+                "are",
+                "a",
+                "lot",
+                "of",
+                "apples",
+                "on",
+                "the",
+                "table",
+                "many",
+                "is",
+                "water"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "there_is_there_are",
+                "much_many_a_lot_of",
+                "a1"
+            ]
+        },
+        {
+            "id": 3,
+            "uuid": "polyglot-final-drill-q03",
+            "question": "У неї є кіт.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "has",
+                "a3": "got",
+                "a4": "a",
+                "a5": "cat"
+            },
+            "options": [
+                "She",
+                "has",
+                "got",
+                "a",
+                "cat",
+                "have",
+                "the",
+                "dog"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "have_got_has_got",
+                "a1"
+            ]
+        },
+        {
+            "id": 4,
+            "uuid": "polyglot-final-drill-q04",
+            "question": "У мене є трохи молока.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "have",
+                "a3": "some",
+                "a4": "milk"
+            },
+            "options": [
+                "I",
+                "have",
+                "some",
+                "milk",
+                "any",
+                "a",
+                "water"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "some_any",
+                "a1"
+            ]
+        },
+        {
+            "id": 5,
+            "uuid": "polyglot-final-drill-q05",
+            "question": "Вона може читати.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "can",
+                "a3": "read"
+            },
+            "options": [
+                "She",
+                "can",
+                "read",
+                "cannot",
+                "does",
+                "write"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "can_cannot",
+                "a1"
+            ]
+        },
+        {
+            "id": 6,
+            "uuid": "polyglot-final-drill-q06",
+            "question": "Вони зараз грають.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "They",
+                "a2": "are",
+                "a3": "playing",
+                "a4": "now"
+            },
+            "options": [
+                "They",
+                "are",
+                "playing",
+                "now",
+                "is",
+                "am",
+                "work"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "present_continuous",
+                "a1"
+            ]
+        },
+        {
+            "id": 7,
+            "uuid": "polyglot-final-drill-q07",
+            "question": "Ми не були готові вчора.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "were",
+                "a3": "not",
+                "a4": "ready",
+                "a5": "yesterday"
+            },
+            "options": [
+                "We",
+                "were",
+                "not",
+                "ready",
+                "yesterday",
+                "was",
+                "am",
+                "here"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "past_simple_to_be",
+                "a1"
+            ]
+        },
+        {
+            "id": 8,
+            "uuid": "polyglot-final-drill-q08",
+            "question": "Вона не прибирала кімнату учора.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "did",
+                "a3": "not",
+                "a4": "clean",
+                "a5": "the",
+                "a6": "room",
+                "a7": "yesterday"
+            },
+            "options": [
+                "She",
+                "did",
+                "not",
+                "clean",
+                "the",
+                "room",
+                "yesterday",
+                "cleaned",
+                "does",
+                "he"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "past_simple_regular_verbs",
+                "a1"
+            ]
+        },
+        {
+            "id": 9,
+            "uuid": "polyglot-final-drill-q09",
+            "question": "Я не прийду завтра.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "will",
+                "a3": "not",
+                "a4": "come",
+                "a5": "tomorrow"
+            },
+            "options": [
+                "I",
+                "will",
+                "not",
+                "come",
+                "tomorrow",
+                "do",
+                "does",
+                "soon"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "future_simple_will",
+                "a1"
+            ]
+        },
+        {
+            "id": 10,
+            "uuid": "polyglot-final-drill-q10",
+            "question": "У нас немає яблук.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "do",
+                "a3": "not",
+                "a4": "have",
+                "a5": "any",
+                "a6": "apples"
+            },
+            "options": [
+                "We",
+                "do",
+                "not",
+                "have",
+                "any",
+                "apples",
+                "some",
+                "has",
+                "bread"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "some_any",
+                "a1"
+            ]
+        },
+        {
+            "id": 11,
+            "uuid": "polyglot-final-drill-q11",
+            "question": "У холодильнику небагато молока.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "is",
+                "a3": "not",
+                "a4": "much",
+                "a5": "milk",
+                "a6": "in",
+                "a7": "the",
+                "a8": "fridge"
+            },
+            "options": [
+                "There",
+                "is",
+                "not",
+                "much",
+                "milk",
+                "in",
+                "the",
+                "fridge",
+                "many",
+                "are",
+                "books"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "much_many_a_lot_of",
+                "a1"
+            ]
+        },
+        {
+            "id": 12,
+            "uuid": "polyglot-final-drill-q12",
+            "question": "Він не вміє плавати.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "He",
+                "a2": "cannot",
+                "a3": "swim"
+            },
+            "options": [
+                "He",
+                "cannot",
+                "swim",
+                "can",
+                "does",
+                "they"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "can_cannot",
+                "a1"
+            ]
+        },
+        {
+            "id": 13,
+            "uuid": "polyglot-final-drill-q13",
+            "question": "Цей будинок більший за той будинок?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Is",
+                "a2": "this",
+                "a3": "house",
+                "a4": "bigger",
+                "a5": "than",
+                "a6": "that",
+                "a7": "house"
+            },
+            "options": [
+                "Is",
+                "this",
+                "house",
+                "bigger",
+                "than",
+                "that",
+                "Are",
+                "big",
+                "smaller"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "comparatives",
+                "a1"
+            ]
+        },
+        {
+            "id": 14,
+            "uuid": "polyglot-final-drill-q14",
+            "question": "Ця машина найдорожча?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Is",
+                "a2": "this",
+                "a3": "car",
+                "a4": "the",
+                "a5": "most",
+                "a6": "expensive"
+            },
+            "options": [
+                "Is",
+                "this",
+                "car",
+                "the",
+                "most",
+                "expensive",
+                "Are",
+                "more",
+                "cheap"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "superlatives",
+                "a1"
+            ]
+        },
+        {
+            "id": 15,
+            "uuid": "polyglot-final-drill-q15",
+            "question": "Він бачив собаку вчора?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Did",
+                "a2": "he",
+                "a3": "see",
+                "a4": "the",
+                "a5": "dog",
+                "a6": "yesterday"
+            },
+            "options": [
+                "Did",
+                "he",
+                "see",
+                "the",
+                "dog",
+                "yesterday",
+                "Does",
+                "saw",
+                "they"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "past_simple_irregular_verbs",
+                "a1"
+            ]
+        },
+        {
+            "id": 16,
+            "uuid": "polyglot-final-drill-q16",
+            "question": "Ти прийдеш завтра?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Will",
+                "a2": "you",
+                "a3": "come",
+                "a4": "tomorrow"
+            },
+            "options": [
+                "Will",
+                "you",
+                "come",
+                "tomorrow",
+                "Do",
+                "does",
+                "he"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "future_simple_will",
+                "a1"
+            ]
+        },
+        {
+            "id": 17,
+            "uuid": "polyglot-final-drill-q17",
+            "question": "Вона хоче хліб?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "want",
+                "a4": "any",
+                "a5": "bread"
+            },
+            "options": [
+                "Does",
+                "she",
+                "want",
+                "any",
+                "bread",
+                "some",
+                "Do",
+                "milk"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "some_any",
+                "a1"
+            ]
+        },
+        {
+            "id": 18,
+            "uuid": "polyglot-final-drill-q18",
+            "question": "У саду є квіти?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Are",
+                "a2": "there",
+                "a3": "any",
+                "a4": "flowers",
+                "a5": "in",
+                "a6": "the",
+                "a7": "garden"
+            },
+            "options": [
+                "Are",
+                "there",
+                "any",
+                "flowers",
+                "in",
+                "the",
+                "garden",
+                "some",
+                "Is",
+                "book"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "there_is_there_are",
+                "some_any",
+                "a1"
+            ]
+        },
+        {
+            "id": 19,
+            "uuid": "polyglot-final-drill-q19",
+            "question": "Де вона працює?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Where",
+                "a2": "does",
+                "a3": "she",
+                "a4": "work"
+            },
+            "options": [
+                "Where",
+                "does",
+                "she",
+                "work",
+                "do",
+                "they",
+                "works"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "present_simple_lexical_verbs",
+                "a1"
+            ]
+        },
+        {
+            "id": 20,
+            "uuid": "polyglot-final-drill-q20",
+            "question": "Що в тебе є?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "What",
+                "a2": "have",
+                "a3": "you",
+                "a4": "got"
+            },
+            "options": [
+                "What",
+                "have",
+                "you",
+                "got",
+                "has",
+                "he",
+                "a"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "have_got_has_got",
+                "a1"
+            ]
+        },
+        {
+            "id": 21,
+            "uuid": "polyglot-final-drill-q21",
+            "question": "Скільки книг у тебе є?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "many",
+                "a3": "books",
+                "a4": "do",
+                "a5": "you",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "many",
+                "books",
+                "do",
+                "you",
+                "have",
+                "much",
+                "does",
+                "water"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "much_many_a_lot_of",
+                "a1"
+            ]
+        },
+        {
+            "id": 22,
+            "uuid": "polyglot-final-drill-q22",
+            "question": "Що ти зараз робиш?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "What",
+                "a2": "are",
+                "a3": "you",
+                "a4": "doing",
+                "a5": "now"
+            },
+            "options": [
+                "What",
+                "are",
+                "you",
+                "doing",
+                "now",
+                "is",
+                "he",
+                "work"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "present_continuous",
+                "a1"
+            ]
+        },
+        {
+            "id": 23,
+            "uuid": "polyglot-final-drill-q23",
+            "question": "Яке крісло найзручніше?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Which",
+                "a2": "chair",
+                "a3": "is",
+                "a4": "the",
+                "a5": "most",
+                "a6": "comfortable"
+            },
+            "options": [
+                "Which",
+                "chair",
+                "is",
+                "the",
+                "most",
+                "comfortable",
+                "What",
+                "more",
+                "hard"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "superlatives",
+                "a1"
+            ]
+        },
+        {
+            "id": 24,
+            "uuid": "polyglot-final-drill-q24",
+            "question": "Чому ми були тут вчора?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Why",
+                "a2": "were",
+                "a3": "we",
+                "a4": "here",
+                "a5": "yesterday"
+            },
+            "options": [
+                "Why",
+                "were",
+                "we",
+                "here",
+                "yesterday",
+                "was",
+                "am",
+                "he"
+            ],
+            "variants": [],
+            "source": "theory_page_a1_mixed_revision",
+            "tag_keys": [
+                "past_simple_to_be",
+                "a1"
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "polyglot-final-drill-a1-saved-test",
+        "slug": "polyglot-final-drill-a1",
+        "name": "Polyglot: mixed revision / final drill (A1)",
+        "description": "Polyglot-style mixed revision lesson that revisits the core A1 grammar patterns from lessons 1–15 without introducing new grammar.",
+        "question_uuids": [
+            "polyglot-final-drill-q01",
+            "polyglot-final-drill-q02",
+            "polyglot-final-drill-q03",
+            "polyglot-final-drill-q04",
+            "polyglot-final-drill-q05",
+            "polyglot-final-drill-q06",
+            "polyglot-final-drill-q07",
+            "polyglot-final-drill-q08",
+            "polyglot-final-drill-q09",
+            "polyglot-final-drill-q10",
+            "polyglot-final-drill-q11",
+            "polyglot-final-drill-q12",
+            "polyglot-final-drill-q13",
+            "polyglot-final-drill-q14",
+            "polyglot-final-drill-q15",
+            "polyglot-final-drill-q16",
+            "polyglot-final-drill-q17",
+            "polyglot-final-drill-q18",
+            "polyglot-final-drill-q19",
+            "polyglot-final-drill-q20",
+            "polyglot-final-drill-q21",
+            "polyglot-final-drill-q22",
+            "polyglot-final-drill-q23",
+            "polyglot-final-drill-q24"
+        ],
+        "filters": {
+            "mode": "compose_tokens",
+            "question_type": 4,
+            "lesson_type": "polyglot",
+            "payload_version": 2,
+            "import_format": "gramlyze_v3_polyglot",
+            "supports_duplicate_tokens": true,
+            "course_slug": "polyglot-english-a1",
+            "lesson_order": 16,
+            "previous_lesson_slug": "polyglot-superlatives-a1",
+            "next_lesson_slug": null,
+            "completion": {
+                "rolling_window": 100,
+                "min_rating": 4.5
+            },
+            "interface_locale": "uk",
+            "study_locale": "uk",
+            "target_locale": "en",
+            "topic": "mixed revision / final drill",
+            "level": "A1",
+            "levels": [
+                "A1"
+            ],
+            "tags": [
+                "Polyglot",
+                "Compose Tokens",
+                "Mixed Revision Final Drill",
+                "A1"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "a1-mixed-revision",
+                    "title": "A1 Mixed Revision",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarA1MixedRevisionTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/a1-mixed-revision"
+                }
+            }
+        }
+    }
+}

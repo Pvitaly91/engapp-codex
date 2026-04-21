@@ -141,6 +141,7 @@ const HINT_URL = '{{ localized_route('question.hint') }}';
 const MARKER_THEORY_URL = '{{ localized_route('question.marker-theory') }}';
 const TEST_SLUG = @json($test->slug);
 const IS_POLYGLOT_STEP_PREVIEW = @json(\Illuminate\Support\Str::startsWith((string) $test->slug, 'polyglot-'));
+const COMPOSE_TOKENS_QUESTION_TYPE = @json((string) \App\Models\Question::TYPE_COMPOSE_TOKENS);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
@@ -175,10 +176,15 @@ function normalizeAnswer(value) {
   return String(value ?? '').trim().toLowerCase();
 }
 
+function isPolyglotComposeQuestion(q) {
+  return String(q?.type ?? '') === COMPOSE_TOKENS_QUESTION_TYPE
+    || (IS_POLYGLOT_STEP_PREVIEW && Array.isArray(q?.answers) && q.answers.length > 0);
+}
+
 function limitOptionsForSlot(q, options, slotIndex) {
   const normalized = sanitizeOptions(options);
 
-  if (!IS_POLYGLOT_STEP_PREVIEW || normalized.length <= POLYGLOT_OPTIONS_PER_SLOT) {
+  if (!isPolyglotComposeQuestion(q) || normalized.length <= POLYGLOT_OPTIONS_PER_SLOT) {
     return normalized;
   }
 
@@ -771,7 +777,7 @@ function renderSentence(q, idx) {
 }
 
 function shouldRenderPolyglotTranslationPreview(q) {
-  return IS_POLYGLOT_STEP_PREVIEW
+  return isPolyglotComposeQuestion(q)
     && Array.isArray(q?.answers)
     && q.answers.length > 0;
 }

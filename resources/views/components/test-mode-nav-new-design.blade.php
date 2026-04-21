@@ -2,6 +2,7 @@
     $routeName = request()->route()?->getName() ?? '';
     $composeModeAvailable = \App\Support\ComposeModeEligibility::isAvailableForTest($test);
     $normalizedFilters = \App\Support\ComposeModeEligibility::normalizedFilters($test);
+    $mixedPolyglotTheoryTest = (bool) data_get($normalizedFilters, '__meta.theory_page_mixed_polyglot_test', false);
     $courseSlug = trim((string) ($normalizedFilters['course_slug'] ?? ''));
     $courseUrl = $courseSlug !== '' ? localized_route('courses.show', $courseSlug) : null;
     $isComposeRoute = request()->routeIs('test.step-compose');
@@ -72,7 +73,23 @@
 
 <nav class="mt-10 mb-10">
     <div class="rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
-        @if($composeModeAvailable)
+        @if($mixedPolyglotTheoryTest)
+            <div class="space-y-4">
+                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.mode.view') }}</p>
+                <div class="flex flex-wrap gap-2">
+                    <a href="{{ $testRoute('test.show') }}"
+                       class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
+                       style="{{ $pillClass(! $isStepMode && ! request()->routeIs('test.drag-drop', 'test.match', 'test.dialogue')) }}">
+                        {{ __('frontend.tests.mode.card') }}
+                    </a>
+                    <a href="{{ $testRoute('test.step') }}"
+                       class="inline-flex items-center rounded-full border px-4 py-2 text-sm font-semibold transition"
+                       style="{{ $pillClass($isStepMode) }}">
+                        {{ __('frontend.tests.mode.step') }}
+                    </a>
+                </div>
+            </div>
+        @elseif($composeModeAvailable)
             <div class="space-y-4">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.mode.view') }}</p>
                 <div class="flex flex-wrap gap-2">

@@ -500,6 +500,173 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
         $this->assertStringContainsString('polyglot-some-any-a1', $contents);
     }
 
+    public function test_command_writes_much_many_a_lot_of_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-much-many-a-lot-of-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'imennyky-artykli-ta-kilkist',
+            'theoryPageSlug' => 'quantifiers-much-many-a-lot-few-little',
+            'lessonSlug' => 'polyglot-much-many-a-lot-of-a1',
+            'lessonOrder' => 13,
+            '--title' => 'Polyglot: much / many / a lot of (A1)',
+            '--topic' => 'much / many / a lot of',
+            '--seeder' => 'PolyglotMuchManyALotOfLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-some-any-a1',
+            '--next' => 'polyglot-comparatives-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-MUCH-MANY-A-LOT-OF-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString(
+            'Resolved theory page: Quantifiers — much, many, few, little',
+            $output
+        );
+        $this->assertStringContainsString(
+            '/theory/imennyky-artykli-ta-kilkist/quantifiers-much-many-a-lot-few-little',
+            $output
+        );
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotMuchManyALotOfLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-MUCH-MANY-A-LOT-OF-TEST', $contents);
+        $this->assertStringContainsString('polyglot-much-many-a-lot-of-a1', $contents);
+    }
+
+    public function test_command_writes_comparatives_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-comparatives-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'prykmetniky-ta-pryslinknyky',
+            'theoryPageSlug' => 'theory-degrees-of-comparison',
+            'lessonSlug' => 'polyglot-comparatives-a1',
+            'lessonOrder' => 14,
+            '--title' => 'Polyglot: comparative adjectives (A1)',
+            '--topic' => 'comparative adjectives',
+            '--seeder' => 'PolyglotComparativesLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-much-many-a-lot-of-a1',
+            '--next' => 'polyglot-superlatives-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-COMPARATIVES-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Degrees of Comparison', $output);
+        $this->assertStringContainsString(
+            '/theory/prykmetniky-ta-pryslinknyky/theory-degrees-of-comparison',
+            $output
+        );
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotComparativesLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-COMPARATIVES-TEST', $contents);
+        $this->assertStringContainsString('polyglot-comparatives-a1', $contents);
+    }
+
+    public function test_command_writes_superlatives_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-superlatives-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'prykmetniky-ta-pryslinknyky',
+            'theoryPageSlug' => 'comparative-vs-superlative',
+            'lessonSlug' => 'polyglot-superlatives-a1',
+            'lessonOrder' => 15,
+            '--title' => 'Polyglot: superlatives (A1)',
+            '--topic' => 'superlatives',
+            '--seeder' => 'PolyglotSuperlativesLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-comparatives-a1',
+            '--next' => 'polyglot-final-drill-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-SUPERLATIVES-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Comparative vs Superlative', $output);
+        $this->assertStringContainsString(
+            '/theory/prykmetniky-ta-pryslinknyky/comparative-vs-superlative',
+            $output
+        );
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotSuperlativesLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-SUPERLATIVES-TEST', $contents);
+        $this->assertStringContainsString('polyglot-superlatives-a1', $contents);
+    }
+
+    public function test_command_writes_final_drill_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-final-drill-a1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'basic-grammar',
+            'theoryPageSlug' => 'a1-mixed-revision',
+            'lessonSlug' => 'polyglot-final-drill-a1',
+            'lessonOrder' => 16,
+            '--title' => 'Polyglot: mixed revision / final drill (A1)',
+            '--topic' => 'mixed revision / final drill',
+            '--seeder' => 'PolyglotFinalDrillLessonSeeder',
+            '--course' => 'polyglot-english-a1',
+            '--level' => 'A1',
+            '--previous' => 'polyglot-superlatives-a1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-FINAL-DRILL-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: A1 Mixed Revision', $output);
+        $this->assertStringContainsString('/theory/basic-grammar/a1-mixed-revision', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotFinalDrillLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-FINAL-DRILL-TEST', $contents);
+        $this->assertStringContainsString('polyglot-final-drill-a1', $contents);
+    }
+
     public function test_skeleton_writer_creates_canonical_package_and_respects_force_flag(): void
     {
         $seeder = 'PolyglotSkeletonDemoTestSeeder';

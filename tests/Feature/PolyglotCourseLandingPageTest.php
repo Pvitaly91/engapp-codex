@@ -5,9 +5,13 @@ namespace Tests\Feature;
 use Database\Seeders\V2\Polyglot\PolyglotHaveGotHasGotLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotArticlesAAnTheLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotCanCannotLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotComparativesLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFinalDrillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotSuperlativesLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotSomeAnyLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotMuchManyALotOfLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPresentContinuousLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
@@ -43,6 +47,10 @@ class PolyglotCourseLandingPageTest extends TestCase
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
         $this->seed(PolyglotSomeAnyLessonSeeder::class);
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
     }
 
     public function test_course_landing_route_works_and_renders_lessons_in_order(): void
@@ -64,6 +72,10 @@ class PolyglotCourseLandingPageTest extends TestCase
             '/test/polyglot-future-simple-will-a1/step/compose',
             '/test/polyglot-articles-a-an-the-a1/step/compose',
             '/test/polyglot-some-any-a1/step/compose',
+            '/test/polyglot-much-many-a-lot-of-a1/step/compose',
+            '/test/polyglot-comparatives-a1/step/compose',
+            '/test/polyglot-superlatives-a1/step/compose',
+            '/test/polyglot-final-drill-a1/step/compose',
         ], false);
     }
 
@@ -83,6 +95,10 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertSee('/test/polyglot-future-simple-will-a1/step/compose', false);
         $response->assertSee('/test/polyglot-articles-a-an-the-a1/step/compose', false);
         $response->assertSee('/test/polyglot-some-any-a1/step/compose', false);
+        $response->assertSee('/test/polyglot-much-many-a-lot-of-a1/step/compose', false);
+        $response->assertSee('/test/polyglot-comparatives-a1/step/compose', false);
+        $response->assertSee('/test/polyglot-superlatives-a1/step/compose', false);
+        $response->assertSee('/test/polyglot-final-drill-a1/step/compose', false);
     }
 
     public function test_course_page_renders_lesson_metadata_and_status_hooks(): void
@@ -103,17 +119,21 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertSee('data-lesson-order="10"', false);
         $response->assertSee('data-lesson-order="11"', false);
         $response->assertSee('data-lesson-order="12"', false);
+        $response->assertSee('data-lesson-order="13"', false);
+        $response->assertSee('data-lesson-order="14"', false);
+        $response->assertSee('data-lesson-order="15"', false);
         $response->assertSee('data-lesson-order="16"', false);
         $response->assertSee('data-course-lesson-status="current"', false);
         $response->assertSee('data-course-lesson-status="locked"', false);
-        $response->assertSee('data-course-lesson-status="planned"', false);
+        $response->assertDontSee('data-course-lesson-status="planned"', false);
         $response->assertSee('data-course-lesson-card', false);
         $response->assertSee('data-course-status-badge', false);
         $response->assertSee('data-course-lesson-action', false);
-        $response->assertSee('data-course-lesson-action-disabled', false);
+        $response->assertDontSee('data-course-lesson-action-disabled', false);
         $response->assertSee('data-polyglot-planned-lessons="16"', false);
-        $response->assertSee('data-polyglot-implemented-lessons="12"', false);
-        $response->assertSee('12 / 16');
+        $response->assertSee('data-polyglot-implemented-lessons="16"', false);
+        $response->assertSee('16 / 16');
+        $response->assertDontSee(__('frontend.tests.course.coming_soon'));
     }
 
     public function test_course_reset_ui_is_present(): void

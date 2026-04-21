@@ -97,6 +97,11 @@ class TestJsV2Controller extends Controller
     {
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
+
+        if ($redirect = $this->redirectForUnsupportedMixedPolyglotMode($test, $mode)) {
+            return $redirect;
+        }
+
         $isAdmin = $this->isAdminUser();
         $showTechnicalInfo = $this->shouldShowTechnicalInfo($isAdmin);
 
@@ -123,6 +128,11 @@ class TestJsV2Controller extends Controller
     {
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
+
+        if ($redirect = $this->redirectForUnsupportedMixedPolyglotMode($test, $mode)) {
+            return $redirect;
+        }
+
         $stateKey = $this->jsStateSessionKey($test, $mode);
         $savedState = $this->activeJsSavedState($stateKey);
         $isAdmin = $this->isAdminUser();
@@ -229,6 +239,7 @@ class TestJsV2Controller extends Controller
             return [
                 'id' => $q->id,
                 'uuid' => $q->uuid,
+                'type' => $q->type,
                 'question' => $q->question,
                 'answer' => $answerList[0] ?? '',
                 'answers' => $answerList,
@@ -411,6 +422,36 @@ class TestJsV2Controller extends Controller
     protected function normalizedTestFilters($test): array
     {
         return ComposeModeEligibility::normalizedFilters($test);
+    }
+
+    protected function isMixedPolyglotTheoryTest(mixed $test): bool
+    {
+        return (bool) data_get(
+            $this->normalizedTestFilters($test),
+            '__meta.theory_page_mixed_polyglot_test',
+            false
+        );
+    }
+
+    protected function redirectForUnsupportedMixedPolyglotMode(mixed $test, string $mode): ?\Illuminate\Http\RedirectResponse
+    {
+        if (! $this->isMixedPolyglotTheoryTest($test)) {
+            return null;
+        }
+
+        if (in_array($mode, ['saved-test-js-v2', 'saved-test-js-step-v2'], true)) {
+            return null;
+        }
+
+        $routeName = Str::contains($mode, 'step') ? 'test.step' : 'test.show';
+        $url = localized_route($routeName, $test->slug);
+        $query = request()->only(['filters', 'name', 'launch']);
+
+        if ($query !== []) {
+            $url .= '?' . http_build_query($query);
+        }
+
+        return redirect()->to($url);
     }
 
     protected function buildPolyglotCourseContext(mixed $test): ?array

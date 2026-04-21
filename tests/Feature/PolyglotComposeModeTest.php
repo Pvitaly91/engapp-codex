@@ -10,13 +10,17 @@ use App\Models\SavedGrammarTest;
 use Database\Seeders\V2\Polyglot\PolyglotHaveGotHasGotLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotArticlesAAnTheLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotCanCannotLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotComparativesLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFinalDrillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotSuperlativesLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPresentContinuousLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPresentSimpleVerbsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotSomeAnyLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotMuchManyALotOfLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotThereIsThereAreLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotToBeLessonSeeder;
 use Illuminate\Support\Str;
@@ -249,6 +253,82 @@ class PolyglotComposeModeTest extends TestCase
         );
     }
 
+    public function test_compose_route_works_for_generator_driven_much_many_a_lot_of_lesson(): void
+    {
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-much-many-a-lot-of-a1/step/compose');
+
+        $response->assertOk();
+        $response->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
+
+        $questionData = $response->viewData('questionData');
+
+        $this->assertIsArray($questionData);
+        $this->assertNotEmpty($questionData);
+        $this->assertSame(
+            ['I', 'have', 'a', 'lot', 'of', 'books'],
+            $questionData[0]['correctTokenValues']
+        );
+    }
+
+    public function test_compose_route_works_for_generator_driven_comparatives_lesson(): void
+    {
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-comparatives-a1/step/compose');
+
+        $response->assertOk();
+        $response->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
+
+        $questionData = $response->viewData('questionData');
+
+        $this->assertIsArray($questionData);
+        $this->assertNotEmpty($questionData);
+        $this->assertSame(
+            ['This', 'house', 'is', 'bigger', 'than', 'that', 'house'],
+            $questionData[0]['correctTokenValues']
+        );
+    }
+
+    public function test_compose_route_works_for_generator_driven_superlatives_lesson(): void
+    {
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-superlatives-a1/step/compose');
+
+        $response->assertOk();
+        $response->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
+
+        $questionData = $response->viewData('questionData');
+
+        $this->assertIsArray($questionData);
+        $this->assertNotEmpty($questionData);
+        $this->assertSame(
+            ['This', 'house', 'is', 'the', 'biggest'],
+            $questionData[0]['correctTokenValues']
+        );
+    }
+
+    public function test_compose_route_works_for_generator_driven_final_drill_lesson(): void
+    {
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-final-drill-a1/step/compose');
+
+        $response->assertOk();
+        $response->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
+
+        $questionData = $response->viewData('questionData');
+
+        $this->assertIsArray($questionData);
+        $this->assertNotEmpty($questionData);
+        $this->assertSame(
+            ['It', 'is', 'an', 'apple'],
+            $questionData[0]['correctTokenValues']
+        );
+    }
+
     public function test_standard_polyglot_route_enables_translation_preview_for_polyglot_lessons(): void
     {
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
@@ -347,6 +427,10 @@ class PolyglotComposeModeTest extends TestCase
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
         $this->seed(PolyglotSomeAnyLessonSeeder::class);
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
 
         $response = $this->get('/test/polyglot-to-be-a1/step/compose');
         $courseContext = $response->viewData('courseContext');
@@ -358,7 +442,7 @@ class PolyglotComposeModeTest extends TestCase
         $this->assertSame(1, $courseContext['lesson_order']);
         $this->assertNull($courseContext['previous_lesson_slug']);
         $this->assertSame('polyglot-there-is-there-are-a1', $courseContext['next_lesson_slug']);
-        $this->assertSame(12, $courseContext['total_lessons']);
+        $this->assertSame(16, $courseContext['total_lessons']);
     }
 
     public function test_step_compose_renders_polyglot_progress_data_hooks(): void
@@ -375,6 +459,10 @@ class PolyglotComposeModeTest extends TestCase
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
         $this->seed(PolyglotSomeAnyLessonSeeder::class);
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
 
         $response = $this->get('/test/polyglot-there-is-there-are-a1/step/compose');
 

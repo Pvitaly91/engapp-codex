@@ -36,21 +36,8 @@ class TheoryPagePromptLinkedTestsService
     {
         $linkedTests = $this->findForPage($page);
         $directLinkedTests = $this->extractDirectLinkedTests($linkedTests);
-        $directSeederClasses = $this->normalizeSeederClasses(
-            $directLinkedTests
-                ->flatMap(function (SavedGrammarTest $test) {
-                    $filters = is_array($test->filters) ? $test->filters : [];
-
-                    return $filters['seeder_classes'] ?? [];
-                })
-                ->all()
-        );
-        $definitionsBySeeder = $this->promptLinkedSeederDefinitionsForPage($page)
-            ->reject(fn ($definition, string $className) => in_array(Str::lower($className), $directSeederClasses, true));
-        $seederClasses = $this->aggregateSeederClassesForPage(
-            $linkedTests->reject(fn (SavedGrammarTest $test) => $this->shouldDisplayDirectly($test)),
-            $definitionsBySeeder
-        );
+        $definitionsBySeeder = $this->promptLinkedSeederDefinitionsForPage($page);
+        $seederClasses = $this->aggregateSeederClassesForPage($linkedTests, $definitionsBySeeder);
 
         if ($seederClasses->isEmpty()) {
             return $directLinkedTests->values();
@@ -60,37 +47,35 @@ class TheoryPagePromptLinkedTestsService
         $questionRows = Question::query()
             ->whereIn('seeder', $seederClasses->all())
             ->whereNotNull('level')
-            ->get(['level']);
+            ->get(['level', 'type']);
 
         $aggregatedTests = collect(self::LEVEL_PAIRS)
             ->map(function (array $levelPair) use ($page, $baseFilters, $seederClasses, $questionRows) {
-                $availableCount = $questionRows
-                    ->whereIn('level', $levelPair)
-                    ->count();
+                $availableRows = $questionRows->whereIn('level', $levelPair);
+                $availableCount = $availableRows->count();
 
                 if ($availableCount <= 0) {
                     return null;
                 }
+
+                $containsComposeQuestions = $availableRows
+                    ->contains(fn ($row) => (string) ($row->type ?? '') === Question::TYPE_COMPOSE_TOKENS);
+                $containsStandardQuestions = $availableRows
+                    ->contains(fn ($row) => (string) ($row->type ?? '') !== Question::TYPE_COMPOSE_TOKENS);
 
                 return $this->buildAggregatedVirtualTest(
                     $page,
                     $levelPair,
                     $seederClasses,
                     $baseFilters,
-                    $availableCount
+                    $availableCount,
+                    $containsComposeQuestions && $containsStandardQuestions
                 );
             })
             ->filter()
             ->values();
 
-        if ($directLinkedTests->isEmpty()) {
-            return $aggregatedTests;
-        }
-
-        return $directLinkedTests
-            ->merge($aggregatedTests)
-            ->unique(fn ($test) => Str::lower(trim((string) ($test->slug ?? $test->name ?? spl_object_hash($test)))))
-            ->values();
+        return $aggregatedTests;
     }
 
     public function findForPage(Page $page): Collection
@@ -297,7 +282,8 @@ class TheoryPagePromptLinkedTestsService
         array $levelPair,
         Collection $seederClasses,
         array $baseFilters,
-        int $availableCount
+        int $availableCount,
+        bool $isMixedPolyglotTest = false
     ): VirtualSavedTest {
         [$levelFrom, $levelTo] = $levelPair;
 
@@ -312,6 +298,7 @@ class TheoryPagePromptLinkedTestsService
                 'mode' => 'filters',
                 'aggregated_theory_page_test' => true,
                 'theory_page_id' => (int) $page->getKey(),
+                'theory_page_mixed_polyglot_test' => $isMixedPolyglotTest,
             ]
         );
 

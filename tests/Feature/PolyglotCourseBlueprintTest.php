@@ -5,10 +5,14 @@ namespace Tests\Feature;
 use App\Services\PolyglotCourseBlueprintService;
 use Database\Seeders\V2\Polyglot\PolyglotCanCannotLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotArticlesAAnTheLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotComparativesLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFinalDrillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotHaveGotHasGotLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotSuperlativesLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotSomeAnyLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotMuchManyALotOfLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPresentContinuousLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
@@ -44,14 +48,18 @@ class PolyglotCourseBlueprintTest extends TestCase
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
         $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
         $this->seed(PolyglotSomeAnyLessonSeeder::class);
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
     }
 
     public function test_blueprint_file_loads_with_unique_lesson_orders_and_slugs(): void
     {
         $blueprint = app(PolyglotCourseBlueprintService::class)
             ->getCourseBlueprint('polyglot-english-a1');
-        $lessonTwelve = collect($blueprint['lessons'])
-            ->firstWhere('slug', 'polyglot-some-any-a1');
+        $lessonSixteen = collect($blueprint['lessons'])
+            ->firstWhere('slug', 'polyglot-final-drill-a1');
 
         $orders = array_column($blueprint['lessons'], 'lesson_order');
         $slugs = array_column($blueprint['lessons'], 'slug');
@@ -61,13 +69,13 @@ class PolyglotCourseBlueprintTest extends TestCase
         $this->assertCount(16, array_unique($orders));
         $this->assertCount(16, $slugs);
         $this->assertCount(16, array_unique($slugs));
-        $this->assertIsArray($lessonTwelve);
-        $this->assertSame(12, $lessonTwelve['lesson_order']);
-        $this->assertSame('implemented', $lessonTwelve['status']);
-        $this->assertSame('polyglot-articles-a-an-the-a1', $lessonTwelve['previous_lesson_slug']);
-        $this->assertSame('polyglot-much-many-a-lot-of-a1', $lessonTwelve['next_lesson_slug']);
-        $this->assertSame('some-any', $lessonTwelve['theory_category_slug']);
-        $this->assertSame('theory-some-any-things', $lessonTwelve['theory_page_slug']);
+        $this->assertIsArray($lessonSixteen);
+        $this->assertSame(16, $lessonSixteen['lesson_order']);
+        $this->assertSame('implemented', $lessonSixteen['status']);
+        $this->assertSame('polyglot-superlatives-a1', $lessonSixteen['previous_lesson_slug']);
+        $this->assertNull($lessonSixteen['next_lesson_slug']);
+        $this->assertSame('basic-grammar', $lessonSixteen['theory_category_slug']);
+        $this->assertSame('a1-mixed-revision', $lessonSixteen['theory_page_slug']);
     }
 
     public function test_blueprint_status_layer_reports_implemented_and_next_planned_lessons(): void
@@ -76,9 +84,9 @@ class PolyglotCourseBlueprintTest extends TestCase
             ->buildCourseStatus('polyglot-english-a1');
 
         $this->assertSame(16, $status['counts']['planned_total']);
-        $this->assertSame(12, $status['counts']['implemented_total']);
-        $this->assertSame(4, $status['counts']['planned_only_total']);
-        $this->assertSame('polyglot-much-many-a-lot-of-a1', $status['next_planned_lesson']['slug'] ?? null);
+        $this->assertSame(16, $status['counts']['implemented_total']);
+        $this->assertSame(0, $status['counts']['planned_only_total']);
+        $this->assertNull($status['next_planned_lesson']['slug'] ?? null);
         $this->assertSame([], $status['missing_lessons']);
         $this->assertSame([], $status['validation']['broken_previous_refs']);
         $this->assertSame([], $status['validation']['broken_next_refs']);

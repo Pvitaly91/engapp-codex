@@ -12,13 +12,17 @@ use App\Support\Database\QuestionUuidResolver;
 use Database\Seeders\V3\Polyglot\PolyglotHaveGotHasGotLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotArticlesAAnTheLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotCanCannotLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotComparativesLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotFinalDrillLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotMuchManyALotOfLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentContinuousLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentSimpleVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotSomeAnyLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotSuperlativesLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotThereIsThereAreLessonSeeder;
 use Illuminate\Support\Str;
 use ReflectionMethod;
@@ -443,6 +447,203 @@ class ComposePayloadBuilderTest extends TestCase
             'Схема питання: Do + you + see + any + plural noun?',
             $payload['hintUk']
         );
+    }
+
+    public function test_much_many_a_lot_of_v3_polyglot_lesson_payload_remains_compose_compatible(): void
+    {
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+
+        $aLotOfQuestion = Question::query()
+            ->where('uuid', 'polyglot-much-many-a-lot-of-q01')
+            ->firstOrFail()
+            ->load(['answers.option', 'options', 'hints', 'chatgptExplanations']);
+        $howManyQuestion = Question::query()
+            ->where('uuid', 'polyglot-much-many-a-lot-of-q24')
+            ->firstOrFail()
+            ->load(['answers.option', 'options', 'hints', 'chatgptExplanations']);
+
+        $aLotOfPayload = $this->buildComposePayload($aLotOfQuestion);
+        $howManyPayload = $this->buildComposePayload($howManyQuestion);
+
+        $this->assertSame(
+            ['I', 'have', 'a', 'lot', 'of', 'books'],
+            $aLotOfPayload['correctTokenValues']
+        );
+        $this->assertSame(
+            ['I', 'have', 'a', 'lot', 'of', 'books', 'many', 'much', 'book'],
+            collect($aLotOfPayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('I have a lot of books.', $aLotOfPayload['correctText']);
+        $this->assertSame(
+            ['How', 'many', 'cars', 'do', 'you', 'see', 'here'],
+            $howManyPayload['correctTokenValues']
+        );
+        $this->assertEqualsCanonicalizing(
+            ['How', 'many', 'cars', 'do', 'you', 'see', 'here', 'much', 'does', 'water'],
+            collect($howManyPayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('How many cars do you see here?', $howManyPayload['correctText']);
+        $this->assertSame(
+            'How many + plural noun + do/does ...?',
+            $howManyPayload['hintUk']
+        );
+    }
+
+    public function test_comparatives_v3_polyglot_lesson_payload_remains_compose_compatible(): void
+    {
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+
+        $moreQuestion = Question::query()
+            ->where('uuid', 'polyglot-comparatives-q08')
+            ->firstOrFail()
+            ->load(['answers.option', 'options', 'hints', 'chatgptExplanations']);
+        $duplicateQuestion = Question::query()
+            ->where('uuid', 'polyglot-comparatives-q01')
+            ->firstOrFail()
+            ->load(['answers.option', 'options', 'hints', 'chatgptExplanations']);
+
+        $morePayload = $this->buildComposePayload($moreQuestion);
+        $duplicatePayload = $this->buildComposePayload($duplicateQuestion);
+        $bookInstances = collect($morePayload['tokenBank'])
+            ->where('value', 'book')
+            ->where('isCorrect', true)
+            ->values();
+        $houseInstances = collect($duplicatePayload['tokenBank'])
+            ->where('value', 'house')
+            ->where('isCorrect', true)
+            ->values();
+
+        $this->assertSame(
+            ['This', 'book', 'is', 'more', 'interesting', 'than', 'that', 'book'],
+            $morePayload['correctTokenValues']
+        );
+        $this->assertSame(
+            ['This', 'book', 'is', 'more', 'interesting', 'than', 'that', 'book', 'car', 'most', 'boring'],
+            collect($morePayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertCount(2, $bookInstances);
+        $this->assertSame('This book is more interesting than that book.', $morePayload['correctText']);
+        $this->assertSame(
+            'Для довших прикметників використовуємо more + adjective.',
+            $morePayload['hintUk']
+        );
+
+        $this->assertSame(
+            ['This', 'house', 'is', 'bigger', 'than', 'that', 'house'],
+            $duplicatePayload['correctTokenValues']
+        );
+        $this->assertCount(2, $houseInstances);
+        $this->assertSame('This house is bigger than that house.', $duplicatePayload['correctText']);
+    }
+
+    public function test_superlatives_v3_polyglot_lesson_payload_remains_compose_compatible(): void
+    {
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+
+        $mostQuestion = Question::query()
+            ->where('uuid', 'polyglot-superlatives-q08')
+            ->firstOrFail()
+            ->load(['answers.option', 'options', 'hints', 'chatgptExplanations']);
+        $duplicateQuestion = Question::query()
+            ->where('uuid', 'polyglot-superlatives-q15')
+            ->firstOrFail()
+            ->load(['answers.option', 'options', 'hints', 'chatgptExplanations']);
+
+        $mostPayload = $this->buildComposePayload($mostQuestion);
+        $duplicatePayload = $this->buildComposePayload($duplicateQuestion);
+        $theInstances = collect($duplicatePayload['tokenBank'])
+            ->where('value', 'the')
+            ->where('isCorrect', true)
+            ->values();
+
+        $this->assertSame(
+            ['This', 'book', 'is', 'the', 'most', 'interesting'],
+            $mostPayload['correctTokenValues']
+        );
+        $this->assertSame(
+            ['This', 'book', 'is', 'the', 'most', 'interesting', 'more', 'boring', 'car'],
+            collect($mostPayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('This book is the most interesting.', $mostPayload['correctText']);
+        $this->assertSame(
+            'Для довших прикметників використовуємо the most + adjective.',
+            $mostPayload['hintUk']
+        );
+
+        $this->assertSame(
+            ['Is', 'the', 'train', 'the', 'fastest'],
+            $duplicatePayload['correctTokenValues']
+        );
+        $this->assertCount(2, $theInstances);
+        $this->assertSame('Is the train the fastest?', $duplicatePayload['correctText']);
+    }
+
+    public function test_final_drill_v3_polyglot_lesson_payload_remains_compose_compatible(): void
+    {
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
+
+        $aLotOfQuestion = Question::query()
+            ->where('uuid', 'polyglot-final-drill-q02')
+            ->firstOrFail()
+            ->load(['answers.option', 'options', 'hints', 'chatgptExplanations']);
+        $duplicateQuestion = Question::query()
+            ->where('uuid', 'polyglot-final-drill-q13')
+            ->firstOrFail()
+            ->load(['answers.option', 'options', 'hints', 'chatgptExplanations']);
+        $mostQuestion = Question::query()
+            ->where('uuid', 'polyglot-final-drill-q23')
+            ->firstOrFail()
+            ->load(['answers.option', 'options', 'hints', 'chatgptExplanations']);
+        $articleQuestion = Question::query()
+            ->where('uuid', 'polyglot-final-drill-q15')
+            ->firstOrFail()
+            ->load(['answers.option', 'options', 'hints', 'chatgptExplanations']);
+
+        $aLotOfPayload = $this->buildComposePayload($aLotOfQuestion);
+        $duplicatePayload = $this->buildComposePayload($duplicateQuestion);
+        $mostPayload = $this->buildComposePayload($mostQuestion);
+        $articlePayload = $this->buildComposePayload($articleQuestion);
+
+        $houseInstances = collect($duplicatePayload['tokenBank'])
+            ->where('value', 'house')
+            ->where('isCorrect', true)
+            ->values();
+
+        $this->assertSame(
+            ['There', 'are', 'a', 'lot', 'of', 'apples', 'on', 'the', 'table'],
+            $aLotOfPayload['correctTokenValues']
+        );
+        $this->assertSame(
+            ['There', 'are', 'a', 'lot', 'of', 'apples', 'on', 'the', 'table', 'is', 'many', 'water'],
+            collect($aLotOfPayload['tokenBank'])->pluck('value')->all()
+        );
+
+        $this->assertSame(
+            ['Is', 'this', 'house', 'bigger', 'than', 'that', 'house'],
+            $duplicatePayload['correctTokenValues']
+        );
+        $this->assertCount(2, $houseInstances);
+        $this->assertSame('Is this house bigger than that house?', $duplicatePayload['correctText']);
+
+        $this->assertSame(
+            ['Which', 'chair', 'is', 'the', 'most', 'comfortable'],
+            $mostPayload['correctTokenValues']
+        );
+        $this->assertSame(
+            ['Which', 'chair', 'is', 'the', 'most', 'comfortable', 'more', 'What', 'hard'],
+            collect($mostPayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('Which chair is the most comfortable?', $mostPayload['correctText']);
+
+        $this->assertSame(
+            ['Did', 'he', 'see', 'the', 'dog', 'yesterday'],
+            $articlePayload['correctTokenValues']
+        );
+        $this->assertEqualsCanonicalizing(
+            ['Did', 'he', 'see', 'the', 'dog', 'yesterday', 'Does', 'saw', 'they'],
+            collect($articlePayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('Did he see the dog yesterday?', $articlePayload['correctText']);
     }
 
     private function createComposeQuestion(string $questionText, array $answers, array $options): Question
