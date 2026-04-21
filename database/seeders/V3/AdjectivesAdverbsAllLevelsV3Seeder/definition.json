@@ -1,0 +1,953 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AdjectivesAdverbsAllLevelsV3Seeder",
+        "uuid_namespace": "AdjectivesAdverbsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Adjectives and Adverbs"
+    },
+    "sources": {
+        "adjectives_adverbs_overview_page": {
+            "name": "Adjectives and Adverbs - All Levels Overview"
+        }
+    },
+    "tags": {
+        "adjectives_adverbs_usage": {
+            "name": "Adjectives and adverbs usage",
+            "category": "topic"
+        },
+        "description_and_comparison": {
+            "name": "Description and comparison",
+            "category": "topic"
+        },
+        "as_as_equality": {
+            "name": "As ... as Equality",
+            "category": "pattern"
+        },
+        "comparative_choice": {
+            "name": "Comparative / Superlative Choice",
+            "category": "structure"
+        },
+        "comparative_pattern": {
+            "name": "Comparative + than Pattern",
+            "category": "pattern"
+        },
+        "comparatives_superlatives_practice": {
+            "name": "Comparatives and Superlatives Practice",
+            "category": "theme"
+        },
+        "degrees_of_comparison": {
+            "name": "Degrees of Comparison",
+            "category": "detail"
+        },
+        "irregular_comparatives": {
+            "name": "Irregular Comparative Forms (good/bad/far)",
+            "category": "focus"
+        },
+        "quantity_comparisons": {
+            "name": "Quantity Comparisons (much/many/less/fewer)",
+            "category": "focus"
+        },
+        "superlative_formation": {
+            "name": "Superlative Formation (-est / most / least)",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "adjectives_adverbs_usage",
+        "description_and_comparison"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "The soup smells {a1}.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "good",
+                    "options": [
+                        "good",
+                        "well",
+                        "better"
+                    ],
+                    "verb_hint": "adjective after linking verb"
+                }
+            },
+            "variants": [
+                "The soup smells {a1}."
+            ]
+        },
+        {
+            "id": 2,
+            "question": "She speaks {a1} in meetings.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "clearly",
+                    "options": [
+                        "clearly",
+                        "clear",
+                        "clearer"
+                    ],
+                    "verb_hint": "adverb of manner"
+                }
+            },
+            "variants": [
+                "She speaks {a1} in meetings."
+            ]
+        },
+        {
+            "id": 3,
+            "question": "My brother is {a1} than I am.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "taller",
+                    "options": [
+                        "taller",
+                        "more tall",
+                        "tallest"
+                    ],
+                    "verb_hint": "comparative adjective"
+                }
+            },
+            "tag_keys": [
+                "comparative_pattern",
+                "degrees_of_comparison"
+            ],
+            "variants": [
+                "My brother is {a1} than I am."
+            ]
+        },
+        {
+            "id": 4,
+            "question": "That was the {a1} joke of the evening.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "funniest",
+                    "options": [
+                        "funniest",
+                        "funnier",
+                        "most funny"
+                    ],
+                    "verb_hint": "superlative adjective"
+                }
+            },
+            "tag_keys": [
+                "superlative_formation",
+                "comparative_choice"
+            ],
+            "variants": [
+                "That was the {a1} joke of the evening."
+            ]
+        },
+        {
+            "id": 5,
+            "question": "This exercise is not as {a1} as the last one.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "difficult",
+                    "options": [
+                        "difficult",
+                        "more difficult",
+                        "difficultest"
+                    ],
+                    "verb_hint": "base adjective in as ... as"
+                }
+            },
+            "tag_keys": [
+                "as_as_equality"
+            ],
+            "variants": [
+                "This exercise is not as {a1} as the last one."
+            ]
+        },
+        {
+            "id": 6,
+            "question": "Please drive more {a1} on wet roads.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "carefully",
+                    "options": [
+                        "carefully",
+                        "careful",
+                        "carefuller"
+                    ],
+                    "verb_hint": "adverb after verb"
+                }
+            },
+            "variants": [
+                "Please drive more {a1} on wet roads."
+            ]
+        },
+        {
+            "id": 7,
+            "question": "Today is {a1} than yesterday.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "colder",
+                    "options": [
+                        "colder",
+                        "coldest",
+                        "more cold"
+                    ],
+                    "verb_hint": "comparative adjective"
+                }
+            },
+            "tag_keys": [
+                "comparative_pattern",
+                "degrees_of_comparison"
+            ],
+            "variants": [
+                "Today is {a1} than yesterday."
+            ]
+        },
+        {
+            "id": 8,
+            "question": "Of all the rooms, this one is the {a1}.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "brightest",
+                    "options": [
+                        "brightest",
+                        "brighter",
+                        "more bright"
+                    ],
+                    "verb_hint": "superlative adjective"
+                }
+            },
+            "tag_keys": [
+                "superlative_formation",
+                "degrees_of_comparison"
+            ],
+            "variants": [
+                "Of all the rooms, this one is the {a1}."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "She looked {a1} after the ten-kilometre run.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "tired",
+                    "options": [
+                        "tired",
+                        "tiring",
+                        "tiredly"
+                    ],
+                    "verb_hint": "-ed adjective for feelings"
+                }
+            },
+            "variants": [
+                "She looked {a1} after the ten-kilometre run."
+            ]
+        },
+        {
+            "id": 10,
+            "question": "He explained the rule {a1} than I expected.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "more clearly",
+                    "options": [
+                        "more clearly",
+                        "clearer",
+                        "most clearly"
+                    ],
+                    "verb_hint": "comparative adverb"
+                }
+            },
+            "tag_keys": [
+                "comparative_pattern",
+                "comparatives_superlatives_practice"
+            ],
+            "variants": [
+                "He explained the rule {a1} than I expected."
+            ]
+        },
+        {
+            "id": 11,
+            "question": "This jacket is the {a1} one in the shop.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "most expensive",
+                    "options": [
+                        "most expensive",
+                        "more expensive",
+                        "expensivest"
+                    ],
+                    "verb_hint": "superlative adjective"
+                }
+            },
+            "tag_keys": [
+                "superlative_formation",
+                "comparative_choice"
+            ],
+            "variants": [
+                "This jacket is the {a1} one in the shop."
+            ]
+        },
+        {
+            "id": 12,
+            "question": "Your answer is not as {a1} as hers.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "precise",
+                    "options": [
+                        "precise",
+                        "more precise",
+                        "precisely"
+                    ],
+                    "verb_hint": "base adjective in equality pattern"
+                }
+            },
+            "tag_keys": [
+                "as_as_equality"
+            ],
+            "variants": [
+                "Your answer is not as {a1} as hers."
+            ]
+        },
+        {
+            "id": 13,
+            "question": "We stayed in a {a1} cottage by the lake.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "lovely little stone",
+                    "options": [
+                        "lovely little stone",
+                        "stone little lovely",
+                        "little lovely stonely"
+                    ],
+                    "verb_hint": "natural adjective order"
+                }
+            },
+            "variants": [
+                "We stayed in a {a1} cottage by the lake."
+            ]
+        },
+        {
+            "id": 14,
+            "question": "The news was deeply {a1}.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "disappointing",
+                    "options": [
+                        "disappointing",
+                        "disappointed",
+                        "disappointingly"
+                    ],
+                    "verb_hint": "-ing adjective for things"
+                }
+            },
+            "variants": [
+                "The news was deeply {a1}."
+            ]
+        },
+        {
+            "id": 15,
+            "question": "Can you speak a bit more {a1}?",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "slowly",
+                    "options": [
+                        "slowly",
+                        "slow",
+                        "slower"
+                    ],
+                    "verb_hint": "adverb of manner"
+                }
+            },
+            "variants": [
+                "Can you speak a bit more {a1}?"
+            ]
+        },
+        {
+            "id": 16,
+            "question": "This road is {a1} than the motorway but much safer.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "narrower",
+                    "options": [
+                        "narrower",
+                        "narrowest",
+                        "more narrow"
+                    ],
+                    "verb_hint": "comparative adjective"
+                }
+            },
+            "tag_keys": [
+                "comparative_pattern",
+                "degrees_of_comparison"
+            ],
+            "variants": [
+                "This road is {a1} than the motorway but much safer."
+            ]
+        },
+        {
+            "id": 17,
+            "question": "The audience grew visibly {a1} as the lecture went on.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "bored",
+                    "options": [
+                        "bored",
+                        "boring",
+                        "boredly"
+                    ],
+                    "verb_hint": "-ed adjective for reaction"
+                }
+            },
+            "variants": [
+                "The audience grew visibly {a1} as the lecture went on."
+            ]
+        },
+        {
+            "id": 18,
+            "question": "Her second proposal was {a1} argued than the first.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "better",
+                    "options": [
+                        "better",
+                        "more well",
+                        "best"
+                    ],
+                    "verb_hint": "irregular comparative adverb"
+                }
+            },
+            "tag_keys": [
+                "irregular_comparatives",
+                "comparative_pattern"
+            ],
+            "variants": [
+                "Her second proposal was {a1} argued than the first."
+            ]
+        },
+        {
+            "id": 19,
+            "question": "Of the three drafts, the last one is by far the {a1}.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "clearest",
+                    "options": [
+                        "clearest",
+                        "clearer",
+                        "most clearly"
+                    ],
+                    "verb_hint": "superlative adjective"
+                }
+            },
+            "tag_keys": [
+                "superlative_formation",
+                "comparative_choice"
+            ],
+            "variants": [
+                "Of the three drafts, the last one is by far the {a1}."
+            ]
+        },
+        {
+            "id": 20,
+            "question": "The north wing is not nearly as {a1} as the renovated south wing.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "bright",
+                    "options": [
+                        "bright",
+                        "brighter",
+                        "brightly"
+                    ],
+                    "verb_hint": "base adjective in equality pattern"
+                }
+            },
+            "tag_keys": [
+                "as_as_equality"
+            ],
+            "variants": [
+                "The north wing is not nearly as {a1} as the renovated south wing."
+            ]
+        },
+        {
+            "id": 21,
+            "question": "They bought an {a1} table for the dining room.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "elegant round Italian",
+                    "options": [
+                        "elegant round Italian",
+                        "Italian elegant round",
+                        "round Italian elegantly"
+                    ],
+                    "verb_hint": "natural adjective order"
+                }
+            },
+            "variants": [
+                "They bought an {a1} table for the dining room."
+            ]
+        },
+        {
+            "id": 22,
+            "question": "The results were {a1} better after the new calibration.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "considerably",
+                    "options": [
+                        "considerably",
+                        "considerable",
+                        "considerablier"
+                    ],
+                    "verb_hint": "intensifying adverb"
+                }
+            },
+            "variants": [
+                "The results were {a1} better after the new calibration."
+            ]
+        },
+        {
+            "id": 23,
+            "question": "He sounded strangely {a1} about the delay.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "calm",
+                    "options": [
+                        "calm",
+                        "calmly",
+                        "calmer"
+                    ],
+                    "verb_hint": "adjective after linking verb"
+                }
+            },
+            "variants": [
+                "He sounded strangely {a1} about the delay."
+            ]
+        },
+        {
+            "id": 24,
+            "question": "There were {a1} volunteers than we expected, so the rota stayed manageable.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "fewer",
+                    "options": [
+                        "fewer",
+                        "less",
+                        "fewest"
+                    ],
+                    "verb_hint": "comparative with countable noun"
+                }
+            },
+            "tag_keys": [
+                "quantity_comparisons",
+                "degrees_of_comparison"
+            ],
+            "variants": [
+                "There were {a1} volunteers than we expected, so the rota stayed manageable."
+            ]
+        },
+        {
+            "id": 25,
+            "question": "The committee found the revised schedule {a1} than the original draft.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "more workable",
+                    "options": [
+                        "more workable",
+                        "workablest",
+                        "most workable"
+                    ],
+                    "verb_hint": "comparative adjective"
+                }
+            },
+            "tag_keys": [
+                "comparative_pattern",
+                "comparative_choice"
+            ],
+            "variants": [
+                "The committee found the revised schedule {a1} than the original draft."
+            ]
+        },
+        {
+            "id": 26,
+            "question": "The corridor was so {a1} lit that we missed the side entrance.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "poorly",
+                    "options": [
+                        "poorly",
+                        "poor",
+                        "poorer"
+                    ],
+                    "verb_hint": "adverb modifying participle"
+                }
+            },
+            "variants": [
+                "The corridor was so {a1} lit that we missed the side entrance."
+            ]
+        },
+        {
+            "id": 27,
+            "question": "That is the {a1} summary we've received so far.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "most coherent",
+                    "options": [
+                        "most coherent",
+                        "more coherent",
+                        "coherentest"
+                    ],
+                    "verb_hint": "superlative adjective"
+                }
+            },
+            "tag_keys": [
+                "superlative_formation",
+                "comparative_choice"
+            ],
+            "variants": [
+                "That is the {a1} summary we've received so far."
+            ]
+        },
+        {
+            "id": 28,
+            "question": "The audience looked more {a1} than amused by the closing anecdote.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "puzzled",
+                    "options": [
+                        "puzzled",
+                        "puzzling",
+                        "puzzledly"
+                    ],
+                    "verb_hint": "-ed adjective for reaction"
+                }
+            },
+            "variants": [
+                "The audience looked more {a1} than amused by the closing anecdote."
+            ]
+        },
+        {
+            "id": 29,
+            "question": "She gave a {a1} response that calmed the whole room.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "remarkably measured",
+                    "options": [
+                        "remarkably measured",
+                        "measured remarkably",
+                        "remarkable measured"
+                    ],
+                    "verb_hint": "adverb + adjective collocation"
+                }
+            },
+            "variants": [
+                "She gave a {a1} response that calmed the whole room."
+            ]
+        },
+        {
+            "id": 30,
+            "question": "The fabric felt {a1} than it looked.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "softer",
+                    "options": [
+                        "softer",
+                        "softly",
+                        "softest"
+                    ],
+                    "verb_hint": "comparative adjective"
+                }
+            },
+            "tag_keys": [
+                "comparative_pattern",
+                "degrees_of_comparison"
+            ],
+            "variants": [
+                "The fabric felt {a1} than it looked."
+            ]
+        },
+        {
+            "id": 31,
+            "question": "It was an unexpectedly {a1} little seminar.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "lively",
+                    "options": [
+                        "lively",
+                        "livelily",
+                        "more lively"
+                    ],
+                    "verb_hint": "descriptive adjective"
+                }
+            },
+            "variants": [
+                "It was an unexpectedly {a1} little seminar."
+            ]
+        },
+        {
+            "id": 32,
+            "question": "The archived files were arranged in a {a1} sequence.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "strictly chronological",
+                    "options": [
+                        "strictly chronological",
+                        "chronological strictly",
+                        "strict chronologically"
+                    ],
+                    "verb_hint": "adverb + adjective collocation"
+                }
+            },
+            "variants": [
+                "The archived files were arranged in a {a1} sequence."
+            ]
+        },
+        {
+            "id": 33,
+            "question": "The revised methodology is scarcely more {a1} than the original one.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "robust",
+                    "options": [
+                        "robust",
+                        "robustly",
+                        "robustest"
+                    ],
+                    "verb_hint": "adjective after more"
+                }
+            },
+            "tag_keys": [
+                "comparative_pattern",
+                "comparative_choice"
+            ],
+            "variants": [
+                "The revised methodology is scarcely more {a1} than the original one."
+            ]
+        },
+        {
+            "id": 34,
+            "question": "The witness gave an impeccably {a1} account of the incident.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "coherent",
+                    "options": [
+                        "coherent",
+                        "coherently",
+                        "coherenter"
+                    ],
+                    "verb_hint": "adjective after adverb"
+                }
+            },
+            "variants": [
+                "The witness gave an impeccably {a1} account of the incident."
+            ]
+        },
+        {
+            "id": 35,
+            "question": "The later chapters become progressively more {a1} and less anecdotal.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "analytical",
+                    "options": [
+                        "analytical",
+                        "analytically",
+                        "analyticallest"
+                    ],
+                    "verb_hint": "comparative adjective phrase"
+                }
+            },
+            "tag_keys": [
+                "comparative_pattern",
+                "comparative_choice"
+            ],
+            "variants": [
+                "The later chapters become progressively more {a1} and less anecdotal."
+            ]
+        },
+        {
+            "id": 36,
+            "question": "Their objections were technically {a1} but strategically short-sighted.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "sound",
+                    "options": [
+                        "sound",
+                        "soundly",
+                        "sounder"
+                    ],
+                    "verb_hint": "adjective after be"
+                }
+            },
+            "variants": [
+                "Their objections were technically {a1} but strategically short-sighted."
+            ]
+        },
+        {
+            "id": 37,
+            "question": "She chose an {a1} approach to a politically delicate issue.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "unusually direct",
+                    "options": [
+                        "unusually direct",
+                        "direct unusually",
+                        "unusual directly"
+                    ],
+                    "verb_hint": "adverb + adjective collocation"
+                }
+            },
+            "variants": [
+                "She chose an {a1} approach to a politically delicate issue."
+            ]
+        },
+        {
+            "id": 38,
+            "question": "The room fell almost unnervingly {a1} once the verdict was read out.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "silent",
+                    "options": [
+                        "silent",
+                        "silently",
+                        "more silent"
+                    ],
+                    "verb_hint": "adjective after fall"
+                }
+            },
+            "variants": [
+                "The room fell almost unnervingly {a1} once the verdict was read out."
+            ]
+        },
+        {
+            "id": 39,
+            "question": "Of all the candidates, he argued the case most {a1} under cross-examination.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "convincingly",
+                    "options": [
+                        "convincingly",
+                        "convincing",
+                        "more convincing"
+                    ],
+                    "verb_hint": "superlative adverb"
+                }
+            },
+            "tag_keys": [
+                "superlative_formation",
+                "comparative_choice"
+            ],
+            "variants": [
+                "Of all the candidates, he argued the case most {a1} under cross-examination."
+            ]
+        },
+        {
+            "id": 40,
+            "question": "The opening paragraph is far {a1} than the rest of the report.",
+            "source": "adjectives_adverbs_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "more precise",
+                    "options": [
+                        "more precise",
+                        "precisest",
+                        "precisely"
+                    ],
+                    "verb_hint": "comparative adjective"
+                }
+            },
+            "tag_keys": [
+                "comparative_pattern",
+                "comparative_choice"
+            ],
+            "variants": [
+                "The opening paragraph is far {a1} than the rest of the report."
+            ]
+        }
+    ]
+}

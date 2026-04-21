@@ -132,8 +132,14 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertDontSee('data-course-lesson-action-disabled', false);
         $response->assertSee('data-polyglot-planned-lessons="16"', false);
         $response->assertSee('data-polyglot-implemented-lessons="16"', false);
+        $response->assertSee('data-polyglot-course-content-complete="1"', false);
+        $response->assertSee('data-polyglot-course-learner-complete="0"', false);
+        $response->assertSee('data-course-content-complete-banner', false);
+        $response->assertSee('data-course-learner-complete-banner', false);
+        $response->assertSee('data-course-repeat-link', false);
+        $response->assertSee('data-course-reset-progress-secondary', false);
         $response->assertSee('16 / 16');
-        $response->assertDontSee(__('frontend.tests.course.coming_soon'));
+        $response->assertSee(__('frontend.tests.course.course_fully_available_title'));
     }
 
     public function test_course_reset_ui_is_present(): void
@@ -141,6 +147,7 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response = $this->get('/courses/polyglot-english-a1');
 
         $response->assertSee('data-course-reset-progress', false);
+        $response->assertSee(__('frontend.tests.course.back_to_lessons'));
     }
 
     public function test_home_page_renders_public_entry_points_to_polyglot_course_for_guest_user(): void

@@ -24,6 +24,10 @@ class ComingSoonMiddleware
             return $next($request);
         }
 
+        if ($this->shouldBypassForAllowedTestSlug($request)) {
+            return $next($request);
+        }
+
         // Check if current route name is in the list
         $routes = config('coming-soon.routes', []);
         $currentRouteName = $request->route()?->getName();
@@ -56,5 +60,27 @@ class ComingSoonMiddleware
         return response()
             ->view('coming-soon', [], 503)
             ->header('Retry-After', $retryAfter);
+    }
+
+    protected function shouldBypassForAllowedTestSlug(Request $request): bool
+    {
+        $routeName = trim((string) $request->route()?->getName());
+        $slug = trim((string) $request->route()?->parameter('slug'));
+
+        if ($routeName === '' || ! str_starts_with($routeName, 'test.') || $slug === '') {
+            return false;
+        }
+
+        $allowedPrefixes = config('coming-soon.allowed_test_slug_prefixes', []);
+
+        foreach ($allowedPrefixes as $prefix) {
+            $normalizedPrefix = trim((string) $prefix);
+
+            if ($normalizedPrefix !== '' && str_starts_with($slug, $normalizedPrefix)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -473,6 +473,7 @@ class TestJsV2Controller extends Controller
 
         $previousLesson = $this->polyglotCourseManifestService->previousLesson($manifest, $testSlug);
         $nextLesson = $this->polyglotCourseManifestService->nextLesson($manifest, $testSlug);
+        $firstLesson = $this->polyglotCourseManifestService->firstLesson($manifest);
 
         return [
             'course_slug' => $courseSlug,
@@ -483,10 +484,13 @@ class TestJsV2Controller extends Controller
             'lesson_order' => $lesson['lesson_order'],
             'topic' => $lesson['topic'],
             'level' => $lesson['level'],
+            'first_lesson_slug' => $firstLesson['slug'] ?? null,
+            'first_lesson_url' => $firstLesson['compose_url'] ?? null,
             'previous_lesson_slug' => $previousLesson['slug'] ?? ($lesson['previous_lesson_slug'] ?? null),
             'previous_lesson_url' => $previousLesson['compose_url'] ?? null,
             'next_lesson_slug' => $nextLesson['slug'] ?? ($lesson['next_lesson_slug'] ?? null),
             'next_lesson_url' => $nextLesson['compose_url'] ?? null,
+            'is_final_lesson' => ($nextLesson['slug'] ?? ($lesson['next_lesson_slug'] ?? null)) === null,
             'total_lessons' => $this->polyglotCourseManifestService->totalLessons($manifest),
             'completion' => $lesson['completion'] ?? [],
             'mode' => $lesson['mode'] ?? null,

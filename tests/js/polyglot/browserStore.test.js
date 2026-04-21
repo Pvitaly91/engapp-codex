@@ -82,6 +82,56 @@ describe('browserStore', () => {
         ]);
     });
 
+    test('completing every lesson computes a complete-course summary and reset rehydrates predictably', () => {
+        const courseStore = createCourseStore('polyglot-english-a1', manifest);
+        const lessonOneStore = createLessonStore({
+            lessonSlug: 'polyglot-to-be-a1',
+            courseSlug: 'polyglot-english-a1',
+            questionCount: 24,
+            courseStore,
+            sourceId: courseStore.sourceId,
+        });
+        const lessonTwoStore = createLessonStore({
+            lessonSlug: 'polyglot-there-is-there-are-a1',
+            courseSlug: 'polyglot-english-a1',
+            questionCount: 24,
+            courseStore,
+            sourceId: courseStore.sourceId,
+        });
+
+        let lessonOneProgress = lessonOneStore.write({
+            lesson_slug: 'polyglot-to-be-a1',
+            course_slug: 'polyglot-english-a1',
+            rolling_results: Array.from({ length: 99 }, () => 5),
+            total_attempts: 99,
+            correct_attempts: 99,
+        }, 'prefill');
+        lessonOneProgress = lessonOneStore.markAttempt(lessonOneProgress, true);
+
+        let lessonTwoProgress = lessonTwoStore.write({
+            lesson_slug: 'polyglot-there-is-there-are-a1',
+            course_slug: 'polyglot-english-a1',
+            rolling_results: Array.from({ length: 99 }, () => 5),
+            total_attempts: 99,
+            correct_attempts: 99,
+        }, 'prefill');
+        lessonTwoProgress = lessonTwoStore.markAttempt(lessonTwoProgress, true);
+
+        const completeSummary = courseStore.getSummary();
+
+        expect(lessonOneProgress.lesson_completed).toBe(true);
+        expect(lessonTwoProgress.lesson_completed).toBe(true);
+        expect(completeSummary.completed_all_lessons).toBe(true);
+        expect(completeSummary.completed_lessons).toBe(2);
+
+        const resetState = courseStore.reset();
+        const resetSummary = courseStore.getSummary(resetState);
+
+        expect(resetSummary.completed_all_lessons).toBe(false);
+        expect(resetSummary.completed_lessons).toBe(0);
+        expect(resetState.unlocked_lessons).toEqual(['polyglot-to-be-a1']);
+    });
+
     test('custom events and storage sync hooks trigger rehydration callbacks', () => {
         const onSync = vi.fn();
         const unsubscribe = subscribeToProgressSync({

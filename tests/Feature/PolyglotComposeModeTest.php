@@ -329,6 +329,51 @@ class PolyglotComposeModeTest extends TestCase
         );
     }
 
+    public function test_polyglot_compose_routes_bypass_coming_soon_gate_without_opening_generic_tests(): void
+    {
+        config(['coming-soon.enabled' => true]);
+
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
+
+        $publicPolyglotResponse = $this->get('/test/polyglot-final-drill-a1/step/compose');
+        $genericTest = $this->createSavedTestWithQuestion('standard-step-preview-test');
+        $genericResponse = $this->get("/test/{$genericTest->slug}");
+
+        $publicPolyglotResponse->assertOk();
+        $publicPolyglotResponse->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
+        $genericResponse->assertStatus(503);
+    }
+
+    public function test_final_lesson_compose_route_exposes_course_complete_hooks(): void
+    {
+        $this->seed(PolyglotToBeLessonSeeder::class);
+        $this->seed(PolyglotThereIsThereAreLessonSeeder::class);
+        $this->seed(PolyglotHaveGotHasGotLessonSeeder::class);
+        $this->seed(PolyglotPresentSimpleVerbsLessonSeeder::class);
+        $this->seed(PolyglotCanCannotLessonSeeder::class);
+        $this->seed(PolyglotPresentContinuousLessonSeeder::class);
+        $this->seed(PolyglotPastSimpleToBeLessonSeeder::class);
+        $this->seed(PolyglotPastSimpleRegularVerbsLessonSeeder::class);
+        $this->seed(PolyglotPastSimpleIrregularVerbsLessonSeeder::class);
+        $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
+        $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
+        $this->seed(PolyglotSomeAnyLessonSeeder::class);
+        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
+        $this->seed(PolyglotComparativesLessonSeeder::class);
+        $this->seed(PolyglotSuperlativesLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillLessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-final-drill-a1/step/compose');
+
+        $response->assertOk();
+        $response->assertSee('data-polyglot-is-final-lesson="1"', false);
+        $response->assertSee('data-polyglot-course-completion-kind="course"', false);
+        $response->assertSee('data-polyglot-first-lesson-url="http://engapp-codex.loc/test/polyglot-to-be-a1/step/compose"', false);
+        $response->assertSee('"isFinalLesson":true', false);
+        $response->assertSee('"firstLessonUrl":"http:\\/\\/engapp-codex.loc\\/test\\/polyglot-to-be-a1\\/step\\/compose"', false);
+        $response->assertSee('data-action="restart-course"', false);
+    }
+
     public function test_standard_polyglot_route_enables_translation_preview_for_polyglot_lessons(): void
     {
         $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);

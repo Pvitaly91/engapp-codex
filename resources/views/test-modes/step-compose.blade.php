@@ -17,6 +17,9 @@
     $courseUrl = data_get($courseContext, 'course_url', filled($courseSlug) ? localized_route('courses.show', $courseSlug) : null);
     $previousLessonSlug = data_get($courseContext, 'previous_lesson_slug', data_get($rawFilters, 'previous_lesson_slug'));
     $nextLessonSlug = data_get($courseContext, 'next_lesson_slug', data_get($rawFilters, 'next_lesson_slug'));
+    $firstLessonSlug = data_get($courseContext, 'first_lesson_slug');
+    $firstLessonUrl = data_get($courseContext, 'first_lesson_url');
+    $isFinalLesson = ! filled($nextLessonSlug);
     $startsLockedPending = filled($courseSlug) && filled($previousLessonSlug);
 @endphp
 
@@ -27,6 +30,8 @@
      data-polyglot-course-slug="{{ $courseSlug }}"
      data-polyglot-previous-lesson-slug="{{ $previousLessonSlug }}"
      data-polyglot-next-lesson-slug="{{ $nextLessonSlug }}"
+     data-polyglot-first-lesson-url="{{ $firstLessonUrl }}"
+     data-polyglot-is-final-lesson="{{ $isFinalLesson ? '1' : '0' }}"
      data-polyglot-lock-state="{{ $startsLockedPending ? 'pending' : 'ready' }}">
     @if(filled($courseSlug))
         <section class="mb-6 rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
@@ -153,7 +158,9 @@
                 <div id="compose-feedback" class="mt-5" aria-live="polite"></div>
             </div>
 
-            <div id="compose-course-completion" class="mt-5 hidden"></div>
+            <div id="compose-course-completion"
+                 data-polyglot-course-completion-kind="{{ $isFinalLesson ? 'course' : 'lesson' }}"
+                 class="mt-5 hidden"></div>
         </article>
     </div>
 </div>
@@ -171,10 +178,13 @@
         'lessonOrder' => data_get($courseContext, 'lesson_order'),
         'totalLessons' => data_get($courseContext, 'total_lessons'),
         'topic' => data_get($courseContext, 'topic'),
+        'firstLessonSlug' => $firstLessonSlug,
+        'firstLessonUrl' => $firstLessonUrl,
         'previousLessonSlug' => $previousLessonSlug,
         'previousLessonUrl' => data_get($courseContext, 'previous_lesson_url'),
         'nextLessonSlug' => $nextLessonSlug,
         'nextLessonUrl' => data_get($courseContext, 'next_lesson_url', filled($nextLessonSlug) ? localized_route('test.step-compose', $nextLessonSlug) : null),
+        'isFinalLesson' => $isFinalLesson,
         'interfaceLocale' => data_get($rawFilters, 'interface_locale', app()->getLocale()),
         'courseLessons' => data_get($courseContext, 'lessons', []),
     ];
@@ -461,6 +471,25 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         `;
     }
 
+    function actionButtonMarkup(action, label, variant = 'soft') {
+        if (!action || !label) {
+            return '';
+        }
+
+        const style = variant === 'solid'
+            ? 'background: var(--accent); color: white; border-color: var(--accent);'
+            : 'border-color: var(--line); color: var(--text);';
+
+        return `
+            <button type="button"
+               data-action="${html(action)}"
+               class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-extrabold transition hover:opacity-95"
+               style="${style}">
+                ${html(label)}
+            </button>
+        `;
+    }
+
     function lockMarkup() {
         const previousLessonName = lessonNameBySlug(config.previousLessonSlug);
         const previousLabel = previousLessonName || testUi('course.previous_lesson');
@@ -510,7 +539,9 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
                 <h3 class="mt-2 font-display text-2xl font-extrabold" style="color: #17603a;">${html(testUi('course.course_completed_title'))}</h3>
                 <p class="mt-2 text-sm leading-6" style="color: #17603a;">${html(testUi('course.course_completed_note'))}</p>
                 <div class="mt-4 flex flex-wrap gap-3">
+                    ${actionLinkMarkup(config.firstLessonUrl || config.courseUrl, testUi('course.repeat_course'), 'solid')}
                     ${actionLinkMarkup(config.courseUrl, testUi('course.back_to_course'), 'soft')}
+                    ${actionButtonMarkup('restart-course', testUi('course.restart_course'), 'soft')}
                 </div>
             </div>
         `;
@@ -662,6 +693,30 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         state.progress = progressStore.reset();
         resetCurrentAnswer(true);
         render();
+    }
+
+    function restartCourse() {
+        clearAutoAdvance();
+
+        if (courseStore && typeof courseStore.reset === 'function') {
+            courseStore.reset();
+        } else {
+            progressStore.reset();
+        }
+
+        if (config.courseUrl) {
+            window.location.assign(config.courseUrl);
+
+            return;
+        }
+
+        if (config.firstLessonUrl) {
+            window.location.assign(config.firstLessonUrl);
+
+            return;
+        }
+
+        rehydrateFromSharedState();
     }
 
     function rehydrateFromSharedState() {
@@ -911,7 +966,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
 
     root.addEventListener('click', (event) => {
         if (state.autoAdvanceTimer !== null) {
-            const actionButton = event.target.closest('[data-action="reset-progress"]');
+            const actionButton = event.target.closest('[data-action="reset-progress"], [data-action="restart-course"]');
             if (!actionButton) {
                 return;
             }
@@ -945,6 +1000,13 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
             removeLastToken();
         } else if (action === 'reset-progress') {
             resetLessonProgress();
+        } else if (action === 'restart-course') {
+            const confirmed = window.confirm(testUi('course.reset_course_progress_confirm'));
+            if (!confirmed) {
+                return;
+            }
+
+            restartCourse();
         }
     });
 

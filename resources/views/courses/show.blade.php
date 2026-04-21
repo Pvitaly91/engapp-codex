@@ -8,6 +8,7 @@
     $completionWindow = (int) ($firstLessonCompletion['rolling_window'] ?? 100);
     $completionRating = (float) ($firstLessonCompletion['min_rating'] ?? 4.5);
     $heroUrl = data_get($firstLesson, 'compose_url');
+    $courseContentComplete = $implementedLessonsCount >= $plannedTotalLessons && $plannedLessonsCount === 0;
     $courseManifestPayload = [
         'course' => $course,
         'lessons' => $lessons,
@@ -20,7 +21,9 @@
      data-polyglot-course-root
      data-polyglot-course-slug="{{ $course['slug'] }}"
      data-polyglot-planned-lessons="{{ $plannedTotalLessons }}"
-     data-polyglot-implemented-lessons="{{ $implementedLessonsCount }}">
+     data-polyglot-implemented-lessons="{{ $implementedLessonsCount }}"
+     data-polyglot-course-content-complete="{{ $courseContentComplete ? '1' : '0' }}"
+     data-polyglot-course-learner-complete="0">
     <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="{{ __('public.common.breadcrumb') }}">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">{{ __('public.common.home') }}</a>
         <span>/</span>
@@ -57,6 +60,9 @@
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.course.course_progress') }}</p>
                     <p id="course-progress-count" class="mt-2 font-display text-[2.25rem] font-extrabold leading-none">0 / {{ $implementedLessonsCount }}</p>
                     <p class="mt-2 text-sm leading-6" style="color: var(--muted);">{{ __('frontend.tests.course.lessons_completed') }}</p>
+                    <p id="course-progress-status" class="mt-1 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);">
+                        {{ __('frontend.tests.course.in_progress_summary') }}
+                    </p>
                 </article>
                 <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
                     <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.course.available_lessons') }}</p>
@@ -64,8 +70,10 @@
                     <p class="mt-2 text-sm leading-6" style="color: var(--muted);">
                         {{ __('frontend.tests.course.implemented_out_of_total', ['implemented' => $implementedLessonsCount, 'total' => $plannedTotalLessons]) }}
                     </p>
-                    <p class="mt-1 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);">
-                        {{ __('frontend.tests.course.planned_remaining', ['count' => $plannedLessonsCount]) }}
+                    <p id="course-availability-note" class="mt-1 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);">
+                        {{ $courseContentComplete
+                            ? __('frontend.tests.course.no_planned_lessons')
+                            : __('frontend.tests.course.planned_remaining', ['count' => $plannedLessonsCount]) }}
                     </p>
                 </article>
                 <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
@@ -73,6 +81,67 @@
                     <p id="course-current-lesson" class="mt-2 font-display text-[1.55rem] font-extrabold leading-tight">{{ data_get($firstLesson, 'name') }}</p>
                     <p id="course-last-opened-lesson" class="mt-2 text-sm leading-6" style="color: var(--muted);">{{ __('frontend.tests.course.last_opened_lesson') }}: {{ __('frontend.tests.course.not_started_yet') }}</p>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    @if($courseContentComplete)
+        <section data-course-content-complete-banner class="mt-8 rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
+            <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                <div class="max-w-3xl">
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.course.course_fully_available') }}</p>
+                    <h2 class="mt-2 font-display text-2xl font-extrabold">{{ __('frontend.tests.course.course_fully_available_title') }}</h2>
+                    <p class="mt-3 text-sm leading-7" style="color: var(--muted);">
+                        {{ __('frontend.tests.course.course_fully_available_note', ['count' => $plannedTotalLessons]) }}
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    @if($heroUrl)
+                        <a href="{{ $heroUrl }}"
+                           data-course-repeat-link
+                           class="inline-flex items-center justify-center rounded-full bg-ocean px-5 py-3 text-sm font-extrabold text-white shadow-sm transition hover:opacity-95">
+                            {{ __('frontend.tests.course.repeat_course') }}
+                        </a>
+                    @endif
+                    <a href="#polyglot-course-lessons"
+                       class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold transition hover:opacity-95"
+                       style="border-color: var(--line);">
+                        {{ __('frontend.tests.course.back_to_lessons') }}
+                    </a>
+                </div>
+            </div>
+        </section>
+    @endif
+
+    <section id="course-learner-complete-banner"
+             data-course-learner-complete-banner
+             class="mt-8 hidden rounded-[28px] border p-6 shadow-card"
+             style="border-color: #b8e3c7; background: linear-gradient(180deg, #f0fbf4 0%, #e7f8ee 100%);">
+        <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div class="max-w-3xl">
+                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: #17603a;">{{ __('frontend.tests.course.course_completed') }}</p>
+                <h2 class="mt-2 font-display text-2xl font-extrabold" style="color: #17603a;">{{ __('frontend.tests.course.course_completed_title') }}</h2>
+                <p class="mt-3 text-sm leading-7" style="color: #17603a;">{{ __('frontend.tests.course.course_completed_note') }}</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                @if($heroUrl)
+                    <a href="{{ $heroUrl }}"
+                       data-course-repeat-link
+                       class="inline-flex items-center justify-center rounded-full bg-ocean px-5 py-3 text-sm font-extrabold text-white shadow-sm transition hover:opacity-95">
+                        {{ __('frontend.tests.course.repeat_course') }}
+                    </a>
+                @endif
+                <button type="button"
+                        data-course-reset-progress-secondary
+                        class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold transition hover:opacity-95"
+                        style="border-color: #17603a; color: #17603a;">
+                    {{ __('frontend.tests.course.restart_course') }}
+                </button>
+                <a href="#polyglot-course-lessons"
+                   class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold transition hover:opacity-95"
+                   style="border-color: #17603a; color: #17603a;">
+                    {{ __('frontend.tests.course.back_to_lessons') }}
+                </a>
             </div>
         </div>
     </section>
@@ -221,6 +290,7 @@ window.__POLYGLOT_COURSE_MANIFEST__ = @json($courseManifestPayload);
         const course = manifest.course || {};
         const lessons = Array.isArray(manifest.lessons) ? manifest.lessons : [];
         const root = document.getElementById('polyglot-course-lessons');
+        const pageRoot = document.querySelector('[data-polyglot-course-root]');
 
         if (!root || !course.slug || !window.PolyglotCourseProgress) {
             return;
@@ -230,11 +300,14 @@ window.__POLYGLOT_COURSE_MANIFEST__ = @json($courseManifestPayload);
 
         const store = window.PolyglotCourseProgress.createStore(course.slug, lessons);
         const cards = Array.from(root.querySelectorAll('[data-course-lesson-card][data-course-lesson-runtime="1"]'));
-        const resetButton = document.querySelector('[data-course-reset-progress]');
+        const resetButtons = Array.from(document.querySelectorAll('[data-course-reset-progress], [data-course-reset-progress-secondary]'));
         const heroButton = document.getElementById('course-hero-cta');
+        const repeatLinks = Array.from(document.querySelectorAll('[data-course-repeat-link]'));
         const progressCount = document.getElementById('course-progress-count');
+        const progressStatus = document.getElementById('course-progress-status');
         const currentLesson = document.getElementById('course-current-lesson');
         const lastOpenedLesson = document.getElementById('course-last-opened-lesson');
+        const learnerCompleteBanner = document.getElementById('course-learner-complete-banner');
 
         function lessonBySlug(slug) {
             return lessons.find((lesson) => lesson.slug === slug) || null;
@@ -284,19 +357,32 @@ window.__POLYGLOT_COURSE_MANIFEST__ = @json($courseManifestPayload);
             return testUi('course.available');
         }
 
+        function updateRepeatLinks(url) {
+            repeatLinks.forEach((link) => {
+                if (!url) {
+                    return;
+                }
+
+                link.href = url;
+            });
+        }
+
         function updateHeroCta(state, summary) {
             if (!heroButton) {
                 return;
             }
 
             const current = lessonBySlug(state.current_lesson_slug) || lessons[0] || null;
-            if (!current) {
+            const firstLesson = lessons[0] || null;
+            const targetLesson = summary.completed_all_lessons ? (firstLesson || current) : current;
+
+            if (!targetLesson) {
                 return;
             }
 
-            heroButton.href = current.compose_url;
+            heroButton.href = targetLesson.compose_url;
             heroButton.textContent = summary.completed_all_lessons
-                ? testUi('course.repeat')
+                ? testUi('course.repeat_course')
                 : (summary.completed_lessons > 0 ? testUi('course.continue') : testUi('course.start_course'));
         }
 
@@ -304,21 +390,37 @@ window.__POLYGLOT_COURSE_MANIFEST__ = @json($courseManifestPayload);
             const summary = store.getSummary(state);
             const current = lessonBySlug(summary.current_lesson_slug);
             const lastOpened = lessonBySlug(summary.last_opened_lesson_slug);
+            const firstLesson = lessons[0] || null;
 
             if (progressCount) {
                 progressCount.textContent = `${summary.completed_lessons} / ${summary.total_lessons}`;
             }
 
+            if (progressStatus) {
+                progressStatus.textContent = summary.completed_all_lessons
+                    ? testUi('course.all_lessons_completed')
+                    : testUi('course.in_progress_summary');
+            }
+
             if (currentLesson) {
-                currentLesson.textContent = current
-                    ? current.name
-                    : testUi('course.course_completed');
+                currentLesson.textContent = summary.completed_all_lessons
+                    ? testUi('course.course_completed')
+                    : (current ? current.name : testUi('course.course_completed'));
             }
 
             if (lastOpenedLesson) {
                 lastOpenedLesson.textContent = `${testUi('course.last_opened_lesson')}: ${lastOpened ? lastOpened.name : testUi('course.not_started_yet')}`;
             }
 
+            if (learnerCompleteBanner) {
+                learnerCompleteBanner.classList.toggle('hidden', !summary.completed_all_lessons);
+            }
+
+            if (pageRoot) {
+                pageRoot.dataset.polyglotCourseLearnerComplete = summary.completed_all_lessons ? '1' : '0';
+            }
+
+            updateRepeatLinks(firstLesson?.compose_url || current?.compose_url || null);
             updateHeroCta(state, summary);
         }
 
@@ -375,14 +477,16 @@ window.__POLYGLOT_COURSE_MANIFEST__ = @json($courseManifestPayload);
             onSync: render,
         });
 
-        resetButton?.addEventListener('click', () => {
-            const confirmed = window.confirm(testUi('course.reset_course_progress_confirm'));
-            if (!confirmed) {
-                return;
-            }
+        resetButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const confirmed = window.confirm(testUi('course.reset_course_progress_confirm'));
+                if (!confirmed) {
+                    return;
+                }
 
-            store.reset();
-            render();
+                store.reset();
+                render();
+            });
         });
 
         store.sync('course-hydrate');

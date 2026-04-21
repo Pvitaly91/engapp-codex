@@ -50,6 +50,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Public-ready Saved Test Slugs
+    |--------------------------------------------------------------------------
+    |
+    | Saved tests with these slug prefixes bypass the generic /test/ coming
+    | soon gate. This keeps public-ready courses available while the rest of
+    | the test catalog can stay hidden.
+    |
+    */
+
+    'allowed_test_slug_prefixes' => [
+        'polyglot-',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Retry-After Header
     |--------------------------------------------------------------------------
     |

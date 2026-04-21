@@ -94,4 +94,27 @@ describe('courseProgressState', () => {
         expect(summary.total_lessons).toBe(3);
         expect(reset).toEqual(buildDefaultCourseProgress('polyglot-english-a1', manifest));
     });
+
+    test('all lessons completed summary flips the complete-course flag', () => {
+        const completed = normalizeCourseProgress({
+            completed_lessons: manifest.map((lesson) => lesson.slug),
+            current_lesson_slug: 'polyglot-have-got-has-got-a1',
+            last_opened_lesson_slug: 'polyglot-have-got-has-got-a1',
+        }, 'polyglot-english-a1', manifest);
+        const summary = computeCourseSummary(completed, manifest);
+
+        expect(summary.completed_lessons).toBe(3);
+        expect(summary.total_lessons).toBe(3);
+        expect(summary.completed_all_lessons).toBe(true);
+    });
+
+    test('reset after full completion restores the initial lesson-unlock state', () => {
+        const reset = resetCourseProgress('polyglot-english-a1', manifest);
+        const summary = computeCourseSummary(reset, manifest);
+
+        expect(reset.unlocked_lessons).toEqual(['polyglot-to-be-a1']);
+        expect(reset.completed_lessons).toEqual([]);
+        expect(summary.completed_all_lessons).toBe(false);
+        expect(summary.current_lesson_slug).toBe('polyglot-to-be-a1');
+    });
 });

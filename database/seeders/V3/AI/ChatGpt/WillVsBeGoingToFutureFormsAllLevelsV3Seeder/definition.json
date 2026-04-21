@@ -6,7 +6,7 @@
     },
     "defaults": {
         "default_locale": "uk",
-        "flag": 0,
+        "flag": 2,
         "type": 0,
         "level_difficulty": {
             "A1": 1,
@@ -2816,6 +2816,36 @@
                 "A: The wording is still dangerously ambiguous.\nB: Very well, I {a1} redraft the clause so that no alternative reading survives."
             ]
         }
-    ]
+    ],
+    "saved_test": {
+        "uuid": "will-going-to-v3-test",
+        "slug": "will-vs-be-going-to-all-levels-v3",
+        "name": "Will vs Be Going To — All Levels V3",
+        "description": "Mixed all-level practice on choosing between will and be going to for plans, spontaneous decisions, and predictions.",
+        "filters": {
+            "num_questions": 72,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\ChatGpt\\WillVsBeGoingToFutureFormsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "will-vs-be-going-to",
+                    "title": "Will vs Be Going To — Вибір форми",
+                    "category_slug_path": "maibutni-formy",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsWillVsBeGoingToTheorySeeder",
+                    "url": "https://gramlyze.com/theory/maibutni-formy/will-vs-be-going-to"
+                }
+            }
+        }
+    }
 }
 
