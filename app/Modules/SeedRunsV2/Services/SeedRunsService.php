@@ -13,6 +13,7 @@ use App\Services\QuestionDeletionService;
 use App\Support\Database\JsonPageLocalizationManager;
 use App\Support\Database\JsonPageSeeder;
 use App\Support\Database\JsonTestLocalizationManager;
+use App\Support\PackageSeed\DryRunRollbackException;
 use Database\Seeders\Page_v2\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
 use Database\Seeders\Page_v2\Concerns\PageCategoryDescriptionSeeder as PageCategoryDescriptionSeederBase;
 use Database\Seeders\QuestionSeeder as QuestionSeederBase;
@@ -884,6 +885,80 @@ class SeedRunsService
         ];
     }
 
+    /**
+     * @param  iterable<int|string, mixed>  $classNames
+     * @param  array<string, mixed>  $options
+     * @return array<string, mixed>
+     */
+    public function refreshSeedersByClassNames(iterable $classNames, array $options = []): array
+    {
+        $selectedClasses = collect($classNames)
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        return $this->refreshExecutedSeeders($selectedClasses, $options);
+    }
+
+    /**
+     * @param  iterable<int, string>  $classNames
+     * @return array<string, int>
+     */
+    public function deleteSeedDataForClasses(iterable $classNames): array
+    {
+        $normalized = collect($classNames)
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($normalized->isEmpty()) {
+            return [
+                'questions_deleted' => 0,
+                'blocks_deleted' => 0,
+                'pages_deleted' => 0,
+                'categories_deleted' => 0,
+                'hints_deleted' => 0,
+                'explanations_deleted' => 0,
+            ];
+        }
+
+        return $this->deleteSeederDataForRefresh($normalized);
+    }
+
+    /**
+     * @return Collection<int, string>
+     */
+    public function relatedLocalizationClassesForTargetSeeder(
+        string $className,
+        ?string $expectedType = null,
+    ): Collection {
+        $normalizedClassName = trim($className);
+        $normalizedExpectedType = trim((string) $expectedType);
+
+        if ($normalizedClassName === '') {
+            return collect();
+        }
+
+        $available = $this->buildAvailableLocalizationMap([$normalizedClassName])
+            ->get($normalizedClassName, collect());
+
+        return collect($available)
+            ->filter(function (array $item) use ($normalizedExpectedType): bool {
+                if ($normalizedExpectedType === '') {
+                    return true;
+                }
+
+                return trim((string) ($item['type'] ?? '')) === $normalizedExpectedType;
+            })
+            ->pluck('class_name')
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+    }
+
     public function runMissingSeeders(?string $activeTab = null): array
     {
         if (! Schema::hasTable('seed_runs')) {
@@ -1500,13 +1575,18 @@ class SeedRunsService
         ];
     }
 
-    protected function refreshExecutedSeeders(Collection $selectedClasses): array
+    /**
+     * @param  array<string, mixed>  $options
+     * @return array<string, mixed>
+     */
+    protected function refreshExecutedSeeders(Collection $selectedClasses, array $options = []): array
     {
         $selectedClasses = $selectedClasses
             ->map(fn ($value) => trim((string) $value))
             ->filter()
             ->unique()
             ->values();
+        $resolvedOptions = $this->normalizeRefreshOptions($options);
 
         $emptyResult = [
             'success' => false,
@@ -1526,6 +1606,7 @@ class SeedRunsService
             'explanations_deleted' => 0,
             'localizations_ran_total' => 0,
             'related_localizations_ran' => 0,
+            'rolled_back' => false,
         ];
 
         if ($selectedClasses->isEmpty()) {
@@ -1546,9 +1627,71 @@ class SeedRunsService
             ]);
         }
 
+        $usesTransaction = (bool) (
+            $resolvedOptions['atomic']
+            || $resolvedOptions['dry_run']
+            || $resolvedOptions['rollback_on_error']
+        );
+        $result = null;
+        $rollbackTriggered = false;
+        $rollbackMessage = null;
+
         try {
-            $deletionStats = $this->deleteSeederDataForRefresh($classesToRefresh);
+            if ($usesTransaction) {
+                DB::transaction(function () use (
+                    $selectedClasses,
+                    $classesToRefresh,
+                    $autoRefreshedLocalizationClasses,
+                    $resolvedOptions,
+                    &$result,
+                    &$rollbackTriggered,
+                    &$rollbackMessage
+                ): void {
+                    $result = $this->executeRefreshCycle(
+                        $selectedClasses,
+                        $classesToRefresh,
+                        $autoRefreshedLocalizationClasses,
+                        $resolvedOptions
+                    );
+
+                    if ($this->shouldRollbackRefreshCycle($selectedClasses, $result, $resolvedOptions)) {
+                        $rollbackTriggered = true;
+                        $rollbackMessage = $this->refreshRollbackMessage($result);
+
+                        throw new \RuntimeException($rollbackMessage);
+                    }
+
+                    if ($resolvedOptions['dry_run']) {
+                        throw new DryRunRollbackException('Rollback-only refresh dry run completed.');
+                    }
+                });
+
+                return array_merge($result ?? $emptyResult, [
+                    'rolled_back' => false,
+                ]);
+            }
+
+            $result = $this->executeRefreshCycle(
+                $selectedClasses,
+                $classesToRefresh,
+                $autoRefreshedLocalizationClasses,
+                $resolvedOptions
+            );
         } catch (\Throwable $exception) {
+            if ($exception instanceof DryRunRollbackException) {
+                return array_merge($result ?? $emptyResult, [
+                    'rolled_back' => true,
+                ]);
+            }
+
+            if ($rollbackTriggered && is_array($result)) {
+                $result['success'] = false;
+                $result['message'] = $rollbackMessage ?? ($result['message'] ?? $exception->getMessage());
+                $result['rolled_back'] = true;
+
+                return $result;
+            }
+
             report($exception);
 
             return array_merge($emptyResult, [
@@ -1556,9 +1699,41 @@ class SeedRunsService
                 'selected_classes' => $selectedClasses,
                 'classes_to_refresh' => $classesToRefresh,
                 'errors' => collect([$exception->getMessage()]),
+                'rolled_back' => $usesTransaction,
             ]);
         }
 
+        return array_merge($result ?? $emptyResult, [
+            'rolled_back' => false,
+        ]);
+    }
+
+    /**
+     * @param  array<string, mixed>  $options
+     * @return array<string, mixed>
+     */
+    protected function normalizeRefreshOptions(array $options): array
+    {
+        return [
+            'atomic' => (bool) ($options['atomic'] ?? false),
+            'dry_run' => (bool) ($options['dry_run'] ?? false),
+            'rollback_on_error' => (bool) ($options['rollback_on_error'] ?? false),
+            'touch_seed_runs' => ! array_key_exists('touch_seed_runs', $options)
+                || (bool) $options['touch_seed_runs'],
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $options
+     * @return array<string, mixed>
+     */
+    protected function executeRefreshCycle(
+        Collection $selectedClasses,
+        Collection $classesToRefresh,
+        Collection $autoRefreshedLocalizationClasses,
+        array $options,
+    ): array {
+        $deletionStats = $this->deleteSeederDataForRefresh($classesToRefresh);
         $rerunResult = $this->executeSeedersInOrder($classesToRefresh);
         $ran = collect($rerunResult['ran'] ?? collect())->values();
         $ordered = collect($rerunResult['ordered'] ?? collect())->values();
@@ -1567,16 +1742,18 @@ class SeedRunsService
             ->unique()
             ->values();
 
-        try {
-            $this->touchSeedRunTimestamps(
-                $ran
-                    ->merge($autoRefreshedLocalizationClasses)
-                    ->unique()
-                    ->values()
-            );
-        } catch (\Throwable $exception) {
-            report($exception);
-            $errors = $errors->push($exception->getMessage())->filter()->unique()->values();
+        if ($options['touch_seed_runs']) {
+            try {
+                $this->touchSeedRunTimestamps(
+                    $ran
+                        ->merge($autoRefreshedLocalizationClasses)
+                        ->unique()
+                        ->values()
+                );
+            } catch (\Throwable $exception) {
+                report($exception);
+                $errors = $errors->push($exception->getMessage())->filter()->unique()->values();
+            }
         }
 
         $relatedLocalizationClasses = $classesToRefresh
@@ -1607,6 +1784,50 @@ class SeedRunsService
                 ->filter(fn (string $className) => $relatedLocalizationClasses->contains($className))
                 ->count(),
         ]);
+    }
+
+    /**
+     * @param  array<string, mixed>  $result
+     * @param  array<string, mixed>  $options
+     */
+    protected function shouldRollbackRefreshCycle(
+        Collection $selectedClasses,
+        array $result,
+        array $options,
+    ): bool {
+        if (! $options['rollback_on_error']) {
+            return false;
+        }
+
+        $errors = collect($result['errors'] ?? collect())
+            ->filter()
+            ->unique()
+            ->values();
+        $selectedRan = collect($result['selected_ran'] ?? collect())
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        return $errors->isNotEmpty()
+            || $selectedRan->count() !== $selectedClasses->count();
+    }
+
+    /**
+     * @param  array<string, mixed>  $result
+     */
+    protected function refreshRollbackMessage(array $result): string
+    {
+        $errors = collect($result['errors'] ?? collect())
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($errors->isNotEmpty()) {
+            return $this->formatDetailedErrorMessage($errors);
+        }
+
+        return (string) ($result['message'] ?? __('Seeder refresh failed and was rolled back.'));
     }
 
     protected function expandRefreshClassNames(Collection $classNames, ?Collection $executedSeeders = null): Collection

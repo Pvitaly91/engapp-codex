@@ -873,6 +873,132 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
         $this->assertStringContainsString('polyglot-should-ought-to-a2', $contents);
     }
 
+    public function test_command_writes_must_have_to_a2_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-must-have-to-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'modal-verbs',
+            'theoryPageSlug' => 'must-have-to',
+            'lessonSlug' => 'polyglot-must-have-to-a2',
+            'lessonOrder' => 6,
+            '--title' => 'Polyglot: must / have to (A2)',
+            '--topic' => 'must / have to',
+            '--seeder' => 'PolyglotMustHaveToLessonSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-should-ought-to-a2',
+            '--next' => 'polyglot-gerund-vs-infinitive-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-MUST-HAVE-TO-A2-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Must / Have to', $output);
+        $this->assertStringContainsString('/theory/modal-verbs/must-have-to', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotMustHaveToLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-MUST-HAVE-TO-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-must-have-to-a2', $contents);
+    }
+
+    public function test_command_writes_gerund_vs_infinitive_a2_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-gerund-vs-infinitive-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'verb-patterns',
+            'theoryPageSlug' => 'gerund-vs-infinitive',
+            'lessonSlug' => 'polyglot-gerund-vs-infinitive-a2',
+            'lessonOrder' => 7,
+            '--title' => 'Polyglot: gerund vs infinitive basics (A2)',
+            '--topic' => 'gerund vs infinitive basics',
+            '--seeder' => 'PolyglotGerundVsInfinitiveLessonSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-must-have-to-a2',
+            '--next' => 'polyglot-past-continuous-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-GERUND-VS-INFINITIVE-A2-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Gerund vs Infinitive', $output);
+        $this->assertStringContainsString('/theory/verb-patterns/gerund-vs-infinitive', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotGerundVsInfinitiveLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-GERUND-VS-INFINITIVE-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-gerund-vs-infinitive-a2', $contents);
+    }
+
+    public function test_command_writes_past_continuous_a2_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-past-continuous-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'past-continuous',
+            'theoryPageSlug' => 'past-continuous-forms',
+            'lessonSlug' => 'polyglot-past-continuous-a2',
+            'lessonOrder' => 8,
+            '--title' => 'Polyglot: past continuous (A2)',
+            '--topic' => 'past continuous',
+            '--seeder' => 'PolyglotPastContinuousLessonSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-gerund-vs-infinitive-a2',
+            '--next' => 'polyglot-present-perfect-time-expressions-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PAST-CONTINUOUS-A2-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Past Continuous: Forms and Use', $output);
+        $this->assertStringContainsString('/theory/past-continuous/past-continuous-forms', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPastContinuousLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-PAST-CONTINUOUS-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-past-continuous-a2', $contents);
+    }
+
     public function test_skeleton_writer_creates_canonical_package_and_respects_force_flag(): void
     {
         $seeder = 'PolyglotSkeletonDemoTestSeeder';

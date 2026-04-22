@@ -133,4 +133,28 @@ class PolyglotQuestionUuidResolverTest extends TestCase
 
         $this->assertSame($canonical, $resolver->toPersistent($canonical));
     }
+
+    public function test_must_have_to_a2_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-must-have-to-a2-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
+
+    public function test_gerund_vs_infinitive_a2_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-gerund-vs-infinitive-a2-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
+
+    public function test_past_continuous_a2_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-past-continuous-a2-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
 }

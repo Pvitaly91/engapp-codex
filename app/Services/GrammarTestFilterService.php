@@ -48,6 +48,7 @@ class GrammarTestFilterService
         $randomizeFiltered = $filters['randomize_filtered'];
         $blankCountFrom = $filters['blank_count_from'];
         $blankCountTo = $filters['blank_count_to'];
+        $isAggregatedTheoryPageTest = (bool) ($filters['aggregated_theory_page_test'] ?? false);
 
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
         if (! empty($selectedSeederClasses) || ! empty($selectedTags) || ! empty($selectedAggregatedTags)) {
@@ -168,6 +169,9 @@ class GrammarTestFilterService
                 }
             } else {
                 $allowedFlags = [0];
+                if ($isAggregatedTheoryPageTest) {
+                    $allowedFlags[] = 2;
+                }
                 if ($includeAi) {
                     $allowedFlags[] = 1;
                 }
@@ -359,6 +363,9 @@ class GrammarTestFilterService
             'randomize_filtered' => $this->toBool(Arr::get($input, 'randomize_filtered', false)),
             'blank_count_from' => $this->intNullable(Arr::get($input, 'blank_count_from')),
             'blank_count_to' => $this->intNullable(Arr::get($input, 'blank_count_to')),
+            'aggregated_theory_page_test' => $this->toBool(
+                Arr::get($input, 'aggregated_theory_page_test', Arr::get($input, '__meta.aggregated_theory_page_test', false))
+            ),
         ];
     }
 

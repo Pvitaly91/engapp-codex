@@ -7,6 +7,7 @@ use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Models\TextBlock;
+use App\Modules\SeedRunsV2\Services\SeedRunsService;
 use App\Services\SeederPromptTheoryPageResolver;
 use App\Services\SeederTestTargetResolver;
 use App\Services\QuestionDeletionService;
@@ -39,6 +40,7 @@ class SeedRunController extends Controller
     private ?array $seederClassMap = null;
 
     public function __construct(
+        private SeedRunsService $seedRunsService,
         private QuestionDeletionService $questionDeletionService,
         private SeederPromptTheoryPageResolver $seederPromptTheoryPageResolver,
         private SeederTestTargetResolver $seederTestTargetResolver,
@@ -3912,111 +3914,7 @@ class SeedRunController extends Controller
 
     protected function refreshExecutedSeeders(Collection $selectedClasses): array
     {
-        $selectedClasses = $selectedClasses
-            ->map(fn ($value) => trim((string) $value))
-            ->filter()
-            ->unique()
-            ->values();
-
-        $emptyResult = [
-            'success' => false,
-            'message' => __('No seeders were selected.'),
-            'selected_classes' => collect(),
-            'classes_to_refresh' => collect(),
-            'related_localization_classes' => collect(),
-            'selected_ran' => collect(),
-            'ran' => collect(),
-            'ordered' => collect(),
-            'errors' => collect(),
-            'questions_deleted' => 0,
-            'blocks_deleted' => 0,
-            'pages_deleted' => 0,
-            'categories_deleted' => 0,
-            'hints_deleted' => 0,
-            'explanations_deleted' => 0,
-            'localizations_ran_total' => 0,
-            'related_localizations_ran' => 0,
-        ];
-
-        if ($selectedClasses->isEmpty()) {
-            return $emptyResult;
-        }
-
-        $executedSeeders = $this->buildExecutedSeedersForRefresh();
-        $classesToRefresh = $this->expandRefreshClassNames($selectedClasses, $executedSeeders);
-        $autoRefreshedLocalizationClasses = $this->autoRefreshedRelatedLocalizationClasses($selectedClasses, $executedSeeders);
-        $validationErrors = $this->validateSeederClassesForRefresh($classesToRefresh);
-
-        if ($validationErrors->isNotEmpty()) {
-            return array_merge($emptyResult, [
-                'message' => $validationErrors->implode(' '),
-                'selected_classes' => $selectedClasses,
-                'classes_to_refresh' => $classesToRefresh,
-                'errors' => $validationErrors,
-            ]);
-        }
-
-        try {
-            $deletionStats = $this->deleteSeederDataForRefresh($classesToRefresh);
-        } catch (\Throwable $exception) {
-            report($exception);
-
-            return array_merge($emptyResult, [
-                'message' => $exception->getMessage(),
-                'selected_classes' => $selectedClasses,
-                'classes_to_refresh' => $classesToRefresh,
-                'errors' => collect([$exception->getMessage()]),
-            ]);
-        }
-
-        $rerunResult = $this->executeSeedersInOrder($classesToRefresh);
-        $ran = collect($rerunResult['ran'] ?? collect())->values();
-        $ordered = collect($rerunResult['ordered'] ?? collect())->values();
-        $errors = collect($rerunResult['errors'] ?? collect())
-            ->filter()
-            ->unique()
-            ->values();
-
-        try {
-            $this->touchSeedRunTimestamps(
-                $ran
-                    ->merge($autoRefreshedLocalizationClasses)
-                    ->unique()
-                    ->values()
-            );
-        } catch (\Throwable $exception) {
-            report($exception);
-            $errors = $errors->push($exception->getMessage())->filter()->unique()->values();
-        }
-
-        $relatedLocalizationClasses = $classesToRefresh
-            ->diff($selectedClasses)
-            ->merge($autoRefreshedLocalizationClasses)
-            ->unique()
-            ->values();
-        $refreshedLocalizationClasses = $ran
-            ->filter(fn (string $className) => in_array($this->virtualLocalizationType($className), ['question_localizations', 'page_localizations'], true))
-            ->merge($autoRefreshedLocalizationClasses)
-            ->unique()
-            ->values();
-
-        return array_merge($deletionStats, [
-            'success' => $ran->isNotEmpty(),
-            'message' => $ran->isNotEmpty()
-                ? __('Seeder data refreshed.')
-                : __('No seeders were refreshed.'),
-            'selected_classes' => $selectedClasses,
-            'classes_to_refresh' => $classesToRefresh,
-            'related_localization_classes' => $relatedLocalizationClasses,
-            'selected_ran' => $ran->intersect($selectedClasses)->values(),
-            'ran' => $ran,
-            'ordered' => $ordered,
-            'errors' => $errors,
-            'localizations_ran_total' => $refreshedLocalizationClasses->count(),
-            'related_localizations_ran' => $refreshedLocalizationClasses
-                ->filter(fn (string $className) => $relatedLocalizationClasses->contains($className))
-                ->count(),
-        ]);
+        return $this->seedRunsService->refreshSeedersByClassNames($selectedClasses);
     }
 
     protected function expandRefreshClassNames(Collection $classNames, ?Collection $executedSeeders = null): Collection

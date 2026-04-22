@@ -34,7 +34,9 @@ class TheoryPagePromptLinkedTestsService
 
     public function buildForPage(Page $page): Collection
     {
-        $linkedTests = $this->findForPage($page);
+        $linkedTests = $this->preferTheoryPagePolyglotPackages(
+            $this->findForPage($page)
+        );
         $directLinkedTests = $this->extractDirectLinkedTests($linkedTests);
 
         if ($this->shouldReturnDirectLinkedTests($linkedTests, $directLinkedTests)) {
@@ -152,6 +154,36 @@ class TheoryPagePromptLinkedTestsService
             ->values();
     }
 
+    protected function preferTheoryPagePolyglotPackages(Collection $linkedTests): Collection
+    {
+        if (! $linkedTests->contains(fn (SavedGrammarTest $test) => $this->isTheoryPagePolyglotPackage($test))) {
+            return $linkedTests;
+        }
+
+        return $linkedTests
+            ->reject(fn (SavedGrammarTest $test) => $this->isLegacyPolyglotCourseTest($test))
+            ->values();
+    }
+
+    protected function isTheoryPagePolyglotPackage(SavedGrammarTest $test): bool
+    {
+        $filters = is_array($test->filters) ? $test->filters : [];
+
+        return $this->shouldDisplayDirectly($test)
+            && Str::lower(trim((string) ($filters['course_slug'] ?? ''))) === 'polyglot-theory-pages';
+    }
+
+    protected function isLegacyPolyglotCourseTest(SavedGrammarTest $test): bool
+    {
+        $filters = is_array($test->filters) ? $test->filters : [];
+        $courseSlug = Str::lower(trim((string) ($filters['course_slug'] ?? '')));
+
+        return $this->shouldDisplayDirectly($test)
+            && $courseSlug !== ''
+            && Str::startsWith($courseSlug, 'polyglot-')
+            && $courseSlug !== 'polyglot-theory-pages';
+    }
+
     protected function shouldDisplayDirectly(SavedGrammarTest $test): bool
     {
         $filters = is_array($test->filters) ? $test->filters : [];
@@ -204,7 +236,15 @@ class TheoryPagePromptLinkedTestsService
                 $filters = is_array($test->filters) ? $test->filters : [];
 
                 return $this->normalizeSeederClassValues($filters['seeder_classes'] ?? []);
-            });
+            })
+            ->map(fn ($className) => trim((string) $className))
+            ->filter()
+            ->unique(fn (string $className) => Str::lower($className))
+            ->values();
+
+        if ($linkedSeederClasses->isNotEmpty()) {
+            return $linkedSeederClasses;
+        }
 
         $questionUuids = $linkedTests
             ->flatMap(fn (SavedGrammarTest $test) => $test->questionLinks->pluck('question_uuid'))

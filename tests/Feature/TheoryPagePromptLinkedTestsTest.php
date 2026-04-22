@@ -299,7 +299,7 @@ class TheoryPagePromptLinkedTestsTest extends TestCase
         });
     }
 
-    public function test_theory_page_prefers_direct_polyglot_topic_tests_over_aggregated_mixed_filters(): void
+    public function test_theory_page_builds_aggregated_mixed_filters_when_legacy_polyglot_and_standard_tests_share_page(): void
     {
         app()->setLocale('uk');
 
@@ -351,18 +351,26 @@ class TheoryPagePromptLinkedTestsTest extends TestCase
         $response = $this->get(route('theory.show', [$category->slug, $page->slug]));
 
         $response->assertOk();
-        $response->assertSee('Polyglot: to be (A1)');
-        $response->assertViewHas('topicTests', function ($tests) use ($polyglotSeeder) {
-            if ($tests->count() !== 1) {
+        $response->assertViewHas('topicTests', function ($tests) use ($polyglotSeeder, $standardSeeder) {
+            if ($tests->count() !== 5) {
                 return false;
             }
 
-            $directTest = $tests->first();
-            $filters = $directTest->filters ?? [];
+            return $tests->every(function ($test) use ($polyglotSeeder, $standardSeeder) {
+                $filters = is_array($test->filters ?? null) ? $test->filters : [];
 
-            return ($directTest->slug ?? null) === 'polyglot-to-be-a1'
-                && collect($filters['seeder_classes'] ?? [])->contains($polyglotSeeder)
-                && ($filters['__meta']['aggregated_theory_page_test'] ?? false) === false;
+                return method_exists($test, 'isVirtual')
+                    && $test->isVirtual()
+                    && collect($filters['seeder_classes'] ?? [])->sort()->values()->all() === collect([
+                        $polyglotSeeder,
+                        $standardSeeder,
+                    ])->sort()->values()->all()
+                    && ($filters['__meta']['aggregated_theory_page_test'] ?? false) === true;
+            }) && $tests->contains(function ($test) {
+                $filters = is_array($test->filters ?? null) ? $test->filters : [];
+
+                return ($filters['__meta']['theory_page_mixed_polyglot_test'] ?? false) === true;
+            });
         });
     }
 

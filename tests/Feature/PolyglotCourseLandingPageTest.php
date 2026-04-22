@@ -8,6 +8,9 @@ use Database\Seeders\V2\Polyglot\PolyglotBeGoingToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotCanCannotLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotComparativesLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFinalDrillLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotGerundVsInfinitiveLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotMustHaveToLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPastContinuousLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotShouldOughtToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
@@ -61,6 +64,9 @@ class PolyglotCourseLandingPageTest extends TestCase
         $this->seed(PolyglotFirstConditionalLessonSeeder::class);
         $this->seed(PolyglotBeGoingToLessonSeeder::class);
         $this->seed(PolyglotShouldOughtToLessonSeeder::class);
+        $this->seed(PolyglotMustHaveToLessonSeeder::class);
+        $this->seed(PolyglotGerundVsInfinitiveLessonSeeder::class);
+        $this->seed(PolyglotPastContinuousLessonSeeder::class);
     }
 
     public function test_course_landing_route_works_and_renders_lessons_in_order(): void
@@ -197,7 +203,7 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertSee(__('frontend.tests.course.continue_with_polyglot_a2'));
     }
 
-    public function test_a2_course_landing_route_works_and_shows_five_implemented_lessons_with_planned_roadmap(): void
+    public function test_a2_course_landing_route_works_and_shows_eight_implemented_lessons_with_planned_roadmap(): void
     {
         $response = $this->get('/courses/polyglot-english-a2');
 
@@ -208,17 +214,20 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertSee('/test/polyglot-first-conditional-a2/step/compose', false);
         $response->assertSee('/test/polyglot-be-going-to-a2/step/compose', false);
         $response->assertSee('/test/polyglot-should-ought-to-a2/step/compose', false);
+        $response->assertSee('/test/polyglot-must-have-to-a2/step/compose', false);
+        $response->assertSee('/test/polyglot-gerund-vs-infinitive-a2/step/compose', false);
+        $response->assertSee('/test/polyglot-past-continuous-a2/step/compose', false);
         $response->assertSee('data-polyglot-course-slug="polyglot-english-a2"', false);
         $response->assertSee('data-polyglot-planned-lessons="16"', false);
-        $response->assertSee('data-polyglot-implemented-lessons="5"', false);
+        $response->assertSee('data-polyglot-implemented-lessons="8"', false);
         $response->assertSee('data-polyglot-course-content-complete="0"', false);
         $response->assertSee('data-course-lesson-status="current"', false);
         $response->assertSee('data-course-lesson-status="locked"', false);
         $response->assertSee('data-course-lesson-status="planned"', false);
         $response->assertSee('data-course-lesson-action', false);
         $response->assertSee('data-course-lesson-action-disabled', false);
-        $response->assertSee('5 / 16');
-        $response->assertSee(__('frontend.tests.course.planned_remaining', ['count' => 11]));
+        $response->assertSee('8 / 16');
+        $response->assertSee(__('frontend.tests.course.planned_remaining', ['count' => 8]));
         $response->assertDontSee('data-course-content-complete-banner', false);
         $response->assertDontSee('data-course-continue-a2-link', false);
     }

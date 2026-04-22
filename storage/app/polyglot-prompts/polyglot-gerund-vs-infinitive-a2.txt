@@ -1,0 +1,193 @@
+CODEX PROMPT ID: GLZ-PROMPT-87FC3697
+
+Codex Summary (Top):
+CODEX PROMPT ID: GLZ-PROMPT-87FC3697
+- Мета:
+  Створити канонічний V3 Polyglot lesson package для theory page "Gerund vs Infinitive" у курсі polyglot-english-a2.
+- Що саме зробити:
+  Згенерувати lesson package polyglot-gerund-vs-infinitive-a2 (A2, 24 items) з V3 seeder package, definition.json, localizations/en|pl|uk, theory binding metadata і тестами.
+- Ключові обмеження / адаптації:
+  Не додавати нові таблиці, не ламати compose/course/theory runtime, тримати database/seeders/V3/Polyglot як canonical source of truth і використовувати чинний prompt_generator.theory_page contract.
+- Підсумковий результат:
+  Готовий до seeding V3 Polyglot package, прив’язаний до /theory/verb-patterns/gerund-vs-infinitive (Database\Seeders\Page_V3\VerbPatterns\VerbPatternsGerundVsInfinitiveTheorySeeder) і сумісний з tests by topic, course landing та duplicate-token compose payload.
+
+Ти senior Laravel/Blade engineer, який продовжує роботу в поточному репозиторії Gramlyze.
+
+FORMAT OF YOUR RESPONSE — REQUIRED
+У фінальній відповіді ТИ ОБОВ’ЯЗКОВО маєш:
+1. Першим рядком вивести:
+   CODEX PROMPT ID: GLZ-PROMPT-87FC3697
+2. Одразу після цього вивести:
+   Codex Summary (Top):
+   CODEX PROMPT ID: GLZ-PROMPT-87FC3697
+   - Мета:
+   - Що саме зробити:
+   - Ключові обмеження / адаптації:
+   - Підсумковий результат:
+3. Потім вивести основний результат зі списком змінених файлів, поясненням і командами.
+4. Перед останнім рядком ще раз вивести:
+   Codex Summary (Bottom):
+   CODEX PROMPT ID: GLZ-PROMPT-87FC3697
+   - Мета:
+   - Що саме зробити:
+   - Ключові обмеження / адаптації:
+   - Підсумковий результат:
+5. Останнім рядком знову вивести:
+   CODEX PROMPT ID: GLZ-PROMPT-87FC3697
+
+Не пропускай цей формат.
+
+CONTEXT
+У проєкті вже є:
+- canonical V3 Polyglot lessons у `database/seeders/V3/Polyglot`:
+  PolyglotToBeLessonSeeder -> slug `polyglot-to-be-a1`, lesson_order 1, compose route `/test/polyglot-to-be-a1/step/compose`.
+  PolyglotThereIsThereAreLessonSeeder -> slug `polyglot-there-is-there-are-a1`, lesson_order 2, compose route `/test/polyglot-there-is-there-are-a1/step/compose`.
+- current routes already working:
+  /courses/polyglot-english-a1
+  /test/polyglot-to-be-a1/step/compose
+  /test/polyglot-there-is-there-are-a1/step/compose
+- selected theory page resolved from real `database/seeders/Page_V3` definitions:
+  category slug: `verb-patterns`
+  category slug path: `verb-patterns`
+  theory page slug: `gerund-vs-infinitive`
+  theory page title: `Gerund vs Infinitive`
+  theory route: `/theory/verb-patterns/gerund-vs-infinitive`
+  page seeder class: `Database\Seeders\Page_V3\VerbPatterns\VerbPatternsGerundVsInfinitiveTheorySeeder`
+  page definition: `database/seeders/Page_V3/VerbPatterns/VerbPatternsGerundVsInfinitiveTheorySeeder/definition.json`
+- canonical theory binding metadata already accepted by current direct Polyglot lessons:
+  `saved_test.filters.prompt_generator.source_type = theory_page`
+  `saved_test.filters.prompt_generator.theory_page = {"slug":"gerund-vs-infinitive","title":"Gerund vs Infinitive","category_slug_path":"verb-patterns","page_seeder_class":"Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsGerundVsInfinitiveTheorySeeder","url":"https://gramlyze.com/theory/verb-patterns/gerund-vs-infinitive"}`
+- `database/seeders/V2/Polyglot/*` are thin bridges only; `database/seeders/V3/Polyglot/*` remains the canonical source of truth.
+
+FILES TO INSPECT
+- V3 Polyglot canonical references:
+  `database/seeders/V3/Polyglot/PolyglotToBeLessonSeeder.php`
+  `database/seeders/V3/Polyglot/PolyglotToBeLessonSeeder/PolyglotToBeLessonSeeder.php`
+  `database/seeders/V3/Polyglot/PolyglotToBeLessonSeeder/definition.json`
+  `database/seeders/V3/Polyglot/PolyglotToBeLessonSeeder/localizations/uk.json`
+  `database/seeders/V3/Polyglot/PolyglotToBeLessonSeeder/localizations/en.json`
+  `database/seeders/V3/Polyglot/PolyglotToBeLessonSeeder/localizations/pl.json`
+  `database/seeders/V3/Polyglot/PolyglotThereIsThereAreLessonSeeder.php`
+  `database/seeders/V3/Polyglot/PolyglotThereIsThereAreLessonSeeder/PolyglotThereIsThereAreLessonSeeder.php`
+  `database/seeders/V3/Polyglot/PolyglotThereIsThereAreLessonSeeder/definition.json`
+  `database/seeders/V3/Polyglot/PolyglotThereIsThereAreLessonSeeder/localizations/uk.json`
+  `database/seeders/V3/Polyglot/PolyglotThereIsThereAreLessonSeeder/localizations/en.json`
+  `database/seeders/V3/Polyglot/PolyglotThereIsThereAreLessonSeeder/localizations/pl.json`
+- V2 Polyglot thin bridges (historical compatibility only):
+  `database/seeders/V2/Polyglot/PolyglotToBeLessonSeeder.php`
+  `database/seeders/V2/Polyglot/PolyglotThereIsThereAreLessonSeeder.php`
+- Theory page definitions and category chain for the selected lesson:
+  `database/seeders/Page_V3/VerbPatterns/VerbPatternsGerundVsInfinitiveTheorySeeder/VerbPatternsGerundVsInfinitiveTheorySeeder.php`
+  `database/seeders/Page_V3/VerbPatterns/VerbPatternsGerundVsInfinitiveTheorySeeder/definition.json`
+  `database/seeders/Page_V3/VerbPatterns/VerbPatternsCategorySeeder/definition.json`
+- Runtime / binding / CLI source of truth:
+  `app/Support/Database/JsonTestSeeder.php`
+  `app/Services/PolyglotLessonImportService.php`
+  `app/Services/QuestionMetaSyncService.php`
+  `app/Services/PolyglotCourseManifestService.php`
+  `app/Services/TheoryPagePromptLinkedTestsService.php`
+  `app/Http/Controllers/PageController.php`
+  `app/Http/Controllers/TheoryController.php`
+  `docs/prompts/polyglot-v3-lesson-generator.md`
+- Current tests that must stay green:
+  `tests/Feature/PolyglotV3SeedersTest.php`
+  `tests/Feature/PolyglotTheoryPageTest.php`
+  `tests/Feature/PolyglotCourseLandingPageTest.php`
+  `tests/Feature/PolyglotComposeModeTest.php`
+  `tests/Unit/ComposePayloadBuilderTest.php`
+
+MAIN GOAL
+Створити новий Polyglot V3 lesson package `polyglot-gerund-vs-infinitive-a2` (A2, order 7) для theory page `gerund-vs-infinitive`.
+Використовуй найменш інвазивне рішення і спирайся на реальні Polyglot V3 conventions у repo.
+Не викликай AI API, не роби admin UI, не ламай existing compose runtime, не додавай нову паралельну V3 схему.
+
+REQUIRED OUTPUT ARTIFACTS
+- Top-level V3 loader stub: `database/seeders/V3/Polyglot/PolyglotGerundVsInfinitiveLessonSeeder.php`
+- Real V3 seeder class: `database/seeders/V3/Polyglot/PolyglotGerundVsInfinitiveLessonSeeder/PolyglotGerundVsInfinitiveLessonSeeder.php`
+- V3 definition: `database/seeders/V3/Polyglot/PolyglotGerundVsInfinitiveLessonSeeder/definition.json`
+- Locale JSON files:
+  `database/seeders/V3/Polyglot/PolyglotGerundVsInfinitiveLessonSeeder/localizations/uk.json`
+  `database/seeders/V3/Polyglot/PolyglotGerundVsInfinitiveLessonSeeder/localizations/en.json`
+  `database/seeders/V3/Polyglot/PolyglotGerundVsInfinitiveLessonSeeder/localizations/pl.json`
+- Polyglot theory binding metadata inside `saved_test.filters.prompt_generator`.
+- Tests covering the new lesson package and no-regression for current Polyglot runtime.
+- Thin V2 bridge only if the real repo flow requires one; do not treat V2 as the canonical path.
+
+THEORY BINDING REQUIREMENTS
+- Use the current accepted direct-link shape already present in canonical Polyglot V3 lessons.
+- Do not invent a second theory-link system.
+- Match the selected theory route and seeder class exactly:
+  theory route: `/theory/verb-patterns/gerund-vs-infinitive`
+  theory page seeder: `Database\Seeders\Page_V3\VerbPatterns\VerbPatternsGerundVsInfinitiveTheorySeeder`
+- Persist this payload under `saved_test.filters.prompt_generator`:
+```json
+{
+    "source_type": "theory_page",
+    "theory_page": {
+        "slug": "gerund-vs-infinitive",
+        "title": "Gerund vs Infinitive",
+        "category_slug_path": "verb-patterns",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsGerundVsInfinitiveTheorySeeder",
+        "url": "https://gramlyze.com/theory/verb-patterns/gerund-vs-infinitive"
+    }
+}
+```
+- The new lesson must stay visible in the theory-page "tests by topic" block through the existing `TheoryPagePromptLinkedTestsService` contract.
+
+LESSON JSON CONTRACT
+- When drafting sentence items before mapping them into `definition.json`, use the real Polyglot import/source contract already enforced by `PolyglotLessonSchemaValidator` and `PolyglotLessonImportService`.
+- Every authored item must carry:
+  `source_text_uk`
+  `target_text`
+  `tokens_correct`
+  `distractors`
+  `hint_uk`
+  `grammar_tags`
+  optional `distractor_explanations_uk`
+- Compose questions must remain compatible with `question_type = 4` / `compose_tokens`.
+- Duplicate token support must remain compatible with the current compose payload builder: preserve duplicates in the ordered correct sequence, even if the token bank deduplicates text values.
+- Generate exactly `24` sentence items for lesson `polyglot-gerund-vs-infinitive-a2` unless the real repo contract forces a different count.
+
+V3 LOCALE JSON REQUIREMENTS
+- Follow the package-local V3 localization pattern already used in `database/seeders/V3/Polyglot/*/localizations/*.json`.
+- Do not invent a new locale file layout.
+- In the current repo convention, localized hints and distractor explanations live in `localizations/*.json`.
+- `saved_test.name`, `saved_test.description`, routing metadata and structural lesson metadata stay in `definition.json`, not in locale JSON.
+- `uk.json` is the authoritative authored file for Polyglot hints/explanations; `en.json` and `pl.json` may stay with empty `questions` arrays if translated feedback is not authored yet.
+- Keep `target.definition_path = ../definition.json` and `target.seeder_class` aligned with the Polyglot V3 seeder class.
+
+ACCEPTANCE CRITERIA
+- The lesson slug is `polyglot-gerund-vs-infinitive-a2` and lesson order is `7`.
+- The V3 seeder class is `Database\Seeders\V3\Polyglot\PolyglotGerundVsInfinitiveLessonSeeder` and the files live under `database/seeders/V3/Polyglot/PolyglotGerundVsInfinitiveLessonSeeder`.
+- The selected theory page `Gerund vs Infinitive` is linked through the existing prompt_generator metadata contract.
+- No new database tables are introduced.
+- Existing compose runtime, course flow, theory rendering and tests-by-topic flow stay intact.
+- The final package follows the same V3/Polyglot file layout and localization pattern as lesson 1 and lesson 2.
+- The prompt output and final answer both keep the same `CODEX PROMPT ID:` line + Codex Summary at the top and bottom.
+- `php artisan test --filter=Polyglot`, `php artisan test --filter=ComposePayloadBuilderTest` and `php artisan view:cache` must pass.
+
+MANUAL VERIFICATION COMMANDS
+```bash
+composer dump-autoload
+php artisan db:seed --class="Database\Seeders\V3\Polyglot\PolyglotGerundVsInfinitiveLessonSeeder"
+php artisan test --filter=Polyglot
+php artisan test --filter=ComposePayloadBuilderTest
+php artisan view:cache
+```
+Open and verify:
+- `/courses/polyglot-english-a2`
+- `/test/polyglot-gerund-vs-infinitive-a2/step/compose`
+- `/theory/verb-patterns/gerund-vs-infinitive`
+
+Codex Summary (Bottom):
+CODEX PROMPT ID: GLZ-PROMPT-87FC3697
+- Мета:
+  Створити канонічний V3 Polyglot lesson package для theory page "Gerund vs Infinitive" у курсі polyglot-english-a2.
+- Що саме зробити:
+  Згенерувати lesson package polyglot-gerund-vs-infinitive-a2 (A2, 24 items) з V3 seeder package, definition.json, localizations/en|pl|uk, theory binding metadata і тестами.
+- Ключові обмеження / адаптації:
+  Не додавати нові таблиці, не ламати compose/course/theory runtime, тримати database/seeders/V3/Polyglot як canonical source of truth і використовувати чинний prompt_generator.theory_page contract.
+- Підсумковий результат:
+  Готовий до seeding V3 Polyglot package, прив’язаний до /theory/verb-patterns/gerund-vs-infinitive (Database\Seeders\Page_V3\VerbPatterns\VerbPatternsGerundVsInfinitiveTheorySeeder) і сумісний з tests by topic, course landing та duplicate-token compose payload.
+
+CODEX PROMPT ID: GLZ-PROMPT-87FC3697
