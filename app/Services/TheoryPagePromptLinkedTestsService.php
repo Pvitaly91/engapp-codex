@@ -37,7 +37,7 @@ class TheoryPagePromptLinkedTestsService
         $linkedTests = $this->findForPage($page);
         $directLinkedTests = $this->extractDirectLinkedTests($linkedTests);
 
-        if ($directLinkedTests->isNotEmpty()) {
+        if ($this->shouldReturnDirectLinkedTests($linkedTests, $directLinkedTests)) {
             return $directLinkedTests->values();
         }
 
@@ -81,6 +81,13 @@ class TheoryPagePromptLinkedTestsService
             ->values();
 
         return $aggregatedTests;
+    }
+
+    protected function shouldReturnDirectLinkedTests(Collection $linkedTests, Collection $directLinkedTests): bool
+    {
+        return $linkedTests->isNotEmpty()
+            && $directLinkedTests->isNotEmpty()
+            && $linkedTests->count() === $directLinkedTests->count();
     }
 
     public function findForPage(Page $page): Collection
