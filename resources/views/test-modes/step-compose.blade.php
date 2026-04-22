@@ -21,6 +21,9 @@
     $firstLessonUrl = data_get($courseContext, 'first_lesson_url');
     $isFinalLesson = ! filled($nextLessonSlug);
     $startsLockedPending = filled($courseSlug) && filled($previousLessonSlug);
+    $continueCourseUrl = $courseSlug === 'polyglot-english-a1' && $isFinalLesson
+        ? localized_route('courses.show', 'polyglot-english-a2')
+        : null;
 @endphp
 
 <div class="mx-auto w-full max-w-5xl"
@@ -185,6 +188,7 @@
         'nextLessonSlug' => $nextLessonSlug,
         'nextLessonUrl' => data_get($courseContext, 'next_lesson_url', filled($nextLessonSlug) ? localized_route('test.step-compose', $nextLessonSlug) : null),
         'isFinalLesson' => $isFinalLesson,
+        'continueCourseUrl' => $continueCourseUrl,
         'interfaceLocale' => data_get($rawFilters, 'interface_locale', app()->getLocale()),
         'courseLessons' => data_get($courseContext, 'lessons', []),
     ];
@@ -541,6 +545,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
                 <div class="mt-4 flex flex-wrap gap-3">
                     ${actionLinkMarkup(config.firstLessonUrl || config.courseUrl, testUi('course.repeat_course'), 'solid')}
                     ${actionLinkMarkup(config.courseUrl, testUi('course.back_to_course'), 'soft')}
+                    ${config.continueCourseUrl ? actionLinkMarkup(config.continueCourseUrl, testUi('course.continue_with_polyglot_a2'), 'soft') : ''}
                     ${actionButtonMarkup('restart-course', testUi('course.restart_course'), 'soft')}
                 </div>
             </div>

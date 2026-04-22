@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Page;
+use App\Support\CodexPromptEnvelopeFormatter;
 use App\Support\Database\JsonPageDefinitionIndex;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
@@ -43,6 +44,7 @@ class PolyglotV3PromptGeneratorService
 
     public function __construct(
         private JsonPageDefinitionIndex $pageDefinitionIndex,
+        private CodexPromptEnvelopeFormatter $codexPromptEnvelopeFormatter,
     ) {
     }
 
@@ -549,26 +551,30 @@ class PolyglotV3PromptGeneratorService
         array $targetPaths,
         array $referenceLessons,
     ): string {
+        $promptIdLine = $this->formatPromptIdLine($promptId);
+
         $formatSection = [
             'FORMAT OF YOUR RESPONSE — REQUIRED',
             'У фінальній відповіді ТИ ОБОВ’ЯЗКОВО маєш:',
             '1. Першим рядком вивести:',
-            sprintf('   PROMPT ID: %s', $promptId),
+            '   ' . $promptIdLine,
             '2. Одразу після цього вивести:',
             '   Codex Summary (Top):',
+            '   ' . $promptIdLine,
             '   - Мета:',
-            '   - Що саме зроблено:',
+            '   - Що саме зробити:',
             '   - Ключові обмеження / адаптації:',
             '   - Підсумковий результат:',
             '3. Потім вивести основний результат зі списком змінених файлів, поясненням і командами.',
             '4. Перед останнім рядком ще раз вивести:',
             '   Codex Summary (Bottom):',
+            '   ' . $promptIdLine,
             '   - Мета:',
-            '   - Що саме зроблено:',
+            '   - Що саме зробити:',
             '   - Ключові обмеження / адаптації:',
             '   - Підсумковий результат:',
             '5. Останнім рядком знову вивести:',
-            sprintf('   PROMPT ID: %s', $promptId),
+            '   ' . $promptIdLine,
             '',
             'Не пропускай цей формат.',
         ];
@@ -715,7 +721,7 @@ class PolyglotV3PromptGeneratorService
             '- No new database tables are introduced.',
             '- Existing compose runtime, course flow, theory rendering and tests-by-topic flow stay intact.',
             '- The final package follows the same V3/Polyglot file layout and localization pattern as lesson 1 and lesson 2.',
-            '- The prompt output and final answer both keep Prompt ID + Codex Summary at the top and bottom.',
+            '- The prompt output and final answer both keep the same `CODEX PROMPT ID:` line + Codex Summary at the top and bottom.',
             '- `php artisan test --filter=Polyglot`, `php artisan test --filter=ComposePayloadBuilderTest` and `php artisan view:cache` must pass.',
         ];
 
@@ -748,8 +754,6 @@ class PolyglotV3PromptGeneratorService
         ];
 
         $sections = array_merge(
-            [$this->formatSummaryBlock('Top', $summary)],
-            [''],
             ['Ти senior Laravel/Blade engineer, який продовжує роботу в поточному репозиторії Gramlyze.'],
             [''],
             $formatSection,
@@ -770,34 +774,27 @@ class PolyglotV3PromptGeneratorService
             [''],
             $acceptanceCriteria,
             [''],
-            $manualVerificationCommands,
-            [''],
-            [$this->formatSummaryBlock('Bottom', $summary)]
+            $manualVerificationCommands
         );
 
-        return implode("\n", array_merge(
-            [sprintf('PROMPT ID: %s', $promptId), ''],
-            $sections,
-            ['', sprintf('PROMPT ID: %s', $promptId)]
-        ));
+        return $this->codexPromptEnvelopeFormatter->wrapPrompt(
+            $promptId,
+            $summary,
+            implode("\n", $sections)
+        );
+    }
+
+    public function formatPromptIdLine(string $promptId): string
+    {
+        return $this->codexPromptEnvelopeFormatter->formatPromptIdLine($promptId);
     }
 
     /**
      * @param  array<string, string>  $summary
      */
-    private function formatSummaryBlock(string $position, array $summary): string
+    public function formatSummaryBlock(string $position, string $promptId, array $summary): string
     {
-        return implode("\n", [
-            sprintf('Codex Summary (%s):', $position),
-            '- Мета:',
-            '  ' . $summary['goal'],
-            '- Що саме зробити:',
-            '  ' . $summary['work'],
-            '- Ключові обмеження / адаптації:',
-            '  ' . $summary['constraints'],
-            '- Підсумковий результат:',
-            '  ' . $summary['result'],
-        ]);
+        return $this->codexPromptEnvelopeFormatter->formatSummaryBlock($position, $promptId, $summary);
     }
 
     /**

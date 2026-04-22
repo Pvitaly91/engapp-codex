@@ -105,6 +105,7 @@
                             <a href="{{ route('test-tags.index') }}" class="block px-4 py-2 hover:bg-blue-50">Теги тестів</a>
                             <a href="{{ route('v3-prompt-generator.index') }}" class="block px-4 py-2 hover:bg-blue-50">Промт генератор V3</a>
                             <a href="{{ route('page-v3-prompt-generator.index') }}" class="block px-4 py-2 hover:bg-blue-50">Промт генератор Page_V3</a>
+                            <a href="{{ route('polyglot-v3-prompt-generator.index') }}" class="block px-4 py-2 hover:bg-blue-50">Промт генератор Polyglot V3</a>
                         </div>
                     </div>
                     <a href="{{ route('seed-runs.index') }}" class="hover:text-blue-500 transition">Seed Runs</a>
@@ -179,6 +180,7 @@
                         <a href="{{ route('test-tags.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Теги тестів</a>
                         <a href="{{ route('v3-prompt-generator.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Промт генератор V3</a>
                         <a href="{{ route('page-v3-prompt-generator.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Промт генератор Page_V3</a>
+                        <a href="{{ route('polyglot-v3-prompt-generator.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Промт генератор Polyglot V3</a>
                     </div>
                 </div>
                 <a href="{{ route('seed-runs.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Seed Runs</a>

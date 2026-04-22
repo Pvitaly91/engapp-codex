@@ -3,16 +3,20 @@
 namespace App\Services\V3PromptGenerator;
 
 use App\Services\V3PromptGenerator\Data\PromptGenerationInput;
+use App\Support\CodexPromptEnvelopeFormatter;
 use RuntimeException;
 
 class V3PromptGeneratorService
 {
     public const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
+    private const PROMPT_ID_PREFIX = 'V3-PROMPT-';
+
     public function __construct(
         private TheoryPageSearchService $theoryPageSearchService,
         private ExternalTheoryUrlService $externalTheoryUrlService,
         private V3SeederBlueprintService $v3SeederBlueprintService,
+        private CodexPromptEnvelopeFormatter $codexPromptEnvelopeFormatter,
     ) {
     }
 
@@ -68,23 +72,35 @@ class V3PromptGeneratorService
 
         $prompts = $input->generationMode === 'single'
             ? [
-                [
-                    'key' => 'single',
-                    'title' => 'Prompt for Codex',
-                    'text' => $this->buildSinglePrompt($input, $source, $preview, $referenceFiles, $distribution),
-                ],
+                $this->buildPromptItem(
+                    $input,
+                    $source,
+                    $preview,
+                    $distribution,
+                    'single',
+                    'Prompt for Codex',
+                    $this->buildSinglePrompt($input, $source, $preview, $referenceFiles, $distribution),
+                ),
             ]
             : [
-                [
-                    'key' => 'llm_json',
-                    'title' => 'Prompt for LLM JSON generation',
-                    'text' => $this->buildLlmJsonPrompt($input, $source, $preview, $referenceFiles, $distribution),
-                ],
-                [
-                    'key' => 'codex_seeder',
-                    'title' => 'Prompt for Codex seeder generation',
-                    'text' => $this->buildCodexSeederPrompt($input, $source, $preview, $referenceFiles, $distribution),
-                ],
+                $this->buildPromptItem(
+                    $input,
+                    $source,
+                    $preview,
+                    $distribution,
+                    'llm_json',
+                    'Prompt for LLM JSON generation',
+                    $this->buildLlmJsonPrompt($input, $source, $preview, $referenceFiles, $distribution),
+                ),
+                $this->buildPromptItem(
+                    $input,
+                    $source,
+                    $preview,
+                    $distribution,
+                    'codex_seeder',
+                    'Prompt for Codex seeder generation',
+                    $this->buildCodexSeederPrompt($input, $source, $preview, $referenceFiles, $distribution),
+                ),
             ];
 
         return [
@@ -99,6 +115,132 @@ class V3PromptGeneratorService
             'prompt_a_mode_label' => $this->promptAModeLabel($input->promptAMode),
             'prompts' => $prompts,
         ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $source
+     * @param  array<string, mixed>  $preview
+     * @param  array<string, int>  $distribution
+     * @return array<string, mixed>
+     */
+    protected function buildPromptItem(
+        PromptGenerationInput $input,
+        array $source,
+        array $preview,
+        array $distribution,
+        string $key,
+        string $title,
+        string $body,
+    ): array {
+        $promptId = $this->buildPromptId($input, $source, $preview, $distribution, $key);
+        $summary = $this->buildPromptSummary($input, $source, $preview, $distribution, $key, $title);
+
+        return [
+            'key' => $key,
+            'title' => $title,
+            'prompt_id' => $promptId,
+            'prompt_id_text' => $this->codexPromptEnvelopeFormatter->formatPromptIdLine($promptId),
+            'summary' => $summary,
+            'summary_top_text' => $this->codexPromptEnvelopeFormatter->formatSummaryBlock('Top', $promptId, $summary),
+            'summary_bottom_text' => $this->codexPromptEnvelopeFormatter->formatSummaryBlock('Bottom', $promptId, $summary),
+            'text' => $this->codexPromptEnvelopeFormatter->wrapPrompt($promptId, $summary, $body),
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $source
+     * @param  array<string, mixed>  $preview
+     * @param  array<string, int>  $distribution
+     * @return array<string, string>
+     */
+    protected function buildPromptSummary(
+        PromptGenerationInput $input,
+        array $source,
+        array $preview,
+        array $distribution,
+        string $promptKey,
+        string $title,
+    ): array {
+        $distributionLabel = implode(', ', array_map(
+            static fn (string $level, int $count): string => $level . ': ' . $count,
+            array_keys($distribution),
+            array_values($distribution)
+        ));
+        $modeLabel = $input->generationMode === 'split'
+            ? 'split / ' . $promptKey . ' / ' . $this->promptAModeLabel($input->promptAMode)
+            : 'single / Codex';
+        $sourceLabel = (string) ($source['source_label'] ?? $source['source_type'] ?? 'Unknown source');
+        $topic = trim((string) ($source['topic'] ?? ''));
+        $artifacts = match ($promptKey) {
+            'llm_json' => sprintf(
+                'Один V3 JSON artifact для `%s` у namespace `%s`.',
+                $preview['class_name'] ?? '',
+                $preview['target_namespace'] ?? ''
+            ),
+            'codex_seeder' => sprintf(
+                'Інтегрований V3 package `%s` з loader stub, `definition.json`, `localizations/uk|en|pl` і SavedGrammarTest wiring.',
+                $preview['class_name'] ?? ''
+            ),
+            default => sprintf(
+                'Готовий V3 package `%s` у namespace `%s` з loader stub, `definition.json`, `localizations/uk|en|pl` і SavedGrammarTest wiring.',
+                $preview['class_name'] ?? '',
+                $preview['target_namespace'] ?? ''
+            ),
+        };
+
+        return [
+            'goal' => sprintf(
+                'Підготувати %s для теми "%s" (%s).',
+                $title,
+                $topic !== '' ? $topic : 'Untitled topic',
+                $sourceLabel
+            ),
+            'work' => sprintf(
+                'Target namespace `%s`; рівні %s; distribution %s; generation mode %s.',
+                $preview['target_namespace'] ?? '',
+                implode(', ', array_keys($distribution)),
+                $distributionLabel,
+                $modeLabel
+            ),
+            'constraints' => sprintf(
+                'Не ламати чинний V3 schema/loader contract; source type `%s`; expected artifact flow для `%s` без змін runtime.',
+                $input->sourceType,
+                $promptKey
+            ),
+            'result' => $artifacts,
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $source
+     * @param  array<string, mixed>  $preview
+     * @param  array<string, int>  $distribution
+     */
+    protected function buildPromptId(
+        PromptGenerationInput $input,
+        array $source,
+        array $preview,
+        array $distribution,
+        string $promptKey,
+    ): string {
+        $seed = implode('|', [
+            $promptKey,
+            $input->sourceType,
+            $source['id'] ?? '',
+            $source['slug'] ?? '',
+            $source['normalized_url'] ?? ($source['url'] ?? ''),
+            $source['topic'] ?? '',
+            $input->siteDomain,
+            $preview['target_namespace'] ?? '',
+            $preview['class_name'] ?? '',
+            implode(',', $input->levels),
+            json_encode($distribution, JSON_UNESCAPED_SLASHES),
+            $input->questionsPerLevel,
+            $input->generationMode,
+            $input->promptAMode,
+        ]);
+
+        return self::PROMPT_ID_PREFIX . strtoupper(substr(sha1($seed), 0, 8));
     }
 
     /**

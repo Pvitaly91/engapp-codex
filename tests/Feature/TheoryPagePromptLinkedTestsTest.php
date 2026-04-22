@@ -299,7 +299,7 @@ class TheoryPagePromptLinkedTestsTest extends TestCase
         });
     }
 
-    public function test_theory_page_merges_polyglot_questions_into_aggregated_topic_tests(): void
+    public function test_theory_page_prefers_direct_polyglot_topic_tests_over_aggregated_mixed_filters(): void
     {
         app()->setLocale('uk');
 
@@ -351,24 +351,18 @@ class TheoryPagePromptLinkedTestsTest extends TestCase
         $response = $this->get(route('theory.show', [$category->slug, $page->slug]));
 
         $response->assertOk();
-        $response->assertDontSee('Polyglot: to be (A1)');
-        $response->assertViewHas('topicTests', function ($tests) use ($page, $standardSeeder, $polyglotSeeder) {
-            if ($tests->count() !== 5) {
+        $response->assertSee('Polyglot: to be (A1)');
+        $response->assertViewHas('topicTests', function ($tests) use ($polyglotSeeder) {
+            if ($tests->count() !== 1) {
                 return false;
             }
 
-            $a1a2Test = $tests->firstWhere('slug', sprintf('theory-page-%d-a1-a2', $page->id));
-            $b1b2Test = $tests->firstWhere('slug', sprintf('theory-page-%d-b1-b2', $page->id));
+            $directTest = $tests->first();
+            $filters = $directTest->filters ?? [];
 
-            if (! $a1a2Test || ! $b1b2Test) {
-                return false;
-            }
-
-            $a1a2Seeders = collect($a1a2Test->filters['seeder_classes'] ?? [])->sort()->values()->all();
-
-            return $a1a2Seeders === collect([$standardSeeder, $polyglotSeeder])->sort()->values()->all()
-                && ($a1a2Test->filters['__meta']['theory_page_mixed_polyglot_test'] ?? false) === true
-                && ($b1b2Test->filters['__meta']['theory_page_mixed_polyglot_test'] ?? false) === false;
+            return ($directTest->slug ?? null) === 'polyglot-to-be-a1'
+                && collect($filters['seeder_classes'] ?? [])->contains($polyglotSeeder)
+                && ($filters['__meta']['aggregated_theory_page_test'] ?? false) === false;
         });
     }
 

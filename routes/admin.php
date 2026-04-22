@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\PageV3PromptGeneratorController;
+use App\Http\Controllers\Admin\PolyglotV3PromptGeneratorController;
 use App\Http\Controllers\Admin\V3PromptGeneratorController;
 use App\Http\Controllers\Admin\WordsExportController;
 use App\Http\Controllers\AiTestController;
@@ -210,6 +211,12 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::prefix('page-v3-prompt-generator')->name('page-v3-prompt-generator.')->group(function () {
             Route::get('/', [PageV3PromptGeneratorController::class, 'index'])->name('index');
             Route::post('/', [PageV3PromptGeneratorController::class, 'generate'])->name('generate');
+        });
+
+        Route::prefix('polyglot-v3-prompt-generator')->name('polyglot-v3-prompt-generator.')->group(function () {
+            Route::get('/', [PolyglotV3PromptGeneratorController::class, 'index'])->name('index');
+            Route::post('/', [PolyglotV3PromptGeneratorController::class, 'generate'])->name('generate');
+            Route::get('/theory-pages/search', [PolyglotV3PromptGeneratorController::class, 'searchTheoryPages'])->name('theory-pages.search');
         });
 
         Route::get('/ai-test', [AiTestController::class, 'form'])->name('ai-test.form');

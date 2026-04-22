@@ -4,10 +4,15 @@ namespace Tests\Feature;
 
 use Database\Seeders\V2\Polyglot\PolyglotCanCannotLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotArticlesAAnTheLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotBeGoingToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotComparativesLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFinalDrillLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFirstConditionalLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotShouldOughtToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotHaveGotHasGotLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectBasicLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectVsPastSimpleLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotSuperlativesLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotSomeAnyLessonSeeder;
@@ -51,6 +56,11 @@ class PolyglotCourseReportCommandTest extends TestCase
         $this->seed(PolyglotComparativesLessonSeeder::class);
         $this->seed(PolyglotSuperlativesLessonSeeder::class);
         $this->seed(PolyglotFinalDrillLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectBasicLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectVsPastSimpleLessonSeeder::class);
+        $this->seed(PolyglotFirstConditionalLessonSeeder::class);
+        $this->seed(PolyglotBeGoingToLessonSeeder::class);
+        $this->seed(PolyglotShouldOughtToLessonSeeder::class);
     }
 
     public function test_course_report_command_outputs_planned_and_implemented_status(): void
@@ -63,6 +73,24 @@ class PolyglotCourseReportCommandTest extends TestCase
             ->expectsOutputToContain('Missing / planned lessons: none')
             ->expectsOutputToContain('Next recommended lesson: none')
             ->expectsOutputToContain('/test/polyglot-final-drill-a1/step/compose')
+            ->expectsOutputToContain('Broken previous/next refs: none')
+            ->assertExitCode(0);
+    }
+
+    public function test_a2_course_report_command_outputs_planned_and_implemented_status(): void
+    {
+        $this->artisan('polyglot:course-report', [
+            'courseSlug' => 'polyglot-english-a2',
+        ])
+            ->expectsOutputToContain('Planned total: 16')
+            ->expectsOutputToContain('Implemented total: 5')
+            ->expectsOutputToContain('polyglot-present-perfect-basic-a2')
+            ->expectsOutputToContain('polyglot-present-perfect-vs-past-simple-a2')
+            ->expectsOutputToContain('polyglot-first-conditional-a2')
+            ->expectsOutputToContain('polyglot-be-going-to-a2')
+            ->expectsOutputToContain('polyglot-should-ought-to-a2')
+            ->expectsOutputToContain('Missing / planned lessons: polyglot-must-have-to-a2')
+            ->expectsOutputToContain('Next recommended lesson: polyglot-must-have-to-a2')
             ->expectsOutputToContain('Broken previous/next refs: none')
             ->assertExitCode(0);
     }

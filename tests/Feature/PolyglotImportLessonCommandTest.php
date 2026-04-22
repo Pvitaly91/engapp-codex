@@ -55,5 +55,10 @@ class PolyglotImportLessonCommandTest extends TestCase
         $this->assertStringContainsString('Polyglot lesson imported successfully.', $output);
         $this->assertSame('polyglot-there-is-there-are-a1', $test->slug);
         $this->assertCount(24, $test->questionLinks);
+        $this->assertSame('theory_page', data_get($test->filters, 'prompt_generator.source_type'));
+        $this->assertSame(
+            'there-is-there-are',
+            data_get($test->filters, 'prompt_generator.theory_page.slug')
+        );
     }
 }

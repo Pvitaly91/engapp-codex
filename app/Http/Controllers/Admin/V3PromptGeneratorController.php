@@ -101,6 +101,7 @@ class V3PromptGeneratorController extends Controller
             'selectedTheoryPage' => $selectedTheoryPage,
             'preview' => $this->v3PromptGeneratorService->buildPreview((string) $form['target_namespace'], $previewTopic),
             'result' => $result,
+            'promptCards' => is_array($result) ? array_values((array) ($result['prompts'] ?? [])) : [],
             'searchRoute' => route('v3-prompt-generator.theory-pages.search'),
         ];
     }

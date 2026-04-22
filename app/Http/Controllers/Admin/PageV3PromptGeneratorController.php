@@ -81,6 +81,7 @@ class PageV3PromptGeneratorController extends Controller
                 (string) $form['new_category_title'],
             ),
             'result' => $result,
+            'promptCards' => is_array($result) ? array_values((array) ($result['prompts'] ?? [])) : [],
         ];
     }
 

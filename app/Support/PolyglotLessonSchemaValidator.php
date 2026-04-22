@@ -88,7 +88,7 @@ class PolyglotLessonSchemaValidator
             $errors[] = $this->error(null, 'test.completion.min_rating', 'Min rating must be greater than zero.');
         }
 
-        return [
+        $normalized = [
             'name' => $name,
             'slug' => $slug,
             'description_uk' => $descriptionUk,
@@ -108,6 +108,16 @@ class PolyglotLessonSchemaValidator
                 'min_rating' => $minRating,
             ],
         ];
+
+        if (array_key_exists('prompt_generator', $test)) {
+            $promptGenerator = $this->normalizePromptGenerator($test['prompt_generator'], $errors);
+
+            if ($promptGenerator !== null) {
+                $normalized['prompt_generator'] = $promptGenerator;
+            }
+        }
+
+        return $normalized;
     }
 
     private function normalizeItems(array $items, array $test, array &$errors): array
@@ -381,6 +391,19 @@ class PolyglotLessonSchemaValidator
     private function isQuestionSentence(string $value): bool
     {
         return str_ends_with(trim($value), '?');
+    }
+
+    private function normalizePromptGenerator(mixed $value, array &$errors): ?array
+    {
+        $result = PromptGeneratorFilterNormalizer::validateTheoryPagePayload($value, 'test.prompt_generator');
+
+        foreach ($result['errors'] as $error) {
+            $errors[] = $this->error(null, $error['field'], $error['message']);
+        }
+
+        $normalized = $result['normalized'] ?? null;
+
+        return is_array($normalized) ? $normalized : null;
     }
 
     private function error(?string $uuid, string $field, string $message): array

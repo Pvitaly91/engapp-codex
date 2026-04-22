@@ -87,7 +87,7 @@ class PolyglotGenerateV3PromptCommand extends Command
             $generated['theory_context']['page_title'],
             $generated['theory_context']['route_path']
         ));
-        $this->line('Prompt ID: ' . $generated['prompt_id']);
+        $this->line($this->promptGenerator->formatPromptIdLine($generated['prompt_id']));
         $this->line('Target V3 paths:');
         foreach ([
             $generated['target_paths']['loader_relative_path'],

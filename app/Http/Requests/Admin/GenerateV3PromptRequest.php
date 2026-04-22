@@ -16,7 +16,31 @@ class GenerateV3PromptRequest extends FormRequest
 
     protected function prepareForValidation(): void
     {
-        $levels = collect((array) $this->input('levels', []))
+        $this->merge(self::normalizeInput($this->all()));
+    }
+
+    public function rules(): array
+    {
+        return self::sharedRules($this->all());
+    }
+
+    public function messages(): array
+    {
+        return self::sharedMessages();
+    }
+
+    public function attributes(): array
+    {
+        return self::sharedAttributes();
+    }
+
+    /**
+     * @param  array<string, mixed>  $input
+     * @return array<string, mixed>
+     */
+    public static function normalizeInput(array $input): array
+    {
+        $levels = collect((array) ($input['levels'] ?? []))
             ->map(static fn ($level) => strtoupper(trim((string) $level)))
             ->filter()
             ->unique()
@@ -24,35 +48,41 @@ class GenerateV3PromptRequest extends FormRequest
             ->values()
             ->all();
 
-        $targetNamespace = trim((string) $this->input('target_namespace', 'AI'));
+        $targetNamespace = trim((string) ($input['target_namespace'] ?? 'AI'));
         $targetNamespace = str_replace('/', '\\', $targetNamespace);
         $targetNamespace = preg_replace('/\\\\+/', '\\\\', $targetNamespace) ?? $targetNamespace;
         $targetNamespace = trim($targetNamespace, "\\ \t\n\r\0\x0B");
 
-        $this->merge([
-            'source_type' => trim((string) $this->input('source_type', 'manual_topic')),
-            'generation_mode' => trim((string) $this->input('generation_mode', 'single')),
-            'prompt_a_mode' => trim((string) $this->input('prompt_a_mode', 'repository_connected')),
-            'theory_page_id' => $this->filled('theory_page_id') ? (int) $this->input('theory_page_id') : null,
-            'manual_topic' => $this->filled('manual_topic') ? trim((string) $this->input('manual_topic')) : null,
-            'external_url' => $this->filled('external_url') ? trim((string) $this->input('external_url')) : null,
-            'site_domain' => $this->normalizeDomain((string) $this->input('site_domain', 'gramlyze.com')),
+        return [
+            'source_type' => trim((string) ($input['source_type'] ?? 'manual_topic')),
+            'generation_mode' => trim((string) ($input['generation_mode'] ?? 'single')),
+            'prompt_a_mode' => trim((string) ($input['prompt_a_mode'] ?? 'repository_connected')),
+            'theory_page_id' => filled($input['theory_page_id'] ?? null) ? (int) $input['theory_page_id'] : null,
+            'manual_topic' => filled($input['manual_topic'] ?? null) ? trim((string) $input['manual_topic']) : null,
+            'external_url' => filled($input['external_url'] ?? null) ? trim((string) $input['external_url']) : null,
+            'site_domain' => self::normalizeDomainValue((string) ($input['site_domain'] ?? 'gramlyze.com')),
             'target_namespace' => $targetNamespace,
             'levels' => $levels,
-            'questions_per_level' => $this->filled('questions_per_level')
-                ? (int) $this->input('questions_per_level')
+            'questions_per_level' => filled($input['questions_per_level'] ?? null)
+                ? (int) $input['questions_per_level']
                 : null,
-        ]);
+        ];
     }
 
-    public function rules(): array
+    /**
+     * @param  array<string, mixed>  $input
+     * @return array<string, mixed>
+     */
+    public static function sharedRules(array $input): array
     {
+        $sourceType = (string) ($input['source_type'] ?? 'manual_topic');
+
         return [
             'source_type' => ['required', Rule::in(['theory_page', 'manual_topic', 'external_url'])],
             'generation_mode' => ['required', Rule::in(['single', 'split'])],
             'prompt_a_mode' => ['required', Rule::in(['repository_connected', 'no_repository'])],
             'theory_page_id' => [
-                Rule::requiredIf(fn () => $this->input('source_type') === 'theory_page'),
+                Rule::requiredIf($sourceType === 'theory_page'),
                 'nullable',
                 'integer',
                 Rule::exists('pages', 'id')->where(function ($query) {
@@ -61,13 +91,13 @@ class GenerateV3PromptRequest extends FormRequest
                 }),
             ],
             'manual_topic' => [
-                Rule::requiredIf(fn () => $this->input('source_type') === 'manual_topic'),
+                Rule::requiredIf($sourceType === 'manual_topic'),
                 'nullable',
                 'string',
                 'max:255',
             ],
             'external_url' => [
-                Rule::requiredIf(fn () => $this->input('source_type') === 'external_url'),
+                Rule::requiredIf($sourceType === 'external_url'),
                 'nullable',
                 'string',
                 'max:2000',
@@ -91,7 +121,10 @@ class GenerateV3PromptRequest extends FormRequest
         ];
     }
 
-    public function messages(): array
+    /**
+     * @return array<string, string>
+     */
+    public static function sharedMessages(): array
     {
         return [
             'source_type.required' => 'Оберіть джерело теми.',
@@ -121,7 +154,10 @@ class GenerateV3PromptRequest extends FormRequest
         ];
     }
 
-    public function attributes(): array
+    /**
+     * @return array<string, string>
+     */
+    public static function sharedAttributes(): array
     {
         return [
             'theory_page_id' => 'theory page',
@@ -133,7 +169,7 @@ class GenerateV3PromptRequest extends FormRequest
         ];
     }
 
-    protected function normalizeDomain(string $domain): string
+    public static function normalizeDomainValue(string $domain): string
     {
         $normalized = trim(strtolower($domain));
 

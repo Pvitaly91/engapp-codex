@@ -281,6 +281,7 @@ return [
             'in_progress_summary' => 'Postęp jest zapisywany na tym urządzeniu',
             'all_lessons_completed' => 'Wszystkie lekcje ukończone',
             'repeat_course' => 'Powtórz kurs',
+            'continue_with_polyglot_a2' => 'Kontynuuj z Polyglot A2',
             'restart_course' => 'Rozpocznij kurs od nowa',
             'back_to_lessons' => 'Wróć do lekcji',
             'course_fully_available' => 'Kurs jest w pełni dostępny',

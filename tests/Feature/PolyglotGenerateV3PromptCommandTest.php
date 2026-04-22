@@ -63,7 +63,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             $output
         );
         $this->assertStringContainsString('Codex Summary (Top):', $output);
-        $this->assertMatchesRegularExpression('/PROMPT ID: GLZ-PROMPT-[A-F0-9]{8}/', $output);
+        $this->assertMatchesRegularExpression('/CODEX PROMPT ID: GLZ-PROMPT-[A-F0-9]{8}/', $output);
     }
 
     public function test_command_writes_output_file(): void
@@ -96,10 +96,10 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
         $this->assertFileExists($outputAbsolutePath);
         $this->assertStringContainsString('Prompt output: ' . $outputRelativePath, $output);
         $this->assertStringStartsWith(
-            'PROMPT ID: GLZ-PROMPT-TEST-WRITE' . "\n\n" . 'Codex Summary (Top):',
+            'CODEX PROMPT ID: GLZ-PROMPT-TEST-WRITE' . "\n\n" . 'Codex Summary (Top):' . "\n" . 'CODEX PROMPT ID: GLZ-PROMPT-TEST-WRITE',
             $contents
         );
-        $this->assertStringEndsWith("\n\nPROMPT ID: GLZ-PROMPT-TEST-WRITE", $contents);
+        $this->assertStringEndsWith("\n\nCODEX PROMPT ID: GLZ-PROMPT-TEST-WRITE", $contents);
         $this->assertStringContainsString('Codex Summary (Top):', $contents);
         $this->assertStringContainsString('Codex Summary (Bottom):', $contents);
     }
@@ -138,7 +138,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotHaveGotHasGotLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-HAVE-GOT-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-HAVE-GOT-TEST', $contents);
         $this->assertStringContainsString('polyglot-have-got-has-got-a1', $contents);
     }
 
@@ -179,7 +179,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotPresentSimpleVerbsLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-PRESENT-SIMPLE-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-PRESENT-SIMPLE-TEST', $contents);
         $this->assertStringContainsString('polyglot-present-simple-verbs-a1', $contents);
     }
 
@@ -217,7 +217,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotCanCannotLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-CAN-CANNOT-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-CAN-CANNOT-TEST', $contents);
         $this->assertStringContainsString('polyglot-can-cannot-a1', $contents);
     }
 
@@ -262,7 +262,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotPresentContinuousLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-PRESENT-CONTINUOUS-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-PRESENT-CONTINUOUS-TEST', $contents);
         $this->assertStringContainsString('polyglot-present-continuous-a1', $contents);
     }
 
@@ -301,7 +301,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotPastSimpleToBeLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-PAST-SIMPLE-TO-BE-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-PAST-SIMPLE-TO-BE-TEST', $contents);
         $this->assertStringContainsString('polyglot-past-simple-to-be-a1', $contents);
     }
 
@@ -340,7 +340,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotPastSimpleRegularVerbsLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-PAST-SIMPLE-REGULAR-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-PAST-SIMPLE-REGULAR-TEST', $contents);
         $this->assertStringContainsString('polyglot-past-simple-regular-verbs-a1', $contents);
     }
 
@@ -379,7 +379,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotPastSimpleIrregularVerbsLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-PAST-SIMPLE-IRREGULAR-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-PAST-SIMPLE-IRREGULAR-TEST', $contents);
         $this->assertStringContainsString('polyglot-past-simple-irregular-verbs-a1', $contents);
     }
 
@@ -418,7 +418,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotFutureSimpleWillLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-FUTURE-SIMPLE-WILL-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-FUTURE-SIMPLE-WILL-TEST', $contents);
         $this->assertStringContainsString('polyglot-future-simple-will-a1', $contents);
     }
 
@@ -457,7 +457,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotArticlesAAnTheLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-ARTICLES-A-AN-THE-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-ARTICLES-A-AN-THE-TEST', $contents);
         $this->assertStringContainsString('polyglot-articles-a-an-the-a1', $contents);
     }
 
@@ -496,7 +496,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotSomeAnyLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-SOME-ANY-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-SOME-ANY-TEST', $contents);
         $this->assertStringContainsString('polyglot-some-any-a1', $contents);
     }
 
@@ -541,7 +541,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotMuchManyALotOfLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-MUCH-MANY-A-LOT-OF-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-MUCH-MANY-A-LOT-OF-TEST', $contents);
         $this->assertStringContainsString('polyglot-much-many-a-lot-of-a1', $contents);
     }
 
@@ -583,7 +583,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotComparativesLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-COMPARATIVES-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-COMPARATIVES-TEST', $contents);
         $this->assertStringContainsString('polyglot-comparatives-a1', $contents);
     }
 
@@ -625,7 +625,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotSuperlativesLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-SUPERLATIVES-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-SUPERLATIVES-TEST', $contents);
         $this->assertStringContainsString('polyglot-superlatives-a1', $contents);
     }
 
@@ -663,8 +663,214 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
             'database/seeders/V3/Polyglot/PolyglotFinalDrillLessonSeeder/definition.json',
             $output
         );
-        $this->assertStringContainsString('PROMPT ID: GLZ-PROMPT-FINAL-DRILL-TEST', $contents);
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-FINAL-DRILL-TEST', $contents);
         $this->assertStringContainsString('polyglot-final-drill-a1', $contents);
+    }
+
+    public function test_command_writes_present_perfect_basic_a2_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-present-perfect-basic-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'present-perfect',
+            'theoryPageSlug' => 'present-perfect-forms',
+            'lessonSlug' => 'polyglot-present-perfect-basic-a2',
+            'lessonOrder' => 1,
+            '--title' => 'Polyglot: present perfect basic (A2)',
+            '--topic' => 'present perfect basic',
+            '--seeder' => 'PolyglotPresentPerfectBasicLessonSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--next' => 'polyglot-present-perfect-vs-past-simple-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PRESENT-PERFECT-BASIC-A2-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Present Perfect: Forms and Use', $output);
+        $this->assertStringContainsString('/theory/present-perfect/present-perfect-forms', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPresentPerfectBasicLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString('CODEX PROMPT ID: GLZ-PROMPT-PRESENT-PERFECT-BASIC-A2-TEST', $contents);
+        $this->assertStringContainsString('polyglot-present-perfect-basic-a2', $contents);
+    }
+
+    public function test_command_writes_present_perfect_vs_past_simple_a2_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-present-perfect-vs-past-simple-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'tenses',
+            'theoryPageSlug' => 'present-perfect-vs-past-simple',
+            'lessonSlug' => 'polyglot-present-perfect-vs-past-simple-a2',
+            'lessonOrder' => 2,
+            '--title' => 'Polyglot: present perfect vs past simple (A2)',
+            '--topic' => 'present perfect vs past simple',
+            '--seeder' => 'PolyglotPresentPerfectVsPastSimpleLessonSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-present-perfect-basic-a2',
+            '--next' => 'polyglot-first-conditional-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PRESENT-PERFECT-VS-PAST-SIMPLE-A2-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Present Perfect vs Past Simple', $output);
+        $this->assertStringContainsString('/theory/tenses/present-perfect-vs-past-simple', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPresentPerfectVsPastSimpleLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-PRESENT-PERFECT-VS-PAST-SIMPLE-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-present-perfect-vs-past-simple-a2', $contents);
+    }
+
+    public function test_command_writes_first_conditional_a2_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-first-conditional-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'conditionals',
+            'theoryPageSlug' => 'first-conditional',
+            'lessonSlug' => 'polyglot-first-conditional-a2',
+            'lessonOrder' => 3,
+            '--title' => 'Polyglot: first conditional (A2)',
+            '--topic' => 'first conditional',
+            '--seeder' => 'PolyglotFirstConditionalLessonSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-present-perfect-vs-past-simple-a2',
+            '--next' => 'polyglot-be-going-to-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-FIRST-CONDITIONAL-A2-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: First Conditional', $output);
+        $this->assertStringContainsString('/theory/conditionals/first-conditional', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotFirstConditionalLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-FIRST-CONDITIONAL-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-first-conditional-a2', $contents);
+    }
+
+    public function test_command_writes_be_going_to_a2_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-be-going-to-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'maibutni-formy',
+            'theoryPageSlug' => 'will-vs-be-going-to',
+            'lessonSlug' => 'polyglot-be-going-to-a2',
+            'lessonOrder' => 4,
+            '--title' => 'Polyglot: be going to (A2)',
+            '--topic' => 'be going to',
+            '--seeder' => 'PolyglotBeGoingToLessonSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-first-conditional-a2',
+            '--next' => 'polyglot-should-ought-to-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-BE-GOING-TO-A2-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Will vs Be Going To — Вибір форми', $output);
+        $this->assertStringContainsString('/theory/maibutni-formy/will-vs-be-going-to', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotBeGoingToLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-BE-GOING-TO-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-be-going-to-a2', $contents);
+    }
+
+    public function test_command_writes_should_ought_to_a2_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-should-ought-to-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'modal-verbs',
+            'theoryPageSlug' => 'should-ought-to',
+            'lessonSlug' => 'polyglot-should-ought-to-a2',
+            'lessonOrder' => 5,
+            '--title' => 'Polyglot: should / ought to (A2)',
+            '--topic' => 'should / ought to',
+            '--seeder' => 'PolyglotShouldOughtToLessonSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-be-going-to-a2',
+            '--next' => 'polyglot-must-have-to-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-SHOULD-OUGHT-TO-A2-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Should / Ought to', $output);
+        $this->assertStringContainsString('/theory/modal-verbs/should-ought-to', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotShouldOughtToLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-SHOULD-OUGHT-TO-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-should-ought-to-a2', $contents);
     }
 
     public function test_skeleton_writer_creates_canonical_package_and_respects_force_flag(): void

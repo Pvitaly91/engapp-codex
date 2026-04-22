@@ -37,9 +37,10 @@ Notes:
 The generated prompt must already contain these wrappers:
 
 ```text
-PROMPT ID: GLZ-PROMPT-....
+CODEX PROMPT ID: GLZ-PROMPT-....
 
 Codex Summary (Top):
+CODEX PROMPT ID: GLZ-PROMPT-....
 - Мета:
 - Що саме зробити:
 - Ключові обмеження / адаптації:
@@ -48,15 +49,16 @@ Codex Summary (Top):
 ...
 
 Codex Summary (Bottom):
+CODEX PROMPT ID: GLZ-PROMPT-....
 - Мета:
 - Що саме зробити:
 - Ключові обмеження / адаптації:
 - Підсумковий результат:
 
-PROMPT ID: GLZ-PROMPT-....
+CODEX PROMPT ID: GLZ-PROMPT-....
 ```
 
-And inside the prompt body there must be a `FORMAT OF YOUR RESPONSE — REQUIRED` section that forces Codex to repeat the same Prompt ID and Codex Summary at the top and bottom of its own final answer.
+And inside the prompt body there must be a `FORMAT OF YOUR RESPONSE — REQUIRED` section that forces Codex to repeat the same `CODEX PROMPT ID:` line and Codex Summary at the top and bottom of its own final answer.
 
 ## Canonical V3 Polyglot File Layout
 

@@ -164,6 +164,9 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('Do not use vague clue phrasing like');
         $response->assertSee('A1: 4 question(s)');
         $response->assertSee('B1: 4 question(s)');
+
+        $content = str_replace("\r\n", "\n", $response->getContent());
+        $this->assertPromptCardEnvelope($content, 'v3-single', '/^CODEX PROMPT ID: V3-PROMPT-[A-F0-9]{8}$/');
     }
 
     public function test_supports_nested_ai_namespace_targets(): void
@@ -238,6 +241,12 @@ class V3PromptGeneratorTest extends TestCase
         $response->assertSee('create or enrich the companion `localizations/uk.json` file inside the seeder package');
         $response->assertSee('Avoid generic repeated templates like');
         $response->assertSee('database/seeders/V3/AI/ChatGptPro/PassiveVoiceV3QuestionsOnlySeeder/definition.json');
+
+        $content = str_replace("\r\n", "\n", $response->getContent());
+        $llmPromptIdLine = $this->assertPromptCardEnvelope($content, 'v3-llm_json', '/^CODEX PROMPT ID: V3-PROMPT-[A-F0-9]{8}$/');
+        $codexPromptIdLine = $this->assertPromptCardEnvelope($content, 'v3-codex_seeder', '/^CODEX PROMPT ID: V3-PROMPT-[A-F0-9]{8}$/');
+
+        $this->assertNotSame($llmPromptIdLine, $codexPromptIdLine);
     }
 
     public function test_rejects_unsafe_external_url_hosts(): void
@@ -303,5 +312,47 @@ class V3PromptGeneratorTest extends TestCase
         ]);
 
         return $page;
+    }
+
+    private function assertPromptCardEnvelope(string $content, string $prefix, string $promptIdPattern): string
+    {
+        $topPromptId = $this->extractInputValue($content, $prefix . '-prompt-id-top');
+        $bottomPromptId = $this->extractInputValue($content, $prefix . '-prompt-id-bottom');
+        $summaryTop = $this->extractTextareaValue($content, $prefix . '-summary-top');
+        $summaryBottom = $this->extractTextareaValue($content, $prefix . '-summary-bottom');
+        $promptText = $this->extractTextareaValue($content, $prefix . '-text');
+
+        $this->assertMatchesRegularExpression($promptIdPattern, $topPromptId);
+        $this->assertSame($topPromptId, $bottomPromptId);
+        $this->assertStringStartsWith($topPromptId, $promptText);
+        $this->assertStringEndsWith("\n\n" . $topPromptId, $promptText);
+        $this->assertStringContainsString('Codex Summary (Top):' . "\n" . $topPromptId, $summaryTop);
+        $this->assertStringContainsString('Codex Summary (Bottom):' . "\n" . $topPromptId, $summaryBottom);
+        $this->assertStringContainsString($summaryTop, $promptText);
+        $this->assertStringContainsString($summaryBottom, $promptText);
+
+        return $topPromptId;
+    }
+
+    private function extractInputValue(string $content, string $id): string
+    {
+        $this->assertMatchesRegularExpression(
+            '/id="' . preg_quote($id, '/') . '"[^>]*value="([^"]*)"/s',
+            $content
+        );
+        preg_match('/id="' . preg_quote($id, '/') . '"[^>]*value="([^"]*)"/s', $content, $matches);
+
+        return html_entity_decode($matches[1] ?? '', ENT_QUOTES);
+    }
+
+    private function extractTextareaValue(string $content, string $id): string
+    {
+        $this->assertMatchesRegularExpression(
+            '/<textarea[^>]*id="' . preg_quote($id, '/') . '"[^>]*>(.*?)<\/textarea>/s',
+            $content
+        );
+        preg_match('/<textarea[^>]*id="' . preg_quote($id, '/') . '"[^>]*>(.*?)<\/textarea>/s', $content, $matches);
+
+        return str_replace("\r\n", "\n", html_entity_decode($matches[1] ?? '', ENT_QUOTES));
     }
 }

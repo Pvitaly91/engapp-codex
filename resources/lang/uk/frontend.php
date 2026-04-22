@@ -281,6 +281,7 @@ return [
             'in_progress_summary' => 'Прогрес зберігається на цьому пристрої',
             'all_lessons_completed' => 'Усі уроки завершено',
             'repeat_course' => 'Повторити курс',
+            'continue_with_polyglot_a2' => 'Продовжити з Polyglot A2',
             'restart_course' => 'Почати курс заново',
             'back_to_lessons' => 'Повернутися до уроків',
             'course_fully_available' => 'Курс повністю доступний',

@@ -346,30 +346,11 @@
                     .
                 </div>
 
-                @foreach ($result['prompts'] as $prompt)
-                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                        <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
-                            <div>
-                                <h2 class="text-lg font-semibold text-slate-900">{{ $prompt['title'] }}</h2>
-                                <p class="mt-1 text-sm text-slate-500">Copy-ready текст без додаткової постобробки.</p>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="text-xs text-slate-500" x-show="copyStates['prompt-{{ $prompt['key'] }}']" x-cloak>Copied</span>
-                                <button
-                                    type="button"
-                                    @click="copyById('prompt-{{ $prompt['key'] }}')"
-                                    class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-                                >
-                                    Copy
-                                </button>
-                            </div>
-                        </div>
-                        <textarea
-                            id="prompt-{{ $prompt['key'] }}"
-                            readonly
-                            class="min-h-[320px] w-full rounded-2xl border border-slate-200 bg-slate-950 p-4 font-mono text-sm leading-6 text-slate-100 shadow-inner focus:border-slate-400 focus:ring-slate-400"
-                        >{{ $prompt['text'] }}</textarea>
-                    </div>
+                @foreach ($promptCards as $prompt)
+                    @include('admin.partials.codex-prompt-card', [
+                        'prompt' => $prompt,
+                        'idPrefix' => 'page-v3-' . $prompt['key'],
+                    ])
                 @endforeach
             </section>
         @endif

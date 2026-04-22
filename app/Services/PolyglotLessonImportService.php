@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Question;
 use App\Models\SavedGrammarTest;
 use App\Models\Source;
+use App\Support\PromptGeneratorFilterNormalizer;
 use App\Support\Database\QuestionUuidResolver;
 use App\Support\PolyglotLessonSchemaValidator;
 use Illuminate\Support\Facades\DB;
@@ -232,7 +233,7 @@ class PolyglotLessonImportService
 
     private function buildSavedTestFilters(array $testPayload): array
     {
-        return [
+        $filters = [
             'mode' => 'compose_tokens',
             'question_type' => (int) Question::TYPE_COMPOSE_TOKENS,
             'lesson_type' => 'polyglot',
@@ -250,6 +251,14 @@ class PolyglotLessonImportService
             'topic' => $testPayload['topic'],
             'level' => $testPayload['level'],
         ];
+
+        $promptGenerator = PromptGeneratorFilterNormalizer::normalize($testPayload['prompt_generator'] ?? null);
+
+        if (is_array($promptGenerator) && $promptGenerator !== []) {
+            $filters['prompt_generator'] = $promptGenerator;
+        }
+
+        return $filters;
     }
 
     private function buildAnswerRows(array $tokens): array

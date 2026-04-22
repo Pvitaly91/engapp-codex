@@ -281,6 +281,7 @@ return [
             'in_progress_summary' => 'Progress is stored on this device',
             'all_lessons_completed' => 'All lessons completed',
             'repeat_course' => 'Repeat course',
+            'continue_with_polyglot_a2' => 'Continue with Polyglot A2',
             'restart_course' => 'Start course again',
             'back_to_lessons' => 'Back to lessons',
             'course_fully_available' => 'Course fully available',

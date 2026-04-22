@@ -17,6 +17,16 @@
         "completion": {
             "rolling_window": 100,
             "min_rating": 4.5
+        },
+        "prompt_generator": {
+            "source_type": "theory_page",
+            "theory_page": {
+                "slug": "verb-to-be-present",
+                "title": "Verb to Be: Present Forms",
+                "category_slug_path": "basic-grammar/verb-to-be",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBePresentTheorySeeder",
+                "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-present"
+            }
         }
     },
     "items": [

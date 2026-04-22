@@ -9,6 +9,9 @@
     $completionRating = (float) ($firstLessonCompletion['min_rating'] ?? 4.5);
     $heroUrl = data_get($firstLesson, 'compose_url');
     $courseContentComplete = $implementedLessonsCount >= $plannedTotalLessons && $plannedLessonsCount === 0;
+    $a2CourseUrl = ($course['slug'] ?? null) === 'polyglot-english-a1'
+        ? localized_route('courses.show', 'polyglot-english-a2')
+        : null;
     $courseManifestPayload = [
         'course' => $course,
         'lessons' => $lessons,
@@ -103,6 +106,14 @@
                             {{ __('frontend.tests.course.repeat_course') }}
                         </a>
                     @endif
+                    @if($a2CourseUrl)
+                        <a href="{{ $a2CourseUrl }}"
+                           data-course-continue-a2-link
+                           class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold transition hover:opacity-95"
+                           style="border-color: var(--line);">
+                            {{ __('frontend.tests.course.continue_with_polyglot_a2') }}
+                        </a>
+                    @endif
                     <a href="#polyglot-course-lessons"
                        class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold transition hover:opacity-95"
                        style="border-color: var(--line);">
@@ -129,6 +140,14 @@
                        data-course-repeat-link
                        class="inline-flex items-center justify-center rounded-full bg-ocean px-5 py-3 text-sm font-extrabold text-white shadow-sm transition hover:opacity-95">
                         {{ __('frontend.tests.course.repeat_course') }}
+                    </a>
+                @endif
+                @if($a2CourseUrl)
+                    <a href="{{ $a2CourseUrl }}"
+                       data-course-continue-a2-link
+                       class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold transition hover:opacity-95"
+                       style="border-color: #17603a; color: #17603a;">
+                        {{ __('frontend.tests.course.continue_with_polyglot_a2') }}
                     </a>
                 @endif
                 <button type="button"

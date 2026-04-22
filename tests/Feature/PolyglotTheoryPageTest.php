@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Page;
+use App\Services\TheoryPagePromptLinkedTestsService;
 use Database\Seeders\Page_V3\Adjectives\AdjectivesCategorySeeder;
 use Database\Seeders\Page_V3\Adjectives\AdjectivesComparativeVsSuperlativeTheorySeeder;
 use Database\Seeders\Page_V3\Adjectives\AdjectivesDegreesOfComparisonTheorySeeder;
@@ -14,6 +15,8 @@ use Database\Seeders\Page_V3\BasicGrammar\VerbToBe\ThereIsThereAreTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\VerbToBe\VerbToBeCategorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\VerbToBe\VerbToBePastTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\VerbToBe\VerbToBePresentTheorySeeder;
+use Database\Seeders\Page_V3\Conditionals\ConditionalsCategorySeeder;
+use Database\Seeders\Page_V3\Conditionals\ConditionalsFirstTheorySeeder;
 use Database\Seeders\Page_V3\Articles\SomeAny\SomeAnyCategorySeeder;
 use Database\Seeders\Page_V3\Articles\SomeAny\SomeAnyThingsTheorySeeder;
 use Database\Seeders\Page_V3\CommonMistakes\CommonMistakesArticlesTheorySeeder;
@@ -22,21 +25,27 @@ use Database\Seeders\Page_V3\FutureForms\FutureFormsCategorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsWillVsBeGoingToTheorySeeder;
 use Database\Seeders\Page_V3\ModalVerbs\ModalVerbsCanCouldTheorySeeder;
 use Database\Seeders\Page_V3\ModalVerbs\ModalVerbsCategorySeeder;
+use Database\Seeders\Page_V3\ModalVerbs\ModalVerbsShouldOughtToTheorySeeder;
 use Database\Seeders\Page_V3\NounsArticlesQuantity\NounsArticlesQuantityCategorySeeder;
 use Database\Seeders\Page_V3\NounsArticlesQuantity\NounsArticlesQuantityQuantifiersTheorySeeder;
 use Database\Seeders\Page_V3\Tenses\PastSimple\PastSimpleCategorySeeder;
 use Database\Seeders\Page_V3\Tenses\PastSimple\PastSimpleFormsTheorySeeder;
 use Database\Seeders\Page_V3\Tenses\PresentContinuous\PresentContinuousCategorySeeder;
 use Database\Seeders\Page_V3\Tenses\PresentContinuous\PresentContinuousFormsTheorySeeder;
+use Database\Seeders\Page_V3\Tenses\PresentPerfect\PresentPerfectCategorySeeder;
+use Database\Seeders\Page_V3\Tenses\PresentPerfect\PresentPerfectFormsTheorySeeder;
 use Database\Seeders\Page_V3\Tenses\PresentSimple\PresentSimpleCategorySeeder;
 use Database\Seeders\Page_V3\Tenses\PresentSimple\PresentSimpleQuestionsTheorySeeder;
 use Database\Seeders\Page_V3\Tenses\TensesCategorySeeder;
+use Database\Seeders\Page_V3\Tenses\TensesPresentPerfectVsPastSimpleTheorySeeder;
 use Database\Seeders\V3\Polyglot\PolyglotCanCannotLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotArticlesAAnTheLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotBeGoingToLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotComparativesLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotFinalDrillLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotHaveGotHasGotLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotShouldOughtToLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotSuperlativesLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotSomeAnyLessonSeeder;
@@ -44,6 +53,9 @@ use Database\Seeders\V3\Polyglot\PolyglotMuchManyALotOfLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentContinuousLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotFirstConditionalLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectBasicLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectVsPastSimpleLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentSimpleVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotThereIsThereAreLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotToBeLessonSeeder;
@@ -88,6 +100,9 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(PolyglotComparativesLessonSeeder::class);
         $this->seed(PolyglotSuperlativesLessonSeeder::class);
         $this->seed(PolyglotFinalDrillLessonSeeder::class);
+        $this->seed(PolyglotFirstConditionalLessonSeeder::class);
+        $this->seed(PolyglotBeGoingToLessonSeeder::class);
+        $this->seed(PolyglotShouldOughtToLessonSeeder::class);
 
         $toBePage = Page::query()
             ->where('slug', 'verb-to-be-present')
@@ -104,6 +119,9 @@ class PolyglotTheoryPageTest extends TestCase
         $canCouldPage = Page::query()
             ->where('slug', 'can-could')
             ->firstOrFail();
+        $shouldOughtPage = Page::query()
+            ->where('slug', 'should-ought-to')
+            ->firstOrFail();
         $presentContinuousPage = Page::query()
             ->where('slug', 'present-continuous-forms')
             ->firstOrFail();
@@ -115,6 +133,9 @@ class PolyglotTheoryPageTest extends TestCase
             ->firstOrFail();
         $futureSimplePage = Page::query()
             ->where('slug', 'will-vs-be-going-to')
+            ->firstOrFail();
+        $firstConditionalPage = Page::query()
+            ->where('slug', 'first-conditional')
             ->firstOrFail();
         $articlesPage = Page::query()
             ->where('slug', 'articles-common-mistakes')
@@ -140,10 +161,12 @@ class PolyglotTheoryPageTest extends TestCase
         $haveGotResponse = $this->get(route('theory.show', ['basic-grammar', $haveGotPage->slug]));
         $presentSimpleResponse = $this->get(route('theory.show', ['present-simple', $presentSimplePage->slug]));
         $canCouldResponse = $this->get(route('theory.show', ['modal-verbs', $canCouldPage->slug]));
+        $shouldOughtResponse = $this->get(route('theory.show', ['modal-verbs', $shouldOughtPage->slug]));
         $presentContinuousResponse = $this->get(route('theory.show', ['present-continuous', $presentContinuousPage->slug]));
         $pastToBeResponse = $this->get(route('theory.show', ['verb-to-be', $pastToBePage->slug]));
         $pastSimpleRegularResponse = $this->get(route('theory.show', ['past-simple', $pastSimpleRegularPage->slug]));
         $futureSimpleResponse = $this->get(route('theory.show', ['maibutni-formy', $futureSimplePage->slug]));
+        $firstConditionalResponse = $this->get(route('theory.show', ['conditionals', $firstConditionalPage->slug]));
         $articlesResponse = $this->get(route('theory.show', ['common-mistakes', $articlesPage->slug]));
         $someAnyResponse = $this->get(route('theory.show', ['some-any', $someAnyPage->slug]));
         $quantifiersResponse = $this->get(route('theory.show', ['imennyky-artykli-ta-kilkist', $quantifiersPage->slug]));
@@ -151,35 +174,43 @@ class PolyglotTheoryPageTest extends TestCase
         $superlativesResponse = $this->get(route('theory.show', ['prykmetniky-ta-pryslinknyky', $superlativesPage->slug]));
         $finalDrillResponse = $this->get(route('theory.show', ['basic-grammar', $finalDrillPage->slug]));
 
-        $assertMergedTopicTests = function ($response): void {
+        $assertPolyglotTopicTests = function ($response, array $expectedSlugs): void {
             $response->assertOk();
-            $response->assertDontSee('Polyglot:');
-            $response->assertViewHas('topicTests', function ($tests) {
+            $response->assertViewHas('topicTests', function ($tests) use ($expectedSlugs) {
                 $topicTests = collect($tests);
-                $hasDirectPolyglotSlug = $topicTests->pluck('slug')
+                $slugs = $topicTests->pluck('slug')
                     ->filter()
-                    ->contains(fn ($slug) => is_string($slug) && str_starts_with($slug, 'polyglot-'));
+                    ->values();
 
                 return $topicTests->isNotEmpty()
-                    && ! $hasDirectPolyglotSlug;
+                    && collect($expectedSlugs)->diff($slugs)->isEmpty()
+                    && $slugs->every(fn ($slug) => is_string($slug) && str_starts_with($slug, 'polyglot-'));
             });
         };
 
-        $assertMergedTopicTests($toBeResponse);
-        $assertMergedTopicTests($thereResponse);
-        $assertMergedTopicTests($haveGotResponse);
-        $assertMergedTopicTests($presentSimpleResponse);
-        $assertMergedTopicTests($canCouldResponse);
-        $assertMergedTopicTests($presentContinuousResponse);
-        $assertMergedTopicTests($pastToBeResponse);
-        $assertMergedTopicTests($pastSimpleRegularResponse);
-        $assertMergedTopicTests($futureSimpleResponse);
-        $assertMergedTopicTests($articlesResponse);
-        $assertMergedTopicTests($someAnyResponse);
-        $assertMergedTopicTests($quantifiersResponse);
-        $assertMergedTopicTests($comparativesResponse);
-        $assertMergedTopicTests($superlativesResponse);
-        $assertMergedTopicTests($finalDrillResponse);
+        $assertPolyglotTopicTests($toBeResponse, ['polyglot-to-be-a1']);
+        $assertPolyglotTopicTests($thereResponse, ['polyglot-there-is-there-are-a1']);
+        $assertPolyglotTopicTests($haveGotResponse, ['polyglot-have-got-has-got-a1']);
+        $assertPolyglotTopicTests($presentSimpleResponse, ['polyglot-present-simple-verbs-a1']);
+        $assertPolyglotTopicTests($canCouldResponse, ['polyglot-can-cannot-a1']);
+        $assertPolyglotTopicTests($shouldOughtResponse, ['polyglot-should-ought-to-a2']);
+        $assertPolyglotTopicTests($presentContinuousResponse, ['polyglot-present-continuous-a1']);
+        $assertPolyglotTopicTests($pastToBeResponse, ['polyglot-past-simple-to-be-a1']);
+        $assertPolyglotTopicTests($pastSimpleRegularResponse, [
+            'polyglot-past-simple-regular-verbs-a1',
+            'polyglot-past-simple-irregular-verbs-a1',
+        ]);
+        $assertPolyglotTopicTests($futureSimpleResponse, [
+            'polyglot-future-simple-will-a1',
+            'polyglot-be-going-to-a2',
+        ]);
+        $assertPolyglotTopicTests($firstConditionalResponse, ['polyglot-first-conditional-a2']);
+        $assertPolyglotTopicTests($articlesResponse, ['polyglot-articles-a-an-the-a1']);
+        $assertPolyglotTopicTests($someAnyResponse, ['polyglot-some-any-a1']);
+        $assertPolyglotTopicTests($quantifiersResponse, ['polyglot-much-many-a-lot-of-a1']);
+        $assertPolyglotTopicTests($comparativesResponse, ['polyglot-comparatives-a1']);
+        $assertPolyglotTopicTests($superlativesResponse, ['polyglot-superlatives-a1']);
+        $assertPolyglotTopicTests($finalDrillResponse, ['polyglot-final-drill-a1']);
     }
 
     public function test_non_related_theory_page_does_not_show_unrelated_polyglot_lessons(): void
@@ -202,6 +233,9 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(PolyglotComparativesLessonSeeder::class);
         $this->seed(PolyglotSuperlativesLessonSeeder::class);
         $this->seed(PolyglotFinalDrillLessonSeeder::class);
+        $this->seed(PolyglotFirstConditionalLessonSeeder::class);
+        $this->seed(PolyglotBeGoingToLessonSeeder::class);
+        $this->seed(PolyglotShouldOughtToLessonSeeder::class);
 
         $page = Page::query()
             ->where('slug', 'sentence-types')
@@ -226,6 +260,9 @@ class PolyglotTheoryPageTest extends TestCase
         $response->assertDontSee('Polyglot: comparative adjectives (A1)');
         $response->assertDontSee('Polyglot: superlatives (A1)');
         $response->assertDontSee('Polyglot: mixed revision / final drill (A1)');
+        $response->assertDontSee('Polyglot: first conditional (A2)');
+        $response->assertDontSee('Polyglot: be going to (A2)');
+        $response->assertDontSee('Polyglot: should / ought to (A2)');
         $response->assertViewHas('topicTests', function ($tests) {
             return collect($tests)->doesntContain(fn ($test) => in_array(
                 $test->slug ?? null,
@@ -246,9 +283,228 @@ class PolyglotTheoryPageTest extends TestCase
                     'polyglot-comparatives-a1',
                     'polyglot-superlatives-a1',
                     'polyglot-final-drill-a1',
+                    'polyglot-first-conditional-a2',
+                    'polyglot-be-going-to-a2',
+                    'polyglot-should-ought-to-a2',
                 ],
                 true
             ));
+        });
+    }
+
+    public function test_present_perfect_theory_page_resolves_a2_polyglot_topic_tests_without_leaking_to_unrelated_pages(): void
+    {
+        $this->seedTheoryPages();
+        $this->seed(BasicGrammarSentenceTypesTheorySeeder::class);
+        $this->seed(PolyglotPresentPerfectBasicLessonSeeder::class);
+
+        $presentPerfectPage = Page::query()
+            ->where('slug', 'present-perfect-forms')
+            ->firstOrFail();
+        $sentenceTypesPage = Page::query()
+            ->where('slug', 'sentence-types')
+            ->firstOrFail();
+        $expectedDirectSlug = 'polyglot-present-perfect-basic-a2';
+        $service = app(TheoryPagePromptLinkedTestsService::class);
+
+        $this->assertTrue(
+            $service->buildForPage($presentPerfectPage)->contains(
+                fn ($test) => ($test->slug ?? null) === $expectedDirectSlug
+            )
+        );
+        $this->assertFalse(
+            $service->buildForPage($sentenceTypesPage)->contains(
+                fn ($test) => ($test->slug ?? null) === $expectedDirectSlug
+            )
+        );
+
+        $relevantResponse = $this->get(route('theory.show', ['present-perfect', $presentPerfectPage->slug]));
+        $unrelatedResponse = $this->get(route('theory.show', ['basic-grammar', $sentenceTypesPage->slug]));
+
+        $relevantResponse->assertOk();
+        $relevantResponse->assertViewHas('topicTests', function ($tests) use ($expectedDirectSlug) {
+            return collect($tests)->contains(
+                fn ($test) => ($test->slug ?? null) === $expectedDirectSlug
+            );
+        });
+
+        $unrelatedResponse->assertOk();
+        $unrelatedResponse->assertViewHas('topicTests', function ($tests) use ($expectedDirectSlug) {
+            return collect($tests)->doesntContain(
+                fn ($test) => ($test->slug ?? null) === $expectedDirectSlug
+            );
+        });
+    }
+
+    public function test_present_perfect_vs_past_simple_theory_page_shows_a2_lesson_two_without_leaking_to_unrelated_pages(): void
+    {
+        $this->seedTheoryPages();
+        $this->seed(BasicGrammarSentenceTypesTheorySeeder::class);
+        $this->seed(PolyglotPresentPerfectVsPastSimpleLessonSeeder::class);
+
+        $relevantPage = Page::query()
+            ->where('slug', 'present-perfect-vs-past-simple')
+            ->firstOrFail();
+        $sentenceTypesPage = Page::query()
+            ->where('slug', 'sentence-types')
+            ->firstOrFail();
+        $service = app(TheoryPagePromptLinkedTestsService::class);
+
+        $this->assertTrue(
+            $service->buildForPage($relevantPage)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-present-perfect-vs-past-simple-a2'
+            )
+        );
+        $this->assertFalse(
+            $service->buildForPage($sentenceTypesPage)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-present-perfect-vs-past-simple-a2'
+            )
+        );
+
+        $relevantResponse = $this->get(route('theory.show', ['tenses', $relevantPage->slug]));
+        $unrelatedResponse = $this->get(route('theory.show', ['basic-grammar', $sentenceTypesPage->slug]));
+
+        $relevantResponse->assertOk();
+        $relevantResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-present-perfect-vs-past-simple-a2'
+            );
+        });
+
+        $unrelatedResponse->assertOk();
+        $unrelatedResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->doesntContain(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-present-perfect-vs-past-simple-a2'
+            );
+        });
+    }
+
+    public function test_first_conditional_theory_page_shows_a2_lesson_three_without_leaking_to_unrelated_pages(): void
+    {
+        $this->seedTheoryPages();
+        $this->seed(BasicGrammarSentenceTypesTheorySeeder::class);
+        $this->seed(PolyglotFirstConditionalLessonSeeder::class);
+
+        $relevantPage = Page::query()
+            ->where('slug', 'first-conditional')
+            ->firstOrFail();
+        $sentenceTypesPage = Page::query()
+            ->where('slug', 'sentence-types')
+            ->firstOrFail();
+        $service = app(TheoryPagePromptLinkedTestsService::class);
+
+        $this->assertTrue(
+            $service->buildForPage($relevantPage)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-first-conditional-a2'
+            )
+        );
+        $this->assertFalse(
+            $service->buildForPage($sentenceTypesPage)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-first-conditional-a2'
+            )
+        );
+
+        $relevantResponse = $this->get(route('theory.show', ['conditionals', $relevantPage->slug]));
+        $unrelatedResponse = $this->get(route('theory.show', ['basic-grammar', $sentenceTypesPage->slug]));
+
+        $relevantResponse->assertOk();
+        $relevantResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-first-conditional-a2'
+            );
+        });
+
+        $unrelatedResponse->assertOk();
+        $unrelatedResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->doesntContain(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-first-conditional-a2'
+            );
+        });
+    }
+
+    public function test_be_going_to_theory_page_shows_a2_lesson_four_without_leaking_to_unrelated_pages(): void
+    {
+        $this->seedTheoryPages();
+        $this->seed(BasicGrammarSentenceTypesTheorySeeder::class);
+        $this->seed(PolyglotBeGoingToLessonSeeder::class);
+
+        $relevantPage = Page::query()
+            ->where('slug', 'will-vs-be-going-to')
+            ->firstOrFail();
+        $sentenceTypesPage = Page::query()
+            ->where('slug', 'sentence-types')
+            ->firstOrFail();
+        $service = app(TheoryPagePromptLinkedTestsService::class);
+
+        $this->assertTrue(
+            $service->buildForPage($relevantPage)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-be-going-to-a2'
+            )
+        );
+        $this->assertFalse(
+            $service->buildForPage($sentenceTypesPage)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-be-going-to-a2'
+            )
+        );
+
+        $relevantResponse = $this->get(route('theory.show', ['maibutni-formy', $relevantPage->slug]));
+        $unrelatedResponse = $this->get(route('theory.show', ['basic-grammar', $sentenceTypesPage->slug]));
+
+        $relevantResponse->assertOk();
+        $relevantResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-be-going-to-a2'
+            );
+        });
+
+        $unrelatedResponse->assertOk();
+        $unrelatedResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->doesntContain(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-be-going-to-a2'
+            );
+        });
+    }
+
+    public function test_should_ought_to_theory_page_shows_a2_lesson_five_without_leaking_to_unrelated_pages(): void
+    {
+        $this->seedTheoryPages();
+        $this->seed(BasicGrammarSentenceTypesTheorySeeder::class);
+        $this->seed(PolyglotShouldOughtToLessonSeeder::class);
+
+        $relevantPage = Page::query()
+            ->where('slug', 'should-ought-to')
+            ->firstOrFail();
+        $sentenceTypesPage = Page::query()
+            ->where('slug', 'sentence-types')
+            ->firstOrFail();
+        $service = app(TheoryPagePromptLinkedTestsService::class);
+
+        $this->assertTrue(
+            $service->buildForPage($relevantPage)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-should-ought-to-a2'
+            )
+        );
+        $this->assertFalse(
+            $service->buildForPage($sentenceTypesPage)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-should-ought-to-a2'
+            )
+        );
+
+        $relevantResponse = $this->get(route('theory.show', ['modal-verbs', $relevantPage->slug]));
+        $unrelatedResponse = $this->get(route('theory.show', ['basic-grammar', $sentenceTypesPage->slug]));
+
+        $relevantResponse->assertOk();
+        $relevantResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-should-ought-to-a2'
+            );
+        });
+
+        $unrelatedResponse->assertOk();
+        $unrelatedResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->doesntContain(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-should-ought-to-a2'
+            );
         });
     }
 
@@ -322,9 +578,11 @@ class PolyglotTheoryPageTest extends TestCase
     {
         $this->seed(BasicGrammarCategorySeeder::class);
         $this->seed(VerbToBeCategorySeeder::class);
+        $this->seed(ConditionalsCategorySeeder::class);
         $this->seed(TensesCategorySeeder::class);
         $this->seed(PastSimpleCategorySeeder::class);
         $this->seed(PresentContinuousCategorySeeder::class);
+        $this->seed(PresentPerfectCategorySeeder::class);
         $this->seed(PresentSimpleCategorySeeder::class);
         $this->seed(ModalVerbsCategorySeeder::class);
         $this->seed(FutureFormsCategorySeeder::class);
@@ -339,8 +597,12 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(VerbToBePastTheorySeeder::class);
         $this->seed(PastSimpleFormsTheorySeeder::class);
         $this->seed(PresentContinuousFormsTheorySeeder::class);
+        $this->seed(PresentPerfectFormsTheorySeeder::class);
         $this->seed(PresentSimpleQuestionsTheorySeeder::class);
+        $this->seed(ConditionalsFirstTheorySeeder::class);
+        $this->seed(TensesPresentPerfectVsPastSimpleTheorySeeder::class);
         $this->seed(ModalVerbsCanCouldTheorySeeder::class);
+        $this->seed(ModalVerbsShouldOughtToTheorySeeder::class);
         $this->seed(FutureFormsWillVsBeGoingToTheorySeeder::class);
         $this->seed(CommonMistakesArticlesTheorySeeder::class);
         $this->seed(SomeAnyThingsTheorySeeder::class);

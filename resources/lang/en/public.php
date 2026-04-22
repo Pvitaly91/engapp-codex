@@ -137,6 +137,8 @@ return [
         'theory_desc' => 'Structured explanations for grammar topics with friendly URLs.',
         'polyglot_title' => 'Polyglot English A1',
         'polyglot_desc' => 'A guided course with compose-token lessons, progress tracking and unlock flow.',
+        'polyglot_a2_title' => 'Polyglot English A2',
+        'polyglot_a2_desc' => 'The new A2 track starts with Present Perfect and a 16-lesson roadmap for conditionals, modal verbs, and mixed revision.',
         'words_title' => 'Vocabulary trainer',
         'words_desc' => 'Train vocabulary with adaptive difficulty levels.',
         'verbs_title' => 'Verb form practice',

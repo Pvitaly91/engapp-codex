@@ -137,6 +137,8 @@ return [
         'theory_desc' => 'Структуровані пояснення граматики з дружніми URL.',
         'polyglot_title' => 'Polyglot English A1',
         'polyglot_desc' => 'Покроковий курс з compose-token уроками, прогресом і розблокуванням наступних lesson.',
+        'polyglot_a2_title' => 'Polyglot English A2',
+        'polyglot_a2_desc' => 'Новий A2 курс стартує з Present Perfect і має 16-урочний roadmap для conditionals, modal verbs та mixed revision.',
         'words_title' => 'Лексичний тренажер',
         'words_desc' => 'Тренуйте лексику з адаптивною складністю.',
         'verbs_title' => 'Практика форм',

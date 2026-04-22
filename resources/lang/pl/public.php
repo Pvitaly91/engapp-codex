@@ -183,6 +183,8 @@ return [
         'theory_desc' => 'Uporządkowane wyjaśnienia gramatyki z przyjaznymi adresami URL.',
         'polyglot_title' => 'Polyglot English A1',
         'polyglot_desc' => 'Prowadzony kurs z lekcjami compose-token, śledzeniem postępów i odblokowywaniem kolejnych etapów.',
+        'polyglot_a2_title' => 'Polyglot English A2',
+        'polyglot_a2_desc' => 'Nowy kurs A2 startuje od Present Perfect i ma 16-lekcyjny roadmap dla conditionals, modal verbs i mixed revision.',
         'words_title' => 'Trening słownictwa',
         'words_desc' => 'Trenuj słownictwo z adaptacyjnym poziomem trudności.',
         'verbs_title' => 'Ćwiczenie form',

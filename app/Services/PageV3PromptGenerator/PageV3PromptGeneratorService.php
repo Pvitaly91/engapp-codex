@@ -3,16 +3,20 @@
 namespace App\Services\PageV3PromptGenerator;
 
 use App\Services\PageV3PromptGenerator\Data\PagePromptGenerationInput;
+use App\Support\CodexPromptEnvelopeFormatter;
 use App\Services\V3PromptGenerator\ExternalTheoryUrlService;
 use Illuminate\Support\Str;
 use RuntimeException;
 
 class PageV3PromptGeneratorService
 {
+    private const PROMPT_ID_PREFIX = 'PAGE-V3-PROMPT-';
+
     public function __construct(
         private TheoryCategorySearchService $theoryCategorySearchService,
         private ExternalTheoryUrlService $externalTheoryUrlService,
         private PageV3BlueprintService $pageV3BlueprintService,
+        private CodexPromptEnvelopeFormatter $codexPromptEnvelopeFormatter,
     ) {
     }
 
@@ -93,22 +97,34 @@ class PageV3PromptGeneratorService
         );
 
         $prompts = $input->generationMode === 'single'
-            ? [[
-                'key' => 'single',
-                'title' => 'Prompt for Codex',
-                'text' => $this->buildSinglePrompt($source, $category, $categoryCatalog, $preview, $referenceFiles),
-            ]]
+            ? [$this->buildPromptItem(
+                $input,
+                $source,
+                $category,
+                $preview,
+                'single',
+                'Prompt for Codex',
+                $this->buildSinglePrompt($source, $category, $categoryCatalog, $preview, $referenceFiles),
+            )]
             : [
-                [
-                    'key' => 'llm_json_pack',
-                    'title' => 'Prompt for LLM JSON generation',
-                    'text' => $this->buildLlmJsonPrompt($input, $source, $category, $categoryCatalog, $preview, $referenceFiles),
-                ],
-                [
-                    'key' => 'codex_page_v3',
-                    'title' => 'Prompt for Codex seeder generation',
-                    'text' => $this->buildCodexSeederPrompt($source, $category, $categoryCatalog, $preview, $referenceFiles),
-                ],
+                $this->buildPromptItem(
+                    $input,
+                    $source,
+                    $category,
+                    $preview,
+                    'llm_json_pack',
+                    'Prompt for LLM JSON generation',
+                    $this->buildLlmJsonPrompt($input, $source, $category, $categoryCatalog, $preview, $referenceFiles),
+                ),
+                $this->buildPromptItem(
+                    $input,
+                    $source,
+                    $category,
+                    $preview,
+                    'codex_page_v3',
+                    'Prompt for Codex seeder generation',
+                    $this->buildCodexSeederPrompt($source, $category, $categoryCatalog, $preview, $referenceFiles),
+                ),
             ];
 
         return [
@@ -123,6 +139,157 @@ class PageV3PromptGeneratorService
             'prompt_a_mode_label' => $this->promptAModeLabel($input->promptAMode),
             'prompts' => $prompts,
         ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $source
+     * @param  array<string, mixed>  $category
+     * @param  array<string, mixed>  $preview
+     * @return array<string, mixed>
+     */
+    protected function buildPromptItem(
+        PagePromptGenerationInput $input,
+        array $source,
+        array $category,
+        array $preview,
+        string $key,
+        string $title,
+        string $body,
+    ): array {
+        $promptId = $this->buildPromptId($input, $source, $category, $preview, $key);
+        $summary = $this->buildPromptSummary($input, $source, $category, $preview, $key, $title);
+
+        return [
+            'key' => $key,
+            'title' => $title,
+            'prompt_id' => $promptId,
+            'prompt_id_text' => $this->codexPromptEnvelopeFormatter->formatPromptIdLine($promptId),
+            'summary' => $summary,
+            'summary_top_text' => $this->codexPromptEnvelopeFormatter->formatSummaryBlock('Top', $promptId, $summary),
+            'summary_bottom_text' => $this->codexPromptEnvelopeFormatter->formatSummaryBlock('Bottom', $promptId, $summary),
+            'text' => $this->codexPromptEnvelopeFormatter->wrapPrompt($promptId, $summary, $body),
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $source
+     * @param  array<string, mixed>  $category
+     * @param  array<string, mixed>  $preview
+     * @return array<string, string>
+     */
+    protected function buildPromptSummary(
+        PagePromptGenerationInput $input,
+        array $source,
+        array $category,
+        array $preview,
+        string $promptKey,
+        string $title,
+    ): array {
+        $modeLabel = $input->generationMode === 'split'
+            ? 'split / ' . $promptKey . ' / ' . $this->promptAModeLabel($input->promptAMode)
+            : 'single / Codex';
+        $sourceLabel = (string) ($source['source_label'] ?? $source['source_type'] ?? 'Unknown source');
+        $topic = trim((string) ($source['topic'] ?? ''));
+        $categorySummary = match ($category['mode'] ?? null) {
+            'existing' => sprintf(
+                'existing `%s` (%s)',
+                $category['selected_category']['title'] ?? '',
+                $category['selected_category']['slug'] ?? ''
+            ),
+            'new' => sprintf(
+                'new `%s` (%s)',
+                $category['new_category_title'] ?? '',
+                $category['new_category_slug'] ?? ''
+            ),
+            default => 'ai_select / choose-or-create',
+        };
+        $artifacts = match ($promptKey) {
+            'llm_json_pack' => $category['mode'] === 'existing'
+                ? sprintf(
+                    'JSON pack для page artifact `%s` і `en|pl` localizations без дублювання category files.',
+                    $preview['page_class_name'] ?? ''
+                )
+                : sprintf(
+                    'JSON pack для page artifact `%s` і category artifact `%s` з `en|pl` localizations.',
+                    $preview['page_class_name'] ?? '',
+                    $preview['category_class_name'] ?? ''
+                ),
+            'codex_page_v3' => $category['mode'] === 'existing'
+                ? sprintf(
+                    'Інтегрований Page_V3 package `%s` у вибрану category `%s`.',
+                    $preview['page_class_name'] ?? '',
+                    $preview['category_slug'] ?? ''
+                )
+                : sprintf(
+                    'Інтегрований Page_V3 package `%s` плюс category package `%s` за потреби.',
+                    $preview['page_class_name'] ?? '',
+                    $preview['category_class_name'] ?? ''
+                ),
+            default => $category['mode'] === 'existing'
+                ? sprintf(
+                    'Готовий Page_V3 package `%s` у category `%s` з base definition і `en|pl` localizations.',
+                    $preview['page_class_name'] ?? '',
+                    $preview['category_slug'] ?? ''
+                )
+                : sprintf(
+                    'Готовий Page_V3 package `%s` плюс category package `%s` з base definitions і `en|pl` localizations.',
+                    $preview['page_class_name'] ?? '',
+                    $preview['category_class_name'] ?? ''
+                ),
+        };
+
+        return [
+            'goal' => sprintf(
+                'Підготувати %s для теми "%s" (%s).',
+                $title,
+                $topic !== '' ? $topic : 'Untitled topic',
+                $sourceLabel
+            ),
+            'work' => sprintf(
+                'Category mode `%s`; category context %s; generation mode %s.',
+                $category['mode'] ?? '',
+                $categorySummary,
+                $modeLabel
+            ),
+            'constraints' => sprintf(
+                'Не ламати чинний Page_V3 schema/localization contract; source type `%s`; page target `%s`.',
+                $input->sourceType,
+                $preview['page_fully_qualified_class_name'] ?? ''
+            ),
+            'result' => $artifacts,
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $source
+     * @param  array<string, mixed>  $category
+     * @param  array<string, mixed>  $preview
+     */
+    protected function buildPromptId(
+        PagePromptGenerationInput $input,
+        array $source,
+        array $category,
+        array $preview,
+        string $promptKey,
+    ): string {
+        $seed = implode('|', [
+            $promptKey,
+            $input->sourceType,
+            $source['normalized_url'] ?? ($source['url'] ?? ''),
+            $source['topic'] ?? '',
+            $input->categoryMode,
+            $category['selected_category']['id'] ?? '',
+            $category['selected_category']['slug'] ?? '',
+            $category['new_category_title'] ?? '',
+            $category['new_category_slug'] ?? '',
+            $preview['category_slug'] ?? '',
+            $preview['page_class_name'] ?? '',
+            $preview['category_class_name'] ?? '',
+            $input->generationMode,
+            $input->promptAMode,
+        ]);
+
+        return self::PROMPT_ID_PREFIX . strtoupper(substr(sha1($seed), 0, 8));
     }
 
     /**

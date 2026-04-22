@@ -14,30 +14,61 @@ class GeneratePageV3PromptRequest extends FormRequest
 
     protected function prepareForValidation(): void
     {
-        $this->merge([
-            'source_type' => trim((string) $this->input('source_type', 'manual_topic')),
-            'manual_topic' => $this->filled('manual_topic') ? trim((string) $this->input('manual_topic')) : null,
-            'external_url' => $this->filled('external_url') ? trim((string) $this->input('external_url')) : null,
-            'category_mode' => trim((string) $this->input('category_mode', 'existing')),
-            'existing_category_id' => $this->filled('existing_category_id') ? (int) $this->input('existing_category_id') : null,
-            'new_category_title' => $this->filled('new_category_title') ? trim((string) $this->input('new_category_title')) : null,
-            'generation_mode' => trim((string) $this->input('generation_mode', 'single')),
-            'prompt_a_mode' => trim((string) $this->input('prompt_a_mode', 'repository_connected')),
-        ]);
+        $this->merge(self::normalizeInput($this->all()));
     }
 
     public function rules(): array
     {
+        return self::sharedRules($this->all());
+    }
+
+    public function messages(): array
+    {
+        return self::sharedMessages();
+    }
+
+    public function attributes(): array
+    {
+        return self::sharedAttributes();
+    }
+
+    /**
+     * @param  array<string, mixed>  $input
+     * @return array<string, mixed>
+     */
+    public static function normalizeInput(array $input): array
+    {
+        return [
+            'source_type' => trim((string) ($input['source_type'] ?? 'manual_topic')),
+            'manual_topic' => filled($input['manual_topic'] ?? null) ? trim((string) $input['manual_topic']) : null,
+            'external_url' => filled($input['external_url'] ?? null) ? trim((string) $input['external_url']) : null,
+            'category_mode' => trim((string) ($input['category_mode'] ?? 'existing')),
+            'existing_category_id' => filled($input['existing_category_id'] ?? null) ? (int) $input['existing_category_id'] : null,
+            'new_category_title' => filled($input['new_category_title'] ?? null) ? trim((string) $input['new_category_title']) : null,
+            'generation_mode' => trim((string) ($input['generation_mode'] ?? 'single')),
+            'prompt_a_mode' => trim((string) ($input['prompt_a_mode'] ?? 'repository_connected')),
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $input
+     * @return array<string, mixed>
+     */
+    public static function sharedRules(array $input): array
+    {
+        $sourceType = (string) ($input['source_type'] ?? 'manual_topic');
+        $categoryMode = (string) ($input['category_mode'] ?? 'existing');
+
         return [
             'source_type' => ['required', Rule::in(['manual_topic', 'external_url'])],
             'manual_topic' => [
-                Rule::requiredIf(fn () => $this->input('source_type') === 'manual_topic'),
+                Rule::requiredIf($sourceType === 'manual_topic'),
                 'nullable',
                 'string',
                 'max:255',
             ],
             'external_url' => [
-                Rule::requiredIf(fn () => $this->input('source_type') === 'external_url'),
+                Rule::requiredIf($sourceType === 'external_url'),
                 'nullable',
                 'string',
                 'max:2000',
@@ -45,13 +76,13 @@ class GeneratePageV3PromptRequest extends FormRequest
             ],
             'category_mode' => ['required', Rule::in(['existing', 'new', 'ai_select'])],
             'existing_category_id' => [
-                Rule::requiredIf(fn () => $this->input('category_mode') === 'existing'),
+                Rule::requiredIf($categoryMode === 'existing'),
                 'nullable',
                 'integer',
                 Rule::exists('page_categories', 'id')->where(fn ($query) => $query->where('type', 'theory')),
             ],
             'new_category_title' => [
-                Rule::requiredIf(fn () => $this->input('category_mode') === 'new'),
+                Rule::requiredIf($categoryMode === 'new'),
                 'nullable',
                 'string',
                 'max:160',
@@ -61,7 +92,10 @@ class GeneratePageV3PromptRequest extends FormRequest
         ];
     }
 
-    public function messages(): array
+    /**
+     * @return array<string, string>
+     */
+    public static function sharedMessages(): array
     {
         return [
             'source_type.required' => 'Оберіть джерело теми.',
@@ -84,7 +118,10 @@ class GeneratePageV3PromptRequest extends FormRequest
         ];
     }
 
-    public function attributes(): array
+    /**
+     * @return array<string, string>
+     */
+    public static function sharedAttributes(): array
     {
         return [
             'manual_topic' => 'тема',
