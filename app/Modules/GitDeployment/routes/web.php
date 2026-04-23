@@ -9,6 +9,7 @@ Route::middleware(['web', 'auth.admin'])
     ->group(function () {
         Route::get('/deployment', [DeploymentController::class, 'index'])->name('deployment.index');
         Route::get('/deployment/content-preview', [DeploymentController::class, 'contentPreview'])->name('deployment.content-preview');
+        Route::get('/deployment/content-apply-preview', [DeploymentController::class, 'contentApplyPreview'])->name('deployment.content-apply-preview');
         Route::post('/deployment/deploy', [DeploymentController::class, 'deploy'])->name('deployment.deploy');
         Route::post('/deployment/deploy-partial', [DeploymentController::class, 'deployPartial'])->name('deployment.deploy-partial');
         Route::post('/deployment/push-current', [DeploymentController::class, 'pushCurrent'])->name('deployment.push-current');
@@ -20,6 +21,7 @@ Route::middleware(['web', 'auth.admin'])
         Route::prefix('deployment/native')->name('deployment.native.')->group(function () {
             Route::get('/', [NativeDeploymentController::class, 'index'])->name('index');
             Route::get('/content-preview', [NativeDeploymentController::class, 'contentPreview'])->name('content-preview');
+            Route::get('/content-apply-preview', [NativeDeploymentController::class, 'contentApplyPreview'])->name('content-apply-preview');
             Route::post('/deploy', [NativeDeploymentController::class, 'deploy'])->name('deploy');
             Route::post('/deploy-partial', [NativeDeploymentController::class, 'deployPartial'])->name('deploy-partial');
             Route::post('/push-current', [NativeDeploymentController::class, 'pushCurrent'])->name('push-current');

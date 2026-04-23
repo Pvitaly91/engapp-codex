@@ -39,6 +39,39 @@ Preview path залишається повністю read-only:
 - не видаляє файли
 - не виконує `git checkout/reset/clean`
 
+## Deployment-owned content apply
+
+Після успішного full deploy або rollback модуль тепер може явно запускати unified `content:apply-changed` як deployment-owned крок:
+
+- code update / restore лишається в existing GitDeployment flow
+- changed-content apply запускається тільки після успішного code update / restore
+- reuse-иться той самий preview payload і ті самі `base_ref` / `head_ref`
+- якщо content apply падає, deploy/restore позначається як failed і це видно в UI
+- глобального rollback orchestration для content apply немає
+
+UI інтеграція:
+
+- у формах full deploy і rollback є explicit toggle `Apply changed content after deploy`
+- є read-only `Dry-run content apply` action для shell та native screens
+- результат з preflight/execution summary і report path показується прямо в deployment UI
+
+Маршрути dry-run preview:
+
+- `GET /admin/deployment/content-apply-preview`
+- `GET /admin/deployment/native/content-apply-preview`
+
+Параметри такі самі, як у preview:
+
+- `source_kind=deploy&branch=<branch>`
+- `source_kind=backup_restore&commit=<commit>`
+- optional `json=1`
+
+Post-deploy content apply path reuse-ить canonical mutation layers:
+
+- deleted cleanup через existing deleted cleanup services
+- current-package seed/refresh через existing package services
+- `seed_runs` мутуються тільки всередині цих canonical services
+
 ## Підключення в іншому проєкті
 1. Скопіюйте каталог `app/Modules/GitDeployment` у свій репозиторій.
 2. Переконайтеся, що стандартний PSR-4-маппінг `"App\\": "app/"` увімкнений (цей крок типовий для Laravel).

@@ -104,6 +104,7 @@
     @endif
 
     @include('git-deployment::deployment.partials.content-preview-card', ['contentPreview' => $contentPreview ?? null])
+    @include('git-deployment::deployment.partials.content-apply-result-card', ['contentApply' => $contentApply ?? null])
 
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
@@ -140,10 +141,35 @@
           
           <input type="hidden" name="with_release_check" value="1" />
           <input type="hidden" name="strict" value="1" />
+          <input type="hidden" name="content_apply_with_release_check" value="{{ config('git-deployment.content_apply.with_release_check', true) ? '1' : '0' }}" />
+          <input type="hidden" name="content_apply_skip_release_check" value="{{ config('git-deployment.content_apply.skip_release_check', false) ? '1' : '0' }}" />
+          <input type="hidden" name="content_apply_check_profile" value="{{ config('git-deployment.content_apply.check_profile', 'release') }}" />
+          <input type="hidden" name="content_apply_strict" value="{{ config('git-deployment.content_apply.strict', true) ? '1' : '0' }}" />
+          <div class="rounded-2xl border border-border/70 bg-muted/30 p-4">
+            <input type="hidden" name="apply_changed_content" value="0" />
+            <label class="flex items-start gap-3 text-sm">
+              <input
+                type="checkbox"
+                name="apply_changed_content"
+                value="1"
+                class="mt-1 rounded border-input text-primary focus:ring-primary"
+                @checked((bool) config('git-deployment.content_apply.enabled_by_default', true))
+              />
+              <span>
+                <span class="font-medium text-foreground">Apply changed content after deploy</span>
+                <span class="mt-1 block text-xs text-muted-foreground">
+                  Після успішного code update буде запущено unified changed-content apply з тими самими base/head refs.
+                </span>
+              </span>
+            </label>
+          </div>
           <div class="flex flex-wrap items-center gap-3">
             <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-red-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-red-600/90">Оновити зараз</button>
             <button type="submit" formmethod="GET" formaction="{{ route('deployment.content-preview') }}" name="source_kind" value="deploy" class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40">
               Попередній content preview
+            </button>
+            <button type="submit" formmethod="GET" formaction="{{ route('deployment.content-apply-preview') }}" name="source_kind" value="deploy" class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40">
+              Dry-run content apply
             </button>
           </div>
         </form>
@@ -509,10 +535,35 @@
             </select>
             <input type="hidden" name="with_release_check" value="1" />
             <input type="hidden" name="strict" value="1" />
+            <input type="hidden" name="content_apply_with_release_check" value="{{ config('git-deployment.content_apply.with_release_check', true) ? '1' : '0' }}" />
+            <input type="hidden" name="content_apply_skip_release_check" value="{{ config('git-deployment.content_apply.skip_release_check', false) ? '1' : '0' }}" />
+            <input type="hidden" name="content_apply_check_profile" value="{{ config('git-deployment.content_apply.check_profile', 'release') }}" />
+            <input type="hidden" name="content_apply_strict" value="{{ config('git-deployment.content_apply.strict', true) ? '1' : '0' }}" />
+            <div class="rounded-2xl border border-border/70 bg-muted/30 p-4">
+              <input type="hidden" name="apply_changed_content" value="0" />
+              <label class="flex items-start gap-3 text-sm">
+                <input
+                  type="checkbox"
+                  name="apply_changed_content"
+                  value="1"
+                  class="mt-1 rounded border-input text-primary focus:ring-primary"
+                  @checked((bool) config('git-deployment.content_apply.enabled_by_default', true))
+                />
+                <span>
+                  <span class="font-medium text-foreground">Apply changed content after restore</span>
+                  <span class="mt-1 block text-xs text-muted-foreground">
+                    Після успішного rollback буде запущено unified changed-content apply з restore diff refs.
+                  </span>
+                </span>
+              </label>
+            </div>
             <div class="flex flex-wrap items-center gap-3">
               <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-warning px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-warning/90">Виконати відкат</button>
               <button type="submit" formmethod="GET" formaction="{{ route('deployment.content-preview') }}" name="source_kind" value="backup_restore" class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40">
                 Попередній content preview
+              </button>
+              <button type="submit" formmethod="GET" formaction="{{ route('deployment.content-apply-preview') }}" name="source_kind" value="backup_restore" class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40">
+                Dry-run content apply
               </button>
             </div>
           </form>

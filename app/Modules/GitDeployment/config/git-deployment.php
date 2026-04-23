@@ -19,4 +19,11 @@ return [
         'check_profile' => env('DEPLOYMENT_CONTENT_PREVIEW_CHECK_PROFILE', 'release'),
         'strict' => env('DEPLOYMENT_CONTENT_PREVIEW_STRICT', true),
     ],
+    'content_apply' => [
+        'enabled_by_default' => env('DEPLOYMENT_CONTENT_APPLY_ENABLED_BY_DEFAULT', true),
+        'with_release_check' => env('DEPLOYMENT_CONTENT_APPLY_WITH_RELEASE_CHECK', true),
+        'skip_release_check' => env('DEPLOYMENT_CONTENT_APPLY_SKIP_RELEASE_CHECK', false),
+        'check_profile' => env('DEPLOYMENT_CONTENT_APPLY_CHECK_PROFILE', 'release'),
+        'strict' => env('DEPLOYMENT_CONTENT_APPLY_STRICT', true),
+    ],
 ];

@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\View\View;
 use App\Modules\GitDeployment\Models\BackupBranch;
 use App\Modules\GitDeployment\Models\BranchUsageHistory;
+use App\Modules\GitDeployment\Services\ChangedContentDeploymentApplyService;
 use App\Modules\GitDeployment\Services\ChangedContentDeploymentPreviewService;
 use App\Modules\GitDeployment\Services\NativeGitDeploymentService;
 use App\Modules\GitDeployment\Http\Concerns\ParsesDeploymentPaths;
@@ -27,7 +28,8 @@ class NativeDeploymentController extends BaseController
     public function index(): View
     {
         return view('git-deployment::deployment.native', $this->indexViewData(
-            session('deployment_native_content_preview')
+            session('deployment_native_content_preview'),
+            session('deployment_native_content_apply')
         ));
     }
 
@@ -44,9 +46,32 @@ class NativeDeploymentController extends BaseController
         return view('git-deployment::deployment.native', $this->indexViewData($preview));
     }
 
+    public function contentApplyPreview(
+        Request $request,
+        ChangedContentDeploymentApplyService $changedContentDeploymentApplyService
+    ): View|\Illuminate\Http\JsonResponse {
+        $contentApply = $changedContentDeploymentApplyService->run(
+            $this->deploymentPreviewContext($request, 'native'),
+            array_merge($this->contentApplyOptions($request), [
+                'requested' => true,
+                'dry_run' => true,
+            ])
+        );
+
+        if ($request->expectsJson() || $request->boolean('json')) {
+            return response()->json($contentApply);
+        }
+
+        return view('git-deployment::deployment.native', $this->indexViewData(
+            is_array($contentApply['preview'] ?? null) ? $contentApply['preview'] : null,
+            $contentApply
+        ));
+    }
+
     public function deploy(
         Request $request,
-        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
+        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService,
+        ChangedContentDeploymentApplyService $changedContentDeploymentApplyService
     ): RedirectResponse
     {
         $branch = $request->input('branch', 'main');
@@ -54,12 +79,16 @@ class NativeDeploymentController extends BaseController
 
         $autoPushBranch = $request->input('auto_push_branch', '');
         $autoPushBranch = $this->sanitizeBranchName($autoPushBranch ?? '');
+        $contentApplyRequested = $this->contentApplyRequested($request);
+        $contentApplyOptions = $this->contentApplyOptions($request);
 
         $contentPreview = $changedContentDeploymentPreviewService->preview([
             'mode' => 'native',
             'source_kind' => 'deploy',
             'branch' => $sanitized,
-        ]);
+        ], $contentApplyRequested
+            ? $this->contentPreviewOptionsFromApplyOptions($contentApplyOptions)
+            : $this->contentPreviewOptions($request));
 
         if ($changedContentDeploymentPreviewService->gateBlocks($contentPreview)) {
             return $this->redirectWithFeedback(
@@ -76,7 +105,16 @@ class NativeDeploymentController extends BaseController
             $logs = $result['logs'];
             $message = $result['message'];
         } catch (\Throwable $throwable) {
-            return $this->redirectWithFeedback('error', $throwable->getMessage(), [], $sanitized);
+            return $this->redirectWithFeedback(
+                'error',
+                $throwable->getMessage(),
+                [],
+                $sanitized,
+                $contentPreview,
+                $contentApplyRequested
+                    ? $changedContentDeploymentApplyService->deploymentFailedResult($contentPreview, $throwable->getMessage(), array_merge($contentApplyOptions, ['requested' => true, 'dry_run' => false]))
+                    : null
+            );
         }
 
         // Track branch usage
@@ -85,6 +123,29 @@ class NativeDeploymentController extends BaseController
             'deploy',
             'Оновлення сайту до останнього стану гілки через GitHub API'
         );
+
+        $contentApply = null;
+
+        if ($contentApplyRequested) {
+            $contentApply = $changedContentDeploymentApplyService->runFromPreview($contentPreview, array_merge(
+                $contentApplyOptions,
+                [
+                    'requested' => true,
+                    'dry_run' => false,
+                ]
+            ));
+            $logs[] = $this->formatContentApplyLog($contentApply);
+
+            if (($contentApply['status'] ?? null) === 'content_apply_failed' || is_array($contentApply['error'] ?? null)) {
+                $message .= ' Код оновлено, але changed-content apply завершився з помилкою. Глобальний rollback не виконувався.';
+
+                return $this->redirectWithFeedback('error', $message, $logs, $sanitized, $contentPreview, $contentApply);
+            }
+
+            $message .= ' Changed content apply виконано успішно.';
+        } else {
+            $message .= ' Changed content apply пропущено оператором.';
+        }
 
         // Auto-push to branch if specified
         if ($autoPushBranch !== '') {
@@ -121,7 +182,7 @@ class NativeDeploymentController extends BaseController
             }
         }
 
-        return $this->redirectWithFeedback('success', $message, $logs, $sanitized);
+        return $this->redirectWithFeedback('success', $message, $logs, $sanitized, $contentPreview, $contentApply);
     }
 
     public function deployPartial(Request $request): RedirectResponse
@@ -191,16 +252,21 @@ class NativeDeploymentController extends BaseController
 
     public function rollback(
         Request $request,
-        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
+        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService,
+        ChangedContentDeploymentApplyService $changedContentDeploymentApplyService
     ): RedirectResponse
     {
         $commit = $request->input('commit');
+        $contentApplyRequested = $this->contentApplyRequested($request);
+        $contentApplyOptions = $this->contentApplyOptions($request);
 
         $contentPreview = $changedContentDeploymentPreviewService->preview([
             'mode' => 'native',
             'source_kind' => 'backup_restore',
             'commit' => trim((string) $commit),
-        ]);
+        ], $contentApplyRequested
+            ? $this->contentPreviewOptionsFromApplyOptions($contentApplyOptions)
+            : $this->contentPreviewOptions($request));
 
         if ($changedContentDeploymentPreviewService->gateBlocks($contentPreview)) {
             return $this->redirectWithFeedback(
@@ -215,10 +281,44 @@ class NativeDeploymentController extends BaseController
         try {
             $result = $this->deployment->rollback($commit);
         } catch (\Throwable $throwable) {
-            return $this->redirectWithFeedback('error', $throwable->getMessage(), [], null);
+            return $this->redirectWithFeedback(
+                'error',
+                $throwable->getMessage(),
+                [],
+                null,
+                $contentPreview,
+                $contentApplyRequested
+                    ? $changedContentDeploymentApplyService->deploymentFailedResult($contentPreview, $throwable->getMessage(), array_merge($contentApplyOptions, ['requested' => true, 'dry_run' => false]))
+                    : null
+            );
         }
 
-        return $this->redirectWithFeedback('success', $result['message'], $result['logs'], null);
+        $contentApply = null;
+        $message = $result['message'];
+        $logs = $result['logs'];
+
+        if ($contentApplyRequested) {
+            $contentApply = $changedContentDeploymentApplyService->runFromPreview($contentPreview, array_merge(
+                $contentApplyOptions,
+                [
+                    'requested' => true,
+                    'dry_run' => false,
+                ]
+            ));
+            $logs[] = $this->formatContentApplyLog($contentApply);
+
+            if (($contentApply['status'] ?? null) === 'content_apply_failed' || is_array($contentApply['error'] ?? null)) {
+                $message .= ' Restore виконано, але changed-content apply завершився з помилкою. Глобальний rollback не виконувався.';
+
+                return $this->redirectWithFeedback('error', $message, $logs, null, $contentPreview, $contentApply);
+            }
+
+            $message .= ' Changed content apply виконано успішно.';
+        } else {
+            $message .= ' Changed content apply пропущено оператором.';
+        }
+
+        return $this->redirectWithFeedback('success', $message, $logs, null, $contentPreview, $contentApply);
     }
 
     public function createBackupBranch(Request $request): RedirectResponse
@@ -314,7 +414,8 @@ class NativeDeploymentController extends BaseController
         string $message,
         array $logs,
         ?string $branch,
-        ?array $contentPreview = null
+        ?array $contentPreview = null,
+        ?array $contentApply = null
     ): RedirectResponse
     {
         $redirect = redirect()
@@ -328,6 +429,10 @@ class NativeDeploymentController extends BaseController
 
         if ($contentPreview !== null) {
             $redirect->with('deployment_native_content_preview', $contentPreview);
+        }
+
+        if ($contentApply !== null) {
+            $redirect->with('deployment_native_content_apply', $contentApply);
         }
 
         return $redirect;
@@ -361,7 +466,7 @@ class NativeDeploymentController extends BaseController
     /**
      * @return array<string, mixed>
      */
-    private function indexViewData(?array $contentPreview = null): array
+    private function indexViewData(?array $contentPreview = null, ?array $contentApply = null): array
     {
         $backups = array_reverse($this->loadBackups());
         $feedback = session('deployment_native');
@@ -380,6 +485,7 @@ class NativeDeploymentController extends BaseController
             'recentUsage' => BranchUsageHistory::getRecentUsage(10),
             'availableFolders' => $this->getAvailableFolders(),
             'contentPreview' => $contentPreview,
+            'contentApply' => $contentApply,
         ];
     }
 
@@ -390,20 +496,10 @@ class NativeDeploymentController extends BaseController
         Request $request,
         ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
     ): array {
-        $sourceKind = strtolower(trim((string) $request->query('source_kind', 'deploy')));
-
-        return match ($sourceKind) {
-            'backup_restore' => $changedContentDeploymentPreviewService->preview([
-                'mode' => 'native',
-                'source_kind' => 'backup_restore',
-                'commit' => trim((string) $request->query('commit', '')),
-            ], $this->contentPreviewOptions($request)),
-            default => $changedContentDeploymentPreviewService->preview([
-                'mode' => 'native',
-                'source_kind' => 'deploy',
-                'branch' => $this->sanitizeBranchName((string) $request->query('branch', 'main')) ?: 'main',
-            ], $this->contentPreviewOptions($request)),
-        };
+        return $changedContentDeploymentPreviewService->preview(
+            $this->deploymentPreviewContext($request, 'native'),
+            $this->contentPreviewOptions($request)
+        );
     }
 
     /**
@@ -425,6 +521,51 @@ class NativeDeploymentController extends BaseController
         ];
     }
 
+    /**
+     * @param  array<string, mixed>  $contentApplyOptions
+     * @return array<string, mixed>
+     */
+    private function contentPreviewOptionsFromApplyOptions(array $contentApplyOptions): array
+    {
+        return [
+            'with_release_check' => (bool) ($contentApplyOptions['with_release_check'] ?? true),
+            'check_profile' => (string) ($contentApplyOptions['check_profile'] ?? 'release'),
+            'strict' => (bool) ($contentApplyOptions['strict'] ?? true),
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function contentApplyOptions(Request $request): array
+    {
+        return [
+            'with_release_check' => $request->has('content_apply_with_release_check')
+                ? $request->boolean('content_apply_with_release_check')
+                : (bool) config('git-deployment.content_apply.with_release_check', true),
+            'skip_release_check' => $request->has('content_apply_skip_release_check')
+                ? $request->boolean('content_apply_skip_release_check')
+                : (bool) config('git-deployment.content_apply.skip_release_check', false),
+            'check_profile' => (string) $request->input(
+                'content_apply_check_profile',
+                config('git-deployment.content_apply.check_profile', 'release')
+            ),
+            'strict' => $request->has('content_apply_strict')
+                ? $request->boolean('content_apply_strict')
+                : (bool) config('git-deployment.content_apply.strict', true),
+            'write_report' => true,
+        ];
+    }
+
+    private function contentApplyRequested(Request $request): bool
+    {
+        if ($request->has('apply_changed_content')) {
+            return $request->boolean('apply_changed_content');
+        }
+
+        return (bool) config('git-deployment.content_apply.enabled_by_default', true);
+    }
+
     private function blockedDeploymentMessage(
         string $actionLabel,
         array $contentPreview,
@@ -434,6 +575,66 @@ class NativeDeploymentController extends BaseController
 
         return $actionLabel . ' зупинено content-aware safety gate до початку code update. '
             . ($reasons !== [] ? implode(' ', $reasons) : 'Content preview returned blockers.');
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function deploymentPreviewContext(Request $request, string $mode): array
+    {
+        $sourceKind = strtolower(trim((string) $request->query('source_kind', $request->input('source_kind', 'deploy'))));
+
+        return match ($sourceKind) {
+            'backup_restore' => [
+                'mode' => $mode,
+                'source_kind' => 'backup_restore',
+                'commit' => trim((string) $request->query('commit', $request->input('commit', ''))),
+            ],
+            default => [
+                'mode' => $mode,
+                'source_kind' => 'deploy',
+                'branch' => $this->sanitizeBranchName((string) $request->query('branch', $request->input('branch', 'main'))) ?: 'main',
+            ],
+        };
+    }
+
+    /**
+     * @param  array<string, mixed>  $contentApply
+     */
+    private function formatContentApplyLog(array $contentApply): string
+    {
+        $applyResult = (array) ($contentApply['content_apply']['result'] ?? []);
+        $summary = (array) ($applyResult['plan']['summary'] ?? []);
+        $preflight = (array) ($applyResult['preflight']['summary'] ?? []);
+        $parts = [
+            'Changed content apply:',
+            'status=' . (string) ($contentApply['status'] ?? 'completed'),
+            'base=' . (string) (($contentApply['deployment']['base_ref'] ?? null) ?: '—'),
+            'head=' . (string) (($contentApply['deployment']['head_ref'] ?? null) ?: '—'),
+            sprintf(
+                'changed=%d deleted-cleanup=%d seed=%d refresh=%d',
+                (int) ($summary['changed_packages'] ?? 0),
+                (int) ($summary['deleted_cleanup_candidates'] ?? 0),
+                (int) ($summary['seed_candidates'] ?? 0),
+                (int) ($summary['refresh_candidates'] ?? 0)
+            ),
+            sprintf(
+                'preflight ok=%d warn=%d fail=%d',
+                (int) ($preflight['ok'] ?? 0),
+                (int) ($preflight['warn'] ?? 0),
+                (int) ($preflight['fail'] ?? 0)
+            ),
+        ];
+
+        if (! empty($contentApply['artifacts']['report_path'])) {
+            $parts[] = 'report=' . (string) $contentApply['artifacts']['report_path'];
+        }
+
+        if (! empty($contentApply['error']['message'])) {
+            $parts[] = 'error=' . (string) $contentApply['error']['message'];
+        }
+
+        return implode(' | ', $parts);
     }
 
     private function sanitizeBranchName(string $branch): string
