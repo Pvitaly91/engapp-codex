@@ -2,12 +2,18 @@
 
 namespace App\Services\V3PromptGenerator;
 
+use App\Support\Database\JsonTestLocalizationManager;
 use App\Support\Scaffold\AbstractSkeletonWriter;
 use Illuminate\Support\Str;
 use RuntimeException;
 
 class V3SkeletonWriterService extends AbstractSkeletonWriter
 {
+    public function __construct(
+        private readonly JsonTestLocalizationManager $jsonTestLocalizationManager,
+    ) {
+    }
+
     /**
      * @param  array<string, mixed>  $generated
      * @return array<int, string>
@@ -32,6 +38,8 @@ class V3SkeletonWriterService extends AbstractSkeletonWriter
      */
     public function write(array $generated, bool $force = false): array
     {
+        $this->jsonTestLocalizationManager->flushDescriptorCache();
+
         return $this->writeFiles($this->fileContents($generated), $force);
     }
 

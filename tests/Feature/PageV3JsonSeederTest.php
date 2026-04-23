@@ -14,6 +14,7 @@ use App\Support\Database\JsonPageDirectorySeeder;
 use App\Support\Database\JsonPageLocalizationManager;
 use App\Support\Database\JsonPageRuntimeSeeder;
 use App\Support\Database\JsonTestLocalizationManager;
+use App\Support\TextBlock\TextBlockUuidGenerator;
 use Database\Seeders\Page_V3\Adjectives\AdjectivesCategorySeeder;
 use Database\Seeders\Page_V3\Adjectives\AdjectivesComparativeVsSuperlativeTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarCategorySeeder;
@@ -21,6 +22,8 @@ use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarSentenceTypesTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\WordOrder\BasicWordOrderTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\WordOrder\WordOrderCategorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\WordOrder\WordOrderVerbsObjectsTheorySeeder;
+use Database\Seeders\Page_V3\ClausesAndLinkingWords\ClausesAndLinkingWordsCategorySeeder;
+use Database\Seeders\Page_V3\ClausesAndLinkingWords\ClausesAndLinkingWordsRelativeClausesTheorySeeder;
 use Database\Seeders\Page_V3\PassiveVoice\PassiveVoiceCategorySeeder;
 use Database\Seeders\Page_V3\PassiveVoice\Basics\PassiveVoiceModalVerbsTheorySeeder;
 use Database\Seeders\Page_V3\PassiveVoice\Tenses\PassiveVoicePresentSimpleTheorySeeder;
@@ -640,5 +643,81 @@ class PageV3JsonSeederTest extends TestCase
         $this->assertSame('theory', $childCategory->type);
         $this->assertSame($rootCategory->id, $childCategory->parent_id);
         $this->assertSame($childCategory->id, $page->page_category_id);
+    }
+
+    public function test_page_v3_category_seeder_reuses_existing_text_block_uuid_without_duplicate_key_errors(): void
+    {
+        $uuid = TextBlockUuidGenerator::generateWithKey(
+            ClausesAndLinkingWordsCategorySeeder::class . '::uk',
+            'subtitle'
+        );
+
+        TextBlock::query()->create([
+            'uuid' => $uuid,
+            'page_id' => null,
+            'page_category_id' => null,
+            'locale' => 'uk',
+            'type' => 'subtitle',
+            'column' => 'header',
+            'heading' => null,
+            'css_class' => null,
+            'sort_order' => 99,
+            'body' => '<p>stale category block</p>',
+            'level' => null,
+            'seeder' => 'Legacy\\Seeder\\Category',
+        ]);
+
+        (new ClausesAndLinkingWordsCategorySeeder())->__invoke();
+
+        $category = PageCategory::query()->where('slug', 'clauses-and-linking-words')->first();
+        $block = TextBlock::query()->where('uuid', $uuid)->first();
+
+        $this->assertNotNull($category);
+        $this->assertNotNull($block);
+        $this->assertSame(1, TextBlock::query()->where('uuid', $uuid)->count());
+        $this->assertNull($block->page_id);
+        $this->assertSame($category->id, $block->page_category_id);
+        $this->assertSame('uk', $block->locale);
+        $this->assertSame(ClausesAndLinkingWordsCategorySeeder::class, $block->seeder);
+        $this->assertStringContainsString('допомагають поєднувати ідеї', (string) $block->body);
+    }
+
+    public function test_page_v3_page_seeder_reuses_existing_text_block_uuid_without_duplicate_key_errors(): void
+    {
+        (new ClausesAndLinkingWordsCategorySeeder())->__invoke();
+
+        $uuid = TextBlockUuidGenerator::generateWithKey(
+            ClausesAndLinkingWordsRelativeClausesTheorySeeder::class . '::uk',
+            'subtitle'
+        );
+
+        TextBlock::query()->create([
+            'uuid' => $uuid,
+            'page_id' => null,
+            'page_category_id' => null,
+            'locale' => 'uk',
+            'type' => 'subtitle',
+            'column' => 'header',
+            'heading' => null,
+            'css_class' => null,
+            'sort_order' => 99,
+            'body' => '<p>stale page block</p>',
+            'level' => null,
+            'seeder' => 'Legacy\\Seeder\\Page',
+        ]);
+
+        (new ClausesAndLinkingWordsRelativeClausesTheorySeeder())->__invoke();
+
+        $page = Page::query()->where('slug', 'relative-clauses')->where('type', 'theory')->first();
+        $block = TextBlock::query()->where('uuid', $uuid)->first();
+
+        $this->assertNotNull($page);
+        $this->assertNotNull($block);
+        $this->assertSame(1, TextBlock::query()->where('uuid', $uuid)->count());
+        $this->assertSame($page->id, $block->page_id);
+        $this->assertSame($page->page_category_id, $block->page_category_id);
+        $this->assertSame('uk', $block->locale);
+        $this->assertSame(ClausesAndLinkingWordsRelativeClausesTheorySeeder::class, $block->seeder);
+        $this->assertStringContainsString('Relative Clauses', (string) $block->body);
     }
 }

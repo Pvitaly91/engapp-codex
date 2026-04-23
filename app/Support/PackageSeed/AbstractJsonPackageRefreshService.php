@@ -4,6 +4,7 @@ namespace App\Support\PackageSeed;
 
 use App\Support\ReleaseCheck\AbstractJsonPackageReleaseCheckService;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -11,6 +12,76 @@ use Throwable;
 
 abstract class AbstractJsonPackageRefreshService extends AbstractJsonPackageReleaseCheckService
 {
+    /**
+     * @return array<string, mixed>
+     */
+    public function inspectTarget(string $targetInput): array
+    {
+        $target = $this->resolvePackageTarget($targetInput);
+        $expectedSeederClass = $this->expectedSeederClass($target);
+        $resolvedSeederClass = $expectedSeederClass;
+        $definitionExists = File::exists((string) $target['definition_absolute_path']);
+        $loaderExists = File::exists((string) $target['loader_absolute_path']);
+        $realSeederExists = File::exists((string) $target['real_seeder_absolute_path']);
+        $definition = [];
+        $definitionSummary = [];
+        $definitionError = null;
+
+        if ($definitionExists) {
+            try {
+                $definition = $this->readDefinition((string) $target['definition_absolute_path']);
+                $resolvedSeederClass = $this->resolveSeederClass($definition, $expectedSeederClass);
+                $definitionSummary = $this->definitionSummary($definition, $target, $resolvedSeederClass);
+            } catch (Throwable $exception) {
+                $definitionError = [
+                    'stage' => 'definition',
+                    'message' => $exception->getMessage(),
+                    'exception_class' => $exception::class,
+                ];
+            }
+        }
+
+        $target['resolved_seeder_class'] = $resolvedSeederClass;
+        $ownership = $this->ownershipContext($definition, $target, $resolvedSeederClass);
+        $warnings = collect((array) ($ownership['warnings'] ?? []))
+            ->map(static fn ($warning): string => trim((string) $warning))
+            ->filter();
+
+        if (! $definitionExists) {
+            $warnings->push('Package definition.json is missing.');
+        }
+
+        if (! $loaderExists) {
+            $warnings->push('Top-level loader stub PHP is missing.');
+        }
+
+        if (! $realSeederExists) {
+            $warnings->push('Package-local real seeder PHP is missing.');
+        }
+
+        if ($definitionError !== null) {
+            $warnings->push('Package definition could not be read: ' . (string) ($definitionError['message'] ?? 'Unknown error.'));
+        }
+
+        return [
+            'target' => $target,
+            'definition_exists' => $definitionExists,
+            'loader_exists' => $loaderExists,
+            'real_seeder_exists' => $realSeederExists,
+            'package_type' => $this->packageType($definitionSummary, $resolvedSeederClass, $target),
+            'ownership' => [
+                'seed_run_present' => (bool) ($ownership['seed_run_present'] ?? false),
+                'package_present_in_db' => (bool) ($ownership['package_present_in_db'] ?? false),
+            ],
+            'warnings' => $warnings
+                ->unique()
+                ->values()
+                ->all(),
+            'definition_summary' => $definitionSummary,
+            'error' => $definitionError,
+        ];
+    }
+
     /**
      * @param  array<string, mixed>  $options
      * @return array<string, mixed>
@@ -451,4 +522,14 @@ abstract class AbstractJsonPackageRefreshService extends AbstractJsonPackageRele
         array $target,
         string $resolvedSeederClass,
     ): array;
+
+    /**
+     * @param  array<string, mixed>  $definitionSummary
+     * @param  array<string, mixed>  $target
+     */
+    abstract protected function packageType(
+        array $definitionSummary,
+        string $resolvedSeederClass,
+        array $target,
+    ): string;
 }

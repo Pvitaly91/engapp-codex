@@ -928,6 +928,29 @@ class SeedRunsService
     }
 
     /**
+     * @param  iterable<int, string>  $classNames
+     * @return array{questions_deleted:int}
+     */
+    public function deleteQuestionDataForClasses(iterable $classNames): array
+    {
+        $normalized = collect($classNames)
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($normalized->isEmpty()) {
+            return [
+                'questions_deleted' => 0,
+            ];
+        }
+
+        return [
+            'questions_deleted' => $this->deleteQuestionsForSeeders($normalized),
+        ];
+    }
+
+    /**
      * @return Collection<int, string>
      */
     public function relatedLocalizationClassesForTargetSeeder(

@@ -190,8 +190,7 @@ abstract class JsonPageSeeder extends Seeder
                 'uuid_key' => $config['subtitle_uuid_key'] ?? 'subtitle',
             ];
 
-            $textBlock = TextBlock::create([
-                'uuid' => $this->resolveBlockUuid($scope, $subtitleConfig, $blockCounter),
+            $textBlock = $this->upsertTextBlock($this->resolveBlockUuid($scope, $subtitleConfig, $blockCounter), [
                 'page_id' => $page->getKey(),
                 'page_category_id' => $category?->getKey(),
                 'locale' => $locale,
@@ -214,8 +213,7 @@ abstract class JsonPageSeeder extends Seeder
                 continue;
             }
 
-            $textBlock = TextBlock::create([
-                'uuid' => $this->resolveBlockUuid($scope, $block, $blockCounter),
+            $textBlock = $this->upsertTextBlock($this->resolveBlockUuid($scope, $block, $blockCounter), [
                 'page_id' => $page->getKey(),
                 'page_category_id' => $category?->getKey(),
                 'locale' => $locale,
@@ -315,8 +313,7 @@ abstract class JsonPageSeeder extends Seeder
                 'uuid_key' => $config['subtitle_uuid_key'] ?? 'subtitle',
             ];
 
-            $textBlock = TextBlock::create([
-                'uuid' => $this->resolveBlockUuid($scope, $subtitleConfig, $blockCounter),
+            $textBlock = $this->upsertTextBlock($this->resolveBlockUuid($scope, $subtitleConfig, $blockCounter), [
                 'page_id' => null,
                 'page_category_id' => $category->getKey(),
                 'locale' => $locale,
@@ -339,8 +336,7 @@ abstract class JsonPageSeeder extends Seeder
                 continue;
             }
 
-            $textBlock = TextBlock::create([
-                'uuid' => $this->resolveBlockUuid($scope, $block, $blockCounter),
+            $textBlock = $this->upsertTextBlock($this->resolveBlockUuid($scope, $block, $blockCounter), [
                 'page_id' => null,
                 'page_category_id' => $category->getKey(),
                 'locale' => $this->normalizeLocale((string) ($block['locale'] ?? $locale)),
@@ -519,6 +515,14 @@ abstract class JsonPageSeeder extends Seeder
         }
 
         return $normalized !== '' ? $normalized : 'uk';
+    }
+
+    protected function upsertTextBlock(string $uuid, array $attributes): TextBlock
+    {
+        return TextBlock::query()->updateOrCreate(
+            ['uuid' => $uuid],
+            $attributes + ['uuid' => $uuid]
+        );
     }
 
     protected function resolveBlockUuid(string $scope, array $block, int $blockIndex): string

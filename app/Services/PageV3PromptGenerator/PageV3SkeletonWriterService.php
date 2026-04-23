@@ -2,12 +2,18 @@
 
 namespace App\Services\PageV3PromptGenerator;
 
+use App\Support\Database\JsonPageLocalizationManager;
 use App\Support\Scaffold\AbstractSkeletonWriter;
 use Illuminate\Support\Str;
 use RuntimeException;
 
 class PageV3SkeletonWriterService extends AbstractSkeletonWriter
 {
+    public function __construct(
+        private readonly JsonPageLocalizationManager $jsonPageLocalizationManager,
+    ) {
+    }
+
     /**
      * @param  array<string, mixed>  $generated
      * @return array<int, string>
@@ -48,6 +54,7 @@ class PageV3SkeletonWriterService extends AbstractSkeletonWriter
     public function write(array $generated, bool $force = false): array
     {
         $this->assertResolvedCategoryMode($generated);
+        $this->jsonPageLocalizationManager->flushDescriptorCache();
 
         return $this->writeFiles($this->fileContents($generated), $force);
     }

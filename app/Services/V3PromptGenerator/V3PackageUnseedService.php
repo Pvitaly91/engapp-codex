@@ -40,7 +40,11 @@ class V3PackageUnseedService extends AbstractJsonPackageUnseedService
             $result = $this->resultTemplate($target, $resolvedOptions);
             $result['definition_summary'] = $this->definitionSummary($definition, $target, $resolvedSeederClass);
 
-            $context = $this->buildContext($definition, $target, $resolvedSeederClass);
+            $context = $this->buildContext(
+                $this->savedTestMetadataFromDefinition($definition),
+                $resolvedSeederClass,
+                $this->packageQuestionUuidsFromDefinition($definition, $target, $resolvedSeederClass)
+            );
             $result['ownership'] = $context['ownership'];
             $result['impact']['warnings'] = $context['warnings'];
             $result['impact']['counts'] = $context['impact_counts'];
@@ -114,7 +118,7 @@ class V3PackageUnseedService extends AbstractJsonPackageUnseedService
     /**
      * @param  array<string, mixed>  $target
      */
-    private function expectedSeederClass(array $target): string
+    protected function expectedSeederClass(array $target): string
     {
         $relative = Str::after(
             str_replace('\\', '/', (string) $target['package_root_relative_path']),
@@ -130,7 +134,7 @@ class V3PackageUnseedService extends AbstractJsonPackageUnseedService
     /**
      * @return array<string, mixed>
      */
-    private function readDefinition(string $definitionAbsolutePath): array
+    protected function readDefinition(string $definitionAbsolutePath): array
     {
         return (new JsonRuntimeSeeder($definitionAbsolutePath))->readDefinition();
     }
@@ -140,7 +144,7 @@ class V3PackageUnseedService extends AbstractJsonPackageUnseedService
      * @param  array<string, mixed>  $target
      * @return array<string, mixed>
      */
-    private function definitionSummary(
+    protected function definitionSummary(
         array $definition,
         array $target,
         string $resolvedSeederClass,
@@ -176,17 +180,23 @@ class V3PackageUnseedService extends AbstractJsonPackageUnseedService
      *   canonical_saved_test: SavedGrammarTest|null
      * }
      */
-    private function buildContext(array $definition, array $target, string $resolvedSeederClass): array
+    /**
+     * @param  array<string, mixed>  $savedTestMetadata
+     * @param  list<string>  $packageQuestionUuids
+     * @return array{
+     *   ownership: array<string, bool>,
+     *   warnings: list<string>,
+     *   impact_counts: array<string, int>,
+     *   guard_error: array<string, mixed>|null,
+     *   canonical_saved_test: SavedGrammarTest|null
+     * }
+     */
+    protected function buildContext(array $savedTestMetadata, string $resolvedSeederClass, array $packageQuestionUuids): array
     {
-        $questionUuids = array_keys($this->definitionIndex->indexQuestions(
-            $definition,
-            (string) $target['definition_absolute_path'],
-            $resolvedSeederClass
-        )['items'] ?? []);
         $questionCount = Schema::hasTable('questions') && Schema::hasColumn('questions', 'seeder')
             ? Question::query()->where('seeder', $resolvedSeederClass)->count()
             : 0;
-        $savedTestContext = $this->buildSavedTestContext($definition, $resolvedSeederClass, $questionUuids);
+        $savedTestContext = $this->buildSavedTestContext($savedTestMetadata, $resolvedSeederClass, $packageQuestionUuids);
         $seedRunPresent = $this->seedRunPresent($resolvedSeederClass);
         $packagePresent = $questionCount > 0 || $savedTestContext['present'];
         $warnings = [];
@@ -230,12 +240,11 @@ class V3PackageUnseedService extends AbstractJsonPackageUnseedService
      *   saved_test: SavedGrammarTest|null
      * }
      */
-    private function buildSavedTestContext(
-        array $definition,
+    protected function buildSavedTestContext(
+        array $savedTestPayload,
         string $resolvedSeederClass,
         array $packageQuestionUuids,
     ): array {
-        $savedTestPayload = is_array($definition['saved_test'] ?? null) ? $definition['saved_test'] : [];
         $savedTestUuid = trim((string) ($savedTestPayload['uuid'] ?? ''));
         $savedTestSlug = trim((string) ($savedTestPayload['slug'] ?? ''));
 
@@ -364,7 +373,7 @@ class V3PackageUnseedService extends AbstractJsonPackageUnseedService
      * @param  list<string>  $questionUuids
      * @return Collection<int, array<string, mixed>>
      */
-    private function foreignSavedTestsForQuestionUuids(array $questionUuids, int $canonicalSavedTestId): Collection
+    protected function foreignSavedTestsForQuestionUuids(array $questionUuids, int $canonicalSavedTestId): Collection
     {
         if ($questionUuids === [] || ! Schema::hasTable('saved_grammar_test_questions')) {
             return collect();
@@ -396,7 +405,7 @@ class V3PackageUnseedService extends AbstractJsonPackageUnseedService
      * @param  mixed  $seederClasses
      * @return list<string>
      */
-    private function normalizeSeederClasses(mixed $seederClasses): array
+    protected function normalizeSeederClasses(mixed $seederClasses): array
     {
         if (! is_array($seederClasses)) {
             return [];
@@ -413,12 +422,12 @@ class V3PackageUnseedService extends AbstractJsonPackageUnseedService
     /**
      * @return array<string, mixed>
      */
-    private function executeUnseed(
+    protected function executeUnseed(
         string $resolvedSeederClass,
         ?SavedGrammarTest $canonicalSavedTest,
         bool $dryRun,
     ): array {
-        $deletionStats = $this->seedRunsService->deleteSeedDataForClasses([$resolvedSeederClass]);
+        $deletionStats = $this->seedRunsService->deleteQuestionDataForClasses([$resolvedSeederClass]);
         $savedTestDeletionStats = $this->deleteCanonicalSavedTest($canonicalSavedTest);
         $seedRunRemoved = false;
         $counts = $this->filterZeroCounts([
@@ -441,7 +450,7 @@ class V3PackageUnseedService extends AbstractJsonPackageUnseedService
     /**
      * @return array<string, int>
      */
-    private function deleteCanonicalSavedTest(?SavedGrammarTest $savedTest): array
+    protected function deleteCanonicalSavedTest(?SavedGrammarTest $savedTest): array
     {
         if (! $savedTest || ! Schema::hasTable('saved_grammar_tests') || ! Schema::hasTable('saved_grammar_test_questions')) {
             return [
@@ -460,7 +469,45 @@ class V3PackageUnseedService extends AbstractJsonPackageUnseedService
         ];
     }
 
-    private function nullableString(mixed $value): ?string
+    protected function savedTestMetadataFromDefinition(array $definition): array
+    {
+        return is_array($definition['saved_test'] ?? null) ? $definition['saved_test'] : [];
+    }
+
+    /**
+     * @param  array<string, mixed>  $definition
+     * @param  array<string, mixed>  $target
+     * @return list<string>
+     */
+    protected function packageQuestionUuidsFromDefinition(array $definition, array $target, string $resolvedSeederClass): array
+    {
+        return array_keys($this->definitionIndex->indexQuestions(
+            $definition,
+            (string) $target['definition_absolute_path'],
+            $resolvedSeederClass
+        )['items'] ?? []);
+    }
+
+    /**
+     * @return list<string>
+     */
+    protected function packageQuestionUuidsForSeeder(string $resolvedSeederClass): array
+    {
+        if (! Schema::hasTable('questions') || ! Schema::hasColumn('questions', 'seeder')) {
+            return [];
+        }
+
+        return Question::query()
+            ->where('seeder', $resolvedSeederClass)
+            ->pluck('uuid')
+            ->filter(fn ($uuid) => is_string($uuid) && trim($uuid) !== '')
+            ->map(fn ($uuid) => trim((string) $uuid))
+            ->unique()
+            ->values()
+            ->all();
+    }
+
+    protected function nullableString(mixed $value): ?string
     {
         $resolved = trim((string) $value);
 

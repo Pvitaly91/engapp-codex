@@ -11,7 +11,12 @@ use Database\Seeders\V2\Polyglot\PolyglotFinalDrillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotGerundVsInfinitiveLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotMustHaveToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastContinuousLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPassiveVoiceBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectTimeExpressionsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotReportedSpeechBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotRelativeClausesLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotShouldOughtToLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotUsedToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFirstConditionalLessonSeeder;
@@ -67,6 +72,11 @@ class PolyglotCourseLandingPageTest extends TestCase
         $this->seed(PolyglotMustHaveToLessonSeeder::class);
         $this->seed(PolyglotGerundVsInfinitiveLessonSeeder::class);
         $this->seed(PolyglotPastContinuousLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectTimeExpressionsLessonSeeder::class);
+        $this->seed(PolyglotRelativeClausesLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceBasicsLessonSeeder::class);
+        $this->seed(PolyglotReportedSpeechBasicsLessonSeeder::class);
+        $this->seed(PolyglotUsedToLessonSeeder::class);
     }
 
     public function test_course_landing_route_works_and_renders_lessons_in_order(): void
@@ -203,7 +213,7 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertSee(__('frontend.tests.course.continue_with_polyglot_a2'));
     }
 
-    public function test_a2_course_landing_route_works_and_shows_eight_implemented_lessons_with_planned_roadmap(): void
+    public function test_a2_course_landing_route_works_and_shows_thirteen_implemented_lessons_with_planned_roadmap(): void
     {
         $response = $this->get('/courses/polyglot-english-a2');
 
@@ -217,17 +227,22 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertSee('/test/polyglot-must-have-to-a2/step/compose', false);
         $response->assertSee('/test/polyglot-gerund-vs-infinitive-a2/step/compose', false);
         $response->assertSee('/test/polyglot-past-continuous-a2/step/compose', false);
+        $response->assertSee('/test/polyglot-present-perfect-time-expressions-a2/step/compose', false);
+        $response->assertSee('/test/polyglot-relative-clauses-a2/step/compose', false);
+        $response->assertSee('/test/polyglot-passive-voice-basics-a2/step/compose', false);
+        $response->assertSee('/test/polyglot-reported-speech-basics-a2/step/compose', false);
+        $response->assertSee('/test/polyglot-used-to-a2/step/compose', false);
         $response->assertSee('data-polyglot-course-slug="polyglot-english-a2"', false);
         $response->assertSee('data-polyglot-planned-lessons="16"', false);
-        $response->assertSee('data-polyglot-implemented-lessons="8"', false);
+        $response->assertSee('data-polyglot-implemented-lessons="13"', false);
         $response->assertSee('data-polyglot-course-content-complete="0"', false);
         $response->assertSee('data-course-lesson-status="current"', false);
         $response->assertSee('data-course-lesson-status="locked"', false);
         $response->assertSee('data-course-lesson-status="planned"', false);
         $response->assertSee('data-course-lesson-action', false);
         $response->assertSee('data-course-lesson-action-disabled', false);
-        $response->assertSee('8 / 16');
-        $response->assertSee(__('frontend.tests.course.planned_remaining', ['count' => 8]));
+        $response->assertSee('13 / 16');
+        $response->assertSee(__('frontend.tests.course.planned_remaining', ['count' => 3]));
         $response->assertDontSee('data-course-content-complete-banner', false);
         $response->assertDontSee('data-course-continue-a2-link', false);
     }

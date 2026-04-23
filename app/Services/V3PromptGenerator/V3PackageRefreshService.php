@@ -148,6 +148,18 @@ class V3PackageRefreshService extends AbstractJsonPackageRefreshService
     }
 
     /**
+     * @param  array<string, mixed>  $definitionSummary
+     * @param  array<string, mixed>  $target
+     */
+    protected function packageType(
+        array $definitionSummary,
+        string $resolvedSeederClass,
+        array $target,
+    ): string {
+        return 'v3_test';
+    }
+
+    /**
      * @param  array<string, mixed>  $definition
      */
     private function canonicalSavedTestPresent(array $definition): bool

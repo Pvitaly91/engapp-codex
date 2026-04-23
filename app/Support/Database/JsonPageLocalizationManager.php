@@ -75,6 +75,11 @@ class JsonPageLocalizationManager
         }
     }
 
+    public function flushDescriptorCache(): void
+    {
+        $this->descriptorCache = null;
+    }
+
     public function syncDefinitionLocalizations(
         array $definition,
         ?string $definitionPath = null,

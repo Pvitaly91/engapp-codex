@@ -43,7 +43,10 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
             $result = $this->resultTemplate($target, $resolvedOptions);
             $result['definition_summary'] = $this->definitionSummary($definition, $target, $resolvedSeederClass);
 
-            $context = $this->buildContext($definition, $target, $resolvedSeederClass);
+            $context = $this->buildContext(
+                $resolvedSeederClass,
+                $this->expandAdditionalCleanupClasses((array) ($options['additional_cleanup_classes'] ?? []))
+            );
             $result['ownership'] = $context['ownership'];
             $result['impact']['warnings'] = $context['warnings'];
             $result['impact']['counts'] = $context['impact_counts'];
@@ -117,7 +120,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
     /**
      * @param  array<string, mixed>  $target
      */
-    private function expectedSeederClass(array $target): string
+    protected function expectedSeederClass(array $target): string
     {
         $relative = Str::after(
             str_replace('\\', '/', (string) $target['package_root_relative_path']),
@@ -133,7 +136,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
     /**
      * @return array<string, mixed>
      */
-    private function readDefinition(string $definitionAbsolutePath): array
+    protected function readDefinition(string $definitionAbsolutePath): array
     {
         return (new JsonPageRuntimeSeeder($definitionAbsolutePath))->readDefinition();
     }
@@ -143,7 +146,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
      * @param  array<string, mixed>  $target
      * @return array<string, mixed>
      */
-    private function definitionSummary(
+    protected function definitionSummary(
         array $definition,
         array $target,
         string $resolvedSeederClass,
@@ -179,8 +182,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
     }
 
     /**
-     * @param  array<string, mixed>  $definition
-     * @param  array<string, mixed>  $target
+     * @param  list<string>  $additionalCleanupClasses
      * @return array{
      *   cleanup_classes: list<string>,
      *   ownership: array<string, bool>,
@@ -189,13 +191,17 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
      *   guard_error: array<string, mixed>|null
      * }
      */
-    private function buildContext(array $definition, array $target, string $resolvedSeederClass): array
+    protected function buildContext(
+        string $resolvedSeederClass,
+        array $additionalCleanupClasses = [],
+    ): array
     {
         $cleanupClasses = collect([$resolvedSeederClass])
             ->merge($this->seedRunsService->relatedLocalizationClassesForTargetSeeder(
                 $resolvedSeederClass,
                 'page_localizations'
             ))
+            ->merge($additionalCleanupClasses)
             ->map(fn ($className) => trim((string) $className))
             ->filter()
             ->unique()
@@ -240,12 +246,35 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
     }
 
     /**
+     * @param  list<string>  $classNames
+     * @return list<string>
+     */
+    protected function expandAdditionalCleanupClasses(array $classNames): array
+    {
+        return collect($classNames)
+            ->map(fn ($className) => trim((string) $className))
+            ->filter()
+            ->flatMap(function (string $className): array {
+                return array_merge(
+                    [$className],
+                    $this->seedRunsService->relatedLocalizationClassesForTargetSeeder($className, 'page_localizations')
+                        ->all()
+                );
+            })
+            ->map(fn ($className) => trim((string) $className))
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
+    }
+
+    /**
      * @param  list<string>  $cleanupClasses
      * @param  list<int>  $pageIds
      * @param  list<int>  $categoryIds
      * @return array<string, mixed>|null
      */
-    private function dependencyGuardError(
+    protected function dependencyGuardError(
         string $resolvedSeederClass,
         array $cleanupClasses,
         array $pageIds,
@@ -315,7 +344,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
      * @param  list<int>  $pageIds
      * @return Collection<int, array<string, mixed>>
      */
-    private function externalBlocksBoundToPages(array $cleanupClasses, array $pageIds): Collection
+    protected function externalBlocksBoundToPages(array $cleanupClasses, array $pageIds): Collection
     {
         if ($pageIds === [] || ! Schema::hasTable('text_blocks')) {
             return collect();
@@ -346,7 +375,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
      * @param  list<int>  $categoryIds
      * @return list<string>
      */
-    private function candidateBlockUuids(array $cleanupClasses, array $pageIds, array $categoryIds): array
+    protected function candidateBlockUuids(array $cleanupClasses, array $pageIds, array $categoryIds): array
     {
         if (! Schema::hasTable('text_blocks')) {
             return [];
@@ -385,7 +414,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
      * @param  list<string>  $blockUuids
      * @return Collection<int, array<string, mixed>>
      */
-    private function questionsReferencingBlockUuids(array $blockUuids): Collection
+    protected function questionsReferencingBlockUuids(array $blockUuids): Collection
     {
         if (
             $blockUuids === []
@@ -410,7 +439,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
     /**
      * @return Collection<int, array<string, mixed>>
      */
-    private function linkedTestsForPackagePages(string $resolvedSeederClass): Collection
+    protected function linkedTestsForPackagePages(string $resolvedSeederClass): Collection
     {
         if (
             ! Schema::hasTable('pages')
@@ -445,7 +474,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
      * @param  list<int>  $categoryIds
      * @return Collection<int, array<string, mixed>>
      */
-    private function externalPagesUsingCategories(array $cleanupClasses, array $categoryIds): Collection
+    protected function externalPagesUsingCategories(array $cleanupClasses, array $categoryIds): Collection
     {
         if ($categoryIds === [] || ! Schema::hasTable('pages')) {
             return collect();
@@ -475,7 +504,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
      * @param  list<int>  $categoryIds
      * @return Collection<int, array<string, mixed>>
      */
-    private function externalChildCategories(array $cleanupClasses, array $categoryIds): Collection
+    protected function externalChildCategories(array $cleanupClasses, array $categoryIds): Collection
     {
         if ($categoryIds === [] || ! Schema::hasTable('page_categories')) {
             return collect();
@@ -504,7 +533,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
      * @param  list<string>  $cleanupClasses
      * @return array<string, mixed>
      */
-    private function executeUnseed(
+    protected function executeUnseed(
         string $resolvedSeederClass,
         array $cleanupClasses,
         bool $dryRun,
@@ -531,7 +560,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
     /**
      * @return list<int>
      */
-    private function packagePageIds(string $resolvedSeederClass): array
+    protected function packagePageIds(string $resolvedSeederClass): array
     {
         if (! Schema::hasTable('pages') || ! Schema::hasColumn('pages', 'seeder')) {
             return [];
@@ -548,7 +577,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
     /**
      * @return list<int>
      */
-    private function packageCategoryIds(string $resolvedSeederClass): array
+    protected function packageCategoryIds(string $resolvedSeederClass): array
     {
         if (! Schema::hasTable('page_categories') || ! Schema::hasColumn('page_categories', 'seeder')) {
             return [];
@@ -565,7 +594,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
     /**
      * @param  list<string>  $cleanupClasses
      */
-    private function directPackageBlockCount(array $cleanupClasses): int
+    protected function directPackageBlockCount(array $cleanupClasses): int
     {
         if (
             $cleanupClasses === []
@@ -580,7 +609,7 @@ class PageV3PackageUnseedService extends AbstractJsonPackageUnseedService
             ->count();
     }
 
-    private function nullableString(mixed $value): ?string
+    protected function nullableString(mixed $value): ?string
     {
         $resolved = trim((string) $value);
 

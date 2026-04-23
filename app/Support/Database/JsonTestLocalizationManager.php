@@ -68,6 +68,11 @@ class JsonTestLocalizationManager
         }
     }
 
+    public function flushDescriptorCache(): void
+    {
+        $this->descriptorCache = null;
+    }
+
     public function mergeDefinitionLocalizations(
         array $definition,
         ?string $definitionPath = null,

@@ -166,6 +166,26 @@ class PageV3PackageRefreshService extends AbstractJsonPackageRefreshService
         ];
     }
 
+    /**
+     * @param  array<string, mixed>  $definitionSummary
+     * @param  array<string, mixed>  $target
+     */
+    protected function packageType(
+        array $definitionSummary,
+        string $resolvedSeederClass,
+        array $target,
+    ): string {
+        $contentType = trim((string) ($definitionSummary['content_type'] ?? ''));
+
+        if ($contentType !== '') {
+            return $contentType;
+        }
+
+        return Str::endsWith(class_basename($resolvedSeederClass), 'CategorySeeder')
+            ? 'category'
+            : 'page';
+    }
+
     private function packagePageCount(string $resolvedSeederClass): int
     {
         if (! Schema::hasTable('pages') || ! Schema::hasColumn('pages', 'seeder')) {

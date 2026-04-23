@@ -11,7 +11,12 @@ use Database\Seeders\V2\Polyglot\PolyglotFirstConditionalLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotGerundVsInfinitiveLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotMustHaveToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastContinuousLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPassiveVoiceBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectTimeExpressionsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotReportedSpeechBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotRelativeClausesLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotShouldOughtToLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotUsedToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotHaveGotHasGotLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectBasicLessonSeeder;
@@ -67,6 +72,11 @@ class PolyglotCourseReportCommandTest extends TestCase
         $this->seed(PolyglotMustHaveToLessonSeeder::class);
         $this->seed(PolyglotGerundVsInfinitiveLessonSeeder::class);
         $this->seed(PolyglotPastContinuousLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectTimeExpressionsLessonSeeder::class);
+        $this->seed(PolyglotRelativeClausesLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceBasicsLessonSeeder::class);
+        $this->seed(PolyglotReportedSpeechBasicsLessonSeeder::class);
+        $this->seed(PolyglotUsedToLessonSeeder::class);
     }
 
     public function test_course_report_command_outputs_planned_and_implemented_status(): void
@@ -89,7 +99,7 @@ class PolyglotCourseReportCommandTest extends TestCase
             'courseSlug' => 'polyglot-english-a2',
         ])
             ->expectsOutputToContain('Planned total: 16')
-            ->expectsOutputToContain('Implemented total: 8')
+            ->expectsOutputToContain('Implemented total: 13')
             ->expectsOutputToContain('polyglot-present-perfect-basic-a2')
             ->expectsOutputToContain('polyglot-present-perfect-vs-past-simple-a2')
             ->expectsOutputToContain('polyglot-first-conditional-a2')
@@ -98,8 +108,13 @@ class PolyglotCourseReportCommandTest extends TestCase
             ->expectsOutputToContain('polyglot-must-have-to-a2')
             ->expectsOutputToContain('polyglot-gerund-vs-infinitive-a2')
             ->expectsOutputToContain('polyglot-past-continuous-a2')
-            ->expectsOutputToContain('Missing / planned lessons: polyglot-present-perfect-time-expressions-a2')
-            ->expectsOutputToContain('Next recommended lesson: polyglot-present-perfect-time-expressions-a2')
+            ->expectsOutputToContain('polyglot-present-perfect-time-expressions-a2')
+            ->expectsOutputToContain('polyglot-relative-clauses-a2')
+            ->expectsOutputToContain('polyglot-passive-voice-basics-a2')
+            ->expectsOutputToContain('polyglot-reported-speech-basics-a2')
+            ->expectsOutputToContain('polyglot-used-to-a2')
+            ->expectsOutputToContain('Missing / planned lessons: polyglot-question-tags-basics-a2')
+            ->expectsOutputToContain('Next recommended lesson: polyglot-question-tags-basics-a2')
             ->expectsOutputToContain('Broken previous/next refs: none')
             ->assertExitCode(0);
     }

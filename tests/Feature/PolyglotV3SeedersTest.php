@@ -18,6 +18,10 @@ use Database\Seeders\V3\Polyglot\PolyglotShouldOughtToLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotMuchManyALotOfLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotMustHaveToLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastContinuousLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotPassiveVoiceBasicsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectTimeExpressionsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotReportedSpeechBasicsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotRelativeClausesLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
@@ -29,6 +33,7 @@ use Database\Seeders\V3\Polyglot\PolyglotSomeAnyLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotSuperlativesLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotThereIsThereAreLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotToBeLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotUsedToLessonSeeder;
 use Illuminate\Support\Facades\File;
 use Tests\Support\RebuildsComposeTestSchema;
 use Tests\TestCase;
@@ -1740,6 +1745,478 @@ class PolyglotV3SeedersTest extends TestCase
             $ukLocalization['seeder']['class'] ?? null
         );
         $this->assertStringContainsString('past-continuous-forms', File::get($promptPath));
+        $this->assertStringContainsString('polyglot-english-a2', File::get($promptPath));
+    }
+
+    public function test_generator_driven_a2_lesson_nine_seeder_works_and_stays_idempotent(): void
+    {
+        $this->seed(PolyglotPresentPerfectBasicLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectVsPastSimpleLessonSeeder::class);
+        $this->seed(PolyglotFirstConditionalLessonSeeder::class);
+        $this->seed(PolyglotBeGoingToLessonSeeder::class);
+        $this->seed(PolyglotShouldOughtToLessonSeeder::class);
+        $this->seed(PolyglotMustHaveToLessonSeeder::class);
+        $this->seed(PolyglotGerundVsInfinitiveLessonSeeder::class);
+        $this->seed(PolyglotPastContinuousLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectTimeExpressionsLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectTimeExpressionsLessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $lesson = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-present-perfect-time-expressions-a2')
+            ->firstOrFail();
+        $questionUuids = collect(range(1, 24))
+            ->map(fn (int $number) => sprintf('polyglot-present-perfect-time-expressions-a2-q%02d', $number))
+            ->all();
+        $persistentQuestionUuids = $resolver->toPersistentMany($questionUuids);
+        $theoryPage = $lesson->filters['prompt_generator']['theory_page'] ?? [];
+
+        $this->assertCount(24, $lesson->questionLinks);
+        $this->assertSame($persistentQuestionUuids, $lesson->questionLinks->pluck('question_uuid')->all());
+        $this->assertSame(24, Question::query()->whereIn('uuid', $persistentQuestionUuids)->count());
+        $this->assertTrue(Question::query()->whereIn('uuid', $persistentQuestionUuids)->get()->every(
+            fn (Question $question) => (string) $question->type === Question::TYPE_COMPOSE_TOKENS
+        ));
+        $this->assertSame('polyglot-english-a2', $lesson->filters['course_slug'] ?? null);
+        $this->assertSame(9, $lesson->filters['lesson_order'] ?? null);
+        $this->assertSame('polyglot-past-continuous-a2', $lesson->filters['previous_lesson_slug'] ?? null);
+        $this->assertSame('polyglot-relative-clauses-a2', $lesson->filters['next_lesson_slug'] ?? null);
+        $this->assertTrue((bool) ($lesson->filters['supports_duplicate_tokens'] ?? false));
+        $this->assertSame(
+            'Database\\Seeders\\Page_V3\\Tenses\\PresentPerfect\\PresentPerfectTimeExpressionsTheorySeeder',
+            $theoryPage['page_seeder_class'] ?? null
+        );
+        $this->assertSame('present-perfect-time-expressions', $theoryPage['slug'] ?? null);
+        $this->assertSame('tenses/present-perfect', $theoryPage['category_slug_path'] ?? null);
+        $this->assertSame(
+            1,
+            SavedGrammarTest::query()->where('slug', 'polyglot-present-perfect-time-expressions-a2')->count()
+        );
+    }
+
+    public function test_generator_driven_a2_lesson_nine_package_exists_in_canonical_v3_structure(): void
+    {
+        $loaderPath = database_path('seeders/V3/Polyglot/PolyglotPresentPerfectTimeExpressionsLessonSeeder.php');
+        $packagePath = database_path('seeders/V3/Polyglot/PolyglotPresentPerfectTimeExpressionsLessonSeeder');
+        $definitionPath = $packagePath . '/definition.json';
+        $realSeederPath = $packagePath . '/PolyglotPresentPerfectTimeExpressionsLessonSeeder.php';
+        $ukPath = $packagePath . '/localizations/uk.json';
+        $enPath = $packagePath . '/localizations/en.json';
+        $plPath = $packagePath . '/localizations/pl.json';
+        $promptPath = storage_path('app/polyglot-prompts/polyglot-present-perfect-time-expressions-a2.txt');
+
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($definitionPath);
+        $this->assertFileExists($realSeederPath);
+        $this->assertFileExists($ukPath);
+        $this->assertFileExists($enPath);
+        $this->assertFileExists($plPath);
+        $this->assertFileExists($promptPath);
+        $this->assertStringContainsString(
+            "require_once __DIR__ . '/PolyglotPresentPerfectTimeExpressionsLessonSeeder/PolyglotPresentPerfectTimeExpressionsLessonSeeder.php';",
+            File::get($loaderPath)
+        );
+
+        $definition = json_decode(File::get($definitionPath), true, 512, JSON_THROW_ON_ERROR);
+        $ukLocalization = json_decode(File::get($ukPath), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Polyglot\\PolyglotPresentPerfectTimeExpressionsLessonSeeder',
+            $definition['seeder']['class'] ?? null
+        );
+        $this->assertSame('polyglot-present-perfect-time-expressions-a2', $definition['saved_test']['slug'] ?? null);
+        $this->assertSame(24, count($definition['questions'] ?? []));
+        $this->assertSame(
+            'polyglot-present-perfect-time-expressions-a2-q24',
+            $definition['saved_test']['question_uuids'][23] ?? null
+        );
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Localizations\\Uk\\Polyglot\\PolyglotPresentPerfectTimeExpressionsLessonLocalizationSeeder',
+            $ukLocalization['seeder']['class'] ?? null
+        );
+        $this->assertStringContainsString('present-perfect-time-expressions', File::get($promptPath));
+        $this->assertStringContainsString('polyglot-english-a2', File::get($promptPath));
+    }
+
+    public function test_generator_driven_a2_lesson_ten_seeder_works_and_stays_idempotent(): void
+    {
+        $this->seed(PolyglotPresentPerfectBasicLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectVsPastSimpleLessonSeeder::class);
+        $this->seed(PolyglotFirstConditionalLessonSeeder::class);
+        $this->seed(PolyglotBeGoingToLessonSeeder::class);
+        $this->seed(PolyglotShouldOughtToLessonSeeder::class);
+        $this->seed(PolyglotMustHaveToLessonSeeder::class);
+        $this->seed(PolyglotGerundVsInfinitiveLessonSeeder::class);
+        $this->seed(PolyglotPastContinuousLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectTimeExpressionsLessonSeeder::class);
+        $this->seed(PolyglotRelativeClausesLessonSeeder::class);
+        $this->seed(PolyglotRelativeClausesLessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $lesson = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-relative-clauses-a2')
+            ->firstOrFail();
+        $questionUuids = collect(range(1, 24))
+            ->map(fn (int $number) => sprintf('polyglot-relative-clauses-a2-q%02d', $number))
+            ->all();
+        $persistentQuestionUuids = $resolver->toPersistentMany($questionUuids);
+        $theoryPage = $lesson->filters['prompt_generator']['theory_page'] ?? [];
+
+        $this->assertCount(24, $lesson->questionLinks);
+        $this->assertSame($questionUuids, $persistentQuestionUuids);
+        $this->assertSame($persistentQuestionUuids, $lesson->questionLinks->pluck('question_uuid')->all());
+        $this->assertSame(24, Question::query()->whereIn('uuid', $persistentQuestionUuids)->count());
+        $this->assertTrue(Question::query()->whereIn('uuid', $persistentQuestionUuids)->get()->every(
+            fn (Question $question) => (string) $question->type === Question::TYPE_COMPOSE_TOKENS
+        ));
+        $this->assertSame('polyglot-english-a2', $lesson->filters['course_slug'] ?? null);
+        $this->assertSame(10, $lesson->filters['lesson_order'] ?? null);
+        $this->assertSame('polyglot-present-perfect-time-expressions-a2', $lesson->filters['previous_lesson_slug'] ?? null);
+        $this->assertSame('polyglot-passive-voice-basics-a2', $lesson->filters['next_lesson_slug'] ?? null);
+        $this->assertTrue((bool) ($lesson->filters['supports_duplicate_tokens'] ?? false));
+        $this->assertSame(
+            'Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsRelativeClausesTheorySeeder',
+            $theoryPage['page_seeder_class'] ?? null
+        );
+        $this->assertSame('relative-clauses', $theoryPage['slug'] ?? null);
+        $this->assertSame('clauses-and-linking-words', $theoryPage['category_slug_path'] ?? null);
+        $this->assertSame(
+            1,
+            SavedGrammarTest::query()->where('slug', 'polyglot-relative-clauses-a2')->count()
+        );
+    }
+
+    public function test_generator_driven_a2_lesson_ten_package_exists_in_canonical_v3_structure(): void
+    {
+        $loaderPath = database_path('seeders/V3/Polyglot/PolyglotRelativeClausesLessonSeeder.php');
+        $packagePath = database_path('seeders/V3/Polyglot/PolyglotRelativeClausesLessonSeeder');
+        $definitionPath = $packagePath . '/definition.json';
+        $realSeederPath = $packagePath . '/PolyglotRelativeClausesLessonSeeder.php';
+        $ukPath = $packagePath . '/localizations/uk.json';
+        $enPath = $packagePath . '/localizations/en.json';
+        $plPath = $packagePath . '/localizations/pl.json';
+        $promptPath = storage_path('app/polyglot-prompts/polyglot-relative-clauses-a2.txt');
+
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($definitionPath);
+        $this->assertFileExists($realSeederPath);
+        $this->assertFileExists($ukPath);
+        $this->assertFileExists($enPath);
+        $this->assertFileExists($plPath);
+        $this->assertFileExists($promptPath);
+        $this->assertStringContainsString(
+            "require_once __DIR__ . '/PolyglotRelativeClausesLessonSeeder/PolyglotRelativeClausesLessonSeeder.php';",
+            File::get($loaderPath)
+        );
+
+        $definition = json_decode(File::get($definitionPath), true, 512, JSON_THROW_ON_ERROR);
+        $ukLocalization = json_decode(File::get($ukPath), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Polyglot\\PolyglotRelativeClausesLessonSeeder',
+            $definition['seeder']['class'] ?? null
+        );
+        $this->assertSame('polyglot-relative-clauses-a2', $definition['saved_test']['slug'] ?? null);
+        $this->assertSame(24, count($definition['questions'] ?? []));
+        $this->assertSame(
+            'polyglot-relative-clauses-a2-q24',
+            $definition['saved_test']['question_uuids'][23] ?? null
+        );
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Localizations\\Uk\\Polyglot\\PolyglotRelativeClausesLessonLocalizationSeeder',
+            $ukLocalization['seeder']['class'] ?? null
+        );
+        $this->assertStringContainsString('relative-clauses', File::get($promptPath));
+        $this->assertStringContainsString('polyglot-english-a2', File::get($promptPath));
+    }
+
+    public function test_generator_driven_a2_lesson_eleven_seeder_works_and_stays_idempotent(): void
+    {
+        $this->seed(PolyglotPresentPerfectBasicLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectVsPastSimpleLessonSeeder::class);
+        $this->seed(PolyglotFirstConditionalLessonSeeder::class);
+        $this->seed(PolyglotBeGoingToLessonSeeder::class);
+        $this->seed(PolyglotShouldOughtToLessonSeeder::class);
+        $this->seed(PolyglotMustHaveToLessonSeeder::class);
+        $this->seed(PolyglotGerundVsInfinitiveLessonSeeder::class);
+        $this->seed(PolyglotPastContinuousLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectTimeExpressionsLessonSeeder::class);
+        $this->seed(PolyglotRelativeClausesLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceBasicsLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceBasicsLessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $lesson = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-passive-voice-basics-a2')
+            ->firstOrFail();
+        $questionUuids = collect(range(1, 24))
+            ->map(fn (int $number) => sprintf('polyglot-passive-voice-basics-a2-q%02d', $number))
+            ->all();
+        $persistentQuestionUuids = $resolver->toPersistentMany($questionUuids);
+        $theoryPage = $lesson->filters['prompt_generator']['theory_page'] ?? [];
+
+        $this->assertCount(24, $lesson->questionLinks);
+        $this->assertSame($questionUuids, $persistentQuestionUuids);
+        $this->assertSame($persistentQuestionUuids, $lesson->questionLinks->pluck('question_uuid')->all());
+        $this->assertSame(24, Question::query()->whereIn('uuid', $persistentQuestionUuids)->count());
+        $this->assertTrue(Question::query()->whereIn('uuid', $persistentQuestionUuids)->get()->every(
+            fn (Question $question) => (string) $question->type === Question::TYPE_COMPOSE_TOKENS
+        ));
+        $this->assertSame('polyglot-english-a2', $lesson->filters['course_slug'] ?? null);
+        $this->assertSame(11, $lesson->filters['lesson_order'] ?? null);
+        $this->assertSame('polyglot-relative-clauses-a2', $lesson->filters['previous_lesson_slug'] ?? null);
+        $this->assertSame('polyglot-reported-speech-basics-a2', $lesson->filters['next_lesson_slug'] ?? null);
+        $this->assertTrue((bool) ($lesson->filters['supports_duplicate_tokens'] ?? false));
+        $this->assertSame(
+            'Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceFormationRulesTheorySeeder',
+            $theoryPage['page_seeder_class'] ?? null
+        );
+        $this->assertSame('theory-passive-voice-formation-rules', $theoryPage['slug'] ?? null);
+        $this->assertSame('passive-voice', $theoryPage['category_slug_path'] ?? null);
+        $this->assertSame(
+            1,
+            SavedGrammarTest::query()->where('slug', 'polyglot-passive-voice-basics-a2')->count()
+        );
+    }
+
+    public function test_generator_driven_a2_lesson_eleven_package_exists_in_canonical_v3_structure(): void
+    {
+        $loaderPath = database_path('seeders/V3/Polyglot/PolyglotPassiveVoiceBasicsLessonSeeder.php');
+        $packagePath = database_path('seeders/V3/Polyglot/PolyglotPassiveVoiceBasicsLessonSeeder');
+        $definitionPath = $packagePath . '/definition.json';
+        $realSeederPath = $packagePath . '/PolyglotPassiveVoiceBasicsLessonSeeder.php';
+        $ukPath = $packagePath . '/localizations/uk.json';
+        $enPath = $packagePath . '/localizations/en.json';
+        $plPath = $packagePath . '/localizations/pl.json';
+        $promptPath = storage_path('app/polyglot-prompts/polyglot-passive-voice-basics-a2.txt');
+
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($definitionPath);
+        $this->assertFileExists($realSeederPath);
+        $this->assertFileExists($ukPath);
+        $this->assertFileExists($enPath);
+        $this->assertFileExists($plPath);
+        $this->assertFileExists($promptPath);
+        $this->assertStringContainsString(
+            "require_once __DIR__ . '/PolyglotPassiveVoiceBasicsLessonSeeder/PolyglotPassiveVoiceBasicsLessonSeeder.php';",
+            File::get($loaderPath)
+        );
+
+        $definition = json_decode(File::get($definitionPath), true, 512, JSON_THROW_ON_ERROR);
+        $ukLocalization = json_decode(File::get($ukPath), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceBasicsLessonSeeder',
+            $definition['seeder']['class'] ?? null
+        );
+        $this->assertSame('polyglot-passive-voice-basics-a2', $definition['saved_test']['slug'] ?? null);
+        $this->assertSame(24, count($definition['questions'] ?? []));
+        $this->assertSame(
+            'polyglot-passive-voice-basics-a2-q24',
+            $definition['saved_test']['question_uuids'][23] ?? null
+        );
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Localizations\\Uk\\Polyglot\\PolyglotPassiveVoiceBasicsLessonLocalizationSeeder',
+            $ukLocalization['seeder']['class'] ?? null
+        );
+        $this->assertStringContainsString('theory-passive-voice-formation-rules', File::get($promptPath));
+        $this->assertStringContainsString('polyglot-english-a2', File::get($promptPath));
+    }
+
+    public function test_generator_driven_a2_lesson_twelve_seeder_works_and_stays_idempotent(): void
+    {
+        $this->seed(PolyglotPresentPerfectBasicLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectVsPastSimpleLessonSeeder::class);
+        $this->seed(PolyglotFirstConditionalLessonSeeder::class);
+        $this->seed(PolyglotBeGoingToLessonSeeder::class);
+        $this->seed(PolyglotShouldOughtToLessonSeeder::class);
+        $this->seed(PolyglotMustHaveToLessonSeeder::class);
+        $this->seed(PolyglotGerundVsInfinitiveLessonSeeder::class);
+        $this->seed(PolyglotPastContinuousLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectTimeExpressionsLessonSeeder::class);
+        $this->seed(PolyglotRelativeClausesLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceBasicsLessonSeeder::class);
+        $this->seed(PolyglotReportedSpeechBasicsLessonSeeder::class);
+        $this->seed(PolyglotReportedSpeechBasicsLessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $lesson = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-reported-speech-basics-a2')
+            ->firstOrFail();
+        $questionUuids = collect(range(1, 24))
+            ->map(fn (int $number) => sprintf('polyglot-reported-speech-basics-a2-q%02d', $number))
+            ->all();
+        $persistentQuestionUuids = $resolver->toPersistentMany($questionUuids);
+        $theoryPage = $lesson->filters['prompt_generator']['theory_page'] ?? [];
+
+        $this->assertCount(24, $lesson->questionLinks);
+        $this->assertNotSame($questionUuids, $persistentQuestionUuids);
+        $this->assertSame($persistentQuestionUuids, $lesson->questionLinks->pluck('question_uuid')->all());
+        $this->assertSame(24, Question::query()->whereIn('uuid', $persistentQuestionUuids)->count());
+        $this->assertTrue(Question::query()->whereIn('uuid', $persistentQuestionUuids)->get()->every(
+            fn (Question $question) => (string) $question->type === Question::TYPE_COMPOSE_TOKENS
+        ));
+        $this->assertTrue(collect($persistentQuestionUuids)->every(
+            fn (string $uuid) => strlen($uuid) <= QuestionUuidResolver::MAX_LENGTH
+        ));
+        $this->assertSame('polyglot-english-a2', $lesson->filters['course_slug'] ?? null);
+        $this->assertSame(12, $lesson->filters['lesson_order'] ?? null);
+        $this->assertSame('polyglot-passive-voice-basics-a2', $lesson->filters['previous_lesson_slug'] ?? null);
+        $this->assertSame('polyglot-used-to-a2', $lesson->filters['next_lesson_slug'] ?? null);
+        $this->assertTrue((bool) ($lesson->filters['supports_duplicate_tokens'] ?? false));
+        $this->assertSame(
+            'Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechStatementsTheorySeeder',
+            $theoryPage['page_seeder_class'] ?? null
+        );
+        $this->assertSame('reported-statements', $theoryPage['slug'] ?? null);
+        $this->assertSame('reported-speech', $theoryPage['category_slug_path'] ?? null);
+        $this->assertSame(
+            1,
+            SavedGrammarTest::query()->where('slug', 'polyglot-reported-speech-basics-a2')->count()
+        );
+    }
+
+    public function test_generator_driven_a2_lesson_twelve_package_exists_in_canonical_v3_structure(): void
+    {
+        $loaderPath = database_path('seeders/V3/Polyglot/PolyglotReportedSpeechBasicsLessonSeeder.php');
+        $packagePath = database_path('seeders/V3/Polyglot/PolyglotReportedSpeechBasicsLessonSeeder');
+        $definitionPath = $packagePath . '/definition.json';
+        $realSeederPath = $packagePath . '/PolyglotReportedSpeechBasicsLessonSeeder.php';
+        $ukPath = $packagePath . '/localizations/uk.json';
+        $enPath = $packagePath . '/localizations/en.json';
+        $plPath = $packagePath . '/localizations/pl.json';
+        $promptPath = storage_path('app/polyglot-prompts/polyglot-reported-speech-basics-a2.txt');
+
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($definitionPath);
+        $this->assertFileExists($realSeederPath);
+        $this->assertFileExists($ukPath);
+        $this->assertFileExists($enPath);
+        $this->assertFileExists($plPath);
+        $this->assertFileExists($promptPath);
+        $this->assertStringContainsString(
+            "require_once __DIR__ . '/PolyglotReportedSpeechBasicsLessonSeeder/PolyglotReportedSpeechBasicsLessonSeeder.php';",
+            File::get($loaderPath)
+        );
+
+        $definition = json_decode(File::get($definitionPath), true, 512, JSON_THROW_ON_ERROR);
+        $ukLocalization = json_decode(File::get($ukPath), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Polyglot\\PolyglotReportedSpeechBasicsLessonSeeder',
+            $definition['seeder']['class'] ?? null
+        );
+        $this->assertSame('polyglot-reported-speech-basics-a2', $definition['saved_test']['slug'] ?? null);
+        $this->assertSame(24, count($definition['questions'] ?? []));
+        $this->assertSame(
+            'polyglot-reported-speech-basics-a2-q24',
+            $definition['saved_test']['question_uuids'][23] ?? null
+        );
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Localizations\\Uk\\Polyglot\\PolyglotReportedSpeechBasicsLessonLocalizationSeeder',
+            $ukLocalization['seeder']['class'] ?? null
+        );
+        $this->assertStringContainsString('reported-statements', File::get($promptPath));
+        $this->assertStringContainsString('polyglot-english-a2', File::get($promptPath));
+    }
+
+    public function test_generator_driven_a2_lesson_thirteen_seeder_works_and_stays_idempotent(): void
+    {
+        $this->seed(PolyglotPresentPerfectBasicLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectVsPastSimpleLessonSeeder::class);
+        $this->seed(PolyglotFirstConditionalLessonSeeder::class);
+        $this->seed(PolyglotBeGoingToLessonSeeder::class);
+        $this->seed(PolyglotShouldOughtToLessonSeeder::class);
+        $this->seed(PolyglotMustHaveToLessonSeeder::class);
+        $this->seed(PolyglotGerundVsInfinitiveLessonSeeder::class);
+        $this->seed(PolyglotPastContinuousLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectTimeExpressionsLessonSeeder::class);
+        $this->seed(PolyglotRelativeClausesLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceBasicsLessonSeeder::class);
+        $this->seed(PolyglotReportedSpeechBasicsLessonSeeder::class);
+        $this->seed(PolyglotUsedToLessonSeeder::class);
+        $this->seed(PolyglotUsedToLessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $lesson = SavedGrammarTest::query()
+            ->with('questionLinks')
+            ->where('slug', 'polyglot-used-to-a2')
+            ->firstOrFail();
+        $questionUuids = collect(range(1, 24))
+            ->map(fn (int $number) => sprintf('polyglot-used-to-a2-q%02d', $number))
+            ->all();
+        $persistentQuestionUuids = $resolver->toPersistentMany($questionUuids);
+        $theoryPage = $lesson->filters['prompt_generator']['theory_page'] ?? [];
+
+        $this->assertCount(24, $lesson->questionLinks);
+        $this->assertSame($questionUuids, $persistentQuestionUuids);
+        $this->assertSame($persistentQuestionUuids, $lesson->questionLinks->pluck('question_uuid')->all());
+        $this->assertSame(24, Question::query()->whereIn('uuid', $persistentQuestionUuids)->count());
+        $this->assertTrue(Question::query()->whereIn('uuid', $persistentQuestionUuids)->get()->every(
+            fn (Question $question) => (string) $question->type === Question::TYPE_COMPOSE_TOKENS
+        ));
+        $this->assertSame('polyglot-english-a2', $lesson->filters['course_slug'] ?? null);
+        $this->assertSame(13, $lesson->filters['lesson_order'] ?? null);
+        $this->assertSame('polyglot-reported-speech-basics-a2', $lesson->filters['previous_lesson_slug'] ?? null);
+        $this->assertSame('polyglot-question-tags-basics-a2', $lesson->filters['next_lesson_slug'] ?? null);
+        $this->assertTrue((bool) ($lesson->filters['supports_duplicate_tokens'] ?? false));
+        $this->assertSame(
+            'Database\\Seeders\\Page_V3\\Tenses\\TensesUsedToWouldTheorySeeder',
+            $theoryPage['page_seeder_class'] ?? null
+        );
+        $this->assertSame('used-to-would', $theoryPage['slug'] ?? null);
+        $this->assertSame('tenses', $theoryPage['category_slug_path'] ?? null);
+        $this->assertSame(
+            1,
+            SavedGrammarTest::query()->where('slug', 'polyglot-used-to-a2')->count()
+        );
+    }
+
+    public function test_generator_driven_a2_lesson_thirteen_package_exists_in_canonical_v3_structure(): void
+    {
+        $loaderPath = database_path('seeders/V3/Polyglot/PolyglotUsedToLessonSeeder.php');
+        $packagePath = database_path('seeders/V3/Polyglot/PolyglotUsedToLessonSeeder');
+        $definitionPath = $packagePath . '/definition.json';
+        $realSeederPath = $packagePath . '/PolyglotUsedToLessonSeeder.php';
+        $ukPath = $packagePath . '/localizations/uk.json';
+        $enPath = $packagePath . '/localizations/en.json';
+        $plPath = $packagePath . '/localizations/pl.json';
+        $promptPath = storage_path('app/polyglot-prompts/polyglot-used-to-a2.txt');
+
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($definitionPath);
+        $this->assertFileExists($realSeederPath);
+        $this->assertFileExists($ukPath);
+        $this->assertFileExists($enPath);
+        $this->assertFileExists($plPath);
+        $this->assertFileExists($promptPath);
+        $this->assertStringContainsString(
+            "require_once __DIR__ . '/PolyglotUsedToLessonSeeder/PolyglotUsedToLessonSeeder.php';",
+            File::get($loaderPath)
+        );
+
+        $definition = json_decode(File::get($definitionPath), true, 512, JSON_THROW_ON_ERROR);
+        $ukLocalization = json_decode(File::get($ukPath), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Polyglot\\PolyglotUsedToLessonSeeder',
+            $definition['seeder']['class'] ?? null
+        );
+        $this->assertSame('polyglot-used-to-a2', $definition['saved_test']['slug'] ?? null);
+        $this->assertSame(24, count($definition['questions'] ?? []));
+        $this->assertSame(
+            'polyglot-used-to-a2-q24',
+            $definition['saved_test']['question_uuids'][23] ?? null
+        );
+        $this->assertSame(
+            'Database\\Seeders\\V3\\Localizations\\Uk\\Polyglot\\PolyglotUsedToLessonLocalizationSeeder',
+            $ukLocalization['seeder']['class'] ?? null
+        );
+        $this->assertStringContainsString('used-to-would', File::get($promptPath));
         $this->assertStringContainsString('polyglot-english-a2', File::get($promptPath));
     }
 

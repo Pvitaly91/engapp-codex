@@ -999,6 +999,258 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
         $this->assertStringContainsString('polyglot-past-continuous-a2', $contents);
     }
 
+    public function test_command_writes_present_perfect_time_expressions_a2_prompt_for_real_theory_page(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-present-perfect-time-expressions-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $this->cleanupPaths[] = $outputAbsolutePath;
+        $this->cleanupPaths[] = dirname($outputAbsolutePath);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'present-perfect',
+            'theoryPageSlug' => 'present-perfect-time-expressions',
+            'lessonSlug' => 'polyglot-present-perfect-time-expressions-a2',
+            'lessonOrder' => 9,
+            '--title' => 'Polyglot: present perfect time expressions (A2)',
+            '--topic' => 'present perfect time expressions',
+            '--seeder' => 'PolyglotPresentPerfectTimeExpressionsLessonSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-past-continuous-a2',
+            '--next' => 'polyglot-relative-clauses-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PRESENT-PERFECT-TIME-EXPRESSIONS-A2-TEST',
+            '--output' => $outputRelativePath,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertStringContainsString('Resolved theory page: Present Perfect: Time Expressions', $output);
+        $this->assertStringContainsString('/theory/present-perfect/present-perfect-time-expressions', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPresentPerfectTimeExpressionsLessonSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-PRESENT-PERFECT-TIME-EXPRESSIONS-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-present-perfect-time-expressions-a2', $contents);
+    }
+
+    public function test_command_writes_relative_clauses_a2_prompt_for_real_theory_page_and_skeleton(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-relative-clauses-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $loaderPath = base_path('database/seeders/V3/Polyglot/PolyglotRelativeClausesPromptTestSeeder.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/PolyglotRelativeClausesPromptTestSeeder');
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $outputAbsolutePath,
+            dirname($outputAbsolutePath),
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'clauses-and-linking-words',
+            'theoryPageSlug' => 'relative-clauses',
+            'lessonSlug' => 'polyglot-relative-clauses-a2',
+            'lessonOrder' => 10,
+            '--title' => 'Polyglot: relative clauses basics (A2)',
+            '--topic' => 'relative clauses basics',
+            '--seeder' => 'PolyglotRelativeClausesPromptTestSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-present-perfect-time-expressions-a2',
+            '--next' => 'polyglot-passive-voice-basics-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-RELATIVE-CLAUSES-A2-TEST',
+            '--output' => $outputRelativePath,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($packagePath . '/definition.json');
+        $this->assertStringContainsString('Resolved theory page: Relative Clauses', $output);
+        $this->assertStringContainsString('/theory/clauses-and-linking-words/relative-clauses', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotRelativeClausesPromptTestSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-RELATIVE-CLAUSES-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-relative-clauses-a2', $contents);
+    }
+
+    public function test_command_writes_passive_voice_basics_a2_prompt_for_real_theory_page_and_skeleton(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-passive-voice-basics-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $loaderPath = base_path('database/seeders/V3/Polyglot/PolyglotPassiveVoiceBasicsPromptTestSeeder.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/PolyglotPassiveVoiceBasicsPromptTestSeeder');
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $outputAbsolutePath,
+            dirname($outputAbsolutePath),
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'passive-voice',
+            'theoryPageSlug' => 'theory-passive-voice-formation-rules',
+            'lessonSlug' => 'polyglot-passive-voice-basics-a2',
+            'lessonOrder' => 11,
+            '--title' => 'Polyglot: passive voice basics (A2)',
+            '--topic' => 'passive voice basics',
+            '--seeder' => 'PolyglotPassiveVoiceBasicsPromptTestSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-relative-clauses-a2',
+            '--next' => 'polyglot-reported-speech-basics-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PASSIVE-VOICE-BASICS-A2-TEST',
+            '--output' => $outputRelativePath,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($packagePath . '/definition.json');
+        $this->assertStringContainsString(
+            'Resolved theory page: Formation Rules — Правила утворення пасиву',
+            $output
+        );
+        $this->assertStringContainsString(
+            '/theory/passive-voice/theory-passive-voice-formation-rules',
+            $output
+        );
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPassiveVoiceBasicsPromptTestSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-PASSIVE-VOICE-BASICS-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-passive-voice-basics-a2', $contents);
+    }
+
+    public function test_command_writes_reported_speech_basics_a2_prompt_for_real_theory_page_and_skeleton(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-reported-speech-basics-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $loaderPath = base_path('database/seeders/V3/Polyglot/PolyglotReportedSpeechBasicsPromptTestSeeder.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/PolyglotReportedSpeechBasicsPromptTestSeeder');
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $outputAbsolutePath,
+            dirname($outputAbsolutePath),
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'reported-speech',
+            'theoryPageSlug' => 'reported-statements',
+            'lessonSlug' => 'polyglot-reported-speech-basics-a2',
+            'lessonOrder' => 12,
+            '--title' => 'Polyglot: reported speech basics (A2)',
+            '--topic' => 'reported speech basics',
+            '--seeder' => 'PolyglotReportedSpeechBasicsPromptTestSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-passive-voice-basics-a2',
+            '--next' => 'polyglot-used-to-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-REPORTED-SPEECH-BASICS-A2-TEST',
+            '--output' => $outputRelativePath,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($packagePath . '/definition.json');
+        $this->assertStringContainsString('Resolved theory page: Reported Statements', $output);
+        $this->assertStringContainsString('/theory/reported-speech/reported-statements', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotReportedSpeechBasicsPromptTestSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-REPORTED-SPEECH-BASICS-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-reported-speech-basics-a2', $contents);
+    }
+
+    public function test_command_writes_used_to_a2_prompt_for_real_theory_page_and_skeleton(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-used-to-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $loaderPath = base_path('database/seeders/V3/Polyglot/PolyglotUsedToPromptTestSeeder.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/PolyglotUsedToPromptTestSeeder');
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $outputAbsolutePath,
+            dirname($outputAbsolutePath),
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'tenses',
+            'theoryPageSlug' => 'used-to-would',
+            'lessonSlug' => 'polyglot-used-to-a2',
+            'lessonOrder' => 13,
+            '--title' => 'Polyglot: used to (A2)',
+            '--topic' => 'used to',
+            '--seeder' => 'PolyglotUsedToPromptTestSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-reported-speech-basics-a2',
+            '--next' => 'polyglot-question-tags-basics-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-USED-TO-A2-TEST',
+            '--output' => $outputRelativePath,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($packagePath . '/definition.json');
+        $this->assertStringContainsString('Resolved theory page: Used to / Would', $output);
+        $this->assertStringContainsString('/theory/tenses/used-to-would', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotUsedToPromptTestSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-USED-TO-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-used-to-a2', $contents);
+    }
+
     public function test_skeleton_writer_creates_canonical_package_and_respects_force_flag(): void
     {
         $seeder = 'PolyglotSkeletonDemoTestSeeder';

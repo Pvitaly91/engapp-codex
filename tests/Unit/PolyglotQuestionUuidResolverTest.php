@@ -157,4 +157,54 @@ class PolyglotQuestionUuidResolverTest extends TestCase
 
         $this->assertSame($canonical, $resolver->toPersistent($canonical));
     }
+
+    public function test_present_perfect_time_expressions_a2_question_uuid_mapping_is_deterministic_and_length_safe(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-present-perfect-time-expressions-a2-q24';
+
+        $mappedOnce = $resolver->toPersistent($canonical);
+        $mappedTwice = $resolver->toPersistent($canonical);
+
+        $this->assertSame($mappedOnce, $mappedTwice);
+        $this->assertNotSame($canonical, $mappedOnce);
+        $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
+    }
+
+    public function test_relative_clauses_a2_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-relative-clauses-a2-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
+
+    public function test_passive_voice_basics_a2_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-passive-voice-basics-a2-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
+
+    public function test_reported_speech_basics_a2_question_uuid_mapping_is_deterministic_and_length_safe(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-reported-speech-basics-a2-q24';
+
+        $mappedOnce = $resolver->toPersistent($canonical);
+        $mappedTwice = $resolver->toPersistent($canonical);
+
+        $this->assertSame($mappedOnce, $mappedTwice);
+        $this->assertNotSame($canonical, $mappedOnce);
+        $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
+    }
+
+    public function test_used_to_a2_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-used-to-a2-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
 }
