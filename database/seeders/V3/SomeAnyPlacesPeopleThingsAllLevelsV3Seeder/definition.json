@@ -34,37 +34,17 @@
             "name": "Some / Any reference",
             "category": "topic"
         },
-        "things": {
-            "name": "Things",
-            "category": "pattern"
-        },
-        "people": {
+        "people_page": {
             "name": "People",
             "category": "pattern"
         },
-        "places": {
+        "places_page": {
             "name": "Places",
             "category": "pattern"
         },
-        "affirmative_some": {
-            "name": "Affirmative some",
+        "things_page": {
+            "name": "Things",
             "category": "pattern"
-        },
-        "negative_any": {
-            "name": "Negative any",
-            "category": "pattern"
-        },
-        "question_any": {
-            "name": "Question any",
-            "category": "pattern"
-        },
-        "no_none": {
-            "name": "No / None contrasts",
-            "category": "pattern"
-        },
-        "free_choice_any": {
-            "name": "Free-choice any",
-            "category": "usage"
         }
     },
     "default_tag_keys": [
@@ -74,962 +54,1586 @@
     "questions": [
         {
             "id": 1,
-            "question": "There is {a1} juice in the fridge.",
+            "question": "{a1} are waiting outside the cinema.",
             "source": "some_any_theme_page",
             "level": "A1",
             "markers": {
                 "a1": {
-                    "answer": "some",
+                    "answer": "Some people",
                     "options": [
-                        "some",
-                        "any",
-                        "no"
-                    ],
-                    "verb_hint": "affirmative quantity word"
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "affirmative_some"
+                "people_page"
             ],
             "variants": [
-                "There is {a1} juice in the fridge."
+                "{a1} are waiting outside the cinema."
             ]
         },
         {
             "id": 2,
-            "question": "Do you have {a1} questions before we start?",
+            "question": "{a2} is calling you.",
             "source": "some_any_theme_page",
             "level": "A1",
             "markers": {
-                "a1": {
-                    "answer": "any",
+                "a2": {
+                    "answer": "Someone",
                     "options": [
-                        "any",
-                        "some",
-                        "no"
-                    ],
-                    "verb_hint": "neutral question form"
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "question_any"
+                "people_page"
             ],
             "variants": [
-                "Do you have {a1} questions before we start?"
+                "{a2} is calling you."
             ]
         },
         {
             "id": 3,
-            "question": "We didn't see {a1} outside the station.",
+            "question": "{a3} knows my new address.",
             "source": "some_any_theme_page",
             "level": "A1",
             "markers": {
-                "a1": {
-                    "answer": "anyone",
+                "a3": {
+                    "answer": "No one",
                     "options": [
-                        "anyone",
-                        "someone",
-                        "no one"
-                    ],
-                    "verb_hint": "negative people form"
+                        "No one",
+                        "Anyone",
+                        "Someone"
+                    ]
                 }
             },
             "tag_keys": [
-                "people",
-                "negative_any"
+                "people_page"
             ],
             "variants": [
-                "We didn't see {a1} outside the station."
+                "{a3} knows my new address."
             ]
         },
         {
             "id": 4,
-            "question": "She wants to go {a1} quiet this weekend.",
+            "question": "{a4} study at night.",
             "source": "some_any_theme_page",
             "level": "A1",
             "markers": {
-                "a1": {
-                    "answer": "somewhere",
+                "a4": {
+                    "answer": "Some people",
                     "options": [
-                        "somewhere",
-                        "anywhere",
-                        "nowhere"
-                    ],
-                    "verb_hint": "affirmative place form"
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
                 }
             },
             "tag_keys": [
-                "places",
-                "affirmative_some"
+                "people_page"
             ],
             "variants": [
-                "She wants to go {a1} quiet this weekend."
+                "{a4} study at night."
             ]
         },
         {
             "id": 5,
-            "question": "There isn't {a1} bread left.",
+            "question": "I want to go {a5} quiet.",
             "source": "some_any_theme_page",
             "level": "A1",
             "markers": {
-                "a1": {
-                    "answer": "any",
-                    "options": [
-                        "any",
-                        "some",
-                        "no"
-                    ],
-                    "verb_hint": "negative quantity word"
-                }
-            },
-            "tag_keys": [
-                "things",
-                "negative_any"
-            ],
-            "variants": [
-                "There isn't {a1} bread left."
-            ]
-        },
-        {
-            "id": 6,
-            "question": "Can I have {a1} water, please?",
-            "source": "some_any_theme_page",
-            "level": "A1",
-            "markers": {
-                "a1": {
-                    "answer": "some",
-                    "options": [
-                        "some",
-                        "any",
-                        "no"
-                    ],
-                    "verb_hint": "request form"
-                }
-            },
-            "tag_keys": [
-                "things",
-                "affirmative_some"
-            ],
-            "variants": [
-                "Can I have {a1} water, please?"
-            ]
-        },
-        {
-            "id": 7,
-            "question": "I heard {a1} at the door, but nobody was there when I opened it.",
-            "source": "some_any_theme_page",
-            "level": "A1",
-            "markers": {
-                "a1": {
-                    "answer": "something",
-                    "options": [
-                        "something",
-                        "anything",
-                        "nothing"
-                    ],
-                    "verb_hint": "affirmative thing form"
-                }
-            },
-            "tag_keys": [
-                "things",
-                "affirmative_some"
-            ],
-            "variants": [
-                "I heard {a1} at the door, but nobody was there when I opened it."
-            ]
-        },
-        {
-            "id": 8,
-            "question": "Let's buy {a1} for dinner on the way home.",
-            "source": "some_any_theme_page",
-            "level": "A1",
-            "markers": {
-                "a1": {
-                    "answer": "something",
-                    "options": [
-                        "something",
-                        "anything",
-                        "nothing"
-                    ],
-                    "verb_hint": "affirmative thing form"
-                }
-            },
-            "tag_keys": [
-                "things",
-                "affirmative_some"
-            ],
-            "variants": [
-                "Let's buy {a1} for dinner on the way home."
-            ]
-        },
-        {
-            "id": 9,
-            "question": "If you need {a1}, call me before midnight.",
-            "source": "some_any_theme_page",
-            "level": "B1",
-            "markers": {
-                "a1": {
-                    "answer": "anything",
-                    "options": [
-                        "anything",
-                        "something",
-                        "nothing"
-                    ],
-                    "verb_hint": "open conditional reference"
-                }
-            },
-            "tag_keys": [
-                "things",
-                "question_any"
-            ],
-            "variants": [
-                "If you need {a1}, call me before midnight."
-            ]
-        },
-        {
-            "id": 10,
-            "question": "There wasn't {a1} open after ten, so we went home.",
-            "source": "some_any_theme_page",
-            "level": "B1",
-            "markers": {
-                "a1": {
-                    "answer": "anywhere",
-                    "options": [
-                        "anywhere",
-                        "somewhere",
-                        "nowhere"
-                    ],
-                    "verb_hint": "negative place form"
-                }
-            },
-            "tag_keys": [
-                "places",
-                "negative_any"
-            ],
-            "variants": [
-                "There wasn't {a1} open after ten, so we went home."
-            ]
-        },
-        {
-            "id": 11,
-            "question": "Did {a1} from the support team reply to your message?",
-            "source": "some_any_theme_page",
-            "level": "B1",
-            "markers": {
-                "a1": {
-                    "answer": "anyone",
-                    "options": [
-                        "anyone",
-                        "someone",
-                        "no one"
-                    ],
-                    "verb_hint": "neutral people question"
-                }
-            },
-            "tag_keys": [
-                "people",
-                "question_any"
-            ],
-            "variants": [
-                "Did {a1} from the support team reply to your message?"
-            ]
-        },
-        {
-            "id": 12,
-            "question": "I have {a1} else to add to the report.",
-            "source": "some_any_theme_page",
-            "level": "B1",
-            "markers": {
-                "a1": {
-                    "answer": "nothing",
-                    "options": [
-                        "nothing",
-                        "anything",
-                        "something"
-                    ],
-                    "verb_hint": "negative thing form"
-                }
-            },
-            "tag_keys": [
-                "things",
-                "no_none"
-            ],
-            "variants": [
-                "I have {a1} else to add to the report."
-            ]
-        },
-        {
-            "id": 13,
-            "question": "She offered to meet us {a1} near the river.",
-            "source": "some_any_theme_page",
-            "level": "B1",
-            "markers": {
-                "a1": {
+                "a5": {
                     "answer": "somewhere",
                     "options": [
                         "somewhere",
                         "anywhere",
                         "nowhere"
-                    ],
-                    "verb_hint": "affirmative place form"
+                    ]
                 }
             },
             "tag_keys": [
-                "places",
-                "affirmative_some"
+                "places_page"
             ],
             "variants": [
-                "She offered to meet us {a1} near the river."
+                "I want to go {a5} quiet."
             ]
         },
         {
-            "id": 14,
-            "question": "With all the hotels full, we had {a1} to stay.",
+            "id": 6,
+            "question": "We went {a6} on Sunday.",
             "source": "some_any_theme_page",
-            "level": "B1",
+            "level": "A1",
             "markers": {
-                "a1": {
+                "a6": {
                     "answer": "nowhere",
                     "options": [
                         "nowhere",
                         "anywhere",
                         "somewhere"
-                    ],
-                    "verb_hint": "negative place form"
+                    ]
                 }
             },
             "tag_keys": [
-                "places",
-                "no_none"
+                "places_page"
             ],
             "variants": [
-                "With all the hotels full, we had {a1} to stay."
+                "We went {a6} on Sunday."
+            ]
+        },
+        {
+            "id": 7,
+            "question": "I cannot find my phone {a7}.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "I cannot find my phone {a7}."
+            ]
+        },
+        {
+            "id": 8,
+            "question": "We looked {a8} for the cat.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "everywhere",
+                    "options": [
+                        "everywhere",
+                        "somewhere",
+                        "anywhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "We looked {a8} for the cat."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "I need {a9} to drink.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "something",
+                    "options": [
+                        "something",
+                        "anything",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "I need {a9} to drink."
+            ]
+        },
+        {
+            "id": 10,
+            "question": "There is {a10} in the bag.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "something",
+                        "anything"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "There is {a10} in the bag."
+            ]
+        },
+        {
+            "id": 11,
+            "question": "We bought {a11} for the trip.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "some things",
+                    "options": [
+                        "some things",
+                        "any things",
+                        "no things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "We bought {a11} for the trip."
+            ]
+        },
+        {
+            "id": 12,
+            "question": "{a12} take time.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a12} take time."
+            ]
+        },
+        {
+            "id": 13,
+            "question": "{a13} in my evening class work part-time.",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a13": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a13} in my evening class work part-time."
+            ]
+        },
+        {
+            "id": 14,
+            "question": "{a14} from the team arrived early.",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a14": {
+                    "answer": "No one",
+                    "options": [
+                        "No one",
+                        "Anyone",
+                        "Someone"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a14} from the team arrived early."
             ]
         },
         {
             "id": 15,
-            "question": "Hardly {a1} knew about the schedule change before lunch.",
+            "question": "I hardly know {a15} in this neighborhood.",
             "source": "some_any_theme_page",
-            "level": "B1",
+            "level": "A2",
             "markers": {
-                "a1": {
-                    "answer": "anyone",
+                "a15": {
+                    "answer": "any people",
                     "options": [
-                        "anyone",
-                        "someone",
-                        "everyone"
-                    ],
-                    "verb_hint": "negative people form"
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
                 }
             },
             "tag_keys": [
-                "people",
-                "negative_any"
+                "people_page"
             ],
             "variants": [
-                "Hardly {a1} knew about the schedule change before lunch."
+                "I hardly know {a15} in this neighborhood."
             ]
         },
         {
             "id": 16,
-            "question": "There is {a1} in the box if you still need a charger.",
+            "question": "{a16} from support answered immediately.",
             "source": "some_any_theme_page",
-            "level": "B1",
+            "level": "A2",
             "markers": {
-                "a1": {
-                    "answer": "something",
+                "a16": {
+                    "answer": "Someone",
                     "options": [
-                        "something",
-                        "anything",
-                        "nothing"
-                    ],
-                    "verb_hint": "affirmative thing form"
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "affirmative_some"
+                "people_page"
             ],
             "variants": [
-                "There is {a1} in the box if you still need a charger."
+                "{a16} from support answered immediately."
             ]
         },
         {
             "id": 17,
-            "question": "If there's {a1} at all you disagree with, tell me before we publish it.",
+            "question": "{a17} near the station is still open.",
             "source": "some_any_theme_page",
-            "level": "B2",
+            "level": "A2",
             "markers": {
-                "a1": {
-                    "answer": "anything",
+                "a17": {
+                    "answer": "Somewhere",
                     "options": [
-                        "anything",
-                        "something",
-                        "nothing"
-                    ],
-                    "verb_hint": "free open reference"
+                        "Somewhere",
+                        "Anywhere",
+                        "Nowhere"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "free_choice_any"
+                "places_page"
             ],
             "variants": [
-                "If there's {a1} at all you disagree with, tell me before we publish it."
+                "{a17} near the station is still open."
             ]
         },
         {
             "id": 18,
-            "question": "They searched the archive and found {a1} worth citing in the early letters.",
+            "question": "We had {a18} to wait during the storm.",
             "source": "some_any_theme_page",
-            "level": "B2",
+            "level": "A2",
             "markers": {
-                "a1": {
-                    "answer": "nothing",
+                "a18": {
+                    "answer": "nowhere",
                     "options": [
-                        "nothing",
-                        "something",
-                        "anything"
-                    ],
-                    "verb_hint": "negative result"
+                        "nowhere",
+                        "anywhere",
+                        "somewhere"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "no_none"
+                "places_page"
             ],
             "variants": [
-                "They searched the archive and found {a1} worth citing in the early letters."
+                "We had {a18} to wait during the storm."
             ]
         },
         {
             "id": 19,
-            "question": "Some guests expected dessert, but {a1} asked for it directly.",
+            "question": "She wants to live {a19} near the sea.",
             "source": "some_any_theme_page",
-            "level": "B2",
+            "level": "A2",
             "markers": {
-                "a1": {
-                    "answer": "none of them",
+                "a19": {
+                    "answer": "somewhere",
                     "options": [
-                        "none of them",
-                        "no one",
-                        "some of them"
-                    ],
-                    "verb_hint": "partitive none"
+                        "somewhere",
+                        "anywhere",
+                        "nowhere"
+                    ]
                 }
             },
             "tag_keys": [
-                "people",
-                "no_none"
+                "places_page"
             ],
             "variants": [
-                "Some guests expected dessert, but {a1} asked for it directly."
+                "She wants to live {a19} near the sea."
             ]
         },
         {
             "id": 20,
-            "question": "We need to discuss the proposal {a1} quieter than this office.",
+            "question": "Can we stop {a20} for coffee on the way?",
             "source": "some_any_theme_page",
-            "level": "B2",
+            "level": "A2",
             "markers": {
-                "a1": {
+                "a20": {
                     "answer": "somewhere",
                     "options": [
                         "somewhere",
                         "anywhere",
                         "nowhere"
-                    ],
-                    "verb_hint": "specific but unknown place"
+                    ]
                 }
             },
             "tag_keys": [
-                "places",
-                "affirmative_some"
+                "places_page"
             ],
             "variants": [
-                "We need to discuss the proposal {a1} quieter than this office."
+                "Can we stop {a20} for coffee on the way?"
             ]
         },
         {
             "id": 21,
-            "question": "The witness denied speaking to {a1} from the press.",
+            "question": "{a21} in this box are very fragile.",
             "source": "some_any_theme_page",
-            "level": "B2",
+            "level": "A2",
             "markers": {
-                "a1": {
-                    "answer": "anyone",
+                "a21": {
+                    "answer": "Some things",
                     "options": [
-                        "anyone",
-                        "someone",
-                        "no one"
-                    ],
-                    "verb_hint": "negative people form"
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
                 }
             },
             "tag_keys": [
-                "people",
-                "negative_any"
+                "things_page"
             ],
             "variants": [
-                "The witness denied speaking to {a1} from the press."
+                "{a21} in this box are very fragile."
             ]
         },
         {
             "id": 22,
-            "question": "At first there was {a1} suspicious about the invoice.",
+            "question": "{a22} in the drawer belongs to me.",
             "source": "some_any_theme_page",
-            "level": "B2",
+            "level": "A2",
             "markers": {
-                "a1": {
-                    "answer": "nothing",
+                "a22": {
+                    "answer": "Nothing",
                     "options": [
-                        "nothing",
-                        "something",
-                        "anything"
-                    ],
-                    "verb_hint": "negative result"
+                        "Nothing",
+                        "Something",
+                        "Anything"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "no_none"
+                "things_page"
             ],
             "variants": [
-                "At first there was {a1} suspicious about the invoice."
+                "{a22} in the drawer belongs to me."
             ]
         },
         {
             "id": 23,
-            "question": "Would you like {a1} to drink while you wait?",
+            "question": "{a23} in the soup tastes strange.",
             "source": "some_any_theme_page",
-            "level": "B2",
+            "level": "A2",
             "markers": {
-                "a1": {
-                    "answer": "something",
+                "a23": {
+                    "answer": "Something",
                     "options": [
-                        "something",
-                        "anything",
-                        "nothing"
-                    ],
-                    "verb_hint": "offer form"
+                        "Something",
+                        "Anything",
+                        "Nothing"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "affirmative_some"
+                "things_page"
             ],
             "variants": [
-                "Would you like {a1} to drink while you wait?"
+                "{a23} in the soup tastes strange."
             ]
         },
         {
             "id": 24,
-            "question": "The guide said we could sit {a1} we liked during the workshop.",
+            "question": "Did {a24} on the dashboard change after the update?",
             "source": "some_any_theme_page",
-            "level": "B2",
+            "level": "A2",
             "markers": {
-                "a1": {
-                    "answer": "anywhere",
+                "a24": {
+                    "answer": "anything",
                     "options": [
-                        "anywhere",
-                        "somewhere",
-                        "nowhere"
-                    ],
-                    "verb_hint": "free-choice place form"
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
                 }
             },
             "tag_keys": [
-                "places",
-                "free_choice_any"
+                "things_page"
             ],
             "variants": [
-                "The guide said we could sit {a1} we liked during the workshop."
+                "Did {a24} on the dashboard change after the update?"
             ]
         },
         {
             "id": 25,
-            "question": "If {a1} whatsoever remains unclear, raise it before the contract is signed.",
+            "question": "{a25} in the front office speak three languages.",
             "source": "some_any_theme_page",
-            "level": "C1",
+            "level": "B1",
             "markers": {
-                "a1": {
-                    "answer": "anything",
+                "a25": {
+                    "answer": "Some people",
                     "options": [
-                        "anything",
-                        "something",
-                        "nothing"
-                    ],
-                    "verb_hint": "formal free-choice reference"
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "free_choice_any"
+                "people_page"
             ],
             "variants": [
-                "If {a1} whatsoever remains unclear, raise it before the contract is signed."
+                "{a25} in the front office speak three languages."
             ]
         },
         {
             "id": 26,
-            "question": "The committee concluded there was {a1} in the complaint that justified a formal inquiry.",
+            "question": "{a26} on the panel agreed with the proposal.",
             "source": "some_any_theme_page",
-            "level": "C1",
+            "level": "B1",
             "markers": {
-                "a1": {
-                    "answer": "nothing",
+                "a26": {
+                    "answer": "No one",
                     "options": [
-                        "nothing",
-                        "something",
-                        "anything"
-                    ],
-                    "verb_hint": "negative assessment"
+                        "No one",
+                        "Anyone",
+                        "Someone"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "no_none"
+                "people_page"
             ],
             "variants": [
-                "The committee concluded there was {a1} in the complaint that justified a formal inquiry."
+                "{a26} on the panel agreed with the proposal."
             ]
         },
         {
             "id": 27,
-            "question": "Although several analysts were invited, {a1} from compliance attended the briefing.",
+            "question": "Did {a27} from the research team review the draft?",
             "source": "some_any_theme_page",
-            "level": "C1",
+            "level": "B1",
             "markers": {
-                "a1": {
-                    "answer": "no one",
+                "a27": {
+                    "answer": "anyone",
                     "options": [
-                        "no one",
+                        "anyone",
                         "someone",
-                        "anyone"
-                    ],
-                    "verb_hint": "negative people form"
+                        "no one"
+                    ]
                 }
             },
             "tag_keys": [
-                "people",
-                "no_none"
+                "people_page"
             ],
             "variants": [
-                "Although several analysts were invited, {a1} from compliance attended the briefing."
+                "Did {a27} from the research team review the draft?"
             ]
         },
         {
             "id": 28,
-            "question": "They refused to store the files just {a1}; they wanted a secured location.",
+            "question": "{a28} simply learn faster with examples.",
             "source": "some_any_theme_page",
-            "level": "C1",
+            "level": "B1",
             "markers": {
-                "a1": {
-                    "answer": "anywhere",
+                "a28": {
+                    "answer": "Some people",
                     "options": [
-                        "anywhere",
-                        "somewhere",
-                        "nowhere"
-                    ],
-                    "verb_hint": "free-choice place form"
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
                 }
             },
             "tag_keys": [
-                "places",
-                "free_choice_any"
+                "people_page"
             ],
             "variants": [
-                "They refused to store the files just {a1}; they wanted a secured location."
+                "{a28} simply learn faster with examples."
             ]
         },
         {
             "id": 29,
-            "question": "I sensed {a1} in his tone that made the assurance sound rehearsed.",
+            "question": "{a29} beyond the bridge there is a small market.",
             "source": "some_any_theme_page",
-            "level": "C1",
+            "level": "B1",
             "markers": {
-                "a1": {
-                    "answer": "something",
+                "a29": {
+                    "answer": "Somewhere",
                     "options": [
-                        "something",
-                        "anything",
-                        "nothing"
-                    ],
-                    "verb_hint": "affirmative thing form"
+                        "Somewhere",
+                        "Anywhere",
+                        "Nowhere"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "affirmative_some"
+                "places_page"
             ],
             "variants": [
-                "I sensed {a1} in his tone that made the assurance sound rehearsed."
+                "{a29} beyond the bridge there is a small market."
             ]
         },
         {
             "id": 30,
-            "question": "Under the revised policy, {a1} may submit a conflict-of-interest report anonymously.",
+            "question": "That song was playing {a30} last summer.",
             "source": "some_any_theme_page",
-            "level": "C1",
+            "level": "B1",
             "markers": {
-                "a1": {
-                    "answer": "anyone",
+                "a30": {
+                    "answer": "everywhere",
                     "options": [
-                        "anyone",
-                        "someone",
-                        "no one"
-                    ],
-                    "verb_hint": "open eligibility"
+                        "everywhere",
+                        "somewhere",
+                        "anywhere"
+                    ]
                 }
             },
             "tag_keys": [
-                "people",
-                "free_choice_any"
+                "places_page"
             ],
             "variants": [
-                "Under the revised policy, {a1} may submit a conflict-of-interest report anonymously."
+                "That song was playing {a30} last summer."
             ]
         },
         {
             "id": 31,
-            "question": "There is {a1} we can do tonight without the signed approval.",
+            "question": "Is there {a31} the team can talk privately after lunch?",
             "source": "some_any_theme_page",
-            "level": "C1",
+            "level": "B1",
             "markers": {
-                "a1": {
-                    "answer": "nothing",
-                    "options": [
-                        "nothing",
-                        "anything",
-                        "something"
-                    ],
-                    "verb_hint": "negative result"
-                }
-            },
-            "tag_keys": [
-                "things",
-                "no_none"
-            ],
-            "variants": [
-                "There is {a1} we can do tonight without the signed approval."
-            ]
-        },
-        {
-            "id": 32,
-            "question": "The signed draft must be {a1} in your downloads folder.",
-            "source": "some_any_theme_page",
-            "level": "C1",
-            "markers": {
-                "a1": {
-                    "answer": "somewhere",
-                    "options": [
-                        "somewhere",
-                        "anywhere",
-                        "nowhere"
-                    ],
-                    "verb_hint": "unknown but expected place"
-                }
-            },
-            "tag_keys": [
-                "places",
-                "affirmative_some"
-            ],
-            "variants": [
-                "The signed draft must be {a1} in your downloads folder."
-            ]
-        },
-        {
-            "id": 33,
-            "question": "Should {a1} object to the revised wording, the clause will be reopened for discussion.",
-            "source": "some_any_theme_page",
-            "level": "C2",
-            "markers": {
-                "a1": {
-                    "answer": "anyone",
-                    "options": [
-                        "anyone",
-                        "someone",
-                        "no one"
-                    ],
-                    "verb_hint": "free-choice people form"
-                }
-            },
-            "tag_keys": [
-                "people",
-                "free_choice_any"
-            ],
-            "variants": [
-                "Should {a1} object to the revised wording, the clause will be reopened for discussion."
-            ]
-        },
-        {
-            "id": 34,
-            "question": "The court held that there was {a1} in the record to support the allegation.",
-            "source": "some_any_theme_page",
-            "level": "C2",
-            "markers": {
-                "a1": {
-                    "answer": "nothing",
-                    "options": [
-                        "nothing",
-                        "something",
-                        "anything"
-                    ],
-                    "verb_hint": "negative assessment"
-                }
-            },
-            "tag_keys": [
-                "things",
-                "no_none"
-            ],
-            "variants": [
-                "The court held that there was {a1} in the record to support the allegation."
-            ]
-        },
-        {
-            "id": 35,
-            "question": "We are not required to store the files {a1} specific; any secure repository will do.",
-            "source": "some_any_theme_page",
-            "level": "C2",
-            "markers": {
-                "a1": {
+                "a31": {
                     "answer": "anywhere",
                     "options": [
                         "anywhere",
                         "somewhere",
                         "nowhere"
-                    ],
-                    "verb_hint": "free-choice place form"
+                    ]
                 }
             },
             "tag_keys": [
-                "places",
-                "free_choice_any"
+                "places_page"
             ],
             "variants": [
-                "We are not required to store the files {a1} specific; any secure repository will do."
+                "Is there {a31} the team can talk privately after lunch?"
+            ]
+        },
+        {
+            "id": 32,
+            "question": "By the time we arrived, there was {a32} left to park.",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a32": {
+                    "answer": "nowhere",
+                    "options": [
+                        "nowhere",
+                        "anywhere",
+                        "somewhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "By the time we arrived, there was {a32} left to park."
+            ]
+        },
+        {
+            "id": 33,
+            "question": "{a33} in the proposal deserve a second look.",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a33": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a33} in the proposal deserve a second look."
+            ]
+        },
+        {
+            "id": 34,
+            "question": "{a34} on that website seems reliable.",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a34": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Anything"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a34} on that website seems reliable."
+            ]
+        },
+        {
+            "id": 35,
+            "question": "Is there {a35} else the client requested?",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a35": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "Is there {a35} else the client requested?"
             ]
         },
         {
             "id": 36,
-            "question": "There was {a1} almost theatrical about the way he paused before answering.",
+            "question": "{a36} about the plan are still unclear.",
             "source": "some_any_theme_page",
-            "level": "C2",
+            "level": "B1",
             "markers": {
-                "a1": {
-                    "answer": "something",
+                "a36": {
+                    "answer": "Some things",
                     "options": [
-                        "something",
-                        "anything",
-                        "nothing"
-                    ],
-                    "verb_hint": "affirmative thing form"
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "affirmative_some"
+                "things_page"
             ],
             "variants": [
-                "There was {a1} almost theatrical about the way he paused before answering."
+                "{a36} about the plan are still unclear."
             ]
         },
         {
             "id": 37,
-            "question": "After the merger, {a1} in either department knew who owned the old process.",
+            "question": "{a37} on the review committee were openly skeptical.",
             "source": "some_any_theme_page",
-            "level": "C2",
+            "level": "B2",
             "markers": {
-                "a1": {
-                    "answer": "no one",
+                "a37": {
+                    "answer": "Some people",
                     "options": [
-                        "no one",
-                        "anyone",
-                        "someone"
-                    ],
-                    "verb_hint": "negative people form"
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
                 }
             },
             "tag_keys": [
-                "people",
-                "no_none"
+                "people_page"
             ],
             "variants": [
-                "After the merger, {a1} in either department knew who owned the old process."
+                "{a37} on the review committee were openly skeptical."
             ]
         },
         {
             "id": 38,
-            "question": "If {a1} of substance emerges overnight, wake me immediately.",
+            "question": "Hardly {a38} in the finance department understood the new rule.",
             "source": "some_any_theme_page",
-            "level": "C2",
+            "level": "B2",
             "markers": {
-                "a1": {
-                    "answer": "anything",
+                "a38": {
+                    "answer": "anyone",
                     "options": [
-                        "anything",
-                        "something",
-                        "nothing"
-                    ],
-                    "verb_hint": "free open reference"
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "free_choice_any"
+                "people_page"
             ],
             "variants": [
-                "If {a1} of substance emerges overnight, wake me immediately."
+                "Hardly {a38} in the finance department understood the new rule."
             ]
         },
         {
             "id": 39,
-            "question": "The auditors found discrepancies, but {a1} they traced suggested deliberate fraud.",
+            "question": "Did {a39} from the client side question the timeline?",
             "source": "some_any_theme_page",
-            "level": "C2",
+            "level": "B2",
             "markers": {
-                "a1": {
-                    "answer": "nothing",
+                "a39": {
+                    "answer": "anyone",
                     "options": [
-                        "nothing",
-                        "something",
-                        "anything"
-                    ],
-                    "verb_hint": "negative conclusion"
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "no_none"
+                "people_page"
             ],
             "variants": [
-                "The auditors found discrepancies, but {a1} they traced suggested deliberate fraud."
+                "Did {a39} from the client side question the timeline?"
             ]
         },
         {
             "id": 40,
-            "question": "There was scarcely {a1} to hide once the emails were disclosed.",
+            "question": "{a40} interpret silence as agreement.",
             "source": "some_any_theme_page",
-            "level": "C2",
+            "level": "B2",
             "markers": {
-                "a1": {
+                "a40": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a40} interpret silence as agreement."
+            ]
+        },
+        {
+            "id": 41,
+            "question": "{a41} in the archive there is a letter we still need.",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a41": {
+                    "answer": "Somewhere",
+                    "options": [
+                        "Somewhere",
+                        "Anywhere",
+                        "Nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "{a41} in the archive there is a letter we still need."
+            ]
+        },
+        {
+            "id": 42,
+            "question": "New security notices appeared {a42} overnight.",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a42": {
+                    "answer": "everywhere",
+                    "options": [
+                        "everywhere",
+                        "somewhere",
+                        "anywhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "New security notices appeared {a42} overnight."
+            ]
+        },
+        {
+            "id": 43,
+            "question": "Is there {a43} the witnesses could wait without being seen?",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a43": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "Is there {a43} the witnesses could wait without being seen?"
+            ]
+        },
+        {
+            "id": 44,
+            "question": "They would not stay {a44} that lacked internet access.",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a44": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "They would not stay {a44} that lacked internet access."
+            ]
+        },
+        {
+            "id": 45,
+            "question": "{a45} in the contract are deliberately vague.",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a45": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a45} in the contract are deliberately vague."
+            ]
+        },
+        {
+            "id": 46,
+            "question": "Have you discovered {a46} worth preserving from the draft?",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a46": {
                     "answer": "anything",
                     "options": [
                         "anything",
                         "something",
                         "nothing"
-                    ],
-                    "verb_hint": "negative open reference"
+                    ]
                 }
             },
             "tag_keys": [
-                "things",
-                "negative_any"
+                "things_page"
             ],
             "variants": [
-                "There was scarcely {a1} to hide once the emails were disclosed."
+                "Have you discovered {a46} worth preserving from the draft?"
+            ]
+        },
+        {
+            "id": 47,
+            "question": "Is there {a47} in the data that troubles you?",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a47": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "Is there {a47} in the data that troubles you?"
+            ]
+        },
+        {
+            "id": 48,
+            "question": "Did {a48} meaningful emerge from the final interview?",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a48": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "Did {a48} meaningful emerge from the final interview?"
+            ]
+        },
+        {
+            "id": 49,
+            "question": "{a49} in the discipline still treat that study as a turning point.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a49": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a49} in the discipline still treat that study as a turning point."
+            ]
+        },
+        {
+            "id": 50,
+            "question": "Barely {a50} on the external advisory panel disputed the findings.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a50": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "Barely {a50} on the external advisory panel disputed the findings."
+            ]
+        },
+        {
+            "id": 51,
+            "question": "Did {a51} in compliance flag the missing signatures?",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a51": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "Did {a51} in compliance flag the missing signatures?"
+            ]
+        },
+        {
+            "id": 52,
+            "question": "{a52} on the review team questioned the methodology.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a52": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Anybody"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a52} on the review team questioned the methodology."
+            ]
+        },
+        {
+            "id": 53,
+            "question": "{a53} in the final appendix the missing citation appears.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a53": {
+                    "answer": "Somewhere",
+                    "options": [
+                        "Somewhere",
+                        "Anywhere",
+                        "Nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "{a53} in the final appendix the missing citation appears."
+            ]
+        },
+        {
+            "id": 54,
+            "question": "Have you identified {a54} sufficiently neutral for the mediation?",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a54": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "Have you identified {a54} sufficiently neutral for the mediation?"
+            ]
+        },
+        {
+            "id": 55,
+            "question": "Is there {a55} the delegation might speak off the record tonight?",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a55": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "Is there {a55} the delegation might speak off the record tonight?"
+            ]
+        },
+        {
+            "id": 56,
+            "question": "We would not relocate {a56} without a written guarantee.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a56": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "We would not relocate {a56} without a written guarantee."
+            ]
+        },
+        {
+            "id": 57,
+            "question": "{a57} in that judgment remain open to interpretation.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a57": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a57} in that judgment remain open to interpretation."
+            ]
+        },
+        {
+            "id": 58,
+            "question": "{a58} in the briefing justified such alarm.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a58": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Anything"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a58} in the briefing justified such alarm."
+            ]
+        },
+        {
+            "id": 59,
+            "question": "Is there {a59} in the draft that might expose us legally?",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a59": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "Is there {a59} in the draft that might expose us legally?"
+            ]
+        },
+        {
+            "id": 60,
+            "question": "{a60} are omitted not by accident but by design.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a60": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a60} are omitted not by accident but by design."
+            ]
+        },
+        {
+            "id": 61,
+            "question": "{a61} in senior authority positions cultivate silence as a strategy.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a61": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a61} in senior authority positions cultivate silence as a strategy."
+            ]
+        },
+        {
+            "id": 62,
+            "question": "Scarcely {a62} in the negotiating team fully grasped the wider implications.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a62": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "Scarcely {a62} in the negotiating team fully grasped the wider implications."
+            ]
+        },
+        {
+            "id": 63,
+            "question": "Should {a63} from the board object, the clause will be redrafted.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a63": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "Should {a63} from the board object, the clause will be redrafted."
+            ]
+        },
+        {
+            "id": 64,
+            "question": "{a64} in either delegation was willing to concede first.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a64": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Anybody"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a64} in either delegation was willing to concede first."
+            ]
+        },
+        {
+            "id": 65,
+            "question": "{a65} in the background correspondence the motive becomes unmistakable.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a65": {
+                    "answer": "Somewhere",
+                    "options": [
+                        "Somewhere",
+                        "Anywhere",
+                        "Nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "{a65} in the background correspondence the motive becomes unmistakable."
+            ]
+        },
+        {
+            "id": 66,
+            "question": "The committee found {a66} sufficiently independent to host the review.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a66": {
+                    "answer": "nowhere",
+                    "options": [
+                        "nowhere",
+                        "anywhere",
+                        "somewhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "The committee found {a66} sufficiently independent to host the review."
+            ]
+        },
+        {
+            "id": 67,
+            "question": "Is there {a67} the parties could confer without the press watching?",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a67": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "Is there {a67} the parties could confer without the press watching?"
+            ]
+        },
+        {
+            "id": 68,
+            "question": "We would not anchor the argument {a68} so theoretically unstable.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a68": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "We would not anchor the argument {a68} so theoretically unstable."
+            ]
+        },
+        {
+            "id": 69,
+            "question": "{a69} in the record resist even careful classification.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a69": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a69} in the record resist even careful classification."
+            ]
+        },
+        {
+            "id": 70,
+            "question": "{a70} in their reasoning survives close scrutiny.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a70": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Anything"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a70} in their reasoning survives close scrutiny."
+            ]
+        },
+        {
+            "id": 71,
+            "question": "Is there {a71} in the settlement that might later be contested?",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a71": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "Is there {a71} in the settlement that might later be contested?"
+            ]
+        },
+        {
+            "id": 72,
+            "question": "{a72} are remembered precisely because they were never explained.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a72": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a72} are remembered precisely because they were never explained."
             ]
         }
     ]

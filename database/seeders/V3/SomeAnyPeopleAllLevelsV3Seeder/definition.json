@@ -1,0 +1,1764 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SomeAnyPeopleAllLevelsV3Seeder",
+        "uuid_namespace": "SomeAnyPeopleAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Some / Any"
+    },
+    "sources": {
+        "theory_page_theory_some_any_people": {
+            "name": "Some / Any — People"
+        }
+    },
+    "tags": {
+        "some_any_theme": {
+            "name": "Some / Any — people, places and things",
+            "category": "topic"
+        },
+        "some_any_reference": {
+            "name": "Some / Any reference",
+            "category": "topic"
+        },
+        "some_any_page": {
+            "name": "Some / Any",
+            "category": "topic"
+        },
+        "people_page": {
+            "name": "People",
+            "category": "pattern"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "some_any_theme",
+        "some_any_reference",
+        "some_any_page",
+        "people_page"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "{a1} are waiting outside.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a1"
+            ],
+            "variants": [
+                "{a1} are waiting outside."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 2,
+            "question": "Do you know {a2} here?",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "any people",
+                    "options": [
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a1"
+            ],
+            "variants": [
+                "Do you know {a2} here?"
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 3,
+            "question": "{a3} are in the garden.",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "No people",
+                    "options": [
+                        "No people",
+                        "Some people",
+                        "Any people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a1"
+            ],
+            "variants": [
+                "{a3} are in the garden."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 4,
+            "question": "{a4} is calling you.",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a1"
+            ],
+            "variants": [
+                "{a4} is calling you."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 5,
+            "question": "I do not see {a5} in the hall.",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a1"
+            ],
+            "variants": [
+                "I do not see {a5} in the hall."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 6,
+            "question": "{a6} is at the bus stop.",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Anybody"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a1"
+            ],
+            "variants": [
+                "{a6} is at the bus stop."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 7,
+            "question": "{a7} need water.",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a1"
+            ],
+            "variants": [
+                "{a7} need water."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 8,
+            "question": "Are there {a8} in the kitchen?",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "any people",
+                    "options": [
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a1"
+            ],
+            "variants": [
+                "Are there {a8} in the kitchen?"
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 9,
+            "question": "{a9} knows my new address.",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "No one",
+                    "options": [
+                        "No one",
+                        "Anyone",
+                        "Someone"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a1"
+            ],
+            "variants": [
+                "{a9} knows my new address."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 10,
+            "question": "{a10} from school sent a message.",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a1"
+            ],
+            "variants": [
+                "{a10} from school sent a message."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 11,
+            "question": "We did not invite {a11} from that team.",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "any people",
+                    "options": [
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a1"
+            ],
+            "variants": [
+                "We did not invite {a11} from that team."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 12,
+            "question": "{a12} study at night.",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a1"
+            ],
+            "variants": [
+                "{a12} study at night."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 13,
+            "question": "{a13} in my class work part-time.",
+            "level": "A2",
+            "markers": {
+                "a13": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a2"
+            ],
+            "variants": [
+                "{a13} in my class work part-time."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 14,
+            "question": "Did {a14} from the hotel complain?",
+            "level": "A2",
+            "markers": {
+                "a14": {
+                    "answer": "any people",
+                    "options": [
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a2"
+            ],
+            "variants": [
+                "Did {a14} from the hotel complain?"
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 15,
+            "question": "{a15} from the team arrived early.",
+            "level": "A2",
+            "markers": {
+                "a15": {
+                    "answer": "No one",
+                    "options": [
+                        "No one",
+                        "Anyone",
+                        "Someone"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a2"
+            ],
+            "variants": [
+                "{a15} from the team arrived early."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 16,
+            "question": "{a16} is waiting at reception.",
+            "level": "A2",
+            "markers": {
+                "a16": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a2"
+            ],
+            "variants": [
+                "{a16} is waiting at reception."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 17,
+            "question": "I hardly know {a17} in this neighborhood.",
+            "level": "A2",
+            "markers": {
+                "a17": {
+                    "answer": "any people",
+                    "options": [
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a2"
+            ],
+            "variants": [
+                "I hardly know {a17} in this neighborhood."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 18,
+            "question": "{a18} in the family likes spicy food.",
+            "level": "A2",
+            "markers": {
+                "a18": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Anybody"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a2"
+            ],
+            "variants": [
+                "{a18} in the family likes spicy food."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 19,
+            "question": "{a19} prefer online meetings.",
+            "level": "A2",
+            "markers": {
+                "a19": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a2"
+            ],
+            "variants": [
+                "{a19} prefer online meetings."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 20,
+            "question": "Are there {a20} on the terrace?",
+            "level": "A2",
+            "markers": {
+                "a20": {
+                    "answer": "any people",
+                    "options": [
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a2"
+            ],
+            "variants": [
+                "Are there {a20} on the terrace?"
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 21,
+            "question": "{a21} were sitting near the lake.",
+            "level": "A2",
+            "markers": {
+                "a21": {
+                    "answer": "No people",
+                    "options": [
+                        "No people",
+                        "Some people",
+                        "Any people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a2"
+            ],
+            "variants": [
+                "{a21} were sitting near the lake."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 22,
+            "question": "{a22} from support answered immediately.",
+            "level": "A2",
+            "markers": {
+                "a22": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a2"
+            ],
+            "variants": [
+                "{a22} from support answered immediately."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 23,
+            "question": "We could not find {a23} with a spare charger.",
+            "level": "A2",
+            "markers": {
+                "a23": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a2"
+            ],
+            "variants": [
+                "We could not find {a23} with a spare charger."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 24,
+            "question": "{a24} are already ready to leave.",
+            "level": "A2",
+            "markers": {
+                "a24": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_a2"
+            ],
+            "variants": [
+                "{a24} are already ready to leave."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 25,
+            "question": "{a25} in the office speak three languages.",
+            "level": "B1",
+            "markers": {
+                "a25": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b1"
+            ],
+            "variants": [
+                "{a25} in the office speak three languages."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 26,
+            "question": "I did not expect {a26} from finance to call tonight.",
+            "level": "B1",
+            "markers": {
+                "a26": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b1"
+            ],
+            "variants": [
+                "I did not expect {a26} from finance to call tonight."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 27,
+            "question": "{a27} on the panel agreed with the proposal.",
+            "level": "B1",
+            "markers": {
+                "a27": {
+                    "answer": "No one",
+                    "options": [
+                        "No one",
+                        "Anyone",
+                        "Someone"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b1"
+            ],
+            "variants": [
+                "{a27} on the panel agreed with the proposal."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 28,
+            "question": "{a28} in the audience kept asking difficult questions.",
+            "level": "B1",
+            "markers": {
+                "a28": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b1"
+            ],
+            "variants": [
+                "{a28} in the audience kept asking difficult questions."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 29,
+            "question": "We rarely meet {a29} who remember that cafe.",
+            "level": "B1",
+            "markers": {
+                "a29": {
+                    "answer": "any people",
+                    "options": [
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b1"
+            ],
+            "variants": [
+                "We rarely meet {a29} who remember that cafe."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 30,
+            "question": "{a30} around here cycle to work all year.",
+            "level": "B1",
+            "markers": {
+                "a30": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b1"
+            ],
+            "variants": [
+                "{a30} around here cycle to work all year."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 31,
+            "question": "Did {a31} from the research team review the draft?",
+            "level": "B1",
+            "markers": {
+                "a31": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b1"
+            ],
+            "variants": [
+                "Did {a31} from the research team review the draft?"
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 32,
+            "question": "{a32} were waiting outside when the doors opened.",
+            "level": "B1",
+            "markers": {
+                "a32": {
+                    "answer": "No people",
+                    "options": [
+                        "No people",
+                        "Some people",
+                        "Any people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b1"
+            ],
+            "variants": [
+                "{a32} were waiting outside when the doors opened."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 33,
+            "question": "{a33} with practical experience should lead the session.",
+            "level": "B1",
+            "markers": {
+                "a33": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b1"
+            ],
+            "variants": [
+                "{a33} with practical experience should lead the session."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 34,
+            "question": "I cannot recommend {a34} for that role yet.",
+            "level": "B1",
+            "markers": {
+                "a34": {
+                    "answer": "any people",
+                    "options": [
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b1"
+            ],
+            "variants": [
+                "I cannot recommend {a34} for that role yet."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 35,
+            "question": "{a35} simply learn faster with examples.",
+            "level": "B1",
+            "markers": {
+                "a35": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b1"
+            ],
+            "variants": [
+                "{a35} simply learn faster with examples."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 36,
+            "question": "{a36} from the evening group missed the test.",
+            "level": "B1",
+            "markers": {
+                "a36": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Anybody"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b1"
+            ],
+            "variants": [
+                "{a36} from the evening group missed the test."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 37,
+            "question": "{a37} on the committee were openly skeptical.",
+            "level": "B2",
+            "markers": {
+                "a37": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b2"
+            ],
+            "variants": [
+                "{a37} on the committee were openly skeptical."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 38,
+            "question": "Hardly {a38} in the department understood the new rule.",
+            "level": "B2",
+            "markers": {
+                "a38": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b2"
+            ],
+            "variants": [
+                "Hardly {a38} in the department understood the new rule."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 39,
+            "question": "{a39} from legal objected to the final wording.",
+            "level": "B2",
+            "markers": {
+                "a39": {
+                    "answer": "No one",
+                    "options": [
+                        "No one",
+                        "Anyone",
+                        "Someone"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b2"
+            ],
+            "variants": [
+                "{a39} from legal objected to the final wording."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 40,
+            "question": "{a40} in management must have approved the budget.",
+            "level": "B2",
+            "markers": {
+                "a40": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b2"
+            ],
+            "variants": [
+                "{a40} in management must have approved the budget."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 41,
+            "question": "We cannot trust {a41} who refuses to identify themselves.",
+            "level": "B2",
+            "markers": {
+                "a41": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b2"
+            ],
+            "variants": [
+                "We cannot trust {a41} who refuses to identify themselves."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 42,
+            "question": "{a42} would rather negotiate quietly than argue in public.",
+            "level": "B2",
+            "markers": {
+                "a42": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b2"
+            ],
+            "variants": [
+                "{a42} would rather negotiate quietly than argue in public."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 43,
+            "question": "Did {a43} from the client side question the timeline?",
+            "level": "B2",
+            "markers": {
+                "a43": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b2"
+            ],
+            "variants": [
+                "Did {a43} from the client side question the timeline?"
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 44,
+            "question": "{a44} in the focus group mentioned that risk.",
+            "level": "B2",
+            "markers": {
+                "a44": {
+                    "answer": "No people",
+                    "options": [
+                        "No people",
+                        "Some people",
+                        "Any people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b2"
+            ],
+            "variants": [
+                "{a44} in the focus group mentioned that risk."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 45,
+            "question": "{a45} at headquarters has already seen the report.",
+            "level": "B2",
+            "markers": {
+                "a45": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b2"
+            ],
+            "variants": [
+                "{a45} at headquarters has already seen the report."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 46,
+            "question": "I could not persuade {a46} on the board to delay the vote.",
+            "level": "B2",
+            "markers": {
+                "a46": {
+                    "answer": "any people",
+                    "options": [
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b2"
+            ],
+            "variants": [
+                "I could not persuade {a46} on the board to delay the vote."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 47,
+            "question": "{a47} interpret silence as agreement.",
+            "level": "B2",
+            "markers": {
+                "a47": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b2"
+            ],
+            "variants": [
+                "{a47} interpret silence as agreement."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 48,
+            "question": "{a48} in the press room noticed the correction.",
+            "level": "B2",
+            "markers": {
+                "a48": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Anybody"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_b2"
+            ],
+            "variants": [
+                "{a48} in the press room noticed the correction."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 49,
+            "question": "{a49} in the field still treat that study as a turning point.",
+            "level": "C1",
+            "markers": {
+                "a49": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c1"
+            ],
+            "variants": [
+                "{a49} in the field still treat that study as a turning point."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 50,
+            "question": "Barely {a50} on the advisory panel disputed the findings.",
+            "level": "C1",
+            "markers": {
+                "a50": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c1"
+            ],
+            "variants": [
+                "Barely {a50} on the advisory panel disputed the findings."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 51,
+            "question": "{a51} in senior leadership wanted to reopen the discussion.",
+            "level": "C1",
+            "markers": {
+                "a51": {
+                    "answer": "No one",
+                    "options": [
+                        "No one",
+                        "Anyone",
+                        "Someone"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c1"
+            ],
+            "variants": [
+                "{a51} in senior leadership wanted to reopen the discussion."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 52,
+            "question": "{a52} with diplomatic skill ought to handle the complaint.",
+            "level": "C1",
+            "markers": {
+                "a52": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c1"
+            ],
+            "variants": [
+                "{a52} with diplomatic skill ought to handle the complaint."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 53,
+            "question": "We have not identified {a53} willing to take public responsibility.",
+            "level": "C1",
+            "markers": {
+                "a53": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c1"
+            ],
+            "variants": [
+                "We have not identified {a53} willing to take public responsibility."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 54,
+            "question": "{a54} under pressure become unusually decisive.",
+            "level": "C1",
+            "markers": {
+                "a54": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c1"
+            ],
+            "variants": [
+                "{a54} under pressure become unusually decisive."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 55,
+            "question": "Did {a55} in compliance flag the missing signatures?",
+            "level": "C1",
+            "markers": {
+                "a55": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c1"
+            ],
+            "variants": [
+                "Did {a55} in compliance flag the missing signatures?"
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 56,
+            "question": "{a56} on the witness list matched the original description.",
+            "level": "C1",
+            "markers": {
+                "a56": {
+                    "answer": "No people",
+                    "options": [
+                        "No people",
+                        "Some people",
+                        "Any people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c1"
+            ],
+            "variants": [
+                "{a56} on the witness list matched the original description."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 57,
+            "question": "{a57} from procurement appears to have altered the figures.",
+            "level": "C1",
+            "markers": {
+                "a57": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c1"
+            ],
+            "variants": [
+                "{a57} from procurement appears to have altered the figures."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 58,
+            "question": "I rarely encounter {a58} so resistant to feedback.",
+            "level": "C1",
+            "markers": {
+                "a58": {
+                    "answer": "any people",
+                    "options": [
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c1"
+            ],
+            "variants": [
+                "I rarely encounter {a58} so resistant to feedback."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 59,
+            "question": "{a59} prefer ambiguity because it protects them.",
+            "level": "C1",
+            "markers": {
+                "a59": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c1"
+            ],
+            "variants": [
+                "{a59} prefer ambiguity because it protects them."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 60,
+            "question": "{a60} on the review team questioned the methodology.",
+            "level": "C1",
+            "markers": {
+                "a60": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Anybody"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c1"
+            ],
+            "variants": [
+                "{a60} on the review team questioned the methodology."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 61,
+            "question": "{a61} in positions of authority cultivate silence as a strategy.",
+            "level": "C2",
+            "markers": {
+                "a61": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c2"
+            ],
+            "variants": [
+                "{a61} in positions of authority cultivate silence as a strategy."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 62,
+            "question": "Scarcely {a62} in the negotiating team grasped the wider implications.",
+            "level": "C2",
+            "markers": {
+                "a62": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c2"
+            ],
+            "variants": [
+                "Scarcely {a62} in the negotiating team grasped the wider implications."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 63,
+            "question": "{a63} among the external reviewers challenged the central premise.",
+            "level": "C2",
+            "markers": {
+                "a63": {
+                    "answer": "No one",
+                    "options": [
+                        "No one",
+                        "Anyone",
+                        "Someone"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c2"
+            ],
+            "variants": [
+                "{a63} among the external reviewers challenged the central premise."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 64,
+            "question": "{a64} with genuine independence should oversee the inquiry.",
+            "level": "C2",
+            "markers": {
+                "a64": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c2"
+            ],
+            "variants": [
+                "{a64} with genuine independence should oversee the inquiry."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 65,
+            "question": "We could not find {a65} prepared to defend the decision in public.",
+            "level": "C2",
+            "markers": {
+                "a65": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c2"
+            ],
+            "variants": [
+                "We could not find {a65} prepared to defend the decision in public."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 66,
+            "question": "{a66} at that level confuse certainty with competence.",
+            "level": "C2",
+            "markers": {
+                "a66": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c2"
+            ],
+            "variants": [
+                "{a66} at that level confuse certainty with competence."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 67,
+            "question": "Should {a67} from the board object, the clause will be redrafted.",
+            "level": "C2",
+            "markers": {
+                "a67": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c2"
+            ],
+            "variants": [
+                "Should {a67} from the board object, the clause will be redrafted."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 68,
+            "question": "{a68} of sound judgment would endorse such wording unedited.",
+            "level": "C2",
+            "markers": {
+                "a68": {
+                    "answer": "No people",
+                    "options": [
+                        "No people",
+                        "Some people",
+                        "Any people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c2"
+            ],
+            "variants": [
+                "{a68} of sound judgment would endorse such wording unedited."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 69,
+            "question": "{a69} in the executive office must have leaked the memo.",
+            "level": "C2",
+            "markers": {
+                "a69": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c2"
+            ],
+            "variants": [
+                "{a69} in the executive office must have leaked the memo."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 70,
+            "question": "I have seldom met {a70} less interested in evidence.",
+            "level": "C2",
+            "markers": {
+                "a70": {
+                    "answer": "any people",
+                    "options": [
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c2"
+            ],
+            "variants": [
+                "I have seldom met {a70} less interested in evidence."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 71,
+            "question": "{a71} mistake politeness for consent.",
+            "level": "C2",
+            "markers": {
+                "a71": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c2"
+            ],
+            "variants": [
+                "{a71} mistake politeness for consent."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        },
+        {
+            "id": 72,
+            "question": "{a72} in either delegation was willing to concede first.",
+            "level": "C2",
+            "markers": {
+                "a72": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Anybody"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page",
+                "level_c2"
+            ],
+            "variants": [
+                "{a72} in either delegation was willing to concede first."
+            ],
+            "source": "theory_page_theory_some_any_people"
+        }
+    ],
+    "saved_test": {
+        "uuid": "d57fca81-fc48-5132-a5d3-1485b2b17476",
+        "slug": "some-any-people-all-levels-v3",
+        "name": "Some / Any — People (All levels V3)",
+        "description": "Page-local V3 gap-fill package for Some / Any — People with A1-C2 coverage.",
+        "filters": {
+            "num_questions": 72,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\SomeAnyPeopleAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-some-any-people",
+                    "title": "Some / Any — People",
+                    "category_slug_path": "some-any",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPeopleTheorySeeder",
+                    "url": "https://gramlyze.com/theory/some-any/theory-some-any-people"
+                }
+            }
+        }
+    }
+}

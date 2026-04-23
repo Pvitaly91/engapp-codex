@@ -1,8 +1,8 @@
 {
     "schema_version": 1,
     "seeder": {
-        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\WordOrderWithAdverbsAndAdverbialsV3QuestionsOnlySeeder",
-        "uuid_namespace": "WordOrderWithAdverbsAndAdverbialsV3QuestionsOnlySeeder"
+        "class": "Database\\Seeders\\V3\\WordOrderAdverbsAdverbialsAllLevelsV3Seeder",
+        "uuid_namespace": "WordOrderAdverbsAdverbialsAllLevelsV3Seeder"
     },
     "defaults": {
         "default_locale": "uk",
@@ -21,80 +21,40 @@
         "name": "Базова граматика / Word Order"
     },
     "sources": {
-        "theory_page_1089": {
+        "theory_page_theory_word_order_adverbs_adverbials": {
             "name": "Word Order with Adverbs and Adverbials"
         }
     },
     "tags": {
-        "adverb_word_order": {
-            "name": "Adverb word order",
+        "adverbials": {
+            "name": "Adverbials",
             "category": "topic"
         },
-        "frequency_adverb_position": {
-            "name": "Frequency adverb position (mid-position)",
-            "category": "pattern"
+        "manner": {
+            "name": "Manner",
+            "category": "topic"
         },
-        "manner_adverb_position": {
-            "name": "Manner adverb position (after verb/object)",
-            "category": "pattern"
+        "place": {
+            "name": "Place",
+            "category": "topic"
         },
-        "place_adverb_position": {
-            "name": "Place adverb/adverbial position",
-            "category": "pattern"
+        "time": {
+            "name": "Time",
+            "category": "topic"
         },
-        "time_adverb_position": {
-            "name": "Time adverb/adverbial position",
-            "category": "pattern"
-        },
-        "degree_adverb_position": {
-            "name": "Degree adverb position (before adjective/adverb)",
-            "category": "pattern"
-        },
-        "comment_adverb_position": {
-            "name": "Comment/viewpoint adverb (sentence-initial)",
-            "category": "pattern"
-        },
-        "focusing_adverb_position": {
-            "name": "Focusing adverb position (before focused element)",
-            "category": "pattern"
-        },
-        "adverb_with_be": {
-            "name": "Adverb placement with verb 'be'",
-            "category": "pattern"
-        },
-        "adverb_with_auxiliary": {
-            "name": "Adverb between auxiliary and main verb",
-            "category": "pattern"
-        },
-        "adverb_order_mpt": {
-            "name": "Manner–Place–Time adverbial order",
-            "category": "pattern"
-        },
-        "negative_adverb_inversion": {
-            "name": "Negative/restrictive adverb fronting with inversion",
-            "category": "pattern"
-        },
-        "adverbial_fronting": {
-            "name": "Adverbial fronting for emphasis",
-            "category": "pattern"
-        },
-        "split_infinitive": {
-            "name": "Adverb in split infinitive",
-            "category": "pattern"
-        },
-        "enough_position": {
-            "name": "Position of 'enough' after adjective/adverb",
-            "category": "pattern"
+        "frequency": {
+            "name": "Frequency",
+            "category": "topic"
         }
     },
     "default_tag_keys": [
-        "adverb_word_order"
+        "adverbials"
     ],
     "questions": [
         {
             "id": 1,
             "question": "She {a1} goes to school by bus.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A1",
             "markers": {
                 "a1": {
@@ -108,7 +68,7 @@
                 }
             },
             "tag_keys": [
-                "frequency_adverb_position"
+                "adverbials"
             ],
             "variants": [
                 "She {a1} goes to school by bus."
@@ -117,7 +77,7 @@
         {
             "id": 2,
             "question": "I am {a2} late for class.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A1",
             "markers": {
                 "a2": {
@@ -131,8 +91,7 @@
                 }
             },
             "tag_keys": [
-                "frequency_adverb_position",
-                "adverb_with_be"
+                "manner"
             ],
             "variants": [
                 "I am {a2} late for class."
@@ -141,7 +100,7 @@
         {
             "id": 3,
             "question": "He plays football {a3}.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A1",
             "markers": {
                 "a3": {
@@ -155,7 +114,7 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position"
+                "place"
             ],
             "variants": [
                 "He plays football {a3}."
@@ -164,7 +123,7 @@
         {
             "id": 4,
             "question": "They live {a4}.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A1",
             "markers": {
                 "a4": {
@@ -178,7 +137,7 @@
                 }
             },
             "tag_keys": [
-                "place_adverb_position"
+                "time"
             ],
             "variants": [
                 "They live {a4}."
@@ -187,7 +146,7 @@
         {
             "id": 5,
             "question": "We eat breakfast {a5}.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A1",
             "markers": {
                 "a5": {
@@ -201,7 +160,7 @@
                 }
             },
             "tag_keys": [
-                "time_adverb_position"
+                "frequency"
             ],
             "variants": [
                 "We eat breakfast {a5}."
@@ -210,7 +169,7 @@
         {
             "id": 6,
             "question": "The cat is {a6} small.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A1",
             "markers": {
                 "a6": {
@@ -224,7 +183,7 @@
                 }
             },
             "tag_keys": [
-                "degree_adverb_position"
+                "adverbials"
             ],
             "variants": [
                 "The cat is {a6} small."
@@ -233,7 +192,7 @@
         {
             "id": 7,
             "question": "She {a7} eats fish.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A1",
             "markers": {
                 "a7": {
@@ -247,7 +206,7 @@
                 }
             },
             "tag_keys": [
-                "frequency_adverb_position"
+                "manner"
             ],
             "variants": [
                 "She {a7} eats fish."
@@ -256,7 +215,7 @@
         {
             "id": 8,
             "question": "He is {a8} happy.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A1",
             "markers": {
                 "a8": {
@@ -270,8 +229,7 @@
                 }
             },
             "tag_keys": [
-                "frequency_adverb_position",
-                "adverb_with_be"
+                "place"
             ],
             "variants": [
                 "He is {a8} happy."
@@ -280,7 +238,7 @@
         {
             "id": 9,
             "question": "We {a9} watch TV at night.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A1",
             "markers": {
                 "a9": {
@@ -294,7 +252,7 @@
                 }
             },
             "tag_keys": [
-                "frequency_adverb_position"
+                "time"
             ],
             "variants": [
                 "We {a9} watch TV at night."
@@ -303,7 +261,7 @@
         {
             "id": 10,
             "question": "She speaks English {a10}.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A1",
             "markers": {
                 "a10": {
@@ -317,7 +275,7 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position"
+                "frequency"
             ],
             "variants": [
                 "She speaks English {a10}."
@@ -326,7 +284,7 @@
         {
             "id": 11,
             "question": "My brother is {a11} tired.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A1",
             "markers": {
                 "a11": {
@@ -340,7 +298,7 @@
                 }
             },
             "tag_keys": [
-                "degree_adverb_position"
+                "adverbials"
             ],
             "variants": [
                 "My brother is {a11} tired."
@@ -349,7 +307,7 @@
         {
             "id": 12,
             "question": "The children play {a12}.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A1",
             "markers": {
                 "a12": {
@@ -363,7 +321,7 @@
                 }
             },
             "tag_keys": [
-                "place_adverb_position"
+                "manner"
             ],
             "variants": [
                 "The children play {a12}."
@@ -371,146 +329,8 @@
         },
         {
             "id": 13,
-            "question": "I go to bed {a13}.",
-            "source": "theory_page_1089",
-            "level": "A1",
-            "markers": {
-                "a13": {
-                    "answer": "early",
-                    "options": [
-                        "early",
-                        "early go",
-                        "earlily"
-                    ],
-                    "verb_hint": "time adverb"
-                }
-            },
-            "tag_keys": [
-                "time_adverb_position"
-            ],
-            "variants": [
-                "I go to bed {a13}."
-            ]
-        },
-        {
-            "id": 14,
-            "question": "He {a14} drinks coffee.",
-            "source": "theory_page_1089",
-            "level": "A1",
-            "markers": {
-                "a14": {
-                    "answer": "often",
-                    "options": [
-                        "often",
-                        "drinks often",
-                        "oftenly"
-                    ],
-                    "verb_hint": "frequency adverb"
-                }
-            },
-            "tag_keys": [
-                "frequency_adverb_position"
-            ],
-            "variants": [
-                "He {a14} drinks coffee."
-            ]
-        },
-        {
-            "id": 15,
-            "question": "She sings {a15}.",
-            "source": "theory_page_1089",
-            "level": "A1",
-            "markers": {
-                "a15": {
-                    "answer": "beautifully",
-                    "options": [
-                        "beautifully",
-                        "beautiful",
-                        "beautifully sings"
-                    ],
-                    "verb_hint": "manner adverb"
-                }
-            },
-            "tag_keys": [
-                "manner_adverb_position"
-            ],
-            "variants": [
-                "She sings {a15}."
-            ]
-        },
-        {
-            "id": 16,
-            "question": "The soup is {a16} hot.",
-            "source": "theory_page_1089",
-            "level": "A1",
-            "markers": {
-                "a16": {
-                    "answer": "too",
-                    "options": [
-                        "too",
-                        "hot too",
-                        "to"
-                    ],
-                    "verb_hint": "degree adverb"
-                }
-            },
-            "tag_keys": [
-                "degree_adverb_position"
-            ],
-            "variants": [
-                "The soup is {a16} hot."
-            ]
-        },
-        {
-            "id": 17,
-            "question": "I {a17} forget my keys.",
-            "source": "theory_page_1089",
-            "level": "A1",
-            "markers": {
-                "a17": {
-                    "answer": "sometimes",
-                    "options": [
-                        "sometimes",
-                        "forget sometimes",
-                        "some times"
-                    ],
-                    "verb_hint": "frequency adverb"
-                }
-            },
-            "tag_keys": [
-                "frequency_adverb_position"
-            ],
-            "variants": [
-                "I {a17} forget my keys."
-            ]
-        },
-        {
-            "id": 18,
-            "question": "We went to the park {a18}.",
-            "source": "theory_page_1089",
-            "level": "A1",
-            "markers": {
-                "a18": {
-                    "answer": "yesterday",
-                    "options": [
-                        "yesterday",
-                        "yesterday went",
-                        "the yesterday"
-                    ],
-                    "verb_hint": "time adverb"
-                }
-            },
-            "tag_keys": [
-                "time_adverb_position"
-            ],
-            "variants": [
-                "We went to the park {a18}."
-            ]
-        },
-        {
-            "id": 19,
             "question": "She can {a19} speak three languages.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A2",
             "markers": {
                 "a19": {
@@ -524,16 +344,16 @@
                 }
             },
             "tag_keys": [
-                "adverb_with_auxiliary"
+                "place"
             ],
             "variants": [
                 "She can {a19} speak three languages."
             ]
         },
         {
-            "id": 20,
+            "id": 14,
             "question": "They walked {a20} to the station.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A2",
             "markers": {
                 "a20": {
@@ -547,16 +367,16 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position"
+                "time"
             ],
             "variants": [
                 "They walked {a20} to the station."
             ]
         },
         {
-            "id": 21,
+            "id": 15,
             "question": "She has {a21} been to Paris.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A2",
             "markers": {
                 "a21": {
@@ -570,17 +390,16 @@
                 }
             },
             "tag_keys": [
-                "frequency_adverb_position",
-                "adverb_with_auxiliary"
+                "frequency"
             ],
             "variants": [
                 "She has {a21} been to Paris."
             ]
         },
         {
-            "id": 22,
+            "id": 16,
             "question": "We played {a22} in the garden yesterday.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A2",
             "markers": {
                 "a22": {
@@ -594,17 +413,16 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position",
-                "adverb_order_mpt"
+                "adverbials"
             ],
             "variants": [
                 "We played {a22} in the garden yesterday."
             ]
         },
         {
-            "id": 23,
+            "id": 17,
             "question": "He {a23} finishes work at five.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A2",
             "markers": {
                 "a23": {
@@ -618,16 +436,16 @@
                 }
             },
             "tag_keys": [
-                "frequency_adverb_position"
+                "manner"
             ],
             "variants": [
                 "He {a23} finishes work at five."
             ]
         },
         {
-            "id": 24,
+            "id": 18,
             "question": "The movie was {a24} interesting.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A2",
             "markers": {
                 "a24": {
@@ -641,16 +459,16 @@
                 }
             },
             "tag_keys": [
-                "degree_adverb_position"
+                "place"
             ],
             "variants": [
                 "The movie was {a24} interesting."
             ]
         },
         {
-            "id": 25,
+            "id": 19,
             "question": "I will {a25} call you tomorrow.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A2",
             "markers": {
                 "a25": {
@@ -664,16 +482,16 @@
                 }
             },
             "tag_keys": [
-                "adverb_with_auxiliary"
+                "time"
             ],
             "variants": [
                 "I will {a25} call you tomorrow."
             ]
         },
         {
-            "id": 26,
+            "id": 20,
             "question": "They are {a26} late for meetings.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A2",
             "markers": {
                 "a26": {
@@ -687,17 +505,16 @@
                 }
             },
             "tag_keys": [
-                "frequency_adverb_position",
-                "adverb_with_be"
+                "frequency"
             ],
             "variants": [
                 "They are {a26} late for meetings."
             ]
         },
         {
-            "id": 27,
+            "id": 21,
             "question": "She drives {a27}.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A2",
             "markers": {
                 "a27": {
@@ -711,16 +528,16 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position"
+                "adverbials"
             ],
             "variants": [
                 "She drives {a27}."
             ]
         },
         {
-            "id": 28,
+            "id": 22,
             "question": "We stayed {a28} for two weeks.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A2",
             "markers": {
                 "a28": {
@@ -734,16 +551,16 @@
                 }
             },
             "tag_keys": [
-                "place_adverb_position"
+                "manner"
             ],
             "variants": [
                 "We stayed {a28} for two weeks."
             ]
         },
         {
-            "id": 29,
+            "id": 23,
             "question": "He is old {a29} to drive a car.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A2",
             "markers": {
                 "a29": {
@@ -757,16 +574,16 @@
                 }
             },
             "tag_keys": [
-                "enough_position"
+                "place"
             ],
             "variants": [
                 "He is old {a29} to drive a car."
             ]
         },
         {
-            "id": 30,
+            "id": 24,
             "question": "She danced {a30} at the party last night.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "A2",
             "markers": {
                 "a30": {
@@ -780,156 +597,16 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position",
-                "adverb_order_mpt"
+                "time"
             ],
             "variants": [
                 "She danced {a30} at the party last night."
             ]
         },
         {
-            "id": 31,
-            "question": "{a31}, we missed the bus.",
-            "source": "theory_page_1089",
-            "level": "A2",
-            "markers": {
-                "a31": {
-                    "answer": "Unfortunately",
-                    "options": [
-                        "Unfortunately",
-                        "Unfortunate",
-                        "Unfortunately we missed"
-                    ],
-                    "verb_hint": "comment adverb"
-                }
-            },
-            "tag_keys": [
-                "comment_adverb_position"
-            ],
-            "variants": [
-                "{a31}, we missed the bus."
-            ]
-        },
-        {
-            "id": 32,
-            "question": "She has {a32} finished her homework.",
-            "source": "theory_page_1089",
-            "level": "A2",
-            "markers": {
-                "a32": {
-                    "answer": "just",
-                    "options": [
-                        "just",
-                        "finished just",
-                        "just has"
-                    ],
-                    "verb_hint": "adverb between auxiliary and main verb"
-                }
-            },
-            "tag_keys": [
-                "adverb_with_auxiliary"
-            ],
-            "variants": [
-                "She has {a32} finished her homework."
-            ]
-        },
-        {
-            "id": 33,
-            "question": "He speaks {a33} enough to be understood.",
-            "source": "theory_page_1089",
-            "level": "A2",
-            "markers": {
-                "a33": {
-                    "answer": "clearly",
-                    "options": [
-                        "clearly",
-                        "clear",
-                        "enough clearly"
-                    ],
-                    "verb_hint": "manner adverb"
-                }
-            },
-            "tag_keys": [
-                "manner_adverb_position",
-                "enough_position"
-            ],
-            "variants": [
-                "He speaks {a33} enough to be understood."
-            ]
-        },
-        {
-            "id": 34,
-            "question": "I will see you {a34}.",
-            "source": "theory_page_1089",
-            "level": "A2",
-            "markers": {
-                "a34": {
-                    "answer": "soon",
-                    "options": [
-                        "soon",
-                        "soon will",
-                        "soonly"
-                    ],
-                    "verb_hint": "time adverb"
-                }
-            },
-            "tag_keys": [
-                "time_adverb_position"
-            ],
-            "variants": [
-                "I will see you {a34}."
-            ]
-        },
-        {
-            "id": 35,
-            "question": "{a35} do they go swimming?",
-            "source": "theory_page_1089",
-            "level": "A2",
-            "markers": {
-                "a35": {
-                    "answer": "How often",
-                    "options": [
-                        "How often",
-                        "Often how",
-                        "How much often"
-                    ],
-                    "verb_hint": "frequency question word"
-                }
-            },
-            "tag_keys": [
-                "frequency_adverb_position"
-            ],
-            "variants": [
-                "{a35} do they go swimming?"
-            ]
-        },
-        {
-            "id": 36,
-            "question": "They {a36} argue about money.",
-            "source": "theory_page_1089",
-            "level": "A2",
-            "markers": {
-                "a36": {
-                    "answer": "rarely",
-                    "options": [
-                        "rarely",
-                        "argue rarely",
-                        "rare"
-                    ],
-                    "verb_hint": "frequency adverb"
-                }
-            },
-            "tag_keys": [
-                "frequency_adverb_position"
-            ],
-            "variants": [
-                "They {a36} argue about money."
-            ]
-        },
-        {
-            "id": 37,
+            "id": 25,
             "question": "She spoke {a37} at the conference in London last week.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B1",
             "markers": {
                 "a37": {
@@ -943,17 +620,16 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position",
-                "adverb_order_mpt"
+                "frequency"
             ],
             "variants": [
                 "She spoke {a37} at the conference in London last week."
             ]
         },
         {
-            "id": 38,
+            "id": 26,
             "question": "He has {a38} visited ten countries.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B1",
             "markers": {
                 "a38": {
@@ -967,16 +643,16 @@
                 }
             },
             "tag_keys": [
-                "adverb_with_auxiliary"
+                "adverbials"
             ],
             "variants": [
                 "He has {a38} visited ten countries."
             ]
         },
         {
-            "id": 39,
+            "id": 27,
             "question": "{a39}, the project was completed on time.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B1",
             "markers": {
                 "a39": {
@@ -990,16 +666,16 @@
                 }
             },
             "tag_keys": [
-                "comment_adverb_position"
+                "manner"
             ],
             "variants": [
                 "{a39}, the project was completed on time."
             ]
         },
         {
-            "id": 40,
+            "id": 28,
             "question": "I would {a40} like to travel to Japan.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B1",
             "markers": {
                 "a40": {
@@ -1013,17 +689,16 @@
                 }
             },
             "tag_keys": [
-                "degree_adverb_position",
-                "adverb_with_auxiliary"
+                "place"
             ],
             "variants": [
                 "I would {a40} like to travel to Japan."
             ]
         },
         {
-            "id": 41,
+            "id": 29,
             "question": "{a41} does she practise the piano?",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B1",
             "markers": {
                 "a41": {
@@ -1037,16 +712,16 @@
                 }
             },
             "tag_keys": [
-                "frequency_adverb_position"
+                "time"
             ],
             "variants": [
                 "{a41} does she practise the piano?"
             ]
         },
         {
-            "id": 42,
+            "id": 30,
             "question": "The children were {a42} excited about the trip.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B1",
             "markers": {
                 "a42": {
@@ -1060,16 +735,16 @@
                 }
             },
             "tag_keys": [
-                "degree_adverb_position"
+                "frequency"
             ],
             "variants": [
                 "The children were {a42} excited about the trip."
             ]
         },
         {
-            "id": 43,
+            "id": 31,
             "question": "He waited {a43} at the bus stop for an hour.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B1",
             "markers": {
                 "a43": {
@@ -1083,17 +758,16 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position",
-                "adverb_order_mpt"
+                "adverbials"
             ],
             "variants": [
                 "He waited {a43} at the bus stop for an hour."
             ]
         },
         {
-            "id": 44,
+            "id": 32,
             "question": "She {a44} only eats organic food.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B1",
             "markers": {
                 "a44": {
@@ -1107,16 +781,16 @@
                 }
             },
             "tag_keys": [
-                "focusing_adverb_position"
+                "manner"
             ],
             "variants": [
                 "She {a44} only eats organic food."
             ]
         },
         {
-            "id": 45,
+            "id": 33,
             "question": "The teacher told us to {a45} check our answers.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B1",
             "markers": {
                 "a45": {
@@ -1130,16 +804,16 @@
                 }
             },
             "tag_keys": [
-                "split_infinitive"
+                "place"
             ],
             "variants": [
                 "The teacher told us to {a45} check our answers."
             ]
         },
         {
-            "id": 46,
+            "id": 34,
             "question": "He doesn't run fast {a46} to win the race.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B1",
             "markers": {
                 "a46": {
@@ -1153,16 +827,16 @@
                 }
             },
             "tag_keys": [
-                "enough_position"
+                "time"
             ],
             "variants": [
                 "He doesn't run fast {a46} to win the race."
             ]
         },
         {
-            "id": 47,
+            "id": 35,
             "question": "They have been {a47} working on this project.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B1",
             "markers": {
                 "a47": {
@@ -1176,17 +850,16 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position",
-                "adverb_with_auxiliary"
+                "frequency"
             ],
             "variants": [
                 "They have been {a47} working on this project."
             ]
         },
         {
-            "id": 48,
+            "id": 36,
             "question": "{a48}, I think she is right.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B1",
             "markers": {
                 "a48": {
@@ -1200,155 +873,16 @@
                 }
             },
             "tag_keys": [
-                "comment_adverb_position"
+                "adverbials"
             ],
             "variants": [
                 "{a48}, I think she is right."
             ]
         },
         {
-            "id": 49,
-            "question": "I {a49} just wanted to say hello.",
-            "source": "theory_page_1089",
-            "level": "B1",
-            "markers": {
-                "a49": {
-                    "answer": "only",
-                    "options": [
-                        "only",
-                        "just only",
-                        "only just wanted"
-                    ],
-                    "verb_hint": "focusing adverb"
-                }
-            },
-            "tag_keys": [
-                "focusing_adverb_position"
-            ],
-            "variants": [
-                "I {a49} just wanted to say hello."
-            ]
-        },
-        {
-            "id": 50,
-            "question": "He read the instructions {a50} before starting.",
-            "source": "theory_page_1089",
-            "level": "B1",
-            "markers": {
-                "a50": {
-                    "answer": "thoroughly",
-                    "options": [
-                        "thoroughly",
-                        "thorough",
-                        "thoroughly read"
-                    ],
-                    "verb_hint": "manner adverb"
-                }
-            },
-            "tag_keys": [
-                "manner_adverb_position"
-            ],
-            "variants": [
-                "He read the instructions {a50} before starting."
-            ]
-        },
-        {
-            "id": 51,
-            "question": "She is {a51} the best student in our class.",
-            "source": "theory_page_1089",
-            "level": "B1",
-            "markers": {
-                "a51": {
-                    "answer": "probably",
-                    "options": [
-                        "probably",
-                        "the probably best",
-                        "probable"
-                    ],
-                    "verb_hint": "adverb after be"
-                }
-            },
-            "tag_keys": [
-                "adverb_with_be"
-            ],
-            "variants": [
-                "She is {a51} the best student in our class."
-            ]
-        },
-        {
-            "id": 52,
-            "question": "We should {a52} leave before it gets dark.",
-            "source": "theory_page_1089",
-            "level": "B1",
-            "markers": {
-                "a52": {
-                    "answer": "probably",
-                    "options": [
-                        "probably",
-                        "should probably leave",
-                        "probable"
-                    ],
-                    "verb_hint": "adverb between modal and main verb"
-                }
-            },
-            "tag_keys": [
-                "adverb_with_auxiliary"
-            ],
-            "variants": [
-                "We should {a52} leave before it gets dark."
-            ]
-        },
-        {
-            "id": 53,
-            "question": "The concert was {a53} amazing.",
-            "source": "theory_page_1089",
-            "level": "B1",
-            "markers": {
-                "a53": {
-                    "answer": "absolutely",
-                    "options": [
-                        "absolutely",
-                        "amazing absolutely",
-                        "absolute"
-                    ],
-                    "verb_hint": "degree adverb"
-                }
-            },
-            "tag_keys": [
-                "degree_adverb_position"
-            ],
-            "variants": [
-                "The concert was {a53} amazing."
-            ]
-        },
-        {
-            "id": 54,
-            "question": "He practised {a54} in the studio all afternoon.",
-            "source": "theory_page_1089",
-            "level": "B1",
-            "markers": {
-                "a54": {
-                    "answer": "diligently",
-                    "options": [
-                        "diligently",
-                        "diligent",
-                        "diligently practised"
-                    ],
-                    "verb_hint": "manner–place–time"
-                }
-            },
-            "tag_keys": [
-                "manner_adverb_position",
-                "adverb_order_mpt"
-            ],
-            "variants": [
-                "He practised {a54} in the studio all afternoon."
-            ]
-        },
-        {
-            "id": 55,
+            "id": 37,
             "question": "{a55}, the experiment produced unexpected results.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B2",
             "markers": {
                 "a55": {
@@ -1362,16 +896,16 @@
                 }
             },
             "tag_keys": [
-                "comment_adverb_position"
+                "manner"
             ],
             "variants": [
                 "{a55}, the experiment produced unexpected results."
             ]
         },
         {
-            "id": 56,
+            "id": 38,
             "question": "She would {a56} have accepted the offer.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B2",
             "markers": {
                 "a56": {
@@ -1385,17 +919,16 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position",
-                "adverb_with_auxiliary"
+                "place"
             ],
             "variants": [
                 "She would {a56} have accepted the offer."
             ]
         },
         {
-            "id": 57,
+            "id": 39,
             "question": "He {a57} even noticed the mistake.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B2",
             "markers": {
                 "a57": {
@@ -1409,16 +942,16 @@
                 }
             },
             "tag_keys": [
-                "focusing_adverb_position"
+                "time"
             ],
             "variants": [
                 "He {a57} even noticed the mistake."
             ]
         },
         {
-            "id": 58,
+            "id": 40,
             "question": "The government wants to {a58} reform the education system.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B2",
             "markers": {
                 "a58": {
@@ -1432,16 +965,16 @@
                 }
             },
             "tag_keys": [
-                "split_infinitive"
+                "frequency"
             ],
             "variants": [
                 "The government wants to {a58} reform the education system."
             ]
         },
         {
-            "id": 59,
+            "id": 41,
             "question": "She performed {a59} on stage in front of thousands last Saturday.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B2",
             "markers": {
                 "a59": {
@@ -1455,17 +988,16 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position",
-                "adverb_order_mpt"
+                "adverbials"
             ],
             "variants": [
                 "She performed {a59} on stage in front of thousands last Saturday."
             ]
         },
         {
-            "id": 60,
+            "id": 42,
             "question": "The results were {a60} different from what we expected.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B2",
             "markers": {
                 "a60": {
@@ -1479,16 +1011,16 @@
                 }
             },
             "tag_keys": [
-                "degree_adverb_position"
+                "manner"
             ],
             "variants": [
                 "The results were {a60} different from what we expected."
             ]
         },
         {
-            "id": 61,
+            "id": 43,
             "question": "I can {a61} understand what he is saying.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B2",
             "markers": {
                 "a61": {
@@ -1502,17 +1034,16 @@
                 }
             },
             "tag_keys": [
-                "focusing_adverb_position",
-                "adverb_with_auxiliary"
+                "place"
             ],
             "variants": [
                 "I can {a61} understand what he is saying."
             ]
         },
         {
-            "id": 62,
+            "id": 44,
             "question": "{a62}, the company decided to expand overseas.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B2",
             "markers": {
                 "a62": {
@@ -1526,17 +1057,16 @@
                 }
             },
             "tag_keys": [
-                "adverbial_fronting",
-                "time_adverb_position"
+                "time"
             ],
             "variants": [
                 "{a62}, the company decided to expand overseas."
             ]
         },
         {
-            "id": 63,
+            "id": 45,
             "question": "She {a63} only reads non-fiction books.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B2",
             "markers": {
                 "a63": {
@@ -1550,16 +1080,16 @@
                 }
             },
             "tag_keys": [
-                "frequency_adverb_position"
+                "frequency"
             ],
             "variants": [
                 "She {a63} only reads non-fiction books."
             ]
         },
         {
-            "id": 64,
+            "id": 46,
             "question": "They discussed the matter {a64} in the boardroom after the meeting.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B2",
             "markers": {
                 "a64": {
@@ -1573,17 +1103,16 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position",
-                "adverb_order_mpt"
+                "adverbials"
             ],
             "variants": [
                 "They discussed the matter {a64} in the boardroom after the meeting."
             ]
         },
         {
-            "id": 65,
+            "id": 47,
             "question": "He must have {a65} forgotten about the appointment.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B2",
             "markers": {
                 "a65": {
@@ -1597,16 +1126,16 @@
                 }
             },
             "tag_keys": [
-                "adverb_with_auxiliary"
+                "manner"
             ],
             "variants": [
                 "He must have {a65} forgotten about the appointment."
             ]
         },
         {
-            "id": 66,
+            "id": 48,
             "question": "The company is {a66} well-known for its innovation.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "B2",
             "markers": {
                 "a66": {
@@ -1620,157 +1149,16 @@
                 }
             },
             "tag_keys": [
-                "degree_adverb_position"
+                "place"
             ],
             "variants": [
                 "The company is {a66} well-known for its innovation."
             ]
         },
         {
-            "id": 67,
-            "question": "{a67} did they realise the significance of the discovery.",
-            "source": "theory_page_1089",
-            "level": "B2",
-            "markers": {
-                "a67": {
-                    "answer": "Only later",
-                    "options": [
-                        "Only later",
-                        "Later only",
-                        "Only later they"
-                    ],
-                    "verb_hint": "restrictive adverb fronting with inversion"
-                }
-            },
-            "tag_keys": [
-                "negative_adverb_inversion",
-                "focusing_adverb_position"
-            ],
-            "variants": [
-                "{a67} did they realise the significance of the discovery."
-            ]
-        },
-        {
-            "id": 68,
-            "question": "She isn't strong {a68} to lift that box.",
-            "source": "theory_page_1089",
-            "level": "B2",
-            "markers": {
-                "a68": {
-                    "answer": "enough",
-                    "options": [
-                        "enough",
-                        "enough strong",
-                        "enoughly"
-                    ],
-                    "verb_hint": "enough after adjective"
-                }
-            },
-            "tag_keys": [
-                "enough_position"
-            ],
-            "variants": [
-                "She isn't strong {a68} to lift that box."
-            ]
-        },
-        {
-            "id": 69,
-            "question": "He {a69} ever complains about his workload.",
-            "source": "theory_page_1089",
-            "level": "B2",
-            "markers": {
-                "a69": {
-                    "answer": "hardly",
-                    "options": [
-                        "hardly",
-                        "hard",
-                        "ever hardly"
-                    ],
-                    "verb_hint": "focusing/negative adverb"
-                }
-            },
-            "tag_keys": [
-                "focusing_adverb_position",
-                "frequency_adverb_position"
-            ],
-            "variants": [
-                "He {a69} ever complains about his workload."
-            ]
-        },
-        {
-            "id": 70,
-            "question": "They were {a70} aware of the risks involved.",
-            "source": "theory_page_1089",
-            "level": "B2",
-            "markers": {
-                "a70": {
-                    "answer": "fully",
-                    "options": [
-                        "fully",
-                        "full",
-                        "fully were"
-                    ],
-                    "verb_hint": "degree adverb after be"
-                }
-            },
-            "tag_keys": [
-                "degree_adverb_position",
-                "adverb_with_be"
-            ],
-            "variants": [
-                "They were {a70} aware of the risks involved."
-            ]
-        },
-        {
-            "id": 71,
-            "question": "We need to {a71} consider all the options.",
-            "source": "theory_page_1089",
-            "level": "B2",
-            "markers": {
-                "a71": {
-                    "answer": "thoroughly",
-                    "options": [
-                        "thoroughly",
-                        "thorough",
-                        "thoroughly to"
-                    ],
-                    "verb_hint": "split infinitive"
-                }
-            },
-            "tag_keys": [
-                "split_infinitive"
-            ],
-            "variants": [
-                "We need to {a71} consider all the options."
-            ]
-        },
-        {
-            "id": 72,
-            "question": "{a72}, he managed to pass the exam despite being ill.",
-            "source": "theory_page_1089",
-            "level": "B2",
-            "markers": {
-                "a72": {
-                    "answer": "Remarkably",
-                    "options": [
-                        "Remarkably",
-                        "Remarkable",
-                        "Remarkably managed"
-                    ],
-                    "verb_hint": "comment adverb"
-                }
-            },
-            "tag_keys": [
-                "comment_adverb_position"
-            ],
-            "variants": [
-                "{a72}, he managed to pass the exam despite being ill."
-            ]
-        },
-        {
-            "id": 73,
+            "id": 49,
             "question": "Never {a73} such a compelling performance.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C1",
             "markers": {
                 "a73": {
@@ -1784,16 +1172,16 @@
                 }
             },
             "tag_keys": [
-                "negative_adverb_inversion"
+                "time"
             ],
             "variants": [
                 "Never {a73} such a compelling performance."
             ]
         },
         {
-            "id": 74,
+            "id": 50,
             "question": "Rarely {a74} so much attention to a local issue.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C1",
             "markers": {
                 "a74": {
@@ -1807,16 +1195,16 @@
                 }
             },
             "tag_keys": [
-                "negative_adverb_inversion"
+                "frequency"
             ],
             "variants": [
                 "Rarely {a74} so much attention to a local issue."
             ]
         },
         {
-            "id": 75,
+            "id": 51,
             "question": "The data should be {a75} interpreted within its original context.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C1",
             "markers": {
                 "a75": {
@@ -1830,17 +1218,16 @@
                 }
             },
             "tag_keys": [
-                "adverb_with_auxiliary",
-                "frequency_adverb_position"
+                "adverbials"
             ],
             "variants": [
                 "The data should be {a75} interpreted within its original context."
             ]
         },
         {
-            "id": 76,
+            "id": 52,
             "question": "{a76}, the policy has failed to address inequality.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C1",
             "markers": {
                 "a76": {
@@ -1854,16 +1241,16 @@
                 }
             },
             "tag_keys": [
-                "comment_adverb_position"
+                "manner"
             ],
             "variants": [
                 "{a76}, the policy has failed to address inequality."
             ]
         },
         {
-            "id": 77,
+            "id": 53,
             "question": "Seldom {a77} such a unanimous vote in Parliament.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C1",
             "markers": {
                 "a77": {
@@ -1877,16 +1264,16 @@
                 }
             },
             "tag_keys": [
-                "negative_adverb_inversion"
+                "place"
             ],
             "variants": [
                 "Seldom {a77} such a unanimous vote in Parliament."
             ]
         },
         {
-            "id": 78,
+            "id": 54,
             "question": "The report {a78} highlights the underlying causes of the crisis.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C1",
             "markers": {
                 "a78": {
@@ -1900,16 +1287,16 @@
                 }
             },
             "tag_keys": [
-                "focusing_adverb_position"
+                "time"
             ],
             "variants": [
                 "The report {a78} highlights the underlying causes of the crisis."
             ]
         },
         {
-            "id": 79,
+            "id": 55,
             "question": "She could have {a79} avoided the mistake if she had double-checked.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C1",
             "markers": {
                 "a79": {
@@ -1923,17 +1310,16 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position",
-                "adverb_with_auxiliary"
+                "frequency"
             ],
             "variants": [
                 "She could have {a79} avoided the mistake if she had double-checked."
             ]
         },
         {
-            "id": 80,
+            "id": 56,
             "question": "Not only did she finish the race, {a80} she set a new record.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C1",
             "markers": {
                 "a80": {
@@ -1947,16 +1333,16 @@
                 }
             },
             "tag_keys": [
-                "negative_adverb_inversion"
+                "adverbials"
             ],
             "variants": [
                 "Not only did she finish the race, {a80} she set a new record."
             ]
         },
         {
-            "id": 81,
+            "id": 57,
             "question": "The negotiations were handled {a81} behind closed doors throughout the week.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C1",
             "markers": {
                 "a81": {
@@ -1970,17 +1356,16 @@
                 }
             },
             "tag_keys": [
-                "manner_adverb_position",
-                "adverb_order_mpt"
+                "manner"
             ],
             "variants": [
                 "The negotiations were handled {a81} behind closed doors throughout the week."
             ]
         },
         {
-            "id": 82,
+            "id": 58,
             "question": "Little {a82} that the merger would transform the entire industry.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C1",
             "markers": {
                 "a82": {
@@ -1994,16 +1379,16 @@
                 }
             },
             "tag_keys": [
-                "negative_adverb_inversion"
+                "place"
             ],
             "variants": [
                 "Little {a82} that the merger would transform the entire industry."
             ]
         },
         {
-            "id": 83,
+            "id": 59,
             "question": "The team is expected to {a83} increase production by 20 per cent.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C1",
             "markers": {
                 "a83": {
@@ -2017,16 +1402,16 @@
                 }
             },
             "tag_keys": [
-                "split_infinitive"
+                "time"
             ],
             "variants": [
                 "The team is expected to {a83} increase production by 20 per cent."
             ]
         },
         {
-            "id": 84,
+            "id": 60,
             "question": "{a84}, the evidence suggests a different conclusion.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C1",
             "markers": {
                 "a84": {
@@ -2040,157 +1425,16 @@
                 }
             },
             "tag_keys": [
-                "comment_adverb_position"
+                "frequency"
             ],
             "variants": [
                 "{a84}, the evidence suggests a different conclusion."
             ]
         },
         {
-            "id": 85,
-            "question": "The proposal was {a85} rejected by the committee.",
-            "source": "theory_page_1089",
-            "level": "C1",
-            "markers": {
-                "a85": {
-                    "answer": "unanimously",
-                    "options": [
-                        "unanimously",
-                        "unanimous",
-                        "unanimously was"
-                    ],
-                    "verb_hint": "manner adverb in passive"
-                }
-            },
-            "tag_keys": [
-                "manner_adverb_position",
-                "adverb_with_auxiliary"
-            ],
-            "variants": [
-                "The proposal was {a85} rejected by the committee."
-            ]
-        },
-        {
-            "id": 86,
-            "question": "She speaks {a86} enough to negotiate international contracts.",
-            "source": "theory_page_1089",
-            "level": "C1",
-            "markers": {
-                "a86": {
-                    "answer": "fluently",
-                    "options": [
-                        "fluently",
-                        "fluent",
-                        "enough fluently"
-                    ],
-                    "verb_hint": "manner adverb + enough"
-                }
-            },
-            "tag_keys": [
-                "manner_adverb_position",
-                "enough_position"
-            ],
-            "variants": [
-                "She speaks {a86} enough to negotiate international contracts."
-            ]
-        },
-        {
-            "id": 87,
-            "question": "Only after the audit {a87} the discrepancies become apparent.",
-            "source": "theory_page_1089",
-            "level": "C1",
-            "markers": {
-                "a87": {
-                    "answer": "did",
-                    "options": [
-                        "did",
-                        "were",
-                        "had"
-                    ],
-                    "verb_hint": "inversion after 'Only after ...'"
-                }
-            },
-            "tag_keys": [
-                "negative_adverb_inversion"
-            ],
-            "variants": [
-                "Only after the audit {a87} the discrepancies become apparent."
-            ]
-        },
-        {
-            "id": 88,
-            "question": "He {a88} ever takes a day off work.",
-            "source": "theory_page_1089",
-            "level": "C1",
-            "markers": {
-                "a88": {
-                    "answer": "scarcely",
-                    "options": [
-                        "scarcely",
-                        "scarce",
-                        "ever scarcely"
-                    ],
-                    "verb_hint": "negative/restrictive adverb"
-                }
-            },
-            "tag_keys": [
-                "focusing_adverb_position",
-                "frequency_adverb_position"
-            ],
-            "variants": [
-                "He {a88} ever takes a day off work."
-            ]
-        },
-        {
-            "id": 89,
-            "question": "The study {a89} suggests that early intervention is beneficial.",
-            "source": "theory_page_1089",
-            "level": "C1",
-            "markers": {
-                "a89": {
-                    "answer": "convincingly",
-                    "options": [
-                        "convincingly",
-                        "convincing",
-                        "convincingly study"
-                    ],
-                    "verb_hint": "manner adverb before verb"
-                }
-            },
-            "tag_keys": [
-                "manner_adverb_position"
-            ],
-            "variants": [
-                "The study {a89} suggests that early intervention is beneficial."
-            ]
-        },
-        {
-            "id": 90,
-            "question": "They must {a90} reconsider their strategy going forward.",
-            "source": "theory_page_1089",
-            "level": "C1",
-            "markers": {
-                "a90": {
-                    "answer": "urgently",
-                    "options": [
-                        "urgently",
-                        "urgent",
-                        "urgently must"
-                    ],
-                    "verb_hint": "adverb between modal and main verb"
-                }
-            },
-            "tag_keys": [
-                "adverb_with_auxiliary"
-            ],
-            "variants": [
-                "They must {a90} reconsider their strategy going forward."
-            ]
-        },
-        {
-            "id": 91,
+            "id": 61,
             "question": "Not until the final chapter {a91} the author reveal the true motive.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C2",
             "markers": {
                 "a91": {
@@ -2204,16 +1448,16 @@
                 }
             },
             "tag_keys": [
-                "negative_adverb_inversion"
+                "adverbials"
             ],
             "variants": [
                 "Not until the final chapter {a91} the author reveal the true motive."
             ]
         },
         {
-            "id": 92,
+            "id": 62,
             "question": "Nowhere else {a92} a more harmonious blend of tradition and innovation.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C2",
             "markers": {
                 "a92": {
@@ -2227,17 +1471,16 @@
                 }
             },
             "tag_keys": [
-                "negative_adverb_inversion",
-                "place_adverb_position"
+                "manner"
             ],
             "variants": [
                 "Nowhere else {a92} a more harmonious blend of tradition and innovation."
             ]
         },
         {
-            "id": 93,
+            "id": 63,
             "question": "The manuscript was {a93} meticulously proofread before submission to the peer review panel last month.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C2",
             "markers": {
                 "a93": {
@@ -2251,17 +1494,16 @@
                 }
             },
             "tag_keys": [
-                "comment_adverb_position",
-                "adverb_with_auxiliary"
+                "place"
             ],
             "variants": [
                 "The manuscript was {a93} meticulously proofread before submission to the peer review panel last month."
             ]
         },
         {
-            "id": 94,
+            "id": 64,
             "question": "Under no circumstances {a94} the confidential data with unauthorised personnel.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C2",
             "markers": {
                 "a94": {
@@ -2275,16 +1517,16 @@
                 }
             },
             "tag_keys": [
-                "negative_adverb_inversion"
+                "time"
             ],
             "variants": [
                 "Under no circumstances {a94} the confidential data with unauthorised personnel."
             ]
         },
         {
-            "id": 95,
+            "id": 65,
             "question": "So {a95} that the audience gave a standing ovation.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C2",
             "markers": {
                 "a95": {
@@ -2298,17 +1540,16 @@
                 }
             },
             "tag_keys": [
-                "negative_adverb_inversion",
-                "manner_adverb_position"
+                "frequency"
             ],
             "variants": [
                 "So {a95} that the audience gave a standing ovation."
             ]
         },
         {
-            "id": 96,
+            "id": 66,
             "question": "The reforms are designed to {a96} redistribute wealth across the population.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C2",
             "markers": {
                 "a96": {
@@ -2322,17 +1563,16 @@
                 }
             },
             "tag_keys": [
-                "split_infinitive",
-                "degree_adverb_position"
+                "adverbials"
             ],
             "variants": [
                 "The reforms are designed to {a96} redistribute wealth across the population."
             ]
         },
         {
-            "id": 97,
+            "id": 67,
             "question": "Only by examining the evidence {a97} arrive at a sound conclusion.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C2",
             "markers": {
                 "a97": {
@@ -2346,16 +1586,16 @@
                 }
             },
             "tag_keys": [
-                "negative_adverb_inversion"
+                "manner"
             ],
             "variants": [
                 "Only by examining the evidence {a97} arrive at a sound conclusion."
             ]
         },
         {
-            "id": 98,
+            "id": 68,
             "question": "Hardly {a98} when the lights went out.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C2",
             "markers": {
                 "a98": {
@@ -2369,16 +1609,16 @@
                 }
             },
             "tag_keys": [
-                "negative_adverb_inversion"
+                "place"
             ],
             "variants": [
                 "Hardly {a98} when the lights went out."
             ]
         },
         {
-            "id": 99,
+            "id": 69,
             "question": "The phenomenon can {a99} be attributed to a single cause.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C2",
             "markers": {
                 "a99": {
@@ -2392,17 +1632,16 @@
                 }
             },
             "tag_keys": [
-                "focusing_adverb_position",
-                "adverb_with_auxiliary"
+                "time"
             ],
             "variants": [
                 "The phenomenon can {a99} be attributed to a single cause."
             ]
         },
         {
-            "id": 100,
+            "id": 70,
             "question": "{a100}, the correlation does not imply causation.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C2",
             "markers": {
                 "a100": {
@@ -2416,16 +1655,16 @@
                 }
             },
             "tag_keys": [
-                "comment_adverb_position"
+                "frequency"
             ],
             "variants": [
                 "{a100}, the correlation does not imply causation."
             ]
         },
         {
-            "id": 101,
+            "id": 71,
             "question": "No sooner {a101} than the phone rang.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C2",
             "markers": {
                 "a101": {
@@ -2439,16 +1678,16 @@
                 }
             },
             "tag_keys": [
-                "negative_adverb_inversion"
+                "adverbials"
             ],
             "variants": [
                 "No sooner {a101} than the phone rang."
             ]
         },
         {
-            "id": 102,
+            "id": 72,
             "question": "The artist {a102} painstakingly recreated every detail of the original fresco in the restored chapel over several months.",
-            "source": "theory_page_1089",
+            "source": "theory_page_theory_word_order_adverbs_adverbials",
             "level": "C2",
             "markers": {
                 "a102": {
@@ -2462,152 +1701,41 @@
                 }
             },
             "tag_keys": [
-                "adverb_with_auxiliary",
-                "manner_adverb_position"
+                "manner"
             ],
             "variants": [
                 "The artist {a102} painstakingly recreated every detail of the original fresco in the restored chapel over several months."
             ]
-        },
-        {
-            "id": 103,
-            "question": "In no way {a103} the severity of the situation.",
-            "source": "theory_page_1089",
-            "level": "C2",
-            "markers": {
-                "a103": {
-                    "answer": "does this diminish",
-                    "options": [
-                        "does this diminish",
-                        "this diminishes",
-                        "this does diminish"
-                    ],
-                    "verb_hint": "negative adverb inversion"
-                }
-            },
-            "tag_keys": [
-                "negative_adverb_inversion"
-            ],
-            "variants": [
-                "In no way {a103} the severity of the situation."
-            ]
-        },
-        {
-            "id": 104,
-            "question": "She has been {a104} praised for her philanthropic work throughout her career.",
-            "source": "theory_page_1089",
-            "level": "C2",
-            "markers": {
-                "a104": {
-                    "answer": "widely",
-                    "options": [
-                        "widely",
-                        "wide",
-                        "widely been"
-                    ],
-                    "verb_hint": "manner adverb after auxiliary chain in passive"
-                }
-            },
-            "tag_keys": [
-                "manner_adverb_position",
-                "adverb_with_auxiliary"
-            ],
-            "variants": [
-                "She has been {a104} praised for her philanthropic work throughout her career."
-            ]
-        },
-        {
-            "id": 105,
-            "question": "At no point {a105} my intention to mislead the committee.",
-            "source": "theory_page_1089",
-            "level": "C2",
-            "markers": {
-                "a105": {
-                    "answer": "was it",
-                    "options": [
-                        "was it",
-                        "it was",
-                        "it had been"
-                    ],
-                    "verb_hint": "negative adverb fronting inversion"
-                }
-            },
-            "tag_keys": [
-                "negative_adverb_inversion"
-            ],
-            "variants": [
-                "At no point {a105} my intention to mislead the committee."
-            ]
-        },
-        {
-            "id": 106,
-            "question": "The theory has been {a106} challenged by recent empirical findings.",
-            "source": "theory_page_1089",
-            "level": "C2",
-            "markers": {
-                "a106": {
-                    "answer": "increasingly",
-                    "options": [
-                        "increasingly",
-                        "increasing",
-                        "increasingly has"
-                    ],
-                    "verb_hint": "degree adverb in passive"
-                }
-            },
-            "tag_keys": [
-                "degree_adverb_position",
-                "adverb_with_auxiliary"
-            ],
-            "variants": [
-                "The theory has been {a106} challenged by recent empirical findings."
-            ]
-        },
-        {
-            "id": 107,
-            "question": "Only when the full dataset is available {a107} draw definitive conclusions.",
-            "source": "theory_page_1089",
-            "level": "C2",
-            "markers": {
-                "a107": {
-                    "answer": "can researchers",
-                    "options": [
-                        "can researchers",
-                        "researchers can",
-                        "researchers are able to"
-                    ],
-                    "verb_hint": "'Only when …' inversion"
-                }
-            },
-            "tag_keys": [
-                "negative_adverb_inversion"
-            ],
-            "variants": [
-                "Only when the full dataset is available {a107} draw definitive conclusions."
-            ]
-        },
-        {
-            "id": 108,
-            "question": "Not for a moment {a108} that the hypothesis would be disproven so swiftly.",
-            "source": "theory_page_1089",
-            "level": "C2",
-            "markers": {
-                "a108": {
-                    "answer": "did we suspect",
-                    "options": [
-                        "did we suspect",
-                        "we suspected",
-                        "we did suspect"
-                    ],
-                    "verb_hint": "negative adverb inversion"
-                }
-            },
-            "tag_keys": [
-                "negative_adverb_inversion"
-            ],
-            "variants": [
-                "Not for a moment {a108} that the hypothesis would be disproven so swiftly."
-            ]
         }
-    ]
+    ],
+    "saved_test": {
+        "uuid": "wo-aa-v3-test",
+        "slug": "word-order-adverbs-adverbials-all-levels-v3",
+        "name": "Word Order with Adverbs and Adverbials: V3 All Levels",
+        "description": "Page-local V3 package for Word Order with Adverbs and Adverbials with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\WordOrderAdverbsAdverbialsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-word-order-adverbs-adverbials",
+                    "title": "Word Order with Adverbs and Adverbials",
+                    "category_slug_path": "basic-grammar/word-order",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderAdverbsAdverbialsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/word-order/theory-word-order-adverbs-adverbials"
+                }
+            }
+        }
+    }
 }

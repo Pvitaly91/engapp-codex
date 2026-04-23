@@ -1,8 +1,8 @@
 {
     "schema_version": 1,
     "seeder": {
-        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\WordOrderWithVerbsAndObjectsV3QuestionsOnlySeeder",
-        "uuid_namespace": "WordOrderWithVerbsAndObjectsV3QuestionsOnlySeeder"
+        "class": "Database\\Seeders\\V3\\WordOrderVerbsObjectsAllLevelsV3Seeder",
+        "uuid_namespace": "WordOrderVerbsObjectsAllLevelsV3Seeder"
     },
     "defaults": {
         "default_locale": "uk",
@@ -21,83 +21,35 @@
         "name": "Базова граматика / Word Order"
     },
     "sources": {
-        "theory_page_1091": {
+        "theory_page_theory_word_order_verbs_objects": {
             "name": "Word Order with Verbs and Objects"
         }
     },
     "tags": {
-        "word_order": {
-            "name": "Word order in English sentences",
+        "auxiliary_verbs": {
+            "name": "Auxiliary Verbs",
             "category": "topic"
         },
-        "svo_order": {
-            "name": "Subject-Verb-Object order",
-            "category": "pattern"
+        "modal_verbs": {
+            "name": "Modal Verbs",
+            "category": "topic"
         },
-        "auxiliary_verb_position": {
-            "name": "Auxiliary verb placement",
-            "category": "pattern"
+        "phrasal_verbs": {
+            "name": "Phrasal Verbs",
+            "category": "topic"
         },
-        "modal_verb_position": {
-            "name": "Modal verb + base form order",
-            "category": "pattern"
-        },
-        "phrasal_verb_separable": {
-            "name": "Separable phrasal verbs",
-            "category": "pattern"
-        },
-        "phrasal_verb_inseparable": {
-            "name": "Inseparable phrasal verbs",
-            "category": "pattern"
-        },
-        "direct_indirect_object": {
-            "name": "Direct and indirect object order",
-            "category": "pattern"
-        },
-        "adverb_placement": {
-            "name": "Adverb placement with verbs",
-            "category": "pattern"
-        },
-        "negative_word_order": {
-            "name": "Negative sentence word order",
-            "category": "pattern"
-        },
-        "question_word_order": {
-            "name": "Question formation word order",
-            "category": "pattern"
-        },
-        "pronoun_object_position": {
-            "name": "Pronoun as object placement",
-            "category": "pattern"
-        },
-        "passive_word_order": {
-            "name": "Passive voice word order",
-            "category": "pattern"
-        },
-        "cleft_sentence": {
-            "name": "Cleft sentence structure",
-            "category": "pattern"
-        },
-        "inversion": {
-            "name": "Subject-verb inversion",
-            "category": "pattern"
-        },
-        "fronting": {
-            "name": "Object/complement fronting",
-            "category": "pattern"
-        },
-        "complex_verb_phrase_order": {
-            "name": "Complex verb phrase ordering",
-            "category": "pattern"
+        "objects": {
+            "name": "Objects",
+            "category": "topic"
         }
     },
     "default_tag_keys": [
-        "word_order"
+        "auxiliary_verbs"
     ],
     "questions": [
         {
             "id": 1,
-            "question": "She {a1} every day.",
+            "question": "[Word Order with Verbs and Objects #01.1] She {a1} every day.",
             "level": "A1",
             "markers": {
                 "a1": {
@@ -111,12 +63,12 @@
                 }
             },
             "tag_keys": [
-                "svo_order"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "She {a1} every day."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
             "id": 2,
@@ -134,12 +86,12 @@
                 }
             },
             "tag_keys": [
-                "svo_order"
+                "modal_verbs"
             ],
             "variants": [
                 "They {a2} in the morning."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
             "id": 3,
@@ -157,12 +109,12 @@
                 }
             },
             "tag_keys": [
-                "svo_order"
+                "phrasal_verbs"
             ],
             "variants": [
                 "He {a3} at school."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
             "id": 4,
@@ -180,12 +132,12 @@
                 }
             },
             "tag_keys": [
-                "svo_order"
+                "objects"
             ],
             "variants": [
                 "I {a4} on Sundays."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
             "id": 5,
@@ -203,12 +155,12 @@
                 }
             },
             "tag_keys": [
-                "svo_order"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "We {a5} at the park."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
             "id": 6,
@@ -226,12 +178,12 @@
                 }
             },
             "tag_keys": [
-                "negative_word_order"
+                "modal_verbs"
             ],
             "variants": [
                 "She {a6} in the evening."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
             "id": 7,
@@ -249,12 +201,12 @@
                 }
             },
             "tag_keys": [
-                "negative_word_order"
+                "phrasal_verbs"
             ],
             "variants": [
                 "He {a7} every morning."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
             "id": 8,
@@ -272,12 +224,12 @@
                 }
             },
             "tag_keys": [
-                "negative_word_order"
+                "objects"
             ],
             "variants": [
                 "They {a8} on weekdays."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
             "id": 9,
@@ -295,12 +247,12 @@
                 }
             },
             "tag_keys": [
-                "modal_verb_position"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "I {a9} very well."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
             "id": 10,
@@ -318,12 +270,12 @@
                 }
             },
             "tag_keys": [
-                "modal_verb_position"
+                "modal_verbs"
             ],
             "variants": [
                 "She {a10} fast."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
             "id": 11,
@@ -341,12 +293,12 @@
                 }
             },
             "tag_keys": [
-                "svo_order"
+                "phrasal_verbs"
             ],
             "variants": [
                 "Tom {a11} after dinner."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
             "id": 12,
@@ -364,154 +316,15 @@
                 }
             },
             "tag_keys": [
-                "svo_order"
+                "objects"
             ],
             "variants": [
                 "My sister {a12} before bed."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
             "id": 13,
-            "question": "{a13} like pizza?",
-            "level": "A1",
-            "markers": {
-                "a13": {
-                    "answer": "Do you",
-                    "options": [
-                        "You do",
-                        "Do you",
-                        "Like you do"
-                    ],
-                    "verb_hint": "question word order"
-                }
-            },
-            "tag_keys": [
-                "question_word_order"
-            ],
-            "variants": [
-                "{a13} like pizza?"
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 14,
-            "question": "{a14} have a pet?",
-            "level": "A1",
-            "markers": {
-                "a14": {
-                    "answer": "Does she",
-                    "options": [
-                        "She does",
-                        "Does she",
-                        "Have she does"
-                    ],
-                    "verb_hint": "question word order"
-                }
-            },
-            "tag_keys": [
-                "question_word_order"
-            ],
-            "variants": [
-                "{a14} have a pet?"
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 15,
-            "question": "The baby {a15} a lot.",
-            "level": "A1",
-            "markers": {
-                "a15": {
-                    "answer": "drinks water",
-                    "options": [
-                        "water drinks",
-                        "drinks water",
-                        "water the baby drinks"
-                    ],
-                    "verb_hint": "verb + object order"
-                }
-            },
-            "tag_keys": [
-                "svo_order"
-            ],
-            "variants": [
-                "The baby {a15} a lot."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 16,
-            "question": "We {a16} at school.",
-            "level": "A1",
-            "markers": {
-                "a16": {
-                    "answer": "can use computers",
-                    "options": [
-                        "use can computers",
-                        "can use computers",
-                        "can computers use"
-                    ],
-                    "verb_hint": "modal + base verb order"
-                }
-            },
-            "tag_keys": [
-                "modal_verb_position"
-            ],
-            "variants": [
-                "We {a16} at school."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 17,
-            "question": "My mother {a17} for us.",
-            "level": "A1",
-            "markers": {
-                "a17": {
-                    "answer": "cooks dinner",
-                    "options": [
-                        "dinner cooks",
-                        "cooks dinner",
-                        "dinner my mother cooks"
-                    ],
-                    "verb_hint": "verb + object order"
-                }
-            },
-            "tag_keys": [
-                "svo_order"
-            ],
-            "variants": [
-                "My mother {a17} for us."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 18,
-            "question": "{a18} swim?",
-            "level": "A1",
-            "markers": {
-                "a18": {
-                    "answer": "Can you",
-                    "options": [
-                        "You can",
-                        "Can you",
-                        "Swim you can"
-                    ],
-                    "verb_hint": "question with modal"
-                }
-            },
-            "tag_keys": [
-                "question_word_order",
-                "modal_verb_position"
-            ],
-            "variants": [
-                "{a18} swim?"
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 19,
             "question": "She {a19} right now.",
             "level": "A2",
             "markers": {
@@ -526,15 +339,15 @@
                 }
             },
             "tag_keys": [
-                "auxiliary_verb_position"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "She {a19} right now."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 20,
+            "id": 14,
             "question": "They {a20} at the moment.",
             "level": "A2",
             "markers": {
@@ -549,15 +362,15 @@
                 }
             },
             "tag_keys": [
-                "auxiliary_verb_position"
+                "modal_verbs"
             ],
             "variants": [
                 "They {a20} at the moment."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 21,
+            "id": 15,
             "question": "I {a21} already.",
             "level": "A2",
             "markers": {
@@ -572,15 +385,15 @@
                 }
             },
             "tag_keys": [
-                "auxiliary_verb_position"
+                "phrasal_verbs"
             ],
             "variants": [
                 "I {a21} already."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 22,
+            "id": 16,
             "question": "He {a22} yet.",
             "level": "A2",
             "markers": {
@@ -595,16 +408,15 @@
                 }
             },
             "tag_keys": [
-                "auxiliary_verb_position",
-                "negative_word_order"
+                "objects"
             ],
             "variants": [
                 "He {a22} yet."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 23,
+            "id": 17,
             "question": "Please {a23}.",
             "level": "A2",
             "markers": {
@@ -619,15 +431,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_separable"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "Please {a23}."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 24,
+            "id": 18,
             "question": "Can you {a24}?",
             "level": "A2",
             "markers": {
@@ -642,15 +454,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_separable"
+                "modal_verbs"
             ],
             "variants": [
                 "Can you {a24}?"
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 25,
+            "id": 19,
             "question": "She {a25} yesterday.",
             "level": "A2",
             "markers": {
@@ -665,15 +477,15 @@
                 }
             },
             "tag_keys": [
-                "direct_indirect_object"
+                "phrasal_verbs"
             ],
             "variants": [
                 "She {a25} yesterday."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 26,
+            "id": 20,
             "question": "The teacher {a26} in class.",
             "level": "A2",
             "markers": {
@@ -688,15 +500,15 @@
                 }
             },
             "tag_keys": [
-                "direct_indirect_object"
+                "objects"
             ],
             "variants": [
                 "The teacher {a26} in class."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 27,
+            "id": 21,
             "question": "I {a27} for my birthday.",
             "level": "A2",
             "markers": {
@@ -711,15 +523,15 @@
                 }
             },
             "tag_keys": [
-                "direct_indirect_object"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "I {a27} for my birthday."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 28,
+            "id": 22,
             "question": "Please {a28}.",
             "level": "A2",
             "markers": {
@@ -734,15 +546,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_separable"
+                "modal_verbs"
             ],
             "variants": [
                 "Please {a28}."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 29,
+            "id": 23,
             "question": "He {a29} to school.",
             "level": "A2",
             "markers": {
@@ -757,15 +569,15 @@
                 }
             },
             "tag_keys": [
-                "adverb_placement"
+                "phrasal_verbs"
             ],
             "variants": [
                 "He {a29} to school."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 30,
+            "id": 24,
             "question": "She {a30} in the morning.",
             "level": "A2",
             "markers": {
@@ -780,155 +592,15 @@
                 }
             },
             "tag_keys": [
-                "adverb_placement"
+                "objects"
             ],
             "variants": [
                 "She {a30} in the morning."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 31,
-            "question": "We {a31} last summer.",
-            "level": "A2",
-            "markers": {
-                "a31": {
-                    "answer": "did not visit the museum",
-                    "options": [
-                        "not did visit the museum",
-                        "did not visit the museum",
-                        "did visit not the museum"
-                    ],
-                    "verb_hint": "negative past word order"
-                }
-            },
-            "tag_keys": [
-                "negative_word_order"
-            ],
-            "variants": [
-                "We {a31} last summer."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 32,
-            "question": "{a32} your homework yet?",
-            "level": "A2",
-            "markers": {
-                "a32": {
-                    "answer": "Have you finished",
-                    "options": [
-                        "You have finished",
-                        "Have you finished",
-                        "Finished have you"
-                    ],
-                    "verb_hint": "question with auxiliary"
-                }
-            },
-            "tag_keys": [
-                "question_word_order",
-                "auxiliary_verb_position"
-            ],
-            "variants": [
-                "{a32} your homework yet?"
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 33,
-            "question": "{a33} at the moment?",
-            "level": "A2",
-            "markers": {
-                "a33": {
-                    "answer": "Is he cooking dinner",
-                    "options": [
-                        "He is cooking dinner",
-                        "Is he cooking dinner",
-                        "Cooking is he dinner"
-                    ],
-                    "verb_hint": "question with be + verb-ing"
-                }
-            },
-            "tag_keys": [
-                "question_word_order",
-                "auxiliary_verb_position"
-            ],
-            "variants": [
-                "{a33} at the moment?"
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 34,
-            "question": "I need to {a34} before we leave.",
-            "level": "A2",
-            "markers": {
-                "a34": {
-                    "answer": "write down the address",
-                    "options": [
-                        "down write the address",
-                        "write down the address",
-                        "write the address down write"
-                    ],
-                    "verb_hint": "phrasal verb + object"
-                }
-            },
-            "tag_keys": [
-                "phrasal_verb_separable"
-            ],
-            "variants": [
-                "I need to {a34} before we leave."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 35,
-            "question": "My dad {a35} at work.",
-            "level": "A2",
-            "markers": {
-                "a35": {
-                    "answer": "often eats lunch",
-                    "options": [
-                        "eats often lunch",
-                        "often eats lunch",
-                        "lunch often eats"
-                    ],
-                    "verb_hint": "adverb + verb + object"
-                }
-            },
-            "tag_keys": [
-                "adverb_placement"
-            ],
-            "variants": [
-                "My dad {a35} at work."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 36,
-            "question": "She {a36} for the party.",
-            "level": "A2",
-            "markers": {
-                "a36": {
-                    "answer": "is making a cake",
-                    "options": [
-                        "making is a cake",
-                        "is making a cake",
-                        "is a cake making"
-                    ],
-                    "verb_hint": "auxiliary + verb + object"
-                }
-            },
-            "tag_keys": [
-                "auxiliary_verb_position"
-            ],
-            "variants": [
-                "She {a36} for the party."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 37,
+            "id": 25,
             "question": "I need to {a37}. It's too loud.",
             "level": "B1",
             "markers": {
@@ -943,16 +615,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_separable",
-                "pronoun_object_position"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "I need to {a37}. It's too loud."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 38,
+            "id": 26,
             "question": "She forgot her jacket. She went back to {a38}.",
             "level": "B1",
             "markers": {
@@ -967,16 +638,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_separable",
-                "pronoun_object_position"
+                "modal_verbs"
             ],
             "variants": [
                 "She forgot her jacket. She went back to {a38}."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 39,
+            "id": 27,
             "question": "The homework was easy. He {a39} in ten minutes.",
             "level": "B1",
             "markers": {
@@ -991,16 +661,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_separable",
-                "pronoun_object_position"
+                "phrasal_verbs"
             ],
             "variants": [
                 "The homework was easy. He {a39} in ten minutes."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 40,
+            "id": 28,
             "question": "You {a40} before the exam.",
             "level": "B1",
             "markers": {
@@ -1015,15 +684,15 @@
                 }
             },
             "tag_keys": [
-                "modal_verb_position"
+                "objects"
             ],
             "variants": [
                 "You {a40} before the exam."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 41,
+            "id": 29,
             "question": "They {a41} during the meeting.",
             "level": "B1",
             "markers": {
@@ -1038,16 +707,15 @@
                 }
             },
             "tag_keys": [
-                "modal_verb_position",
-                "negative_word_order"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "They {a41} during the meeting."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 42,
+            "id": 30,
             "question": "We {a42} to stay healthy.",
             "level": "B1",
             "markers": {
@@ -1062,15 +730,15 @@
                 }
             },
             "tag_keys": [
-                "modal_verb_position"
+                "modal_verbs"
             ],
             "variants": [
                 "We {a42} to stay healthy."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 43,
+            "id": 31,
             "question": "She {a43} at home.",
             "level": "B1",
             "markers": {
@@ -1085,16 +753,15 @@
                 }
             },
             "tag_keys": [
-                "auxiliary_verb_position",
-                "adverb_placement"
+                "phrasal_verbs"
             ],
             "variants": [
                 "She {a43} at home."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 44,
+            "id": 32,
             "question": "He {a44} before lunch.",
             "level": "B1",
             "markers": {
@@ -1109,16 +776,15 @@
                 }
             },
             "tag_keys": [
-                "auxiliary_verb_position",
-                "adverb_placement"
+                "objects"
             ],
             "variants": [
                 "He {a44} before lunch."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 45,
+            "id": 33,
             "question": "You should {a45} before you go.",
             "level": "B1",
             "markers": {
@@ -1133,15 +799,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_inseparable"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "You should {a45} before you go."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 46,
+            "id": 34,
             "question": "He always {a46} when he's nervous.",
             "level": "B1",
             "markers": {
@@ -1156,15 +822,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_inseparable"
+                "modal_verbs"
             ],
             "variants": [
                 "He always {a46} when he's nervous."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 47,
+            "id": 35,
             "question": "The students {a47} in the library.",
             "level": "B1",
             "markers": {
@@ -1179,16 +845,15 @@
                 }
             },
             "tag_keys": [
-                "adverb_placement",
-                "auxiliary_verb_position"
+                "phrasal_verbs"
             ],
             "variants": [
                 "The students {a47} in the library."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 48,
+            "id": 36,
             "question": "I {a48} at the restaurant.",
             "level": "B1",
             "markers": {
@@ -1203,156 +868,15 @@
                 }
             },
             "tag_keys": [
-                "modal_verb_position"
+                "objects"
             ],
             "variants": [
                 "I {a48} at the restaurant."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 49,
-            "question": "She {a49} last weekend.",
-            "level": "B1",
-            "markers": {
-                "a49": {
-                    "answer": "gave her brother a book",
-                    "options": [
-                        "gave a book her brother",
-                        "gave her brother a book",
-                        "her brother gave a book"
-                    ],
-                    "verb_hint": "verb + indirect object + direct object"
-                }
-            },
-            "tag_keys": [
-                "direct_indirect_object"
-            ],
-            "variants": [
-                "She {a49} last weekend."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 50,
-            "question": "The company {a50} last month.",
-            "level": "B1",
-            "markers": {
-                "a50": {
-                    "answer": "sent all employees an email",
-                    "options": [
-                        "sent an email all employees",
-                        "sent all employees an email",
-                        "all employees sent an email"
-                    ],
-                    "verb_hint": "verb + indirect object + direct object"
-                }
-            },
-            "tag_keys": [
-                "direct_indirect_object"
-            ],
-            "variants": [
-                "The company {a50} last month."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 51,
-            "question": "Don't worry, I will {a51} tomorrow.",
-            "level": "B1",
-            "markers": {
-                "a51": {
-                    "answer": "bring it back",
-                    "options": [
-                        "bring back it",
-                        "bring it back",
-                        "it bring back"
-                    ],
-                    "verb_hint": "phrasal verb + pronoun object"
-                }
-            },
-            "tag_keys": [
-                "phrasal_verb_separable",
-                "pronoun_object_position"
-            ],
-            "variants": [
-                "Don't worry, I will {a51} tomorrow."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 52,
-            "question": "She {a52} carefully.",
-            "level": "B1",
-            "markers": {
-                "a52": {
-                    "answer": "always checks her answers",
-                    "options": [
-                        "checks always her answers",
-                        "always checks her answers",
-                        "her answers always checks"
-                    ],
-                    "verb_hint": "adverb + verb + object"
-                }
-            },
-            "tag_keys": [
-                "adverb_placement"
-            ],
-            "variants": [
-                "She {a52} carefully."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 53,
-            "question": "We {a53} since morning.",
-            "level": "B1",
-            "markers": {
-                "a53": {
-                    "answer": "have been cleaning the house",
-                    "options": [
-                        "have cleaning been the house",
-                        "have been cleaning the house",
-                        "been have the house cleaning"
-                    ],
-                    "verb_hint": "auxiliary + auxiliary + verb + object"
-                }
-            },
-            "tag_keys": [
-                "auxiliary_verb_position",
-                "complex_verb_phrase_order"
-            ],
-            "variants": [
-                "We {a53} since morning."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 54,
-            "question": "{a54} your sister yet?",
-            "level": "B1",
-            "markers": {
-                "a54": {
-                    "answer": "Has he called",
-                    "options": [
-                        "He has called",
-                        "Has he called",
-                        "Called has he"
-                    ],
-                    "verb_hint": "question with present perfect"
-                }
-            },
-            "tag_keys": [
-                "question_word_order",
-                "auxiliary_verb_position"
-            ],
-            "variants": [
-                "{a54} your sister yet?"
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 55,
+            "id": 37,
             "question": "The letter {a55} yesterday.",
             "level": "B2",
             "markers": {
@@ -1367,15 +891,15 @@
                 }
             },
             "tag_keys": [
-                "passive_word_order"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "The letter {a55} yesterday."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 56,
+            "id": 38,
             "question": "The meeting {a56} until Friday.",
             "level": "B2",
             "markers": {
@@ -1390,16 +914,15 @@
                 }
             },
             "tag_keys": [
-                "passive_word_order",
-                "auxiliary_verb_position"
+                "modal_verbs"
             ],
             "variants": [
                 "The meeting {a56} until Friday."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 57,
+            "id": 39,
             "question": "She {a57}. The phrasal verb is inseparable.",
             "level": "B2",
             "markers": {
@@ -1414,15 +937,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_inseparable"
+                "phrasal_verbs"
             ],
             "variants": [
                 "She {a57}. The phrasal verb is inseparable."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 58,
+            "id": 40,
             "question": "I {a58}. It was his number.",
             "level": "B2",
             "markers": {
@@ -1437,16 +960,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_separable",
-                "pronoun_object_position"
+                "objects"
             ],
             "variants": [
                 "I {a58}. It was his number."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 59,
+            "id": 41,
             "question": "This problem {a59} by the committee.",
             "level": "B2",
             "markers": {
@@ -1461,16 +983,15 @@
                 }
             },
             "tag_keys": [
-                "modal_verb_position",
-                "passive_word_order"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "This problem {a59} by the committee."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 60,
+            "id": 42,
             "question": "The project {a60} by next week.",
             "level": "B2",
             "markers": {
@@ -1485,16 +1006,15 @@
                 }
             },
             "tag_keys": [
-                "complex_verb_phrase_order",
-                "passive_word_order"
+                "modal_verbs"
             ],
             "variants": [
                 "The project {a60} by next week."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 61,
+            "id": 43,
             "question": "He {a61} when the boss arrived.",
             "level": "B2",
             "markers": {
@@ -1509,16 +1029,15 @@
                 }
             },
             "tag_keys": [
-                "adverb_placement",
-                "auxiliary_verb_position"
+                "phrasal_verbs"
             ],
             "variants": [
                 "He {a61} when the boss arrived."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 62,
+            "id": 44,
             "question": "They {a62} for their mistake.",
             "level": "B2",
             "markers": {
@@ -1533,17 +1052,15 @@
                 }
             },
             "tag_keys": [
-                "modal_verb_position",
-                "negative_word_order",
-                "phrasal_verb_inseparable"
+                "objects"
             ],
             "variants": [
                 "They {a62} for their mistake."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 63,
+            "id": 45,
             "question": "She {a63} when we arrived.",
             "level": "B2",
             "markers": {
@@ -1558,17 +1075,15 @@
                 }
             },
             "tag_keys": [
-                "adverb_placement",
-                "auxiliary_verb_position",
-                "direct_indirect_object"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "She {a63} when we arrived."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 64,
+            "id": 46,
             "question": "He promised to {a64} after the trip.",
             "level": "B2",
             "markers": {
@@ -1583,16 +1098,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_separable",
-                "direct_indirect_object"
+                "modal_verbs"
             ],
             "variants": [
                 "He promised to {a64} after the trip."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 65,
+            "id": 47,
             "question": "These documents {a65} immediately.",
             "level": "B2",
             "markers": {
@@ -1607,15 +1121,15 @@
                 }
             },
             "tag_keys": [
-                "passive_word_order"
+                "phrasal_verbs"
             ],
             "variants": [
                 "These documents {a65} immediately."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 66,
+            "id": 48,
             "question": "The results {a66} to the public next month.",
             "level": "B2",
             "markers": {
@@ -1630,160 +1144,15 @@
                 }
             },
             "tag_keys": [
-                "passive_word_order",
-                "auxiliary_verb_position"
+                "objects"
             ],
             "variants": [
                 "The results {a66} to the public next month."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 67,
-            "question": "She {a67} during the presentation.",
-            "level": "B2",
-            "markers": {
-                "a67": {
-                    "answer": "carefully explained the concept to the audience",
-                    "options": [
-                        "explained carefully to the audience the concept",
-                        "carefully explained the concept to the audience",
-                        "the concept carefully explained to the audience"
-                    ],
-                    "verb_hint": "adverb + verb + direct object + to + indirect object"
-                }
-            },
-            "tag_keys": [
-                "adverb_placement",
-                "direct_indirect_object"
-            ],
-            "variants": [
-                "She {a67} during the presentation."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 68,
-            "question": "We {a68} at the conference.",
-            "level": "B2",
-            "markers": {
-                "a68": {
-                    "answer": "ran into our old professor",
-                    "options": [
-                        "ran our old professor into",
-                        "ran into our old professor",
-                        "into ran our old professor"
-                    ],
-                    "verb_hint": "inseparable phrasal verb + object"
-                }
-            },
-            "tag_keys": [
-                "phrasal_verb_inseparable"
-            ],
-            "variants": [
-                "We {a68} at the conference."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 69,
-            "question": "The teacher {a69} before the test.",
-            "level": "B2",
-            "markers": {
-                "a69": {
-                    "answer": "handed out the papers to the class",
-                    "options": [
-                        "handed the papers out the class to",
-                        "handed out the papers to the class",
-                        "out handed to the class the papers"
-                    ],
-                    "verb_hint": "phrasal verb + direct object + to + indirect"
-                }
-            },
-            "tag_keys": [
-                "phrasal_verb_separable",
-                "direct_indirect_object"
-            ],
-            "variants": [
-                "The teacher {a69} before the test."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 70,
-            "question": "You {a70} before making a decision.",
-            "level": "B2",
-            "markers": {
-                "a70": {
-                    "answer": "might want to think it over",
-                    "options": [
-                        "might to think want it over",
-                        "might want to think it over",
-                        "might want it to think over"
-                    ],
-                    "verb_hint": "modal + verb + phrasal verb + pronoun"
-                }
-            },
-            "tag_keys": [
-                "modal_verb_position",
-                "phrasal_verb_separable",
-                "pronoun_object_position"
-            ],
-            "variants": [
-                "You {a70} before making a decision."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 71,
-            "question": "{a71} to all the employees?",
-            "level": "B2",
-            "markers": {
-                "a71": {
-                    "answer": "Has the email been sent",
-                    "options": [
-                        "The email has been sent",
-                        "Has the email been sent",
-                        "Been has the email sent"
-                    ],
-                    "verb_hint": "question with passive present perfect"
-                }
-            },
-            "tag_keys": [
-                "question_word_order",
-                "passive_word_order"
-            ],
-            "variants": [
-                "{a71} to all the employees?"
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 72,
-            "question": "She {a72} since the accident.",
-            "level": "B2",
-            "markers": {
-                "a72": {
-                    "answer": "has been gradually recovering her strength",
-                    "options": [
-                        "has gradually been recovering her strength",
-                        "has been gradually recovering her strength",
-                        "gradually has been her strength recovering"
-                    ],
-                    "verb_hint": "auxiliary + auxiliary + adverb + verb + object"
-                }
-            },
-            "tag_keys": [
-                "adverb_placement",
-                "complex_verb_phrase_order"
-            ],
-            "variants": [
-                "She {a72} since the accident."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 73,
+            "id": 49,
             "question": "{a73} such a brilliant performance.",
             "level": "C1",
             "markers": {
@@ -1798,15 +1167,15 @@
                 }
             },
             "tag_keys": [
-                "inversion"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "{a73} such a brilliant performance."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 74,
+            "id": 50,
             "question": "{a74} than the alarm went off.",
             "level": "C1",
             "markers": {
@@ -1821,15 +1190,15 @@
                 }
             },
             "tag_keys": [
-                "inversion"
+                "modal_verbs"
             ],
             "variants": [
                 "{a74} than the alarm went off."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 75,
+            "id": 51,
             "question": "{a75} the issue so clearly.",
             "level": "C1",
             "markers": {
@@ -1844,15 +1213,15 @@
                 }
             },
             "tag_keys": [
-                "cleft_sentence"
+                "phrasal_verbs"
             ],
             "variants": [
                 "{a75} the issue so clearly."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 76,
+            "id": 52,
             "question": "{a76} that I need.",
             "level": "C1",
             "markers": {
@@ -1867,15 +1236,15 @@
                 }
             },
             "tag_keys": [
-                "cleft_sentence"
+                "objects"
             ],
             "variants": [
                 "{a76} that I need."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 77,
+            "id": 53,
             "question": "The manuscript {a77} before publication.",
             "level": "C1",
             "markers": {
@@ -1890,17 +1259,15 @@
                 }
             },
             "tag_keys": [
-                "complex_verb_phrase_order",
-                "passive_word_order",
-                "adverb_placement"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "The manuscript {a77} before publication."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 78,
+            "id": 54,
             "question": "{a78} any mistakes in the final version.",
             "level": "C1",
             "markers": {
@@ -1915,15 +1282,15 @@
                 }
             },
             "tag_keys": [
-                "inversion"
+                "modal_verbs"
             ],
             "variants": [
                 "{a78} any mistakes in the final version."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 79,
+            "id": 55,
             "question": "Not only {a79}, but she also presented it flawlessly.",
             "level": "C1",
             "markers": {
@@ -1938,15 +1305,15 @@
                 }
             },
             "tag_keys": [
-                "inversion"
+                "phrasal_verbs"
             ],
             "variants": [
                 "Not only {a79}, but she also presented it flawlessly."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 80,
+            "id": 56,
             "question": "The budget {a80} by the board.",
             "level": "C1",
             "markers": {
@@ -1961,16 +1328,15 @@
                 }
             },
             "tag_keys": [
-                "passive_word_order",
-                "adverb_placement"
+                "objects"
             ],
             "variants": [
                 "The budget {a80} by the board."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 81,
+            "id": 57,
             "question": "He finally {a81} after years of searching.",
             "level": "C1",
             "markers": {
@@ -1985,15 +1351,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_separable"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "He finally {a81} after years of searching."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 82,
+            "id": 58,
             "question": "{a82} that we need to discuss.",
             "level": "C1",
             "markers": {
@@ -2008,15 +1374,15 @@
                 }
             },
             "tag_keys": [
-                "cleft_sentence"
+                "modal_verbs"
             ],
             "variants": [
                 "{a82} that we need to discuss."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 83,
+            "id": 59,
             "question": "All complaints {a83} within 48 hours.",
             "level": "C1",
             "markers": {
@@ -2031,17 +1397,15 @@
                 }
             },
             "tag_keys": [
-                "passive_word_order",
-                "adverb_placement",
-                "modal_verb_position"
+                "phrasal_verbs"
             ],
             "variants": [
                 "All complaints {a83} within 48 hours."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 84,
+            "id": 60,
             "question": "The data {a84} to the wrong department.",
             "level": "C1",
             "markers": {
@@ -2056,160 +1420,15 @@
                 }
             },
             "tag_keys": [
-                "complex_verb_phrase_order",
-                "passive_word_order",
-                "adverb_placement"
+                "objects"
             ],
             "variants": [
                 "The data {a84} to the wrong department."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 85,
-            "question": "Under no circumstances {a85} confidential information.",
-            "level": "C1",
-            "markers": {
-                "a85": {
-                    "answer": "should employees share",
-                    "options": [
-                        "employees should share",
-                        "should employees share",
-                        "should share employees"
-                    ],
-                    "verb_hint": "negative adverb inversion"
-                }
-            },
-            "tag_keys": [
-                "inversion"
-            ],
-            "variants": [
-                "Under no circumstances {a85} confidential information."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 86,
-            "question": "She {a86} his rude comments at the dinner.",
-            "level": "C1",
-            "markers": {
-                "a86": {
-                    "answer": "could not put up with",
-                    "options": [
-                        "could not up put with",
-                        "could not put up with",
-                        "could put not up with"
-                    ],
-                    "verb_hint": "modal + not + inseparable phrasal verb"
-                }
-            },
-            "tag_keys": [
-                "phrasal_verb_inseparable",
-                "modal_verb_position",
-                "negative_word_order"
-            ],
-            "variants": [
-                "She {a86} his rude comments at the dinner."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 87,
-            "question": "The architect {a87} after the review.",
-            "level": "C1",
-            "markers": {
-                "a87": {
-                    "answer": "completely did away with the original design",
-                    "options": [
-                        "did completely away with the original design",
-                        "completely did away with the original design",
-                        "did away with completely the original design"
-                    ],
-                    "verb_hint": "adverb + inseparable phrasal verb + object"
-                }
-            },
-            "tag_keys": [
-                "phrasal_verb_inseparable",
-                "adverb_placement"
-            ],
-            "variants": [
-                "The architect {a87} after the review."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 88,
-            "question": "{a88} about this matter than anyone else.",
-            "level": "C1",
-            "markers": {
-                "a88": {
-                    "answer": "Little did he know",
-                    "options": [
-                        "He did little know",
-                        "Little did he know",
-                        "Did he little know"
-                    ],
-                    "verb_hint": "negative adverb inversion"
-                }
-            },
-            "tag_keys": [
-                "inversion"
-            ],
-            "variants": [
-                "{a88} about this matter than anyone else."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 89,
-            "question": "The facilities {a89} for the conference.",
-            "level": "C1",
-            "markers": {
-                "a89": {
-                    "answer": "will need to be completely renovated",
-                    "options": [
-                        "will to need be completely renovated",
-                        "will need to be completely renovated",
-                        "will need completely to be renovated"
-                    ],
-                    "verb_hint": "modal + verb + passive infinitive + adverb"
-                }
-            },
-            "tag_keys": [
-                "complex_verb_phrase_order",
-                "passive_word_order"
-            ],
-            "variants": [
-                "The facilities {a89} for the conference."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 90,
-            "question": "{a90} did he realize the true cost of the project.",
-            "level": "C1",
-            "markers": {
-                "a90": {
-                    "answer": "Only after signing the contract",
-                    "options": [
-                        "After signing the contract only",
-                        "Only after signing the contract",
-                        "Signing the contract only after"
-                    ],
-                    "verb_hint": "fronted restrictive adverbial"
-                }
-            },
-            "tag_keys": [
-                "inversion",
-                "fronting"
-            ],
-            "variants": [
-                "{a90} did he realize the true cost of the project."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 91,
+            "id": 61,
             "question": "{a91} the magnitude of the crisis.",
             "level": "C2",
             "markers": {
@@ -2224,15 +1443,15 @@
                 }
             },
             "tag_keys": [
-                "inversion"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "{a91} the magnitude of the crisis."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 92,
+            "id": 62,
             "question": "{a92}, but he also secured the funding for it.",
             "level": "C2",
             "markers": {
@@ -2247,15 +1466,15 @@
                 }
             },
             "tag_keys": [
-                "inversion"
+                "modal_verbs"
             ],
             "variants": [
                 "{a92}, but he also secured the funding for it."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 93,
+            "id": 63,
             "question": "The candidates {a93} before the final interview.",
             "level": "C2",
             "markers": {
@@ -2270,17 +1489,15 @@
                 }
             },
             "tag_keys": [
-                "complex_verb_phrase_order",
-                "passive_word_order",
-                "adverb_placement"
+                "phrasal_verbs"
             ],
             "variants": [
                 "The candidates {a93} before the final interview."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 94,
+            "id": 64,
             "question": "{a94} the severity of the situation.",
             "level": "C2",
             "markers": {
@@ -2295,15 +1512,15 @@
                 }
             },
             "tag_keys": [
-                "cleft_sentence"
+                "objects"
             ],
             "variants": [
                 "{a94} the severity of the situation."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 95,
+            "id": 65,
             "question": "The regulations {a95} before the new policy takes effect.",
             "level": "C2",
             "markers": {
@@ -2318,16 +1535,15 @@
                 }
             },
             "tag_keys": [
-                "complex_verb_phrase_order",
-                "passive_word_order"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "The regulations {a95} before the new policy takes effect."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 96,
+            "id": 66,
             "question": "{a96} about the consequences of his decision.",
             "level": "C2",
             "markers": {
@@ -2342,15 +1558,15 @@
                 }
             },
             "tag_keys": [
-                "inversion"
+                "modal_verbs"
             ],
             "variants": [
                 "{a96} about the consequences of his decision."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 97,
+            "id": 67,
             "question": "{a97} that we noticed.",
             "level": "C2",
             "markers": {
@@ -2365,15 +1581,15 @@
                 }
             },
             "tag_keys": [
-                "cleft_sentence"
+                "phrasal_verbs"
             ],
             "variants": [
                 "{a97} that we noticed."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 98,
+            "id": 68,
             "question": "The evidence {a98} before the trial concludes.",
             "level": "C2",
             "markers": {
@@ -2388,17 +1604,15 @@
                 }
             },
             "tag_keys": [
-                "complex_verb_phrase_order",
-                "passive_word_order",
-                "adverb_placement"
+                "objects"
             ],
             "variants": [
                 "The evidence {a98} before the trial concludes."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 99,
+            "id": 69,
             "question": "So complex was the case that they {a99}.",
             "level": "C2",
             "markers": {
@@ -2413,18 +1627,15 @@
                 }
             },
             "tag_keys": [
-                "phrasal_verb_separable",
-                "pronoun_object_position",
-                "adverb_placement",
-                "negative_word_order"
+                "auxiliary_verbs"
             ],
             "variants": [
                 "So complex was the case that they {a99}."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 100,
+            "id": 70,
             "question": "{a100} with such an intricate problem.",
             "level": "C2",
             "markers": {
@@ -2439,16 +1650,15 @@
                 }
             },
             "tag_keys": [
-                "inversion",
-                "passive_word_order"
+                "modal_verbs"
             ],
             "variants": [
                 "{a100} with such an intricate problem."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 101,
+            "id": 71,
             "question": "The proposal, which {a101}, was finally accepted.",
             "level": "C2",
             "markers": {
@@ -2463,17 +1673,15 @@
                 }
             },
             "tag_keys": [
-                "passive_word_order",
-                "phrasal_verb_separable",
-                "adverb_placement"
+                "phrasal_verbs"
             ],
             "variants": [
                 "The proposal, which {a101}, was finally accepted."
             ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         },
         {
-            "id": 102,
+            "id": 72,
             "question": "{a102} to the entire department.",
             "level": "C2",
             "markers": {
@@ -2488,160 +1696,42 @@
                 }
             },
             "tag_keys": [
-                "cleft_sentence",
-                "phrasal_verb_inseparable"
+                "objects"
             ],
             "variants": [
                 "{a102} to the entire department."
             ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 103,
-            "question": "At no point during the negotiation {a103} the original terms.",
-            "level": "C2",
-            "markers": {
-                "a103": {
-                    "answer": "did the company agree to change",
-                    "options": [
-                        "the company did agree to change",
-                        "did the company agree to change",
-                        "did agree the company to change"
-                    ],
-                    "verb_hint": "negative adverb inversion"
-                }
-            },
-            "tag_keys": [
-                "inversion"
-            ],
-            "variants": [
-                "At no point during the negotiation {a103} the original terms."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 104,
-            "question": "The amendment {a104} prior to the committee's review.",
-            "level": "C2",
-            "markers": {
-                "a104": {
-                    "answer": "ought to have been formally submitted",
-                    "options": [
-                        "ought formally to have been submitted",
-                        "ought to have been formally submitted",
-                        "ought to have formally submitted been"
-                    ],
-                    "verb_hint": "modal + perfect + passive + adverb"
-                }
-            },
-            "tag_keys": [
-                "complex_verb_phrase_order",
-                "passive_word_order",
-                "adverb_placement"
-            ],
-            "variants": [
-                "The amendment {a104} prior to the committee's review."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 105,
-            "question": "{a105} that led to the breakthrough.",
-            "level": "C2",
-            "markers": {
-                "a105": {
-                    "answer": "It was her willingness to follow up on every lead",
-                    "options": [
-                        "Her willingness it was to follow up on every lead",
-                        "It was her willingness to follow up on every lead",
-                        "Was it her willingness to follow up on every lead"
-                    ],
-                    "verb_hint": "cleft sentence with phrasal verb"
-                }
-            },
-            "tag_keys": [
-                "cleft_sentence",
-                "phrasal_verb_inseparable"
-            ],
-            "variants": [
-                "{a105} that led to the breakthrough."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 106,
-            "question": "Hardly {a106} when the power went out.",
-            "level": "C2",
-            "markers": {
-                "a106": {
-                    "answer": "had they switched on the equipment",
-                    "options": [
-                        "they had switched on the equipment",
-                        "had they switched on the equipment",
-                        "had switched they on the equipment"
-                    ],
-                    "verb_hint": "negative adverb inversion + phrasal verb"
-                }
-            },
-            "tag_keys": [
-                "inversion",
-                "phrasal_verb_separable"
-            ],
-            "variants": [
-                "Hardly {a106} when the power went out."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 107,
-            "question": "The infrastructure {a107} before the deadline.",
-            "level": "C2",
-            "markers": {
-                "a107": {
-                    "answer": "could not possibly have been completed",
-                    "options": [
-                        "could possibly not have been completed",
-                        "could not possibly have been completed",
-                        "could not have possibly completed been"
-                    ],
-                    "verb_hint": "modal + not + adverb + perfect + passive"
-                }
-            },
-            "tag_keys": [
-                "complex_verb_phrase_order",
-                "passive_word_order",
-                "negative_word_order",
-                "adverb_placement"
-            ],
-            "variants": [
-                "The infrastructure {a107} before the deadline."
-            ],
-            "source": "theory_page_1091"
-        },
-        {
-            "id": 108,
-            "question": "Only by {a108} will you fully understand the implications.",
-            "level": "C2",
-            "markers": {
-                "a108": {
-                    "answer": "carefully going over every clause",
-                    "options": [
-                        "going carefully over every clause",
-                        "carefully going over every clause",
-                        "going over carefully every clause"
-                    ],
-                    "verb_hint": "adverb + phrasal verb + object"
-                }
-            },
-            "tag_keys": [
-                "phrasal_verb_inseparable",
-                "adverb_placement",
-                "fronting"
-            ],
-            "variants": [
-                "Only by {a108} will you fully understand the implications."
-            ],
-            "source": "theory_page_1091"
+            "source": "theory_page_theory_word_order_verbs_objects"
         }
-    ]
+    ],
+    "saved_test": {
+        "uuid": "wo-vo-v3-test",
+        "slug": "word-order-verbs-objects-all-levels-v3",
+        "name": "Word Order with Verbs and Objects: V3 All Levels",
+        "description": "Page-local V3 package for Word Order with Verbs and Objects with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\WordOrderVerbsObjectsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-word-order-verbs-objects",
+                    "title": "Word Order with Verbs and Objects",
+                    "category_slug_path": "basic-grammar/word-order",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderVerbsObjectsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/word-order/theory-word-order-verbs-objects"
+                }
+            }
+        }
+    }
 }

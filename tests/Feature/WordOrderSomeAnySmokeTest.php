@@ -11,9 +11,12 @@ use Database\Seeders\Page_V3\Articles\SomeAny\SomeAnyThingsTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarCategorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\WordOrder\BasicWordOrderTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\WordOrder\WordOrderCategorySeeder;
-use Database\Seeders\V3\AI\Copilot\Opus46\BasicWordOrderV3QuestionsOnlySeeder as BasicWordOrderOpus46Seeder;
-use Database\Seeders\V3\AI\Copilot\Sonate\BasicWordOrderV3QuestionsOnlySeeder as BasicWordOrderSonateSeeder;
+use Database\Seeders\V3\BasicWordOrderAllLevelsV3Seeder;
+use Database\Seeders\V3\Polyglot\PolyglotBasicWordOrderAllLevelsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotSomeAnyLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotSomeAnyThingsAllLevelsLessonSeeder;
+use Database\Seeders\V3\SomeAnyPlacesPeopleThingsAllLevelsV3Seeder;
+use Database\Seeders\V3\SomeAnyThingsAllLevelsV3Seeder;
 use Database\Seeders\V3\WordOrderAllLevelsV3Seeder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -45,14 +48,14 @@ class WordOrderSomeAnySmokeTest extends TestCase
         $this->augmentTheorySchema();
     }
 
-    public function test_word_order_basic_page_keeps_five_aggregated_v3_pair_cards(): void
+    public function test_word_order_basic_page_keeps_five_mixed_pair_cards(): void
     {
         $this->seed(BasicGrammarCategorySeeder::class);
         $this->seed(WordOrderCategorySeeder::class);
         $this->seed(BasicWordOrderTheorySeeder::class);
         $this->seed(WordOrderAllLevelsV3Seeder::class);
-        $this->seed(BasicWordOrderOpus46Seeder::class);
-        $this->seed(BasicWordOrderSonateSeeder::class);
+        $this->seed(BasicWordOrderAllLevelsV3Seeder::class);
+        $this->seed(PolyglotBasicWordOrderAllLevelsLessonSeeder::class);
 
         $page = Page::query()->where('slug', 'theory-basic-word-order')->firstOrFail();
         $tests = app(TheoryPagePromptLinkedTestsService::class)->buildForPage($page);
@@ -65,11 +68,11 @@ class WordOrderSomeAnySmokeTest extends TestCase
 
             $this->assertTrue($test->isVirtual());
             $this->assertTrue(($filters['__meta']['aggregated_theory_page_test'] ?? false));
-            $this->assertFalse(($filters['__meta']['theory_page_mixed_polyglot_test'] ?? false));
+            $this->assertTrue(($filters['__meta']['theory_page_mixed_polyglot_test'] ?? false));
             $this->assertSame(
                 collect([
-                    BasicWordOrderOpus46Seeder::class,
-                    BasicWordOrderSonateSeeder::class,
+                    BasicWordOrderAllLevelsV3Seeder::class,
+                    PolyglotBasicWordOrderAllLevelsLessonSeeder::class,
                 ])->sort()->values()->all(),
                 collect($filters['seeder_classes'] ?? [])->sort()->values()->all()
             );
@@ -83,7 +86,7 @@ class WordOrderSomeAnySmokeTest extends TestCase
                     $filters = $test->filters ?? [];
 
                     return ($filters['__meta']['aggregated_theory_page_test'] ?? false) === true
-                        && ($filters['__meta']['theory_page_mixed_polyglot_test'] ?? false) === false;
+                        && ($filters['__meta']['theory_page_mixed_polyglot_test'] ?? false) === true;
                 });
         });
 
@@ -94,38 +97,41 @@ class WordOrderSomeAnySmokeTest extends TestCase
         $this->assertSame(self::LEVEL_PAIRS, $categoryTests->map(fn ($test) => $test->filters['levels'] ?? [])->values()->all());
     }
 
-    public function test_some_any_things_page_keeps_direct_polyglot_card_and_category_has_no_cards(): void
+    public function test_some_any_things_page_keeps_five_mixed_pair_cards_and_category_has_five_cards(): void
     {
         $this->seed(SomeAnyCategorySeeder::class);
         $this->seed(SomeAnyThingsTheorySeeder::class);
+        $this->seed(SomeAnyPlacesPeopleThingsAllLevelsV3Seeder::class);
+        $this->seed(SomeAnyThingsAllLevelsV3Seeder::class);
         $this->seed(PolyglotSomeAnyLessonSeeder::class);
+        $this->seed(PolyglotSomeAnyThingsAllLevelsLessonSeeder::class);
 
         $response = $this->get(route('theory.show', ['some-any', 'theory-some-any-things']));
 
         $response->assertOk();
         $response->assertViewHas('topicTests', function ($topicTests) {
-            if (collect($topicTests)->count() !== 1) {
+            if (collect($topicTests)->count() !== 5) {
                 return false;
             }
 
-            $test = collect($topicTests)->first();
-            $filters = $test->filters ?? [];
+            return collect($topicTests)->every(function ($test) {
+                $filters = $test->filters ?? [];
 
-            return $test->slug === 'polyglot-some-any-a1'
-                && ($filters['lesson_type'] ?? null) === 'polyglot'
-                && ($filters['mode'] ?? null) === 'compose_tokens'
-                && collect($filters['seeder_classes'] ?? [])->values()->all() === [PolyglotSomeAnyLessonSeeder::class]
-                && (! method_exists($test, 'isVirtual') || ! $test->isVirtual());
+                return ($filters['__meta']['aggregated_theory_page_test'] ?? false) === true
+                    && ($filters['__meta']['theory_page_mixed_polyglot_test'] ?? false) === true
+                    && collect($filters['seeder_classes'] ?? [])->sort()->values()->all() === collect([
+                        SomeAnyThingsAllLevelsV3Seeder::class,
+                        PolyglotSomeAnyThingsAllLevelsLessonSeeder::class,
+                    ])->sort()->values()->all()
+                    && ($test->slug ?? '') !== 'polyglot-some-any-a1';
+            });
         });
 
         $category = PageCategory::query()->where('slug', 'some-any')->firstOrFail();
         $categoryTests = app(AutoGeneratedTestService::class)->generateTests($category->tags()->get(), $category->title);
 
-        $this->assertCount(0, $categoryTests);
-
-        $categoryResponse = $this->get(route('theory.category', ['some-any']));
-        $categoryResponse->assertOk();
-        $categoryResponse->assertDontSee('Тести по темі');
+        $this->assertCount(5, $categoryTests);
+        $this->assertSame(self::LEVEL_PAIRS, $categoryTests->map(fn ($test) => $test->filters['levels'] ?? [])->values()->all());
     }
 
     protected function augmentTheorySchema(): void

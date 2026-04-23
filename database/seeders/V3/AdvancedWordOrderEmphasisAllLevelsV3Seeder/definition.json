@@ -1,8 +1,8 @@
 {
     "schema_version": 1,
     "seeder": {
-        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\AdvancedWordOrderEmphasisV3QuestionsOnlySeeder",
-        "uuid_namespace": "AdvancedWordOrderEmphasisV3QuestionsOnlySeeder"
+        "class": "Database\\Seeders\\V3\\AdvancedWordOrderEmphasisAllLevelsV3Seeder",
+        "uuid_namespace": "AdvancedWordOrderEmphasisAllLevelsV3Seeder"
     },
     "defaults": {
         "default_locale": "uk",
@@ -21,68 +21,32 @@
         "name": "Базова граматика / Word Order"
     },
     "sources": {
-        "theory_page_1087": {
+        "theory_page_theory_advanced_word_order_emphasis": {
             "name": "Advanced Word Order / Emphasis"
         }
     },
     "tags": {
-        "inversion_negative_adverb": {
-            "name": "Inversion after negative adverbs",
-            "category": "pattern"
+        "emphasis": {
+            "name": "Emphasis",
+            "category": "topic"
         },
-        "inversion_only": {
-            "name": "Inversion after Only + adverbial",
-            "category": "pattern"
+        "cleft_sentences": {
+            "name": "Cleft Sentences",
+            "category": "topic"
         },
-        "inversion_so_such": {
-            "name": "Inversion with so/such … that",
-            "category": "pattern"
-        },
-        "inversion_nor_neither": {
-            "name": "Inversion with nor/neither",
-            "category": "pattern"
-        },
-        "inversion_conditional": {
-            "name": "Conditional inversion (had/were/should)",
-            "category": "pattern"
-        },
-        "it_cleft": {
-            "name": "It-cleft sentences",
-            "category": "pattern"
-        },
-        "what_cleft": {
-            "name": "What-cleft sentences",
-            "category": "pattern"
-        },
-        "all_cleft": {
-            "name": "All-cleft sentences",
-            "category": "pattern"
-        },
-        "emphatic_do": {
-            "name": "Emphatic do/does/did",
-            "category": "pattern"
-        },
-        "fronting_adverbial": {
-            "name": "Fronting of adverbials/complements",
-            "category": "pattern"
-        },
-        "inversion_here_there": {
-            "name": "Inversion after here/there/place adverbs",
-            "category": "pattern"
-        },
-        "emphasis_word_order": {
-            "name": "Advanced word order for emphasis",
+        "fronting": {
+            "name": "Fronting",
             "category": "topic"
         }
     },
     "default_tag_keys": [
-        "emphasis_word_order"
+        "emphasis"
     ],
     "questions": [
         {
             "id": 1,
             "question": "Never {a1} such a beautiful sunset.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A1",
             "markers": {
                 "a1": {
@@ -96,7 +60,7 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "emphasis"
             ],
             "variants": [
                 "Never {a1} such a beautiful sunset."
@@ -105,7 +69,7 @@
         {
             "id": 2,
             "question": "It {a2} who called you yesterday.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A1",
             "markers": {
                 "a2": {
@@ -119,7 +83,7 @@
                 }
             },
             "tag_keys": [
-                "it_cleft"
+                "cleft_sentences"
             ],
             "variants": [
                 "It {a2} who called you yesterday."
@@ -128,7 +92,7 @@
         {
             "id": 3,
             "question": "What I need {a3} a good rest.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A1",
             "markers": {
                 "a3": {
@@ -142,7 +106,7 @@
                 }
             },
             "tag_keys": [
-                "what_cleft"
+                "fronting"
             ],
             "variants": [
                 "What I need {a3} a good rest."
@@ -151,7 +115,7 @@
         {
             "id": 4,
             "question": "I {a4} like your new dress!",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A1",
             "markers": {
                 "a4": {
@@ -165,7 +129,7 @@
                 }
             },
             "tag_keys": [
-                "emphatic_do"
+                "emphasis"
             ],
             "variants": [
                 "I {a4} like your new dress!"
@@ -174,7 +138,7 @@
         {
             "id": 5,
             "question": "Rarely {a5} so much snow in April.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A1",
             "markers": {
                 "a5": {
@@ -188,7 +152,7 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "cleft_sentences"
             ],
             "variants": [
                 "Rarely {a5} so much snow in April."
@@ -197,7 +161,7 @@
         {
             "id": 6,
             "question": "It {a6} that I bought, not a skirt.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A1",
             "markers": {
                 "a6": {
@@ -211,7 +175,7 @@
                 }
             },
             "tag_keys": [
-                "it_cleft"
+                "fronting"
             ],
             "variants": [
                 "It {a6} that I bought, not a skirt."
@@ -220,7 +184,7 @@
         {
             "id": 7,
             "question": "She {a7} want to come to the party.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A1",
             "markers": {
                 "a7": {
@@ -234,7 +198,7 @@
                 }
             },
             "tag_keys": [
-                "emphatic_do"
+                "emphasis"
             ],
             "variants": [
                 "She {a7} want to come to the party."
@@ -243,7 +207,7 @@
         {
             "id": 8,
             "question": "What I like best {a8} chocolate cake.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A1",
             "markers": {
                 "a8": {
@@ -257,7 +221,7 @@
                 }
             },
             "tag_keys": [
-                "what_cleft"
+                "cleft_sentences"
             ],
             "variants": [
                 "What I like best {a8} chocolate cake."
@@ -266,7 +230,7 @@
         {
             "id": 9,
             "question": "Seldom {a9} late for class.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A1",
             "markers": {
                 "a9": {
@@ -280,7 +244,7 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "fronting"
             ],
             "variants": [
                 "Seldom {a9} late for class."
@@ -289,7 +253,7 @@
         {
             "id": 10,
             "question": "It {a10} in London that I met her.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A1",
             "markers": {
                 "a10": {
@@ -303,7 +267,7 @@
                 }
             },
             "tag_keys": [
-                "it_cleft"
+                "emphasis"
             ],
             "variants": [
                 "It {a10} in London that I met her."
@@ -312,7 +276,7 @@
         {
             "id": 11,
             "question": "They {a11} finish the project on time.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A1",
             "markers": {
                 "a11": {
@@ -326,7 +290,7 @@
                 }
             },
             "tag_keys": [
-                "emphatic_do"
+                "cleft_sentences"
             ],
             "variants": [
                 "They {a11} finish the project on time."
@@ -335,7 +299,7 @@
         {
             "id": 12,
             "question": "What we want {a12} more free time.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A1",
             "markers": {
                 "a12": {
@@ -349,7 +313,7 @@
                 }
             },
             "tag_keys": [
-                "what_cleft"
+                "fronting"
             ],
             "variants": [
                 "What we want {a12} more free time."
@@ -357,146 +321,8 @@
         },
         {
             "id": 13,
-            "question": "Hardly ever {a13} to the cinema.",
-            "source": "theory_page_1087",
-            "level": "A1",
-            "markers": {
-                "a13": {
-                    "answer": "does he go",
-                    "options": [
-                        "he goes",
-                        "does he go",
-                        "he does go"
-                    ],
-                    "verb_hint": "inversion after hardly ever"
-                }
-            },
-            "tag_keys": [
-                "inversion_negative_adverb"
-            ],
-            "variants": [
-                "Hardly ever {a13} to the cinema."
-            ]
-        },
-        {
-            "id": 14,
-            "question": "It {a14} the children who broke the window.",
-            "source": "theory_page_1087",
-            "level": "A1",
-            "markers": {
-                "a14": {
-                    "answer": "was",
-                    "options": [
-                        "was",
-                        "were",
-                        "is"
-                    ],
-                    "verb_hint": "it-cleft with plural focus"
-                }
-            },
-            "tag_keys": [
-                "it_cleft"
-            ],
-            "variants": [
-                "It {a14} the children who broke the window."
-            ]
-        },
-        {
-            "id": 15,
-            "question": "We {a15} enjoy the concert last night!",
-            "source": "theory_page_1087",
-            "level": "A1",
-            "markers": {
-                "a15": {
-                    "answer": "did",
-                    "options": [
-                        "do",
-                        "did",
-                        "does"
-                    ],
-                    "verb_hint": "emphatic did past"
-                }
-            },
-            "tag_keys": [
-                "emphatic_do"
-            ],
-            "variants": [
-                "We {a15} enjoy the concert last night!"
-            ]
-        },
-        {
-            "id": 16,
-            "question": "What she said {a16} true.",
-            "source": "theory_page_1087",
-            "level": "A1",
-            "markers": {
-                "a16": {
-                    "answer": "was",
-                    "options": [
-                        "was",
-                        "were",
-                        "is"
-                    ],
-                    "verb_hint": "what-cleft past tense"
-                }
-            },
-            "tag_keys": [
-                "what_cleft"
-            ],
-            "variants": [
-                "What she said {a16} true."
-            ]
-        },
-        {
-            "id": 17,
-            "question": "Not once {a17} about the problem.",
-            "source": "theory_page_1087",
-            "level": "A1",
-            "markers": {
-                "a17": {
-                    "answer": "did he complain",
-                    "options": [
-                        "he complained",
-                        "did he complain",
-                        "he did complain"
-                    ],
-                    "verb_hint": "inversion after not once"
-                }
-            },
-            "tag_keys": [
-                "inversion_negative_adverb"
-            ],
-            "variants": [
-                "Not once {a17} about the problem."
-            ]
-        },
-        {
-            "id": 18,
-            "question": "It {a18} on Monday that the meeting was held.",
-            "source": "theory_page_1087",
-            "level": "A1",
-            "markers": {
-                "a18": {
-                    "answer": "was",
-                    "options": [
-                        "was",
-                        "were",
-                        "has"
-                    ],
-                    "verb_hint": "it-cleft time focus"
-                }
-            },
-            "tag_keys": [
-                "it_cleft"
-            ],
-            "variants": [
-                "It {a18} on Monday that the meeting was held."
-            ]
-        },
-        {
-            "id": 19,
             "question": "Only after the rain stopped {a19} go outside.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A2",
             "markers": {
                 "a19": {
@@ -510,16 +336,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_only"
+                "emphasis"
             ],
             "variants": [
                 "Only after the rain stopped {a19} go outside."
             ]
         },
         {
-            "id": 20,
+            "id": 14,
             "question": "It was my brother {a20} fixed the car.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A2",
             "markers": {
                 "a20": {
@@ -533,16 +359,16 @@
                 }
             },
             "tag_keys": [
-                "it_cleft"
+                "cleft_sentences"
             ],
             "variants": [
                 "It was my brother {a20} fixed the car."
             ]
         },
         {
-            "id": 21,
+            "id": 15,
             "question": "What you should do {a21} apologise to her.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A2",
             "markers": {
                 "a21": {
@@ -556,16 +382,16 @@
                 }
             },
             "tag_keys": [
-                "what_cleft"
+                "fronting"
             ],
             "variants": [
                 "What you should do {a21} apologise to her."
             ]
         },
         {
-            "id": 22,
+            "id": 16,
             "question": "He {a22} try hard, but he still failed.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A2",
             "markers": {
                 "a22": {
@@ -579,16 +405,16 @@
                 }
             },
             "tag_keys": [
-                "emphatic_do"
+                "emphasis"
             ],
             "variants": [
                 "He {a22} try hard, but he still failed."
             ]
         },
         {
-            "id": 23,
+            "id": 17,
             "question": "Nowhere in the city {a23} a better restaurant.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A2",
             "markers": {
                 "a23": {
@@ -602,16 +428,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "cleft_sentences"
             ],
             "variants": [
                 "Nowhere in the city {a23} a better restaurant."
             ]
         },
         {
-            "id": 24,
+            "id": 18,
             "question": "It was in Paris {a24} they fell in love.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A2",
             "markers": {
                 "a24": {
@@ -625,16 +451,16 @@
                 }
             },
             "tag_keys": [
-                "it_cleft"
+                "fronting"
             ],
             "variants": [
                 "It was in Paris {a24} they fell in love."
             ]
         },
         {
-            "id": 25,
+            "id": 19,
             "question": "Here {a25} the bus!",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A2",
             "markers": {
                 "a25": {
@@ -648,16 +474,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_here_there"
+                "emphasis"
             ],
             "variants": [
                 "Here {a25} the bus!"
             ]
         },
         {
-            "id": 26,
+            "id": 20,
             "question": "I don't like fish, and neither {a26}.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A2",
             "markers": {
                 "a26": {
@@ -671,16 +497,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_nor_neither"
+                "cleft_sentences"
             ],
             "variants": [
                 "I don't like fish, and neither {a26}."
             ]
         },
         {
-            "id": 27,
+            "id": 21,
             "question": "What I really need {a27} some peace and quiet.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A2",
             "markers": {
                 "a27": {
@@ -694,16 +520,16 @@
                 }
             },
             "tag_keys": [
-                "what_cleft"
+                "fronting"
             ],
             "variants": [
                 "What I really need {a27} some peace and quiet."
             ]
         },
         {
-            "id": 28,
+            "id": 22,
             "question": "Only when the teacher left {a28} start talking.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A2",
             "markers": {
                 "a28": {
@@ -717,16 +543,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_only"
+                "emphasis"
             ],
             "variants": [
                 "Only when the teacher left {a28} start talking."
             ]
         },
         {
-            "id": 29,
+            "id": 23,
             "question": "She {a29} love dancing, even though she rarely goes out.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A2",
             "markers": {
                 "a29": {
@@ -740,16 +566,16 @@
                 }
             },
             "tag_keys": [
-                "emphatic_do"
+                "cleft_sentences"
             ],
             "variants": [
                 "She {a29} love dancing, even though she rarely goes out."
             ]
         },
         {
-            "id": 30,
+            "id": 24,
             "question": "There {a30} the children, running across the field.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "A2",
             "markers": {
                 "a30": {
@@ -763,154 +589,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_here_there"
+                "fronting"
             ],
             "variants": [
                 "There {a30} the children, running across the field."
             ]
         },
         {
-            "id": 31,
-            "question": "It was because of the weather {a31} the match was cancelled.",
-            "source": "theory_page_1087",
-            "level": "A2",
-            "markers": {
-                "a31": {
-                    "answer": "that",
-                    "options": [
-                        "that",
-                        "which",
-                        "why"
-                    ],
-                    "verb_hint": "it-cleft reason focus"
-                }
-            },
-            "tag_keys": [
-                "it_cleft"
-            ],
-            "variants": [
-                "It was because of the weather {a31} the match was cancelled."
-            ]
-        },
-        {
-            "id": 32,
-            "question": "At no time {a32} aware of the danger.",
-            "source": "theory_page_1087",
-            "level": "A2",
-            "markers": {
-                "a32": {
-                    "answer": "were they",
-                    "options": [
-                        "they were",
-                        "were they",
-                        "they are"
-                    ],
-                    "verb_hint": "inversion after at no time"
-                }
-            },
-            "tag_keys": [
-                "inversion_negative_adverb"
-            ],
-            "variants": [
-                "At no time {a32} aware of the danger."
-            ]
-        },
-        {
-            "id": 33,
-            "question": "What the children enjoy most {a33} playing in the park.",
-            "source": "theory_page_1087",
-            "level": "A2",
-            "markers": {
-                "a33": {
-                    "answer": "is",
-                    "options": [
-                        "is",
-                        "are",
-                        "were"
-                    ],
-                    "verb_hint": "what-cleft gerund complement"
-                }
-            },
-            "tag_keys": [
-                "what_cleft"
-            ],
-            "variants": [
-                "What the children enjoy most {a33} playing in the park."
-            ]
-        },
-        {
-            "id": 34,
-            "question": "We {a34} tell him the truth, but he didn't believe us.",
-            "source": "theory_page_1087",
-            "level": "A2",
-            "markers": {
-                "a34": {
-                    "answer": "did",
-                    "options": [
-                        "do",
-                        "did",
-                        "does"
-                    ],
-                    "verb_hint": "emphatic did with we"
-                }
-            },
-            "tag_keys": [
-                "emphatic_do"
-            ],
-            "variants": [
-                "We {a34} tell him the truth, but he didn't believe us."
-            ]
-        },
-        {
-            "id": 35,
-            "question": "Little {a35} that the exam would be so difficult.",
-            "source": "theory_page_1087",
-            "level": "A2",
-            "markers": {
-                "a35": {
-                    "answer": "did she know",
-                    "options": [
-                        "she knew",
-                        "did she know",
-                        "she did know"
-                    ],
-                    "verb_hint": "inversion after little"
-                }
-            },
-            "tag_keys": [
-                "inversion_negative_adverb"
-            ],
-            "variants": [
-                "Little {a35} that the exam would be so difficult."
-            ]
-        },
-        {
-            "id": 36,
-            "question": "It was my sister {a36} I gave the present to.",
-            "source": "theory_page_1087",
-            "level": "A2",
-            "markers": {
-                "a36": {
-                    "answer": "that",
-                    "options": [
-                        "that",
-                        "which",
-                        "whose"
-                    ],
-                    "verb_hint": "it-cleft with person object"
-                }
-            },
-            "tag_keys": [
-                "it_cleft"
-            ],
-            "variants": [
-                "It was my sister {a36} I gave the present to."
-            ]
-        },
-        {
-            "id": 37,
+            "id": 25,
             "question": "Not only {a37} the window, but he also broke the vase.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B1",
             "markers": {
                 "a37": {
@@ -924,16 +612,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "emphasis"
             ],
             "variants": [
                 "Not only {a37} the window, but he also broke the vase."
             ]
         },
         {
-            "id": 38,
+            "id": 26,
             "question": "What we need to discuss {a38} the budget for next year.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B1",
             "markers": {
                 "a38": {
@@ -947,16 +635,16 @@
                 }
             },
             "tag_keys": [
-                "what_cleft"
+                "cleft_sentences"
             ],
             "variants": [
                 "What we need to discuss {a38} the budget for next year."
             ]
         },
         {
-            "id": 39,
+            "id": 27,
             "question": "Only by studying hard {a39} pass the exam.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B1",
             "markers": {
                 "a39": {
@@ -970,16 +658,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_only"
+                "fronting"
             ],
             "variants": [
                 "Only by studying hard {a39} pass the exam."
             ]
         },
         {
-            "id": 40,
+            "id": 28,
             "question": "It was the manager {a40} made the final decision.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B1",
             "markers": {
                 "a40": {
@@ -993,16 +681,16 @@
                 }
             },
             "tag_keys": [
-                "it_cleft"
+                "emphasis"
             ],
             "variants": [
                 "It was the manager {a40} made the final decision."
             ]
         },
         {
-            "id": 41,
+            "id": 29,
             "question": "She didn't call, nor {a41} a message.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B1",
             "markers": {
                 "a41": {
@@ -1016,16 +704,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_nor_neither"
+                "cleft_sentences"
             ],
             "variants": [
                 "She didn't call, nor {a41} a message."
             ]
         },
         {
-            "id": 42,
+            "id": 30,
             "question": "I {a42} believe she said that — it's incredible!",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B1",
             "markers": {
                 "a42": {
@@ -1039,16 +727,16 @@
                 }
             },
             "tag_keys": [
-                "emphatic_do"
+                "fronting"
             ],
             "variants": [
                 "I {a42} believe she said that — it's incredible!"
             ]
         },
         {
-            "id": 43,
+            "id": 31,
             "question": "All I want for my birthday {a43} a book.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B1",
             "markers": {
                 "a43": {
@@ -1062,16 +750,16 @@
                 }
             },
             "tag_keys": [
-                "all_cleft"
+                "emphasis"
             ],
             "variants": [
                 "All I want for my birthday {a43} a book."
             ]
         },
         {
-            "id": 44,
+            "id": 32,
             "question": "Under no circumstances {a44} leave the building during the drill.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B1",
             "markers": {
                 "a44": {
@@ -1085,16 +773,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "cleft_sentences"
             ],
             "variants": [
                 "Under no circumstances {a44} leave the building during the drill."
             ]
         },
         {
-            "id": 45,
+            "id": 33,
             "question": "What surprised me {a45} his calm reaction.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B1",
             "markers": {
                 "a45": {
@@ -1108,16 +796,16 @@
                 }
             },
             "tag_keys": [
-                "what_cleft"
+                "fronting"
             ],
             "variants": [
                 "What surprised me {a45} his calm reaction."
             ]
         },
         {
-            "id": 46,
+            "id": 34,
             "question": "It is honesty {a46} I value most in a friend.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B1",
             "markers": {
                 "a46": {
@@ -1131,16 +819,16 @@
                 }
             },
             "tag_keys": [
-                "it_cleft"
+                "emphasis"
             ],
             "variants": [
                 "It is honesty {a46} I value most in a friend."
             ]
         },
         {
-            "id": 47,
+            "id": 35,
             "question": "Hardly {a47} the door when the phone rang.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B1",
             "markers": {
                 "a47": {
@@ -1154,16 +842,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "cleft_sentences"
             ],
             "variants": [
                 "Hardly {a47} the door when the phone rang."
             ]
         },
         {
-            "id": 48,
+            "id": 36,
             "question": "The teacher {a48} explain it clearly, but nobody listened.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B1",
             "markers": {
                 "a48": {
@@ -1177,154 +865,16 @@
                 }
             },
             "tag_keys": [
-                "emphatic_do"
+                "fronting"
             ],
             "variants": [
                 "The teacher {a48} explain it clearly, but nobody listened."
             ]
         },
         {
-            "id": 49,
-            "question": "Only then {a49} the importance of the decision.",
-            "source": "theory_page_1087",
-            "level": "B1",
-            "markers": {
-                "a49": {
-                    "answer": "did she realise",
-                    "options": [
-                        "she realised",
-                        "did she realise",
-                        "she did realise"
-                    ],
-                    "verb_hint": "inversion after only then"
-                }
-            },
-            "tag_keys": [
-                "inversion_only"
-            ],
-            "variants": [
-                "Only then {a49} the importance of the decision."
-            ]
-        },
-        {
-            "id": 50,
-            "question": "He wasn't tired, nor {a50} hungry.",
-            "source": "theory_page_1087",
-            "level": "B1",
-            "markers": {
-                "a50": {
-                    "answer": "was he",
-                    "options": [
-                        "he was",
-                        "was he",
-                        "he is"
-                    ],
-                    "verb_hint": "inversion after nor with be"
-                }
-            },
-            "tag_keys": [
-                "inversion_nor_neither"
-            ],
-            "variants": [
-                "He wasn't tired, nor {a50} hungry."
-            ]
-        },
-        {
-            "id": 51,
-            "question": "On the hill {a51} an ancient castle.",
-            "source": "theory_page_1087",
-            "level": "B1",
-            "markers": {
-                "a51": {
-                    "answer": "stood",
-                    "options": [
-                        "stood",
-                        "standing",
-                        "was stood"
-                    ],
-                    "verb_hint": "fronting with place adverbial"
-                }
-            },
-            "tag_keys": [
-                "fronting_adverbial"
-            ],
-            "variants": [
-                "On the hill {a51} an ancient castle."
-            ]
-        },
-        {
-            "id": 52,
-            "question": "What the company needs {a52} better communication.",
-            "source": "theory_page_1087",
-            "level": "B1",
-            "markers": {
-                "a52": {
-                    "answer": "is",
-                    "options": [
-                        "is",
-                        "are",
-                        "has"
-                    ],
-                    "verb_hint": "what-cleft abstract complement"
-                }
-            },
-            "tag_keys": [
-                "what_cleft"
-            ],
-            "variants": [
-                "What the company needs {a52} better communication."
-            ]
-        },
-        {
-            "id": 53,
-            "question": "All they did {a53} complain about the food.",
-            "source": "theory_page_1087",
-            "level": "B1",
-            "markers": {
-                "a53": {
-                    "answer": "was",
-                    "options": [
-                        "was",
-                        "were",
-                        "is"
-                    ],
-                    "verb_hint": "all-cleft past"
-                }
-            },
-            "tag_keys": [
-                "all_cleft"
-            ],
-            "variants": [
-                "All they did {a53} complain about the food."
-            ]
-        },
-        {
-            "id": 54,
-            "question": "It {a54} at midnight that the fire started.",
-            "source": "theory_page_1087",
-            "level": "B1",
-            "markers": {
-                "a54": {
-                    "answer": "was",
-                    "options": [
-                        "was",
-                        "were",
-                        "is"
-                    ],
-                    "verb_hint": "it-cleft time emphasis"
-                }
-            },
-            "tag_keys": [
-                "it_cleft"
-            ],
-            "variants": [
-                "It {a54} at midnight that the fire started."
-            ]
-        },
-        {
-            "id": 55,
+            "id": 37,
             "question": "No sooner {a55} than it started to rain.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B2",
             "markers": {
                 "a55": {
@@ -1338,16 +888,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "emphasis"
             ],
             "variants": [
                 "No sooner {a55} than it started to rain."
             ]
         },
         {
-            "id": 56,
+            "id": 38,
             "question": "What she did was {a56} the entire report from scratch.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B2",
             "markers": {
                 "a56": {
@@ -1361,16 +911,16 @@
                 }
             },
             "tag_keys": [
-                "what_cleft"
+                "cleft_sentences"
             ],
             "variants": [
                 "What she did was {a56} the entire report from scratch."
             ]
         },
         {
-            "id": 57,
+            "id": 39,
             "question": "Had I {a57} about the delay, I would have taken a different route.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B2",
             "markers": {
                 "a57": {
@@ -1384,16 +934,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_conditional"
+                "fronting"
             ],
             "variants": [
                 "Had I {a57} about the delay, I would have taken a different route."
             ]
         },
         {
-            "id": 58,
+            "id": 40,
             "question": "Not until the results were published {a58} the truth.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B2",
             "markers": {
                 "a58": {
@@ -1407,16 +957,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "emphasis"
             ],
             "variants": [
                 "Not until the results were published {a58} the truth."
             ]
         },
         {
-            "id": 59,
+            "id": 41,
             "question": "It is the lack of funding {a59} is causing the problem.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B2",
             "markers": {
                 "a59": {
@@ -1430,16 +980,16 @@
                 }
             },
             "tag_keys": [
-                "it_cleft"
+                "cleft_sentences"
             ],
             "variants": [
                 "It is the lack of funding {a59} is causing the problem."
             ]
         },
         {
-            "id": 60,
+            "id": 42,
             "question": "So serious {a60} that the whole team had to stay overnight.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B2",
             "markers": {
                 "a60": {
@@ -1453,16 +1003,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_so_such"
+                "fronting"
             ],
             "variants": [
                 "So serious {a60} that the whole team had to stay overnight."
             ]
         },
         {
-            "id": 61,
+            "id": 43,
             "question": "Were she {a61}, she would accept the offer immediately.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B2",
             "markers": {
                 "a61": {
@@ -1476,16 +1026,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_conditional"
+                "emphasis"
             ],
             "variants": [
                 "Were she {a61}, she would accept the offer immediately."
             ]
         },
         {
-            "id": 62,
+            "id": 44,
             "question": "The project {a62} require a lot of effort, I must admit.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B2",
             "markers": {
                 "a62": {
@@ -1499,16 +1049,16 @@
                 }
             },
             "tag_keys": [
-                "emphatic_do"
+                "cleft_sentences"
             ],
             "variants": [
                 "The project {a62} require a lot of effort, I must admit."
             ]
         },
         {
-            "id": 63,
+            "id": 45,
             "question": "In no way {a63} responsible for the accident.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B2",
             "markers": {
                 "a63": {
@@ -1522,16 +1072,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "fronting"
             ],
             "variants": [
                 "In no way {a63} responsible for the accident."
             ]
         },
         {
-            "id": 64,
+            "id": 46,
             "question": "What the report revealed was {a64} the data had been falsified.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B2",
             "markers": {
                 "a64": {
@@ -1545,16 +1095,16 @@
                 }
             },
             "tag_keys": [
-                "what_cleft"
+                "emphasis"
             ],
             "variants": [
                 "What the report revealed was {a64} the data had been falsified."
             ]
         },
         {
-            "id": 65,
+            "id": 47,
             "question": "Only in emergencies {a65} use the fire exit.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B2",
             "markers": {
                 "a65": {
@@ -1568,16 +1118,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_only"
+                "cleft_sentences"
             ],
             "variants": [
                 "Only in emergencies {a65} use the fire exit."
             ]
         },
         {
-            "id": 66,
+            "id": 48,
             "question": "Such {a66} his anger that he slammed the door.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "B2",
             "markers": {
                 "a66": {
@@ -1591,154 +1141,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_so_such"
+                "fronting"
             ],
             "variants": [
                 "Such {a66} his anger that he slammed the door."
             ]
         },
         {
-            "id": 67,
-            "question": "Should you {a67} any problems, please contact us immediately.",
-            "source": "theory_page_1087",
-            "level": "B2",
-            "markers": {
-                "a67": {
-                    "answer": "encounter",
-                    "options": [
-                        "encounter",
-                        "encountered",
-                        "encountering"
-                    ],
-                    "verb_hint": "conditional inversion with should"
-                }
-            },
-            "tag_keys": [
-                "inversion_conditional"
-            ],
-            "variants": [
-                "Should you {a67} any problems, please contact us immediately."
-            ]
-        },
-        {
-            "id": 68,
-            "question": "All she asked for {a68} a second chance.",
-            "source": "theory_page_1087",
-            "level": "B2",
-            "markers": {
-                "a68": {
-                    "answer": "was",
-                    "options": [
-                        "was",
-                        "were",
-                        "is"
-                    ],
-                    "verb_hint": "all-cleft past singular"
-                }
-            },
-            "tag_keys": [
-                "all_cleft"
-            ],
-            "variants": [
-                "All she asked for {a68} a second chance."
-            ]
-        },
-        {
-            "id": 69,
-            "question": "Among the ruins {a69} a small, weathered statue.",
-            "source": "theory_page_1087",
-            "level": "B2",
-            "markers": {
-                "a69": {
-                    "answer": "lay",
-                    "options": [
-                        "lay",
-                        "laid",
-                        "lied"
-                    ],
-                    "verb_hint": "fronting with place adverbial"
-                }
-            },
-            "tag_keys": [
-                "fronting_adverbial"
-            ],
-            "variants": [
-                "Among the ruins {a69} a small, weathered statue."
-            ]
-        },
-        {
-            "id": 70,
-            "question": "It was with great reluctance {a70} he agreed to the plan.",
-            "source": "theory_page_1087",
-            "level": "B2",
-            "markers": {
-                "a70": {
-                    "answer": "that",
-                    "options": [
-                        "that",
-                        "which",
-                        "when"
-                    ],
-                    "verb_hint": "it-cleft manner focus"
-                }
-            },
-            "tag_keys": [
-                "it_cleft"
-            ],
-            "variants": [
-                "It was with great reluctance {a70} he agreed to the plan."
-            ]
-        },
-        {
-            "id": 71,
-            "question": "Had the train {a71} on time, we wouldn't have missed the connection.",
-            "source": "theory_page_1087",
-            "level": "B2",
-            "markers": {
-                "a71": {
-                    "answer": "arrived",
-                    "options": [
-                        "arrived",
-                        "arrive",
-                        "arriving"
-                    ],
-                    "verb_hint": "conditional inversion past perfect"
-                }
-            },
-            "tag_keys": [
-                "inversion_conditional"
-            ],
-            "variants": [
-                "Had the train {a71} on time, we wouldn't have missed the connection."
-            ]
-        },
-        {
-            "id": 72,
-            "question": "This {a72} seem unfair, but rules are rules.",
-            "source": "theory_page_1087",
-            "level": "B2",
-            "markers": {
-                "a72": {
-                    "answer": "does",
-                    "options": [
-                        "do",
-                        "does",
-                        "did"
-                    ],
-                    "verb_hint": "emphatic does concession"
-                }
-            },
-            "tag_keys": [
-                "emphatic_do"
-            ],
-            "variants": [
-                "This {a72} seem unfair, but rules are rules."
-            ]
-        },
-        {
-            "id": 73,
+            "id": 49,
             "question": "Scarcely {a73} the presentation when the fire alarm went off.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C1",
             "markers": {
                 "a73": {
@@ -1752,16 +1164,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "emphasis"
             ],
             "variants": [
                 "Scarcely {a73} the presentation when the fire alarm went off."
             ]
         },
         {
-            "id": 74,
+            "id": 50,
             "question": "What the investigation uncovered was {a74} multiple departments had violated protocol.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C1",
             "markers": {
                 "a74": {
@@ -1775,16 +1187,16 @@
                 }
             },
             "tag_keys": [
-                "what_cleft"
+                "cleft_sentences"
             ],
             "variants": [
                 "What the investigation uncovered was {a74} multiple departments had violated protocol."
             ]
         },
         {
-            "id": 75,
+            "id": 51,
             "question": "Not only {a75} an apology, but she also offered compensation.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C1",
             "markers": {
                 "a75": {
@@ -1798,16 +1210,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "fronting"
             ],
             "variants": [
                 "Not only {a75} an apology, but she also offered compensation."
             ]
         },
         {
-            "id": 76,
+            "id": 52,
             "question": "Were the government to {a76} this policy, the consequences would be severe.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C1",
             "markers": {
                 "a76": {
@@ -1821,16 +1233,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_conditional"
+                "emphasis"
             ],
             "variants": [
                 "Were the government to {a76} this policy, the consequences would be severe."
             ]
         },
         {
-            "id": 77,
+            "id": 53,
             "question": "So rapidly {a77} that few could keep pace.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C1",
             "markers": {
                 "a77": {
@@ -1844,16 +1256,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_so_such"
+                "cleft_sentences"
             ],
             "variants": [
                 "So rapidly {a77} that few could keep pace."
             ]
         },
         {
-            "id": 78,
+            "id": 54,
             "question": "It was not the salary but the working conditions {a78} drove her to resign.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C1",
             "markers": {
                 "a78": {
@@ -1867,16 +1279,16 @@
                 }
             },
             "tag_keys": [
-                "it_cleft"
+                "fronting"
             ],
             "variants": [
                 "It was not the salary but the working conditions {a78} drove her to resign."
             ]
         },
         {
-            "id": 79,
+            "id": 55,
             "question": "The CEO {a79} acknowledge the mistake, albeit reluctantly.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C1",
             "markers": {
                 "a79": {
@@ -1890,16 +1302,16 @@
                 }
             },
             "tag_keys": [
-                "emphatic_do"
+                "emphasis"
             ],
             "variants": [
                 "The CEO {a79} acknowledge the mistake, albeit reluctantly."
             ]
         },
         {
-            "id": 80,
+            "id": 56,
             "question": "Only after prolonged negotiations {a80} reach an agreement.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C1",
             "markers": {
                 "a80": {
@@ -1913,16 +1325,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_only"
+                "cleft_sentences"
             ],
             "variants": [
                 "Only after prolonged negotiations {a80} reach an agreement."
             ]
         },
         {
-            "id": 81,
+            "id": 57,
             "question": "Embedded in the contract {a81} a clause that nobody had noticed.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C1",
             "markers": {
                 "a81": {
@@ -1936,16 +1348,16 @@
                 }
             },
             "tag_keys": [
-                "fronting_adverbial"
+                "fronting"
             ],
             "variants": [
                 "Embedded in the contract {a81} a clause that nobody had noticed."
             ]
         },
         {
-            "id": 82,
+            "id": 58,
             "question": "Had it not been for her intervention, the project {a82}.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C1",
             "markers": {
                 "a82": {
@@ -1959,16 +1371,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_conditional"
+                "emphasis"
             ],
             "variants": [
                 "Had it not been for her intervention, the project {a82}."
             ]
         },
         {
-            "id": 83,
+            "id": 59,
             "question": "At no point during the trial {a83} show any remorse.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C1",
             "markers": {
                 "a83": {
@@ -1982,16 +1394,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "cleft_sentences"
             ],
             "variants": [
                 "At no point during the trial {a83} show any remorse."
             ]
         },
         {
-            "id": 84,
+            "id": 60,
             "question": "Such {a84} the demand that the server crashed within minutes.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C1",
             "markers": {
                 "a84": {
@@ -2005,154 +1417,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_so_such"
+                "fronting"
             ],
             "variants": [
                 "Such {a84} the demand that the server crashed within minutes."
             ]
         },
         {
-            "id": 85,
-            "question": "What needs to be emphasised is {a85} no shortcuts were taken.",
-            "source": "theory_page_1087",
-            "level": "C1",
-            "markers": {
-                "a85": {
-                    "answer": "that",
-                    "options": [
-                        "that",
-                        "what",
-                        "how"
-                    ],
-                    "verb_hint": "what-cleft formal report"
-                }
-            },
-            "tag_keys": [
-                "what_cleft"
-            ],
-            "variants": [
-                "What needs to be emphasised is {a85} no shortcuts were taken."
-            ]
-        },
-        {
-            "id": 86,
-            "question": "The regulations {a86} apply to all employees, regardless of seniority.",
-            "source": "theory_page_1087",
-            "level": "C1",
-            "markers": {
-                "a86": {
-                    "answer": "do",
-                    "options": [
-                        "do",
-                        "does",
-                        "did"
-                    ],
-                    "verb_hint": "emphatic do plural subject present"
-                }
-            },
-            "tag_keys": [
-                "emphatic_do"
-            ],
-            "variants": [
-                "The regulations {a86} apply to all employees, regardless of seniority."
-            ]
-        },
-        {
-            "id": 87,
-            "question": "It was during the Renaissance {a87} perspective in painting was perfected.",
-            "source": "theory_page_1087",
-            "level": "C1",
-            "markers": {
-                "a87": {
-                    "answer": "that",
-                    "options": [
-                        "that",
-                        "when",
-                        "which"
-                    ],
-                    "verb_hint": "it-cleft period focus"
-                }
-            },
-            "tag_keys": [
-                "it_cleft"
-            ],
-            "variants": [
-                "It was during the Renaissance {a87} perspective in painting was perfected."
-            ]
-        },
-        {
-            "id": 88,
-            "question": "Neither the director nor the producer {a88} willing to compromise.",
-            "source": "theory_page_1087",
-            "level": "C1",
-            "markers": {
-                "a88": {
-                    "answer": "was",
-                    "options": [
-                        "was",
-                        "were",
-                        "is"
-                    ],
-                    "verb_hint": "neither...nor verb agreement"
-                }
-            },
-            "tag_keys": [
-                "inversion_nor_neither"
-            ],
-            "variants": [
-                "Neither the director nor the producer {a88} willing to compromise."
-            ]
-        },
-        {
-            "id": 89,
-            "question": "Should the committee {a89} to reject the proposal, we will appeal.",
-            "source": "theory_page_1087",
-            "level": "C1",
-            "markers": {
-                "a89": {
-                    "answer": "decide",
-                    "options": [
-                        "decide",
-                        "decided",
-                        "decides"
-                    ],
-                    "verb_hint": "conditional inversion should + bare infinitive"
-                }
-            },
-            "tag_keys": [
-                "inversion_conditional"
-            ],
-            "variants": [
-                "Should the committee {a89} to reject the proposal, we will appeal."
-            ]
-        },
-        {
-            "id": 90,
-            "question": "All that remains {a90} the final signature.",
-            "source": "theory_page_1087",
-            "level": "C1",
-            "markers": {
-                "a90": {
-                    "answer": "is",
-                    "options": [
-                        "is",
-                        "are",
-                        "were"
-                    ],
-                    "verb_hint": "all-cleft present"
-                }
-            },
-            "tag_keys": [
-                "all_cleft"
-            ],
-            "variants": [
-                "All that remains {a90} the final signature."
-            ]
-        },
-        {
-            "id": 91,
+            "id": 61,
             "question": "Seldom in the annals of diplomacy {a91} a negotiation collapsed so spectacularly.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C2",
             "markers": {
                 "a91": {
@@ -2166,16 +1440,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "emphasis"
             ],
             "variants": [
                 "Seldom in the annals of diplomacy {a91} a negotiation collapsed so spectacularly."
             ]
         },
         {
-            "id": 92,
+            "id": 62,
             "question": "What the tribunal ultimately determined was {a92} the defendant had acted with premeditated malice.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C2",
             "markers": {
                 "a92": {
@@ -2189,16 +1463,16 @@
                 }
             },
             "tag_keys": [
-                "what_cleft"
+                "cleft_sentences"
             ],
             "variants": [
                 "What the tribunal ultimately determined was {a92} the defendant had acted with premeditated malice."
             ]
         },
         {
-            "id": 93,
+            "id": 63,
             "question": "Were the opposition to {a93} a vote of no confidence, the government would be forced to dissolve.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C2",
             "markers": {
                 "a93": {
@@ -2212,16 +1486,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_conditional"
+                "fronting"
             ],
             "variants": [
                 "Were the opposition to {a93} a vote of no confidence, the government would be forced to dissolve."
             ]
         },
         {
-            "id": 94,
+            "id": 64,
             "question": "Not since the Great Depression {a94} such a profound economic contraction.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C2",
             "markers": {
                 "a94": {
@@ -2235,16 +1509,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_negative_adverb"
+                "emphasis"
             ],
             "variants": [
                 "Not since the Great Depression {a94} such a profound economic contraction."
             ]
         },
         {
-            "id": 95,
+            "id": 65,
             "question": "It is precisely the ambiguity of the statute {a95} renders enforcement so problematic.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C2",
             "markers": {
                 "a95": {
@@ -2258,16 +1532,16 @@
                 }
             },
             "tag_keys": [
-                "it_cleft"
+                "cleft_sentences"
             ],
             "variants": [
                 "It is precisely the ambiguity of the statute {a95} renders enforcement so problematic."
             ]
         },
         {
-            "id": 96,
+            "id": 66,
             "question": "So entrenched {a96} in the institution that reform proved virtually impossible.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C2",
             "markers": {
                 "a96": {
@@ -2281,16 +1555,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_so_such"
+                "fronting"
             ],
             "variants": [
                 "So entrenched {a96} in the institution that reform proved virtually impossible."
             ]
         },
         {
-            "id": 97,
+            "id": 67,
             "question": "The amendment {a97} contain a sunset clause, contrary to popular belief.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C2",
             "markers": {
                 "a97": {
@@ -2304,16 +1578,16 @@
                 }
             },
             "tag_keys": [
-                "emphatic_do"
+                "emphasis"
             ],
             "variants": [
                 "The amendment {a97} contain a sunset clause, contrary to popular belief."
             ]
         },
         {
-            "id": 98,
+            "id": 68,
             "question": "Had the regulatory framework {a98} more robust, the crisis could have been averted.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C2",
             "markers": {
                 "a98": {
@@ -2327,16 +1601,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_conditional"
+                "cleft_sentences"
             ],
             "variants": [
                 "Had the regulatory framework {a98} more robust, the crisis could have been averted."
             ]
         },
         {
-            "id": 99,
+            "id": 69,
             "question": "Only through sustained interdisciplinary collaboration {a99} hope to address challenges of this magnitude.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C2",
             "markers": {
                 "a99": {
@@ -2350,16 +1624,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_only"
+                "fronting"
             ],
             "variants": [
                 "Only through sustained interdisciplinary collaboration {a99} hope to address challenges of this magnitude."
             ]
         },
         {
-            "id": 100,
+            "id": 70,
             "question": "Implicit in the ruling {a100} an acknowledgement that precedent had been misapplied.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C2",
             "markers": {
                 "a100": {
@@ -2373,16 +1647,16 @@
                 }
             },
             "tag_keys": [
-                "fronting_adverbial"
+                "emphasis"
             ],
             "variants": [
                 "Implicit in the ruling {a100} an acknowledgement that precedent had been misapplied."
             ]
         },
         {
-            "id": 101,
+            "id": 71,
             "question": "Such {a101} the ferocity of the backlash that the CEO tendered his resignation within hours.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C2",
             "markers": {
                 "a101": {
@@ -2396,16 +1670,16 @@
                 }
             },
             "tag_keys": [
-                "inversion_so_such"
+                "cleft_sentences"
             ],
             "variants": [
                 "Such {a101} the ferocity of the backlash that the CEO tendered his resignation within hours."
             ]
         },
         {
-            "id": 102,
+            "id": 72,
             "question": "It was the sheer audacity of the proposal, rather than its content, {a102} provoked outrage.",
-            "source": "theory_page_1087",
+            "source": "theory_page_theory_advanced_word_order_emphasis",
             "level": "C2",
             "markers": {
                 "a102": {
@@ -2419,149 +1693,41 @@
                 }
             },
             "tag_keys": [
-                "it_cleft"
+                "fronting"
             ],
             "variants": [
                 "It was the sheer audacity of the proposal, rather than its content, {a102} provoked outrage."
             ]
-        },
-        {
-            "id": 103,
-            "question": "Neither the prosecution nor the defence {a103} able to produce conclusive forensic evidence.",
-            "source": "theory_page_1087",
-            "level": "C2",
-            "markers": {
-                "a103": {
-                    "answer": "was",
-                    "options": [
-                        "was",
-                        "were",
-                        "is"
-                    ],
-                    "verb_hint": "neither...nor proximity agreement"
-                }
-            },
-            "tag_keys": [
-                "inversion_nor_neither"
-            ],
-            "variants": [
-                "Neither the prosecution nor the defence {a103} able to produce conclusive forensic evidence."
-            ]
-        },
-        {
-            "id": 104,
-            "question": "Not until the last witness had testified {a104} adjourn the proceedings.",
-            "source": "theory_page_1087",
-            "level": "C2",
-            "markers": {
-                "a104": {
-                    "answer": "did the judge",
-                    "options": [
-                        "the judge",
-                        "did the judge",
-                        "the judge did"
-                    ],
-                    "verb_hint": "inversion after not until literary"
-                }
-            },
-            "tag_keys": [
-                "inversion_negative_adverb"
-            ],
-            "variants": [
-                "Not until the last witness had testified {a104} adjourn the proceedings."
-            ]
-        },
-        {
-            "id": 105,
-            "question": "The data {a105} corroborate the hypothesis, notwithstanding the methodological limitations.",
-            "source": "theory_page_1087",
-            "level": "C2",
-            "markers": {
-                "a105": {
-                    "answer": "do",
-                    "options": [
-                        "do",
-                        "does",
-                        "did"
-                    ],
-                    "verb_hint": "emphatic do academic plural"
-                }
-            },
-            "tag_keys": [
-                "emphatic_do"
-            ],
-            "variants": [
-                "The data {a105} corroborate the hypothesis, notwithstanding the methodological limitations."
-            ]
-        },
-        {
-            "id": 106,
-            "question": "Should the appellate court {a106} to overturn the verdict, the ramifications would be far-reaching.",
-            "source": "theory_page_1087",
-            "level": "C2",
-            "markers": {
-                "a106": {
-                    "answer": "choose",
-                    "options": [
-                        "choose",
-                        "chose",
-                        "chosen"
-                    ],
-                    "verb_hint": "conditional inversion should + bare infinitive formal"
-                }
-            },
-            "tag_keys": [
-                "inversion_conditional"
-            ],
-            "variants": [
-                "Should the appellate court {a106} to overturn the verdict, the ramifications would be far-reaching."
-            ]
-        },
-        {
-            "id": 107,
-            "question": "What the longitudinal study conclusively demonstrated was {a107} early intervention yields exponentially better outcomes.",
-            "source": "theory_page_1087",
-            "level": "C2",
-            "markers": {
-                "a107": {
-                    "answer": "that",
-                    "options": [
-                        "that",
-                        "what",
-                        "how"
-                    ],
-                    "verb_hint": "what-cleft academic result clause"
-                }
-            },
-            "tag_keys": [
-                "what_cleft"
-            ],
-            "variants": [
-                "What the longitudinal study conclusively demonstrated was {a107} early intervention yields exponentially better outcomes."
-            ]
-        },
-        {
-            "id": 108,
-            "question": "All that the exhaustive audit revealed {a108} a single, inconsequential discrepancy.",
-            "source": "theory_page_1087",
-            "level": "C2",
-            "markers": {
-                "a108": {
-                    "answer": "was",
-                    "options": [
-                        "was",
-                        "were",
-                        "is"
-                    ],
-                    "verb_hint": "all-cleft formal report"
-                }
-            },
-            "tag_keys": [
-                "all_cleft"
-            ],
-            "variants": [
-                "All that the exhaustive audit revealed {a108} a single, inconsequential discrepancy."
-            ]
         }
-    ]
+    ],
+    "saved_test": {
+        "uuid": "wo-adv-v3-test",
+        "slug": "advanced-word-order-emphasis-all-levels-v3",
+        "name": "Advanced Word Order / Emphasis: V3 All Levels",
+        "description": "Page-local V3 package for Advanced Word Order / Emphasis with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AdvancedWordOrderEmphasisAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-advanced-word-order-emphasis",
+                    "title": "Advanced Word Order / Emphasis",
+                    "category_slug_path": "basic-grammar/word-order",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\AdvancedWordOrderEmphasisTheorySeeder",
+                    "url": "https://gramlyze.com/theory/word-order/theory-advanced-word-order-emphasis"
+                }
+            }
+        }
+    }
 }
