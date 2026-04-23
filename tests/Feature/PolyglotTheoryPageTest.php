@@ -19,6 +19,7 @@ use Database\Seeders\Page_V3\ClausesAndLinkingWords\ClausesAndLinkingWordsCatego
 use Database\Seeders\Page_V3\ClausesAndLinkingWords\ClausesAndLinkingWordsRelativeClausesTheorySeeder;
 use Database\Seeders\Page_V3\Conditionals\ConditionalsCategorySeeder;
 use Database\Seeders\Page_V3\Conditionals\ConditionalsFirstTheorySeeder;
+use Database\Seeders\Page_V3\Conditionals\ConditionalsSecondTheorySeeder;
 use Database\Seeders\Page_V3\Articles\SomeAny\SomeAnyCategorySeeder;
 use Database\Seeders\Page_V3\Articles\SomeAny\SomeAnyThingsTheorySeeder;
 use Database\Seeders\Page_V3\CommonMistakes\CommonMistakesArticlesTheorySeeder;
@@ -32,6 +33,8 @@ use Database\Seeders\Page_V3\NounsArticlesQuantity\NounsArticlesQuantityCategory
 use Database\Seeders\Page_V3\NounsArticlesQuantity\NounsArticlesQuantityQuantifiersTheorySeeder;
 use Database\Seeders\Page_V3\PassiveVoice\Basics\PassiveVoiceFormationRulesTheorySeeder;
 use Database\Seeders\Page_V3\PassiveVoice\PassiveVoiceCategorySeeder;
+use Database\Seeders\Page_V3\QuestionsNegations\TypesOfQuestions\TypesOfQuestionsCategorySeeder;
+use Database\Seeders\Page_V3\QuestionsNegations\TypesOfQuestions\TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder;
 use Database\Seeders\Page_V3\ReportedSpeech\ReportedSpeechCategorySeeder;
 use Database\Seeders\Page_V3\ReportedSpeech\ReportedSpeechStatementsTheorySeeder;
 use Database\Seeders\Page_V3\Tenses\PastSimple\PastSimpleCategorySeeder;
@@ -62,8 +65,10 @@ use Database\Seeders\V3\Polyglot\PolyglotMustHaveToLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastContinuousLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPassiveVoiceBasicsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectTimeExpressionsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotQuestionTagsBasicsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotReportedSpeechBasicsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotRelativeClausesLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotSecondConditionalBasicsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotShouldOughtToLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotUsedToLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
@@ -866,6 +871,92 @@ class PolyglotTheoryPageTest extends TestCase
         });
     }
 
+    public function test_question_tags_theory_page_shows_a2_lesson_fourteen_without_leaking_to_unrelated_pages(): void
+    {
+        $this->seedTheoryPages();
+        $this->seed(BasicGrammarSentenceTypesTheorySeeder::class);
+        $this->seed(PolyglotQuestionTagsBasicsLessonSeeder::class);
+
+        $relevantPage = Page::query()
+            ->where('slug', 'question-tags-disjunctive-questions-dont-you-isnt-it')
+            ->firstOrFail();
+        $sentenceTypesPage = Page::query()
+            ->where('slug', 'sentence-types')
+            ->firstOrFail();
+        $service = app(TheoryPagePromptLinkedTestsService::class);
+
+        $this->assertTrue(
+            $service->buildForPage($relevantPage)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-question-tags-basics-a2'
+            )
+        );
+        $this->assertFalse(
+            $service->buildForPage($sentenceTypesPage)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-question-tags-basics-a2'
+            )
+        );
+
+        $relevantResponse = $this->get(route('theory.show', ['types-of-questions', $relevantPage->slug]));
+        $unrelatedResponse = $this->get(route('theory.show', ['basic-grammar', $sentenceTypesPage->slug]));
+
+        $relevantResponse->assertOk();
+        $relevantResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-question-tags-basics-a2'
+            );
+        });
+
+        $unrelatedResponse->assertOk();
+        $unrelatedResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->doesntContain(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-question-tags-basics-a2'
+            );
+        });
+    }
+
+    public function test_second_conditional_theory_page_shows_a2_lesson_fifteen_without_leaking_to_unrelated_pages(): void
+    {
+        $this->seedTheoryPages();
+        $this->seed(BasicGrammarSentenceTypesTheorySeeder::class);
+        $this->seed(PolyglotSecondConditionalBasicsLessonSeeder::class);
+
+        $relevantPage = Page::query()
+            ->where('slug', 'second-conditional')
+            ->firstOrFail();
+        $sentenceTypesPage = Page::query()
+            ->where('slug', 'sentence-types')
+            ->firstOrFail();
+        $service = app(TheoryPagePromptLinkedTestsService::class);
+
+        $this->assertTrue(
+            $service->buildForPage($relevantPage)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-second-conditional-basics-a2'
+            )
+        );
+        $this->assertFalse(
+            $service->buildForPage($sentenceTypesPage)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-second-conditional-basics-a2'
+            )
+        );
+
+        $relevantResponse = $this->get(route('theory.show', ['conditionals', $relevantPage->slug]));
+        $unrelatedResponse = $this->get(route('theory.show', ['basic-grammar', $sentenceTypesPage->slug]));
+
+        $relevantResponse->assertOk();
+        $relevantResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->contains(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-second-conditional-basics-a2'
+            );
+        });
+
+        $unrelatedResponse->assertOk();
+        $unrelatedResponse->assertViewHas('topicTests', function ($tests) {
+            return collect($tests)->doesntContain(
+                fn ($test) => ($test->slug ?? null) === 'polyglot-second-conditional-basics-a2'
+            );
+        });
+    }
+
     protected function augmentTheorySchema(): void
     {
         Schema::create('text_blocks', function (Blueprint $table) {
@@ -952,6 +1043,7 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(AdjectivesCategorySeeder::class);
         $this->seed(VerbPatternsCategorySeeder::class);
         $this->seed(PassiveVoiceCategorySeeder::class);
+        $this->seed(TypesOfQuestionsCategorySeeder::class);
         $this->seed(ReportedSpeechCategorySeeder::class);
         $this->seed(VerbToBePresentTheorySeeder::class);
         $this->seed(ThereIsThereAreTheorySeeder::class);
@@ -971,6 +1063,7 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(ModalVerbsCanCouldTheorySeeder::class);
         $this->seed(ModalVerbsShouldOughtToTheorySeeder::class);
         $this->seed(FutureFormsWillVsBeGoingToTheorySeeder::class);
+        $this->seed(ConditionalsSecondTheorySeeder::class);
         $this->seed(CommonMistakesArticlesTheorySeeder::class);
         $this->seed(SomeAnyThingsTheorySeeder::class);
         $this->seed(NounsArticlesQuantityQuantifiersTheorySeeder::class);
@@ -978,6 +1071,7 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(AdjectivesComparativeVsSuperlativeTheorySeeder::class);
         $this->seed(VerbPatternsGerundVsInfinitiveTheorySeeder::class);
         $this->seed(PassiveVoiceFormationRulesTheorySeeder::class);
+        $this->seed(TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder::class);
         $this->seed(ReportedSpeechStatementsTheorySeeder::class);
     }
 }

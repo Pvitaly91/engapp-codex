@@ -1407,3 +1407,276 @@ php artisan page-v3:apply-folder \
 ```
 
 This keeps planner ordering and planner warnings intact, but the actual package seed/refresh services skip their own release-check preflight.
+
+## Unified Changed Content
+
+Domain-specific changed commands still exist and stay useful when only one domain is involved:
+
+- `v3:plan-changed`
+- `page-v3:plan-changed`
+- `v3:apply-changed`
+- `page-v3:apply-changed`
+
+Use the unified content commands when one git diff can touch both V3 and Page_V3 and you want one orchestration layer to preserve the safe cross-domain order:
+
+- `content:plan-changed` = read-only merged changed-package planner across V3 and Page_V3
+- `content:apply-changed` = execution layer over that merged plan
+- `cleanup_deleted` always runs first
+- `upsert_present` always runs second
+- cleanup order across domains is `V3 -> Page_V3`
+- upsert order across domains is `Page_V3 -> V3`
+- there is no global rollback orchestration
+
+Accepted optional target forms match the domain changed commands:
+
+- omitted target = both roots unless `--domains` narrows the scope
+- folder root
+- package directory
+- `definition.json`
+- top-level loader stub PHP
+- real seeder PHP
+
+Relative targets resolve from `base_path()`. Absolute targets also work. Targets must stay inside `database/seeders/V3` or `database/seeders/Page_V3`. If a target resolves inside one domain, the unified command scopes to that domain only and rejects contradictory `--domains` filters.
+
+Diff source selection matches the changed-package commands:
+
+- default = `--working-tree`
+- `--staged` = staged diff against `HEAD`
+- `--base=<ref>` and optional `--head=<ref>` = ref-diff mode
+- `--include-untracked` = treat untracked files as `added`
+- `--head` without `--base` fails
+- ref mode cannot be mixed with `--staged` or `--working-tree`
+
+### Default working-tree plan across both domains
+
+```bash
+php artisan content:plan-changed \
+  --json
+```
+
+This builds one merged changed-content plan for the current working tree, keeps per-domain package metadata intact, and groups packages into cross-domain `cleanup_deleted` and `upsert_present` phases.
+
+### Dry-run apply across both domains
+
+```bash
+php artisan content:apply-changed \
+  --dry-run
+```
+
+This runs the same unified planner and then full-scope preflight across all actionable V3 and Page_V3 packages. It never mutates DB rows, never changes `seed_runs`, and never deletes files.
+
+### Staged dry run
+
+```bash
+php artisan content:apply-changed \
+  --staged \
+  --dry-run \
+  --json
+```
+
+Use staged mode when deploy/apply should consider only what is already in the index.
+
+### Ref diff live apply
+
+```bash
+php artisan content:apply-changed \
+  --base=origin/main \
+  --head=HEAD \
+  --force
+```
+
+Live execution requires `--force`, runs full-scope preflight first, then executes deleted cleanup and current-package upserts in the merged cross-domain order.
+
+### Target-scoped apply for V3
+
+```bash
+php artisan content:apply-changed \
+  database/seeders/V3/AI/ChatGptPro \
+  --dry-run
+```
+
+When the target resolves inside V3, the unified command automatically scopes to V3 only.
+
+### Target-scoped apply for Page_V3
+
+```bash
+php artisan content:apply-changed \
+  database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions \
+  --dry-run
+```
+
+When the target resolves inside Page_V3, the unified command automatically scopes to Page_V3 only.
+
+### Explicit domain filter for V3 only
+
+```bash
+php artisan content:plan-changed \
+  --domains=v3 \
+  --include-untracked
+```
+
+### Explicit domain filter for Page_V3 only
+
+```bash
+php artisan content:plan-changed \
+  --domains=page-v3 \
+  --with-release-check \
+  --check-profile=scaffold
+```
+
+### Include untracked packages
+
+```bash
+php artisan content:apply-changed \
+  --include-untracked \
+  --dry-run
+```
+
+This is useful right after scaffold generation, when packages exist on disk but are not committed yet.
+
+### Planner release-check aggregation
+
+```bash
+php artisan content:plan-changed \
+  --with-release-check \
+  --check-profile=release \
+  --json
+```
+
+Release-check runs only for current on-disk packages that already plan `seed` or `refresh`. Deleted packages never run release-check.
+
+### Skip runtime release-check during apply
+
+```bash
+php artisan content:apply-changed \
+  --dry-run \
+  --skip-release-check
+```
+
+This forwards `--skip-release-check` into the current-package seed/refresh services during preflight and live execution. Planner-side release-check summaries still remain controlled by `--with-release-check`.
+
+### JSON mode
+
+```bash
+php artisan content:plan-changed \
+  --json
+```
+
+```bash
+php artisan content:apply-changed \
+  --dry-run \
+  --json
+```
+
+The unified JSON payloads keep nested `diff`, `scope`, `domains`, `phases`, `plan`, `preflight`, `execution`, and `artifacts` sections so they can be consumed by CI and later automation.
+
+### Report writing
+
+```bash
+php artisan content:plan-changed \
+  --write-report
+```
+
+```bash
+php artisan content:apply-changed \
+  --dry-run \
+  --write-report
+```
+
+Reports are written into:
+
+- `storage/app/content-changed-plans/`
+- `storage/app/content-changed-apply-reports/`
+
+### Strict mode
+
+```bash
+php artisan content:plan-changed \
+  --strict
+```
+
+```bash
+php artisan content:apply-changed \
+  --dry-run \
+  --strict
+```
+
+Use `--strict` when planner warnings, release-check warnings, inconsistent states, or unresolved deleted-package metadata should fail instead of returning a warning-backed plan or dry run.
+
+## Git Deployment Content Preview
+
+The GitDeployment module now reuses the unified changed-content planner as a read-only deployment preview and safety gate before full deploy or restore actions start.
+
+- deploy / restore preview stays read-only
+- no content rows, `seed_runs`, or files are mutated on the preview path
+- cleanup ordering preview stays `V3 -> Page_V3`
+- upsert ordering preview stays `Page_V3 -> V3`
+- blocked packages or strict warnings can stop deployment before code update starts
+
+Preview integration lives in the admin deployment screens:
+
+- `/admin/deployment`
+- `/admin/deployment/native`
+
+Both screens expose a `Попередній content preview` action for full deploy and rollback flows.
+
+### Shell deployment preview for a branch
+
+```bash
+GET /admin/deployment/content-preview?source_kind=deploy&branch=main
+```
+
+This resolves the current local `HEAD`, validates that local `origin/<branch>` matches the remote branch SHA, and then runs the unified changed-content planner in ref-diff mode.
+
+### Native/API deployment preview for a branch
+
+```bash
+GET /admin/deployment/native/content-preview?source_kind=deploy&branch=main
+```
+
+This resolves the current deployed commit from the native deployment service, validates that the remote branch commit is already available in local git objects for safe diffing, and then runs the unified changed-content planner in ref-diff mode.
+
+### Rollback preview
+
+```bash
+GET /admin/deployment/content-preview?source_kind=backup_restore&commit=<backup-commit>
+```
+
+```bash
+GET /admin/deployment/native/content-preview?source_kind=backup_restore&commit=<backup-commit>
+```
+
+Rollback preview compares the current deployed commit to the selected backup commit and shows the same cross-domain cleanup/upsert phases that a future content rollout would need.
+
+### JSON preview payload
+
+```bash
+GET /admin/deployment/content-preview?source_kind=deploy&branch=main&json=1
+```
+
+```bash
+GET /admin/deployment/native/content-preview?source_kind=backup_restore&commit=<backup-commit>&json=1
+```
+
+The payload includes:
+
+- `deployment.mode`
+- `deployment.source_kind`
+- `deployment.base_ref`
+- `deployment.head_ref`
+- `content_plan.summary`
+- `content_plan.phases.cleanup_deleted`
+- `content_plan.phases.upsert_present`
+- `gate.strict`
+- `gate.blocked`
+- `gate.reasons`
+
+### Safety gate behavior
+
+Before full deploy or rollback starts, GitDeployment now runs the same preview service server-side.
+
+- if the unified content plan contains blocked packages, deployment is stopped
+- if strict content preview is enabled and the plan returns warnings, deployment is stopped
+- if the target ref cannot be resolved safely for changed-content diffing, deployment is stopped
+
+This gate only applies to the full deploy / rollback flow. It does not run `content:apply-changed`, does not add rollback orchestration for content changes, and does not introduce file deletion into deployment.

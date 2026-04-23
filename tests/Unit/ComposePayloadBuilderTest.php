@@ -22,8 +22,10 @@ use Database\Seeders\V3\Polyglot\PolyglotFirstConditionalLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastContinuousLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPassiveVoiceBasicsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectTimeExpressionsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotQuestionTagsBasicsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotReportedSpeechBasicsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotRelativeClausesLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotSecondConditionalBasicsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotShouldOughtToLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotMustHaveToLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotUsedToLessonSeeder;
@@ -1406,6 +1408,132 @@ class ComposePayloadBuilderTest extends TestCase
         $this->assertSame('Why did you use to walk to work?', $whPayload['correctText']);
         $this->assertSame(
             'Схема wh-питання: Wh-word + did + subject + use to + V1?',
+            $whPayload['hintUk']
+        );
+    }
+
+    public function test_question_tags_basics_a2_v3_polyglot_lesson_payload_remains_compose_compatible(): void
+    {
+        $this->seed(PolyglotQuestionTagsBasicsLessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $annaPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-question-tags-basics-a2-q02'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $negativePayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-question-tags-basics-a2-q19'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $therePayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-question-tags-basics-a2-q24'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+
+        $correctAreInstances = collect($therePayload['tokenBank'])
+            ->where('value', 'are')
+            ->where('isCorrect', true)
+            ->values();
+        $correctThereInstances = collect($therePayload['tokenBank'])
+            ->filter(fn (array $token) => strtolower((string) ($token['value'] ?? '')) === 'there')
+            ->where('isCorrect', true)
+            ->values();
+
+        $this->assertSame(
+            ['Anna', 'is', 'a', 'doctor', 'is', 'she', 'not'],
+            $annaPayload['correctTokenValues']
+        );
+        $this->assertSame('Anna is a doctor is she not?', $annaPayload['correctText']);
+
+        $this->assertSame(
+            ['You', 'do', 'not', 'like', 'coffee', 'do', 'you'],
+            $negativePayload['correctTokenValues']
+        );
+        $this->assertSame('You do not like coffee do you?', $negativePayload['correctText']);
+
+        $this->assertSame(
+            ['There', 'are', 'not', 'many', 'people', 'here', 'are', 'there'],
+            $therePayload['correctTokenValues']
+        );
+        $this->assertCount(8, $therePayload['correctTokenIds']);
+        $this->assertSame(8, count(array_unique($therePayload['correctTokenIds'])));
+        $this->assertCount(2, $correctAreInstances);
+        $this->assertCount(2, $correctThereInstances);
+        $this->assertSame('There are not many people here are there?', $therePayload['correctText']);
+        $this->assertSame(
+            'Для there are у tag теж повторюємо there.',
+            $therePayload['hintUk']
+        );
+    }
+
+    public function test_second_conditional_basics_a2_v3_polyglot_lesson_payload_remains_compose_compatible(): void
+    {
+        $this->seed(PolyglotSecondConditionalBasicsLessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $affirmativePayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-second-conditional-basics-a2-q01'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $questionPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-second-conditional-basics-a2-q15'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $whPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-second-conditional-basics-a2-q24'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+
+        $correctIInstances = collect($affirmativePayload['tokenBank'])
+            ->where('value', 'I')
+            ->where('isCorrect', true)
+            ->values();
+        $correctYouInstances = collect($whPayload['tokenBank'])
+            ->where('value', 'you')
+            ->where('isCorrect', true)
+            ->values();
+
+        $this->assertSame(
+            ['I', 'would', 'learn', 'Japanese', 'if', 'I', 'had', 'more', 'time'],
+            $affirmativePayload['correctTokenValues']
+        );
+        $this->assertCount(9, $affirmativePayload['correctTokenIds']);
+        $this->assertSame(9, count(array_unique($affirmativePayload['correctTokenIds'])));
+        $this->assertCount(2, $correctIInstances);
+        $this->assertSame('I would learn Japanese if I had more time.', $affirmativePayload['correctText']);
+
+        $this->assertSame(
+            ['Would', 'you', 'move', 'abroad', 'if', 'you', 'found', 'a', 'good', 'job'],
+            $questionPayload['correctTokenValues']
+        );
+        $this->assertSame('Would you move abroad if you found a good job?', $questionPayload['correctText']);
+        $this->assertSame(
+            'Схема питання: Would + subject + V1 + if + past simple?',
+            $questionPayload['hintUk']
+        );
+
+        $this->assertSame(
+            ['How', 'would', 'you', 'travel', 'if', 'you', 'did', 'not', 'have', 'a', 'car'],
+            $whPayload['correctTokenValues']
+        );
+        $this->assertCount(11, $whPayload['correctTokenIds']);
+        $this->assertSame(11, count(array_unique($whPayload['correctTokenIds'])));
+        $this->assertCount(2, $correctYouInstances);
+        $this->assertSame('How would you travel if you did not have a car?', $whPayload['correctText']);
+        $this->assertSame(
+            'Схема wh-питання: Wh-word + would + subject + V1 + if + did not + V1?',
             $whPayload['hintUk']
         );
     }

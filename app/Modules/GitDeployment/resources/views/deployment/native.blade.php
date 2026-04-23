@@ -97,6 +97,8 @@
       </div>
     @endif
 
+    @include('git-deployment::deployment.partials.content-preview-card', ['contentPreview' => $contentPreview ?? null])
+
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
@@ -107,7 +109,7 @@
           @csrf
           <label class="block text-sm font-medium">Гілка для оновлення</label>
           <div class="relative">
-            <input type="text" name="branch" value="{{ $feedback['branch'] ?? 'main' }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" />
+            <input type="text" name="branch" value="{{ request('branch', $feedback['branch'] ?? 'main') }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" />
             <button type="button" onclick="this.previousElementSibling.value=''; this.previousElementSibling.focus();" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition" title="Очистити поле">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -130,7 +132,14 @@
             <p class="text-xs text-muted-foreground">Якщо вказати гілку, після оновлення поточний стан буде автоматично запушено на цю гілку (буде створена, якщо не існує).</p>
           </div>
           
-          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-red-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-red-600/90">Оновити зараз</button>
+          <input type="hidden" name="with_release_check" value="1" />
+          <input type="hidden" name="strict" value="1" />
+          <div class="flex flex-wrap items-center gap-3">
+            <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-red-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-red-600/90">Оновити зараз</button>
+            <button type="submit" formmethod="GET" formaction="{{ route('deployment.native.content-preview') }}" name="source_kind" value="deploy" class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40">
+              Попередній content preview
+            </button>
+          </div>
         </form>
       </div>
     </section>
@@ -477,12 +486,19 @@
             <label class="block text-sm font-medium" for="native-rollback-commit">Оберіть резервний коміт</label>
             <select id="native-rollback-commit" name="commit" class="w-full rounded-2xl border border-input bg-background px-4 py-2">
               @foreach($backups as $backup)
-                <option value="{{ $backup['commit'] }}">
+                <option value="{{ $backup['commit'] }}" @selected(request('commit') === $backup['commit'])>
                   {{ \Illuminate\Support\Carbon::parse($backup['timestamp'])->format('d.m.Y H:i') }} — {{ $backup['commit'] }}
                 </option>
               @endforeach
             </select>
-            <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-warning px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-warning/90">Виконати відкат</button>
+            <input type="hidden" name="with_release_check" value="1" />
+            <input type="hidden" name="strict" value="1" />
+            <div class="flex flex-wrap items-center gap-3">
+              <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-warning px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-warning/90">Виконати відкат</button>
+              <button type="submit" formmethod="GET" formaction="{{ route('deployment.native.content-preview') }}" name="source_kind" value="backup_restore" class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40">
+                Попередній content preview
+              </button>
+            </div>
           </form>
         @endif
       </div>

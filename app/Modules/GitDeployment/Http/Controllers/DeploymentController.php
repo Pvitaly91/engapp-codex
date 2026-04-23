@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 use App\Modules\GitDeployment\Models\BackupBranch;
 use App\Modules\GitDeployment\Models\BranchUsageHistory;
 use App\Modules\GitDeployment\Http\Concerns\ParsesDeploymentPaths;
+use App\Modules\GitDeployment\Services\ChangedContentDeploymentPreviewService;
 use Symfony\Component\Process\Process;
 use ZipArchive;
 
@@ -19,51 +21,62 @@ class DeploymentController extends BaseController
 
     private const BACKUP_FILE = 'deployment_backups.json';
 
-    public function index()
+    public function index(): View|RedirectResponse
     {
         if ($redirect = $this->redirectIfShellUnavailable()) {
             return $redirect;
         }
 
-        $backups = array_reverse($this->loadBackups());
-        $feedback = session('deployment');
-
-        $backupBranches = BackupBranch::query()
-            ->orderByDesc('created_at')
-            ->paginate(10)
-            ->withQueryString();
-
-        $branchProcess = $this->runCommand(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], base_path());
-        $currentBranch = $branchProcess->isSuccessful()
-            ? trim($branchProcess->getOutput())
-            : null;
-
-        $recentUsage = BranchUsageHistory::getRecentUsage(10);
-        $availableFolders = $this->getAvailableFolders();
-
-        return view('git-deployment::deployment.index', [
-            'backups' => $backups,
-            'feedback' => $feedback,
-            'backupBranches' => $backupBranches,
-            'currentBranch' => $currentBranch,
-            'supportsShell' => $this->supportsShellCommands(),
-            'recentUsage' => $recentUsage,
-            'availableFolders' => $availableFolders,
-        ]);
+        return view('git-deployment::deployment.index', $this->indexViewData(
+            session('deployment_content_preview')
+        ));
     }
 
-    public function deploy(Request $request): RedirectResponse
+    public function contentPreview(
+        Request $request,
+        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
+    ): View|RedirectResponse|\Illuminate\Http\JsonResponse {
+        if ($redirect = $this->redirectIfShellUnavailable()) {
+            return $redirect;
+        }
+
+        $preview = $this->resolveContentPreview($request, $changedContentDeploymentPreviewService);
+
+        if ($request->expectsJson() || $request->boolean('json')) {
+            return response()->json($preview);
+        }
+
+        return view('git-deployment::deployment.index', $this->indexViewData($preview));
+    }
+
+    public function deploy(
+        Request $request,
+        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
+    ): RedirectResponse
     {
-        $branch = $request->input('branch', 'main');
-        $branch = Str::of($branch)->trim()->value() ?: 'main';
-        $branch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branch) ?: 'main';
+        $branch = $this->sanitizeBranchName((string) $request->input('branch', 'main')) ?: 'main';
 
         $autoPushBranch = $request->input('auto_push_branch', '');
-        $autoPushBranch = Str::of($autoPushBranch)->trim()->value();
-        $autoPushBranch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $autoPushBranch);
+        $autoPushBranch = $this->sanitizeBranchName((string) $autoPushBranch);
 
         if ($redirect = $this->redirectIfShellUnavailable($branch)) {
             return $redirect;
+        }
+
+        $contentPreview = $changedContentDeploymentPreviewService->preview([
+            'mode' => 'standard',
+            'source_kind' => 'deploy',
+            'branch' => $branch,
+        ]);
+
+        if ($changedContentDeploymentPreviewService->gateBlocks($contentPreview)) {
+            return $this->redirectWithFeedback(
+                'error',
+                $this->blockedDeploymentMessage('Деплой', $contentPreview, $changedContentDeploymentPreviewService),
+                [],
+                $branch,
+                $contentPreview
+            );
         }
 
         $repoPath = base_path();
@@ -74,7 +87,7 @@ class DeploymentController extends BaseController
         $commandsOutput[] = $this->formatProcess('git rev-parse HEAD', $currentCommitProcess);
 
         if (! $currentCommitProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', 'Не вдалося зчитати поточний коміт.', $commandsOutput);
+            return $this->redirectWithFeedback('error', 'Не вдалося зчитати поточний коміт.', $commandsOutput, $branch);
         }
 
         $backupStored = false;
@@ -91,21 +104,21 @@ class DeploymentController extends BaseController
         $commandsOutput[] = $this->formatProcess('git fetch origin', $fetchProcess);
 
         if (! $fetchProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', 'Команда "git fetch" завершилась з помилкою.', $commandsOutput);
+            return $this->redirectWithFeedback('error', 'Команда "git fetch" завершилась з помилкою.', $commandsOutput, $branch);
         }
 
         $resetProcess = $this->runCommand(['git', 'reset', '--hard', "origin/{$branch}"], $repoPath);
         $commandsOutput[] = $this->formatProcess("git reset --hard origin/{$branch}", $resetProcess);
 
         if (! $resetProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', 'Не вдалося оновити код до останнього коміту.', $commandsOutput);
+            return $this->redirectWithFeedback('error', 'Не вдалося оновити код до останнього коміту.', $commandsOutput, $branch);
         }
 
         $cleanProcess = $this->runCommand(['git', 'clean', '-fd'], $repoPath);
         $commandsOutput[] = $this->formatProcess('git clean -fd', $cleanProcess);
 
         if (! $cleanProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', 'Не вдалося видалити локальні файли, яких немає в репозиторії.', $commandsOutput);
+            return $this->redirectWithFeedback('error', 'Не вдалося видалити локальні файли, яких немає в репозиторії.', $commandsOutput, $branch);
         }
 
         // Track branch usage
@@ -142,7 +155,7 @@ class DeploymentController extends BaseController
 
                     if (! $createProcess->isSuccessful()) {
                         $message .= " Проте не вдалося створити гілку {$autoPushBranch} локально.";
-                        return $this->redirectWithFeedback('success', $message, $commandsOutput);
+                        return $this->redirectWithFeedback('success', $message, $commandsOutput, $branch);
                     }
                 }
 
@@ -174,7 +187,7 @@ class DeploymentController extends BaseController
             }
         }
 
-        return $this->redirectWithFeedback('success', $message, $commandsOutput);
+        return $this->redirectWithFeedback('success', $message, $commandsOutput, $branch);
     }
 
     public function deployPartial(Request $request): RedirectResponse
@@ -199,7 +212,7 @@ class DeploymentController extends BaseController
             if ($pathErrors !== []) {
                 $errorMessage .= ' Помилки: ' . implode('; ', $pathErrors);
             }
-            return $this->redirectWithFeedback('error', $errorMessage, []);
+            return $this->redirectWithFeedback('error', $errorMessage, [], $branch);
         }
 
         $repoPath = base_path();
@@ -211,7 +224,7 @@ class DeploymentController extends BaseController
         $commandsOutput[] = $this->formatProcess('git rev-parse HEAD', $currentCommitProcess);
 
         if (! $currentCommitProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', 'Не вдалося зчитати поточний коміт.', $commandsOutput);
+            return $this->redirectWithFeedback('error', 'Не вдалося зчитати поточний коміт.', $commandsOutput, $branch);
         }
 
         if ($currentCommit !== '') {
@@ -227,7 +240,7 @@ class DeploymentController extends BaseController
         $commandsOutput[] = $this->formatProcess('git fetch origin', $fetchProcess);
 
         if (! $fetchProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', 'Команда "git fetch" завершилась з помилкою.', $commandsOutput);
+            return $this->redirectWithFeedback('error', 'Команда "git fetch" завершилась з помилкою.', $commandsOutput, $branch);
         }
 
         // Визначаємо remote SHA
@@ -235,7 +248,7 @@ class DeploymentController extends BaseController
         $commandsOutput[] = $this->formatProcess("git rev-parse origin/{$branch}", $remoteShaProcess);
 
         if (! $remoteShaProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', "Гілку origin/{$branch} не знайдено.", $commandsOutput);
+            return $this->redirectWithFeedback('error', "Гілку origin/{$branch} не знайдено.", $commandsOutput, $branch);
         }
 
         $remoteSha = trim($remoteShaProcess->getOutput());
@@ -280,20 +293,20 @@ class DeploymentController extends BaseController
 
             if (! $archiveProcess->isSuccessful()) {
                 File::deleteDirectory($tmpDir);
-                return $this->redirectWithFeedback('error', 'Не вдалося створити архів вказаних шляхів.', $commandsOutput);
+                return $this->redirectWithFeedback('error', 'Не вдалося створити архів вказаних шляхів.', $commandsOutput, $branch);
             }
 
             // Розпаковуємо архів
             if (! class_exists(ZipArchive::class)) {
                 File::deleteDirectory($tmpDir);
-                return $this->redirectWithFeedback('error', 'PHP-клас ZipArchive недоступний на сервері. Перевірте чи встановлено та увімкнено розширення zip.', $commandsOutput);
+                return $this->redirectWithFeedback('error', 'PHP-клас ZipArchive недоступний на сервері. Перевірте чи встановлено та увімкнено розширення zip.', $commandsOutput, $branch);
             }
 
             $zip = new ZipArchive();
             $openResult = $zip->open($archivePath);
             if ($openResult !== true) {
                 File::deleteDirectory($tmpDir);
-                return $this->redirectWithFeedback('error', "Не вдалося відкрити архів (код помилки: {$openResult}).", $commandsOutput);
+                return $this->redirectWithFeedback('error', "Не вдалося відкрити архів (код помилки: {$openResult}).", $commandsOutput, $branch);
             }
 
             $zip->extractTo($extractDir);
@@ -358,7 +371,7 @@ class DeploymentController extends BaseController
             $message .= ' Попередження: ' . implode('; ', $pathErrors);
         }
 
-        return $this->redirectWithFeedback('success', $message, $commandsOutput);
+        return $this->redirectWithFeedback('success', $message, $commandsOutput, $branch);
     }
 
     public function pushCurrent(Request $request): RedirectResponse
@@ -404,7 +417,10 @@ class DeploymentController extends BaseController
         );
     }
 
-    public function rollback(Request $request): RedirectResponse
+    public function rollback(
+        Request $request,
+        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
+    ): RedirectResponse
     {
         if ($redirect = $this->redirectIfShellUnavailable()) {
             return $redirect;
@@ -418,6 +434,22 @@ class DeploymentController extends BaseController
 
         if (! $selected) {
             return $this->redirectWithFeedback('error', 'Обраного коміту немає в історії резервних копій.', []);
+        }
+
+        $contentPreview = $changedContentDeploymentPreviewService->preview([
+            'mode' => 'standard',
+            'source_kind' => 'backup_restore',
+            'commit' => (string) $selected['commit'],
+        ]);
+
+        if ($changedContentDeploymentPreviewService->gateBlocks($contentPreview)) {
+            return $this->redirectWithFeedback(
+                'error',
+                $this->blockedDeploymentMessage('Відкат', $contentPreview, $changedContentDeploymentPreviewService),
+                [],
+                null,
+                $contentPreview
+            );
         }
 
         $commandsOutput = [];
@@ -602,15 +634,28 @@ class DeploymentController extends BaseController
         );
     }
 
-    private function redirectWithFeedback(string $status, string $message, array $commandsOutput): RedirectResponse
+    private function redirectWithFeedback(
+        string $status,
+        string $message,
+        array $commandsOutput,
+        ?string $branch = null,
+        ?array $contentPreview = null
+    ): RedirectResponse
     {
-        return redirect()
+        $redirect = redirect()
             ->route('deployment.index')
             ->with('deployment', [
                 'status' => $status,
                 'message' => $message,
                 'commands' => $commandsOutput,
+                'branch' => $branch,
             ]);
+
+        if ($contentPreview !== null) {
+            $redirect->with('deployment_content_preview', $contentPreview);
+        }
+
+        return $redirect;
     }
 
     private function loadBackups(): array
@@ -647,6 +692,87 @@ class DeploymentController extends BaseController
         return $path;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
+    private function indexViewData(?array $contentPreview = null): array
+    {
+        $backups = array_reverse($this->loadBackups());
+        $feedback = session('deployment');
+        $backupBranches = BackupBranch::query()
+            ->orderByDesc('created_at')
+            ->paginate(10)
+            ->withQueryString();
+        $branchProcess = $this->runCommand(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], base_path());
+        $currentBranch = $branchProcess->isSuccessful()
+            ? trim($branchProcess->getOutput())
+            : null;
+
+        return [
+            'backups' => $backups,
+            'feedback' => $feedback,
+            'backupBranches' => $backupBranches,
+            'currentBranch' => $currentBranch,
+            'supportsShell' => $this->supportsShellCommands(),
+            'recentUsage' => BranchUsageHistory::getRecentUsage(10),
+            'availableFolders' => $this->getAvailableFolders(),
+            'contentPreview' => $contentPreview,
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function resolveContentPreview(
+        Request $request,
+        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
+    ): array {
+        $sourceKind = strtolower(trim((string) $request->query('source_kind', 'deploy')));
+
+        return match ($sourceKind) {
+            'backup_restore' => $changedContentDeploymentPreviewService->preview([
+                'mode' => 'standard',
+                'source_kind' => 'backup_restore',
+                'commit' => trim((string) $request->query('commit', '')),
+            ], $this->contentPreviewOptions($request)),
+            default => $changedContentDeploymentPreviewService->preview([
+                'mode' => 'standard',
+                'source_kind' => 'deploy',
+                'branch' => $this->sanitizeBranchName((string) $request->query('branch', 'main')) ?: 'main',
+            ], $this->contentPreviewOptions($request)),
+        };
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function contentPreviewOptions(Request $request): array
+    {
+        return [
+            'with_release_check' => $request->has('with_release_check')
+                ? $request->boolean('with_release_check')
+                : (bool) config('git-deployment.content_preview.with_release_check', true),
+            'check_profile' => (string) $request->query(
+                'check_profile',
+                config('git-deployment.content_preview.check_profile', 'release')
+            ),
+            'strict' => $request->has('strict')
+                ? $request->boolean('strict')
+                : (bool) config('git-deployment.content_preview.strict', true),
+        ];
+    }
+
+    private function blockedDeploymentMessage(
+        string $actionLabel,
+        array $contentPreview,
+        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
+    ): string {
+        $reasons = $changedContentDeploymentPreviewService->gateReasons($contentPreview);
+
+        return $actionLabel . ' зупинено content-aware safety gate до початку git-оновлення. '
+            . ($reasons !== [] ? implode(' ', $reasons) : 'Content preview returned blockers.');
+    }
+
     private function redirectIfShellUnavailable(?string $branch = null): ?RedirectResponse
     {
         if ($this->supportsShellCommands()) {
@@ -670,6 +796,14 @@ class DeploymentController extends BaseController
     private function supportsShellCommands(): bool
     {
         return function_exists('proc_open');
+    }
+
+    private function sanitizeBranchName(string $branch): string
+    {
+        $normalized = Str::of($branch)->trim()->value();
+        $sanitized = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $normalized);
+
+        return $sanitized !== null && $sanitized !== '' ? $sanitized : $normalized;
     }
 
     private function runCommand(array $command, string $workingDirectory): Process

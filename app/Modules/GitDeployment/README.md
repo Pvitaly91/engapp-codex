@@ -11,6 +11,34 @@
 - `config/git-deployment.php` — налаштування GitHub та список шляхів, що зберігаються при оновленні.
 - `database/migrations` — міграції для таблиці резервних гілок.
 
+## Content-aware preview and gate
+
+Модуль інтегрує unified changed-content planner у deployment preview path:
+
+- перед full deploy або rollback можна подивитися read-only content diff preview
+- preview reuse-ить `ChangedContentPlanService` як canonical source of truth
+- preview показує merged V3 + Page_V3 impact, grouped phases, blockers, warnings, і release-check readiness summary
+- якщо preview повертає blocked states або strict warnings, старт deploy/rollback блокується до початку code update
+
+Маршрути preview:
+
+- `GET /admin/deployment/content-preview`
+- `GET /admin/deployment/native/content-preview`
+
+Параметри:
+
+- `source_kind=deploy&branch=<branch>`
+- `source_kind=backup_restore&commit=<commit>`
+- optional `json=1` для machine-readable payload
+
+Preview path залишається повністю read-only:
+
+- не запускає `content:apply-changed`
+- не мутує content DB rows
+- не мутує `seed_runs`
+- не видаляє файли
+- не виконує `git checkout/reset/clean`
+
 ## Підключення в іншому проєкті
 1. Скопіюйте каталог `app/Modules/GitDeployment` у свій репозиторій.
 2. Переконайтеся, що стандартний PSR-4-маппінг `"App\\": "app/"` увімкнений (цей крок типовий для Laravel).

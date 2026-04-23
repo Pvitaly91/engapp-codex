@@ -1251,6 +1251,111 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
         $this->assertStringContainsString('polyglot-used-to-a2', $contents);
     }
 
+    public function test_command_writes_question_tags_basics_a2_prompt_for_real_theory_page_and_skeleton(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-question-tags-basics-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $loaderPath = base_path('database/seeders/V3/Polyglot/PolyglotQuestionTagsBasicsPromptTestSeeder.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/PolyglotQuestionTagsBasicsPromptTestSeeder');
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $outputAbsolutePath,
+            dirname($outputAbsolutePath),
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'types-of-questions',
+            'theoryPageSlug' => 'question-tags-disjunctive-questions-dont-you-isnt-it',
+            'lessonSlug' => 'polyglot-question-tags-basics-a2',
+            'lessonOrder' => 14,
+            '--title' => 'Polyglot: question tags basics (A2)',
+            '--topic' => 'question tags basics',
+            '--seeder' => 'PolyglotQuestionTagsBasicsPromptTestSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-used-to-a2',
+            '--next' => 'polyglot-second-conditional-basics-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-QUESTION-TAGS-BASICS-A2-TEST',
+            '--output' => $outputRelativePath,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($packagePath . '/definition.json');
+        $this->assertStringContainsString('Resolved theory page: Question Tags', $output);
+        $this->assertStringContainsString(
+            '/theory/types-of-questions/question-tags-disjunctive-questions-dont-you-isnt-it',
+            $output
+        );
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotQuestionTagsBasicsPromptTestSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-QUESTION-TAGS-BASICS-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-question-tags-basics-a2', $contents);
+    }
+
+    public function test_command_writes_second_conditional_basics_a2_prompt_for_real_theory_page_and_skeleton(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-second-conditional-basics-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $loaderPath = base_path('database/seeders/V3/Polyglot/PolyglotSecondConditionalBasicsPromptTestSeeder.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/PolyglotSecondConditionalBasicsPromptTestSeeder');
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $outputAbsolutePath,
+            dirname($outputAbsolutePath),
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'conditionals',
+            'theoryPageSlug' => 'second-conditional',
+            'lessonSlug' => 'polyglot-second-conditional-basics-a2',
+            'lessonOrder' => 15,
+            '--title' => 'Polyglot: second conditional basics (A2)',
+            '--topic' => 'second conditional basics',
+            '--seeder' => 'PolyglotSecondConditionalBasicsPromptTestSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-question-tags-basics-a2',
+            '--next' => 'polyglot-final-drill-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-SECOND-CONDITIONAL-BASICS-A2-TEST',
+            '--output' => $outputRelativePath,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($packagePath . '/definition.json');
+        $this->assertStringContainsString('Resolved theory page: Second Conditional', $output);
+        $this->assertStringContainsString('/theory/conditionals/second-conditional', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotSecondConditionalBasicsPromptTestSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-SECOND-CONDITIONAL-BASICS-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-second-conditional-basics-a2', $contents);
+    }
+
     public function test_skeleton_writer_creates_canonical_package_and_respects_force_flag(): void
     {
         $seeder = 'PolyglotSkeletonDemoTestSeeder';

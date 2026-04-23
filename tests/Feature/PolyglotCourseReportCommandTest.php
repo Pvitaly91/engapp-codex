@@ -13,8 +13,10 @@ use Database\Seeders\V2\Polyglot\PolyglotMustHaveToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastContinuousLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPassiveVoiceBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectTimeExpressionsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotQuestionTagsBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotReportedSpeechBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotRelativeClausesLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotSecondConditionalBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotShouldOughtToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotUsedToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
@@ -77,6 +79,8 @@ class PolyglotCourseReportCommandTest extends TestCase
         $this->seed(PolyglotPassiveVoiceBasicsLessonSeeder::class);
         $this->seed(PolyglotReportedSpeechBasicsLessonSeeder::class);
         $this->seed(PolyglotUsedToLessonSeeder::class);
+        $this->seed(PolyglotQuestionTagsBasicsLessonSeeder::class);
+        $this->seed(PolyglotSecondConditionalBasicsLessonSeeder::class);
     }
 
     public function test_course_report_command_outputs_planned_and_implemented_status(): void
@@ -99,7 +103,7 @@ class PolyglotCourseReportCommandTest extends TestCase
             'courseSlug' => 'polyglot-english-a2',
         ])
             ->expectsOutputToContain('Planned total: 16')
-            ->expectsOutputToContain('Implemented total: 13')
+            ->expectsOutputToContain('Implemented total: 15')
             ->expectsOutputToContain('polyglot-present-perfect-basic-a2')
             ->expectsOutputToContain('polyglot-present-perfect-vs-past-simple-a2')
             ->expectsOutputToContain('polyglot-first-conditional-a2')
@@ -113,8 +117,10 @@ class PolyglotCourseReportCommandTest extends TestCase
             ->expectsOutputToContain('polyglot-passive-voice-basics-a2')
             ->expectsOutputToContain('polyglot-reported-speech-basics-a2')
             ->expectsOutputToContain('polyglot-used-to-a2')
-            ->expectsOutputToContain('Missing / planned lessons: polyglot-question-tags-basics-a2')
-            ->expectsOutputToContain('Next recommended lesson: polyglot-question-tags-basics-a2')
+            ->expectsOutputToContain('polyglot-question-tags-basics-a2')
+            ->expectsOutputToContain('polyglot-second-conditional-basics-a2')
+            ->expectsOutputToContain('Missing / planned lessons: polyglot-final-drill-a2')
+            ->expectsOutputToContain('Next recommended lesson: polyglot-final-drill-a2')
             ->expectsOutputToContain('Broken previous/next refs: none')
             ->assertExitCode(0);
     }

@@ -207,4 +207,25 @@ class PolyglotQuestionUuidResolverTest extends TestCase
 
         $this->assertSame($canonical, $resolver->toPersistent($canonical));
     }
+
+    public function test_question_tags_basics_a2_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-question-tags-basics-a2-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
+
+    public function test_second_conditional_basics_a2_question_uuid_mapping_is_deterministic_and_length_safe(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-second-conditional-basics-a2-q24';
+
+        $mappedOnce = $resolver->toPersistent($canonical);
+        $mappedTwice = $resolver->toPersistent($canonical);
+
+        $this->assertSame($mappedOnce, $mappedTwice);
+        $this->assertNotSame($canonical, $mappedOnce);
+        $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
+    }
 }

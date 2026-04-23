@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 use App\Modules\GitDeployment\Models\BackupBranch;
 use App\Modules\GitDeployment\Models\BranchUsageHistory;
+use App\Modules\GitDeployment\Services\ChangedContentDeploymentPreviewService;
 use App\Modules\GitDeployment\Services\NativeGitDeploymentService;
 use App\Modules\GitDeployment\Http\Concerns\ParsesDeploymentPaths;
 
@@ -22,38 +24,52 @@ class NativeDeploymentController extends BaseController
     {
     }
 
-    public function index()
+    public function index(): View
     {
-        $backups = array_reverse($this->loadBackups());
-        $feedback = session('deployment_native');
-
-        $backupBranches = BackupBranch::query()
-            ->orderByDesc('created_at')
-            ->paginate(10)
-            ->withQueryString();
-
-        $recentUsage = BranchUsageHistory::getRecentUsage(10);
-        $availableFolders = $this->getAvailableFolders();
-
-        return view('git-deployment::deployment.native', [
-            'backups' => $backups,
-            'feedback' => $feedback,
-            'backupBranches' => $backupBranches,
-            'currentBranch' => $this->deployment->currentBranch(),
-            'currentCommit' => $this->deployment->headCommit(),
-            'supportsShell' => $this->supportsShellCommands(),
-            'recentUsage' => $recentUsage,
-            'availableFolders' => $availableFolders,
-        ]);
+        return view('git-deployment::deployment.native', $this->indexViewData(
+            session('deployment_native_content_preview')
+        ));
     }
 
-    public function deploy(Request $request): RedirectResponse
+    public function contentPreview(
+        Request $request,
+        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
+    ): View|\Illuminate\Http\JsonResponse {
+        $preview = $this->resolveContentPreview($request, $changedContentDeploymentPreviewService);
+
+        if ($request->expectsJson() || $request->boolean('json')) {
+            return response()->json($preview);
+        }
+
+        return view('git-deployment::deployment.native', $this->indexViewData($preview));
+    }
+
+    public function deploy(
+        Request $request,
+        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
+    ): RedirectResponse
     {
         $branch = $request->input('branch', 'main');
         $sanitized = $this->sanitizeBranchName($branch ?? 'main');
 
         $autoPushBranch = $request->input('auto_push_branch', '');
         $autoPushBranch = $this->sanitizeBranchName($autoPushBranch ?? '');
+
+        $contentPreview = $changedContentDeploymentPreviewService->preview([
+            'mode' => 'native',
+            'source_kind' => 'deploy',
+            'branch' => $sanitized,
+        ]);
+
+        if ($changedContentDeploymentPreviewService->gateBlocks($contentPreview)) {
+            return $this->redirectWithFeedback(
+                'error',
+                $this->blockedDeploymentMessage('Деплой', $contentPreview, $changedContentDeploymentPreviewService),
+                [],
+                $sanitized,
+                $contentPreview
+            );
+        }
 
         try {
             $result = $this->deployment->deploy($sanitized);
@@ -173,9 +189,28 @@ class NativeDeploymentController extends BaseController
         return $this->redirectWithFeedback('success', $result['message'], $result['logs'], $sanitized);
     }
 
-    public function rollback(Request $request): RedirectResponse
+    public function rollback(
+        Request $request,
+        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
+    ): RedirectResponse
     {
         $commit = $request->input('commit');
+
+        $contentPreview = $changedContentDeploymentPreviewService->preview([
+            'mode' => 'native',
+            'source_kind' => 'backup_restore',
+            'commit' => trim((string) $commit),
+        ]);
+
+        if ($changedContentDeploymentPreviewService->gateBlocks($contentPreview)) {
+            return $this->redirectWithFeedback(
+                'error',
+                $this->blockedDeploymentMessage('Відкат', $contentPreview, $changedContentDeploymentPreviewService),
+                [],
+                null,
+                $contentPreview
+            );
+        }
 
         try {
             $result = $this->deployment->rollback($commit);
@@ -274,9 +309,15 @@ class NativeDeploymentController extends BaseController
         );
     }
 
-    private function redirectWithFeedback(string $status, string $message, array $logs, ?string $branch): RedirectResponse
+    private function redirectWithFeedback(
+        string $status,
+        string $message,
+        array $logs,
+        ?string $branch,
+        ?array $contentPreview = null
+    ): RedirectResponse
     {
-        return redirect()
+        $redirect = redirect()
             ->route('deployment.native.index')
             ->with('deployment_native', [
                 'status' => $status,
@@ -284,6 +325,12 @@ class NativeDeploymentController extends BaseController
                 'logs' => $logs,
                 'branch' => $branch,
             ]);
+
+        if ($contentPreview !== null) {
+            $redirect->with('deployment_native_content_preview', $contentPreview);
+        }
+
+        return $redirect;
     }
 
     private function loadBackups(): array
@@ -309,6 +356,84 @@ class NativeDeploymentController extends BaseController
         }
 
         return $path;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function indexViewData(?array $contentPreview = null): array
+    {
+        $backups = array_reverse($this->loadBackups());
+        $feedback = session('deployment_native');
+        $backupBranches = BackupBranch::query()
+            ->orderByDesc('created_at')
+            ->paginate(10)
+            ->withQueryString();
+
+        return [
+            'backups' => $backups,
+            'feedback' => $feedback,
+            'backupBranches' => $backupBranches,
+            'currentBranch' => $this->deployment->currentBranch(),
+            'currentCommit' => $this->deployment->headCommit(),
+            'supportsShell' => $this->supportsShellCommands(),
+            'recentUsage' => BranchUsageHistory::getRecentUsage(10),
+            'availableFolders' => $this->getAvailableFolders(),
+            'contentPreview' => $contentPreview,
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function resolveContentPreview(
+        Request $request,
+        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
+    ): array {
+        $sourceKind = strtolower(trim((string) $request->query('source_kind', 'deploy')));
+
+        return match ($sourceKind) {
+            'backup_restore' => $changedContentDeploymentPreviewService->preview([
+                'mode' => 'native',
+                'source_kind' => 'backup_restore',
+                'commit' => trim((string) $request->query('commit', '')),
+            ], $this->contentPreviewOptions($request)),
+            default => $changedContentDeploymentPreviewService->preview([
+                'mode' => 'native',
+                'source_kind' => 'deploy',
+                'branch' => $this->sanitizeBranchName((string) $request->query('branch', 'main')) ?: 'main',
+            ], $this->contentPreviewOptions($request)),
+        };
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function contentPreviewOptions(Request $request): array
+    {
+        return [
+            'with_release_check' => $request->has('with_release_check')
+                ? $request->boolean('with_release_check')
+                : (bool) config('git-deployment.content_preview.with_release_check', true),
+            'check_profile' => (string) $request->query(
+                'check_profile',
+                config('git-deployment.content_preview.check_profile', 'release')
+            ),
+            'strict' => $request->has('strict')
+                ? $request->boolean('strict')
+                : (bool) config('git-deployment.content_preview.strict', true),
+        ];
+    }
+
+    private function blockedDeploymentMessage(
+        string $actionLabel,
+        array $contentPreview,
+        ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService
+    ): string {
+        $reasons = $changedContentDeploymentPreviewService->gateReasons($contentPreview);
+
+        return $actionLabel . ' зупинено content-aware safety gate до початку code update. '
+            . ($reasons !== [] ? implode(' ', $reasons) : 'Content preview returned blockers.');
     }
 
     private function sanitizeBranchName(string $branch): string
