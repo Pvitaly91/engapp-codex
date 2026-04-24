@@ -234,9 +234,15 @@
         'interfaceLocale' => data_get($rawFilters, 'interface_locale', app()->getLocale()),
         'courseLessons' => data_get($courseContext, 'lessons', []),
     ];
+    $progressSyncPayload = [
+        'progressUrl' => filled($courseSlug) ? route('courses.progress.show', $courseSlug) : null,
+        'attemptUrl' => filled($courseSlug) ? route('courses.progress.attempt', $courseSlug) : null,
+        'csrfToken' => csrf_token(),
+    ];
 @endphp
 window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
+window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
 </script>
 @include('components.saved-test-js-helpers')
 <script>
@@ -260,6 +266,9 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
     const config = window.__POLYGLOT_COMPOSE_CONFIG__ || {};
     const rollingWindow = Number.isFinite(Number(config.rollingWindow)) ? Number(config.rollingWindow) : 100;
     const minRating = Number.isFinite(Number(config.minRating)) ? Number(config.minRating) : 4.5;
+    const progressSync = window.__POLYGLOT_PROGRESS_SYNC__ || {};
+    let serverCourseState = null;
+    let serverAuthenticated = false;
 
     const pageRoot = document.getElementById('polyglot-compose-root');
     const root = document.getElementById('polyglot-compose-app');
@@ -271,6 +280,22 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
 
     if (!root) {
         return;
+    }
+
+    function serverHeaders() {
+        return {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': progressSync.csrfToken || '',
+        };
+    }
+
+    function generateClientAttemptUuid() {
+        if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+            return window.crypto.randomUUID();
+        }
+
+        return `attempt-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
     }
 
     function normalizeText(value) {
@@ -474,7 +499,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
     };
 
     function currentCourseState() {
-        return courseStore ? courseStore.read() : null;
+        return serverCourseState || (courseStore ? courseStore.read() : null);
     }
 
     function currentCourseLesson(courseState) {
@@ -497,6 +522,111 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         }
 
         return courseStore.findLesson(slug)?.name || '';
+    }
+
+    function applyServerProgress(progress) {
+        if (!progress || typeof progress !== 'object') {
+            return;
+        }
+
+        serverCourseState = progress;
+        serverAuthenticated = true;
+
+        const lessonProgress = progress.lesson_progress?.[config.slug];
+        if (lessonProgress) {
+            state.progress = progressStore.normalize(lessonProgress);
+        }
+    }
+
+    async function hydrateServerProgress() {
+        if (!progressSync.progressUrl) {
+            return;
+        }
+
+        try {
+            const response = await fetch(progressSync.progressUrl, {
+                credentials: 'same-origin',
+                headers: {
+                    'Accept': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                return;
+            }
+
+            const payload = await response.json();
+            if (!payload?.authenticated || !payload.progress) {
+                serverAuthenticated = false;
+                serverCourseState = null;
+                return;
+            }
+
+            applyServerProgress(payload.progress);
+        } catch (error) {
+            serverAuthenticated = false;
+            serverCourseState = null;
+        }
+    }
+
+    async function postServerAttempt(result, question, submitted, progressSnapshot) {
+        if (!serverAuthenticated || !progressSync.attemptUrl) {
+            return;
+        }
+
+        try {
+            const response = await fetch(progressSync.attemptUrl, {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: serverHeaders(),
+                body: JSON.stringify({
+                    lesson_slug: config.slug,
+                    question_uuid: question?.uuid || null,
+                    rating: result,
+                    is_correct: result >= minRating,
+                    client_attempt_uuid: generateClientAttemptUuid(),
+                    answer_payload: {
+                        source: 'compose_tokens',
+                        current_queue_index: progressSnapshot.current_queue_index,
+                        selected_token_ids: state.selectedTokenIds,
+                        submitted_answer: submitted,
+                        correct_answer: question?.correctText || null,
+                    },
+                }),
+            });
+
+            if (!response.ok) {
+                return;
+            }
+
+            const payload = await response.json();
+            if (!payload?.authenticated) {
+                serverAuthenticated = false;
+                serverCourseState = null;
+                return;
+            }
+
+            if (payload.course_progress) {
+                serverCourseState = payload.course_progress;
+            }
+
+            if (payload.lesson_progress) {
+                const localQueueIndex = state.progress.current_queue_index;
+                const serverLessonProgress = progressStore.normalize(payload.lesson_progress);
+
+                state.progress = {
+                    ...serverLessonProgress,
+                    current_queue_index: state.autoAdvanceTimer !== null
+                        ? localQueueIndex
+                        : serverLessonProgress.current_queue_index,
+                };
+
+                render();
+            }
+        } catch (error) {
+            serverAuthenticated = false;
+            serverCourseState = null;
+        }
     }
 
     function actionLinkMarkup(url, label, variant = 'solid') {
@@ -731,11 +861,16 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         render();
     }
 
-    function markAttempt(result) {
+    function markAttempt(result, question, submitted) {
         state.progress = progressStore.markAttempt(state.progress, result === 5);
+        postServerAttempt(result, question, submitted, state.progress);
     }
 
     function resetLessonProgress() {
+        if (serverAuthenticated) {
+            return;
+        }
+
         clearAutoAdvance();
         state.progress = progressStore.reset();
         resetCurrentAnswer(true);
@@ -743,6 +878,14 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
     }
 
     function restartCourse() {
+        if (serverAuthenticated) {
+            if (config.courseUrl) {
+                window.location.assign(config.courseUrl);
+            }
+
+            return;
+        }
+
         clearAutoAdvance();
 
         if (courseStore && typeof courseStore.reset === 'function') {
@@ -767,6 +910,11 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
     }
 
     function rehydrateFromSharedState() {
+        if (serverAuthenticated) {
+            render();
+            return;
+        }
+
         const previousQueueIndex = state.progress.current_queue_index;
 
         clearAutoAdvance();
@@ -932,7 +1080,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         root.querySelector('[data-action="check"]').disabled = isLocked;
         root.querySelector('[data-action="clear"]').disabled = isLocked || state.selectedTokenIds.length === 0;
         root.querySelector('[data-action="undo"]').disabled = isLocked || state.selectedTokenIds.length === 0;
-        root.querySelector('[data-action="reset-progress"]').disabled = isLocked;
+        root.querySelector('[data-action="reset-progress"]').disabled = isLocked || serverAuthenticated;
     }
 
     function addTokenById(tokenId) {
@@ -975,7 +1123,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         const isCorrect = normalizeCompare(submitted) === normalizeCompare(question.correctText);
 
         if (isCorrect) {
-            markAttempt(5);
+            markAttempt(5, question, submitted);
             state.feedback = {
                 type: 'correct',
                 hint: '',
@@ -990,7 +1138,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
             return;
         }
 
-        markAttempt(0);
+        markAttempt(0, question, submitted);
         state.feedback = {
             type: 'incorrect',
             hint: question.hintUk || '',
@@ -1081,19 +1229,25 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         onSync: rehydrateFromSharedState,
     });
 
-    const initialCourseUi = refreshCourseUi();
-    if (initialCourseUi.locked) {
-        return;
-    }
+    hydrateServerProgress().finally(() => {
+        const initialCourseUi = refreshCourseUi();
+        if (initialCourseUi.locked) {
+            return;
+        }
 
-    if (courseStore) {
-        courseStore.markLessonOpened(config.slug);
-    }
+        if (courseStore && !serverAuthenticated) {
+            courseStore.markLessonOpened(config.slug);
+        }
 
-    clampQueueIndex();
-    resetCurrentAnswer(true);
-    persistProgress();
-    render();
+        clampQueueIndex();
+        resetCurrentAnswer(true);
+
+        if (!serverAuthenticated) {
+            persistProgress();
+        }
+
+        render();
+    });
     }
 
     if (window.PolyglotCourseProgress) {

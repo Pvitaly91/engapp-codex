@@ -279,6 +279,7 @@ return [
             'course_completed_title' => 'Kurs został ukończony',
             'course_completed_note' => 'Wszystkie lekcje są już odblokowane. Możesz powtórzyć dowolną lekcję.',
             'in_progress_summary' => 'Postęp jest zapisywany na tym urządzeniu',
+            'account_progress_summary' => 'Postęp jest zapisywany na Twoim koncie. Możesz kontynuować na innym urządzeniu.',
             'all_lessons_completed' => 'Wszystkie lekcje ukończone',
             'repeat_course' => 'Powtórz kurs',
             'continue_with_polyglot_a2' => 'Kontynuuj z Polyglot A2',

@@ -279,6 +279,7 @@ return [
             'course_completed_title' => 'You completed the course',
             'course_completed_note' => 'All lessons are already unlocked. You can repeat any lesson.',
             'in_progress_summary' => 'Progress is stored on this device',
+            'account_progress_summary' => 'Progress is saved in your account. You can continue from another device.',
             'all_lessons_completed' => 'All lessons completed',
             'repeat_course' => 'Repeat course',
             'continue_with_polyglot_a2' => 'Continue with Polyglot A2',

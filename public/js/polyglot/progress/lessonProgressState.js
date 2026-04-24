@@ -39,7 +39,7 @@ export function normalizeLessonProgress(raw, lessonSlug, options = {}) {
         totalAttempts,
         Math.max(
             sanitizeCount(raw.correct_attempts),
-            rollingResults.filter((value) => value === LESSON_PROGRESS_PASS_VALUE).length
+            rollingResults.filter((value) => value >= 4.5).length
         )
     );
     const maxIndex = resolveMaxQueueIndex(options.questionCount);
@@ -156,7 +156,8 @@ function sanitizeRollingResults(values) {
 
     return values
         .map((value) => Number(value))
-        .filter((value) => value === LESSON_PROGRESS_FAIL_VALUE || value === LESSON_PROGRESS_PASS_VALUE)
+        .filter((value) => Number.isFinite(value) && value >= LESSON_PROGRESS_FAIL_VALUE && value <= LESSON_PROGRESS_PASS_VALUE)
+        .map((value) => Math.round(value * 100) / 100)
         .slice(-LESSON_PROGRESS_WINDOW);
 }
 
