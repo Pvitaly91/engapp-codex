@@ -464,36 +464,18 @@ class ChangedContentDeploymentPreviewService
     private function resolvedContentSync(array $domains, array $fallbackBaseRefs, string $headRef): array
     {
         if ($this->contentSyncStateService === null) {
-            $contentSync = [];
-
-            foreach ($domains as $domain) {
-                $fallbackBaseRef = $fallbackBaseRefs[$domain] ?? null;
-
-                $contentSync[$domain] = [
-                    'domain' => $domain,
-                    'sync_state_ref' => null,
-                    'fallback_base_ref' => $fallbackBaseRef,
-                    'effective_base_ref' => $fallbackBaseRef,
-                    'fallback_used' => true,
-                    'drift_from_code_ref' => false,
-                    'sync_state_uninitialized' => true,
-                    'status' => 'uninitialized',
-                    'last_successful_ref' => null,
-                    'last_successful_applied_at' => null,
-                    'last_attempted_base_ref' => null,
-                    'last_attempted_head_ref' => null,
-                    'last_attempted_status' => null,
-                    'last_attempted_at' => null,
-                    'last_attempt_meta' => null,
-                    'target_head_ref' => $headRef,
-                    'would_advance_to_head' => $fallbackBaseRef !== null && strtolower($fallbackBaseRef) !== strtolower($headRef),
-                ];
-            }
-
-            return $contentSync;
+            return $this->fallbackContentSync($domains, $fallbackBaseRefs, $headRef);
         }
 
-        return $this->contentSyncStateService->describe($domains, $fallbackBaseRefs, $headRef);
+        try {
+            return $this->contentSyncStateService->describe($domains, $fallbackBaseRefs, $headRef);
+        } catch (\Throwable $exception) {
+            if ($this->isMissingContentSyncStateTable($exception)) {
+                return $this->fallbackContentSync($domains, $fallbackBaseRefs, $headRef);
+            }
+
+            throw $exception;
+        }
     }
 
     /**
@@ -509,6 +491,72 @@ class ChangedContentDeploymentPreviewService
         }
 
         return $baseRefs;
+    }
+
+    /**
+     * @param  list<string>  $domains
+     * @param  array<string, string|null>  $fallbackBaseRefs
+     * @return array<string, array<string, mixed>>
+     */
+    private function fallbackContentSync(array $domains, array $fallbackBaseRefs, string $headRef): array
+    {
+        $contentSync = [];
+
+        foreach ($domains as $domain) {
+            $fallbackBaseRef = $fallbackBaseRefs[$domain] ?? null;
+
+            $contentSync[$domain] = [
+                'domain' => $domain,
+                'sync_state_ref' => null,
+                'fallback_base_ref' => $fallbackBaseRef,
+                'effective_base_ref' => $fallbackBaseRef,
+                'fallback_used' => true,
+                'drift_from_code_ref' => false,
+                'sync_state_uninitialized' => true,
+                'status' => 'uninitialized',
+                'last_successful_ref' => null,
+                'last_successful_applied_at' => null,
+                'last_attempted_base_ref' => null,
+                'last_attempted_head_ref' => null,
+                'last_attempted_status' => null,
+                'last_attempted_at' => null,
+                'last_attempt_meta' => null,
+                'target_head_ref' => $headRef,
+                'would_advance_to_head' => $fallbackBaseRef !== null && strtolower($fallbackBaseRef) !== strtolower($headRef),
+            ];
+        }
+
+        return $contentSync;
+    }
+
+    private function isMissingContentSyncStateTable(\Throwable $exception): bool
+    {
+        $cursor = $exception;
+
+        while ($cursor instanceof \Throwable) {
+            $message = strtolower((string) $cursor->getMessage());
+            $code = strtoupper((string) $cursor->getCode());
+
+            if ($code === '42S02') {
+                return true;
+            }
+
+            if (str_contains($message, 'base table or view not found') && str_contains($message, 'content_sync_states')) {
+                return true;
+            }
+
+            if (str_contains($message, "table 'content_sync_states' doesn't exist")) {
+                return true;
+            }
+
+            if (str_contains($message, '`content_sync_states`') && str_contains($message, 'not found')) {
+                return true;
+            }
+
+            $cursor = $cursor->getPrevious();
+        }
+
+        return false;
     }
 
     private function isNativeModeWithoutShell(array $context): bool
