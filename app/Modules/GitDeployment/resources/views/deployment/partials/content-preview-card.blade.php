@@ -6,6 +6,9 @@
   $cleanupPackages = (array) data_get($preview, 'content_plan.phases.cleanup_deleted', []);
   $upsertPackages = (array) data_get($preview, 'content_plan.phases.upsert_present', []);
   $gateReasons = array_values(array_filter((array) data_get($preview, 'gate.reasons', [])));
+  $lockRequired = (bool) data_get($preview, 'lock.required_for_content_apply', false);
+  $lockStatus = (string) data_get($preview, 'lock.current_status', data_get($preview, 'lock.status', 'unknown'));
+  $lockBlocked = (bool) data_get($preview, 'lock.blocked', false);
 @endphp
 
 @if($preview)
@@ -51,6 +54,18 @@
             strict={{ data_get($preview, 'gate.strict', false) ? 'true' : 'false' }},
             warnings={{ (int) ($summary['warnings'] ?? 0) }},
             blocked-packages={{ (int) ($summary['blocked'] ?? 0) }}
+          </div>
+        </div>
+        <div class="rounded-2xl border border-border/60 bg-muted/30 p-4 md:col-span-3">
+          <div class="text-xs uppercase tracking-wide text-muted-foreground">Pre-Code Content Lock</div>
+          <div class="mt-2 text-sm text-foreground">
+            required={{ $lockRequired ? 'true' : 'false' }},
+            status=<code>{{ $lockStatus }}</code>,
+            blocked={{ $lockBlocked ? 'true' : 'false' }},
+            stale-takeover={{ data_get($preview, 'lock.stale_takeover_possible', false) ? 'available' : 'not-available' }}
+          </div>
+          <div class="mt-1 text-xs text-muted-foreground">
+            When changed-content apply is enabled, deploy/restore reserves this lock before code update starts.
           </div>
         </div>
       </div>

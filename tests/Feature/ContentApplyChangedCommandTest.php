@@ -2,13 +2,29 @@
 
 namespace Tests\Feature;
 
+use App\Models\ContentOperationRun;
+use App\Models\ContentOperationLock;
 use App\Services\ContentDeployment\ChangedContentApplyService;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schema;
 use Mockery;
 use Tests\TestCase;
 
 class ContentApplyChangedCommandTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->ensureContentOperationRunsTable();
+        ContentOperationRun::query()->delete();
+
+        if (Schema::hasTable('content_operation_locks')) {
+            ContentOperationLock::query()->delete();
+        }
+    }
+
     protected function tearDown(): void
     {
         Mockery::close();
@@ -98,6 +114,55 @@ class ContentApplyChangedCommandTest extends TestCase
         $this->assertSame(0, $exitCode);
         $this->assertStringContainsString('Live Apply Hint:', $output);
         $this->assertStringContainsString('php artisan content:apply-changed --force --with-release-check --skip-release-check', $output);
+    }
+
+    public function test_command_records_dry_run_history_row(): void
+    {
+        $mock = Mockery::mock(ChangedContentApplyService::class);
+        $mock->shouldReceive('run')->once()->andReturn($this->mockedResult(true));
+
+        $this->app->instance(ChangedContentApplyService::class, $mock);
+
+        $exitCode = Artisan::call('content:apply-changed', [
+            '--dry-run' => true,
+        ]);
+
+        $this->assertSame(0, $exitCode);
+        $this->assertDatabaseCount('content_operation_runs', 1);
+        $this->assertSame('dry_run', ContentOperationRun::query()->latest('id')->value('status'));
+    }
+
+    public function test_command_blocked_by_active_lock_records_blocked_history_row(): void
+    {
+        $this->ensureContentOperationLocksTable();
+        ContentOperationLock::query()->delete();
+        ContentOperationLock::query()->create([
+            'lock_key' => 'global_content_operations',
+            'owner_token' => 'owner-token',
+            'operation_kind' => 'apply_sync',
+            'trigger_source' => 'cli',
+            'domains' => ['v3'],
+            'acquired_at' => now(),
+            'heartbeat_at' => now(),
+            'expires_at' => now()->addHour(),
+            'status' => 'active',
+        ]);
+
+        $mock = Mockery::mock(ChangedContentApplyService::class);
+        $mock->shouldNotReceive('run');
+        $this->app->instance(ChangedContentApplyService::class, $mock);
+
+        $exitCode = Artisan::call('content:apply-changed', [
+            '--dry-run' => true,
+            '--json' => true,
+        ]);
+
+        $payload = json_decode(Artisan::output(), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame(1, $exitCode);
+        $this->assertSame('content_operation_lock', $payload['error']['stage']);
+        $this->assertSame('active_lock_present', $payload['error']['reason']);
+        $this->assertSame('blocked', ContentOperationRun::query()->latest('id')->value('status'));
     }
 
     /**
@@ -201,5 +266,67 @@ class ContentApplyChangedCommandTest extends TestCase
             'seed_run_logged' => false,
             'service_result' => null,
         ];
+    }
+
+    private function ensureContentOperationRunsTable(): void
+    {
+        if (Schema::hasTable('content_operation_runs')) {
+            if (! Schema::hasColumn('content_operation_runs', 'replayed_from_run_id')) {
+                Schema::table('content_operation_runs', function (Blueprint $table): void {
+                    $table->unsignedBigInteger('replayed_from_run_id')->nullable()->after('id');
+                });
+            }
+
+            return;
+        }
+
+        Schema::create('content_operation_runs', function (Blueprint $table): void {
+            $table->id();
+            $table->unsignedBigInteger('replayed_from_run_id')->nullable();
+            $table->string('operation_kind', 64);
+            $table->string('trigger_source', 64);
+            $table->json('domains');
+            $table->string('base_ref')->nullable();
+            $table->string('head_ref')->nullable();
+            $table->json('base_refs_by_domain')->nullable();
+            $table->boolean('dry_run')->default(false);
+            $table->boolean('strict')->default(false);
+            $table->boolean('with_release_check')->nullable();
+            $table->boolean('skip_release_check')->nullable();
+            $table->boolean('bootstrap_uninitialized')->default(false);
+            $table->string('status', 32)->nullable();
+            $table->timestamp('started_at');
+            $table->timestamp('finished_at')->nullable();
+            $table->unsignedBigInteger('operator_user_id')->nullable();
+            $table->json('summary')->nullable();
+            $table->string('payload_json_path')->nullable();
+            $table->string('report_path')->nullable();
+            $table->text('error_excerpt')->nullable();
+            $table->json('meta')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    private function ensureContentOperationLocksTable(): void
+    {
+        if (Schema::hasTable('content_operation_locks')) {
+            return;
+        }
+
+        Schema::create('content_operation_locks', function (Blueprint $table): void {
+            $table->id();
+            $table->string('lock_key')->unique();
+            $table->string('owner_token')->unique();
+            $table->string('operation_kind');
+            $table->string('trigger_source');
+            $table->json('domains')->nullable();
+            $table->unsignedBigInteger('content_operation_run_id')->nullable();
+            $table->unsignedBigInteger('operator_user_id')->nullable();
+            $table->timestamp('acquired_at')->nullable();
+            $table->timestamp('heartbeat_at')->nullable();
+            $table->timestamp('expires_at')->nullable();
+            $table->string('status')->default('active');
+            $table->json('meta')->nullable();
+        });
     }
 }

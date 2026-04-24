@@ -6,6 +6,7 @@
   $isFailure = in_array($applyStatus, ['preview_failed', 'deploy_failed', 'content_apply_failed'], true) || $applyError !== null;
   $cleanupPackages = (array) data_get($applyResult, 'execution.cleanup_deleted.packages', []);
   $upsertPackages = (array) data_get($applyResult, 'execution.upsert_present.packages', []);
+  $lock = (array) data_get($deploymentContentApply, 'lock', []);
 @endphp
 
 @if($deploymentContentApply)
@@ -68,6 +69,18 @@
           </div>
         </div>
       </div>
+
+      @if($lock !== [])
+        <div class="rounded-2xl border border-border/60 bg-muted/20 p-4 text-sm">
+          <div class="font-semibold text-foreground">Content operation lock</div>
+          <div class="mt-2 text-muted-foreground">
+            acquired={{ data_get($lock, 'acquired', false) ? 'true' : 'false' }},
+            status=<code>{{ data_get($lock, 'status', 'unknown') }}</code>,
+            takeover={{ data_get($lock, 'takeover.performed', false) ? 'performed' : (data_get($lock, 'takeover.requested', false) ? 'requested' : 'not-requested') }},
+            run_id=<code>{{ data_get($lock, 'content_operation_run_id', '—') ?: '—' }}</code>
+          </div>
+        </div>
+      @endif
 
       @if($applyError)
         <div class="rounded-2xl border border-destructive/40 bg-destructive/10 p-4 text-sm text-destructive-foreground">

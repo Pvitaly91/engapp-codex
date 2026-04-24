@@ -41,7 +41,8 @@ class DeploymentContentApplyTest extends TestCase
         $response->assertOk()
             ->assertJsonPath('status', 'ready')
             ->assertJsonPath('content_apply.dry_run', true)
-            ->assertJsonPath('deployment.base_ref', 'base-sha');
+            ->assertJsonPath('deployment.base_ref', 'base-sha')
+            ->assertJsonPath('content_sync.before.domains.v3.status', 'drifted');
     }
 
     public function test_native_deploy_runs_content_apply_after_successful_code_update(): void
@@ -219,6 +220,32 @@ class DeploymentContentApplyTest extends TestCase
                 'packages' => [],
                 'error' => null,
             ],
+            'content_sync' => [
+                'domains' => [
+                    'v3' => [
+                        'domain' => 'v3',
+                        'sync_state_ref' => 'v3-synced-sha',
+                        'fallback_base_ref' => 'base-sha',
+                        'effective_base_ref' => 'v3-synced-sha',
+                        'fallback_used' => false,
+                        'drift_from_code_ref' => true,
+                        'sync_state_uninitialized' => false,
+                        'status' => 'drifted',
+                        'target_head_ref' => $sourceKind === 'deploy' ? 'head-sha' : 'deadbeef',
+                    ],
+                    'page-v3' => [
+                        'domain' => 'page-v3',
+                        'sync_state_ref' => null,
+                        'fallback_base_ref' => 'base-sha',
+                        'effective_base_ref' => 'base-sha',
+                        'fallback_used' => true,
+                        'drift_from_code_ref' => false,
+                        'sync_state_uninitialized' => true,
+                        'status' => 'uninitialized',
+                        'target_head_ref' => $sourceKind === 'deploy' ? 'head-sha' : 'deadbeef',
+                    ],
+                ],
+            ],
             'gate' => [
                 'strict' => true,
                 'blocked' => false,
@@ -264,6 +291,36 @@ class DeploymentContentApplyTest extends TestCase
                         ],
                     ],
                 ],
+            ],
+            'content_sync' => [
+                'before' => $this->previewPayload()['content_sync'],
+                'after' => [
+                    'domains' => [
+                        'v3' => [
+                            'domain' => 'v3',
+                            'sync_state_ref' => $dryRun ? 'v3-synced-sha' : 'head-sha',
+                            'fallback_base_ref' => 'head-sha',
+                            'effective_base_ref' => $dryRun ? 'v3-synced-sha' : 'head-sha',
+                            'fallback_used' => false,
+                            'drift_from_code_ref' => $dryRun,
+                            'sync_state_uninitialized' => false,
+                            'status' => $dryRun ? 'drifted' : 'synced',
+                            'target_head_ref' => 'head-sha',
+                        ],
+                        'page-v3' => [
+                            'domain' => 'page-v3',
+                            'sync_state_ref' => $dryRun ? null : 'head-sha',
+                            'fallback_base_ref' => 'head-sha',
+                            'effective_base_ref' => 'head-sha',
+                            'fallback_used' => ! $dryRun,
+                            'drift_from_code_ref' => false,
+                            'sync_state_uninitialized' => $dryRun,
+                            'status' => $dryRun ? 'uninitialized' : 'synced',
+                            'target_head_ref' => 'head-sha',
+                        ],
+                    ],
+                ],
+                'advanced_domains' => $dryRun ? [] : ['v3', 'page-v3'],
             ],
             'gate' => [
                 'strict' => true,

@@ -27,6 +27,30 @@ const manifest = [
     },
 ];
 
+const a2Manifest = [
+    ['polyglot-present-perfect-basic-a2', null, 'polyglot-present-perfect-vs-past-simple-a2'],
+    ['polyglot-present-perfect-vs-past-simple-a2', 'polyglot-present-perfect-basic-a2', 'polyglot-first-conditional-a2'],
+    ['polyglot-first-conditional-a2', 'polyglot-present-perfect-vs-past-simple-a2', 'polyglot-be-going-to-a2'],
+    ['polyglot-be-going-to-a2', 'polyglot-first-conditional-a2', 'polyglot-should-ought-to-a2'],
+    ['polyglot-should-ought-to-a2', 'polyglot-be-going-to-a2', 'polyglot-must-have-to-a2'],
+    ['polyglot-must-have-to-a2', 'polyglot-should-ought-to-a2', 'polyglot-gerund-vs-infinitive-a2'],
+    ['polyglot-gerund-vs-infinitive-a2', 'polyglot-must-have-to-a2', 'polyglot-past-continuous-a2'],
+    ['polyglot-past-continuous-a2', 'polyglot-gerund-vs-infinitive-a2', 'polyglot-present-perfect-time-expressions-a2'],
+    ['polyglot-present-perfect-time-expressions-a2', 'polyglot-past-continuous-a2', 'polyglot-relative-clauses-a2'],
+    ['polyglot-relative-clauses-a2', 'polyglot-present-perfect-time-expressions-a2', 'polyglot-passive-voice-basics-a2'],
+    ['polyglot-passive-voice-basics-a2', 'polyglot-relative-clauses-a2', 'polyglot-reported-speech-basics-a2'],
+    ['polyglot-reported-speech-basics-a2', 'polyglot-passive-voice-basics-a2', 'polyglot-used-to-a2'],
+    ['polyglot-used-to-a2', 'polyglot-reported-speech-basics-a2', 'polyglot-question-tags-basics-a2'],
+    ['polyglot-question-tags-basics-a2', 'polyglot-used-to-a2', 'polyglot-second-conditional-basics-a2'],
+    ['polyglot-second-conditional-basics-a2', 'polyglot-question-tags-basics-a2', 'polyglot-final-drill-a2'],
+    ['polyglot-final-drill-a2', 'polyglot-second-conditional-basics-a2', null],
+].map(([slug, previous_lesson_slug, next_lesson_slug], index) => ({
+    slug,
+    lesson_order: index + 1,
+    previous_lesson_slug,
+    next_lesson_slug,
+}));
+
 describe('courseProgressState', () => {
     test('lesson 1 is unlocked by default', () => {
         const snapshot = normalizeCourseProgress(null, 'polyglot-english-a1', manifest);
@@ -116,5 +140,30 @@ describe('courseProgressState', () => {
         expect(reset.completed_lessons).toEqual([]);
         expect(summary.completed_all_lessons).toBe(false);
         expect(summary.current_lesson_slug).toBe('polyglot-to-be-a1');
+    });
+
+    test('fully completed A2 manifest reports a complete 16 lesson summary', () => {
+        const completed = normalizeCourseProgress({
+            completed_lessons: a2Manifest.map((lesson) => lesson.slug),
+            current_lesson_slug: 'polyglot-final-drill-a2',
+            last_opened_lesson_slug: 'polyglot-final-drill-a2',
+        }, 'polyglot-english-a2', a2Manifest);
+        const summary = computeCourseSummary(completed, a2Manifest);
+
+        expect(summary.completed_lessons).toBe(16);
+        expect(summary.total_lessons).toBe(16);
+        expect(summary.completed_all_lessons).toBe(true);
+        expect(summary.current_lesson_slug).toBe('polyglot-final-drill-a2');
+        expect(summary.last_opened_lesson_slug).toBe('polyglot-final-drill-a2');
+    });
+
+    test('resetting a fully complete A2 course reopens only lesson one', () => {
+        const reset = resetCourseProgress('polyglot-english-a2', a2Manifest);
+        const summary = computeCourseSummary(reset, a2Manifest);
+
+        expect(reset.unlocked_lessons).toEqual(['polyglot-present-perfect-basic-a2']);
+        expect(reset.completed_lessons).toEqual([]);
+        expect(summary.completed_all_lessons).toBe(false);
+        expect(summary.current_lesson_slug).toBe('polyglot-present-perfect-basic-a2');
     });
 });

@@ -1,0 +1,518 @@
+{
+    "course": {
+        "slug": "polyglot-english-a2",
+        "name": "Polyglot English A2",
+        "description": "Canonical 16-lesson Polyglot A2 roadmap built around compose-tokens lessons, theory-page bindings, and progressive unlock flow."
+    },
+    "summary": {
+        "planned_total": 16,
+        "implemented_total": 16,
+        "planned_only_total": 0,
+        "missing_total": 0,
+        "fully_complete": true,
+        "next_recommended_lesson": "none",
+        "check_counts": {
+            "pass": 11,
+            "warn": 0,
+            "fail": 0
+        }
+    },
+    "checks": [
+        {
+            "key": "blueprint_exists",
+            "label": "Blueprint exists",
+            "status": "PASS",
+            "meta": {
+                "path": "G:\\DEV\\htdocs\\engapp-codex.loc\\database\\seeders/V3/Polyglot/Course/polyglot-english-a2.json"
+            }
+        },
+        {
+            "key": "course_counts_complete",
+            "label": "Course counts are 16 / 16 and fully implemented",
+            "status": "PASS",
+            "meta": {
+                "planned_total": 16,
+                "implemented_total": 16,
+                "planned_only_total": 0
+            }
+        },
+        {
+            "key": "no_remaining_planned_lessons",
+            "label": "No remaining planned lessons",
+            "status": "PASS",
+            "meta": {
+                "planned_only_total": 0
+            }
+        },
+        {
+            "key": "no_broken_refs",
+            "label": "No broken previous/next refs",
+            "status": "PASS",
+            "meta": {
+                "broken_refs": []
+            }
+        },
+        {
+            "key": "compose_routes_resolve",
+            "label": "All implemented compose lesson routes resolve logically",
+            "status": "PASS",
+            "meta": {
+                "broken_lesson_slugs": []
+            }
+        },
+        {
+            "key": "theory_binding_metadata",
+            "label": "Every implemented lesson has theory binding metadata",
+            "status": "PASS",
+            "meta": {
+                "missing_binding_slugs": []
+            }
+        },
+        {
+            "key": "theory_pages_resolve",
+            "label": "Relevant theory pages resolve",
+            "status": "PASS",
+            "meta": {
+                "broken_lesson_slugs": []
+            }
+        },
+        {
+            "key": "course_route_exists",
+            "label": "Course landing route resolves",
+            "status": "PASS",
+            "meta": {
+                "route": "http://engapp-codex.loc/courses/polyglot-english-a2"
+            }
+        },
+        {
+            "key": "public_entry_points",
+            "label": "Public entry points exist",
+            "status": "PASS",
+            "meta": {
+                "home": {
+                    "found": true,
+                    "path": "G:\\DEV\\htdocs\\engapp-codex.loc\\resources\\views/home.blade.php",
+                    "match": "polyglot-english-a2"
+                },
+                "nav": {
+                    "found": false,
+                    "path": "G:\\DEV\\htdocs\\engapp-codex.loc\\resources\\views/layouts/catalog-public.blade.php",
+                    "match": null
+                },
+                "course_complete_cta": {
+                    "found": false,
+                    "path": "G:\\DEV\\htdocs\\engapp-codex.loc\\resources\\views/courses/show.blade.php",
+                    "match": null
+                }
+            }
+        },
+        {
+            "key": "final_lesson_terminal",
+            "label": "Final lesson exists and has null next",
+            "status": "PASS",
+            "meta": {
+                "slug": "polyglot-final-drill-a2",
+                "next_lesson_slug": null
+            }
+        },
+        {
+            "key": "course_report_consistency",
+            "label": "Course report and release check are mutually consistent",
+            "status": "PASS",
+            "meta": {
+                "planned_total": 16,
+                "implemented_total": 16,
+                "missing_or_planned_lessons": "none",
+                "next_recommended_lesson": "none",
+                "broken_previous_next_refs": "none"
+            }
+        }
+    ],
+    "course_report_equivalent": {
+        "planned_total": 16,
+        "implemented_total": 16,
+        "missing_or_planned_lessons": "none",
+        "next_recommended_lesson": "none",
+        "broken_previous_next_refs": "none"
+    },
+    "routes": {
+        "course": "http://engapp-codex.loc/courses/polyglot-english-a2",
+        "implemented_lessons": {
+            "polyglot-present-perfect-basic-a2": "http://engapp-codex.loc/test/polyglot-present-perfect-basic-a2/step/compose",
+            "polyglot-present-perfect-vs-past-simple-a2": "http://engapp-codex.loc/test/polyglot-present-perfect-vs-past-simple-a2/step/compose",
+            "polyglot-first-conditional-a2": "http://engapp-codex.loc/test/polyglot-first-conditional-a2/step/compose",
+            "polyglot-be-going-to-a2": "http://engapp-codex.loc/test/polyglot-be-going-to-a2/step/compose",
+            "polyglot-should-ought-to-a2": "http://engapp-codex.loc/test/polyglot-should-ought-to-a2/step/compose",
+            "polyglot-must-have-to-a2": "http://engapp-codex.loc/test/polyglot-must-have-to-a2/step/compose",
+            "polyglot-gerund-vs-infinitive-a2": "http://engapp-codex.loc/test/polyglot-gerund-vs-infinitive-a2/step/compose",
+            "polyglot-past-continuous-a2": "http://engapp-codex.loc/test/polyglot-past-continuous-a2/step/compose",
+            "polyglot-present-perfect-time-expressions-a2": "http://engapp-codex.loc/test/polyglot-present-perfect-time-expressions-a2/step/compose",
+            "polyglot-relative-clauses-a2": "http://engapp-codex.loc/test/polyglot-relative-clauses-a2/step/compose",
+            "polyglot-passive-voice-basics-a2": "http://engapp-codex.loc/test/polyglot-passive-voice-basics-a2/step/compose",
+            "polyglot-reported-speech-basics-a2": "http://engapp-codex.loc/test/polyglot-reported-speech-basics-a2/step/compose",
+            "polyglot-used-to-a2": "http://engapp-codex.loc/test/polyglot-used-to-a2/step/compose",
+            "polyglot-question-tags-basics-a2": "http://engapp-codex.loc/test/polyglot-question-tags-basics-a2/step/compose",
+            "polyglot-second-conditional-basics-a2": "http://engapp-codex.loc/test/polyglot-second-conditional-basics-a2/step/compose",
+            "polyglot-final-drill-a2": "http://engapp-codex.loc/test/polyglot-final-drill-a2/step/compose"
+        }
+    },
+    "entry_points": {
+        "home": {
+            "found": true,
+            "path": "G:\\DEV\\htdocs\\engapp-codex.loc\\resources\\views/home.blade.php",
+            "match": "polyglot-english-a2"
+        },
+        "nav": {
+            "found": false,
+            "path": "G:\\DEV\\htdocs\\engapp-codex.loc\\resources\\views/layouts/catalog-public.blade.php",
+            "match": null
+        },
+        "course_complete_cta": {
+            "found": false,
+            "path": "G:\\DEV\\htdocs\\engapp-codex.loc\\resources\\views/courses/show.blade.php",
+            "match": null
+        }
+    },
+    "lessons": [
+        {
+            "slug": "polyglot-present-perfect-basic-a2",
+            "lesson_order": 1,
+            "title": "Polyglot: present perfect basic (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-present-perfect-basic-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "tenses/present-perfect",
+                "page_slug": "present-perfect-forms",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfect\\PresentPerfectFormsTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/tenses/present-perfect/present-perfect-forms",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": null,
+            "next_lesson_slug": "polyglot-present-perfect-vs-past-simple-a2"
+        },
+        {
+            "slug": "polyglot-present-perfect-vs-past-simple-a2",
+            "lesson_order": 2,
+            "title": "Polyglot: present perfect vs past simple (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-present-perfect-vs-past-simple-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "tenses",
+                "page_slug": "present-perfect-vs-past-simple",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\TensesPresentPerfectVsPastSimpleTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/tenses/present-perfect-vs-past-simple",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-present-perfect-basic-a2",
+            "next_lesson_slug": "polyglot-first-conditional-a2"
+        },
+        {
+            "slug": "polyglot-first-conditional-a2",
+            "lesson_order": 3,
+            "title": "Polyglot: first conditional (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-first-conditional-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "conditionals",
+                "page_slug": "first-conditional",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsFirstTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/conditionals/first-conditional",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-present-perfect-vs-past-simple-a2",
+            "next_lesson_slug": "polyglot-be-going-to-a2"
+        },
+        {
+            "slug": "polyglot-be-going-to-a2",
+            "lesson_order": 4,
+            "title": "Polyglot: be going to (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-be-going-to-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "maibutni-formy",
+                "page_slug": "will-vs-be-going-to",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsWillVsBeGoingToTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/maibutni-formy/will-vs-be-going-to",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-first-conditional-a2",
+            "next_lesson_slug": "polyglot-should-ought-to-a2"
+        },
+        {
+            "slug": "polyglot-should-ought-to-a2",
+            "lesson_order": 5,
+            "title": "Polyglot: should / ought to (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-should-ought-to-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "modal-verbs",
+                "page_slug": "should-ought-to",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsShouldOughtToTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/modal-verbs/should-ought-to",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-be-going-to-a2",
+            "next_lesson_slug": "polyglot-must-have-to-a2"
+        },
+        {
+            "slug": "polyglot-must-have-to-a2",
+            "lesson_order": 6,
+            "title": "Polyglot: must / have to (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-must-have-to-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "modal-verbs",
+                "page_slug": "must-have-to",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsMustHaveToTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/modal-verbs/must-have-to",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-should-ought-to-a2",
+            "next_lesson_slug": "polyglot-gerund-vs-infinitive-a2"
+        },
+        {
+            "slug": "polyglot-gerund-vs-infinitive-a2",
+            "lesson_order": 7,
+            "title": "Polyglot: gerund vs infinitive basics (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-gerund-vs-infinitive-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "verb-patterns",
+                "page_slug": "gerund-vs-infinitive",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsGerundVsInfinitiveTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/verb-patterns/gerund-vs-infinitive",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-must-have-to-a2",
+            "next_lesson_slug": "polyglot-past-continuous-a2"
+        },
+        {
+            "slug": "polyglot-past-continuous-a2",
+            "lesson_order": 8,
+            "title": "Polyglot: past continuous (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-past-continuous-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "tenses/past-continuous",
+                "page_slug": "past-continuous-forms",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousFormsTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/tenses/past-continuous/past-continuous-forms",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-gerund-vs-infinitive-a2",
+            "next_lesson_slug": "polyglot-present-perfect-time-expressions-a2"
+        },
+        {
+            "slug": "polyglot-present-perfect-time-expressions-a2",
+            "lesson_order": 9,
+            "title": "Polyglot: present perfect time expressions (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-present-perfect-time-expressions-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "tenses/present-perfect",
+                "page_slug": "present-perfect-time-expressions",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfect\\PresentPerfectTimeExpressionsTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/tenses/present-perfect/present-perfect-time-expressions",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-past-continuous-a2",
+            "next_lesson_slug": "polyglot-relative-clauses-a2"
+        },
+        {
+            "slug": "polyglot-relative-clauses-a2",
+            "lesson_order": 10,
+            "title": "Polyglot: relative clauses basics (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-relative-clauses-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "clauses-and-linking-words",
+                "page_slug": "relative-clauses",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsRelativeClausesTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/clauses-and-linking-words/relative-clauses",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-present-perfect-time-expressions-a2",
+            "next_lesson_slug": "polyglot-passive-voice-basics-a2"
+        },
+        {
+            "slug": "polyglot-passive-voice-basics-a2",
+            "lesson_order": 11,
+            "title": "Polyglot: passive voice basics (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-passive-voice-basics-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "passive-voice",
+                "page_slug": "theory-passive-voice-formation-rules",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceFormationRulesTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/passive-voice/theory-passive-voice-formation-rules",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-relative-clauses-a2",
+            "next_lesson_slug": "polyglot-reported-speech-basics-a2"
+        },
+        {
+            "slug": "polyglot-reported-speech-basics-a2",
+            "lesson_order": 12,
+            "title": "Polyglot: reported speech basics (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-reported-speech-basics-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "reported-speech",
+                "page_slug": "reported-statements",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechStatementsTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/reported-speech/reported-statements",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-passive-voice-basics-a2",
+            "next_lesson_slug": "polyglot-used-to-a2"
+        },
+        {
+            "slug": "polyglot-used-to-a2",
+            "lesson_order": 13,
+            "title": "Polyglot: used to (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-used-to-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "tenses",
+                "page_slug": "used-to-would",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\TensesUsedToWouldTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/tenses/used-to-would",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-reported-speech-basics-a2",
+            "next_lesson_slug": "polyglot-question-tags-basics-a2"
+        },
+        {
+            "slug": "polyglot-question-tags-basics-a2",
+            "lesson_order": 14,
+            "title": "Polyglot: question tags basics (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-question-tags-basics-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "pytalni-rechennia-ta-zaperechennia/types-of-questions",
+                "page_slug": "question-tags-disjunctive-questions-dont-you-isnt-it",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/types-of-questions/question-tags-disjunctive-questions-dont-you-isnt-it",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-used-to-a2",
+            "next_lesson_slug": "polyglot-second-conditional-basics-a2"
+        },
+        {
+            "slug": "polyglot-second-conditional-basics-a2",
+            "lesson_order": 15,
+            "title": "Polyglot: second conditional basics (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-second-conditional-basics-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "conditionals",
+                "page_slug": "second-conditional",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsSecondTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/conditionals/second-conditional",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-question-tags-basics-a2",
+            "next_lesson_slug": "polyglot-final-drill-a2"
+        },
+        {
+            "slug": "polyglot-final-drill-a2",
+            "lesson_order": 16,
+            "title": "Polyglot: mixed revision / final drill (A2)",
+            "course_slug": "polyglot-english-a2",
+            "compose_route": "http://engapp-codex.loc/test/polyglot-final-drill-a2/step/compose",
+            "compose_route_resolves": true,
+            "has_theory_binding": true,
+            "theory_binding": {
+                "category_slug_path": "basic-grammar",
+                "page_slug": "a2-mixed-revision",
+                "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarA2MixedRevisionTheorySeeder"
+            },
+            "theory_route": "http://engapp-codex.loc/theory/basic-grammar/a2-mixed-revision",
+            "theory_route_resolves": true,
+            "theory_page_model_found": true,
+            "theory_route_source": "page_model",
+            "related_tests_display_mode": "direct",
+            "previous_lesson_slug": "polyglot-second-conditional-basics-a2",
+            "next_lesson_slug": null
+        }
+    ],
+    "artifacts": {
+        "blueprint_path": "G:\\DEV\\htdocs\\engapp-codex.loc\\database\\seeders/V3/Polyglot/Course/polyglot-english-a2.json",
+        "release_report_path": "G:\\DEV\\htdocs\\engapp-codex.loc\\storage\\app/polyglot-reports/polyglot-english-a2-release-check.json"
+    }
+}

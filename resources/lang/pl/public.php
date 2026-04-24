@@ -185,6 +185,8 @@ return [
         'polyglot_desc' => 'Prowadzony kurs z lekcjami compose-token, śledzeniem postępów i odblokowywaniem kolejnych etapów.',
         'polyglot_a2_title' => 'Polyglot English A2',
         'polyglot_a2_desc' => 'Nowy kurs A2 startuje od Present Perfect i ma 16-lekcyjny roadmap dla conditionals, modal verbs i mixed revision.',
+        'polyglot_b1_title' => 'Polyglot English B1',
+        'polyglot_b1_desc' => 'Roadmapa B1 startuje od Present Perfect Continuous i otwiera 16-lekcyjny tor dla reported speech, bardziej złożonych czasów i final drill.',
         'words_title' => 'Trening słownictwa',
         'words_desc' => 'Trenuj słownictwo z adaptacyjnym poziomem trudności.',
         'verbs_title' => 'Ćwiczenie form',

@@ -139,6 +139,8 @@ return [
         'polyglot_desc' => 'A guided course with compose-token lessons, progress tracking and unlock flow.',
         'polyglot_a2_title' => 'Polyglot English A2',
         'polyglot_a2_desc' => 'The new A2 track starts with Present Perfect and a 16-lesson roadmap for conditionals, modal verbs, and mixed revision.',
+        'polyglot_b1_title' => 'Polyglot English B1',
+        'polyglot_b1_desc' => 'The B1 roadmap starts with Present Perfect Continuous and opens a 16-lesson track for reported speech, complex tenses, and a final drill.',
         'words_title' => 'Vocabulary trainer',
         'words_desc' => 'Train vocabulary with adaptive difficulty levels.',
         'verbs_title' => 'Verb form practice',

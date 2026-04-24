@@ -70,6 +70,48 @@ abstract class AbstractCrossDomainChangedContentService
     }
 
     /**
+     * @param  array<string, string>|null  $value
+     * @return array<string, string>
+     */
+    protected function normalizeBaseRefsByDomain(array|null $value): array
+    {
+        if ($value === null) {
+            return [];
+        }
+
+        $normalizedRefs = [];
+
+        foreach ($value as $domain => $ref) {
+            $normalizedDomain = str_replace('_', '-', strtolower(trim((string) $domain)));
+
+            if (! in_array($normalizedDomain, $this->supportedDomains(), true)) {
+                throw new RuntimeException(sprintf(
+                    'Unsupported base_refs_by_domain key [%s]. Supported domains: v3, page-v3.',
+                    $domain
+                ));
+            }
+
+            $normalizedRef = trim((string) $ref);
+
+            if ($normalizedRef === '') {
+                continue;
+            }
+
+            $normalizedRefs[$normalizedDomain] = $normalizedRef;
+        }
+
+        return $normalizedRefs;
+    }
+
+    /**
+     * @param  array<string, string>  $baseRefsByDomain
+     */
+    protected function effectiveBaseRefForDomain(string $domain, string $base, array $baseRefsByDomain): string
+    {
+        return trim((string) ($baseRefsByDomain[$domain] ?? $base));
+    }
+
+    /**
      * @param  list<string>  $requestedDomains
      * @return array<string, mixed>
      */

@@ -25,6 +25,46 @@ const manifest = [
     },
 ];
 
+const a2Manifest = [
+    ['polyglot-present-perfect-basic-a2', null, 'polyglot-present-perfect-vs-past-simple-a2'],
+    ['polyglot-present-perfect-vs-past-simple-a2', 'polyglot-present-perfect-basic-a2', 'polyglot-first-conditional-a2'],
+    ['polyglot-first-conditional-a2', 'polyglot-present-perfect-vs-past-simple-a2', 'polyglot-be-going-to-a2'],
+    ['polyglot-be-going-to-a2', 'polyglot-first-conditional-a2', 'polyglot-should-ought-to-a2'],
+    ['polyglot-should-ought-to-a2', 'polyglot-be-going-to-a2', 'polyglot-must-have-to-a2'],
+    ['polyglot-must-have-to-a2', 'polyglot-should-ought-to-a2', 'polyglot-gerund-vs-infinitive-a2'],
+    ['polyglot-gerund-vs-infinitive-a2', 'polyglot-must-have-to-a2', 'polyglot-past-continuous-a2'],
+    ['polyglot-past-continuous-a2', 'polyglot-gerund-vs-infinitive-a2', 'polyglot-present-perfect-time-expressions-a2'],
+    ['polyglot-present-perfect-time-expressions-a2', 'polyglot-past-continuous-a2', 'polyglot-relative-clauses-a2'],
+    ['polyglot-relative-clauses-a2', 'polyglot-present-perfect-time-expressions-a2', 'polyglot-passive-voice-basics-a2'],
+    ['polyglot-passive-voice-basics-a2', 'polyglot-relative-clauses-a2', 'polyglot-reported-speech-basics-a2'],
+    ['polyglot-reported-speech-basics-a2', 'polyglot-passive-voice-basics-a2', 'polyglot-used-to-a2'],
+    ['polyglot-used-to-a2', 'polyglot-reported-speech-basics-a2', 'polyglot-question-tags-basics-a2'],
+    ['polyglot-question-tags-basics-a2', 'polyglot-used-to-a2', 'polyglot-second-conditional-basics-a2'],
+    ['polyglot-second-conditional-basics-a2', 'polyglot-question-tags-basics-a2', 'polyglot-final-drill-a2'],
+    ['polyglot-final-drill-a2', 'polyglot-second-conditional-basics-a2', null],
+].map(([slug, previous_lesson_slug, next_lesson_slug], index) => ({
+    slug,
+    lesson_order: index + 1,
+    previous_lesson_slug,
+    next_lesson_slug,
+}));
+
+function completeLesson(store, lessonSlug, courseSlug) {
+    let progress = store.write({
+        lesson_slug: lessonSlug,
+        course_slug: courseSlug,
+        rolling_results: Array.from({ length: 99 }, () => 5),
+        total_attempts: 99,
+        correct_attempts: 99,
+    }, 'prefill');
+
+    progress = store.markAttempt(progress, true);
+
+    expect(progress.lesson_completed).toBe(true);
+
+    return progress;
+}
+
 describe('browserStore', () => {
     beforeEach(() => {
         window.localStorage.clear();
@@ -167,5 +207,47 @@ describe('browserStore', () => {
         expect(onSync).toHaveBeenCalledTimes(2);
         expect(onSync.mock.calls[0][0].type).toBe('custom');
         expect(onSync.mock.calls[1][0].type).toBe('storage');
+    });
+
+    test('lesson sixteen completion rehydrates A2 into a fully complete course and reset restarts from lesson one', () => {
+        const courseStore = createCourseStore('polyglot-english-a2', a2Manifest);
+        const courseSlug = 'polyglot-english-a2';
+
+        a2Manifest.slice(0, -1).forEach((lesson) => {
+            const lessonStore = createLessonStore({
+                lessonSlug: lesson.slug,
+                courseSlug,
+                questionCount: 24,
+                courseStore,
+                sourceId: courseStore.sourceId,
+            });
+
+            completeLesson(lessonStore, lesson.slug, courseSlug);
+        });
+
+        const finalLessonStore = createLessonStore({
+            lessonSlug: 'polyglot-final-drill-a2',
+            courseSlug,
+            questionCount: 24,
+            courseStore,
+            sourceId: courseStore.sourceId,
+        });
+
+        completeLesson(finalLessonStore, 'polyglot-final-drill-a2', courseSlug);
+
+        const completeSummary = courseStore.getSummary();
+        const rehydratedCourseStore = createCourseStore('polyglot-english-a2', a2Manifest);
+        const rehydratedSummary = rehydratedCourseStore.getSummary();
+        const resetState = rehydratedCourseStore.reset();
+        const resetSummary = rehydratedCourseStore.getSummary(resetState);
+
+        expect(completeSummary.completed_lessons).toBe(16);
+        expect(completeSummary.completed_all_lessons).toBe(true);
+        expect(completeSummary.current_lesson_slug).toBe('polyglot-final-drill-a2');
+        expect(rehydratedSummary.completed_lessons).toBe(16);
+        expect(rehydratedSummary.completed_all_lessons).toBe(true);
+        expect(resetSummary.completed_all_lessons).toBe(false);
+        expect(resetSummary.completed_lessons).toBe(0);
+        expect(resetState.unlocked_lessons).toEqual(['polyglot-present-perfect-basic-a2']);
     });
 });

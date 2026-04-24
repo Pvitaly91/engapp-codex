@@ -2,6 +2,7 @@
 
 namespace App\Modules\GitDeployment\Services;
 
+use App\Services\ContentDeployment\ContentSyncStateService;
 use App\Services\ContentDeployment\ChangedContentPlanService;
 use Illuminate\Support\Arr;
 use RuntimeException;
@@ -14,6 +15,8 @@ class ChangedContentDeploymentPreviewService
         private readonly DeploymentGitRefProbe $gitRefProbe,
         private readonly NativeGitDeploymentService $nativeGitDeploymentService,
         private readonly GitHubApiClient $gitHubApiClient,
+        private readonly ?ContentSyncStateService $contentSyncStateService = null,
+        private readonly ?DeploymentContentLockService $deploymentContentLockService = null,
     ) {
     }
 
@@ -29,9 +32,12 @@ class ChangedContentDeploymentPreviewService
 
         try {
             $refs = $this->resolveRefs($normalizedContext);
+            $domains = ['v3', 'page-v3'];
+            $fallbackBaseRefs = array_fill_keys($domains, $refs['base_ref']);
+            $contentSync = $this->resolvedContentSync($domains, $fallbackBaseRefs, $refs['head_ref']);
             $plan = $this->changedContentPlanService->run(null, [
-                'domains' => ['v3', 'page-v3'],
-                'base' => $refs['base_ref'],
+                'domains' => $domains,
+                'base_refs_by_domain' => $this->effectiveBaseRefsByDomain($contentSync),
                 'head' => $refs['head_ref'],
                 'with_release_check' => $normalizedOptions['with_release_check'],
                 'check_profile' => $normalizedOptions['check_profile'],
@@ -56,8 +62,12 @@ class ChangedContentDeploymentPreviewService
                     'resolved_roots' => array_values((array) ($plan['scope']['resolved_roots'] ?? [])),
                 ],
             ],
+            'content_sync' => [
+                'domains' => $contentSync,
+            ],
             'content_plan' => $plan,
             'gate' => $this->buildGate($plan, $normalizedOptions['strict']),
+            'lock' => $this->lockPreview($normalizedOptions['content_apply_requested']),
             'error' => is_array($plan['error'] ?? null) ? $plan['error'] : null,
         ];
     }
@@ -138,6 +148,9 @@ class ChangedContentDeploymentPreviewService
             'strict' => array_key_exists('strict', $options)
                 ? (bool) $options['strict']
                 : (bool) config('git-deployment.content_preview.strict', true),
+            'content_apply_requested' => array_key_exists('content_apply_requested', $options)
+                ? (bool) $options['content_apply_requested']
+                : (bool) config('git-deployment.content_apply.enabled_by_default', true),
         ];
     }
 
@@ -348,6 +361,9 @@ class ChangedContentDeploymentPreviewService
                     'resolved_roots' => [],
                 ],
             ],
+            'content_sync' => [
+                'domains' => [],
+            ],
             'content_plan' => [
                 'summary' => [
                     'changed_packages' => 0,
@@ -370,7 +386,91 @@ class ChangedContentDeploymentPreviewService
                 'blocked' => true,
                 'reasons' => [$message],
             ],
+            'lock' => $this->lockPreview((bool) ($options['content_apply_requested'] ?? true)),
             'error' => $error,
         ];
+    }
+
+    /**
+     * @param  list<string>  $domains
+     * @param  array<string, string>  $fallbackBaseRefs
+     * @return array<string, array<string, mixed>>
+     */
+    private function resolvedContentSync(array $domains, array $fallbackBaseRefs, string $headRef): array
+    {
+        if ($this->contentSyncStateService === null) {
+            $contentSync = [];
+
+            foreach ($domains as $domain) {
+                $fallbackBaseRef = $fallbackBaseRefs[$domain] ?? null;
+
+                $contentSync[$domain] = [
+                    'domain' => $domain,
+                    'sync_state_ref' => null,
+                    'fallback_base_ref' => $fallbackBaseRef,
+                    'effective_base_ref' => $fallbackBaseRef,
+                    'fallback_used' => true,
+                    'drift_from_code_ref' => false,
+                    'sync_state_uninitialized' => true,
+                    'status' => 'uninitialized',
+                    'last_successful_ref' => null,
+                    'last_successful_applied_at' => null,
+                    'last_attempted_base_ref' => null,
+                    'last_attempted_head_ref' => null,
+                    'last_attempted_status' => null,
+                    'last_attempted_at' => null,
+                    'last_attempt_meta' => null,
+                    'target_head_ref' => $headRef,
+                    'would_advance_to_head' => $fallbackBaseRef !== null && strtolower($fallbackBaseRef) !== strtolower($headRef),
+                ];
+            }
+
+            return $contentSync;
+        }
+
+        return $this->contentSyncStateService->describe($domains, $fallbackBaseRefs, $headRef);
+    }
+
+    /**
+     * @param  array<string, array<string, mixed>>  $contentSync
+     * @return array<string, string|null>
+     */
+    private function effectiveBaseRefsByDomain(array $contentSync): array
+    {
+        $baseRefs = [];
+
+        foreach ($contentSync as $domain => $domainSync) {
+            $baseRefs[$domain] = $domainSync['effective_base_ref'] ?? null;
+        }
+
+        return $baseRefs;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function lockPreview(bool $requiredForContentApply): array
+    {
+        try {
+            return ($this->deploymentContentLockService ?? app(DeploymentContentLockService::class))
+                ->previewStatus($requiredForContentApply);
+        } catch (Throwable $exception) {
+            return [
+                'required_for_content_apply' => $requiredForContentApply,
+                'current_status' => 'unavailable',
+                'status' => 'unavailable',
+                'blocked' => false,
+                'stale_takeover_possible' => false,
+                'takeover_requested' => false,
+                'takeover_performed' => false,
+                'snapshot' => null,
+                'warnings' => ['content_operation_lock_status_unavailable'],
+                'error' => [
+                    'stage' => 'content_operation_lock',
+                    'message' => $exception->getMessage(),
+                    'exception_class' => $exception::class,
+                ],
+            ];
+        }
     }
 }

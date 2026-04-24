@@ -15,6 +15,7 @@ use Database\Seeders\V3\Polyglot\PolyglotBeGoingToLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotCanCannotLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotComparativesLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotFinalDrillLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotFinalDrillA2LessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotGerundVsInfinitiveLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotMuchManyALotOfLessonSeeder;
@@ -34,6 +35,10 @@ use Database\Seeders\V3\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentContinuousLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectBasicLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectContinuousBasicsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotPastPerfectBasicsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotNarrativeTensesBasicsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectVsPastSimpleLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentSimpleVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotSomeAnyLessonSeeder;
@@ -1535,6 +1540,422 @@ class ComposePayloadBuilderTest extends TestCase
         $this->assertSame(
             'Схема wh-питання: Wh-word + would + subject + V1 + if + did not + V1?',
             $whPayload['hintUk']
+        );
+    }
+
+    public function test_final_drill_a2_v3_polyglot_lesson_payload_remains_compose_compatible(): void
+    {
+        $this->seed(PolyglotFinalDrillA2LessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $tagPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-final-drill-a2-q14'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $modalTagPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-final-drill-a2-q18'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $duplicateIPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-final-drill-a2-q15'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $duplicateYouPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-final-drill-a2-q23'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $repeatedThePayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-final-drill-a2-q10'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $passivePayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-final-drill-a2-q22'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $haveToPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-final-drill-a2-q24'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $gerundPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-final-drill-a2-q21'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+
+        $correctAreInstances = collect($tagPayload['tokenBank'])
+            ->where('value', 'are')
+            ->where('isCorrect', true)
+            ->values();
+        $correctIInstances = collect($duplicateIPayload['tokenBank'])
+            ->where('value', 'I')
+            ->where('isCorrect', true)
+            ->values();
+        $correctYouInstances = collect($duplicateYouPayload['tokenBank'])
+            ->where('value', 'you')
+            ->where('isCorrect', true)
+            ->values();
+        $correctTheInstances = collect($repeatedThePayload['tokenBank'])
+            ->where('value', 'the')
+            ->where('isCorrect', true)
+            ->values();
+        $passiveTheInstances = collect($passivePayload['tokenBank'])
+            ->where('value', 'the')
+            ->where('isCorrect', true)
+            ->values();
+
+        $this->assertSame(
+            ['You', 'are', 'not', 'ready', 'are', 'you'],
+            $tagPayload['correctTokenValues']
+        );
+        $this->assertCount(2, $correctAreInstances);
+        $this->assertSame('You are not ready are you?', $tagPayload['correctText']);
+
+        $this->assertSame(
+            ['Tom', 'cannot', 'swim', 'can', 'he'],
+            $modalTagPayload['correctTokenValues']
+        );
+        $this->assertSame('Tom cannot swim can he?', $modalTagPayload['correctText']);
+
+        $this->assertSame(
+            ['I', 'would', 'buy', 'this', 'house', 'if', 'I', 'had', 'more', 'money'],
+            $duplicateIPayload['correctTokenValues']
+        );
+        $this->assertCount(2, $correctIInstances);
+        $this->assertSame('I would buy this house if I had more money.', $duplicateIPayload['correctText']);
+
+        $this->assertSame(
+            ['Where', 'would', 'you', 'go', 'if', 'you', 'had', 'more', 'time'],
+            $duplicateYouPayload['correctTokenValues']
+        );
+        $this->assertCount(2, $correctYouInstances);
+        $this->assertSame('Where would you go if you had more time?', $duplicateYouPayload['correctText']);
+
+        $this->assertSame(
+            ['This', 'is', 'the', 'woman', 'who', 'works', 'with', 'my', 'brother'],
+            $repeatedThePayload['correctTokenValues']
+        );
+        $this->assertCount(1, $correctTheInstances);
+        $this->assertSame('This is the woman who works with my brother.', $repeatedThePayload['correctText']);
+
+        $this->assertSame(
+            ['Were', 'the', 'windows', 'washed', 'last', 'week'],
+            $passivePayload['correctTokenValues']
+        );
+        $this->assertCount(1, $passiveTheInstances);
+        $this->assertSame('Were the windows washed last week?', $passivePayload['correctText']);
+
+        $this->assertSame(
+            ['Do', 'we', 'have', 'to', 'book', 'tickets', 'online'],
+            $haveToPayload['correctTokenValues']
+        );
+        $this->assertSame('Do we have to book tickets online?', $haveToPayload['correctText']);
+
+        $this->assertSame(
+            ['Do', 'you', 'mind', 'waiting', 'a', 'few', 'minutes'],
+            $gerundPayload['correctTokenValues']
+        );
+        $this->assertSame('Do you mind waiting a few minutes?', $gerundPayload['correctText']);
+        $this->assertSame('Повторення: gerund pattern.', $gerundPayload['hintUk']);
+    }
+
+    public function test_present_perfect_continuous_basics_b1_v3_polyglot_lesson_payload_remains_compose_compatible(): void
+    {
+        $this->seed(PolyglotPresentPerfectContinuousBasicsLessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $durationPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-present-perfect-continuous-basics-b1-q03'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $whPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-present-perfect-continuous-basics-b1-q19'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+
+        $correctForInstances = collect($durationPayload['tokenBank'])
+            ->where('value', 'for')
+            ->where('isCorrect', true)
+            ->values();
+
+        $this->assertSame(
+            ['We', 'have', 'been', 'waiting', 'for', 'you', 'for', 'half', 'an', 'hour'],
+            $durationPayload['correctTokenValues']
+        );
+        $this->assertCount(10, $durationPayload['correctTokenIds']);
+        $this->assertSame(10, count(array_unique($durationPayload['correctTokenIds'])));
+        $this->assertCount(2, $correctForInstances);
+        $this->assertEqualsCanonicalizing(
+            ['We', 'have', 'been', 'waiting', 'for', 'you', 'for', 'half', 'an', 'hour', 'has', 'waited', 'since'],
+            collect($durationPayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('We have been waiting for you for half an hour.', $durationPayload['correctText']);
+        $this->assertSame(
+            'Схема: have/has been + V-ing + for + duration',
+            $durationPayload['hintUk']
+        );
+
+        $this->assertSame(
+            ['How', 'long', 'have', 'you', 'been', 'studying', 'here'],
+            $whPayload['correctTokenValues']
+        );
+        $this->assertEqualsCanonicalizing(
+            ['How', 'long', 'have', 'you', 'been', 'studying', 'here', 'has', 'studied', 'since'],
+            collect($whPayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('How long have you been studying here?', $whPayload['correctText']);
+        $this->assertSame(
+            'How long + have/has + subject + been + V-ing?',
+            $whPayload['hintUk']
+        );
+    }
+
+    public function test_present_perfect_continuous_vs_present_perfect_b1_v3_polyglot_lesson_payload_remains_compose_compatible(): void
+    {
+        $this->seed(PolyglotPresentPerfectContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $durationPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-present-perfect-continuous-vs-present-perfect-b1-q03'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $resultPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-present-perfect-continuous-vs-present-perfect-b1-q24'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $whPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-present-perfect-continuous-vs-present-perfect-b1-q21'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+
+        $correctForInstances = collect($durationPayload['tokenBank'])
+            ->where('value', 'for')
+            ->where('isCorrect', true)
+            ->values();
+
+        $this->assertSame(
+            ['We', 'have', 'been', 'waiting', 'for', 'you', 'for', 'half', 'an', 'hour'],
+            $durationPayload['correctTokenValues']
+        );
+        $this->assertCount(10, $durationPayload['correctTokenIds']);
+        $this->assertSame(10, count(array_unique($durationPayload['correctTokenIds'])));
+        $this->assertCount(2, $correctForInstances);
+        $this->assertEqualsCanonicalizing(
+            ['We', 'have', 'been', 'waiting', 'for', 'you', 'for', 'half', 'an', 'hour', 'has', 'waited', 'since'],
+            collect($durationPayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('We have been waiting for you for half an hour.', $durationPayload['correctText']);
+        $this->assertSame('For + duration і дія ще триває.', $durationPayload['hintUk']);
+
+        $this->assertSame(
+            ['What', 'have', 'they', 'changed', 'in', 'the', 'plan'],
+            $resultPayload['correctTokenValues']
+        );
+        $this->assertEqualsCanonicalizing(
+            ['What', 'have', 'they', 'changed', 'in', 'the', 'plan', 'been', 'changing', 'already'],
+            collect($resultPayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('What have they changed in the plan?', $resultPayload['correctText']);
+        $this->assertSame('Wh-question with focus on completed result.', $resultPayload['hintUk']);
+
+        $this->assertSame(
+            ['How', 'long', 'have', 'you', 'been', 'learning', 'French'],
+            $whPayload['correctTokenValues']
+        );
+        $this->assertEqualsCanonicalizing(
+            ['How', 'long', 'have', 'you', 'been', 'learning', 'French', 'has', 'studied', 'since'],
+            collect($whPayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('How long have you been learning French?', $whPayload['correctText']);
+        $this->assertSame('How long + process/duration → Present Perfect Continuous.', $whPayload['hintUk']);
+    }
+
+    public function test_past_perfect_basics_b1_v3_polyglot_lesson_payload_remains_compose_compatible(): void
+    {
+        $this->seed(PolyglotPresentPerfectContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
+        $this->seed(PolyglotPastPerfectBasicsLessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $byTimePayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-past-perfect-basics-b1-q04'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $affirmativePayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-past-perfect-basics-b1-q06'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $questionPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-past-perfect-basics-b1-q13'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+
+        $correctTheInstances = collect($byTimePayload['tokenBank'])
+            ->where('value', 'the')
+            ->where('isCorrect', true)
+            ->values();
+        $correctIInstances = collect($affirmativePayload['tokenBank'])
+            ->where('value', 'I')
+            ->where('isCorrect', true)
+            ->values();
+
+        $this->assertSame(
+            ['They', 'had', 'sold', 'the', 'house', 'by', 'the', 'end', 'of', 'the', 'year'],
+            $byTimePayload['correctTokenValues']
+        );
+        $this->assertCount(11, $byTimePayload['correctTokenIds']);
+        $this->assertSame(11, count(array_unique($byTimePayload['correctTokenIds'])));
+        $this->assertCount(3, $correctTheInstances);
+        $this->assertEqualsCanonicalizing(
+            ['They', 'had', 'sold', 'the', 'house', 'by', 'the', 'end', 'of', 'the', 'year', 'have', 'sell', 'month'],
+            collect($byTimePayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('They had sold the house by the end of the year.', $byTimePayload['correctText']);
+        $this->assertSame(
+            'By the end of... часто вказує на момент, до якого дія вже завершилася.',
+            $byTimePayload['hintUk']
+        );
+
+        $this->assertSame(
+            ['I', 'had', 'learned', 'the', 'rule', 'before', 'I', 'did', 'the', 'exercise'],
+            $affirmativePayload['correctTokenValues']
+        );
+        $this->assertCount(2, $correctIInstances);
+        $this->assertSame('I had learned the rule before I did the exercise.', $affirmativePayload['correctText']);
+        $this->assertSame('Схема: had + V3 before + Past Simple.', $affirmativePayload['hintUk']);
+
+        $this->assertSame(
+            ['Had', 'you', 'already', 'eaten', 'lunch', 'when', 'she', 'arrived'],
+            $questionPayload['correctTokenValues']
+        );
+        $this->assertEqualsCanonicalizing(
+            ['Had', 'you', 'already', 'eaten', 'lunch', 'when', 'she', 'arrived', 'Have', 'ate', 'arrives'],
+            collect($questionPayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame('Had you already eaten lunch when she arrived?', $questionPayload['correctText']);
+        $this->assertSame('Питання: Had + subject + V3?', $questionPayload['hintUk']);
+    }
+
+    public function test_narrative_tenses_basics_b1_v3_polyglot_lesson_payload_remains_compose_compatible(): void
+    {
+        $this->seed(PolyglotPresentPerfectContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
+        $this->seed(PolyglotPastPerfectBasicsLessonSeeder::class);
+        $this->seed(PolyglotNarrativeTensesBasicsLessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $openedPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-narrative-tenses-basics-b1-q08'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $foundPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-narrative-tenses-basics-b1-q15'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $trainPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-narrative-tenses-basics-b1-q21'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+        $walkingPayload = $this->buildComposePayload(
+            Question::query()
+                ->where('uuid', $resolver->toPersistent('polyglot-narrative-tenses-basics-b1-q24'))
+                ->firstOrFail()
+                ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+        );
+
+        $correctTheOpened = collect($openedPayload['tokenBank'])
+            ->filter(fn (array $token): bool => strtolower((string) $token['value']) === 'the' && (bool) $token['isCorrect'])
+            ->values();
+        $correctTheyFound = collect($foundPayload['tokenBank'])
+            ->filter(fn (array $token): bool => strtolower((string) $token['value']) === 'they' && (bool) $token['isCorrect'])
+            ->values();
+        $correctTheTrain = collect($trainPayload['tokenBank'])
+            ->filter(fn (array $token): bool => strtolower((string) $token['value']) === 'the' && (bool) $token['isCorrect'])
+            ->values();
+        $correctWeWalking = collect($walkingPayload['tokenBank'])
+            ->filter(fn (array $token): bool => strtolower((string) $token['value']) === 'we' && (bool) $token['isCorrect'])
+            ->values();
+
+        $this->assertSame(
+            ['She', 'opened', 'the', 'door', 'and', 'saw', 'that', 'someone', 'had', 'broken', 'the', 'window'],
+            $openedPayload['correctTokenValues']
+        );
+        $this->assertCount(12, $openedPayload['correctTokenIds']);
+        $this->assertSame(12, count(array_unique($openedPayload['correctTokenIds'])));
+        $this->assertCount(2, $correctTheOpened);
+        $this->assertEqualsCanonicalizing(
+            ['She', 'opened', 'the', 'door', 'and', 'saw', 'that', 'someone', 'had', 'broken', 'the', 'window', 'broke', 'has'],
+            collect($openedPayload['tokenBank'])->pluck('value')->all()
+        );
+        $this->assertSame(
+            'She opened the door and saw that someone had broken the window.',
+            $openedPayload['correctText']
+        );
+        $this->assertSame(
+            'Past Perfect пояснює результат, який існував до моменту в історії.',
+            $openedPayload['hintUk']
+        );
+
+        $this->assertSame(
+            ['Did', 'they', 'find', 'the', 'bag', 'that', 'they', 'had', 'lost'],
+            $foundPayload['correctTokenValues']
+        );
+        $this->assertCount(2, $correctTheyFound);
+        $this->assertSame('Did they find the bag that they had lost?', $foundPayload['correctText']);
+
+        $this->assertSame(
+            ['The', 'train', 'had', 'already', 'left', 'when', 'we', 'reached', 'the', 'station'],
+            $trainPayload['correctTokenValues']
+        );
+        $this->assertCount(2, $correctTheTrain);
+        $this->assertSame('The train had already left when we reached the station.', $trainPayload['correctText']);
+
+        $this->assertSame(
+            ['We', 'were', 'walking', 'in', 'the', 'park', 'when', 'we', 'saw', 'an', 'old', 'friend'],
+            $walkingPayload['correctTokenValues']
+        );
+        $this->assertCount(2, $correctWeWalking);
+        $this->assertSame('We were walking in the park when we saw an old friend.', $walkingPayload['correctText']);
+        $this->assertSame(
+            'Past Continuous for the background action; Past Simple for the event.',
+            $walkingPayload['hintUk']
         );
     }
 

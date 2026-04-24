@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Services\ContentDeployment\ChangedContentApplyService;
 use App\Services\ContentDeployment\ChangedContentPlanService;
+use App\Services\ContentDeployment\ContentSyncStateService;
 use App\Services\PageV3PromptGenerator\PageV3DeletedPackageCleanupService;
 use App\Services\PageV3PromptGenerator\PageV3PackageRefreshService;
 use App\Services\PageV3PromptGenerator\PageV3PackageSeedService;
@@ -303,6 +304,72 @@ class ChangedContentApplyServiceTest extends TestCase
         $this->assertTrue((bool) $result['preflight']['executed']);
     }
 
+    public function test_live_ref_based_apply_records_sync_state_success_without_changing_phase_order(): void
+    {
+        $planner = Mockery::mock(ChangedContentPlanService::class);
+        $v3Cleanup = Mockery::mock(V3DeletedPackageCleanupService::class);
+        $pageCleanup = Mockery::mock(PageV3DeletedPackageCleanupService::class);
+        $v3Seed = Mockery::mock(V3PackageSeedService::class);
+        $pageSeed = Mockery::mock(PageV3PackageSeedService::class);
+        $v3Refresh = Mockery::mock(V3PackageRefreshService::class);
+        $pageRefresh = Mockery::mock(PageV3PackageRefreshService::class);
+        $syncStateService = Mockery::mock(ContentSyncStateService::class);
+        $plan = $this->planResult([
+            $this->currentPackage('page-v3', 'database/seeders/Page_V3/Tests/PageCurrentSeeder', 'seed', 'page'),
+        ]);
+        $plan['diff']['mode'] = 'refs';
+        $plan['diff']['base'] = null;
+        $plan['diff']['base_refs_by_domain'] = [
+            'v3' => 'v3-base',
+            'page-v3' => 'page-base',
+        ];
+        $plan['diff']['head'] = 'target-head';
+
+        $planner->shouldReceive('run')
+            ->once()
+            ->with(null, Mockery::on(fn (array $options): bool => ($options['base_refs_by_domain']['v3'] ?? null) === 'v3-base' && ($options['base_refs_by_domain']['page-v3'] ?? null) === 'page-base'))
+            ->andReturn($plan);
+        $pageSeed->shouldReceive('run')->twice()->andReturn($this->seedResult(true), $this->seedResult(false));
+        $syncStateService->shouldReceive('recordSuccess')
+            ->once()
+            ->with(
+                ['v3', 'page-v3'],
+                [
+                    'v3' => 'v3-base',
+                    'page-v3' => 'page-base',
+                ],
+                'target-head',
+                Mockery::on(fn (array $meta): bool => ($meta['stage'] ?? null) === 'completed')
+            );
+        $v3Cleanup->shouldNotReceive('runPackageRecord');
+        $pageCleanup->shouldNotReceive('runPackageRecord');
+        $v3Seed->shouldNotReceive('run');
+        $v3Refresh->shouldNotReceive('run');
+        $pageRefresh->shouldNotReceive('run');
+
+        $result = (new ChangedContentApplyService(
+            $planner,
+            $v3Cleanup,
+            $pageCleanup,
+            $v3Seed,
+            $pageSeed,
+            $v3Refresh,
+            $pageRefresh,
+            $syncStateService
+        ))->run(null, [
+            'base_refs_by_domain' => [
+                'v3' => 'v3-base',
+                'page-v3' => 'page-base',
+            ],
+            'head' => 'target-head',
+            'force' => true,
+            'skip_release_check' => true,
+        ]);
+
+        $this->assertNull($result['error']);
+        $this->assertSame(['database/seeders/Page_V3/Tests/PageCurrentSeeder'], array_column($result['execution']['upsert_present']['packages'], 'relative_path'));
+    }
+
     /**
      * @param  list<array<string, mixed>>  $packages
      * @return array<string, mixed>
@@ -313,6 +380,7 @@ class ChangedContentApplyServiceTest extends TestCase
             'diff' => [
                 'mode' => 'working_tree',
                 'base' => null,
+                'base_refs_by_domain' => [],
                 'head' => 'HEAD',
                 'include_untracked' => true,
             ],

@@ -12,7 +12,12 @@ use Database\Seeders\V2\Polyglot\PolyglotGerundVsInfinitiveLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotMustHaveToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastContinuousLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPassiveVoiceBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFinalDrillA2LessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectTimeExpressionsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPastPerfectBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotNarrativeTensesBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotQuestionTagsBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotReportedSpeechBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotRelativeClausesLessonSeeder;
@@ -81,6 +86,11 @@ class PolyglotCourseLandingPageTest extends TestCase
         $this->seed(PolyglotUsedToLessonSeeder::class);
         $this->seed(PolyglotQuestionTagsBasicsLessonSeeder::class);
         $this->seed(PolyglotSecondConditionalBasicsLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillA2LessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
+        $this->seed(PolyglotPastPerfectBasicsLessonSeeder::class);
+        $this->seed(PolyglotNarrativeTensesBasicsLessonSeeder::class);
     }
 
     public function test_course_landing_route_works_and_renders_lessons_in_order(): void
@@ -169,7 +179,9 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertSee('data-course-repeat-link', false);
         $response->assertSee('data-course-reset-progress-secondary', false);
         $response->assertSee('16 / 16');
-        $response->assertSee(__('frontend.tests.course.course_fully_available_title'));
+        $response->assertSee(__('frontend.tests.course.course_fully_available_title', [
+            'course' => 'Polyglot English A1',
+        ]));
     }
 
     public function test_course_reset_ui_is_present(): void
@@ -187,9 +199,11 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertOk();
         $response->assertSee('/courses/polyglot-english-a1', false);
         $response->assertSee('/courses/polyglot-english-a2', false);
+        $response->assertSee('/courses/polyglot-english-b1', false);
         $response->assertSee(__('public.nav.polyglot_course'));
         $response->assertSee(__('public.home.polyglot_title'));
         $response->assertSee(__('public.home.polyglot_a2_title'));
+        $response->assertSee(__('public.home.polyglot_b1_title'));
     }
 
     public function test_polyglot_course_entry_point_renders_in_english_locale_without_missing_translation_keys(): void
@@ -201,10 +215,12 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertOk();
         $response->assertSee('/courses/polyglot-english-a1', false);
         $response->assertSee('/courses/polyglot-english-a2', false);
+        $response->assertSee('/courses/polyglot-english-b1', false);
         $response->assertSee('Polyglot course');
         $response->assertDontSee('public.nav.polyglot_course');
         $response->assertDontSee('public.home.polyglot_title');
         $response->assertDontSee('public.home.polyglot_a2_title');
+        $response->assertDontSee('public.home.polyglot_b1_title');
     }
 
     public function test_a1_course_page_renders_continue_with_a2_cta_in_complete_state(): void
@@ -214,10 +230,12 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertOk();
         $response->assertSee('data-course-continue-a2-link', false);
         $response->assertSee('/courses/polyglot-english-a2', false);
-        $response->assertSee(__('frontend.tests.course.continue_with_polyglot_a2'));
+        $response->assertSee(__('frontend.tests.course.continue_with_next_course', [
+            'course' => 'Polyglot English A2',
+        ]));
     }
 
-    public function test_a2_course_landing_route_works_and_shows_fifteen_implemented_lessons_with_planned_roadmap(): void
+    public function test_a2_course_landing_route_works_and_shows_fully_complete_sixteen_lesson_course(): void
     {
         $response = $this->get('/courses/polyglot-english-a2');
 
@@ -238,18 +256,48 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertSee('/test/polyglot-used-to-a2/step/compose', false);
         $response->assertSee('/test/polyglot-question-tags-basics-a2/step/compose', false);
         $response->assertSee('/test/polyglot-second-conditional-basics-a2/step/compose', false);
+        $response->assertSee('/test/polyglot-final-drill-a2/step/compose', false);
         $response->assertSee('data-polyglot-course-slug="polyglot-english-a2"', false);
         $response->assertSee('data-polyglot-planned-lessons="16"', false);
-        $response->assertSee('data-polyglot-implemented-lessons="15"', false);
-        $response->assertSee('data-polyglot-course-content-complete="0"', false);
+        $response->assertSee('data-polyglot-implemented-lessons="16"', false);
+        $response->assertSee('data-polyglot-course-content-complete="1"', false);
         $response->assertSee('data-course-lesson-status="current"', false);
         $response->assertSee('data-course-lesson-status="locked"', false);
-        $response->assertSee('data-course-lesson-status="planned"', false);
+        $response->assertDontSee('data-course-lesson-status="planned"', false);
         $response->assertSee('data-course-lesson-action', false);
+        $response->assertDontSee('data-course-lesson-action-disabled', false);
+        $response->assertSee('16 / 16');
+        $response->assertSee('data-course-content-complete-banner', false);
+        $response->assertSee(__('frontend.tests.course.course_fully_available_title', [
+            'course' => 'Polyglot English A2',
+        ]));
+        $response->assertSee('data-course-learner-complete-banner', false);
+        $response->assertSee('data-course-continue-b1-link', false);
+        $response->assertSee('/courses/polyglot-english-b1', false);
+        $response->assertSee(__('frontend.tests.course.continue_with_next_course', [
+            'course' => 'Polyglot English B1',
+        ]));
+    }
+
+    public function test_b1_course_landing_route_works_and_shows_four_implemented_lessons_with_planned_roadmap(): void
+    {
+        $response = $this->get('/courses/polyglot-english-b1');
+
+        $response->assertOk();
+        $response->assertSee('Polyglot English B1');
+        $response->assertSee('/test/polyglot-present-perfect-continuous-basics-b1/step/compose', false);
+        $response->assertSee('/test/polyglot-present-perfect-continuous-vs-present-perfect-b1/step/compose', false);
+        $response->assertSee('/test/polyglot-past-perfect-basics-b1/step/compose', false);
+        $response->assertSee('/test/polyglot-narrative-tenses-basics-b1/step/compose', false);
+        $response->assertSee('data-polyglot-course-slug="polyglot-english-b1"', false);
+        $response->assertSee('data-polyglot-planned-lessons="16"', false);
+        $response->assertSee('data-polyglot-implemented-lessons="4"', false);
+        $response->assertSee('4 / 16');
+        $response->assertSee('data-course-lesson-status="current"', false);
+        $response->assertSee('data-course-lesson-status="planned"', false);
         $response->assertSee('data-course-lesson-action-disabled', false);
-        $response->assertSee('15 / 16');
-        $response->assertSee(__('frontend.tests.course.planned_remaining', ['count' => 1]));
-        $response->assertDontSee('data-course-content-complete-banner', false);
-        $response->assertDontSee('data-course-continue-a2-link', false);
+        $response->assertSee('polyglot-past-perfect-basics-b1');
+        $response->assertSee('polyglot-narrative-tenses-basics-b1');
+        $response->assertSee('polyglot-future-continuous-basics-b1');
     }
 }

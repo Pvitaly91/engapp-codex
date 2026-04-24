@@ -228,4 +228,64 @@ class PolyglotQuestionUuidResolverTest extends TestCase
         $this->assertNotSame($canonical, $mappedOnce);
         $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
     }
+
+    public function test_final_drill_a2_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-final-drill-a2-q24';
+
+        $this->assertSame($canonical, $resolver->toPersistent($canonical));
+    }
+
+    public function test_present_perfect_continuous_basics_b1_question_uuid_mapping_is_deterministic_and_length_safe(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-present-perfect-continuous-basics-b1-q24';
+
+        $mappedOnce = $resolver->toPersistent($canonical);
+        $mappedTwice = $resolver->toPersistent($canonical);
+
+        $this->assertSame($mappedOnce, $mappedTwice);
+        $this->assertNotSame($canonical, $mappedOnce);
+        $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
+    }
+
+    public function test_present_perfect_continuous_vs_present_perfect_b1_question_uuid_mapping_is_deterministic_and_length_safe(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-present-perfect-continuous-vs-present-perfect-b1-q24';
+
+        $mappedOnce = $resolver->toPersistent($canonical);
+        $mappedTwice = $resolver->toPersistent($canonical);
+
+        $this->assertSame($mappedOnce, $mappedTwice);
+        $this->assertNotSame($canonical, $mappedOnce);
+        $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
+    }
+
+    public function test_past_perfect_basics_b1_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-past-perfect-basics-b1-q24';
+
+        $mappedOnce = $resolver->toPersistent($canonical);
+        $mappedTwice = $resolver->toPersistent($canonical);
+
+        $this->assertSame($mappedOnce, $mappedTwice);
+        $this->assertSame($canonical, $mappedOnce);
+        $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
+    }
+
+    public function test_narrative_tenses_basics_b1_question_uuid_mapping_is_deterministic_and_length_safe(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-narrative-tenses-basics-b1-q24';
+
+        $mappedOnce = $resolver->toPersistent($canonical);
+        $mappedTwice = $resolver->toPersistent($canonical);
+
+        $this->assertSame($mappedOnce, $mappedTwice);
+        $this->assertNotSame($canonical, $mappedOnce);
+        $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
+    }
 }

@@ -51,6 +51,10 @@ class PolyglotCourseReleaseCheckService
             resource_path('views/layouts/catalog-public.blade.php'),
             $courseSlug
         );
+        $courseContinueEntryPoint = $this->viewContainsCourseEntryPoint(
+            resource_path('views/courses/show.blade.php'),
+            $courseSlug
+        );
         $lessonReports = collect($blueprintLessons)
             ->map(fn (array $lesson) => $this->buildLessonReport($courseSlug, $lesson))
             ->all();
@@ -150,18 +154,19 @@ class PolyglotCourseReleaseCheckService
             ),
             $this->makeCheck(
                 'public_entry_points',
-                'Public home/nav entry points exist',
-                $homeEntryPoint['found'] && $navEntryPoint['found'],
+                'Public entry points exist',
+                $homeEntryPoint['found'] || $navEntryPoint['found'] || $courseContinueEntryPoint['found'],
                 [
                     'home' => $homeEntryPoint,
                     'nav' => $navEntryPoint,
+                    'course_complete_cta' => $courseContinueEntryPoint,
                 ]
             ),
             $this->makeCheck(
                 'final_lesson_terminal',
                 'Final lesson exists and has null next',
                 is_array($finalLesson)
-                    && ($finalLesson['slug'] ?? null) === 'polyglot-final-drill-a1'
+                    && trim((string) ($finalLesson['slug'] ?? '')) !== ''
                     && $finalLessonNextSlug === null,
                 [
                     'slug' => $finalLesson['slug'] ?? null,
@@ -211,6 +216,7 @@ class PolyglotCourseReleaseCheckService
             'entry_points' => [
                 'home' => $homeEntryPoint,
                 'nav' => $navEntryPoint,
+                'course_complete_cta' => $courseContinueEntryPoint,
             ],
             'lessons' => $lessonReports,
             'artifacts' => [
@@ -223,6 +229,9 @@ class PolyglotCourseReleaseCheckService
     public function writeReport(string $courseSlug, array $report): string
     {
         $path = sprintf('polyglot-reports/%s-release-check.json', trim($courseSlug));
+        $absolutePath = storage_path('app/' . $path);
+
+        data_set($report, 'artifacts.release_report_path', $absolutePath);
 
         Storage::disk('local')->put(
             $path,

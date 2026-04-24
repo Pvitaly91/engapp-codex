@@ -43,10 +43,15 @@ class ChangedContentPlanService extends AbstractCrossDomainChangedContentService
 
         foreach ($scope['domains'] as $domain) {
             $service = $this->plannerForDomain($domain);
+            $domainBaseRef = $this->effectiveBaseRefForDomain(
+                $domain,
+                $resolvedOptions['base'],
+                $resolvedOptions['base_refs_by_domain']
+            );
 
             try {
                 $domainResult = $service->run($scope['input'], [
-                    'base' => $resolvedOptions['base'],
+                    'base' => $domainBaseRef,
                     'head' => $resolvedOptions['head'],
                     'staged' => $resolvedOptions['staged'],
                     'working_tree' => $resolvedOptions['working_tree'],
@@ -96,7 +101,28 @@ class ChangedContentPlanService extends AbstractCrossDomainChangedContentService
 
         if ($scope['domains'] !== []) {
             $firstDomain = $scope['domains'][0];
-            $result['diff'] = array_merge($result['diff'], (array) ($domainResults[$firstDomain]['diff'] ?? []));
+            $firstDomainDiff = (array) ($domainResults[$firstDomain]['diff'] ?? []);
+            $result['diff']['mode'] = (string) ($firstDomainDiff['mode'] ?? $result['diff']['mode']);
+            $result['diff']['head'] = $firstDomainDiff['head'] ?? $result['diff']['head'];
+            $result['diff']['include_untracked'] = (bool) ($firstDomainDiff['include_untracked'] ?? $result['diff']['include_untracked']);
+        }
+
+        $result['diff']['base_refs_by_domain'] = $this->effectiveBaseRefsFromDomainResults(
+            $scope['domains'],
+            $domainResults,
+            $resolvedOptions['base_refs_by_domain'],
+            $resolvedOptions['base']
+        );
+
+        if ($result['diff']['base'] === null && $result['diff']['base_refs_by_domain'] !== []) {
+            $uniqueBaseRefs = array_values(array_unique(array_filter(
+                $result['diff']['base_refs_by_domain'],
+                static fn ($ref): bool => trim((string) $ref) !== ''
+            )));
+
+            if (count($uniqueBaseRefs) === 1) {
+                $result['diff']['base'] = $uniqueBaseRefs[0];
+            }
         }
 
         $cleanupPhase = $this->mergedCleanupPhase($domainResults, $scope['domains']);
@@ -172,6 +198,9 @@ class ChangedContentPlanService extends AbstractCrossDomainChangedContentService
             'domains' => $this->normalizeDomainsOption($options['domains'] ?? null),
             'domains_explicit' => $this->domainsOptionWasExplicit($options['domains'] ?? null),
             'base' => trim((string) ($options['base'] ?? '')),
+            'base_refs_by_domain' => $this->normalizeBaseRefsByDomain(
+                is_array($options['base_refs_by_domain'] ?? null) ? $options['base_refs_by_domain'] : null
+            ),
             'head' => trim((string) ($options['head'] ?? '')),
             'staged' => (bool) ($options['staged'] ?? false),
             'working_tree' => (bool) ($options['working_tree'] ?? false),
@@ -205,6 +234,7 @@ class ChangedContentPlanService extends AbstractCrossDomainChangedContentService
             'diff' => [
                 'mode' => 'working_tree',
                 'base' => $options['base'] !== '' ? $options['base'] : null,
+                'base_refs_by_domain' => $options['base_refs_by_domain'] !== [] ? $options['base_refs_by_domain'] : [],
                 'head' => $options['head'] !== '' ? $options['head'] : null,
                 'include_untracked' => (bool) $options['include_untracked'],
             ],
@@ -260,6 +290,7 @@ class ChangedContentPlanService extends AbstractCrossDomainChangedContentService
             'diff' => [
                 'mode' => 'working_tree',
                 'base' => null,
+                'base_refs_by_domain' => [],
                 'head' => null,
                 'include_untracked' => false,
             ],
@@ -384,6 +415,32 @@ class ChangedContentPlanService extends AbstractCrossDomainChangedContentService
     }
 
     /**
+     * @param  list<string>  $domains
+     * @param  array<string, array<string, mixed>>  $domainResults
+     * @param  array<string, string>  $requestedBaseRefsByDomain
+     * @return array<string, string|null>
+     */
+    private function effectiveBaseRefsFromDomainResults(
+        array $domains,
+        array $domainResults,
+        array $requestedBaseRefsByDomain = [],
+        string $fallbackBase = ''
+    ): array {
+        $baseRefs = [];
+
+        foreach ($domains as $domain) {
+            $domainBase = trim((string) ($domainResults[$domain]['diff']['base'] ?? ''));
+            $requestedBase = trim((string) ($requestedBaseRefsByDomain[$domain] ?? $fallbackBase));
+
+            $baseRefs[$domain] = $domainBase !== ''
+                ? $domainBase
+                : ($requestedBase !== '' ? $requestedBase : null);
+        }
+
+        return $baseRefs;
+    }
+
+    /**
      * @return V3ChangedPackagesPlanService|PageV3ChangedPackagesPlanService
      */
     private function plannerForDomain(string $domain): V3ChangedPackagesPlanService|PageV3ChangedPackagesPlanService
@@ -405,6 +462,7 @@ class ChangedContentPlanService extends AbstractCrossDomainChangedContentService
             '',
             '- Diff Mode: `' . (string) ($result['diff']['mode'] ?? 'working_tree') . '`',
             '- Base: `' . (string) (($result['diff']['base'] ?? null) ?: '') . '`',
+            '- Base Refs By Domain: `' . json_encode((array) ($result['diff']['base_refs_by_domain'] ?? []), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '`',
             '- Head: `' . (string) (($result['diff']['head'] ?? null) ?: '') . '`',
             '- Include Untracked: `' . (((bool) ($result['diff']['include_untracked'] ?? false)) ? 'true' : 'false') . '`',
             '- Domains: `' . implode(', ', (array) ($result['scope']['domains'] ?? [])) . '`',

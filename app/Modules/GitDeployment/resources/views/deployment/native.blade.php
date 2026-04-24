@@ -97,6 +97,29 @@
       </div>
     @endif
 
+    @include('git-deployment::deployment.partials.content-sync-status-card', ['contentPreview' => $contentPreview ?? null, 'contentApply' => $contentApply ?? null])
+    @include('git-deployment::deployment.partials.content-operation-lock-card', ['contentOperationLockStatus' => $contentOperationLockStatus ?? null])
+    @include('git-deployment::deployment.partials.content-doctor-card', [
+      'contentDoctor' => $contentDoctor ?? null,
+      'doctorRoute' => route('deployment.native.content-doctor'),
+    ])
+    @include('git-deployment::deployment.partials.content-release-gate-card', [
+      'contentReleaseGate' => $contentReleaseGate ?? null,
+      'releaseGateRoute' => route('deployment.native.content-release-gate'),
+    ])
+    @include('git-deployment::deployment.partials.content-ci-status-card', [
+      'contentCiStatus' => $contentCiStatus ?? null,
+      'ciStatusRoute' => route('deployment.native.content-ci-status'),
+      'contentCiDispatch' => $contentCiDispatch ?? null,
+      'ciDispatchRoute' => route('deployment.native.content-ci-dispatch'),
+    ])
+    @include('git-deployment::deployment.partials.content-sync-repair-card', [
+      'contentSyncPreview' => $contentSyncPreview ?? null,
+      'contentSyncApply' => $contentSyncApply ?? null,
+      'syncPreviewRoute' => route('deployment.native.content-sync-preview'),
+      'syncApplyRoute' => route('deployment.native.content-sync'),
+    ])
+    @include('git-deployment::deployment.partials.content-operation-history-card', ['recentContentRuns' => $recentContentRuns ?? collect()])
     @include('git-deployment::deployment.partials.content-preview-card', ['contentPreview' => $contentPreview ?? null])
     @include('git-deployment::deployment.partials.content-apply-result-card', ['contentApply' => $contentApply ?? null])
 
@@ -155,6 +178,10 @@
                   Після успішного API deploy буде запущено unified changed-content apply з тими самими base/head refs.
                 </span>
               </span>
+            </label>
+            <label class="mt-3 flex items-start gap-3 text-xs text-muted-foreground">
+              <input type="checkbox" name="content_apply_takeover_stale_lock" value="1" class="mt-1 rounded border-input text-primary focus:ring-primary" />
+              <span>Reserve the content lock before code update; take over only if the current lock is stale. Fresh active locks are never stolen.</span>
             </label>
           </div>
           <div class="flex flex-wrap items-center gap-3">
@@ -538,9 +565,13 @@
                   <span class="mt-1 block text-xs text-muted-foreground">
                     Після успішного API restore буде запущено unified changed-content apply з restore diff refs.
                   </span>
-                </span>
-              </label>
-            </div>
+              </span>
+            </label>
+            <label class="mt-3 flex items-start gap-3 text-xs text-muted-foreground">
+              <input type="checkbox" name="content_apply_takeover_stale_lock" value="1" class="mt-1 rounded border-input text-primary focus:ring-primary" />
+              <span>Reserve the content lock before code update; take over only if the current lock is stale. Fresh active locks are never stolen.</span>
+            </label>
+          </div>
             <div class="flex flex-wrap items-center gap-3">
               <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-warning px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-warning/90">Виконати відкат</button>
               <button type="submit" formmethod="GET" formaction="{{ route('deployment.native.content-preview') }}" name="source_kind" value="backup_restore" class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40">

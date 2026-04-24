@@ -13,12 +13,17 @@ use Database\Seeders\V2\Polyglot\PolyglotBeGoingToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotCanCannotLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotComparativesLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFinalDrillLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFinalDrillA2LessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotGerundVsInfinitiveLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotMustHaveToLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastContinuousLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPassiveVoiceBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectTimeExpressionsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPastPerfectBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotNarrativeTensesBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotQuestionTagsBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotReportedSpeechBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotRelativeClausesLessonSeeder;
@@ -792,6 +797,158 @@ class PolyglotComposeModeTest extends TestCase
         $this->assertSame('polyglot-final-drill-a2', $courseContext['next_lesson_slug']);
     }
 
+    public function test_compose_route_works_for_generator_driven_final_drill_a2_lesson(): void
+    {
+        $this->seed(PolyglotPresentPerfectBasicLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectVsPastSimpleLessonSeeder::class);
+        $this->seed(PolyglotFirstConditionalLessonSeeder::class);
+        $this->seed(PolyglotBeGoingToLessonSeeder::class);
+        $this->seed(PolyglotShouldOughtToLessonSeeder::class);
+        $this->seed(PolyglotMustHaveToLessonSeeder::class);
+        $this->seed(PolyglotGerundVsInfinitiveLessonSeeder::class);
+        $this->seed(PolyglotPastContinuousLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectTimeExpressionsLessonSeeder::class);
+        $this->seed(PolyglotRelativeClausesLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceBasicsLessonSeeder::class);
+        $this->seed(PolyglotReportedSpeechBasicsLessonSeeder::class);
+        $this->seed(PolyglotUsedToLessonSeeder::class);
+        $this->seed(PolyglotQuestionTagsBasicsLessonSeeder::class);
+        $this->seed(PolyglotSecondConditionalBasicsLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillA2LessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-final-drill-a2/step/compose');
+
+        $response->assertOk();
+        $response->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
+
+        $questionData = $response->viewData('questionData');
+        $courseContext = $response->viewData('courseContext');
+
+        $this->assertIsArray($questionData);
+        $this->assertNotEmpty($questionData);
+        $this->assertSame(
+            ['I', 'have', 'just', 'finished', 'the', 'report'],
+            $questionData[0]['correctTokenValues']
+        );
+        $this->assertIsArray($courseContext);
+        $this->assertSame('polyglot-english-a2', $courseContext['course_slug']);
+        $this->assertNull($courseContext['next_lesson_slug']);
+    }
+
+    public function test_compose_route_works_for_generator_driven_present_perfect_continuous_basics_b1_lesson(): void
+    {
+        $this->seed(PolyglotPresentPerfectContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-present-perfect-continuous-basics-b1/step/compose');
+
+        $response->assertOk();
+        $response->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
+
+        $questionData = $response->viewData('questionData');
+        $courseContext = $response->viewData('courseContext');
+
+        $this->assertIsArray($questionData);
+        $this->assertNotEmpty($questionData);
+        $this->assertSame(
+            ['I', 'have', 'been', 'working', 'here', 'for', 'three', 'years'],
+            $questionData[0]['correctTokenValues']
+        );
+        $this->assertIsArray($courseContext);
+        $this->assertSame('polyglot-english-b1', $courseContext['course_slug']);
+        $this->assertNull($courseContext['previous_lesson_slug']);
+        $this->assertSame(
+            'polyglot-present-perfect-continuous-vs-present-perfect-b1',
+            $courseContext['next_lesson_slug']
+        );
+    }
+
+    public function test_compose_route_works_for_generator_driven_present_perfect_continuous_vs_present_perfect_b1_lesson(): void
+    {
+        $this->seed(PolyglotPresentPerfectContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
+        $this->seed(PolyglotPastPerfectBasicsLessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-present-perfect-continuous-vs-present-perfect-b1/step/compose');
+
+        $response->assertOk();
+        $response->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
+
+        $questionData = $response->viewData('questionData');
+        $courseContext = $response->viewData('courseContext');
+
+        $this->assertIsArray($questionData);
+        $this->assertNotEmpty($questionData);
+        $this->assertSame(
+            ['I', 'have', 'been', 'reading', 'this', 'book', 'for', 'two', 'hours'],
+            $questionData[0]['correctTokenValues']
+        );
+        $this->assertIsArray($courseContext);
+        $this->assertSame('polyglot-english-b1', $courseContext['course_slug']);
+        $this->assertSame(
+            'polyglot-present-perfect-continuous-basics-b1',
+            $courseContext['previous_lesson_slug']
+        );
+        $this->assertSame('polyglot-past-perfect-basics-b1', $courseContext['next_lesson_slug']);
+    }
+
+    public function test_compose_route_works_for_generator_driven_past_perfect_basics_b1_lesson(): void
+    {
+        $this->seed(PolyglotPresentPerfectContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
+        $this->seed(PolyglotPastPerfectBasicsLessonSeeder::class);
+        $this->seed(PolyglotNarrativeTensesBasicsLessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-past-perfect-basics-b1/step/compose');
+
+        $response->assertOk();
+        $response->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
+
+        $questionData = $response->viewData('questionData');
+        $courseContext = $response->viewData('courseContext');
+
+        $this->assertIsArray($questionData);
+        $this->assertNotEmpty($questionData);
+        $this->assertSame(
+            ['I', 'had', 'already', 'eaten', 'lunch', 'when', 'she', 'arrived'],
+            $questionData[0]['correctTokenValues']
+        );
+        $this->assertIsArray($courseContext);
+        $this->assertSame('polyglot-english-b1', $courseContext['course_slug']);
+        $this->assertSame(
+            'polyglot-present-perfect-continuous-vs-present-perfect-b1',
+            $courseContext['previous_lesson_slug']
+        );
+        $this->assertSame('polyglot-narrative-tenses-basics-b1', $courseContext['next_lesson_slug']);
+    }
+
+    public function test_compose_route_works_for_generator_driven_narrative_tenses_basics_b1_lesson(): void
+    {
+        $this->seed(PolyglotPresentPerfectContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
+        $this->seed(PolyglotPastPerfectBasicsLessonSeeder::class);
+        $this->seed(PolyglotNarrativeTensesBasicsLessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-narrative-tenses-basics-b1/step/compose');
+
+        $response->assertOk();
+        $response->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
+
+        $questionData = $response->viewData('questionData');
+        $courseContext = $response->viewData('courseContext');
+
+        $this->assertIsArray($questionData);
+        $this->assertNotEmpty($questionData);
+        $this->assertSame(
+            ['I', 'was', 'cooking', 'dinner', 'when', 'the', 'phone', 'rang'],
+            $questionData[0]['correctTokenValues']
+        );
+        $this->assertIsArray($courseContext);
+        $this->assertSame('polyglot-english-b1', $courseContext['course_slug']);
+        $this->assertSame('polyglot-past-perfect-basics-b1', $courseContext['previous_lesson_slug']);
+        $this->assertSame('polyglot-future-continuous-basics-b1', $courseContext['next_lesson_slug']);
+    }
+
     public function test_polyglot_compose_routes_bypass_coming_soon_gate_without_opening_generic_tests(): void
     {
         config(['coming-soon.enabled' => true]);
@@ -835,6 +992,40 @@ class PolyglotComposeModeTest extends TestCase
         $response->assertSee('"isFinalLesson":true', false);
         $response->assertSee('"firstLessonUrl":"http:\\/\\/engapp-codex.loc\\/test\\/polyglot-to-be-a1\\/step\\/compose"', false);
         $response->assertSee('"continueCourseUrl":"http:\\/\\/engapp-codex.loc\\/courses\\/polyglot-english-a2"', false);
+        $response->assertSee('data-action="restart-course"', false);
+    }
+
+    public function test_a2_final_lesson_compose_route_exposes_course_complete_hooks_without_next_lesson_cta(): void
+    {
+        $this->seed(PolyglotPresentPerfectBasicLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectVsPastSimpleLessonSeeder::class);
+        $this->seed(PolyglotFirstConditionalLessonSeeder::class);
+        $this->seed(PolyglotBeGoingToLessonSeeder::class);
+        $this->seed(PolyglotShouldOughtToLessonSeeder::class);
+        $this->seed(PolyglotMustHaveToLessonSeeder::class);
+        $this->seed(PolyglotGerundVsInfinitiveLessonSeeder::class);
+        $this->seed(PolyglotPastContinuousLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectTimeExpressionsLessonSeeder::class);
+        $this->seed(PolyglotRelativeClausesLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceBasicsLessonSeeder::class);
+        $this->seed(PolyglotReportedSpeechBasicsLessonSeeder::class);
+        $this->seed(PolyglotUsedToLessonSeeder::class);
+        $this->seed(PolyglotQuestionTagsBasicsLessonSeeder::class);
+        $this->seed(PolyglotSecondConditionalBasicsLessonSeeder::class);
+        $this->seed(PolyglotFinalDrillA2LessonSeeder::class);
+
+        $response = $this->get('/test/polyglot-final-drill-a2/step/compose');
+
+        $response->assertOk();
+        $response->assertSee('data-polyglot-is-final-lesson="1"', false);
+        $response->assertSee('data-polyglot-course-completion-kind="course"', false);
+        $response->assertSee('data-polyglot-previous-lesson-slug="polyglot-second-conditional-basics-a2"', false);
+        $response->assertSee('data-polyglot-first-lesson-url="http://engapp-codex.loc/test/polyglot-present-perfect-basic-a2/step/compose"', false);
+        $response->assertSee('"isFinalLesson":true', false);
+        $response->assertSee('"firstLessonUrl":"http:\\/\\/engapp-codex.loc\\/test\\/polyglot-present-perfect-basic-a2\\/step\\/compose"', false);
+        $response->assertSee('"nextLessonUrl":null', false);
+        $response->assertSee('"continueCourseUrl":"http:\\/\\/engapp-codex.loc\\/courses\\/polyglot-english-b1"', false);
+        $response->assertSee('Polyglot English B1');
         $response->assertSee('data-action="restart-course"', false);
     }
 

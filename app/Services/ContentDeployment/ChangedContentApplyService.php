@@ -24,6 +24,7 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
         private readonly PageV3PackageSeedService $pageV3PackageSeedService,
         private readonly V3PackageRefreshService $v3PackageRefreshService,
         private readonly PageV3PackageRefreshService $pageV3PackageRefreshService,
+        private readonly ?ContentSyncStateService $contentSyncStateService = null,
     ) {
     }
 
@@ -34,10 +35,12 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
     public function run(?string $targetInput = null, array $options = []): array
     {
         $resolvedOptions = $this->normalizeOptions($options);
+        $this->heartbeat($resolvedOptions);
         $normalizedTarget = trim((string) ($targetInput ?? ''));
         $planResult = $this->changedContentPlanService->run($normalizedTarget !== '' ? $normalizedTarget : null, [
             'domains' => $resolvedOptions['domains'],
             'base' => $resolvedOptions['base'],
+            'base_refs_by_domain' => $resolvedOptions['base_refs_by_domain'],
             'head' => $resolvedOptions['head'],
             'staged' => $resolvedOptions['staged'],
             'working_tree' => $resolvedOptions['working_tree'],
@@ -51,13 +54,13 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
         if (is_array($planResult['error'] ?? null)) {
             $result['error'] = $planResult['error'];
 
-            return $result;
+            return $this->finalizeSyncState($result, $resolvedOptions);
         }
 
         $result = $this->runPreflight($result, $resolvedOptions);
 
         if (is_array($result['error'] ?? null)) {
-            return $result;
+            return $this->finalizeSyncState($result, $resolvedOptions);
         }
 
         if (! $resolvedOptions['dry_run'] && ! $resolvedOptions['force']) {
@@ -67,20 +70,23 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
                 'message' => 'Live changed-content apply requires --force.',
             ];
 
-            return $result;
+            return $this->finalizeSyncState($result, $resolvedOptions);
         }
 
         if ($resolvedOptions['dry_run']) {
-            return $result;
+            return $this->finalizeSyncState($result, $resolvedOptions);
         }
 
         $result = $this->runCleanupDeletedPhase($result, $resolvedOptions);
 
         if (is_array($result['error'] ?? null)) {
-            return $result;
+            return $this->finalizeSyncState($result, $resolvedOptions);
         }
 
-        return $this->runUpsertPresentPhase($result, $resolvedOptions);
+        return $this->finalizeSyncState(
+            $this->runUpsertPresentPhase($result, $resolvedOptions),
+            $resolvedOptions
+        );
     }
 
     /**
@@ -97,6 +103,7 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
             $result['scope']['input'] ?? null,
             $result['scope']['domains'] ?? [],
             $result['diff']['base'] ?? null,
+            $result['diff']['base_refs_by_domain'] ?? [],
             $result['diff']['head'] ?? null,
             $result['diff']['include_untracked'] ?? false,
             $runType,
@@ -131,6 +138,9 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
         return [
             'domains' => $this->normalizeDomainsOption($options['domains'] ?? null),
             'base' => trim((string) ($options['base'] ?? '')),
+            'base_refs_by_domain' => $this->normalizeBaseRefsByDomain(
+                is_array($options['base_refs_by_domain'] ?? null) ? $options['base_refs_by_domain'] : null
+            ),
             'head' => trim((string) ($options['head'] ?? '')),
             'staged' => (bool) ($options['staged'] ?? false),
             'working_tree' => (bool) ($options['working_tree'] ?? false),
@@ -141,6 +151,9 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
             'skip_release_check' => (bool) ($options['skip_release_check'] ?? false),
             'check_profile' => $checkProfile,
             'strict' => (bool) ($options['strict'] ?? false),
+            'track_sync_state' => ! array_key_exists('track_sync_state', $options)
+                || (bool) $options['track_sync_state'],
+            'heartbeat' => is_callable($options['heartbeat'] ?? null) ? $options['heartbeat'] : null,
         ];
     }
 
@@ -158,6 +171,7 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
             'diff' => [
                 'mode' => (string) ($planResult['diff']['mode'] ?? 'working_tree'),
                 'base' => $planResult['diff']['base'] ?? ($options['base'] !== '' ? $options['base'] : null),
+                'base_refs_by_domain' => (array) ($planResult['diff']['base_refs_by_domain'] ?? $options['base_refs_by_domain']),
                 'head' => $planResult['diff']['head'] ?? ($options['head'] !== '' ? $options['head'] : null),
                 'include_untracked' => (bool) ($planResult['diff']['include_untracked'] ?? $options['include_untracked']),
             ],
@@ -292,10 +306,12 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
      */
     private function runPreflight(array $result, array $options): array
     {
+        $this->heartbeat($options);
         $result['preflight']['executed'] = true;
         $packages = (array) ($result['plan']['packages'] ?? []);
 
         foreach ($packages as $index => $package) {
+            $this->heartbeat($options);
             $package = (array) $package;
             $action = (string) ($package['recommended_action'] ?? 'skip');
 
@@ -443,9 +459,11 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
      */
     private function runCleanupDeletedPhase(array $result, array $options): array
     {
+        $this->heartbeat($options);
         $packages = array_values((array) ($result['plan']['phases']['cleanup_deleted'] ?? []));
 
         foreach ($packages as $index => $package) {
+            $this->heartbeat($options);
             $package = (array) $package;
             $result['execution']['cleanup_deleted']['started']++;
 
@@ -507,9 +525,11 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
      */
     private function runUpsertPresentPhase(array $result, array $options): array
     {
+        $this->heartbeat($options);
         $packages = array_values((array) ($result['plan']['phases']['upsert_present'] ?? []));
 
         foreach ($packages as $index => $package) {
+            $this->heartbeat($options);
             $package = (array) $package;
             $action = (string) ($package['recommended_action'] ?? 'skip');
             $result['execution']['upsert_present']['started']++;
@@ -768,6 +788,7 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
             '',
             '- Diff Mode: `' . (string) ($result['diff']['mode'] ?? 'working_tree') . '`',
             '- Base: `' . (string) (($result['diff']['base'] ?? null) ?: '') . '`',
+            '- Base Refs By Domain: `' . json_encode((array) ($result['diff']['base_refs_by_domain'] ?? []), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '`',
             '- Head: `' . (string) (($result['diff']['head'] ?? null) ?: '') . '`',
             '- Include Untracked: `' . (((bool) ($result['diff']['include_untracked'] ?? false)) ? 'true' : 'false') . '`',
             '- Domains: `' . implode(', ', (array) ($result['scope']['domains'] ?? [])) . '`',
@@ -835,5 +856,117 @@ class ChangedContentApplyService extends AbstractCrossDomainChangedContentServic
         }
 
         return implode(PHP_EOL, $lines) . PHP_EOL;
+    }
+
+    /**
+     * @param  array<string, mixed>  $result
+     * @param  array<string, mixed>  $options
+     * @return array<string, mixed>
+     */
+    private function finalizeSyncState(array $result, array $options): array
+    {
+        $this->heartbeat($options);
+
+        if (! $this->shouldTrackSyncState($result, $options)) {
+            return $result;
+        }
+
+        $domains = (array) ($result['scope']['domains'] ?? []);
+        $headRef = trim((string) ($result['diff']['head'] ?? ''));
+        $baseRefsByDomain = $this->resolvedBaseRefsByDomain($result, $domains);
+        $meta = $this->syncAttemptMeta($result);
+
+        if ($options['dry_run']) {
+            $this->contentSyncStateService?->recordDryRun($domains, $baseRefsByDomain, $headRef, $meta);
+
+            return $result;
+        }
+
+        if (is_array($result['error'] ?? null)) {
+            $this->contentSyncStateService?->recordFailure($domains, $baseRefsByDomain, $headRef, $meta);
+
+            return $result;
+        }
+
+        $this->contentSyncStateService?->recordSuccess($domains, $baseRefsByDomain, $headRef, $meta);
+
+        return $result;
+    }
+
+    /**
+     * @param  array<string, mixed>  $result
+     * @param  array<string, mixed>  $options
+     */
+    private function shouldTrackSyncState(array $result, array $options): bool
+    {
+        if ($this->contentSyncStateService === null) {
+            return false;
+        }
+
+        if (! (bool) ($options['track_sync_state'] ?? true)) {
+            return false;
+        }
+
+        if ((string) ($result['diff']['mode'] ?? 'working_tree') !== 'refs') {
+            return false;
+        }
+
+        if (trim((string) ($result['diff']['head'] ?? '')) === '') {
+            return false;
+        }
+
+        $baseRefsByDomain = (array) ($result['diff']['base_refs_by_domain'] ?? []);
+        $singleBase = trim((string) ($result['diff']['base'] ?? ''));
+
+        return $baseRefsByDomain !== [] || $singleBase !== '';
+    }
+
+    /**
+     * @param  array<string, mixed>  $result
+     * @param  list<string>  $domains
+     * @return array<string, string|null>
+     */
+    private function resolvedBaseRefsByDomain(array $result, array $domains): array
+    {
+        $diffBaseRefs = (array) ($result['diff']['base_refs_by_domain'] ?? []);
+        $singleBase = trim((string) ($result['diff']['base'] ?? ''));
+        $resolved = [];
+
+        foreach ($domains as $domain) {
+            $baseRef = trim((string) ($diffBaseRefs[$domain] ?? $singleBase));
+            $resolved[$domain] = $baseRef !== '' ? $baseRef : null;
+        }
+
+        return $resolved;
+    }
+
+    /**
+     * @param  array<string, mixed>  $result
+     * @return array<string, mixed>
+     */
+    private function syncAttemptMeta(array $result): array
+    {
+        return [
+            'diff_mode' => (string) ($result['diff']['mode'] ?? 'refs'),
+            'stage' => (string) (($result['error']['stage'] ?? null) ?: 'completed'),
+            'phase' => (string) (($result['error']['phase'] ?? null) ?: ''),
+            'reason' => (string) (($result['error']['reason'] ?? null) ?: ''),
+            'message' => (string) (($result['error']['message'] ?? null) ?: ''),
+            'package' => (string) (($result['error']['package'] ?? null) ?: ''),
+            'plan_summary' => (array) ($result['plan']['summary'] ?? []),
+            'preflight_summary' => (array) ($result['preflight']['summary'] ?? []),
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $options
+     */
+    private function heartbeat(array $options): void
+    {
+        $heartbeat = $options['heartbeat'] ?? null;
+
+        if (is_callable($heartbeat)) {
+            $heartbeat();
+        }
     }
 }

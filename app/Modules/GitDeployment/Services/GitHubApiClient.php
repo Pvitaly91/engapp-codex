@@ -71,6 +71,56 @@ class GitHubApiClient
     }
 
     /**
+     * @param  array<string, mixed>  $query
+     *
+     * @throws RuntimeException
+     */
+    public function listWorkflowRuns(string $workflow, array $query = []): array
+    {
+        return $this->request('GET', $this->repoUri('actions/workflows/' . rawurlencode($workflow) . '/runs'), [
+            'query' => $query,
+        ]);
+    }
+
+    /**
+     * @throws RuntimeException
+     */
+    public function getWorkflowRun(int|string $runId): array
+    {
+        return $this->request('GET', $this->repoUri('actions/runs/' . rawurlencode((string) $runId)));
+    }
+
+    /**
+     * @param  array<string, mixed>  $inputs
+     * @return array{http_status:int}
+     *
+     * @throws RuntimeException
+     */
+    public function dispatchWorkflow(string $workflowFile, string $ref, array $inputs): array
+    {
+        try {
+            $response = $this->client->request('POST', $this->repoUri('actions/workflows/' . rawurlencode($workflowFile) . '/dispatches'), [
+                'json' => [
+                    'ref' => $ref,
+                    'inputs' => $inputs,
+                ],
+            ]);
+        } catch (GuzzleException $exception) {
+            Log::warning('GitHub workflow dispatch failed', [
+                'workflow' => $workflowFile,
+                'ref' => $ref,
+                'message' => $exception->getMessage(),
+            ]);
+
+            throw new RuntimeException('Помилка запуску GitHub Actions workflow: ' . $exception->getMessage(), 0, $exception);
+        }
+
+        return [
+            'http_status' => $response->getStatusCode(),
+        ];
+    }
+
+    /**
      * @throws RuntimeException
      */
     public function downloadArchive(string $ref, string $format = 'zip'): string

@@ -1356,6 +1356,296 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
         $this->assertStringContainsString('polyglot-second-conditional-basics-a2', $contents);
     }
 
+    public function test_command_writes_final_drill_a2_prompt_for_real_theory_page_and_skeleton(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-final-drill-a2.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $loaderPath = base_path('database/seeders/V3/Polyglot/PolyglotFinalDrillA2PromptTestSeeder.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/PolyglotFinalDrillA2PromptTestSeeder');
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $outputAbsolutePath,
+            dirname($outputAbsolutePath),
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'basic-grammar',
+            'theoryPageSlug' => 'a2-mixed-revision',
+            'lessonSlug' => 'polyglot-final-drill-a2',
+            'lessonOrder' => 16,
+            '--title' => 'Polyglot: mixed revision / final drill (A2)',
+            '--topic' => 'mixed revision / final drill',
+            '--seeder' => 'PolyglotFinalDrillA2PromptTestSeeder',
+            '--course' => 'polyglot-english-a2',
+            '--level' => 'A2',
+            '--previous' => 'polyglot-second-conditional-basics-a2',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-FINAL-DRILL-A2-TEST',
+            '--output' => $outputRelativePath,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($packagePath . '/definition.json');
+        $this->assertStringContainsString('Resolved theory page: A2 Mixed Revision', $output);
+        $this->assertStringContainsString('/theory/basic-grammar/a2-mixed-revision', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotFinalDrillA2PromptTestSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-FINAL-DRILL-A2-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-final-drill-a2', $contents);
+    }
+
+    public function test_command_writes_present_perfect_continuous_basics_b1_prompt_for_real_theory_page_and_skeleton(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-present-perfect-continuous-basics-b1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $loaderPath = base_path('database/seeders/V3/Polyglot/PolyglotPresentPerfectContinuousBasicsPromptTestSeeder.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/PolyglotPresentPerfectContinuousBasicsPromptTestSeeder');
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $outputAbsolutePath,
+            dirname($outputAbsolutePath),
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'present-perfect-continuous',
+            'theoryPageSlug' => 'present-perfect-continuous-forms',
+            'lessonSlug' => 'polyglot-present-perfect-continuous-basics-b1',
+            'lessonOrder' => 1,
+            '--title' => 'Polyglot: present perfect continuous basics (B1)',
+            '--topic' => 'present perfect continuous basics',
+            '--seeder' => 'PolyglotPresentPerfectContinuousBasicsPromptTestSeeder',
+            '--course' => 'polyglot-english-b1',
+            '--level' => 'B1',
+            '--next' => 'polyglot-present-perfect-continuous-vs-present-perfect-b1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PP-CONT-BASICS-B1-TEST',
+            '--output' => $outputRelativePath,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($packagePath . '/definition.json');
+        $this->assertStringContainsString(
+            'Resolved theory page: Present Perfect Continuous: Forms and Use',
+            $output
+        );
+        $this->assertStringContainsString(
+            '/theory/present-perfect-continuous/present-perfect-continuous-forms',
+            $output
+        );
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPresentPerfectContinuousBasicsPromptTestSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-PP-CONT-BASICS-B1-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-present-perfect-continuous-basics-b1', $contents);
+        $this->assertStringContainsString('polyglot-english-b1', $contents);
+    }
+
+    public function test_command_writes_present_perfect_continuous_vs_present_perfect_b1_prompt_for_real_theory_page_and_skeleton(): void
+    {
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-present-perfect-continuous-vs-present-perfect-b1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $loaderPath = base_path('database/seeders/V3/Polyglot/PolyglotPresentPerfectContinuousVsPresentPerfectPromptTestSeeder.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/PolyglotPresentPerfectContinuousVsPresentPerfectPromptTestSeeder');
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $outputAbsolutePath,
+            dirname($outputAbsolutePath),
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'tenses',
+            'theoryPageSlug' => 'present-perfect-vs-present-perfect-continuous',
+            'lessonSlug' => 'polyglot-present-perfect-continuous-vs-present-perfect-b1',
+            'lessonOrder' => 2,
+            '--title' => 'Polyglot: present perfect continuous vs present perfect (B1)',
+            '--topic' => 'present perfect continuous vs present perfect',
+            '--seeder' => 'PolyglotPresentPerfectContinuousVsPresentPerfectPromptTestSeeder',
+            '--course' => 'polyglot-english-b1',
+            '--level' => 'B1',
+            '--previous' => 'polyglot-present-perfect-continuous-basics-b1',
+            '--next' => 'polyglot-past-perfect-basics-b1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PP-CONT-VS-PP-B1-TEST',
+            '--output' => $outputRelativePath,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($packagePath . '/definition.json');
+        $this->assertStringContainsString(
+            'Resolved theory page: Present Perfect vs Present Perfect Continuous',
+            $output
+        );
+        $this->assertStringContainsString(
+            '/theory/tenses/present-perfect-vs-present-perfect-continuous',
+            $output
+        );
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPresentPerfectContinuousVsPresentPerfectPromptTestSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-PP-CONT-VS-PP-B1-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-present-perfect-continuous-vs-present-perfect-b1', $contents);
+        $this->assertStringContainsString('polyglot-english-b1', $contents);
+    }
+
+    public function test_command_writes_past_perfect_basics_b1_prompt_for_real_theory_page_and_skeleton(): void
+    {
+        $seeder = 'PolyglotPastPerfectBasicsPromptTestSeeder';
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-past-perfect-basics-b1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $loaderPath = base_path('database/seeders/V3/Polyglot/' . $seeder . '.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/' . $seeder);
+
+        File::delete($outputAbsolutePath);
+        File::delete($loaderPath);
+        File::deleteDirectory($packagePath);
+
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $outputAbsolutePath,
+            dirname($outputAbsolutePath),
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'past-perfect',
+            'theoryPageSlug' => 'past-perfect-forms',
+            'lessonSlug' => 'polyglot-past-perfect-basics-b1',
+            'lessonOrder' => 3,
+            '--title' => 'Polyglot: past perfect basics (B1)',
+            '--topic' => 'past perfect basics',
+            '--seeder' => 'PolyglotPastPerfectBasicsPromptTestSeeder',
+            '--course' => 'polyglot-english-b1',
+            '--level' => 'B1',
+            '--previous' => 'polyglot-present-perfect-continuous-vs-present-perfect-b1',
+            '--next' => 'polyglot-narrative-tenses-basics-b1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-PAST-PERFECT-B1-TEST',
+            '--output' => $outputRelativePath,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($packagePath . '/definition.json');
+        $this->assertStringContainsString(
+            'Resolved theory page: Past Perfect: Forms and Use',
+            $output
+        );
+        $this->assertStringContainsString(
+            '/theory/past-perfect/past-perfect-forms',
+            $output
+        );
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotPastPerfectBasicsPromptTestSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-PAST-PERFECT-B1-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-past-perfect-basics-b1', $contents);
+        $this->assertStringContainsString('polyglot-english-b1', $contents);
+    }
+
+    public function test_command_writes_narrative_tenses_basics_b1_prompt_for_real_theory_page_and_skeleton(): void
+    {
+        $seeder = 'PolyglotNarrativeTensesBasicsPromptTestSeeder';
+        $outputRelativePath = 'storage/app/testing/polyglot-prompts/polyglot-narrative-tenses-basics-b1.txt';
+        $outputAbsolutePath = base_path($outputRelativePath);
+        $loaderPath = base_path('database/seeders/V3/Polyglot/' . $seeder . '.php');
+        $packagePath = base_path('database/seeders/V3/Polyglot/' . $seeder);
+
+        File::delete($outputAbsolutePath);
+        File::delete($loaderPath);
+        File::deleteDirectory($packagePath);
+
+        $this->cleanupPaths = array_merge($this->cleanupPaths, [
+            $outputAbsolutePath,
+            dirname($outputAbsolutePath),
+            $loaderPath,
+            $packagePath,
+        ]);
+
+        $exitCode = Artisan::call('polyglot:generate-v3-prompt', [
+            'theoryCategorySlug' => 'tenses',
+            'theoryPageSlug' => 'narrative-tenses',
+            'lessonSlug' => 'polyglot-narrative-tenses-basics-b1',
+            'lessonOrder' => 4,
+            '--title' => 'Polyglot: narrative tenses basics (B1)',
+            '--topic' => 'narrative tenses basics',
+            '--seeder' => 'PolyglotNarrativeTensesBasicsPromptTestSeeder',
+            '--course' => 'polyglot-english-b1',
+            '--level' => 'B1',
+            '--previous' => 'polyglot-past-perfect-basics-b1',
+            '--next' => 'polyglot-future-continuous-basics-b1',
+            '--items' => 24,
+            '--prompt-id' => 'GLZ-PROMPT-NARRATIVE-TENSES-B1-TEST',
+            '--output' => $outputRelativePath,
+            '--write-skeleton' => true,
+        ]);
+
+        $output = Artisan::output();
+        $contents = str_replace("\r\n", "\n", File::get($outputAbsolutePath));
+
+        $this->assertSame(0, $exitCode);
+        $this->assertFileExists($outputAbsolutePath);
+        $this->assertFileExists($loaderPath);
+        $this->assertFileExists($packagePath . '/definition.json');
+        $this->assertStringContainsString(
+            'Resolved theory page: Narrative Tenses: Past Simple, Past Continuous and Past Perfect',
+            $output
+        );
+        $this->assertStringContainsString('/theory/tenses/narrative-tenses', $output);
+        $this->assertStringContainsString(
+            'database/seeders/V3/Polyglot/PolyglotNarrativeTensesBasicsPromptTestSeeder/definition.json',
+            $output
+        );
+        $this->assertStringContainsString(
+            'CODEX PROMPT ID: GLZ-PROMPT-NARRATIVE-TENSES-B1-TEST',
+            $contents
+        );
+        $this->assertStringContainsString('polyglot-narrative-tenses-basics-b1', $contents);
+        $this->assertStringContainsString('polyglot-english-b1', $contents);
+    }
+
     public function test_skeleton_writer_creates_canonical_package_and_respects_force_flag(): void
     {
         $seeder = 'PolyglotSkeletonDemoTestSeeder';

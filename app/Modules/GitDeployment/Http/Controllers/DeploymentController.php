@@ -2,6 +2,7 @@
 
 namespace App\Modules\GitDeployment\Http\Controllers;
 
+use App\Models\ContentOperationRun;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
@@ -13,6 +14,16 @@ use App\Modules\GitDeployment\Models\BranchUsageHistory;
 use App\Modules\GitDeployment\Http\Concerns\ParsesDeploymentPaths;
 use App\Modules\GitDeployment\Services\ChangedContentDeploymentApplyService;
 use App\Modules\GitDeployment\Services\ChangedContentDeploymentPreviewService;
+use App\Modules\GitDeployment\Services\DeploymentContentLockService;
+use App\Services\ContentDeployment\ContentSyncApplyService;
+use App\Services\ContentDeployment\ContentOperationLockService;
+use App\Services\ContentDeployment\ContentOperationRunService;
+use App\Services\ContentDeployment\ContentOperationReplayService;
+use App\Services\ContentDeployment\ContentOperationsDoctorService;
+use App\Services\ContentDeployment\ContentOpsCiDispatchService;
+use App\Services\ContentDeployment\ContentOpsCiStatusService;
+use App\Services\ContentDeployment\ContentReleaseGateService;
+use App\Services\ContentDeployment\ContentSyncPlanService;
 use Symfony\Component\Process\Process;
 use ZipArchive;
 
@@ -30,7 +41,13 @@ class DeploymentController extends BaseController
 
         return view('git-deployment::deployment.index', $this->indexViewData(
             session('deployment_content_preview'),
-            session('deployment_content_apply')
+            session('deployment_content_apply'),
+            session('deployment_content_sync_preview'),
+            session('deployment_content_sync_apply'),
+            session('deployment_content_doctor'),
+            session('deployment_content_release_gate'),
+            session('deployment_content_ci_status'),
+            session('deployment_content_ci_dispatch')
         ));
     }
 
@@ -73,14 +90,363 @@ class DeploymentController extends BaseController
 
         return view('git-deployment::deployment.index', $this->indexViewData(
             is_array($contentApply['preview'] ?? null) ? $contentApply['preview'] : null,
-            $contentApply
+            $contentApply,
+            session('deployment_content_sync_preview'),
+            session('deployment_content_sync_apply')
         ));
+    }
+
+    public function contentSyncPreview(
+        Request $request,
+        ContentSyncPlanService $contentSyncPlanService
+    ): View|RedirectResponse|\Illuminate\Http\JsonResponse {
+        if ($redirect = $this->redirectIfShellUnavailable()) {
+            return $redirect;
+        }
+
+        $preview = $contentSyncPlanService->run($this->contentSyncPlanOptions($request));
+
+        if ($request->expectsJson() || $request->boolean('json')) {
+            return response()->json($preview);
+        }
+
+        return view('git-deployment::deployment.index', $this->indexViewData(
+            session('deployment_content_preview'),
+            session('deployment_content_apply'),
+            $preview,
+            session('deployment_content_sync_apply')
+        ));
+    }
+
+    public function contentDoctor(
+        Request $request,
+        ContentOperationsDoctorService $contentOperationsDoctorService
+    ): View|RedirectResponse|\Illuminate\Http\JsonResponse {
+        if ($redirect = $this->redirectIfShellUnavailable()) {
+            return $redirect;
+        }
+
+        $doctor = $contentOperationsDoctorService->run($this->contentDoctorOptions($request));
+
+        if ($request->boolean('write_report')) {
+            $path = $contentOperationsDoctorService->writeReport($doctor);
+            $doctor['artifacts']['report_path'] = storage_path('app/' . $path);
+        }
+
+        if ($request->expectsJson() || $request->boolean('json')) {
+            return response()->json($doctor);
+        }
+
+        return view('git-deployment::deployment.index', $this->indexViewData(
+            session('deployment_content_preview'),
+            session('deployment_content_apply'),
+            session('deployment_content_sync_preview'),
+            session('deployment_content_sync_apply'),
+            $doctor
+        ));
+    }
+
+    public function contentReleaseGate(
+        Request $request,
+        ContentReleaseGateService $contentReleaseGateService
+    ): View|RedirectResponse|\Illuminate\Http\JsonResponse {
+        if ($redirect = $this->redirectIfShellUnavailable()) {
+            return $redirect;
+        }
+
+        $target = trim((string) $request->query('target', $request->input('target', '')));
+        $releaseGate = $contentReleaseGateService->run(
+            $target !== '' ? $target : null,
+            $this->contentReleaseGateOptions($request)
+        );
+
+        if ($request->boolean('write_report')) {
+            $path = $contentReleaseGateService->writeReport($releaseGate);
+            $releaseGate['artifacts']['report_path'] = storage_path('app/' . $path);
+        }
+
+        if ($request->expectsJson() || $request->boolean('json')) {
+            return response()->json($releaseGate);
+        }
+
+        return view('git-deployment::deployment.index', $this->indexViewData(
+            session('deployment_content_preview'),
+            session('deployment_content_apply'),
+            session('deployment_content_sync_preview'),
+            session('deployment_content_sync_apply'),
+            session('deployment_content_doctor'),
+            $releaseGate
+        ));
+    }
+
+    public function contentCiStatus(
+        Request $request,
+        ContentOpsCiStatusService $contentOpsCiStatusService
+    ): View|RedirectResponse|\Illuminate\Http\JsonResponse {
+        if ($redirect = $this->redirectIfShellUnavailable()) {
+            return $redirect;
+        }
+
+        $ciStatus = $contentOpsCiStatusService->run($this->contentCiStatusOptions($request));
+
+        if ($request->boolean('write_report')) {
+            $path = $contentOpsCiStatusService->writeReport($ciStatus);
+            $ciStatus['artifacts']['report_path'] = storage_path('app/' . $path);
+        }
+
+        if ($request->expectsJson() || $request->boolean('json')) {
+            return response()->json($ciStatus);
+        }
+
+        return view('git-deployment::deployment.index', $this->indexViewData(
+            session('deployment_content_preview'),
+            session('deployment_content_apply'),
+            session('deployment_content_sync_preview'),
+            session('deployment_content_sync_apply'),
+            session('deployment_content_doctor'),
+            session('deployment_content_release_gate'),
+            $ciStatus,
+            session('deployment_content_ci_dispatch')
+        ));
+    }
+
+    public function contentCiDispatch(
+        Request $request,
+        ContentOpsCiDispatchService $contentOpsCiDispatchService
+    ): View|RedirectResponse|\Illuminate\Http\JsonResponse {
+        if ($redirect = $this->redirectIfShellUnavailable()) {
+            return $redirect;
+        }
+
+        $dispatch = $contentOpsCiDispatchService->run($this->contentCiDispatchOptions($request));
+
+        if ($request->boolean('write_report')) {
+            $path = $contentOpsCiDispatchService->writeReport($dispatch);
+            $dispatch['artifacts']['report_path'] = storage_path('app/' . $path);
+        }
+
+        if ($request->expectsJson() || $request->boolean('json')) {
+            return response()->json($dispatch);
+        }
+
+        $status = (string) data_get($dispatch, 'dispatch.status', 'failed');
+        $message = match ($status) {
+            'simulated' => 'ContentOps CI dispatch dry-run completed.',
+            'dispatched' => 'ContentOps CI Release Gate workflow dispatch accepted.',
+            default => (string) data_get($dispatch, 'error.message', 'ContentOps CI dispatch failed.'),
+        };
+
+        return redirect()
+            ->route('deployment.index')
+            ->with('deployment', [
+                'status' => $status === 'failed' ? 'error' : 'success',
+                'message' => $message,
+                'commands' => [],
+                'branch' => data_get($dispatch, 'target.branch'),
+            ])
+            ->with('deployment_content_ci_dispatch', $dispatch)
+            ->with('deployment_content_ci_status', session('deployment_content_ci_status'));
+    }
+
+    public function contentSync(
+        Request $request,
+        ContentSyncApplyService $contentSyncApplyService,
+        ContentOperationRunService $contentOperationRunService,
+        ContentOperationLockService $contentOperationLockService
+    ): RedirectResponse|\Illuminate\Http\JsonResponse {
+        if ($redirect = $this->redirectIfShellUnavailable()) {
+            return $redirect;
+        }
+
+        $options = $this->contentSyncApplyOptions($request);
+        $run = null;
+        $historyWarning = null;
+
+        try {
+            $run = $contentOperationRunService->start([
+                'operation_kind' => 'deployment_sync_repair',
+                'trigger_source' => 'deployment_ui',
+                'domains' => $options['domains'] ?? ['v3', 'page-v3'],
+                'head_ref' => $options['head_ref'] ?? null,
+                'dry_run' => (bool) ($options['dry_run'] ?? false),
+                'strict' => (bool) ($options['strict'] ?? false),
+                'with_release_check' => $options['with_release_check'] ?? null,
+                'skip_release_check' => $options['skip_release_check'] ?? null,
+                'bootstrap_uninitialized' => (bool) ($options['bootstrap_uninitialized'] ?? false),
+                'operator_user_id' => $request->user()?->getAuthIdentifier(),
+                'meta' => [
+                    'deployment_mode' => 'standard',
+                    'repair_flow' => true,
+                ],
+            ]);
+        } catch (\Throwable $exception) {
+            report($exception);
+            $historyWarning = 'Content operation history could not be initialized: ' . $exception->getMessage();
+        }
+
+        $lockLease = $contentOperationLockService->acquire([
+            'operation_kind' => 'deployment_sync_repair',
+            'trigger_source' => 'deployment_ui',
+            'domains' => $options['domains'] ?? ['v3', 'page-v3'],
+            'content_operation_run_id' => $run?->id,
+            'operator_user_id' => $request->user()?->getAuthIdentifier(),
+            'meta' => [
+                'deployment_mode' => 'standard',
+                'repair_flow' => true,
+                'dry_run' => (bool) ($options['dry_run'] ?? false),
+            ],
+        ], $request->boolean('content_sync_takeover_stale_lock'));
+
+        if (! (bool) ($lockLease['acquired'] ?? false)) {
+            $contentSyncApply = $this->lockBlockedContentSyncApply($lockLease, $options, 'deployment_ui');
+        } else {
+            try {
+                $ownerToken = $lockLease['owner_token'] ?? null;
+                $contentSyncApply = $contentSyncApplyService->run($options + [
+                    'heartbeat' => fn (): null => $this->heartbeatContentLock($contentOperationLockService, $ownerToken),
+                ]);
+            } finally {
+                $contentOperationLockService->release($lockLease['owner_token'] ?? null);
+            }
+
+            $contentSyncApply['lock'] = $this->contentLockPayload($lockLease, 'deployment_sync_repair', 'deployment_ui');
+        }
+
+        if ($run !== null) {
+            try {
+                $recordedRun = $this->recordSyncRepairRun($contentOperationRunService, $run, $contentSyncApply);
+                $contentSyncApply['operation_run'] = [
+                    'id' => $recordedRun->id,
+                    'status' => $recordedRun->status,
+                    'payload_json_path' => $recordedRun->payload_json_path ? storage_path('app/' . $recordedRun->payload_json_path) : null,
+                    'report_path' => $recordedRun->report_path ? storage_path('app/' . $recordedRun->report_path) : null,
+                ];
+            } catch (\Throwable $exception) {
+                report($exception);
+                $historyWarning = 'Content operation history could not be finalized: ' . $exception->getMessage();
+            }
+        }
+
+        if ($historyWarning !== null) {
+            $contentSyncApply['operation_run']['warning'] = $historyWarning;
+        }
+
+        if ($request->expectsJson() || $request->boolean('json')) {
+            return response()->json($contentSyncApply);
+        }
+
+        return $this->redirectWithFeedback(
+            empty($contentSyncApply['error']) ? 'success' : 'error',
+            empty($contentSyncApply['error'])
+                ? (((bool) ($contentSyncApply['apply']['dry_run'] ?? false))
+                    ? 'Dry-run content sync repair completed.'
+                    : 'Content sync repair completed.')
+                : (string) ($contentSyncApply['error']['message'] ?? 'Content sync repair failed.'),
+            [],
+            null,
+            null,
+            null,
+            $contentSyncApply['plan'] ?? null,
+            $contentSyncApply
+        );
+    }
+
+    public function contentRuns(
+        Request $request,
+        ContentOperationRunService $contentOperationRunService
+    ): View|\Illuminate\Http\JsonResponse {
+        $runs = $contentOperationRunService->latest([
+            'kind' => $request->query('kind'),
+            'status' => $request->query('status'),
+            'domains' => $request->query('domains'),
+        ], max(1, (int) $request->query('limit', 20)));
+
+        $payload = [
+            'summary' => [
+                'total' => $runs->count(),
+                'by_status' => $runs->countBy('status')->sortKeys()->all(),
+                'by_kind' => $runs->countBy('operation_kind')->sortKeys()->all(),
+            ],
+            'runs' => $runs->map(fn (ContentOperationRun $run): array => $this->mapContentOperationRun($run))->values()->all(),
+            'artifacts' => [
+                'report_path' => null,
+            ],
+        ];
+
+        if ($request->expectsJson() || $request->boolean('json')) {
+            return response()->json($payload);
+        }
+
+        return view('git-deployment::deployment.content-runs', [
+            'historyPayload' => $payload,
+            'supportsShell' => $this->supportsShellCommands(),
+        ]);
+    }
+
+    public function contentRun(
+        Request $request,
+        ContentOperationRun $contentOperationRun,
+        ContentOperationRunService $contentOperationRunService
+    ): View|\Illuminate\Http\JsonResponse {
+        $run = $contentOperationRunService->findWithArtifacts((int) $contentOperationRun->id);
+        abort_if($run === null, 404);
+
+        $payload = [
+            'run' => $this->mapContentOperationRun($run, true),
+        ];
+
+        if ($request->expectsJson() || $request->boolean('json')) {
+            return response()->json($payload);
+        }
+
+        return view('git-deployment::deployment.content-run-detail', [
+            'historyPayload' => $payload,
+            'contentReplay' => session('content_operation_replay'),
+            'supportsShell' => $this->supportsShellCommands(),
+        ]);
+    }
+
+    public function retryContentRun(
+        Request $request,
+        ContentOperationRun $contentOperationRun,
+        ContentOperationReplayService $contentOperationReplayService
+    ): RedirectResponse|\Illuminate\Http\JsonResponse {
+        $runMode = strtolower(trim((string) $request->input('run_mode', 'dry_run')));
+        $reuseOriginalMode = $request->boolean('reuse_original_mode');
+        $force = $runMode === 'live';
+        $dryRun = ! $force;
+
+        $triggerSource = in_array((string) $contentOperationRun->trigger_source, ['deployment_ui', 'native_deployment_ui'], true)
+            ? (string) $contentOperationRun->trigger_source
+            : 'deployment_ui';
+
+        $result = $contentOperationReplayService->run($contentOperationRun, [
+            'dry_run' => $dryRun,
+            'force' => $force,
+            'write_report' => true,
+            'strict' => $request->boolean('strict'),
+            'allow_success' => $request->boolean('allow_success'),
+            'reuse_original_mode' => $reuseOriginalMode,
+            'takeover_stale_lock' => $request->boolean('takeover_stale_lock'),
+            'trigger_source' => $triggerSource,
+            'operator_user_id' => $request->user()?->getAuthIdentifier(),
+        ]);
+
+        if ($request->expectsJson() || $request->boolean('json')) {
+            return response()->json($result);
+        }
+
+        return redirect()
+            ->route('deployment.content-runs.show', $contentOperationRun->id)
+            ->with('content_operation_replay', $result);
     }
 
     public function deploy(
         Request $request,
         ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService,
-        ChangedContentDeploymentApplyService $changedContentDeploymentApplyService
+        ChangedContentDeploymentApplyService $changedContentDeploymentApplyService,
+        DeploymentContentLockService $deploymentContentLockService,
+        ContentOpsCiStatusService $contentOpsCiStatusService
     ): RedirectResponse
     {
         $branch = $this->sanitizeBranchName((string) $request->input('branch', 'main')) ?: 'main';
@@ -94,13 +460,16 @@ class DeploymentController extends BaseController
             return $redirect;
         }
 
+        $previewOptions = $contentApplyRequested
+            ? $this->contentPreviewOptionsFromApplyOptions($contentApplyOptions)
+            : $this->contentPreviewOptions($request);
+        $previewOptions['content_apply_requested'] = $contentApplyRequested;
+
         $contentPreview = $changedContentDeploymentPreviewService->preview([
             'mode' => 'standard',
             'source_kind' => 'deploy',
             'branch' => $branch,
-        ], $contentApplyRequested
-            ? $this->contentPreviewOptionsFromApplyOptions($contentApplyOptions)
-            : $this->contentPreviewOptions($request));
+        ], $previewOptions);
 
         if ($changedContentDeploymentPreviewService->gateBlocks($contentPreview)) {
             return $this->redirectWithFeedback(
@@ -112,9 +481,62 @@ class DeploymentController extends BaseController
             );
         }
 
+        if ((bool) config('git-deployment.contentops_ci_status.required_for_deploy', false)) {
+            $contentCiStatus = $this->deploymentContentCiStatus($request, $contentOpsCiStatusService, $contentPreview, $branch);
+
+            if ($this->contentCiStatusBlocksDeployment($contentCiStatus)) {
+                return $this->redirectWithFeedback(
+                    'error',
+                    'Деплой зупинено ContentOps CI gate до початку git-оновлення. ' . (string) data_get($contentCiStatus, 'readiness.message', 'ContentOps CI status is not deploy-ready.'),
+                    [],
+                    $branch,
+                    $contentPreview,
+                    null,
+                    null,
+                    null,
+                    $contentCiStatus
+                );
+            }
+        }
+
+        $contentLockReservation = null;
+
+        if ($contentApplyRequested) {
+            $contentLockReservation = $deploymentContentLockService->reserve($contentPreview, array_merge(
+                $contentApplyOptions,
+                [
+                    'requested' => true,
+                    'dry_run' => false,
+                    'trigger_source' => 'deployment_ui',
+                    'operator_user_id' => $request->user()?->getAuthIdentifier(),
+                ]
+            ));
+
+            if ((bool) ($contentLockReservation['blocked'] ?? false)) {
+                $contentApply = $changedContentDeploymentApplyService->lockBlockedResult($contentPreview, $contentLockReservation, array_merge(
+                    $contentApplyOptions,
+                    [
+                        'requested' => true,
+                        'dry_run' => false,
+                    ]
+                ));
+
+                return $this->redirectWithFeedback(
+                    'error',
+                    'Деплой зупинено content-operation lock gate до початку git-оновлення.',
+                    [],
+                    $branch,
+                    $contentPreview,
+                    $contentApply
+                );
+            }
+        }
+
+        try {
         $repoPath = base_path();
         $commandsOutput = [];
 
+        $deploymentContentLockService->heartbeat($contentLockReservation);
         $currentCommitProcess = $this->runCommand(['git', 'rev-parse', 'HEAD'], $repoPath);
         $currentCommit = trim($currentCommitProcess->getOutput());
         $commandsOutput[] = $this->formatProcess('git rev-parse HEAD', $currentCommitProcess);
@@ -133,6 +555,7 @@ class DeploymentController extends BaseController
             $backupStored = true;
         }
 
+        $deploymentContentLockService->heartbeat($contentLockReservation);
         $fetchProcess = $this->runCommand(['git', 'fetch', 'origin'], $repoPath);
         $commandsOutput[] = $this->formatProcess('git fetch origin', $fetchProcess);
 
@@ -144,11 +567,12 @@ class DeploymentController extends BaseController
                 $branch,
                 $contentPreview,
                 $contentApplyRequested
-                    ? $changedContentDeploymentApplyService->deploymentFailedResult($contentPreview, 'Команда "git fetch" завершилась з помилкою.', array_merge($contentApplyOptions, ['requested' => true, 'dry_run' => false]))
+                    ? $changedContentDeploymentApplyService->deploymentFailedResult($contentPreview, 'Команда "git fetch" завершилась з помилкою.', array_merge($contentApplyOptions, $deploymentContentLockService->applyOptions($contentLockReservation), ['requested' => true, 'dry_run' => false]))
                     : null
             );
         }
 
+        $deploymentContentLockService->heartbeat($contentLockReservation);
         $resetProcess = $this->runCommand(['git', 'reset', '--hard', "origin/{$branch}"], $repoPath);
         $commandsOutput[] = $this->formatProcess("git reset --hard origin/{$branch}", $resetProcess);
 
@@ -160,11 +584,12 @@ class DeploymentController extends BaseController
                 $branch,
                 $contentPreview,
                 $contentApplyRequested
-                    ? $changedContentDeploymentApplyService->deploymentFailedResult($contentPreview, 'Не вдалося оновити код до останнього коміту.', array_merge($contentApplyOptions, ['requested' => true, 'dry_run' => false]))
+                    ? $changedContentDeploymentApplyService->deploymentFailedResult($contentPreview, 'Не вдалося оновити код до останнього коміту.', array_merge($contentApplyOptions, $deploymentContentLockService->applyOptions($contentLockReservation), ['requested' => true, 'dry_run' => false]))
                     : null
             );
         }
 
+        $deploymentContentLockService->heartbeat($contentLockReservation);
         $cleanProcess = $this->runCommand(['git', 'clean', '-fd'], $repoPath);
         $commandsOutput[] = $this->formatProcess('git clean -fd', $cleanProcess);
 
@@ -176,7 +601,7 @@ class DeploymentController extends BaseController
                 $branch,
                 $contentPreview,
                 $contentApplyRequested
-                    ? $changedContentDeploymentApplyService->deploymentFailedResult($contentPreview, 'Не вдалося видалити локальні файли, яких немає в репозиторії.', array_merge($contentApplyOptions, ['requested' => true, 'dry_run' => false]))
+                    ? $changedContentDeploymentApplyService->deploymentFailedResult($contentPreview, 'Не вдалося видалити локальні файли, яких немає в репозиторії.', array_merge($contentApplyOptions, $deploymentContentLockService->applyOptions($contentLockReservation), ['requested' => true, 'dry_run' => false]))
                     : null
             );
         }
@@ -195,8 +620,10 @@ class DeploymentController extends BaseController
         }
 
         if ($contentApplyRequested) {
+            $deploymentContentLockService->heartbeat($contentLockReservation);
             $contentApply = $changedContentDeploymentApplyService->runFromPreview($contentPreview, array_merge(
                 $contentApplyOptions,
+                $deploymentContentLockService->applyOptions($contentLockReservation),
                 [
                     'requested' => true,
                     'dry_run' => false,
@@ -277,6 +704,9 @@ class DeploymentController extends BaseController
         }
 
         return $this->redirectWithFeedback('success', $message, $commandsOutput, $branch, $contentPreview, $contentApply);
+        } finally {
+            $deploymentContentLockService->release($contentLockReservation);
+        }
     }
 
     public function deployPartial(Request $request): RedirectResponse
@@ -509,7 +939,9 @@ class DeploymentController extends BaseController
     public function rollback(
         Request $request,
         ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService,
-        ChangedContentDeploymentApplyService $changedContentDeploymentApplyService
+        ChangedContentDeploymentApplyService $changedContentDeploymentApplyService,
+        DeploymentContentLockService $deploymentContentLockService,
+        ContentOpsCiStatusService $contentOpsCiStatusService
     ): RedirectResponse
     {
         if ($redirect = $this->redirectIfShellUnavailable()) {
@@ -528,13 +960,16 @@ class DeploymentController extends BaseController
 
         $contentApplyRequested = $this->contentApplyRequested($request);
         $contentApplyOptions = $this->contentApplyOptions($request);
+        $previewOptions = $contentApplyRequested
+            ? $this->contentPreviewOptionsFromApplyOptions($contentApplyOptions)
+            : $this->contentPreviewOptions($request);
+        $previewOptions['content_apply_requested'] = $contentApplyRequested;
+
         $contentPreview = $changedContentDeploymentPreviewService->preview([
             'mode' => 'standard',
             'source_kind' => 'backup_restore',
             'commit' => (string) $selected['commit'],
-        ], $contentApplyRequested
-            ? $this->contentPreviewOptionsFromApplyOptions($contentApplyOptions)
-            : $this->contentPreviewOptions($request));
+        ], $previewOptions);
 
         if ($changedContentDeploymentPreviewService->gateBlocks($contentPreview)) {
             return $this->redirectWithFeedback(
@@ -546,7 +981,60 @@ class DeploymentController extends BaseController
             );
         }
 
+        if ((bool) config('git-deployment.contentops_ci_status.required_for_deploy', false)) {
+            $contentCiStatus = $this->deploymentContentCiStatus($request, $contentOpsCiStatusService, $contentPreview, null);
+
+            if ($this->contentCiStatusBlocksDeployment($contentCiStatus)) {
+                return $this->redirectWithFeedback(
+                    'error',
+                    'Відкат зупинено ContentOps CI gate до початку git restore. ' . (string) data_get($contentCiStatus, 'readiness.message', 'ContentOps CI status is not deploy-ready.'),
+                    [],
+                    null,
+                    $contentPreview,
+                    null,
+                    null,
+                    null,
+                    $contentCiStatus
+                );
+            }
+        }
+
+        $contentLockReservation = null;
+
+        if ($contentApplyRequested) {
+            $contentLockReservation = $deploymentContentLockService->reserve($contentPreview, array_merge(
+                $contentApplyOptions,
+                [
+                    'requested' => true,
+                    'dry_run' => false,
+                    'trigger_source' => 'deployment_ui',
+                    'operator_user_id' => $request->user()?->getAuthIdentifier(),
+                ]
+            ));
+
+            if ((bool) ($contentLockReservation['blocked'] ?? false)) {
+                $contentApply = $changedContentDeploymentApplyService->lockBlockedResult($contentPreview, $contentLockReservation, array_merge(
+                    $contentApplyOptions,
+                    [
+                        'requested' => true,
+                        'dry_run' => false,
+                    ]
+                ));
+
+                return $this->redirectWithFeedback(
+                    'error',
+                    'Відкат зупинено content-operation lock gate до початку git restore.',
+                    [],
+                    null,
+                    $contentPreview,
+                    $contentApply
+                );
+            }
+        }
+
+        try {
         $commandsOutput = [];
+        $deploymentContentLockService->heartbeat($contentLockReservation);
         $resetProcess = $this->runCommand(['git', 'reset', '--hard', $selected['commit']], $repoPath);
         $commandsOutput[] = $this->formatProcess("git reset --hard {$selected['commit']}", $resetProcess);
 
@@ -558,7 +1046,7 @@ class DeploymentController extends BaseController
                 null,
                 $contentPreview,
                 $contentApplyRequested
-                    ? $changedContentDeploymentApplyService->deploymentFailedResult($contentPreview, 'Не вдалося виконати відкат до резервного коміту.', array_merge($contentApplyOptions, ['requested' => true, 'dry_run' => false]))
+                    ? $changedContentDeploymentApplyService->deploymentFailedResult($contentPreview, 'Не вдалося виконати відкат до резервного коміту.', array_merge($contentApplyOptions, $deploymentContentLockService->applyOptions($contentLockReservation), ['requested' => true, 'dry_run' => false]))
                     : null
             );
         }
@@ -567,8 +1055,10 @@ class DeploymentController extends BaseController
         $message = 'Виконано відкат до вибраного робочого стану.';
 
         if ($contentApplyRequested) {
+            $deploymentContentLockService->heartbeat($contentLockReservation);
             $contentApply = $changedContentDeploymentApplyService->runFromPreview($contentPreview, array_merge(
                 $contentApplyOptions,
+                $deploymentContentLockService->applyOptions($contentLockReservation),
                 [
                     'requested' => true,
                     'dry_run' => false,
@@ -588,6 +1078,9 @@ class DeploymentController extends BaseController
         }
 
         return $this->redirectWithFeedback('success', $message, $commandsOutput, null, $contentPreview, $contentApply);
+        } finally {
+            $deploymentContentLockService->release($contentLockReservation);
+        }
     }
 
     public function createBackupBranch(Request $request): RedirectResponse
@@ -767,7 +1260,10 @@ class DeploymentController extends BaseController
         array $commandsOutput,
         ?string $branch = null,
         ?array $contentPreview = null,
-        ?array $contentApply = null
+        ?array $contentApply = null,
+        ?array $contentSyncPreview = null,
+        ?array $contentSyncApply = null,
+        ?array $contentCiStatus = null
     ): RedirectResponse
     {
         $redirect = redirect()
@@ -785,6 +1281,18 @@ class DeploymentController extends BaseController
 
         if ($contentApply !== null) {
             $redirect->with('deployment_content_apply', $contentApply);
+        }
+
+        if ($contentSyncPreview !== null) {
+            $redirect->with('deployment_content_sync_preview', $contentSyncPreview);
+        }
+
+        if ($contentSyncApply !== null) {
+            $redirect->with('deployment_content_sync_apply', $contentSyncApply);
+        }
+
+        if ($contentCiStatus !== null) {
+            $redirect->with('deployment_content_ci_status', $contentCiStatus);
         }
 
         return $redirect;
@@ -827,7 +1335,16 @@ class DeploymentController extends BaseController
     /**
      * @return array<string, mixed>
      */
-    private function indexViewData(?array $contentPreview = null, ?array $contentApply = null): array
+    private function indexViewData(
+        ?array $contentPreview = null,
+        ?array $contentApply = null,
+        ?array $contentSyncPreview = null,
+        ?array $contentSyncApply = null,
+        ?array $contentDoctor = null,
+        ?array $contentReleaseGate = null,
+        ?array $contentCiStatus = null,
+        ?array $contentCiDispatch = null
+    ): array
     {
         $backups = array_reverse($this->loadBackups());
         $feedback = session('deployment');
@@ -850,6 +1367,14 @@ class DeploymentController extends BaseController
             'availableFolders' => $this->getAvailableFolders(),
             'contentPreview' => $contentPreview,
             'contentApply' => $contentApply,
+            'contentSyncPreview' => $contentSyncPreview,
+            'contentSyncApply' => $contentSyncApply,
+            'contentDoctor' => $contentDoctor,
+            'contentReleaseGate' => $contentReleaseGate,
+            'contentCiStatus' => $contentCiStatus,
+            'contentCiDispatch' => $contentCiDispatch,
+            'recentContentRuns' => $this->recentContentRuns(),
+            'contentOperationLockStatus' => $this->contentOperationLockStatus(),
         ];
     }
 
@@ -882,6 +1407,9 @@ class DeploymentController extends BaseController
             'strict' => $request->has('strict')
                 ? $request->boolean('strict')
                 : (bool) config('git-deployment.content_preview.strict', true),
+            'content_apply_requested' => $request->has('apply_changed_content')
+                ? $request->boolean('apply_changed_content')
+                : (bool) config('git-deployment.content_apply.enabled_by_default', true),
         ];
     }
 
@@ -918,6 +1446,7 @@ class DeploymentController extends BaseController
                 ? $request->boolean('content_apply_strict')
                 : (bool) config('git-deployment.content_apply.strict', true),
             'write_report' => true,
+            'takeover_stale_lock' => $request->boolean('content_apply_takeover_stale_lock'),
         ];
     }
 
@@ -928,6 +1457,189 @@ class DeploymentController extends BaseController
         }
 
         return (bool) config('git-deployment.content_apply.enabled_by_default', true);
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function contentSyncPlanOptions(Request $request): array
+    {
+        return [
+            'domains' => $request->input('domains'),
+            'with_release_check' => $request->has('content_sync_with_release_check')
+                ? $request->boolean('content_sync_with_release_check')
+                : (bool) config('git-deployment.content_apply.with_release_check', true),
+            'check_profile' => (string) $request->input(
+                'content_sync_check_profile',
+                config('git-deployment.content_apply.check_profile', 'release')
+            ),
+            'strict' => $request->has('content_sync_strict')
+                ? $request->boolean('content_sync_strict')
+                : (bool) config('git-deployment.content_apply.strict', true),
+            'write_report' => true,
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function contentSyncApplyOptions(Request $request): array
+    {
+        $runMode = strtolower(trim((string) $request->input('run_mode', 'live')));
+        $dryRun = $runMode === 'dry_run' || $request->boolean('dry_run');
+
+        return [
+            'domains' => $request->input('domains'),
+            'dry_run' => $dryRun,
+            'force' => ! $dryRun,
+            'with_release_check' => $request->has('content_sync_with_release_check')
+                ? $request->boolean('content_sync_with_release_check')
+                : (bool) config('git-deployment.content_apply.with_release_check', true),
+            'skip_release_check' => $request->has('content_sync_skip_release_check')
+                ? $request->boolean('content_sync_skip_release_check')
+                : (bool) config('git-deployment.content_apply.skip_release_check', false),
+            'check_profile' => (string) $request->input(
+                'content_sync_check_profile',
+                config('git-deployment.content_apply.check_profile', 'release')
+            ),
+            'strict' => $request->has('content_sync_strict')
+                ? $request->boolean('content_sync_strict')
+                : (bool) config('git-deployment.content_apply.strict', true),
+            'bootstrap_uninitialized' => $request->boolean('content_sync_bootstrap_uninitialized'),
+            'write_report' => true,
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function contentDoctorOptions(Request $request): array
+    {
+        return [
+            'domains' => $request->query('domains', $request->input('domains')),
+            'strict' => $request->boolean('strict'),
+            'with_git' => $request->boolean('with_git'),
+            'with_artifacts' => $request->boolean('with_artifacts'),
+            'with_deployment' => $request->boolean('with_deployment', true),
+            'with_package_roots' => $request->boolean('with_package_roots', true),
+            'with_dry_plan' => $request->boolean('with_dry_plan'),
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function contentReleaseGateOptions(Request $request): array
+    {
+        return [
+            'base' => (string) $request->query('base', $request->input('base', '')),
+            'head' => (string) $request->query('head', $request->input('head', '')),
+            'staged' => $request->boolean('staged'),
+            'working_tree' => $request->boolean('working_tree'),
+            'include_untracked' => $request->boolean('include_untracked'),
+            'domains' => $request->query('domains', $request->input('domains')),
+            'with_release_check' => $request->boolean('with_release_check', true),
+            'check_profile' => (string) $request->query('check_profile', $request->input('check_profile', 'release')),
+            'with_doctor' => true,
+            'with_git' => $request->boolean('with_git'),
+            'with_artifacts' => $request->boolean('with_artifacts'),
+            'with_deployment' => $request->boolean('with_deployment', true),
+            'with_package_roots' => $request->boolean('with_package_roots', true),
+            'with_dry_plan' => $request->boolean('with_dry_plan'),
+            'profile' => (string) $request->query('profile', $request->input('profile', 'deployment')),
+            'strict' => $request->boolean('strict'),
+            'fail_on_warnings' => $request->boolean('fail_on_warnings'),
+            'fail_on_lock' => $request->boolean('fail_on_lock'),
+            'fail_on_stale_lock' => $request->boolean('fail_on_stale_lock'),
+            'fail_on_sync_drift' => $request->boolean('fail_on_sync_drift'),
+            'fail_on_uninitialized_sync' => $request->boolean('fail_on_uninitialized_sync'),
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function contentCiStatusOptions(Request $request): array
+    {
+        return [
+            'ref' => (string) $request->query('ref', $request->input('ref', '')),
+            'branch' => (string) $request->query('branch', $request->input('branch', '')),
+            'sha' => (string) $request->query('sha', $request->input('sha', '')),
+            'workflow' => (string) $request->query(
+                'workflow',
+                $request->input('workflow', config('git-deployment.contentops_ci_status.workflow_file', 'contentops-release-gate.yml'))
+            ),
+            'strict' => $request->boolean('strict'),
+            'require_success' => $request->has('require_success')
+                ? $request->boolean('require_success')
+                : (bool) config('git-deployment.contentops_ci_status.required_for_deploy', false),
+            'allow_in_progress' => $request->has('allow_in_progress')
+                ? $request->boolean('allow_in_progress')
+                : (bool) config('git-deployment.contentops_ci_status.allow_in_progress', false),
+            'max_age_minutes' => $request->query(
+                'max_age_minutes',
+                $request->input('max_age_minutes', config('git-deployment.contentops_ci_status.max_age_minutes'))
+            ),
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function contentCiDispatchOptions(Request $request): array
+    {
+        $runMode = strtolower(trim((string) $request->input('run_mode', 'dry_run')));
+        $dryRun = $runMode !== 'live' || $request->boolean('dry_run');
+
+        return [
+            'ref' => (string) $request->input('ref', $request->query('ref', '')),
+            'branch' => (string) $request->input('branch', $request->query('branch', '')),
+            'sha' => (string) $request->input('sha', $request->query('sha', '')),
+            'workflow' => (string) $request->input(
+                'workflow',
+                config('git-deployment.contentops_ci_status.workflow_file', 'contentops-release-gate.yml')
+            ),
+            'domains' => (string) $request->input('domains', 'v3,page-v3'),
+            'profile' => (string) $request->input('profile', 'ci'),
+            'with_release_check' => $request->has('with_release_check')
+                ? $request->boolean('with_release_check')
+                : (bool) config('git-deployment.contentops_ci_status.dispatch_with_release_check', true),
+            'strict' => $request->has('strict')
+                ? $request->boolean('strict')
+                : (bool) config('git-deployment.contentops_ci_status.dispatch_strict', true),
+            'base_ref' => (string) $request->input('base_ref', $request->query('base_ref', '')),
+            'head_ref' => (string) $request->input('head_ref', $request->query('head_ref', '')),
+            'dry_run' => $dryRun,
+            'force' => $request->boolean('force'),
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $contentPreview
+     * @return array<string, mixed>
+     */
+    private function deploymentContentCiStatus(
+        Request $request,
+        ContentOpsCiStatusService $contentOpsCiStatusService,
+        array $contentPreview,
+        ?string $branch
+    ): array {
+        $headRef = trim((string) data_get($contentPreview, 'deployment.head_ref', ''));
+
+        return $contentOpsCiStatusService->run(array_merge($this->contentCiStatusOptions($request), [
+            'ref' => $headRef,
+            'branch' => $branch,
+            'require_success' => true,
+        ]));
+    }
+
+    /**
+     * @param  array<string, mixed>  $contentCiStatus
+     */
+    private function contentCiStatusBlocksDeployment(array $contentCiStatus): bool
+    {
+        return (bool) config('git-deployment.contentops_ci_status.required_for_deploy', false)
+            && (bool) data_get($contentCiStatus, 'readiness.exit_would_fail', true);
     }
 
     private function blockedDeploymentMessage(
@@ -1004,6 +1716,178 @@ class DeploymentController extends BaseController
             'successful' => empty($contentApply['error']),
             'output' => implode(PHP_EOL, $output),
         ];
+    }
+
+    private function recentContentRuns(): \Illuminate\Support\Collection
+    {
+        try {
+            return app(ContentOperationRunService::class)->latest([], 8);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return collect();
+        }
+    }
+
+    private function recordSyncRepairRun(
+        ContentOperationRunService $contentOperationRunService,
+        mixed $run,
+        array $result
+    ): ContentOperationRun {
+        $status = match ((string) ($result['status'] ?? 'failed')) {
+            'dry_run' => 'dry_run',
+            'completed' => 'success',
+            'partial' => 'partial',
+            'blocked' => 'blocked',
+            default => 'failed',
+        };
+
+        return match ($status) {
+            'dry_run' => $contentOperationRunService->finishDryRun($run, $result),
+            'blocked' => $contentOperationRunService->finishBlocked($run, $result),
+            'partial' => $contentOperationRunService->finishPartial($run, $result),
+            'success' => $contentOperationRunService->finishSuccess($run, $result),
+            default => $contentOperationRunService->finishFailure($run, $result['error'] ?? [], $result),
+        };
+    }
+
+    /**
+     * @param  array<string, mixed>  $lease
+     * @param  array<string, mixed>  $options
+     * @return array<string, mixed>
+     */
+    private function lockBlockedContentSyncApply(array $lease, array $options, string $triggerSource): array
+    {
+        return [
+            'domains_before' => [],
+            'plan' => [
+                'deployment_refs' => [
+                    'current_deployed_ref' => $options['head_ref'] ?? null,
+                ],
+                'domains' => [],
+                'summary' => [
+                    'synced_domains' => 0,
+                    'drifted_domains' => 0,
+                    'uninitialized_domains' => 0,
+                    'blocked' => 1,
+                    'warnings' => 0,
+                    'changed_packages' => 0,
+                    'deleted_cleanup_candidates' => 0,
+                    'seed_candidates' => 0,
+                    'refresh_candidates' => 0,
+                ],
+                'content_plan' => null,
+                'bootstrap' => [
+                    'required_domains' => [],
+                ],
+                'error' => null,
+            ],
+            'apply' => [
+                'executed' => false,
+                'dry_run' => (bool) ($options['dry_run'] ?? false),
+                'changed_content_result' => null,
+                'bootstrap' => [
+                    'requested' => (bool) ($options['bootstrap_uninitialized'] ?? false),
+                    'simulated' => [],
+                    'applied' => [],
+                ],
+            ],
+            'domains_after' => [],
+            'status' => 'blocked',
+            'artifacts' => [
+                'report_path' => null,
+            ],
+            'lock' => $this->contentLockPayload($lease, 'deployment_sync_repair', $triggerSource),
+            'error' => [
+                'stage' => 'content_operation_lock',
+                'reason' => (string) data_get($lease, 'error.reason', 'active_lock_present'),
+                'message' => (string) data_get($lease, 'error.message', 'Content sync repair is blocked by the global content-operation lock.'),
+                'lock' => $lease['lock'] ?? null,
+            ],
+        ];
+    }
+
+    private function heartbeatContentLock(ContentOperationLockService $contentOperationLockService, mixed $ownerToken): null
+    {
+        $contentOperationLockService->heartbeat(is_string($ownerToken) ? $ownerToken : null);
+
+        return null;
+    }
+
+    /**
+     * @param  array<string, mixed>  $lease
+     * @return array<string, mixed>
+     */
+    private function contentLockPayload(array $lease, string $operationKind, string $triggerSource): array
+    {
+        return [
+            'acquired' => (bool) ($lease['acquired'] ?? false),
+            'status' => (string) ($lease['status'] ?? 'unknown'),
+            'owner_token' => $lease['owner_token'] ?? null,
+            'operation_kind' => $operationKind,
+            'trigger_source' => (string) ($lease['lock']['trigger_source'] ?? $triggerSource),
+            'domains' => (array) ($lease['lock']['domains'] ?? []),
+            'content_operation_run_id' => $lease['lock']['content_operation_run_id'] ?? null,
+            'acquired_at' => $lease['lock']['acquired_at'] ?? null,
+            'heartbeat_at' => $lease['lock']['heartbeat_at'] ?? null,
+            'expires_at' => $lease['lock']['expires_at'] ?? null,
+            'warnings' => array_values((array) ($lease['warnings'] ?? [])),
+            'takeover' => (array) ($lease['takeover'] ?? ['requested' => false, 'performed' => false]),
+            'lock' => $lease['lock'] ?? null,
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function contentOperationLockStatus(): array
+    {
+        try {
+            return app(ContentOperationLockService::class)->status();
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return [
+                'status' => 'unavailable',
+                'lock' => null,
+                'error' => $exception->getMessage(),
+            ];
+        }
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function mapContentOperationRun(ContentOperationRun $run, bool $withPayload = false): array
+    {
+        $mapped = [
+            'id' => $run->id,
+            'operation_kind' => $run->operation_kind,
+            'trigger_source' => $run->trigger_source,
+            'domains' => is_array($run->domains) ? $run->domains : [],
+            'base_ref' => $run->base_ref,
+            'head_ref' => $run->head_ref,
+            'base_refs_by_domain' => is_array($run->base_refs_by_domain) ? $run->base_refs_by_domain : [],
+            'replayed_from_run_id' => $run->replayed_from_run_id,
+            'dry_run' => (bool) $run->dry_run,
+            'status' => $run->status,
+            'started_at' => $run->started_at?->toIso8601String(),
+            'finished_at' => $run->finished_at?->toIso8601String(),
+            'summary' => is_array($run->summary) ? $run->summary : [],
+            'payload_json_path' => $run->payload_json_path ? storage_path('app/' . $run->payload_json_path) : null,
+            'report_path' => $run->report_path ? storage_path('app/' . $run->report_path) : null,
+            'error_excerpt' => $run->error_excerpt,
+            'meta' => is_array($run->meta) ? $run->meta : [],
+            'replay_ids' => method_exists($run, 'relationLoaded') && $run->relationLoaded('replays')
+                ? $run->replays->pluck('id')->values()->all()
+                : [],
+        ];
+
+        if ($withPayload) {
+            $mapped['payload'] = is_array($run->payload_json ?? null) ? $run->payload_json : null;
+        }
+
+        return $mapped;
     }
 
     private function redirectIfShellUnavailable(?string $branch = null): ?RedirectResponse

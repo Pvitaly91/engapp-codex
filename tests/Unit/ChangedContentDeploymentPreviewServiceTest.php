@@ -7,6 +7,7 @@ use App\Modules\GitDeployment\Services\DeploymentGitRefProbe;
 use App\Modules\GitDeployment\Services\GitHubApiClient;
 use App\Modules\GitDeployment\Services\NativeGitDeploymentService;
 use App\Services\ContentDeployment\ChangedContentPlanService;
+use App\Services\ContentDeployment\ContentSyncStateService;
 use Mockery;
 use Tests\TestCase;
 
@@ -25,14 +26,41 @@ class ChangedContentDeploymentPreviewServiceTest extends TestCase
         $probe = Mockery::mock(DeploymentGitRefProbe::class);
         $nativeDeployment = Mockery::mock(NativeGitDeploymentService::class);
         $githubApi = Mockery::mock(GitHubApiClient::class);
+        $syncState = Mockery::mock(ContentSyncStateService::class);
 
         $probe->shouldReceive('currentHeadCommit')->once()->andReturn('base-sha');
         $probe->shouldReceive('resolveCommit')->once()->with('origin/main')->andReturn('head-sha');
         $probe->shouldReceive('remoteBranchSha')->once()->with('main')->andReturn('head-sha');
+        $syncState->shouldReceive('describe')
+            ->once()
+            ->with(['v3', 'page-v3'], ['v3' => 'base-sha', 'page-v3' => 'base-sha'], 'origin/main')
+            ->andReturn([
+                'v3' => [
+                    'domain' => 'v3',
+                    'effective_base_ref' => 'v3-synced-sha',
+                    'fallback_base_ref' => 'base-sha',
+                    'sync_state_ref' => 'v3-synced-sha',
+                    'drift_from_code_ref' => true,
+                    'sync_state_uninitialized' => false,
+                    'status' => 'drifted',
+                    'target_head_ref' => 'origin/main',
+                ],
+                'page-v3' => [
+                    'domain' => 'page-v3',
+                    'effective_base_ref' => 'base-sha',
+                    'fallback_base_ref' => 'base-sha',
+                    'sync_state_ref' => null,
+                    'drift_from_code_ref' => false,
+                    'sync_state_uninitialized' => true,
+                    'status' => 'uninitialized',
+                    'target_head_ref' => 'origin/main',
+                ],
+            ]);
         $planner->shouldReceive('run')
             ->once()
             ->with(null, Mockery::on(function (array $options): bool {
-                return ($options['base'] ?? null) === 'base-sha'
+                return ($options['base_refs_by_domain']['v3'] ?? null) === 'v3-synced-sha'
+                    && ($options['base_refs_by_domain']['page-v3'] ?? null) === 'base-sha'
                     && ($options['head'] ?? null) === 'origin/main'
                     && ($options['with_release_check'] ?? null) === true
                     && ($options['strict'] ?? null) === true;
@@ -41,7 +69,7 @@ class ChangedContentDeploymentPreviewServiceTest extends TestCase
         $nativeDeployment->shouldNotReceive('headCommit');
         $githubApi->shouldNotReceive('getBranch');
 
-        $service = new ChangedContentDeploymentPreviewService($planner, $probe, $nativeDeployment, $githubApi);
+        $service = new ChangedContentDeploymentPreviewService($planner, $probe, $nativeDeployment, $githubApi, $syncState);
         $result = $service->preview([
             'mode' => 'standard',
             'source_kind' => 'deploy',
@@ -51,6 +79,8 @@ class ChangedContentDeploymentPreviewServiceTest extends TestCase
         $this->assertNull($result['error']);
         $this->assertSame('base-sha', $result['deployment']['base_ref']);
         $this->assertSame('origin/main', $result['deployment']['head_ref']);
+        $this->assertSame('v3-synced-sha', $result['content_sync']['domains']['v3']['effective_base_ref']);
+        $this->assertSame('uninitialized', $result['content_sync']['domains']['page-v3']['status']);
         $this->assertFalse($result['gate']['blocked']);
         $this->assertSame(1, $result['content_plan']['summary']['seed_candidates']);
     }

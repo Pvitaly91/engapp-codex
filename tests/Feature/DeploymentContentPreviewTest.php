@@ -61,6 +61,7 @@ class DeploymentContentPreviewTest extends TestCase
             ->get('/admin/deployment/native/content-preview?source_kind=backup_restore&commit=deadbeef');
 
         $response->assertOk()
+            ->assertSee('Content Sync State')
             ->assertSee('Content-Aware Deployment Preview')
             ->assertSee('Deployment blocked')
             ->assertSee('Strict deployment gate treats 1 content warning(s) as blockers.');
@@ -117,6 +118,32 @@ class DeploymentContentPreviewTest extends TestCase
                     'stage' => 'planning',
                     'message' => 'Warnings are fatal.',
                 ] : null,
+            ],
+            'content_sync' => [
+                'domains' => [
+                    'v3' => [
+                        'domain' => 'v3',
+                        'sync_state_ref' => 'v3-synced-sha',
+                        'fallback_base_ref' => 'base-sha',
+                        'effective_base_ref' => 'v3-synced-sha',
+                        'fallback_used' => false,
+                        'drift_from_code_ref' => true,
+                        'sync_state_uninitialized' => false,
+                        'status' => 'drifted',
+                        'target_head_ref' => 'head-sha',
+                    ],
+                    'page-v3' => [
+                        'domain' => 'page-v3',
+                        'sync_state_ref' => null,
+                        'fallback_base_ref' => 'base-sha',
+                        'effective_base_ref' => 'base-sha',
+                        'fallback_used' => true,
+                        'drift_from_code_ref' => false,
+                        'sync_state_uninitialized' => true,
+                        'status' => 'uninitialized',
+                        'target_head_ref' => 'head-sha',
+                    ],
+                ],
             ],
             'gate' => [
                 'strict' => true,

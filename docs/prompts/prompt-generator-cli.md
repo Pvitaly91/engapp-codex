@@ -1421,11 +1421,14 @@ Use the unified content commands when one git diff can touch both V3 and Page_V3
 
 - `content:plan-changed` = read-only merged changed-package planner across V3 and Page_V3
 - `content:apply-changed` = execution layer over that merged plan
+- `content:sync-status` = read-only per-domain content sync cursor/status for `v3` and `page-v3`
 - `cleanup_deleted` always runs first
 - `upsert_present` always runs second
 - cleanup order across domains is `V3 -> Page_V3`
 - upsert order across domains is `Page_V3 -> V3`
 - there is no global rollback orchestration
+- successful live ref-based `content:apply-changed` advances the synced ref for affected domains
+- preview and dry-run flows never advance the synced ref
 
 Accepted optional target forms match the domain changed commands:
 
@@ -1588,6 +1591,242 @@ Reports are written into:
 - `storage/app/content-changed-plans/`
 - `storage/app/content-changed-apply-reports/`
 
+## Content Sync Status
+
+Unified changed-content deploy/apply now persists a canonical synced git ref per domain instead of assuming that deployed code ref and content-applied ref are always identical.
+
+```bash
+php artisan content:sync-status
+```
+
+```bash
+php artisan content:sync-status \
+  --domains=v3,page-v3 \
+  --json \
+  --write-report
+```
+
+The command reports, per domain:
+
+- `last_successful_ref`
+- `last_successful_applied_at`
+- `last_attempted_base_ref`
+- `last_attempted_head_ref`
+- `last_attempted_status`
+- `last_attempted_at`
+- whether the domain is currently `synced`, `drifted`, `uninitialized`, or `failed_last_apply`
+
+## Content Sync Repair
+
+Use sync repair when code is already deployed but content is still behind because deploy-time changed-content apply was skipped, failed, or only ran as a dry run.
+
+- `content:plan-sync` = read-only drift preview from persisted per-domain sync refs to the currently deployed code ref
+- `content:apply-sync` = explicit repair flow that reuses canonical unified changed-content apply for initialized drifted domains
+- sync repair is domain-wide only; there is no subtree sync cursor in this contract
+- the deployed code ref and the content sync ref are intentionally separate operational values
+- dry-run and failed repair never advance `last_successful_ref`
+- successful live repair advances `last_successful_ref` only for domains that actually completed successfully
+- uninitialized domains do not silently fall back to "already synced"; they require explicit bootstrap
+
+### Drift preview against the current deployed code ref
+
+```bash
+php artisan content:plan-sync
+```
+
+This resolves the current deployed code ref through the existing deployment ref probe, loads the persisted sync-state for `v3` and `page-v3`, and then plans only the drifted initialized domains through the canonical unified changed-content planner.
+
+### Domain-filtered sync preview
+
+```bash
+php artisan content:plan-sync \
+  --domains=v3 \
+  --with-release-check \
+  --check-profile=release
+```
+
+Use `--domains` when only one domain should be inspected or repaired. The sync cursor is still domain-wide for that selected domain.
+
+### Dry-run repair
+
+```bash
+php artisan content:apply-sync \
+  --dry-run
+```
+
+This runs the same drift resolution and then executes the canonical full-scope changed-content preflight for initialized drifted domains, without mutating DB content, `seed_runs`, or files.
+
+### Live repair
+
+```bash
+php artisan content:apply-sync \
+  --force
+```
+
+Live sync repair requires `--force`. It reuses the same `cleanup_deleted` then `upsert_present` ordering as unified changed-content apply, but only for domains whose sync cursor is behind the currently deployed code ref.
+
+### Bootstrap uninitialized domains
+
+```bash
+php artisan content:apply-sync \
+  --dry-run \
+  --bootstrap-uninitialized
+```
+
+```bash
+php artisan content:apply-sync \
+  --force \
+  --bootstrap-uninitialized
+```
+
+Bootstrap is an explicit operator trust action:
+
+- it applies only to domains that do not yet have a persisted sync cursor
+- it does not prove that DB content already matches code
+- in dry-run it is only simulated and reported
+- in live mode it records `last_successful_ref = current deployed ref` for those uninitialized domains without running content mutations for them
+
+### JSON mode
+
+```bash
+php artisan content:plan-sync \
+  --json
+```
+
+```bash
+php artisan content:apply-sync \
+  --dry-run \
+  --json
+```
+
+JSON output stays stable and machine-readable for CLI automation, Blade integration, and deployment repair tooling.
+
+### Report writing
+
+```bash
+php artisan content:plan-sync \
+  --write-report
+```
+
+```bash
+php artisan content:apply-sync \
+  --dry-run \
+  --write-report
+```
+
+Reports are written into:
+
+- `storage/app/content-sync-plans/`
+- `storage/app/content-sync-apply-reports/`
+
+### Strict mode
+
+```bash
+php artisan content:plan-sync \
+  --strict
+```
+
+```bash
+php artisan content:apply-sync \
+  --dry-run \
+  --strict
+```
+
+With `--strict`, planner warnings and bootstrap-required states become fatal instead of returning a warning-backed repair plan.
+
+## Content Operation History
+
+Execution-grade changed-content runs now persist a compact DB summary plus a full canonical JSON artifact.
+
+Recorded operations:
+
+- `content:apply-changed`
+- `content:apply-sync`
+- deployment-owned changed-content apply
+- deployment-owned sync repair
+- dry-run variants of the operations above
+
+Not recorded by default:
+
+- `content:plan-changed`
+- `content:plan-sync`
+- `content:sync-status`
+- plain deployment preview/gate GET requests
+
+Each recorded run stores:
+
+- `operation_kind`
+- `trigger_source`
+- domains
+- base/head refs
+- live vs dry-run
+- compact summary counts and stop point
+- payload JSON artifact path
+- report path when available
+- error excerpt for failed or partial runs
+
+Full canonical payload artifacts are written under:
+
+- `storage/app/content-operation-runs/YYYY/MM/DD/<run-id>.json`
+
+Read-only history reports from the CLI are written under:
+
+- `storage/app/content-operation-history/`
+
+### Recent history list
+
+```bash
+php artisan content:history
+```
+
+### Filter recent runs
+
+```bash
+php artisan content:history \
+  --kind=apply_sync \
+  --status=partial \
+  --domains=page-v3 \
+  --limit=10
+```
+
+### Detail view for one run
+
+```bash
+php artisan content:history 42
+```
+
+### Machine-readable history output
+
+```bash
+php artisan content:history \
+  --kind=deployment_apply_changed \
+  --json
+```
+
+### Detail output + Markdown report
+
+```bash
+php artisan content:history 42 \
+  --json \
+  --write-report
+```
+
+Human mode shows:
+
+- run id
+- operation kind
+- trigger source
+- domains
+- base/head refs
+- dry-run or live
+- status
+- started/finished timestamps
+- compact summary
+- payload/report artifact paths
+- stopped phase or error excerpt when present
+
+JSON mode keeps a stable machine-readable shape for both list and detail output, and uses the canonical stored payload artifact instead of rebuilding a second reporting schema.
+
 ### Strict mode
 
 ```bash
@@ -1603,6 +1842,479 @@ php artisan content:apply-changed \
 
 Use `--strict` when planner warnings, release-check warnings, inconsistent states, or unresolved deleted-package metadata should fail instead of returning a warning-backed plan or dry run.
 
+## Replay Recorded Content Runs
+
+`content:retry-run` replays one recorded execution-grade content run from canonical history context.
+
+- supported source kinds:
+  - `apply_changed`
+  - `apply_sync`
+  - `deployment_apply_changed`
+  - `deployment_sync_repair`
+- unsupported kinds are blocked clearly
+- replay never reruns code deployment or restore
+- replay always creates a **new** `ContentOperationRun`
+- the new run links back through `replayed_from_run_id`
+- stale deployment/sync context is surfaced as warnings or blockers
+- dry-run / blocked / failed replay never advances sync-state
+
+### Safe default replay
+
+```bash
+php artisan content:retry-run 42
+```
+
+If neither `--force` nor `--reuse-original-mode` is passed, replay defaults to dry run.
+
+### Live replay
+
+```bash
+php artisan content:retry-run 42 \
+  --force
+```
+
+### Reuse original mode
+
+```bash
+php artisan content:retry-run 42 \
+  --reuse-original-mode \
+  --force
+```
+
+If the original run was live, `--reuse-original-mode` still requires `--force`.
+
+### Replay a previously successful run
+
+```bash
+php artisan content:retry-run 42 \
+  --allow-success \
+  --dry-run
+```
+
+Successful original runs are blocked unless `--allow-success` is explicitly present.
+
+### Strict stale-context validation
+
+```bash
+php artisan content:retry-run 42 \
+  --strict \
+  --json
+```
+
+Stable replay validation codes include examples like:
+
+- `current_deployed_ref_changed_since_original_run`
+- `content_sync_state_advanced_since_original_run`
+- `recorded_head_ref_missing`
+- `recorded_base_ref_missing`
+- `artifact_missing`
+- `unsupported_operation_kind`
+
+### Replay report writing
+
+```bash
+php artisan content:retry-run 42 \
+  --dry-run \
+  --write-report
+```
+
+Replay reports are written under:
+
+- `storage/app/content-operation-replays/...`
+
+## Content Operation Lock
+
+Execution-grade content operations now share one persisted global mutex keyed as `global_content_operations`.
+
+The lock is acquired by:
+
+- `content:apply-changed`
+- `content:apply-sync`
+- `content:retry-run`
+- deploy / restore actions with post-code-update changed-content apply enabled, starting before code mutation
+- deployment-owned sync repair
+- dry-run variants of those execution-grade operations
+
+The lock is not acquired by read-only paths:
+
+- `content:plan-changed`
+- `content:plan-sync`
+- `content:sync-status`
+- `content:history`
+- `content:lock-status`
+- `content:doctor`
+- `content:release-gate`
+- `content:ci-status`
+- deployment preview/gate GET requests
+- history list/detail admin pages
+
+Dry-run takes the lock because it runs execution-grade preflight over mutable DB state. Planning/history/status stay lock-free.
+
+### Lock status
+
+```bash
+php artisan content:lock-status
+```
+
+```bash
+php artisan content:lock-status \
+  --json \
+  --write-report
+```
+
+Reports are written under:
+
+- `storage/app/content-lock-status/...`
+
+Human and JSON output show active/free/stale state, operation kind, trigger source, domains, run id, acquired/heartbeat/expires timestamps, and whether stale takeover is available.
+
+### Stale takeover
+
+Fresh active locks are never stolen. A stale lock still blocks execution unless the operator explicitly opts into takeover:
+
+```bash
+php artisan content:apply-changed \
+  --dry-run \
+  --takeover-stale-lock
+```
+
+```bash
+php artisan content:apply-sync \
+  --force \
+  --takeover-stale-lock
+```
+
+```bash
+php artisan content:retry-run 42 \
+  --force \
+  --takeover-stale-lock
+```
+
+Blocked-by-lock execution attempts are recorded in `content_operation_runs` as `status=blocked` with lock metadata in the canonical payload and compact history meta. There is intentionally no generic `content:unlock` command in this contract.
+
+### Deployment lock reservation
+
+When `Apply changed content after deploy/restore` is enabled in GitDeployment, the deployment action reserves the same `global_content_operations` lock before git code mutation starts.
+
+- If the lock is free, the reservation is held through code update / restore and the post-deploy changed-content apply phase.
+- If a fresh active lock exists, deploy/restore is blocked before `git fetch`, `git reset`, native API update, or restore starts.
+- If a stale lock exists, deploy/restore is blocked unless the operator explicitly selects stale-lock takeover in the deployment form.
+- If content apply is disabled, GitDeployment does not reserve the content-operation lock in this task.
+- The post-deploy content apply service receives the existing reservation lease and does not acquire a second lock.
+
+## ContentOps Doctor
+
+`content:doctor` is a read-only readiness report for the ContentOps lifecycle. It does not mutate content rows, `seed_runs`, sync-state, lock rows, package files, or git state.
+
+Core checks run by default:
+
+- ContentOps tables and required columns for sync-state, history, and locks
+- content deployment and GitDeployment config keys
+- `storage/app` readability/writability and known artifact directory presence
+- global content-operation lock status
+- per-domain content sync-state status
+
+Optional read-only checks:
+
+```bash
+php artisan content:doctor \
+  --with-git \
+  --with-artifacts \
+  --with-deployment \
+  --with-package-roots \
+  --with-dry-plan
+```
+
+Examples:
+
+```bash
+php artisan content:doctor
+```
+
+```bash
+php artisan content:doctor \
+  --domains=v3,page-v3 \
+  --json
+```
+
+```bash
+php artisan content:doctor \
+  --with-deployment \
+  --with-package-roots \
+  --with-artifacts \
+  --write-report
+```
+
+```bash
+php artisan content:doctor \
+  --strict \
+  --with-git \
+  --with-dry-plan
+```
+
+Report files are written under:
+
+- `storage/app/content-doctor-reports/...`
+
+Status contract:
+
+- `pass` = the check is ready
+- `warn` = operator attention is needed, but the condition is not always fatal
+- `fail` = the lifecycle is not ready for safe execution
+
+`--strict` makes warnings fatal in the command exit code. This is useful as a pre-deploy safety gate in operator runbooks.
+
+GitDeployment also exposes the same doctor through a compact ContentOps Doctor card:
+
+- `GET /admin/deployment/content-doctor`
+- `GET /admin/deployment/content-doctor?json=1`
+- `GET /admin/deployment/native/content-doctor`
+- `GET /admin/deployment/native/content-doctor?json=1`
+
+## ContentOps Release Gate
+
+`content:release-gate {target?}` is a read-only CI/operator gate over the existing ContentOps surfaces:
+
+- `content:doctor` readiness checks
+- unified changed-content planning for the selected diff/source
+- per-domain content sync-state drift/uninitialized status
+- global content-operation lock status
+- optional release-check readiness summaries for actionable current packages
+
+It does not mutate content rows, `seed_runs`, sync-state, history, lock rows, package files, or git state. It does not acquire the global content-operation lock.
+
+Diff source examples:
+
+```bash
+php artisan content:release-gate
+```
+
+```bash
+php artisan content:release-gate \
+  --staged \
+  --profile=ci \
+  --with-release-check
+```
+
+```bash
+php artisan content:release-gate \
+  --base=origin/main \
+  --head=HEAD \
+  --profile=deployment \
+  --with-release-check
+```
+
+Target/domain-scoped examples:
+
+```bash
+php artisan content:release-gate database/seeders/V3/Polyglot \
+  --domains=v3 \
+  --profile=ci
+```
+
+```bash
+php artisan content:release-gate \
+  --domains=page-v3 \
+  --include-untracked \
+  --with-package-roots
+```
+
+Output/report examples:
+
+```bash
+php artisan content:release-gate \
+  --profile=ci \
+  --json
+```
+
+```bash
+php artisan content:release-gate \
+  --profile=deployment \
+  --with-doctor \
+  --with-git \
+  --with-deployment \
+  --with-package-roots \
+  --write-report
+```
+
+Report files are written under:
+
+- `storage/app/content-release-gates/...`
+
+Profiles:
+
+- `local` keeps warnings non-fatal unless `--strict` or `--fail-on-warnings` is passed.
+- `ci` enables stricter defaults for doctor/git/package-root/dry-plan checks, release-check aggregation, lock failures, and uninitialized sync-state.
+- `deployment` mirrors GitDeployment-safe defaults for deployment wiring, package roots, release-check readiness, and lock failures.
+
+Gate status contract:
+
+- `pass` = no failing checks and no fatal warnings
+- `warn` = warnings exist but the selected profile/options allow the command to exit successfully
+- `fail` = at least one fail check exists, or warnings are fatal because of `--strict`, `--fail-on-warnings`, or the selected profile
+
+Additional fail knobs:
+
+- `--fail-on-lock`
+- `--fail-on-stale-lock`
+- `--fail-on-sync-drift`
+- `--fail-on-uninitialized-sync`
+
+GitDeployment exposes the same read-only gate through a compact ContentOps Release Gate card:
+
+- `GET /admin/deployment/content-release-gate`
+- `GET /admin/deployment/content-release-gate?json=1`
+- `GET /admin/deployment/native/content-release-gate`
+- `GET /admin/deployment/native/content-release-gate?json=1`
+
+## ContentOps CI Release Gate
+
+GitHub Actions includes a read-only ContentOps preflight workflow:
+
+- `.github/workflows/contentops-release-gate.yml`
+- helper script: `scripts/contentops-ci-preflight.sh`
+
+Triggers:
+
+- `pull_request` targeting `main`
+- `workflow_dispatch`
+
+The workflow does not deploy, restore, run `content:apply-changed`, run `content:apply-sync`, run `content:retry-run`, delete package files, or use production secrets.
+
+The CI job:
+
+- checks out the repository with `fetch-depth: 0` for safe diff planning
+- installs Composer dependencies
+- installs Node dependencies with `npm ci` when `package-lock.json` exists
+- creates an isolated SQLite test database
+- runs `php artisan migrate --force`
+- creates CI-local ContentOps artifact directories
+- writes CI-only `content_sync_states` rows pointing at the checked-out head ref so strict doctor/release-gate checks can run in an empty ephemeral DB
+- runs targeted ContentOps/GitDeployment tests that exist in the branch
+- runs `content:doctor --with-git --with-package-roots --with-dry-plan --strict --write-report --json`
+- runs `content:release-gate --profile=ci --base=<base> --head=<head> --with-release-check --strict --write-report --json`
+- uploads doctor/release-gate JSON and Markdown reports as artifacts
+- writes a GitHub step summary with statuses, report paths, changed package counts, and top recommendations
+
+The CI-only sync-state bootstrap is not an operator repair flow. It exists only because the GitHub Actions database starts empty; production sync-state remains managed by `content:apply-changed`, `content:apply-sync`, and deployment-owned ContentOps flows.
+
+Manual workflow inputs:
+
+- `base_ref`
+- `head_ref`
+- `domains`
+- `profile`
+- `with_release_check`
+- `strict`
+- `target_sha` for optional exact checked-out HEAD validation
+
+Local equivalent:
+
+```bash
+php artisan migrate --force
+php artisan content:doctor \
+  --with-git \
+  --with-package-roots \
+  --with-dry-plan \
+  --strict \
+  --write-report
+php artisan content:release-gate \
+  --profile=ci \
+  --base=origin/main \
+  --head=HEAD \
+  --with-release-check \
+  --strict \
+  --write-report
+```
+
+To run the same CI wrapper locally, first point `.env` at a disposable database, then run:
+
+```bash
+CONTENTOPS_BASE_REF=origin/main \
+CONTENTOPS_HEAD_REF=HEAD \
+CONTENTOPS_DOMAINS=v3,page-v3 \
+CONTENTOPS_PROFILE=ci \
+CONTENTOPS_WITH_RELEASE_CHECK=true \
+CONTENTOPS_STRICT=true \
+bash scripts/contentops-ci-preflight.sh
+```
+
+## ContentOps CI Status
+
+`content:ci-status` is a read-only GitHub Actions status lookup for the ContentOps Release Gate workflow. It does not dispatch workflows, run deploys, run content apply, acquire locks, mutate sync-state, or touch `seed_runs`.
+
+Examples:
+
+```bash
+php artisan content:ci-status \
+  --branch=main \
+  --sha=<target-sha> \
+  --require-success
+```
+
+```bash
+php artisan content:ci-status \
+  --ref=origin/main \
+  --strict \
+  --write-report
+```
+
+```bash
+php artisan content:ci-status \
+  --workflow=contentops-release-gate.yml \
+  --branch=main \
+  --allow-in-progress \
+  --json
+```
+
+Matching rules:
+
+- `--sha` is the strongest match and requires `workflow_run.head_sha` to match the target commit.
+- `--branch` filters GitHub workflow runs by branch when only branch context is available.
+- `--ref` can be a local ref, branch, tag, or SHA; local refs are resolved read-only through git ref probing when possible.
+- a successful run for a different SHA is reported as `sha_mismatch` and fails when exact SHA matching is required.
+- missing, running, stale, unavailable, or failed runs are warnings by default unless `--require-success`, `--strict`, or deployment config makes them fatal.
+
+Reports are written under `storage/app/content-ci-status/...`. GitDeployment screens include the same status card and can optionally block deploy/restore before code mutation when `git-deployment.contentops_ci_status.required_for_deploy=true`.
+
+The GitHub Actions lookup is uncached by default (`cache_ttl_seconds=0`) to keep the status path deterministic. Operators may opt into a short Laravel cache TTL through deployment config if repeated UI polling needs it.
+
+## ContentOps CI Dispatch
+
+`content:ci-dispatch` safely requests the existing read-only ContentOps Release Gate workflow from CLI or the GitDeployment UI. It dispatches only `.github/workflows/contentops-release-gate.yml`; it does not deploy, run content apply, acquire the content lock, mutate sync-state, or touch `seed_runs`.
+
+Examples:
+
+```bash
+php artisan content:ci-dispatch \
+  --branch=main \
+  --sha=<target-sha> \
+  --base-ref=origin/main \
+  --dry-run \
+  --json
+```
+
+```bash
+php artisan content:ci-dispatch \
+  --branch=main \
+  --sha=<target-sha> \
+  --base-ref=origin/main \
+  --with-release-check \
+  --strict \
+  --force \
+  --write-report
+```
+
+Dispatch behavior:
+
+- live dispatch requires `--force`; `--dry-run` prints the exact workflow payload without calling GitHub.
+- `--branch` or a non-SHA `--ref` is required because GitHub `workflow_dispatch` runs on a branch/tag ref.
+- `--sha` is sent as `target_sha`; the workflow verifies checked-out `HEAD` equals it and fails clearly on mismatch.
+- workflow inputs stay aligned with CI: `base_ref`, `head_ref`, `domains`, `profile`, `with_release_check`, `strict`, and `target_sha`.
+- after a live dispatch, the command performs a read-only CI status lookup; the run may still be invisible for a few seconds, so re-run `content:ci-status` if needed.
+
+Reports are written under `storage/app/content-ci-dispatches/...`. GitDeployment screens show the same dispatch form on the ContentOps CI card so operators can request the exact target gate when status is missing, stale, failed, or SHA-mismatched.
+
 ## Git Deployment Content Preview
 
 The GitDeployment module now reuses the unified changed-content planner as a read-only deployment preview and safety gate before full deploy or restore actions start.
@@ -1612,6 +2324,9 @@ The GitDeployment module now reuses the unified changed-content planner as a rea
 - cleanup ordering preview stays `V3 -> Page_V3`
 - upsert ordering preview stays `Page_V3 -> V3`
 - blocked packages or strict warnings can stop deployment before code update starts
+- preview also shows per-domain content sync refs, fallback code refs, and drift/uninitialized state
+- when a persisted sync ref exists, preview diffs that domain from the sync ref instead of blindly diffing from the current deployed code ref
+- preview includes current content-operation lock status; the live deploy/restore path enforces the reservation before code update when content apply is requested
 
 Preview integration lives in the admin deployment screens:
 
@@ -1680,3 +2395,55 @@ Before full deploy or rollback starts, GitDeployment now runs the same preview s
 - if the target ref cannot be resolved safely for changed-content diffing, deployment is stopped
 
 This gate only applies to the full deploy / rollback flow. It does not run `content:apply-changed`, does not add rollback orchestration for content changes, and does not introduce file deletion into deployment.
+
+## Git Deployment Content Apply
+
+GitDeployment can now run the real unified changed-content apply step after a successful full deploy or rollback.
+
+- deployment preview/gate still runs first
+- code update or restore still happens through the existing deployment engine
+- only after successful code update / restore does GitDeployment call the canonical `ChangedContentApplyService`
+- deleted cleanup runs first
+- current-package upsert runs second
+- there is no global rollback orchestration for content apply
+
+Admin UI controls:
+
+- `Apply changed content after deploy`
+- `Dry-run content apply`
+
+Both shell and native screens support:
+
+- full deploy + post-deploy content apply
+- rollback + post-restore content apply
+- read-only apply dry run with the same resolved `base_ref` / `head_ref`
+
+### Shell admin dry-run content apply preview
+
+```bash
+GET /admin/deployment/content-apply-preview?source_kind=deploy&branch=main&json=1
+```
+
+This reuses deployment ref resolution and then runs the same execution-grade preflight payload as `content:apply-changed --dry-run`, without mutating content rows, `seed_runs`, or files.
+
+### Native admin dry-run content apply preview
+
+```bash
+GET /admin/deployment/native/content-apply-preview?source_kind=backup_restore&commit=<backup-commit>&json=1
+```
+
+The native screen uses the same deployment refs as the planned restore and returns the canonical changed-content apply payload inside a deployment-local wrapper.
+
+### Deploy + content apply flow
+
+1. Preview/gate resolves `base_ref` and `head_ref`.
+2. Existing deploy/restore code update runs.
+3. GitDeployment calls unified changed-content apply with those same refs.
+4. UI shows preflight, execution outcome, and report path.
+
+### Result semantics
+
+- if code update fails, content apply never starts
+- if content apply fails, deployment is marked failed/partial in the UI
+- `seed_runs` mutate only through the canonical deleted-cleanup / seed / refresh services
+- no file deletion is introduced by deployment content apply

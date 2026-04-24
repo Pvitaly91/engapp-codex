@@ -135,6 +135,35 @@ class ChangedContentPlanServiceTest extends TestCase
         $this->assertSame(1, $result['summary']['warnings']);
     }
 
+    public function test_it_passes_domain_specific_base_refs_to_domain_planners(): void
+    {
+        $v3Planner = Mockery::mock(V3ChangedPackagesPlanService::class);
+        $pagePlanner = Mockery::mock(PageV3ChangedPackagesPlanService::class);
+
+        $v3Planner->shouldReceive('run')
+            ->once()
+            ->with(null, Mockery::on(fn (array $options): bool => ($options['base'] ?? null) === 'v3-base' && ($options['head'] ?? null) === 'target-head'))
+            ->andReturn($this->domainPlanResult('database/seeders/V3', []));
+        $pagePlanner->shouldReceive('run')
+            ->once()
+            ->with(null, Mockery::on(fn (array $options): bool => ($options['base'] ?? null) === 'page-base' && ($options['head'] ?? null) === 'target-head'))
+            ->andReturn($this->domainPlanResult('database/seeders/Page_V3', []));
+
+        $result = (new ChangedContentPlanService($v3Planner, $pagePlanner))->run(null, [
+            'base_refs_by_domain' => [
+                'v3' => 'v3-base',
+                'page-v3' => 'page-base',
+            ],
+            'head' => 'target-head',
+        ]);
+
+        $this->assertNull($result['error']);
+        $this->assertSame([
+            'v3' => 'v3-base',
+            'page-v3' => 'page-base',
+        ], $result['diff']['base_refs_by_domain']);
+    }
+
     /**
      * @param  list<array<string, mixed>>  $packages
      * @return array<string, mixed>
