@@ -170,6 +170,7 @@
                 name="apply_changed_content"
                 value="1"
                 class="mt-1 rounded border-input text-primary focus:ring-primary"
+                @disabled(! $supportsShell)
                 @checked((bool) config('git-deployment.content_apply.enabled_by_default', true))
               />
               <span>
@@ -189,7 +190,16 @@
             <button type="submit" formmethod="GET" formaction="{{ route('deployment.native.content-preview') }}" name="source_kind" value="deploy" class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40">
               Попередній content preview
             </button>
-            <button type="submit" formmethod="GET" formaction="{{ route('deployment.native.content-apply-preview') }}" name="source_kind" value="deploy" class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40">
+            <button
+              type="submit"
+              formmethod="GET"
+              formaction="{{ route('deployment.native.content-apply-preview') }}"
+              name="source_kind"
+              value="deploy"
+              class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40"
+              @disabled(! $supportsShell)
+              title="{{ $supportsShell ? 'Dry-run content apply' : 'Dry-run content apply недоступний без proc_open' }}"
+            >
               Dry-run content apply
             </button>
           </div>
@@ -558,6 +568,7 @@
                   name="apply_changed_content"
                   value="1"
                   class="mt-1 rounded border-input text-primary focus:ring-primary"
+                  @disabled(! $supportsShell)
                   @checked((bool) config('git-deployment.content_apply.enabled_by_default', true))
                 />
                 <span>
@@ -577,7 +588,16 @@
               <button type="submit" formmethod="GET" formaction="{{ route('deployment.native.content-preview') }}" name="source_kind" value="backup_restore" class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40">
                 Попередній content preview
               </button>
-              <button type="submit" formmethod="GET" formaction="{{ route('deployment.native.content-apply-preview') }}" name="source_kind" value="backup_restore" class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40">
+              <button
+                type="submit"
+                formmethod="GET"
+                formaction="{{ route('deployment.native.content-apply-preview') }}"
+                name="source_kind"
+                value="backup_restore"
+                class="inline-flex items-center justify-center rounded-2xl border border-border/70 bg-background px-5 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/40"
+                @disabled(! $supportsShell)
+                title="{{ $supportsShell ? 'Dry-run content apply' : 'Dry-run content apply недоступний без proc_open' }}"
+              >
                 Dry-run content apply
               </button>
             </div>

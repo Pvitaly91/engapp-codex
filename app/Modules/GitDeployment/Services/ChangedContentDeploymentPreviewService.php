@@ -29,9 +29,17 @@ class ChangedContentDeploymentPreviewService
     {
         $normalizedContext = $this->normalizeContext($context);
         $normalizedOptions = $this->normalizeOptions($options);
+        $nativeWithoutShell = $this->isNativeModeWithoutShell($normalizedContext);
+
+        if ($nativeWithoutShell) {
+            $normalizedOptions['content_apply_requested'] = false;
+        }
 
         try {
             $refs = $this->resolveRefs($normalizedContext);
+            if ($nativeWithoutShell) {
+                return $this->previewWithoutShell($normalizedContext, $normalizedOptions, $refs);
+            }
             $domains = ['v3', 'page-v3'];
             $fallbackBaseRefs = array_fill_keys($domains, $refs['base_ref']);
             $contentSync = $this->resolvedContentSync($domains, $fallbackBaseRefs, $refs['head_ref']);
@@ -69,6 +77,63 @@ class ChangedContentDeploymentPreviewService
             'gate' => $this->buildGate($plan, $normalizedOptions['strict']),
             'lock' => $this->lockPreview($normalizedOptions['content_apply_requested']),
             'error' => is_array($plan['error'] ?? null) ? $plan['error'] : null,
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $context
+     * @param  array<string, mixed>  $options
+     * @param  array<string, string>  $refs
+     * @return array<string, mixed>
+     */
+    private function previewWithoutShell(array $context, array $options, array $refs): array
+    {
+        $domains = ['v3', 'page-v3'];
+        $fallbackBaseRefs = array_fill_keys($domains, $refs['base_ref']);
+        $contentSync = $this->resolvedContentSync($domains, $fallbackBaseRefs, $refs['head_ref']);
+
+        return [
+            'deployment' => [
+                'mode' => $context['mode'],
+                'source_kind' => $context['source_kind'],
+                'base_ref' => $refs['base_ref'],
+                'head_ref' => $refs['head_ref'],
+                'branch' => $context['branch'],
+                'commit' => $context['commit'],
+                'with_release_check' => $options['with_release_check'],
+                'check_profile' => $options['check_profile'],
+                'scope' => [
+                    'domains' => $domains,
+                    'resolved_roots' => [],
+                ],
+            ],
+            'content_sync' => [
+                'domains' => $contentSync,
+            ],
+            'content_plan' => [
+                'summary' => [
+                    'changed_packages' => 0,
+                    'deleted_cleanup_candidates' => 0,
+                    'seed_candidates' => 0,
+                    'refresh_candidates' => 0,
+                    'skipped' => 0,
+                    'blocked' => 0,
+                    'warnings' => 0,
+                ],
+                'phases' => [
+                    'cleanup_deleted' => [],
+                    'upsert_present' => [],
+                ],
+                'packages' => [],
+                'error' => null,
+            ],
+            'gate' => [
+                'strict' => $options['strict'],
+                'blocked' => false,
+                'reasons' => ['API-only режим: зміна контенту пропущена через відсутність proc_open.'],
+            ],
+            'lock' => $this->lockPreview(false),
+            'error' => null,
         ];
     }
 
@@ -257,7 +322,7 @@ class ChangedContentDeploymentPreviewService
             ));
         }
 
-        if (! $this->gitRefProbe->commitExists($remoteSha)) {
+        if ($this->supportsShellCommands() && ! $this->gitRefProbe->commitExists($remoteSha)) {
             throw new RuntimeException(sprintf(
                 'Target branch [%s] resolves to commit [%s], but that commit is not available in local git objects for content preview.',
                 $branch,
@@ -282,7 +347,7 @@ class ChangedContentDeploymentPreviewService
             throw new RuntimeException('Unable to resolve the current deployed ref for native rollback preview.');
         }
 
-        if (! $this->gitRefProbe->commitExists($commit)) {
+        if ($this->supportsShellCommands() && ! $this->gitRefProbe->commitExists($commit)) {
             throw new RuntimeException(sprintf(
                 'Rollback target commit [%s] is not available in local git objects for content preview.',
                 $commit
@@ -444,6 +509,16 @@ class ChangedContentDeploymentPreviewService
         }
 
         return $baseRefs;
+    }
+
+    private function isNativeModeWithoutShell(array $context): bool
+    {
+        return $context['mode'] === 'native' && ! $this->supportsShellCommands();
+    }
+
+    private function supportsShellCommands(): bool
+    {
+        return function_exists('proc_open');
     }
 
     /**

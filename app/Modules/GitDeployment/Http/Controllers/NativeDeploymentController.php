@@ -64,7 +64,27 @@ class NativeDeploymentController extends BaseController
     public function contentApplyPreview(
         Request $request,
         ChangedContentDeploymentApplyService $changedContentDeploymentApplyService
-    ): View|\Illuminate\Http\JsonResponse {
+    ): View|RedirectResponse|\Illuminate\Http\JsonResponse {
+        if (! $this->supportsShellCommands()) {
+            $message = 'content-aware changed-content apply preview недоступний, оскільки proc_open вимкнено на цьому сервері.';
+
+            if ($request->expectsJson() || $request->boolean('json')) {
+                return response()->json([
+                    'status' => 'blocked',
+                    'message' => $message,
+                ]);
+            }
+
+            return redirect()
+                ->route('deployment.native.index')
+                ->with('deployment_native', [
+                    'status' => 'error',
+                    'message' => $message,
+                    'logs' => [],
+                    'branch' => (string) $request->input('branch', $request->query('branch', 'main')),
+                ]);
+        }
+
         $contentApply = $changedContentDeploymentApplyService->run(
             $this->deploymentPreviewContext($request, 'native'),
             array_merge($this->contentApplyOptions($request), [
@@ -969,6 +989,10 @@ class NativeDeploymentController extends BaseController
 
     private function contentApplyRequested(Request $request): bool
     {
+        if (! $this->supportsShellCommands()) {
+            return false;
+        }
+
         if ($request->has('apply_changed_content')) {
             return $request->boolean('apply_changed_content');
         }
