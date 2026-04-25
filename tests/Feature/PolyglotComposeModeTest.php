@@ -1237,6 +1237,8 @@ class PolyglotComposeModeTest extends TestCase
         $response->assertSee('data-polyglot-previous-lesson-slug="polyglot-to-be-a1"', false);
         $response->assertSee('data-polyglot-next-lesson-slug="polyglot-have-got-has-got-a1"', false);
         $response->assertSee('data-polyglot-lock-state=', false);
+        $response->assertSee('"importUrl"', false);
+        $response->assertSee('progress\/import', false);
     }
 
     private function createSavedTestWithQuestion(

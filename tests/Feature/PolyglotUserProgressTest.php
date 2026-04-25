@@ -158,12 +158,30 @@ class PolyglotUserProgressTest extends TestCase
         [$firstLesson] = $this->createCourseLessons();
 
         $this->recordAttempts($user, $firstLesson, [5]);
+        $this->flushSession();
 
         $this->actingAs($otherUser)
             ->getJson('/courses/polyglot-english-a1/progress')
             ->assertOk()
             ->assertJsonPath("progress.lessons.$firstLesson.answered_count", 0)
             ->assertJsonPath("progress.lessons.$firstLesson.is_completed", false);
+    }
+
+    public function test_admin_session_progress_prefers_admin_user_over_existing_auth_user(): void
+    {
+        $adminUser = User::factory()->create();
+        $otherUser = User::factory()->create();
+        [$firstLesson] = $this->createCourseLessons();
+
+        $this->recordAttempts($adminUser, $firstLesson, [5]);
+
+        $this->actingAs($otherUser)
+            ->withSession($this->adminSession($adminUser))
+            ->getJson('/courses/polyglot-english-a1/progress')
+            ->assertOk()
+            ->assertJsonPath('authenticated', true)
+            ->assertJsonPath('progress.user_id', $adminUser->id)
+            ->assertJsonPath("progress.lessons.$firstLesson.answered_count", 1);
     }
 
     public function test_unauthenticated_attempt_does_not_write_db_progress(): void

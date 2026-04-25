@@ -25,34 +25,31 @@ class PolyglotProgressService
 
     public function resolveUser(Request $request): ?User
     {
-        $authUser = $request->user();
-        if ($authUser instanceof User) {
-            return $authUser;
-        }
+        if ($request->session()->get('admin_authenticated', false)) {
+            $adminUserId = $request->session()->get('admin_user_id');
+            if ($adminUserId) {
+                $adminUser = User::query()->find($adminUserId);
+                if ($adminUser instanceof User) {
+                    Auth::login($adminUser);
 
-        if (! $request->session()->get('admin_authenticated', false)) {
-            return null;
-        }
-
-        $adminUserId = $request->session()->get('admin_user_id');
-        if ($adminUserId) {
-            $adminUser = User::query()->find($adminUserId);
-            if ($adminUser instanceof User) {
-                Auth::login($adminUser);
-
-                return $adminUser;
+                    return $adminUser;
+                }
             }
+
+            $adminUser = $this->resolveConfiguredAdminUser();
+            if (! $adminUser) {
+                return null;
+            }
+
+            $request->session()->put('admin_user_id', $adminUser->id);
+            Auth::login($adminUser);
+
+            return $adminUser;
         }
 
-        $adminUser = $this->resolveConfiguredAdminUser();
-        if (! $adminUser) {
-            return null;
-        }
+        $authUser = $request->user();
 
-        $request->session()->put('admin_user_id', $adminUser->id);
-        Auth::login($adminUser);
-
-        return $adminUser;
+        return $authUser instanceof User ? $authUser : null;
     }
 
     public function recordAttempt(User $user, string $courseSlug, string $lessonSlug, array $payload): array

@@ -241,6 +241,7 @@
     $progressSyncPayload = [
         'progressUrl' => filled($courseSlug) ? route('courses.progress.show', $courseSlug) : null,
         'attemptUrl' => filled($courseSlug) ? route('courses.progress.attempt', $courseSlug) : null,
+        'importUrl' => filled($courseSlug) ? route('courses.progress.import', $courseSlug) : null,
         'csrfToken' => csrf_token(),
     ];
 @endphp
