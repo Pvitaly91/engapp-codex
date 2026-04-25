@@ -21,7 +21,7 @@ describe('lessonProgressState', () => {
         }));
     });
 
-    test('rolling results are capped at 100 and only keep 0 / 5 values', () => {
+    test('rolling results are capped at 100 and keep valid 0..5 rating values', () => {
         const snapshot = normalizeLessonProgress({
             lesson_slug: 'polyglot-to-be-a1',
             rolling_results: [
@@ -35,7 +35,8 @@ describe('lessonProgressState', () => {
         });
 
         expect(snapshot.rolling_results).toHaveLength(LESSON_PROGRESS_WINDOW);
-        expect(snapshot.rolling_results.every((value) => value === 0 || value === 5)).toBe(true);
+        expect(snapshot.rolling_results.every((value) => value >= 0 && value <= 5)).toBe(true);
+        expect(snapshot.rolling_results).toContain(3);
     });
 
     test('completion rule still requires 100 answers with average >= 4.5', () => {

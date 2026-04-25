@@ -40,7 +40,31 @@
         : null;
 @endphp
 
-<div class="mx-auto w-full max-w-5xl"
+<style>
+    #new-design-test-shell #polyglot-compose-root,
+    #polyglot-compose-root {
+        --polyglot-chip-min-height: 1.45rem;
+        --polyglot-chip-padding: 0.16rem 0.9rem;
+        --polyglot-chip-radius: 10px;
+        --polyglot-chip-font-size: 1.38rem;
+    }
+
+    @media (max-width: 639px) {
+        #new-design-test-shell #polyglot-compose-root,
+        #polyglot-compose-root {
+            margin-left: -0.75rem !important;
+            margin-right: -0.75rem !important;
+            width: calc(100% + 1.5rem) !important;
+            max-width: calc(100% + 1.5rem) !important;
+            --polyglot-chip-min-height: 2rem;
+            --polyglot-chip-padding: 0.28rem 0.65rem;
+            --polyglot-chip-radius: 0.65rem;
+            --polyglot-chip-font-size: 1rem;
+        }
+    }
+</style>
+
+<div class="-mx-3 w-auto max-w-5xl sm:mx-auto sm:w-full"
      id="polyglot-compose-root"
      data-polyglot-lesson-root
      data-polyglot-lesson-slug="{{ $test->slug }}"
@@ -51,7 +75,7 @@
      data-polyglot-is-final-lesson="{{ $isFinalLesson ? '1' : '0' }}"
      data-polyglot-lock-state="{{ $startsLockedPending ? 'pending' : 'ready' }}">
     @if(filled($courseSlug))
-        <section class="mb-6 rounded-[28px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
+        <section class="mb-4 rounded-[20px] p-3 shadow-none surface-card-strong sm:mb-6 sm:rounded-[28px] sm:border sm:p-5 sm:shadow-card" style="border-color: var(--line);">
             <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div class="space-y-3">
                     <a href="{{ $courseUrl }}"
@@ -89,31 +113,31 @@
         </section>
     @endif
 
-    <div id="polyglot-compose-app" class="space-y-6">
-        <section class="rounded-[28px] border p-5 shadow-card surface-card-strong sm:p-8" style="border-color: var(--line);">
+    <div id="polyglot-compose-app" class="space-y-4 sm:space-y-6">
+        <section class="rounded-[20px] p-3 shadow-none surface-card-strong sm:rounded-[28px] sm:border sm:p-8 sm:shadow-card" style="border-color: var(--line);">
             <div class="grid gap-4 xl:grid-cols-[1.05fr_0.95fr] xl:items-start">
                 <div class="space-y-3">
-                    <span class="inline-flex items-center rounded-full border px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.22em] soft-accent" style="border-color: var(--line); color: var(--accent);">
+                    <span class="inline-flex items-center rounded-full border px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.16em] soft-accent sm:px-4 sm:py-2 sm:text-[11px] sm:tracking-[0.22em]" style="border-color: var(--line); color: var(--accent);">
                         {{ __('frontend.tests.templates.compose.badge') }}
                     </span>
                     <div>
-                        <h2 class="font-display text-2xl font-extrabold leading-tight sm:text-3xl" id="compose-test-name">{{ $test->name }}</h2>
-                        <p class="mt-2 text-sm leading-6" id="compose-question-index" style="color: var(--muted);">
+                        <h2 class="font-display text-xl font-extrabold leading-tight sm:text-3xl" id="compose-test-name">{{ $test->name }}</h2>
+                        <p class="mt-1.5 text-xs leading-5 sm:mt-2 sm:text-sm sm:leading-6" id="compose-question-index" style="color: var(--muted);">
                             {{ __('frontend.tests.compose.current_sentence', ['current' => 1, 'total' => max(count($questionData ?? []), 1)]) }}
                         </p>
                     </div>
                 </div>
 
                 <div class="grid gap-3 sm:grid-cols-2">
-                    <article class="rounded-[24px] border p-4 surface-card" style="border-color: var(--line);">
-                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.last_100_answers') }}</p>
-                        <p class="mt-2 font-display text-[2rem] font-extrabold leading-none" id="compose-rating">0.0 / 5</p>
-                        <p class="mt-2 text-xs leading-5" id="compose-rating-meta" style="color: var(--muted);">0 / {{ $completionWindow }}</p>
+                    <article class="rounded-[18px] p-3 surface-card sm:rounded-[24px] sm:border sm:p-4" style="border-color: var(--line);">
+                        <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.last_100_answers') }}</p>
+                        <p class="mt-1.5 font-display text-[1.45rem] font-extrabold leading-none sm:mt-2 sm:text-[2rem]" id="compose-rating">0.0 / 5</p>
+                        <p class="mt-1.5 text-xs leading-5 sm:mt-2" id="compose-rating-meta" style="color: var(--muted);">0 / {{ $completionWindow }}</p>
                     </article>
-                    <article class="rounded-[24px] border p-4 surface-card" style="border-color: var(--line);">
-                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.lesson_status') }}</p>
-                        <p class="mt-2 font-display text-[1.55rem] font-extrabold leading-tight" id="compose-status">{{ __('frontend.tests.compose.in_progress') }}</p>
-                        <p class="mt-2 text-xs leading-5" id="compose-status-note" style="color: var(--muted);">
+                    <article class="rounded-[18px] p-3 surface-card sm:rounded-[24px] sm:border sm:p-4" style="border-color: var(--line);">
+                        <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.lesson_status') }}</p>
+                        <p class="mt-1.5 font-display text-[1.2rem] font-extrabold leading-tight sm:mt-2 sm:text-[1.55rem]" id="compose-status">{{ __('frontend.tests.compose.in_progress') }}</p>
+                        <p class="mt-1.5 text-xs leading-5 sm:mt-2" id="compose-status-note" style="color: var(--muted);">
                             {{ __('frontend.tests.compose.goal_note', ['rating' => number_format($completionRating, 1), 'count' => $completionWindow]) }}
                         </p>
                     </article>
@@ -121,58 +145,61 @@
             </div>
         </section>
 
-        <article class="rounded-[28px] border p-5 shadow-card surface-card-strong sm:p-8" style="border-color: var(--line);">
+        <article class="rounded-[20px] p-3 shadow-none surface-card-strong sm:rounded-[28px] sm:border sm:p-8 sm:shadow-card" style="border-color: var(--line);">
             <div id="compose-empty-state" class="{{ count($questionData ?? []) > 0 ? 'hidden' : '' }}">
-                <div class="rounded-[24px] border border-dashed px-6 py-10 text-center" style="border-color: var(--line);">
-                    <p class="text-lg font-semibold">{{ __('frontend.tests.compose.empty') }}</p>
+                <div class="rounded-[18px] border border-dashed px-4 py-7 text-center sm:rounded-[24px] sm:px-6 sm:py-10" style="border-color: var(--line);">
+                    <p class="text-base font-semibold sm:text-lg">{{ __('frontend.tests.compose.empty') }}</p>
                 </div>
             </div>
 
             <div id="compose-course-pending" class="{{ count($questionData ?? []) > 0 && $startsLockedPending ? '' : 'hidden' }}">
-                <div class="rounded-[24px] border border-dashed px-6 py-10 text-center" style="border-color: var(--line);">
-                    <p class="text-lg font-semibold">{{ __('frontend.tests.course.checking_access') }}</p>
+                <div class="rounded-[18px] border border-dashed px-4 py-7 text-center sm:rounded-[24px] sm:px-6 sm:py-10" style="border-color: var(--line);">
+                    <p class="text-base font-semibold sm:text-lg">{{ __('frontend.tests.course.checking_access') }}</p>
                 </div>
             </div>
 
             <div id="compose-course-lock" class="hidden"></div>
 
             <div id="compose-workspace" class="{{ count($questionData ?? []) > 0 && ! $startsLockedPending ? '' : 'hidden' }}">
-                <div class="mb-6 rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
-                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.source_sentence') }}</p>
-                    <div id="compose-source-text" class="mt-4 text-[2.15rem] font-extrabold leading-[1.3] sm:text-[2.55rem]"></div>
+                <div class="mb-3 rounded-[18px] p-3 surface-card sm:mb-6 sm:rounded-[24px] sm:border sm:p-5" style="border-color: var(--line);">
+                    <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.source_sentence') }}</p>
+                    <div id="compose-source-text" class="mt-2 text-[1.55rem] font-extrabold leading-[1.25] sm:mt-4 sm:text-[2.55rem]"></div>
                 </div>
 
-                <div class="grid gap-5 xl:grid-cols-[1.08fr_0.92fr]">
-                    <section class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
-                        <div class="flex flex-wrap items-center justify-between gap-3">
-                            <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.build_translation') }}</p>
-                            <span class="rounded-[12px] border px-3 py-2 text-sm font-semibold leading-none" id="compose-punctuation" style="border-color: var(--line); color: var(--muted);"></span>
+                <div class="grid gap-3 sm:gap-5 xl:grid-cols-[1.08fr_0.92fr]">
+                    <section class="order-1 rounded-[18px] p-3 surface-card sm:rounded-[24px] sm:border sm:p-5 xl:order-1" style="border-color: var(--line);">
+                        <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+                            <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.build_translation') }}</p>
+                            <span class="rounded-[10px] border px-2 py-1.5 text-xs font-semibold leading-none sm:rounded-[12px] sm:px-3 sm:py-2 sm:text-sm" id="compose-punctuation" style="border-color: var(--line); color: var(--muted);"></span>
                         </div>
-                        <div id="compose-answer-zone" class="mt-4 min-h-[8rem] rounded-[22px] border border-dashed p-4 sm:p-5" style="border-color: var(--line); background: color-mix(in srgb, var(--surface) 88%, white);"></div>
-                        <div class="mt-5 flex flex-wrap gap-3">
-                            <button type="button" data-action="check" class="inline-flex items-center justify-center rounded-full bg-ocean px-5 py-3 text-sm font-extrabold text-white shadow-sm transition hover:opacity-95">
+                        <div id="compose-answer-zone" class="mt-3 min-h-[5rem] rounded-[16px] border border-dashed p-2.5 sm:mt-4 sm:min-h-[8rem] sm:rounded-[22px] sm:p-5" style="border-color: var(--line); background: color-mix(in srgb, var(--surface) 88%, white);"></div>
+                    </section>
+
+                    <section class="order-2 rounded-[18px] p-3 surface-card sm:rounded-[24px] sm:border sm:p-5 xl:order-2" aria-label="{{ __('frontend.tests.compose.token_bank') }}" style="border-color: var(--line);">
+                        <p class="hidden text-[10px] font-extrabold uppercase tracking-[0.16em] sm:block sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.token_bank') }}</p>
+                        <div id="compose-bank" class="flex min-h-[4rem] flex-wrap content-start items-start gap-2 sm:mt-4 sm:min-h-[8rem] sm:gap-3"></div>
+                    </section>
+
+                    <div id="compose-controls" class="order-3 rounded-[18px] px-3 pb-3 sm:rounded-[24px] sm:px-5 sm:pb-5 xl:col-start-1 xl:row-start-2">
+                        <div class="flex flex-wrap gap-2.5 sm:gap-3">
+                            <button type="button" data-action="check" class="inline-flex items-center justify-center rounded-full bg-ocean px-4 py-2.5 text-[13px] font-extrabold text-white shadow-sm transition hover:opacity-95 sm:px-5 sm:py-3 sm:text-sm">
                                 {{ __('frontend.tests.compose.check') }}
                             </button>
-                            <button type="button" data-action="clear" class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold transition" style="border-color: var(--line);">
+                            <button type="button" data-action="clear" class="inline-flex items-center justify-center rounded-full border px-4 py-2.5 text-[13px] font-bold transition sm:px-5 sm:py-3 sm:text-sm" style="border-color: var(--line);">
                                 {{ __('frontend.tests.compose.clear') }}
                             </button>
-                            <button type="button" data-action="undo" class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold transition" style="border-color: var(--line);">
+                            <button type="button" data-action="undo" class="inline-flex items-center justify-center rounded-full border px-4 py-2.5 text-[13px] font-bold transition sm:px-5 sm:py-3 sm:text-sm" style="border-color: var(--line);">
                                 {{ __('frontend.tests.compose.remove_last') }}
                             </button>
-                            <button type="button" data-action="reset-progress" class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold transition" style="border-color: var(--line);">
+                            <button type="button" data-action="reset-progress" class="inline-flex items-center justify-center rounded-full border px-4 py-2.5 text-[13px] font-bold transition sm:px-5 sm:py-3 sm:text-sm" style="border-color: var(--line);">
                                 {{ __('frontend.tests.compose.reset_progress') }}
                             </button>
                         </div>
-                        <p class="mt-4 text-xs leading-5" style="color: var(--muted);">{{ __('frontend.tests.compose.keyboard_hint') }}</p>
-                    </section>
-
-                    <section class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
-                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.token_bank') }}</p>
-                        <div id="compose-bank" class="mt-4 flex min-h-[8rem] flex-wrap gap-3"></div>
-                    </section>
+                        <p class="mt-3 text-[11px] leading-5 sm:mt-4 sm:text-xs" style="color: var(--muted);">{{ __('frontend.tests.compose.keyboard_hint') }}</p>
+                    </div>
                 </div>
 
-                <div id="compose-feedback" class="mt-5" aria-live="polite"></div>
+                <div id="compose-feedback" class="mt-4 sm:mt-5" aria-live="polite"></div>
             </div>
 
             <div id="compose-course-completion"
@@ -207,9 +234,15 @@
         'interfaceLocale' => data_get($rawFilters, 'interface_locale', app()->getLocale()),
         'courseLessons' => data_get($courseContext, 'lessons', []),
     ];
+    $progressSyncPayload = [
+        'progressUrl' => filled($courseSlug) ? route('courses.progress.show', $courseSlug) : null,
+        'attemptUrl' => filled($courseSlug) ? route('courses.progress.attempt', $courseSlug) : null,
+        'csrfToken' => csrf_token(),
+    ];
 @endphp
 window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
+window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
 </script>
 @include('components.saved-test-js-helpers')
 <script>
@@ -233,6 +266,9 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
     const config = window.__POLYGLOT_COMPOSE_CONFIG__ || {};
     const rollingWindow = Number.isFinite(Number(config.rollingWindow)) ? Number(config.rollingWindow) : 100;
     const minRating = Number.isFinite(Number(config.minRating)) ? Number(config.minRating) : 4.5;
+    const progressSync = window.__POLYGLOT_PROGRESS_SYNC__ || {};
+    let serverCourseState = null;
+    let serverAuthenticated = false;
 
     const pageRoot = document.getElementById('polyglot-compose-root');
     const root = document.getElementById('polyglot-compose-app');
@@ -244,6 +280,22 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
 
     if (!root) {
         return;
+    }
+
+    function serverHeaders() {
+        return {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': progressSync.csrfToken || '',
+        };
+    }
+
+    function generateClientAttemptUuid() {
+        if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+            return window.crypto.randomUUID();
+        }
+
+        return `attempt-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
     }
 
     function normalizeText(value) {
@@ -447,7 +499,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
     };
 
     function currentCourseState() {
-        return courseStore ? courseStore.read() : null;
+        return serverCourseState || (courseStore ? courseStore.read() : null);
     }
 
     function currentCourseLesson(courseState) {
@@ -470,6 +522,111 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         }
 
         return courseStore.findLesson(slug)?.name || '';
+    }
+
+    function applyServerProgress(progress) {
+        if (!progress || typeof progress !== 'object') {
+            return;
+        }
+
+        serverCourseState = progress;
+        serverAuthenticated = true;
+
+        const lessonProgress = progress.lesson_progress?.[config.slug];
+        if (lessonProgress) {
+            state.progress = progressStore.normalize(lessonProgress);
+        }
+    }
+
+    async function hydrateServerProgress() {
+        if (!progressSync.progressUrl) {
+            return;
+        }
+
+        try {
+            const response = await fetch(progressSync.progressUrl, {
+                credentials: 'same-origin',
+                headers: {
+                    'Accept': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                return;
+            }
+
+            const payload = await response.json();
+            if (!payload?.authenticated || !payload.progress) {
+                serverAuthenticated = false;
+                serverCourseState = null;
+                return;
+            }
+
+            applyServerProgress(payload.progress);
+        } catch (error) {
+            serverAuthenticated = false;
+            serverCourseState = null;
+        }
+    }
+
+    async function postServerAttempt(result, question, submitted, progressSnapshot) {
+        if (!serverAuthenticated || !progressSync.attemptUrl) {
+            return;
+        }
+
+        try {
+            const response = await fetch(progressSync.attemptUrl, {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: serverHeaders(),
+                body: JSON.stringify({
+                    lesson_slug: config.slug,
+                    question_uuid: question?.uuid || null,
+                    rating: result,
+                    is_correct: result >= minRating,
+                    client_attempt_uuid: generateClientAttemptUuid(),
+                    answer_payload: {
+                        source: 'compose_tokens',
+                        current_queue_index: progressSnapshot.current_queue_index,
+                        selected_token_ids: state.selectedTokenIds,
+                        submitted_answer: submitted,
+                        correct_answer: question?.correctText || null,
+                    },
+                }),
+            });
+
+            if (!response.ok) {
+                return;
+            }
+
+            const payload = await response.json();
+            if (!payload?.authenticated) {
+                serverAuthenticated = false;
+                serverCourseState = null;
+                return;
+            }
+
+            if (payload.course_progress) {
+                serverCourseState = payload.course_progress;
+            }
+
+            if (payload.lesson_progress) {
+                const localQueueIndex = state.progress.current_queue_index;
+                const serverLessonProgress = progressStore.normalize(payload.lesson_progress);
+
+                state.progress = {
+                    ...serverLessonProgress,
+                    current_queue_index: state.autoAdvanceTimer !== null
+                        ? localQueueIndex
+                        : serverLessonProgress.current_queue_index,
+                };
+
+                render();
+            }
+        } catch (error) {
+            serverAuthenticated = false;
+            serverCourseState = null;
+        }
     }
 
     function actionLinkMarkup(url, label, variant = 'solid') {
@@ -704,11 +861,16 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         render();
     }
 
-    function markAttempt(result) {
+    function markAttempt(result, question, submitted) {
         state.progress = progressStore.markAttempt(state.progress, result === 5);
+        postServerAttempt(result, question, submitted, state.progress);
     }
 
     function resetLessonProgress() {
+        if (serverAuthenticated) {
+            return;
+        }
+
         clearAutoAdvance();
         state.progress = progressStore.reset();
         resetCurrentAnswer(true);
@@ -716,6 +878,14 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
     }
 
     function restartCourse() {
+        if (serverAuthenticated) {
+            if (config.courseUrl) {
+                window.location.assign(config.courseUrl);
+            }
+
+            return;
+        }
+
         clearAutoAdvance();
 
         if (courseStore && typeof courseStore.reset === 'function') {
@@ -740,6 +910,11 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
     }
 
     function rehydrateFromSharedState() {
+        if (serverAuthenticated) {
+            render();
+            return;
+        }
+
         const previousQueueIndex = state.progress.current_queue_index;
 
         clearAutoAdvance();
@@ -812,7 +987,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
     }
 
     const chipBaseClass = 'inline-flex items-center border font-bold leading-none transition';
-    const chipLayoutStyle = 'min-height: 1.45rem; padding: 0.16rem 0.9rem; border-radius: 10px; font-size: 1.38rem;';
+    const chipLayoutStyle = 'min-height: var(--polyglot-chip-min-height); padding: var(--polyglot-chip-padding); border-radius: var(--polyglot-chip-radius); font-size: var(--polyglot-chip-font-size);';
     const answerChipStyle = `${chipLayoutStyle} border-color: var(--line); background: color-mix(in srgb, var(--accent-soft) 88%, white); color: var(--text);`;
     const bankChipStyle = `${chipLayoutStyle} border-color: var(--line); background: var(--surface); color: var(--text);`;
     const punctuationChipStyle = `${chipLayoutStyle} border-color: var(--line); background: color-mix(in srgb, var(--surface) 90%, white); color: var(--muted);`;
@@ -827,20 +1002,20 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
             return `
                 <button type="button"
                     data-answer-token-id="${html(token.id)}"
-                    class="${chipBaseClass} gap-2.5 hover:opacity-90"
+                    class="${chipBaseClass} gap-1.5 hover:opacity-90 sm:gap-2.5"
                     style="${answerChipStyle}">
                     <span>${html(token.value)}</span>
-                    <span class="text-sm leading-none" style="color: var(--muted);">&times;</span>
+                    <span class="text-xs leading-none sm:text-sm" style="color: var(--muted);">&times;</span>
                 </button>
             `;
         }).join('');
 
         const placeholder = chips === ''
-            ? `<div class="rounded-[18px] border border-dashed px-4 py-5 text-sm leading-6" style="border-color: var(--line); color: var(--muted);">${html(testUi('compose.answer_placeholder'))}</div>`
+            ? `<div class="rounded-[14px] border border-dashed px-3 py-3 text-[13px] leading-5 sm:rounded-[18px] sm:px-4 sm:py-5 sm:text-sm sm:leading-6" style="border-color: var(--line); color: var(--muted);">${html(testUi('compose.answer_placeholder'))}</div>`
             : chips;
 
         return `
-            <div class="flex min-h-[5rem] flex-wrap gap-3">
+            <div class="flex min-h-[3.25rem] flex-wrap content-start items-start gap-2 sm:min-h-[5rem] sm:gap-3">
                 ${placeholder}
                 <span class="${chipBaseClass}" style="${punctuationChipStyle}">${html(question.punctuation)}</span>
             </div>
@@ -851,7 +1026,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         const tokenIds = availableBankTokenIds(question);
 
         if (tokenIds.length === 0) {
-            return `<div class="rounded-[18px] border border-dashed px-4 py-5 text-sm leading-6" style="border-color: var(--line); color: var(--muted);">${html(testUi('compose.empty_pool'))}</div>`;
+            return `<div class="rounded-[14px] border border-dashed px-3 py-3 text-[13px] leading-5 sm:rounded-[18px] sm:px-4 sm:py-5 sm:text-sm sm:leading-6" style="border-color: var(--line); color: var(--muted);">${html(testUi('compose.empty_pool'))}</div>`;
         }
 
         return tokenIds.map((tokenId) => {
@@ -905,7 +1080,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         root.querySelector('[data-action="check"]').disabled = isLocked;
         root.querySelector('[data-action="clear"]').disabled = isLocked || state.selectedTokenIds.length === 0;
         root.querySelector('[data-action="undo"]').disabled = isLocked || state.selectedTokenIds.length === 0;
-        root.querySelector('[data-action="reset-progress"]').disabled = isLocked;
+        root.querySelector('[data-action="reset-progress"]').disabled = isLocked || serverAuthenticated;
     }
 
     function addTokenById(tokenId) {
@@ -948,7 +1123,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         const isCorrect = normalizeCompare(submitted) === normalizeCompare(question.correctText);
 
         if (isCorrect) {
-            markAttempt(5);
+            markAttempt(5, question, submitted);
             state.feedback = {
                 type: 'correct',
                 hint: '',
@@ -963,7 +1138,7 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
             return;
         }
 
-        markAttempt(0);
+        markAttempt(0, question, submitted);
         state.feedback = {
             type: 'incorrect',
             hint: question.hintUk || '',
@@ -1054,19 +1229,25 @@ window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
         onSync: rehydrateFromSharedState,
     });
 
-    const initialCourseUi = refreshCourseUi();
-    if (initialCourseUi.locked) {
-        return;
-    }
+    hydrateServerProgress().finally(() => {
+        const initialCourseUi = refreshCourseUi();
+        if (initialCourseUi.locked) {
+            return;
+        }
 
-    if (courseStore) {
-        courseStore.markLessonOpened(config.slug);
-    }
+        if (courseStore && !serverAuthenticated) {
+            courseStore.markLessonOpened(config.slug);
+        }
 
-    clampQueueIndex();
-    resetCurrentAnswer(true);
-    persistProgress();
-    render();
+        clampQueueIndex();
+        resetCurrentAnswer(true);
+
+        if (!serverAuthenticated) {
+            persistProgress();
+        }
+
+        render();
+    });
     }
 
     if (window.PolyglotCourseProgress) {

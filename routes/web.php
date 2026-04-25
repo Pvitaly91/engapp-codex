@@ -9,6 +9,7 @@ use App\Http\Controllers\IrregularVerbsTestController;
 use App\Http\Controllers\NewDesignTestController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PolyglotCourseController;
+use App\Http\Controllers\PolyglotProgressController;
 use App\Http\Controllers\SiteSearchController;
 use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\WordSearchController;
@@ -105,6 +106,15 @@ Route::get('/tests/cards', fn () => redirect()->route('catalog.tests-cards')); /
 
 Route::get('/search', SiteSearchController::class)->name('site.search');
 Route::get('/courses/{courseSlug}', [PolyglotCourseController::class, 'show'])->name('courses.show');
+Route::prefix('courses/{courseSlug}/progress')->name('courses.progress.')->group(function () {
+    Route::get('/', [PolyglotProgressController::class, 'show'])->name('show');
+    Route::post('/attempt', [PolyglotProgressController::class, 'storeAttempt'])
+        ->middleware('throttle:120,1')
+        ->name('attempt');
+    Route::post('/import', [PolyglotProgressController::class, 'import'])
+        ->middleware('throttle:30,1')
+        ->name('import');
+});
 
 // Copilot layout demo
 Route::get('/copilot', fn () => view('copilot.index'))->name('copilot.index');

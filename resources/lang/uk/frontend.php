@@ -279,6 +279,7 @@ return [
             'course_completed_title' => 'Ви завершили курс',
             'course_completed_note' => 'Усі уроки цього курсу вже відкриті й завершені. Можна повернутися та повторити будь-який урок.',
             'in_progress_summary' => 'Прогрес зберігається на цьому пристрої',
+            'account_progress_summary' => 'Прогрес зберігається у вашому акаунті. Можна продовжити з іншого пристрою.',
             'all_lessons_completed' => 'Усі уроки завершено',
             'repeat_course' => 'Повторити курс',
             'continue_with_polyglot_a2' => 'Продовжити з Polyglot A2',

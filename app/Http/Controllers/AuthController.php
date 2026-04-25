@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 
@@ -23,6 +26,7 @@ class AuthController extends Controller
 
         if ($request->hasCookie('admin_remember_token') && $request->cookie('admin_remember_token') === $this->rememberToken()) {
             $request->session()->put('admin_authenticated', true);
+            $this->attachAdminUserToSession($request);
 
             return Redirect::route('admin.dashboard');
         }
@@ -56,6 +60,7 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
         $request->session()->put('admin_authenticated', true);
+        $this->attachAdminUserToSession($request);
 
         if ($request->boolean('remember')) {
             Cookie::queue(
@@ -80,7 +85,12 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        $request->session()->forget('admin_authenticated');
+        Auth::logout();
+
+        $request->session()->forget([
+            'admin_authenticated',
+            'admin_user_id',
+        ]);
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
@@ -92,5 +102,41 @@ class AuthController extends Controller
     private function rememberToken(): string
     {
         return hash('sha256', config('admin.username') . '|' . config('admin.password_hash'));
+    }
+
+    private function attachAdminUserToSession(Request $request): void
+    {
+        $adminUser = $this->resolveAdminUser();
+        if (! $adminUser) {
+            return;
+        }
+
+        $request->session()->put('admin_user_id', $adminUser->id);
+        Auth::login($adminUser);
+    }
+
+    private function resolveAdminUser(): ?User
+    {
+        if (! Schema::hasTable('users')) {
+            return null;
+        }
+
+        $candidates = array_values(array_filter(array_unique([
+            trim((string) config('admin.user_email', '')),
+            trim((string) config('admin.username', '')),
+        ])));
+
+        foreach ($candidates as $candidate) {
+            $user = User::query()
+                ->where('email', $candidate)
+                ->orWhere('name', $candidate)
+                ->first();
+
+            if ($user) {
+                return $user;
+            }
+        }
+
+        return null;
     }
 }

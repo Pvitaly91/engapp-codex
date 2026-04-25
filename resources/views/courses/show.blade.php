@@ -35,6 +35,11 @@
         'first_lesson' => $firstLesson,
         'planned_total_lessons' => $plannedTotalLessons,
     ];
+    $progressSyncPayload = [
+        'progressUrl' => route('courses.progress.show', $course['slug']),
+        'importUrl' => route('courses.progress.import', $course['slug']),
+        'csrfToken' => csrf_token(),
+    ];
 @endphp
 
 <div class="nd-page"
@@ -313,6 +318,7 @@ function testUi(path, replacements = {}, fallback = '') {
 }
 
 window.__POLYGLOT_COURSE_MANIFEST__ = @json($courseManifestPayload);
+window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
 
 (function () {
     let booted = false;
@@ -344,9 +350,115 @@ window.__POLYGLOT_COURSE_MANIFEST__ = @json($courseManifestPayload);
         const currentLesson = document.getElementById('course-current-lesson');
         const lastOpenedLesson = document.getElementById('course-last-opened-lesson');
         const learnerCompleteBanner = document.getElementById('course-learner-complete-banner');
+        const progressSync = window.__POLYGLOT_PROGRESS_SYNC__ || {};
+        let serverState = null;
+        let serverAuthenticated = false;
+
+        function serverHeaders() {
+            return {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': progressSync.csrfToken || '',
+            };
+        }
 
         function lessonBySlug(slug) {
             return lessons.find((lesson) => lesson.slug === slug) || null;
+        }
+
+        function activeCourseState() {
+            return serverState || store.read();
+        }
+
+        function localProgressPayload() {
+            const lessonProgress = {};
+
+            lessons.forEach((lesson) => {
+                const lessonStore = window.PolyglotCourseProgress.createLessonStore({
+                    lessonSlug: lesson.slug,
+                    courseSlug: course.slug,
+                    courseStore: store,
+                });
+                const progress = lessonStore.read();
+
+                if (progress.total_attempts > 0 || progress.rolling_results.length > 0 || progress.lesson_completed) {
+                    lessonProgress[lesson.slug] = progress;
+                }
+            });
+
+            return {
+                course: store.read(),
+                lesson_progress: lessonProgress,
+            };
+        }
+
+        function totalAnswered(progress) {
+            return Object.values(progress?.lessons || {}).reduce((sum, lesson) => {
+                return sum + Number(lesson?.answered_count || 0);
+            }, 0);
+        }
+
+        async function maybeImportLocalProgress(progress) {
+            if (!progressSync.importUrl || totalAnswered(progress) > 0) {
+                return null;
+            }
+
+            const localProgress = localProgressPayload();
+            if (Object.keys(localProgress.lesson_progress).length === 0) {
+                return null;
+            }
+
+            const response = await fetch(progressSync.importUrl, {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: serverHeaders(),
+                body: JSON.stringify({
+                    local_progress: localProgress,
+                }),
+            });
+
+            if (!response.ok) {
+                return null;
+            }
+
+            const payload = await response.json();
+
+            return payload?.authenticated && payload.progress ? payload.progress : null;
+        }
+
+        async function hydrateServerProgress() {
+            if (!progressSync.progressUrl) {
+                return;
+            }
+
+            try {
+                const response = await fetch(progressSync.progressUrl, {
+                    credentials: 'same-origin',
+                    headers: {
+                        'Accept': 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    return;
+                }
+
+                const payload = await response.json();
+                if (!payload?.authenticated || !payload.progress) {
+                    serverAuthenticated = false;
+                    serverState = null;
+                    render();
+                    return;
+                }
+
+                serverAuthenticated = true;
+                serverState = await maybeImportLocalProgress(payload.progress) || payload.progress;
+                render();
+            } catch (error) {
+                serverAuthenticated = false;
+                serverState = null;
+                render();
+            }
         }
 
         function actionLabel(status, entry) {
@@ -435,7 +547,9 @@ window.__POLYGLOT_COURSE_MANIFEST__ = @json($courseManifestPayload);
             if (progressStatus) {
                 progressStatus.textContent = summary.completed_all_lessons
                     ? testUi('course.all_lessons_completed')
-                    : testUi('course.in_progress_summary');
+                    : (serverAuthenticated
+                        ? testUi('course.account_progress_summary')
+                        : testUi('course.in_progress_summary'));
             }
 
             if (currentLesson) {
@@ -502,9 +616,15 @@ window.__POLYGLOT_COURSE_MANIFEST__ = @json($courseManifestPayload);
         }
 
         function render() {
-            const state = store.read();
+            const state = activeCourseState();
             renderSummary(state);
             renderCards(state);
+
+            resetButtons.forEach((button) => {
+                button.disabled = serverAuthenticated;
+                button.classList.toggle('opacity-50', serverAuthenticated);
+                button.classList.toggle('cursor-not-allowed', serverAuthenticated);
+            });
         }
 
         window.PolyglotCourseProgress.subscribeToSync({
@@ -515,6 +635,10 @@ window.__POLYGLOT_COURSE_MANIFEST__ = @json($courseManifestPayload);
 
         resetButtons.forEach((button) => {
             button.addEventListener('click', () => {
+                if (serverAuthenticated) {
+                    return;
+                }
+
                 const confirmed = window.confirm(testUi('course.reset_course_progress_confirm'));
                 if (!confirmed) {
                     return;
@@ -527,6 +651,7 @@ window.__POLYGLOT_COURSE_MANIFEST__ = @json($courseManifestPayload);
 
         store.sync('course-hydrate');
         render();
+        hydrateServerProgress();
     }
 
     if (window.PolyglotCourseProgress) {
