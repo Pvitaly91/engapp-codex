@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotPassiveReportingStructuresC1LessonSeeder as V3PolyglotPassiveReportingStructuresC1LessonSeeder;
+
+class PolyglotPassiveReportingStructuresC1LessonSeeder extends V3PolyglotPassiveReportingStructuresC1LessonSeeder
+{
+}

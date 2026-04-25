@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotInversionAfterAdverbialsC1LessonSeeder as V3PolyglotInversionAfterAdverbialsC1LessonSeeder;
+
+class PolyglotInversionAfterAdverbialsC1LessonSeeder extends V3PolyglotInversionAfterAdverbialsC1LessonSeeder
+{
+}

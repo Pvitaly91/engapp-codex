@@ -25,6 +25,11 @@
             'name' => 'Polyglot English B2',
             'data_attr' => 'data-course-continue-b2-link',
         ],
+        'polyglot-english-b2' => [
+            'slug' => 'polyglot-english-c1',
+            'name' => 'Polyglot English C1',
+            'data_attr' => 'data-course-continue-c1-link',
+        ],
     ];
     $continueCourse = $continueCourseMap[$course['slug'] ?? ''] ?? null;
     $continueCourseUrl = is_array($continueCourse)
@@ -41,10 +46,13 @@
         'planned_total_lessons' => $plannedTotalLessons,
     ];
     $progressSyncPayload = [
-        'progressUrl' => route('courses.progress.show', $course['slug']),
-        'importUrl' => route('courses.progress.import', $course['slug']),
+        'progressUrl' => localized_route('courses.progress.show', $course['slug'], false),
+        'importUrl' => localized_route('courses.progress.import', $course['slug'], false),
         'csrfToken' => csrf_token(),
     ];
+    if ($isAdmin ?? false) {
+        $progressSyncPayload['debugUrl'] = localized_route('courses.progress.debug', $course['slug'], false);
+    }
 @endphp
 
 <div class="nd-page"
@@ -114,6 +122,8 @@
             </div>
         </div>
     </section>
+
+    @includeWhen(($isAdmin ?? false), 'courses.partials.polyglot-admin-debug-course')
 
     @if($courseContentComplete)
         <section data-course-content-complete-banner class="mt-8 rounded-[28px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
@@ -290,6 +300,9 @@
 
 @section('scripts')
 <script type="module" src="{{ asset('js/polyglot-course-progress.js') }}"></script>
+@if($isAdmin ?? false)
+    <script type="module" src="{{ asset('js/polyglot/course-admin-debug.js') }}"></script>
+@endif
 <script>
 window.FRONTEND_TESTS_I18N = @json(__('frontend.tests'));
 
@@ -359,11 +372,49 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         let serverState = null;
         let serverAuthenticated = false;
 
+        function cookieValue(name) {
+            const prefix = `${name}=`;
+            const item = String(document.cookie || '')
+                .split(';')
+                .map((cookie) => cookie.trim())
+                .find((cookie) => cookie.startsWith(prefix));
+
+            if (!item) {
+                return '';
+            }
+
+            try {
+                return decodeURIComponent(item.slice(prefix.length));
+            } catch (error) {
+                return item.slice(prefix.length);
+            }
+        }
+
+        function csrfHeaders() {
+            const headers = {
+                'X-Requested-With': 'XMLHttpRequest',
+            };
+            const xsrfToken = cookieValue('XSRF-TOKEN');
+            const embeddedToken = String(
+                progressSync.csrfToken
+                || document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
+                || ''
+            ).trim();
+
+            if (xsrfToken !== '') {
+                headers['X-XSRF-TOKEN'] = xsrfToken;
+            } else if (embeddedToken !== '') {
+                headers['X-CSRF-TOKEN'] = embeddedToken;
+            }
+
+            return headers;
+        }
+
         function serverHeaders() {
             return {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': progressSync.csrfToken || '',
+                ...csrfHeaders(),
             };
         }
 
@@ -663,7 +714,16 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         window.PolyglotCourseProgress.subscribeToSync({
             courseSlug: course.slug,
             ignoreSourceId: store.sourceId,
-            onSync: render,
+            onSync: (sync = {}) => {
+                const detail = sync.detail || {};
+
+                if (detail.serverCourseProgress) {
+                    serverAuthenticated = true;
+                    serverState = detail.serverCourseProgress;
+                }
+
+                render();
+            },
         });
 
         resetButtons.forEach((button) => {

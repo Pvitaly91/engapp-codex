@@ -189,6 +189,8 @@ return [
         'polyglot_b1_desc' => 'Roadmapa B1 startuje od Present Perfect Continuous i otwiera 16-lekcyjny tor dla reported speech, bardziej złożonych czasów i final drill.',
         'polyglot_b2_title' => 'Polyglot English B2',
         'polyglot_b2_desc' => 'Roadmapa B2 startuje od Past Perfect Continuous, mixed conditionals i modal perfect, a kolejne lekcje pozostają zaplanowane.',
+        'polyglot_c1_title' => 'Polyglot English C1',
+        'polyglot_c1_desc' => 'Roadmapa C1 startuje od advanced conditionals, inversion after adverbials i passive reporting structures.',
         'words_title' => 'Trening słownictwa',
         'words_desc' => 'Trenuj słownictwo z adaptacyjnym poziomem trudności.',
         'verbs_title' => 'Ćwiczenie form',

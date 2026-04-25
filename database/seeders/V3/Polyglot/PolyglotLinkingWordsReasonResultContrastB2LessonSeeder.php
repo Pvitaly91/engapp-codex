@@ -1,0 +1,3 @@
+<?php
+
+require_once __DIR__ . '/PolyglotLinkingWordsReasonResultContrastB2LessonSeeder/PolyglotLinkingWordsReasonResultContrastB2LessonSeeder.php';

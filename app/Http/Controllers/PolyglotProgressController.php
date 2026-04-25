@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Services\PolyglotCourseManifestService;
 use App\Services\PolyglotProgressService;
+use App\Support\AdminDebugAccess;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class PolyglotProgressController extends Controller
 {
@@ -77,6 +79,50 @@ class PolyglotProgressController extends Controller
             'authenticated' => true,
             'course_slug' => $courseSlug,
             'progress' => $this->progressService->importLocalProgress($user, $courseSlug, $validated['local_progress']),
+        ]);
+    }
+
+    public function debug(Request $request, string $courseSlug): JsonResponse
+    {
+        if (! AdminDebugAccess::allowed($request)) {
+            throw ValidationException::withMessages([
+                'debug' => __('authorization.failed'),
+            ])->status(403);
+        }
+
+        $validated = $request->validate([
+            'action' => ['required', 'string', 'max:64'],
+            'lesson_slug' => ['nullable', 'string', 'max:255'],
+            'answered' => ['nullable', 'integer', 'min:0'],
+            'rating_percent' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'required_answered' => ['nullable', 'integer', 'min:0'],
+            'required_correct' => ['nullable', 'integer', 'min:0'],
+            'minimum_rating_percent' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'force_unlock_next' => ['nullable', 'boolean'],
+            'completed' => ['nullable', 'boolean'],
+            'clear_policy' => ['nullable', 'boolean'],
+            'remove_next_progress' => ['nullable', 'boolean'],
+            'all_courses' => ['nullable', 'boolean'],
+        ]);
+
+        $user = $this->progressService->resolveUser($request);
+        if (! $user) {
+            return response()->json([
+                'authenticated' => false,
+            ]);
+        }
+
+        $result = $this->progressService->adminDebugAction(
+            $user,
+            $courseSlug,
+            $validated
+        );
+
+        return response()->json([
+            'authenticated' => true,
+            'course_slug' => $courseSlug,
+            'debug' => true,
+            ...$result,
         ]);
     }
 }

@@ -111,6 +111,9 @@ Route::prefix('courses/{courseSlug}/progress')->name('courses.progress.')->group
     Route::post('/attempt', [PolyglotProgressController::class, 'storeAttempt'])
         ->middleware('throttle:120,1')
         ->name('attempt');
+    Route::post('/debug', [PolyglotProgressController::class, 'debug'])
+        ->middleware('throttle:120,1')
+        ->name('debug');
     Route::post('/import', [PolyglotProgressController::class, 'import'])
         ->middleware('throttle:30,1')
         ->name('import');

@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\User;
 use App\Models\UserPolyglotAnswerAttempt;
 use App\Models\UserPolyglotLessonProgress;
+use App\Support\AdminDebugAccess;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -18,6 +19,7 @@ class PolyglotProgressService
 {
     public const REQUIRED_ANSWERS = 100;
     public const REQUIRED_AVERAGE = 4.5;
+    public const MAX_DEBUG_ANSWER_COUNT = 10000;
 
     public function __construct(
         private PolyglotCourseManifestService $manifestService,
@@ -25,17 +27,19 @@ class PolyglotProgressService
 
     public function resolveUser(Request $request): ?User
     {
-        if ($request->session()->get('admin_authenticated', false)) {
-            $adminUserId = $request->session()->get('admin_user_id');
-            if ($adminUserId) {
-                $adminUser = User::query()->find($adminUserId);
-                if ($adminUser instanceof User) {
-                    Auth::login($adminUser);
+        $adminUserId = (int) $request->session()->get('admin_user_id', 0);
+        if ($adminUserId > 0) {
+            $adminUser = User::query()->find($adminUserId);
+            if ($adminUser instanceof User) {
+                Auth::login($adminUser);
 
-                    return $adminUser;
-                }
+                return $adminUser;
             }
 
+            $request->session()->forget('admin_user_id');
+        }
+
+        if (AdminDebugAccess::allowed($request)) {
             $adminUser = $this->resolveConfiguredAdminUser();
             if (! $adminUser) {
                 return null;
@@ -58,6 +62,15 @@ class PolyglotProgressService
         $lessonSlug = trim($lessonSlug);
         $manifest = $this->knownCourseManifest($courseSlug);
         $lesson = $this->knownLesson($manifest, $lessonSlug);
+
+        if (! $this->progressStorageAvailable()) {
+            return $this->storageUnavailableActionPayload(
+                $user,
+                $courseSlug,
+                $this->normalizeLessons($manifest['lessons'] ?? []),
+                $lessonSlug
+            );
+        }
 
         if (! $this->isLessonUnlockedForUser($user, $courseSlug, $manifest, $lesson)) {
             throw ValidationException::withMessages([
@@ -122,6 +135,11 @@ class PolyglotProgressService
 
         $courseSlug = trim($courseSlug);
         $lessons = $this->normalizeLessons($lessons);
+
+        if (! $this->progressStorageAvailable()) {
+            return $this->buildCourseProgressPayload($user, $courseSlug, $lessons, collect());
+        }
+
         $slugs = array_column($lessons, 'slug');
         $progressRows = UserPolyglotLessonProgress::query()
             ->where('user_id', $user->id)
@@ -133,11 +151,585 @@ class PolyglotProgressService
         return $this->buildCourseProgressPayload($user, $courseSlug, $lessons, $progressRows);
     }
 
+    public function getCourseProgressPayload(User $user, string $courseSlug): array
+    {
+        $manifest = $this->knownCourseManifest($courseSlug);
+        $lessons = $this->normalizeLessons($manifest['lessons'] ?? []);
+
+        return $this->getCourseProgress($user, $courseSlug, $lessons) ?? [
+            'version' => 1,
+            'course_slug' => $courseSlug,
+            'user_id' => $user->id,
+            'required_answers' => self::REQUIRED_ANSWERS,
+            'required_average' => self::REQUIRED_AVERAGE,
+            'unlocked_lessons' => [],
+            'completed_lessons' => [],
+            'current_lesson_slug' => null,
+            'last_opened_lesson_slug' => null,
+            'lessons' => [],
+            'lesson_progress' => [],
+            'updated_at' => now()->toJSON(),
+        ];
+    }
+
+    public function adminDebugAction(User $user, string $courseSlug, array $payload): array
+    {
+        $manifest = $this->knownCourseManifest($courseSlug);
+        $lessons = $this->normalizeLessons($manifest['lessons'] ?? []);
+        $action = strtolower(trim((string) ($payload['action'] ?? '')));
+        $lessonSlug = trim((string) ($payload['lesson_slug'] ?? ''));
+        $lesson = $lessonSlug !== '' ? $this->knownLesson($manifest, $lessonSlug) : null;
+        $nextLesson = $lesson ? $this->manifestService->nextLesson($manifest, $lessonSlug) : null;
+
+        if (! $this->progressStorageAvailable()) {
+            throw ValidationException::withMessages([
+                'progress_storage' => 'Polyglot server progress tables are missing. Run php artisan migrate.',
+            ])->status(503);
+        }
+
+        return DB::transaction(function () use ($user, $courseSlug, $payload, $lessons, $action, $lessonSlug, $lesson, $nextLesson) {
+            switch ($action) {
+            case 'mark-complete':
+            case 'simulate-progress':
+                if (! $lesson) {
+                    throw ValidationException::withMessages([
+                        'lesson_slug' => 'Unknown lesson.',
+                    ]);
+                }
+
+                $answered = $this->sanitizeDebugCount($payload['answered'] ?? null);
+                $ratingPercent = $this->sanitizeDebugPercent($payload['rating_percent'] ?? null);
+                $completed = $action === 'mark-complete' || (bool) filter_var($payload['completed'] ?? false, FILTER_VALIDATE_BOOLEAN);
+
+                $this->setLessonDebugState($user, $courseSlug, $lessonSlug, $lesson, $answered, $ratingPercent, $completed);
+                if ($completed && $nextLesson) {
+                    $this->setLessonUnlocked($user, $courseSlug, $nextLesson['slug'], true, false);
+                }
+
+                return $this->debugActionResult(
+                    $user,
+                    $courseSlug,
+                    $lessonSlug,
+                    $action,
+                    true,
+                    $completed ? 'marked_complete' : 'progress_simulated'
+                );
+
+            case 'apply-lesson-policy':
+                if (! $lesson) {
+                    throw ValidationException::withMessages([
+                        'lesson_slug' => 'Unknown lesson.',
+                    ]);
+                }
+
+                $policy = $this->sanitizeDebugPolicy($payload, 'lesson');
+                $this->setLessonDebugPolicy($user, $courseSlug, $lessonSlug, $lesson, $policy);
+
+                if (! $nextLesson) {
+                    return $this->debugActionResult($user, $courseSlug, $lessonSlug, $action, false, 'final_lesson', [
+                        'policy' => $policy,
+                    ]);
+                }
+
+                $progress = $this->getLessonProgressSnapshot($user, $courseSlug, $lessonSlug);
+                if (! $policy['force_unlock_next'] && ! $this->debugPolicyPasses($progress, $policy)) {
+                    return $this->debugActionResult($user, $courseSlug, $lessonSlug, $action, false, 'policy_failed', [
+                        'policy' => $policy,
+                        'progress_snapshot' => $progress,
+                    ]);
+                }
+
+                if (! $policy['force_unlock_next']) {
+                    $this->setLessonCompleted($user, $courseSlug, $lessonSlug, true);
+                }
+                $this->setLessonUnlocked($user, $courseSlug, $nextLesson['slug'], true, false);
+
+                return $this->debugActionResult($user, $courseSlug, $lessonSlug, $action, true, 'policy_applied', [
+                    'policy' => $policy,
+                    'progress_snapshot' => $progress,
+                ]);
+
+            case 'apply-course-policy':
+                $policy = $this->sanitizeDebugPolicy($payload, 'course');
+                $applied = $this->applyCourseDebugPolicy($user, $courseSlug, $lessons, $policy);
+
+                return $this->debugActionResult($user, $courseSlug, $lessonSlug ?: null, $action, true, 'course_policy_applied', [
+                    'policy' => $policy,
+                    'course_policy_result' => $applied,
+                ]);
+
+            case 'clear-debug-overrides':
+                $cleared = $this->clearCourseDebugPolicies($user, $courseSlug, $lessons);
+
+                return $this->debugActionResult($user, $courseSlug, $lessonSlug ?: null, $action, true, 'debug_overrides_cleared', [
+                    'cleared_policies' => $cleared,
+                ]);
+
+            case 'unlock-next':
+                if (! $lesson || ! $nextLesson) {
+                    return $this->debugActionResult($user, $courseSlug, $lessonSlug ?: null, $action, false, $nextLesson ? 'missing_lesson' : 'final_lesson');
+                }
+
+                $this->setLessonUnlocked($user, $courseSlug, $nextLesson['slug'], true, false);
+
+                return $this->debugActionResult($user, $courseSlug, $lessonSlug, $action, true, 'next_unlocked');
+
+            case 'reset-current-lesson':
+                if (! $lesson) {
+                    throw ValidationException::withMessages([
+                        'lesson_slug' => 'Unknown lesson.',
+                    ]);
+                }
+
+                $this->resetLessonProgress(
+                    $user,
+                    $courseSlug,
+                    $lessonSlug,
+                    (bool) filter_var($payload['clear_policy'] ?? false, FILTER_VALIDATE_BOOLEAN)
+                );
+
+                return $this->debugActionResult($user, $courseSlug, $lessonSlug, $action, true, 'current_lesson_reset');
+
+            case 'reset-current-completion':
+                if (! $lesson) {
+                    throw ValidationException::withMessages([
+                        'lesson_slug' => 'Unknown lesson.',
+                    ]);
+                }
+
+                $this->setLessonCompleted($user, $courseSlug, $lessonSlug, false);
+
+                return $this->debugActionResult($user, $courseSlug, $lessonSlug, $action, true, 'current_completion_reset');
+
+            case 'reset-next-unlock':
+                if (! $lesson || ! $nextLesson) {
+                    return $this->debugActionResult($user, $courseSlug, $lessonSlug ?: null, $action, false, $nextLesson ? 'missing_lesson' : 'final_lesson');
+                }
+
+                $this->setLessonCompleted($user, $courseSlug, $lessonSlug, false);
+                $this->setLessonUnlocked($user, $courseSlug, $nextLesson['slug'], false, true);
+                if ((bool) filter_var($payload['remove_next_progress'] ?? false, FILTER_VALIDATE_BOOLEAN)) {
+                    UserPolyglotAnswerAttempt::query()
+                        ->where('user_id', $user->id)
+                        ->where('course_slug', $courseSlug)
+                        ->where('lesson_slug', $nextLesson['slug'])
+                        ->delete();
+                    UserPolyglotLessonProgress::query()
+                        ->where('user_id', $user->id)
+                        ->where('course_slug', $courseSlug)
+                        ->where('lesson_slug', $nextLesson['slug'])
+                        ->delete();
+                } else {
+                    $this->setLessonCompleted($user, $courseSlug, $nextLesson['slug'], false);
+                }
+
+                return $this->debugActionResult($user, $courseSlug, $lessonSlug, $action, true, 'next_unlock_reset');
+
+            case 'reset-course-progress':
+                $allCourses = (bool) filter_var($payload['all_courses'] ?? false, FILTER_VALIDATE_BOOLEAN);
+
+                if ($allCourses) {
+                    UserPolyglotAnswerAttempt::query()
+                        ->where('user_id', $user->id)
+                        ->delete();
+                    UserPolyglotLessonProgress::query()
+                        ->where('user_id', $user->id)
+                        ->delete();
+                } else {
+                    $lessonSlugs = array_values(array_filter(array_column($lessons, 'slug')));
+
+                    if ($lessonSlugs !== []) {
+                        UserPolyglotAnswerAttempt::query()
+                            ->where('user_id', $user->id)
+                            ->where('course_slug', $courseSlug)
+                            ->whereIn('lesson_slug', $lessonSlugs)
+                            ->delete();
+
+                        UserPolyglotLessonProgress::query()
+                            ->where('user_id', $user->id)
+                            ->where('course_slug', $courseSlug)
+                            ->whereIn('lesson_slug', $lessonSlugs)
+                            ->delete();
+                    }
+                }
+
+                return $this->debugActionResult($user, $courseSlug, $lessonSlug ?: null, $action, true, $allCourses ? 'all_progress_reset' : 'course_progress_reset');
+
+            default:
+                throw ValidationException::withMessages([
+                    'action' => "Unknown debug action: {$action}.",
+                ]);
+            }
+        });
+    }
+
+    private function debugActionResult(
+        User $user,
+        string $courseSlug,
+        ?string $activeLessonSlug,
+        string $action,
+        bool $applied,
+        string $messageKey,
+        array $extra = []
+    ): array {
+        $courseProgress = $this->getCourseProgressPayload($user, $courseSlug);
+        $activeLessonSlug = trim((string) ($activeLessonSlug ?? ''));
+
+        return [
+            'action' => $action,
+            'applied' => $applied,
+            'message_key' => $messageKey,
+            'course_progress' => $courseProgress,
+            'lesson_progress' => $activeLessonSlug !== ''
+                ? ($courseProgress['lesson_progress'][$activeLessonSlug] ?? null)
+                : null,
+            'lesson' => $activeLessonSlug !== ''
+                ? ($courseProgress['lessons'][$activeLessonSlug] ?? null)
+                : null,
+            ...$extra,
+        ];
+    }
+
+    private function sanitizeDebugPolicy(array $payload, string $scope): array
+    {
+        return [
+            'enabled' => true,
+            'scope' => $scope,
+            'required_answered' => $this->sanitizeDebugCount($payload['required_answered'] ?? $payload['answered'] ?? null),
+            'required_correct' => $this->sanitizeDebugCount($payload['required_correct'] ?? null),
+            'minimum_rating_percent' => $this->sanitizeDebugPercent($payload['minimum_rating_percent'] ?? $payload['rating_percent'] ?? null),
+            'force_unlock_next' => (bool) filter_var($payload['force_unlock_next'] ?? false, FILTER_VALIDATE_BOOLEAN),
+            'updated_at' => now()->toJSON(),
+        ];
+    }
+
+    private function sanitizeStoredDebugPolicy(mixed $policy): ?array
+    {
+        if (! is_array($policy) || ! (bool) ($policy['enabled'] ?? false)) {
+            return null;
+        }
+
+        return [
+            'enabled' => true,
+            'scope' => in_array(($policy['scope'] ?? null), ['lesson', 'course'], true) ? $policy['scope'] : 'lesson',
+            'required_answered' => $this->sanitizeDebugCount($policy['required_answered'] ?? null),
+            'required_correct' => $this->sanitizeDebugCount($policy['required_correct'] ?? null),
+            'minimum_rating_percent' => $this->sanitizeDebugPercent($policy['minimum_rating_percent'] ?? null),
+            'force_unlock_next' => (bool) ($policy['force_unlock_next'] ?? false),
+            'updated_at' => is_string($policy['updated_at'] ?? null) ? $policy['updated_at'] : null,
+        ];
+    }
+
+    private function debugPolicyFromMetadata(mixed $metadata): ?array
+    {
+        if (! is_array($metadata)) {
+            return null;
+        }
+
+        return $this->sanitizeStoredDebugPolicy($metadata['admin_debug_unlock_policy'] ?? null);
+    }
+
+    private function debugPolicyPasses(array $progress, array $policy): bool
+    {
+        if ((bool) ($policy['force_unlock_next'] ?? false)) {
+            return true;
+        }
+
+        $ratingPercent = $progress['last_100_average'] !== null
+            ? (float) $progress['last_100_average'] * 20
+            : 0.0;
+
+        return (int) ($progress['answered_count'] ?? 0) >= (int) ($policy['required_answered'] ?? 0)
+            && (int) ($progress['correct_attempts'] ?? 0) >= (int) ($policy['required_correct'] ?? 0)
+            && $ratingPercent >= (float) ($policy['minimum_rating_percent'] ?? 0);
+    }
+
+    private function getLessonProgressSnapshot(User $user, string $courseSlug, string $lessonSlug): array
+    {
+        $attemptQuery = UserPolyglotAnswerAttempt::query()
+            ->where('user_id', $user->id)
+            ->where('course_slug', $courseSlug)
+            ->where('lesson_slug', $lessonSlug);
+        $answeredCount = (clone $attemptQuery)->count();
+        $lastRatings = (clone $attemptQuery)
+            ->orderByDesc('answered_at')
+            ->orderByDesc('id')
+            ->limit(self::REQUIRED_ANSWERS)
+            ->pluck('rating')
+            ->map(fn ($rating) => (float) $rating)
+            ->values();
+        $attemptAverage = $lastRatings->count() > 0 ? round($lastRatings->avg(), 2) : null;
+        $correctAttempts = (clone $attemptQuery)
+            ->where(function ($query) {
+                $query->where('is_correct', true)
+                    ->orWhere('rating', '>=', self::REQUIRED_AVERAGE);
+            })
+            ->count();
+
+        $progress = UserPolyglotLessonProgress::query()
+            ->where('user_id', $user->id)
+            ->where('course_slug', $courseSlug)
+            ->where('lesson_slug', $lessonSlug)
+            ->first();
+        $metadata = is_array($progress?->metadata) ? $progress->metadata : [];
+        $debugCorrectAttempts = $this->sanitizeDebugCount(data_get($metadata, 'admin_debug.correct_attempts'));
+
+        return [
+            'answered_count' => max($answeredCount, (int) ($progress?->answered_count ?? 0)),
+            'last_100_count' => max($lastRatings->count(), (int) ($progress?->last_100_count ?? 0)),
+            'last_100_average' => $progress?->last_100_average ?? $attemptAverage,
+            'correct_attempts' => max($correctAttempts, $debugCorrectAttempts),
+        ];
+    }
+
+    private function setLessonDebugState(
+        User $user,
+        string $courseSlug,
+        string $lessonSlug,
+        array $lesson,
+        int $answered,
+        float $ratingPercent,
+        bool $completed
+    ): UserPolyglotLessonProgress {
+        $answered = max(0, min(self::MAX_DEBUG_ANSWER_COUNT, $answered));
+        $lastCount = min($answered, self::REQUIRED_ANSWERS);
+        $average = round(max(0.0, min(5.0, $ratingPercent / 20)), 2);
+        $correctAttempts = (int) round($answered * ($ratingPercent / 100));
+        $progress = UserPolyglotLessonProgress::query()->firstOrNew([
+            'user_id' => $user->id,
+            'course_slug' => $courseSlug,
+            'lesson_slug' => $lessonSlug,
+        ]);
+        $metadata = is_array($progress->metadata) ? $progress->metadata : [];
+        $metadata['admin_debug'] = [
+            'simulated' => true,
+            'answered_count' => $answered,
+            'correct_attempts' => max(0, min($answered, $correctAttempts)),
+            'rating_percent' => $ratingPercent,
+            'updated_at' => now()->toJSON(),
+        ];
+
+        $progress->fill([
+            'lesson_index' => $this->lessonIndex($lesson),
+            'answered_count' => $answered,
+            'last_100_count' => $lastCount,
+            'last_100_average' => $lastCount > 0 ? $average : null,
+            'is_completed' => $completed,
+            'completed_at' => $completed ? ($progress->completed_at ?? now()) : null,
+            'unlocked_at' => $progress->unlocked_at ?? now(),
+            'metadata' => $metadata === [] ? null : $metadata,
+        ]);
+        $progress->save();
+
+        return $progress;
+    }
+
+    private function setLessonDebugPolicy(
+        User $user,
+        string $courseSlug,
+        string $lessonSlug,
+        array $lesson,
+        array $policy
+    ): UserPolyglotLessonProgress {
+        $progress = UserPolyglotLessonProgress::query()->firstOrNew([
+            'user_id' => $user->id,
+            'course_slug' => $courseSlug,
+            'lesson_slug' => $lessonSlug,
+        ]);
+        $metadata = is_array($progress->metadata) ? $progress->metadata : [];
+        $metadata['admin_debug_unlock_policy'] = $policy;
+
+        $progress->lesson_index = $this->lessonIndex($lesson);
+        $progress->metadata = $metadata;
+        $progress->save();
+
+        return $progress;
+    }
+
+    private function applyCourseDebugPolicy(User $user, string $courseSlug, array $lessons, array $policy): array
+    {
+        $storedPolicies = 0;
+        $completedLessons = 0;
+        $unlockedLessons = 0;
+        $lessonMap = collect($lessons)->keyBy('slug');
+
+        foreach ($lessons as $lesson) {
+            $lessonSlug = (string) ($lesson['slug'] ?? '');
+            if ($lessonSlug === '') {
+                continue;
+            }
+
+            $this->setLessonDebugPolicy($user, $courseSlug, $lessonSlug, $lesson, $policy);
+            $storedPolicies++;
+
+            $nextLessonSlug = $lesson['next_lesson_slug'] ?? null;
+            if (! $nextLessonSlug || ! $lessonMap->has($nextLessonSlug)) {
+                continue;
+            }
+
+            $progress = $this->getLessonProgressSnapshot($user, $courseSlug, $lessonSlug);
+            if ($policy['force_unlock_next']) {
+                $this->setLessonUnlocked($user, $courseSlug, $nextLessonSlug, true, false);
+                $unlockedLessons++;
+                continue;
+            }
+
+            if (! $this->debugPolicyPasses($progress, $policy)) {
+                continue;
+            }
+
+            $this->setLessonCompleted($user, $courseSlug, $lessonSlug, true);
+            $this->setLessonUnlocked($user, $courseSlug, $nextLessonSlug, true, false);
+            $completedLessons++;
+            $unlockedLessons++;
+        }
+
+        return [
+            'stored_policies' => $storedPolicies,
+            'completed_lessons' => $completedLessons,
+            'unlocked_lessons' => $unlockedLessons,
+        ];
+    }
+
+    private function clearCourseDebugPolicies(User $user, string $courseSlug, array $lessons): int
+    {
+        $lessonSlugs = array_values(array_filter(array_column($lessons, 'slug')));
+        if ($lessonSlugs === []) {
+            return 0;
+        }
+
+        $count = 0;
+        UserPolyglotLessonProgress::query()
+            ->where('user_id', $user->id)
+            ->where('course_slug', $courseSlug)
+            ->whereIn('lesson_slug', $lessonSlugs)
+            ->get()
+            ->each(function (UserPolyglotLessonProgress $progress) use (&$count) {
+                $metadata = is_array($progress->metadata) ? $progress->metadata : [];
+                if (! array_key_exists('admin_debug_unlock_policy', $metadata)) {
+                    return;
+                }
+
+                unset($metadata['admin_debug_unlock_policy']);
+                $progress->metadata = $metadata === [] ? null : $metadata;
+                $progress->save();
+                $count++;
+            });
+
+        return $count;
+    }
+
+    private function setLessonCompleted(User $user, string $courseSlug, string $lessonSlug, bool $completed): UserPolyglotLessonProgress
+    {
+        $manifest = $this->knownCourseManifest($courseSlug);
+        $lesson = $this->knownLesson($manifest, $lessonSlug);
+        $progress = UserPolyglotLessonProgress::query()->firstOrNew([
+            'user_id' => $user->id,
+            'course_slug' => $courseSlug,
+            'lesson_slug' => $lessonSlug,
+        ]);
+
+        $progress->lesson_index = $this->lessonIndex($lesson);
+        $progress->is_completed = $completed;
+        $progress->completed_at = $completed ? ($progress->completed_at ?? now()) : null;
+        if ($completed) {
+            $progress->unlocked_at ??= now();
+        }
+        $progress->save();
+
+        return $progress;
+    }
+
+    private function setLessonUnlocked(
+        User $user,
+        string $courseSlug,
+        string $lessonSlug,
+        bool $unlock,
+        bool $keepCurrentUnlocked = false
+    ): ?UserPolyglotLessonProgress {
+        $manifest = $this->knownCourseManifest($courseSlug);
+        $lesson = $this->knownLesson($manifest, $lessonSlug);
+        $progress = UserPolyglotLessonProgress::query()->firstOrNew([
+            'user_id' => $user->id,
+            'course_slug' => $courseSlug,
+            'lesson_slug' => $lessonSlug,
+        ]);
+
+        $progress->lesson_index = $this->lessonIndex($lesson);
+        if ($unlock) {
+            $progress->unlocked_at ??= now();
+        } else {
+            $progress->unlocked_at = null;
+        }
+        $progress->save();
+
+        return $progress;
+    }
+
+    private function resetLessonProgress(User $user, string $courseSlug, string $lessonSlug, bool $clearPolicy): UserPolyglotLessonProgress
+    {
+        $manifest = $this->knownCourseManifest($courseSlug);
+        $lesson = $this->knownLesson($manifest, $lessonSlug);
+
+        UserPolyglotAnswerAttempt::query()
+            ->where('user_id', $user->id)
+            ->where('course_slug', $courseSlug)
+            ->where('lesson_slug', $lessonSlug)
+            ->delete();
+
+        $progress = UserPolyglotLessonProgress::query()->firstOrNew([
+            'user_id' => $user->id,
+            'course_slug' => $courseSlug,
+            'lesson_slug' => $lessonSlug,
+        ]);
+        $metadata = is_array($progress->metadata) ? $progress->metadata : [];
+        unset($metadata['admin_debug']);
+        if ($clearPolicy) {
+            unset($metadata['admin_debug_unlock_policy']);
+        }
+
+        $progress->fill([
+            'lesson_index' => $this->lessonIndex($lesson),
+            'answered_count' => 0,
+            'last_100_count' => 0,
+            'last_100_average' => null,
+            'is_completed' => false,
+            'completed_at' => null,
+            'unlocked_at' => $progress->unlocked_at ?? now(),
+            'metadata' => $metadata === [] ? null : $metadata,
+        ]);
+        $progress->save();
+
+        return $progress;
+    }
+
+    private function sanitizeDebugCount(mixed $value = null): int
+    {
+        $normalized = $this->sanitizeIntegerOrNull($value);
+
+        return $normalized === null
+            ? 0
+            : max(0, min(self::MAX_DEBUG_ANSWER_COUNT, $normalized));
+    }
+
+    private function sanitizeDebugPercent(mixed $value = null): float
+    {
+        $normalized = $this->sanitizeFloatOrNull($value);
+
+        return $normalized === null
+            ? 0.0
+            : max(0.0, min(100.0, round($normalized, 2)));
+    }
+
     public function importLocalProgress(User $user, string $courseSlug, array $localProgress): array
     {
         $courseSlug = trim($courseSlug);
         $manifest = $this->knownCourseManifest($courseSlug);
         $lessons = $this->normalizeLessons($manifest['lessons'] ?? []);
+
+        if (! $this->progressStorageAvailable()) {
+            return $this->buildCourseProgressPayload($user, $courseSlug, $lessons, collect());
+        }
 
         DB::transaction(function () use ($user, $courseSlug, $lessons, $localProgress) {
             foreach ($lessons as $lesson) {
@@ -247,6 +839,12 @@ class PolyglotProgressService
             ->values();
         $lastCount = $lastRatings->count();
         $average = $lastCount > 0 ? round($lastRatings->avg(), 2) : null;
+        $correctAttempts = (clone $attemptQuery)
+            ->where(function ($query) {
+                $query->where('is_correct', true)
+                    ->orWhere('rating', '>=', self::REQUIRED_AVERAGE);
+            })
+            ->count();
         $isCompleted = $lastCount >= self::REQUIRED_ANSWERS
             && $average !== null
             && $average >= self::REQUIRED_AVERAGE;
@@ -257,9 +855,37 @@ class PolyglotProgressService
         ]);
         $metadata = is_array($progress->metadata) ? $progress->metadata : [];
         $currentQueueIndex = data_get($payload, 'answer_payload.current_queue_index');
+        $isCorrectAttempt = data_get($payload, 'is_correct');
+        if (! is_bool($isCorrectAttempt) && is_numeric(data_get($payload, 'rating', null))) {
+            $isCorrectAttempt = (float) $payload['rating'] >= self::REQUIRED_AVERAGE;
+        }
 
         if (is_numeric($currentQueueIndex) && (int) $currentQueueIndex >= 0) {
-            $metadata['current_queue_index'] = (int) $currentQueueIndex;
+            $currentQueueIndex = (int) $currentQueueIndex;
+            if ($isCorrectAttempt) {
+                $currentQueueIndex += 1;
+            }
+
+            $metadata['current_queue_index'] = max(0, $currentQueueIndex);
+        } elseif ((bool) $isCorrectAttempt) {
+            $existingQueueIndex = isset($metadata['current_queue_index']) && is_numeric($metadata['current_queue_index'])
+                ? (int) $metadata['current_queue_index']
+                : 0;
+            $metadata['current_queue_index'] = max(0, $existingQueueIndex + 1);
+        }
+
+        $debugPolicy = $this->debugPolicyFromMetadata($metadata);
+        $forceDebugUnlock = false;
+        if ($debugPolicy !== null) {
+            $forceDebugUnlock = (bool) $debugPolicy['force_unlock_next'];
+            $isCompleted = $forceDebugUnlock
+                ? $isCompleted
+                : $this->debugPolicyPasses([
+                    'answered_count' => $answeredCount,
+                    'last_100_count' => $lastCount,
+                    'last_100_average' => $average,
+                    'correct_attempts' => $correctAttempts,
+                ], $debugPolicy);
         }
 
         $progress->fill([
@@ -274,7 +900,7 @@ class PolyglotProgressService
         ]);
         $progress->save();
 
-        if ($isCompleted) {
+        if ($isCompleted || $forceDebugUnlock) {
             $this->markNextLessonUnlocked($user, $courseSlug, $lessonSlug);
         }
 
@@ -404,7 +1030,7 @@ class PolyglotProgressService
 
     private function correctAttemptCount(string $courseSlug, string $lessonSlug, ?int $userId): int
     {
-        if (! $userId) {
+        if (! $userId || ! Schema::hasTable('user_polyglot_answer_attempts')) {
             return 0;
         }
 
@@ -468,6 +1094,33 @@ class PolyglotProgressService
             ->exists();
     }
 
+    private function progressStorageAvailable(): bool
+    {
+        return Schema::hasTable('user_polyglot_lesson_progress')
+            && Schema::hasTable('user_polyglot_answer_attempts');
+    }
+
+    private function storageUnavailableActionPayload(
+        User $user,
+        string $courseSlug,
+        array $lessons,
+        ?string $activeLessonSlug = null
+    ): array {
+        $courseProgress = $this->buildCourseProgressPayload($user, $courseSlug, $lessons, collect());
+        $activeLessonSlug = trim((string) ($activeLessonSlug ?? ''));
+
+        return [
+            'course_progress' => $courseProgress,
+            'lesson_progress' => $activeLessonSlug !== ''
+                ? ($courseProgress['lesson_progress'][$activeLessonSlug] ?? null)
+                : null,
+            'lesson' => $activeLessonSlug !== ''
+                ? ($courseProgress['lessons'][$activeLessonSlug] ?? null)
+                : null,
+            'progress_storage_available' => false,
+        ];
+    }
+
     private function knownCourseManifest(string $courseSlug): array
     {
         $manifest = $this->manifestService->build($courseSlug);
@@ -528,6 +1181,32 @@ class PolyglotProgressService
         $rating = (float) $rating;
 
         return max(0.0, min(5.0, round($rating, 2)));
+    }
+
+    private function sanitizeIntegerOrNull(mixed $value): ?int
+    {
+        if ($value === null || $value === '') {
+            return null;
+        }
+
+        if (is_int($value)) {
+            return $value;
+        }
+
+        if (is_numeric($value)) {
+            return (int) $value;
+        }
+
+        return null;
+    }
+
+    private function sanitizeFloatOrNull(mixed $value): ?float
+    {
+        if ($value === null || $value === '') {
+            return null;
+        }
+
+        return is_numeric($value) ? (float) $value : null;
     }
 
     private function sanitizeLocalRatings(mixed $ratings): array
@@ -647,3 +1326,4 @@ class PolyglotProgressService
         );
     }
 }
+

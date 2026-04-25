@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotConditionalsWithUnlessProvidedAsLongAsB2LessonSeeder as V3PolyglotConditionalsWithUnlessProvidedAsLongAsB2LessonSeeder;
+
+class PolyglotConditionalsWithUnlessProvidedAsLongAsB2LessonSeeder extends V3PolyglotConditionalsWithUnlessProvidedAsLongAsB2LessonSeeder
+{
+}

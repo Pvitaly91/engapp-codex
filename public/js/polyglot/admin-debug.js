@@ -26,10 +26,14 @@
     const coursePolicyPrefix = storageKeys.course_debug_policy_prefix || `polyglot_debug_unlock_policy:${courseSlug}:`;
     const stateNode = root.querySelector('[data-polyglot-debug-state]');
     const statusNode = root.querySelector('[data-polyglot-debug-status]');
+    const progressSync = window.__POLYGLOT_PROGRESS_SYNC__ || {};
+    const debugUrl = String(progressSync.debugUrl || '').trim();
+    const csrfToken = String(progressSync.csrfToken || '').trim();
 
     let progressApi = null;
     let courseStore = null;
     let lessonStore = null;
+    let lastServerResponse = null;
 
     function t(key, fallback = '') {
         return String(i18n[key] || fallback || key);
@@ -177,6 +181,128 @@
                 ...detail,
             },
         }));
+    }
+
+    function cookieValue(name) {
+        if (typeof document === 'undefined' || typeof document.cookie !== 'string') {
+            return '';
+        }
+
+        const prefix = `${name}=`;
+        const item = document.cookie
+            .split(';')
+            .map((cookie) => cookie.trim())
+            .find((cookie) => cookie.startsWith(prefix));
+
+        if (!item) {
+            return '';
+        }
+
+        try {
+            return decodeURIComponent(item.slice(prefix.length));
+        } catch (error) {
+            return item.slice(prefix.length);
+        }
+    }
+
+    function metaCsrfToken() {
+        return String(document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '').trim();
+    }
+
+    function serverHeaders() {
+        const headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+        };
+        const xsrfToken = cookieValue('XSRF-TOKEN');
+        const embeddedToken = String(csrfToken || metaCsrfToken()).trim();
+
+        if (xsrfToken !== '') {
+            headers['X-XSRF-TOKEN'] = xsrfToken;
+        } else if (embeddedToken !== '') {
+            headers['X-CSRF-TOKEN'] = embeddedToken;
+        }
+
+        return headers;
+    }
+
+    function serverPayload(action, extra = {}) {
+        return {
+            action,
+            lesson_slug: lessonSlug || null,
+            answered: inputNumber('answered', totalQuestions || rollingWindow, 0, 10000),
+            rating_percent: inputNumber('ratingPercent', 100, 0, 100),
+            required_answered: inputNumber('answered', totalQuestions, 0, 10000),
+            required_correct: inputNumber('requiredCorrect', totalQuestions, 0, 10000),
+            minimum_rating_percent: inputNumber('minimumRatingPercent', 90, 0, 100),
+            force_unlock_next: inputChecked('forceUnlockNext'),
+            clear_policy: inputChecked('clearPolicyOnReset'),
+            remove_next_progress: inputChecked('removeNextProgress'),
+            all_courses: inputChecked('allPolyglotCourses'),
+            ...extra,
+        };
+    }
+
+    function applyServerResponse(payload, reason) {
+        if (!payload || typeof payload !== 'object') {
+            return;
+        }
+
+        lastServerResponse = payload;
+
+        if (payload.course_progress) {
+            emitProgressEvent('courseProgressUpdated', {
+                state: payload.course_progress,
+                serverCourseProgress: payload.course_progress,
+                serverLessonProgress: payload.lesson_progress || null,
+                reason,
+            });
+        }
+
+        if (payload.lesson_progress) {
+            emitProgressEvent('lessonProgressUpdated', {
+                state: payload.lesson_progress,
+                serverCourseProgress: payload.course_progress || null,
+                serverLessonProgress: payload.lesson_progress,
+                reason,
+            });
+        }
+
+        renderState();
+    }
+
+    function serverStatus(payload, fallback) {
+        const key = payload?.message_key ? `status_${payload.message_key}` : '';
+
+        return t(key, fallback);
+    }
+
+    async function postServerAction(action, extra = {}) {
+        if (!debugUrl) {
+            return null;
+        }
+
+        const response = await fetch(debugUrl, {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: serverHeaders(),
+            body: JSON.stringify(serverPayload(action, extra)),
+        });
+        const payload = await response.json().catch(() => null);
+
+        if (!response.ok || !payload?.authenticated) {
+            const message = payload?.message || payload?.errors?.debug?.[0] || t('status_server_action_failed', 'Server debug action failed.');
+            throw new Error(message);
+        }
+
+        applyServerResponse(payload, `server-${action}`);
+        showStatus(
+            serverStatus(payload, payload.applied ? 'Server debug action applied.' : 'Server debug action did not apply.'),
+            payload.applied ? 'ok' : 'warn'
+        );
+
+        return payload;
     }
 
     function makeRollingResults(length, correctCount) {
@@ -382,14 +508,16 @@
         return policy;
     }
 
-    function saveCoursePolicy() {
+    function saveCoursePolicy(showMessage = true) {
         const policy = {
             ...currentPolicy(),
             scope: 'course',
             lessonSlug,
         };
         writeJson(coursePolicyKey, policy);
-        showStatus(t('status_course_policy_saved', 'Course debug policy was saved locally.'), 'ok');
+        if (showMessage) {
+            showStatus(t('status_course_policy_saved', 'Course debug policy was saved.'), 'ok');
+        }
 
         return policy;
     }
@@ -645,6 +773,77 @@
         showStatus(t('status_debug_keys_cleared', 'All Polyglot debug keys were cleared locally.'), 'ok');
     }
 
+    function clearCourseLocalKeys(allCourses = false) {
+        if (allCourses) {
+            keysMatching((key) => (
+                key.startsWith('polyglot_progress:')
+                || key.startsWith('polyglot_course_progress:')
+                || key.startsWith('polyglot_course_state:')
+                || key.startsWith('polyglot_debug_')
+            )).forEach(removeKey);
+            return;
+        }
+
+        removeKey(courseProgressKey);
+        removeKey(legacyCourseProgressKey);
+        lessons.forEach((item) => {
+            if (item?.slug) {
+                removeKey(`polyglot_progress:${item.slug}`);
+            }
+        });
+        keysMatching((key) => key.startsWith(coursePolicyPrefix)).forEach(removeKey);
+    }
+
+    function cleanupLocalAfterServerAction(action) {
+        if (action === 'reset-current-lesson') {
+            removeKey(lessonProgressKey);
+            const state = readCourseState();
+            const entry = ensureCourseEntry(state, lessonSlug);
+            entry.completed = false;
+            entry.has_progress = false;
+            entry.last_opened_at = null;
+            state.completed_lessons = removeValue(state.completed_lessons, lessonSlug);
+            state.current_lesson_slug = lessonSlug || state.current_lesson_slug;
+            writeCourseState(state, 'server-debug-reset-current-lesson');
+            if (inputChecked('clearPolicyOnReset')) {
+                removeKey(lessonPolicyKey);
+            }
+        } else if (action === 'reset-next-unlock') {
+            clearCurrentCompletion('server-debug-reset-next-unlock-current-completion');
+            const state = readCourseState();
+            const currentEntry = ensureCourseEntry(state, lessonSlug);
+            const nextEntry = ensureCourseEntry(state, nextLessonSlug);
+            currentEntry.completed = false;
+            nextEntry.unlocked = false;
+            nextEntry.completed = false;
+            state.completed_lessons = removeValue(removeValue(state.completed_lessons, lessonSlug), nextLessonSlug);
+            state.unlocked_lessons = removeValue(state.unlocked_lessons, nextLessonSlug);
+            if (state.current_lesson_slug === nextLessonSlug) {
+                state.current_lesson_slug = lessonSlug || null;
+            }
+            if (inputChecked('removeNextProgress')) {
+                removeKey(`polyglot_progress:${nextLessonSlug}`);
+                nextEntry.has_progress = false;
+                nextEntry.last_opened_at = null;
+            } else {
+                clearLessonCompletionOnly(nextLessonSlug);
+            }
+            writeCourseState(state, 'server-debug-reset-next-unlock');
+        } else if (action === 'reset-course-progress') {
+            clearCourseLocalKeys(inputChecked('allPolyglotCourses'));
+            emitProgressEvent('courseReset', {
+                state: null,
+                reason: 'server-debug-reset-course-progress',
+            });
+        } else if (action === 'clear-debug-overrides') {
+            keysMatching((key) => key.startsWith(coursePolicyPrefix)).forEach(removeKey);
+        } else if (action === 'apply-lesson-policy') {
+            saveLessonPolicy();
+        } else if (action === 'apply-course-policy') {
+            saveCoursePolicy(false);
+        }
+    }
+
     function renderState() {
         if (!stateNode) {
             return;
@@ -662,12 +861,50 @@
             coursePolicyKey,
             coursePolicy: readJson(coursePolicyKey),
             nextLessonSlug: nextLessonSlug || null,
+            serverDebugUrl: debugUrl || null,
+            lastServerResponse,
         };
 
         stateNode.textContent = JSON.stringify(snapshot, null, 2);
     }
 
-    function handleAction(action) {
+    async function handleAction(action) {
+        const serverActions = new Set([
+            'simulate-progress',
+            'mark-complete',
+            'unlock-next',
+            'apply-lesson-policy',
+            'apply-course-policy',
+            'clear-debug-overrides',
+            'reset-current-lesson',
+            'reset-current-completion',
+            'reset-next-unlock',
+            'reset-course-progress',
+        ]);
+
+        if (debugUrl && serverActions.has(action)) {
+            if (action === 'reset-course-progress') {
+                const allCourses = inputChecked('allPolyglotCourses');
+                const confirmMessage = allCourses
+                    ? t('confirm_all_progress_reset', 'Clear all Polyglot progress/debug keys?')
+                    : t('confirm_course_reset', 'Clear progress for this course?');
+
+                if (!window.confirm(confirmMessage)) {
+                    return;
+                }
+            }
+
+            try {
+                await postServerAction(action);
+                cleanupLocalAfterServerAction(action);
+                renderState();
+            } catch (error) {
+                showStatus(error?.message || t('status_server_action_failed', 'Server debug action failed.'), 'error');
+            }
+
+            return;
+        }
+
         if (action === 'simulate-progress') {
             simulateProgress();
         } else if (action === 'mark-complete') {

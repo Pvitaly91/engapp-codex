@@ -34,6 +34,10 @@
             'slug' => 'polyglot-english-b2',
             'name' => 'Polyglot English B2',
         ],
+        'polyglot-english-b2' => [
+            'slug' => 'polyglot-english-c1',
+            'name' => 'Polyglot English C1',
+        ],
     ];
     $continueCourse = $isFinalLesson ? ($continueCourseMap[$courseSlug ?? ''] ?? null) : null;
     $continueCourseUrl = is_array($continueCourse)
@@ -243,11 +247,14 @@
         'courseLessons' => data_get($courseContext, 'lessons', []),
     ];
     $progressSyncPayload = [
-        'progressUrl' => filled($courseSlug) ? route('courses.progress.show', $courseSlug) : null,
-        'attemptUrl' => filled($courseSlug) ? route('courses.progress.attempt', $courseSlug) : null,
-        'importUrl' => filled($courseSlug) ? route('courses.progress.import', $courseSlug) : null,
+        'progressUrl' => filled($courseSlug) ? localized_route('courses.progress.show', $courseSlug, false) : null,
+        'attemptUrl' => filled($courseSlug) ? localized_route('courses.progress.attempt', $courseSlug, false) : null,
+        'importUrl' => filled($courseSlug) ? localized_route('courses.progress.import', $courseSlug, false) : null,
         'csrfToken' => csrf_token(),
     ];
+    if (($isAdmin ?? false) && filled($courseSlug)) {
+        $progressSyncPayload['debugUrl'] = localized_route('courses.progress.debug', $courseSlug, false);
+    }
 @endphp
 window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
@@ -291,11 +298,49 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         return;
     }
 
+    function cookieValue(name) {
+        const prefix = `${name}=`;
+        const item = String(document.cookie || '')
+            .split(';')
+            .map((cookie) => cookie.trim())
+            .find((cookie) => cookie.startsWith(prefix));
+
+        if (!item) {
+            return '';
+        }
+
+        try {
+            return decodeURIComponent(item.slice(prefix.length));
+        } catch (error) {
+            return item.slice(prefix.length);
+        }
+    }
+
+    function csrfHeaders() {
+        const headers = {
+            'X-Requested-With': 'XMLHttpRequest',
+        };
+        const xsrfToken = cookieValue('XSRF-TOKEN');
+        const embeddedToken = String(
+            progressSync.csrfToken
+            || document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
+            || ''
+        ).trim();
+
+        if (xsrfToken !== '') {
+            headers['X-XSRF-TOKEN'] = xsrfToken;
+        } else if (embeddedToken !== '') {
+            headers['X-CSRF-TOKEN'] = embeddedToken;
+        }
+
+        return headers;
+    }
+
     function serverHeaders() {
         return {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': progressSync.csrfToken || '',
+            ...csrfHeaders(),
         };
     }
 
@@ -337,6 +382,84 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             .map((value) => Number(value))
             .filter((value) => value === 0 || value === 5)
             .slice(-rollingWindow);
+    }
+
+    function readJsonStorage(key) {
+        if (!key) {
+            return null;
+        }
+
+        try {
+            const raw = window.localStorage.getItem(key);
+
+            return raw ? JSON.parse(raw) : null;
+        } catch (error) {
+            return null;
+        }
+    }
+
+    function normalizeDebugPolicy(policy) {
+        if (!policy || typeof policy !== 'object' || policy.enabled === false) {
+            return null;
+        }
+
+        const requiredAnswered = sanitizeCount(policy.required_answered ?? policy.requiredAnswered);
+        const requiredCorrect = sanitizeCount(policy.required_correct ?? policy.requiredCorrect);
+        const minimumRatingPercent = Math.min(
+            100,
+            Math.max(0, sanitizeInteger(policy.minimum_rating_percent ?? policy.minimumRatingPercent, Math.round(minRating * 20)))
+        );
+
+        return {
+            required_answered: requiredAnswered,
+            required_correct: requiredCorrect,
+            minimum_rating_percent: minimumRatingPercent,
+            force_unlock_next: Boolean(policy.force_unlock_next ?? policy.forceUnlockNext),
+        };
+    }
+
+    function activeDebugPolicy() {
+        const adminDebugEnabled = Boolean(progressSync.debugUrl || document.querySelector('[data-polyglot-admin-debug="1"]'));
+        if (!adminDebugEnabled) {
+            return null;
+        }
+
+        const courseSlug = String(config.courseSlug || '').trim();
+        const lessonSlug = String(config.slug || '').trim();
+
+        if (!courseSlug || !lessonSlug) {
+            return null;
+        }
+
+        const lessonPolicy = normalizeDebugPolicy(
+            readJsonStorage(`polyglot_debug_unlock_policy:${courseSlug}:${lessonSlug}`)
+        );
+
+        if (lessonPolicy) {
+            return lessonPolicy;
+        }
+
+        return normalizeDebugPolicy(
+            readJsonStorage(`polyglot_debug_unlock_policy:${courseSlug}:__course__`)
+        );
+    }
+
+    function statusGoalNote() {
+        if (state.progress.lesson_completed) {
+            return testUi('compose.completed_banner');
+        }
+
+        const policy = activeDebugPolicy();
+        if (!policy) {
+            return testUi('compose.goal_note', { rating: minRating.toFixed(1), count: rollingWindow });
+        }
+
+        return testUi('compose.debug_goal_note', {
+            count: policy.required_answered,
+            correct: policy.required_correct,
+            percent: policy.minimum_rating_percent,
+            rating: (policy.minimum_rating_percent / 20).toFixed(1),
+        });
     }
 
     function sanitizeTokenValue(value) {
@@ -992,8 +1115,17 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         rehydrateFromSharedState();
     }
 
-    function rehydrateFromSharedState() {
+    function rehydrateFromSharedState(sync = null) {
+        const detail = sync?.detail || {};
+
         if (serverAuthenticated) {
+            const serverProgress = detail.serverCourseProgress || detail.course_progress || detail.progress || null;
+            if (serverProgress) {
+                applyServerProgress(serverProgress);
+            } else if (detail.serverLessonProgress && typeof detail.serverLessonProgress === 'object') {
+                state.progress = progressStore.normalize(detail.serverLessonProgress);
+            }
+
             render();
             return;
         }
@@ -1151,9 +1283,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         document.getElementById('compose-rating').textContent = ratingText;
         document.getElementById('compose-rating-meta').textContent = `${state.progress.rolling_results.length} / ${rollingWindow}`;
         document.getElementById('compose-status').textContent = statusLabel;
-        document.getElementById('compose-status-note').textContent = state.progress.lesson_completed
-            ? testUi('compose.completed_banner')
-            : testUi('compose.goal_note', { rating: minRating.toFixed(1), count: rollingWindow });
+        document.getElementById('compose-status-note').textContent = statusGoalNote();
         document.getElementById('compose-source-text').textContent = question.sourceTextUk;
         document.getElementById('compose-punctuation').textContent = testUi('compose.ends_with', { punctuation: question.punctuation });
         document.getElementById('compose-answer-zone').innerHTML = answerZoneMarkup(question);
@@ -1305,6 +1435,15 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         if (event.key === 'Backspace' && state.selectedTokenIds.length > 0) {
             event.preventDefault();
             removeLastToken();
+        }
+    });
+
+    window.addEventListener('storage', (event) => {
+        const key = String(event.key || '');
+        const courseSlug = String(config.courseSlug || '').trim();
+
+        if (courseSlug && key.startsWith(`polyglot_debug_unlock_policy:${courseSlug}:`)) {
+            render();
         }
     });
 

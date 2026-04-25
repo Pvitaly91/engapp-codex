@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotParticipleClausesBasicsB2LessonSeeder as V3PolyglotParticipleClausesBasicsB2LessonSeeder;
+
+class PolyglotParticipleClausesBasicsB2LessonSeeder extends V3PolyglotParticipleClausesBasicsB2LessonSeeder
+{
+}

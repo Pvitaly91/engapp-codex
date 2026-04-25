@@ -1,0 +1,3 @@
+<?php
+
+require_once __DIR__ . '/PolyglotConditionalsWithUnlessProvidedAsLongAsB2LessonSeeder/PolyglotConditionalsWithUnlessProvidedAsLongAsB2LessonSeeder.php';

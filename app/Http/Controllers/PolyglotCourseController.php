@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\PolyglotCourseBlueprintService;
 use App\Services\PolyglotCourseManifestService;
+use App\Support\AdminDebugAccess;
 
 class PolyglotCourseController extends Controller
 {
@@ -31,6 +32,7 @@ class PolyglotCourseController extends Controller
             'plannedLessonsCount' => $courseStatus['counts']['planned_only_total'],
             'nextPlannedLesson' => $courseStatus['next_planned_lesson'],
             'courseBlueprint' => $courseStatus['blueprint'],
+            'isAdmin' => AdminDebugAccess::allowed(request()),
         ]);
     }
 }
