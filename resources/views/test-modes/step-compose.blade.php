@@ -524,6 +524,80 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         return courseStore.findLesson(slug)?.name || '';
     }
 
+    function localLessonAnswered(progress) {
+        if (!progress || typeof progress !== 'object') {
+            return 0;
+        }
+
+        const totalAttempts = Number(progress.total_attempts || 0);
+        const rollingCount = Array.isArray(progress.rolling_results) ? progress.rolling_results.length : 0;
+
+        return Math.max(Number.isFinite(totalAttempts) ? totalAttempts : 0, rollingCount);
+    }
+
+    function serverLessonAnswered(progress) {
+        const lessonEntry = progress?.lessons?.[config.slug] || null;
+        const lessonProgress = progress?.lesson_progress?.[config.slug] || null;
+        const answeredCount = Number(lessonEntry?.answered_count || 0);
+        const progressTotal = Number(lessonProgress?.total_attempts || 0);
+        const rollingCount = Array.isArray(lessonProgress?.rolling_results) ? lessonProgress.rolling_results.length : 0;
+
+        return Math.max(
+            Number.isFinite(answeredCount) ? answeredCount : 0,
+            Number.isFinite(progressTotal) ? progressTotal : 0,
+            rollingCount
+        );
+    }
+
+    function localProgressPayload() {
+        const lessonProgress = progressStore.read();
+
+        if (localLessonAnswered(lessonProgress) <= 0 && !lessonProgress.lesson_completed) {
+            return null;
+        }
+
+        return {
+            course: courseStore ? courseStore.read() : null,
+            lesson_progress: {
+                [config.slug]: lessonProgress,
+            },
+        };
+    }
+
+    async function maybeImportLocalProgress(progress) {
+        if (!progressSync.importUrl) {
+            return null;
+        }
+
+        const localProgress = localProgressPayload();
+        const lessonProgress = localProgress?.lesson_progress?.[config.slug] || null;
+
+        if (!lessonProgress || localLessonAnswered(lessonProgress) <= serverLessonAnswered(progress)) {
+            return null;
+        }
+
+        try {
+            const response = await fetch(progressSync.importUrl, {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: serverHeaders(),
+                body: JSON.stringify({
+                    local_progress: localProgress,
+                }),
+            });
+
+            if (!response.ok) {
+                return null;
+            }
+
+            const payload = await response.json();
+
+            return payload?.authenticated && payload.progress ? payload.progress : null;
+        } catch (error) {
+            return null;
+        }
+    }
+
     function applyServerProgress(progress) {
         if (!progress || typeof progress !== 'object') {
             return;
@@ -562,7 +636,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
                 return;
             }
 
-            applyServerProgress(payload.progress);
+            applyServerProgress(await maybeImportLocalProgress(payload.progress) || payload.progress);
         } catch (error) {
             serverAuthenticated = false;
             serverCourseState = null;

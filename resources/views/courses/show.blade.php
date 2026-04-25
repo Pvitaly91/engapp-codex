@@ -392,19 +392,47 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             };
         }
 
-        function totalAnswered(progress) {
-            return Object.values(progress?.lessons || {}).reduce((sum, lesson) => {
-                return sum + Number(lesson?.answered_count || 0);
-            }, 0);
+        function localLessonAnswered(progress) {
+            if (!progress || typeof progress !== 'object') {
+                return 0;
+            }
+
+            const totalAttempts = Number(progress.total_attempts || 0);
+            const rollingCount = Array.isArray(progress.rolling_results) ? progress.rolling_results.length : 0;
+
+            return Math.max(Number.isFinite(totalAttempts) ? totalAttempts : 0, rollingCount);
+        }
+
+        function serverLessonAnswered(progress, slug) {
+            const lessonEntry = progress?.lessons?.[slug] || null;
+            const lessonProgress = progress?.lesson_progress?.[slug] || null;
+            const answeredCount = Number(lessonEntry?.answered_count || 0);
+            const progressTotal = Number(lessonProgress?.total_attempts || 0);
+            const rollingCount = Array.isArray(lessonProgress?.rolling_results) ? lessonProgress.rolling_results.length : 0;
+
+            return Math.max(
+                Number.isFinite(answeredCount) ? answeredCount : 0,
+                Number.isFinite(progressTotal) ? progressTotal : 0,
+                rollingCount
+            );
+        }
+
+        function hasImportableLocalProgress(localProgress, serverProgress) {
+            return Object.entries(localProgress.lesson_progress || {}).some(([slug, lessonProgress]) => {
+                return localLessonAnswered(lessonProgress) > serverLessonAnswered(serverProgress, slug);
+            });
         }
 
         async function maybeImportLocalProgress(progress) {
-            if (!progressSync.importUrl || totalAnswered(progress) > 0) {
+            if (!progressSync.importUrl) {
                 return null;
             }
 
             const localProgress = localProgressPayload();
-            if (Object.keys(localProgress.lesson_progress).length === 0) {
+            if (
+                Object.keys(localProgress.lesson_progress).length === 0
+                || !hasImportableLocalProgress(localProgress, progress)
+            ) {
                 return null;
             }
 

@@ -210,6 +210,80 @@ class PolyglotUserProgressTest extends TestCase
         ]);
     }
 
+    public function test_import_syncs_existing_local_progress_for_authenticated_user(): void
+    {
+        $user = User::factory()->create();
+        [$firstLesson] = $this->createCourseLessons();
+        $localProgress = [
+            'lesson_progress' => [
+                $firstLesson => [
+                    'lesson_slug' => $firstLesson,
+                    'course_slug' => 'polyglot-english-a1',
+                    'current_queue_index' => 2,
+                    'rolling_results' => [5, 0, 5],
+                    'total_attempts' => 3,
+                ],
+            ],
+        ];
+
+        $this->withSession($this->adminSession($user))
+            ->postJson('/courses/polyglot-english-a1/progress/import', [
+                'local_progress' => $localProgress,
+            ])
+            ->assertOk()
+            ->assertJsonPath('authenticated', true)
+            ->assertJsonPath("progress.lessons.$firstLesson.answered_count", 3)
+            ->assertJsonPath("progress.lessons.$firstLesson.last_100_count", 3)
+            ->assertJsonPath("progress.lessons.$firstLesson.last_100_average", 3.33)
+            ->assertJsonPath("progress.lesson_progress.$firstLesson.current_queue_index", 2);
+
+        $this->assertDatabaseCount('user_polyglot_answer_attempts', 3);
+        $this->assertDatabaseHas('user_polyglot_lesson_progress', [
+            'user_id' => $user->id,
+            'course_slug' => 'polyglot-english-a1',
+            'lesson_slug' => $firstLesson,
+            'answered_count' => 3,
+            'last_100_count' => 3,
+            'last_100_average' => 3.33,
+            'is_completed' => false,
+        ]);
+
+        $this->withSession($this->adminSession($user))
+            ->postJson('/courses/polyglot-english-a1/progress/import', [
+                'local_progress' => $localProgress,
+            ])
+            ->assertOk()
+            ->assertJsonPath("progress.lessons.$firstLesson.answered_count", 3);
+
+        $this->assertDatabaseCount('user_polyglot_answer_attempts', 3);
+
+        $this->withSession($this->adminSession($user))
+            ->getJson('/courses/polyglot-english-a1/progress')
+            ->assertOk()
+            ->assertJsonPath("progress.lessons.$firstLesson.answered_count", 3);
+    }
+
+    public function test_admin_session_without_user_id_is_bound_to_configured_user(): void
+    {
+        config([
+            'admin.username' => 'admin',
+            'admin.user_email' => 'admin@example.test',
+        ]);
+        [$firstLesson] = $this->createCourseLessons();
+
+        $this->withSession(['admin_authenticated' => true])
+            ->getJson('/courses/polyglot-english-a1/progress')
+            ->assertOk()
+            ->assertJsonPath('authenticated', true)
+            ->assertJsonPath("progress.lessons.$firstLesson.is_unlocked", true);
+
+        $this->assertDatabaseHas('users', [
+            'email' => 'admin@example.test',
+            'name' => 'admin',
+        ]);
+        $this->assertDatabaseCount('users', 1);
+    }
+
     private function recordAttempts(User $user, string $lessonSlug, array $ratings, int $offset = 0): void
     {
         foreach (array_values($ratings) as $index => $rating) {

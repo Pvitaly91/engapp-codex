@@ -11,6 +11,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 class PolyglotProgressService
@@ -637,6 +638,15 @@ class PolyglotProgressService
             }
         }
 
-        return null;
+        $username = trim((string) config('admin.username', 'admin')) ?: 'admin';
+        $email = $candidates[0] ?? $username;
+
+        return User::query()->firstOrCreate(
+            ['email' => $email],
+            [
+                'name' => $username,
+                'password' => Str::random(40),
+            ]
+        );
     }
 }
