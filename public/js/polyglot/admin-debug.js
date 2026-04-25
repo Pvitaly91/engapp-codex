@@ -488,9 +488,64 @@
         };
     }
 
+    function buildZeroCurrentProgress() {
+        return {
+            version: 3,
+            lesson_slug: lessonSlug,
+            course_slug: courseSlug || null,
+            current_queue_index: 0,
+            rolling_results: [],
+            total_attempts: 0,
+            correct_attempts: 0,
+            lesson_completed: false,
+            completed_at: null,
+            last_seen_at: nowIso(),
+        };
+    }
+
+    function clearLessonCompletionOnly(targetLessonSlug) {
+        if (!targetLessonSlug) {
+            return null;
+        }
+
+        const key = `polyglot_progress:${targetLessonSlug}`;
+        const raw = readJson(key);
+
+        if (!raw || typeof raw !== 'object') {
+            return null;
+        }
+
+        const rolling = Array.isArray(raw.rolling_results) ? raw.rolling_results : [];
+        const keepCount = Math.max(0, rollingWindow - 1);
+        const trimmedRolling = rolling.length >= rollingWindow
+            ? (keepCount > 0 ? rolling.slice(-keepCount) : [])
+            : rolling;
+        const totalAttempts = Math.max(toInt(raw.total_attempts, 0), trimmedRolling.length);
+        const snapshot = {
+            ...raw,
+            rolling_results: trimmedRolling,
+            total_attempts: totalAttempts,
+            correct_attempts: clamp(toInt(raw.correct_attempts, 0), 0, totalAttempts),
+            lesson_completed: false,
+            completed_at: null,
+            last_seen_at: nowIso(),
+        };
+
+        writeJson(key, snapshot);
+        emitProgressEvent('lessonProgressUpdated', {
+            lessonSlug: targetLessonSlug,
+            state: snapshot,
+            reason: 'admin-debug-force-incomplete-next',
+        });
+
+        return snapshot;
+    }
+
     function clearCurrentCompletion(reason = 'admin-debug-reset-current-completion') {
-        const progress = readLessonProgress() || buildLessonProgress(false);
-        const snapshot = buildIncompleteCurrentProgress(progress);
+        const currentProgress = readLessonProgress();
+        const snapshot = currentProgress
+            ? buildIncompleteCurrentProgress(currentProgress)
+            : buildZeroCurrentProgress();
 
         writeLessonProgress(snapshot, reason);
 
@@ -537,6 +592,8 @@
             removeKey(`polyglot_progress:${nextLessonSlug}`);
             nextEntry.has_progress = false;
             nextEntry.last_opened_at = null;
+        } else {
+            clearLessonCompletionOnly(nextLessonSlug);
         }
 
         writeCourseState(state, 'admin-debug-reset-next-unlock');
