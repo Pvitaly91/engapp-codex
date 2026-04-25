@@ -29,6 +29,11 @@ use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousVsPresentPerfec
 use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectVsPastSimpleLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastPerfectBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotNarrativeTensesBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFutureContinuousBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFuturePerfectBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPassiveVoiceWithModalsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotReportedQuestionsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotReportedCommandsAndRequestsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotSuperlativesLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotSomeAnyLessonSeeder;
@@ -92,6 +97,11 @@ class PolyglotCourseBlueprintTest extends TestCase
         $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
         $this->seed(PolyglotPastPerfectBasicsLessonSeeder::class);
         $this->seed(PolyglotNarrativeTensesBasicsLessonSeeder::class);
+        $this->seed(PolyglotFutureContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotFuturePerfectBasicsLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceWithModalsLessonSeeder::class);
+        $this->seed(PolyglotReportedQuestionsLessonSeeder::class);
+        $this->seed(PolyglotReportedCommandsAndRequestsLessonSeeder::class);
     }
 
     public function test_blueprint_file_loads_with_unique_lesson_orders_and_slugs(): void
@@ -320,6 +330,16 @@ class PolyglotCourseBlueprintTest extends TestCase
             ->firstWhere('slug', 'polyglot-past-perfect-basics-b1');
         $lessonFour = collect($blueprint['lessons'])
             ->firstWhere('slug', 'polyglot-narrative-tenses-basics-b1');
+        $lessonFive = collect($blueprint['lessons'])
+            ->firstWhere('slug', 'polyglot-future-continuous-basics-b1');
+        $lessonSix = collect($blueprint['lessons'])
+            ->firstWhere('slug', 'polyglot-future-perfect-basics-b1');
+        $lessonSeven = collect($blueprint['lessons'])
+            ->firstWhere('slug', 'polyglot-passive-voice-with-modals-b1');
+        $lessonEight = collect($blueprint['lessons'])
+            ->firstWhere('slug', 'polyglot-reported-questions-b1');
+        $lessonNine = collect($blueprint['lessons'])
+            ->firstWhere('slug', 'polyglot-reported-commands-and-requests-b1');
         $lessonSixteen = collect($blueprint['lessons'])
             ->firstWhere('slug', 'polyglot-final-drill-b1');
 
@@ -359,26 +379,64 @@ class PolyglotCourseBlueprintTest extends TestCase
         $this->assertSame('polyglot-future-continuous-basics-b1', $lessonFour['next_lesson_slug']);
         $this->assertSame('tenses', $lessonFour['theory_category_slug']);
         $this->assertSame('narrative-tenses', $lessonFour['theory_page_slug']);
+        $this->assertIsArray($lessonFive);
+        $this->assertSame(5, $lessonFive['lesson_order']);
+        $this->assertSame('implemented', $lessonFive['status']);
+        $this->assertSame('polyglot-narrative-tenses-basics-b1', $lessonFive['previous_lesson_slug']);
+        $this->assertSame('polyglot-future-perfect-basics-b1', $lessonFive['next_lesson_slug']);
+        $this->assertSame('future-continuous', $lessonFive['theory_category_slug']);
+        $this->assertSame('future-continuous-forms', $lessonFive['theory_page_slug']);
+        $this->assertIsArray($lessonSix);
+        $this->assertSame(6, $lessonSix['lesson_order']);
+        $this->assertSame('implemented', $lessonSix['status']);
+        $this->assertSame('polyglot-future-continuous-basics-b1', $lessonSix['previous_lesson_slug']);
+        $this->assertSame('polyglot-passive-voice-with-modals-b1', $lessonSix['next_lesson_slug']);
+        $this->assertSame('future-perfect', $lessonSix['theory_category_slug']);
+        $this->assertSame('future-perfect-forms', $lessonSix['theory_page_slug']);
+        $this->assertIsArray($lessonSeven);
+        $this->assertSame(7, $lessonSeven['lesson_order']);
+        $this->assertSame('implemented', $lessonSeven['status']);
+        $this->assertSame('polyglot-future-perfect-basics-b1', $lessonSeven['previous_lesson_slug']);
+        $this->assertSame('polyglot-reported-questions-b1', $lessonSeven['next_lesson_slug']);
+        $this->assertSame('passive-voice', $lessonSeven['theory_category_slug']);
+        $this->assertSame('theory-passive-voice-modal-verbs', $lessonSeven['theory_page_slug']);
+        $this->assertIsArray($lessonEight);
+        $this->assertSame(8, $lessonEight['lesson_order']);
+        $this->assertSame('implemented', $lessonEight['status']);
+        $this->assertSame('polyglot-passive-voice-with-modals-b1', $lessonEight['previous_lesson_slug']);
+        $this->assertSame('polyglot-reported-commands-and-requests-b1', $lessonEight['next_lesson_slug']);
+        $this->assertSame('reported-speech', $lessonEight['theory_category_slug']);
+        $this->assertSame('reported-questions', $lessonEight['theory_page_slug']);
+        $this->assertIsArray($lessonNine);
+        $this->assertSame(9, $lessonNine['lesson_order']);
+        $this->assertSame('implemented', $lessonNine['status']);
+        $this->assertSame('polyglot-reported-questions-b1', $lessonNine['previous_lesson_slug']);
+        $this->assertSame('polyglot-non-defining-relative-clauses-b1', $lessonNine['next_lesson_slug']);
+        $this->assertSame('reported-speech', $lessonNine['theory_category_slug']);
+        $this->assertSame('reported-commands-and-requests', $lessonNine['theory_page_slug']);
         $this->assertIsArray($lessonSixteen);
         $this->assertSame(16, $lessonSixteen['lesson_order']);
         $this->assertSame('planned', $lessonSixteen['status']);
         $this->assertSame('polyglot-linking-words-and-contrast-b1', $lessonSixteen['previous_lesson_slug']);
         $this->assertNull($lessonSixteen['next_lesson_slug']);
         $this->assertFalse(collect($blueprint['lessons'])->contains(
-            fn (array $lesson) => ($lesson['lesson_order'] ?? null) >= 5 && ($lesson['status'] ?? null) !== 'planned'
+            fn (array $lesson) => ($lesson['lesson_order'] ?? null) <= 9 && ($lesson['status'] ?? null) !== 'implemented'
+        ));
+        $this->assertFalse(collect($blueprint['lessons'])->contains(
+            fn (array $lesson) => ($lesson['lesson_order'] ?? null) >= 10 && ($lesson['status'] ?? null) !== 'planned'
         ));
     }
 
-    public function test_b1_blueprint_status_layer_reports_four_implemented_lessons_and_next_planned_lesson(): void
+    public function test_b1_blueprint_status_layer_reports_nine_implemented_lessons_and_next_planned_lesson(): void
     {
         $status = app(PolyglotCourseBlueprintService::class)
             ->buildCourseStatus('polyglot-english-b1');
 
         $this->assertSame(16, $status['counts']['planned_total']);
-        $this->assertSame(4, $status['counts']['implemented_total']);
-        $this->assertSame(12, $status['counts']['planned_only_total']);
+        $this->assertSame(9, $status['counts']['implemented_total']);
+        $this->assertSame(7, $status['counts']['planned_only_total']);
         $this->assertSame(
-            'polyglot-future-continuous-basics-b1',
+            'polyglot-non-defining-relative-clauses-b1',
             $status['next_planned_lesson']['slug'] ?? null
         );
         $this->assertSame([], $status['missing_lessons']);

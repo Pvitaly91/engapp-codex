@@ -24,6 +24,11 @@ use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousBasicsLessonSee
 use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastPerfectBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotNarrativeTensesBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFutureContinuousBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFuturePerfectBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPassiveVoiceWithModalsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotReportedQuestionsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotReportedCommandsAndRequestsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotQuestionTagsBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotReportedSpeechBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotRelativeClausesLessonSeeder;
@@ -947,6 +952,65 @@ class PolyglotComposeModeTest extends TestCase
         $this->assertSame('polyglot-english-b1', $courseContext['course_slug']);
         $this->assertSame('polyglot-past-perfect-basics-b1', $courseContext['previous_lesson_slug']);
         $this->assertSame('polyglot-future-continuous-basics-b1', $courseContext['next_lesson_slug']);
+    }
+
+    public function test_compose_routes_work_for_generator_driven_b1_lessons_five_to_nine(): void
+    {
+        $this->seed(PolyglotPresentPerfectContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
+        $this->seed(PolyglotPastPerfectBasicsLessonSeeder::class);
+        $this->seed(PolyglotNarrativeTensesBasicsLessonSeeder::class);
+        $this->seed(PolyglotFutureContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotFuturePerfectBasicsLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceWithModalsLessonSeeder::class);
+        $this->seed(PolyglotReportedQuestionsLessonSeeder::class);
+        $this->seed(PolyglotReportedCommandsAndRequestsLessonSeeder::class);
+
+        $expectations = [
+            'polyglot-future-continuous-basics-b1' => [
+                'tokens' => ['I', 'will', 'be', 'driving', 'to', 'work', 'at', 'eight', 'tomorrow'],
+                'previous' => 'polyglot-narrative-tenses-basics-b1',
+                'next' => 'polyglot-future-perfect-basics-b1',
+            ],
+            'polyglot-future-perfect-basics-b1' => [
+                'tokens' => ['I', 'will', 'have', 'finished', 'the', 'report', 'by', 'Friday'],
+                'previous' => 'polyglot-future-continuous-basics-b1',
+                'next' => 'polyglot-passive-voice-with-modals-b1',
+            ],
+            'polyglot-passive-voice-with-modals-b1' => [
+                'tokens' => ['This', 'form', 'can', 'be', 'completed', 'online'],
+                'previous' => 'polyglot-future-perfect-basics-b1',
+                'next' => 'polyglot-reported-questions-b1',
+            ],
+            'polyglot-reported-questions-b1' => [
+                'tokens' => ['He', 'asked', 'me', 'if', 'I', 'was', 'tired'],
+                'previous' => 'polyglot-passive-voice-with-modals-b1',
+                'next' => 'polyglot-reported-commands-and-requests-b1',
+            ],
+            'polyglot-reported-commands-and-requests-b1' => [
+                'tokens' => ['The', 'teacher', 'told', 'us', 'to', 'open', 'our', 'books'],
+                'previous' => 'polyglot-reported-questions-b1',
+                'next' => 'polyglot-non-defining-relative-clauses-b1',
+            ],
+        ];
+
+        foreach ($expectations as $slug => $expectation) {
+            $response = $this->get("/test/{$slug}/step/compose");
+
+            $response->assertOk();
+            $response->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
+
+            $questionData = $response->viewData('questionData');
+            $courseContext = $response->viewData('courseContext');
+
+            $this->assertIsArray($questionData);
+            $this->assertNotEmpty($questionData);
+            $this->assertSame($expectation['tokens'], $questionData[0]['correctTokenValues']);
+            $this->assertIsArray($courseContext);
+            $this->assertSame('polyglot-english-b1', $courseContext['course_slug']);
+            $this->assertSame($expectation['previous'], $courseContext['previous_lesson_slug']);
+            $this->assertSame($expectation['next'], $courseContext['next_lesson_slug']);
+        }
     }
 
     public function test_polyglot_compose_routes_bypass_coming_soon_gate_without_opening_generic_tests(): void

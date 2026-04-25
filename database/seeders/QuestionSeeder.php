@@ -47,7 +47,7 @@ abstract class QuestionSeeder extends Seeder
         return $base.$suffix;
     }
 
-    protected function seedQuestionData(array $items, array $meta): void
+    protected function seedQuestionData(array $items, array $meta, bool $allowQuestionTextFallback = true): void
     {
         if (empty($items)) {
             return;
@@ -60,7 +60,7 @@ abstract class QuestionSeeder extends Seeder
         }, $items);
 
         $service = new QuestionSeedingService;
-        $service->seed($items);
+        $service->seed($items, $allowQuestionTextFallback);
         app(QuestionMetaSyncService::class)->sync($meta, static::class, 'uk');
     }
 

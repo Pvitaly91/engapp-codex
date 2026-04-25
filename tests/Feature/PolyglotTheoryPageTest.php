@@ -26,6 +26,10 @@ use Database\Seeders\Page_V3\Articles\SomeAny\SomeAnyThingsTheorySeeder;
 use Database\Seeders\Page_V3\CommonMistakes\CommonMistakesArticlesTheorySeeder;
 use Database\Seeders\Page_V3\CommonMistakes\CommonMistakesCategorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsCategorySeeder;
+use Database\Seeders\Page_V3\FutureForms\FutureContinuous\FutureContinuousCategorySeeder;
+use Database\Seeders\Page_V3\FutureForms\FutureContinuous\FutureContinuousFormsTheorySeeder;
+use Database\Seeders\Page_V3\FutureForms\FuturePerfect\FuturePerfectCategorySeeder;
+use Database\Seeders\Page_V3\FutureForms\FuturePerfect\FuturePerfectFormsTheorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsWillVsBeGoingToTheorySeeder;
 use Database\Seeders\Page_V3\ModalVerbs\ModalVerbsCanCouldTheorySeeder;
 use Database\Seeders\Page_V3\ModalVerbs\ModalVerbsCategorySeeder;
@@ -33,10 +37,13 @@ use Database\Seeders\Page_V3\ModalVerbs\ModalVerbsShouldOughtToTheorySeeder;
 use Database\Seeders\Page_V3\NounsArticlesQuantity\NounsArticlesQuantityCategorySeeder;
 use Database\Seeders\Page_V3\NounsArticlesQuantity\NounsArticlesQuantityQuantifiersTheorySeeder;
 use Database\Seeders\Page_V3\PassiveVoice\Basics\PassiveVoiceFormationRulesTheorySeeder;
+use Database\Seeders\Page_V3\PassiveVoice\Basics\PassiveVoiceModalVerbsTheorySeeder;
 use Database\Seeders\Page_V3\PassiveVoice\PassiveVoiceCategorySeeder;
 use Database\Seeders\Page_V3\QuestionsNegations\TypesOfQuestions\TypesOfQuestionsCategorySeeder;
 use Database\Seeders\Page_V3\QuestionsNegations\TypesOfQuestions\TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder;
 use Database\Seeders\Page_V3\ReportedSpeech\ReportedSpeechCategorySeeder;
+use Database\Seeders\Page_V3\ReportedSpeech\ReportedSpeechQuestionsTheorySeeder;
+use Database\Seeders\Page_V3\ReportedSpeech\ReportedSpeechCommandsRequestsTheorySeeder;
 use Database\Seeders\Page_V3\ReportedSpeech\ReportedSpeechStatementsTheorySeeder;
 use Database\Seeders\Page_V3\Tenses\PastSimple\PastSimpleCategorySeeder;
 use Database\Seeders\Page_V3\Tenses\PastSimple\PastSimpleFormsTheorySeeder;
@@ -92,6 +99,11 @@ use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectContinuousBasicsLessonSee
 use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastPerfectBasicsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotNarrativeTensesBasicsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotFutureContinuousBasicsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotFuturePerfectBasicsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotPassiveVoiceWithModalsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotReportedQuestionsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotReportedCommandsAndRequestsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectVsPastSimpleLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentSimpleVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotThereIsThereAreLessonSeeder;
@@ -1190,6 +1202,83 @@ class PolyglotTheoryPageTest extends TestCase
         });
     }
 
+    public function test_theory_pages_show_b1_lessons_five_to_nine_without_leaking_to_unrelated_pages(): void
+    {
+        $this->seedTheoryPages();
+        $this->seed(BasicGrammarSentenceTypesTheorySeeder::class);
+        $this->seed(PolyglotFutureContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotFuturePerfectBasicsLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceWithModalsLessonSeeder::class);
+        $this->seed(PolyglotReportedQuestionsLessonSeeder::class);
+        $this->seed(PolyglotReportedCommandsAndRequestsLessonSeeder::class);
+
+        $service = app(TheoryPagePromptLinkedTestsService::class);
+        $sentenceTypesPage = Page::query()
+            ->where('slug', 'sentence-types')
+            ->firstOrFail();
+        $expectations = [
+            [
+                'page_slug' => 'future-continuous-forms',
+                'route_category' => 'future-continuous',
+                'lesson_slug' => 'polyglot-future-continuous-basics-b1',
+            ],
+            [
+                'page_slug' => 'future-perfect-forms',
+                'route_category' => 'future-perfect',
+                'lesson_slug' => 'polyglot-future-perfect-basics-b1',
+            ],
+            [
+                'page_slug' => 'theory-passive-voice-modal-verbs',
+                'route_category' => 'passive-voice',
+                'lesson_slug' => 'polyglot-passive-voice-with-modals-b1',
+            ],
+            [
+                'page_slug' => 'reported-questions',
+                'route_category' => 'reported-speech',
+                'lesson_slug' => 'polyglot-reported-questions-b1',
+            ],
+            [
+                'page_slug' => 'reported-commands-and-requests',
+                'route_category' => 'reported-speech',
+                'lesson_slug' => 'polyglot-reported-commands-and-requests-b1',
+            ],
+        ];
+
+        foreach ($expectations as $expected) {
+            $relevantPage = Page::query()
+                ->where('slug', $expected['page_slug'])
+                ->firstOrFail();
+
+            $this->assertTrue(
+                $service->buildForPage($relevantPage)->contains(
+                    fn ($test) => ($test->slug ?? null) === $expected['lesson_slug']
+                )
+            );
+            $this->assertFalse(
+                $service->buildForPage($sentenceTypesPage)->contains(
+                    fn ($test) => ($test->slug ?? null) === $expected['lesson_slug']
+                )
+            );
+
+            $relevantResponse = $this->get(route('theory.show', [$expected['route_category'], $relevantPage->slug]));
+            $unrelatedResponse = $this->get(route('theory.show', ['basic-grammar', $sentenceTypesPage->slug]));
+
+            $relevantResponse->assertOk();
+            $relevantResponse->assertViewHas('topicTests', function ($tests) use ($expected) {
+                return collect($tests)->contains(
+                    fn ($test) => ($test->slug ?? null) === $expected['lesson_slug']
+                );
+            });
+
+            $unrelatedResponse->assertOk();
+            $unrelatedResponse->assertViewHas('topicTests', function ($tests) use ($expected) {
+                return collect($tests)->doesntContain(
+                    fn ($test) => ($test->slug ?? null) === $expected['lesson_slug']
+                );
+            });
+        }
+    }
+
     protected function augmentTheorySchema(): void
     {
         Schema::create('text_blocks', function (Blueprint $table) {
@@ -1272,6 +1361,8 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(PresentSimpleCategorySeeder::class);
         $this->seed(ModalVerbsCategorySeeder::class);
         $this->seed(FutureFormsCategorySeeder::class);
+        $this->seed(FutureContinuousCategorySeeder::class);
+        $this->seed(FuturePerfectCategorySeeder::class);
         $this->seed(CommonMistakesCategorySeeder::class);
         $this->seed(SomeAnyCategorySeeder::class);
         $this->seed(NounsArticlesQuantityCategorySeeder::class);
@@ -1303,6 +1394,8 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(ModalVerbsCanCouldTheorySeeder::class);
         $this->seed(ModalVerbsShouldOughtToTheorySeeder::class);
         $this->seed(FutureFormsWillVsBeGoingToTheorySeeder::class);
+        $this->seed(FutureContinuousFormsTheorySeeder::class);
+        $this->seed(FuturePerfectFormsTheorySeeder::class);
         $this->seed(ConditionalsSecondTheorySeeder::class);
         $this->seed(CommonMistakesArticlesTheorySeeder::class);
         $this->seed(SomeAnyThingsTheorySeeder::class);
@@ -1311,7 +1404,10 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(AdjectivesComparativeVsSuperlativeTheorySeeder::class);
         $this->seed(VerbPatternsGerundVsInfinitiveTheorySeeder::class);
         $this->seed(PassiveVoiceFormationRulesTheorySeeder::class);
+        $this->seed(PassiveVoiceModalVerbsTheorySeeder::class);
         $this->seed(TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder::class);
         $this->seed(ReportedSpeechStatementsTheorySeeder::class);
+        $this->seed(ReportedSpeechQuestionsTheorySeeder::class);
+        $this->seed(ReportedSpeechCommandsRequestsTheorySeeder::class);
     }
 }

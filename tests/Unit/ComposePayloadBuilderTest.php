@@ -39,6 +39,11 @@ use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectContinuousBasicsLessonSee
 use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPastPerfectBasicsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotNarrativeTensesBasicsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotFutureContinuousBasicsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotFuturePerfectBasicsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotPassiveVoiceWithModalsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotReportedQuestionsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotReportedCommandsAndRequestsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectVsPastSimpleLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotPresentSimpleVerbsLessonSeeder;
 use Database\Seeders\V3\Polyglot\PolyglotSomeAnyLessonSeeder;
@@ -1957,6 +1962,115 @@ class ComposePayloadBuilderTest extends TestCase
             'Past Continuous for the background action; Past Simple for the event.',
             $walkingPayload['hintUk']
         );
+    }
+
+    public function test_b1_lessons_five_to_nine_v3_polyglot_payloads_remain_compose_compatible(): void
+    {
+        $this->seed(PolyglotFutureContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotFuturePerfectBasicsLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceWithModalsLessonSeeder::class);
+        $this->seed(PolyglotReportedQuestionsLessonSeeder::class);
+        $this->seed(PolyglotReportedCommandsAndRequestsLessonSeeder::class);
+
+        $resolver = app(QuestionUuidResolver::class);
+        $payloadFor = function (string $canonicalUuid) use ($resolver): array {
+            return $this->buildComposePayload(
+                Question::query()
+                    ->where('uuid', $resolver->toPersistent($canonicalUuid))
+                    ->firstOrFail()
+                    ->load(['answers.option', 'options', 'hints', 'chatgptExplanations'])
+            );
+        };
+
+        $futureContinuousPayload = $payloadFor('polyglot-future-continuous-basics-b1-q18');
+        $futurePerfectPayload = $payloadFor('polyglot-future-perfect-basics-b1-q23');
+        $modalPassiveDuplicatePayload = $payloadFor('polyglot-passive-voice-with-modals-b1-q15');
+        $modalPassiveCanPayload = $payloadFor('polyglot-passive-voice-with-modals-b1-q21');
+        $reportedBackshiftPayload = $payloadFor('polyglot-reported-questions-b1-q13');
+        $reportedTimeShiftPayload = $payloadFor('polyglot-reported-questions-b1-q21');
+        $reportedCommandPayload = $payloadFor('polyglot-reported-commands-and-requests-b1-q15');
+        $reportedRequestPayload = $payloadFor('polyglot-reported-commands-and-requests-b1-q38');
+
+        $futureContinuousTheInstances = collect($futureContinuousPayload['tokenBank'])
+            ->where('value', 'the')
+            ->where('isCorrect', true)
+            ->values();
+        $futurePerfectTheInstances = collect($futurePerfectPayload['tokenBank'])
+            ->where('value', 'the')
+            ->where('isCorrect', true)
+            ->values();
+        $modalPassiveTheInstances = collect($modalPassiveDuplicatePayload['tokenBank'])
+            ->where('value', 'the')
+            ->where('isCorrect', true)
+            ->values();
+
+        $this->assertSame(
+            ['Will', 'you', 'be', 'using', 'the', 'laptop', 'in', 'the', 'evening'],
+            $futureContinuousPayload['correctTokenValues']
+        );
+        $this->assertCount(9, $futureContinuousPayload['correctTokenIds']);
+        $this->assertSame(9, count(array_unique($futureContinuousPayload['correctTokenIds'])));
+        $this->assertCount(2, $futureContinuousTheInstances);
+        $this->assertEqualsCanonicalizing(
+            ['Will', 'you', 'be', 'using', 'the', 'laptop', 'in', 'the', 'evening', 'used', 'use', 'phone'],
+            collect($futureContinuousPayload['tokenBank'])->pluck('value')->all()
+        );
+
+        $this->assertSame(
+            ['How', 'much', 'money', 'will', 'we', 'have', 'saved', 'by', 'the', 'end', 'of', 'the', 'year'],
+            $futurePerfectPayload['correctTokenValues']
+        );
+        $this->assertCount(13, $futurePerfectPayload['correctTokenIds']);
+        $this->assertSame(13, count(array_unique($futurePerfectPayload['correctTokenIds'])));
+        $this->assertCount(2, $futurePerfectTheInstances);
+
+        $this->assertSame(
+            ['Should', 'the', 'room', 'be', 'cleaned', 'before', 'the', 'meeting'],
+            $modalPassiveDuplicatePayload['correctTokenValues']
+        );
+        $this->assertCount(8, $modalPassiveDuplicatePayload['correctTokenIds']);
+        $this->assertSame(8, count(array_unique($modalPassiveDuplicatePayload['correctTokenIds'])));
+        $this->assertCount(2, $modalPassiveTheInstances);
+        $this->assertSame(
+            ['How', 'can', 'this', 'problem', 'be', 'solved'],
+            $modalPassiveCanPayload['correctTokenValues']
+        );
+
+        $this->assertSame(
+            ['She', 'asked', 'me', 'if', 'I', 'had', 'seen', 'her', 'keys'],
+            $reportedBackshiftPayload['correctTokenValues']
+        );
+        $this->assertSame(
+            ['He', 'asked', 'where', 'we', 'had', 'been', 'the', 'day', 'before'],
+            $reportedTimeShiftPayload['correctTokenValues']
+        );
+        $this->assertContains('asked', collect($reportedBackshiftPayload['tokenBank'])->pluck('value')->all());
+        $this->assertContains('if', collect($reportedBackshiftPayload['tokenBank'])->pluck('value')->all());
+        $this->assertContains('I', collect($reportedBackshiftPayload['tokenBank'])->pluck('value')->all());
+        $this->assertContains('had', collect($reportedBackshiftPayload['tokenBank'])->pluck('value')->all());
+        $this->assertContains('the', collect($reportedTimeShiftPayload['tokenBank'])->pluck('value')->all());
+
+        $reportedCommandTheInstances = collect($reportedCommandPayload['tokenBank'])
+            ->where('value', 'the')
+            ->where('isCorrect', true)
+            ->values();
+
+        $this->assertSame(
+            ['The', 'manager', 'told', 'the', 'team', 'not', 'to', 'discuss', 'the', 'plan', 'outside', 'the', 'office'],
+            $reportedCommandPayload['correctTokenValues']
+        );
+        $this->assertCount(13, $reportedCommandPayload['correctTokenIds']);
+        $this->assertSame(13, count(array_unique($reportedCommandPayload['correctTokenIds'])));
+        $this->assertCount(3, $reportedCommandTheInstances);
+        $this->assertSame(
+            ['The', 'woman', 'asked', 'us', 'not', 'to', 'make', 'noise'],
+            $reportedRequestPayload['correctTokenValues']
+        );
+        $this->assertContains('told', collect($reportedCommandPayload['tokenBank'])->pluck('value')->all());
+        $this->assertContains('asked', collect($reportedRequestPayload['tokenBank'])->pluck('value')->all());
+        $this->assertContains('to', collect($reportedCommandPayload['tokenBank'])->pluck('value')->all());
+        $this->assertContains('not', collect($reportedRequestPayload['tokenBank'])->pluck('value')->all());
+        $this->assertContains('us', collect($reportedRequestPayload['tokenBank'])->pluck('value')->all());
     }
 
     private function createComposeQuestion(string $questionText, array $answers, array $options): Question

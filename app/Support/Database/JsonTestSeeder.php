@@ -184,7 +184,7 @@ abstract class JsonTestSeeder extends QuestionSeeder
             );
         }
 
-        $this->seedQuestionData($items, []);
+        $this->seedQuestionData($items, [], false);
         $this->persistLocalizations($localizedPayloads);
         $this->syncSavedTestFromDefinition(
             Arr::get($definition, 'saved_test'),

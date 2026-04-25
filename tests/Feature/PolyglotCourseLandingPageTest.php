@@ -18,6 +18,11 @@ use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousBasicsLessonSee
 use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastPerfectBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotNarrativeTensesBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFutureContinuousBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFuturePerfectBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPassiveVoiceWithModalsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotReportedQuestionsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotReportedCommandsAndRequestsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotQuestionTagsBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotReportedSpeechBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotRelativeClausesLessonSeeder;
@@ -91,6 +96,11 @@ class PolyglotCourseLandingPageTest extends TestCase
         $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
         $this->seed(PolyglotPastPerfectBasicsLessonSeeder::class);
         $this->seed(PolyglotNarrativeTensesBasicsLessonSeeder::class);
+        $this->seed(PolyglotFutureContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotFuturePerfectBasicsLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceWithModalsLessonSeeder::class);
+        $this->seed(PolyglotReportedQuestionsLessonSeeder::class);
+        $this->seed(PolyglotReportedCommandsAndRequestsLessonSeeder::class);
     }
 
     public function test_course_landing_route_works_and_renders_lessons_in_order(): void
@@ -279,7 +289,7 @@ class PolyglotCourseLandingPageTest extends TestCase
         ]));
     }
 
-    public function test_b1_course_landing_route_works_and_shows_four_implemented_lessons_with_planned_roadmap(): void
+    public function test_b1_course_landing_route_works_and_shows_nine_implemented_lessons_with_planned_roadmap(): void
     {
         $response = $this->get('/courses/polyglot-english-b1');
 
@@ -289,15 +299,24 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertSee('/test/polyglot-present-perfect-continuous-vs-present-perfect-b1/step/compose', false);
         $response->assertSee('/test/polyglot-past-perfect-basics-b1/step/compose', false);
         $response->assertSee('/test/polyglot-narrative-tenses-basics-b1/step/compose', false);
+        $response->assertSee('/test/polyglot-future-continuous-basics-b1/step/compose', false);
+        $response->assertSee('/test/polyglot-future-perfect-basics-b1/step/compose', false);
+        $response->assertSee('/test/polyglot-passive-voice-with-modals-b1/step/compose', false);
+        $response->assertSee('/test/polyglot-reported-questions-b1/step/compose', false);
+        $response->assertSee('/test/polyglot-reported-commands-and-requests-b1/step/compose', false);
         $response->assertSee('data-polyglot-course-slug="polyglot-english-b1"', false);
         $response->assertSee('data-polyglot-planned-lessons="16"', false);
-        $response->assertSee('data-polyglot-implemented-lessons="4"', false);
-        $response->assertSee('4 / 16');
+        $response->assertSee('data-polyglot-implemented-lessons="9"', false);
+        $response->assertSee('9 / 16');
         $response->assertSee('data-course-lesson-status="current"', false);
         $response->assertSee('data-course-lesson-status="planned"', false);
         $response->assertSee('data-course-lesson-action-disabled', false);
         $response->assertSee('polyglot-past-perfect-basics-b1');
         $response->assertSee('polyglot-narrative-tenses-basics-b1');
         $response->assertSee('polyglot-future-continuous-basics-b1');
+        $response->assertSee('polyglot-future-perfect-basics-b1');
+        $response->assertSee('polyglot-passive-voice-with-modals-b1');
+        $response->assertSee('polyglot-reported-questions-b1');
+        $response->assertSee('polyglot-reported-commands-and-requests-b1');
     }
 }

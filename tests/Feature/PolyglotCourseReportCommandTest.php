@@ -28,6 +28,11 @@ use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousBasicsLessonSee
 use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastPerfectBasicsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotNarrativeTensesBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFutureContinuousBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotFuturePerfectBasicsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotPassiveVoiceWithModalsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotReportedQuestionsLessonSeeder;
+use Database\Seeders\V2\Polyglot\PolyglotReportedCommandsAndRequestsLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectVsPastSimpleLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotSuperlativesLessonSeeder;
 use Database\Seeders\V2\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
@@ -92,6 +97,11 @@ class PolyglotCourseReportCommandTest extends TestCase
         $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
         $this->seed(PolyglotPastPerfectBasicsLessonSeeder::class);
         $this->seed(PolyglotNarrativeTensesBasicsLessonSeeder::class);
+        $this->seed(PolyglotFutureContinuousBasicsLessonSeeder::class);
+        $this->seed(PolyglotFuturePerfectBasicsLessonSeeder::class);
+        $this->seed(PolyglotPassiveVoiceWithModalsLessonSeeder::class);
+        $this->seed(PolyglotReportedQuestionsLessonSeeder::class);
+        $this->seed(PolyglotReportedCommandsAndRequestsLessonSeeder::class);
     }
 
     public function test_course_report_command_outputs_planned_and_implemented_status(): void
@@ -142,18 +152,23 @@ class PolyglotCourseReportCommandTest extends TestCase
         $status = app(PolyglotCourseBlueprintService::class)
             ->buildCourseStatus('polyglot-english-b1');
 
-        $this->assertSame('polyglot-future-continuous-basics-b1', $status['next_planned_lesson']['slug'] ?? null);
+        $this->assertSame('polyglot-non-defining-relative-clauses-b1', $status['next_planned_lesson']['slug'] ?? null);
 
         $this->artisan('polyglot:course-report', [
             'courseSlug' => 'polyglot-english-b1',
         ])
             ->expectsOutputToContain('Planned total: 16')
-            ->expectsOutputToContain('Implemented total: 4')
+            ->expectsOutputToContain('Implemented total: 9')
             ->expectsOutputToContain('polyglot-present-perfect-continuous-basics-b1')
             ->expectsOutputToContain('polyglot-present-perfect-continuous-vs-present-perfect-b1')
             ->expectsOutputToContain('polyglot-past-perfect-basics-b1')
             ->expectsOutputToContain('polyglot-narrative-tenses-basics-b1')
             ->expectsOutputToContain('polyglot-future-continuous-basics-b1')
+            ->expectsOutputToContain('polyglot-future-perfect-basics-b1')
+            ->expectsOutputToContain('polyglot-passive-voice-with-modals-b1')
+            ->expectsOutputToContain('polyglot-reported-questions-b1')
+            ->expectsOutputToContain('polyglot-reported-commands-and-requests-b1')
+            ->expectsOutputToContain('Next recommended lesson: polyglot-non-defining-relative-clauses-b1')
             ->expectsOutputToContain('Broken previous/next refs: none')
             ->assertExitCode(0);
     }

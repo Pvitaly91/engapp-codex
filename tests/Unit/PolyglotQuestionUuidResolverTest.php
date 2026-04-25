@@ -288,4 +288,69 @@ class PolyglotQuestionUuidResolverTest extends TestCase
         $this->assertNotSame($canonical, $mappedOnce);
         $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
     }
+
+    public function test_future_continuous_basics_b1_question_uuid_mapping_is_deterministic_and_length_safe(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-future-continuous-basics-b1-q24';
+
+        $mappedOnce = $resolver->toPersistent($canonical);
+        $mappedTwice = $resolver->toPersistent($canonical);
+
+        $this->assertSame($mappedOnce, $mappedTwice);
+        $this->assertNotSame($canonical, $mappedOnce);
+        $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
+    }
+
+    public function test_future_perfect_basics_b1_question_uuid_mapping_is_deterministic_and_length_safe(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-future-perfect-basics-b1-q24';
+
+        $mappedOnce = $resolver->toPersistent($canonical);
+        $mappedTwice = $resolver->toPersistent($canonical);
+
+        $this->assertSame($mappedOnce, $mappedTwice);
+        $this->assertNotSame($canonical, $mappedOnce);
+        $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
+    }
+
+    public function test_passive_voice_with_modals_b1_question_uuid_mapping_is_deterministic_and_length_safe(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-passive-voice-with-modals-b1-q24';
+
+        $mappedOnce = $resolver->toPersistent($canonical);
+        $mappedTwice = $resolver->toPersistent($canonical);
+
+        $this->assertSame($mappedOnce, $mappedTwice);
+        $this->assertNotSame($canonical, $mappedOnce);
+        $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
+    }
+
+    public function test_reported_questions_b1_question_uuid_within_limit_is_left_untouched(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-reported-questions-b1-q24';
+
+        $mappedOnce = $resolver->toPersistent($canonical);
+        $mappedTwice = $resolver->toPersistent($canonical);
+
+        $this->assertSame($mappedOnce, $mappedTwice);
+        $this->assertSame($canonical, $mappedOnce);
+        $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
+    }
+
+    public function test_reported_commands_and_requests_b1_question_uuid_mapping_is_deterministic_and_length_safe(): void
+    {
+        $resolver = app(QuestionUuidResolver::class);
+        $canonical = 'polyglot-reported-commands-and-requests-b1-q48';
+
+        $mappedOnce = $resolver->toPersistent($canonical);
+        $mappedTwice = $resolver->toPersistent($canonical);
+
+        $this->assertSame($mappedOnce, $mappedTwice);
+        $this->assertNotSame($canonical, $mappedOnce);
+        $this->assertLessThanOrEqual(QuestionUuidResolver::MAX_LENGTH, strlen($mappedOnce));
+    }
 }
