@@ -20,6 +20,11 @@
             'name' => 'Polyglot English B1',
             'data_attr' => 'data-course-continue-b1-link',
         ],
+        'polyglot-english-b1' => [
+            'slug' => 'polyglot-english-b2',
+            'name' => 'Polyglot English B2',
+            'data_attr' => 'data-course-continue-b2-link',
+        ],
     ];
     $continueCourse = $continueCourseMap[$course['slug'] ?? ''] ?? null;
     $continueCourseUrl = is_array($continueCourse)

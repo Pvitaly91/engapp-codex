@@ -30,6 +30,10 @@
             'slug' => 'polyglot-english-b1',
             'name' => 'Polyglot English B1',
         ],
+        'polyglot-english-b1' => [
+            'slug' => 'polyglot-english-b2',
+            'name' => 'Polyglot English B2',
+        ],
     ];
     $continueCourse = $isFinalLesson ? ($continueCourseMap[$courseSlug ?? ''] ?? null) : null;
     $continueCourseUrl = is_array($continueCourse)
@@ -161,6 +165,8 @@
             <div id="compose-course-lock" class="hidden"></div>
 
             <div id="compose-workspace" class="{{ count($questionData ?? []) > 0 && ! $startsLockedPending ? '' : 'hidden' }}">
+                <div id="compose-feedback" class="hidden mb-3 sm:mb-5" aria-live="polite"></div>
+
                 <div class="mb-3 rounded-[18px] p-3 surface-card sm:mb-6 sm:rounded-[24px] sm:border sm:p-5" style="border-color: var(--line);">
                     <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.source_sentence') }}</p>
                     <div id="compose-source-text" class="mt-2 text-[1.55rem] font-extrabold leading-[1.25] sm:mt-4 sm:text-[2.55rem]"></div>
@@ -198,8 +204,6 @@
                         <p class="mt-3 text-[11px] leading-5 sm:mt-4 sm:text-xs" style="color: var(--muted);">{{ __('frontend.tests.compose.keyboard_hint') }}</p>
                     </div>
                 </div>
-
-                <div id="compose-feedback" class="mt-4 sm:mt-5" aria-live="polite"></div>
             </div>
 
             <div id="compose-course-completion"
@@ -1154,7 +1158,10 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         document.getElementById('compose-punctuation').textContent = testUi('compose.ends_with', { punctuation: question.punctuation });
         document.getElementById('compose-answer-zone').innerHTML = answerZoneMarkup(question);
         document.getElementById('compose-bank').innerHTML = bankMarkup(question);
-        document.getElementById('compose-feedback').innerHTML = feedbackMarkup(question);
+        const feedbackElement = document.getElementById('compose-feedback');
+        const feedbackHtml = feedbackMarkup(question);
+        feedbackElement.innerHTML = feedbackHtml;
+        feedbackElement.classList.toggle('hidden', feedbackHtml.trim() === '');
 
         root.querySelector('[data-action="check"]').disabled = isLocked;
         root.querySelector('[data-action="clear"]').disabled = isLocked || state.selectedTokenIds.length === 0;

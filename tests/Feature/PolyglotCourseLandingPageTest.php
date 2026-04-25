@@ -318,5 +318,10 @@ class PolyglotCourseLandingPageTest extends TestCase
         $response->assertSee('polyglot-passive-voice-with-modals-b1');
         $response->assertSee('polyglot-reported-questions-b1');
         $response->assertSee('polyglot-reported-commands-and-requests-b1');
+        $response->assertSee('data-course-continue-b2-link', false);
+        $response->assertSee('/courses/polyglot-english-b2', false);
+        $response->assertSee(__('frontend.tests.course.continue_with_next_course', [
+            'course' => 'Polyglot English B2',
+        ]));
     }
 }
