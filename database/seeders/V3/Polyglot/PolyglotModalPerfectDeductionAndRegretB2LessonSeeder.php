@@ -1,0 +1,3 @@
+<?php
+
+require_once __DIR__ . '/PolyglotModalPerfectDeductionAndRegretB2LessonSeeder/PolyglotModalPerfectDeductionAndRegretB2LessonSeeder.php';

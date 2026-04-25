@@ -6,7 +6,7 @@
 
 const MARKER_IS_ADMIN = typeof window.__IS_ADMIN__ !== 'undefined'
   ? Boolean(window.__IS_ADMIN__)
-  : Boolean(@json(auth()->user()?->is_admin ?? session('admin_authenticated', false)));
+  : Boolean(@json(\App\Support\AdminDebugAccess::allowed()));
 
 function fetchMarkerTheory(idx, marker) {
   const item = state.items[idx];

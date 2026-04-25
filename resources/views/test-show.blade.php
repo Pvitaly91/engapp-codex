@@ -902,6 +902,7 @@
             'isAdmin' => $isAdmin ?? false,
             'showTechnicalInfo' => $showTechnicalInfo ?? false,
             'courseContext' => $courseContext,
+            'polyglotAdminDebugPayload' => $polyglotAdminDebugPayload ?? null,
         ]) !!}
     </div>
 </div>

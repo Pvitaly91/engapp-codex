@@ -141,6 +141,8 @@ return [
         'polyglot_a2_desc' => 'Новий A2 курс стартує з Present Perfect і має 16-урочний roadmap для conditionals, modal verbs та mixed revision.',
         'polyglot_b1_title' => 'Polyglot English B1',
         'polyglot_b1_desc' => 'B1 roadmap стартує з Present Perfect Continuous і відкриває 16-урочний трек для reported speech, complex tenses та final drill.',
+        'polyglot_b2_title' => 'Polyglot English B2',
+        'polyglot_b2_desc' => 'B2 roadmap стартує з Past Perfect Continuous, mixed conditionals і modal perfect, а наступні уроки лишаються у planned треку.',
         'words_title' => 'Лексичний тренажер',
         'words_desc' => 'Тренуйте лексику з адаптивною складністю.',
         'verbs_title' => 'Практика форм',

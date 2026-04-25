@@ -7,9 +7,11 @@ use App\Models\TextBlock;
 use App\Support\ComposeModeEligibility;
 use App\Services\MarkerTheoryMatcherService;
 use App\Services\PolyglotCourseManifestService;
+use App\Services\PolyglotLessonDebugPayloadBuilder;
 use App\Services\QuestionTechnicalInfoService;
 use App\Services\QuestionVariantService;
 use App\Services\SavedTestResolver;
+use App\Support\AdminDebugAccess;
 use App\Support\SavedTestJsState;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Support\Str;
@@ -22,6 +24,7 @@ class TestJsV2Controller extends Controller
         private MarkerTheoryMatcherService $markerTheoryMatcher,
         private QuestionTechnicalInfoService $questionTechnicalInfoService,
         private PolyglotCourseManifestService $polyglotCourseManifestService,
+        private PolyglotLessonDebugPayloadBuilder $polyglotLessonDebugPayloadBuilder,
     ) {}
 
     /**
@@ -109,6 +112,9 @@ class TestJsV2Controller extends Controller
 
         $questions = $this->buildComposeQuestionDataset($resolved, $showTechnicalInfo);
         $courseContext = $this->buildPolyglotCourseContext($test);
+        $polyglotAdminDebugPayload = $isAdmin
+            ? $this->polyglotLessonDebugPayloadBuilder->build($test, $questions, $courseContext)
+            : null;
 
         abort_if($questions === [], 404);
 
@@ -121,6 +127,7 @@ class TestJsV2Controller extends Controller
             'isAdmin' => $isAdmin,
             'showTechnicalInfo' => $showTechnicalInfo,
             'courseContext' => $courseContext,
+            'polyglotAdminDebugPayload' => $polyglotAdminDebugPayload,
         ], $extra));
     }
 
@@ -343,7 +350,7 @@ class TestJsV2Controller extends Controller
 
     protected function isAdminUser(): bool
     {
-        return (bool) (auth()->user()?->is_admin ?? session('admin_authenticated', false));
+        return AdminDebugAccess::allowed(request());
     }
 
     protected function shouldShowTechnicalInfo(?bool $isAdmin = null): bool

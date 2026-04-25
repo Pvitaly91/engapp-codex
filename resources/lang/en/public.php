@@ -141,6 +141,8 @@ return [
         'polyglot_a2_desc' => 'The new A2 track starts with Present Perfect and a 16-lesson roadmap for conditionals, modal verbs, and mixed revision.',
         'polyglot_b1_title' => 'Polyglot English B1',
         'polyglot_b1_desc' => 'The B1 roadmap starts with Present Perfect Continuous and opens a 16-lesson track for reported speech, complex tenses, and a final drill.',
+        'polyglot_b2_title' => 'Polyglot English B2',
+        'polyglot_b2_desc' => 'The B2 roadmap starts with Past Perfect Continuous, mixed conditionals, and modal perfect while the next lessons stay planned.',
         'words_title' => 'Vocabulary trainer',
         'words_desc' => 'Train vocabulary with adaptive difficulty levels.',
         'verbs_title' => 'Verb form practice',

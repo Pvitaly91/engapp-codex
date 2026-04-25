@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotRelativeClausesWithWhoseAndWhichB2LessonSeeder as V3PolyglotRelativeClausesWithWhoseAndWhichB2LessonSeeder;
+
+class PolyglotRelativeClausesWithWhoseAndWhichB2LessonSeeder extends V3PolyglotRelativeClausesWithWhoseAndWhichB2LessonSeeder
+{
+}

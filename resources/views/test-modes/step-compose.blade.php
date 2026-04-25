@@ -209,6 +209,10 @@
     </div>
 </div>
 
+@includeWhen(($isAdmin ?? false) && is_array($polyglotAdminDebugPayload ?? null), 'test-modes.partials.polyglot-admin-debug', [
+    'debugPayload' => $polyglotAdminDebugPayload ?? null,
+])
+
 <script type="module" src="{{ asset('js/polyglot-course-progress.js') }}"></script>
 <script>
 @php

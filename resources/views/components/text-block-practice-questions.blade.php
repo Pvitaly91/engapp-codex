@@ -3,7 +3,7 @@
 @php
     $questions = $questions ?? collect();
     $uniqueId = $blockUuid ? 'practice-' . \Illuminate\Support\Str::slug($blockUuid) : 'practice-' . uniqid();
-    $isAdmin = (bool) (auth()->user()?->is_admin ?? session('admin_authenticated', false));
+    $isAdmin = \App\Support\AdminDebugAccess::allowed();
     $locale = app()->getLocale();
 
     $normalizeTags = function ($tags, $matchedTagIds = null) use ($locale) {
