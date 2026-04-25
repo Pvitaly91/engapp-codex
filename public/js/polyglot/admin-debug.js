@@ -469,27 +469,43 @@
         showStatus(t('status_current_lesson_reset', 'Current lesson progress was reset locally.'), 'ok');
     }
 
-    function resetCurrentCompletion() {
-        const progress = readLessonProgress() || buildLessonProgress(false);
+    function buildIncompleteCurrentProgress(progress) {
         const rolling = Array.isArray(progress.rolling_results) ? progress.rolling_results : [];
-        const trimmedRolling = rolling.length >= rollingWindow ? rolling.slice(-(rollingWindow - 1)) : rolling;
-        const snapshot = {
+        const keepCount = Math.max(0, rollingWindow - 1);
+        const trimmedRolling = rolling.length >= rollingWindow
+            ? (keepCount > 0 ? rolling.slice(-keepCount) : [])
+            : rolling;
+        const totalAttempts = Math.max(toInt(progress.total_attempts, 0), trimmedRolling.length);
+
+        return {
             ...progress,
             rolling_results: trimmedRolling,
-            total_attempts: Math.max(toInt(progress.total_attempts, 0), trimmedRolling.length),
+            total_attempts: totalAttempts,
+            correct_attempts: clamp(toInt(progress.correct_attempts, 0), 0, totalAttempts),
             lesson_completed: false,
             completed_at: null,
             last_seen_at: nowIso(),
         };
+    }
 
-        writeLessonProgress(snapshot, 'admin-debug-reset-current-completion');
+    function clearCurrentCompletion(reason = 'admin-debug-reset-current-completion') {
+        const progress = readLessonProgress() || buildLessonProgress(false);
+        const snapshot = buildIncompleteCurrentProgress(progress);
+
+        writeLessonProgress(snapshot, reason);
 
         const state = readCourseState();
         const entry = ensureCourseEntry(state, lessonSlug);
         entry.completed = false;
         entry.updated_at = nowIso();
         state.completed_lessons = removeValue(state.completed_lessons, lessonSlug);
-        writeCourseState(state, 'admin-debug-reset-current-completion');
+        writeCourseState(state, reason);
+
+        return snapshot;
+    }
+
+    function resetCurrentCompletion() {
+        clearCurrentCompletion('admin-debug-reset-current-completion');
         showStatus(t('status_current_completion_reset', 'Current lesson completion flag was reset locally.'), 'ok');
     }
 
@@ -499,10 +515,18 @@
             return;
         }
 
+        clearCurrentCompletion('admin-debug-reset-next-unlock-current-completion');
+
         const state = readCourseState();
+        const currentEntry = ensureCourseEntry(state, lessonSlug);
         const nextEntry = ensureCourseEntry(state, nextLessonSlug);
+        currentEntry.completed = false;
+        currentEntry.updated_at = nowIso();
         nextEntry.unlocked = false;
+        nextEntry.completed = false;
         nextEntry.updated_at = nowIso();
+        state.completed_lessons = removeValue(state.completed_lessons, lessonSlug);
+        state.completed_lessons = removeValue(state.completed_lessons, nextLessonSlug);
         state.unlocked_lessons = removeValue(state.unlocked_lessons, nextLessonSlug);
 
         if (state.current_lesson_slug === nextLessonSlug) {
@@ -511,6 +535,8 @@
 
         if (inputChecked('removeNextProgress')) {
             removeKey(`polyglot_progress:${nextLessonSlug}`);
+            nextEntry.has_progress = false;
+            nextEntry.last_opened_at = null;
         }
 
         writeCourseState(state, 'admin-debug-reset-next-unlock');
