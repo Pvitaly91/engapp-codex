@@ -144,6 +144,21 @@
         renderState();
     }
 
+    function animateActionButton(button) {
+        if (!button) {
+            return;
+        }
+
+        button.classList.remove('polyglot-debug-action-pressed', 'polyglot-debug-action-working');
+
+        // Force a reflow so repeated fast clicks replay the press feedback.
+        void button.offsetWidth;
+
+        button.classList.add('polyglot-debug-action-pressed', 'polyglot-debug-action-working');
+        window.setTimeout(() => button.classList.remove('polyglot-debug-action-pressed'), 180);
+        window.setTimeout(() => button.classList.remove('polyglot-debug-action-working'), 560);
+    }
+
     function emitProgressEvent(kind, detail = {}) {
         if (!progressApi?.events || typeof window.CustomEvent === 'undefined') {
             return;
@@ -629,6 +644,7 @@
             return;
         }
 
+        animateActionButton(button);
         handleAction(button.getAttribute('data-polyglot-debug-action'));
     });
 
