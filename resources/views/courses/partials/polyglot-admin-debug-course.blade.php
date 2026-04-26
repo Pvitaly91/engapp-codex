@@ -4,9 +4,9 @@
     $implementedLessons = collect($lessons ?? [])
         ->filter(fn ($lesson) => ! empty($lesson['slug']))
         ->values();
-    $defaultRequiredAnswered = max(1, (int) ($completionWindow ?? 100));
+    $defaultRequiredAnsweredPercent = 100;
     $defaultMinimumRatingPercent = max(0, min(100, (int) ceil(((float) ($completionRating ?? 4.5)) * 20)));
-    $defaultRequiredCorrect = (int) ceil($defaultRequiredAnswered * ($defaultMinimumRatingPercent / 100));
+    $defaultRequiredCorrectPercent = $defaultMinimumRatingPercent;
     $jsonOptions = JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES;
     $json = static fn ($value): string => json_encode($value, $jsonOptions) ?: '{}';
     $label = static fn (string $key): string => __("frontend.polyglot.admin_debug.{$key}");
@@ -20,8 +20,8 @@
             'implemented_lessons' => $implementedLessonsCount ?? null,
         ],
         'completion_defaults' => [
-            'required_answered' => $defaultRequiredAnswered,
-            'required_correct' => $defaultRequiredCorrect,
+            'required_answered_percent' => $defaultRequiredAnsweredPercent,
+            'required_correct_percent' => $defaultRequiredCorrectPercent,
             'minimum_rating_percent' => $defaultMinimumRatingPercent,
         ],
         'lessons' => $implementedLessons
@@ -32,6 +32,7 @@
                 'previous_lesson_slug' => $lesson['previous_lesson_slug'] ?? null,
                 'next_lesson_slug' => $lesson['next_lesson_slug'] ?? null,
                 'compose_url' => $lesson['compose_url'] ?? null,
+                'question_count' => $lesson['question_count'] ?? null,
             ])
             ->values()
             ->all(),
@@ -139,13 +140,13 @@
                     </p>
 
                     <div class="mt-4 grid gap-3 text-sm sm:grid-cols-3">
-                        <label class="polyglot-debug-help grid gap-1" title="{{ $tooltip('required_answered') }}">
-                            <span class="font-semibold">{{ $label('required_answered') }}</span>
-                            <input type="number" min="0" class="rounded-[12px] border px-3 py-2" style="border-color: var(--line);" data-polyglot-course-debug-input="requiredAnswered" value="{{ $defaultRequiredAnswered }}" title="{{ $tooltip('required_answered') }}" aria-label="{{ $tooltip('required_answered') }}">
+                        <label class="polyglot-debug-help grid gap-1" title="{{ $tooltip('required_answered_percent') }}">
+                            <span class="font-semibold">{{ $label('required_answered_percent') }}</span>
+                            <input type="number" min="0" max="100" class="rounded-[12px] border px-3 py-2" style="border-color: var(--line);" data-polyglot-course-debug-input="requiredAnsweredPercent" value="{{ $defaultRequiredAnsweredPercent }}" title="{{ $tooltip('required_answered_percent') }}" aria-label="{{ $tooltip('required_answered_percent') }}">
                         </label>
-                        <label class="polyglot-debug-help grid gap-1" title="{{ $tooltip('required_correct') }}">
-                            <span class="font-semibold">{{ $label('required_correct') }}</span>
-                            <input type="number" min="0" class="rounded-[12px] border px-3 py-2" style="border-color: var(--line);" data-polyglot-course-debug-input="requiredCorrect" value="{{ $defaultRequiredCorrect }}" title="{{ $tooltip('required_correct') }}" aria-label="{{ $tooltip('required_correct') }}">
+                        <label class="polyglot-debug-help grid gap-1" title="{{ $tooltip('required_correct_percent') }}">
+                            <span class="font-semibold">{{ $label('required_correct_percent') }}</span>
+                            <input type="number" min="0" max="100" class="rounded-[12px] border px-3 py-2" style="border-color: var(--line);" data-polyglot-course-debug-input="requiredCorrectPercent" value="{{ $defaultRequiredCorrectPercent }}" title="{{ $tooltip('required_correct_percent') }}" aria-label="{{ $tooltip('required_correct_percent') }}">
                         </label>
                         <label class="polyglot-debug-help grid gap-1" title="{{ $tooltip('minimum_rating_percent') }}">
                             <span class="font-semibold">{{ $label('minimum_rating_percent') }}</span>

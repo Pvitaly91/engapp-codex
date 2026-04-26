@@ -145,6 +145,7 @@ class PolyglotCourseManifestService
             'previous_lesson_slug' => $this->nullableString($filters['previous_lesson_slug'] ?? null),
             'next_lesson_slug' => $this->nullableString($filters['next_lesson_slug'] ?? null),
             'compose_url' => localized_route('test.step-compose', $slug),
+            'question_count' => $test->questionLinks->count(),
             'completion' => $this->normalizeCompletion($filters['completion'] ?? []),
             'mode' => trim((string) ($filters['mode'] ?? '')),
             'course_slug' => trim((string) ($filters['course_slug'] ?? '')),

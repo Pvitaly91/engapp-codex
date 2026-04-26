@@ -2,17 +2,17 @@
     <div class="rounded-[18px] border p-4" style="border-color: var(--line);">
         <h3 class="text-sm font-extrabold">{{ $label('unlock_tools') }}</h3>
         <div class="mt-4 grid gap-3 text-sm">
-            <label class="polyglot-debug-help grid gap-1" title="{{ $tooltip('required_answered') }}">
-                <span class="font-semibold">{{ $label('required_answered') }}</span>
-                <input type="number" min="0" class="rounded-[12px] border px-3 py-2" style="border-color: var(--line);" data-polyglot-debug-input="answered" value="{{ max(1, count($questions)) }}" title="{{ $tooltip('required_answered') }}" aria-label="{{ $tooltip('required_answered') }}">
+            <label class="polyglot-debug-help grid gap-1" title="{{ $tooltip('required_answered_percent') }}">
+                <span class="font-semibold">{{ $label('required_answered_percent') }}</span>
+                <input type="number" min="0" max="100" class="rounded-[12px] border px-3 py-2" style="border-color: var(--line);" data-polyglot-debug-input="answeredPercent" value="100" title="{{ $tooltip('required_answered_percent') }}" aria-label="{{ $tooltip('required_answered_percent') }}">
             </label>
             <label class="polyglot-debug-help grid gap-1" title="{{ $tooltip('score_rating_percent') }}">
                 <span class="font-semibold">{{ $label('score_rating_percent') }}</span>
                 <input type="number" min="0" max="100" class="rounded-[12px] border px-3 py-2" style="border-color: var(--line);" data-polyglot-debug-input="ratingPercent" value="100" title="{{ $tooltip('score_rating_percent') }}" aria-label="{{ $tooltip('score_rating_percent') }}">
             </label>
-            <label class="polyglot-debug-help grid gap-1" title="{{ $tooltip('required_correct') }}">
-                <span class="font-semibold">{{ $label('required_correct') }}</span>
-                <input type="number" min="0" class="rounded-[12px] border px-3 py-2" style="border-color: var(--line);" data-polyglot-debug-input="requiredCorrect" value="{{ max(1, count($questions)) }}" title="{{ $tooltip('required_correct') }}" aria-label="{{ $tooltip('required_correct') }}">
+            <label class="polyglot-debug-help grid gap-1" title="{{ $tooltip('required_correct_percent') }}">
+                <span class="font-semibold">{{ $label('required_correct_percent') }}</span>
+                <input type="number" min="0" max="100" class="rounded-[12px] border px-3 py-2" style="border-color: var(--line);" data-polyglot-debug-input="requiredCorrectPercent" value="100" title="{{ $tooltip('required_correct_percent') }}" aria-label="{{ $tooltip('required_correct_percent') }}">
             </label>
             <label class="polyglot-debug-help grid gap-1" title="{{ $tooltip('minimum_rating_percent') }}">
                 <span class="font-semibold">{{ $label('minimum_rating_percent') }}</span>

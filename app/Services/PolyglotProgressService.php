@@ -222,7 +222,7 @@ class PolyglotProgressService
                     ]);
                 }
 
-                $policy = $this->sanitizeDebugPolicy($payload, 'lesson');
+                $policy = $this->debugPolicyForLesson($this->sanitizeDebugPolicy($payload, 'lesson'), $lesson);
                 $this->setLessonDebugPolicy($user, $courseSlug, $lessonSlug, $lesson, $policy);
 
                 if (! $nextLesson) {
@@ -392,11 +392,22 @@ class PolyglotProgressService
 
     private function sanitizeDebugPolicy(array $payload, string $scope): array
     {
+        $hasRequiredAnsweredPercent = array_key_exists('required_answered_percent', $payload)
+            || array_key_exists('requiredAnsweredPercent', $payload);
+        $hasRequiredCorrectPercent = array_key_exists('required_correct_percent', $payload)
+            || array_key_exists('requiredCorrectPercent', $payload);
+
         return [
             'enabled' => true,
             'scope' => $scope,
             'required_answered' => $this->sanitizeDebugCount($payload['required_answered'] ?? $payload['answered'] ?? null),
             'required_correct' => $this->sanitizeDebugCount($payload['required_correct'] ?? null),
+            'required_answered_percent' => $hasRequiredAnsweredPercent
+                ? $this->sanitizeDebugPercent($payload['required_answered_percent'] ?? $payload['requiredAnsweredPercent'] ?? null)
+                : null,
+            'required_correct_percent' => $hasRequiredCorrectPercent
+                ? $this->sanitizeDebugPercent($payload['required_correct_percent'] ?? $payload['requiredCorrectPercent'] ?? null)
+                : null,
             'minimum_rating_percent' => $this->sanitizeDebugPercent($payload['minimum_rating_percent'] ?? $payload['rating_percent'] ?? null),
             'force_unlock_next' => (bool) filter_var($payload['force_unlock_next'] ?? false, FILTER_VALIDATE_BOOLEAN),
             'updated_at' => now()->toJSON(),
@@ -414,10 +425,37 @@ class PolyglotProgressService
             'scope' => in_array(($policy['scope'] ?? null), ['lesson', 'course'], true) ? $policy['scope'] : 'lesson',
             'required_answered' => $this->sanitizeDebugCount($policy['required_answered'] ?? null),
             'required_correct' => $this->sanitizeDebugCount($policy['required_correct'] ?? null),
+            'required_answered_percent' => array_key_exists('required_answered_percent', $policy)
+                ? $this->sanitizeDebugPercent($policy['required_answered_percent'])
+                : null,
+            'required_correct_percent' => array_key_exists('required_correct_percent', $policy)
+                ? $this->sanitizeDebugPercent($policy['required_correct_percent'])
+                : null,
             'minimum_rating_percent' => $this->sanitizeDebugPercent($policy['minimum_rating_percent'] ?? null),
             'force_unlock_next' => (bool) ($policy['force_unlock_next'] ?? false),
             'updated_at' => is_string($policy['updated_at'] ?? null) ? $policy['updated_at'] : null,
         ];
+    }
+
+    private function debugPolicyForLesson(array $policy, array $lesson): array
+    {
+        $questionCount = max(1, $this->lessonQuestionCount($lesson));
+
+        if ($policy['required_answered_percent'] !== null) {
+            $policy['required_answered'] = (int) ceil($questionCount * ((float) $policy['required_answered_percent'] / 100));
+        }
+
+        if ($policy['required_correct_percent'] !== null) {
+            $baseAnswered = max(0, (int) ($policy['required_answered'] ?? 0));
+            $policy['required_correct'] = (int) ceil($baseAnswered * ((float) $policy['required_correct_percent'] / 100));
+        }
+
+        return $policy;
+    }
+
+    private function lessonQuestionCount(array $lesson): int
+    {
+        return max(0, (int) ($lesson['question_count'] ?? $lesson['total_questions'] ?? 0));
     }
 
     private function debugPolicyFromMetadata(mixed $metadata): ?array
@@ -559,7 +597,8 @@ class PolyglotProgressService
                 continue;
             }
 
-            $this->setLessonDebugPolicy($user, $courseSlug, $lessonSlug, $lesson, $policy);
+            $lessonPolicy = $this->debugPolicyForLesson($policy, $lesson);
+            $this->setLessonDebugPolicy($user, $courseSlug, $lessonSlug, $lesson, $lessonPolicy);
             $storedPolicies++;
 
             $nextLessonSlug = $lesson['next_lesson_slug'] ?? null;
@@ -568,13 +607,13 @@ class PolyglotProgressService
             }
 
             $progress = $this->getLessonProgressSnapshot($user, $courseSlug, $lessonSlug);
-            if ($policy['force_unlock_next']) {
+            if ($lessonPolicy['force_unlock_next']) {
                 $this->setLessonUnlocked($user, $courseSlug, $nextLessonSlug, true, false);
                 $unlockedLessons++;
                 continue;
             }
 
-            if (! $this->debugPolicyPasses($progress, $policy)) {
+            if (! $this->debugPolicyPasses($progress, $lessonPolicy)) {
                 continue;
             }
 

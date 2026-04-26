@@ -25,8 +25,8 @@
     const defaultPolicy = {
         enabled: true,
         scope: 'course',
-        required_answered: toInt(payload.completion_defaults?.required_answered, 100),
-        required_correct: toInt(payload.completion_defaults?.required_correct, 100),
+        required_answered_percent: toInt(payload.completion_defaults?.required_answered_percent, 100),
+        required_correct_percent: toInt(payload.completion_defaults?.required_correct_percent, 90),
         minimum_rating_percent: toInt(payload.completion_defaults?.minimum_rating_percent, 90),
         force_unlock_next: false,
     };
@@ -58,6 +58,22 @@
         const parsed = toInt(input(name)?.value, fallback);
 
         return clamp(parsed, min, max);
+    }
+
+    function lessonQuestionCount(lesson = null) {
+        const normalizedLesson = lesson || lessons[0] || {};
+
+        return Math.max(1, toInt(normalizedLesson.question_count, 100));
+    }
+
+    function answeredCountFromPercent(percent, lesson = null) {
+        const questionCount = lessonQuestionCount(lesson);
+
+        return percent <= 0 ? 0 : Math.ceil(questionCount * percent / 100);
+    }
+
+    function correctCountFromPercent(answeredCount, percent) {
+        return percent <= 0 ? 0 : Math.ceil(Math.max(0, answeredCount) * percent / 100);
     }
 
     function inputChecked(name) {
@@ -177,14 +193,18 @@
     }
 
     function currentPolicy() {
-        const requiredAnswered = inputNumber('requiredAnswered', defaultPolicy.required_answered, 0, 10000);
+        const requiredAnsweredPercent = inputNumber('requiredAnsweredPercent', defaultPolicy.required_answered_percent, 0, 100);
+        const requiredCorrectPercent = inputNumber('requiredCorrectPercent', defaultPolicy.required_correct_percent, 0, 100);
+        const requiredAnswered = answeredCountFromPercent(requiredAnsweredPercent);
         const minimumRatingPercent = inputNumber('minimumRatingPercent', defaultPolicy.minimum_rating_percent, 0, 100);
 
         return {
             enabled: true,
             scope: 'course',
+            required_answered_percent: requiredAnsweredPercent,
+            required_correct_percent: requiredCorrectPercent,
             required_answered: requiredAnswered,
-            required_correct: inputNumber('requiredCorrect', defaultPolicy.required_correct || requiredAnswered, 0, 10000),
+            required_correct: correctCountFromPercent(requiredAnswered, requiredCorrectPercent),
             minimum_rating_percent: minimumRatingPercent,
             force_unlock_next: inputChecked('forceUnlockNext'),
             updated_at: nowIso(),
@@ -196,14 +216,27 @@
             return null;
         }
 
-        const requiredAnswered = clamp(toInt(policy.required_answered ?? policy.requiredAnswered, defaultPolicy.required_answered), 0, 10000);
+        const fallbackQuestionCount = lessonQuestionCount();
+        const requiredAnswered = clamp(toInt(policy.required_answered ?? policy.requiredAnswered, answeredCountFromPercent(defaultPolicy.required_answered_percent)), 0, 10000);
+        const requiredAnsweredPercent = clamp(toInt(
+            policy.required_answered_percent ?? policy.requiredAnsweredPercent,
+            Math.round(requiredAnswered / fallbackQuestionCount * 100)
+        ), 0, 100);
+        const requiredCorrect = clamp(toInt(policy.required_correct ?? policy.requiredCorrect, correctCountFromPercent(requiredAnswered, defaultPolicy.required_correct_percent)), 0, 10000);
+        const requiredCorrectPercent = clamp(toInt(
+            policy.required_correct_percent ?? policy.requiredCorrectPercent,
+            requiredAnswered > 0 ? Math.round(requiredCorrect / requiredAnswered * 100) : defaultPolicy.required_correct_percent
+        ), 0, 100);
         const minimumRatingPercent = clamp(toInt(policy.minimum_rating_percent ?? policy.minimumRatingPercent, defaultPolicy.minimum_rating_percent), 0, 100);
+        const normalizedAnswered = answeredCountFromPercent(requiredAnsweredPercent);
 
         return {
             enabled: true,
             scope: 'course',
-            required_answered: requiredAnswered,
-            required_correct: clamp(toInt(policy.required_correct ?? policy.requiredCorrect, defaultPolicy.required_correct), 0, 10000),
+            required_answered_percent: requiredAnsweredPercent,
+            required_correct_percent: requiredCorrectPercent,
+            required_answered: normalizedAnswered,
+            required_correct: correctCountFromPercent(normalizedAnswered, requiredCorrectPercent),
             minimum_rating_percent: minimumRatingPercent,
             force_unlock_next: Boolean(policy.force_unlock_next ?? policy.forceUnlockNext),
             updated_at: String(policy.updated_at || nowIso()),
@@ -217,8 +250,8 @@
             return null;
         }
 
-        setInputValue('requiredAnswered', normalized.required_answered);
-        setInputValue('requiredCorrect', normalized.required_correct);
+        setInputValue('requiredAnsweredPercent', normalized.required_answered_percent);
+        setInputValue('requiredCorrectPercent', normalized.required_correct_percent);
         setInputValue('minimumRatingPercent', normalized.minimum_rating_percent);
         setInputChecked('forceUnlockNext', normalized.force_unlock_next);
 
@@ -283,6 +316,8 @@
         return {
             action,
             lesson_slug: firstLessonSlug || null,
+            required_answered_percent: policy.required_answered_percent,
+            required_correct_percent: policy.required_correct_percent,
             required_answered: policy.required_answered,
             required_correct: policy.required_correct,
             minimum_rating_percent: policy.minimum_rating_percent,

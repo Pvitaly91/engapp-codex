@@ -283,6 +283,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
     const rollingWindow = Number.isFinite(Number(config.rollingWindow)) ? Number(config.rollingWindow) : 100;
     const minRating = Number.isFinite(Number(config.minRating)) ? Number(config.minRating) : 4.5;
     const progressSync = window.__POLYGLOT_PROGRESS_SYNC__ || {};
+    const adminDebugQuestionStatsKey = `polyglot_debug_question_stats:${config.courseSlug || 'course'}:${config.slug || 'lesson'}`;
     let serverCourseState = null;
     let serverAuthenticated = false;
 
@@ -403,8 +404,30 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             return null;
         }
 
-        const requiredAnswered = sanitizeCount(policy.required_answered ?? policy.requiredAnswered);
-        const requiredCorrect = sanitizeCount(policy.required_correct ?? policy.requiredCorrect);
+        const rawRequiredAnswered = sanitizeCount(policy.required_answered ?? policy.requiredAnswered);
+        const hasAnsweredPercent = policy.required_answered_percent !== undefined || policy.requiredAnsweredPercent !== undefined;
+        const requiredAnsweredPercent = Math.min(
+            100,
+            Math.max(0, sanitizeInteger(
+                policy.required_answered_percent ?? policy.requiredAnsweredPercent,
+                hasAnsweredPercent ? 0 : Math.round(rawRequiredAnswered / Math.max(1, normalizedQuestions.length) * 100)
+            ))
+        );
+        const requiredAnswered = requiredAnsweredPercent > 0
+            ? Math.ceil(normalizedQuestions.length * requiredAnsweredPercent / 100)
+            : rawRequiredAnswered;
+        const rawRequiredCorrect = sanitizeCount(policy.required_correct ?? policy.requiredCorrect);
+        const hasCorrectPercent = policy.required_correct_percent !== undefined || policy.requiredCorrectPercent !== undefined;
+        const requiredCorrectPercent = Math.min(
+            100,
+            Math.max(0, sanitizeInteger(
+                policy.required_correct_percent ?? policy.requiredCorrectPercent,
+                hasCorrectPercent ? 0 : (requiredAnswered > 0 ? Math.round(rawRequiredCorrect / requiredAnswered * 100) : 0)
+            ))
+        );
+        const requiredCorrect = requiredCorrectPercent > 0
+            ? Math.ceil(requiredAnswered * requiredCorrectPercent / 100)
+            : rawRequiredCorrect;
         const minimumRatingPercent = Math.min(
             100,
             Math.max(0, sanitizeInteger(policy.minimum_rating_percent ?? policy.minimumRatingPercent, Math.round(minRating * 20)))
@@ -413,6 +436,8 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         return {
             required_answered: requiredAnswered,
             required_correct: requiredCorrect,
+            required_answered_percent: requiredAnsweredPercent,
+            required_correct_percent: requiredCorrectPercent,
             minimum_rating_percent: minimumRatingPercent,
             force_unlock_next: Boolean(policy.force_unlock_next ?? policy.forceUnlockNext),
         };
@@ -457,6 +482,8 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         return testUi('compose.debug_goal_note', {
             count: policy.required_answered,
             correct: policy.required_correct,
+            answered_percent: policy.required_answered_percent,
+            correct_percent: policy.required_correct_percent,
             percent: policy.minimum_rating_percent,
             rating: (policy.minimum_rating_percent / 20).toFixed(1),
         });
@@ -480,6 +507,8 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
                 current: state.progress.rolling_results.length,
                 required: policy.required_answered,
                 correct: policy.required_correct,
+                answered_percent: policy.required_answered_percent,
+                correct_percent: policy.required_correct_percent,
             }),
         };
     }
@@ -650,6 +679,8 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         bankOrder: [],
         feedback: null,
         autoAdvanceTimer: null,
+        lastTrackedQuestionUuid: null,
+        nextLessonPromptShown: false,
     };
 
     function currentCourseState() {
@@ -839,6 +870,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             }
 
             if (payload.lesson_progress) {
+                const previousProgress = { ...state.progress };
                 const localQueueIndex = state.progress.current_queue_index;
                 const serverLessonProgress = progressStore.normalize(payload.lesson_progress);
 
@@ -850,6 +882,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
                 };
 
                 render();
+                offerNextLessonIfJustUnlocked(previousProgress, state.progress);
             }
         } catch (error) {
             serverAuthenticated = false;
@@ -952,6 +985,25 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         `;
     }
 
+    function offerNextLessonIfJustUnlocked(previousProgress, nextProgress) {
+        if (state.nextLessonPromptShown || !config.nextLessonUrl || !config.nextLessonSlug) {
+            return;
+        }
+
+        if (previousProgress?.lesson_completed || !nextProgress?.lesson_completed) {
+            return;
+        }
+
+        state.nextLessonPromptShown = true;
+
+        window.setTimeout(() => {
+            const shouldGo = window.confirm(testUi('course.next_lesson_unlocked_prompt'));
+            if (shouldGo) {
+                window.location.assign(config.nextLessonUrl);
+            }
+        }, 120);
+    }
+
     function refreshCourseUi() {
         const courseState = currentCourseState();
 
@@ -1002,6 +1054,101 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         clampQueueIndex();
 
         return normalizedQuestions[state.progress.current_queue_index] || normalizedQuestions[0];
+    }
+
+    function adminDebugEnabled() {
+        return Boolean(progressSync.debugUrl || document.querySelector('[data-polyglot-admin-debug="1"]'));
+    }
+
+    function readQuestionStats() {
+        if (!adminDebugEnabled()) {
+            return {};
+        }
+
+        return readJsonStorage(adminDebugQuestionStatsKey) || {};
+    }
+
+    function writeQuestionStats(stats) {
+        if (!adminDebugEnabled()) {
+            return;
+        }
+
+        try {
+            window.localStorage.setItem(adminDebugQuestionStatsKey, JSON.stringify(stats));
+            window.dispatchEvent(new CustomEvent('polyglot:admin-debug-question-stats-updated', {
+                detail: {
+                    key: adminDebugQuestionStatsKey,
+                    stats,
+                },
+            }));
+        } catch (error) {
+            // localStorage can be unavailable in private contexts.
+        }
+    }
+
+    function questionStatsEntry(stats, question) {
+        const uuid = String(question?.uuid || '').trim();
+
+        if (uuid === '') {
+            return null;
+        }
+
+        stats[uuid] = stats[uuid] || {
+            uuid,
+            position: question.position || null,
+            shown: 0,
+            correct: 0,
+            incorrect: 0,
+            last_seen_at: null,
+            last_answered_at: null,
+        };
+
+        return stats[uuid];
+    }
+
+    function trackQuestionShown(question) {
+        const uuid = String(question?.uuid || '').trim();
+
+        if (!adminDebugEnabled() || uuid === '' || state.lastTrackedQuestionUuid === uuid) {
+            return;
+        }
+
+        const stats = readQuestionStats();
+        const entry = questionStatsEntry(stats, question);
+        if (!entry) {
+            return;
+        }
+
+        entry.shown = sanitizeCount(entry.shown) + 1;
+        entry.last_seen_at = new Date().toISOString();
+        state.lastTrackedQuestionUuid = uuid;
+        writeQuestionStats(stats);
+    }
+
+    function trackQuestionAttempt(question, wasCorrect) {
+        if (!adminDebugEnabled()) {
+            return;
+        }
+
+        const stats = readQuestionStats();
+        const entry = questionStatsEntry(stats, question);
+        if (!entry) {
+            return;
+        }
+
+        if (sanitizeCount(entry.shown) <= 0) {
+            entry.shown = 1;
+            entry.last_seen_at = new Date().toISOString();
+        }
+
+        if (wasCorrect) {
+            entry.correct = sanitizeCount(entry.correct) + 1;
+        } else {
+            entry.incorrect = sanitizeCount(entry.incorrect) + 1;
+        }
+
+        entry.last_answered_at = new Date().toISOString();
+        writeQuestionStats(stats);
     }
 
     function persistProgress() {
@@ -1090,7 +1237,10 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
     }
 
     function markAttempt(result, question, submitted) {
+        const previousProgress = { ...state.progress };
+        trackQuestionAttempt(question, result === 5);
         state.progress = progressStore.markAttempt(state.progress, result === 5);
+        offerNextLessonIfJustUnlocked(previousProgress, state.progress);
         postServerAttempt(result, question, submitted, state.progress);
     }
 
@@ -1291,6 +1441,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
 
         clampQueueIndex();
         const question = currentQuestion();
+        trackQuestionShown(question);
         const rating = ratingValue();
         const ratingSummary = ratingCardSummary(rating);
         const isLocked = state.autoAdvanceTimer !== null;

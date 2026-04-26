@@ -155,6 +155,7 @@
                                 <th class="px-3 py-2">{{ $label('correct_answer') }}</th>
                                 <th class="px-3 py-2">{{ $label('tokens') }}</th>
                                 <th class="px-3 py-2">{{ $label('distractors') }}</th>
+                                <th class="px-3 py-2">{{ $label('question_runtime_stats') }}</th>
                                 <th class="px-3 py-2">{{ $label('meta') }}</th>
                             </tr>
                         </thead>
@@ -166,7 +167,10 @@
                                     $distractors = is_array($question['distractors'] ?? null) ? $question['distractors'] : [];
                                     $tags = is_array($question['grammar_tags'] ?? null) ? $question['grammar_tags'] : [];
                                 @endphp
-                                <tr style="border-bottom: 1px solid var(--line);">
+                                <tr style="border-bottom: 1px solid var(--line);"
+                                    data-polyglot-debug-question-row
+                                    data-polyglot-debug-question-uuid="{{ data_get($question, 'uuid') }}"
+                                    data-polyglot-debug-question-position="{{ data_get($question, 'position') }}">
                                     <td class="px-3 py-3 align-top font-semibold">{{ data_get($question, 'position') }}</td>
                                     <td class="px-3 py-3 align-top">
                                         <div>{{ $value(data_get($question, 'source_text_uk')) }}</div>
@@ -200,6 +204,13 @@
                                                 <span style="color: var(--muted);">n/a</span>
                                             @endforelse
                                         </div>
+                                    </td>
+                                    <td class="px-3 py-3 align-top">
+                                        <span class="inline-flex rounded-full border px-2.5 py-1 text-xs font-semibold"
+                                              style="border-color: var(--line); color: var(--muted);"
+                                              data-polyglot-debug-question-stats>
+                                            {{ $label('question_not_seen') }}
+                                        </span>
                                     </td>
                                     <td class="px-3 py-3 align-top">
                                         @if(filled(data_get($question, 'hint_uk')))

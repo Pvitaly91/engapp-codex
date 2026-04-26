@@ -24,6 +24,7 @@
     const lessonPolicyKey = storageKeys.lesson_debug_policy || `polyglot_debug_unlock_policy:${courseSlug}:${lessonSlug}`;
     const coursePolicyKey = storageKeys.course_debug_policy || `polyglot_debug_unlock_policy:${courseSlug}:__course__`;
     const coursePolicyPrefix = storageKeys.course_debug_policy_prefix || `polyglot_debug_unlock_policy:${courseSlug}:`;
+    const questionStatsKey = `polyglot_debug_question_stats:${courseSlug}:${lessonSlug}`;
     const stateNode = root.querySelector('[data-polyglot-debug-state]');
     const statusNode = root.querySelector('[data-polyglot-debug-status]');
     const progressSync = window.__POLYGLOT_PROGRESS_SYNC__ || {};
@@ -58,6 +59,16 @@
         const parsed = toInt(field?.value, fallback);
 
         return clamp(parsed, min, max);
+    }
+
+    function answeredCountFromPercent(percent) {
+        const questionCount = Math.max(1, totalQuestions || rollingWindow);
+
+        return percent <= 0 ? 0 : Math.ceil(questionCount * percent / 100);
+    }
+
+    function correctCountFromPercent(answeredCount, percent) {
+        return percent <= 0 ? 0 : Math.ceil(Math.max(0, answeredCount) * percent / 100);
     }
 
     function inputChecked(name) {
@@ -228,13 +239,20 @@
     }
 
     function serverPayload(action, extra = {}) {
+        const answeredPercent = inputNumber('answeredPercent', 100, 0, 100);
+        const requiredCorrectPercent = inputNumber('requiredCorrectPercent', 100, 0, 100);
+        const answered = answeredCountFromPercent(answeredPercent);
+        const requiredCorrect = correctCountFromPercent(answered, requiredCorrectPercent);
+
         return {
             action,
             lesson_slug: lessonSlug || null,
-            answered: inputNumber('answered', totalQuestions || rollingWindow, 0, 10000),
+            answered,
             rating_percent: inputNumber('ratingPercent', 100, 0, 100),
-            required_answered: inputNumber('answered', totalQuestions, 0, 10000),
-            required_correct: inputNumber('requiredCorrect', totalQuestions, 0, 10000),
+            required_answered_percent: answeredPercent,
+            required_correct_percent: requiredCorrectPercent,
+            required_answered: answered,
+            required_correct: requiredCorrect,
             minimum_rating_percent: inputNumber('minimumRatingPercent', 90, 0, 100),
             force_unlock_next: inputChecked('forceUnlockNext'),
             clear_policy: inputChecked('clearPolicyOnReset'),
@@ -317,7 +335,7 @@
     }
 
     function buildLessonProgress(completed = false) {
-        const answeredInput = inputNumber('answered', totalQuestions || rollingWindow, 0, 10000);
+        const answeredInput = answeredCountFromPercent(inputNumber('answeredPercent', 100, 0, 100));
         const ratingPercentInput = inputNumber('ratingPercent', 100, 0, 100);
         const completionPercent = Math.ceil(minRating * 20);
         const effectiveRatingPercent = completed ? Math.max(ratingPercentInput, completionPercent) : ratingPercentInput;
@@ -442,6 +460,34 @@
         return (Array.isArray(values) ? values : []).filter((item) => item !== value);
     }
 
+    function nextLessonUrl() {
+        if (!nextLessonSlug) {
+            return '';
+        }
+
+        const currentUrl = String(window.location.href || '');
+        const currentSegment = `/test/${lessonSlug}/`;
+        const nextSegment = `/test/${nextLessonSlug}/`;
+
+        if (lessonSlug && currentUrl.includes(currentSegment)) {
+            return currentUrl.replace(currentSegment, nextSegment);
+        }
+
+        return `/test/${encodeURIComponent(nextLessonSlug)}/step/compose`;
+    }
+
+    function offerNextLesson() {
+        const url = nextLessonUrl();
+
+        if (!url) {
+            return;
+        }
+
+        if (window.confirm(t('confirm_go_next_lesson', 'Next lesson was unlocked. Go to it now?'))) {
+            window.location.assign(url);
+        }
+    }
+
     function markCurrentComplete() {
         if (!lessonSlug) {
             showStatus(t('missing_lesson_slug', 'Missing lesson slug.'), 'error');
@@ -465,6 +511,9 @@
         }
 
         showStatus(t('status_marked_complete', 'Current lesson was marked complete.'), progress.lesson_completed ? 'ok' : 'warn');
+        if (progress.lesson_completed) {
+            offerNextLesson();
+        }
     }
 
     function unlockNext(reason = 'admin-debug-unlock-next') {
@@ -486,17 +535,30 @@
         state.current_lesson_slug = state.current_lesson_slug || nextLessonSlug;
         writeCourseState(state, reason);
         showStatus(t('status_next_unlocked', 'Next lesson was unlocked in localStorage.'), 'ok');
+        offerNextLesson();
 
         return true;
     }
 
     function currentPolicy() {
+        const requiredAnsweredPercent = inputNumber('answeredPercent', 100, 0, 100);
+        const requiredCorrectPercent = inputNumber('requiredCorrectPercent', 100, 0, 100);
+        const requiredAnswered = answeredCountFromPercent(requiredAnsweredPercent);
+
         return {
             enabled: true,
-            requiredAnswered: inputNumber('answered', totalQuestions, 0, 10000),
-            requiredCorrect: inputNumber('requiredCorrect', totalQuestions, 0, 10000),
+            requiredAnswered,
+            requiredCorrect: correctCountFromPercent(requiredAnswered, requiredCorrectPercent),
+            requiredAnsweredPercent: requiredAnsweredPercent,
+            requiredCorrectPercent: requiredCorrectPercent,
+            required_answered: requiredAnswered,
+            required_correct: correctCountFromPercent(requiredAnswered, requiredCorrectPercent),
+            required_answered_percent: requiredAnsweredPercent,
+            required_correct_percent: requiredCorrectPercent,
             minimumRatingPercent: inputNumber('minimumRatingPercent', 90, 0, 100),
+            minimum_rating_percent: inputNumber('minimumRatingPercent', 90, 0, 100),
             forceUnlockNext: inputChecked('forceUnlockNext'),
+            force_unlock_next: inputChecked('forceUnlockNext'),
             updatedAt: nowIso(),
         };
     }
@@ -861,11 +923,40 @@
             coursePolicyKey,
             coursePolicy: readJson(coursePolicyKey),
             nextLessonSlug: nextLessonSlug || null,
+            questionStatsKey,
+            questionStats: readJson(questionStatsKey),
             serverDebugUrl: debugUrl || null,
             lastServerResponse,
         };
 
         stateNode.textContent = JSON.stringify(snapshot, null, 2);
+        renderQuestionStats();
+    }
+
+    function renderQuestionStats() {
+        const stats = readJson(questionStatsKey) || {};
+
+        root.querySelectorAll('[data-polyglot-debug-question-row]').forEach((row) => {
+            const uuid = String(row.getAttribute('data-polyglot-debug-question-uuid') || '').trim();
+            const node = row.querySelector('[data-polyglot-debug-question-stats]');
+            const item = uuid ? stats[uuid] : null;
+
+            if (!node) {
+                return;
+            }
+
+            if (!item || toInt(item.shown, 0) <= 0) {
+                node.textContent = t('question_not_seen', 'Not shown yet');
+                node.setAttribute('style', 'border-color: var(--line); color: var(--muted);');
+                return;
+            }
+
+            node.textContent = t('question_stats_template', 'Shown: :shown, correct: :correct, wrong: :incorrect')
+                .replace(':shown', String(toInt(item.shown, 0)))
+                .replace(':correct', String(toInt(item.correct, 0)))
+                .replace(':incorrect', String(toInt(item.incorrect, 0)));
+            node.setAttribute('style', 'border-color: #b8e3c7; background: #f0fbf4; color: #17603a;');
+        });
     }
 
     async function handleAction(action) {
@@ -895,8 +986,11 @@
             }
 
             try {
-                await postServerAction(action);
+                const responsePayload = await postServerAction(action);
                 cleanupLocalAfterServerAction(action);
+                if (responsePayload?.applied && ['mark-complete', 'unlock-next', 'apply-lesson-policy', 'apply-course-policy'].includes(action)) {
+                    offerNextLesson();
+                }
                 renderState();
             } catch (error) {
                 showStatus(error?.message || t('status_server_action_failed', 'Server debug action failed.'), 'error');
@@ -970,6 +1064,13 @@
 
     root.addEventListener('input', () => renderState());
     root.addEventListener('change', () => renderState());
+
+    window.addEventListener('polyglot:admin-debug-question-stats-updated', (event) => {
+        if (event.detail?.key === questionStatsKey) {
+            renderQuestionStats();
+            renderState();
+        }
+    });
 
     if (window.PolyglotCourseProgress) {
         boot(window.PolyglotCourseProgress);
