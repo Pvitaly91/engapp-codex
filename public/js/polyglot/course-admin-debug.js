@@ -362,6 +362,7 @@
         lessons.forEach((lesson) => {
             if (lesson?.slug) {
                 removeKey(`polyglot_progress:${lesson.slug}`);
+                removeKey(`polyglot_debug_question_stats:${courseSlug}:${lesson.slug}`);
             }
         });
         keysMatching((key) => key.startsWith(coursePolicyPrefix)).forEach(removeKey);

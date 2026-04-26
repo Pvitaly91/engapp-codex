@@ -221,7 +221,12 @@
     'debugPayload' => $polyglotAdminDebugPayload ?? null,
 ])
 
-<script type="module" src="{{ asset('js/polyglot-course-progress.js') }}"></script>
+@php
+    $polyglotProgressAssetVersion = is_file(public_path('js/polyglot-course-progress.js'))
+        ? filemtime(public_path('js/polyglot-course-progress.js'))
+        : null;
+@endphp
+<script type="module" src="{{ asset('js/polyglot-course-progress.js') }}@if($polyglotProgressAssetVersion)?v={{ $polyglotProgressAssetVersion }}@endif"></script>
 <script>
 @php
     $composeConfig = [
@@ -795,6 +800,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
 
         const lessonProgress = progress.lesson_progress?.[config.slug];
         if (lessonProgress) {
+            mergeServerQuestionStats(lessonProgress.question_stats);
             state.progress = progressStore.normalize(lessonProgress);
         }
     }
@@ -876,6 +882,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
                 const localQueueIndex = state.progress.current_queue_index;
                 const serverLessonProgress = progressStore.normalize(payload.lesson_progress);
 
+                mergeServerQuestionStats(payload.lesson_progress.question_stats);
                 state.progress = {
                     ...serverLessonProgress,
                     current_queue_index: state.autoAdvanceTimer !== null
@@ -1109,7 +1116,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         const existingKey = aliasKeys.find((alias) => stats[alias]);
         const existing = existingKey ? stats[existingKey] : {};
 
-        stats[key] = {
+        const normalizedEntry = {
             uuid: uuid || existing.uuid || '',
             id: id || existing.id || '',
             position: position > 0 ? position : (sanitizeCount(existing.position) || null),
@@ -1120,10 +1127,11 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             last_answered_at: existing.last_answered_at || null,
         };
 
+        stats[key] = normalizedEntry;
         aliasKeys
             .filter((alias) => alias !== key)
             .forEach((alias) => {
-                delete stats[alias];
+                stats[alias] = normalizedEntry;
             });
 
         return stats[key];
@@ -1187,6 +1195,35 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         }
 
         entry.last_answered_at = new Date().toISOString();
+        writeQuestionStats(stats);
+    }
+
+    function mergeServerQuestionStats(serverStats) {
+        if (!adminDebugEnabled() || !serverStats || typeof serverStats !== 'object') {
+            return;
+        }
+
+        const stats = readQuestionStats();
+        Object.entries(serverStats).forEach(([serverKey, serverEntry]) => {
+            const uuid = String(serverEntry?.uuid || serverKey || '').trim();
+            const question = normalizedQuestions.find((item) => item.uuid === uuid) || { uuid };
+            const entry = questionStatsEntry(stats, question);
+
+            if (!entry) {
+                return;
+            }
+
+            entry.shown = Math.max(sanitizeCount(entry.shown), sanitizeCount(serverEntry?.shown));
+            entry.correct = Math.max(sanitizeCount(entry.correct), sanitizeCount(serverEntry?.correct));
+            entry.incorrect = Math.max(sanitizeCount(entry.incorrect), sanitizeCount(serverEntry?.incorrect));
+            entry.last_seen_at = serverEntry?.last_seen_at || entry.last_seen_at || null;
+            entry.last_answered_at = serverEntry?.last_answered_at || entry.last_answered_at || null;
+
+            if (uuid !== '') {
+                stats[uuid] = entry;
+            }
+        });
+
         writeQuestionStats(stats);
     }
 

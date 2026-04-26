@@ -251,5 +251,10 @@
 window.__POLYGLOT_ADMIN_DEBUG__ = @json($debug);
 window.__POLYGLOT_ADMIN_DEBUG_I18N__ = @json(__('frontend.polyglot.admin_debug'));
 </script>
-<script type="module" src="{{ asset('js/polyglot/admin-debug.js') }}"></script>
+@php
+    $adminDebugAssetVersion = is_file(public_path('js/polyglot/admin-debug.js'))
+        ? filemtime(public_path('js/polyglot/admin-debug.js'))
+        : null;
+@endphp
+<script type="module" src="{{ asset('js/polyglot/admin-debug.js') }}@if($adminDebugAssetVersion)?v={{ $adminDebugAssetVersion }}@endif"></script>
 @endif

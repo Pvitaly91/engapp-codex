@@ -299,9 +299,17 @@
 @endsection
 
 @section('scripts')
-<script type="module" src="{{ asset('js/polyglot-course-progress.js') }}"></script>
+@php
+    $polyglotProgressAssetVersion = is_file(public_path('js/polyglot-course-progress.js'))
+        ? filemtime(public_path('js/polyglot-course-progress.js'))
+        : null;
+    $polyglotCourseAdminDebugAssetVersion = is_file(public_path('js/polyglot/course-admin-debug.js'))
+        ? filemtime(public_path('js/polyglot/course-admin-debug.js'))
+        : null;
+@endphp
+<script type="module" src="{{ asset('js/polyglot-course-progress.js') }}@if($polyglotProgressAssetVersion)?v={{ $polyglotProgressAssetVersion }}@endif"></script>
 @if($isAdmin ?? false)
-    <script type="module" src="{{ asset('js/polyglot/course-admin-debug.js') }}"></script>
+    <script type="module" src="{{ asset('js/polyglot/course-admin-debug.js') }}@if($polyglotCourseAdminDebugAssetVersion)?v={{ $polyglotCourseAdminDebugAssetVersion }}@endif"></script>
 @endif
 <script>
 window.FRONTEND_TESTS_I18N = @json(__('frontend.tests'));

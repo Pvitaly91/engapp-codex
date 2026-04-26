@@ -1054,6 +1054,7 @@ class PolyglotProgressService
             ),
             'total_attempts' => $entry['answered_count'],
             'correct_attempts' => $this->correctAttemptCount($courseSlug, $lesson['slug'], $row?->user_id),
+            'question_stats' => $this->questionStatsForLesson($courseSlug, $lesson['slug'], $row?->user_id),
             'lesson_completed' => $entry['is_completed'],
             'completed_at' => $entry['completed_at'],
             'last_seen_at' => $entry['updated_at'],
@@ -1082,6 +1083,49 @@ class PolyglotProgressService
                     ->orWhere('rating', '>=', self::REQUIRED_AVERAGE);
             })
             ->count();
+    }
+
+    private function questionStatsForLesson(string $courseSlug, string $lessonSlug, ?int $userId): array
+    {
+        if (! $userId || ! Schema::hasTable('user_polyglot_answer_attempts')) {
+            return [];
+        }
+
+        $stats = [];
+        $attempts = UserPolyglotAnswerAttempt::query()
+            ->where('user_id', $userId)
+            ->where('course_slug', $courseSlug)
+            ->where('lesson_slug', $lessonSlug)
+            ->whereNotNull('question_uuid')
+            ->orderBy('answered_at')
+            ->orderBy('id')
+            ->get(['question_uuid', 'rating', 'is_correct', 'answered_at']);
+
+        foreach ($attempts as $attempt) {
+            $uuid = trim((string) $attempt->question_uuid);
+            if ($uuid === '') {
+                continue;
+            }
+
+            $stats[$uuid] ??= [
+                'uuid' => $uuid,
+                'shown' => 0,
+                'correct' => 0,
+                'incorrect' => 0,
+                'last_seen_at' => null,
+                'last_answered_at' => null,
+            ];
+
+            $isCorrect = $attempt->is_correct === true
+                || ((float) $attempt->rating) >= self::REQUIRED_AVERAGE;
+
+            $stats[$uuid]['shown']++;
+            $stats[$uuid][$isCorrect ? 'correct' : 'incorrect']++;
+            $stats[$uuid]['last_seen_at'] = $attempt->answered_at?->toJSON();
+            $stats[$uuid]['last_answered_at'] = $attempt->answered_at?->toJSON();
+        }
+
+        return $stats;
     }
 
     private function syntheticRollingResults(int $count, ?float $average): array

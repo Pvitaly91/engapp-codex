@@ -637,6 +637,7 @@
 
     function resetCurrentLesson() {
         removeKey(lessonProgressKey);
+        removeKey(questionStatsKey);
 
         const state = readCourseState();
         const entry = ensureCourseEntry(state, lessonSlug);
@@ -816,6 +817,7 @@
         lessons.forEach((item) => {
             if (item?.slug) {
                 removeKey(`polyglot_progress:${item.slug}`);
+                removeKey(`polyglot_debug_question_stats:${courseSlug}:${item.slug}`);
             }
         });
         keysMatching((key) => key.startsWith(coursePolicyPrefix)).forEach(removeKey);
@@ -859,6 +861,7 @@
     function cleanupLocalAfterServerAction(action) {
         if (action === 'reset-current-lesson') {
             removeKey(lessonProgressKey);
+            removeKey(questionStatsKey);
             const state = readCourseState();
             const entry = ensureCourseEntry(state, lessonSlug);
             entry.completed = false;
