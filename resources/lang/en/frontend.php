@@ -244,6 +244,8 @@ return [
             'current_sentence' => 'Sentence :current of :total',
             'goal_note' => 'You need :count answers with an average rating of at least :rating / 5.',
             'debug_goal_note' => 'Debug policy: :count answers, :correct correct, minimum rating :percent% (:rating / 5).',
+            'debug_policy_metric_title' => 'Debug policy',
+            'debug_policy_rating_meta' => ':current / :required answers, :correct correct required',
             'completed_banner' => 'The completion target is met. You can keep practising.',
             'hint' => 'Hint',
             'explanation' => 'Explanation',

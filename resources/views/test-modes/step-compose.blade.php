@@ -138,7 +138,7 @@
 
                 <div class="grid gap-3 sm:grid-cols-2">
                     <article class="rounded-[18px] p-3 surface-card sm:rounded-[24px] sm:border sm:p-4" style="border-color: var(--line);">
-                        <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.last_100_answers') }}</p>
+                        <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" id="compose-rating-title" style="color: var(--accent);">{{ __('frontend.tests.compose.last_100_answers') }}</p>
                         <p class="mt-1.5 font-display text-[1.45rem] font-extrabold leading-none sm:mt-2 sm:text-[2rem]" id="compose-rating">0.0 / 5</p>
                         <p class="mt-1.5 text-xs leading-5 sm:mt-2" id="compose-rating-meta" style="color: var(--muted);">0 / {{ $completionWindow }}</p>
                     </article>
@@ -460,6 +460,28 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             percent: policy.minimum_rating_percent,
             rating: (policy.minimum_rating_percent / 20).toFixed(1),
         });
+    }
+
+    function ratingCardSummary(rating) {
+        const policy = activeDebugPolicy();
+
+        if (!policy || state.progress.lesson_completed) {
+            return {
+                title: testUi('compose.last_100_answers'),
+                value: `${rating.toFixed(1)} / 5`,
+                meta: `${state.progress.rolling_results.length} / ${rollingWindow}`,
+            };
+        }
+
+        return {
+            title: testUi('compose.debug_policy_metric_title'),
+            value: `${(policy.minimum_rating_percent / 20).toFixed(1)} / 5`,
+            meta: testUi('compose.debug_policy_rating_meta', {
+                current: state.progress.rolling_results.length,
+                required: policy.required_answered,
+                correct: policy.required_correct,
+            }),
+        };
     }
 
     function sanitizeTokenValue(value) {
@@ -1270,7 +1292,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         clampQueueIndex();
         const question = currentQuestion();
         const rating = ratingValue();
-        const ratingText = `${rating.toFixed(1)} / 5`;
+        const ratingSummary = ratingCardSummary(rating);
         const isLocked = state.autoAdvanceTimer !== null;
         const statusLabel = state.progress.lesson_completed
             ? testUi('compose.lesson_completed')
@@ -1280,8 +1302,9 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             current: state.progress.current_queue_index + 1,
             total: normalizedQuestions.length,
         });
-        document.getElementById('compose-rating').textContent = ratingText;
-        document.getElementById('compose-rating-meta').textContent = `${state.progress.rolling_results.length} / ${rollingWindow}`;
+        document.getElementById('compose-rating-title').textContent = ratingSummary.title;
+        document.getElementById('compose-rating').textContent = ratingSummary.value;
+        document.getElementById('compose-rating-meta').textContent = ratingSummary.meta;
         document.getElementById('compose-status').textContent = statusLabel;
         document.getElementById('compose-status-note').textContent = statusGoalNote();
         document.getElementById('compose-source-text').textContent = question.sourceTextUk;

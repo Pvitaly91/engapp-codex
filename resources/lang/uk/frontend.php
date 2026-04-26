@@ -244,6 +244,8 @@ return [
             'current_sentence' => 'Речення :current із :total',
             'goal_note' => 'Потрібно :count відповідей із середнім рейтингом не нижче :rating / 5.',
             'debug_goal_note' => 'Debug policy: потрібно :count відповідей, :correct правильних, мінімальний рейтинг :percent% (:rating / 5).',
+            'debug_policy_metric_title' => 'Debug policy',
+            'debug_policy_rating_meta' => ':current / :required відповідей, потрібно :correct правильних',
             'completed_banner' => 'Критерій завершення виконано. Можна тренуватися далі.',
             'hint' => 'Підказка',
             'explanation' => 'Пояснення',

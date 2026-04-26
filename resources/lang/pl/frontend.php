@@ -244,6 +244,8 @@ return [
             'current_sentence' => 'Zdanie :current z :total',
             'goal_note' => 'Potrzebujesz :count odpowiedzi ze średnią co najmniej :rating / 5.',
             'debug_goal_note' => 'Debug policy: :count odpowiedzi, :correct poprawnych, minimalny rating :percent% (:rating / 5).',
+            'debug_policy_metric_title' => 'Debug policy',
+            'debug_policy_rating_meta' => ':current / :required odpowiedzi, wymagane poprawne: :correct',
             'completed_banner' => 'Warunek ukończenia został spełniony. Możesz ćwiczyć dalej.',
             'hint' => 'Podpowiedź',
             'explanation' => 'Wyjaśnienie',
