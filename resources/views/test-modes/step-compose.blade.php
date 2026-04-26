@@ -589,7 +589,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             : buildFallbackTokenBank(fallbackCorrectValues, fallbackPool);
     }
 
-    function sanitizeQuestion(item) {
+    function sanitizeQuestion(item, index = 0) {
         const punctuation = item?.punctuation === '?' ? '?' : '.';
         const fallbackCorrectValues = Array.isArray(item?.correctTokenValues)
             ? item.correctTokenValues.map(sanitizeTokenValue).filter(Boolean)
@@ -631,7 +631,9 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         }
 
         return {
+            id: String(item?.id ?? ''),
             uuid: String(item?.uuid ?? ''),
+            position: index + 1,
             level: item?.level ? String(item.level) : '',
             sourceTextUk,
             correctTokens: correctTokenValues,
@@ -679,7 +681,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         bankOrder: [],
         feedback: null,
         autoAdvanceTimer: null,
-        lastTrackedQuestionUuid: null,
+        lastTrackedQuestionKey: null,
         nextLessonPromptShown: false,
     };
 
@@ -1087,29 +1089,66 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
     }
 
     function questionStatsEntry(stats, question) {
+        const position = sanitizeCount(question?.position);
         const uuid = String(question?.uuid || '').trim();
+        const id = String(question?.id || '').trim();
+        const key = position > 0
+            ? `position:${position}`
+            : (uuid !== '' ? uuid : (id !== '' ? `id:${id}` : ''));
 
-        if (uuid === '') {
+        if (key === '') {
             return null;
         }
 
-        stats[uuid] = stats[uuid] || {
+        const aliasKeys = [
+            key,
+            position > 0 ? `position:${position}` : '',
             uuid,
-            position: question.position || null,
-            shown: 0,
-            correct: 0,
-            incorrect: 0,
-            last_seen_at: null,
-            last_answered_at: null,
+            id !== '' ? `id:${id}` : '',
+        ].filter((value, index, values) => value !== '' && values.indexOf(value) === index);
+        const existingKey = aliasKeys.find((alias) => stats[alias]);
+        const existing = existingKey ? stats[existingKey] : {};
+
+        stats[key] = {
+            uuid: uuid || existing.uuid || '',
+            id: id || existing.id || '',
+            position: position > 0 ? position : (sanitizeCount(existing.position) || null),
+            shown: sanitizeCount(existing.shown),
+            correct: sanitizeCount(existing.correct),
+            incorrect: sanitizeCount(existing.incorrect),
+            last_seen_at: existing.last_seen_at || null,
+            last_answered_at: existing.last_answered_at || null,
         };
 
-        return stats[uuid];
+        aliasKeys
+            .filter((alias) => alias !== key)
+            .forEach((alias) => {
+                delete stats[alias];
+            });
+
+        return stats[key];
+    }
+
+    function questionStatsKey(question) {
+        const position = sanitizeCount(question?.position);
+        const uuid = String(question?.uuid || '').trim();
+        const id = String(question?.id || '').trim();
+
+        if (position > 0) {
+            return `position:${position}`;
+        }
+
+        if (uuid !== '') {
+            return uuid;
+        }
+
+        return id !== '' ? `id:${id}` : '';
     }
 
     function trackQuestionShown(question) {
-        const uuid = String(question?.uuid || '').trim();
+        const key = questionStatsKey(question);
 
-        if (!adminDebugEnabled() || uuid === '' || state.lastTrackedQuestionUuid === uuid) {
+        if (!adminDebugEnabled() || key === '' || state.lastTrackedQuestionKey === key) {
             return;
         }
 
@@ -1121,7 +1160,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
 
         entry.shown = sanitizeCount(entry.shown) + 1;
         entry.last_seen_at = new Date().toISOString();
-        state.lastTrackedQuestionUuid = uuid;
+        state.lastTrackedQuestionKey = key;
         writeQuestionStats(stats);
     }
 

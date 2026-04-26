@@ -169,6 +169,7 @@
                                 @endphp
                                 <tr style="border-bottom: 1px solid var(--line);"
                                     data-polyglot-debug-question-row
+                                    data-polyglot-debug-question-id="{{ data_get($question, 'id') }}"
                                     data-polyglot-debug-question-uuid="{{ data_get($question, 'uuid') }}"
                                     data-polyglot-debug-question-position="{{ data_get($question, 'position') }}">
                                     <td class="px-3 py-3 align-top font-semibold">{{ data_get($question, 'position') }}</td>

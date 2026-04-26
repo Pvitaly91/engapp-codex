@@ -933,13 +933,39 @@
         renderQuestionStats();
     }
 
+    function findQuestionStats(stats, row) {
+        const uuid = String(row.getAttribute('data-polyglot-debug-question-uuid') || '').trim();
+        const id = String(row.getAttribute('data-polyglot-debug-question-id') || '').trim();
+        const position = String(row.getAttribute('data-polyglot-debug-question-position') || '').trim();
+        const keys = [
+            position !== '' ? `position:${position}` : '',
+            uuid,
+            id !== '' ? `id:${id}` : '',
+        ].filter(Boolean);
+
+        for (const key of keys) {
+            if (stats[key]) {
+                return stats[key];
+            }
+        }
+
+        return Object.values(stats).find((item) => {
+            const itemPosition = String(item?.position ?? '').trim();
+            const itemUuid = String(item?.uuid ?? '').trim();
+            const itemId = String(item?.id ?? '').trim();
+
+            return (position !== '' && itemPosition === position)
+                || (uuid !== '' && itemUuid === uuid)
+                || (id !== '' && itemId === id);
+        }) || null;
+    }
+
     function renderQuestionStats() {
         const stats = readJson(questionStatsKey) || {};
 
         root.querySelectorAll('[data-polyglot-debug-question-row]').forEach((row) => {
-            const uuid = String(row.getAttribute('data-polyglot-debug-question-uuid') || '').trim();
             const node = row.querySelector('[data-polyglot-debug-question-stats]');
-            const item = uuid ? stats[uuid] : null;
+            const item = findQuestionStats(stats, row);
 
             if (!node) {
                 return;
