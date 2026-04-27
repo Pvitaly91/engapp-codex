@@ -11,7 +11,11 @@
         $rawFilters = is_array($decodedFilters) ? $decodedFilters : [];
     }
     $rawFilters = is_array($rawFilters) ? $rawFilters : [];
-    $completionWindow = (int) data_get($rawFilters, 'completion.rolling_window', 100);
+    $rawCompletionWindow = (int) data_get($rawFilters, 'completion.rolling_window', 100);
+    $lessonQuestionTotal = is_array($questionData ?? null) ? count($questionData) : 0;
+    $completionWindow = $lessonQuestionTotal > 0
+        ? max(1, min($rawCompletionWindow, $lessonQuestionTotal))
+        : max(1, $rawCompletionWindow);
     $completionRating = (float) data_get($rawFilters, 'completion.min_rating', 4.5);
     $courseSlug = data_get($courseContext, 'course_slug', data_get($rawFilters, 'course_slug'));
     $courseUrl = data_get($courseContext, 'course_url', filled($courseSlug) ? localized_route('courses.show', $courseSlug) : null);
@@ -873,6 +877,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
                 return;
             }
 
+            const previousCourseState = serverCourseState;
             if (payload.course_progress) {
                 serverCourseState = payload.course_progress;
             }
@@ -893,6 +898,8 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
                 render();
                 offerNextLessonIfJustUnlocked(previousProgress, state.progress);
             }
+
+            offerNextLessonIfCourseUnlocked(previousCourseState, serverCourseState);
         } catch (error) {
             serverAuthenticated = false;
             serverCourseState = null;
@@ -994,6 +1001,85 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         `;
     }
 
+    function showNextLessonToast(targetUrl) {
+        if (typeof document === 'undefined') {
+            return;
+        }
+
+        const existing = document.getElementById('polyglot-next-lesson-toast');
+        if (existing) {
+            existing.remove();
+        }
+
+        const toast = document.createElement('div');
+        toast.id = 'polyglot-next-lesson-toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        toast.style.cssText = [
+            'position:fixed',
+            'top:50%',
+            'left:50%',
+            'transform:translate(-50%, -50%) scale(0.96)',
+            'z-index:9999',
+            'width:min(420px, calc(100vw - 32px))',
+            'padding:24px 28px',
+            'border-radius:24px',
+            'border:1px solid #b8e3c7',
+            'background:linear-gradient(180deg, #f0fbf4 0%, #e7f8ee 100%)',
+            'box-shadow:0 20px 60px rgb(15 23 42 / 28%)',
+            'color:#17603a',
+            'font-size:14px',
+            'line-height:1.4',
+            'opacity:0',
+            'transition:opacity 220ms ease, transform 220ms ease',
+        ].join(';');
+
+        toast.innerHTML = `
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+                <div style="flex:1;">
+                    <div style="font-size:11px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;">${html(testUi('course.lesson_unlocked'))}</div>
+                    <div style="margin-top:4px;font-weight:700;">${html(testUi('course.next_lesson_available'))}</div>
+                    <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;">
+                        <a href="${html(targetUrl)}" data-polyglot-next-lesson-go style="display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:800;background:#17603a;color:#fff;text-decoration:none;">${html(testUi('course.next_lesson'))}</a>
+                        <button type="button" data-polyglot-next-lesson-dismiss style="border:1px solid #b8e3c7;background:transparent;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;color:#17603a;cursor:pointer;">${html(testUi('course.toast_dismiss'))}</button>
+                    </div>
+                </div>
+                <button type="button" aria-label="${html(testUi('course.toast_dismiss'))}" data-polyglot-next-lesson-dismiss style="border:0;background:transparent;color:#17603a;font-size:18px;font-weight:800;cursor:pointer;line-height:1;padding:0 4px;">×</button>
+            </div>
+        `;
+
+        document.body.appendChild(toast);
+
+        window.requestAnimationFrame(() => {
+            toast.style.opacity = '1';
+            toast.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+
+        const dismiss = () => {
+            if (!toast.isConnected) {
+                return;
+            }
+            toast.style.opacity = '0';
+            toast.style.transform = 'translate(-50%, -50%) scale(0.96)';
+            window.setTimeout(() => {
+                toast.remove();
+            }, 240);
+        };
+
+        toast.querySelectorAll('[data-polyglot-next-lesson-dismiss]').forEach((btn) => {
+            btn.addEventListener('click', dismiss);
+        });
+
+        const goLink = toast.querySelector('[data-polyglot-next-lesson-go]');
+        if (goLink) {
+            goLink.addEventListener('click', () => {
+                dismiss();
+            });
+        }
+
+        window.setTimeout(dismiss, 15000);
+    }
+
     function offerNextLessonIfJustUnlocked(previousProgress, nextProgress) {
         if (state.nextLessonPromptShown || !config.nextLessonUrl || !config.nextLessonSlug) {
             return;
@@ -1006,10 +1092,50 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         state.nextLessonPromptShown = true;
 
         window.setTimeout(() => {
-            const shouldGo = window.confirm(testUi('course.next_lesson_unlocked_prompt'));
-            if (shouldGo) {
-                window.location.assign(config.nextLessonUrl);
-            }
+            showNextLessonToast(config.nextLessonUrl);
+        }, 120);
+    }
+
+    function isNextLessonUnlockedInCourseState(courseState) {
+        if (!courseState || !config.nextLessonSlug) {
+            return false;
+        }
+
+        const lessons = courseState.lessons && typeof courseState.lessons === 'object'
+            ? courseState.lessons
+            : null;
+        if (lessons && lessons[config.nextLessonSlug]) {
+            return Boolean(lessons[config.nextLessonSlug].unlocked);
+        }
+
+        const unlockedList = Array.isArray(courseState.unlocked_lessons) ? courseState.unlocked_lessons : null;
+        if (unlockedList) {
+            return unlockedList.includes(config.nextLessonSlug);
+        }
+
+        return false;
+    }
+
+    function offerNextLessonIfCourseUnlocked(previousCourseState, nextCourseState) {
+        if (state.nextLessonPromptShown || !config.nextLessonUrl || !config.nextLessonSlug) {
+            return;
+        }
+
+        if (!previousCourseState) {
+            return;
+        }
+
+        const wasUnlocked = isNextLessonUnlockedInCourseState(previousCourseState);
+        const isUnlocked = isNextLessonUnlockedInCourseState(nextCourseState);
+
+        if (wasUnlocked || !isUnlocked) {
+            return;
+        }
+
+        state.nextLessonPromptShown = true;
+
+        window.setTimeout(() => {
+            showNextLessonToast(config.nextLessonUrl);
         }, 120);
     }
 

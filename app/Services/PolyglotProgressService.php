@@ -458,6 +458,17 @@ class PolyglotProgressService
         return max(0, (int) ($lesson['question_count'] ?? $lesson['total_questions'] ?? 0));
     }
 
+    private function effectiveRequiredAnswers(array $lesson): int
+    {
+        $questionCount = $this->lessonQuestionCount($lesson);
+
+        if ($questionCount <= 0) {
+            return self::REQUIRED_ANSWERS;
+        }
+
+        return min(self::REQUIRED_ANSWERS, $questionCount);
+    }
+
     private function debugPolicyFromMetadata(mixed $metadata): ?array
     {
         if (! is_array($metadata)) {
@@ -884,7 +895,8 @@ class PolyglotProgressService
                     ->orWhere('rating', '>=', self::REQUIRED_AVERAGE);
             })
             ->count();
-        $isCompleted = $lastCount >= self::REQUIRED_ANSWERS
+        $effectiveRequiredAnswers = $this->effectiveRequiredAnswers($lesson);
+        $isCompleted = $lastCount >= $effectiveRequiredAnswers
             && $average !== null
             && $average >= self::REQUIRED_AVERAGE;
         $progress = UserPolyglotLessonProgress::query()->firstOrNew([

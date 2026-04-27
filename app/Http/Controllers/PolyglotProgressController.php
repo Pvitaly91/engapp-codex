@@ -97,6 +97,8 @@ class PolyglotProgressController extends Controller
             'rating_percent' => ['nullable', 'numeric', 'min:0', 'max:100'],
             'required_answered' => ['nullable', 'integer', 'min:0'],
             'required_correct' => ['nullable', 'integer', 'min:0'],
+            'required_answered_percent' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'required_correct_percent' => ['nullable', 'numeric', 'min:0', 'max:100'],
             'minimum_rating_percent' => ['nullable', 'numeric', 'min:0', 'max:100'],
             'force_unlock_next' => ['nullable', 'boolean'],
             'completed' => ['nullable', 'boolean'],

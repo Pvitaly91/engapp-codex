@@ -159,6 +159,34 @@
         renderState();
     }
 
+    function formatPreview(template, count, total) {
+        return String(template || '')
+            .replace(':count', String(count))
+            .replace(':total', String(total));
+    }
+
+    function renderPreviews() {
+        const answeredPercent = inputNumber('answeredPercent', 100, 0, 100);
+        const requiredCorrectPercent = inputNumber('requiredCorrectPercent', 100, 0, 100);
+        const answered = answeredCountFromPercent(answeredPercent);
+        const correct = correctCountFromPercent(answered, requiredCorrectPercent);
+        const total = totalQuestions > 0 ? totalQuestions : 0;
+        const answeredPreview = root.querySelector('[data-polyglot-debug-preview="answeredPercent"]');
+        const correctPreview = root.querySelector('[data-polyglot-debug-preview="requiredCorrectPercent"]');
+
+        if (answeredPreview) {
+            answeredPreview.textContent = total > 0
+                ? formatPreview(t('percent_count_preview', '≈ :count of :total'), answered, total)
+                : formatPreview(t('percent_count_preview_unknown', '≈ :count questions'), answered);
+        }
+
+        if (correctPreview) {
+            correctPreview.textContent = answered > 0
+                ? formatPreview(t('percent_count_preview', '≈ :count of :total'), correct, answered)
+                : formatPreview(t('percent_count_preview_unknown', '≈ :count questions'), correct);
+        }
+    }
+
     function animateActionButton(button) {
         if (!button) {
             return;
@@ -934,6 +962,7 @@
 
         stateNode.textContent = JSON.stringify(snapshot, null, 2);
         renderQuestionStats();
+        renderPreviews();
     }
 
     function findQuestionStats(stats, row) {

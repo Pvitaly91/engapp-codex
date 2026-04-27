@@ -137,7 +137,11 @@ export function meetsLessonCompletionRule(progress, options = {}) {
     const snapshot = {
         rolling_results: Array.isArray(progress?.rolling_results) ? progress.rolling_results : [],
     };
-    const windowSize = Math.max(1, sanitizeInteger(options.rollingWindow, LESSON_PROGRESS_WINDOW));
+    const rawWindow = Math.max(1, sanitizeInteger(options.rollingWindow, LESSON_PROGRESS_WINDOW));
+    const questionCount = sanitizeInteger(options.questionCount, 0);
+    const windowSize = questionCount > 0
+        ? Math.max(1, Math.min(rawWindow, questionCount))
+        : rawWindow;
     const minRating = Number.isFinite(Number(options.minRating))
         ? Number(options.minRating)
         : 4.5;

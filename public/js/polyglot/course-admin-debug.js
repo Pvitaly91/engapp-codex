@@ -481,7 +481,37 @@
         }
     }
 
+    function formatPreview(template, count, total) {
+        return String(template || '')
+            .replace(':count', String(count))
+            .replace(':total', String(total));
+    }
+
+    function renderPreviews() {
+        const requiredAnsweredPercent = inputNumber('requiredAnsweredPercent', defaultPolicy.required_answered_percent, 0, 100);
+        const requiredCorrectPercent = inputNumber('requiredCorrectPercent', defaultPolicy.required_correct_percent, 0, 100);
+        const total = lessonQuestionCount();
+        const answered = answeredCountFromPercent(requiredAnsweredPercent);
+        const correct = correctCountFromPercent(answered, requiredCorrectPercent);
+        const answeredPreview = root.querySelector('[data-polyglot-course-debug-preview="requiredAnsweredPercent"]');
+        const correctPreview = root.querySelector('[data-polyglot-course-debug-preview="requiredCorrectPercent"]');
+
+        if (answeredPreview) {
+            answeredPreview.textContent = total > 0
+                ? formatPreview(t('percent_count_preview', '≈ :count of :total'), answered, total)
+                : formatPreview(t('percent_count_preview_unknown', '≈ :count questions'), answered);
+        }
+
+        if (correctPreview) {
+            correctPreview.textContent = answered > 0
+                ? formatPreview(t('percent_count_preview', '≈ :count of :total'), correct, answered)
+                : formatPreview(t('percent_count_preview_unknown', '≈ :count questions'), correct);
+        }
+    }
+
     function renderState() {
+        renderPreviews();
+
         if (!stateNode) {
             return;
         }
