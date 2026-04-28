@@ -254,6 +254,7 @@
         'continueCourseLabel' => $continueCourseLabel,
         'interfaceLocale' => data_get($rawFilters, 'interface_locale', app()->getLocale()),
         'courseLessons' => data_get($courseContext, 'lessons', []),
+        'shuffleQuestionOrder' => (bool) config('tests.compose_shuffle_enabled', true) && filled($courseSlug),
     ];
     $progressSyncPayload = [
         'progressUrl' => filled($courseSlug) ? localized_route('courses.progress.show', $courseSlug, false) : null,
@@ -657,7 +658,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         };
     }
 
-    const normalizedQuestions = questions
+    let normalizedQuestions = questions
         .map(sanitizeQuestion)
         .filter(Boolean);
 
@@ -683,6 +684,18 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         courseStore,
         sourceId: courseStore?.sourceId,
     });
+
+    function reshuffleQuestionOrder() {
+        if (!config.shuffleQuestionOrder || normalizedQuestions.length < 2) {
+            return;
+        }
+
+        shuffle(normalizedQuestions);
+        normalizedQuestions = normalizedQuestions.map((question, index) => ({
+            ...question,
+            position: index + 1,
+        }));
+    }
 
     const state = {
         progress: progressStore.read(),
@@ -1452,7 +1465,9 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         }
 
         clearAutoAdvance();
+        reshuffleQuestionOrder();
         state.progress = progressStore.reset();
+        state.lastTrackedQuestionKey = null;
         resetCurrentAnswer(true);
         render();
     }

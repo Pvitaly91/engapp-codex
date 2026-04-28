@@ -6,11 +6,13 @@
     $completion = is_array($debug['completion'] ?? null) ? $debug['completion'] : [];
     $storageKeys = is_array($debug['storage_keys'] ?? null) ? $debug['storage_keys'] : [];
     $questions = is_array($debug['questions'] ?? null) ? $debug['questions'] : [];
+    $questionStatsSummary = is_array(data_get($debug, 'stats.question_attempts')) ? data_get($debug, 'stats.question_attempts') : [];
     $jsonOptions = JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES;
     $json = static fn ($value): string => json_encode($value, $jsonOptions) ?: '{}';
     $label = static fn (string $key): string => __("frontend.polyglot.admin_debug.{$key}");
     $tooltip = static fn (string $key): string => __("frontend.polyglot.admin_debug.tooltips.{$key}");
     $value = static fn ($item): string => filled($item) ? (string) $item : 'n/a';
+    $percent = static fn ($item): string => is_numeric($item) ? number_format((float) $item, 1) . '%' : 'n/a';
 @endphp
 
 @if($debug !== [])
@@ -133,6 +135,19 @@
             </section>
 
             <section class="rounded-[18px] border p-4" style="border-color: var(--line);">
+                <h3 class="text-sm font-extrabold">{{ $label('question_server_stats') }}</h3>
+                <dl class="mt-3 grid gap-2 text-sm sm:grid-cols-2 lg:grid-cols-3">
+                    <div><dt class="font-semibold">{{ $label('stats_total_questions') }}</dt><dd>{{ $value(data_get($questionStatsSummary, 'total_questions')) }}</dd></div>
+                    <div><dt class="font-semibold">{{ $label('stats_questions_with_attempts') }}</dt><dd>{{ $value(data_get($questionStatsSummary, 'questions_with_attempts')) }}</dd></div>
+                    <div><dt class="font-semibold">{{ $label('stats_answered') }}</dt><dd>{{ $value(data_get($questionStatsSummary, 'answered')) }}</dd></div>
+                    <div><dt class="font-semibold">{{ $label('stats_correct') }}</dt><dd>{{ $value(data_get($questionStatsSummary, 'correct')) }} ({{ $percent(data_get($questionStatsSummary, 'correct_percent')) }})</dd></div>
+                    <div><dt class="font-semibold">{{ $label('stats_incorrect') }}</dt><dd>{{ $value(data_get($questionStatsSummary, 'incorrect')) }} ({{ $percent(data_get($questionStatsSummary, 'incorrect_percent')) }})</dd></div>
+                    <div><dt class="font-semibold">{{ $label('stats_average_rating') }}</dt><dd>{{ $value(data_get($questionStatsSummary, 'average_rating')) }}</dd></div>
+                </dl>
+                <p class="mt-3 text-xs" style="color: var(--muted);">{{ $label('server_stats_note') }}</p>
+            </section>
+
+            <section class="rounded-[18px] border p-4" style="border-color: var(--line);">
                 <h3 class="text-sm font-extrabold">{{ $label('local_storage_keys') }}</h3>
                 <dl class="mt-3 grid gap-2 text-sm">
                     @foreach($storageKeys as $key => $storageKey)
@@ -152,6 +167,7 @@
                             <tr style="border-bottom: 1px solid var(--line);">
                                 <th class="px-3 py-2">#</th>
                                 <th class="px-3 py-2">{{ $label('source_text') }}</th>
+                                <th class="px-3 py-2">{{ $label('seeder') }}</th>
                                 <th class="px-3 py-2">{{ $label('correct_answer') }}</th>
                                 <th class="px-3 py-2">{{ $label('tokens') }}</th>
                                 <th class="px-3 py-2">{{ $label('distractors') }}</th>
@@ -166,6 +182,8 @@
                                     $correctTokenIds = is_array($question['correct_token_ids'] ?? null) ? $question['correct_token_ids'] : [];
                                     $distractors = is_array($question['distractors'] ?? null) ? $question['distractors'] : [];
                                     $tags = is_array($question['grammar_tags'] ?? null) ? $question['grammar_tags'] : [];
+                                    $seeder = is_array(data_get($question, 'tech_info.seeder')) ? data_get($question, 'tech_info.seeder') : [];
+                                    $serverStats = is_array(data_get($question, 'server_stats')) ? data_get($question, 'server_stats') : [];
                                 @endphp
                                 <tr style="border-bottom: 1px solid var(--line);"
                                     data-polyglot-debug-question-row
@@ -176,6 +194,13 @@
                                     <td class="px-3 py-3 align-top">
                                         <div>{{ $value(data_get($question, 'source_text_uk')) }}</div>
                                         <div class="mt-1 text-xs" style="color: var(--muted);">{{ $value(data_get($question, 'uuid')) }}</div>
+                                    </td>
+                                    <td class="px-3 py-3 align-top">
+                                        <div class="font-semibold">{{ $value(data_get($seeder, 'name')) }}</div>
+                                        <div class="mt-1 max-w-xs break-all text-xs" style="color: var(--muted);">{{ $value(data_get($seeder, 'class')) }}</div>
+                                        @if(filled(data_get($seeder, 'last_ran_at')))
+                                            <div class="mt-1 text-xs" style="color: var(--muted);">{{ $label('last_seed_run') }}: {{ data_get($seeder, 'last_ran_at') }}</div>
+                                        @endif
                                     </td>
                                     <td class="px-3 py-3 align-top">
                                         <div class="font-semibold" data-polyglot-debug-correct-answer>{{ $value(data_get($question, 'target_text')) }}</div>
@@ -212,6 +237,19 @@
                                               data-polyglot-debug-question-stats>
                                             {{ $label('question_not_seen') }}
                                         </span>
+                                        <div class="mt-2 rounded-[12px] border p-2 text-xs" style="border-color: var(--line);">
+                                            <div class="font-semibold">{{ $label('server_stats') }}</div>
+                                            @if((bool) data_get($serverStats, 'storage_available', false))
+                                                <div>{{ $label('stats_answered') }}: {{ $value(data_get($serverStats, 'answered')) }}</div>
+                                                <div>{{ $label('stats_correct') }}: {{ $value(data_get($serverStats, 'correct')) }} ({{ $percent(data_get($serverStats, 'correct_percent')) }})</div>
+                                                <div>{{ $label('stats_incorrect') }}: {{ $value(data_get($serverStats, 'incorrect')) }} ({{ $percent(data_get($serverStats, 'incorrect_percent')) }})</div>
+                                                <div>{{ $label('stats_average_rating') }}: {{ $value(data_get($serverStats, 'average_rating')) }}</div>
+                                                <div>{{ $label('stats_unique_users') }}: {{ $value(data_get($serverStats, 'unique_users')) }}</div>
+                                                <div>{{ $label('stats_last_answered_at') }}: {{ $value(data_get($serverStats, 'last_answered_at')) }}</div>
+                                            @else
+                                                <div style="color: var(--muted);">{{ $label('server_stats_unavailable') }}</div>
+                                            @endif
+                                        </div>
                                     </td>
                                     <td class="px-3 py-3 align-top">
                                         @if(filled(data_get($question, 'hint_uk')))

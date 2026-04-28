@@ -63,6 +63,8 @@ class PolyglotComposeModeTest extends TestCase
         config([
             'coming-soon.enabled' => false,
             'tests.tech_info_enabled' => false,
+            'tests.compose_shuffle_enabled' => false,
+            'tests.compose_shuffle_seed' => null,
         ]);
 
         $this->rebuildComposeTestSchema();
@@ -86,6 +88,32 @@ class PolyglotComposeModeTest extends TestCase
         $this->assertArrayHasKey('correctTokenIds', $questionData[0]);
         $this->assertArrayHasKey('tokenBank', $questionData[0]);
         $this->assertSame('test-modes.step-compose', $response->viewData('templateView'));
+    }
+
+    public function test_polyglot_course_compose_questions_can_be_shuffled(): void
+    {
+        $this->seed(PolyglotToBeLessonSeeder::class);
+
+        $orderedResponse = $this->get('/test/polyglot-to-be-a1/step/compose');
+        $orderedResponse->assertOk();
+
+        $orderedUuids = array_column($orderedResponse->viewData('questionData'), 'uuid');
+
+        config([
+            'tests.compose_shuffle_enabled' => true,
+            'tests.compose_shuffle_seed' => 'polyglot-compose-shuffle-test',
+        ]);
+
+        $shuffledResponse = $this->get('/test/polyglot-to-be-a1/step/compose');
+        $shuffledResponse->assertOk();
+
+        $shuffledUuids = array_column($shuffledResponse->viewData('questionData'), 'uuid');
+
+        $this->assertNotSame($orderedUuids, $shuffledUuids);
+        $this->assertSame(
+            collect($orderedUuids)->sort()->values()->all(),
+            collect($shuffledUuids)->sort()->values()->all()
+        );
     }
 
     public function test_compose_route_works_for_generator_driven_have_got_lesson(): void

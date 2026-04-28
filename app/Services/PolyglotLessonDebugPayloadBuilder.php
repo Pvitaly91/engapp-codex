@@ -3,7 +3,9 @@
 namespace App\Services;
 
 use App\Models\Question;
+use App\Models\UserPolyglotAnswerAttempt;
 use App\Support\ComposeModeEligibility;
+use Illuminate\Support\Facades\Schema;
 
 class PolyglotLessonDebugPayloadBuilder
 {
@@ -16,8 +18,15 @@ class PolyglotLessonDebugPayloadBuilder
         $lessonOrder = data_get($courseContext, 'lesson_order', data_get($filters, 'lesson_order'));
         $completion = data_get($courseContext, 'completion', data_get($filters, 'completion', []));
         $completion = is_array($completion) ? $completion : [];
+        $minRating = (float) ($completion['min_rating'] ?? data_get($filters, 'completion.min_rating', 4.5));
         $theory = $this->buildTheoryBinding($filters);
         $lessons = $this->normalizeLessons(data_get($courseContext, 'lessons', []));
+        $questionAttemptStats = $this->buildQuestionAttemptStats(
+            $courseSlug,
+            $lessonSlug,
+            $composePayload,
+            $minRating
+        );
 
         return [
             'generated_at' => now()->toIso8601String(),
@@ -54,20 +63,25 @@ class PolyglotLessonDebugPayloadBuilder
             'theory' => $theory,
             'completion' => [
                 'rolling_window' => max(1, (int) ($completion['rolling_window'] ?? data_get($filters, 'completion.rolling_window', 100))),
-                'min_rating' => (float) ($completion['min_rating'] ?? data_get($filters, 'completion.min_rating', 4.5)),
+                'min_rating' => $minRating,
                 'raw' => $completion,
             ],
+            'stats' => [
+                'question_attempts' => $this->summarizeQuestionAttemptStats($questionAttemptStats),
+            ],
             'storage_keys' => $this->buildStorageKeys($courseSlug, $lessonSlug),
-            'questions' => $this->buildQuestions($composePayload),
+            'questions' => $this->buildQuestions($composePayload, $questionAttemptStats),
             'raw_filters' => $filters,
         ];
     }
 
-    private function buildQuestions(array $composePayload): array
+    private function buildQuestions(array $composePayload, array $questionAttemptStats): array
     {
         return collect($composePayload)
-            ->map(function (mixed $question, int $index) {
+            ->map(function (mixed $question, int $index) use ($questionAttemptStats) {
                 $question = is_array($question) ? $question : [];
+                $position = $index + 1;
+                $statsKey = $this->questionStatsKey($question, $position);
                 $tokenBank = collect($question['tokenBank'] ?? [])
                     ->filter(fn ($token) => is_array($token))
                     ->values();
@@ -85,7 +99,7 @@ class PolyglotLessonDebugPayloadBuilder
                 $tags = data_get($question, 'tech_info.tags', []);
 
                 return [
-                    'position' => $index + 1,
+                    'position' => $position,
                     'id' => $question['id'] ?? null,
                     'uuid' => $question['uuid'] ?? null,
                     'type' => $question['type'] ?? null,
@@ -101,11 +115,177 @@ class PolyglotLessonDebugPayloadBuilder
                     'grammar_tags' => is_array($tags) ? array_values($tags) : [],
                     'explanations' => is_array($question['explanations'] ?? null) ? $question['explanations'] : [],
                     'tech_info' => $question['tech_info'] ?? null,
+                    'server_stats' => $questionAttemptStats[$statsKey]
+                        ?? $this->finalizeQuestionAttemptStats($this->emptyQuestionAttemptStats($question, $position, false)),
                     'raw' => $question,
                 ];
             })
             ->values()
             ->all();
+    }
+
+    private function buildQuestionAttemptStats(
+        string $courseSlug,
+        string $lessonSlug,
+        array $composePayload,
+        float $minRating
+    ): array {
+        $storageAvailable = $this->questionAttemptStorageAvailable();
+        $stats = [];
+        $uuidToKey = [];
+
+        foreach (array_values($composePayload) as $index => $question) {
+            $question = is_array($question) ? $question : [];
+            $position = $index + 1;
+            $key = $this->questionStatsKey($question, $position);
+            $stats[$key] = $this->emptyQuestionAttemptStats($question, $position, $storageAvailable);
+
+            $uuid = trim((string) ($question['uuid'] ?? ''));
+            if ($uuid !== '') {
+                $uuidToKey[$uuid] = $key;
+            }
+        }
+
+        if (! $storageAvailable || $courseSlug === '' || $lessonSlug === '' || $uuidToKey === []) {
+            return array_map(fn (array $item) => $this->finalizeQuestionAttemptStats($item), $stats);
+        }
+
+        $attempts = UserPolyglotAnswerAttempt::query()
+            ->where('course_slug', $courseSlug)
+            ->where('lesson_slug', $lessonSlug)
+            ->whereIn('question_uuid', array_keys($uuidToKey))
+            ->orderBy('answered_at')
+            ->orderBy('id')
+            ->get(['question_uuid', 'user_id', 'rating', 'is_correct', 'answered_at']);
+
+        foreach ($attempts as $attempt) {
+            $uuid = trim((string) $attempt->question_uuid);
+            $key = $uuidToKey[$uuid] ?? null;
+
+            if ($key === null || ! isset($stats[$key])) {
+                continue;
+            }
+
+            $rating = (float) $attempt->rating;
+            $isCorrect = $attempt->is_correct === true || $rating >= $minRating;
+            $answeredAt = $this->formatDateTime($attempt->answered_at);
+
+            $stats[$key]['answered']++;
+            $stats[$key]['shown'] = $stats[$key]['answered'];
+            $stats[$key][$isCorrect ? 'correct' : 'incorrect']++;
+            $stats[$key]['_rating_sum'] += $rating;
+
+            if ($attempt->user_id !== null) {
+                $stats[$key]['_user_ids'][(string) $attempt->user_id] = true;
+            }
+
+            if ($answeredAt !== null) {
+                $lastAnsweredAt = $stats[$key]['last_answered_at'];
+                $stats[$key]['last_answered_at'] = $lastAnsweredAt === null || strcmp($answeredAt, $lastAnsweredAt) > 0
+                    ? $answeredAt
+                    : $lastAnsweredAt;
+                $stats[$key]['last_seen_at'] = $stats[$key]['last_answered_at'];
+            }
+        }
+
+        return array_map(fn (array $item) => $this->finalizeQuestionAttemptStats($item), $stats);
+    }
+
+    private function emptyQuestionAttemptStats(array $question, int $position, bool $storageAvailable): array
+    {
+        return [
+            'scope' => 'server_all_users',
+            'storage_available' => $storageAvailable,
+            'shown_source' => 'answered_attempts',
+            'position' => $position,
+            'uuid' => trim((string) ($question['uuid'] ?? '')) ?: null,
+            'id' => $question['id'] ?? null,
+            'shown' => 0,
+            'answered' => 0,
+            'correct' => 0,
+            'incorrect' => 0,
+            'correct_percent' => null,
+            'incorrect_percent' => null,
+            'average_rating' => null,
+            'unique_users' => 0,
+            'last_seen_at' => null,
+            'last_answered_at' => null,
+            'note' => $storageAvailable
+                ? 'Server stats use answered attempts as the persisted shown count.'
+                : 'user_polyglot_answer_attempts table is unavailable.',
+            '_rating_sum' => 0.0,
+            '_user_ids' => [],
+        ];
+    }
+
+    private function finalizeQuestionAttemptStats(array $stats): array
+    {
+        $answered = max(0, (int) ($stats['answered'] ?? 0));
+        $correct = max(0, (int) ($stats['correct'] ?? 0));
+        $incorrect = max(0, (int) ($stats['incorrect'] ?? 0));
+
+        $stats['shown'] = max((int) ($stats['shown'] ?? 0), $answered);
+        $stats['answered'] = $answered;
+        $stats['correct'] = $correct;
+        $stats['incorrect'] = $incorrect;
+        $stats['correct_percent'] = $answered > 0 ? round($correct * 100 / $answered, 1) : null;
+        $stats['incorrect_percent'] = $answered > 0 ? round($incorrect * 100 / $answered, 1) : null;
+        $stats['average_rating'] = $answered > 0 ? round(((float) ($stats['_rating_sum'] ?? 0.0)) / $answered, 2) : null;
+        $stats['unique_users'] = is_array($stats['_user_ids'] ?? null) ? count($stats['_user_ids']) : 0;
+
+        unset($stats['_rating_sum'], $stats['_user_ids']);
+
+        return $stats;
+    }
+
+    private function summarizeQuestionAttemptStats(array $questionAttemptStats): array
+    {
+        $answered = 0;
+        $correct = 0;
+        $incorrect = 0;
+        $questionsWithAttempts = 0;
+        $weightedRatingSum = 0.0;
+        $storageAvailable = true;
+
+        foreach ($questionAttemptStats as $stats) {
+            $itemAnswered = max(0, (int) ($stats['answered'] ?? 0));
+            $answered += $itemAnswered;
+            $correct += max(0, (int) ($stats['correct'] ?? 0));
+            $incorrect += max(0, (int) ($stats['incorrect'] ?? 0));
+            $storageAvailable = $storageAvailable && (bool) ($stats['storage_available'] ?? false);
+
+            if ($itemAnswered > 0) {
+                $questionsWithAttempts++;
+                $weightedRatingSum += ((float) ($stats['average_rating'] ?? 0.0)) * $itemAnswered;
+            }
+        }
+
+        return [
+            'scope' => 'server_all_users',
+            'storage_available' => $storageAvailable,
+            'total_questions' => count($questionAttemptStats),
+            'questions_with_attempts' => $questionsWithAttempts,
+            'shown' => $answered,
+            'answered' => $answered,
+            'correct' => $correct,
+            'incorrect' => $incorrect,
+            'correct_percent' => $answered > 0 ? round($correct * 100 / $answered, 1) : null,
+            'incorrect_percent' => $answered > 0 ? round($incorrect * 100 / $answered, 1) : null,
+            'average_rating' => $answered > 0 ? round($weightedRatingSum / $answered, 2) : null,
+            'shown_source' => 'answered_attempts',
+        ];
+    }
+
+    private function questionAttemptStorageAvailable(): bool
+    {
+        return Schema::hasTable('user_polyglot_answer_attempts');
+    }
+
+    private function questionStatsKey(array $question, int $position): string
+    {
+        $uuid = trim((string) ($question['uuid'] ?? ''));
+
+        return $uuid !== '' ? 'uuid:' . $uuid : 'position:' . $position;
     }
 
     private function buildStorageKeys(string $courseSlug, string $lessonSlug): array
@@ -186,5 +366,18 @@ class PolyglotLessonDebugPayloadBuilder
         $last = $segments !== [] ? end($segments) : null;
 
         return is_string($last) && trim($last) !== '' ? trim($last) : null;
+    }
+
+    private function formatDateTime(mixed $value): ?string
+    {
+        if (! $value) {
+            return null;
+        }
+
+        if (method_exists($value, 'toDateTimeString')) {
+            return $value->toDateTimeString();
+        }
+
+        return is_string($value) ? $value : null;
     }
 }

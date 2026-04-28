@@ -1009,10 +1009,19 @@
                 return;
             }
 
-            node.textContent = t('question_stats_template', 'Shown: :shown, correct: :correct, wrong: :incorrect')
-                .replace(':shown', String(toInt(item.shown, 0)))
-                .replace(':correct', String(toInt(item.correct, 0)))
-                .replace(':incorrect', String(toInt(item.incorrect, 0)));
+            const shown = toInt(item.shown, 0);
+            const correct = toInt(item.correct, 0);
+            const incorrect = toInt(item.incorrect, 0);
+            const answered = correct + incorrect;
+            const correctPercent = answered > 0 ? Math.round(correct * 1000 / answered) / 10 : 0;
+            const incorrectPercent = answered > 0 ? Math.round(incorrect * 1000 / answered) / 10 : 0;
+
+            node.textContent = t('question_stats_template', 'Shown: :shown, correct: :correct (:correct_percent%), wrong: :incorrect (:incorrect_percent%)')
+                .replace(':shown', String(shown))
+                .replace(':correct_percent', String(correctPercent))
+                .replace(':incorrect_percent', String(incorrectPercent))
+                .replace(':correct', String(correct))
+                .replace(':incorrect', String(incorrect));
             node.setAttribute('style', 'border-color: #b8e3c7; background: #f0fbf4; color: #17603a;');
         });
     }

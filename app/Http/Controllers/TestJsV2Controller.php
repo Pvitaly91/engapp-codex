@@ -110,7 +110,7 @@ class TestJsV2Controller extends Controller
 
         abort_unless(ComposeModeEligibility::isAvailableForTest($test), 404);
 
-        $questions = $this->buildComposeQuestionDataset($resolved, $showTechnicalInfo);
+        $questions = $this->buildComposeQuestionDataset($resolved, $showTechnicalInfo || $isAdmin);
         $courseContext = $this->buildPolyglotCourseContext($test);
         $polyglotAdminDebugPayload = $isAdmin
             ? $this->polyglotLessonDebugPayloadBuilder->build($test, $questions, $courseContext)
@@ -338,7 +338,7 @@ class TestJsV2Controller extends Controller
             ? $this->questionTechnicalInfoService->mapForQuestions($questions)
             : [];
 
-        return $questions
+        $payload = $questions
             ->map(fn (Question $question) => $this->buildComposeQuestionPayload(
                 $question,
                 $technicalInfoByQuestionId[$question->id] ?? null
@@ -346,6 +346,38 @@ class TestJsV2Controller extends Controller
             ->filter()
             ->values()
             ->all();
+
+        return $this->shouldShuffleComposeQuestions($filters)
+            ? $this->shuffleComposeQuestionPayload($payload)
+            : $payload;
+    }
+
+    protected function shouldShuffleComposeQuestions(array $filters): bool
+    {
+        return (bool) config('tests.compose_shuffle_enabled', true)
+            && filled(data_get($filters, 'course_slug'));
+    }
+
+    protected function shuffleComposeQuestionPayload(array $payload): array
+    {
+        if (count($payload) < 2) {
+            return $payload;
+        }
+
+        $seed = config('tests.compose_shuffle_seed');
+
+        if (is_string($seed) && trim($seed) !== '') {
+            return collect($payload)
+                ->sortBy(function (array $question, int $index) use ($seed) {
+                    $stableId = trim((string) ($question['uuid'] ?? $question['id'] ?? $index));
+
+                    return sha1(trim($seed) . '|' . $stableId . '|' . $index);
+                })
+                ->values()
+                ->all();
+        }
+
+        return collect($payload)->shuffle()->values()->all();
     }
 
     protected function isAdminUser(): bool
