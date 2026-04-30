@@ -71,7 +71,7 @@
     <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="{{ __('public.common.breadcrumb') }}">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">{{ __('public.common.home') }}</a>
         <span>/</span>
-        <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-ocean">{{ __('public.nav.catalog') }}</a>
+        <a href="{{ localized_route('courses.index') }}" class="transition hover:text-ocean">{{ __('public.nav.courses') }}</a>
         <span>/</span>
         <span style="color: var(--text);">{{ $course['name'] }}</span>
     </nav>

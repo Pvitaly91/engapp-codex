@@ -11,6 +11,7 @@ return [
     'nav' => [
         'catalog' => 'Catalog',
         'theory' => 'Theory',
+        'courses' => 'Courses',
         'polyglot_course' => 'Polyglot course',
         'words_test' => 'Words Test',
         'verbs_test' => 'Verbs Test',
@@ -113,6 +114,28 @@ return [
         'sections' => 'Topics',
     ],
 
+    // Courses section
+    'courses' => [
+        'title' => 'Courses — Gramlyze',
+        'breadcrumb' => 'Courses',
+        'badge' => 'Course catalog',
+        'heading' => 'Choose a course or study level',
+        'description' => 'The general courses section keeps available learning paths in one place. Start with Polyglot English and open the level you need from A1-C2.',
+        'available_courses' => 'Available courses',
+        'available_levels' => 'Levels',
+        'course_count' => '{1}:count path|[2,*]:count paths',
+        'level_count' => '{1}:count level|[2,*]:count levels',
+        'catalog_label' => 'Learning paths',
+        'catalog_heading' => 'Course catalog',
+        'catalog_hint' => 'Each card shows available levels and links to the existing course page.',
+        'polyglot_description' => 'A practical grammar course built around composing sentences.',
+        'course_card_badge' => 'First path',
+        'levels_title' => 'Course levels',
+        'choose_level' => 'Choose a level',
+        'levels_hint' => 'A1-C2 open the existing Polyglot course pages.',
+        'open_level' => 'Open level',
+    ],
+
     // Home page
     'home' => [
         'title' => 'Gramlyze — English Practice Platform',
@@ -133,6 +156,8 @@ return [
         'pick_path' => 'Pick your path',
         'catalog_title' => 'Test collections',
         'catalog_desc' => 'Browse curated test cards grouped by topic and difficulty.',
+        'courses_title' => 'Courses',
+        'courses_desc' => 'Open the course catalog and choose Polyglot English A1-C2.',
         'theory_title' => 'Grammar by topic',
         'theory_desc' => 'Structured explanations for grammar topics with friendly URLs.',
         'polyglot_title' => 'Polyglot English A1',

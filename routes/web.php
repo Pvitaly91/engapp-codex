@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CopilotTheoryController;
+use App\Http\Controllers\CourseCatalogController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HealthCheckController;
 use App\Http\Controllers\HomeController;
@@ -107,6 +108,7 @@ Route::get('/catalog-tests/cards', fn () => redirect()->route('catalog.tests-car
 Route::get('/tests/cards', fn () => redirect()->route('catalog.tests-cards')); // legacy
 
 Route::get('/search', SiteSearchController::class)->name('site.search');
+Route::get('/courses', [CourseCatalogController::class, 'index'])->name('courses.index');
 Route::get('/courses/{courseSlug}', [PolyglotCourseController::class, 'show'])->name('courses.show');
 Route::prefix('courses/{courseSlug}/progress')->name('courses.progress.')->group(function () {
     Route::get('/', [PolyglotProgressController::class, 'show'])->name('show');

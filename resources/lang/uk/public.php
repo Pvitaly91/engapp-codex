@@ -11,6 +11,7 @@ return [
     'nav' => [
         'catalog' => 'Каталог',
         'theory' => 'Теорія',
+        'courses' => 'Курси',
         'polyglot_course' => 'Polyglot курс',
         'words_test' => 'Слова',
         'verbs_test' => 'Дієслова',
@@ -113,6 +114,28 @@ return [
         'sections' => 'Теми',
     ],
 
+    // Courses section
+    'courses' => [
+        'title' => 'Курси — Gramlyze',
+        'breadcrumb' => 'Курси',
+        'badge' => 'Каталог курсів',
+        'heading' => 'Оберіть курс або рівень навчання',
+        'description' => 'Загальний розділ курсів збирає доступні напрями в одному місці. Почніть з Polyglot English і перейдіть на потрібний рівень A1-C2.',
+        'available_courses' => 'Доступні курси',
+        'available_levels' => 'Рівні',
+        'course_count' => '{1}:count напрям|[2,*]:count напрями',
+        'level_count' => '{1}:count рівень|[2,*]:count рівнів',
+        'catalog_label' => 'Напрями',
+        'catalog_heading' => 'Каталог курсів',
+        'catalog_hint' => 'Кожна картка показує доступні рівні й веде на вже існуючу сторінку курсу.',
+        'polyglot_description' => 'Практичний курс граматики через складання речень.',
+        'course_card_badge' => 'Перший напрям',
+        'levels_title' => 'Рівні курсу',
+        'choose_level' => 'Оберіть рівень',
+        'levels_hint' => 'A1-C2 відкривають існуючі Polyglot course pages.',
+        'open_level' => 'Відкрити рівень',
+    ],
+
     // Home page
     'home' => [
         'title' => 'Gramlyze — платформа англійської практики',
@@ -133,6 +156,8 @@ return [
         'pick_path' => 'Обери напрям',
         'catalog_title' => 'Добірки тестів',
         'catalog_desc' => 'Готові картки тестів за темами та складністю.',
+        'courses_title' => 'Курси',
+        'courses_desc' => 'Відкрийте каталог курсів і оберіть Polyglot English A1-C2.',
         'theory_title' => 'Граматика по темах',
         'theory_desc' => 'Структуровані пояснення граматики з дружніми URL.',
         'polyglot_title' => 'Polyglot English A1',
