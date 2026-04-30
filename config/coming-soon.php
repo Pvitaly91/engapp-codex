@@ -61,6 +61,7 @@ return [
 
     'allowed_test_slug_prefixes' => [
         'polyglot-',
+        'course-td-',
     ],
 
     /*

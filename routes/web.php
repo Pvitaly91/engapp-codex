@@ -12,6 +12,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PolyglotCourseController;
 use App\Http\Controllers\PolyglotProgressController;
 use App\Http\Controllers\SiteSearchController;
+use App\Http\Controllers\TheoryCourseController;
 use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
@@ -109,6 +110,13 @@ Route::get('/tests/cards', fn () => redirect()->route('catalog.tests-cards')); /
 
 Route::get('/search', SiteSearchController::class)->name('site.search');
 Route::get('/courses', [CourseCatalogController::class, 'index'])->name('courses.index');
+Route::get('/courses/english-grammar-theory', [TheoryCourseController::class, 'show'])->name('courses.theory.show');
+Route::get('/courses/english-grammar-theory/lesson/{categoryPath}/{pageSlug}/test', [TheoryCourseController::class, 'test'])
+    ->where('categoryPath', '.*')
+    ->name('courses.theory.lesson.test');
+Route::get('/courses/english-grammar-theory/lesson/{categoryPath}/{pageSlug}', [TheoryCourseController::class, 'lesson'])
+    ->where('categoryPath', '.*')
+    ->name('courses.theory.lesson');
 Route::get('/courses/{courseSlug}', [PolyglotCourseController::class, 'show'])->name('courses.show');
 Route::prefix('courses/{courseSlug}/progress')->name('courses.progress.')->group(function () {
     Route::get('/', [PolyglotProgressController::class, 'show'])->name('show');
