@@ -63,9 +63,9 @@
                     <div class="grid gap-0 lg:grid-cols-[0.92fr_1.08fr]">
                         <div class="border-b p-6 lg:border-b-0 lg:border-r" style="border-color: var(--line);">
                             <div class="flex items-start justify-between gap-4">
-                                <span class="inline-flex h-16 w-16 items-center justify-center rounded-[22px] bg-ocean font-display text-lg font-extrabold text-white">PG</span>
+                                <span class="inline-flex h-16 w-16 items-center justify-center rounded-[22px] bg-ocean font-display text-lg font-extrabold text-white">{{ $course['initials'] ?? 'CR' }}</span>
                                 <span class="rounded-full border px-3 py-1 text-xs font-extrabold uppercase tracking-[0.18em] soft-accent" style="border-color: var(--line); color: var(--accent);">
-                                    {{ __('public.courses.course_card_badge') }}
+                                    {{ $course['badge'] ?? __('public.courses.course_card_badge') }}
                                 </span>
                             </div>
                             <h3 class="mt-6 font-display text-2xl font-extrabold leading-tight">{{ $course['title'] }}</h3>
@@ -73,31 +73,46 @@
                         </div>
 
                         <div class="p-6">
-                            <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                                <div>
-                                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.courses.levels_title') }}</p>
-                                    <h4 class="mt-2 font-display text-xl font-extrabold">{{ __('public.courses.choose_level') }}</h4>
-                                </div>
-                                <p class="text-sm leading-6 sm:text-right" style="color: var(--muted);">{{ __('public.courses.levels_hint') }}</p>
-                            </div>
-
-                            <div class="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-                                @foreach($course['levels'] as $level)
-                                    <a href="{{ $level['url'] }}"
-                                       class="group rounded-[22px] border p-4 transition hover:-translate-y-1 hover:border-ocean surface-card-strong"
-                                       style="border-color: var(--line);"
-                                       data-course-slug="{{ $level['course_slug'] }}">
-                                        <div class="flex items-center justify-between gap-3">
-                                            <span class="inline-flex h-12 w-12 items-center justify-center rounded-[18px] bg-amber font-display text-base font-extrabold text-white">{{ $level['level'] }}</span>
-                                            <span class="text-xs font-extrabold uppercase tracking-[0.18em]" style="color: var(--muted);">{{ __('public.common.level') }}</span>
-                                        </div>
-                                        <p class="mt-4 font-display text-lg font-extrabold">{{ $course['title'] }} {{ $level['level'] }}</p>
-                                        <p class="mt-2 text-sm font-semibold transition group-hover:translate-x-1" style="color: var(--accent);">
-                                            {{ __('public.courses.open_level') }}
-                                        </p>
+                            @if(($course['kind'] ?? 'levels') === 'direct')
+                                <div class="flex h-full flex-col justify-between gap-6">
+                                    <div>
+                                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.courses.theory_course_label') }}</p>
+                                        <h4 class="mt-2 font-display text-xl font-extrabold">{{ __('public.courses.theory_course_title') }}</h4>
+                                        <p class="mt-3 text-sm leading-7" style="color: var(--muted);">{{ __('public.courses.theory_course_catalog_hint') }}</p>
+                                    </div>
+                                    <a href="{{ $course['url'] }}"
+                                       class="inline-flex self-start rounded-full bg-ocean px-5 py-3 text-sm font-extrabold text-white shadow-sm transition hover:opacity-95"
+                                       data-course-slug="{{ $course['slug'] }}">
+                                        {{ __('public.courses.open_course') }}
                                     </a>
-                                @endforeach
-                            </div>
+                                </div>
+                            @else
+                                <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                                    <div>
+                                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.courses.levels_title') }}</p>
+                                        <h4 class="mt-2 font-display text-xl font-extrabold">{{ __('public.courses.choose_level') }}</h4>
+                                    </div>
+                                    <p class="text-sm leading-6 sm:text-right" style="color: var(--muted);">{{ __('public.courses.levels_hint') }}</p>
+                                </div>
+
+                                <div class="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                                    @foreach($course['levels'] as $level)
+                                        <a href="{{ $level['url'] }}"
+                                           class="group rounded-[22px] border p-4 transition hover:-translate-y-1 hover:border-ocean surface-card-strong"
+                                           style="border-color: var(--line);"
+                                           data-course-slug="{{ $level['course_slug'] }}">
+                                            <div class="flex items-center justify-between gap-3">
+                                                <span class="inline-flex h-12 w-12 items-center justify-center rounded-[18px] bg-amber font-display text-base font-extrabold text-white">{{ $level['level'] }}</span>
+                                                <span class="text-xs font-extrabold uppercase tracking-[0.18em]" style="color: var(--muted);">{{ __('public.common.level') }}</span>
+                                            </div>
+                                            <p class="mt-4 font-display text-lg font-extrabold">{{ $course['title'] }} {{ $level['level'] }}</p>
+                                            <p class="mt-2 text-sm font-semibold transition group-hover:translate-x-1" style="color: var(--accent);">
+                                                {{ __('public.courses.open_level') }}
+                                            </p>
+                                        </a>
+                                    @endforeach
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </article>
