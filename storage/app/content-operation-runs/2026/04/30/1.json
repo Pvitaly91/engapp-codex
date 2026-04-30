@@ -1,0 +1,583 @@
+{
+    "deployment": {
+        "mode": "standard",
+        "source_kind": "deploy",
+        "base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+        "head_ref": "origin/main",
+        "branch": "main",
+        "commit": null,
+        "content_apply_requested": true,
+        "content_apply_executed": true
+    },
+    "preview": {
+        "deployment": {
+            "mode": "standard",
+            "source_kind": "deploy",
+            "base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+            "head_ref": "origin/main",
+            "branch": "main",
+            "commit": null,
+            "with_release_check": true,
+            "check_profile": "release",
+            "scope": {
+                "domains": [
+                    "v3",
+                    "page-v3"
+                ],
+                "resolved_roots": [
+                    {
+                        "domain": "v3",
+                        "resolved_root_absolute_path": "G:/DEV/htdocs/engapp-codex.loc/database/seeders/V3",
+                        "resolved_root_relative_path": "database/seeders/V3",
+                        "single_package": false
+                    },
+                    {
+                        "domain": "page-v3",
+                        "resolved_root_absolute_path": "G:/DEV/htdocs/engapp-codex.loc/database/seeders/Page_V3",
+                        "resolved_root_relative_path": "database/seeders/Page_V3",
+                        "single_package": false
+                    }
+                ]
+            }
+        },
+        "content_sync": {
+            "domains": {
+                "v3": {
+                    "domain": "v3",
+                    "sync_state_ref": null,
+                    "fallback_base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                    "effective_base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                    "fallback_used": true,
+                    "drift_from_code_ref": false,
+                    "sync_state_uninitialized": true,
+                    "status": "uninitialized",
+                    "last_successful_ref": null,
+                    "last_successful_applied_at": null,
+                    "last_attempted_base_ref": null,
+                    "last_attempted_head_ref": null,
+                    "last_attempted_status": null,
+                    "last_attempted_at": null,
+                    "last_attempt_meta": null,
+                    "target_head_ref": "origin/main",
+                    "would_advance_to_head": true
+                },
+                "page-v3": {
+                    "domain": "page-v3",
+                    "sync_state_ref": null,
+                    "fallback_base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                    "effective_base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                    "fallback_used": true,
+                    "drift_from_code_ref": false,
+                    "sync_state_uninitialized": true,
+                    "status": "uninitialized",
+                    "last_successful_ref": null,
+                    "last_successful_applied_at": null,
+                    "last_attempted_base_ref": null,
+                    "last_attempted_head_ref": null,
+                    "last_attempted_status": null,
+                    "last_attempted_at": null,
+                    "last_attempt_meta": null,
+                    "target_head_ref": "origin/main",
+                    "would_advance_to_head": true
+                }
+            }
+        },
+        "content_plan": {
+            "diff": {
+                "mode": "refs",
+                "base": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                "base_refs_by_domain": {
+                    "v3": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                    "page-v3": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00"
+                },
+                "head": "origin/main",
+                "include_untracked": false
+            },
+            "scope": {
+                "input": null,
+                "domains": [
+                    "v3",
+                    "page-v3"
+                ],
+                "resolved_roots": [
+                    {
+                        "domain": "v3",
+                        "resolved_root_absolute_path": "G:/DEV/htdocs/engapp-codex.loc/database/seeders/V3",
+                        "resolved_root_relative_path": "database/seeders/V3",
+                        "single_package": false
+                    },
+                    {
+                        "domain": "page-v3",
+                        "resolved_root_absolute_path": "G:/DEV/htdocs/engapp-codex.loc/database/seeders/Page_V3",
+                        "resolved_root_relative_path": "database/seeders/Page_V3",
+                        "single_package": false
+                    }
+                ],
+                "single_package": false,
+                "with_release_check": true,
+                "check_profile": "release",
+                "strict": true
+            },
+            "summary": {
+                "changed_packages": 0,
+                "seed_candidates": 0,
+                "refresh_candidates": 0,
+                "deleted_cleanup_candidates": 0,
+                "skipped": 0,
+                "blocked": 0,
+                "warnings": 0
+            },
+            "domains": {
+                "v3": {
+                    "diff": {
+                        "mode": "refs",
+                        "base": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                        "head": "origin/main",
+                        "include_untracked": false
+                    },
+                    "scope": {
+                        "input": "database/seeders/V3",
+                        "resolved_root_absolute_path": "G:/DEV/htdocs/engapp-codex.loc/database/seeders/V3",
+                        "resolved_root_relative_path": "database/seeders/V3",
+                        "single_package": false
+                    },
+                    "summary": {
+                        "changed_packages": 0,
+                        "seed_candidates": 0,
+                        "refresh_candidates": 0,
+                        "deleted_cleanup_candidates": 0,
+                        "skipped": 0,
+                        "blocked": 0,
+                        "warnings": 0
+                    },
+                    "phases": {
+                        "cleanup_deleted": [],
+                        "upsert_present": []
+                    },
+                    "packages": [],
+                    "artifacts": {
+                        "report_path": null
+                    },
+                    "error": null
+                },
+                "page-v3": {
+                    "diff": {
+                        "mode": "refs",
+                        "base": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                        "head": "origin/main",
+                        "include_untracked": false
+                    },
+                    "scope": {
+                        "input": "database/seeders/Page_V3",
+                        "resolved_root_absolute_path": "G:/DEV/htdocs/engapp-codex.loc/database/seeders/Page_V3",
+                        "resolved_root_relative_path": "database/seeders/Page_V3",
+                        "single_package": false
+                    },
+                    "summary": {
+                        "changed_packages": 0,
+                        "seed_candidates": 0,
+                        "refresh_candidates": 0,
+                        "deleted_cleanup_candidates": 0,
+                        "skipped": 0,
+                        "blocked": 0,
+                        "warnings": 0
+                    },
+                    "phases": {
+                        "cleanup_deleted": [],
+                        "upsert_present": []
+                    },
+                    "packages": [],
+                    "artifacts": {
+                        "report_path": null
+                    },
+                    "error": null
+                }
+            },
+            "phases": {
+                "cleanup_deleted": [],
+                "upsert_present": []
+            },
+            "packages": [],
+            "artifacts": {
+                "report_path": null
+            },
+            "error": null
+        },
+        "gate": {
+            "strict": true,
+            "blocked": false,
+            "reasons": []
+        },
+        "lock": {
+            "required_for_content_apply": true,
+            "current_status": "free",
+            "blocked": false,
+            "stale_takeover_possible": false,
+            "takeover_requested": false,
+            "takeover_performed": false,
+            "snapshot": null,
+            "status": "free",
+            "warnings": [],
+            "error": null
+        },
+        "error": null
+    },
+    "content_apply": {
+        "executed": true,
+        "dry_run": false,
+        "result": {
+            "diff": {
+                "mode": "refs",
+                "base": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                "base_refs_by_domain": {
+                    "v3": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                    "page-v3": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00"
+                },
+                "head": "origin/main",
+                "include_untracked": false
+            },
+            "scope": {
+                "input": null,
+                "domains": [
+                    "v3",
+                    "page-v3"
+                ],
+                "resolved_roots": [
+                    {
+                        "domain": "v3",
+                        "resolved_root_absolute_path": "G:/DEV/htdocs/engapp-codex.loc/database/seeders/V3",
+                        "resolved_root_relative_path": "database/seeders/V3",
+                        "single_package": false
+                    },
+                    {
+                        "domain": "page-v3",
+                        "resolved_root_absolute_path": "G:/DEV/htdocs/engapp-codex.loc/database/seeders/Page_V3",
+                        "resolved_root_relative_path": "database/seeders/Page_V3",
+                        "single_package": false
+                    }
+                ],
+                "single_package": false,
+                "with_release_check": true,
+                "skip_release_check": false,
+                "check_profile": "release",
+                "strict": true
+            },
+            "plan": {
+                "summary": {
+                    "changed_packages": 0,
+                    "seed_candidates": 0,
+                    "refresh_candidates": 0,
+                    "deleted_cleanup_candidates": 0,
+                    "skipped": 0,
+                    "blocked": 0,
+                    "warnings": 0
+                },
+                "domains": {
+                    "v3": {
+                        "diff": {
+                            "mode": "refs",
+                            "base": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                            "head": "origin/main",
+                            "include_untracked": false
+                        },
+                        "scope": {
+                            "input": "database/seeders/V3",
+                            "resolved_root_absolute_path": "G:/DEV/htdocs/engapp-codex.loc/database/seeders/V3",
+                            "resolved_root_relative_path": "database/seeders/V3",
+                            "single_package": false
+                        },
+                        "summary": {
+                            "changed_packages": 0,
+                            "seed_candidates": 0,
+                            "refresh_candidates": 0,
+                            "deleted_cleanup_candidates": 0,
+                            "skipped": 0,
+                            "blocked": 0,
+                            "warnings": 0
+                        },
+                        "phases": {
+                            "cleanup_deleted": [],
+                            "upsert_present": []
+                        },
+                        "packages": [],
+                        "artifacts": {
+                            "report_path": null
+                        },
+                        "error": null
+                    },
+                    "page-v3": {
+                        "diff": {
+                            "mode": "refs",
+                            "base": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                            "head": "origin/main",
+                            "include_untracked": false
+                        },
+                        "scope": {
+                            "input": "database/seeders/Page_V3",
+                            "resolved_root_absolute_path": "G:/DEV/htdocs/engapp-codex.loc/database/seeders/Page_V3",
+                            "resolved_root_relative_path": "database/seeders/Page_V3",
+                            "single_package": false
+                        },
+                        "summary": {
+                            "changed_packages": 0,
+                            "seed_candidates": 0,
+                            "refresh_candidates": 0,
+                            "deleted_cleanup_candidates": 0,
+                            "skipped": 0,
+                            "blocked": 0,
+                            "warnings": 0
+                        },
+                        "phases": {
+                            "cleanup_deleted": [],
+                            "upsert_present": []
+                        },
+                        "packages": [],
+                        "artifacts": {
+                            "report_path": null
+                        },
+                        "error": null
+                    }
+                },
+                "phases": {
+                    "cleanup_deleted": [],
+                    "upsert_present": []
+                },
+                "packages": [],
+                "error": null
+            },
+            "preflight": {
+                "executed": true,
+                "summary": {
+                    "candidates": 0,
+                    "ok": 0,
+                    "warn": 0,
+                    "fail": 0,
+                    "skipped": 0
+                },
+                "packages": []
+            },
+            "execution": {
+                "dry_run": false,
+                "force": true,
+                "fail_fast": true,
+                "scope_transactional": false,
+                "cleanup_deleted": {
+                    "started": 0,
+                    "completed": 0,
+                    "succeeded": 0,
+                    "failed": 0,
+                    "stopped_on": null,
+                    "packages": []
+                },
+                "upsert_present": {
+                    "started": 0,
+                    "completed": 0,
+                    "succeeded": 0,
+                    "failed": 0,
+                    "stopped_on": null,
+                    "packages": []
+                }
+            },
+            "artifacts": {
+                "report_path": null
+            },
+            "error": null
+        }
+    },
+    "content_sync": {
+        "before": {
+            "domains": {
+                "v3": {
+                    "domain": "v3",
+                    "sync_state_ref": null,
+                    "fallback_base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                    "effective_base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                    "fallback_used": true,
+                    "drift_from_code_ref": false,
+                    "sync_state_uninitialized": true,
+                    "status": "uninitialized",
+                    "last_successful_ref": null,
+                    "last_successful_applied_at": null,
+                    "last_attempted_base_ref": null,
+                    "last_attempted_head_ref": null,
+                    "last_attempted_status": null,
+                    "last_attempted_at": null,
+                    "last_attempt_meta": null,
+                    "target_head_ref": "origin/main",
+                    "would_advance_to_head": true
+                },
+                "page-v3": {
+                    "domain": "page-v3",
+                    "sync_state_ref": null,
+                    "fallback_base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                    "effective_base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                    "fallback_used": true,
+                    "drift_from_code_ref": false,
+                    "sync_state_uninitialized": true,
+                    "status": "uninitialized",
+                    "last_successful_ref": null,
+                    "last_successful_applied_at": null,
+                    "last_attempted_base_ref": null,
+                    "last_attempted_head_ref": null,
+                    "last_attempted_status": null,
+                    "last_attempted_at": null,
+                    "last_attempt_meta": null,
+                    "target_head_ref": "origin/main",
+                    "would_advance_to_head": true
+                }
+            }
+        },
+        "after": {
+            "domains": {
+                "v3": {
+                    "domain": "v3",
+                    "sync_state_ref": "origin/main",
+                    "fallback_base_ref": "origin/main",
+                    "effective_base_ref": "origin/main",
+                    "fallback_used": true,
+                    "drift_from_code_ref": false,
+                    "sync_state_uninitialized": false,
+                    "status": "synced",
+                    "last_successful_ref": "origin/main",
+                    "last_successful_applied_at": "2026-04-30T19:55:47+03:00",
+                    "last_attempted_base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                    "last_attempted_head_ref": "origin/main",
+                    "last_attempted_status": "success",
+                    "last_attempted_at": "2026-04-30T19:55:47+03:00",
+                    "last_attempt_meta": {
+                        "diff_mode": "refs",
+                        "stage": "completed",
+                        "phase": "",
+                        "reason": "",
+                        "message": "",
+                        "package": "",
+                        "plan_summary": {
+                            "changed_packages": 0,
+                            "seed_candidates": 0,
+                            "refresh_candidates": 0,
+                            "deleted_cleanup_candidates": 0,
+                            "skipped": 0,
+                            "blocked": 0,
+                            "warnings": 0
+                        },
+                        "preflight_summary": {
+                            "candidates": 0,
+                            "ok": 0,
+                            "warn": 0,
+                            "fail": 0,
+                            "skipped": 0
+                        }
+                    },
+                    "target_head_ref": "origin/main",
+                    "would_advance_to_head": false
+                },
+                "page-v3": {
+                    "domain": "page-v3",
+                    "sync_state_ref": "origin/main",
+                    "fallback_base_ref": "origin/main",
+                    "effective_base_ref": "origin/main",
+                    "fallback_used": true,
+                    "drift_from_code_ref": false,
+                    "sync_state_uninitialized": false,
+                    "status": "synced",
+                    "last_successful_ref": "origin/main",
+                    "last_successful_applied_at": "2026-04-30T19:55:47+03:00",
+                    "last_attempted_base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                    "last_attempted_head_ref": "origin/main",
+                    "last_attempted_status": "success",
+                    "last_attempted_at": "2026-04-30T19:55:47+03:00",
+                    "last_attempt_meta": {
+                        "diff_mode": "refs",
+                        "stage": "completed",
+                        "phase": "",
+                        "reason": "",
+                        "message": "",
+                        "package": "",
+                        "plan_summary": {
+                            "changed_packages": 0,
+                            "seed_candidates": 0,
+                            "refresh_candidates": 0,
+                            "deleted_cleanup_candidates": 0,
+                            "skipped": 0,
+                            "blocked": 0,
+                            "warnings": 0
+                        },
+                        "preflight_summary": {
+                            "candidates": 0,
+                            "ok": 0,
+                            "warn": 0,
+                            "fail": 0,
+                            "skipped": 0
+                        }
+                    },
+                    "target_head_ref": "origin/main",
+                    "would_advance_to_head": false
+                }
+            }
+        },
+        "advanced_domains": [
+            "v3",
+            "page-v3"
+        ]
+    },
+    "gate": {
+        "strict": true,
+        "blocked": false,
+        "reasons": []
+    },
+    "artifacts": {
+        "report_path": "G:\\DEV\\htdocs\\engapp-codex.loc\\storage\\app/deployment-content-apply-reports/standard-deploy-content-apply-live-6dcd5dda.md"
+    },
+    "status": "completed",
+    "error": null,
+    "lock": {
+        "acquired": true,
+        "status": "active",
+        "owner_token": "1c6e921d-8733-46b9-85e3-0f784c1e0e50",
+        "operation_kind": "deployment_apply_changed",
+        "trigger_source": "deployment_ui",
+        "domains": [
+            "v3",
+            "page-v3"
+        ],
+        "content_operation_run_id": 1,
+        "acquired_at": "2026-04-30T19:55:44+03:00",
+        "heartbeat_at": "2026-04-30T19:55:46+03:00",
+        "expires_at": "2026-04-30T20:55:46+03:00",
+        "warnings": [],
+        "takeover": {
+            "requested": false,
+            "performed": false
+        },
+        "lock": {
+            "exists": true,
+            "id": 1,
+            "lock_key": "global_content_operations",
+            "owner_token": "1c6e921d-8733-46b9-85e3-0f784c1e0e50",
+            "operation_kind": "deployment_apply_changed",
+            "trigger_source": "deployment_ui",
+            "domains": [
+                "v3",
+                "page-v3"
+            ],
+            "content_operation_run_id": 1,
+            "operator_user_id": 1,
+            "acquired_at": "2026-04-30T19:55:44+03:00",
+            "heartbeat_at": "2026-04-30T19:55:46+03:00",
+            "expires_at": "2026-04-30T20:55:46+03:00",
+            "age_seconds": 2,
+            "heartbeat_age_seconds": 0,
+            "status": "active",
+            "meta": {
+                "deployment_lock_reservation": true,
+                "deployment_mode": "standard",
+                "source_kind": "deploy",
+                "base_ref": "41adb8b6e2811b7bd633eebe96ece9a27f4f5f00",
+                "head_ref": "origin/main",
+                "branch": "main",
+                "commit": null,
+                "phase": "pre_code_update"
+            }
+        }
+    }
+}
