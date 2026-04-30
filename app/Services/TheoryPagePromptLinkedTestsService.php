@@ -87,9 +87,20 @@ class TheoryPagePromptLinkedTestsService
 
     protected function shouldReturnDirectLinkedTests(Collection $linkedTests, Collection $directLinkedTests): bool
     {
-        return $linkedTests->isNotEmpty()
-            && $directLinkedTests->isNotEmpty()
-            && $linkedTests->count() === $directLinkedTests->count();
+        if ($linkedTests->isEmpty() || $directLinkedTests->isEmpty()) {
+            return false;
+        }
+
+        if ($linkedTests->count() === $directLinkedTests->count()) {
+            return true;
+        }
+
+        return $directLinkedTests->contains(function (SavedGrammarTest $test): bool {
+            $filters = is_array($test->filters) ? $test->filters : [];
+            $courseSlug = Str::lower(trim((string) ($filters['course_slug'] ?? '')));
+
+            return Str::startsWith($courseSlug, 'polyglot-');
+        });
     }
 
     public function findForPage(Page $page): Collection
@@ -156,13 +167,7 @@ class TheoryPagePromptLinkedTestsService
 
     protected function preferTheoryPagePolyglotPackages(Collection $linkedTests): Collection
     {
-        if (! $linkedTests->contains(fn (SavedGrammarTest $test) => $this->isTheoryPagePolyglotPackage($test))) {
-            return $linkedTests;
-        }
-
-        return $linkedTests
-            ->reject(fn (SavedGrammarTest $test) => $this->isLegacyPolyglotCourseTest($test))
-            ->values();
+        return $linkedTests;
     }
 
     protected function isTheoryPagePolyglotPackage(SavedGrammarTest $test): bool
@@ -614,10 +619,18 @@ class TheoryPagePromptLinkedTestsService
                             $slugQuery->where('filters->prompt_generator->theory_page->slug', $pageSlug);
 
                             if ($categorySlugPath !== '') {
-                                $slugQuery->where(
-                                    'filters->prompt_generator->theory_page->category_slug_path',
-                                    $categorySlugPath
-                                );
+                                $slugQuery->where(function (Builder $categoryQuery) use ($categorySlugPath): void {
+                                    $categoryQuery
+                                        ->where(
+                                            'filters->prompt_generator->theory_page->category_slug_path',
+                                            $categorySlugPath
+                                        )
+                                        ->orWhere(
+                                            'filters->prompt_generator->theory_page->category_slug_path',
+                                            'like',
+                                            '%/'.$categorySlugPath
+                                        );
+                                });
                             }
                         });
                     }
@@ -695,7 +708,7 @@ class TheoryPagePromptLinkedTestsService
         if (
             $configuredCategorySlugPath !== ''
             && $expectedCategorySlugPath !== ''
-            && $configuredCategorySlugPath !== $expectedCategorySlugPath
+            && ! $this->categorySlugPathMatches($configuredCategorySlugPath, $expectedCategorySlugPath)
         ) {
             return false;
         }
@@ -722,7 +735,17 @@ class TheoryPagePromptLinkedTestsService
             return true;
         }
 
-        return $configuredCategorySlugPath === $expectedCategorySlugPath;
+        return $this->categorySlugPathMatches($configuredCategorySlugPath, $expectedCategorySlugPath);
+    }
+
+    protected function categorySlugPathMatches(string $configuredCategorySlugPath, string $expectedCategorySlugPath): bool
+    {
+        if ($configuredCategorySlugPath === $expectedCategorySlugPath) {
+            return true;
+        }
+
+        return $expectedCategorySlugPath !== ''
+            && Str::endsWith($configuredCategorySlugPath, '/'.$expectedCategorySlugPath);
     }
 
     protected function normalizedPageSeederClass(Page $page): string

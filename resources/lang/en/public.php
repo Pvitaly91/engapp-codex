@@ -145,6 +145,8 @@ return [
         'polyglot_b2_desc' => 'The B2 roadmap starts with Past Perfect Continuous, mixed conditionals, and modal perfect while the next lessons stay planned.',
         'polyglot_c1_title' => 'Polyglot English C1',
         'polyglot_c1_desc' => 'The C1 roadmap starts with advanced conditionals, inversion after adverbials, and passive reporting structures.',
+        'polyglot_c2_title' => 'Polyglot English C2',
+        'polyglot_c2_desc' => 'The C2 roadmap starts with conditional alternatives, discourse cohesion, and ellipsis/substitution/reference.',
         'words_title' => 'Vocabulary trainer',
         'words_desc' => 'Train vocabulary with adaptive difficulty levels.',
         'verbs_title' => 'Verb form practice',

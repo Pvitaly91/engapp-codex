@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotComplexPassiveAndCausativeC1LessonSeeder as V3PolyglotComplexPassiveAndCausativeC1LessonSeeder;
+
+class PolyglotComplexPassiveAndCausativeC1LessonSeeder extends V3PolyglotComplexPassiveAndCausativeC1LessonSeeder
+{
+}

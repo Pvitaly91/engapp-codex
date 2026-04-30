@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotConcessiveAndContrastiveStructuresC2LessonSeeder as V3PolyglotConcessiveAndContrastiveStructuresC2LessonSeeder;
+
+class PolyglotConcessiveAndContrastiveStructuresC2LessonSeeder extends V3PolyglotConcessiveAndContrastiveStructuresC2LessonSeeder
+{
+}

@@ -287,6 +287,7 @@ return [
             'repeat_course' => 'Repeat course',
             'continue_with_polyglot_a2' => 'Continue with Polyglot A2',
             'continue_with_next_course' => 'Continue with :course',
+            'all_polyglot_levels_complete' => 'All Polyglot levels are complete',
             'restart_course' => 'Start course again',
             'back_to_lessons' => 'Back to lessons',
             'course_fully_available' => 'Course fully available',

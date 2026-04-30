@@ -1,0 +1,3 @@
+<?php
+
+require_once __DIR__ . '/PolyglotNominalStyleAndInformationDensityC2LessonSeeder/PolyglotNominalStyleAndInformationDensityC2LessonSeeder.php';

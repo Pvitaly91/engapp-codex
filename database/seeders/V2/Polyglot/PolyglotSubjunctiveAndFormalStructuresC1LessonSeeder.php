@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotSubjunctiveAndFormalStructuresC1LessonSeeder as V3PolyglotSubjunctiveAndFormalStructuresC1LessonSeeder;
+
+class PolyglotSubjunctiveAndFormalStructuresC1LessonSeeder extends V3PolyglotSubjunctiveAndFormalStructuresC1LessonSeeder
+{
+}

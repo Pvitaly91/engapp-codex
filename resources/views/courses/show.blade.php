@@ -30,6 +30,11 @@
             'name' => 'Polyglot English C1',
             'data_attr' => 'data-course-continue-c1-link',
         ],
+        'polyglot-english-c1' => [
+            'slug' => 'polyglot-english-c2',
+            'name' => 'Polyglot English C2',
+            'data_attr' => 'data-course-continue-c2-link',
+        ],
     ];
     $continueCourse = $continueCourseMap[$course['slug'] ?? ''] ?? null;
     $continueCourseUrl = is_array($continueCourse)
@@ -39,6 +44,7 @@
         ? __('frontend.tests.course.continue_with_next_course', ['course' => $continueCourse['name']])
         : null;
     $continueCourseDataAttr = $continueCourse['data_attr'] ?? null;
+    $allPolyglotLevelsComplete = ($course['slug'] ?? null) === 'polyglot-english-c2' && $courseContentComplete && $continueCourseUrl === null;
     $courseManifestPayload = [
         'course' => $course,
         'lessons' => $lessons,
@@ -150,6 +156,11 @@
                            style="border-color: var(--line);">
                             {{ $continueCourseLabel }}
                         </a>
+                    @elseif($allPolyglotLevelsComplete)
+                        <span class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold"
+                              style="border-color: var(--line);">
+                            {{ __('frontend.tests.course.all_polyglot_levels_complete') }}
+                        </span>
                     @endif
                     <a href="#polyglot-course-lessons"
                        class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold transition hover:opacity-95"
@@ -186,6 +197,11 @@
                        style="border-color: #17603a; color: #17603a;">
                         {{ $continueCourseLabel }}
                     </a>
+                @elseif($allPolyglotLevelsComplete)
+                    <span class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold"
+                          style="border-color: #17603a; color: #17603a;">
+                        {{ __('frontend.tests.course.all_polyglot_levels_complete') }}
+                    </span>
                 @endif
                 <button type="button"
                         data-course-reset-progress-secondary

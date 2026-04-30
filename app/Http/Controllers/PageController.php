@@ -255,6 +255,15 @@ class PageController extends Controller
         ]);
     }
 
+    public function showByCategoryPath(string $categoryPath, string $pageSlug)
+    {
+        $category = $this->resolveCategoryBySlugPath($categoryPath);
+
+        abort_unless($category instanceof PageCategory, 404);
+
+        return $this->show($category, $pageSlug);
+    }
+
     protected function resolvedSectionTitle(): string
     {
         if ($this->pageType === 'theory' || in_array($this->routePrefix, ['theory', 'copilot.theory'], true)) {
@@ -262,6 +271,64 @@ class PageController extends Controller
         }
 
         return $this->sectionTitle;
+    }
+
+    protected function resolveCategoryBySlugPath(string $categoryPath): ?PageCategory
+    {
+        $normalizedPath = $this->normalizeCategorySlugPath($categoryPath);
+
+        if ($normalizedPath === '') {
+            return null;
+        }
+
+        $segments = explode('/', $normalizedPath);
+        $leafSlug = end($segments);
+
+        if (! is_string($leafSlug) || $leafSlug === '') {
+            return null;
+        }
+
+        $candidates = PageCategory::query()
+            ->with('parent.parent.parent.parent.parent')
+            ->where('slug', $leafSlug)
+            ->get();
+
+        if ($candidates->isEmpty()) {
+            return null;
+        }
+
+        return $candidates->first(
+            fn (PageCategory $category) => $this->categorySlugPath($category) === $normalizedPath
+        ) ?? ($candidates->count() === 1 ? $candidates->first() : null);
+    }
+
+    protected function categorySlugPath(PageCategory $category): string
+    {
+        $segments = [];
+        $current = $category;
+        $depth = 0;
+
+        while ($current instanceof PageCategory && $depth < 10) {
+            $slug = trim((string) ($current->slug ?? ''));
+
+            if ($slug !== '') {
+                array_unshift($segments, $slug);
+            }
+
+            $current->loadMissing('parent');
+            $current = $current->parent;
+            $depth++;
+        }
+
+        return $this->normalizeCategorySlugPath(implode('/', $segments));
+    }
+
+    protected function normalizeCategorySlugPath(string $value): string
+    {
+        return implode('/', array_values(array_filter(
+            explode('/', str_replace('\\', '/', Str::lower(trim($value, " \t\n\r\0\x0B/")))),
+            'strlen'
+        )));
     }
 
     protected function localizeDisplayedTitles(

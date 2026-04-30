@@ -145,6 +145,8 @@ return [
         'polyglot_b2_desc' => 'B2 roadmap стартує з Past Perfect Continuous, mixed conditionals і modal perfect, а наступні уроки лишаються у planned треку.',
         'polyglot_c1_title' => 'Polyglot English C1',
         'polyglot_c1_desc' => 'C1 roadmap стартує з advanced conditionals, inversion after adverbials і passive reporting structures.',
+        'polyglot_c2_title' => 'Polyglot English C2',
+        'polyglot_c2_desc' => 'C2 roadmap стартує з conditional alternatives, discourse cohesion та ellipsis/substitution/reference.',
         'words_title' => 'Лексичний тренажер',
         'words_desc' => 'Тренуйте лексику з адаптивною складністю.',
         'verbs_title' => 'Практика форм',

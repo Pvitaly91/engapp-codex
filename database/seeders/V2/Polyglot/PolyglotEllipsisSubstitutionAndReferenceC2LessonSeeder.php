@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotEllipsisSubstitutionAndReferenceC2LessonSeeder as V3PolyglotEllipsisSubstitutionAndReferenceC2LessonSeeder;
+
+class PolyglotEllipsisSubstitutionAndReferenceC2LessonSeeder extends V3PolyglotEllipsisSubstitutionAndReferenceC2LessonSeeder
+{
+}

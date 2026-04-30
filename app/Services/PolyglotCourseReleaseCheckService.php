@@ -17,6 +17,7 @@ class PolyglotCourseReleaseCheckService
     public function __construct(
         private readonly PolyglotCourseBlueprintService $blueprintService,
         private readonly TheoryPagePromptLinkedTestsService $theoryPagePromptLinkedTestsService,
+        private readonly PolyglotLessonLinkIntegrityService $linkIntegrityService,
     ) {}
 
     public function run(string $courseSlug): array
@@ -73,6 +74,7 @@ class PolyglotCourseReleaseCheckService
             ->pluck('slug')
             ->values()
             ->all();
+        $linkIntegrity = $this->linkIntegrityService->scan([], [$courseSlug]);
         $courseReportEquivalent = [
             'planned_total' => $status['counts']['planned_total'],
             'implemented_total' => $status['counts']['implemented_total'],
@@ -181,6 +183,20 @@ class PolyglotCourseReleaseCheckService
                     && ($courseReportEquivalent['next_recommended_lesson'] ?? null) === 'none'
                     && ($courseReportEquivalent['missing_or_planned_lessons'] ?? null) === 'none',
                 $courseReportEquivalent
+            ),
+            $this->makeCheck(
+                'question_link_integrity',
+                'All implemented lessons have valid linked question rows',
+                (int) ($linkIntegrity['failed'] ?? 0) === 0
+                    && (int) ($linkIntegrity['orphan_links'] ?? 0) === 0
+                    && (int) ($linkIntegrity['duplicate_links'] ?? 0) === 0,
+                [
+                    'lessons_checked' => $linkIntegrity['total_lessons_checked'] ?? 0,
+                    'failed_lessons' => $linkIntegrity['failed'] ?? 0,
+                    'orphan_links' => $linkIntegrity['orphan_links'] ?? 0,
+                    'duplicate_links' => $linkIntegrity['duplicate_links'] ?? 0,
+                    'affected_slugs' => $linkIntegrity['affected_slugs'] ?? [],
+                ]
             ),
         ])->values();
 

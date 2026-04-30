@@ -107,6 +107,15 @@
             'accent' => 'bg-indigo-600',
             'icon' => 'C1',
         ],
+        [
+            'href' => localized_route('courses.show', 'polyglot-english-c2'),
+            'eyebrow' => __('public.nav.polyglot_course'),
+            'title' => __('public.home.polyglot_c2_title'),
+            'description' => __('public.home.polyglot_c2_desc'),
+            'badge' => '10',
+            'accent' => 'bg-violet-600',
+            'icon' => 'C2',
+        ],
     ];
 
     $steps = [

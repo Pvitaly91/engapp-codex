@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotNominalStyleAndInformationDensityC2LessonSeeder as V3PolyglotNominalStyleAndInformationDensityC2LessonSeeder;
+
+class PolyglotNominalStyleAndInformationDensityC2LessonSeeder extends V3PolyglotNominalStyleAndInformationDensityC2LessonSeeder
+{
+}

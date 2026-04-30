@@ -1,0 +1,3 @@
+<?php
+
+require_once __DIR__ . '/PolyglotNominalisationFormalRegisterC1LessonSeeder/PolyglotNominalisationFormalRegisterC1LessonSeeder.php';

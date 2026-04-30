@@ -191,6 +191,8 @@ return [
         'polyglot_b2_desc' => 'Roadmapa B2 startuje od Past Perfect Continuous, mixed conditionals i modal perfect, a kolejne lekcje pozostają zaplanowane.',
         'polyglot_c1_title' => 'Polyglot English C1',
         'polyglot_c1_desc' => 'Roadmapa C1 startuje od advanced conditionals, inversion after adverbials i passive reporting structures.',
+        'polyglot_c2_title' => 'Polyglot English C2',
+        'polyglot_c2_desc' => 'Roadmapa C2 startuje od conditional alternatives, discourse cohesion oraz ellipsis/substitution/reference.',
         'words_title' => 'Trening słownictwa',
         'words_desc' => 'Trenuj słownictwo z adaptacyjnym poziomem trudności.',
         'verbs_title' => 'Ćwiczenie form',

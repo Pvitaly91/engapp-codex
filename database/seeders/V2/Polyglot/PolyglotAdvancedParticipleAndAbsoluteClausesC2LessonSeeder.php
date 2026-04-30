@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotAdvancedParticipleAndAbsoluteClausesC2LessonSeeder as V3PolyglotAdvancedParticipleAndAbsoluteClausesC2LessonSeeder;
+
+class PolyglotAdvancedParticipleAndAbsoluteClausesC2LessonSeeder extends V3PolyglotAdvancedParticipleAndAbsoluteClausesC2LessonSeeder
+{
+}

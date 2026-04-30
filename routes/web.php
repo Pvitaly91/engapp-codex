@@ -97,7 +97,9 @@ Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])
 // Public Theory pages routes (no authentication required)
 Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
 Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
-Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
+Route::get('/theory/{categoryPath}/{pageSlug}', [TheoryController::class, 'showByCategoryPath'])
+    ->where('categoryPath', '.*')
+    ->name('theory.show');
 
 // Public catalog and search
 Route::get('/catalog/tests-cards', [GrammarTestController::class, 'catalogAggregated'])->name('catalog.tests-cards');
@@ -125,7 +127,9 @@ Route::get('/copilot', fn () => view('copilot.index'))->name('copilot.index');
 // Copilot – Theory section (same data as theory, new design under /copilot/theory)
 Route::get('/copilot/theory', [CopilotTheoryController::class, 'index'])->name('copilot.theory.index');
 Route::get('/copilot/theory/{category:slug}', [CopilotTheoryController::class, 'category'])->name('copilot.theory.category');
-Route::get('/copilot/theory/{category:slug}/{pageSlug}', [CopilotTheoryController::class, 'show'])->name('copilot.theory.show');
+Route::get('/copilot/theory/{categoryPath}/{pageSlug}', [CopilotTheoryController::class, 'showByCategoryPath'])
+    ->where('categoryPath', '.*')
+    ->name('copilot.theory.show');
 Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
 
 Route::prefix('test')->group(function () {

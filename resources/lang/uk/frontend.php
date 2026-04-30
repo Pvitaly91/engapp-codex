@@ -287,6 +287,7 @@ return [
             'repeat_course' => 'Повторити курс',
             'continue_with_polyglot_a2' => 'Продовжити з Polyglot A2',
             'continue_with_next_course' => 'Продовжити з :course',
+            'all_polyglot_levels_complete' => 'Усі рівні Polyglot завершено',
             'restart_course' => 'Почати курс заново',
             'back_to_lessons' => 'Повернутися до уроків',
             'course_fully_available' => 'Курс повністю доступний',

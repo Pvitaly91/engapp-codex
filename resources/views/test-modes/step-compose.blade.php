@@ -42,6 +42,10 @@
             'slug' => 'polyglot-english-c1',
             'name' => 'Polyglot English C1',
         ],
+        'polyglot-english-c1' => [
+            'slug' => 'polyglot-english-c2',
+            'name' => 'Polyglot English C2',
+        ],
     ];
     $continueCourse = $isFinalLesson ? ($continueCourseMap[$courseSlug ?? ''] ?? null) : null;
     $continueCourseUrl = is_array($continueCourse)
@@ -49,6 +53,9 @@
         : null;
     $continueCourseLabel = is_array($continueCourse)
         ? __('frontend.tests.course.continue_with_next_course', ['course' => $continueCourse['name']])
+        : null;
+    $allPolyglotLevelsCompleteLabel = $isFinalLesson && ! is_array($continueCourse)
+        ? __('frontend.tests.course.all_polyglot_levels_complete')
         : null;
 @endphp
 
@@ -178,6 +185,9 @@
                 <div class="mb-3 rounded-[18px] p-3 surface-card sm:mb-6 sm:rounded-[24px] sm:border sm:p-5" style="border-color: var(--line);">
                     <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.source_sentence') }}</p>
                     <div id="compose-source-text" class="mt-2 text-[1.55rem] font-extrabold leading-[1.25] sm:mt-4 sm:text-[2.55rem]"></div>
+                    @if($isAdmin ?? false)
+                        <div id="compose-source-seeder" class="mt-2 hidden max-w-full break-words rounded-[12px] border px-3 py-2 font-mono text-[11px] leading-5 sm:text-xs" style="border-color: var(--line); background: color-mix(in srgb, var(--surface) 88%, white); color: var(--muted);"></div>
+                    @endif
                 </div>
 
                 <div class="grid gap-3 sm:gap-5 xl:grid-cols-[1.08fr_0.92fr]">
@@ -216,6 +226,9 @@
 
             <div id="compose-course-completion"
                  data-polyglot-course-completion-kind="{{ $isFinalLesson ? 'course' : 'lesson' }}"
+                 data-polyglot-continue-course-url="{{ $continueCourseUrl }}"
+                 data-polyglot-continue-course-label="{{ $continueCourseLabel }}"
+                 data-polyglot-all-levels-complete-label="{{ $allPolyglotLevelsCompleteLabel }}"
                  class="mt-5 hidden"></div>
         </article>
     </div>
@@ -252,6 +265,7 @@
         'isFinalLesson' => $isFinalLesson,
         'continueCourseUrl' => $continueCourseUrl,
         'continueCourseLabel' => $continueCourseLabel,
+        'allPolyglotLevelsCompleteLabel' => $allPolyglotLevelsCompleteLabel,
         'interfaceLocale' => data_get($rawFilters, 'interface_locale', app()->getLocale()),
         'courseLessons' => data_get($courseContext, 'lessons', []),
         'shuffleQuestionOrder' => (bool) config('tests.compose_shuffle_enabled', true) && filled($courseSlug),
@@ -374,6 +388,21 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         return normalizeText(value).toLowerCase();
     }
 
+    function seederNamespaceAfterV3(value) {
+        const normalized = String(value ?? '')
+            .replace(/\//g, '\\')
+            .split('\\')
+            .map((segment) => segment.trim())
+            .filter(Boolean);
+        const v3Index = normalized.findIndex((segment) => segment.toLowerCase() === 'v3');
+
+        if (v3Index === -1 || v3Index >= normalized.length - 1) {
+            return '';
+        }
+
+        return normalized.slice(v3Index + 1).join('\\');
+    }
+
     function sanitizeInteger(value, fallback = 0) {
         const normalized = Number.parseInt(String(value ?? ''), 10);
 
@@ -454,7 +483,8 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
     }
 
     function activeDebugPolicy() {
-        const adminDebugEnabled = Boolean(progressSync.debugUrl || document.querySelector('[data-polyglot-admin-debug="1"]'));
+        const adminDebugAttribute = ['data', 'polyglot', 'admin', 'debug'].join('-');
+        const adminDebugEnabled = Boolean(progressSync.debugUrl || document.querySelector(`[${adminDebugAttribute}="1"]`));
         if (!adminDebugEnabled) {
             return null;
         }
@@ -635,6 +665,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             .map((id) => tokenMap[id]?.value ?? '')
             .filter(Boolean);
         const sourceTextUk = String(item?.sourceTextUk ?? item?.question ?? '').trim();
+        const seederNamespace = seederNamespaceAfterV3(item?.tech_info?.seeder?.class);
 
         if (sourceTextUk === '' || correctTokenValues.length === 0 || tokenBank.length === 0) {
             return null;
@@ -655,6 +686,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             hintUk: item?.hintUk ? String(item.hintUk).trim() : '',
             explanations: item?.explanations && typeof item.explanations === 'object' ? item.explanations : {},
             punctuation,
+            seederNamespace,
         };
     }
 
@@ -985,6 +1017,8 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             return '';
         }
 
+        const allLevelsCompleteLabel = String(config.allPolyglotLevelsCompleteLabel || completionState?.dataset?.polyglotAllLevelsCompleteLabel || '').trim();
+
         if (config.nextLessonUrl && config.nextLessonSlug) {
             return `
                 <div class="rounded-[24px] border px-5 py-5" style="border-color: #b8e3c7; background: linear-gradient(180deg, #f0fbf4 0%, #e7f8ee 100%);">
@@ -1008,6 +1042,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
                     ${actionLinkMarkup(config.firstLessonUrl || config.courseUrl, testUi('course.repeat_course'), 'solid')}
                     ${actionLinkMarkup(config.courseUrl, testUi('course.back_to_course'), 'soft')}
                     ${config.continueCourseUrl ? actionLinkMarkup(config.continueCourseUrl, config.continueCourseLabel || '', 'soft') : ''}
+                    ${!config.continueCourseUrl && allLevelsCompleteLabel ? `<span class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-bold" style="border-color: #17603a; color: #17603a;">${html(allLevelsCompleteLabel)}</span>` : ''}
                     ${actionButtonMarkup('restart-course', testUi('course.restart_course'), 'soft')}
                 </div>
             </div>
@@ -1205,7 +1240,9 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
     }
 
     function adminDebugEnabled() {
-        return Boolean(progressSync.debugUrl || document.querySelector('[data-polyglot-admin-debug="1"]'));
+        const adminDebugAttribute = ['data', 'polyglot', 'admin', 'debug'].join('-');
+
+        return Boolean(progressSync.debugUrl || document.querySelector(`[${adminDebugAttribute}="1"]`));
     }
 
     function readQuestionStats() {
@@ -1676,6 +1713,11 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         document.getElementById('compose-status').textContent = statusLabel;
         document.getElementById('compose-status-note').textContent = statusGoalNote();
         document.getElementById('compose-source-text').textContent = question.sourceTextUk;
+        const sourceSeederElement = document.getElementById('compose-source-seeder');
+        if (sourceSeederElement) {
+            sourceSeederElement.textContent = question.seederNamespace ? `Seeder: ${question.seederNamespace}` : '';
+            sourceSeederElement.classList.toggle('hidden', !question.seederNamespace);
+        }
         document.getElementById('compose-punctuation').textContent = testUi('compose.ends_with', { punctuation: question.punctuation });
         document.getElementById('compose-answer-zone').innerHTML = answerZoneMarkup(question);
         document.getElementById('compose-bank').innerHTML = bankMarkup(question);
