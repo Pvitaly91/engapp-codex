@@ -76,14 +76,14 @@
                             @if(($course['kind'] ?? 'levels') === 'direct')
                                 <div class="flex h-full flex-col justify-between gap-6">
                                     <div>
-                                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.courses.theory_course_label') }}</p>
-                                        <h4 class="mt-2 font-display text-xl font-extrabold">{{ __('public.courses.theory_course_title') }}</h4>
-                                        <p class="mt-3 text-sm leading-7" style="color: var(--muted);">{{ __('public.courses.theory_course_catalog_hint') }}</p>
+                                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ $course['detail_label'] ?? __('public.courses.theory_course_label') }}</p>
+                                        <h4 class="mt-2 font-display text-xl font-extrabold">{{ $course['detail_title'] ?? $course['title'] }}</h4>
+                                        <p class="mt-3 text-sm leading-7" style="color: var(--muted);">{{ $course['detail_hint'] ?? __('public.courses.theory_course_catalog_hint') }}</p>
                                     </div>
                                     <a href="{{ $course['url'] }}"
                                        class="inline-flex self-start rounded-full bg-ocean px-5 py-3 text-sm font-extrabold text-white shadow-sm transition hover:opacity-95"
                                        data-course-slug="{{ $course['slug'] }}">
-                                        {{ __('public.courses.open_course') }}
+                                        {{ $course['cta_label'] ?? __('public.courses.open_course') }}
                                     </a>
                                 </div>
                             @else
