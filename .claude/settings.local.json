@@ -18,7 +18,11 @@
       "Bash(php -l database/migrations/2026_05_01_000001_create_question_theory_text_blocks_table.php)",
       "Bash(php -l app/Http/Controllers/TestJsV2Controller.php)",
       "Bash(php -l app/Models/Question.php)",
-      "Bash(xargs grep *)"
+      "Bash(xargs grep *)",
+      "Bash(php -r '$src = file_get_contents\\(\"G:/DEV/htdocs/engapp-codex.loc/resources/views/test-modes/step-compose.blade.php\"\\); $tokens = token_get_all\\(\"<?php ?>\" . $src\\); echo \"tokens parsed ok\\\\n\";')",
+      "Bash(php -r 'try { $bladeCompiler = app\\(\"Illuminate\\\\\\\\View\\\\\\\\Compilers\\\\\\\\BladeCompiler\"\\); echo \"compiler ok\\\\n\"; } catch \\(\\\\Throwable $e\\) { echo $e->getMessage\\(\\); }')",
+      "Bash(php -l database/seeders/V3/Polyglot/PolyglotThereIsThereAreA1TheoryLinksSeeder.php)",
+      "Bash(php -l database/seeders/V3/Polyglot/PolyglotHaveGotHasGotA1TheoryLinksSeeder.php)"
     ]
   }
 }

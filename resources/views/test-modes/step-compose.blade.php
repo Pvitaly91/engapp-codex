@@ -60,12 +60,26 @@
 @endphp
 
 <style>
+    /* Polyglot compose — modern layout. CSS variables, IDs and data-* attrs
+       expected by the JS controller are preserved 1:1. */
     #new-design-test-shell #polyglot-compose-root,
     #polyglot-compose-root {
         --polyglot-chip-min-height: 1.45rem;
         --polyglot-chip-padding: 0.16rem 0.9rem;
-        --polyglot-chip-radius: 10px;
+        --polyglot-chip-radius: 12px;
         --polyglot-chip-font-size: 1.38rem;
+
+        --poly-radius-lg: 28px;
+        --poly-radius-md: 20px;
+        --poly-radius-sm: 14px;
+        --poly-shadow: 0 28px 60px -36px rgba(15, 38, 67, 0.35);
+        --poly-shadow-soft: 0 14px 32px -22px rgba(15, 38, 67, 0.28);
+        --poly-line: color-mix(in srgb, var(--line) 82%, white);
+        --poly-line-strong: color-mix(in srgb, var(--accent) 22%, var(--line));
+        --poly-accent-tint: color-mix(in srgb, var(--accent) 10%, var(--surface-strong));
+        --poly-prompt-bg: linear-gradient(140deg, color-mix(in srgb, var(--accent-soft) 78%, white) 0%, color-mix(in srgb, var(--surface-strong) 100%, white) 75%);
+        --poly-emerald-bg: color-mix(in srgb, #d1fae5 55%, white);
+        --poly-emerald-border: color-mix(in srgb, #10b981 38%, var(--line));
     }
 
     @media (max-width: 639px) {
@@ -76,9 +90,416 @@
             width: calc(100% + 1.5rem) !important;
             max-width: calc(100% + 1.5rem) !important;
             --polyglot-chip-min-height: 2rem;
-            --polyglot-chip-padding: 0.28rem 0.65rem;
-            --polyglot-chip-radius: 0.65rem;
+            --polyglot-chip-padding: 0.32rem 0.7rem;
+            --polyglot-chip-radius: 0.7rem;
             --polyglot-chip-font-size: 1rem;
+        }
+    }
+
+    #polyglot-compose-root .poly-stack > * + * { margin-top: 1rem; }
+    @media (min-width: 768px) {
+        #polyglot-compose-root .poly-stack > * + * { margin-top: 1.4rem; }
+    }
+
+    /* ── Course breadcrumb ────────────────────────────────────────────── */
+    #polyglot-compose-root .poly-crumbs {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.55rem 0.85rem;
+        padding: 0.85rem 1rem;
+        margin-bottom: 1rem;
+        border-radius: var(--poly-radius-md);
+        border: 1px solid var(--poly-line);
+        background: color-mix(in srgb, var(--surface) 86%, white);
+        box-shadow: var(--poly-shadow-soft);
+    }
+    @media (min-width: 768px) {
+        #polyglot-compose-root .poly-crumbs {
+            padding: 0.95rem 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+    }
+    #polyglot-compose-root .poly-crumbs__back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        border-radius: 999px;
+        padding: 0.45rem 0.95rem;
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--accent);
+        background: color-mix(in srgb, var(--accent-soft) 65%, white);
+        border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line));
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    #polyglot-compose-root .poly-crumbs__back:hover {
+        transform: translateX(-2px);
+        box-shadow: 0 8px 20px -12px color-mix(in srgb, var(--accent) 60%, transparent);
+    }
+    #polyglot-compose-root .poly-crumbs__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+    }
+    #polyglot-compose-root .poly-crumbs__sep { opacity: 0.4; }
+    #polyglot-compose-root .poly-crumbs__topic { color: var(--text); }
+    #polyglot-compose-root .poly-crumbs__prev {
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        border-radius: 999px;
+        padding: 0.5rem 1rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--text);
+        border: 1px solid var(--line);
+        background: var(--surface-strong);
+        transition: border-color 0.18s ease, background 0.18s ease;
+    }
+    #polyglot-compose-root .poly-crumbs__prev:hover {
+        border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+        background: color-mix(in srgb, var(--accent-soft) 55%, white);
+    }
+
+    /* ── Hero card with stats ────────────────────────────────────────── */
+    #polyglot-compose-root .poly-hero {
+        position: relative;
+        border-radius: var(--poly-radius-lg);
+        border: 1px solid var(--poly-line);
+        background: var(--surface-strong);
+        padding: 1.4rem 1.25rem;
+        box-shadow: var(--poly-shadow-soft);
+    }
+    @media (min-width: 768px) {
+        #polyglot-compose-root .poly-hero { padding: 2rem 2.2rem; }
+    }
+    #polyglot-compose-root .poly-hero__inner {
+        display: grid; gap: 1.4rem;
+    }
+    @media (min-width: 1024px) {
+        #polyglot-compose-root .poly-hero__inner {
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+            align-items: center; gap: 2.4rem;
+        }
+    }
+    #polyglot-compose-root .poly-hero__lead {
+        display: flex; flex-direction: column; gap: 0.85rem; min-width: 0;
+    }
+    #polyglot-compose-root .poly-hero__eyebrow {
+        display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem;
+    }
+    #polyglot-compose-root .poly-pill {
+        display: inline-flex; align-items: center; gap: 0.35rem;
+        border-radius: 999px; padding: 0.4rem 0.95rem;
+        font-size: 0.65rem; font-weight: 800;
+        letter-spacing: 0.18em; text-transform: uppercase;
+        color: var(--accent);
+        background: color-mix(in srgb, var(--accent-soft) 78%, white);
+        border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line));
+    }
+    #polyglot-compose-root .poly-hero__progress {
+        font-size: 0.72rem; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--muted);
+    }
+    #polyglot-compose-root .poly-hero__title {
+        margin: 0;
+        font-family: 'DM Serif Display', 'Georgia', serif;
+        font-size: clamp(1.55rem, 1.6vw + 1rem, 2.55rem);
+        font-weight: 800; line-height: 1.1; letter-spacing: -0.018em;
+        color: var(--text);
+    }
+    #polyglot-compose-root .poly-stats {
+        display: grid; gap: 0.7rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-width: 0;
+    }
+    #polyglot-compose-root .poly-stat {
+        position: relative;
+        border-radius: var(--poly-radius-md);
+        border: 1px solid var(--poly-line);
+        background: color-mix(in srgb, var(--surface-strong) 96%, white);
+        padding: 1rem 1.1rem;
+        box-shadow: var(--poly-shadow-soft);
+        overflow: hidden;
+    }
+    @media (min-width: 768px) {
+        #polyglot-compose-root .poly-stat { padding: 1.15rem 1.35rem; }
+    }
+    #polyglot-compose-root .poly-stat--primary {
+        background: color-mix(in srgb, var(--surface-strong) 96%, white);
+        border-color: color-mix(in srgb, var(--accent) 30%, var(--line));
+        border-left-width: 3px;
+        border-left-color: var(--accent);
+    }
+    #polyglot-compose-root .poly-stat__label {
+        font-size: 0.6rem; font-weight: 800;
+        letter-spacing: 0.2em; text-transform: uppercase;
+        color: var(--accent); margin: 0;
+    }
+    #polyglot-compose-root .poly-stat__value {
+        margin: 0.45rem 0 0;
+        font-family: 'DM Serif Display', 'Georgia', serif;
+        font-size: clamp(1.45rem, 1.2vw + 1rem, 2rem);
+        font-weight: 800; line-height: 1; letter-spacing: -0.018em;
+        color: var(--text);
+    }
+    #polyglot-compose-root .poly-stat__value--small {
+        font-size: clamp(1.05rem, 0.6vw + 0.9rem, 1.45rem);
+        line-height: 1.15;
+    }
+    #polyglot-compose-root .poly-stat__meta {
+        margin: 0.5rem 0 0; font-size: 0.74rem; line-height: 1.4;
+        color: var(--muted);
+    }
+
+    /* ── Workspace card ──────────────────────────────────────────────── */
+    #polyglot-compose-root .poly-card {
+        border-radius: var(--poly-radius-lg);
+        border: 1px solid var(--poly-line);
+        background: var(--surface-strong);
+        padding: 1.25rem 1.15rem;
+        box-shadow: var(--poly-shadow);
+    }
+    @media (min-width: 768px) {
+        #polyglot-compose-root .poly-card { padding: 2rem 2.2rem; }
+    }
+    #polyglot-compose-root .poly-empty {
+        border-radius: var(--poly-radius-md);
+        border: 1.5px dashed var(--poly-line);
+        padding: 1.75rem 1.25rem;
+        text-align: center;
+        background: color-mix(in srgb, var(--surface) 90%, white);
+        color: var(--muted);
+    }
+    #polyglot-compose-root .poly-empty p {
+        margin: 0; font-size: 1rem; font-weight: 600; color: var(--text);
+    }
+
+    /* ── Source-sentence prompt ──────────────────────────────────────── */
+    #polyglot-compose-root .poly-prompt {
+        position: relative; overflow: hidden;
+        border-radius: var(--poly-radius-md);
+        border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--poly-line));
+        background: var(--poly-prompt-bg);
+        padding: 1.25rem 1.15rem 1.4rem;
+        margin-bottom: 1.2rem;
+    }
+    @media (min-width: 768px) {
+        #polyglot-compose-root .poly-prompt {
+            padding: 1.65rem 1.85rem 1.85rem;
+            margin-bottom: 1.6rem;
+        }
+    }
+    #polyglot-compose-root .poly-prompt::before {
+        content: ""; position: absolute; inset: 0 0 auto; height: 4px;
+        background: linear-gradient(90deg,
+            var(--accent) 0%,
+            color-mix(in srgb, var(--accent) 35%, white) 100%);
+    }
+    #polyglot-compose-root .poly-prompt__eyebrow {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 0.75rem; flex-wrap: wrap;
+    }
+    #polyglot-compose-root .poly-prompt__label {
+        font-size: 0.62rem; font-weight: 800;
+        letter-spacing: 0.22em; text-transform: uppercase;
+        color: var(--accent);
+    }
+    #polyglot-compose-root .poly-prompt__punct {
+        display: inline-flex; align-items: center; gap: 0.3rem;
+        border-radius: 10px; padding: 0.32rem 0.7rem;
+        font-size: 0.78rem; font-weight: 700; line-height: 1;
+        color: var(--muted);
+        background: color-mix(in srgb, var(--surface) 92%, white);
+        border: 1px solid var(--poly-line);
+    }
+    #polyglot-compose-root #compose-source-text {
+        margin-top: 0.95rem;
+        font-family: 'DM Serif Display', 'Georgia', serif;
+        font-size: clamp(1.5rem, 1.5vw + 1rem, 2.4rem);
+        font-weight: 800; line-height: 1.18; letter-spacing: -0.012em;
+        color: var(--text); word-break: break-word;
+    }
+    @media (min-width: 768px) {
+        #polyglot-compose-root #compose-source-text { margin-top: 1.1rem; }
+    }
+    #polyglot-compose-root .poly-prompt__actions {
+        margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    #polyglot-compose-root #compose-theory-btn {
+        display: inline-flex; align-items: center; gap: 0.4rem;
+        border-radius: 999px; padding: 0.46rem 0.95rem;
+        font-size: 0.78rem; font-weight: 700; cursor: pointer;
+        background: var(--poly-emerald-bg); color: #047857;
+        border: 1px solid var(--poly-emerald-border);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+    #polyglot-compose-root #compose-theory-btn:hover {
+        background: #d1fae5; color: #064e3b;
+        transform: translateY(-1px);
+        box-shadow: 0 10px 22px -14px rgba(16, 185, 129, 0.5);
+    }
+    #polyglot-compose-root #compose-theory-btn svg { width: 1rem; height: 1rem; }
+    #polyglot-compose-root #compose-theory-panel { margin-top: 1.1rem; }
+    #polyglot-compose-root #compose-source-seeder {
+        margin-top: 0.85rem;
+        padding: 0.55rem 0.85rem;
+        font-family: ui-monospace, SFMono-Regular, monospace;
+        font-size: 0.72rem; line-height: 1.45;
+        color: var(--muted);
+        background: color-mix(in srgb, var(--surface) 88%, white);
+        border: 1px solid var(--poly-line);
+        border-radius: 12px; word-break: break-all;
+    }
+
+    /* ── Compose surface (answer + bank) ─────────────────────────────── */
+    #polyglot-compose-root .poly-surface {
+        border-radius: var(--poly-radius-md);
+        border: 1px solid var(--poly-line);
+        background: color-mix(in srgb, var(--surface) 92%, white);
+        padding: 1.1rem 1rem 1.25rem;
+    }
+    @media (min-width: 768px) {
+        #polyglot-compose-root .poly-surface { padding: 1.4rem 1.55rem 1.55rem; }
+    }
+    #polyglot-compose-root .poly-surface__header {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 0.65rem; flex-wrap: wrap; margin-bottom: 0.85rem;
+    }
+    #polyglot-compose-root .poly-surface__heading {
+        margin: 0; font-size: 0.65rem; font-weight: 800;
+        letter-spacing: 0.22em; text-transform: uppercase;
+        color: var(--accent);
+    }
+    #polyglot-compose-root .poly-surface__hint {
+        font-size: 0.7rem; font-weight: 600; color: var(--muted);
+    }
+    #polyglot-compose-root #compose-answer-zone {
+        border-radius: var(--poly-radius-md);
+        border: 2px dashed color-mix(in srgb, var(--accent) 32%, var(--line));
+        background: color-mix(in srgb, var(--surface-strong) 96%, white);
+        padding: 0.95rem; min-height: 4.5rem;
+        display: flex; flex-wrap: wrap; gap: 0.55rem;
+        align-content: flex-start;
+        transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    #polyglot-compose-root #compose-answer-zone:hover {
+        border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+    }
+    @media (min-width: 768px) {
+        #polyglot-compose-root #compose-answer-zone {
+            padding: 1.25rem 1.4rem; min-height: 7rem; gap: 0.7rem;
+        }
+    }
+    #polyglot-compose-root .poly-divider {
+        display: flex; align-items: center; gap: 0.7rem;
+        margin: 1.05rem 0 0.75rem;
+    }
+    #polyglot-compose-root .poly-divider::before,
+    #polyglot-compose-root .poly-divider::after {
+        content: ""; flex: 1; height: 1px;
+        background: linear-gradient(90deg,
+            transparent 0%,
+            color-mix(in srgb, var(--line) 90%, white) 50%,
+            transparent 100%);
+    }
+    #polyglot-compose-root .poly-divider span {
+        font-size: 0.62rem; font-weight: 800;
+        letter-spacing: 0.22em; text-transform: uppercase;
+        color: var(--muted);
+    }
+    #polyglot-compose-root #compose-bank {
+        display: flex; flex-wrap: wrap; gap: 0.5rem;
+        min-height: 3.5rem; align-content: flex-start;
+    }
+    @media (min-width: 768px) {
+        #polyglot-compose-root #compose-bank { gap: 0.65rem; min-height: 4.5rem; }
+    }
+
+    /* ── Action bar ──────────────────────────────────────────────────── */
+    #polyglot-compose-root #compose-controls {
+        margin-top: 1.4rem;
+        display: flex; flex-direction: column; gap: 0.85rem;
+    }
+    @media (min-width: 768px) {
+        #polyglot-compose-root #compose-controls { margin-top: 1.7rem; }
+    }
+    #polyglot-compose-root .poly-actions {
+        display: flex; flex-direction: column; gap: 0.55rem;
+    }
+    @media (min-width: 640px) {
+        #polyglot-compose-root .poly-actions {
+            flex-direction: row; align-items: center;
+            justify-content: space-between; gap: 0.85rem;
+        }
+    }
+    #polyglot-compose-root .poly-actions__primary,
+    #polyglot-compose-root .poly-actions__secondary {
+        display: flex; flex-wrap: wrap; gap: 0.55rem;
+    }
+    #polyglot-compose-root .poly-btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        border-radius: 999px; padding: 0.65rem 1.15rem;
+        font-size: 0.82rem; font-weight: 700; line-height: 1;
+        cursor: pointer; border: 1px solid var(--line);
+        background: var(--surface-strong); color: var(--text);
+        transition: transform 0.18s ease, box-shadow 0.18s ease,
+                    border-color 0.18s ease, background 0.18s ease;
+    }
+    #polyglot-compose-root .poly-btn:hover:not(:disabled) {
+        border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
+        background: color-mix(in srgb, var(--accent-soft) 50%, white);
+    }
+    #polyglot-compose-root .poly-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+    #polyglot-compose-root .poly-btn--primary {
+        background: linear-gradient(135deg,
+            var(--ocean, #2f67b1) 0%,
+            color-mix(in srgb, var(--ocean, #2f67b1) 70%, var(--accent)) 100%);
+        color: #fff; border-color: transparent;
+        padding: 0.85rem 1.65rem; font-size: 0.92rem;
+        font-weight: 800; letter-spacing: 0.02em;
+        box-shadow: 0 14px 30px -16px rgba(47, 103, 177, 0.65);
+    }
+    #polyglot-compose-root .poly-btn--primary:hover:not(:disabled) {
+        transform: translateY(-1px);
+        box-shadow: 0 18px 36px -16px rgba(47, 103, 177, 0.78);
+        border-color: transparent;
+        background: linear-gradient(135deg,
+            color-mix(in srgb, var(--ocean, #2f67b1) 92%, white) 0%,
+            color-mix(in srgb, var(--ocean, #2f67b1) 60%, var(--accent)) 100%);
+    }
+    #polyglot-compose-root .poly-btn--ghost {
+        background: transparent; border-color: transparent; color: var(--muted);
+    }
+    #polyglot-compose-root .poly-btn--ghost:hover:not(:disabled) {
+        color: var(--text);
+        background: color-mix(in srgb, var(--surface) 88%, white);
+        border-color: var(--line);
+    }
+    #polyglot-compose-root .poly-keyboard-hint {
+        margin: 0; font-size: 0.74rem; line-height: 1.45; color: var(--muted);
+    }
+
+    /* mobile: full-width primary, secondary buttons in a row underneath */
+    @media (max-width: 639px) {
+        #polyglot-compose-root .poly-actions__primary { flex-direction: column; }
+        #polyglot-compose-root .poly-actions__primary .poly-btn--primary { width: 100%; }
+        #polyglot-compose-root .poly-actions__secondary { justify-content: space-between; }
+        #polyglot-compose-root .poly-actions__secondary .poly-btn {
+            flex: 1 1 calc(50% - 0.3rem); min-width: 0;
+            padding: 0.6rem 0.85rem; font-size: 0.78rem;
         }
     }
 </style>
@@ -94,86 +515,71 @@
      data-polyglot-is-final-lesson="{{ $isFinalLesson ? '1' : '0' }}"
      data-polyglot-lock-state="{{ $startsLockedPending ? 'pending' : 'ready' }}">
     @if(filled($courseSlug))
-        <section class="mb-4 rounded-[20px] p-3 shadow-none surface-card-strong sm:mb-6 sm:rounded-[28px] sm:border sm:p-5 sm:shadow-card" style="border-color: var(--line);">
-            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div class="space-y-3">
-                    <a href="{{ $courseUrl }}"
-                       class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] transition hover:opacity-90"
-                       style="border-color: var(--line); color: var(--accent);">
-                        <span aria-hidden="true">&larr;</span>
-                        <span>{{ __('frontend.tests.course.back_to_course') }}</span>
-                    </a>
-                    <div class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);">
-                        <span>{{ __('frontend.tests.course.course') }}: {{ data_get($courseContext, 'course_name') }}</span>
-                        @if(filled(data_get($courseContext, 'lesson_order')))
-                            <span>&bull;</span>
-                            <span>{{ __('frontend.tests.course.lesson_number', ['number' => data_get($courseContext, 'lesson_order')]) }}</span>
-                        @endif
-                        @if(filled(data_get($courseContext, 'total_lessons')))
-                            <span>/ {{ data_get($courseContext, 'total_lessons') }}</span>
-                        @endif
-                        @if(filled(data_get($courseContext, 'topic')))
-                            <span>&bull;</span>
-                            <span>{{ data_get($courseContext, 'topic') }}</span>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="flex flex-wrap gap-2">
-                    @if(filled(data_get($courseContext, 'previous_lesson_url')))
-                        <a href="{{ data_get($courseContext, 'previous_lesson_url') }}"
-                           class="inline-flex items-center justify-center rounded-full border px-4 py-2 text-sm font-semibold transition hover:opacity-95"
-                           style="border-color: var(--line);">
-                            {{ __('frontend.tests.course.previous_lesson') }}
-                        </a>
-                    @endif
-                </div>
+        <nav class="poly-crumbs" aria-label="{{ __('frontend.tests.course.course') }}">
+            <a href="{{ $courseUrl }}" class="poly-crumbs__back">
+                <span aria-hidden="true">&larr;</span>
+                <span>{{ __('frontend.tests.course.back_to_course') }}</span>
+            </a>
+            <div class="poly-crumbs__meta">
+                <span>{{ data_get($courseContext, 'course_name') }}</span>
+                @if(filled(data_get($courseContext, 'lesson_order')))
+                    <span class="poly-crumbs__sep" aria-hidden="true">/</span>
+                    <span>{{ __('frontend.tests.course.lesson_number', ['number' => data_get($courseContext, 'lesson_order')]) }}@if(filled(data_get($courseContext, 'total_lessons'))) / {{ data_get($courseContext, 'total_lessons') }}@endif</span>
+                @endif
+                @if(filled(data_get($courseContext, 'topic')))
+                    <span class="poly-crumbs__sep" aria-hidden="true">·</span>
+                    <span class="poly-crumbs__topic">{{ data_get($courseContext, 'topic') }}</span>
+                @endif
             </div>
-        </section>
+            @if(filled(data_get($courseContext, 'previous_lesson_url')))
+                <a href="{{ data_get($courseContext, 'previous_lesson_url') }}" class="poly-crumbs__prev">
+                    <span aria-hidden="true">&larr;</span>
+                    <span>{{ __('frontend.tests.course.previous_lesson') }}</span>
+                </a>
+            @endif
+        </nav>
     @endif
 
-    <div id="polyglot-compose-app" class="space-y-4 sm:space-y-6">
-        <section class="rounded-[20px] p-3 shadow-none surface-card-strong sm:rounded-[28px] sm:border sm:p-8 sm:shadow-card" style="border-color: var(--line);">
-            <div class="grid gap-4 xl:grid-cols-[1.05fr_0.95fr] xl:items-start">
-                <div class="space-y-3">
-                    <span class="inline-flex items-center rounded-full border px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.16em] soft-accent sm:px-4 sm:py-2 sm:text-[11px] sm:tracking-[0.22em]" style="border-color: var(--line); color: var(--accent);">
-                        {{ __('frontend.tests.templates.compose.badge') }}
-                    </span>
-                    <div>
-                        <h2 class="font-display text-xl font-extrabold leading-tight sm:text-3xl" id="compose-test-name">{{ $test->name }}</h2>
-                        <p class="mt-1.5 text-xs leading-5 sm:mt-2 sm:text-sm sm:leading-6" id="compose-question-index" style="color: var(--muted);">
+    <div id="polyglot-compose-app" class="poly-stack">
+        <header class="poly-hero">
+            <div class="poly-hero__inner">
+                <div class="poly-hero__lead">
+                    <div class="poly-hero__eyebrow">
+                        <span class="poly-pill">{{ __('frontend.tests.templates.compose.badge') }}</span>
+                        <span class="poly-hero__progress" id="compose-question-index">
                             {{ __('frontend.tests.compose.current_sentence', ['current' => 1, 'total' => max(count($questionData ?? []), 1)]) }}
-                        </p>
+                        </span>
                     </div>
+                    <h1 class="poly-hero__title" id="compose-test-name">{{ $test->name }}</h1>
                 </div>
 
-                <div class="grid gap-3 sm:grid-cols-2">
-                    <article class="rounded-[18px] p-3 surface-card sm:rounded-[24px] sm:border sm:p-4" style="border-color: var(--line);">
-                        <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" id="compose-rating-title" style="color: var(--accent);">{{ __('frontend.tests.compose.last_100_answers') }}</p>
-                        <p class="mt-1.5 font-display text-[1.45rem] font-extrabold leading-none sm:mt-2 sm:text-[2rem]" id="compose-rating">0.0 / 5</p>
-                        <p class="mt-1.5 text-xs leading-5 sm:mt-2" id="compose-rating-meta" style="color: var(--muted);">0 / {{ $completionWindow }}</p>
+                <div class="poly-stats">
+                    <article class="poly-stat poly-stat--primary">
+                        <p class="poly-stat__label" id="compose-rating-title">{{ __('frontend.tests.compose.last_100_answers') }}</p>
+                        <p class="poly-stat__value" id="compose-rating">0.0 / 5</p>
+                        <p class="poly-stat__meta" id="compose-rating-meta">0 / {{ $completionWindow }}</p>
                     </article>
-                    <article class="rounded-[18px] p-3 surface-card sm:rounded-[24px] sm:border sm:p-4" style="border-color: var(--line);">
-                        <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.lesson_status') }}</p>
-                        <p class="mt-1.5 font-display text-[1.2rem] font-extrabold leading-tight sm:mt-2 sm:text-[1.55rem]" id="compose-status">{{ __('frontend.tests.compose.in_progress') }}</p>
-                        <p class="mt-1.5 text-xs leading-5 sm:mt-2" id="compose-status-note" style="color: var(--muted);">
+                    <article class="poly-stat">
+                        <p class="poly-stat__label">{{ __('frontend.tests.compose.lesson_status') }}</p>
+                        <p class="poly-stat__value poly-stat__value--small" id="compose-status">{{ __('frontend.tests.compose.in_progress') }}</p>
+                        <p class="poly-stat__meta" id="compose-status-note">
                             {{ __('frontend.tests.compose.goal_note', ['rating' => number_format($completionRating, 1), 'count' => $completionWindow]) }}
                         </p>
                     </article>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <article class="rounded-[20px] p-3 shadow-none surface-card-strong sm:rounded-[28px] sm:border sm:p-8 sm:shadow-card" style="border-color: var(--line);">
+        <article class="poly-card">
             <div id="compose-empty-state" class="{{ count($questionData ?? []) > 0 ? 'hidden' : '' }}">
-                <div class="rounded-[18px] border border-dashed px-4 py-7 text-center sm:rounded-[24px] sm:px-6 sm:py-10" style="border-color: var(--line);">
-                    <p class="text-base font-semibold sm:text-lg">{{ __('frontend.tests.compose.empty') }}</p>
+                <div class="poly-empty">
+                    <p>{{ __('frontend.tests.compose.empty') }}</p>
                 </div>
             </div>
 
             <div id="compose-course-pending" class="{{ count($questionData ?? []) > 0 && $startsLockedPending ? '' : 'hidden' }}">
-                <div class="rounded-[18px] border border-dashed px-4 py-7 text-center sm:rounded-[24px] sm:px-6 sm:py-10" style="border-color: var(--line);">
-                    <p class="text-base font-semibold sm:text-lg">{{ __('frontend.tests.course.checking_access') }}</p>
+                <div class="poly-empty">
+                    <p>{{ __('frontend.tests.course.checking_access') }}</p>
                 </div>
             </div>
 
@@ -182,53 +588,56 @@
             <div id="compose-workspace" class="{{ count($questionData ?? []) > 0 && ! $startsLockedPending ? '' : 'hidden' }}">
                 <div id="compose-feedback" class="hidden mb-3 sm:mb-5" aria-live="polite"></div>
 
-                <div class="mb-3 rounded-[18px] p-3 surface-card sm:mb-6 sm:rounded-[24px] sm:border sm:p-5" style="border-color: var(--line);">
-                    <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.source_sentence') }}</p>
-                    <div id="compose-source-text" class="mt-2 text-[1.55rem] font-extrabold leading-[1.25] sm:mt-4 sm:text-[2.55rem]"></div>
-                    <button type="button" id="compose-theory-btn" class="mt-3 hidden inline-flex items-center text-[13px] sm:text-sm text-emerald-600 hover:text-emerald-700 font-medium transition-colors">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                        <span id="compose-theory-btn-label">{{ __('frontend.tests.question.show_theory') }}</span>
-                    </button>
-                    <div id="compose-theory-panel" class="mt-3 hidden"></div>
+                <div class="poly-prompt">
+                    <div class="poly-prompt__eyebrow">
+                        <span class="poly-prompt__label">{{ __('frontend.tests.compose.source_sentence') }}</span>
+                        <span class="poly-prompt__punct" id="compose-punctuation"></span>
+                    </div>
+                    <div id="compose-source-text"></div>
+                    <div class="poly-prompt__actions">
+                        <button type="button" id="compose-theory-btn" class="hidden" aria-expanded="false" aria-controls="compose-theory-panel">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                            <span id="compose-theory-btn-label">{{ __('frontend.tests.question.show_theory') }}</span>
+                        </button>
+                    </div>
+                    <div id="compose-theory-panel" class="hidden"></div>
                     @if($isAdmin ?? false)
-                        <div id="compose-source-seeder" class="mt-2 hidden max-w-full break-words rounded-[12px] border px-3 py-2 font-mono text-[11px] leading-5 sm:text-xs" style="border-color: var(--line); background: color-mix(in srgb, var(--surface) 88%, white); color: var(--muted);"></div>
+                        <div id="compose-source-seeder" class="hidden"></div>
                     @endif
                 </div>
 
-                <div class="grid gap-3 sm:gap-5 xl:grid-cols-[1.08fr_0.92fr]">
-                    <section class="order-1 rounded-[18px] p-3 surface-card sm:rounded-[24px] sm:border sm:p-5 xl:order-1" style="border-color: var(--line);">
-                        <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
-                            <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.build_translation') }}</p>
-                            <span class="rounded-[10px] border px-2 py-1.5 text-xs font-semibold leading-none sm:rounded-[12px] sm:px-3 sm:py-2 sm:text-sm" id="compose-punctuation" style="border-color: var(--line); color: var(--muted);"></span>
-                        </div>
-                        <div id="compose-answer-zone" class="mt-3 min-h-[5rem] rounded-[16px] border border-dashed p-2.5 sm:mt-4 sm:min-h-[8rem] sm:rounded-[22px] sm:p-5" style="border-color: var(--line); background: color-mix(in srgb, var(--surface) 88%, white);"></div>
-                    </section>
-
-                    <section class="order-2 rounded-[18px] p-3 surface-card sm:rounded-[24px] sm:border sm:p-5 xl:order-2" aria-label="{{ __('frontend.tests.compose.token_bank') }}" style="border-color: var(--line);">
-                        <p class="hidden text-[10px] font-extrabold uppercase tracking-[0.16em] sm:block sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.token_bank') }}</p>
-                        <div id="compose-bank" class="flex min-h-[4rem] flex-wrap content-start items-start gap-2 sm:mt-4 sm:min-h-[8rem] sm:gap-3"></div>
-                    </section>
-
-                    <div id="compose-controls" class="order-3 rounded-[18px] px-3 pb-3 sm:rounded-[24px] sm:px-5 sm:pb-5 xl:col-start-1 xl:row-start-2">
-                        <div class="flex flex-wrap gap-2.5 sm:gap-3">
-                            <button type="button" data-action="check" class="inline-flex items-center justify-center rounded-full bg-ocean px-4 py-2.5 text-[13px] font-extrabold text-white shadow-sm transition hover:opacity-95 sm:px-5 sm:py-3 sm:text-sm">
-                                {{ __('frontend.tests.compose.check') }}
-                            </button>
-                            <button type="button" data-action="clear" class="inline-flex items-center justify-center rounded-full border px-4 py-2.5 text-[13px] font-bold transition sm:px-5 sm:py-3 sm:text-sm" style="border-color: var(--line);">
-                                {{ __('frontend.tests.compose.clear') }}
-                            </button>
-                            <button type="button" data-action="undo" class="inline-flex items-center justify-center rounded-full border px-4 py-2.5 text-[13px] font-bold transition sm:px-5 sm:py-3 sm:text-sm" style="border-color: var(--line);">
-                                {{ __('frontend.tests.compose.remove_last') }}
-                            </button>
-                            <button type="button" data-action="reset-progress" class="inline-flex items-center justify-center rounded-full border px-4 py-2.5 text-[13px] font-bold transition sm:px-5 sm:py-3 sm:text-sm" style="border-color: var(--line);">
-                                {{ __('frontend.tests.compose.reset_progress') }}
-                            </button>
-                        </div>
-                        <p class="mt-3 text-[11px] leading-5 sm:mt-4 sm:text-xs" style="color: var(--muted);">{{ __('frontend.tests.compose.keyboard_hint') }}</p>
+                <section class="poly-surface" aria-label="{{ __('frontend.tests.compose.build_translation') }}">
+                    <div class="poly-surface__header">
+                        <h2 class="poly-surface__heading">{{ __('frontend.tests.compose.build_translation') }}</h2>
+                        <span class="poly-surface__hint">{{ __('frontend.tests.compose.keyboard_hint') }}</span>
                     </div>
-                </div>
+                    <div id="compose-answer-zone"></div>
+                    <div class="poly-divider"><span>{{ __('frontend.tests.compose.token_bank') }}</span></div>
+                    <div id="compose-bank" aria-label="{{ __('frontend.tests.compose.token_bank') }}"></div>
+
+                    <div id="compose-controls">
+                        <div class="poly-actions">
+                            <div class="poly-actions__primary">
+                                <button type="button" data-action="check" class="poly-btn poly-btn--primary">
+                                    {{ __('frontend.tests.compose.check') }}
+                                </button>
+                            </div>
+                            <div class="poly-actions__secondary">
+                                <button type="button" data-action="undo" class="poly-btn">
+                                    {{ __('frontend.tests.compose.remove_last') }}
+                                </button>
+                                <button type="button" data-action="clear" class="poly-btn">
+                                    {{ __('frontend.tests.compose.clear') }}
+                                </button>
+                                <button type="button" data-action="reset-progress" class="poly-btn poly-btn--ghost">
+                                    {{ __('frontend.tests.compose.reset_progress') }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <div id="compose-course-completion"
@@ -1581,6 +1990,13 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
 
         const question = currentQuestion();
         if (!question) return;
+
+        // Defensive: if there are no theory blocks for this question, do
+        // nothing — the button is already hidden by renderComposeTheoryControls
+        // but stale clicks should still no-op rather than open an empty panel.
+        if (getComposeTheoryBlocks(question).length === 0) {
+            return;
+        }
 
         if (panel.classList.contains('hidden')) {
             renderComposeTheoryPanel(question);
