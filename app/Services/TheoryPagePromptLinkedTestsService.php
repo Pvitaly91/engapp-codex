@@ -27,6 +27,10 @@ class TheoryPagePromptLinkedTestsService
 
     private const QUESTIONS_PER_TEST = 15;
 
+    private const MIXED_QUESTIONS_PER_TEST = 30;
+
+    private const LEVEL_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+
     /**
      * @var array<string, array<string, mixed>|null>
      */
@@ -34,20 +38,22 @@ class TheoryPagePromptLinkedTestsService
 
     public function buildForPage(Page $page): Collection
     {
+        $allLinkedTests = $this->findForPage($page);
         $linkedTests = $this->preferTheoryPagePolyglotPackages(
-            $this->findForPage($page)
+            $allLinkedTests
         );
         $directLinkedTests = $this->extractDirectLinkedTests($linkedTests);
+        $definitionsBySeeder = $this->promptLinkedSeederDefinitionsForPage($page);
+        $mixedAllLevelsTest = $this->buildMixedAllLevelsTestForPage($page, $allLinkedTests, $definitionsBySeeder);
 
         if ($this->shouldReturnDirectLinkedTests($linkedTests, $directLinkedTests)) {
-            return $directLinkedTests->values();
+            return $this->appendMixedAllLevelsTest($directLinkedTests->values(), $mixedAllLevelsTest);
         }
 
-        $definitionsBySeeder = $this->promptLinkedSeederDefinitionsForPage($page);
         $seederClasses = $this->aggregateSeederClassesForPage($linkedTests, $definitionsBySeeder);
 
         if ($seederClasses->isEmpty()) {
-            return $directLinkedTests->values();
+            return $this->appendMixedAllLevelsTest($directLinkedTests->values(), $mixedAllLevelsTest);
         }
 
         $baseFilters = $this->aggregateBaseFilters($page, $linkedTests, $definitionsBySeeder);
@@ -82,7 +88,7 @@ class TheoryPagePromptLinkedTestsService
             ->filter()
             ->values();
 
-        return $aggregatedTests;
+        return $this->appendMixedAllLevelsTest($aggregatedTests, $mixedAllLevelsTest);
     }
 
     protected function shouldReturnDirectLinkedTests(Collection $linkedTests, Collection $directLinkedTests): bool
@@ -95,12 +101,9 @@ class TheoryPagePromptLinkedTestsService
             return true;
         }
 
-        return $directLinkedTests->contains(function (SavedGrammarTest $test): bool {
-            $filters = is_array($test->filters) ? $test->filters : [];
-            $courseSlug = Str::lower(trim((string) ($filters['course_slug'] ?? '')));
-
-            return Str::startsWith($courseSlug, 'polyglot-');
-        });
+        return $directLinkedTests->contains(
+            fn (SavedGrammarTest $test): bool => $this->isTheoryPagePolyglotPackage($test)
+        );
     }
 
     public function findForPage(Page $page): Collection
@@ -167,7 +170,17 @@ class TheoryPagePromptLinkedTestsService
 
     protected function preferTheoryPagePolyglotPackages(Collection $linkedTests): Collection
     {
-        return $linkedTests;
+        $theoryPagePackages = $linkedTests->filter(
+            fn (SavedGrammarTest $test): bool => $this->isTheoryPagePolyglotPackage($test)
+        );
+
+        if ($theoryPagePackages->isEmpty()) {
+            return $linkedTests;
+        }
+
+        return $linkedTests
+            ->reject(fn (SavedGrammarTest $test): bool => $this->isLegacyPolyglotCourseTest($test))
+            ->values();
     }
 
     protected function isTheoryPagePolyglotPackage(SavedGrammarTest $test): bool
@@ -311,6 +324,97 @@ class TheoryPagePromptLinkedTestsService
             'preferred_view' => Arr::get($referenceFilters, 'preferred_view'),
             'prompt_generator' => $promptGenerator,
         ], fn ($value) => $value !== null);
+    }
+
+    protected function appendMixedAllLevelsTest(Collection $tests, ?VirtualSavedTest $mixedTest): Collection
+    {
+        if (! $mixedTest) {
+            return $tests->values();
+        }
+
+        return $tests
+            ->reject(fn (mixed $test): bool => (string) ($test->slug ?? '') === $mixedTest->slug)
+            ->push($mixedTest)
+            ->values();
+    }
+
+    protected function buildMixedAllLevelsTestForPage(
+        Page $page,
+        Collection $linkedTests,
+        Collection $definitionsBySeeder
+    ): ?VirtualSavedTest {
+        $seederClasses = $this->aggregateSeederClassesForPage($linkedTests, $definitionsBySeeder);
+
+        if ($seederClasses->isEmpty()) {
+            return null;
+        }
+
+        $hasPolyglotSeeder = $seederClasses->contains(
+            fn (string $className): bool => $this->isPolyglotSeederClass($className)
+        );
+        $hasStandardV3Seeder = $seederClasses->contains(
+            fn (string $className): bool => $this->isStandardV3SeederClass($className)
+        );
+
+        if (! $hasPolyglotSeeder || ! $hasStandardV3Seeder) {
+            return null;
+        }
+
+        $questionRows = Question::query()
+            ->whereIn('seeder', $seederClasses->all())
+            ->whereNotNull('level')
+            ->get(['level', 'type']);
+        $availableCount = $questionRows->count();
+
+        if ($availableCount <= 0) {
+            return null;
+        }
+
+        $baseFilters = $this->aggregateBaseFilters($page, $linkedTests, $definitionsBySeeder);
+        $levels = $this->normalizeLevels($questionRows->pluck('level')->all());
+        $containsComposeQuestions = $questionRows
+            ->contains(fn ($row) => (string) ($row->type ?? '') === Question::TYPE_COMPOSE_TOKENS);
+        $containsStandardQuestions = $questionRows
+            ->contains(fn ($row) => (string) ($row->type ?? '') !== Question::TYPE_COMPOSE_TOKENS);
+
+        $filters = $baseFilters;
+        $filters['levels'] = $levels !== [] ? $levels : self::LEVEL_ORDER;
+        $filters['seeder_classes'] = $seederClasses->values()->all();
+        $filters['num_questions'] = min(
+            $availableCount,
+            max(self::MIXED_QUESTIONS_PER_TEST, $seederClasses->count())
+        );
+        $filters['randomize_filtered'] = false;
+        $filters['theory_page_mixed_all_levels'] = true;
+        $filters['__meta'] = array_merge(
+            is_array($filters['__meta'] ?? null) ? $filters['__meta'] : [],
+            [
+                'mode' => 'filters',
+                'aggregated_theory_page_test' => true,
+                'theory_page_id' => (int) $page->getKey(),
+                'theory_page_mixed_all_levels_test' => true,
+                'theory_page_mixed_polyglot_test' => $containsComposeQuestions && $containsStandardQuestions,
+            ]
+        );
+
+        return (new VirtualSavedTest(
+            sprintf('%s (Mixed A1-C2)', $page->title),
+            sprintf('theory-page-%d-mixed-a1-c2', (int) $page->getKey()),
+            $filters
+        ))->setTotalQuestionsAvailable($availableCount);
+    }
+
+    protected function isPolyglotSeederClass(string $className): bool
+    {
+        return Str::contains(Str::lower($className), '\\v3\\polyglot\\');
+    }
+
+    protected function isStandardV3SeederClass(string $className): bool
+    {
+        $normalized = Str::lower($className);
+
+        return Str::contains($normalized, '\\v3\\')
+            && ! Str::contains($normalized, '\\v3\\polyglot\\');
     }
 
     protected function referenceFiltersForAggregatedTests(Collection $linkedTests, Collection $definitionsBySeeder): array

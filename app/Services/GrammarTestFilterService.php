@@ -49,6 +49,7 @@ class GrammarTestFilterService
         $blankCountFrom = $filters['blank_count_from'];
         $blankCountTo = $filters['blank_count_to'];
         $isAggregatedTheoryPageTest = (bool) ($filters['aggregated_theory_page_test'] ?? false);
+        $isTheoryPageMixedAllLevels = (bool) ($filters['theory_page_mixed_all_levels'] ?? false);
 
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
         if (! empty($selectedSeederClasses) || ! empty($selectedTags) || ! empty($selectedAggregatedTags)) {
@@ -197,21 +198,30 @@ class GrammarTestFilterService
             if ($take > 0) {
                 $selectionQuery = clone $query;
 
-                if ($randomizeFiltered && $availableCount > $take) {
+                if ($isTheoryPageMixedAllLevels && ! empty($selectedSeederClasses)) {
+                    $selected = $this->selectMixedAllLevelsQuestions(
+                        $selectionQuery->get(),
+                        $take,
+                        $selectedLevels,
+                        $selectedSeederClasses
+                    );
+                } elseif ($randomizeFiltered && $availableCount > $take) {
                     $selectionQuery->inRandomOrder();
-                } else {
-                    $selectionQuery->orderBy('id');
-                }
 
-                $selected = $selectionQuery->take($take)->get();
+                    $selected = $selectionQuery->take($take)->get();
+                } else {
+                    $selected = $selectionQuery->orderBy('id')->take($take)->get();
+                }
 
                 $questions = $questions->merge($selected);
             }
         }
 
-        $questions = $randomizeFiltered
-            ? $questions->values()
-            : $questions->sortBy('id')->values();
+        if ($isTheoryPageMixedAllLevels || $randomizeFiltered) {
+            $questions = $questions->values();
+        } else {
+            $questions = $questions->sortBy('id')->values();
+        }
 
         $categoryNames = $questions->pluck('category.name')->filter()->unique()->values();
         $autoTestName = ucwords($categoryNames->join(' - '));
@@ -366,6 +376,9 @@ class GrammarTestFilterService
             'aggregated_theory_page_test' => $this->toBool(
                 Arr::get($input, 'aggregated_theory_page_test', Arr::get($input, '__meta.aggregated_theory_page_test', false))
             ),
+            'theory_page_mixed_all_levels' => $this->toBool(
+                Arr::get($input, 'theory_page_mixed_all_levels', Arr::get($input, '__meta.theory_page_mixed_all_levels_test', false))
+            ),
         ];
     }
 
@@ -374,6 +387,97 @@ class GrammarTestFilterService
         $data = $this->prepare($filters);
 
         return $data['questions'];
+    }
+
+    private function selectMixedAllLevelsQuestions(
+        Collection $candidates,
+        int $take,
+        array $selectedLevels,
+        array $selectedSeederClasses
+    ): Collection {
+        if ($take <= 0 || $candidates->isEmpty()) {
+            return collect();
+        }
+
+        $levelOrder = $this->orderedLevels($selectedLevels);
+        $levelIndex = array_flip($levelOrder);
+        $seederOrder = collect($selectedSeederClasses)
+            ->map(fn ($seeder) => (string) $seeder)
+            ->filter(fn (string $seeder) => $seeder !== '')
+            ->values()
+            ->all();
+
+        if ($seederOrder === []) {
+            $seederOrder = $candidates
+                ->pluck('seeder')
+                ->filter()
+                ->unique()
+                ->values()
+                ->all();
+        }
+
+        $queues = [];
+        foreach ($levelOrder as $level) {
+            foreach ($seederOrder as $seeder) {
+                $queues[$level][$seeder] = $candidates
+                    ->filter(fn (Question $question) => (string) $question->level === $level
+                        && (string) $question->seeder === $seeder)
+                    ->sortBy('id')
+                    ->values();
+            }
+        }
+
+        $selected = collect();
+
+        while ($selected->count() < $take) {
+            $pickedInPass = false;
+
+            foreach ($levelOrder as $level) {
+                foreach ($seederOrder as $seeder) {
+                    /** @var Collection<int, Question> $queue */
+                    $queue = $queues[$level][$seeder] ?? collect();
+
+                    if ($queue->isEmpty()) {
+                        continue;
+                    }
+
+                    $selected->push($queue->shift());
+                    $queues[$level][$seeder] = $queue;
+                    $pickedInPass = true;
+
+                    if ($selected->count() >= $take) {
+                        break 2;
+                    }
+                }
+            }
+
+            if (! $pickedInPass) {
+                break;
+            }
+        }
+
+        return $selected
+            ->values()
+            ->sortBy(fn (Question $question, int $position): string => sprintf(
+                '%02d-%08d',
+                $levelIndex[(string) $question->level] ?? 99,
+                $position
+            ))
+            ->values();
+    }
+
+    private function orderedLevels(array $levels): array
+    {
+        $order = array_flip(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
+        $levels = collect($levels)
+            ->map(fn ($level) => trim((string) $level))
+            ->filter()
+            ->unique()
+            ->sortBy(fn (string $level) => $order[$level] ?? 99)
+            ->values()
+            ->all();
+
+        return $levels !== [] ? $levels : ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
     }
 
     private function intArray($value): array
