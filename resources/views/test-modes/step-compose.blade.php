@@ -185,6 +185,13 @@
                 <div class="mb-3 rounded-[18px] p-3 surface-card sm:mb-6 sm:rounded-[24px] sm:border sm:p-5" style="border-color: var(--line);">
                     <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.tests.compose.source_sentence') }}</p>
                     <div id="compose-source-text" class="mt-2 text-[1.55rem] font-extrabold leading-[1.25] sm:mt-4 sm:text-[2.55rem]"></div>
+                    <button type="button" id="compose-theory-btn" class="mt-3 hidden inline-flex items-center text-[13px] sm:text-sm text-emerald-600 hover:text-emerald-700 font-medium transition-colors">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                        <span id="compose-theory-btn-label">{{ __('frontend.tests.question.show_theory') }}</span>
+                    </button>
+                    <div id="compose-theory-panel" class="mt-3 hidden"></div>
                     @if($isAdmin ?? false)
                         <div id="compose-source-seeder" class="mt-2 hidden max-w-full break-words rounded-[12px] border px-3 py-2 font-mono text-[11px] leading-5 sm:text-xs" style="border-color: var(--line); background: color-mix(in srgb, var(--surface) 88%, white); color: var(--muted);"></div>
                     @endif
@@ -671,6 +678,10 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             return null;
         }
 
+        const theoryBlocks = Array.isArray(item?.theory_blocks) && item.theory_blocks.length
+            ? item.theory_blocks
+            : (item?.theory_block ? [item.theory_block] : []);
+
         return {
             id: String(item?.id ?? ''),
             uuid: String(item?.uuid ?? ''),
@@ -687,6 +698,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             explanations: item?.explanations && typeof item.explanations === 'object' ? item.explanations : {},
             punctuation,
             seederNamespace,
+            theoryBlocks,
         };
     }
 
@@ -1415,6 +1427,171 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         return normalizeText(`${values.join(' ')}${question.punctuation || '.'}`);
     }
 
+    // Theory hint helpers — render content blocks attached to the current
+    // question through the question_theory_text_blocks pivot.
+    // body fields originate in trusted server-side theory seeders and may
+    // include intentional <strong>/<em> formatting; render raw.
+    function getComposeTheoryBlocks(question) {
+        if (!question || !Array.isArray(question.theoryBlocks)) {
+            return [];
+        }
+        return question.theoryBlocks;
+    }
+
+    function renderComposeTheoryBlockContent(block) {
+        let content = '';
+        try {
+            const body = typeof block.body === 'string' ? JSON.parse(block.body) : block.body;
+
+            if (body && body.title) {
+                content += `<h4 class="font-semibold text-emerald-900 mb-2">${body.title}</h4>`;
+            }
+            if (body && body.intro) {
+                content += `<p class="text-sm text-emerald-800 mb-3">${body.intro}</p>`;
+            }
+            if (body && Array.isArray(body.sections)) {
+                body.sections.forEach((section) => {
+                    content += `<div class="mb-3">`;
+                    if (section.label) {
+                        content += `<p class="text-sm font-semibold text-emerald-700">${section.label}</p>`;
+                    }
+                    if (section.description) {
+                        content += `<p class="text-sm text-emerald-800">${section.description}</p>`;
+                    }
+                    if (Array.isArray(section.examples)) {
+                        content += `<ul class="mt-1 space-y-1">`;
+                        section.examples.forEach((ex) => {
+                            content += `<li class="text-sm"><span class="text-emerald-900 font-medium">${ex.en || ''}</span>`;
+                            if (ex.ua) content += ` — <span class="text-emerald-700">${ex.ua}</span>`;
+                            content += `</li>`;
+                        });
+                        content += `</ul>`;
+                    }
+                    if (section.note) {
+                        content += `<p class="text-xs text-emerald-600 mt-1">${section.note}</p>`;
+                    }
+                    content += `</div>`;
+                });
+            }
+            if (body && Array.isArray(body.items)) {
+                content += `<ul class="list-disc list-inside space-y-1">`;
+                body.items.forEach((item) => {
+                    if (typeof item === 'string') {
+                        content += `<li class="text-sm text-emerald-800">${item}</li>`;
+                    } else if (item && item.title) {
+                        content += `<li class="text-sm"><span class="font-medium text-emerald-900">${item.title}</span>`;
+                        if (item.subtitle) content += ` — <span class="text-emerald-700">${item.subtitle}</span>`;
+                        content += `</li>`;
+                    }
+                });
+                content += `</ul>`;
+            }
+            if (body && Array.isArray(body.rows)) {
+                content += `<ul class="space-y-1">`;
+                body.rows.forEach((row) => {
+                    if (!row) return;
+                    content += `<li class="text-sm">`;
+                    if (row.en) content += `<span class="text-emerald-900 font-medium">${row.en}</span>`;
+                    if (row.ua) content += `${row.en ? ' — ' : ''}<span class="text-emerald-700">${row.ua}</span>`;
+                    if (row.note) content += `<div class="text-xs text-emerald-600">${row.note}</div>`;
+                    content += `</li>`;
+                });
+                content += `</ul>`;
+                if (body.warning) {
+                    content += `<p class="text-xs text-emerald-700 mt-2">${body.warning}</p>`;
+                }
+            }
+            if (body && Array.isArray(body.rules)) {
+                content += `<ul class="space-y-1">`;
+                body.rules.forEach((rule) => {
+                    if (!rule) return;
+                    content += `<li class="text-sm">`;
+                    if (rule.label) content += `<span class="font-semibold text-emerald-700">${rule.label}</span> — `;
+                    if (rule.text) content += `<span class="text-emerald-800">${rule.text}</span>`;
+                    if (rule.example) content += `<div class="text-xs text-emerald-600 mt-0.5">${rule.example}</div>`;
+                    content += `</li>`;
+                });
+                content += `</ul>`;
+            }
+        } catch (e) {
+            content = `<div class="text-sm text-emerald-800">${block.body || ''}</div>`;
+        }
+        return content;
+    }
+
+    function renderComposeTheoryPanel(question) {
+        const panel = document.getElementById('compose-theory-panel');
+        if (!panel) return;
+
+        const blocks = getComposeTheoryBlocks(question);
+        if (!blocks.length) {
+            panel.innerHTML = '';
+            return;
+        }
+
+        const blocksHtml = blocks.map((block, blockIdx) => {
+            const content = renderComposeTheoryBlockContent(block);
+            const separator = blockIdx > 0
+                ? '<div class="my-3 border-t border-emerald-200/70"></div>'
+                : '';
+            const levelBadge = block.level
+                ? `<span class="ml-auto px-2 py-0.5 text-xs font-bold rounded-full bg-emerald-200 text-emerald-800">${html(block.level)}</span>`
+                : '';
+            const heading = blockIdx === 0
+                ? `<div class="flex items-center gap-2 mb-2">
+                        <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                        <span class="text-sm font-semibold text-emerald-900">${html(testUi('question.theory'))}${blocks.length > 1 ? ` (${blocks.length})` : ''}</span>
+                        ${levelBadge}
+                    </div>`
+                : (block.level
+                    ? `<div class="flex items-center gap-2 mb-1"><span class="ml-auto px-2 py-0.5 text-xs font-bold rounded-full bg-emerald-200 text-emerald-800">${html(block.level)}</span></div>`
+                    : '');
+            return `${separator}${heading}${content}`;
+        }).join('');
+
+        panel.innerHTML = `
+            <div class="p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200">
+                ${blocksHtml}
+            </div>
+        `;
+    }
+
+    function renderComposeTheoryControls(question) {
+        const btn = document.getElementById('compose-theory-btn');
+        const panel = document.getElementById('compose-theory-panel');
+        const blocks = getComposeTheoryBlocks(question);
+        const hasBlocks = blocks.length > 0;
+
+        if (btn) {
+            btn.classList.toggle('hidden', !hasBlocks);
+            btn.setAttribute('aria-expanded', 'false');
+        }
+        if (panel) {
+            panel.classList.add('hidden');
+            panel.innerHTML = '';
+        }
+    }
+
+    function toggleComposeTheoryPanel() {
+        const panel = document.getElementById('compose-theory-panel');
+        const btn = document.getElementById('compose-theory-btn');
+        if (!panel) return;
+
+        const question = currentQuestion();
+        if (!question) return;
+
+        if (panel.classList.contains('hidden')) {
+            renderComposeTheoryPanel(question);
+            panel.classList.remove('hidden');
+            if (btn) btn.setAttribute('aria-expanded', 'true');
+        } else {
+            panel.classList.add('hidden');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+    }
+
     function ratingValue() {
         if (state.progress.rolling_results.length === 0) {
             return 0;
@@ -1713,6 +1890,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         document.getElementById('compose-status').textContent = statusLabel;
         document.getElementById('compose-status-note').textContent = statusGoalNote();
         document.getElementById('compose-source-text').textContent = question.sourceTextUk;
+        renderComposeTheoryControls(question);
         const sourceSeederElement = document.getElementById('compose-source-seeder');
         if (sourceSeederElement) {
             sourceSeederElement.textContent = question.seederNamespace ? `Seeder: ${question.seederNamespace}` : '';
@@ -1825,6 +2003,11 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         const answerToken = event.target.closest('[data-answer-token-id]');
         if (answerToken) {
             removeTokenById(answerToken.getAttribute('data-answer-token-id') || '');
+            return;
+        }
+
+        if (event.target.closest('#compose-theory-btn')) {
+            toggleComposeTheoryPanel();
             return;
         }
 

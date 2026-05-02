@@ -10,7 +10,15 @@
       "Bash(php -l app/Console/Commands/CourseAuditTheoryTestsCommand.php)",
       "Bash(php -l app/Console/Commands/CourseBuildTheoryDrivenCommand.php)",
       "Bash(grep -aE '^\\\\s+\\(✗|FAILED|FAIL|Tests:\\)|tests\\\\\\\\Feature' 'C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\G--DEV-htdocs-engapp-codex-loc\\\\b893531b-a490-4304-9688-5bca80699323\\\\tasks\\\\bmsdr6t2h.output')",
-      "Bash(tee /tmp/bptest.log)"
+      "Bash(tee /tmp/bptest.log)",
+      "Bash(grep -n \"theory_text_block_uuid\\\\|TextBlock::\\\\|TextBlockUuidGenerator\\\\|use App\\\\\\\\\\\\\\\\Models\" G:/DEV/htdocs/engapp-codex.loc/database/seeders/Ai/Claude/QuestionsDifferentTypesClaudeSeeder.php)",
+      "Bash(grep -rln \"V3.Polyglot\\\\|V3\\\\\\\\\\\\\\\\Polyglot\\\\|seeders/V3/Polyglot\" G:/DEV/htdocs/engapp-codex.loc/app G:/DEV/htdocs/engapp-codex.loc/database)",
+      "Bash(php -l database/seeders/V3/Polyglot/PolyglotVerbToBePastAllLevelsTheoryLinksSeeder.php)",
+      "Bash(composer dump-autoload *)",
+      "Bash(php -l database/migrations/2026_05_01_000001_create_question_theory_text_blocks_table.php)",
+      "Bash(php -l app/Http/Controllers/TestJsV2Controller.php)",
+      "Bash(php -l app/Models/Question.php)",
+      "Bash(xargs grep *)"
     ]
   }
 }

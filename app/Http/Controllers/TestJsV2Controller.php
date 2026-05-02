@@ -164,7 +164,7 @@ class TestJsV2Controller extends Controller
     protected function buildQuestionDataset($resolved, bool $freshVariants = false, bool $includeTechnicalInfo = false)
     {
         $test = $resolved->model;
-        $relations = ['category', 'answers.option', 'options', 'verbHints.option'];
+        $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'theoryTextBlocks'];
         $supportsVariants = $this->variantService->supportsVariants();
         if ($supportsVariants) {
             $relations[] = 'variants';
@@ -226,12 +226,35 @@ class TestJsV2Controller extends Controller
             $optionsByMarker = $controller->normalizeOptionsByMarker($q->options_by_marker, $markers);
             $firstMarker = $markers[0] ?? null;
 
-            // Load theory text block if question has a theory_text_block_uuid
-            $theoryBlock = null;
-            if (! empty($q->theory_text_block_uuid)) {
+            // Build the list of theory text blocks for this question.
+            // Prefer the curated multi-block list (question_theory_text_blocks
+            // pivot, eager-loaded above); fall back to the legacy single
+            // theory_text_block_uuid column when no pivot rows exist.
+            $theoryBlocks = [];
+            $seenBlockUuids = [];
+
+            if ($q->relationLoaded('theoryTextBlocks')) {
+                foreach ($q->theoryTextBlocks as $block) {
+                    if (! $block || $block->uuid === null) {
+                        continue;
+                    }
+                    if (isset($seenBlockUuids[$block->uuid])) {
+                        continue;
+                    }
+                    $seenBlockUuids[$block->uuid] = true;
+                    $theoryBlocks[] = [
+                        'uuid' => $block->uuid,
+                        'type' => $block->type,
+                        'body' => $block->body,
+                        'level' => $block->level,
+                    ];
+                }
+            }
+
+            if ($theoryBlocks === [] && ! empty($q->theory_text_block_uuid)) {
                 $textBlock = TextBlock::where('uuid', $q->theory_text_block_uuid)->first();
                 if ($textBlock) {
-                    $theoryBlock = [
+                    $theoryBlocks[] = [
                         'uuid' => $textBlock->uuid,
                         'type' => $textBlock->type,
                         'body' => $textBlock->body,
@@ -239,6 +262,8 @@ class TestJsV2Controller extends Controller
                     ];
                 }
             }
+
+            $theoryBlock = $theoryBlocks[0] ?? null;
 
             // Load marker tags for each answer marker
             $markerTags = $this->markerTheoryMatcher->getAllMarkerTags($q->id);
@@ -260,6 +285,7 @@ class TestJsV2Controller extends Controller
                 'tense' => $q->category->name ?? '',
                 'level' => $q->level ?? '',
                 'theory_block' => $theoryBlock,
+                'theory_blocks' => $theoryBlocks,
                 'marker_tags' => $markerTags,
                 'tech_info' => $technicalInfoByQuestionId[$q->id] ?? null,
             ];
@@ -319,7 +345,7 @@ class TestJsV2Controller extends Controller
     protected function buildComposeQuestionDataset($resolved, bool $includeTechnicalInfo = false): array
     {
         $filters = ComposeModeEligibility::normalizedFilters($resolved->model);
-        $relations = ['answers.option', 'options', 'hints', 'chatgptExplanations'];
+        $relations = ['answers.option', 'options', 'hints', 'chatgptExplanations', 'theoryTextBlocks'];
         if ($includeTechnicalInfo) {
             $relations[] = 'category';
             $relations[] = 'source';
@@ -626,6 +652,8 @@ class TestJsV2Controller extends Controller
             ->values()
             ->all();
 
+        $theoryBlocks = $this->resolveTheoryBlocksForQuestion($question);
+
         return [
             'id' => $question->id,
             'uuid' => $question->uuid,
@@ -641,8 +669,51 @@ class TestJsV2Controller extends Controller
             'hintUk' => $this->composeHintText($question),
             'explanations' => $this->composeExplanationMap($question),
             'punctuation' => $punctuation,
+            'theory_block' => $theoryBlocks[0] ?? null,
+            'theory_blocks' => $theoryBlocks,
             'tech_info' => $technicalInfo,
         ];
+    }
+
+    /**
+     * Build the curated list of theory text blocks attached to a question,
+     * preferring the multi-block pivot and falling back to the legacy
+     * single theory_text_block_uuid column. Used by both card-mode and
+     * compose-mode payloads.
+     */
+    protected function resolveTheoryBlocksForQuestion(Question $question): array
+    {
+        $blocks = [];
+        $seen = [];
+
+        if ($question->relationLoaded('theoryTextBlocks')) {
+            foreach ($question->theoryTextBlocks as $block) {
+                if (! $block || $block->uuid === null || isset($seen[$block->uuid])) {
+                    continue;
+                }
+                $seen[$block->uuid] = true;
+                $blocks[] = [
+                    'uuid' => $block->uuid,
+                    'type' => $block->type,
+                    'body' => $block->body,
+                    'level' => $block->level,
+                ];
+            }
+        }
+
+        if ($blocks === [] && ! empty($question->theory_text_block_uuid)) {
+            $textBlock = TextBlock::where('uuid', $question->theory_text_block_uuid)->first();
+            if ($textBlock) {
+                $blocks[] = [
+                    'uuid' => $textBlock->uuid,
+                    'type' => $textBlock->type,
+                    'body' => $textBlock->body,
+                    'level' => $textBlock->level,
+                ];
+            }
+        }
+
+        return $blocks;
     }
 
     protected function buildComposeTokenBank(array $correctTokens, array $optionValues): array

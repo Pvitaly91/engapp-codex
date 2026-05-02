@@ -53,6 +53,25 @@ class Question extends Model
         return $this->belongsTo(TextBlock::class, 'theory_text_block_uuid', 'uuid');
     }
 
+    /**
+     * Get every theory text block linked to this question via the
+     * question_theory_text_blocks pivot table, ordered by curated position.
+     * Used to surface multiple grammar topics in a single test hint.
+     */
+    public function theoryTextBlocks()
+    {
+        return $this->belongsToMany(
+            TextBlock::class,
+            'question_theory_text_blocks',
+            'question_id',
+            'text_block_uuid',
+            'id',
+            'uuid'
+        )
+            ->withPivot('position')
+            ->orderBy('question_theory_text_blocks.position');
+    }
+
     public static function typeLabels(): array
     {
         return [
