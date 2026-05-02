@@ -390,6 +390,9 @@ class TheoryPagePromptLinkedTestsTest extends TestCase
             })
                 && $mixedTest->slug === sprintf('theory-page-%d-mixed-a1-c2', $page->id)
                 && ($mixedFilters['theory_page_mixed_all_levels'] ?? false) === true
+                && ($mixedFilters['theory_page_mixed_questions_per_level'] ?? null) === 14
+                && ($mixedFilters['num_questions'] ?? null) === 22
+                && ($mixedTest->getAttribute('total_questions_available') ?? 0) === 22
                 && ($mixedFilters['randomize_filtered'] ?? true) === false
                 && ($mixedFilters['levels'] ?? []) === ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
                 && collect($mixedFilters['seeder_classes'] ?? [])->sort()->values()->all() === collect([
@@ -454,6 +457,7 @@ class TheoryPagePromptLinkedTestsTest extends TestCase
         $response->assertOk();
         $response->assertSee('Polyglot: Verb to Be: Past Forms (All levels)');
         $response->assertSee('Mixed A1-C2');
+        $response->assertSee('84 / 84');
         $response->assertDontSee('Polyglot: past simple of to be (A1)');
         $response->assertViewHas('topicTests', function ($tests) use ($legacyA1Seeder, $allLevelsSeeder, $standardSeeder, $page) {
             if ($tests->count() !== 2) {
@@ -476,6 +480,9 @@ class TheoryPagePromptLinkedTestsTest extends TestCase
                 && method_exists($mixedTest, 'isVirtual')
                 && $mixedTest->isVirtual()
                 && ($mixedFilters['theory_page_mixed_all_levels'] ?? false) === true
+                && ($mixedFilters['theory_page_mixed_questions_per_level'] ?? null) === 14
+                && ($mixedFilters['num_questions'] ?? null) === 84
+                && ($mixedTest->getAttribute('total_questions_available') ?? 0) === 84
                 && ($mixedFilters['randomize_filtered'] ?? true) === false
                 && ($mixedFilters['levels'] ?? []) === ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
                 && collect($mixedFilters['seeder_classes'] ?? [])->sort()->values()->all() === collect([

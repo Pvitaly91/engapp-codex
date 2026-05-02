@@ -148,6 +148,84 @@ class MixedTheoryPageTestRenderTest extends TestCase
         });
     }
 
+    public function test_mixed_all_levels_virtual_test_limits_random_selection_to_fourteen_questions_per_level(): void
+    {
+        $category = Category::create(['name' => 'Mixed all levels capped theory']);
+
+        $standardSeeder = 'Database\\Seeders\\V3\\AI\\ChatGpt\\MixedAllLevelsCappedStandardSeeder';
+        $polyglotSeeder = 'Database\\Seeders\\V3\\Polyglot\\MixedAllLevelsCappedPolyglotSeeder';
+
+        foreach ([
+            'A1' => ['standard' => 10, 'polyglot' => 10],
+            'A2' => ['standard' => 3, 'polyglot' => 2],
+            'B1' => ['standard' => 7, 'polyglot' => 7],
+        ] as $level => $counts) {
+            for ($index = 1; $index <= $counts['standard']; $index++) {
+                $this->createQuestion(
+                    category: $category,
+                    uuid: sprintf('standard-%s-%02d', strtolower($level), $index),
+                    question: sprintf('standard %s question %d.', $level, $index),
+                    answersByMarker: ['a1' => 'answer'],
+                    options: ['answer', 'other'],
+                    seeder: $standardSeeder,
+                    type: null,
+                    level: $level
+                );
+            }
+
+            for ($index = 1; $index <= $counts['polyglot']; $index++) {
+                $this->createQuestion(
+                    category: $category,
+                    uuid: sprintf('polyglot-%s-%02d', strtolower($level), $index),
+                    question: sprintf('polyglot %s question %d.', $level, $index),
+                    answersByMarker: ['a1' => 'answer'],
+                    options: ['answer', 'other'],
+                    seeder: $polyglotSeeder,
+                    type: Question::TYPE_COMPOSE_TOKENS,
+                    level: $level
+                );
+            }
+        }
+
+        $filters = [
+            'levels' => ['A1', 'A2', 'B1'],
+            'num_questions' => 999,
+            'randomize_filtered' => false,
+            'seeder_classes' => [$standardSeeder, $polyglotSeeder],
+            'theory_page_mixed_all_levels' => true,
+            'theory_page_mixed_questions_per_level' => 14,
+            '__meta' => [
+                'mode' => 'filters',
+                'theory_page_mixed_all_levels_test' => true,
+                'theory_page_mixed_questions_per_level' => 14,
+                'theory_page_mixed_polyglot_test' => true,
+            ],
+        ];
+
+        $query = [
+            'filters' => base64_encode(json_encode($filters)),
+            'name' => 'Mixed all levels capped theory test',
+        ];
+
+        $response = $this->get(route('test.show', 'mixed-all-levels-capped-theory-test') . '?' . http_build_query($query));
+
+        $response->assertOk();
+        $response->assertViewHas('questionData', function ($questionData) {
+            $items = collect($questionData);
+            $a1Items = $items->where('level', 'A1');
+
+            return $items->count() === 33
+                && $items->pluck('level')->all() === array_merge(
+                    array_fill(0, 14, 'A1'),
+                    array_fill(0, 5, 'A2'),
+                    array_fill(0, 14, 'B1')
+                )
+                && $items->pluck('uuid')->unique()->count() === 33
+                && $a1Items->filter(fn (array $item) => str_starts_with($item['uuid'], 'standard-a1-'))->isNotEmpty()
+                && $a1Items->filter(fn (array $item) => str_starts_with($item['uuid'], 'polyglot-a1-'))->isNotEmpty();
+        });
+    }
+
     protected function createQuestion(
         Category $category,
         string $uuid,

@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Schema;
 
 class GrammarTestFilterService
 {
+    private const MIXED_ALL_LEVELS_QUESTIONS_PER_LEVEL = 14;
+
     public function __construct(
         private TagAggregationService $aggregationService
     ) {
@@ -50,6 +52,10 @@ class GrammarTestFilterService
         $blankCountTo = $filters['blank_count_to'];
         $isAggregatedTheoryPageTest = (bool) ($filters['aggregated_theory_page_test'] ?? false);
         $isTheoryPageMixedAllLevels = (bool) ($filters['theory_page_mixed_all_levels'] ?? false);
+        $mixedAllLevelsQuestionsPerLevel = max(
+            1,
+            (int) ($filters['theory_page_mixed_questions_per_level'] ?? self::MIXED_ALL_LEVELS_QUESTIONS_PER_LEVEL)
+        );
 
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
         if (! empty($selectedSeederClasses) || ! empty($selectedTags) || ! empty($selectedAggregatedTags)) {
@@ -201,9 +207,9 @@ class GrammarTestFilterService
                 if ($isTheoryPageMixedAllLevels && ! empty($selectedSeederClasses)) {
                     $selected = $this->selectMixedAllLevelsQuestions(
                         $selectionQuery->get(),
-                        $take,
                         $selectedLevels,
-                        $selectedSeederClasses
+                        $selectedSeederClasses,
+                        $mixedAllLevelsQuestionsPerLevel
                     );
                 } elseif ($randomizeFiltered && $availableCount > $take) {
                     $selectionQuery->inRandomOrder();
@@ -379,6 +385,14 @@ class GrammarTestFilterService
             'theory_page_mixed_all_levels' => $this->toBool(
                 Arr::get($input, 'theory_page_mixed_all_levels', Arr::get($input, '__meta.theory_page_mixed_all_levels_test', false))
             ),
+            'theory_page_mixed_questions_per_level' => max(1, $this->intValue(
+                Arr::get(
+                    $input,
+                    'theory_page_mixed_questions_per_level',
+                    Arr::get($input, '__meta.theory_page_mixed_questions_per_level', self::MIXED_ALL_LEVELS_QUESTIONS_PER_LEVEL)
+                ),
+                self::MIXED_ALL_LEVELS_QUESTIONS_PER_LEVEL
+            )),
         ];
     }
 
@@ -391,16 +405,15 @@ class GrammarTestFilterService
 
     private function selectMixedAllLevelsQuestions(
         Collection $candidates,
-        int $take,
         array $selectedLevels,
-        array $selectedSeederClasses
+        array $selectedSeederClasses,
+        int $questionsPerLevel
     ): Collection {
-        if ($take <= 0 || $candidates->isEmpty()) {
+        if ($questionsPerLevel <= 0 || $candidates->isEmpty()) {
             return collect();
         }
 
         $levelOrder = $this->orderedLevels($selectedLevels);
-        $levelIndex = array_flip($levelOrder);
         $seederOrder = collect($selectedSeederClasses)
             ->map(fn ($seeder) => (string) $seeder)
             ->filter(fn (string $seeder) => $seeder !== '')
@@ -416,54 +429,53 @@ class GrammarTestFilterService
                 ->all();
         }
 
-        $queues = [];
-        foreach ($levelOrder as $level) {
-            foreach ($seederOrder as $seeder) {
-                $queues[$level][$seeder] = $candidates
-                    ->filter(fn (Question $question) => (string) $question->level === $level
-                        && (string) $question->seeder === $seeder)
-                    ->sortBy('id')
-                    ->values();
-            }
-        }
-
         $selected = collect();
 
-        while ($selected->count() < $take) {
-            $pickedInPass = false;
+        foreach ($levelOrder as $level) {
+            $levelSelected = collect();
+            $queues = [];
 
-            foreach ($levelOrder as $level) {
-                foreach ($seederOrder as $seeder) {
+            foreach (collect($seederOrder)->shuffle()->values() as $seeder) {
+                $queue = $candidates
+                    ->filter(fn (Question $question) => (string) $question->level === $level
+                        && (string) $question->seeder === $seeder)
+                    ->shuffle()
+                    ->values();
+
+                if ($queue->isNotEmpty()) {
+                    $queues[$seeder] = $queue;
+                }
+            }
+
+            while ($levelSelected->count() < $questionsPerLevel) {
+                $pickedInPass = false;
+
+                foreach (array_keys($queues) as $seeder) {
                     /** @var Collection<int, Question> $queue */
-                    $queue = $queues[$level][$seeder] ?? collect();
+                    $queue = $queues[$seeder] ?? collect();
 
                     if ($queue->isEmpty()) {
                         continue;
                     }
 
-                    $selected->push($queue->shift());
-                    $queues[$level][$seeder] = $queue;
+                    $levelSelected->push($queue->shift());
+                    $queues[$seeder] = $queue;
                     $pickedInPass = true;
 
-                    if ($selected->count() >= $take) {
-                        break 2;
+                    if ($levelSelected->count() >= $questionsPerLevel) {
+                        break;
                     }
+                }
+
+                if (! $pickedInPass) {
+                    break;
                 }
             }
 
-            if (! $pickedInPass) {
-                break;
-            }
+            $selected = $selected->merge($levelSelected);
         }
 
-        return $selected
-            ->values()
-            ->sortBy(fn (Question $question, int $position): string => sprintf(
-                '%02d-%08d',
-                $levelIndex[(string) $question->level] ?? 99,
-                $position
-            ))
-            ->values();
+        return $selected->values();
     }
 
     private function orderedLevels(array $levels): array

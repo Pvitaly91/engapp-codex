@@ -27,7 +27,7 @@ class TheoryPagePromptLinkedTestsService
 
     private const QUESTIONS_PER_TEST = 15;
 
-    private const MIXED_QUESTIONS_PER_TEST = 30;
+    private const MIXED_QUESTIONS_PER_LEVEL = 14;
 
     private const LEVEL_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
@@ -377,15 +377,15 @@ class TheoryPagePromptLinkedTestsService
         $containsStandardQuestions = $questionRows
             ->contains(fn ($row) => (string) ($row->type ?? '') !== Question::TYPE_COMPOSE_TOKENS);
 
+        $questionCount = $this->mixedAllLevelsQuestionCount($questionRows, $levels);
+
         $filters = $baseFilters;
         $filters['levels'] = $levels !== [] ? $levels : self::LEVEL_ORDER;
         $filters['seeder_classes'] = $seederClasses->values()->all();
-        $filters['num_questions'] = min(
-            $availableCount,
-            max(self::MIXED_QUESTIONS_PER_TEST, $seederClasses->count())
-        );
+        $filters['num_questions'] = $questionCount;
         $filters['randomize_filtered'] = false;
         $filters['theory_page_mixed_all_levels'] = true;
+        $filters['theory_page_mixed_questions_per_level'] = self::MIXED_QUESTIONS_PER_LEVEL;
         $filters['__meta'] = array_merge(
             is_array($filters['__meta'] ?? null) ? $filters['__meta'] : [],
             [
@@ -393,6 +393,7 @@ class TheoryPagePromptLinkedTestsService
                 'aggregated_theory_page_test' => true,
                 'theory_page_id' => (int) $page->getKey(),
                 'theory_page_mixed_all_levels_test' => true,
+                'theory_page_mixed_questions_per_level' => self::MIXED_QUESTIONS_PER_LEVEL,
                 'theory_page_mixed_polyglot_test' => $containsComposeQuestions && $containsStandardQuestions,
             ]
         );
@@ -401,7 +402,20 @@ class TheoryPagePromptLinkedTestsService
             sprintf('%s (Mixed A1-C2)', $page->title),
             sprintf('theory-page-%d-mixed-a1-c2', (int) $page->getKey()),
             $filters
-        ))->setTotalQuestionsAvailable($availableCount);
+        ))->setTotalQuestionsAvailable($questionCount);
+    }
+
+    protected function mixedAllLevelsQuestionCount(Collection $questionRows, array $levels): int
+    {
+        $levelCounts = $questionRows
+            ->groupBy(fn ($row) => (string) ($row->level ?? ''))
+            ->map(fn (Collection $rows): int => $rows->count());
+
+        return collect($levels !== [] ? $levels : self::LEVEL_ORDER)
+            ->sum(fn (string $level): int => min(
+                self::MIXED_QUESTIONS_PER_LEVEL,
+                (int) $levelCounts->get($level, 0)
+            ));
     }
 
     protected function isPolyglotSeederClass(string $className): bool
