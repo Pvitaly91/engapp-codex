@@ -18,6 +18,8 @@ final class AdminRouteMatrix
 
     public const SAVED_TESTS_PATH = '/admin/tests';
 
+    public const QUESTION_REPORTS_PATH = '/admin/question-reports';
+
     public const GRAMMAR_TEST_PATH = '/admin/grammar-test';
 
     public const SEEDER_CLASS = 'Database\\Seeders\\Admin\\AdminSmokeSeeder';
@@ -62,6 +64,7 @@ final class AdminRouteMatrix
             self::SEED_RUNS_PATH,
             self::TEST_TAGS_PATH,
             self::SAVED_TESTS_PATH,
+            self::QUESTION_REPORTS_PATH,
             self::GRAMMAR_TEST_PATH,
         ];
     }

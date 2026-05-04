@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\PageV3PromptGeneratorController;
 use App\Http\Controllers\Admin\PolyglotV3PromptGeneratorController;
+use App\Http\Controllers\Admin\QuestionReportController;
 use App\Http\Controllers\Admin\V3PromptGeneratorController;
 use App\Http\Controllers\Admin\WordsExportController;
 use App\Http\Controllers\AiTestController;
@@ -190,6 +191,16 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::get('/tests/{slug}/edit', [GrammarTestController::class, 'edit'])->name('saved-tests.edit');
         Route::put('/tests/{slug}', [GrammarTestController::class, 'update'])->name('saved-tests.update');
         Route::delete('/tests/{slug}', [GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
+
+        Route::get('/question-reports', [QuestionReportController::class, 'index'])->name('question-reports.index');
+        Route::post('/question-reports', [QuestionReportController::class, 'store'])->name('question-reports.store');
+        Route::post('/question-reports/prompt', [QuestionReportController::class, 'prompt'])->name('question-reports.prompt');
+        Route::patch('/question-reports/{report}/status', [QuestionReportController::class, 'updateStatus'])
+            ->where('report', '[A-Za-z0-9._-]+')
+            ->name('question-reports.status');
+        Route::delete('/question-reports/{report}', [QuestionReportController::class, 'destroy'])
+            ->where('report', '[A-Za-z0-9._-]+')
+            ->name('question-reports.destroy');
 
         // Words Export routes
         Route::prefix('words/export')->name('admin.words.export.')->group(function () {

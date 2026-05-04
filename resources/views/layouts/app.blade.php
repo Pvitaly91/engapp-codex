@@ -102,6 +102,7 @@
                         >
                             <a href="{{ route('grammar-test') }}" class="block px-4 py-2 hover:bg-blue-50">Конструктор тестів</a>
                             <a href="{{ route('saved-tests.list') }}" class="block px-4 py-2 hover:bg-blue-50">Збережені тести</a>
+                            <a href="{{ route('question-reports.index') }}" class="block px-4 py-2 hover:bg-blue-50">Репорти питань</a>
                             <a href="{{ route('test-tags.index') }}" class="block px-4 py-2 hover:bg-blue-50">Теги тестів</a>
                             <a href="{{ route('v3-prompt-generator.index') }}" class="block px-4 py-2 hover:bg-blue-50">Промт генератор V3</a>
                             <a href="{{ route('page-v3-prompt-generator.index') }}" class="block px-4 py-2 hover:bg-blue-50">Промт генератор Page_V3</a>
@@ -177,6 +178,7 @@
                     <div x-show="openGrammar" x-transition x-cloak class="ml-4 space-y-1 text-sm">
                         <a href="{{ route('grammar-test') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Конструктор тестів</a>
                         <a href="{{ route('saved-tests.list') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Збережені тести</a>
+                        <a href="{{ route('question-reports.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Репорти питань</a>
                         <a href="{{ route('test-tags.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Теги тестів</a>
                         <a href="{{ route('v3-prompt-generator.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Промт генератор V3</a>
                         <a href="{{ route('page-v3-prompt-generator.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Промт генератор Page_V3</a>

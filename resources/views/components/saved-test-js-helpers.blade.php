@@ -1,6 +1,11 @@
 <script>
 window.FRONTEND_TESTS_I18N = @json(__('frontend.tests'));
+window.__IS_ADMIN__ = Boolean(@json($isAdmin ?? false));
 window.__SHOW_TEST_TECH_INFO__ = Boolean(@json($showTechnicalInfo ?? false));
+window.__QUESTION_REPORT_ENDPOINT__ = @json(route('question-reports.store'));
+window.__QUESTION_REPORT_TEST_SLUG__ = @json((string) data_get($test ?? null, 'slug', ''));
+window.__QUESTION_REPORT_TEST_NAME__ = @json((string) data_get($test ?? null, 'name', ''));
+window.__QUESTION_REPORT_MODE__ = @json((string) ($jsStateMode ?? ''));
 
 function getTestUiValue(path, fallback = '') {
     const source = window.FRONTEND_TESTS_I18N || {};
@@ -215,6 +220,273 @@ function renderTechnicalInfoBlock(question, context = 'default') {
     `;
 }
 
+function questionReportUi(key, fallback = '') {
+    return testUi(`question_report.${key}`, {}, fallback);
+}
+
+function reportQuestionId(question) {
+    const id = question?.id ?? question?.question_id ?? question?.tech_info?.question_id ?? '';
+
+    return String(id ?? '').trim();
+}
+
+function reportQuestionUuid(question) {
+    const uuid = question?.uuid ?? question?.question_uuid ?? question?.tech_info?.question_uuid ?? '';
+
+    return String(uuid ?? '').trim();
+}
+
+function reportQuestionText(question) {
+    return String(question?.question ?? question?.sourceTextUk ?? question?.text ?? '').trim();
+}
+
+function renderQuestionReportBlock(question, context = 'default') {
+    if (!window.__IS_ADMIN__ || !question) {
+        return '';
+    }
+
+    const questionId = reportQuestionId(question);
+    const questionUuid = reportQuestionUuid(question);
+
+    if (!questionId && !questionUuid) {
+        return '';
+    }
+
+    const questionText = reportQuestionText(question);
+    const wrapperStyles = context === 'drag'
+        ? 'grid-column: 2 / -1; margin-top: 10px;'
+        : 'margin-top: 14px;';
+
+    return `
+        <div class="js-question-report-block rounded-2xl border" style="${wrapperStyles} border-color:#fed7aa;background:#fff7ed;"
+             data-question-id="${html(questionId)}"
+             data-question-uuid="${html(questionUuid)}"
+             data-question-text="${html(questionText)}">
+            <div class="flex flex-wrap items-center justify-between gap-2 px-4 py-3">
+                <div>
+                    <div class="text-[10px] font-extrabold uppercase tracking-[0.16em]" style="color:#c2410c;">${html(questionReportUi('admin_only', 'Admin only'))}</div>
+                    <div class="mt-1 text-sm font-semibold" style="color:#7c2d12;">${html(questionReportUi('title', 'Report question issue'))}</div>
+                </div>
+                <button type="button"
+                    class="rounded-xl border px-3 py-2 text-xs font-extrabold uppercase tracking-[0.12em] transition hover:bg-orange-100"
+                    style="border-color:#fdba74;color:#9a3412;"
+                    data-question-report-toggle>
+                    ${html(questionReportUi('toggle', 'Report'))}
+                </button>
+            </div>
+            <form class="hidden border-t px-4 pb-4 pt-3" style="border-color:#fed7aa;" data-question-report-form>
+                <label class="block text-xs font-bold uppercase tracking-[0.14em]" style="color:#9a3412;">
+                    ${html(questionReportUi('comment_label', 'Comment'))}
+                </label>
+                <textarea
+                    class="mt-2 min-h-[84px] w-full rounded-xl border px-3 py-2 text-sm leading-6 focus:outline-none focus:ring-2"
+                    style="border-color:#fdba74;--tw-ring-color:#fb923c;"
+                    name="comment"
+                    maxlength="4000"
+                    required
+                    placeholder="${html(questionReportUi('comment_placeholder', 'Describe what is wrong in the question or answer.'))}"></textarea>
+                <div class="mt-3 flex flex-wrap items-center gap-3">
+                    <button type="submit"
+                        class="rounded-xl bg-orange-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-orange-700"
+                        data-question-report-submit>
+                        ${html(questionReportUi('submit', 'Send report'))}
+                    </button>
+                    <span class="text-sm" style="color:#9a3412;" data-question-report-status></span>
+                </div>
+            </form>
+        </div>
+    `;
+}
+
+function resolveReportQuestion(container) {
+    return resolveTechnicalQuestion(container);
+}
+
+function injectQuestionReportBlock(container) {
+    if (!window.__IS_ADMIN__ || !container) {
+        return;
+    }
+
+    const hasExisting = Array.from(container.children || []).some((child) => child.classList?.contains('js-question-report-block'));
+    if (hasExisting) {
+        return;
+    }
+
+    const question = resolveReportQuestion(container);
+    const context = container.classList.contains('drag-quiz__row')
+        ? 'drag'
+        : (container.classList.contains('match-card') ? 'match' : 'default');
+    const blockHtml = renderQuestionReportBlock(question, context);
+
+    if (!blockHtml) {
+        return;
+    }
+
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = blockHtml.trim();
+    const block = wrapper.firstElementChild;
+
+    if (block) {
+        container.appendChild(block);
+    }
+}
+
+function enhanceQuestionReportBlocks() {
+    if (!window.__IS_ADMIN__) {
+        return;
+    }
+
+    document.querySelectorAll('article[data-idx]').forEach(injectQuestionReportBlock);
+    document.querySelectorAll('.drag-quiz__row').forEach(injectQuestionReportBlock);
+    document.querySelectorAll('.match-card.match-sentence').forEach(injectQuestionReportBlock);
+}
+
+let questionReportFrameId = null;
+
+function scheduleQuestionReportEnhancement() {
+    if (!window.__IS_ADMIN__) {
+        return;
+    }
+
+    if (questionReportFrameId !== null) {
+        return;
+    }
+
+    questionReportFrameId = window.requestAnimationFrame(() => {
+        questionReportFrameId = null;
+        enhanceQuestionReportBlocks();
+    });
+}
+
+function questionReportPayload(block, form) {
+    const formData = new FormData(form);
+
+    return {
+        question_id: block.dataset.questionId || null,
+        question_uuid: block.dataset.questionUuid || null,
+        comment: String(formData.get('comment') || '').trim(),
+        test_slug: window.__QUESTION_REPORT_TEST_SLUG__ || null,
+        test_name: window.__QUESTION_REPORT_TEST_NAME__ || null,
+        mode: window.__QUESTION_REPORT_MODE__ || null,
+        url: window.location.href,
+    };
+}
+
+async function submitQuestionReport(form) {
+    const block = form.closest('.js-question-report-block');
+    const status = block?.querySelector('[data-question-report-status]');
+    const submitButton = form.querySelector('[data-question-report-submit]');
+    const payload = questionReportPayload(block, form);
+
+    if (!payload.comment) {
+        if (status) {
+            status.textContent = questionReportUi('comment_required', 'Enter a comment.');
+        }
+        return;
+    }
+
+    if (!window.__QUESTION_REPORT_ENDPOINT__) {
+        if (status) {
+            status.textContent = questionReportUi('error', 'Unable to save report.');
+        }
+        return;
+    }
+
+    if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.classList.add('opacity-60');
+    }
+    if (status) {
+        status.textContent = questionReportUi('saving', 'Saving...');
+    }
+
+    try {
+        const response = await fetch(window.__QUESTION_REPORT_ENDPOINT__, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '{{ csrf_token() }}',
+            },
+            credentials: 'same-origin',
+            body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to save question report');
+        }
+
+        const data = await response.json();
+        form.reset();
+        if (status) {
+            status.textContent = `${questionReportUi('saved', 'Saved')}: ${data?.report?.file || ''}`;
+        }
+        if (block) {
+            block.dataset.reported = '1';
+        }
+    } catch (error) {
+        console.error(error);
+        if (status) {
+            status.textContent = questionReportUi('error', 'Unable to save report.');
+        }
+    } finally {
+        if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.classList.remove('opacity-60');
+        }
+    }
+}
+
+function setupQuestionReportControls() {
+    if (!window.__IS_ADMIN__) {
+        return;
+    }
+
+    scheduleQuestionReportEnhancement();
+
+    document.addEventListener('click', (event) => {
+        const toggle = event.target.closest('[data-question-report-toggle]');
+        if (!toggle) {
+            return;
+        }
+
+        event.preventDefault();
+        const block = toggle.closest('.js-question-report-block');
+        const form = block?.querySelector('[data-question-report-form]');
+        if (!form) {
+            return;
+        }
+
+        form.classList.toggle('hidden');
+        if (!form.classList.contains('hidden')) {
+            form.querySelector('textarea')?.focus();
+        }
+    });
+
+    document.addEventListener('submit', (event) => {
+        const form = event.target.closest('[data-question-report-form]');
+        if (!form) {
+            return;
+        }
+
+        event.preventDefault();
+        submitQuestionReport(form);
+    });
+
+    if (typeof MutationObserver === 'undefined' || !document.body) {
+        return;
+    }
+
+    const observer = new MutationObserver(() => {
+        scheduleQuestionReportEnhancement();
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+    });
+}
+
 function injectTechnicalInfoBlock(container) {
     if (!window.__SHOW_TEST_TECH_INFO__ || !container) {
         return;
@@ -298,8 +570,10 @@ function setupTechnicalInfoObserver() {
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupTechnicalInfoObserver, { once: true });
+    document.addEventListener('DOMContentLoaded', setupQuestionReportControls, { once: true });
 } else {
     setupTechnicalInfoObserver();
+    setupQuestionReportControls();
 }
 
 function resizeSelect(el) {

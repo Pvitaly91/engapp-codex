@@ -163,6 +163,19 @@ return [
             'refresh' => 'Refresh hint',
         ],
 
+        'question_report' => [
+            'admin_only' => 'Admin only',
+            'title' => 'Problem with this question?',
+            'toggle' => 'Report',
+            'comment_label' => 'Comment',
+            'comment_placeholder' => 'Describe what is wrong: question grammar, answer option, seeder, or another issue.',
+            'submit' => 'Send report',
+            'comment_required' => 'Enter a comment.',
+            'saving' => 'Saving...',
+            'saved' => 'Report saved',
+            'error' => 'Unable to save report.',
+        ],
+
         'tech_info' => [
             'summary' => 'Technical info',
             'question_id' => 'Question ID',

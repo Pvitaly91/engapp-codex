@@ -163,6 +163,19 @@ return [
             'refresh' => 'Odśwież podpowiedź',
         ],
 
+        'question_report' => [
+            'admin_only' => 'Tylko admin',
+            'title' => 'Problem z tym pytaniem?',
+            'toggle' => 'Zgłoś',
+            'comment_label' => 'Komentarz',
+            'comment_placeholder' => 'Opisz, co jest nie tak: gramatyka pytania, wariant odpowiedzi, seeder albo inny problem.',
+            'submit' => 'Wyślij zgłoszenie',
+            'comment_required' => 'Wpisz komentarz.',
+            'saving' => 'Zapisywanie...',
+            'saved' => 'Zgłoszenie zapisane',
+            'error' => 'Nie udało się zapisać zgłoszenia.',
+        ],
+
         'tech_info' => [
             'summary' => 'Informacje techniczne',
             'question_id' => 'ID pytania',

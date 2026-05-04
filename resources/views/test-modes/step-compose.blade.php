@@ -605,6 +605,7 @@
                     <div id="compose-theory-panel" class="hidden"></div>
                     @if($isAdmin ?? false)
                         <div id="compose-source-seeder" class="hidden"></div>
+                        <div id="compose-question-report"></div>
                     @endif
                 </div>
 
@@ -2311,6 +2312,10 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         if (sourceSeederElement) {
             sourceSeederElement.textContent = question.seederNamespace ? `Seeder: ${question.seederNamespace}` : '';
             sourceSeederElement.classList.toggle('hidden', !question.seederNamespace);
+        }
+        const questionReportElement = document.getElementById('compose-question-report');
+        if (questionReportElement && typeof renderQuestionReportBlock === 'function') {
+            questionReportElement.innerHTML = renderQuestionReportBlock(question, 'compose');
         }
         document.getElementById('compose-punctuation').textContent = testUi('compose.ends_with', { punctuation: question.punctuation });
         document.getElementById('compose-answer-zone').innerHTML = answerZoneMarkup(question);
