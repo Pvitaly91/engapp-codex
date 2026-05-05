@@ -378,8 +378,19 @@ function questionReportPayload(block, form) {
         test_slug: window.__QUESTION_REPORT_TEST_SLUG__ || null,
         test_name: window.__QUESTION_REPORT_TEST_NAME__ || null,
         mode: window.__QUESTION_REPORT_MODE__ || null,
-        url: window.location.href,
+        url: questionReportCurrentUrl(),
     };
+}
+
+function questionReportCurrentUrl() {
+    try {
+        const url = new URL(window.location.href);
+        url.searchParams.delete('filters');
+
+        return url.toString();
+    } catch (error) {
+        return window.location.href;
+    }
 }
 
 async function submitQuestionReport(form) {

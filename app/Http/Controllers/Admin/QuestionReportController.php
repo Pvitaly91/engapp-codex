@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Question;
 use App\Services\QuestionReportFileStore;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class QuestionReportController extends Controller
@@ -29,7 +29,7 @@ class QuestionReportController extends Controller
             'test_slug' => ['nullable', 'string', 'max:255'],
             'test_name' => ['nullable', 'string', 'max:255'],
             'mode' => ['nullable', 'string', 'max:120'],
-            'url' => ['nullable', 'string', 'max:2048'],
+            'url' => ['nullable', 'string', 'max:65535'],
         ]);
 
         $question = Question::query()

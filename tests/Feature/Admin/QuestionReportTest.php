@@ -7,6 +7,7 @@ use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\Source;
+use App\Models\User;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -97,6 +98,50 @@ class QuestionReportTest extends TestCase
         $this->assertSame('Database\\Seeders\\Ai\\ExampleSeeder', $payload['question']['seeder']['class']);
         $this->assertSame([['marker' => 'a1', 'value' => 'go']], $payload['question']['answers']);
         $this->assertStringStartsWith('question-reports/', $payload['file']);
+    }
+
+    public function test_authenticated_admin_user_can_report_question_with_long_virtual_test_url(): void
+    {
+        $admin = new User;
+        $admin->forceFill([
+            'id' => 91,
+            'name' => 'Admin User',
+            'email' => 'admin@example.test',
+        ]);
+        $admin->setAttribute('is_admin', true);
+
+        $category = Category::create(['name' => 'Virtual category']);
+        $question = Question::create([
+            'uuid' => 'virtual-category-question',
+            'question' => 'She {a1} ready.',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+            'seeder' => 'Database\\Seeders\\V3\\AI\\Example\\VirtualCategorySeeder',
+        ]);
+
+        $longUrl = 'http://localhost/test/theory-category-301-a1?filters='.str_repeat('a', 5000).'&launch=test-launch';
+
+        $response = $this->actingAs($admin)
+            ->postJson(route('question-reports.store'), [
+                'question_id' => $question->id,
+                'comment' => 'Неправильний варіант відповіді.',
+                'test_slug' => 'theory-category-301-a1',
+                'test_name' => 'Category A1',
+                'mode' => 'saved-test-js-v2',
+                'url' => $longUrl,
+            ]);
+
+        $response->assertCreated();
+
+        $files = Storage::disk('local')->files('question-reports');
+        $this->assertCount(1, $files);
+
+        $payload = json_decode(Storage::disk('local')->get($files[0]), true);
+
+        $this->assertSame('theory-category-301-a1', $payload['test']['slug']);
+        $this->assertSame($longUrl, $payload['test']['url']);
+        $this->assertSame('virtual-category-question', $payload['question']['uuid']);
     }
 
     public function test_admin_can_view_question_reports_from_files(): void
