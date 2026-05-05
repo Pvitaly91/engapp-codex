@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use App\Models\TextBlock;
-use App\Support\ComposeModeEligibility;
 use App\Services\MarkerTheoryMatcherService;
 use App\Services\PolyglotCourseManifestService;
 use App\Services\PolyglotLessonDebugPayloadBuilder;
@@ -12,8 +11,10 @@ use App\Services\QuestionTechnicalInfoService;
 use App\Services\QuestionVariantService;
 use App\Services\SavedTestResolver;
 use App\Support\AdminDebugAccess;
+use App\Support\ComposeModeEligibility;
 use App\Support\SavedTestJsState;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
 
 class TestJsV2Controller extends Controller
@@ -146,7 +147,7 @@ class TestJsV2Controller extends Controller
         $showTechnicalInfo = $this->shouldShowTechnicalInfo($isAdmin);
         $questions = $this->persistedQuestionData($test, $savedState);
 
-        if (! is_array($questions) || ($showTechnicalInfo && ! $this->datasetContainsTechnicalInfo($questions))) {
+        if (! is_array($questions) || ($showTechnicalInfo && ! $this->datasetContainsTechnicalInfo($questions, $test))) {
             $questions = $this->buildQuestionDataset($resolved, $savedState === null, $showTechnicalInfo);
         }
 
@@ -190,8 +191,9 @@ class TestJsV2Controller extends Controller
             }
         }
 
+        $testFilters = $this->normalizedTestFilters($test);
         $technicalInfoByQuestionId = $includeTechnicalInfo
-            ? $this->questionTechnicalInfoService->mapForQuestions($questions)
+            ? $this->questionTechnicalInfoService->mapForQuestions($questions, $testFilters)
             : [];
 
         $controller = $this;
@@ -297,7 +299,7 @@ class TestJsV2Controller extends Controller
         $key = sprintf('saved_test_js_state:%s:%s', $test->slug, $view);
         $launchToken = $this->sanitizeJsLaunchToken(request()->query('launch'));
 
-        return $launchToken ? $key . ':' . $launchToken : $key;
+        return $launchToken ? $key.':'.$launchToken : $key;
     }
 
     protected function jsQuestionDataSessionKey($test): string
@@ -305,7 +307,7 @@ class TestJsV2Controller extends Controller
         $key = sprintf('saved_test_js_questions:%s', $test->slug);
         $launchToken = $this->sanitizeJsLaunchToken(request()->query('launch'));
 
-        return $launchToken ? $key . ':' . $launchToken : $key;
+        return $launchToken ? $key.':'.$launchToken : $key;
     }
 
     protected function activeJsSavedState(string $stateKey): ?array
@@ -361,7 +363,7 @@ class TestJsV2Controller extends Controller
         }
 
         $technicalInfoByQuestionId = $includeTechnicalInfo
-            ? $this->questionTechnicalInfoService->mapForQuestions($questions)
+            ? $this->questionTechnicalInfoService->mapForQuestions($questions, $filters)
             : [];
 
         $payload = $questions
@@ -397,7 +399,7 @@ class TestJsV2Controller extends Controller
                 ->sortBy(function (array $question, int $index) use ($seed) {
                     $stableId = trim((string) ($question['uuid'] ?? $question['id'] ?? $index));
 
-                    return sha1(trim($seed) . '|' . $stableId . '|' . $index);
+                    return sha1(trim($seed).'|'.$stableId.'|'.$index);
                 })
                 ->values()
                 ->all();
@@ -418,15 +420,33 @@ class TestJsV2Controller extends Controller
         return $isAdmin && (bool) config('tests.tech_info_enabled', true);
     }
 
-    protected function datasetContainsTechnicalInfo(array $questions): bool
+    protected function datasetContainsTechnicalInfo(array $questions, mixed $test = null): bool
     {
+        $requiresTheoryPage = $test !== null && $this->isTheoryCategoryPageTest($test);
+        $containsTechnicalInfo = false;
+
         foreach ($questions as $question) {
             if (is_array($question) && array_key_exists('tech_info', $question)) {
-                return true;
+                $containsTechnicalInfo = true;
+
+                if ($requiresTheoryPage && ! is_array(data_get($question, 'tech_info.theory_page'))) {
+                    return false;
+                }
             }
         }
 
-        return false;
+        return $containsTechnicalInfo;
+    }
+
+    protected function isTheoryCategoryPageTest(mixed $test): bool
+    {
+        $filters = $this->normalizedTestFilters($test);
+
+        return (bool) data_get(
+            $filters,
+            'theory_category_page_test',
+            data_get($filters, '__meta.aggregated_theory_category_test', false)
+        );
     }
 
     protected function normalizeOptionsByMarker($rawOptions, array $markers): ?array
@@ -498,7 +518,7 @@ class TestJsV2Controller extends Controller
         );
     }
 
-    protected function redirectForUnsupportedMixedPolyglotMode(mixed $test, string $mode): ?\Illuminate\Http\RedirectResponse
+    protected function redirectForUnsupportedMixedPolyglotMode(mixed $test, string $mode): ?RedirectResponse
     {
         if (! $this->isMixedPolyglotTheoryTest($test)) {
             return null;
@@ -513,7 +533,7 @@ class TestJsV2Controller extends Controller
         $query = request()->only(['filters', 'name', 'launch']);
 
         if ($query !== []) {
-            $url .= '?' . http_build_query($query);
+            $url .= '?'.http_build_query($query);
         }
 
         return redirect()->to($url);

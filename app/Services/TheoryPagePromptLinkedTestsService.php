@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Page;
+use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\SavedGrammarTest;
 use App\Support\ComposeModeEligibility;
@@ -28,6 +29,8 @@ class TheoryPagePromptLinkedTestsService
     private const QUESTIONS_PER_TEST = 15;
 
     private const MIXED_QUESTIONS_PER_LEVEL = 14;
+
+    private const CATEGORY_QUESTIONS_PER_PAGE_LEVEL = 4;
 
     private const LEVEL_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
@@ -91,6 +94,55 @@ class TheoryPagePromptLinkedTestsService
         return $this->appendMixedAllLevelsTest($aggregatedTests, $mixedAllLevelsTest);
     }
 
+    public function buildForCategory(PageCategory $category, Collection $pages): Collection
+    {
+        $pageGroups = $pages
+            ->filter(fn (mixed $page): bool => $page instanceof Page && (int) $page->getKey() > 0)
+            ->map(function (Page $page): ?array {
+                $allLinkedTests = $this->findForPage($page);
+                $linkedTests = $this->preferTheoryPagePolyglotPackages($allLinkedTests);
+                $definitionsBySeeder = $this->promptLinkedSeederDefinitionsForPage($page);
+                $seederClasses = $this->aggregateSeederClassesForPage($linkedTests, $definitionsBySeeder);
+
+                if ($seederClasses->isEmpty()) {
+                    return null;
+                }
+
+                $questionRows = Question::query()
+                    ->whereIn('seeder', $seederClasses->all())
+                    ->whereNotNull('level')
+                    ->get(['level', 'type', 'seeder']);
+
+                if ($questionRows->isEmpty()) {
+                    return null;
+                }
+
+                return [
+                    'page' => $page,
+                    'seeder_classes' => $seederClasses->values()->all(),
+                    'question_rows' => $questionRows,
+                    'base_filters' => $this->aggregateBaseFilters($page, $linkedTests, $definitionsBySeeder),
+                ];
+            })
+            ->filter()
+            ->values();
+
+        if ($pageGroups->isEmpty()) {
+            return collect();
+        }
+
+        $levels = $this->normalizeLevels(
+            $pageGroups
+                ->flatMap(fn (array $group): Collection => $group['question_rows']->pluck('level'))
+                ->all()
+        );
+
+        return collect($levels)
+            ->map(fn (string $level): ?VirtualSavedTest => $this->buildCategoryLevelTest($category, $pageGroups, $level))
+            ->filter()
+            ->values();
+    }
+
     protected function shouldReturnDirectLinkedTests(Collection $linkedTests, Collection $directLinkedTests): bool
     {
         if ($linkedTests->isEmpty() || $directLinkedTests->isEmpty()) {
@@ -147,18 +199,18 @@ class TheoryPagePromptLinkedTestsService
         $seederClasses = $this->normalizeSeederClasses($filters['seeder_classes'] ?? []);
 
         if (count($seederClasses) === 1) {
-            return 'seeder:' . $seederClasses[0];
+            return 'seeder:'.$seederClasses[0];
         }
 
         $uuid = trim((string) ($test->uuid ?? ''));
 
         if ($uuid !== '') {
-            return 'uuid:' . Str::lower($uuid);
+            return 'uuid:'.Str::lower($uuid);
         }
 
         $slug = trim((string) ($test->slug ?? ''));
 
-        return $slug !== '' ? 'slug:' . Str::lower($slug) : null;
+        return $slug !== '' ? 'slug:'.Str::lower($slug) : null;
     }
 
     protected function extractDirectLinkedTests(Collection $linkedTests): Collection
@@ -216,7 +268,6 @@ class TheoryPagePromptLinkedTestsService
     }
 
     /**
-     * @param  mixed  $seederClasses
      * @return array<int, string>
      */
     protected function normalizeSeederClassValues(mixed $seederClasses): array
@@ -234,7 +285,6 @@ class TheoryPagePromptLinkedTestsService
     }
 
     /**
-     * @param  mixed  $seederClasses
      * @return array<int, string>
      */
     protected function normalizeSeederClasses(mixed $seederClasses): array
@@ -484,6 +534,93 @@ class TheoryPagePromptLinkedTestsService
         ))->setTotalQuestionsAvailable($availableCount);
     }
 
+    protected function buildCategoryLevelTest(PageCategory $category, Collection $pageGroups, string $level): ?VirtualSavedTest
+    {
+        $groups = collect();
+        $selectedQuestionCount = 0;
+        $availableQuestionCount = 0;
+        $containsComposeQuestions = false;
+        $containsStandardQuestions = false;
+        $baseFilters = [];
+
+        foreach ($pageGroups as $pageGroup) {
+            /** @var Page $page */
+            $page = $pageGroup['page'];
+            /** @var Collection $questionRows */
+            $questionRows = $pageGroup['question_rows']
+                ->filter(fn ($row): bool => (string) ($row->level ?? '') === $level)
+                ->values();
+
+            $availableForPage = $questionRows->count();
+
+            if ($availableForPage <= 0) {
+                continue;
+            }
+
+            $availableQuestionCount += $availableForPage;
+            $selectedQuestionCount += min(self::CATEGORY_QUESTIONS_PER_PAGE_LEVEL, $availableForPage);
+            $containsComposeQuestions = $containsComposeQuestions || $questionRows
+                ->contains(fn ($row) => (string) ($row->type ?? '') === Question::TYPE_COMPOSE_TOKENS);
+            $containsStandardQuestions = $containsStandardQuestions || $questionRows
+                ->contains(fn ($row) => (string) ($row->type ?? '') !== Question::TYPE_COMPOSE_TOKENS);
+
+            if ($baseFilters === []) {
+                $baseFilters = is_array($pageGroup['base_filters'] ?? null) ? $pageGroup['base_filters'] : [];
+            }
+
+            $groups->push([
+                'page_id' => (int) $page->getKey(),
+                'page_slug' => (string) $page->slug,
+                'page_title' => (string) $page->title,
+                'seeder_classes' => array_values($pageGroup['seeder_classes'] ?? []),
+            ]);
+        }
+
+        if ($selectedQuestionCount <= 0 || $groups->isEmpty()) {
+            return null;
+        }
+
+        $allSeederClasses = $groups
+            ->flatMap(fn (array $group): array => $group['seeder_classes'] ?? [])
+            ->map(fn ($className): string => trim((string) $className))
+            ->filter()
+            ->unique(fn (string $className): string => Str::lower($className))
+            ->values()
+            ->all();
+
+        $filters = $baseFilters;
+        $filters['levels'] = [$level];
+        $filters['seeder_classes'] = $allSeederClasses;
+        $filters['num_questions'] = $selectedQuestionCount;
+        $filters['randomize_filtered'] = true;
+        $filters['aggregated_theory_page_test'] = true;
+        $filters['theory_category_page_test'] = true;
+        $filters['theory_category_questions_per_page'] = self::CATEGORY_QUESTIONS_PER_PAGE_LEVEL;
+        $filters['theory_category_page_groups'] = $groups->values()->all();
+        $filters['__meta'] = array_merge(
+            is_array($filters['__meta'] ?? null) ? $filters['__meta'] : [],
+            [
+                'mode' => 'filters',
+                'aggregated_theory_category_test' => true,
+                'theory_category_id' => (int) $category->getKey(),
+                'theory_category_slug' => (string) $category->slug,
+                'theory_category_questions_per_page' => self::CATEGORY_QUESTIONS_PER_PAGE_LEVEL,
+                'theory_page_mixed_polyglot_test' => $containsComposeQuestions && $containsStandardQuestions,
+            ]
+        );
+
+        $testLabel = __('public.type_test');
+        if ($testLabel === 'public.type_test') {
+            $testLabel = app()->getLocale() === 'uk' ? 'Тест' : 'Test';
+        }
+
+        return (new VirtualSavedTest(
+            sprintf('%s: %s %s', $category->title, $testLabel, $level),
+            sprintf('theory-category-%d-%s', (int) $category->getKey(), Str::lower($level)),
+            $filters
+        ))->setTotalQuestionsAvailable($availableQuestionCount);
+    }
+
     protected function buildFallbackTestsForPage(Page $page, Collection $linkedTests): Collection
     {
         $linkedSeederClasses = $linkedTests
@@ -646,7 +783,7 @@ class TheoryPagePromptLinkedTestsService
         }
 
         if ($slug === '') {
-            $slug = 'virtual-seeder-' . Str::slug(class_basename($className)) . '-' . substr(md5($className), 0, 8);
+            $slug = 'virtual-seeder-'.Str::slug(class_basename($className)).'-'.substr(md5($className), 0, 8);
         }
 
         $configuredSeederClasses = collect($filters['seeder_classes'] ?? [])
@@ -680,7 +817,6 @@ class TheoryPagePromptLinkedTestsService
     }
 
     /**
-     * @param  mixed  $levels
      * @return array<int, string>
      */
     protected function normalizeLevels(mixed $levels): array

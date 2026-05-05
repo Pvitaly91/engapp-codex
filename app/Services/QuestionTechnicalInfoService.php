@@ -20,7 +20,7 @@ class QuestionTechnicalInfoService
         'anthropic' => 'Anthropic',
     ];
 
-    public function mapForQuestions(Collection $questions): array
+    public function mapForQuestions(Collection $questions, array $filters = []): array
     {
         $seederClasses = $questions
             ->pluck('seeder')
@@ -29,20 +29,22 @@ class QuestionTechnicalInfoService
             ->values();
 
         $lastSeedRuns = $this->lastSeedRunsByClass($seederClasses);
+        $theoryPagesBySeeder = $this->theoryPagesBySeeder($filters);
 
         return $questions
-            ->mapWithKeys(function (Question $question) use ($lastSeedRuns) {
+            ->mapWithKeys(function (Question $question) use ($lastSeedRuns, $theoryPagesBySeeder) {
                 return [
                     $question->id => $this->buildTechnicalInfo(
                         $question,
-                        $lastSeedRuns[$question->seeder] ?? null
+                        $lastSeedRuns[$question->seeder] ?? null,
+                        $theoryPagesBySeeder[$this->normalizeSeederKey($question->seeder)] ?? null
                     ),
                 ];
             })
             ->all();
     }
 
-    private function buildTechnicalInfo(Question $question, ?string $lastSeedRunAt): array
+    private function buildTechnicalInfo(Question $question, ?string $lastSeedRunAt, ?array $theoryPage): array
     {
         $markers = $this->extractMarkers($question);
         $typeValue = $question->type === null ? null : (string) $question->type;
@@ -65,6 +67,7 @@ class QuestionTechnicalInfoService
                 'id' => $question->source_id,
                 'name' => $question->source?->name,
             ],
+            'theory_page' => $theoryPage,
             'seeder' => $this->formatSeeder($question->seeder, $lastSeedRunAt),
             'type' => [
                 'value' => $typeValue,
@@ -80,6 +83,74 @@ class QuestionTechnicalInfoService
             'created_at' => $this->formatDateTime($question->created_at),
             'updated_at' => $this->formatDateTime($question->updated_at),
         ];
+    }
+
+    private function theoryPagesBySeeder(array $filters): array
+    {
+        $pageGroups = data_get($filters, 'theory_category_page_groups', []);
+
+        if (! is_array($pageGroups)) {
+            return [];
+        }
+
+        $pagesBySeeder = [];
+
+        foreach ($pageGroups as $group) {
+            if (! is_array($group)) {
+                continue;
+            }
+
+            $page = [
+                'id' => $this->positiveInt(data_get($group, 'page_id')),
+                'slug' => $this->nonEmptyString(data_get($group, 'page_slug')),
+                'title' => $this->nonEmptyString(data_get($group, 'page_title')),
+            ];
+
+            if ($page['id'] === null && $page['slug'] === null && $page['title'] === null) {
+                continue;
+            }
+
+            foreach ((array) data_get($group, 'seeder_classes', []) as $seederClass) {
+                $key = $this->normalizeSeederKey($seederClass);
+
+                if ($key !== '') {
+                    $pagesBySeeder[$key] = $page;
+                }
+            }
+        }
+
+        return $pagesBySeeder;
+    }
+
+    private function normalizeSeederKey(mixed $seederClass): string
+    {
+        if (! is_string($seederClass) || trim($seederClass) === '') {
+            return '';
+        }
+
+        return strtolower(str_replace('/', '\\', trim($seederClass)));
+    }
+
+    private function positiveInt(mixed $value): ?int
+    {
+        if (! is_numeric($value)) {
+            return null;
+        }
+
+        $value = (int) $value;
+
+        return $value > 0 ? $value : null;
+    }
+
+    private function nonEmptyString(mixed $value): ?string
+    {
+        if (! is_string($value)) {
+            return null;
+        }
+
+        $value = trim($value);
+
+        return $value !== '' ? $value : null;
     }
 
     private function formatSeeder(?string $seederClass, ?string $lastSeedRunAt): ?array

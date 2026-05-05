@@ -16,8 +16,7 @@ class GrammarTestFilterService
 
     public function __construct(
         private TagAggregationService $aggregationService
-    ) {
-    }
+    ) {}
 
     public function prepare(array $input): array
     {
@@ -56,6 +55,11 @@ class GrammarTestFilterService
             1,
             (int) ($filters['theory_page_mixed_questions_per_level'] ?? self::MIXED_ALL_LEVELS_QUESTIONS_PER_LEVEL)
         );
+        $isTheoryCategoryPageTest = (bool) ($filters['theory_category_page_test'] ?? false);
+        $theoryCategoryQuestionsPerPage = max(1, (int) ($filters['theory_category_questions_per_page'] ?? 4));
+        $theoryCategoryPageGroups = is_array($filters['theory_category_page_groups'] ?? null)
+            ? $filters['theory_category_page_groups']
+            : [];
 
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
         if (! empty($selectedSeederClasses) || ! empty($selectedTags) || ! empty($selectedAggregatedTags)) {
@@ -84,142 +88,146 @@ class GrammarTestFilterService
         $questions = collect();
         $canRandomizeFiltered = false;
 
-        foreach ($groups as $group) {
-            $take = $questionsPerGroup + ($remaining > 0 ? 1 : 0);
-            if ($remaining > 0) {
-                $remaining--;
-            }
-
-            $query = Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'source'])
-                ->whereBetween('difficulty', [$difficultyFrom, $difficultyTo]);
-
-            if (! empty($selectedLevels)) {
-                $query->whereIn('level', $selectedLevels);
-            }
-
-            if ($groupBy === 'source_id' && $group !== null) {
-                $query->where('source_id', $group);
-            } elseif ($groupBy === 'category_id' && $group !== null) {
-                $query->where('category_id', $group);
-            }
-
-            if (! empty($selectedSeederClasses)) {
-                $query->whereIn('seeder', $selectedSeederClasses);
-            }
-
-            if (! empty($selectedQuestionTypes) && Schema::hasColumn('questions', 'type')) {
-                $query->whereIn('type', $selectedQuestionTypes);
-            }
-
-            if (! empty($selectedSources) && $groupBy !== 'source_id') {
-                $query->whereIn('source_id', $selectedSources);
-            }
-
-            if (! empty($selectedCategories) && $groupBy !== 'category_id') {
-                $query->whereIn('category_id', $selectedCategories);
-            }
-
-            if (! empty($selectedTags)) {
-                $query->whereHas('tags', fn ($q) => $q->whereIn('name', $selectedTags));
-            }
-
-            if ($blankCountFrom !== null) {
-                $query->has('answers', '>=', $blankCountFrom);
-            }
-
-            if ($blankCountTo !== null) {
-                $query->has('answers', '<=', $blankCountTo);
-            }
-
-            // Handle aggregated tags filtering
-            if (! empty($selectedAggregatedTags)) {
-                $aggregations = $this->aggregationService->getAggregations();
-                
-                // Build a lookup map for efficient tag expansion
-                $mainTagToSimilarTags = [];
-                foreach ($aggregations as $aggregation) {
-                    $mainTagToSimilarTags[$aggregation['main_tag']] = $aggregation['similar_tags'] ?? [];
+        if ($isTheoryCategoryPageTest && $theoryCategoryPageGroups !== []) {
+            $questions = $this->selectTheoryCategoryPageQuestions($filters, $theoryCategoryPageGroups, $theoryCategoryQuestionsPerPage);
+        } else {
+            foreach ($groups as $group) {
+                $take = $questionsPerGroup + ($remaining > 0 ? 1 : 0);
+                if ($remaining > 0) {
+                    $remaining--;
                 }
-                
-                // Build a list of all tags that should be matched
-                $tagsToMatch = [];
-                foreach ($selectedAggregatedTags as $mainTag) {
-                    // Add the main tag itself
-                    $tagsToMatch[] = $mainTag;
-                    
-                    // Add similar tags from the lookup map
-                    if (isset($mainTagToSimilarTags[$mainTag])) {
-                        $tagsToMatch = array_merge($tagsToMatch, $mainTagToSimilarTags[$mainTag]);
+
+                $query = Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'source'])
+                    ->whereBetween('difficulty', [$difficultyFrom, $difficultyTo]);
+
+                if (! empty($selectedLevels)) {
+                    $query->whereIn('level', $selectedLevels);
+                }
+
+                if ($groupBy === 'source_id' && $group !== null) {
+                    $query->where('source_id', $group);
+                } elseif ($groupBy === 'category_id' && $group !== null) {
+                    $query->where('category_id', $group);
+                }
+
+                if (! empty($selectedSeederClasses)) {
+                    $query->whereIn('seeder', $selectedSeederClasses);
+                }
+
+                if (! empty($selectedQuestionTypes) && Schema::hasColumn('questions', 'type')) {
+                    $query->whereIn('type', $selectedQuestionTypes);
+                }
+
+                if (! empty($selectedSources) && $groupBy !== 'source_id') {
+                    $query->whereIn('source_id', $selectedSources);
+                }
+
+                if (! empty($selectedCategories) && $groupBy !== 'category_id') {
+                    $query->whereIn('category_id', $selectedCategories);
+                }
+
+                if (! empty($selectedTags)) {
+                    $query->whereHas('tags', fn ($q) => $q->whereIn('name', $selectedTags));
+                }
+
+                if ($blankCountFrom !== null) {
+                    $query->has('answers', '>=', $blankCountFrom);
+                }
+
+                if ($blankCountTo !== null) {
+                    $query->has('answers', '<=', $blankCountTo);
+                }
+
+                // Handle aggregated tags filtering
+                if (! empty($selectedAggregatedTags)) {
+                    $aggregations = $this->aggregationService->getAggregations();
+
+                    // Build a lookup map for efficient tag expansion
+                    $mainTagToSimilarTags = [];
+                    foreach ($aggregations as $aggregation) {
+                        $mainTagToSimilarTags[$aggregation['main_tag']] = $aggregation['similar_tags'] ?? [];
+                    }
+
+                    // Build a list of all tags that should be matched
+                    $tagsToMatch = [];
+                    foreach ($selectedAggregatedTags as $mainTag) {
+                        // Add the main tag itself
+                        $tagsToMatch[] = $mainTag;
+
+                        // Add similar tags from the lookup map
+                        if (isset($mainTagToSimilarTags[$mainTag])) {
+                            $tagsToMatch = array_merge($tagsToMatch, $mainTagToSimilarTags[$mainTag]);
+                        }
+                    }
+
+                    $tagsToMatch = array_unique($tagsToMatch);
+
+                    if (! empty($tagsToMatch)) {
+                        $query->whereHas('tags', fn ($q) => $q->whereIn('name', $tagsToMatch));
                     }
                 }
-                
-                $tagsToMatch = array_unique($tagsToMatch);
-                
-                if (!empty($tagsToMatch)) {
-                    $query->whereHas('tags', fn ($q) => $q->whereIn('name', $tagsToMatch));
+
+                $onlyFlags = [];
+                if ($onlyAi) {
+                    $onlyFlags[] = 1;
                 }
-            }
+                if ($onlyAiV2) {
+                    $onlyFlags[] = 2;
+                }
 
-            $onlyFlags = [];
-            if ($onlyAi) {
-                $onlyFlags[] = 1;
-            }
-            if ($onlyAiV2) {
-                $onlyFlags[] = 2;
-            }
-
-            if (! empty($onlyFlags)) {
-                if (count($onlyFlags) === 1) {
-                    $query->where('flag', $onlyFlags[0]);
+                if (! empty($onlyFlags)) {
+                    if (count($onlyFlags) === 1) {
+                        $query->where('flag', $onlyFlags[0]);
+                    } else {
+                        $query->whereIn('flag', $onlyFlags);
+                    }
                 } else {
-                    $query->whereIn('flag', $onlyFlags);
-                }
-            } else {
-                $allowedFlags = [0];
-                if ($isAggregatedTheoryPageTest) {
-                    $allowedFlags[] = 2;
-                }
-                if ($includeAi) {
-                    $allowedFlags[] = 1;
-                }
-                if ($includeAiV2) {
-                    $allowedFlags[] = 2;
-                }
+                    $allowedFlags = [0];
+                    if ($isAggregatedTheoryPageTest) {
+                        $allowedFlags[] = 2;
+                    }
+                    if ($includeAi) {
+                        $allowedFlags[] = 1;
+                    }
+                    if ($includeAiV2) {
+                        $allowedFlags[] = 2;
+                    }
 
-                $allowedFlags = array_values(array_unique($allowedFlags));
+                    $allowedFlags = array_values(array_unique($allowedFlags));
 
-                if (count($allowedFlags) === 1) {
-                    $query->where('flag', $allowedFlags[0]);
-                } elseif (count($allowedFlags) < 3) {
-                    $query->whereIn('flag', $allowedFlags);
-                }
-            }
-
-            $availableCount = (clone $query)->count();
-
-            if ($availableCount > $take && $take > 0) {
-                $canRandomizeFiltered = true;
-            }
-
-            if ($take > 0) {
-                $selectionQuery = clone $query;
-
-                if ($isTheoryPageMixedAllLevels && ! empty($selectedSeederClasses)) {
-                    $selected = $this->selectMixedAllLevelsQuestions(
-                        $selectionQuery->get(),
-                        $selectedLevels,
-                        $selectedSeederClasses,
-                        $mixedAllLevelsQuestionsPerLevel
-                    );
-                } elseif ($randomizeFiltered && $availableCount > $take) {
-                    $selectionQuery->inRandomOrder();
-
-                    $selected = $selectionQuery->take($take)->get();
-                } else {
-                    $selected = $selectionQuery->orderBy('id')->take($take)->get();
+                    if (count($allowedFlags) === 1) {
+                        $query->where('flag', $allowedFlags[0]);
+                    } elseif (count($allowedFlags) < 3) {
+                        $query->whereIn('flag', $allowedFlags);
+                    }
                 }
 
-                $questions = $questions->merge($selected);
+                $availableCount = (clone $query)->count();
+
+                if ($availableCount > $take && $take > 0) {
+                    $canRandomizeFiltered = true;
+                }
+
+                if ($take > 0) {
+                    $selectionQuery = clone $query;
+
+                    if ($isTheoryPageMixedAllLevels && ! empty($selectedSeederClasses)) {
+                        $selected = $this->selectMixedAllLevelsQuestions(
+                            $selectionQuery->get(),
+                            $selectedLevels,
+                            $selectedSeederClasses,
+                            $mixedAllLevelsQuestionsPerLevel
+                        );
+                    } elseif ($randomizeFiltered && $availableCount > $take) {
+                        $selectionQuery->inRandomOrder();
+
+                        $selected = $selectionQuery->take($take)->get();
+                    } else {
+                        $selected = $selectionQuery->orderBy('id')->take($take)->get();
+                    }
+
+                    $questions = $questions->merge($selected);
+                }
             }
         }
 
@@ -240,10 +248,10 @@ class GrammarTestFilterService
             ? Tag::whereHas('questions')->get()
             : collect();
 
-        $order = array_flip(['A1','A2','B1','B2','C1','C2']);
+        $order = array_flip(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
         $levels = Question::select('level')->distinct()->pluck('level')
             ->filter()
-            ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+            ->sortBy(fn ($lvl) => $order[$lvl] ?? 99)
             ->values();
 
         $seederClasses = Schema::hasColumn('questions', 'seeder')
@@ -393,6 +401,20 @@ class GrammarTestFilterService
                 ),
                 self::MIXED_ALL_LEVELS_QUESTIONS_PER_LEVEL
             )),
+            'theory_category_page_test' => $this->toBool(
+                Arr::get($input, 'theory_category_page_test', Arr::get($input, '__meta.aggregated_theory_category_test', false))
+            ),
+            'theory_category_questions_per_page' => max(1, $this->intValue(
+                Arr::get(
+                    $input,
+                    'theory_category_questions_per_page',
+                    Arr::get($input, '__meta.theory_category_questions_per_page', 4)
+                ),
+                4
+            )),
+            'theory_category_page_groups' => $this->theoryCategoryPageGroups(
+                Arr::get($input, 'theory_category_page_groups', [])
+            ),
         ];
     }
 
@@ -478,6 +500,140 @@ class GrammarTestFilterService
         return $selected->values();
     }
 
+    private function selectTheoryCategoryPageQuestions(
+        array $filters,
+        array $pageGroups,
+        int $questionsPerPage
+    ): Collection {
+        $selected = collect();
+        $levels = $this->stringArray($filters['levels'] ?? []);
+        $selectedQuestionTypes = $this->stringArray($filters['question_types'] ?? []);
+        $selectedTags = $this->stringArray($filters['tags'] ?? []);
+        $selectedAggregatedTags = $this->stringArray($filters['aggregated_tags'] ?? []);
+        $blankCountFrom = $this->intNullable($filters['blank_count_from'] ?? null);
+        $blankCountTo = $this->intNullable($filters['blank_count_to'] ?? null);
+        $randomizeFiltered = $this->toBool($filters['randomize_filtered'] ?? true);
+
+        foreach ($pageGroups as $group) {
+            $seederClasses = $this->stringArray($group['seeder_classes'] ?? []);
+
+            if ($seederClasses === []) {
+                continue;
+            }
+
+            $query = Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'source'])
+                ->whereBetween('difficulty', [
+                    $this->intValue($filters['difficulty_from'] ?? null, 1),
+                    $this->intValue($filters['difficulty_to'] ?? null, 10),
+                ])
+                ->whereIn('seeder', $seederClasses);
+
+            if ($levels !== []) {
+                $query->whereIn('level', $levels);
+            }
+
+            if ($selectedQuestionTypes !== [] && Schema::hasColumn('questions', 'type')) {
+                $query->whereIn('type', $selectedQuestionTypes);
+            }
+
+            if ($selectedTags !== []) {
+                $query->whereHas('tags', fn ($q) => $q->whereIn('name', $selectedTags));
+            }
+
+            if ($selectedAggregatedTags !== []) {
+                $tagsToMatch = $this->expandedAggregatedTags($selectedAggregatedTags);
+
+                if ($tagsToMatch !== []) {
+                    $query->whereHas('tags', fn ($q) => $q->whereIn('name', $tagsToMatch));
+                }
+            }
+
+            if ($blankCountFrom !== null) {
+                $query->has('answers', '>=', $blankCountFrom);
+            }
+
+            if ($blankCountTo !== null) {
+                $query->has('answers', '<=', $blankCountTo);
+            }
+
+            $this->applyQuestionFlagFilters($query, $filters);
+
+            if ($randomizeFiltered) {
+                $query->inRandomOrder();
+            } else {
+                $query->orderBy('id');
+            }
+
+            $selected = $selected->merge($query->take($questionsPerPage)->get());
+        }
+
+        return ($randomizeFiltered ? $selected->shuffle() : $selected)->values();
+    }
+
+    private function applyQuestionFlagFilters($query, array $filters): void
+    {
+        $onlyFlags = [];
+        if ($this->toBool($filters['only_ai'] ?? false)) {
+            $onlyFlags[] = 1;
+        }
+        if ($this->toBool($filters['only_ai_v2'] ?? false)) {
+            $onlyFlags[] = 2;
+        }
+
+        if ($onlyFlags !== []) {
+            if (count($onlyFlags) === 1) {
+                $query->where('flag', $onlyFlags[0]);
+            } else {
+                $query->whereIn('flag', $onlyFlags);
+            }
+
+            return;
+        }
+
+        $allowedFlags = [0];
+        if (
+            $this->toBool($filters['aggregated_theory_page_test'] ?? false)
+            || $this->toBool($filters['theory_category_page_test'] ?? false)
+        ) {
+            $allowedFlags[] = 2;
+        }
+        if ($this->toBool($filters['include_ai'] ?? false)) {
+            $allowedFlags[] = 1;
+        }
+        if ($this->toBool($filters['include_ai_v2'] ?? false)) {
+            $allowedFlags[] = 2;
+        }
+
+        $allowedFlags = array_values(array_unique($allowedFlags));
+
+        if (count($allowedFlags) === 1) {
+            $query->where('flag', $allowedFlags[0]);
+        } elseif (count($allowedFlags) < 3) {
+            $query->whereIn('flag', $allowedFlags);
+        }
+    }
+
+    private function expandedAggregatedTags(array $selectedAggregatedTags): array
+    {
+        $aggregations = $this->aggregationService->getAggregations();
+        $mainTagToSimilarTags = [];
+
+        foreach ($aggregations as $aggregation) {
+            $mainTagToSimilarTags[$aggregation['main_tag']] = $aggregation['similar_tags'] ?? [];
+        }
+
+        $tagsToMatch = [];
+        foreach ($selectedAggregatedTags as $mainTag) {
+            $tagsToMatch[] = $mainTag;
+
+            if (isset($mainTagToSimilarTags[$mainTag])) {
+                $tagsToMatch = array_merge($tagsToMatch, $mainTagToSimilarTags[$mainTag]);
+            }
+        }
+
+        return array_values(array_unique($tagsToMatch));
+    }
+
     private function orderedLevels(array $levels): array
     {
         $order = array_flip(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
@@ -494,12 +650,38 @@ class GrammarTestFilterService
 
     private function intArray($value): array
     {
-        return collect($value)->filter(fn($v) => $v !== null && $v !== '')->map(fn($v) => (int) $v)->values()->all();
+        return collect($value)->filter(fn ($v) => $v !== null && $v !== '')->map(fn ($v) => (int) $v)->values()->all();
     }
 
     private function stringArray($value): array
     {
-        return collect($value)->filter(fn($v) => is_string($v) && $v !== '')->map(fn($v) => (string) $v)->values()->all();
+        return collect($value)->filter(fn ($v) => is_string($v) && $v !== '')->map(fn ($v) => (string) $v)->values()->all();
+    }
+
+    private function theoryCategoryPageGroups($value): array
+    {
+        return collect(is_array($value) ? $value : [])
+            ->map(function ($group): ?array {
+                if (! is_array($group)) {
+                    return null;
+                }
+
+                $seederClasses = $this->stringArray(Arr::get($group, 'seeder_classes', []));
+
+                if ($seederClasses === []) {
+                    return null;
+                }
+
+                return [
+                    'page_id' => $this->intValue(Arr::get($group, 'page_id'), 0),
+                    'page_slug' => trim((string) Arr::get($group, 'page_slug', '')),
+                    'page_title' => trim((string) Arr::get($group, 'page_title', '')),
+                    'seeder_classes' => $seederClasses,
+                ];
+            })
+            ->filter()
+            ->values()
+            ->all();
     }
 
     private function intValue($value, int $default): int

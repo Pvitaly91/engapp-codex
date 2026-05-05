@@ -5,24 +5,21 @@ namespace App\Services;
 use App\Models\Question;
 use App\Models\SavedGrammarTest;
 use App\Models\Test;
-use App\Services\GrammarTestFilterService;
-use App\Services\VirtualSavedTest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 
 class SavedTestResolver
 {
-    /** Maximum length for base64 encoded filter input (10KB) */
-    private const MAX_ENCODED_FILTER_LENGTH = 10240;
+    /** Maximum length for base64 encoded filter input (64KB). Category theory tests carry page-group metadata. */
+    private const MAX_ENCODED_FILTER_LENGTH = 65536;
 
     /** Maximum length for test name parameter */
     private const MAX_NAME_LENGTH = 255;
 
     public function __construct(
         private GrammarTestFilterService $filterService,
-    ) {
-    }
+    ) {}
 
     public function resolve(string $slug): ResolvedSavedTest
     {
@@ -111,7 +108,7 @@ class SavedTestResolver
 
     /**
      * Resolve a virtual test from query parameters.
-     * 
+     *
      * This supports filter-based tests that aren't stored in the database.
      * The filters are passed as a base64-encoded JSON string in the 'filters' query param.
      */
@@ -119,18 +116,18 @@ class SavedTestResolver
     {
         $request = request();
         $encodedFilters = $request->query('filters');
-        
-        if (!$encodedFilters) {
+
+        if (! $encodedFilters) {
             return null;
         }
 
         // Validate input length to prevent abuse
-        if (!is_string($encodedFilters) || strlen($encodedFilters) > self::MAX_ENCODED_FILTER_LENGTH) {
+        if (! is_string($encodedFilters) || strlen($encodedFilters) > self::MAX_ENCODED_FILTER_LENGTH) {
             return null;
         }
 
         // Only allow valid base64 characters
-        if (!preg_match('/^[A-Za-z0-9+\/=]+$/', $encodedFilters)) {
+        if (! preg_match('/^[A-Za-z0-9+\/=]+$/', $encodedFilters)) {
             return null;
         }
 
@@ -140,18 +137,18 @@ class SavedTestResolver
         }
 
         $filters = json_decode($decodedFilters, true);
-        if (!is_array($filters)) {
+        if (! is_array($filters)) {
             return null;
         }
 
         // Validate required filter structure
-        if (!$this->validateFilterStructure($filters)) {
+        if (! $this->validateFilterStructure($filters)) {
             return null;
         }
 
         // Sanitize the name parameter
         $name = $request->query('name', 'Тест');
-        if (!is_string($name) || strlen($name) > self::MAX_NAME_LENGTH) {
+        if (! is_string($name) || strlen($name) > self::MAX_NAME_LENGTH) {
             $name = 'Тест';
         }
 
@@ -199,29 +196,29 @@ class SavedTestResolver
 
     /**
      * Validate the basic structure of filter parameters.
-     * 
+     *
      * This ensures the filters contain expected keys with valid types.
      */
     private function validateFilterStructure(array $filters): bool
     {
         // Check for filter mode (required for virtual tests)
-        if (!isset($filters['__meta']['mode']) || $filters['__meta']['mode'] !== 'filters') {
+        if (! isset($filters['__meta']['mode']) || $filters['__meta']['mode'] !== 'filters') {
             return false;
         }
 
         // Validate tags array
-        if (isset($filters['tags']) && !is_array($filters['tags'])) {
+        if (isset($filters['tags']) && ! is_array($filters['tags'])) {
             return false;
         }
 
         // Validate levels array
-        if (isset($filters['levels']) && !is_array($filters['levels'])) {
+        if (isset($filters['levels']) && ! is_array($filters['levels'])) {
             return false;
         }
 
         // Validate num_questions is a reasonable integer
         if (isset($filters['num_questions'])) {
-            if (!is_int($filters['num_questions']) && !is_numeric($filters['num_questions'])) {
+            if (! is_int($filters['num_questions']) && ! is_numeric($filters['num_questions'])) {
                 return false;
             }
             $numQuestions = (int) $filters['num_questions'];

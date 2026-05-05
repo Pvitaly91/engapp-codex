@@ -68,7 +68,7 @@ class MixedTheoryPageTestRenderTest extends TestCase
             'name' => 'Mixed theory test',
         ];
 
-        $showResponse = $this->get(route('test.show', 'mixed-theory-test') . '?' . http_build_query($query));
+        $showResponse = $this->get(route('test.show', 'mixed-theory-test').'?'.http_build_query($query));
 
         $showResponse->assertOk();
         $showResponse->assertViewHas('questionData', function ($questionData) {
@@ -80,9 +80,9 @@ class MixedTheoryPageTestRenderTest extends TestCase
                 && $items->pluck('type')->contains(Question::TYPE_COMPOSE_TOKENS);
         });
 
-        $selectResponse = $this->get(route('test.select', 'mixed-theory-test') . '?' . http_build_query($query));
+        $selectResponse = $this->get(route('test.select', 'mixed-theory-test').'?'.http_build_query($query));
 
-        $selectResponse->assertRedirect(localized_route('test.show', 'mixed-theory-test') . '?' . http_build_query($query));
+        $selectResponse->assertRedirect(localized_route('test.show', 'mixed-theory-test').'?'.http_build_query($query));
     }
 
     public function test_mixed_all_levels_virtual_test_orders_questions_from_a1_to_c2(): void
@@ -130,7 +130,7 @@ class MixedTheoryPageTestRenderTest extends TestCase
             'name' => 'Mixed all levels theory test',
         ];
 
-        $response = $this->get(route('test.show', 'mixed-all-levels-theory-test') . '?' . http_build_query($query));
+        $response = $this->get(route('test.show', 'mixed-all-levels-theory-test').'?'.http_build_query($query));
 
         $response->assertOk();
         $response->assertViewHas('questionData', function ($questionData) {
@@ -207,7 +207,7 @@ class MixedTheoryPageTestRenderTest extends TestCase
             'name' => 'Mixed all levels capped theory test',
         ];
 
-        $response = $this->get(route('test.show', 'mixed-all-levels-capped-theory-test') . '?' . http_build_query($query));
+        $response = $this->get(route('test.show', 'mixed-all-levels-capped-theory-test').'?'.http_build_query($query));
 
         $response->assertOk();
         $response->assertViewHas('questionData', function ($questionData) {
@@ -223,6 +223,89 @@ class MixedTheoryPageTestRenderTest extends TestCase
                 && $items->pluck('uuid')->unique()->count() === 33
                 && $a1Items->filter(fn (array $item) => str_starts_with($item['uuid'], 'standard-a1-'))->isNotEmpty()
                 && $a1Items->filter(fn (array $item) => str_starts_with($item['uuid'], 'polyglot-a1-'))->isNotEmpty();
+        });
+    }
+
+    public function test_theory_category_virtual_test_takes_four_questions_from_each_page_group(): void
+    {
+        $category = Category::create(['name' => 'Theory category aggregate']);
+
+        $firstSeeder = 'Database\\Seeders\\V3\\AI\\ChatGpt\\CategoryAggregateFirstSeeder';
+        $secondSeeder = 'Database\\Seeders\\V3\\AI\\Gemini\\CategoryAggregateSecondSeeder';
+        $outsideSeeder = 'Database\\Seeders\\V3\\AI\\Gemini\\CategoryAggregateOutsideSeeder';
+
+        foreach ([
+            [$firstSeeder, 'first', 6],
+            [$secondSeeder, 'second', 5],
+            [$outsideSeeder, 'outside', 6],
+        ] as [$seeder, $prefix, $count]) {
+            for ($index = 1; $index <= $count; $index++) {
+                $this->createQuestion(
+                    category: $category,
+                    uuid: sprintf('%s-a1-%02d', $prefix, $index),
+                    question: sprintf('%s A1 question %d.', $prefix, $index),
+                    answersByMarker: ['a1' => 'answer'],
+                    options: ['answer', 'other'],
+                    seeder: $seeder,
+                    type: null,
+                    level: 'A1'
+                );
+            }
+        }
+
+        $filters = [
+            'levels' => ['A1'],
+            'num_questions' => 8,
+            'randomize_filtered' => true,
+            'seeder_classes' => [$firstSeeder, $secondSeeder],
+            'aggregated_theory_page_test' => true,
+            'theory_category_page_test' => true,
+            'theory_category_questions_per_page' => 4,
+            'theory_category_page_groups' => [
+                [
+                    'page_id' => 1,
+                    'page_slug' => 'first-topic',
+                    'page_title' => 'First Topic',
+                    'seeder_classes' => [$firstSeeder],
+                ],
+                [
+                    'page_id' => 2,
+                    'page_slug' => 'second-topic',
+                    'page_title' => 'Second Topic',
+                    'seeder_classes' => [$secondSeeder],
+                ],
+            ],
+            '__meta' => [
+                'mode' => 'filters',
+                'aggregated_theory_category_test' => true,
+                'theory_category_questions_per_page' => 4,
+            ],
+        ];
+
+        $query = [
+            'filters' => base64_encode(json_encode($filters)),
+            'name' => 'Theory category A1 aggregate',
+        ];
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->get(route('test.show', 'theory-category-a1-aggregate').'?'.http_build_query($query));
+
+        $response->assertOk();
+        $response->assertViewHas('questionData', function ($questionData) {
+            $items = collect($questionData);
+            $uuids = $items->pluck('uuid');
+            $firstItems = $items->filter(fn (array $item) => str_starts_with($item['uuid'], 'first-a1-'));
+            $secondItems = $items->filter(fn (array $item) => str_starts_with($item['uuid'], 'second-a1-'));
+
+            return $items->count() === 8
+                && $items->pluck('level')->unique()->values()->all() === ['A1']
+                && $firstItems->count() === 4
+                && $secondItems->count() === 4
+                && $firstItems->every(fn (array $item) => data_get($item, 'tech_info.theory_page.title') === 'First Topic')
+                && $firstItems->every(fn (array $item) => data_get($item, 'tech_info.theory_page.slug') === 'first-topic')
+                && $secondItems->every(fn (array $item) => data_get($item, 'tech_info.theory_page.title') === 'Second Topic')
+                && $secondItems->every(fn (array $item) => data_get($item, 'tech_info.theory_page.slug') === 'second-topic')
+                && $uuids->filter(fn (string $uuid) => str_starts_with($uuid, 'outside-a1-'))->isEmpty();
         });
     }
 

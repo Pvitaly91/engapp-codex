@@ -146,6 +146,7 @@ function renderTechnicalInfoBlock(question, context = 'default') {
 
     const info = question.tech_info || {};
     const source = info.source || {};
+    const theoryPage = info.theory_page || {};
     const seeder = info.seeder || {};
     const type = info.type || {};
     const markers = Array.isArray(info.markers) ? info.markers.join(', ') : '';
@@ -169,6 +170,15 @@ function renderTechnicalInfoBlock(question, context = 'default') {
                 : '',
             colSpan: true,
         }),
+        (hasTechnicalValue(theoryPage.title) || hasTechnicalValue(theoryPage.id) || hasTechnicalValue(theoryPage.slug))
+            ? renderTechnicalInfoField(techInfoUi('theory_page', 'Theory page'), theoryPage.title || theoryPage.slug || theoryPage.id, {
+                secondary: [
+                    hasTechnicalValue(theoryPage.id) ? `${techInfoUi('theory_page_id', 'Theory page ID')}: ${theoryPage.id}` : '',
+                    hasTechnicalValue(theoryPage.slug) ? `${techInfoUi('theory_page_slug', 'Theory page slug')}: ${theoryPage.slug}` : '',
+                ].filter(Boolean).join(' · '),
+                colSpan: true,
+            })
+            : '',
         renderTechnicalInfoField(techInfoUi('seeder', 'Seeder'), seeder.name || seeder.class, {
             secondary: seeder.class && seeder.class !== seeder.name ? seeder.class : '',
             code: true,

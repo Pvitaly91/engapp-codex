@@ -79,7 +79,7 @@ abstract class SeededTheoryTestCase extends TestCase
             mkdir($directory, 0777, true);
         }
 
-        self::$databasePath ??= $directory . DIRECTORY_SEPARATOR . sprintf(
+        self::$databasePath ??= $directory.DIRECTORY_SEPARATOR.sprintf(
             'theory-suite-%s.sqlite',
             getmypid() ?: uniqid('process-', true)
         );
@@ -123,7 +123,7 @@ abstract class SeededTheoryTestCase extends TestCase
 
     private function flushCompiledViews(string $path): void
     {
-        foreach (glob($path . DIRECTORY_SEPARATOR . '*.php') ?: [] as $compiledView) {
+        foreach (glob($path.DIRECTORY_SEPARATOR.'*.php') ?: [] as $compiledView) {
             @unlink($compiledView);
         }
     }
@@ -139,6 +139,9 @@ abstract class SeededTheoryTestCase extends TestCase
         $promptLinkedTests = Mockery::mock(TheoryPagePromptLinkedTestsService::class);
         $promptLinkedTests
             ->shouldReceive('buildForPage')
+            ->andReturn(collect());
+        $promptLinkedTests
+            ->shouldReceive('buildForCategory')
             ->andReturn(collect());
         $this->app->instance(TheoryPagePromptLinkedTestsService::class, $promptLinkedTests);
 
