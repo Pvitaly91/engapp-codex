@@ -1,11 +1,35 @@
+@php
+    $__questionReportAdmin = (bool) ($isAdmin ?? false);
+    $__questionReportIssueCatalog = $__questionReportAdmin ? ($questionReportIssueCatalog ?? []) : [];
+    $__questionReportsByQuestion = $__questionReportAdmin ? ($questionReportsByQuestion ?? []) : [];
+    $__questionReportUi = $__questionReportAdmin ? ($questionReportUi ?? []) : [];
+@endphp
+
+<style>
+    [data-question-reported="1"] {
+        border-color: #f59e0b !important;
+        background: #fffbeb !important;
+        box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.24);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        [data-question-reported="1"] {
+            background: rgba(69, 26, 3, 0.3) !important;
+        }
+    }
+</style>
+
 <script>
 window.FRONTEND_TESTS_I18N = @json(__('frontend.tests'));
 window.__IS_ADMIN__ = Boolean(@json($isAdmin ?? false));
 window.__SHOW_TEST_TECH_INFO__ = Boolean(@json($showTechnicalInfo ?? false));
-window.__QUESTION_REPORT_ENDPOINT__ = @json(route('question-reports.store'));
+window.__QUESTION_REPORT_ENDPOINT__ = @json($__questionReportAdmin ? route('question-reports.store') : null);
 window.__QUESTION_REPORT_TEST_SLUG__ = @json((string) data_get($test ?? null, 'slug', ''));
 window.__QUESTION_REPORT_TEST_NAME__ = @json((string) data_get($test ?? null, 'name', ''));
 window.__QUESTION_REPORT_MODE__ = @json((string) ($jsStateMode ?? ''));
+window.__QUESTION_REPORT_ISSUE_CATALOG__ = @json($__questionReportIssueCatalog);
+window.__QUESTION_REPORT_BY_QUESTION__ = @json($__questionReportsByQuestion);
+window.__QUESTION_REPORT_UI__ = @json($__questionReportUi);
 
 function getTestUiValue(path, fallback = '') {
     const source = window.FRONTEND_TESTS_I18N || {};
@@ -230,7 +254,26 @@ function renderTechnicalInfoBlock(question, context = 'default') {
     `;
 }
 
+function getQuestionReportObjectValue(path) {
+    const source = window.__QUESTION_REPORT_UI__ || {};
+    return String(path || '')
+        .split('.')
+        .reduce((acc, segment) => {
+            if (acc && typeof acc === 'object' && Object.prototype.hasOwnProperty.call(acc, segment)) {
+                return acc[segment];
+            }
+
+            return undefined;
+        }, source);
+}
+
 function questionReportUi(key, fallback = '') {
+    const adminValue = getQuestionReportObjectValue(key);
+
+    if (adminValue !== undefined) {
+        return adminValue;
+    }
+
     return testUi(`question_report.${key}`, {}, fallback);
 }
 
@@ -250,6 +293,61 @@ function reportQuestionText(question) {
     return String(question?.question ?? question?.sourceTextUk ?? question?.text ?? '').trim();
 }
 
+function questionReportIssueCatalog() {
+    const catalog = window.__QUESTION_REPORT_ISSUE_CATALOG__;
+
+    return Array.isArray(catalog) ? catalog : [];
+}
+
+function questionReportIssueCheckboxes() {
+    const items = questionReportIssueCatalog();
+    if (items.length === 0) {
+        return '';
+    }
+
+    const title = html(questionReportUi('title', 'Що не так із питанням?'));
+    const note = html(questionReportUi('comment_optional', 'Коментар необов’язковий, якщо вибрано тип помилки'));
+    const otherHint = html(questionReportUi('other_requires_comment_hint', 'Опишіть проблему в коментарі'));
+
+    const rows = items.map((issue) => {
+        const key = String(issue?.key ?? issue?.slug ?? '');
+        const label = String(issue?.label ?? key);
+        const description = String(issue?.description ?? '');
+        if (key === '') {
+            return '';
+        }
+
+        const labelText = html(label);
+        const descriptionMarkup = description
+            ? `<span class="mt-0.5 block text-xs leading-5" style="color:#9a3412;">${html(description)}</span>`
+            : '';
+
+        return `
+            <label class="flex items-start gap-2 rounded-xl border px-3 py-2 transition hover:bg-orange-50"
+                   style="border-color:#fed7aa;background:#fffaf2;">
+                <input type="checkbox"
+                       name="issue_types[]"
+                       value="${html(key)}"
+                       class="mt-1 h-4 w-4 rounded border-orange-300 text-orange-600 focus:ring-orange-400"
+                       data-question-report-issue>
+                <span class="block">
+                    <span class="block text-sm font-semibold" style="color:#7c2d12;">${labelText}</span>
+                    ${descriptionMarkup}
+                </span>
+            </label>
+        `;
+    }).filter(Boolean).join('');
+
+    return `
+        <div class="mb-3">
+            <div class="text-sm font-bold" style="color:#7c2d12;">${title}</div>
+            <p class="mt-1 text-xs" style="color:#b45309;">${note}</p>
+            <div class="mt-2 grid gap-2 sm:grid-cols-2">${rows}</div>
+            <p class="mt-2 hidden text-xs font-semibold" style="color:#9a3412;" data-question-report-other-hint>${otherHint}</p>
+        </div>
+    `;
+}
+
 function renderQuestionReportBlock(question, context = 'default') {
     if (!window.__IS_ADMIN__ || !question) {
         return '';
@@ -266,6 +364,7 @@ function renderQuestionReportBlock(question, context = 'default') {
     const wrapperStyles = context === 'drag'
         ? 'grid-column: 2 / -1; margin-top: 10px;'
         : 'margin-top: 14px;';
+    const checkboxes = questionReportIssueCheckboxes();
 
     return `
         <div class="js-question-report-block rounded-2xl border" style="${wrapperStyles} border-color:#fed7aa;background:#fff7ed;"
@@ -275,7 +374,10 @@ function renderQuestionReportBlock(question, context = 'default') {
             <div class="flex flex-wrap items-center justify-between gap-2 px-4 py-3">
                 <div>
                     <div class="text-[10px] font-extrabold uppercase tracking-[0.16em]" style="color:#c2410c;">${html(questionReportUi('admin_only', 'Admin only'))}</div>
-                    <div class="mt-1 text-sm font-semibold" style="color:#7c2d12;">${html(questionReportUi('title', 'Report question issue'))}</div>
+                    <div class="mt-1 flex flex-wrap items-center gap-2 text-sm font-semibold" style="color:#7c2d12;">
+                        <span>${html(questionReportUi('admin_panel_title', 'Question report'))}</span>
+                        <span class="hidden rounded-full bg-amber-200 px-2 py-0.5 text-[11px] font-extrabold uppercase tracking-[0.12em]" style="color:#7c2d12;" data-question-report-badge></span>
+                    </div>
                 </div>
                 <button type="button"
                     class="rounded-xl border px-3 py-2 text-xs font-extrabold uppercase tracking-[0.12em] transition hover:bg-orange-100"
@@ -284,16 +386,18 @@ function renderQuestionReportBlock(question, context = 'default') {
                     ${html(questionReportUi('toggle', 'Report'))}
                 </button>
             </div>
+            <div class="border-t" style="border-color:#fed7aa;" data-question-report-existing></div>
             <form class="hidden border-t px-4 pb-4 pt-3" style="border-color:#fed7aa;" data-question-report-form>
+                ${checkboxes}
                 <label class="block text-xs font-bold uppercase tracking-[0.14em]" style="color:#9a3412;">
                     ${html(questionReportUi('comment_label', 'Comment'))}
                 </label>
+                <p class="mt-1 text-xs" style="color:#b45309;">${html(questionReportUi('comment_optional', 'Comment is optional when an issue type is selected'))}</p>
                 <textarea
                     class="mt-2 min-h-[84px] w-full rounded-xl border px-3 py-2 text-sm leading-6 focus:outline-none focus:ring-2"
                     style="border-color:#fdba74;--tw-ring-color:#fb923c;"
                     name="comment"
                     maxlength="4000"
-                    required
                     placeholder="${html(questionReportUi('comment_placeholder', 'Describe what is wrong in the question or answer.'))}"></textarea>
                 <div class="mt-3 flex flex-wrap items-center gap-3">
                     <button type="submit"
@@ -308,6 +412,188 @@ function renderQuestionReportBlock(question, context = 'default') {
     `;
 }
 
+function questionReportLookupKeys(block) {
+    const keys = [];
+    const id = (block?.dataset?.questionId || '').trim();
+    const uuid = (block?.dataset?.questionUuid || '').trim();
+    if (id) keys.push(id);
+    if (uuid && uuid !== id) keys.push(uuid);
+
+    return keys;
+}
+
+function questionReportFindExisting(block) {
+    const map = window.__QUESTION_REPORT_BY_QUESTION__;
+    if (!map || typeof map !== 'object') {
+        return [];
+    }
+
+    const seen = new Set();
+    const collected = [];
+    for (const key of questionReportLookupKeys(block)) {
+        const list = map[key];
+        if (!Array.isArray(list)) continue;
+        for (const card of list) {
+            if (!card || typeof card !== 'object') continue;
+            const id = String(card.id || '');
+            if (id === '' || seen.has(id)) continue;
+            seen.add(id);
+            collected.push(card);
+        }
+    }
+
+    return collected;
+}
+
+function questionReportIssueLabel(slug) {
+    const entry = questionReportIssueCatalog().find((item) => item?.key === slug || item?.slug === slug);
+
+    return entry ? String(entry.label || slug) : String(slug);
+}
+
+function questionReportFormatDate(iso) {
+    if (!iso) return '';
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return String(iso);
+    const pad = (n) => String(n).padStart(2, '0');
+
+    return `${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
+function createQuestionReportExistingPanel(reports) {
+    if (!Array.isArray(reports) || reports.length === 0) {
+        return null;
+    }
+
+    const root = document.createElement('div');
+    root.className = 'px-4 py-3';
+    root.dataset.questionReportExistingInner = '1';
+
+    const heading = document.createElement('div');
+    heading.className = 'text-[10px] font-extrabold uppercase tracking-[0.16em]';
+    heading.style.color = '#9a3412';
+    heading.textContent = questionReportUi('admin_panel_title', 'Question report');
+    root.appendChild(heading);
+
+    const list = document.createElement('ul');
+    list.className = 'mt-2 space-y-2';
+
+    reports.forEach((card) => {
+        const item = document.createElement('li');
+        item.className = 'rounded-xl border px-3 py-2';
+        item.style.borderColor = '#fdba74';
+        item.style.background = '#ffedd5';
+
+        const issueTypes = Array.isArray(card.issue_types)
+            ? card.issue_types
+            : (Array.isArray(card.issues) ? card.issues : []);
+        const issueLabels = Array.isArray(card.issue_labels) ? card.issue_labels : [];
+        const chips = document.createElement('div');
+        chips.className = 'flex flex-wrap items-center gap-1.5';
+
+        if (issueTypes.length > 0 || issueLabels.length > 0) {
+            const labels = issueLabels.length > 0
+                ? issueLabels
+                : issueTypes.map((slug) => questionReportIssueLabel(slug));
+            labels.forEach((label) => {
+                const chip = document.createElement('span');
+                chip.className = 'inline-flex items-center rounded-full bg-orange-200 px-2 py-0.5 text-[11px] font-bold';
+                chip.style.color = '#7c2d12';
+                chip.textContent = String(label || '');
+                chips.appendChild(chip);
+            });
+        } else {
+            const chip = document.createElement('span');
+            chip.className = 'inline-flex items-center rounded-full bg-orange-100 px-2 py-0.5 text-[11px] font-bold';
+            chip.style.color = '#9a3412';
+            chip.textContent = questionReportUi('no_issue_type', 'Issue type not specified');
+            chips.appendChild(chip);
+        }
+
+        item.appendChild(chips);
+
+        const comment = String(card.comment || '').trim();
+        const commentBlock = document.createElement('div');
+        commentBlock.className = 'mt-1 whitespace-pre-line text-sm';
+        commentBlock.style.color = comment ? '#7c2d12' : '#9a3412';
+        commentBlock.textContent = comment || questionReportUi('no_comment', 'No comment');
+        item.appendChild(commentBlock);
+
+        const meta = [
+            questionReportFormatDate(card.reported_at),
+            card?.seeder?.class ? String(card.seeder.class) : '',
+        ].filter(Boolean).join(' · ');
+
+        if (meta) {
+            const metaNode = document.createElement('div');
+            metaNode.className = 'mt-1 text-[11px] uppercase tracking-[0.14em]';
+            metaNode.style.color = '#9a3412';
+            metaNode.textContent = meta;
+            item.appendChild(metaNode);
+        }
+
+        list.appendChild(item);
+    });
+
+    root.appendChild(list);
+
+    return root;
+}
+
+function renderQuestionReportExistingForBlock(block) {
+    if (!block) return;
+    const slot = block.querySelector('[data-question-report-existing]');
+    if (!slot) return;
+
+    const reports = questionReportFindExisting(block);
+    slot.replaceChildren();
+
+    const panel = createQuestionReportExistingPanel(reports);
+    if (panel) {
+        slot.appendChild(panel);
+    }
+
+    const badge = block.querySelector('[data-question-report-badge]');
+    if (badge) {
+        badge.textContent = questionReportUi('admin_badge', 'Has report');
+        badge.classList.toggle('hidden', reports.length === 0);
+    }
+
+    const wrapper = block.closest('article[data-idx]')
+        || block.closest('.drag-quiz__row')
+        || block.closest('.match-card');
+    if (wrapper) {
+        if (reports.length > 0) {
+            wrapper.dataset.questionReported = '1';
+        } else {
+            delete wrapper.dataset.questionReported;
+        }
+    }
+}
+
+function questionReportRecordLocally(report) {
+    if (!report || typeof report !== 'object') return;
+    const map = window.__QUESTION_REPORT_BY_QUESTION__ = window.__QUESTION_REPORT_BY_QUESTION__ || {};
+    const card = {
+        id: report.id || null,
+        status: report.status || 'open',
+        reported_at: report.reported_at || new Date().toISOString(),
+        comment: report.comment || '',
+        issue_types: Array.isArray(report.issue_types) ? report.issue_types : (Array.isArray(report.issues) ? report.issues : []),
+        issue_labels: Array.isArray(report.issue_labels) ? report.issue_labels : [],
+        seeder: report.seeder || {},
+        test: report.test || {},
+    };
+    const keys = [String(report.question_id || ''), String(report.question_uuid || '')]
+        .filter((key) => key !== '');
+    for (const key of keys) {
+        const list = map[key] = map[key] || [];
+        if (!list.some((existing) => existing.id === card.id)) {
+            list.push(card);
+        }
+    }
+}
+
 function resolveReportQuestion(container) {
     return resolveTechnicalQuestion(container);
 }
@@ -319,6 +605,10 @@ function injectQuestionReportBlock(container) {
 
     const hasExisting = Array.from(container.children || []).some((child) => child.classList?.contains('js-question-report-block'));
     if (hasExisting) {
+        // Refresh the inline existing-reports panel + container highlight even
+        // if the block itself was already injected on a prior pass.
+        const existingBlock = Array.from(container.children).find((child) => child.classList?.contains('js-question-report-block'));
+        renderQuestionReportExistingForBlock(existingBlock);
         return;
     }
 
@@ -338,6 +628,7 @@ function injectQuestionReportBlock(container) {
 
     if (block) {
         container.appendChild(block);
+        renderQuestionReportExistingForBlock(block);
     }
 }
 
@@ -370,10 +661,14 @@ function scheduleQuestionReportEnhancement() {
 
 function questionReportPayload(block, form) {
     const formData = new FormData(form);
+    const issueTypes = Array.from(form.querySelectorAll('[data-question-report-issue]:checked'))
+        .map((input) => String(input.value || '').trim())
+        .filter(Boolean);
 
     return {
         question_id: block.dataset.questionId || null,
         question_uuid: block.dataset.questionUuid || null,
+        issue_types: issueTypes,
         comment: String(formData.get('comment') || '').trim(),
         test_slug: window.__QUESTION_REPORT_TEST_SLUG__ || null,
         test_name: window.__QUESTION_REPORT_TEST_NAME__ || null,
@@ -393,15 +688,24 @@ function questionReportCurrentUrl() {
     }
 }
 
+function updateQuestionReportOtherHint(form) {
+    if (!form) return;
+    const hint = form.querySelector('[data-question-report-other-hint]');
+    if (!hint) return;
+
+    const otherSelected = Boolean(form.querySelector('[data-question-report-issue][value="other"]:checked'));
+    hint.classList.toggle('hidden', !otherSelected);
+}
+
 async function submitQuestionReport(form) {
     const block = form.closest('.js-question-report-block');
     const status = block?.querySelector('[data-question-report-status]');
     const submitButton = form.querySelector('[data-question-report-submit]');
     const payload = questionReportPayload(block, form);
 
-    if (!payload.comment) {
+    if (payload.issue_types.length === 0 && !payload.comment) {
         if (status) {
-            status.textContent = questionReportUi('comment_required', 'Enter a comment.');
+            status.textContent = questionReportUi('validation.issue_or_comment_required', 'Choose at least one issue type or write a comment');
         }
         return;
     }
@@ -439,11 +743,14 @@ async function submitQuestionReport(form) {
 
         const data = await response.json();
         form.reset();
+        updateQuestionReportOtherHint(form);
         if (status) {
-            status.textContent = `${questionReportUi('saved', 'Saved')}: ${data?.report?.file || ''}`;
+            status.textContent = `${questionReportUi('success', questionReportUi('saved', 'Saved'))}: ${data?.report?.file || ''}`;
         }
         if (block) {
             block.dataset.reported = '1';
+            questionReportRecordLocally(data?.report);
+            renderQuestionReportExistingForBlock(block);
         }
     } catch (error) {
         console.error(error);
@@ -492,6 +799,15 @@ function setupQuestionReportControls() {
 
         event.preventDefault();
         submitQuestionReport(form);
+    });
+
+    document.addEventListener('change', (event) => {
+        const issueInput = event.target.closest('[data-question-report-issue]');
+        if (!issueInput) {
+            return;
+        }
+
+        updateQuestionReportOtherHint(issueInput.closest('[data-question-report-form]'));
     });
 
     if (typeof MutationObserver === 'undefined' || !document.body) {

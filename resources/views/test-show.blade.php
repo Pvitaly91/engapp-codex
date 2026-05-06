@@ -903,6 +903,9 @@
             'showTechnicalInfo' => $showTechnicalInfo ?? false,
             'courseContext' => $courseContext,
             'polyglotAdminDebugPayload' => $polyglotAdminDebugPayload ?? null,
+            'questionReportIssueCatalog' => $questionReportIssueCatalog ?? [],
+            'questionReportsByQuestion' => $questionReportsByQuestion ?? [],
+            'questionReportUi' => $questionReportUi ?? [],
         ]) !!}
     </div>
 </div>

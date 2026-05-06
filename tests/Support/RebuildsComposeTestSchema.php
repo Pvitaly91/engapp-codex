@@ -20,6 +20,7 @@ trait RebuildsComposeTestSchema
             'question_hints',
             'question_variants',
             'verb_hints',
+            'question_theory_text_blocks',
             'question_answers',
             'question_marker_tag',
             'question_option_question',
@@ -28,6 +29,8 @@ trait RebuildsComposeTestSchema
             'questions',
             'sources',
             'categories',
+            'tag_text_block',
+            'text_blocks',
             'pages',
             'page_categories',
             'tag_word',
@@ -65,6 +68,23 @@ trait RebuildsComposeTestSchema
             $table->string('title');
             $table->text('text')->nullable();
             $table->string('type')->nullable();
+            $table->string('seeder')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('text_blocks', function (Blueprint $table) {
+            $table->id();
+            $table->uuid('uuid')->nullable()->unique();
+            $table->unsignedBigInteger('page_id')->nullable();
+            $table->unsignedBigInteger('page_category_id')->nullable();
+            $table->string('locale', 8)->default('uk');
+            $table->string('type', 32)->default('box');
+            $table->string('level', 16)->nullable();
+            $table->string('column', 32)->nullable();
+            $table->string('heading')->nullable();
+            $table->string('css_class')->nullable();
+            $table->unsignedInteger('sort_order')->default(0);
+            $table->longText('body')->nullable();
             $table->string('seeder')->nullable();
             $table->timestamps();
         });
@@ -110,6 +130,16 @@ trait RebuildsComposeTestSchema
             $table->string('marker');
             $table->timestamps();
             $table->unique(['question_id', 'tag_id', 'marker'], 'question_marker_tag_unique');
+        });
+
+        Schema::create('question_theory_text_blocks', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('question_id');
+            $table->string('text_block_uuid', 36);
+            $table->unsignedInteger('position')->default(0);
+            $table->timestamps();
+            $table->unique(['question_id', 'text_block_uuid'], 'qttb_unique_question_block');
+            $table->index('text_block_uuid', 'qttb_text_block_uuid_idx');
         });
 
         Schema::create('question_options', function (Blueprint $table) {
@@ -222,6 +252,12 @@ trait RebuildsComposeTestSchema
             $table->unsignedBigInteger('tag_id');
             $table->unsignedBigInteger('word_id');
             $table->unique(['tag_id', 'word_id']);
+        });
+
+        Schema::create('tag_text_block', function (Blueprint $table) {
+            $table->unsignedBigInteger('tag_id');
+            $table->unsignedBigInteger('text_block_id');
+            $table->unique(['tag_id', 'text_block_id']);
         });
 
         Schema::create('seed_runs', function (Blueprint $table) {

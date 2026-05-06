@@ -7,6 +7,8 @@ use App\Models\TextBlock;
 use App\Services\MarkerTheoryMatcherService;
 use App\Services\PolyglotCourseManifestService;
 use App\Services\PolyglotLessonDebugPayloadBuilder;
+use App\Services\QuestionReportFileStore;
+use App\Services\QuestionReportIssueCatalog;
 use App\Services\QuestionTechnicalInfoService;
 use App\Services\QuestionVariantService;
 use App\Services\SavedTestResolver;
@@ -129,7 +131,7 @@ class TestJsV2Controller extends Controller
             'showTechnicalInfo' => $showTechnicalInfo,
             'courseContext' => $courseContext,
             'polyglotAdminDebugPayload' => $polyglotAdminDebugPayload,
-        ], $extra));
+        ], $this->questionReportViewData($questions, $isAdmin), $extra));
     }
 
     protected function renderSavedTestShell(string $slug, string $mode, string $view, array $extra = [])
@@ -159,7 +161,41 @@ class TestJsV2Controller extends Controller
             'usesUuidLinks' => $resolved->usesUuidLinks,
             'isAdmin' => $isAdmin,
             'showTechnicalInfo' => $showTechnicalInfo,
-        ], $extra));
+        ], $this->questionReportViewData($questions, $isAdmin), $extra));
+    }
+
+    protected function questionReportViewData(array $questions, bool $isAdmin): array
+    {
+        if (! $isAdmin) {
+            return [
+                'questionReportIssueCatalog' => [],
+                'questionReportsByQuestion' => [],
+                'questionReportUi' => [],
+            ];
+        }
+
+        $questionIds = collect($questions)
+            ->map(fn ($question) => data_get($question, 'id', data_get($question, 'tech_info.question_id')))
+            ->filter(fn ($id) => filled($id))
+            ->map(fn ($id): string => (string) $id)
+            ->unique()
+            ->values()
+            ->all();
+
+        $questionUuids = collect($questions)
+            ->map(fn ($question) => data_get($question, 'uuid', data_get($question, 'tech_info.question_uuid')))
+            ->filter(fn ($uuid) => filled($uuid))
+            ->map(fn ($uuid): string => (string) $uuid)
+            ->unique()
+            ->values()
+            ->all();
+
+        return [
+            'questionReportIssueCatalog' => app(QuestionReportIssueCatalog::class)->all(),
+            'questionReportsByQuestion' => app(QuestionReportFileStore::class)
+                ->openReportsByQuestionIdentifiers($questionIds, $questionUuids),
+            'questionReportUi' => __('report_question'),
+        ];
     }
 
     protected function buildQuestionDataset($resolved, bool $freshVariants = false, bool $includeTechnicalInfo = false)

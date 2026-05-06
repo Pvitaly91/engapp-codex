@@ -195,6 +195,9 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::get('/question-reports', [QuestionReportController::class, 'index'])->name('question-reports.index');
         Route::post('/question-reports', [QuestionReportController::class, 'store'])->name('question-reports.store');
         Route::post('/question-reports/prompt', [QuestionReportController::class, 'prompt'])->name('question-reports.prompt');
+        Route::patch('/question-reports/{report}', [QuestionReportController::class, 'update'])
+            ->where('report', '[A-Za-z0-9._-]+')
+            ->name('question-reports.update');
         Route::patch('/question-reports/{report}/status', [QuestionReportController::class, 'updateStatus'])
             ->where('report', '[A-Za-z0-9._-]+')
             ->name('question-reports.status');
