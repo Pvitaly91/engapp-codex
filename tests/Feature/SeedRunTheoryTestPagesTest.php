@@ -18,6 +18,7 @@ class SeedRunTheoryTestPagesTest extends TestCase
     public function test_controller_groups_executed_and_pending_seeders_by_theory_page(): void
     {
         $controller = new class(
+            app(SeedRunsService::class),
             app(QuestionDeletionService::class),
             app(SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),

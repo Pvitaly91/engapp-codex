@@ -20,7 +20,7 @@ class ComingSoonMiddleware
         }
 
         // Skip Coming Soon for admin users
-        if ($request->session()->get('admin_authenticated', false)) {
+        if ($request->hasSession() && $request->session()->get('admin_authenticated', false)) {
             return $next($request);
         }
 

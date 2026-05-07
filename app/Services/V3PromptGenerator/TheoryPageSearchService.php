@@ -95,7 +95,7 @@ class TheoryPageSearchService
             'category_slug_path' => $categorySlugs !== [] ? implode('/', $categorySlugs) : null,
             'category_title' => $category?->title,
             'url' => $category
-                ? $this->buildPublicTheoryUrl($category->slug, $page->slug, $siteDomain)
+                ? $this->buildPublicTheoryUrl(implode('/', $categorySlugs), $page->slug, $siteDomain)
                 : null,
             'page_seeder_class' => $page->seeder ?: null,
             'category_seeder_class' => $category?->seeder ?: null,
@@ -172,9 +172,9 @@ class TheoryPageSearchService
         return mb_strimwidth($plain, 0, 700, '...');
     }
 
-    protected function buildPublicTheoryUrl(string $categorySlug, string $pageSlug, string $siteDomain): string
+    protected function buildPublicTheoryUrl(string $categoryPath, string $pageSlug, string $siteDomain): string
     {
-        $path = localized_route('theory.show', ['category' => $categorySlug, 'pageSlug' => $pageSlug], false);
+        $path = localized_route('theory.show', ['categoryPath' => $categoryPath, 'pageSlug' => $pageSlug], false);
         $domain = trim(strtolower($siteDomain));
 
         if (str_contains($domain, '://')) {

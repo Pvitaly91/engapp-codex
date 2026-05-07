@@ -17,6 +17,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
     public function test_controller_builds_related_localization_map_for_executed_seeders(): void
     {
         $controller = new class(
+            app(SeedRunsService::class),
             app(QuestionDeletionService::class),
             app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
@@ -104,6 +105,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
     public function test_controller_expand_refresh_class_names_includes_related_localizations_for_base_seeder(): void
     {
         $controller = new class(
+            app(SeedRunsService::class),
             app(QuestionDeletionService::class),
             app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
@@ -194,6 +196,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
     public function test_controller_builds_available_localization_map_for_pending_seeders(): void
     {
         $controller = new class(
+            app(SeedRunsService::class),
             app(QuestionDeletionService::class),
             app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
@@ -310,6 +313,7 @@ class SeedRunRelatedLocalizationsTest extends TestCase
     public function test_controller_builds_pending_localization_map_for_executed_seeders(): void
     {
         $controller = new class(
+            app(SeedRunsService::class),
             app(QuestionDeletionService::class),
             app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),

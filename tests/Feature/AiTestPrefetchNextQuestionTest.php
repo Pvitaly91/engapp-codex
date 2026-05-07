@@ -2,14 +2,14 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use App\Models\{Category, Tag};
 use App\Services\ChatGPTService;
 
-class AiTestPrefetchNextQuestionTest extends TestCase
+class AiTestPrefetchNextQuestionTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function next_endpoint_prefetches_question_and_step_uses_it(): void

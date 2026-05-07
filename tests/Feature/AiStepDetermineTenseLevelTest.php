@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use Illuminate\Support\Facades\Artisan;
 use App\Models\Tag;
 use App\Services\{ChatGPTService, GeminiService};
 
-class AiStepDetermineTenseLevelTest extends TestCase
+class AiStepDetermineTenseLevelTest extends AdminAuthenticatedTestCase
 {
     private array $migrations = [
         '2025_07_30_000001_create_tags_table.php',

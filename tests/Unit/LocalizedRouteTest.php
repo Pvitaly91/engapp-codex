@@ -4,16 +4,28 @@ namespace Tests\Unit;
 
 use App\Modules\LanguageManager\Services\LocaleService;
 use App\Modules\LanguageManager\Models\Language;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 
 class LocalizedRouteTest extends TestCase
 {
-    use RefreshDatabase;
-
     protected function setUp(): void
     {
         parent::setUp();
+
+        LocaleService::clearCache();
+        Schema::dropIfExists('languages');
+        Schema::create('languages', function (Blueprint $table) {
+            $table->id();
+            $table->string('code')->unique();
+            $table->string('name');
+            $table->string('native_name')->nullable();
+            $table->boolean('is_default')->default(false);
+            $table->boolean('is_active')->default(true);
+            $table->unsignedInteger('sort_order')->default(0);
+            $table->timestamps();
+        });
         
         // Create test languages in database
         Language::create([
@@ -45,6 +57,14 @@ class LocalizedRouteTest extends TestCase
 
         // Clear any cached language data
         LocaleService::clearCache();
+    }
+
+    protected function tearDown(): void
+    {
+        LocaleService::clearCache();
+        Schema::dropIfExists('languages');
+
+        parent::tearDown();
     }
 
     /**

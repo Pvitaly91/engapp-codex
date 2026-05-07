@@ -4,9 +4,9 @@ namespace Tests\Feature;
 
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, VerbHint};
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 
-class VerbHintUpdateRenameBackTest extends TestCase
+class VerbHintUpdateRenameBackTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function can_rename_verb_hint_back_to_original_value(): void

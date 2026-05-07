@@ -78,12 +78,15 @@ class AutoTagAggregationTest extends TestCase
         $aggregations = $service->getAggregations();
 
         $this->assertCount(2, $aggregations);
-        $this->assertEquals('Present Simple', $aggregations[0]['main_tag']);
-        $this->assertEquals(['Simple Present'], $aggregations[0]['similar_tags']);
-        $this->assertEquals('Tenses', $aggregations[0]['category']);
-        $this->assertEquals('Past Simple', $aggregations[1]['main_tag']);
-        $this->assertEquals(['Simple Past'], $aggregations[1]['similar_tags']);
-        $this->assertEquals('Tenses', $aggregations[1]['category']);
+        $presentSimple = collect($aggregations)->firstWhere('main_tag', 'Present Simple');
+        $pastSimple = collect($aggregations)->firstWhere('main_tag', 'Past Simple');
+
+        $this->assertNotNull($presentSimple);
+        $this->assertEquals(['Simple Present'], $this->similarTagNames($presentSimple));
+        $this->assertEquals('Tenses', $presentSimple['category']);
+        $this->assertNotNull($pastSimple);
+        $this->assertEquals(['Simple Past'], $this->similarTagNames($pastSimple));
+        $this->assertEquals('Tenses', $pastSimple['category']);
     }
 
     /** @test */
@@ -173,6 +176,15 @@ class AutoTagAggregationTest extends TestCase
 
         $this->assertCount(1, $aggregations);
         $this->assertEquals('Present Simple', $aggregations[0]['main_tag']);
-        $this->assertEquals(['Simple Present'], $aggregations[0]['similar_tags']);
+        $this->assertEquals(['Simple Present'], $this->similarTagNames($aggregations[0]));
+    }
+
+    private function similarTagNames(array $aggregation): array
+    {
+        return collect($aggregation['similar_tags'] ?? [])
+            ->map(fn ($tag) => is_array($tag) ? ($tag['tag'] ?? null) : $tag)
+            ->filter()
+            ->values()
+            ->all();
     }
 }

@@ -75,40 +75,46 @@ class AdjectivesSectionMixedCardsTest extends TestCase
             $page = Page::query()->where('slug', $slug)->firstOrFail();
             $tests = $service->buildForPage($page);
 
-            $this->assertCount(5, $tests, $slug);
-            $this->assertSame(
-                self::LEVEL_PAIRS,
-                $tests->map(fn ($test) => $test->filters['levels'] ?? [])->values()->all(),
-                $slug
-            );
+            $this->assertCount(2, $tests, $slug);
 
-            foreach ($tests as $test) {
-                $filters = $test->filters ?? [];
+            $directTest = $tests->first(fn ($test) => ! method_exists($test, 'isVirtual') || ! $test->isVirtual());
+            $mixedTest = $tests->firstWhere('slug', 'theory-page-' . $page->id . '-mixed-a1-c2');
 
-                $this->assertTrue($test->isVirtual(), $slug);
-                $this->assertTrue(str_starts_with((string) $test->slug, 'theory-page-' . $page->id . '-'), $slug);
-                $this->assertTrue(($filters['__meta']['aggregated_theory_page_test'] ?? false), $slug);
-                $this->assertTrue(($filters['__meta']['theory_page_mixed_polyglot_test'] ?? false), $slug);
-                $this->assertSame(
-                    collect($case['seeders'])->sort()->values()->all(),
-                    collect($filters['seeder_classes'] ?? [])->sort()->values()->all(),
-                    $slug
-                );
-                $this->assertCount(2, $filters['seeder_classes'] ?? [], $slug);
+            $this->assertNotNull($directTest, $slug);
+            $this->assertNotNull($mixedTest, $slug);
+
+            $directFilters = $directTest->filters ?? [];
+            $mixedFilters = $mixedTest->filters ?? [];
+
+            $this->assertSame('polyglot-theory-pages', $directFilters['course_slug'] ?? null, $slug);
+            $this->assertSame([$case['seeders'][1]], array_values($directFilters['seeder_classes'] ?? []), $slug);
+            $this->assertTrue($mixedTest->isVirtual(), $slug);
+            $this->assertTrue(($mixedFilters['__meta']['aggregated_theory_page_test'] ?? false), $slug);
+            $this->assertTrue(($mixedFilters['__meta']['theory_page_mixed_all_levels_test'] ?? false), $slug);
+            $this->assertTrue(($mixedFilters['__meta']['theory_page_mixed_polyglot_test'] ?? false), $slug);
+            $this->assertSame(['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], $mixedFilters['levels'] ?? [], $slug);
+            $mixedSeederClasses = collect($mixedFilters['seeder_classes'] ?? [])->values();
+            foreach ($case['seeders'] as $expectedSeeder) {
+                $this->assertTrue($mixedSeederClasses->contains($expectedSeeder), $slug . ' ' . $expectedSeeder);
             }
 
             $response = $this->get(route('theory.show', ['prykmetniky-ta-pryslinknyky', $slug]));
             $response->assertOk();
             $response->assertViewHas('topicTests', function ($topicTests) use ($case, $page) {
-                return collect($topicTests)->count() === 5
-                    && collect($topicTests)->every(function ($test) use ($case, $page) {
-                        $filters = $test->filters ?? [];
+                $topicTests = collect($topicTests);
+                $directTest = $topicTests->first(fn ($test) => ! method_exists($test, 'isVirtual') || ! $test->isVirtual());
+                $mixedTest = $topicTests->firstWhere('slug', 'theory-page-' . $page->id . '-mixed-a1-c2');
+                $directFilters = $directTest?->filters ?? [];
+                $mixedFilters = $mixedTest?->filters ?? [];
 
-                        return str_starts_with((string) ($test->slug ?? ''), 'theory-page-' . $page->id . '-')
-                            && ($filters['__meta']['theory_page_mixed_polyglot_test'] ?? false) === true
-                            && count($filters['seeder_classes'] ?? []) === 2
-                            && collect($filters['seeder_classes'] ?? [])->sort()->values()->all() === collect($case['seeders'])->sort()->values()->all();
-                    });
+                return $topicTests->count() === 2
+                    && ($directFilters['course_slug'] ?? null) === 'polyglot-theory-pages'
+                    && array_values($directFilters['seeder_classes'] ?? []) === [$case['seeders'][1]]
+                    && ($mixedFilters['__meta']['theory_page_mixed_all_levels_test'] ?? false) === true
+                    && ($mixedFilters['__meta']['theory_page_mixed_polyglot_test'] ?? false) === true
+                    && collect($case['seeders'])
+                        ->diff(collect($mixedFilters['seeder_classes'] ?? []))
+                        ->isEmpty();
             });
         }
     }
@@ -144,7 +150,7 @@ class AdjectivesSectionMixedCardsTest extends TestCase
         $page = Page::query()->where('slug', 'theory-degrees-of-comparison')->firstOrFail();
         $test = app(TheoryPagePromptLinkedTestsService::class)
             ->buildForPage($page)
-            ->firstWhere('slug', 'theory-page-' . $page->id . '-a1-a2');
+            ->firstWhere('slug', 'theory-page-' . $page->id . '-mixed-a1-c2');
 
         $this->assertNotNull($test);
 
@@ -165,7 +171,7 @@ class AdjectivesSectionMixedCardsTest extends TestCase
 
         $this->assertTrue($questions->pluck('seeder')->contains(DegreesOfComparisonAllLevelsV3Seeder::class));
         $this->assertTrue($questions->pluck('seeder')->contains(PolyglotDegreesOfComparisonAllLevelsLessonSeeder::class));
-        $this->assertFalse($questions->pluck('seeder')->contains(PolyglotComparativesLessonSeeder::class));
+        $this->assertTrue($questions->pluck('seeder')->contains(PolyglotComparativesLessonSeeder::class));
         $this->assertTrue($questions->contains(fn ($question) => (string) $question->type === '0'));
         $this->assertTrue($questions->contains(fn ($question) => (string) $question->type === '4'));
     }
@@ -258,6 +264,12 @@ class AdjectivesSectionMixedCardsTest extends TestCase
 
     protected function augmentTheorySchema(): void
     {
+        Schema::disableForeignKeyConstraints();
+        foreach (['site_tree_items', 'site_tree_variants', 'page_category_tag', 'page_tag', 'tag_text_block', 'text_blocks'] as $table) {
+            Schema::dropIfExists($table);
+        }
+        Schema::enableForeignKeyConstraints();
+
         Schema::create('text_blocks', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->nullable()->unique();

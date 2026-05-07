@@ -200,6 +200,9 @@ class PageV3JsonSeederTest extends TestCase
         $promptLinkedTestsService
             ->shouldReceive('buildForPage')
             ->andReturn(collect());
+        $promptLinkedTestsService
+            ->shouldReceive('buildForCategory')
+            ->andReturn(collect());
 
         $textBlockMatcher = \Mockery::mock(\App\Services\Theory\TextBlockToQuestionsMatcherService::class);
         $textBlockMatcher
@@ -369,6 +372,7 @@ class PageV3JsonSeederTest extends TestCase
         ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
 
         $controller = new class(
+            app(SeedRunsService::class),
             app(QuestionDeletionService::class),
             app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),
@@ -504,16 +508,16 @@ class PageV3JsonSeederTest extends TestCase
             $selectedCategory = $data['selectedCategory'];
 
             $this->assertSame(['pl'], $page->textBlocks->pluck('locale')->unique()->values()->all());
-            $this->assertSame('Strona bierna z czasownikami modalnymi', $page->title);
-            $this->assertSame('Strona bierna (Passive Voice)', $selectedCategory->title);
+            $this->assertSame('Strona bierna po czasownikach modalnych', $page->title);
+            $this->assertSame('Strona bierna', $selectedCategory->title);
             $this->assertSame('Teoria', $data['sectionTitle']);
 
             $html = $view->render();
 
             $this->assertStringContainsString('Znaczenie czasowników modalnych w stronie biernej', $html);
             $this->assertStringContainsString('Problem można łatwo rozwiązać.', $html);
-            $this->assertStringContainsString('Strona bierna z czasownikami modalnymi', $html);
-            $this->assertStringContainsString('Strona bierna (Passive Voice)', $html);
+            $this->assertStringContainsString('Strona bierna po czasownikach modalnych', $html);
+            $this->assertStringContainsString('Strona bierna', $html);
             $this->assertStringNotContainsString('Значення модальних дієслів у пасиві', $html);
             $this->assertStringNotContainsString('Проблему можна легко вирішити.', $html);
             $this->assertStringNotContainsString('Пасив з модальними дієсловами', $html);
@@ -544,17 +548,17 @@ class PageV3JsonSeederTest extends TestCase
             $selectedCategory = $data['selectedCategory'];
             $categories = $data['categories'];
 
-            $this->assertSame('Strona bierna w różnych czasach', $selectedCategory->title);
-            $this->assertSame('Podstawowa gramatyka', $categories->firstWhere('slug', 'basic-grammar')?->title);
-            $this->assertSame('Strona bierna (Passive Voice)', $categories->firstWhere('slug', 'passive-voice')?->title);
+            $this->assertSame('Strona bierna w najważniejszych czasach angielskich', $selectedCategory->title);
+            $this->assertSame('Podstawy angielskiej gramatyki', $categories->firstWhere('slug', 'basic-grammar')?->title);
+            $this->assertSame('Strona bierna', $categories->firstWhere('slug', 'passive-voice')?->title);
             $this->assertSame('Teoria', $data['sectionTitle']);
             $this->assertArrayNotHasKey('relatedTests', $data);
 
             $html = $view->render();
 
-            $this->assertStringContainsString('Strona bierna w różnych czasach', $html);
-            $this->assertStringContainsString('Podstawowa gramatyka', $html);
-            $this->assertStringContainsString('Strona bierna (Passive Voice)', $html);
+            $this->assertStringContainsString('Strona bierna w najważniejszych czasach angielskich', $html);
+            $this->assertStringContainsString('Podstawy angielskiej gramatyki', $html);
+            $this->assertStringContainsString('Strona bierna', $html);
             $this->assertStringNotContainsString('Пасив у різних часах', $html);
             $this->assertStringNotContainsString('Базова граматика', $html);
             $this->assertStringNotContainsString(__('public.common.related_tests'), $html);
@@ -583,11 +587,11 @@ class PageV3JsonSeederTest extends TestCase
             $page = $data['page'];
 
             $this->assertSame(['pl'], $page->textBlocks->pluck('locale')->unique()->values()->all());
-            $this->assertSame('Kolejność słów', $page->title);
+            $this->assertSame('Czasowniki, dopełnienia i ich miejsce w zdaniu', $page->title);
 
             $html = $view->render();
 
-            $this->assertStringContainsString('Kolejność słów', $html);
+            $this->assertStringContainsString('Czasowniki, dopełnienia i ich miejsce w zdaniu', $html);
             $this->assertStringContainsString('Podmiot + czasownik modalny + czasownik w formie podstawowej + dopełnienie', $html);
             $this->assertStringContainsString('Wyłącz to.', $html);
             $this->assertStringNotContainsString('wymagane', $html);

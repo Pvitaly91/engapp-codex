@@ -8,9 +8,9 @@ use App\Models\QuestionHint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Tests\Feature\Concerns\EnsuresQuestionSchema;
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 
-class QuestionHintUpdateTest extends TestCase
+class QuestionHintUpdateTest extends AdminAuthenticatedTestCase
 {
     use EnsuresQuestionSchema;
 

@@ -6,21 +6,19 @@ use App\Models\Page;
 use App\Models\PageCategory;
 use App\Models\Tag;
 use Database\Seeders\PageTagAssignmentSeeder;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Tests\Support\RebuildsComposeTestSchema;
 use Tests\TestCase;
 
 class PageTagAssignmentSeederTest extends TestCase
 {
-    use RefreshDatabase;
+    use RebuildsComposeTestSchema;
 
     protected function setUp(): void
     {
         parent::setUp();
-        
-        // Run necessary migrations
-        Artisan::call('migrate');
+
+        $this->rebuildComposeTestSchema();
     }
 
     /** @test */

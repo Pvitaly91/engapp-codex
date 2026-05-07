@@ -53,6 +53,10 @@ class TheoryBlockMatcherService
      */
     public function loadCandidateTheoryBlocks(): EloquentCollection
     {
+        if (! Schema::hasTable('text_blocks')) {
+            return new EloquentCollection();
+        }
+
         // First, try to find blocks under specific page categories
         $categoryIds = $this->findTheoryCategoryIds();
 
@@ -61,9 +65,11 @@ class TheoryBlockMatcherService
 
         if ($categoryIds->isNotEmpty()) {
             $query->whereIn('page_category_id', $categoryIds);
-        } else {
+        } elseif (Schema::hasTable('tags') && Schema::hasTable('tag_text_block')) {
             // Fallback: load blocks where tags contain 'types-of-questions'
             $query->whereHas('tags', fn ($q) => $q->where('name', 'types-of-questions'));
+        } else {
+            return new EloquentCollection();
         }
 
         return $query->get();

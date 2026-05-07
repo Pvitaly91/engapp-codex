@@ -7,9 +7,9 @@ use App\Models\Question;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Tests\Feature\Concerns\EnsuresQuestionSchema;
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 
-class TechnicalQuestionCreateTest extends TestCase
+class TechnicalQuestionCreateTest extends AdminAuthenticatedTestCase
 {
     use EnsuresQuestionSchema;
 
@@ -43,7 +43,7 @@ class TechnicalQuestionCreateTest extends TestCase
         $response->assertOk();
         $response->assertJsonPath('data.id', $question->id);
         $response->assertJsonPath('data.answers_by_marker.a1', 'go');
-        $response->assertJsonFragment(['verb_hint' => ['value' => 'do']]);
+        $response->assertJsonPath('data.answers.0.verb_hint.value', 'do');
 
         $this->assertDatabaseHas('question_answers', [
             'question_id' => $question->id,

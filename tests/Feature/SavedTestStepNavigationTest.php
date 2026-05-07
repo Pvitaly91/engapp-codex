@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
 
-class SavedTestStepNavigationTest extends TestCase
+class SavedTestStepNavigationTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function user_can_navigate_questions_without_answering(): void

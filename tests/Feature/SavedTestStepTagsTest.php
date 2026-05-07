@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, Tag};
 
-class SavedTestStepTagsTest extends TestCase
+class SavedTestStepTagsTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function step_page_displays_question_tags(): void

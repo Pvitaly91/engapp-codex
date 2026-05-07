@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\Artisan;
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\Tag;
 
-class AiTestAddTagTest extends TestCase
+class AiTestAddTagTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function add_tag_endpoint_updates_session_tags(): void

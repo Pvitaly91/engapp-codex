@@ -1281,6 +1281,12 @@ class PolyglotTheoryPageTest extends TestCase
 
     protected function augmentTheorySchema(): void
     {
+        Schema::disableForeignKeyConstraints();
+        foreach (['site_tree_items', 'site_tree_variants', 'page_category_tag', 'page_tag', 'tag_text_block', 'text_blocks'] as $table) {
+            Schema::dropIfExists($table);
+        }
+        Schema::enableForeignKeyConstraints();
+
         Schema::create('text_blocks', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->nullable()->unique();

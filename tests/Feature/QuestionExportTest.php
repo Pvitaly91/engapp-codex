@@ -16,9 +16,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 
-class QuestionExportTest extends TestCase
+class QuestionExportTest extends AdminAuthenticatedTestCase
 {
     protected function setUp(): void
     {
@@ -306,8 +306,14 @@ class QuestionExportTest extends TestCase
 
         $question = Question::create([
             'uuid' => (string) Str::uuid(),
-            'question' => 'Verb hint question',
+            'question' => 'Verb hint question {a1}',
             'difficulty' => 1,
+        ]);
+        $answerOption = QuestionOption::create(['option' => 'runs']);
+        QuestionAnswer::create([
+            'question_id' => $question->id,
+            'marker' => 'a1',
+            'option_id' => $answerOption->id,
         ]);
 
         $this->postJson(route('verb-hints.store'), [

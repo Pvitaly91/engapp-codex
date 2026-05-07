@@ -295,7 +295,7 @@ class PolyglotV3PromptGeneratorService
             $resolved['page_slug']
         );
         $routePath = localized_route('theory.show', [
-            'category' => $resolved['route_category_slug'],
+            'categoryPath' => $resolved['category_slug_path'] ?: $resolved['route_category_slug'],
             'pageSlug' => $resolved['page_slug'],
         ], false, 'uk');
         $routeUrl = $this->buildCanonicalUrl($routePath);

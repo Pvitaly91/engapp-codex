@@ -3,12 +3,12 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\Artisan;
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Tag};
 use Illuminate\Support\Facades\DB;
 use App\Services\ChatGPTService;
 
-class AiGrammarTestPageTest extends TestCase
+class AiGrammarTestPageTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function page_generates_question_and_stores_it(): void

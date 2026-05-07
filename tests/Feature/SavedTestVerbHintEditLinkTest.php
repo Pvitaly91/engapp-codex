@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, VerbHint};
 
-class SavedTestVerbHintEditLinkTest extends TestCase
+class SavedTestVerbHintEditLinkTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function saved_test_page_shows_edit_links_for_verb_hints(): void

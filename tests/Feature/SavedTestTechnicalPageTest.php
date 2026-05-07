@@ -16,9 +16,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 
-class SavedTestTechnicalPageTest extends TestCase
+class SavedTestTechnicalPageTest extends AdminAuthenticatedTestCase
 {
     protected function setUp(): void
     {

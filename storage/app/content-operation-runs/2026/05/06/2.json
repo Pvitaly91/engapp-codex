@@ -1,0 +1,101 @@
+{
+    "diff": {
+        "mode": "working_tree",
+        "base": null,
+        "head": "HEAD",
+        "include_untracked": false
+    },
+    "scope": {
+        "input": "database/seeders/V3/Tests/AlphaSeeder",
+        "domains": [
+            "v3"
+        ],
+        "resolved_roots": [],
+        "single_package": false,
+        "with_release_check": false,
+        "skip_release_check": false,
+        "check_profile": "release",
+        "strict": false
+    },
+    "plan": {
+        "summary": {
+            "changed_packages": 0,
+            "seed_candidates": 0,
+            "refresh_candidates": 0,
+            "deleted_cleanup_candidates": 0,
+            "skipped": 0,
+            "blocked": 0,
+            "warnings": 0
+        },
+        "domains": {
+            "v3": null,
+            "page-v3": null
+        },
+        "phases": {
+            "cleanup_deleted": [],
+            "upsert_present": []
+        },
+        "packages": [],
+        "error": null
+    },
+    "preflight": {
+        "executed": true,
+        "summary": {
+            "candidates": 0,
+            "ok": 0,
+            "warn": 0,
+            "fail": 0,
+            "skipped": 0
+        },
+        "packages": []
+    },
+    "execution": {
+        "dry_run": false,
+        "force": true,
+        "fail_fast": true,
+        "scope_transactional": false,
+        "cleanup_deleted": {
+            "started": 0,
+            "completed": 0,
+            "succeeded": 0,
+            "failed": 0,
+            "stopped_on": null,
+            "packages": []
+        },
+        "upsert_present": {
+            "started": 0,
+            "completed": 0,
+            "succeeded": 0,
+            "failed": 0,
+            "stopped_on": null,
+            "packages": []
+        }
+    },
+    "artifacts": {
+        "report_path": null
+    },
+    "error": null,
+    "lock": {
+        "acquired": true,
+        "status": "disabled",
+        "owner_token": null,
+        "operation_kind": "apply_changed",
+        "trigger_source": "cli",
+        "domains": [],
+        "content_operation_run_id": null,
+        "acquired_at": null,
+        "heartbeat_at": null,
+        "expires_at": null,
+        "warnings": [
+            "content_operation_lock_disabled"
+        ],
+        "takeover": {
+            "requested": false,
+            "performed": false
+        },
+        "lock": {
+            "exists": false,
+            "status": "disabled"
+        }
+    }
+}

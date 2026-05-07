@@ -5,13 +5,21 @@ namespace Tests\Feature;
 use App\Models\Page;
 use App\Models\PageCategory;
 use App\Models\TextBlock;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
+use Tests\Support\RebuildsComposeTestSchema;
 use Tests\TestCase;
 
 class TheoryAccessTest extends TestCase
 {
-    use RefreshDatabase;
+    use RebuildsComposeTestSchema;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        config(['coming-soon.enabled' => false]);
+        $this->rebuildComposeTestSchema();
+    }
 
     public function test_guest_can_access_theory_index(): void
     {

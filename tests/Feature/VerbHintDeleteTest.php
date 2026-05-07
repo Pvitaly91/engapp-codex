@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, VerbHint};
 
-class VerbHintDeleteTest extends TestCase
+class VerbHintDeleteTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function deleting_unshared_verb_hint_removes_option(): void

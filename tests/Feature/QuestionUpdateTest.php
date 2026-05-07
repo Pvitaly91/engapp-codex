@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\Artisan;
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question};
 
-class QuestionUpdateTest extends TestCase
+class QuestionUpdateTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function question_text_can_be_updated_via_route(): void

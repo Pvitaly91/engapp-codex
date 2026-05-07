@@ -82,7 +82,7 @@ class PolyglotV3PromptGeneratorTest extends TestCase
             'category_slug_path' => 'basic-grammar/verb-to-be',
         ]);
         $response->assertJsonFragment([
-            'url' => 'https://gramlyze.com/theory/verb-to-be/verb-to-be-present',
+            'url' => 'https://gramlyze.com/theory/basic-grammar/verb-to-be/verb-to-be-present',
         ]);
     }
 

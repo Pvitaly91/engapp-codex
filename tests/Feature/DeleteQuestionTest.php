@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer};
 
-class DeleteQuestionTest extends TestCase
+class DeleteQuestionTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function question_can_be_deleted_from_saved_test(): void
@@ -22,6 +22,7 @@ class DeleteQuestionTest extends TestCase
             '2025_07_27_000001_add_unique_index_to_question_answers.php',
             '2025_07_28_000002_create_verb_hints_table.php',
             '2025_07_29_000001_create_question_option_question_table.php',
+            '2025_07_30_000001_create_tags_table.php',
             '2025_07_30_000003_create_question_tag_table.php',
             '2025_07_31_000002_add_uuid_to_questions_table.php',
             '2025_07_20_184450_create_tests_table.php',

@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Http\Controllers\SeedRunController;
+use App\Modules\SeedRunsV2\Services\SeedRunsService;
 use App\Support\Database\JsonPageLocalizationManager;
 use App\Models\SavedGrammarTest;
 use App\Models\ChatGPTExplanation;
@@ -762,6 +763,7 @@ class V3JsonTestSeederTest extends TestCase
     public function test_seed_runs_supports_virtual_localization_seeders_for_preview_and_execution(): void
     {
         $controller = new class(
+            app(SeedRunsService::class),
             app(QuestionDeletionService::class),
             app(SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),

@@ -3,11 +3,11 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use Illuminate\Support\Str;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Tag};
 
-class QuestionReviewTest extends TestCase
+class QuestionReviewTest extends AdminAuthenticatedTestCase
 {
     // Ensures the question review flow shows a question and stores the user's selection
     /**

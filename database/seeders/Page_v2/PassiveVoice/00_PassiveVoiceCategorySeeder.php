@@ -4,6 +4,7 @@ namespace Database\Seeders\Page_v2\PassiveVoice;
 
 use Database\Seeders\Page_v2\Concerns\PageCategoryDescriptionSeeder;
 
+if (! class_exists(PassiveVoiceCategorySeeder::class, false)) {
 class PassiveVoiceCategorySeeder extends PageCategoryDescriptionSeeder
 {
     protected function slug(): string
@@ -156,4 +157,5 @@ class PassiveVoiceCategorySeeder extends PageCategoryDescriptionSeeder
             'language' => 'uk',
         ];
     }
+}
 }

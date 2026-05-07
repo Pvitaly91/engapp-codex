@@ -9,9 +9,9 @@ use App\Models\QuestionOption;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Tests\Feature\Concerns\EnsuresQuestionSchema;
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 
-class QuestionAnswerUpdateTest extends TestCase
+class QuestionAnswerUpdateTest extends AdminAuthenticatedTestCase
 {
     use EnsuresQuestionSchema;
 

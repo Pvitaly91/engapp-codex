@@ -20,6 +20,7 @@ class SeederFolderExecutionOrderTest extends TestCase
         $pageSeeder = 'Database\\Seeders\\Page_v2\\PassiveVoice\\Tenses\\PassiveVoicePresentSimpleTheorySeeder';
 
         $controller = new class(
+            app(SeedRunsService::class),
             app(QuestionDeletionService::class),
             app(\App\Services\SeederPromptTheoryPageResolver::class),
             app(SeederTestTargetResolver::class),

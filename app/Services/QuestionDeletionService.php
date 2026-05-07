@@ -43,7 +43,7 @@ class QuestionDeletionService
                 ->delete();
         }
 
-        if (Schema::hasTable('question_answers')) {
+        if (Schema::hasTable('question_answers') && Schema::hasColumn('question_answers', 'option_id')) {
             $optionIds = $optionIds->merge(
                 QuestionAnswer::query()
                     ->where('question_id', $question->id)
@@ -55,7 +55,7 @@ class QuestionDeletionService
                 ->delete();
         }
 
-        if (Schema::hasTable('verb_hints')) {
+        if (Schema::hasTable('verb_hints') && Schema::hasColumn('verb_hints', 'option_id')) {
             $optionIds = $optionIds->merge(
                 VerbHint::query()
                     ->where('question_id', $question->id)
@@ -79,7 +79,9 @@ class QuestionDeletionService
                 ->delete();
         }
 
-        $question->tags()->detach();
+        if (Schema::hasTable('tags') && Schema::hasTable('question_tag')) {
+            $question->tags()->detach();
+        }
         $question->delete();
 
         if ($questionText !== '' && Schema::hasTable('chatgpt_explanations') && ! $hasDuplicateText) {
@@ -100,8 +102,10 @@ class QuestionDeletionService
             ->unique()
             ->each(function ($optionId) {
                 $stillUsed = (Schema::hasTable('question_answers')
+                        && Schema::hasColumn('question_answers', 'option_id')
                         && QuestionAnswer::query()->where('option_id', $optionId)->exists())
                     || (Schema::hasTable('verb_hints')
+                        && Schema::hasColumn('verb_hints', 'option_id')
                         && VerbHint::query()->where('option_id', $optionId)->exists())
                     || (Schema::hasTable('question_option_question')
                         && DB::table('question_option_question')->where('option_id', $optionId)->exists());

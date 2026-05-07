@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, VerbHint};
 
-class VerbHintUpdateNonSharedReusesExistingOptionTest extends TestCase
+class VerbHintUpdateNonSharedReusesExistingOptionTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function editing_unshared_verb_hint_to_existing_option_reuses_it(): void

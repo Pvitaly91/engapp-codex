@@ -3,10 +3,11 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
+use App\Services\ChatGPTService;
 
-class SavedTestStepWrongAnswerTest extends TestCase
+class SavedTestStepWrongAnswerTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function step_mode_shows_user_answer_when_wrong(): void
@@ -78,10 +79,14 @@ class SavedTestStepWrongAnswerTest extends TestCase
             'questions' => [$q1->id, $q2->id],
         ]);
 
+        $this->mock(ChatGPTService::class, function ($mock) {
+            $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
+        });
+
         $this->post('/admin/test/'.$testModel->slug.'/step/check', [
             'question_id' => $q1->id,
             'answers' => ['a1' => 'yes', 'a2' => 'no'],
-        ]);
+        ])->assertRedirect('/admin/test/'.$testModel->slug.'/step');
 
         $response = $this->get('/admin/test/'.$testModel->slug.'/step');
         $response->assertStatus(200);

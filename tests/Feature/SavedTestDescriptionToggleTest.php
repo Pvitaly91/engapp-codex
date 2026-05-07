@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
 
-class SavedTestDescriptionToggleTest extends TestCase
+class SavedTestDescriptionToggleTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function test_pages_hide_ai_description_by_default(): void

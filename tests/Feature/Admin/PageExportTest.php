@@ -5,18 +5,17 @@ namespace Tests\Feature\Admin;
 use App\Models\Page;
 use App\Models\PageCategory;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 
 class PageExportTest extends TestCase
 {
-    use RefreshDatabase;
-
     protected function setUp(): void
     {
         parent::setUp();
+
+        $this->withSession(['admin_authenticated' => true]);
 
         $viewsPath = storage_path('framework/views');
         if (!is_dir($viewsPath)) {

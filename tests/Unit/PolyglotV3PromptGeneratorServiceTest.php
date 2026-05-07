@@ -31,7 +31,7 @@ class PolyglotV3PromptGeneratorServiceTest extends TestCase
             $prompt
         );
         $this->assertStringContainsString('polyglot-sample-v3-lesson', $prompt);
-        $this->assertStringContainsString('/theory/verb-to-be/verb-to-be-present', $prompt);
+        $this->assertStringContainsString('/theory/basic-grammar/verb-to-be/verb-to-be-present', $prompt);
         $this->assertStringContainsString(
             'Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBePresentTheorySeeder',
             $prompt

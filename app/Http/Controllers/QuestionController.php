@@ -33,7 +33,7 @@ class QuestionController extends Controller
                 $question->save();
 
                 // Sync "question" field in ChatGPTExplanation if it was updated
-                if (array_key_exists('question', $data)) {
+                if (array_key_exists('question', $data) && Schema::hasTable('chatgpt_explanations')) {
                     ChatGPTExplanation::where('question', $oldQuestion)
                         ->update(['question' => $data['question']]);
                 }

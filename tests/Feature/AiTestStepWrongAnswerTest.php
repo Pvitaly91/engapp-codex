@@ -3,11 +3,11 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Tag};
 use App\Services\ChatGPTService;
 
-class AiTestStepWrongAnswerTest extends TestCase
+class AiTestStepWrongAnswerTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function step_mode_shows_user_answer_when_wrong(): void

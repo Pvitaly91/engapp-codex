@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, Tag};
 
-class RemoveTagFromQuestionTest extends TestCase
+class RemoveTagFromQuestionTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function remove_tag_endpoint_detaches_tag_from_question(): void

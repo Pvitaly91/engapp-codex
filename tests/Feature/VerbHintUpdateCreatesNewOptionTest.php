@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, VerbHint};
 
-class VerbHintUpdateCreatesNewOptionTest extends TestCase
+class VerbHintUpdateCreatesNewOptionTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function editing_shared_verb_hint_creates_new_option(): void

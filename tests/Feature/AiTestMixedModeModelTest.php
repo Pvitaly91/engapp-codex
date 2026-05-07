@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -10,7 +10,7 @@ use App\Models\{Category, Tag};
 use App\Services\{ChatGPTService, GeminiService};
 use Mockery;
 
-class AiTestMixedModeModelTest extends TestCase
+class AiTestMixedModeModelTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function mixed_mode_calls_chatgpt_with_random_model(): void

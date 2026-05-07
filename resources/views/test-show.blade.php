@@ -581,6 +581,38 @@
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
     }
 
+    /* Limit theory panel height — full grammar breakdown can include 15-20
+       blocks; without a cap the article card stretches off-screen. */
+    #new-design-test-shell article[data-idx] [id^="theory-panel-"] > div {
+        max-height: min(70vh, 640px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable both-edges;
+    }
+    @media (max-width: 640px) {
+        #new-design-test-shell article[data-idx] [id^="theory-panel-"] > div {
+            max-height: min(75vh, 520px);
+        }
+    }
+    /* Soft custom scrollbar (WebKit) */
+    #new-design-test-shell article[data-idx] [id^="theory-panel-"] > div::-webkit-scrollbar {
+        width: 10px;
+    }
+    #new-design-test-shell article[data-idx] [id^="theory-panel-"] > div::-webkit-scrollbar-track {
+        background: transparent;
+        margin: 8px 0;
+    }
+    #new-design-test-shell article[data-idx] [id^="theory-panel-"] > div::-webkit-scrollbar-thumb {
+        background: color-mix(in srgb, var(--accent) 35%, transparent);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        border-radius: 999px;
+    }
+    #new-design-test-shell article[data-idx] [id^="theory-panel-"] > div::-webkit-scrollbar-thumb:hover {
+        background: color-mix(in srgb, var(--accent) 55%, transparent);
+        background-clip: padding-box;
+    }
+
     #new-design-test-shell article[data-idx] [id^="hints-"] .text-blue-900,
     #new-design-test-shell article[data-idx] [id^="hints-"] .text-blue-800,
     #new-design-test-shell article[data-idx] [id^="theory-panel-"] .text-emerald-900,

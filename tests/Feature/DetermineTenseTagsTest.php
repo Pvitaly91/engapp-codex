@@ -3,11 +3,11 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, Tag};
 use App\Services\{ChatGPTService, GeminiService};
 
-class DetermineTenseTagsTest extends TestCase
+class DetermineTenseTagsTest extends AdminAuthenticatedTestCase
 {
     private array $migrations = [
         '2025_07_20_143201_create_categories_table.php',

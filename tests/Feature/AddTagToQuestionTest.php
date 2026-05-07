@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, Tag};
 
-class AddTagToQuestionTest extends TestCase
+class AddTagToQuestionTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function add_tag_endpoint_attaches_tag_to_question(): void

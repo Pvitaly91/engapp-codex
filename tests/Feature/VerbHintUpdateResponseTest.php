@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, VerbHint};
 
-class VerbHintUpdateResponseTest extends TestCase
+class VerbHintUpdateResponseTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function updating_verb_hint_returns_no_content(): void

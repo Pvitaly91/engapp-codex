@@ -721,7 +721,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             $tags[] = $auxiliaryTags['have_has_had'];
         }
 
-        if (preg_match('/\b(am|is|are|was|were|isn\'t|aren\'t|wasn\'t|weren\'t)\b/', $normalized)) {
+        if (preg_match('/\b(am|is|are|was|were|be|been|being|isn\'t|aren\'t|wasn\'t|weren\'t)\b/', $normalized)) {
             $tags[] = $auxiliaryTags['be_auxiliary'];
         }
 

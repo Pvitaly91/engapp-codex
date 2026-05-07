@@ -11,6 +11,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -344,8 +345,12 @@ class TestTagController extends Controller
     {
         $tag->questions()->detach();
         $tag->words()->detach();
-        $tag->pages()->detach();
-        $tag->pageCategories()->detach();
+        if (Schema::hasTable('page_tag')) {
+            $tag->pages()->detach();
+        }
+        if (Schema::hasTable('page_category_tag')) {
+            $tag->pageCategories()->detach();
+        }
         $tag->delete();
 
         if ($request->expectsJson()) {
@@ -360,18 +365,29 @@ class TestTagController extends Controller
 
     public function destroyEmptyTags(Request $request): RedirectResponse|JsonResponse
     {
-        $emptyTags = Tag::query()
-            ->whereDoesntHave('questions')
-            ->whereDoesntHave('pages')
-            ->whereDoesntHave('pageCategories')
-            ->get();
+        $emptyTagsQuery = Tag::query()
+            ->whereDoesntHave('questions');
+
+        if (Schema::hasTable('pages') && Schema::hasTable('page_tag')) {
+            $emptyTagsQuery->whereDoesntHave('pages');
+        }
+
+        if (Schema::hasTable('page_categories') && Schema::hasTable('page_category_tag')) {
+            $emptyTagsQuery->whereDoesntHave('pageCategories');
+        }
+
+        $emptyTags = $emptyTagsQuery->get();
 
         $count = $emptyTags->count();
 
         foreach ($emptyTags as $tag) {
             $tag->words()->detach();
-            $tag->pages()->detach();
-            $tag->pageCategories()->detach();
+            if (Schema::hasTable('page_tag')) {
+                $tag->pages()->detach();
+            }
+            if (Schema::hasTable('page_category_tag')) {
+                $tag->pageCategories()->detach();
+            }
             $tag->delete();
         }
 

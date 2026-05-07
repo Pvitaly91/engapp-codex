@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Models\ChatGPTExplanation;
 use App\Models\Question;
 use App\Services\QuestionExportService;
+use Illuminate\Support\Facades\Schema;
 
 class QuestionObserver
 {
@@ -21,6 +22,10 @@ class QuestionObserver
 
     private function syncChatGptExplanations(Question $question): void
     {
+        if (! Schema::hasTable('chatgpt_explanations')) {
+            return;
+        }
+
         if (! $question->wasChanged('question')) {
             return;
         }

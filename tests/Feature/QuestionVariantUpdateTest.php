@@ -8,9 +8,9 @@ use App\Models\QuestionVariant;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Tests\Feature\Concerns\EnsuresQuestionSchema;
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 
-class QuestionVariantUpdateTest extends TestCase
+class QuestionVariantUpdateTest extends AdminAuthenticatedTestCase
 {
     use EnsuresQuestionSchema;
 

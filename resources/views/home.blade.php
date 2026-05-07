@@ -73,6 +73,27 @@
         ],
     ];
 
+    $polyglotCourseCards = [
+        [
+            'href' => localized_route('courses.show', ['courseSlug' => 'polyglot-english-a1'], false),
+            'title' => __('public.home.polyglot_title'),
+            'description' => __('public.home.polyglot_desc'),
+            'level' => 'A1',
+        ],
+        [
+            'href' => localized_route('courses.show', ['courseSlug' => 'polyglot-english-a2'], false),
+            'title' => __('public.home.polyglot_a2_title'),
+            'description' => __('public.home.polyglot_a2_desc'),
+            'level' => 'A2',
+        ],
+        [
+            'href' => localized_route('courses.show', ['courseSlug' => 'polyglot-english-b1'], false),
+            'title' => __('public.home.polyglot_b1_title'),
+            'description' => __('public.home.polyglot_b1_desc'),
+            'level' => 'B1',
+        ],
+    ];
+
     $steps = [
         ['index' => '1', 'title' => __('public.home.step_find'), 'description' => __('public.home.step_find_desc')],
         ['index' => '2', 'title' => __('public.home.step_start'), 'description' => __('public.home.step_start_desc')],
@@ -103,6 +124,19 @@
                     <a href="{{ localized_route('theory.index') }}" class="rounded-2xl bg-amber px-6 py-4 text-center text-base font-extrabold text-white shadow-card transition hover:bg-[#df8a24]">
                         {{ __('public.home.explore_theory') }}
                     </a>
+                </div>
+
+                <div class="mt-6 grid gap-3 sm:grid-cols-3">
+                    @foreach($polyglotCourseCards as $course)
+                        <a href="{{ $course['href'] }}" class="group rounded-[22px] border p-4 shadow-card transition hover:-translate-y-1 surface-card-strong" style="border-color: var(--line);">
+                            <div class="flex items-center justify-between gap-3">
+                                <span class="text-xs font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.nav.polyglot_course') }}</span>
+                                <span class="inline-flex h-9 min-w-9 items-center justify-center rounded-[14px] bg-emerald-500 px-3 text-xs font-extrabold text-white">{{ $course['level'] }}</span>
+                            </div>
+                            <h2 class="mt-4 font-display text-lg font-extrabold leading-tight">{{ $course['title'] }}</h2>
+                            <p class="mt-2 text-sm leading-6" style="color: var(--muted);">{{ $course['description'] }}</p>
+                        </a>
+                    @endforeach
                 </div>
 
                 <div class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

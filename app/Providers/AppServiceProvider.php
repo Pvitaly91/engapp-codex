@@ -28,6 +28,6 @@ class AppServiceProvider extends ServiceProvider
         // Register Livewire components
         Livewire::component('words-test', WordsTest::class);
 
-        //  Question::observe(QuestionObserver::class);
+        Question::observe(QuestionObserver::class);
     }
 }

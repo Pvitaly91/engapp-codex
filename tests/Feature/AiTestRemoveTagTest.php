@@ -4,9 +4,9 @@ namespace Tests\Feature;
 
 use App\Models\Tag;
 use Illuminate\Support\Facades\Artisan;
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 
-class AiTestRemoveTagTest extends TestCase
+class AiTestRemoveTagTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function remove_tag_endpoint_updates_session_tags(): void

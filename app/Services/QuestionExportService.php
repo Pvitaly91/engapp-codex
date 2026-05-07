@@ -5,7 +5,9 @@ namespace App\Services;
 use App\Models\Question;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
  
 class QuestionExportService
@@ -17,22 +19,12 @@ class QuestionExportService
             $question->saveQuietly();
         }
 
-        $question->loadMissing([
-            'category',
-            'source',
-            'tags',
-            'options',
-            'answers.option',
-            'verbHints.option',
-            'variants',
-            'hints',
-            'chatgptExplanations',
-        ]);
+        $question->loadMissing($this->availableRelations());
 
         $payload = [
             'question' => $this->formatQuestion($question),
-            'category' => $question->category ? $this->formatCategory($question) : null,
-            'source' => $question->source ? $this->formatSource($question) : null,
+            'category' => $question->relationLoaded('category') && $question->category ? $this->formatCategory($question) : null,
+            'source' => $question->relationLoaded('source') && $question->source ? $this->formatSource($question) : null,
             'tags' => $this->formatTags($question),
             'options' => $this->formatOptions($question),
             'answers' => $this->formatAnswers($question),
@@ -83,7 +75,7 @@ class QuestionExportService
 
     private function formatTags(Question $question): array
     {
-        return $question->tags->map(function ($tag) use ($question) {
+        return $this->loadedCollection($question, 'tags')->map(function ($tag) use ($question) {
             return [
                 'tag' => [
                     'id' => $tag->id,
@@ -104,7 +96,7 @@ class QuestionExportService
 
     private function formatOptions(Question $question): array
     {
-        return $question->options->map(function ($option) use ($question) {
+        return $this->loadedCollection($question, 'options')->map(function ($option) use ($question) {
             return [
                 'option' => [
                     'id' => $option->id,
@@ -123,7 +115,7 @@ class QuestionExportService
 
     private function formatAnswers(Question $question): array
     {
-        return $question->answers->map(function ($answer) {
+        return $this->loadedCollection($question, 'answers')->map(function ($answer) {
             return [
                 'answer' => [
                     'id' => $answer->id,
@@ -145,7 +137,7 @@ class QuestionExportService
 
     private function formatVerbHints(Question $question): array
     {
-        return $question->verbHints->map(function ($hint) {
+        return $this->loadedCollection($question, 'verbHints')->map(function ($hint) {
             return [
                 'verb_hint' => [
                     'id' => $hint->id,
@@ -167,7 +159,7 @@ class QuestionExportService
 
     private function formatVariants(Question $question): array
     {
-        return $question->variants->map(function ($variant) {
+        return $this->loadedCollection($question, 'variants')->map(function ($variant) {
             return [
                 'id' => $variant->id,
                 'question_id' => $variant->question_id,
@@ -180,7 +172,7 @@ class QuestionExportService
 
     private function formatHints(Question $question): array
     {
-        return $question->hints->map(function ($hint) {
+        return $this->loadedCollection($question, 'hints')->map(function ($hint) {
             return [
                 'id' => $hint->id,
                 'question_id' => $hint->question_id,
@@ -195,7 +187,7 @@ class QuestionExportService
 
     private function formatChatGptExplanations(Question $question): array
     {
-        return $question->chatgptExplanations->map(function ($explanation) {
+        return $this->loadedCollection($question, 'chatgptExplanations')->map(function ($explanation) {
             return [
                 'id' => $explanation->id,
                 'question' => $explanation->question,
@@ -216,6 +208,60 @@ class QuestionExportService
 
         $path = $directory . DIRECTORY_SEPARATOR . $uuid . '.json';
         File::put($path, json_encode($this->convertDates($payload), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
+    }
+
+    private function availableRelations(): array
+    {
+        $relations = [];
+
+        if (Schema::hasTable('categories')) {
+            $relations[] = 'category';
+        }
+
+        if (Schema::hasTable('sources')) {
+            $relations[] = 'source';
+        }
+
+        if (Schema::hasTable('tags') && Schema::hasTable('question_tag')) {
+            $relations[] = 'tags';
+        }
+
+        if (Schema::hasTable('question_options') && Schema::hasTable('question_option_question')) {
+            $relations[] = 'options';
+        }
+
+        if (Schema::hasTable('question_answers')) {
+            $relations[] = Schema::hasTable('question_options') ? 'answers.option' : 'answers';
+        }
+
+        if (Schema::hasTable('verb_hints')) {
+            $relations[] = Schema::hasTable('question_options') ? 'verbHints.option' : 'verbHints';
+        }
+
+        if (Schema::hasTable('question_variants')) {
+            $relations[] = 'variants';
+        }
+
+        if (Schema::hasTable('question_hints')) {
+            $relations[] = 'hints';
+        }
+
+        if (Schema::hasTable('chatgpt_explanations')) {
+            $relations[] = 'chatgptExplanations';
+        }
+
+        return $relations;
+    }
+
+    private function loadedCollection(Question $question, string $relation): Collection
+    {
+        if (! $question->relationLoaded($relation)) {
+            return collect();
+        }
+
+        $value = $question->getRelation($relation);
+
+        return $value instanceof Collection ? $value : collect($value);
     }
 
     private function convertDates(array $payload): array

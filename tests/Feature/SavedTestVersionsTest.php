@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
 
-class SavedTestVersionsTest extends TestCase
+class SavedTestVersionsTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function random_and_step_pages_load(): void

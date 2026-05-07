@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, VerbHint};
 
-class SavedTestStepActionsTest extends TestCase
+class SavedTestStepActionsTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function step_page_shows_edit_and_delete_controls(): void

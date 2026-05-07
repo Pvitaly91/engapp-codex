@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, VerbHint};
 
-class VerbHintUpdateReusesAttachedOptionTest extends TestCase
+class VerbHintUpdateReusesAttachedOptionTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function renaming_hint_to_option_already_attached_updates_flag(): void

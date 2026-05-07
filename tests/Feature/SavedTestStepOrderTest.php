@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
 
-class SavedTestStepOrderTest extends TestCase
+class SavedTestStepOrderTest extends AdminAuthenticatedTestCase
 {
     /** @test */
     public function step_page_can_switch_between_sequential_and_random_order(): void
@@ -72,7 +72,7 @@ class SavedTestStepOrderTest extends TestCase
             'name' => 'sample',
             'slug' => 'sample',
             'filters' => [],
-            'questions' => [$q2->id, $q1->id],
+            'questions' => [$q1->id, $q2->id],
         ]);
 
         $response = $this->get('/admin/test/' . $testModel->slug);

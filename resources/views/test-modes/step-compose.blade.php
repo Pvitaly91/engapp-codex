@@ -353,6 +353,35 @@
     }
     #polyglot-compose-root #compose-theory-btn svg { width: 1rem; height: 1rem; }
     #polyglot-compose-root #compose-theory-panel { margin-top: 1.1rem; }
+
+    /* Cap theory panel height — full grammar breakdown can include 15-20
+       blocks; without a cap the prompt card stretches off-screen. */
+    #polyglot-compose-root #compose-theory-panel > div {
+        max-height: min(70vh, 640px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable both-edges;
+    }
+    @media (max-width: 640px) {
+        #polyglot-compose-root #compose-theory-panel > div {
+            max-height: min(75vh, 520px);
+        }
+    }
+    #polyglot-compose-root #compose-theory-panel > div::-webkit-scrollbar { width: 10px; }
+    #polyglot-compose-root #compose-theory-panel > div::-webkit-scrollbar-track {
+        background: transparent;
+        margin: 8px 0;
+    }
+    #polyglot-compose-root #compose-theory-panel > div::-webkit-scrollbar-thumb {
+        background: color-mix(in srgb, var(--accent) 35%, transparent);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        border-radius: 999px;
+    }
+    #polyglot-compose-root #compose-theory-panel > div::-webkit-scrollbar-thumb:hover {
+        background: color-mix(in srgb, var(--accent) 55%, transparent);
+        background-clip: padding-box;
+    }
     #polyglot-compose-root #compose-source-seeder {
         margin-top: 0.85rem;
         padding: 0.55rem 0.85rem;

@@ -197,11 +197,13 @@ class GapTagInferer
         if ($hasTagQuestion) {
             $tags = array_merge($tags, $tagQuestionTags);
 
-            $auxGroup = $this->extractAuxiliaryGroupTag($auxTenseTags);
+            $auxGroups = $this->extractAuxiliaryGroupTags($auxTenseTags);
             $tenseTag = $this->extractTenseTag($auxTenseTags);
 
-            if ($auxGroup !== null && ! in_array($auxGroup, $tags, true)) {
-                $tags[] = $auxGroup;
+            foreach ($auxGroups as $auxGroup) {
+                if (! in_array($auxGroup, $tags, true)) {
+                    $tags[] = $auxGroup;
+                }
             }
 
             if ($tenseTag !== null && ! in_array($tenseTag, $tags, true)) {
@@ -223,6 +225,26 @@ class GapTagInferer
         }
 
         return array_merge($tagQuestionTags, $subjectQuestionTags, $auxTenseTags);
+    }
+
+    private function extractAuxiliaryGroupTags(array $auxTenseTags): array
+    {
+        if (in_array('Modal Verbs', $auxTenseTags, true)) {
+            $tags = ['Modal Verbs'];
+
+            foreach (['Will/Would', 'Can/Could', 'Should', 'Must', 'May/Might'] as $tag) {
+                if (in_array($tag, $auxTenseTags, true)) {
+                    $tags[] = $tag;
+                    break;
+                }
+            }
+
+            return $tags;
+        }
+
+        $auxGroup = $this->extractAuxiliaryGroupTag($auxTenseTags);
+
+        return $auxGroup === null ? [] : [$auxGroup];
     }
 
     private function extractAuxiliaryGroupTag(array $auxTenseTags): ?string
@@ -620,10 +642,6 @@ class GapTagInferer
                 }
 
                 return ['Be (am/is/are/was/were)', 'Present Continuous'];
-            }
-
-            if (in_array($window['before'], ['who', 'what'])) {
-                return ['Be (am/is/are/was/were)', 'Question Word Order'];
             }
 
             // Simple be usage

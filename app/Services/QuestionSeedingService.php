@@ -150,7 +150,9 @@ class QuestionSeedingService
             ->mapWithKeys(fn (VerbHint $hint) => [$hint->marker.'|'.$hint->option_id => $hint]);
         $verbHintIdsToKeep = [];
 
-        QuestionVariant::where('question_id', $question->id)->delete();
+        if (Schema::hasTable('question_variants')) {
+            QuestionVariant::where('question_id', $question->id)->delete();
+        }
         DB::table('question_option_question')->where('question_id', $question->id)->delete();
 
         $hintOptions = [];
@@ -211,15 +213,17 @@ class QuestionSeedingService
             $this->attachOption($question, $opt);
         }
 
-        foreach ($data['variants'] ?? [] as $variantText) {
-            if (! $variantText) {
-                continue;
-            }
+        if (Schema::hasTable('question_variants')) {
+            foreach ($data['variants'] ?? [] as $variantText) {
+                if (! $variantText) {
+                    continue;
+                }
 
-            QuestionVariant::create([
-                'question_id' => $question->id,
-                'text' => $variantText,
-            ]);
+                QuestionVariant::create([
+                    'question_id' => $question->id,
+                    'text' => $variantText,
+                ]);
+            }
         }
 
         $question->tags()->sync($data['tag_ids'] ?? []);

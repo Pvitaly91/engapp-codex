@@ -33,6 +33,10 @@ trait RebuildsComposeTestSchema
             'text_blocks',
             'pages',
             'page_categories',
+            'page_category_tag',
+            'page_tag',
+            'site_tree_items',
+            'site_tree_variants',
             'tag_word',
             'translates',
             'words',
@@ -87,6 +91,22 @@ trait RebuildsComposeTestSchema
             $table->longText('body')->nullable();
             $table->string('seeder')->nullable();
             $table->timestamps();
+        });
+
+        Schema::create('page_tag', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('tag_id');
+            $table->unsignedBigInteger('page_id');
+            $table->timestamps();
+            $table->unique(['tag_id', 'page_id']);
+        });
+
+        Schema::create('page_category_tag', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('tag_id');
+            $table->unsignedBigInteger('page_category_id');
+            $table->timestamps();
+            $table->unique(['tag_id', 'page_category_id']);
         });
 
         Schema::create('categories', function (Blueprint $table) {
@@ -264,6 +284,28 @@ trait RebuildsComposeTestSchema
             $table->id();
             $table->string('class_name')->unique();
             $table->timestamp('ran_at')->nullable();
+        });
+
+        Schema::create('site_tree_variants', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('slug')->nullable();
+            $table->boolean('is_base')->default(false);
+            $table->timestamps();
+        });
+
+        Schema::create('site_tree_items', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('variant_id')->nullable();
+            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->string('title')->nullable();
+            $table->string('linked_page_title')->nullable();
+            $table->string('linked_page_url')->nullable();
+            $table->string('link_method')->nullable();
+            $table->unsignedInteger('level')->default(0);
+            $table->boolean('is_checked')->default(false);
+            $table->unsignedInteger('sort_order')->default(0);
+            $table->timestamps();
         });
     }
 }

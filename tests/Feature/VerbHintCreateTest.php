@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
-use Tests\TestCase;
+use Tests\AdminAuthenticatedTestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, VerbHint};
 
-class VerbHintCreateTest extends TestCase
+class VerbHintCreateTest extends AdminAuthenticatedTestCase
 {
     private array $migrations = [
         '2025_07_20_143201_create_categories_table.php',
@@ -85,7 +85,7 @@ class VerbHintCreateTest extends TestCase
             'hint' => 'do',
         ]);
         $response->assertOk()->assertJsonPath('data.id', $question->id);
-        $response->assertJsonFragment(['verb_hint' => ['value' => 'do']]);
+        $response->assertJsonPath('data.answers.0.verb_hint.value', 'do');
         $this->assertDatabaseHas('verb_hints', [
             'question_id' => $question->id,
             'marker' => 'a1',

@@ -177,7 +177,33 @@ class SavedTestResolver
     public function loadQuestions(ResolvedSavedTest $resolved, array $relations = []): Collection
     {
         if ($resolved->preloadedQuestions !== null) {
-            return $resolved->preloadedQuestions;
+            // Virtual tests carry a preloaded Question collection produced
+            // by the filter service. That collection only has a fixed set
+            // of relations eager-loaded; if the caller asks for extra ones
+            // (e.g. `theoryTextBlocks` for the test page's theory hint),
+            // load just the missing ones in bulk to avoid N+1 lazy hits.
+            $preloaded = $resolved->preloadedQuestions;
+
+            if ($relations !== [] && $preloaded->isNotEmpty()) {
+                // Wrap in an Eloquent collection so we can use loadMissing()
+                // even when the upstream service returned a base Collection.
+                $eloquentCollection = $preloaded->first() instanceof Question
+                    ? new \Illuminate\Database\Eloquent\Collection($preloaded->all())
+                    : null;
+
+                $missing = collect($relations)->reject(
+                    fn (string $relation): bool => $preloaded->contains(
+                        fn ($question): bool => $question instanceof Question
+                            && $question->relationLoaded($relation)
+                    )
+                )->values()->all();
+
+                if ($missing !== [] && $eloquentCollection !== null) {
+                    $eloquentCollection->loadMissing($missing);
+                }
+            }
+
+            return $preloaded;
         }
 
         if ($resolved->questionIds->isEmpty()) {
