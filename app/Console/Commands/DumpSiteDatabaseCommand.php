@@ -139,7 +139,7 @@ class DumpSiteDatabaseCommand extends Command
             $this->writeLine($handle);
 
             foreach ($tables as $table) {
-                $createSql = $this->showCreate($pdo, 'TABLE', $table);
+                $createSql = $this->portableCreateTableSql($this->showCreate($pdo, 'TABLE', $table));
                 $this->writeLine($handle, '-- Structure for table ' . $table);
                 $this->writeLine($handle, $createSql . ';');
                 $this->writeLine($handle);
@@ -259,6 +259,75 @@ class DumpSiteDatabaseCommand extends Command
         }
 
         return $createSql;
+    }
+
+    private function portableCreateTableSql(string $createSql): string
+    {
+        $textColumns = $this->textColumnsFromCreateSql($createSql);
+        if ($textColumns === []) {
+            return $createSql;
+        }
+
+        $lines = explode("\n", $createSql);
+
+        foreach ($lines as $index => $line) {
+            if (! $this->isPortableIndexCandidate($line)) {
+                continue;
+            }
+
+            $lines[$index] = $this->addTextIndexPrefixes($line, $textColumns);
+        }
+
+        return implode("\n", $lines);
+    }
+
+    /**
+     * @return array<string, true>
+     */
+    private function textColumnsFromCreateSql(string $createSql): array
+    {
+        $columns = [];
+
+        foreach (explode("\n", $createSql) as $line) {
+            if (preg_match('/^\s*`([^`]+)`\s+((?:tiny|medium|long)?text|(?:tiny|medium|long)?blob|json)\b/i', $line, $matches) === 1) {
+                $columns[$matches[1]] = true;
+            }
+        }
+
+        return $columns;
+    }
+
+    private function isPortableIndexCandidate(string $line): bool
+    {
+        return preg_match('/^\s*(?:UNIQUE\s+)?KEY\s+`[^`]+`\s*\(/i', $line) === 1
+            && preg_match('/^\s*(?:FULLTEXT|SPATIAL)\s+/i', $line) !== 1;
+    }
+
+    /**
+     * @param  array<string, true>  $textColumns
+     */
+    private function addTextIndexPrefixes(string $line, array $textColumns): string
+    {
+        $open = strpos($line, '(');
+        $close = strrpos($line, ')');
+
+        if ($open === false || $close === false || $close <= $open) {
+            return $line;
+        }
+
+        $columnList = substr($line, $open + 1, $close - $open - 1);
+
+        foreach (array_keys($textColumns) as $column) {
+            $columnList = preg_replace(
+                '/`' . preg_quote($column, '/') . '`(?!\s*\()/',
+                '`' . str_replace('`', '``', $column) . '`(100)',
+                $columnList
+            ) ?? $columnList;
+        }
+
+        $suffix = preg_replace('/\s+USING\s+HASH\b/i', '', substr($line, $close));
+
+        return substr($line, 0, $open + 1) . $columnList . $suffix;
     }
 
     private function sqlValue(mixed $value, string $columnType): string
