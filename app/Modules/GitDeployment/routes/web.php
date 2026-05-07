@@ -21,6 +21,7 @@ Route::middleware(['web', 'auth.admin'])
         Route::post('/deployment/content-sync', [DeploymentController::class, 'contentSync'])->name('deployment.content-sync');
         Route::post('/deployment/deploy', [DeploymentController::class, 'deploy'])->name('deployment.deploy');
         Route::post('/deployment/deploy-partial', [DeploymentController::class, 'deployPartial'])->name('deployment.deploy-partial');
+        Route::post('/deployment/database-dump', [DeploymentController::class, 'databaseDump'])->name('deployment.database-dump');
         Route::post('/deployment/push-current', [DeploymentController::class, 'pushCurrent'])->name('deployment.push-current');
         Route::post('/deployment/rollback', [DeploymentController::class, 'rollback'])->name('deployment.rollback');
         Route::post('/deployment/backup-branch', [DeploymentController::class, 'createBackupBranch'])->name('deployment.backup-branch');

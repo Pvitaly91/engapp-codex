@@ -14,6 +14,10 @@ return [
         'token' => env('DEPLOYMENT_GITHUB_TOKEN'),
         'user_agent' => env('DEPLOYMENT_GITHUB_USER_AGENT', 'EngappDeploymentBot/1.0'),
     ],
+    'database_dump' => [
+        'path' => env('DB_DUMP_PATH', 'database/dumps/site-database.sql'),
+        'rows_per_insert' => env('DB_DUMP_ROWS_PER_INSERT', 250),
+    ],
     'content_preview' => [
         'with_release_check' => env('DEPLOYMENT_CONTENT_PREVIEW_WITH_RELEASE_CHECK', true),
         'check_profile' => env('DEPLOYMENT_CONTENT_PREVIEW_CHECK_PROFILE', 'release'),

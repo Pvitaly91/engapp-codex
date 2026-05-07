@@ -266,6 +266,81 @@
       </div>
     </section>
 
+    <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+      <div class="space-y-6 p-6">
+        <div>
+          <h2 class="text-2xl font-semibold">2. Дамп бази даних</h2>
+          <p class="text-sm text-muted-foreground">Створює повний SQL-дамп MySQL бази у tracked-папці репозиторію. За потреби можна одразу закомітити і запушити дамп, щоб файл був доступний через GitHub.</p>
+          <div class="mt-3 rounded-2xl border border-border/70 bg-muted/30 p-4 text-xs text-muted-foreground">
+            <p class="font-semibold text-foreground">Поточний файл дампу:</p>
+            <div class="mt-2 space-y-1">
+              <p><code>{{ $databaseDump['path'] ?? 'database/dumps/site-database.sql' }}</code></p>
+              @if(($databaseDump['exists'] ?? false) && ! empty($databaseDump['size']))
+                <p>Розмір: {{ number_format((int) $databaseDump['size']) }} bytes</p>
+                <p>Оновлено: {{ $databaseDump['updated_at'] }}</p>
+              @else
+                <p>Файл ще не створено.</p>
+              @endif
+            </div>
+          </div>
+        </div>
+
+        <form method="POST" action="{{ route('deployment.database-dump') }}" class="space-y-4">
+          @csrf
+          <div class="grid gap-4 md:grid-cols-2">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium" for="database-dump-path">Файл дампу</label>
+              <input
+                id="database-dump-path"
+                type="text"
+                name="dump_path"
+                value="{{ $databaseDump['path'] ?? 'database/dumps/site-database.sql' }}"
+                class="w-full rounded-2xl border border-input bg-background px-4 py-2"
+                required
+              />
+              <p class="text-xs text-muted-foreground">Дозволені тільки SQL-файли всередині <code>database/dumps</code>.</p>
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium" for="database-dump-rows-per-insert">Рядків в одному INSERT</label>
+              <input
+                id="database-dump-rows-per-insert"
+                type="number"
+                name="rows_per_insert"
+                value="{{ $databaseDump['rows_per_insert'] ?? 250 }}"
+                min="1"
+                max="1000"
+                class="w-full rounded-2xl border border-input bg-background px-4 py-2"
+              />
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-border/70 bg-muted/30 p-4">
+            <label class="flex items-start gap-3 text-sm">
+              <input type="checkbox" name="commit_and_push" value="1" class="mt-1 rounded border-input text-primary focus:ring-primary" />
+              <span>
+                <span class="font-medium text-foreground">Після дампу закомітити і запушити файл</span>
+                <span class="mt-1 block text-xs text-muted-foreground">
+                  Буде виконано <code>git add</code>, <code>git commit</code> і <code>git push</code> для файлу дампу.
+                </span>
+              </span>
+            </label>
+            <div class="mt-3 space-y-2">
+              <label class="block text-xs font-medium text-muted-foreground" for="database-dump-push-branch">Гілка для push</label>
+              <input
+                id="database-dump-push-branch"
+                type="text"
+                name="push_branch"
+                value="{{ $currentBranch ?: 'main' }}"
+                class="w-full rounded-2xl border border-input bg-background px-4 py-2 text-sm"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-purple-600/90">Створити дамп бази</button>
+        </form>
+      </div>
+    </section>
+
     @if($recentUsage->isNotEmpty())
       <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
         <div class="space-y-4 p-6">
@@ -347,7 +422,7 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">2. Швидке створення та пуш гілки</h2>
+          <h2 class="text-2xl font-semibold">3. Швидке створення та пуш гілки</h2>
           <p class="text-sm text-muted-foreground">Введіть назву гілки. Якщо її не існує, вона буде створена автоматично. Поточний стан сайту буде запушено на віддалений репозиторій.</p>
         </div>
         <form method="POST" action="{{ route('deployment.quick-branch') }}" class="space-y-4">
@@ -369,7 +444,7 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">3. Запушити поточний стан</h2>
+          <h2 class="text-2xl font-semibold">4. Запушити поточний стан</h2>
           <p class="text-sm text-muted-foreground">Виконайте <code>git push</code>, щоб надіслати поточний коміт на потрібну віддалену гілку (за замовчуванням <code>master</code>).</p>
           <div class="mt-3 rounded-2xl border border-border/70 bg-muted/30 p-4 text-xs text-muted-foreground">
             <p class="font-semibold text-foreground">Команди, які буде виконано:</p>
@@ -401,7 +476,7 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">4. Створити резервну гілку</h2>
+          <h2 class="text-2xl font-semibold">5. Створити резервну гілку</h2>
           <p class="text-sm text-muted-foreground">За потреби можна зробити окрему гілку з поточного стану або одного з резервних комітів, щоб зберегти стабільну версію перед великими оновленнями.</p>
         </div>
         <div class="rounded-2xl border border-border/70 bg-muted/40 p-4 text-sm text-muted-foreground">
@@ -453,7 +528,7 @@
       <div class="space-y-6 p-6">
         <div class="flex items-center justify-between">
           <div>
-            <h2 class="text-2xl font-semibold">5. Керування резервними гілками</h2>
+            <h2 class="text-2xl font-semibold">6. Керування резервними гілками</h2>
             <p class="text-sm text-muted-foreground">Усі створені гілки доступні нижче. Звідси ж можна запушити їх на GitHub, щоб зберегти віддалену копію.</p>
           </div>
           @if($backupBranches->isNotEmpty())
@@ -544,7 +619,7 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">6. Відкотити зміни</h2>
+          <h2 class="text-2xl font-semibold">7. Відкотити зміни</h2>
           <p class="text-sm text-muted-foreground">Якщо після оновлення з’явилися проблеми, можна повернути сайт до збереженого стану. Виберіть потрібний коміт зі списку нижче.</p>
         </div>
         @if(count($backups) === 0)

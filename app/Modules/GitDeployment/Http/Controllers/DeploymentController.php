@@ -6,6 +6,7 @@ use App\Models\ContentOperationRun;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -893,6 +894,96 @@ class DeploymentController extends BaseController
         return $this->redirectWithFeedback('success', $message, $commandsOutput, $branch);
     }
 
+    public function databaseDump(Request $request): RedirectResponse
+    {
+        $dumpPath = $this->normalizeDatabaseDumpPath((string) $request->input('dump_path', $this->defaultDatabaseDumpPath()));
+        if ($dumpPath === null) {
+            return $this->redirectWithFeedback(
+                'error',
+                'Невірний шлях для дампу. Використовуйте SQL-файл всередині database/dumps.',
+                []
+            );
+        }
+
+        $defaultRowsPerInsert = max(1, min(1000, (int) config('git-deployment.database_dump.rows_per_insert', 250)));
+        $rowsPerInsert = max(1, min(1000, (int) $request->input('rows_per_insert', $defaultRowsPerInsert)));
+        $commandsOutput = [];
+        $artisanCommand = "php artisan db:dump-site --path={$dumpPath} --rows-per-insert={$rowsPerInsert}";
+
+        $exitCode = Artisan::call('db:dump-site', [
+            '--path' => $dumpPath,
+            '--rows-per-insert' => $rowsPerInsert,
+        ]);
+
+        $commandsOutput[] = [
+            'command' => $artisanCommand,
+            'successful' => $exitCode === 0,
+            'output' => trim(Artisan::output()),
+        ];
+
+        if ($exitCode !== 0) {
+            return $this->redirectWithFeedback('error', 'Не вдалося створити дамп бази даних.', $commandsOutput);
+        }
+
+        $fullDumpPath = base_path(str_replace('/', DIRECTORY_SEPARATOR, $dumpPath));
+        $message = 'Дамп бази даних створено: ' . $dumpPath;
+
+        if (! $request->boolean('commit_and_push')) {
+            return $this->redirectWithFeedback('success', $message, $commandsOutput);
+        }
+
+        if (! $this->supportsShellCommands()) {
+            return $this->redirectWithFeedback(
+                'error',
+                $message . '. Commit/push не виконано, бо shell-команди недоступні на цьому сервері.',
+                $commandsOutput
+            );
+        }
+
+        $branch = $request->input('push_branch', 'main');
+        $branch = Str::of($branch)->trim()->value() ?: 'main';
+        $branch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branch) ?: 'main';
+        $repoPath = base_path();
+
+        $addProcess = $this->runCommand(['git', 'add', '--', $dumpPath], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git add -- {$dumpPath}", $addProcess);
+
+        if (! $addProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', $message . ', але не вдалося додати файл у Git.', $commandsOutput, $branch);
+        }
+
+        $commitMessage = 'Update database dump';
+        $commitProcess = $this->runCommand(['git', 'commit', '-m', $commitMessage, '--', $dumpPath], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git commit -m \"{$commitMessage}\" -- {$dumpPath}", $commitProcess);
+
+        if (! $commitProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', $message . ', але не вдалося створити Git-коміт.', $commandsOutput, $branch);
+        }
+
+        $pushProcess = $this->runCommand(['git', 'push', 'origin', "HEAD:{$branch}"], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git push origin HEAD:{$branch}", $pushProcess);
+
+        if (! $pushProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', $message . ', коміт створено, але push не пройшов.', $commandsOutput, $branch);
+        }
+
+        BranchUsageHistory::trackUsage(
+            $branch,
+            'database_dump',
+            'Створено дамп бази даних і запушено файл ' . $dumpPath,
+            [$dumpPath]
+        );
+
+        $size = File::exists($fullDumpPath) ? number_format((int) File::size($fullDumpPath)) . ' bytes' : 'unknown size';
+
+        return $this->redirectWithFeedback(
+            'success',
+            "Дамп бази даних створено, закомічено і запушено в origin/{$branch}. Файл: {$dumpPath}; розмір: {$size}.",
+            $commandsOutput,
+            $branch
+        );
+    }
+
     public function pushCurrent(Request $request): RedirectResponse
     {
         $branch = $request->input('branch', 'master');
@@ -1375,7 +1466,62 @@ class DeploymentController extends BaseController
             'contentCiDispatch' => $contentCiDispatch,
             'recentContentRuns' => $this->recentContentRuns(),
             'contentOperationLockStatus' => $this->contentOperationLockStatus(),
+            'databaseDump' => $this->databaseDumpStatus(),
         ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function databaseDumpStatus(): array
+    {
+        $path = $this->defaultDatabaseDumpPath();
+        $fullPath = base_path(str_replace('/', DIRECTORY_SEPARATOR, $path));
+
+        return [
+            'path' => $path,
+            'exists' => File::exists($fullPath),
+            'size' => File::exists($fullPath) ? (int) File::size($fullPath) : null,
+            'updated_at' => File::exists($fullPath) ? date('Y-m-d H:i:s', File::lastModified($fullPath)) : null,
+            'rows_per_insert' => max(1, min(1000, (int) config('git-deployment.database_dump.rows_per_insert', 250))),
+        ];
+    }
+
+    private function defaultDatabaseDumpPath(): string
+    {
+        return $this->normalizeDatabaseDumpPath((string) config('git-deployment.database_dump.path', 'database/dumps/site-database.sql'))
+            ?? 'database/dumps/site-database.sql';
+    }
+
+    private function normalizeDatabaseDumpPath(string $path): ?string
+    {
+        $path = trim(str_replace('\\', '/', $path));
+
+        if ($path === '') {
+            $path = 'database/dumps/site-database.sql';
+        }
+
+        if (preg_match('/^[A-Za-z]:[\/\\\\]/', $path) === 1 || Str::startsWith($path, ['/', '\\'])) {
+            return null;
+        }
+
+        $parts = array_values(array_filter(explode('/', $path), fn (string $part): bool => $part !== ''));
+
+        if (in_array('..', $parts, true)) {
+            return null;
+        }
+
+        $normalized = implode('/', $parts);
+
+        if (! Str::startsWith($normalized, 'database/dumps/')) {
+            return null;
+        }
+
+        if (! Str::endsWith(Str::lower($normalized), '.sql')) {
+            return null;
+        }
+
+        return $normalized;
     }
 
     /**
