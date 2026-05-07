@@ -78,13 +78,13 @@ class PolyglotThereIsThereAreA1TheoryLinksSeeder extends Seeder
             }
 
             DB::table('question_theory_text_blocks')
-                ->where('question_id', $question->id)
+                ->where('question_uuid', $question->uuid)
                 ->delete();
 
             $rows = [];
             foreach ($blockUuids as $position => $blockUuid) {
                 $rows[] = [
-                    'question_id' => $question->id,
+                    'question_uuid' => $question->uuid,
                     'text_block_uuid' => $blockUuid,
                     'position' => $position,
                     'created_at' => $now,

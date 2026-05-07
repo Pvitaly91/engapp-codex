@@ -1,33 +1,157 @@
 {
     "question": {
-        "id": 365,
+        "id": 5000,
         "uuid": "verbt-78-you-are-the-new-manager-a78",
         "question": "You are the new manager, {a78}?",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 2,
-        "source_id": 3,
+        "category_id": 13,
+        "source_id": 101,
         "flag": 2,
-        "created_at": "2026-05-06T23:42:45.000000Z",
-        "updated_at": "2026-05-06T23:42:45.000000Z"
+        "created_at": "2026-04-23T11:43:02.000000Z",
+        "updated_at": "2026-05-07T08:02:37.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 13,
         "name": "Базова граматика / Verb to Be",
-        "created_at": "2026-05-06T23:42:37.000000Z",
-        "updated_at": "2026-05-06T23:42:37.000000Z"
+        "created_at": "2026-04-23T11:42:10.000000Z",
+        "updated_at": "2026-04-23T11:42:10.000000Z"
     },
     "source": {
-        "id": 3,
+        "id": 101,
         "name": "Verb to Be: Questions and Short Answers",
-        "created_at": "2026-05-06T23:42:43.000000Z",
-        "updated_at": "2026-05-06T23:42:43.000000Z"
+        "created_at": "2026-04-23T11:42:56.000000Z",
+        "updated_at": "2026-04-23T11:42:56.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 100,
+                "name": "Verb to be — questions",
+                "category": null,
+                "created_at": "2026-04-23T09:59:17.000000Z",
+                "updated_at": "2026-04-23T09:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 5000,
+                "tag_id": 100,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 1084,
+                "name": "Are you/we/they...? question form",
+                "category": "pattern",
+                "created_at": "2026-04-23T11:42:56.000000Z",
+                "updated_at": "2026-04-23T11:42:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 5000,
+                "tag_id": 1084,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 1090,
+                "name": "Question tag with be (…, isn't it? / aren't you?)",
+                "category": "pattern",
+                "created_at": "2026-04-23T11:42:56.000000Z",
+                "updated_at": "2026-04-23T11:42:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 5000,
+                "tag_id": 1090,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 4773,
+                "option": "are you",
+                "created_at": "2026-04-23T11:41:13.000000Z",
+                "updated_at": "2026-04-23T11:41:13.000000Z"
+            },
+            "pivot": {
+                "question_id": 5000,
+                "option_id": 4773,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4782,
+                "option": "don't you",
+                "created_at": "2026-04-23T11:41:14.000000Z",
+                "updated_at": "2026-04-23T11:41:14.000000Z"
+            },
+            "pivot": {
+                "question_id": 5000,
+                "option_id": 4782,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4783,
+                "option": "aren't you",
+                "created_at": "2026-04-23T11:41:14.000000Z",
+                "updated_at": "2026-04-23T11:41:14.000000Z"
+            },
+            "pivot": {
+                "question_id": 5000,
+                "option_id": 4783,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5727,
+                "option": "isn't you",
+                "created_at": "2026-04-23T11:43:02.000000Z",
+                "updated_at": "2026-04-23T11:43:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 5000,
+                "option_id": 5727,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 14167,
+                "question_id": 5000,
+                "marker": "a78",
+                "option_id": 4783,
+                "created_at": "2026-04-23T11:43:02.000000Z",
+                "updated_at": "2026-04-23T11:43:02.000000Z"
+            },
+            "option": {
+                "id": 4783,
+                "option": "aren't you",
+                "created_at": "2026-04-23T11:41:14.000000Z",
+                "updated_at": "2026-04-23T11:41:14.000000Z"
+            }
+        }
+    ],
     "verb_hints": [],
-    "variants": [],
+    "variants": [
+        {
+            "id": 3537,
+            "question_id": 5000,
+            "text": "You are the new manager, {a78}?",
+            "created_at": "2026-04-23T11:43:02.000000Z",
+            "updated_at": "2026-04-23T11:43:02.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

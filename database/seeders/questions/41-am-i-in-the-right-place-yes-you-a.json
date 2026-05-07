@@ -1,33 +1,144 @@
 {
     "question": {
-        "id": 328,
+        "id": 4963,
         "uuid": "41-am-i-in-the-right-place-yes-you-a",
         "question": "Am I in the right place? — Yes, you {a41}.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 2,
-        "source_id": 3,
+        "category_id": 13,
+        "source_id": 101,
         "flag": 2,
-        "created_at": "2026-05-06T23:42:44.000000Z",
-        "updated_at": "2026-05-06T23:42:44.000000Z"
+        "created_at": "2026-04-23T11:42:59.000000Z",
+        "updated_at": "2026-05-07T08:02:34.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 13,
         "name": "Базова граматика / Verb to Be",
-        "created_at": "2026-05-06T23:42:37.000000Z",
-        "updated_at": "2026-05-06T23:42:37.000000Z"
+        "created_at": "2026-04-23T11:42:10.000000Z",
+        "updated_at": "2026-04-23T11:42:10.000000Z"
     },
     "source": {
-        "id": 3,
+        "id": 101,
         "name": "Verb to Be: Questions and Short Answers",
-        "created_at": "2026-05-06T23:42:43.000000Z",
-        "updated_at": "2026-05-06T23:42:43.000000Z"
+        "created_at": "2026-04-23T11:42:56.000000Z",
+        "updated_at": "2026-04-23T11:42:56.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 100,
+                "name": "Verb to be — questions",
+                "category": null,
+                "created_at": "2026-04-23T09:59:17.000000Z",
+                "updated_at": "2026-04-23T09:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 4963,
+                "tag_id": 100,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 1082,
+                "name": "Am I...? question form",
+                "category": "pattern",
+                "created_at": "2026-04-23T11:42:56.000000Z",
+                "updated_at": "2026-04-23T11:42:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 4963,
+                "tag_id": 1082,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 1087,
+                "name": "Affirmative short answer (Yes, … am / is / are)",
+                "category": "pattern",
+                "created_at": "2026-04-23T11:42:56.000000Z",
+                "updated_at": "2026-04-23T11:42:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 4963,
+                "tag_id": 1087,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 96,
+                "option": "am",
+                "created_at": "2026-04-23T08:40:01.000000Z",
+                "updated_at": "2026-04-23T08:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 4963,
+                "option_id": 96,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 101,
+                "option": "are",
+                "created_at": "2026-04-23T08:40:01.000000Z",
+                "updated_at": "2026-04-23T08:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 4963,
+                "option_id": 101,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 107,
+                "option": "is",
+                "created_at": "2026-04-23T08:40:01.000000Z",
+                "updated_at": "2026-04-23T08:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 4963,
+                "option_id": 107,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 14130,
+                "question_id": 4963,
+                "marker": "a41",
+                "option_id": 101,
+                "created_at": "2026-04-23T11:42:59.000000Z",
+                "updated_at": "2026-04-23T11:42:59.000000Z"
+            },
+            "option": {
+                "id": 101,
+                "option": "are",
+                "created_at": "2026-04-23T08:40:01.000000Z",
+                "updated_at": "2026-04-23T08:40:01.000000Z"
+            }
+        }
+    ],
     "verb_hints": [],
-    "variants": [],
+    "variants": [
+        {
+            "id": 3500,
+            "question_id": 4963,
+            "text": "Am I in the right place? — Yes, you {a41}.",
+            "created_at": "2026-04-23T11:42:59.000000Z",
+            "updated_at": "2026-04-23T11:42:59.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

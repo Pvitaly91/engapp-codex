@@ -1,33 +1,157 @@
 {
     "question": {
-        "id": 355,
+        "id": 4990,
         "uuid": "68-am-i-being-too-strict-no-you-a68",
         "question": "Am I being too strict? — No, you {a68}.",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 2,
-        "source_id": 3,
+        "category_id": 13,
+        "source_id": 101,
         "flag": 2,
-        "created_at": "2026-05-06T23:42:44.000000Z",
-        "updated_at": "2026-05-06T23:42:44.000000Z"
+        "created_at": "2026-04-23T11:43:01.000000Z",
+        "updated_at": "2026-05-07T08:02:36.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 13,
         "name": "Базова граматика / Verb to Be",
-        "created_at": "2026-05-06T23:42:37.000000Z",
-        "updated_at": "2026-05-06T23:42:37.000000Z"
+        "created_at": "2026-04-23T11:42:10.000000Z",
+        "updated_at": "2026-04-23T11:42:10.000000Z"
     },
     "source": {
-        "id": 3,
+        "id": 101,
         "name": "Verb to Be: Questions and Short Answers",
-        "created_at": "2026-05-06T23:42:43.000000Z",
-        "updated_at": "2026-05-06T23:42:43.000000Z"
+        "created_at": "2026-04-23T11:42:56.000000Z",
+        "updated_at": "2026-04-23T11:42:56.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 100,
+                "name": "Verb to be — questions",
+                "category": null,
+                "created_at": "2026-04-23T09:59:17.000000Z",
+                "updated_at": "2026-04-23T09:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 4990,
+                "tag_id": 100,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 1082,
+                "name": "Am I...? question form",
+                "category": "pattern",
+                "created_at": "2026-04-23T11:42:56.000000Z",
+                "updated_at": "2026-04-23T11:42:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 4990,
+                "tag_id": 1082,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 1086,
+                "name": "Negative short answer (No, … isn't / aren't / 'm not)",
+                "category": "pattern",
+                "created_at": "2026-04-23T11:42:56.000000Z",
+                "updated_at": "2026-04-23T11:42:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 4990,
+                "tag_id": 1086,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 4719,
+                "option": "Don't",
+                "created_at": "2026-04-23T11:41:09.000000Z",
+                "updated_at": "2026-04-23T11:41:09.000000Z"
+            },
+            "pivot": {
+                "question_id": 4990,
+                "option_id": 4719,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5382,
+                "option": "isn't",
+                "created_at": "2026-04-23T11:41:47.000000Z",
+                "updated_at": "2026-04-23T11:41:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 4990,
+                "option_id": 5382,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5385,
+                "option": "aren't",
+                "created_at": "2026-04-23T11:41:47.000000Z",
+                "updated_at": "2026-04-23T11:41:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 4990,
+                "option_id": 5385,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5711,
+                "option": "'m not",
+                "created_at": "2026-04-23T11:42:57.000000Z",
+                "updated_at": "2026-04-23T11:42:57.000000Z"
+            },
+            "pivot": {
+                "question_id": 4990,
+                "option_id": 5711,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 14157,
+                "question_id": 4990,
+                "marker": "a68",
+                "option_id": 5385,
+                "created_at": "2026-04-23T11:43:01.000000Z",
+                "updated_at": "2026-04-23T11:43:01.000000Z"
+            },
+            "option": {
+                "id": 5385,
+                "option": "aren't",
+                "created_at": "2026-04-23T11:41:47.000000Z",
+                "updated_at": "2026-04-23T11:41:47.000000Z"
+            }
+        }
+    ],
     "verb_hints": [],
-    "variants": [],
+    "variants": [
+        {
+            "id": 3527,
+            "question_id": 4990,
+            "text": "Am I being too strict? — No, you {a68}.",
+            "created_at": "2026-04-23T11:43:01.000000Z",
+            "updated_at": "2026-04-23T11:43:01.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

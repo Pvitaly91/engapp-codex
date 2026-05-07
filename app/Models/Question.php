@@ -60,12 +60,13 @@ class Question extends Model
      */
     public function theoryTextBlocks()
     {
+        // Pivot is keyed by question UUID (stable across reseeds), not id.
         return $this->belongsToMany(
             TextBlock::class,
             'question_theory_text_blocks',
-            'question_id',
+            'question_uuid',
             'text_block_uuid',
-            'id',
+            'uuid',
             'uuid'
         )
             ->withPivot('position')

@@ -35,7 +35,12 @@
       "Bash(php -l app/Services/EnglishSentenceGrammarClassifier.php)",
       "Bash(php -l app/Services/TheoryFeatureBundleResolver.php)",
       "Bash(php -l app/Support/Database/V3FullGrammarTheoryLinksSeederBase.php)",
-      "Bash(php -l database/seeders/V3/Polyglot/V3VerbToBePresentFormsSonateTheoryLinksSeeder.php)"
+      "Bash(php -l database/seeders/V3/Polyglot/V3VerbToBePresentFormsSonateTheoryLinksSeeder.php)",
+      "Bash(php -l database/seeders/V3/Polyglot/V3VerbToBeQuestionsAndShortAnswersOpus46TheoryLinksSeeder.php)",
+      "Bash(php -l database/seeders/V3/Polyglot/V3ThereIsThereAreOpus46TheoryLinksSeeder.php)",
+      "Bash(php -l database/seeders/V3/Polyglot/V3VerbToBeFutureSonateTheoryLinksSeeder.php)",
+      "Bash(grep -rn 'question_theory_text_blocks.*question_id\\\\|'\\\\''question_id'\\\\'' => $question->id' G:/DEV/htdocs/engapp-codex.loc/app G:/DEV/htdocs/engapp-codex.loc/database/seeders)",
+      "Bash(php -l database/migrations/2026_05_07_000001_switch_question_theory_text_blocks_to_uuid.php)"
     ]
   }
 }
