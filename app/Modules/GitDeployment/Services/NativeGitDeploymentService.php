@@ -244,6 +244,100 @@ class NativeGitDeploymentService
     }
 
     /**
+     * @return array{logs: array<int, string>, message: string, commit: ?string}
+     */
+    public function pushFile(string $targetBranch, string $relativePath, string $commitMessage): array
+    {
+        $targetBranch = $this->sanitizeBranch($targetBranch);
+        $relativePath = trim(str_replace('\\', '/', $relativePath), '/');
+        $logs = [];
+
+        if ($targetBranch === '') {
+            throw new RuntimeException('Вкажіть гілку для GitHub API push.');
+        }
+
+        if ($relativePath === '' || str_contains($relativePath, '..')) {
+            throw new RuntimeException('Некоректний шлях файлу для GitHub API push.');
+        }
+
+        $fullPath = $this->filesystem->getRepositoryPath() . '/' . $relativePath;
+        if (! File::isFile($fullPath)) {
+            throw new RuntimeException('Файл для GitHub API push не знайдено: ' . $relativePath);
+        }
+
+        $content = File::get($fullPath);
+        $localSha = $this->calculateBlobSha($content);
+
+        $logs[] = "Готуємо GitHub API commit для файлу {$relativePath}.";
+        $remoteBranch = null;
+
+        try {
+            $remoteBranch = $this->github()->getBranch($targetBranch);
+        } catch (RuntimeException $exception) {
+            $logs[] = "Гілку {$targetBranch} не знайдено. Буде створено нову від default branch.";
+        }
+
+        $parentCommit = $remoteBranch ? Arr::get($remoteBranch, 'object.sha') : null;
+
+        if (! $parentCommit) {
+            $repo = $this->github()->getRepository();
+            $defaultBranch = Arr::get($repo, 'default_branch', 'main');
+            $default = $this->github()->getBranch($defaultBranch);
+            $parentCommit = Arr::get($default, 'object.sha');
+        }
+
+        if (! $parentCommit) {
+            throw new RuntimeException('Не вдалося визначити батьківський коміт для GitHub API commit.');
+        }
+
+        $parentCommitData = $this->github()->getCommit($parentCommit);
+        $baseTreeSha = Arr::get($parentCommitData, 'tree.sha', '');
+        $remoteTree = $baseTreeSha !== '' ? $this->github()->getTree($baseTreeSha) : ['tree' => []];
+        $remoteEntry = collect($remoteTree['tree'] ?? [])
+            ->first(fn ($item): bool => ($item['type'] ?? null) === 'blob' && ($item['path'] ?? null) === $relativePath);
+
+        if (is_array($remoteEntry) && ($remoteEntry['sha'] ?? null) === $localSha) {
+            $logs[] = 'Файл на GitHub вже збігається з локальним. Новий коміт не створено.';
+
+            return [
+                'logs' => $logs,
+                'message' => "Файл {$relativePath} вже актуальний на GitHub гілці {$targetBranch}.",
+                'commit' => null,
+            ];
+        }
+
+        $blobSha = $this->github()->createBlob($content, str_contains($content, "\0"));
+        $treeSha = $this->github()->createTree($baseTreeSha, [[
+            'path' => $relativePath,
+            'mode' => '100644',
+            'type' => 'blob',
+            'sha' => $blobSha,
+        ]]);
+
+        $logs[] = 'Створюємо GitHub commit для дампу.';
+        $commitSha = $this->github()->createCommit($commitMessage, $treeSha, [$parentCommit]);
+        $ref = 'heads/' . $targetBranch;
+
+        if ($remoteBranch) {
+            $this->github()->updateRef($ref, $commitSha, false);
+        } else {
+            $this->github()->createRef($ref, $commitSha);
+        }
+
+        if ($currentBranch = $this->filesystem->getCurrentBranch()) {
+            $this->filesystem->writeRef('refs/heads/' . $currentBranch, $commitSha);
+        }
+
+        $logs[] = "GitHub гілка {$targetBranch} оновлена комітом {$commitSha}.";
+
+        return [
+            'logs' => $logs,
+            'message' => "Файл {$relativePath} запушено в GitHub гілку {$targetBranch} через API.",
+            'commit' => $commitSha,
+        ];
+    }
+
+    /**
      * @return array{logs: array<int, string>, message: string}
      */
     public function rollback(string $commit): array
@@ -343,6 +437,11 @@ class NativeGitDeploymentService
         $branch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branch ?? '') ?? '';
 
         return $branch;
+    }
+
+    private function calculateBlobSha(string $content): string
+    {
+        return sha1('blob ' . strlen($content) . "\0" . $content);
     }
 
     private function storeBackup(array $backup): void

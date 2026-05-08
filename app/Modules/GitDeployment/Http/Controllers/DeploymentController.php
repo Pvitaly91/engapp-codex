@@ -16,6 +16,7 @@ use App\Modules\GitDeployment\Http\Concerns\ParsesDeploymentPaths;
 use App\Modules\GitDeployment\Services\ChangedContentDeploymentApplyService;
 use App\Modules\GitDeployment\Services\ChangedContentDeploymentPreviewService;
 use App\Modules\GitDeployment\Services\DeploymentContentLockService;
+use App\Modules\GitDeployment\Services\NativeGitDeploymentService;
 use App\Services\ContentDeployment\ContentSyncApplyService;
 use App\Services\ContentDeployment\ContentOperationLockService;
 use App\Services\ContentDeployment\ContentOperationRunService;
@@ -894,7 +895,7 @@ class DeploymentController extends BaseController
         return $this->redirectWithFeedback('success', $message, $commandsOutput, $branch);
     }
 
-    public function databaseDump(Request $request): RedirectResponse
+    public function databaseDump(Request $request, NativeGitDeploymentService $nativeDeployment): RedirectResponse
     {
         $dumpPath = $this->normalizeDatabaseDumpPath((string) $request->input('dump_path', $this->defaultDatabaseDumpPath()));
         if ($dumpPath === null) {
@@ -932,17 +933,14 @@ class DeploymentController extends BaseController
             return $this->redirectWithFeedback('success', $message, $commandsOutput);
         }
 
-        if (! $this->supportsShellCommands()) {
-            return $this->redirectWithFeedback(
-                'error',
-                $message . '. Commit/push не виконано, бо shell-команди недоступні на цьому сервері.',
-                $commandsOutput
-            );
-        }
-
         $branch = $request->input('push_branch', 'main');
         $branch = Str::of($branch)->trim()->value() ?: 'main';
         $branch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branch) ?: 'main';
+
+        if (! $this->supportsShellCommands()) {
+            return $this->pushDatabaseDumpViaApi($nativeDeployment, $dumpPath, $branch, $message, $commandsOutput, $fullDumpPath);
+        }
+
         $repoPath = base_path();
 
         $addProcess = $this->runCommand(['git', 'add', '--', $dumpPath], $repoPath);
@@ -953,7 +951,11 @@ class DeploymentController extends BaseController
         }
 
         $commitMessage = 'Update database dump';
-        $commitProcess = $this->runCommand(['git', 'commit', '-m', $commitMessage, '--', $dumpPath], $repoPath);
+        $commitProcess = $this->runCommand(
+            ['git', 'commit', '-m', $commitMessage, '--', $dumpPath],
+            $repoPath,
+            $this->gitCommitEnvironment()
+        );
         $commandsOutput[] = $this->formatProcess("git commit -m \"{$commitMessage}\" -- {$dumpPath}", $commitProcess);
 
         if (! $commitProcess->isSuccessful()) {
@@ -979,6 +981,53 @@ class DeploymentController extends BaseController
         return $this->redirectWithFeedback(
             'success',
             "Дамп бази даних створено, закомічено і запушено в origin/{$branch}. Файл: {$dumpPath}; розмір: {$size}.",
+            $commandsOutput,
+            $branch
+        );
+    }
+
+    private function pushDatabaseDumpViaApi(
+        NativeGitDeploymentService $nativeDeployment,
+        string $dumpPath,
+        string $branch,
+        string $message,
+        array $commandsOutput,
+        string $fullDumpPath
+    ): RedirectResponse {
+        try {
+            $result = $nativeDeployment->pushFile($branch, $dumpPath, 'Update database dump');
+        } catch (\Throwable $throwable) {
+            $commandsOutput[] = [
+                'command' => 'GitHub API commit database dump',
+                'successful' => false,
+                'output' => $throwable->getMessage(),
+            ];
+
+            return $this->redirectWithFeedback('error', $message . ', але GitHub API commit/push не пройшов.', $commandsOutput, $branch);
+        }
+
+        $commandsOutput[] = [
+            'command' => 'GitHub API commit database dump',
+            'successful' => true,
+            'output' => implode(PHP_EOL, $result['logs']),
+        ];
+
+        if ($result['commit'] !== null) {
+            BranchUsageHistory::trackUsage(
+                $branch,
+                'database_dump',
+                'Створено дамп бази даних і запушено файл через GitHub API: ' . $dumpPath,
+                [$dumpPath]
+            );
+        }
+
+        $size = File::exists($fullDumpPath) ? number_format((int) File::size($fullDumpPath)) . ' bytes' : 'unknown size';
+
+        return $this->redirectWithFeedback(
+            'success',
+            $result['commit'] === null
+                ? "Дамп бази даних створено, але GitHub commit не потрібен: файл уже актуальний в origin/{$branch}. Файл: {$dumpPath}; розмір: {$size}."
+                : "Дамп бази даних створено, закомічено і запушено в origin/{$branch} через GitHub API. Файл: {$dumpPath}; розмір: {$size}. Коміт: {$result['commit']}.",
             $commandsOutput,
             $branch
         );
@@ -2058,7 +2107,8 @@ class DeploymentController extends BaseController
 
     private function supportsShellCommands(): bool
     {
-        return function_exists('proc_open');
+        return strtolower((string) config('git-deployment.git_mode', 'api')) === 'ssh'
+            && function_exists('proc_open');
     }
 
     private function sanitizeBranchName(string $branch): string
@@ -2069,12 +2119,33 @@ class DeploymentController extends BaseController
         return $sanitized !== null && $sanitized !== '' ? $sanitized : $normalized;
     }
 
-    private function runCommand(array $command, string $workingDirectory): Process
+    private function runCommand(array $command, string $workingDirectory, array $env = []): Process
     {
-        $process = new Process($command, $workingDirectory);
+        $process = new Process($command, $workingDirectory, $env ?: null);
         $process->run();
 
         return $process;
+    }
+
+    private function gitCommitEnvironment(): array
+    {
+        $authorName = trim((string) config('git-deployment.git.author_name', 'Gramlyze Deployment Bot'));
+        $authorEmail = trim((string) config('git-deployment.git.author_email', 'deploy@gramlyze.com'));
+
+        if ($authorName === '') {
+            $authorName = 'Gramlyze Deployment Bot';
+        }
+
+        if ($authorEmail === '') {
+            $authorEmail = 'deploy@gramlyze.com';
+        }
+
+        return [
+            'GIT_AUTHOR_NAME' => $authorName,
+            'GIT_AUTHOR_EMAIL' => $authorEmail,
+            'GIT_COMMITTER_NAME' => $authorName,
+            'GIT_COMMITTER_EMAIL' => $authorEmail,
+        ];
     }
 
     private function formatProcess(string $command, Process $process): array

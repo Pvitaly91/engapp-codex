@@ -40,6 +40,7 @@ Route::middleware(['web', 'auth.admin'])
             Route::post('/content-sync', [NativeDeploymentController::class, 'contentSync'])->name('content-sync');
             Route::post('/deploy', [NativeDeploymentController::class, 'deploy'])->name('deploy');
             Route::post('/deploy-partial', [NativeDeploymentController::class, 'deployPartial'])->name('deploy-partial');
+            Route::post('/database-dump', [NativeDeploymentController::class, 'databaseDump'])->name('database-dump');
             Route::post('/push-current', [NativeDeploymentController::class, 'pushCurrent'])->name('push-current');
             Route::post('/rollback', [NativeDeploymentController::class, 'rollback'])->name('rollback');
             Route::post('/backup-branch', [NativeDeploymentController::class, 'createBackupBranch'])->name('backup-branch');

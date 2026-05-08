@@ -5,6 +5,7 @@ namespace App\Modules\GitDeployment\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -581,6 +582,78 @@ class NativeDeploymentController extends BaseController
         return $this->redirectWithFeedback('success', $result['message'], $result['logs'], $sanitized);
     }
 
+    public function databaseDump(Request $request): RedirectResponse
+    {
+        $dumpPath = $this->normalizeDatabaseDumpPath((string) $request->input('dump_path', $this->defaultDatabaseDumpPath()));
+        if ($dumpPath === null) {
+            return $this->redirectWithFeedback(
+                'error',
+                'Невірний шлях для дампу. Використовуйте SQL-файл всередині database/dumps.',
+                [],
+                null
+            );
+        }
+
+        $defaultRowsPerInsert = max(1, min(1000, (int) config('git-deployment.database_dump.rows_per_insert', 250)));
+        $rowsPerInsert = max(1, min(1000, (int) $request->input('rows_per_insert', $defaultRowsPerInsert)));
+        $logs = [];
+
+        $exitCode = Artisan::call('db:dump-site', [
+            '--path' => $dumpPath,
+            '--rows-per-insert' => $rowsPerInsert,
+        ]);
+
+        $artisanOutput = trim(Artisan::output());
+        $logs[] = "php artisan db:dump-site --path={$dumpPath} --rows-per-insert={$rowsPerInsert}";
+        if ($artisanOutput !== '') {
+            $logs[] = $artisanOutput;
+        }
+
+        if ($exitCode !== 0) {
+            return $this->redirectWithFeedback('error', 'Не вдалося створити дамп бази даних.', $logs, null);
+        }
+
+        $fullDumpPath = base_path(str_replace('/', DIRECTORY_SEPARATOR, $dumpPath));
+        $message = 'Дамп бази даних створено: ' . $dumpPath;
+
+        if (! $request->boolean('commit_and_push')) {
+            return $this->redirectWithFeedback('success', $message, $logs, null);
+        }
+
+        $branch = $request->input('push_branch', 'main');
+        $sanitized = $this->sanitizeBranchName($branch ?? 'main');
+
+        try {
+            $result = $this->deployment->pushFile($sanitized, $dumpPath, 'Update database dump');
+        } catch (\Throwable $throwable) {
+            $logs[] = 'GitHub API commit failed: ' . $throwable->getMessage();
+
+            return $this->redirectWithFeedback('error', $message . ', але GitHub API commit/push не пройшов.', $logs, $sanitized);
+        }
+
+        $logs = array_merge($logs, $result['logs']);
+
+        if ($result['commit'] !== null) {
+            BranchUsageHistory::trackUsage(
+                $sanitized,
+                'database_dump',
+                'Створено дамп бази даних і запушено файл через GitHub API: ' . $dumpPath,
+                [$dumpPath]
+            );
+        }
+
+        $size = File::exists($fullDumpPath) ? number_format((int) File::size($fullDumpPath)) . ' bytes' : 'unknown size';
+
+        return $this->redirectWithFeedback(
+            'success',
+            $result['commit'] === null
+                ? "Дамп бази даних створено, але GitHub commit не потрібен: файл уже актуальний в origin/{$sanitized}. Файл: {$dumpPath}; розмір: {$size}."
+                : "Дамп бази даних створено, закомічено і запушено в origin/{$sanitized} через GitHub API. Файл: {$dumpPath}; розмір: {$size}. Коміт: {$result['commit']}.",
+            $logs,
+            $sanitized
+        );
+    }
+
     public function rollback(
         Request $request,
         ChangedContentDeploymentPreviewService $changedContentDeploymentPreviewService,
@@ -912,7 +985,62 @@ class NativeDeploymentController extends BaseController
             'contentCiDispatch' => $contentCiDispatch,
             'recentContentRuns' => $this->recentContentRuns(),
             'contentOperationLockStatus' => $this->contentOperationLockStatus(),
+            'databaseDump' => $this->databaseDumpStatus(),
         ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function databaseDumpStatus(): array
+    {
+        $path = $this->defaultDatabaseDumpPath();
+        $fullPath = base_path(str_replace('/', DIRECTORY_SEPARATOR, $path));
+
+        return [
+            'path' => $path,
+            'exists' => File::exists($fullPath),
+            'size' => File::exists($fullPath) ? (int) File::size($fullPath) : null,
+            'updated_at' => File::exists($fullPath) ? date('Y-m-d H:i:s', File::lastModified($fullPath)) : null,
+            'rows_per_insert' => max(1, min(1000, (int) config('git-deployment.database_dump.rows_per_insert', 250))),
+        ];
+    }
+
+    private function defaultDatabaseDumpPath(): string
+    {
+        return $this->normalizeDatabaseDumpPath((string) config('git-deployment.database_dump.path', 'database/dumps/site-database.sql'))
+            ?? 'database/dumps/site-database.sql';
+    }
+
+    private function normalizeDatabaseDumpPath(string $path): ?string
+    {
+        $path = trim(str_replace('\\', '/', $path));
+
+        if ($path === '') {
+            $path = 'database/dumps/site-database.sql';
+        }
+
+        if (preg_match('/^[A-Za-z]:[\/\\\\]/', $path) === 1 || Str::startsWith($path, ['/', '\\'])) {
+            return null;
+        }
+
+        $parts = array_values(array_filter(explode('/', $path), fn (string $part): bool => $part !== ''));
+
+        if (in_array('..', $parts, true)) {
+            return null;
+        }
+
+        $normalized = implode('/', $parts);
+
+        if (! Str::startsWith($normalized, 'database/dumps/')) {
+            return null;
+        }
+
+        if (! Str::endsWith(Str::lower($normalized), '.sql')) {
+            return null;
+        }
+
+        return $normalized;
     }
 
     /**

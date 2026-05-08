@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
@@ -15,10 +16,12 @@ return new class extends Migration {
             $table->boolean('is_correct');
             $table->text('explanation')->nullable();
             $table->timestamps();
-            $table->string('unique_hash', 64)
-                ->storedAs("sha2(concat_ws(':', `original`, `reference`, `user_text`, `language`), 256)");
-            $table->unique('unique_hash', 'chatgpt_translation_checks_unique');
         });
+
+        DB::statement(
+            'ALTER TABLE `chatgpt_translation_checks` ADD UNIQUE KEY `chatgpt_translation_checks_unique` ' .
+            '(`original`(150), `reference`(150), `user_text`(150), `language`(50))'
+        );
     }
 
     public function down(): void

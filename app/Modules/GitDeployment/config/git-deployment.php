@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'git_mode' => env('DEPLOYMENT_GIT_MODE', env('APP_ENV', 'production') === 'local' ? 'ssh' : 'api'),
+    'git' => [
+        'author_name' => env('DEPLOYMENT_GIT_AUTHOR_NAME', env('GIT_AUTHOR_NAME', 'Gramlyze Deployment Bot')),
+        'author_email' => env('DEPLOYMENT_GIT_AUTHOR_EMAIL', env('GIT_AUTHOR_EMAIL', 'deploy@gramlyze.com')),
+    ],
     'preserve_paths' => [
         '.git',
         '.env',

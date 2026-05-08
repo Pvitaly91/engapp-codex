@@ -73,18 +73,40 @@ function loadEnv(string $path): array
         }
 
         [$key, $value] = explode('=', $line, 2);
-        $key = trim($key);
-        $value = trim($value);
+        $key = normalizeEnvKey($key);
+        $value = normalizeEnvValue($value);
 
-        if ($value !== '' && ($value[0] === '"' || $value[0] === '\'')) {
-            $quote = $value[0];
-            $value = trim($value, $quote);
+        if ($key === '') {
+            continue;
         }
 
         $values[$key] = $value;
     }
 
     return $values;
+}
+
+function normalizeEnvKey(string $key): string
+{
+    $key = preg_replace('/^\xEF\xBB\xBF/', '', $key) ?? $key;
+
+    return preg_replace('/^\s+|\s+$/u', '', $key) ?? trim($key);
+}
+
+function normalizeEnvValue(string $value): string
+{
+    $value = preg_replace('/^\xEF\xBB\xBF|\xEF\xBB\xBF$/', '', $value) ?? $value;
+    $value = preg_replace('/^\s+|\s+$/u', '', $value) ?? trim($value);
+
+    if ($value !== '' && ($value[0] === '"' || $value[0] === '\'')) {
+        $quote = $value[0];
+
+        if (substr($value, -1) === $quote) {
+            $value = substr($value, 1, -1);
+        }
+    }
+
+    return preg_replace('/^\s+|\s+$/u', '', $value) ?? trim($value);
 }
 
 function getEnvValue(array $env, string $key, ?string $default = null): ?string
