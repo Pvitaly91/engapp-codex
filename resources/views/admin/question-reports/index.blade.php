@@ -4,69 +4,133 @@
 
 @section('content')
     <style>
-        .question-report-list-table,
-        .question-report-list-table thead,
-        .question-report-list-table tbody,
-        .question-report-list-table tr,
-        .question-report-list-table th,
-        .question-report-list-table td {
-            display: block;
-            width: 100%;
-        }
-
-        .question-report-list-table thead {
-            display: none;
-        }
-
-        .question-report-list-table tbody {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .question-report-list-table tr {
+        /* Collapsible report cards. Each report is a <details> element —
+           closed by default; clicking the summary opens the full body. */
+        .qr-card {
+            position: relative;
             border: 1px solid rgb(226 232 240);
-            border-radius: 1rem;
+            border-radius: 16px;
             background: #fff;
-            padding: 1rem;
             box-shadow: 0 1px 2px rgb(15 23 42 / 0.04);
+            overflow: hidden;
+            transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+        }
+        .qr-card[open] {
+            box-shadow: 0 8px 22px -6px rgb(15 23 42 / 0.10);
+        }
+        /* Highlight reports where the question dump diverges from current DB —
+           an obvious signal that a fix has been applied or something drifted. */
+        .qr-card--diff {
+            border-color: rgb(245 158 11);
+            background: linear-gradient(180deg, rgb(255 251 235) 0%, #fff 70%);
+        }
+        .qr-card--diff[open] {
+            box-shadow: 0 10px 28px -8px rgba(245, 158, 11, .28);
         }
 
-        .question-report-list-table td {
-            padding: 0 !important;
-            white-space: normal !important;
+        .qr-card__summary {
+            list-style: none;
+            cursor: pointer;
+            padding: .85rem 1rem .85rem 2.6rem;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: .65rem .75rem;
+            align-items: center;
         }
+        .qr-card__summary::-webkit-details-marker { display: none; }
+        .qr-card__summary::marker { display: none; content: ''; }
 
-        .question-report-list-table td > *,
-        .question-report-list-table details,
-        .question-report-list-table form,
-        .question-report-list-table textarea,
-        .question-report-list-table code {
-            max-width: none !important;
-            width: 100%;
-        }
-
-        .question-report-list-table td + td {
-            margin-top: 1rem;
-            border-top: 1px solid rgb(241 245 249);
-            padding-top: 1rem !important;
-        }
-
-        .question-report-list-table td:nth-child(n + 2)::before {
-            display: block;
-            margin-bottom: 0.5rem;
+        .qr-card__chevron {
+            position: absolute;
+            left: .85rem; top: 1.05rem;
+            width: 1.1rem; height: 1.1rem;
             color: rgb(100 116 139);
-            content: "";
-            font-size: 0.75rem;
+            transition: transform .18s ease;
+            pointer-events: none;
+        }
+        .qr-card[open] .qr-card__chevron { transform: rotate(90deg); }
+
+        .qr-card__title {
+            min-width: 0;
+            font-weight: 600;
+            color: rgb(15 23 42);
+            line-height: 1.5;
+            font-size: 1.15rem;
+            word-break: break-word;
+        }
+        @media (min-width: 768px) {
+            .qr-card__title { font-size: 1.25rem; }
+        }
+        .qr-card--diff .qr-card__title { color: rgb(120 53 15); }
+
+        /* Inline filled-gap chip in the title */
+        .qr-card__title .qr-gap {
+            display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: .25rem;
+            margin: 0 .15rem;
+            border-radius: .4rem;
+            border: 1px solid rgb(110 231 183);
+            background: #fff;
+            padding: .05rem .4rem;
             font-weight: 700;
-            letter-spacing: 0.04em;
+            color: rgb(6 95 70);
+            box-shadow: 0 1px 1px rgb(15 23 42 / .04);
+        }
+        .qr-card__title .qr-gap--missing {
+            border-color: rgb(252 165 165);
+            color: rgb(159 18 57);
+        }
+        .qr-card__title .qr-gap__marker {
+            font-size: .65rem; font-weight: 800;
             text-transform: uppercase;
+            color: rgb(100 116 139);
+            letter-spacing: .04em;
+        }
+        .qr-card__title .qr-gap__hint {
+            margin-left: .25rem;
+            font-size: .78rem; font-weight: 700;
+            color: rgb(190 18 60);
         }
 
-        .question-report-list-table td:nth-child(2)::before { content: "Статус"; }
-        .question-report-list-table td:nth-child(3)::before { content: "Час"; }
-        .question-report-list-table td:nth-child(4)::before { content: "Питання"; }
-        .question-report-list-table td:nth-child(5)::before { content: "Сидер і коментар"; }
-        .question-report-list-table td:nth-child(6)::before { content: "Дії"; }
+        .qr-card__meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+            align-items: center;
+            justify-content: flex-end;
+            white-space: nowrap;
+        }
+        .qr-card__meta-checkbox {
+            cursor: pointer;
+        }
+
+        .qr-badge {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            padding: .2rem .55rem;
+            font-size: .7rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .qr-badge--open  { background: rgb(254 243 199); color: rgb(146 64 14); }
+        .qr-badge--fixed { background: rgb(209 250 229); color: rgb(6 95 70); }
+        .qr-badge--diff  { background: rgb(245 158 11); color: #fff; }
+        .qr-badge--time  { background: rgb(241 245 249); color: rgb(71 85 105); font-weight: 600; }
+
+        .qr-card__body {
+            padding: 1rem;
+            border-top: 1px dashed rgb(226 232 240);
+            background: linear-gradient(180deg, rgba(248,250,252,.6) 0%, #fff 30%);
+        }
+        .qr-card__body > * + * { margin-top: 1rem; }
+
+        @media (max-width: 640px) {
+            .qr-card__summary {
+                grid-template-columns: minmax(0, 1fr);
+                padding-left: 2.4rem;
+            }
+            .qr-card__meta { justify-content: flex-start; }
+        }
     </style>
 
     @php
@@ -74,6 +138,25 @@
         $openCount = $reportsCollection->filter(fn ($report) => ($report['status'] ?? 'open') !== 'fixed')->count();
         $fixedCount = $reportsCollection->filter(fn ($report) => ($report['status'] ?? 'open') === 'fixed')->count();
         $snapshotCounts = $reportsCollection->countBy(fn ($report) => $report['snapshot_status'] ?? 'missing');
+
+        // Unique seeders feeding the visible reports — used to render the
+        // filter strip checkbox list. Key by full lowered FQCN (matches what
+        // is stored as data-qr-seeder on each card), value is a count for the
+        // user's quick orientation.
+        $seederFilterOptions = $reportsCollection
+            ->map(fn ($report) => trim((string) data_get($report, 'question.seeder.class', '')))
+            ->filter()
+            ->countBy()
+            ->sortKeys()
+            ->map(function (int $count, string $class) {
+                return [
+                    'class' => $class,
+                    'class_lower' => \Illuminate\Support\Str::lower($class),
+                    'short' => class_basename($class) ?: $class,
+                    'count' => $count,
+                ];
+            })
+            ->values();
     @endphp
 
     <div class="mx-auto max-w-7xl space-y-6 py-8">
@@ -140,17 +223,29 @@
         </section>
 
         @if(filled($generatedPrompt ?? null))
-            <section class="rounded-2xl border border-blue-200 bg-blue-50 p-4 shadow-sm">
+            @php
+                $promptVersion = $promptVersion ?? 'v1';
+                $isV2 = $promptVersion === 'v2';
+            @endphp
+            <section class="rounded-2xl border {{ $isV2 ? 'border-emerald-200 bg-emerald-50' : 'border-blue-200 bg-blue-50' }} p-4 shadow-sm">
                 <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                        <h2 class="text-lg font-semibold text-blue-950">Сформований prompt</h2>
-                        <p class="mt-1 text-sm text-blue-800">У prompt включено репортів: {{ $promptReportCount ?? 0 }}.</p>
+                        <h2 class="text-lg font-semibold {{ $isV2 ? 'text-emerald-950' : 'text-blue-950' }}">
+                            Сформований prompt
+                            <span class="ml-2 inline-flex items-center rounded-full {{ $isV2 ? 'bg-emerald-600' : 'bg-blue-600' }} px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-white">
+                                {{ $isV2 ? 'V2' : 'V1' }}
+                            </span>
+                        </h2>
+                        <p class="mt-1 text-sm {{ $isV2 ? 'text-emerald-800' : 'text-blue-800' }}">
+                            У prompt включено репортів: {{ $promptReportCount ?? 0 }}.
+                            @if($isV2) Engine: structured English, grouped by seeder. @else Engine: compact UA, sweep block. @endif
+                        </p>
                     </div>
-                    <button type="button" id="copy-question-report-prompt" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
+                    <button type="button" id="copy-question-report-prompt" class="inline-flex items-center justify-center rounded-lg {{ $isV2 ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-blue-600 hover:bg-blue-700' }} px-4 py-2 text-sm font-semibold text-white">
                         Скопіювати prompt
                     </button>
                 </div>
-                <textarea id="question-report-prompt" class="mt-4 min-h-[360px] w-full rounded-xl border border-blue-200 bg-white p-3 font-mono text-xs leading-5 text-slate-800 shadow-inner" readonly>{{ $generatedPrompt }}</textarea>
+                <textarea id="question-report-prompt" class="mt-4 min-h-[360px] w-full rounded-xl border {{ $isV2 ? 'border-emerald-200' : 'border-blue-200' }} bg-white p-3 font-mono text-xs leading-5 text-slate-800 shadow-inner" readonly>{{ $generatedPrompt }}</textarea>
             </section>
         @endif
 
@@ -162,38 +257,125 @@
         @else
             <form id="question-report-prompt-form" method="POST" action="{{ route('question-reports.prompt') }}">
                 @csrf
+                {{-- Toggled to "v2" by the V2 buttons just before submit. --}}
+                <input type="hidden" name="version" value="v1" id="question-report-prompt-version">
             </form>
 
             <section class="rounded-2xl border border-slate-200 bg-white shadow-sm">
-                <div class="flex flex-col gap-3 border-b border-slate-200 px-4 py-4 lg:flex-row lg:items-center lg:justify-between">
+                {{-- Filter strip — narrows the visible list by seeder substring
+                     and/or selected issue types. All filtering is client-side
+                     (the page already renders the full set), so it's instant. --}}
+                <div class="border-b border-slate-200 bg-slate-50 px-4 py-4" data-question-report-filters>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <label for="question-report-text-filter" class="block text-xs font-bold uppercase tracking-wide text-slate-500">
+                                Пошук по тексту питання
+                            </label>
+                            <button type="button" class="text-xs font-semibold text-blue-600 hover:text-blue-700" data-question-report-filter-reset>
+                                Скинути фільтри
+                            </button>
+                        </div>
+                        <input
+                            type="search"
+                            id="question-report-text-filter"
+                            placeholder="введи слово/фразу з питання…"
+                            autocomplete="off"
+                            class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                            data-question-report-filter-text>
+
+                        <div class="grid gap-4 lg:grid-cols-[minmax(0,_22rem)_minmax(0,_1fr)]">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wide text-slate-500">
+                                    Сидер
+                                </label>
+                                <p class="mt-1 text-xs text-slate-500">Кілька = OR. Без галок = всі сидери.</p>
+                                @if($seederFilterOptions->isEmpty())
+                                    <p class="mt-2 text-xs text-slate-400">Немає сидерів у цьому списку.</p>
+                                @else
+                                    <div class="mt-2 flex max-h-72 flex-col gap-1 overflow-y-auto rounded-lg border border-slate-200 bg-white p-2">
+                                        @foreach($seederFilterOptions as $option)
+                                            <label class="flex cursor-pointer items-start gap-2 rounded-md px-2 py-1 hover:bg-blue-50" title="{{ $option['class'] }}">
+                                                <input
+                                                    type="checkbox"
+                                                    value="{{ $option['class_lower'] }}"
+                                                    class="mt-1 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                                                    data-question-report-filter-seeder>
+                                                <span class="min-w-0 flex-1">
+                                                    <span class="block break-all text-sm font-semibold text-slate-800">{{ $option['short'] }}</span>
+                                                    <span class="block break-all text-[10px] uppercase tracking-wide text-slate-400">{{ $option['class'] }}</span>
+                                                </span>
+                                                <span class="ml-2 shrink-0 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600">{{ $option['count'] }}</span>
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                @endif
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wide text-slate-500">
+                                    Що не так із питанням
+                                </label>
+                                <p class="mt-1 text-xs text-slate-500">Коментар необов’язковий, якщо вибрано тип помилки. Виберіть один або кілька — показуватимуться репорти з будь-якою з відмічених помилок.</p>
+                                <div class="mt-2 grid gap-2 sm:grid-cols-2 xl:grid-cols-2">
+                                    @foreach($issueCatalog as $issue)
+                                        @php $issueKey = $issue['key'] ?? $issue['slug'] ?? ''; @endphp
+                                        @continue($issueKey === '')
+                                        <label class="flex cursor-pointer items-start gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 hover:border-amber-300 hover:bg-amber-50">
+                                            <input
+                                                type="checkbox"
+                                                value="{{ $issueKey }}"
+                                                class="mt-1 rounded border-slate-300 text-amber-600 focus:ring-amber-500"
+                                                data-question-report-filter-issue>
+                                            <span>
+                                                <span class="block text-sm font-semibold text-slate-800">{{ $issue['label'] ?? $issueKey }}</span>
+                                                @if(filled($issue['description'] ?? null))
+                                                    <span class="mt-0.5 block text-xs leading-5 text-slate-500">{{ $issue['description'] }}</span>
+                                                @endif
+                                            </span>
+                                        </label>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-slate-500" data-question-report-filter-count>Показано {{ count($reports) }} з {{ count($reports) }}</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3 border-b border-slate-200 px-4 py-4">
                     <div class="flex flex-wrap items-center gap-3">
                         <label class="inline-flex items-center gap-2 text-sm font-medium text-slate-700">
                             <input type="checkbox" id="question-report-select-all" class="rounded border-slate-300 text-blue-600 focus:ring-blue-500">
                             Вибрати всі
                         </label>
-                        <button type="submit" form="question-report-prompt-form" name="scope" value="selected" class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
-                            Prompt з вибраних
+                        <span class="ml-2 hidden text-xs font-bold uppercase tracking-wider text-slate-400 sm:inline">Prompt v1</span>
+                        <button type="submit" form="question-report-prompt-form" name="scope" value="selected"
+                            onclick="document.getElementById('question-report-prompt-version').value='v1'"
+                            class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+                            v1: з вибраних
                         </button>
-                        <button type="submit" form="question-report-prompt-form" name="scope" value="open" class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
-                            Prompt з невиконаних
+                        <button type="submit" form="question-report-prompt-form" name="scope" value="open"
+                            onclick="document.getElementById('question-report-prompt-version').value='v1'"
+                            class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
+                            v1: з невиконаних
+                        </button>
+                        <span class="ml-2 hidden text-xs font-bold uppercase tracking-wider text-emerald-600 sm:inline">Prompt v2</span>
+                        <button type="submit" form="question-report-prompt-form" name="scope" value="selected"
+                            onclick="document.getElementById('question-report-prompt-version').value='v2'"
+                            class="inline-flex items-center justify-center rounded-lg border border-emerald-300 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-800 hover:bg-emerald-100">
+                            v2: з вибраних
+                        </button>
+                        <button type="submit" form="question-report-prompt-form" name="scope" value="open"
+                            onclick="document.getElementById('question-report-prompt-version').value='v2'"
+                            class="inline-flex items-center justify-center rounded-lg bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800">
+                            v2: з невиконаних
                         </button>
                     </div>
-                    <div class="text-sm text-slate-500">Вибрані репорти не змінюють статус, вони тільки потрапляють у prompt.</div>
+                    <div class="text-xs text-slate-500">
+                        v1 — короткий, українською, з seeder-sweep блоком. v2 — структурований English prompt, групування по сидерах, snapshot diff явно. Обидві генерації не змінюють статуси репортів.
+                    </div>
                 </div>
 
-                <div class="p-4">
-                    <table class="question-report-list-table w-full text-sm">
-                        <thead class="bg-slate-50 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
-                            <tr>
-                                <th class="w-10 px-4 py-3">#</th>
-                                <th class="px-4 py-3">Статус</th>
-                                <th class="px-4 py-3">Час</th>
-                                <th class="px-4 py-3">Питання</th>
-                                <th class="px-4 py-3">Сидер і коментар</th>
-                                <th class="px-4 py-3">Дії</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100">
+                <div class="space-y-3 p-4">
                             @foreach($reports as $report)
                                 @php
                                     $legacyQuestion = $report['question'] ?? [];
@@ -401,47 +583,165 @@
                                     $comment = trim((string) ($report['comment'] ?? ''));
                                     $status = $report['status'] ?? 'open';
                                     $isFixed = $status === 'fixed';
+                                    // True when the question dump captured at report time
+                                    // diverges from the live DB — strong signal that a fix
+                                    // landed (or that the question drifted underneath us).
+                                    $hasDiff = (bool) data_get($report, 'snapshot_diff.has_changes', false);
+                                    $reportedAt = filled($report['reported_at'] ?? null)
+                                        ? \Illuminate\Support\Carbon::parse($report['reported_at'])->format('d.m.Y H:i')
+                                        : 'Н/Д';
+
+                                    // For reports with a diff, build a "report-time" filled
+                                    // preview from the snapshot itself (not the current DB),
+                                    // so the admin sees exactly what was wrong when the user
+                                    // hit "Report" — independent of any later fix.
+                                    $reportTimePreviewParts = collect();
+                                    if ($hasDiff && is_array($reportSnapshot)) {
+                                        $reportTimeText = trim((string) data_get($reportSnapshot, 'question.text', ''));
+                                        $reportTimeAnswerByMarker = collect($reportSnapshot['answers'] ?? [])
+                                            ->filter(fn ($answer) => is_array($answer))
+                                            ->mapWithKeys(function (array $answer) {
+                                                $marker = trim((string) ($answer['marker'] ?? ''));
+                                                $value = trim((string) ($answer['answer']
+                                                    ?? $answer['option_value']
+                                                    ?? $answer['value']
+                                                    ?? ''));
+
+                                                return $marker !== '' && $value !== ''
+                                                    ? [$marker => $value]
+                                                    : [];
+                                            });
+                                        $reportTimeVerbHintByMarker = collect($reportSnapshot['verb_hints'] ?? [])
+                                            ->filter(fn ($hint) => is_array($hint))
+                                            ->mapWithKeys(function (array $hint) {
+                                                $marker = trim((string) ($hint['marker'] ?? ''));
+                                                $value = trim((string) ($hint['option_value']
+                                                    ?? $hint['value']
+                                                    ?? $hint['verb_hint']
+                                                    ?? ''));
+
+                                                return $marker !== '' && $value !== ''
+                                                    ? [$marker => $value]
+                                                    : [];
+                                            });
+                                        // Legacy: verb_hint sometimes stored alongside the answer entry.
+                                        foreach (($reportSnapshot['answers'] ?? []) as $entry) {
+                                            if (! is_array($entry)) {
+                                                continue;
+                                            }
+                                            $marker = trim((string) ($entry['marker'] ?? ''));
+                                            $hint = trim((string) ($entry['verb_hint'] ?? ''));
+                                            if ($marker !== '' && $hint !== '' && ! $reportTimeVerbHintByMarker->has($marker)) {
+                                                $reportTimeVerbHintByMarker->put($marker, $hint);
+                                            }
+                                        }
+                                        $reportTimePreviewParts = collect(
+                                                preg_split('/(\{[^}]+\})/', $reportTimeText, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY) ?: []
+                                            )
+                                            ->map(function (string $part) use ($reportTimeAnswerByMarker, $reportTimeVerbHintByMarker) {
+                                                if (preg_match('/^\{([^}]+)\}$/', $part, $matches) !== 1) {
+                                                    return ['type' => 'text', 'text' => $part];
+                                                }
+
+                                                $marker = trim((string) $matches[1]);
+                                                $answer = trim((string) $reportTimeAnswerByMarker->get($marker, ''));
+                                                $verbHint = trim((string) $reportTimeVerbHintByMarker->get($marker, ''));
+
+                                                return [
+                                                    'type' => 'answer',
+                                                    'marker' => $marker,
+                                                    'text' => $answer !== '' ? $answer : $part,
+                                                    'verb_hint' => $verbHint,
+                                                    'has_answer' => $answer !== '',
+                                                ];
+                                            })
+                                            ->values();
+                                    }
                                 @endphp
-                                <tr class="align-top">
-                                    <td class="px-4 py-4">
-                                        <input type="checkbox" name="report_ids[]" value="{{ $report['id'] ?? '' }}" form="question-report-prompt-form" class="js-question-report-checkbox rounded border-slate-300 text-blue-600 focus:ring-blue-500">
-                                    </td>
-                                    <td class="whitespace-nowrap px-4 py-4">
-                                        @if($isFixed)
-                                            <span class="inline-flex rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-800">Виправлено</span>
-                                            @if(filled($report['fixed_at'] ?? null))
-                                                <div class="mt-2 text-xs text-slate-500">{{ \Illuminate\Support\Carbon::parse($report['fixed_at'])->format('d.m.Y H:i') }}</div>
-                                            @endif
-                                        @else
-                                            <span class="inline-flex rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800">Невиконаний</span>
-                                        @endif
-                                    </td>
-                                    <td class="whitespace-nowrap px-4 py-4 text-slate-600">
-                                        {{ filled($report['reported_at'] ?? null) ? \Illuminate\Support\Carbon::parse($report['reported_at'])->format('d.m.Y H:i') : 'Н/Д' }}
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        <div class="w-full space-y-3">
-                                            <div class="font-semibold text-slate-900">{{ $question['text'] ?? 'Невідоме питання' }}</div>
-                                            <div>
-                                                <div class="text-xs font-semibold uppercase tracking-wide text-slate-500">Заповнене питання</div>
-                                                <div class="mt-1 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-base font-medium leading-8 text-slate-900">
-                                                    @forelse($questionPreviewParts as $part)
-                                                        @if(($part['type'] ?? '') === 'answer')
-                                                            <span class="{{ ($part['has_answer'] ?? false) ? 'inline-flex flex-wrap items-baseline gap-1 rounded-md border border-emerald-300 bg-white px-2 py-0.5 font-semibold text-emerald-800 shadow-sm' : 'inline-flex flex-wrap items-baseline gap-1 rounded-md border border-rose-300 bg-white px-2 py-0.5 font-semibold text-rose-700 shadow-sm' }}">
-                                                                <span>{{ $part['text'] }}</span>
-                                                                <span class="text-[10px] font-bold uppercase tracking-wide text-slate-400">{{ $part['marker'] ?? '' }}</span>
-                                                            </span>
-                                                            @if(filled($part['verb_hint'] ?? null))
-                                                                <span class="ml-1 text-xs font-bold text-red-700">({{ $part['verb_hint'] }})</span>
-                                                            @endif
-                                                        @else
-                                                            <span>{{ $part['text'] ?? '' }}</span>
+                                <details class="qr-card {{ $hasDiff ? 'qr-card--diff' : '' }}"
+                                    data-qr-seeder="{{ \Illuminate\Support\Str::lower((string) ($seeder['class'] ?? '')) }}"
+                                    data-qr-issues="{{ $issueTypes->map(fn ($i) => trim((string) $i))->filter()->implode(',') }}"
+                                    data-qr-question-text="{{ \Illuminate\Support\Str::lower((string) ($question['text'] ?? '')) }}">
+                                    <summary class="qr-card__summary">
+                                        <svg class="qr-card__chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z" clip-rule="evenodd" />
+                                        </svg>
+                                        <div class="qr-card__title">
+                                            @forelse($questionPreviewParts as $part)
+                                                @if(($part['type'] ?? '') === 'answer')
+                                                    <span class="qr-gap {{ ($part['has_answer'] ?? false) ? '' : 'qr-gap--missing' }}">
+                                                        <span>{{ $part['text'] }}</span>
+                                                        @if(filled($part['marker'] ?? null))
+                                                            <span class="qr-gap__marker">{{ $part['marker'] }}</span>
                                                         @endif
-                                                    @empty
-                                                        <span class="text-sm text-slate-400">Н/Д</span>
-                                                    @endforelse
+                                                    </span>
+                                                    @if(filled($part['verb_hint'] ?? null))
+                                                        <span class="qr-gap__hint">({{ $part['verb_hint'] }})</span>
+                                                    @endif
+                                                @else
+                                                    <span>{{ $part['text'] ?? '' }}</span>
+                                                @endif
+                                            @empty
+                                                <span class="text-sm text-slate-400">{{ $question['text'] ?? 'Невідоме питання' }}</span>
+                                            @endforelse
+                                        </div>
+                                        <div class="qr-card__meta">
+                                            <input type="checkbox"
+                                                name="report_ids[]"
+                                                value="{{ $report['id'] ?? '' }}"
+                                                form="question-report-prompt-form"
+                                                class="js-question-report-checkbox qr-card__meta-checkbox rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                                                onclick="event.stopPropagation()">
+                                            @if($hasDiff)
+                                                <span class="qr-badge qr-badge--diff" title="Дамп питання на момент репорту відрізняється від поточного стану БД">Є зміни в БД</span>
+                                            @endif
+                                            @if($isFixed)
+                                                <span class="qr-badge qr-badge--fixed">Виправлено</span>
+                                            @else
+                                                <span class="qr-badge qr-badge--open">Невиконаний</span>
+                                            @endif
+                                            <span class="qr-badge qr-badge--time">{{ $reportedAt }}</span>
+                                        </div>
+                                    </summary>
+                                    <div class="qr-card__body">
+                                        <div class="w-full space-y-3">
+                                            @if($isFixed && filled($report['fixed_at'] ?? null))
+                                                <div class="text-xs text-slate-500">Виправлено: {{ \Illuminate\Support\Carbon::parse($report['fixed_at'])->format('d.m.Y H:i') }}</div>
+                                            @endif
+
+                                            {{-- When the report-time snapshot diverges from current DB,
+                                                 surface the dump-as-reported prominently so the admin
+                                                 immediately sees what the user complained about,
+                                                 independent of any later fix that landed. --}}
+                                            @if($hasDiff && $reportTimePreviewParts->isNotEmpty())
+                                                <div class="rounded-xl border-2 border-amber-300 bg-amber-50 p-3 shadow-sm">
+                                                    <div class="flex flex-wrap items-center gap-2">
+                                                        <span class="rounded-full bg-amber-500 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-white">Дамп на момент репорту</span>
+                                                        <span class="text-xs font-semibold text-amber-900">Поточне в БД відрізняється — нижче в Debug info повний diff.</span>
+                                                    </div>
+                                                    <div class="mt-2 text-sm text-amber-900">{{ $snapshotText($reportSnapshot) !== '' ? $snapshotText($reportSnapshot) : 'Н/Д' }}</div>
+                                                    <div class="mt-2 rounded-lg border border-amber-300 bg-white px-3 py-2 text-base font-medium leading-8 text-slate-900">
+                                                        @foreach($reportTimePreviewParts as $part)
+                                                            @if(($part['type'] ?? '') === 'answer')
+                                                                <span class="{{ ($part['has_answer'] ?? false) ? 'inline-flex flex-wrap items-baseline gap-1 rounded-md border border-amber-400 bg-amber-100 px-2 py-0.5 font-semibold text-amber-900 shadow-sm' : 'inline-flex flex-wrap items-baseline gap-1 rounded-md border border-rose-300 bg-white px-2 py-0.5 font-semibold text-rose-700 shadow-sm' }}">
+                                                                    <span>{{ $part['text'] }}</span>
+                                                                    <span class="text-[10px] font-bold uppercase tracking-wide text-slate-400">{{ $part['marker'] ?? '' }}</span>
+                                                                </span>
+                                                                @if(filled($part['verb_hint'] ?? null))
+                                                                    <span class="ml-1 text-xs font-bold text-red-700">({{ $part['verb_hint'] }})</span>
+                                                                @endif
+                                                            @else
+                                                                <span>{{ $part['text'] ?? '' }}</span>
+                                                            @endif
+                                                        @endforeach
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @endif
+
+                                            {{-- Note: the filled-question + verb_hint are already
+                                                 rendered in the card summary header at the top,
+                                                 so we don't duplicate them here. For diff cases
+                                                 the report-time dump is shown above (different data). --}}
                                             <div class="flex flex-wrap gap-2 text-xs text-slate-500">
                                                 <span class="rounded bg-slate-100 px-2 py-1">ID: {{ $question['id'] ?? 'Н/Д' }}</span>
                                                 <span class="rounded bg-slate-100 px-2 py-1">UUID: {{ $question['uuid'] ?? 'Н/Д' }}</span>
@@ -765,32 +1065,42 @@
                                                 </div>
                                             </details>
                                         </div>
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        <div class="w-full space-y-3">
-                                            <div class="space-y-2">
-                                                <code class="block break-all rounded bg-slate-100 px-2 py-1 text-xs text-slate-800">{{ $seeder['class'] ?? 'Н/Д' }}</code>
-                                                @if(filled($seeder['file'] ?? null))
-                                                    <code class="block break-all rounded bg-blue-50 px-2 py-1 text-xs text-blue-800">{{ $seeder['file'] }}</code>
-                                                @endif
-                                            </div>
-                                            <div class="flex flex-wrap gap-2" data-question-report-issue-labels="{{ $report['id'] ?? '' }}">
+
+                                        <div class="space-y-2">
+                                            <div class="text-xs font-semibold uppercase tracking-wide text-slate-500">Сидер</div>
+                                            <code class="block break-all rounded bg-slate-100 px-2 py-1 text-xs text-slate-800">{{ $seeder['class'] ?? 'Н/Д' }}</code>
+                                            @if(filled($seeder['file'] ?? null))
+                                                <code class="block break-all rounded bg-blue-50 px-2 py-1 text-xs text-blue-800">{{ $seeder['file'] }}</code>
+                                            @endif
+                                        </div>
+
+                                        <div>
+                                            <div class="text-xs font-semibold uppercase tracking-wide text-slate-500">Типи помилок</div>
+                                            <div class="mt-1 flex flex-wrap gap-2" data-question-report-issue-labels="{{ $report['id'] ?? '' }}">
                                                 @forelse($issueLabels as $label)
                                                     <span class="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-900">{{ $label }}</span>
                                                 @empty
                                                     <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-500">{{ __('report_question.no_issue_type') }}</span>
                                                 @endforelse
                                             </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="text-xs font-semibold uppercase tracking-wide text-slate-500">Коментар</div>
                                             <div
-                                                class="{{ $comment !== '' ? 'whitespace-pre-line rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900' : 'rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-500' }}"
+                                                class="{{ $comment !== '' ? 'mt-1 whitespace-pre-line rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900' : 'mt-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-500' }}"
                                                 data-question-report-comment="{{ $report['id'] ?? '' }}">{{ $comment !== '' ? $comment : __('report_question.no_comment') }}</div>
                                         </div>
-                                    </td>
-                                    <td class="whitespace-nowrap px-4 py-4">
-                                        <div class="flex flex-col gap-2">
-                                            <details class="rounded-lg border border-slate-200 bg-white px-3 py-2">
+
+                                        <div>
+                                            <div class="text-xs font-semibold uppercase tracking-wide text-slate-500">Дії</div>
+
+                                            {{-- Edit form gets its own row, full-width — heavy form
+                                                 with checkboxes shouldn't compete with the small
+                                                 status/delete buttons in the action row below. --}}
+                                            <details class="mt-2 w-full rounded-lg border border-slate-200 bg-white px-3 py-2">
                                                 <summary class="cursor-pointer text-xs font-semibold text-slate-700">Редагувати report</summary>
-                                                <form method="POST" action="{{ route('question-reports.update', $report['id']) }}" class="mt-3 space-y-3 text-left" data-question-report-edit-form data-report-id="{{ $report['id'] ?? '' }}">
+                                                <form method="POST" action="{{ route('question-reports.update', $report['id']) }}" class="mt-3 w-full space-y-3 text-left" data-question-report-edit-form data-report-id="{{ $report['id'] ?? '' }}">
                                                     @csrf
                                                     @method('PATCH')
 
@@ -845,38 +1155,39 @@
                                                     </button>
                                                 </form>
                                             </details>
-                                        @if($isFixed)
-                                            <form method="POST" action="{{ route('question-reports.status', $report['id']) }}">
-                                                @csrf
-                                                @method('PATCH')
-                                                <input type="hidden" name="status" value="open">
-                                                <button type="submit" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50">
-                                                    Повернути в роботу
-                                                </button>
-                                            </form>
-                                        @else
-                                            <form method="POST" action="{{ route('question-reports.status', $report['id']) }}">
-                                                @csrf
-                                                @method('PATCH')
-                                                <input type="hidden" name="status" value="fixed">
-                                                <button type="submit" class="rounded-lg bg-emerald-600 px-3 py-2 text-xs font-semibold text-white hover:bg-emerald-700">
-                                                    Позначити виправленим
-                                                </button>
-                                            </form>
-                                        @endif
-                                            <form method="POST" action="{{ route('question-reports.destroy', $report['id']) }}" onsubmit="return confirm('Видалити цей репорт? JSON-файл буде видалено з storage/app/question-reports.');">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="rounded-lg border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-semibold text-rose-700 hover:bg-rose-100">
-                                                    Видалити
-                                                </button>
-                                            </form>
+
+                                            <div class="mt-2 flex flex-wrap gap-2">
+                                                @if($isFixed)
+                                                    <form method="POST" action="{{ route('question-reports.status', $report['id']) }}">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                        <input type="hidden" name="status" value="open">
+                                                        <button type="submit" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50">
+                                                            Повернути в роботу
+                                                        </button>
+                                                    </form>
+                                                @else
+                                                    <form method="POST" action="{{ route('question-reports.status', $report['id']) }}">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                        <input type="hidden" name="status" value="fixed">
+                                                        <button type="submit" class="rounded-lg bg-emerald-600 px-3 py-2 text-xs font-semibold text-white hover:bg-emerald-700">
+                                                            Позначити виправленим
+                                                        </button>
+                                                    </form>
+                                                @endif
+                                                <form method="POST" action="{{ route('question-reports.destroy', $report['id']) }}" onsubmit="return confirm('Видалити цей репорт? JSON-файл буде видалено з storage/app/question-reports.');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="rounded-lg border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-semibold text-rose-700 hover:bg-rose-100">
+                                                        Видалити
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </td>
-                                </tr>
+                                    </div>
+                                </details>
                             @endforeach
-                        </tbody>
-                    </table>
                 </div>
             </section>
         @endif
@@ -884,10 +1195,96 @@
 
     <script>
         document.getElementById('question-report-select-all')?.addEventListener('change', (event) => {
+            // Only act on currently-visible cards so the user can narrow with
+            // filters first, then "Select all" applies just to that subset.
             document.querySelectorAll('.js-question-report-checkbox').forEach((checkbox) => {
+                const card = checkbox.closest('.qr-card');
+                if (card && card.dataset.qrHidden === '1') {
+                    checkbox.checked = false;
+                    return;
+                }
                 checkbox.checked = event.target.checked;
             });
         });
+
+        // ── Filter strip wiring ──────────────────────────────────────────
+        // Client-side filtering: text-search by question text + seeder
+        // checkboxes + issue-type checkboxes. AND across groups, OR within
+        // each checkbox group (show cards matching any selected option).
+        (function () {
+            const filterRoot = document.querySelector('[data-question-report-filters]');
+            if (! filterRoot) return;
+
+            const textInput = filterRoot.querySelector('[data-question-report-filter-text]');
+            const seederInputs = Array.from(filterRoot.querySelectorAll('[data-question-report-filter-seeder]'));
+            const issueInputs = Array.from(filterRoot.querySelectorAll('[data-question-report-filter-issue]'));
+            const resetBtn = filterRoot.querySelector('[data-question-report-filter-reset]');
+            const counter = filterRoot.querySelector('[data-question-report-filter-count]');
+            const cards = Array.from(document.querySelectorAll('.qr-card'));
+
+            const checked = (inputs) => inputs
+                .filter((cb) => cb.checked)
+                .map((cb) => String(cb.value || '').trim().toLowerCase())
+                .filter(Boolean);
+
+            function applyFilters() {
+                const textQuery = String(textInput?.value || '').trim().toLowerCase();
+                const requiredSeeders = checked(seederInputs);
+                const requiredIssues = checked(issueInputs);
+
+                let visible = 0;
+                for (const card of cards) {
+                    const cardSeeder = String(card.dataset.qrSeeder || '').toLowerCase();
+                    const cardQuestion = String(card.dataset.qrQuestionText || '').toLowerCase();
+                    const cardIssues = String(card.dataset.qrIssues || '')
+                        .split(',')
+                        .map((s) => s.trim().toLowerCase())
+                        .filter(Boolean);
+
+                    const matchesText = textQuery === '' || cardQuestion.includes(textQuery);
+                    const matchesSeeder = requiredSeeders.length === 0
+                        || requiredSeeders.includes(cardSeeder);
+                    const matchesIssues = requiredIssues.length === 0
+                        || requiredIssues.some((issue) => cardIssues.includes(issue));
+
+                    const isVisible = matchesText && matchesSeeder && matchesIssues;
+                    card.style.display = isVisible ? '' : 'none';
+                    card.dataset.qrHidden = isVisible ? '0' : '1';
+
+                    if (isVisible) visible++;
+
+                    // Uncheck prompt-checkbox on filtered-out cards so hidden
+                    // rows never silently feed into "Prompt з вибраних".
+                    if (! isVisible) {
+                        const cb = card.querySelector('.js-question-report-checkbox');
+                        if (cb && cb.checked) cb.checked = false;
+                    }
+                }
+
+                if (counter) {
+                    counter.textContent = `Показано ${visible} з ${cards.length}`;
+                }
+
+                // Keep "Select all" in sync with current visibility — never
+                // leave it ticked after the visible set just changed.
+                const selectAll = document.getElementById('question-report-select-all');
+                if (selectAll) {
+                    selectAll.checked = false;
+                }
+            }
+
+            textInput?.addEventListener('input', applyFilters);
+            seederInputs.forEach((cb) => cb.addEventListener('change', applyFilters));
+            issueInputs.forEach((cb) => cb.addEventListener('change', applyFilters));
+            resetBtn?.addEventListener('click', () => {
+                if (textInput) textInput.value = '';
+                seederInputs.forEach((cb) => { cb.checked = false; });
+                issueInputs.forEach((cb) => { cb.checked = false; });
+                applyFilters();
+            });
+
+            applyFilters();
+        })();
 
         document.getElementById('copy-question-report-prompt')?.addEventListener('click', async () => {
             const prompt = document.getElementById('question-report-prompt');

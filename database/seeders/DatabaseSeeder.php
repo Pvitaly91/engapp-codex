@@ -202,8 +202,10 @@ class DatabaseSeeder extends Seeder
             V3\Polyglot\V3VerbToBeQuestionsAndShortAnswersOpus46TheoryLinksSeeder::class,
             V3\Polyglot\V3ThereIsThereAreOpus46TheoryLinksSeeder::class,
 
-            // Polyglot lesson relations (9) — power /test/polyglot-* tests.
+            // Polyglot lesson relations (10) — power /test/polyglot-* tests
+            // and contribute to /theory/verb-to-be mixed tests too.
             V3\Polyglot\PolyglotHaveGotHasGotA1TheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotPastSimpleToBeTheoryLinksSeeder::class,
             V3\Polyglot\PolyglotThereIsThereAreA1TheoryLinksSeeder::class,
             V3\Polyglot\PolyglotThereIsThereAreAllLevelsTheoryLinksSeeder::class,
             V3\Polyglot\PolyglotToBeA1TheoryLinksSeeder::class,

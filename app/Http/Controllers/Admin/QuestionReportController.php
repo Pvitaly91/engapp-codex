@@ -112,9 +112,12 @@ class QuestionReportController extends Controller
     {
         $data = $request->validate([
             'scope' => ['required', 'in:open,selected'],
+            'version' => ['nullable', 'in:v1,v2'],
             'report_ids' => ['nullable', 'array'],
             'report_ids.*' => ['string', 'max:255'],
         ]);
+
+        $version = $data['version'] ?? 'v1';
 
         $allReports = $reports->all();
         $selectedReports = $data['scope'] === 'open'
@@ -131,12 +134,17 @@ class QuestionReportController extends Controller
                 ]);
         }
 
+        $generated = $version === 'v2'
+            ? app(\App\Services\QuestionReportFixPromptV2Generator::class)->build($selectedReports)
+            : $reports->buildFixPrompt($selectedReports);
+
         return view('admin.question-reports.index', [
             'reports' => $allReports,
             'reportsDirectory' => $reports->directory(),
             'issueCatalog' => app(QuestionReportIssueCatalog::class)->all(),
-            'generatedPrompt' => $reports->buildFixPrompt($selectedReports),
+            'generatedPrompt' => $generated,
             'promptReportCount' => count($selectedReports),
+            'promptVersion' => $version,
         ]);
     }
 
