@@ -240,7 +240,7 @@ function statementIsComplete(string $statement): bool
 
 function executeSqlStatement(PDO $pdo, string $statement, int $lineNumber): void
 {
-    $sql = trim($statement);
+    $sql = normalizePortableCreateTableSql(trim($statement));
 
     if ($sql === '') {
         return;
@@ -251,6 +251,79 @@ function executeSqlStatement(PDO $pdo, string $statement, int $lineNumber): void
     } catch (Throwable $exception) {
         throw new RuntimeException('SQL restore failed near line ' . $lineNumber . ': ' . $exception->getMessage(), 0, $exception);
     }
+}
+
+function normalizePortableCreateTableSql(string $sql): string
+{
+    if (preg_match('/^\s*CREATE\s+TABLE\b/i', $sql) !== 1) {
+        return $sql;
+    }
+
+    $textColumns = textColumnsFromCreateSql($sql);
+    if ($textColumns === []) {
+        return $sql;
+    }
+
+    $lines = explode("\n", $sql);
+
+    foreach ($lines as $index => $line) {
+        if (! isPortableIndexCandidate($line)) {
+            continue;
+        }
+
+        $lines[$index] = addTextIndexPrefixes($line, $textColumns);
+    }
+
+    return implode("\n", $lines);
+}
+
+/**
+ * @return array<string, true>
+ */
+function textColumnsFromCreateSql(string $sql): array
+{
+    $columns = [];
+
+    foreach (explode("\n", $sql) as $line) {
+        if (preg_match('/^\s*`([^`]+)`\s+((?:tiny|medium|long)?text|(?:tiny|medium|long)?blob|json)\b/i', $line, $matches) === 1) {
+            $columns[$matches[1]] = true;
+        }
+    }
+
+    return $columns;
+}
+
+function isPortableIndexCandidate(string $line): bool
+{
+    return preg_match('/^\s*(?:UNIQUE\s+)?KEY\s+`[^`]+`\s*\(/i', $line) === 1
+        && preg_match('/^\s*(?:FULLTEXT|SPATIAL)\s+/i', $line) !== 1;
+}
+
+/**
+ * @param  array<string, true>  $textColumns
+ */
+function addTextIndexPrefixes(string $line, array $textColumns): string
+{
+    $open = strpos($line, '(');
+    $close = strrpos($line, ')');
+
+    if ($open === false || $close === false || $close <= $open) {
+        return $line;
+    }
+
+    $columnList = substr($line, $open + 1, $close - $open - 1);
+
+    foreach (array_keys($textColumns) as $column) {
+        $columnList = preg_replace(
+            '/`' . preg_quote($column, '/') . '`(?!\s*\()/',
+            '`' . str_replace('`', '``', $column) . '`(100)',
+            $columnList
+        ) ?? $columnList;
+    }
+
+    $suffix = preg_replace('/\s+USING\s+HASH\b/i', '', substr($line, $close));
+
+    return substr($line, 0, $open + 1) . $columnList . $suffix;
 }
 
 function resolvePath(string $basePath, string $path): string
