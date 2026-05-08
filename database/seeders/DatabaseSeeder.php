@@ -184,6 +184,34 @@ class DatabaseSeeder extends Seeder
             FutureFormsWillVsBeGoingToTheorySeeder::class,
             GptPageTagAssignmentSeeder::class,
             PageV2TextBlockLevelSeeder::class,
+
+            // Theory hint relation seeders. These link existing questions
+            // to theory text blocks via the question_theory_text_blocks
+            // pivot — they require both the source question seeders AND
+            // the corresponding theory page seeders to have already run.
+            // Idempotent: each call deletes its own pivot rows by
+            // question_uuid before re-inserting, so re-runs are safe.
+
+            // V3 standard test relations (8) — power /theory/verb-to-be mixed tests.
+            V3\Polyglot\V3VerbToBePresentFormsOpus46TheoryLinksSeeder::class,
+            V3\Polyglot\V3VerbToBePresentFormsSonateTheoryLinksSeeder::class,
+            V3\Polyglot\V3VerbToBeNegativesOpus46TheoryLinksSeeder::class,
+            V3\Polyglot\V3VerbToBePastFormsOpus46TheoryLinksSeeder::class,
+            V3\Polyglot\V3VerbToBeFutureOpus46TheoryLinksSeeder::class,
+            V3\Polyglot\V3VerbToBeFutureSonateTheoryLinksSeeder::class,
+            V3\Polyglot\V3VerbToBeQuestionsAndShortAnswersOpus46TheoryLinksSeeder::class,
+            V3\Polyglot\V3ThereIsThereAreOpus46TheoryLinksSeeder::class,
+
+            // Polyglot lesson relations (9) — power /test/polyglot-* tests.
+            V3\Polyglot\PolyglotHaveGotHasGotA1TheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotThereIsThereAreA1TheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotThereIsThereAreAllLevelsTheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotToBeA1TheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotVerbToBeFutureAllLevelsTheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotVerbToBeNegativesAllLevelsTheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotVerbToBePastAllLevelsTheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotVerbToBePresentAllLevelsTheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotVerbToBeQuestionsAllLevelsTheoryLinksSeeder::class,
         ]);
     }
 }
