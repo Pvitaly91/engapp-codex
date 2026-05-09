@@ -1080,10 +1080,10 @@ class PolyglotComposeModeTest extends TestCase
         $response->assertOk();
         $response->assertSee('data-polyglot-is-final-lesson="1"', false);
         $response->assertSee('data-polyglot-course-completion-kind="course"', false);
-        $response->assertSee('data-polyglot-first-lesson-url="http://engapp-codex.loc/test/polyglot-to-be-a1/step/compose"', false);
+        $response->assertSee('data-polyglot-first-lesson-url="http://engapp-codex.loc/test/sentence-builder-to-be-a1/step/compose"', false);
         $response->assertSee('"isFinalLesson":true', false);
-        $response->assertSee('"firstLessonUrl":"http:\\/\\/engapp-codex.loc\\/test\\/polyglot-to-be-a1\\/step\\/compose"', false);
-        $response->assertSee('"continueCourseUrl":"http:\\/\\/engapp-codex.loc\\/courses\\/polyglot-english-a2"', false);
+        $response->assertSee('"firstLessonUrl":"http:\\/\\/engapp-codex.loc\\/test\\/sentence-builder-to-be-a1\\/step\\/compose"', false);
+        $response->assertSee('"continueCourseUrl":"http:\\/\\/engapp-codex.loc\\/courses\\/sentence-builder-english-a2"', false);
         $response->assertSee('data-action="restart-course"', false);
     }
 
@@ -1112,12 +1112,12 @@ class PolyglotComposeModeTest extends TestCase
         $response->assertSee('data-polyglot-is-final-lesson="1"', false);
         $response->assertSee('data-polyglot-course-completion-kind="course"', false);
         $response->assertSee('data-polyglot-previous-lesson-slug="polyglot-second-conditional-basics-a2"', false);
-        $response->assertSee('data-polyglot-first-lesson-url="http://engapp-codex.loc/test/polyglot-present-perfect-basic-a2/step/compose"', false);
+        $response->assertSee('data-polyglot-first-lesson-url="http://engapp-codex.loc/test/sentence-builder-present-perfect-basic-a2/step/compose"', false);
         $response->assertSee('"isFinalLesson":true', false);
-        $response->assertSee('"firstLessonUrl":"http:\\/\\/engapp-codex.loc\\/test\\/polyglot-present-perfect-basic-a2\\/step\\/compose"', false);
+        $response->assertSee('"firstLessonUrl":"http:\\/\\/engapp-codex.loc\\/test\\/sentence-builder-present-perfect-basic-a2\\/step\\/compose"', false);
         $response->assertSee('"nextLessonUrl":null', false);
-        $response->assertSee('"continueCourseUrl":"http:\\/\\/engapp-codex.loc\\/courses\\/polyglot-english-b1"', false);
-        $response->assertSee('Polyglot English B1');
+        $response->assertSee('"continueCourseUrl":"http:\\/\\/engapp-codex.loc\\/courses\\/sentence-builder-english-b1"', false);
+        $response->assertSee('English Sentence Builder B1');
         $response->assertSee('data-action="restart-course"', false);
     }
 
@@ -1230,7 +1230,7 @@ class PolyglotComposeModeTest extends TestCase
         $response->assertOk();
         $this->assertIsArray($courseContext);
         $this->assertSame('polyglot-english-a1', $courseContext['course_slug']);
-        $this->assertSame(localized_route('courses.show', 'polyglot-english-a1'), $courseContext['course_url']);
+        $this->assertSame(localized_route('courses.show', 'sentence-builder-english-a1'), $courseContext['course_url']);
         $this->assertSame(1, $courseContext['lesson_order']);
         $this->assertNull($courseContext['previous_lesson_slug']);
         $this->assertSame('polyglot-there-is-there-are-a1', $courseContext['next_lesson_slug']);

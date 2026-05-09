@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 
 /**
  * Builds the "theory-driven" course on top of existing Page_V3 theory pages
- * and existing V3 / Polyglot SavedGrammarTest content.
+ * and existing V3 / Sentence Builder SavedGrammarTest content.
  *
  * Pure read-side methods (`scan`, `enumeratePages`) are safe to call from
  * audit commands. `build()` mutates SavedGrammarTest rows.
@@ -23,7 +23,7 @@ class TheoryDrivenCourseBuilder
 {
     public const COURSE_SLUG = 'theory-driven';
     public const COURSE_TITLE = 'Повний курс по теорії';
-    public const COURSE_DESCRIPTION = 'Курс, що використовує існуючі сторінки теорії як програму та змішані тести з наявного контенту V3 / Polyglot.';
+    public const COURSE_DESCRIPTION = 'Курс, що використовує існуючі сторінки теорії як програму та змішані тести з наявного контенту V3 / Sentence Builder.';
     public const LESSON_SLUG_PREFIX = 'course-td-';
     public const QUESTIONS_PER_LESSON = 15;
     public const GENERATED_BY = 'GLZ-PROMPT-0069-THEORY-DRIVEN-COURSE-STABILIZE';

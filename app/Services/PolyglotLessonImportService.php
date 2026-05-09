@@ -339,7 +339,7 @@ class PolyglotLessonImportService
             ->headline()
             ->toString();
 
-        return trim(sprintf('Custom: Polyglot %s Lesson %s', $topicLabel, strtoupper($level)));
+        return trim(sprintf('Custom: Sentence Builder %s Lesson %s', $topicLabel, strtoupper($level)));
     }
 
     private function buildTopicHint(string $topic): ?string

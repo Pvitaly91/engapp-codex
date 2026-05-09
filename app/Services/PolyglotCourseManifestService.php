@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\SavedGrammarTest;
 use App\Support\ComposeModeEligibility;
+use App\Support\SentenceBuilderBranding;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
@@ -11,7 +12,7 @@ class PolyglotCourseManifestService
 {
     public function build(string $courseSlug): array
     {
-        $courseSlug = trim($courseSlug);
+        $courseSlug = SentenceBuilderBranding::legacyCourseSlug($courseSlug);
 
         if ($courseSlug === '') {
             return $this->emptyManifest('');
@@ -45,7 +46,7 @@ class PolyglotCourseManifestService
 
     public function findLesson(array $manifest, string $slug): ?array
     {
-        $slug = trim($slug);
+        $slug = SentenceBuilderBranding::legacyLessonSlug($slug);
 
         if ($slug === '') {
             return null;
@@ -125,6 +126,7 @@ class PolyglotCourseManifestService
     {
         $filters = ComposeModeEligibility::normalizedFilters($test);
         $slug = trim((string) $test->slug);
+        $publicSlug = SentenceBuilderBranding::canonicalLessonSlug($slug);
 
         if ($slug === '') {
             return null;
@@ -137,14 +139,15 @@ class PolyglotCourseManifestService
 
         return [
             'slug' => $slug,
-            'name' => trim((string) ($test->name ?? $slug)),
-            'description' => trim((string) ($test->description ?? '')),
+            'public_slug' => $publicSlug,
+            'name' => SentenceBuilderBranding::publicText(trim((string) ($test->name ?? $slug))),
+            'description' => SentenceBuilderBranding::publicText(trim((string) ($test->description ?? ''))),
             'topic' => $this->nullableString($filters['topic'] ?? null),
             'level' => $this->nullableString($filters['level'] ?? null),
             'lesson_order' => $lessonOrder,
             'previous_lesson_slug' => $this->nullableString($filters['previous_lesson_slug'] ?? null),
             'next_lesson_slug' => $this->nullableString($filters['next_lesson_slug'] ?? null),
-            'compose_url' => localized_route('test.step-compose', $slug),
+            'compose_url' => localized_route('test.step-compose', $publicSlug),
             'question_count' => $test->questionLinks->count(),
             'completion' => $this->normalizeCompletion($filters['completion'] ?? []),
             'mode' => trim((string) ($filters['mode'] ?? '')),
@@ -173,12 +176,14 @@ class PolyglotCourseManifestService
     protected function buildCourseMeta(string $courseSlug, Collection $lessons): array
     {
         $firstLesson = $lessons->first();
+        $publicCourseSlug = SentenceBuilderBranding::canonicalCourseSlug($courseSlug);
 
         return [
             'slug' => $courseSlug,
-            'name' => Str::of($courseSlug)->replace('-', ' ')->headline()->toString(),
-            'description' => is_array($firstLesson) ? (string) ($firstLesson['description'] ?? '') : '',
-            'compose_url' => localized_route('courses.show', $courseSlug),
+            'public_slug' => $publicCourseSlug,
+            'name' => SentenceBuilderBranding::courseTitle($courseSlug),
+            'description' => is_array($firstLesson) ? SentenceBuilderBranding::publicText((string) ($firstLesson['description'] ?? '')) : '',
+            'compose_url' => localized_route('courses.show', $publicCourseSlug),
             'level' => is_array($firstLesson) ? ($firstLesson['level'] ?? null) : null,
             'mode' => is_array($firstLesson) ? ($firstLesson['mode'] ?? null) : null,
         ];
@@ -207,12 +212,15 @@ class PolyglotCourseManifestService
 
     protected function emptyManifest(string $courseSlug): array
     {
+        $publicCourseSlug = SentenceBuilderBranding::canonicalCourseSlug($courseSlug);
+
         return [
             'course' => [
                 'slug' => $courseSlug,
-                'name' => Str::of($courseSlug)->replace('-', ' ')->headline()->toString(),
+                'public_slug' => $publicCourseSlug,
+                'name' => SentenceBuilderBranding::courseTitle($courseSlug),
                 'description' => '',
-                'compose_url' => $courseSlug !== '' ? localized_route('courses.show', $courseSlug) : null,
+                'compose_url' => $courseSlug !== '' ? localized_route('courses.show', $publicCourseSlug) : null,
                 'level' => null,
                 'mode' => null,
             ],

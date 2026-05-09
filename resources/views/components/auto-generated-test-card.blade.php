@@ -9,6 +9,8 @@
     
     // Get total available from computed attribute (set in service to avoid N+1 queries)
     $totalAvailable = $test->getAttribute('total_questions_available') ?? $questionsCount;
+    $publicName = \App\Support\SentenceBuilderBranding::publicText((string) ($test->name ?? ''));
+    $publicSlug = data_get($test, 'public_slug', \App\Support\SentenceBuilderBranding::canonicalLessonSlug((string) ($test->slug ?? '')));
     
     // Check if this is a virtual test (not persisted in the database)
     // Use isVirtual() method if available, otherwise check exists property
@@ -18,18 +20,18 @@
     // Build URL with filters for virtual tests
     if ($isVirtual) {
         $encodedFilters = base64_encode(json_encode($filters));
-        $testUrl = localized_route('test.show', $test->slug) . '?' . http_build_query([
+        $testUrl = localized_route('test.show', $publicSlug) . '?' . http_build_query([
             'filters' => $encodedFilters,
-            'name' => $test->name,
+            'name' => $publicName,
         ]);
     } else {
-        $testUrl = localized_route('test.show', $test->slug);
+        $testUrl = localized_route('test.show', $publicSlug);
     }
 @endphp
 
 <div class="bg-background border border-border/60 rounded-xl p-4 flex flex-col hover:border-primary/40 hover:shadow-md transition">
     <a href="{{ $testUrl }}" class="font-medium text-foreground hover:text-primary mb-2" @if($isVirtual) onclick="{{ $launchPerClickHandler }}" @endif>
-        {{ $test->name }}
+        {{ $publicName }}
     </a>
     
     @if(!empty($levels))
@@ -45,7 +47,7 @@
     @if(!empty($tags))
         <div class="mb-3 flex flex-wrap gap-1">
             @foreach(array_slice($tags, 0, 3) as $tag)
-                <span class="inline-block bg-secondary text-secondary-foreground font-medium text-xs px-2 py-0.5 rounded">{{ \App\Support\TheoryTagLabel::display($tag, app()->getLocale()) }}</span>
+                <span class="inline-block bg-secondary text-secondary-foreground font-medium text-xs px-2 py-0.5 rounded">{{ \App\Support\SentenceBuilderBranding::publicText(\App\Support\TheoryTagLabel::display($tag, app()->getLocale())) }}</span>
             @endforeach
             @if(count($tags) > 3)
                 <span class="inline-block bg-secondary text-secondary-foreground font-medium text-xs px-2 py-0.5 rounded">+{{ count($tags) - 3 }}</span>

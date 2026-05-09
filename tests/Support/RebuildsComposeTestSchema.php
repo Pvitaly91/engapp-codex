@@ -154,11 +154,12 @@ trait RebuildsComposeTestSchema
 
         Schema::create('question_theory_text_blocks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('question_id');
+            $table->string('question_uuid', 36);
             $table->string('text_block_uuid', 36);
             $table->unsignedInteger('position')->default(0);
             $table->timestamps();
-            $table->unique(['question_id', 'text_block_uuid'], 'qttb_unique_question_block');
+            $table->unique(['question_uuid', 'text_block_uuid'], 'qttb_unique_question_block_uuid');
+            $table->index('question_uuid', 'qttb_question_uuid_idx');
             $table->index('text_block_uuid', 'qttb_text_block_uuid_idx');
         });
 

@@ -4,7 +4,8 @@
     $normalizedFilters = \App\Support\ComposeModeEligibility::normalizedFilters($test);
     $mixedPolyglotTheoryTest = (bool) data_get($normalizedFilters, '__meta.theory_page_mixed_polyglot_test', false);
     $courseSlug = trim((string) ($normalizedFilters['course_slug'] ?? ''));
-    $courseUrl = $courseSlug !== '' ? localized_route('courses.show', $courseSlug) : null;
+    $publicCourseSlug = $courseSlug !== '' ? \App\Support\SentenceBuilderBranding::canonicalCourseSlug($courseSlug) : '';
+    $courseUrl = $publicCourseSlug !== '' ? localized_route('courses.show', $publicCourseSlug) : null;
     $isComposeRoute = request()->routeIs('test.step-compose');
     $isStepMode = request()->routeIs(
         'test.step',
@@ -51,7 +52,8 @@
 
     $preservedQuery = request()->only(['filters', 'name', 'launch']);
     $testRoute = static function (string $name) use ($test, $preservedQuery): string {
-        $url = localized_route($name, $test->slug);
+        $publicSlug = data_get($test, 'public_slug', \App\Support\SentenceBuilderBranding::canonicalLessonSlug($test->slug));
+        $url = localized_route($name, $publicSlug);
 
         return $preservedQuery === []
             ? $url

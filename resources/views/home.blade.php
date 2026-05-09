@@ -75,19 +75,19 @@
 
     $polyglotCourseCards = [
         [
-            'href' => localized_route('courses.show', ['courseSlug' => 'polyglot-english-a1'], false),
+            'href' => localized_route('courses.show', ['courseSlug' => 'sentence-builder-english-a1'], false),
             'title' => __('public.home.polyglot_title'),
             'description' => __('public.home.polyglot_desc'),
             'level' => 'A1',
         ],
         [
-            'href' => localized_route('courses.show', ['courseSlug' => 'polyglot-english-a2'], false),
+            'href' => localized_route('courses.show', ['courseSlug' => 'sentence-builder-english-a2'], false),
             'title' => __('public.home.polyglot_a2_title'),
             'description' => __('public.home.polyglot_a2_desc'),
             'level' => 'A2',
         ],
         [
-            'href' => localized_route('courses.show', ['courseSlug' => 'polyglot-english-b1'], false),
+            'href' => localized_route('courses.show', ['courseSlug' => 'sentence-builder-english-b1'], false),
             'title' => __('public.home.polyglot_b1_title'),
             'description' => __('public.home.polyglot_b1_desc'),
             'level' => 'B1',

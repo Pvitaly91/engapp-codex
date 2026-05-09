@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Question;
 use App\Models\SavedGrammarTest;
 use App\Models\Test;
+use App\Support\SentenceBuilderBranding;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -23,9 +24,12 @@ class SavedTestResolver
 
     public function resolve(string $slug): ResolvedSavedTest
     {
-        $legacy = Test::where('slug', $slug)->first();
+        $lookupSlug = SentenceBuilderBranding::legacyLessonSlug($slug);
+        $legacy = Test::where('slug', $lookupSlug)->first();
 
         if ($legacy) {
+            $this->decoratePublicBranding($legacy);
+
             $questionIds = collect($legacy->questions ?? [])
                 ->filter(fn ($id) => filled($id))
                 ->map(fn ($id) => (int) $id)
@@ -43,9 +47,11 @@ class SavedTestResolver
             return new ResolvedSavedTest($legacy, $questionIds, $questionUuids, false);
         }
 
-        $saved = SavedGrammarTest::with('questionLinks')->where('slug', $slug)->first();
+        $saved = SavedGrammarTest::with('questionLinks')->where('slug', $lookupSlug)->first();
 
         if ($saved) {
+            $this->decoratePublicBranding($saved);
+
             return $this->resolveFromModel($saved);
         }
 
@@ -154,7 +160,7 @@ class SavedTestResolver
 
         // Create a virtual test model
         $virtualTest = new VirtualSavedTest(
-            name: $name,
+            name: SentenceBuilderBranding::publicText($name),
             slug: $slug,
             filters: $filters
         );
@@ -254,5 +260,12 @@ class SavedTestResolver
         }
 
         return true;
+    }
+
+    private function decoratePublicBranding(Test|SavedGrammarTest $test): void
+    {
+        $test->setAttribute('public_slug', SentenceBuilderBranding::canonicalLessonSlug((string) $test->slug));
+        $test->setAttribute('name', SentenceBuilderBranding::publicText((string) ($test->name ?? '')));
+        $test->setAttribute('description', SentenceBuilderBranding::publicText((string) ($test->description ?? '')));
     }
 }

@@ -108,7 +108,7 @@ class PolyglotV3SkeletonWriterService
             ],
             'tags' => array_filter([
                 'polyglot_compose_tokens' => [
-                    'name' => 'Polyglot compose tokens',
+                    'name' => 'Sentence Builder compose tokens',
                     'category' => 'mode',
                 ],
                 $topicTagKey !== '' ? $topicTagKey : null => [
@@ -150,7 +150,7 @@ class PolyglotV3SkeletonWriterService
                     'level' => $level,
                     'levels' => [$level],
                     'tags' => array_values(array_filter([
-                        'Polyglot',
+                        'Sentence Builder',
                         'Compose Tokens',
                         $topic !== '' ? Str::of($topic)->replace(['/', '_', '-'], ' ')->headline()->toString() : null,
                         $level,

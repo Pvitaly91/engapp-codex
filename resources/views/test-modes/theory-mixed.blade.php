@@ -62,7 +62,7 @@
                     <p class="mt-2 text-sm leading-6" style="color: var(--muted);">{{ __('frontend.theory_course.standard_questions') }}</p>
                 </article>
                 <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
-                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Polyglot</p>
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">Sentence Builder</p>
                     <p class="mt-2 font-display text-[2.1rem] font-extrabold leading-none">{{ (int) ($counts['compose_questions'] ?? 0) }}</p>
                     <p class="mt-2 text-sm leading-6" style="color: var(--muted);">{{ __('frontend.theory_course.compose_questions') }}</p>
                 </article>

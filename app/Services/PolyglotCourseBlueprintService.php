@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Support\SentenceBuilderBranding;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use RuntimeException;
@@ -14,6 +15,7 @@ class PolyglotCourseBlueprintService
 
     public function getCourseBlueprint(string $courseSlug): array
     {
+        $courseSlug = SentenceBuilderBranding::legacyCourseSlug($courseSlug);
         $path = $this->resolveBlueprintPath($courseSlug);
 
         if (! File::exists($path)) {
@@ -62,6 +64,7 @@ class PolyglotCourseBlueprintService
 
     public function buildCourseStatus(string $courseSlug): array
     {
+        $courseSlug = SentenceBuilderBranding::legacyCourseSlug($courseSlug);
         $manifest = $this->manifestService->build($courseSlug);
         $blueprint = $this->getCourseBlueprint($courseSlug);
         $manifestLessons = $manifest['lessons'] ?? [];
@@ -79,8 +82,8 @@ class PolyglotCourseBlueprintService
             $isImplemented = $implementedLesson !== null;
             $isMissing = ! $isImplemented && $blueprintLesson['status'] === 'implemented';
             $displayLesson = array_merge($blueprintLesson, [
-                'name' => $implementedLesson['name'] ?? $blueprintLesson['title'],
-                'description' => $implementedLesson['description'] ?? '',
+                'name' => SentenceBuilderBranding::publicText($implementedLesson['name'] ?? $blueprintLesson['title']),
+                'description' => SentenceBuilderBranding::publicText($implementedLesson['description'] ?? ''),
                 'compose_url' => $implementedLesson['compose_url'] ?? null,
                 'completion' => $implementedLesson['completion'] ?? null,
                 'course_slug' => $implementedLesson['course_slug'] ?? $blueprint['course_slug'],
@@ -112,9 +115,10 @@ class PolyglotCourseBlueprintService
         return [
             'course' => [
                 'slug' => $blueprint['course_slug'],
-                'name' => $blueprint['course_title'],
-                'description' => $blueprint['description'],
-                'compose_url' => localized_route('courses.show', $blueprint['course_slug']),
+                'public_slug' => SentenceBuilderBranding::canonicalCourseSlug($blueprint['course_slug']),
+                'name' => SentenceBuilderBranding::publicText($blueprint['course_title']),
+                'description' => SentenceBuilderBranding::publicText($blueprint['description']),
+                'compose_url' => localized_route('courses.show', SentenceBuilderBranding::canonicalCourseSlug($blueprint['course_slug'])),
                 'level' => $blueprint['defaults']['level'] ?? ($manifest['course']['level'] ?? null),
                 'mode' => $blueprint['defaults']['mode'] ?? ($manifest['course']['mode'] ?? null),
             ],

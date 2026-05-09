@@ -24,6 +24,7 @@ use App\Services\TagAggregationService;
 use App\Services\TheoryBlockMatcherService;
 use App\Services\VirtualSavedTest;
 use App\Support\SavedTestJsState;
+use App\Support\SentenceBuilderBranding;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -2294,6 +2295,7 @@ class GrammarTestController extends Controller
             $test->setAttribute('question_count', count($questions));
             $test->setAttribute('test_type', 'legacy');
             $test->setAttribute('usesUuidLinks', false);
+            $this->decorateSavedTestPublicBranding($test);
         });
 
         $uuidTests = SavedGrammarTest::query()->with('questionLinks')->latest()->get();
@@ -2335,6 +2337,7 @@ class GrammarTestController extends Controller
                 $test->setAttribute('question_count', $questions->count() ?: ($normalized['num_questions'] ?? 0));
                 $test->setAttribute('test_type', 'filter');
                 $test->setAttribute('usesUuidLinks', true);
+                $this->decorateSavedTestPublicBranding($test);
 
                 return;
             }
@@ -2351,9 +2354,17 @@ class GrammarTestController extends Controller
             $test->setAttribute('question_count', count($ids));
             $test->setAttribute('test_type', 'uuid');
             $test->setAttribute('usesUuidLinks', true);
+            $this->decorateSavedTestPublicBranding($test);
         });
 
         return $legacyTests->merge($uuidTests)->sortByDesc('created_at')->values();
+    }
+
+    private function decorateSavedTestPublicBranding(Test|SavedGrammarTest $test): void
+    {
+        $test->setAttribute('public_slug', SentenceBuilderBranding::canonicalLessonSlug((string) $test->slug));
+        $test->setAttribute('name', SentenceBuilderBranding::publicText((string) ($test->name ?? '')));
+        $test->setAttribute('description', SentenceBuilderBranding::publicText((string) ($test->description ?? '')));
     }
 
     /**

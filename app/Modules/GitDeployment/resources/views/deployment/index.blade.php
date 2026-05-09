@@ -444,16 +444,22 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">4. Запушити поточний стан</h2>
-          <p class="text-sm text-muted-foreground">Виконайте <code>git push</code>, щоб надіслати поточний коміт на потрібну віддалену гілку (за замовчуванням <code>master</code>).</p>
+          <h2 class="text-2xl font-semibold">4. Закомітити і запушити поточний стан</h2>
+          <p class="text-sm text-muted-foreground">Адмінка додасть поточні Git-зміни, створить commit за потреби і запушить локальний <code>HEAD</code> на потрібну віддалену гілку.</p>
           <div class="mt-3 rounded-2xl border border-border/70 bg-muted/30 p-4 text-xs text-muted-foreground">
             <p class="font-semibold text-foreground">Команди, які буде виконано:</p>
             <ul class="mt-2 list-disc space-y-1 pl-5">
               <li><code>git rev-parse --abbrev-ref HEAD</code> — визначає поточну гілку.</li>
+              <li><code>git add -A -- .</code> — додає поточні Git-зміни.</li>
+              <li><code>git reset -q -- .env storage vendor node_modules</code> — прибирає захищені шляхи з index.</li>
+              <li><code>git diff --cached --quiet</code> — перевіряє, чи потрібен новий commit.</li>
+              <li><code>git commit -m "Deploy from admin panel (...)"</code> — створюється тільки якщо є staged-зміни.</li>
+              <li><code>git rev-parse HEAD</code> — визначає commit, який буде запушено.</li>
               <li>
                 <code>git push --force origin HEAD:&lt;обрана_гілка&gt;</code>
-                — примусово оновлює віддалену гілку станом вашого локального HEAD.
+                — примусово оновлює віддалену гілку вашим локальним HEAD.
               </li>
+              <li><code>git ls-remote origin refs/heads/&lt;обрана_гілка&gt;</code> — перевіряє, що GitHub вказує на запушений commit.</li>
             </ul>
           </div>
         </div>
@@ -468,7 +474,7 @@
               </svg>
             </button>
           </div>
-          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-emerald-600/90">Запушити поточний коміт</button>
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-emerald-600/90">Закомітити і запушити</button>
         </form>
       </div>
     </section>

@@ -18,7 +18,8 @@
         : max(1, $rawCompletionWindow);
     $completionRating = (float) data_get($rawFilters, 'completion.min_rating', 4.5);
     $courseSlug = data_get($courseContext, 'course_slug', data_get($rawFilters, 'course_slug'));
-    $courseUrl = data_get($courseContext, 'course_url', filled($courseSlug) ? localized_route('courses.show', $courseSlug) : null);
+    $publicCourseSlug = filled($courseSlug) ? \App\Support\SentenceBuilderBranding::canonicalCourseSlug($courseSlug) : null;
+    $courseUrl = data_get($courseContext, 'course_url', filled($publicCourseSlug) ? localized_route('courses.show', $publicCourseSlug) : null);
     $previousLessonSlug = data_get($courseContext, 'previous_lesson_slug', data_get($rawFilters, 'previous_lesson_slug'));
     $nextLessonSlug = data_get($courseContext, 'next_lesson_slug', data_get($rawFilters, 'next_lesson_slug'));
     $firstLessonSlug = data_get($courseContext, 'first_lesson_slug');
@@ -27,24 +28,24 @@
     $startsLockedPending = filled($courseSlug) && filled($previousLessonSlug);
     $continueCourseMap = [
         'polyglot-english-a1' => [
-            'slug' => 'polyglot-english-a2',
-            'name' => 'Polyglot English A2',
+            'slug' => 'sentence-builder-english-a2',
+            'name' => 'English Sentence Builder A2',
         ],
         'polyglot-english-a2' => [
-            'slug' => 'polyglot-english-b1',
-            'name' => 'Polyglot English B1',
+            'slug' => 'sentence-builder-english-b1',
+            'name' => 'English Sentence Builder B1',
         ],
         'polyglot-english-b1' => [
-            'slug' => 'polyglot-english-b2',
-            'name' => 'Polyglot English B2',
+            'slug' => 'sentence-builder-english-b2',
+            'name' => 'English Sentence Builder B2',
         ],
         'polyglot-english-b2' => [
-            'slug' => 'polyglot-english-c1',
-            'name' => 'Polyglot English C1',
+            'slug' => 'sentence-builder-english-c1',
+            'name' => 'English Sentence Builder C1',
         ],
         'polyglot-english-c1' => [
-            'slug' => 'polyglot-english-c2',
-            'name' => 'Polyglot English C2',
+            'slug' => 'sentence-builder-english-c2',
+            'name' => 'English Sentence Builder C2',
         ],
     ];
     $continueCourse = $isFinalLesson ? ($continueCourseMap[$courseSlug ?? ''] ?? null) : null;
@@ -60,7 +61,7 @@
 @endphp
 
 <style>
-    /* Polyglot compose — modern layout. CSS variables, IDs and data-* attrs
+    /* Sentence Builder compose — modern layout. CSS variables, IDs and data-* attrs
        expected by the JS controller are preserved 1:1. */
     #new-design-test-shell #polyglot-compose-root,
     #polyglot-compose-root {

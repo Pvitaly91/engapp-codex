@@ -26,6 +26,7 @@ use App\Services\ContentDeployment\ContentOpsCiDispatchService;
 use App\Services\ContentDeployment\ContentOpsCiStatusService;
 use App\Services\ContentDeployment\ContentReleaseGateService;
 use App\Services\ContentDeployment\ContentSyncPlanService;
+use Symfony\Component\Process\Exception\ProcessTimedOutException;
 use Symfony\Component\Process\Process;
 use ZipArchive;
 
@@ -942,45 +943,79 @@ class DeploymentController extends BaseController
         }
 
         $repoPath = base_path();
+        $gitTimeout = $this->databaseDumpGitTimeout();
+        $commitCreated = false;
 
-        $addProcess = $this->runCommand(['git', 'add', '--', $dumpPath], $repoPath);
-        $commandsOutput[] = $this->formatProcess("git add -- {$dumpPath}", $addProcess);
+        try {
+            $addProcess = $this->runCommand(['git', 'add', '--', $dumpPath], $repoPath, [], $gitTimeout);
+            $commandsOutput[] = $this->formatProcess("git add -- {$dumpPath}", $addProcess);
 
-        if (! $addProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', $message . ', але не вдалося додати файл у Git.', $commandsOutput, $branch);
+            if (! $addProcess->isSuccessful()) {
+                return $this->redirectWithFeedback('error', $message . ', але не вдалося додати файл у Git.', $commandsOutput, $branch);
+            }
+
+            $stagedDiffProcess = $this->runCommand(['git', 'diff', '--cached', '--quiet', '--', $dumpPath], $repoPath, [], $gitTimeout);
+            $commandsOutput[] = $this->formatStagedDiffProcess("git diff --cached --quiet -- {$dumpPath}", $stagedDiffProcess);
+
+            if (! in_array($stagedDiffProcess->getExitCode(), [0, 1], true)) {
+                return $this->redirectWithFeedback('error', $message . ', але не вдалося перевірити staged-зміни дампу.', $commandsOutput, $branch);
+            }
+
+            $commitMessage = 'Update database dump';
+            if ($stagedDiffProcess->getExitCode() === 1) {
+                $commitProcess = $this->runCommand(
+                    ['git', 'commit', '-m', $commitMessage, '--', $dumpPath],
+                    $repoPath,
+                    $this->gitCommitEnvironment(),
+                    $gitTimeout
+                );
+                $commandsOutput[] = $this->formatProcess("git commit -m \"{$commitMessage}\" -- {$dumpPath}", $commitProcess);
+
+                if (! $commitProcess->isSuccessful()) {
+                    return $this->redirectWithFeedback('error', $message . ', але не вдалося створити Git-коміт.', $commandsOutput, $branch);
+                }
+
+                $commitCreated = true;
+            }
+
+            $pushProcess = $this->runCommand(['git', 'push', 'origin', "HEAD:{$branch}"], $repoPath, [], $gitTimeout);
+            $commandsOutput[] = $this->formatProcess("git push origin HEAD:{$branch}", $pushProcess);
+        } catch (ProcessTimedOutException $exception) {
+            $commandsOutput[] = $this->formatProcess($exception->getProcess()->getCommandLine(), $exception->getProcess());
+
+            return $this->redirectWithFeedback(
+                'error',
+                $message . ", але Git-команда перевищила timeout {$gitTimeout} секунд.",
+                $commandsOutput,
+                $branch
+            );
         }
-
-        $commitMessage = 'Update database dump';
-        $commitProcess = $this->runCommand(
-            ['git', 'commit', '-m', $commitMessage, '--', $dumpPath],
-            $repoPath,
-            $this->gitCommitEnvironment()
-        );
-        $commandsOutput[] = $this->formatProcess("git commit -m \"{$commitMessage}\" -- {$dumpPath}", $commitProcess);
-
-        if (! $commitProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', $message . ', але не вдалося створити Git-коміт.', $commandsOutput, $branch);
-        }
-
-        $pushProcess = $this->runCommand(['git', 'push', 'origin', "HEAD:{$branch}"], $repoPath);
-        $commandsOutput[] = $this->formatProcess("git push origin HEAD:{$branch}", $pushProcess);
 
         if (! $pushProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', $message . ', коміт створено, але push не пройшов.', $commandsOutput, $branch);
+            $pushFailureMessage = $commitCreated
+                ? $message . ', коміт створено, але push не пройшов.'
+                : $message . ', новий Git-коміт не потрібен, але push не пройшов.';
+
+            return $this->redirectWithFeedback('error', $pushFailureMessage, $commandsOutput, $branch);
         }
 
         BranchUsageHistory::trackUsage(
             $branch,
             'database_dump',
-            'Створено дамп бази даних і запушено файл ' . $dumpPath,
+            $commitCreated
+                ? 'Створено дамп бази даних і запушено файл ' . $dumpPath
+                : 'Створено дамп бази даних; новий Git-коміт не знадобився для ' . $dumpPath,
             [$dumpPath]
         );
 
         $size = File::exists($fullDumpPath) ? number_format((int) File::size($fullDumpPath)) . ' bytes' : 'unknown size';
+        $statusMessage = $commitCreated
+            ? "Дамп бази даних створено, закомічено і запушено в origin/{$branch}. Файл: {$dumpPath}; розмір: {$size}."
+            : "Дамп бази даних створено, але новий Git-коміт не потрібен: файл уже актуальний. Push в origin/{$branch} перевірено. Файл: {$dumpPath}; розмір: {$size}.";
 
         return $this->redirectWithFeedback(
             'success',
-            "Дамп бази даних створено, закомічено і запушено в origin/{$branch}. Файл: {$dumpPath}; розмір: {$size}.",
+            $statusMessage,
             $commandsOutput,
             $branch
         );
@@ -1045,19 +1080,113 @@ class DeploymentController extends BaseController
 
         $repoPath = base_path();
         $commandsOutput = [];
+        $gitTimeout = $this->gitCommandTimeout();
+        $commitCreated = false;
 
-        $currentBranchProcess = $this->runCommand(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], $repoPath);
+        $currentBranchProcess = $this->runCommand(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], $repoPath, [], $gitTimeout);
         $commandsOutput[] = $this->formatProcess('git rev-parse --abbrev-ref HEAD', $currentBranchProcess);
 
         if (! $currentBranchProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', 'Не вдалося визначити поточну гілку.', $commandsOutput);
+            return $this->redirectWithFeedback('error', 'Не вдалося визначити поточну гілку.', $commandsOutput, $branch);
         }
 
-        $pushProcess = $this->runCommand(['git', 'push', '--force', 'origin', "HEAD:{$branch}"], $repoPath);
-        $commandsOutput[] = $this->formatProcess("git push --force origin HEAD:{$branch}", $pushProcess);
+        try {
+            $addCommand = $this->gitAddCurrentStateCommand();
+            $addProcess = $this->runCommand($addCommand, $repoPath, [], $gitTimeout);
+            $commandsOutput[] = $this->formatProcess($this->formatGitCommand($addCommand), $addProcess);
+
+            if (! $addProcess->isSuccessful()) {
+                return $this->redirectWithFeedback('error', 'Не вдалося додати поточні зміни в Git index.', $commandsOutput, $branch);
+            }
+
+            $unstageProtectedCommand = $this->gitUnstageProtectedPathsCommand();
+            if ($unstageProtectedCommand !== null) {
+                $unstageProtectedProcess = $this->runCommand($unstageProtectedCommand, $repoPath, [], $gitTimeout);
+                $commandsOutput[] = $this->formatProcess($this->formatGitCommand($unstageProtectedCommand), $unstageProtectedProcess);
+
+                if (! $unstageProtectedProcess->isSuccessful()) {
+                    return $this->redirectWithFeedback('error', 'Не вдалося виключити захищені шляхи з Git index.', $commandsOutput, $branch);
+                }
+            }
+
+            $diffCommand = ['git', 'diff', '--cached', '--quiet'];
+            $stagedDiffProcess = $this->runCommand($diffCommand, $repoPath, [], $gitTimeout);
+            $commandsOutput[] = $this->formatStagedDiffProcess($this->formatGitCommand($diffCommand), $stagedDiffProcess);
+
+            if (! in_array($stagedDiffProcess->getExitCode(), [0, 1], true)) {
+                return $this->redirectWithFeedback('error', 'Не вдалося перевірити staged-зміни перед commit.', $commandsOutput, $branch);
+            }
+
+            if ($stagedDiffProcess->getExitCode() === 1) {
+                $commitMessage = 'Deploy from admin panel (' . now()->toIso8601String() . ')';
+                $commitCommand = ['git', 'commit', '-m', $commitMessage];
+                $commitProcess = $this->runCommand(
+                    $commitCommand,
+                    $repoPath,
+                    $this->gitCommitEnvironment(),
+                    $gitTimeout
+                );
+                $commandsOutput[] = $this->formatProcess($this->formatGitCommand($commitCommand), $commitProcess);
+
+                if (! $commitProcess->isSuccessful()) {
+                    return $this->redirectWithFeedback('error', 'Не вдалося створити Git commit перед push.', $commandsOutput, $branch);
+                }
+
+                $commitCreated = true;
+            }
+        } catch (ProcessTimedOutException $exception) {
+            $commandsOutput[] = $this->formatProcess($exception->getProcess()->getCommandLine(), $exception->getProcess());
+
+            return $this->redirectWithFeedback(
+                'error',
+                "Git-команда перед push перевищила timeout {$gitTimeout} секунд.",
+                $commandsOutput,
+                $branch
+            );
+        }
+
+        $headProcess = $this->runCommand(['git', 'rev-parse', 'HEAD'], $repoPath, [], $gitTimeout);
+        $commandsOutput[] = $this->formatProcess('git rev-parse HEAD', $headProcess);
+
+        if (! $headProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося визначити поточний commit.', $commandsOutput, $branch);
+        }
+
+        try {
+            $pushProcess = $this->runCommand(['git', 'push', '--force', 'origin', "HEAD:{$branch}"], $repoPath, [], $gitTimeout);
+            $commandsOutput[] = $this->formatProcess("git push --force origin HEAD:{$branch}", $pushProcess);
+        } catch (ProcessTimedOutException $exception) {
+            $commandsOutput[] = $this->formatProcess($exception->getProcess()->getCommandLine(), $exception->getProcess());
+
+            return $this->redirectWithFeedback(
+                'error',
+                "Push перевищив timeout {$gitTimeout} секунд.",
+                $commandsOutput,
+                $branch
+            );
+        }
 
         if (! $pushProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', 'Не вдалося запушити поточний стан на віддалену гілку.', $commandsOutput);
+            return $this->redirectWithFeedback('error', 'Не вдалося запушити поточний commit на віддалену гілку.', $commandsOutput, $branch);
+        }
+
+        $remoteProcess = $this->runCommand(['git', 'ls-remote', 'origin', "refs/heads/{$branch}"], $repoPath, [], $gitTimeout);
+        $commandsOutput[] = $this->formatProcess("git ls-remote origin refs/heads/{$branch}", $remoteProcess);
+
+        if (! $remoteProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Push виконано, але не вдалося перевірити віддалену гілку на GitHub.', $commandsOutput, $branch);
+        }
+
+        $headSha = trim($headProcess->getOutput());
+        $remoteSha = $this->parseLsRemoteSha($remoteProcess->getOutput());
+
+        if ($remoteSha === null || ! hash_equals($headSha, $remoteSha)) {
+            return $this->redirectWithFeedback(
+                'error',
+                "Push завершився без помилки, але origin/{$branch} не вказує на локальний HEAD {$headSha}.",
+                $commandsOutput,
+                $branch
+            );
         }
 
         $currentBranch = trim($currentBranchProcess->getOutput());
@@ -1066,13 +1195,20 @@ class DeploymentController extends BaseController
         BranchUsageHistory::trackUsage(
             $branch,
             'push',
-            "Пуш поточного стану на віддалену гілку з {$currentBranch}"
+            $commitCreated
+                ? "Авто-commit і push {$headSha} на віддалену гілку з {$currentBranch}"
+                : "Push поточного commit {$headSha} на віддалену гілку з {$currentBranch}"
         );
+
+        $message = $commitCreated
+            ? "Поточні зміни закомічено в {$headSha}, запушено і перевірено на origin/{$branch}."
+            : "Нових Git-змін не було; поточний commit {$headSha} з гілки {$currentBranch} запушено і перевірено на origin/{$branch}.";
 
         return $this->redirectWithFeedback(
             'success',
-            "Поточний стан гілки {$currentBranch} запушено на origin/{$branch}.",
-            $commandsOutput
+            $message,
+            $commandsOutput,
+            $branch
         );
     }
 
@@ -2119,12 +2255,77 @@ class DeploymentController extends BaseController
         return $sanitized !== null && $sanitized !== '' ? $sanitized : $normalized;
     }
 
-    private function runCommand(array $command, string $workingDirectory, array $env = []): Process
+    private function runCommand(array $command, string $workingDirectory, array $env = [], ?float $timeout = null): Process
     {
         $process = new Process($command, $workingDirectory, $env ?: null);
+        if ($timeout !== null) {
+            $process->setTimeout($timeout);
+        }
         $process->run();
 
         return $process;
+    }
+
+    private function databaseDumpGitTimeout(): int
+    {
+        return max(60, (int) config('git-deployment.database_dump.git_timeout', $this->gitCommandTimeout()));
+    }
+
+    private function gitCommandTimeout(): int
+    {
+        return max(60, (int) config('git-deployment.git.timeout', 600));
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function gitAddCurrentStateCommand(): array
+    {
+        return ['git', 'add', '-A', '--', '.'];
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function gitUnstageProtectedPathsCommand(): ?array
+    {
+        $command = ['git', 'reset', '-q', '--'];
+
+        foreach ((array) config('git-deployment.preserve_paths', []) as $path) {
+            $path = trim(str_replace('\\', '/', (string) $path), '/');
+
+            if ($path === '' || $path === '.git') {
+                continue;
+            }
+
+            $command[] = $path;
+        }
+
+        return count($command) > 4 ? $command : null;
+    }
+
+    /**
+     * @param array<int, string> $command
+     */
+    private function formatGitCommand(array $command): string
+    {
+        return implode(' ', array_map(
+            fn (string $part): string => preg_match('/\s/', $part) === 1 ? '"' . $part . '"' : $part,
+            $command
+        ));
+    }
+
+    private function parseLsRemoteSha(string $output): ?string
+    {
+        $line = trim($output);
+        if ($line === '') {
+            return null;
+        }
+
+        $parts = preg_split('/\s+/', $line, 2);
+        $sha = $parts[0] ?? '';
+
+        return preg_match('/^[0-9a-f]{40}$/i', $sha) === 1 ? strtolower($sha) : null;
     }
 
     private function gitCommitEnvironment(): array
@@ -2154,6 +2355,24 @@ class DeploymentController extends BaseController
             'command' => $command,
             'successful' => $process->isSuccessful(),
             'output' => trim($process->getErrorOutput() . $process->getOutput()),
+        ];
+    }
+
+    private function formatStagedDiffProcess(string $command, Process $process): array
+    {
+        $exitCode = $process->getExitCode();
+        $output = trim($process->getErrorOutput() . $process->getOutput());
+
+        if ($output === '' && $exitCode === 0) {
+            $output = 'No staged changes; commit can be skipped.';
+        } elseif ($output === '' && $exitCode === 1) {
+            $output = 'Staged changes detected.';
+        }
+
+        return [
+            'command' => $command,
+            'successful' => in_array($exitCode, [0, 1], true),
+            'output' => $output,
         ];
     }
 

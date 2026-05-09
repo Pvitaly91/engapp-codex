@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Support\SentenceBuilderBranding;
+
 class CourseCatalogService
 {
     /**
@@ -11,11 +13,11 @@ class CourseCatalogService
     {
         return [
             [
-                'slug' => 'polyglot-english',
+                'slug' => SentenceBuilderBranding::PUBLIC_COURSE_BASE_SLUG,
                 'kind' => 'levels',
                 'badge' => __('public.courses.course_card_badge'),
-                'initials' => 'PG',
-                'title' => 'Polyglot English',
+                'initials' => 'SB',
+                'title' => 'English Sentence Builder',
                 'description' => __('public.courses.polyglot_description'),
                 'levels' => array_map(
                     fn (string $level): array => $this->polyglotLevel($level),
@@ -59,11 +61,12 @@ class CourseCatalogService
     private function polyglotLevel(string $level): array
     {
         $courseSlug = 'polyglot-english-'.strtolower($level);
+        $publicCourseSlug = SentenceBuilderBranding::canonicalCourseSlug($courseSlug);
 
         return [
             'level' => $level,
             'course_slug' => $courseSlug,
-            'url' => localized_route('courses.show', $courseSlug, false),
+            'url' => localized_route('courses.show', $publicCourseSlug, false),
         ];
     }
 }

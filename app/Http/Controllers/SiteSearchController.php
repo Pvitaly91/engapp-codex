@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\Test;
+use App\Support\SentenceBuilderBranding;
 use Illuminate\Http\Request;
 
 class SiteSearchController extends Controller
@@ -39,9 +40,9 @@ class SiteSearchController extends Controller
                 ->limit(10)
                 ->get()
                 ->map(fn ($t) => [
-                    'title' => $t->name,
+                    'title' => SentenceBuilderBranding::publicText($t->name),
                     'type' => 'test',
-                    'url' => localized_route('test.show', $t->slug),
+                    'url' => localized_route('test.show', SentenceBuilderBranding::canonicalLessonSlug($t->slug)),
                 ]);
         }
 

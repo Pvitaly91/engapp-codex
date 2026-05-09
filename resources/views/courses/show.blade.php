@@ -11,28 +11,28 @@
     $courseContentComplete = $implementedLessonsCount >= $plannedTotalLessons && $plannedLessonsCount === 0;
     $continueCourseMap = [
         'polyglot-english-a1' => [
-            'slug' => 'polyglot-english-a2',
-            'name' => 'Polyglot English A2',
+            'slug' => 'sentence-builder-english-a2',
+            'name' => 'English Sentence Builder A2',
             'data_attr' => 'data-course-continue-a2-link',
         ],
         'polyglot-english-a2' => [
-            'slug' => 'polyglot-english-b1',
-            'name' => 'Polyglot English B1',
+            'slug' => 'sentence-builder-english-b1',
+            'name' => 'English Sentence Builder B1',
             'data_attr' => 'data-course-continue-b1-link',
         ],
         'polyglot-english-b1' => [
-            'slug' => 'polyglot-english-b2',
-            'name' => 'Polyglot English B2',
+            'slug' => 'sentence-builder-english-b2',
+            'name' => 'English Sentence Builder B2',
             'data_attr' => 'data-course-continue-b2-link',
         ],
         'polyglot-english-b2' => [
-            'slug' => 'polyglot-english-c1',
-            'name' => 'Polyglot English C1',
+            'slug' => 'sentence-builder-english-c1',
+            'name' => 'English Sentence Builder C1',
             'data_attr' => 'data-course-continue-c1-link',
         ],
         'polyglot-english-c1' => [
-            'slug' => 'polyglot-english-c2',
-            'name' => 'Polyglot English C2',
+            'slug' => 'sentence-builder-english-c2',
+            'name' => 'English Sentence Builder C2',
             'data_attr' => 'data-course-continue-c2-link',
         ],
     ];

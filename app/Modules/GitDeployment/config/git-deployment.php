@@ -5,6 +5,7 @@ return [
     'git' => [
         'author_name' => env('DEPLOYMENT_GIT_AUTHOR_NAME', env('GIT_AUTHOR_NAME', 'Gramlyze Deployment Bot')),
         'author_email' => env('DEPLOYMENT_GIT_AUTHOR_EMAIL', env('GIT_AUTHOR_EMAIL', 'deploy@gramlyze.com')),
+        'timeout' => env('DEPLOYMENT_GIT_TIMEOUT', 600),
     ],
     'preserve_paths' => [
         '.git',
@@ -22,6 +23,7 @@ return [
     'database_dump' => [
         'path' => env('DB_DUMP_PATH', 'database/dumps/site-database.sql'),
         'rows_per_insert' => env('DB_DUMP_ROWS_PER_INSERT', 250),
+        'git_timeout' => env('DB_DUMP_GIT_TIMEOUT', env('DEPLOYMENT_GIT_TIMEOUT', 600)),
     ],
     'content_preview' => [
         'with_release_check' => env('DEPLOYMENT_CONTENT_PREVIEW_WITH_RELEASE_CHECK', true),

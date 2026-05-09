@@ -2,7 +2,8 @@
     @php
         $preservedQuery = request()->only(['filters', 'name', 'launch']);
         $testRoute = static function (string $name) use ($test, $preservedQuery): string {
-            $url = localized_route($name, $test->slug);
+            $publicSlug = data_get($test, 'public_slug', \App\Support\SentenceBuilderBranding::canonicalLessonSlug($test->slug));
+            $url = localized_route($name, $publicSlug);
 
             return $preservedQuery === []
                 ? $url

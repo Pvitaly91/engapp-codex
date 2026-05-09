@@ -15,6 +15,7 @@ use App\Services\SavedTestResolver;
 use App\Support\AdminDebugAccess;
 use App\Support\ComposeModeEligibility;
 use App\Support\SavedTestJsState;
+use App\Support\SentenceBuilderBranding;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
@@ -598,10 +599,12 @@ class TestJsV2Controller extends Controller
 
         return [
             'course_slug' => $courseSlug,
+            'public_course_slug' => SentenceBuilderBranding::canonicalCourseSlug($courseSlug),
             'course_name' => $manifest['course']['name'] ?? null,
             'course_description' => $manifest['course']['description'] ?? null,
-            'course_url' => localized_route('courses.show', $courseSlug),
+            'course_url' => localized_route('courses.show', SentenceBuilderBranding::canonicalCourseSlug($courseSlug)),
             'lesson_slug' => $lesson['slug'],
+            'public_lesson_slug' => $lesson['public_slug'] ?? SentenceBuilderBranding::canonicalLessonSlug($lesson['slug']),
             'lesson_order' => $lesson['lesson_order'],
             'topic' => $lesson['topic'],
             'level' => $lesson['level'],

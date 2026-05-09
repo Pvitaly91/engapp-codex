@@ -9,6 +9,7 @@ use App\Models\SavedGrammarTest;
 use App\Support\ComposeModeEligibility;
 use App\Support\Database\JsonTestSeeder;
 use App\Support\PromptGeneratorFilterNormalizer;
+use App\Support\SentenceBuilderBranding;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -809,10 +810,10 @@ class TheoryPagePromptLinkedTestsService
         );
 
         return (new VirtualSavedTest(
-            $name,
-            $slug,
+            SentenceBuilderBranding::publicText($name),
+            SentenceBuilderBranding::canonicalLessonSlug($slug),
             $filters,
-            $this->nullableString($savedTest['description'] ?? null)
+            SentenceBuilderBranding::publicText($this->nullableString($savedTest['description'] ?? null) ?? '')
         ))->setTotalQuestionsAvailable($availableCount);
     }
 
@@ -1081,6 +1082,9 @@ class TheoryPagePromptLinkedTestsService
             'total_questions_available',
             $actualQuestionCount > 0 ? $actualQuestionCount : (int) ($filters['num_questions'] ?? 0)
         );
+        $test->setAttribute('public_slug', SentenceBuilderBranding::canonicalLessonSlug((string) $test->slug));
+        $test->setAttribute('name', SentenceBuilderBranding::publicText((string) ($test->name ?? '')));
+        $test->setAttribute('description', SentenceBuilderBranding::publicText((string) ($test->description ?? '')));
 
         return $test;
     }

@@ -44,10 +44,13 @@
                         </h3>
                         <div id="others-tags" class="flex flex-wrap gap-2" style="display:none;">
                             @foreach($tagNames as $tag)
-                                @php $id = 'tag-' . md5($tag); @endphp
+                                @php
+                                    $id = 'tag-' . md5($tag);
+                                    $publicTag = \App\Support\SentenceBuilderBranding::publicText($tag);
+                                @endphp
                                 <div>
                                     <input type="checkbox" name="tags[]" value="{{ $tag }}" id="{{ $id }}" class="hidden peer" {{ in_array($tag, $selectedTags ?? []) ? 'checked' : '' }}>
-                                    <label for="{{ $id }}" class="px-3 py-1 rounded border border-border cursor-pointer text-sm bg-muted peer-checked:bg-primary peer-checked:text-primary-foreground">{{ $tag }}</label>
+                                    <label for="{{ $id }}" class="px-3 py-1 rounded border border-border cursor-pointer text-sm bg-muted peer-checked:bg-primary peer-checked:text-primary-foreground">{{ $publicTag }}</label>
                                 </div>
                             @endforeach
                         </div>
@@ -56,10 +59,13 @@
                     <h3 class="text-lg font-bold mb-2">{{ $category }}</h3>
                     <div class="flex flex-wrap gap-2 mb-4">
                         @foreach($tagNames as $tag)
-                            @php $id = 'tag-' . md5($tag); @endphp
+                            @php
+                                $id = 'tag-' . md5($tag);
+                                $publicTag = \App\Support\SentenceBuilderBranding::publicText($tag);
+                            @endphp
                             <div>
                                 <input type="checkbox" name="tags[]" value="{{ $tag }}" id="{{ $id }}" class="hidden peer" {{ in_array($tag, $selectedTags ?? []) ? 'checked' : '' }}>
-                                <label for="{{ $id }}" class="px-3 py-1 rounded border border-border cursor-pointer text-sm bg-muted peer-checked:bg-primary peer-checked:text-primary-foreground">{{ $tag }}</label>
+                                <label for="{{ $id }}" class="px-3 py-1 rounded border border-border cursor-pointer text-sm bg-muted peer-checked:bg-primary peer-checked:text-primary-foreground">{{ $publicTag }}</label>
                             </div>
                         @endforeach
                     </div>
@@ -91,7 +97,7 @@
                         </div>
                         <div class="mb-3 text-xs">
                             @foreach($test->tag_names as $t)
-                                <span class="inline-block bg-muted px-2 py-0.5 mr-1 mb-1 rounded">{{ $t }}</span>
+                                <span class="inline-block bg-muted px-2 py-0.5 mr-1 mb-1 rounded">{{ \App\Support\SentenceBuilderBranding::publicText($t) }}</span>
                             @endforeach
                         </div>
                         @if($test->description)
@@ -99,14 +105,15 @@
                         @endif
                         @php
                             $preferredView = data_get($test->filters, 'preferred_view');
+                            $publicSlug = data_get($test, 'public_slug', \App\Support\SentenceBuilderBranding::canonicalLessonSlug($test->slug));
                             if ($preferredView === 'drag-drop') {
-                                $testRoute = localized_route('test.drag-drop', $test->slug);
+                                $testRoute = localized_route('test.drag-drop', $publicSlug);
                             } elseif ($preferredView === 'match') {
-                                $testRoute = localized_route('test.match', $test->slug);
+                                $testRoute = localized_route('test.match', $publicSlug);
                             } elseif ($preferredView === 'dialogue') {
-                                $testRoute = localized_route('test.dialogue', $test->slug);
+                                $testRoute = localized_route('test.dialogue', $publicSlug);
                             } else {
-                                $testRoute = localized_route('test.show', $test->slug);
+                                $testRoute = localized_route('test.show', $publicSlug);
                             }
                         @endphp
                         <a href="{{ $testRoute }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-2xl text-sm font-semibold">{{ __('frontend.catalog.take_test') }}</a>

@@ -77,11 +77,14 @@
                                     </div>
                                     <div id="{{ $isOther ? 'others-tags' : '' }}" class="mt-3 flex flex-wrap gap-2" @if($isOther) style="display:none;" @endif>
                                         @foreach($tagNames as $tag)
-                                            @php $id = 'tag-' . md5($tag); @endphp
+                                            @php
+                                                $id = 'tag-' . md5($tag);
+                                                $publicTag = \App\Support\SentenceBuilderBranding::publicText($tag);
+                                            @endphp
                                             <div>
                                                 <input type="checkbox" name="tags[]" value="{{ $tag }}" id="{{ $id }}" class="hidden peer" {{ in_array($tag, $selectedTags ?? []) ? 'checked' : '' }}>
                                                 <label for="{{ $id }}" class="inline-flex cursor-pointer rounded-full border px-3 py-2 text-xs font-bold transition peer-checked:bg-ocean peer-checked:text-white" style="border-color: var(--line); color: var(--text);">
-                                                    {{ $tag }}
+                                                    {{ $publicTag }}
                                                 </label>
                                             </div>
                                         @endforeach
@@ -101,14 +104,15 @@
                                 $accents = ['bg-ocean', 'bg-amber', 'bg-emerald-500', 'bg-slate-800 dark:bg-slate-200', 'bg-rose-500', 'bg-sky-500'];
                                 $accent = $accents[$index % count($accents)];
                                 $preferredView = data_get($test->filters, 'preferred_view');
+                                $publicSlug = data_get($test, 'public_slug', \App\Support\SentenceBuilderBranding::canonicalLessonSlug($test->slug));
                                 if ($preferredView === 'drag-drop') {
-                                    $testRoute = localized_route('test.drag-drop', $test->slug);
+                                    $testRoute = localized_route('test.drag-drop', $publicSlug);
                                 } elseif ($preferredView === 'match') {
-                                    $testRoute = localized_route('test.match', $test->slug);
+                                    $testRoute = localized_route('test.match', $publicSlug);
                                 } elseif ($preferredView === 'dialogue') {
-                                    $testRoute = localized_route('test.dialogue', $test->slug);
+                                    $testRoute = localized_route('test.dialogue', $publicSlug);
                                 } else {
-                                    $testRoute = localized_route('test.show', $test->slug);
+                                    $testRoute = localized_route('test.show', $publicSlug);
                                 }
                                 $order = array_flip(['A1','A2','B1','B2','C1','C2']);
                                 $levels = $test->levels
@@ -146,7 +150,7 @@
                                     @if($test->tag_names->isNotEmpty())
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($test->tag_names->take(4) as $tag)
-                                                <span class="rounded-full border px-3 py-1.5 text-xs font-bold" style="border-color: var(--line); color: var(--muted);">{{ $tag }}</span>
+                                                <span class="rounded-full border px-3 py-1.5 text-xs font-bold" style="border-color: var(--line); color: var(--muted);">{{ \App\Support\SentenceBuilderBranding::publicText($tag) }}</span>
                                             @endforeach
                                         </div>
                                     @endif
