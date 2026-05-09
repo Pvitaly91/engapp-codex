@@ -85,6 +85,12 @@
         'волод',
     ])) {
         $icon = 'key';
+    } elseif (\Illuminate\Support\Str::contains($lookup, [
+        'mixed-revision',
+        'revision',
+        'повтор',
+    ])) {
+        $icon = 'repeat';
     }
 
     $stroke = $active ? '#ffffff' : 'var(--accent)';

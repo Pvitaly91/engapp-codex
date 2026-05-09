@@ -446,6 +446,7 @@ class TheoryCourseManifestService
             'common-mistakes',
             'sentence-transformations',
             'verb-patterns',
+            'mixed-revision',
         ]);
 
         return $categories

@@ -194,7 +194,27 @@ class PageController extends Controller
             ->forType($this->pageType)
             ->where('slug', $pageSlug)
             ->where('page_category_id', $category->getKey())
-            ->firstOrFail();
+            ->first();
+
+        if (! $page) {
+            $canonicalPage = Page::query()
+                ->with('category.parent.parent.parent.parent.parent')
+                ->forType($this->pageType)
+                ->where('slug', $pageSlug)
+                ->firstOrFail();
+
+            $canonicalCategory = $canonicalPage->category;
+            abort_unless($canonicalCategory instanceof PageCategory, 404);
+
+            $categoryPath = $this->routePrefix === 'pages'
+                ? $canonicalCategory->slug
+                : $this->categorySlugPath($canonicalCategory);
+
+            return redirect()->to(localized_route($this->routePrefix . '.show', [
+                $categoryPath,
+                $canonicalPage->slug,
+            ]));
+        }
 
         $allBlocks = $page->textBlocks;
         [$blocks, $locale] = $this->filterBlocksByChosenLocale($allBlocks, $preferredLocale, $fallbackLocale);
@@ -910,6 +930,7 @@ class PageController extends Controller
             'common-mistakes',
             'sentence-transformations',
             'verb-patterns',
+            'mixed-revision',
         ];
     }
 

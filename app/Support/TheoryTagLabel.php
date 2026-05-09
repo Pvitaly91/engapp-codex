@@ -7,6 +7,7 @@ class TheoryTagLabel
     private const MAPS = [
         'uk' => [
             'basic-grammar' => 'Базова граматика',
+            'mixed-revision' => 'Mixed Revision',
             'imennyky-artykli-ta-kilkist' => 'Іменники, артиклі й кількість',
             'zaimennyky-ta-vkazivni-slova' => 'Займенники та вказівні слова',
             'maibutni-formy' => 'Майбутні форми',
@@ -26,6 +27,7 @@ class TheoryTagLabel
         ],
         'en' => [
             'basic-grammar' => 'Basic Grammar',
+            'mixed-revision' => 'Mixed Revision',
             'imennyky-artykli-ta-kilkist' => 'Nouns / Articles / Quantity',
             'zaimennyky-ta-vkazivni-slova' => 'Pronouns / Demonstratives',
             'maibutni-formy' => 'Future Forms',
@@ -45,6 +47,7 @@ class TheoryTagLabel
         ],
         'pl' => [
             'basic-grammar' => 'Podstawy gramatyki',
+            'mixed-revision' => 'Mixed Revision',
             'imennyky-artykli-ta-kilkist' => 'Rzeczowniki / Przedimki / Ilość',
             'zaimennyky-ta-vkazivni-slova' => 'Zaimki i słowa wskazujące',
             'maibutni-formy' => 'Formy przyszłości',
