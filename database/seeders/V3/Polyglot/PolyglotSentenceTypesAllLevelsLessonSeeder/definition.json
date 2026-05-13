@@ -1,0 +1,435 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder",
+        "uuid_namespace": "PolyglotSentenceTypesAllLevelsLessonSeeder"
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "theory_page_sentence_types": {
+            "name": "Sentence Types"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_sentence_types": {
+            "name": "Sentence Types",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_sentence_types"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "poly-stype-a1-01",
+            "question": "Склади стверджувальне речення: Я вивчаю англійську.",
+            "level": "A1",
+            "answers": {
+                "a1": "I",
+                "a2": "study",
+                "a3": "English"
+            },
+            "options": [
+                "I",
+                "study",
+                "English",
+                "do",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "tag_keys": [
+                "level_a1"
+            ]
+        },
+        {
+            "id": 2,
+            "uuid": "poly-stype-a1-02",
+            "question": "Склади питальне речення: Ти готовий?",
+            "level": "A1",
+            "answers": {
+                "a1": "Are",
+                "a2": "you",
+                "a3": "ready"
+            },
+            "options": [
+                "Are",
+                "you",
+                "ready",
+                "do",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "tag_keys": [
+                "level_a1"
+            ]
+        },
+        {
+            "id": 3,
+            "uuid": "poly-stype-a2-01",
+            "question": "Склади заперечне речення: Вона не працює сьогодні.",
+            "level": "A2",
+            "answers": {
+                "a1": "She",
+                "a2": "does",
+                "a3": "not",
+                "a4": "work",
+                "a5": "today"
+            },
+            "options": [
+                "She",
+                "does",
+                "not",
+                "work",
+                "today",
+                "works"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "tag_keys": [
+                "level_a2"
+            ]
+        },
+        {
+            "id": 4,
+            "uuid": "poly-stype-a2-02",
+            "question": "Склади наказове речення: Відкрий вікно.",
+            "level": "A2",
+            "answers": {
+                "a1": "Open",
+                "a2": "the",
+                "a3": "window"
+            },
+            "options": [
+                "Open",
+                "the",
+                "window",
+                "You",
+                "opens"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "tag_keys": [
+                "level_a2"
+            ]
+        },
+        {
+            "id": 5,
+            "uuid": "poly-stype-b1-01",
+            "question": "Склади wh-question: Де вони живуть?",
+            "level": "B1",
+            "answers": {
+                "a1": "Where",
+                "a2": "do",
+                "a3": "they",
+                "a4": "live"
+            },
+            "options": [
+                "Where",
+                "do",
+                "they",
+                "live",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "tag_keys": [
+                "level_b1"
+            ]
+        },
+        {
+            "id": 6,
+            "uuid": "poly-stype-b1-02",
+            "question": "Склади окличне речення: Який гарний день!",
+            "level": "B1",
+            "answers": {
+                "a1": "What",
+                "a2": "a",
+                "a3": "beautiful",
+                "a4": "day"
+            },
+            "options": [
+                "What",
+                "a",
+                "beautiful",
+                "day",
+                "How"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "tag_keys": [
+                "level_b1"
+            ]
+        },
+        {
+            "id": 7,
+            "uuid": "poly-stype-b2-01",
+            "question": "Склади непряме питання: Я не знаю, де вона працює.",
+            "level": "B2",
+            "answers": {
+                "a1": "I",
+                "a2": "do",
+                "a3": "not",
+                "a4": "know",
+                "a5": "where",
+                "a6": "she",
+                "a7": "works"
+            },
+            "options": [
+                "I",
+                "do",
+                "not",
+                "know",
+                "where",
+                "she",
+                "works",
+                "does"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "tag_keys": [
+                "level_b2"
+            ]
+        },
+        {
+            "id": 8,
+            "uuid": "poly-stype-b2-02",
+            "question": "Склади заперечне питання: Хіба ти не бачив повідомлення?",
+            "level": "B2",
+            "answers": {
+                "a1": "Did",
+                "a2": "you",
+                "a3": "not",
+                "a4": "see",
+                "a5": "the",
+                "a6": "message"
+            },
+            "options": [
+                "Did",
+                "you",
+                "not",
+                "see",
+                "the",
+                "message",
+                "saw"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "tag_keys": [
+                "level_b2"
+            ]
+        },
+        {
+            "id": 9,
+            "uuid": "poly-stype-c1-01",
+            "question": "Склади emphatic affirmative: Вона справді завершила звіт.",
+            "level": "C1",
+            "answers": {
+                "a1": "She",
+                "a2": "did",
+                "a3": "finish",
+                "a4": "the",
+                "a5": "report"
+            },
+            "options": [
+                "She",
+                "did",
+                "finish",
+                "the",
+                "report",
+                "finished"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "tag_keys": [
+                "level_c1"
+            ]
+        },
+        {
+            "id": 10,
+            "uuid": "poly-stype-c1-02",
+            "question": "Склади tag question: Ти йдеш, чи не так?",
+            "level": "C1",
+            "answers": {
+                "a1": "You",
+                "a2": "are",
+                "a3": "coming",
+                "a4": "aren't",
+                "a5": "you"
+            },
+            "options": [
+                "You",
+                "are",
+                "coming",
+                "aren't",
+                "you",
+                "do"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "tag_keys": [
+                "level_c1"
+            ]
+        },
+        {
+            "id": 11,
+            "uuid": "poly-stype-c2-01",
+            "question": "Склади інверсійне речення: Лише після аудиту вони помітили помилку.",
+            "level": "C2",
+            "answers": {
+                "a1": "Only",
+                "a2": "after",
+                "a3": "the",
+                "a4": "audit",
+                "a5": "did",
+                "a6": "they",
+                "a7": "notice",
+                "a8": "the",
+                "a9": "error"
+            },
+            "options": [
+                "Only",
+                "after",
+                "the",
+                "audit",
+                "did",
+                "they",
+                "notice",
+                "error",
+                "noticed"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "tag_keys": [
+                "level_c2"
+            ]
+        },
+        {
+            "id": 12,
+            "uuid": "poly-stype-c2-02",
+            "question": "Склади rhetorical question: Хто міг би заперечити такі докази?",
+            "level": "C2",
+            "answers": {
+                "a1": "Who",
+                "a2": "could",
+                "a3": "deny",
+                "a4": "such",
+                "a5": "evidence"
+            },
+            "options": [
+                "Who",
+                "could",
+                "deny",
+                "such",
+                "evidence",
+                "denied"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "tag_keys": [
+                "level_c2"
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "poly-stypes-all-levels",
+        "slug": "polyglot-sentence-types-all-levels",
+        "name": "Sentence Builder: Sentence Types (All levels)",
+        "description": "Page-local compose_tokens package for Sentence Types with A1-C2 coverage.",
+        "filters": {
+            "mode": "compose_tokens",
+            "question_type": 4,
+            "lesson_type": "polyglot",
+            "payload_version": 2,
+            "import_format": "gramlyze_v3_polyglot",
+            "supports_duplicate_tokens": true,
+            "course_slug": "polyglot-theory-pages",
+            "lesson_order": 0,
+            "previous_lesson_slug": null,
+            "next_lesson_slug": null,
+            "completion": {
+                "rolling_window": 100,
+                "min_rating": 4.5
+            },
+            "interface_locale": "uk",
+            "study_locale": "uk",
+            "target_locale": "en",
+            "topic": "sentence types",
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "tags": [
+                "Sentence Builder",
+                "Compose Tokens",
+                "Sentence Types",
+                "All levels"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder"
+            ],
+            "num_questions": 12,
+            "randomize_filtered": false,
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "sentence-types",
+                    "title": "Sentence Types — Види речень",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarSentenceTypesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/sentence-types"
+                }
+            }
+        }
+    }
+}
