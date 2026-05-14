@@ -14,27 +14,62 @@ use RuntimeException;
 abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
 {
     /**
-     * @var array{questions: int, pivot_rows: int, fallback_questions: int, missing_seeders: array<int, string>}
+     * @var array{
+     *     questions: int,
+     *     pivot_rows: int,
+     *     fallback_questions: int,
+     *     polyglot_fallback_questions: int,
+     *     missing_questions: array<int, string>,
+     *     missing_seeders: array<int, string>,
+     *     polyglot_fallback_uuids: array<int, string>
+     * }
      */
     protected array $stats = [
         'questions' => 0,
         'pivot_rows' => 0,
         'fallback_questions' => 0,
+        'polyglot_fallback_questions' => 0,
+        'missing_questions' => [],
         'missing_seeders' => [],
+        'polyglot_fallback_uuids' => [],
     ];
 
     abstract protected function manifestPath(): string;
 
     public function run(): void
     {
+        $this->stats = $this->initialStats();
+
         $manifestPath = $this->manifestPath();
         $manifest = $this->loadManifest($manifestPath);
         $blocksByAlias = $this->resolveTheoryTextBlocks($manifest, $manifestPath);
         $bundles = $this->normalizeBundles(Arr::get($manifest, 'bundles', []));
         $linkedQuestionUuids = [];
 
-        foreach (Arr::get($manifest, 'tests_on_page', []) as $testDefinition) {
+        $testDefinitions = collect(Arr::get($manifest, 'tests_on_page', []))
+            ->filter(fn ($testDefinition): bool => is_array($testDefinition))
+            ->values();
+
+        foreach ($testDefinitions as $testDefinition) {
+            if ((string) Arr::get($testDefinition, 'strategy', '') !== 'explicit_question_uuid_map') {
+                continue;
+            }
+
+            $this->linkExplicitQuestions(
+                $testDefinition,
+                $blocksByAlias,
+                $bundles,
+                $linkedQuestionUuids,
+                $manifestPath
+            );
+        }
+
+        foreach ($testDefinitions as $testDefinition) {
             if (! is_array($testDefinition)) {
+                continue;
+            }
+
+            if ((string) Arr::get($testDefinition, 'strategy', '') === 'explicit_question_uuid_map') {
                 continue;
             }
 
@@ -47,6 +82,15 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
             );
         }
 
+        if ($this->stats['missing_questions'] !== [] && $this->command !== null) {
+            $this->command->warn(sprintf(
+                'Skipped %d missing explicit question(s): %s',
+                count($this->stats['missing_questions']),
+                implode(', ', array_slice($this->stats['missing_questions'], 0, 8))
+                    . (count($this->stats['missing_questions']) > 8 ? '...' : '')
+            ));
+        }
+
         if ($this->stats['missing_seeders'] !== [] && $this->command !== null) {
             $this->command->warn(sprintf(
                 'No questions found for seeder(s): %s. Run source question seeders first.',
@@ -54,14 +98,48 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
             ));
         }
 
-        if ($this->command !== null) {
-            $this->command->info(sprintf(
-                'Linked %d question(s) with %d pivot row(s); fallback bundle used for %d question(s).',
-                $this->stats['questions'],
-                $this->stats['pivot_rows'],
-                $this->stats['fallback_questions']
+        if ($this->stats['polyglot_fallback_uuids'] !== [] && $this->command !== null) {
+            $this->command->warn(sprintf(
+                'Polyglot fallback classification used for %d unlisted question(s): %s',
+                count($this->stats['polyglot_fallback_uuids']),
+                implode(', ', array_slice($this->stats['polyglot_fallback_uuids'], 0, 8))
+                    . (count($this->stats['polyglot_fallback_uuids']) > 8 ? '...' : '')
             ));
         }
+
+        if ($this->command !== null) {
+            $this->command->info(sprintf(
+                'Linked %d question(s) with %d pivot row(s); fallback bundle used for %d question(s), including %d Polyglot question(s).',
+                $this->stats['questions'],
+                $this->stats['pivot_rows'],
+                $this->stats['fallback_questions'],
+                $this->stats['polyglot_fallback_questions']
+            ));
+        }
+    }
+
+    /**
+     * @return array{
+     *     questions: int,
+     *     pivot_rows: int,
+     *     fallback_questions: int,
+     *     polyglot_fallback_questions: int,
+     *     missing_questions: array<int, string>,
+     *     missing_seeders: array<int, string>,
+     *     polyglot_fallback_uuids: array<int, string>
+     * }
+     */
+    protected function initialStats(): array
+    {
+        return [
+            'questions' => 0,
+            'pivot_rows' => 0,
+            'fallback_questions' => 0,
+            'polyglot_fallback_questions' => 0,
+            'missing_questions' => [],
+            'missing_seeders' => [],
+            'polyglot_fallback_uuids' => [],
+        ];
     }
 
     /**
@@ -175,6 +253,51 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
      * @param  array<string, array<int, string>>  $bundles
      * @param  array<string, bool>  $linkedQuestionUuids
      */
+    protected function linkExplicitQuestions(
+        array $testDefinition,
+        array $blocksByAlias,
+        array $bundles,
+        array &$linkedQuestionUuids,
+        string $manifestPath
+    ): void {
+        $seederClass = trim((string) Arr::get($testDefinition, 'seeder_class', ''));
+        $resolver = app(QuestionUuidResolver::class);
+
+        foreach (Arr::get($testDefinition, 'question_links', []) as $questionUuid => $bundleAliases) {
+            $persistentUuid = $resolver->toPersistent((string) $questionUuid);
+            $query = Question::query()->where('uuid', $persistentUuid);
+
+            if ($seederClass !== '') {
+                $query->where('seeder', $seederClass);
+            }
+
+            $question = $query->first();
+            if (! $question) {
+                $this->stats['missing_questions'][] = $persistentUuid;
+
+                continue;
+            }
+
+            $blockUuids = $this->resolveBundlesToBlockUuids(
+                is_array($bundleAliases) ? array_values($bundleAliases) : [],
+                $blocksByAlias,
+                $bundles,
+                $manifestPath
+            );
+
+            $written = $this->rewriteQuestionLinks($question, $blockUuids);
+            $linkedQuestionUuids[(string) $question->uuid] = true;
+            $this->stats['questions']++;
+            $this->stats['pivot_rows'] += $written;
+        }
+    }
+
+    /**
+     * @param  array<string, mixed>  $testDefinition
+     * @param  array<string, string>  $blocksByAlias
+     * @param  array<string, array<int, string>>  $bundles
+     * @param  array<string, bool>  $linkedQuestionUuids
+     */
     protected function linkMappedQuestions(
         array $testDefinition,
         array $blocksByAlias,
@@ -213,6 +336,7 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
                 continue;
             }
 
+            $isPolyglot = $this->isPolyglotQuestion($question);
             [$bundleNames, $usedFallback] = $this->bundleNamesForQuestion(
                 $question,
                 $tagToBundle,
@@ -234,6 +358,11 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
 
             if ($usedFallback) {
                 $this->stats['fallback_questions']++;
+            }
+
+            if ($isPolyglot) {
+                $this->stats['polyglot_fallback_questions']++;
+                $this->stats['polyglot_fallback_uuids'][] = (string) $question->uuid;
             }
         }
     }
@@ -360,23 +489,13 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
         $blockAliases = [];
 
         foreach ($bundleNames as $bundleName) {
-            $normalizedBundleName = $this->normalizeKey($bundleName);
-
-            if (isset($bundles[$normalizedBundleName])) {
-                array_push($blockAliases, ...$bundles[$normalizedBundleName]);
-                continue;
-            }
-
-            if (isset($blocksByAlias[$normalizedBundleName])) {
-                $blockAliases[] = $normalizedBundleName;
-                continue;
-            }
-
-            throw new RuntimeException(sprintf(
-                'Unknown theory block alias `%s` in JSON `%s`.',
-                $bundleName,
+            $this->appendBlockAliasesFromManifestName(
+                (string) $bundleName,
+                $blocksByAlias,
+                $bundles,
+                $blockAliases,
                 $manifestPath
-            ));
+            );
         }
 
         $uuids = [];
@@ -403,6 +522,86 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
         }
 
         return $uuids;
+    }
+
+    /**
+     * @param  array<string, string>  $blocksByAlias
+     * @param  array<string, array<int, string>>  $bundles
+     * @param  array<int, string>  $blockAliases
+     * @param  array<string, bool>  $stack
+     */
+    protected function appendBlockAliasesFromManifestName(
+        string $name,
+        array $blocksByAlias,
+        array $bundles,
+        array &$blockAliases,
+        string $manifestPath,
+        array $stack = []
+    ): void {
+        $normalizedName = $this->normalizeKey($name);
+
+        if ($normalizedName === '') {
+            return;
+        }
+
+        if (isset($stack[$normalizedName]) && isset($blocksByAlias[$normalizedName])) {
+            $blockAliases[] = $normalizedName;
+
+            return;
+        }
+
+        if (isset($stack[$normalizedName])) {
+            throw new RuntimeException(sprintf(
+                'Circular theory bundle reference `%s` in JSON `%s`.',
+                $name,
+                $manifestPath
+            ));
+        }
+
+        $fallbackAliases = $this->aliasFallbacks()[$normalizedName] ?? null;
+        if ($fallbackAliases !== null) {
+            foreach ($fallbackAliases as $alias) {
+                $this->appendBlockAliasesFromManifestName(
+                    (string) $alias,
+                    $blocksByAlias,
+                    $bundles,
+                    $blockAliases,
+                    $manifestPath,
+                    $stack
+                );
+            }
+
+            return;
+        }
+
+        if (isset($bundles[$normalizedName])) {
+            $stack[$normalizedName] = true;
+
+            foreach ($bundles[$normalizedName] as $alias) {
+                $this->appendBlockAliasesFromManifestName(
+                    (string) $alias,
+                    $blocksByAlias,
+                    $bundles,
+                    $blockAliases,
+                    $manifestPath,
+                    $stack
+                );
+            }
+
+            return;
+        }
+
+        if (isset($blocksByAlias[$normalizedName])) {
+            $blockAliases[] = $normalizedName;
+
+            return;
+        }
+
+        throw new RuntimeException(sprintf(
+            'Unknown theory block alias `%s` in JSON `%s`.',
+            $name,
+            $manifestPath
+        ));
     }
 
     protected function rewriteQuestionLinks(Question $question, array $blockUuids): int
@@ -432,6 +631,19 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
         $question->save();
 
         return count($rows);
+    }
+
+    /**
+     * Compatibility aliases used only when a manifest references an
+     * intentionally local note that is not a standalone text block.
+     *
+     * @return array<string, array<int, string>>
+     */
+    protected function aliasFallbacks(): array
+    {
+        return [
+            'article_or_determiner_note' => ['overview_8_parts', 'summary_table'],
+        ];
     }
 
     /**
@@ -465,5 +677,10 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
         $normalized = preg_replace('/_+/u', '_', $normalized) ?? $normalized;
 
         return trim($normalized, '_');
+    }
+
+    protected function isPolyglotQuestion(Question $question): bool
+    {
+        return Str::startsWith((string) $question->seeder, 'Database\\Seeders\\V3\\Polyglot\\');
     }
 }

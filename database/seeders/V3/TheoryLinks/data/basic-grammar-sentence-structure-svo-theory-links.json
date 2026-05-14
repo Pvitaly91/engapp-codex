@@ -212,6 +212,111 @@
   },
   "tests_on_page": [
     {
+      "kind": "direct_polyglot_saved_test",
+      "saved_test_slug": "polyglot-sentence-structure-svo-all-levels",
+      "saved_test_name": "Sentence Builder: Sentence Structure SVO (All levels)",
+      "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceStructureSvoAllLevelsLessonSeeder",
+      "strategy": "explicit_question_uuid_map",
+      "question_links": {
+        "poly-ss-svo-a1-01": [
+          "subject",
+          "verb",
+          "object",
+          "svo_basic",
+          "general_overview"
+        ],
+        "poly-ss-svo-a1-02": [
+          "subject",
+          "verb",
+          "object",
+          "svo_basic",
+          "general_overview"
+        ],
+        "poly-ss-svo-a2-01": [
+          "svo_negation",
+          "subject",
+          "verb",
+          "object",
+          "svo_basic",
+          "general_overview"
+        ],
+        "poly-ss-svo-a2-02": [
+          "subject",
+          "verb",
+          "object",
+          "svo_basic",
+          "general_overview"
+        ],
+        "poly-ss-svo-b1-01": [
+          "svo_adverb",
+          "subject",
+          "verb",
+          "object",
+          "svo_basic",
+          "general_overview"
+        ],
+        "poly-ss-svo-b1-02": [
+          "svo_question",
+          "subject",
+          "verb",
+          "object",
+          "svo_basic",
+          "general_overview"
+        ],
+        "poly-ss-svo-b2-01": [
+          "svo_adverb",
+          "subject",
+          "verb",
+          "object",
+          "svo_basic",
+          "general_overview"
+        ],
+        "poly-ss-svo-b2-02": [
+          "svo_passive",
+          "subject",
+          "verb",
+          "object",
+          "svo_basic",
+          "general_overview"
+        ],
+        "poly-ss-svo-c1-01": [
+          "svo_inversion",
+          "svo_question",
+          "subject",
+          "verb",
+          "object",
+          "svo_basic",
+          "general_overview"
+        ],
+        "poly-ss-svo-c1-02": [
+          "svo_cleft",
+          "subject",
+          "verb",
+          "object",
+          "svo_basic",
+          "general_overview"
+        ],
+        "poly-ss-svo-c2-01": [
+          "svo_fronting",
+          "subject",
+          "verb",
+          "object",
+          "svo_basic",
+          "general_overview"
+        ],
+        "poly-ss-svo-c2-02": [
+          "svo_inversion",
+          "svo_passive",
+          "subject",
+          "verb",
+          "object",
+          "svo_basic",
+          "general_overview"
+        ]
+      },
+      "linking_note": "These are explicit sentence-level theory links for the Polyglot / Sentence Builder test. Codex must apply this map exactly and must not re-infer these listed links."
+    },
+    {
       "kind": "virtual_theory_page_tests",
       "saved_test_slug_patterns": [
         "theory-page-{page_id}-a1-a2",
@@ -224,55 +329,67 @@
       "expected_page_route": "/theory/basic-grammar/sentence-structure-svo",
       "expected_seeder_classes": [
         "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
-        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder"
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceStructureSvoAllLevelsLessonSeeder"
       ],
       "strategy": "map_questions_by_seeder_tag_keys_marker_answers_and_text_patterns",
       "tag_key_to_bundle": {
         "theme": "general_overview",
-        "sentence_structure_svo": "general_overview",
         "svo_basic": "svo_basic",
         "basic_svo_order": "svo_basic",
-        "svo_order": "svo_basic",
-        "s_v_o_word_order": "svo_basic",
-        "verb_placement": "verb",
-        "verb_placement_in_svo": "verb",
-        "subject_identification": "subject",
-        "object_identification": "object",
         "svo_negation": "svo_negation",
-        "negation_in_svo_structure": "svo_negation",
         "negation_in_svo": "svo_negation",
         "svo_question": "svo_question",
-        "svo_question_form": "svo_question",
-        "question_formation_from_svo": "svo_question",
         "question_word_order": "svo_question",
         "svo_adverb": "svo_adverb",
-        "svo_with_adverb": "svo_adverb",
-        "svo_with_adverb_placement": "svo_adverb",
         "adverb_placement_in_svo": "svo_adverb",
-        "svo_with_indirect_object": "object",
-        "subject_verb_agreement": "verb",
-        "subject_verb_agreement_in_svo": "verb",
-        "svo_compound_subject": "subject",
-        "compound_subjects_in_svo": "subject",
-        "svo_compound_object": "object",
-        "compound_objects_in_svo": "object",
         "svo_passive": "svo_passive",
-        "svo_passive_reorder": "svo_passive",
-        "active_to_passive_reordering": "svo_passive",
         "passive_voice": "svo_passive",
-        "svo_relative_clause": "svo_basic",
-        "svo_with_embedded_relative_clause": "svo_basic",
-        "svo_ellipsis": "svo_basic",
-        "ellipsis_in_svo": "svo_basic",
         "svo_inversion": "svo_inversion",
         "subject_auxiliary_inversion": "svo_inversion",
         "svo_cleft": "svo_cleft",
-        "svo_cleft_sentence": "svo_cleft",
-        "cleft_and_pseudo_cleft_structures": "svo_cleft",
         "cleft_sentences": "svo_cleft",
         "svo_fronting": "svo_fronting",
-        "fronting_and_inversion": "svo_fronting",
-        "fronting_and_emphasis": "svo_fronting"
+        "fronting_and_emphasis": "svo_fronting",
+        "svo_order": "svo_basic",
+        "subject_identification": "subject",
+        "verb_placement": "verb",
+        "object_identification": "object",
+        "svo_with_adverb": "svo_adverb",
+        "svo_with_indirect_object": "object",
+        "svo_question_form": "svo_question",
+        "subject_verb_agreement": "verb",
+        "svo_compound_subject": "subject",
+        "svo_compound_object": "object",
+        "svo_passive_reorder": "svo_passive",
+        "svo_relative_clause": "svo_basic",
+        "svo_cleft_sentence": "svo_cleft",
+        "svo_ellipsis": "svo_basic",
+        "Sentence structure SVO": "general_overview",
+        "Basic SVO order": "svo_basic",
+        "Negation in SVO": "svo_negation",
+        "Question word order": "svo_question",
+        "Adverb placement in SVO": "svo_adverb",
+        "Passive voice": "svo_passive",
+        "Subject-auxiliary inversion": "svo_inversion",
+        "Cleft sentences": "svo_cleft",
+        "Fronting and emphasis": "svo_fronting",
+        "S-V-O word order": "svo_basic",
+        "Subject identification": "subject",
+        "Verb placement in SVO": "verb",
+        "Object identification": "object",
+        "SVO with adverb placement": "svo_adverb",
+        "SVO with indirect object": "object",
+        "Negation in SVO structure": "svo_negation",
+        "Question formation from SVO": "svo_question",
+        "Subject-verb agreement in SVO": "verb",
+        "Compound subjects in SVO": "subject",
+        "Compound objects in SVO": "object",
+        "Active-to-passive reordering": "svo_passive",
+        "SVO with embedded relative clause": "svo_basic",
+        "Fronting and inversion": "svo_fronting",
+        "Cleft and pseudo-cleft structures": "svo_cleft",
+        "Ellipsis in SVO": "svo_basic"
       },
       "answer_value_to_bundle_fallback": {
         "subject": "subject",
@@ -286,7 +403,21 @@
         "is": "to_be_complement",
         "are": "to_be_complement"
       },
-      "default_bundle": "general_overview"
+      "default_bundle": "general_overview",
+      "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder"
+      ],
+      "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceStructureSvoAllLevelsLessonSeeder"
+      ],
+      "expected_all_seeders": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceStructureSvoAllLevelsLessonSeeder"
+      ],
+      "polyglot_strategy": "Use direct_polyglot_saved_test.question_links for questions where question.seeder is the polyglot seeder; use fallback only for future/unlisted polyglot questions.",
+      "direct_polyglot_saved_test_slug": "polyglot-sentence-structure-svo-all-levels"
     }
   ],
   "seeder_requirements": {
@@ -298,10 +429,15 @@
       "If more than one tag maps to a bundle, merge all bundles preserving manifest order and dedupe text_block_uuid values.",
       "If a text block is missing, fail with a clear RuntimeException that says which page seeder/sort_order is missing.",
       "If a question is missing, warn and continue.",
-      "Do not create or modify questions, answers, options, saved tests, pages, or text blocks. Only write question_theory_text_blocks and questions.theory_text_block_uuid."
+      "Do not create or modify questions, answers, options, saved tests, pages, or text blocks. Only write question_theory_text_blocks and questions.theory_text_block_uuid.",
+      "For polyglot questions, prefer explicit direct_polyglot_saved_test.question_links by uuid before fallback classification.",
+      "For standard V3 questions, use tag_key_to_bundle and answer_value_to_bundle_fallback from the virtual/mixed test section.",
+      "When processing expected_all_seeders, do not skip Database\\Seeders\\V3\\Polyglot\\* classes."
     ],
     "notes": [
-      "This page focuses on SVO and simple sentence structure. If a source question tag points to passive/inversion, use the closest local blocks unless Codex decides to add cross-page links explicitly."
+      "This page focuses on SVO and simple sentence structure. If a source question tag points to passive/inversion, use the closest local blocks unless Codex decides to add cross-page links explicitly.",
+      "Polyglot/Sentence Builder questions must be linked using explicit question_links in this JSON. Do not infer these specific links in PHP.",
+      "Expected all seeders means standard V3 AI seeders plus Polyglot/Sentence Builder seeder."
     ]
   },
   "qa": {
@@ -318,6 +454,108 @@
       "For covered questions, verify 'Показати теорію' appears and opens relevant blocks.",
       "Verify question_theory_text_blocks has rows for questions from expected_seeder_classes.",
       "Run the seeder twice and verify row counts do not grow."
+    ],
+    "must_cover_polyglot_sentence_builder": true,
+    "polyglot_direct_test_slug": "polyglot-sentence-structure-svo-all-levels",
+    "polyglot_seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceStructureSvoAllLevelsLessonSeeder",
+    "expected_all_seeders": [
+      "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
+      "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
+      "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceStructureSvoAllLevelsLessonSeeder"
+    ],
+    "assertions": [
+      "All questions from Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceStructureSvoAllLevelsLessonSeeder have at least one question_theory_text_blocks row.",
+      "Direct Polyglot/Sentence Builder test polyglot-sentence-structure-svo-all-levels shows the Show Theory / Показати теорію block.",
+      "Virtual mixed test includes standard V3 AI seeders and the Polyglot/Sentence Builder seeder.",
+      "Running the seeder twice does not increase pivot row count."
+    ]
+  },
+  "expected_standard_seeders": [
+    "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder"
+  ],
+  "expected_polyglot_seeders": [
+    "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceStructureSvoAllLevelsLessonSeeder"
+  ],
+  "expected_all_seeders": [
+    "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceStructureSvoAllLevelsLessonSeeder"
+  ],
+  "polyglot_bundle_rules": {
+    "sentence_level_always_include": [
+      "svo_basic",
+      "general_overview"
+    ],
+    "answer_or_text_patterns": {
+      "negative": [
+        "not",
+        "did not",
+        "do not",
+        "don't",
+        "doesn't",
+        "не "
+      ],
+      "question_order": [
+        "Did",
+        "Does",
+        "Do",
+        "?",
+        "Чи",
+        "питальне"
+      ],
+      "adverb_position": [
+        "often",
+        "carefully",
+        "always",
+        "rarely",
+        "ретельно",
+        "часто"
+      ],
+      "passive": [
+        "was prepared",
+        "be disclosed",
+        "prepared by",
+        "disclosed",
+        "підготовлений",
+        "розкриті"
+      ],
+      "inversion": [
+        "Only then",
+        "Under no circumstances",
+        "Never",
+        "Rarely",
+        "Not only",
+        "Лише",
+        "За жодних"
+      ],
+      "cleft": [
+        "It was",
+        "who approved",
+        "Саме"
+      ],
+      "fronting": [
+        "What the team discovered",
+        "Те, що"
+      ]
+    }
+  },
+  "implementation_contract": {
+    "codex_role": "Implement loader/seeder that applies this manifest exactly.",
+    "manifest_role": "This JSON is the source of truth for links. Do not let Codex re-decide mappings for listed polyglot question UUIDs.",
+    "standard_v3_strategy": "Use tag_key_to_bundle and answer_value_to_bundle_fallback from the virtual/mixed test section.",
+    "polyglot_strategy": "Use direct_polyglot_saved_test.question_links first. If a future polyglot UUID is not listed, use polyglot_bundle_rules fallback and report it in seeder output.",
+    "write_targets": [
+      "question_theory_text_blocks",
+      "questions.theory_text_block_uuid"
+    ],
+    "do_not_modify": [
+      "questions.question",
+      "question_answers",
+      "question_options",
+      "saved_grammar_tests",
+      "text_blocks",
+      "pages"
     ]
   }
 }

@@ -197,6 +197,81 @@
   },
   "tests_on_page": [
     {
+      "kind": "direct_polyglot_saved_test",
+      "saved_test_slug": "polyglot-imperatives-all-levels",
+      "saved_test_name": "Sentence Builder: Imperatives (All levels)",
+      "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotImperativesAllLevelsLessonSeeder",
+      "strategy": "explicit_question_uuid_map",
+      "question_links": {
+        "poly-imp-a1-01": [
+          "imperative_affirmative",
+          "imperative_structure",
+          "general_overview"
+        ],
+        "poly-imp-a1-02": [
+          "imperative_negative",
+          "imperative_structure",
+          "general_overview"
+        ],
+        "poly-imp-a2-01": [
+          "polite_request",
+          "imperative_affirmative",
+          "general_overview"
+        ],
+        "poly-imp-a2-02": [
+          "advice",
+          "warning",
+          "imperative_affirmative",
+          "general_overview"
+        ],
+        "poly-imp-b1-01": [
+          "lets_suggestion",
+          "polite_request",
+          "general_overview"
+        ],
+        "poly-imp-b1-02": [
+          "lets_suggestion",
+          "imperative_negative",
+          "general_overview"
+        ],
+        "poly-imp-b2-01": [
+          "command",
+          "imperative_affirmative",
+          "general_overview"
+        ],
+        "poly-imp-b2-02": [
+          "imperative_negative",
+          "warning",
+          "instruction",
+          "general_overview"
+        ],
+        "poly-imp-c1-01": [
+          "instruction",
+          "command",
+          "imperative_affirmative",
+          "general_overview"
+        ],
+        "poly-imp-c1-02": [
+          "imperative_affirmative",
+          "polite_request",
+          "punctuation",
+          "general_overview"
+        ],
+        "poly-imp-c2-01": [
+          "instruction",
+          "command",
+          "imperative_affirmative",
+          "general_overview"
+        ],
+        "poly-imp-c2-02": [
+          "imperative_affirmative",
+          "instruction",
+          "general_overview"
+        ]
+      },
+      "linking_note": "These are explicit sentence-level theory links for the Polyglot / Sentence Builder test. Codex must apply this map exactly and must not re-infer these listed links."
+    },
+    {
       "kind": "virtual_theory_page_tests",
       "saved_test_slug_patterns": [
         "theory-page-{page_id}-a1-a2",
@@ -209,77 +284,82 @@
       "expected_page_route": "/theory/basic-grammar/imperatives-sit-down-dont-open-it",
       "expected_seeder_classes": [
         "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder",
-        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder"
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotImperativesAllLevelsLessonSeeder"
       ],
       "strategy": "map_questions_by_seeder_tag_keys_marker_answers_and_text_patterns",
       "tag_key_to_bundle": {
-        "theme": "general_overview",
-        "imperatives": "general_overview",
-        "imperative_theme": "general_overview",
-        "imperative_sentences": "general_overview",
         "imperative_structure": "imperative_structure",
-        "imperative_verb_form": "imperative_structure",
-        "imperative_verb_form_be": "imperative_structure",
-        "imperative_no_subject": "imperative_structure",
-        "imperative_without_overt_subject": "imperative_structure",
         "imperative_affirmative": "imperative_affirmative",
-        "affirmative_imperatives": "imperative_affirmative",
         "affirmative_imperative": "imperative_affirmative",
-        "affirmative_imperative_base_form": "imperative_affirmative",
-        "be_imperative": "imperative_affirmative",
-        "be_adjective_imperative": "imperative_affirmative",
-        "emphatic_do_imperative": "imperative_affirmative",
-        "emphatic_do_base_form": "imperative_affirmative",
-        "imperative_emphatic_do": "imperative_affirmative",
         "imperative_negative": "imperative_negative",
         "negative_imperative": "imperative_negative",
-        "negative_imperative_dont_base": "imperative_negative",
         "negative_imperatives": "imperative_negative",
-        "imperative_never": "imperative_negative",
-        "never_imperative": "imperative_negative",
         "polite_request": "polite_request",
-        "polite_imperative": "polite_request",
-        "polite_imperative_with_please": "polite_request",
         "polite_forms": "polite_request",
-        "imperative_with_please": "polite_request",
-        "polite_imperatives_with_please": "polite_request",
         "please_form": "polite_request",
         "lets_suggestion": "lets_suggestion",
-        "lets_base_form_suggestion": "lets_suggestion",
         "let_s_suggestion": "lets_suggestion",
-        "imperative_lets": "lets_suggestion",
-        "lets_imperative": "lets_suggestion",
-        "imperative_lets_negative": "lets_suggestion",
-        "lets_not_negative_lets": "lets_suggestion",
-        "let_third_person": "lets_suggestion",
-        "let_me_him_her_them_base_form": "lets_suggestion",
         "command": "command",
         "commands": "command",
-        "imperative_indirect_speech": "command",
-        "imperatives_in_indirect_speech": "command",
-        "imperative_as_conditional": "command",
-        "imperative_as_conditional_or_and": "command",
-        "imperative_conditional": "command",
-        "imperative_in_conditional_complex_structure": "command",
-        "literary_imperative": "command",
-        "literary_archaic_imperative": "command",
         "instruction": "instruction",
         "instructions": "instruction",
         "advice": "advice",
         "warning": "warning",
-        "always_never_imperative": "warning",
         "punctuation": "punctuation",
-        "imperative_question_tag": "punctuation",
-        "imperative_object_pronoun": "imperative_structure",
-        "imperative_with_object_pronoun": "imperative_structure",
-        "passive_imperative": "imperative_structure",
-        "passive_imperative_be_past_participle": "imperative_structure",
-        "subjunctive_imperative": "imperative_structure",
-        "subjunctive_like_imperative_formula": "imperative_structure",
-        "formal_imperative": "polite_request",
-        "formal_written_instruction_imperative": "polite_request",
         "do_not": "imperative_negative",
-        "dont": "imperative_negative"
+        "dont": "imperative_negative",
+        "imperative_theme": "general_overview",
+        "polite_imperative": "polite_request",
+        "imperative_object_pronoun": "imperative_structure",
+        "always_never_imperative": "warning",
+        "be_imperative": "imperative_affirmative",
+        "let_third_person": "lets_suggestion",
+        "emphatic_do_imperative": "imperative_affirmative",
+        "imperative_question_tag": "polite_request",
+        "passive_imperative": "imperative_structure",
+        "imperative_conditional": "warning",
+        "formal_imperative": "instruction",
+        "literary_imperative": "imperative_structure",
+        "subjunctive_imperative": "imperative_structure",
+        "imperative_no_subject": "imperative_structure",
+        "Affirmative imperatives": "imperative_affirmative",
+        "Negative imperatives": "imperative_negative",
+        "Imperative sentences": "general_overview",
+        "Affirmative imperative (base form)": "imperative_affirmative",
+        "Negative imperative (Don't + base)": "imperative_negative",
+        "Polite imperative with please": "polite_request",
+        "Imperative with object pronoun": "imperative_structure",
+        "Always / Never + imperative": "warning",
+        "Be + adjective imperative": "imperative_affirmative",
+        "Let's + base form (suggestion)": "lets_suggestion",
+        "Let me / him / her / them + base form": "lets_suggestion",
+        "Emphatic Do + base form": "imperative_affirmative",
+        "Imperative + question tag": "polite_request",
+        "Passive imperative (Be + past participle)": "imperative_structure",
+        "Imperative in conditional / complex structure": "warning",
+        "Formal / written instruction imperative": "instruction",
+        "Literary / archaic imperative": "imperative_structure",
+        "Subjunctive-like imperative formula": "imperative_structure",
+        "Imperative without overt subject": "imperative_structure",
+        "theme": "general_overview",
+        "imperative_verb_form": "imperative_affirmative",
+        "imperative_with_please": "polite_request",
+        "imperative_lets": "lets_suggestion",
+        "imperative_lets_negative": "lets_suggestion",
+        "imperative_emphatic_do": "imperative_affirmative",
+        "imperative_never": "warning",
+        "imperative_as_conditional": "warning",
+        "imperative_indirect_speech": "instruction",
+        "Imperatives": "general_overview",
+        "Imperative verb form (be)": "imperative_affirmative",
+        "Polite imperatives with please": "polite_request",
+        "Let's + imperative": "lets_suggestion",
+        "Let's not (negative let's)": "lets_suggestion",
+        "Emphatic do + imperative": "imperative_affirmative",
+        "Never + imperative": "warning",
+        "Imperative as conditional (or/and)": "warning",
+        "Imperatives in indirect speech": "instruction"
       },
       "answer_value_to_bundle_fallback": {
         "don't": "imperative_negative",
@@ -293,7 +373,21 @@
         "stop": "warning",
         "watch": "warning"
       },
-      "default_bundle": "general_overview"
+      "default_bundle": "general_overview",
+      "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder"
+      ],
+      "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotImperativesAllLevelsLessonSeeder"
+      ],
+      "expected_all_seeders": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotImperativesAllLevelsLessonSeeder"
+      ],
+      "polyglot_strategy": "Use direct_polyglot_saved_test.question_links for questions where question.seeder is the polyglot seeder; use fallback only for future/unlisted polyglot questions.",
+      "direct_polyglot_saved_test_slug": "polyglot-imperatives-all-levels"
     }
   ],
   "seeder_requirements": {
@@ -305,9 +399,15 @@
       "If more than one tag maps to a bundle, merge all bundles preserving manifest order and dedupe text_block_uuid values.",
       "If a text block is missing, fail with a clear RuntimeException that says which page seeder/sort_order is missing.",
       "If a question is missing, warn and continue.",
-      "Do not create or modify questions, answers, options, saved tests, pages, or text blocks. Only write question_theory_text_blocks and questions.theory_text_block_uuid."
+      "Do not create or modify questions, answers, options, saved tests, pages, or text blocks. Only write question_theory_text_blocks and questions.theory_text_block_uuid.",
+      "For polyglot questions, prefer explicit direct_polyglot_saved_test.question_links by uuid before fallback classification.",
+      "For standard V3 questions, use tag_key_to_bundle and answer_value_to_bundle_fallback from the virtual/mixed test section.",
+      "When processing expected_all_seeders, do not skip Database\\Seeders\\V3\\Polyglot\\* classes."
     ],
-    "notes": []
+    "notes": [
+      "Polyglot/Sentence Builder questions must be linked using explicit question_links in this JSON. Do not infer these specific links in PHP.",
+      "Expected all seeders means standard V3 AI seeders plus Polyglot/Sentence Builder seeder."
+    ]
   },
   "qa": {
     "commands": [
@@ -323,6 +423,92 @@
       "For covered questions, verify 'Показати теорію' appears and opens relevant blocks.",
       "Verify question_theory_text_blocks has rows for questions from expected_seeder_classes.",
       "Run the seeder twice and verify row counts do not grow."
+    ],
+    "must_cover_polyglot_sentence_builder": true,
+    "polyglot_direct_test_slug": "polyglot-imperatives-all-levels",
+    "polyglot_seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotImperativesAllLevelsLessonSeeder",
+    "expected_all_seeders": [
+      "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder",
+      "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder",
+      "Database\\Seeders\\V3\\Polyglot\\PolyglotImperativesAllLevelsLessonSeeder"
+    ],
+    "assertions": [
+      "All questions from Database\\Seeders\\V3\\Polyglot\\PolyglotImperativesAllLevelsLessonSeeder have at least one question_theory_text_blocks row.",
+      "Direct Polyglot/Sentence Builder test polyglot-imperatives-all-levels shows the Show Theory / Показати теорію block.",
+      "Virtual mixed test includes standard V3 AI seeders and the Polyglot/Sentence Builder seeder.",
+      "Running the seeder twice does not increase pivot row count."
+    ]
+  },
+  "expected_standard_seeders": [
+    "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder"
+  ],
+  "expected_polyglot_seeders": [
+    "Database\\Seeders\\V3\\Polyglot\\PolyglotImperativesAllLevelsLessonSeeder"
+  ],
+  "expected_all_seeders": [
+    "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\Polyglot\\PolyglotImperativesAllLevelsLessonSeeder"
+  ],
+  "polyglot_bundle_rules": {
+    "sentence_level_always_include": [
+      "imperative_structure",
+      "general_overview"
+    ],
+    "answer_or_text_patterns": {
+      "affirmative_imperative": [
+        "Sit",
+        "Open",
+        "Be",
+        "Review",
+        "Close",
+        "Have"
+      ],
+      "negative_imperative": [
+        "Do not",
+        "Don't",
+        "Never",
+        "Let's not"
+      ],
+      "polite_request": [
+        "Please",
+        "will you"
+      ],
+      "lets_suggestion": [
+        "Let's"
+      ],
+      "warning": [
+        "Be careful",
+        "Never",
+        "watch out"
+      ],
+      "instruction": [
+        "Review",
+        "Have the document",
+        "Be it known"
+      ],
+      "advice": [
+        "Be careful"
+      ]
+    }
+  },
+  "implementation_contract": {
+    "codex_role": "Implement loader/seeder that applies this manifest exactly.",
+    "manifest_role": "This JSON is the source of truth for links. Do not let Codex re-decide mappings for listed polyglot question UUIDs.",
+    "standard_v3_strategy": "Use tag_key_to_bundle and answer_value_to_bundle_fallback from the virtual/mixed test section.",
+    "polyglot_strategy": "Use direct_polyglot_saved_test.question_links first. If a future polyglot UUID is not listed, use polyglot_bundle_rules fallback and report it in seeder output.",
+    "write_targets": [
+      "question_theory_text_blocks",
+      "questions.theory_text_block_uuid"
+    ],
+    "do_not_modify": [
+      "questions.question",
+      "question_answers",
+      "question_options",
+      "saved_grammar_tests",
+      "text_blocks",
+      "pages"
     ]
   }
 }

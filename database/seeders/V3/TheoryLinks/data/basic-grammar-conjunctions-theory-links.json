@@ -202,6 +202,75 @@
   },
   "tests_on_page": [
     {
+      "kind": "direct_polyglot_saved_test",
+      "saved_test_slug": "polyglot-conjunctions-all-levels",
+      "saved_test_name": "Sentence Builder: Conjunctions (All levels)",
+      "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotConjunctionsAllLevelsLessonSeeder",
+      "strategy": "explicit_question_uuid_map",
+      "question_links": {
+        "poly-conj-a1-01": [
+          "and",
+          "addition",
+          "general_overview"
+        ],
+        "poly-conj-a1-02": [
+          "but",
+          "contrast",
+          "general_overview"
+        ],
+        "poly-conj-a2-01": [
+          "or",
+          "alternative",
+          "general_overview"
+        ],
+        "poly-conj-a2-02": [
+          "because",
+          "cause",
+          "general_overview"
+        ],
+        "poly-conj-b1-01": [
+          "so",
+          "result",
+          "general_overview"
+        ],
+        "poly-conj-b1-02": [
+          "but",
+          "contrast",
+          "general_overview"
+        ],
+        "poly-conj-b2-01": [
+          "contrast",
+          "general_overview"
+        ],
+        "poly-conj-b2-02": [
+          "but",
+          "contrast",
+          "general_overview"
+        ],
+        "poly-conj-c1-01": [
+          "cause",
+          "choice_general",
+          "general_overview"
+        ],
+        "poly-conj-c1-02": [
+          "and",
+          "addition",
+          "but",
+          "general_overview"
+        ],
+        "poly-conj-c2-01": [
+          "cause",
+          "general_overview"
+        ],
+        "poly-conj-c2-02": [
+          "but",
+          "contrast",
+          "general_overview"
+        ]
+      },
+      "linking_note": "These are explicit sentence-level theory links for the Polyglot / Sentence Builder test. Codex must apply this map exactly and must not re-infer these listed links."
+    },
+    {
       "kind": "virtual_theory_page_tests",
       "saved_test_slug_patterns": [
         "theory-page-{page_id}-a1-a2",
@@ -214,46 +283,62 @@
       "expected_page_route": "/theory/basic-grammar/basic-conjunctions-and-but-or-because-so",
       "expected_seeder_classes": [
         "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
-        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder"
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotConjunctionsAllLevelsLessonSeeder"
       ],
       "strategy": "map_questions_by_seeder_tag_keys_marker_answers_and_text_patterns",
       "tag_key_to_bundle": {
         "conjunction_choice": "choice_general",
-        "choice_conjunctions": "choice_general",
         "choosing_the_correct_conjunction": "choice_general",
-        "coordinating_conjunctions": "general_overview",
         "conjunction_and": "and",
-        "conjunction_and_addition": "and",
         "additive_conjunction_and": "and",
         "conjunction_addition": "addition",
-        "addition_conjunctions": "addition",
         "additive_coordination": "addition",
         "conjunction_but": "but",
-        "conjunction_but_contrast": "but",
         "adversative_conjunction_but": "but",
         "conjunction_contrast": "contrast",
-        "contrast_conjunctions": "contrast",
         "adversative_contrastive_coordination": "contrast",
         "conjunction_or": "or",
-        "conjunction_or_alternative": "or",
         "alternative_conjunction_or": "or",
         "conjunction_alternative": "alternative",
         "alternative_coordination": "alternative",
         "conjunction_because": "because",
-        "conjunction_because_reason": "because",
         "causal_conjunction_because": "because",
         "conjunction_cause": "cause",
-        "conjunction_cause_result": "choice_general",
-        "cause_result_conjunctions": "choice_general",
         "causal_subordination": "cause",
-        "clause_linking": "general_overview",
-        "subordinating_conjunctions": "cause",
         "conjunction_so": "so",
-        "conjunction_so_result": "so",
         "resultive_conjunction_so": "so",
         "conjunction_result": "result",
-        "formal_conjunction_usage": "general_overview",
-        "result_coordination": "result"
+        "result_coordination": "result",
+        "coordinating_conjunctions": "choice_general",
+        "subordinating_conjunctions": "cause",
+        "conjunction_cause_result": "result",
+        "clause_linking": "choice_general",
+        "formal_conjunction_usage": "choice_general",
+        "Choosing the correct conjunction": "choice_general",
+        "Additive conjunction 'and'": "and",
+        "Adversative conjunction 'but'": "but",
+        "Alternative conjunction 'or'": "or",
+        "Causal conjunction 'because'": "because",
+        "Resultive conjunction 'so'": "so",
+        "Additive coordination": "addition",
+        "Adversative/contrastive coordination": "contrast",
+        "Alternative coordination": "alternative",
+        "Causal subordination": "cause",
+        "Result coordination": "result",
+        "Conjunction 'and' — addition": "and",
+        "Conjunction 'but' — contrast": "but",
+        "Conjunction 'or' — alternative": "or",
+        "Conjunction 'because' — reason": "because",
+        "Conjunction 'so' — result": "so",
+        "Coordinating conjunctions": "choice_general",
+        "Subordinating conjunctions": "cause",
+        "Contrast conjunctions": "contrast",
+        "Cause-result conjunctions": "result",
+        "Choice conjunctions": "choice_general",
+        "Addition conjunctions": "addition",
+        "Clause linking": "choice_general",
+        "Formal conjunction usage": "choice_general"
       },
       "answer_value_to_bundle_fallback": {
         "and": "and",
@@ -262,7 +347,21 @@
         "because": "because",
         "so": "so"
       },
-      "default_bundle": "general_overview"
+      "default_bundle": "general_overview",
+      "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder"
+      ],
+      "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotConjunctionsAllLevelsLessonSeeder"
+      ],
+      "expected_all_seeders": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotConjunctionsAllLevelsLessonSeeder"
+      ],
+      "polyglot_strategy": "Use direct_polyglot_saved_test.question_links for questions where question.seeder is the polyglot seeder; use fallback only for future/unlisted polyglot questions.",
+      "direct_polyglot_saved_test_slug": "polyglot-conjunctions-all-levels"
     }
   ],
   "seeder_requirements": {
@@ -274,9 +373,15 @@
       "If more than one tag maps to a bundle, merge all bundles preserving manifest order and dedupe text_block_uuid values.",
       "If a text block is missing, fail with a clear RuntimeException that says which page seeder/sort_order is missing.",
       "If a question is missing, warn and continue.",
-      "Do not create or modify questions, answers, options, saved tests, pages, or text blocks. Only write question_theory_text_blocks and questions.theory_text_block_uuid."
+      "Do not create or modify questions, answers, options, saved tests, pages, or text blocks. Only write question_theory_text_blocks and questions.theory_text_block_uuid.",
+      "For polyglot questions, prefer explicit direct_polyglot_saved_test.question_links by uuid before fallback classification.",
+      "For standard V3 questions, use tag_key_to_bundle and answer_value_to_bundle_fallback from the virtual/mixed test section.",
+      "When processing expected_all_seeders, do not skip Database\\Seeders\\V3\\Polyglot\\* classes."
     ],
-    "notes": []
+    "notes": [
+      "Polyglot/Sentence Builder questions must be linked using explicit question_links in this JSON. Do not infer these specific links in PHP.",
+      "Expected all seeders means standard V3 AI seeders plus Polyglot/Sentence Builder seeder."
+    ]
   },
   "qa": {
     "commands": [
@@ -292,6 +397,94 @@
       "For covered questions, verify 'Показати теорію' appears and opens relevant blocks.",
       "Verify question_theory_text_blocks has rows for questions from expected_seeder_classes.",
       "Run the seeder twice and verify row counts do not grow."
+    ],
+    "must_cover_polyglot_sentence_builder": true,
+    "polyglot_direct_test_slug": "polyglot-conjunctions-all-levels",
+    "polyglot_seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotConjunctionsAllLevelsLessonSeeder",
+    "expected_all_seeders": [
+      "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
+      "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
+      "Database\\Seeders\\V3\\Polyglot\\PolyglotConjunctionsAllLevelsLessonSeeder"
+    ],
+    "assertions": [
+      "All questions from Database\\Seeders\\V3\\Polyglot\\PolyglotConjunctionsAllLevelsLessonSeeder have at least one question_theory_text_blocks row.",
+      "Direct Polyglot/Sentence Builder test polyglot-conjunctions-all-levels shows the Show Theory / Показати теорію block.",
+      "Virtual mixed test includes standard V3 AI seeders and the Polyglot/Sentence Builder seeder.",
+      "Running the seeder twice does not increase pivot row count."
+    ]
+  },
+  "expected_standard_seeders": [
+    "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder"
+  ],
+  "expected_polyglot_seeders": [
+    "Database\\Seeders\\V3\\Polyglot\\PolyglotConjunctionsAllLevelsLessonSeeder"
+  ],
+  "expected_all_seeders": [
+    "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\Polyglot\\PolyglotConjunctionsAllLevelsLessonSeeder"
+  ],
+  "polyglot_bundle_rules": {
+    "sentence_level_always_include": [
+      "general_overview"
+    ],
+    "answer_or_text_patterns": {
+      "and": [
+        "and",
+        "not only",
+        "but also"
+      ],
+      "but": [
+        "but",
+        "although",
+        "whereas",
+        "notwithstanding"
+      ],
+      "or": [
+        "or",
+        "або"
+      ],
+      "because": [
+        "because",
+        "cause",
+        "reason",
+        "provided that",
+        "insofar as"
+      ],
+      "so": [
+        "so",
+        "therefore",
+        "тому"
+      ],
+      "contrast": [
+        "although",
+        "whereas",
+        "notwithstanding",
+        "contrast"
+      ],
+      "addition": [
+        "and",
+        "not only"
+      ]
+    }
+  },
+  "implementation_contract": {
+    "codex_role": "Implement loader/seeder that applies this manifest exactly.",
+    "manifest_role": "This JSON is the source of truth for links. Do not let Codex re-decide mappings for listed polyglot question UUIDs.",
+    "standard_v3_strategy": "Use tag_key_to_bundle and answer_value_to_bundle_fallback from the virtual/mixed test section.",
+    "polyglot_strategy": "Use direct_polyglot_saved_test.question_links first. If a future polyglot UUID is not listed, use polyglot_bundle_rules fallback and report it in seeder output.",
+    "write_targets": [
+      "question_theory_text_blocks",
+      "questions.theory_text_block_uuid"
+    ],
+    "do_not_modify": [
+      "questions.question",
+      "question_answers",
+      "question_options",
+      "saved_grammar_tests",
+      "text_blocks",
+      "pages"
     ]
   }
 }

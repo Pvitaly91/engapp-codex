@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Page;
 use App\Models\Question;
 use App\Models\TextBlock;
+use App\Services\TheoryPagePromptLinkedTestsService;
 use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarCategorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarConjunctionsTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarImperativesTheorySeeder;
@@ -18,6 +19,10 @@ use Database\Seeders\V3\AI\Copilot\Sonate\ConjunctionsAndButOrBecauseSoV3Questio
 use Database\Seeders\V3\AI\Copilot\Sonate\ImperativesNakazoviRecenniaV3QuestionsOnlySeeder as SonateImperativesSeeder;
 use Database\Seeders\V3\AI\Copilot\Sonate\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder as SonateSentenceStructureSeeder;
 use Database\Seeders\V3\AI\Copilot\Sonate\SentenceTypesVidiRecenV3QuestionsOnlySeeder as SonateSentenceTypesSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotConjunctionsAllLevelsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotImperativesAllLevelsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotSentenceStructureSvoAllLevelsLessonSeeder;
+use Database\Seeders\V3\Polyglot\PolyglotSentenceTypesAllLevelsLessonSeeder;
 use Database\Seeders\V3\TheoryLinks\BasicGrammarConjunctionsTheoryLinksSeeder;
 use Database\Seeders\V3\TheoryLinks\BasicGrammarImperativesTheoryLinksSeeder;
 use Database\Seeders\V3\TheoryLinks\BasicGrammarSentenceStructureSvoTheoryLinksSeeder;
@@ -48,14 +53,14 @@ class BasicGrammarTheoryLinksSeedersTest extends TestCase
 
             $this->seed(BasicGrammarCategorySeeder::class);
             $this->seed($case['page_seeder']);
-            $this->seed($case['question_seeders']);
+            $this->seed($case['covered_seeders']);
             $this->seed($case['links_seeder']);
 
             $questions = Question::query()
-                ->whereIn('seeder', $case['question_seeders'])
+                ->whereIn('seeder', $case['covered_seeders'])
                 ->get(['id', 'uuid', 'seeder', 'theory_text_block_uuid']);
 
-            foreach ($case['question_seeders'] as $seederClass) {
+            foreach ($case['covered_seeders'] as $seederClass) {
                 $this->assertGreaterThan(
                     0,
                     $questions->where('seeder', $seederClass)->count(),
@@ -74,7 +79,7 @@ class BasicGrammarTheoryLinksSeedersTest extends TestCase
             );
 
             $questions = Question::query()
-                ->whereIn('seeder', $case['question_seeders'])
+                ->whereIn('seeder', $case['covered_seeders'])
                 ->get(['id', 'uuid', 'seeder', 'theory_text_block_uuid']);
 
             $this->assertSame(
@@ -92,12 +97,15 @@ class BasicGrammarTheoryLinksSeedersTest extends TestCase
 
             foreach ($case['tag_expectations'] as $expectation) {
                 $this->assertTaggedQuestionHasLinkedBlock(
-                    $case['question_seeders'],
+                    $case['ai_seeders'],
                     $expectation['tags'],
                     $expectation['sort_orders'],
                     $caseName . ': ' . implode(', ', $expectation['tags'])
                 );
             }
+
+            $this->assertEveryQuestionFromSeedersHasTheoryLinks($case['ai_seeders'], $caseName . ': AI');
+            $this->assertEveryQuestionFromSeedersHasTheoryLinks([$case['polyglot_seeder']], $caseName . ': Polyglot');
 
             $firstRunPivotRows = DB::table('question_theory_text_blocks')
                 ->whereIn('question_uuid', $questions->pluck('uuid'))
@@ -117,8 +125,32 @@ class BasicGrammarTheoryLinksSeedersTest extends TestCase
             $response = $this->get(route('theory.show', ['basic-grammar', $case['page_slug']]));
 
             $response->assertOk();
-            $response->assertViewHas('topicTests', fn ($topicTests): bool => collect($topicTests)->isNotEmpty());
-            $this->assertNotNull($page);
+            $response->assertViewHas('topicTests', function ($topicTests) use ($case, $page): bool {
+                $slugs = collect($topicTests)->pluck('slug');
+
+                return $slugs->contains($case['direct_slug'])
+                    && $slugs->contains('theory-page-' . $page->id . '-mixed-a1-c2');
+            });
+
+            $tests = app(TheoryPagePromptLinkedTestsService::class)->buildForPage($page);
+            $mixedTest = $tests->firstWhere('slug', 'theory-page-' . $page->id . '-mixed-a1-c2');
+            $this->assertNotNull($mixedTest, $caseName);
+            $this->assertSame(
+                collect($case['covered_seeders'])->sort()->values()->all(),
+                collect($mixedTest->filters['seeder_classes'] ?? [])->sort()->values()->all(),
+                $caseName . ': mixed test should include Sonate + Opus46 + Polyglot seeders.'
+            );
+
+            $directResponse = $this->get('/test/' . $case['direct_slug'] . '/step/compose');
+            $directResponse->assertOk();
+            $directResponse->assertSee(__('frontend.tests.question.show_theory'));
+
+            $questionData = $directResponse->viewData('questionData');
+            $this->assertIsArray($questionData, $caseName);
+            $this->assertNotEmpty($questionData, $caseName);
+            foreach ($questionData as $question) {
+                $this->assertNotEmpty($question['theory_blocks'] ?? [], $caseName . ': direct Polyglot question should expose theory blocks.');
+            }
         }
     }
 
@@ -131,10 +163,17 @@ class BasicGrammarTheoryLinksSeedersTest extends TestCase
             'sentence_structure_svo' => [
                 'page_slug' => 'sentence-structure-svo',
                 'page_seeder' => BasicGrammarSentenceStructureSvoTheorySeeder::class,
-                'question_seeders' => [
+                'ai_seeders' => [
                     SonateSentenceStructureSeeder::class,
                     Opus46SentenceStructureSeeder::class,
                 ],
+                'polyglot_seeder' => PolyglotSentenceStructureSvoAllLevelsLessonSeeder::class,
+                'covered_seeders' => [
+                    SonateSentenceStructureSeeder::class,
+                    Opus46SentenceStructureSeeder::class,
+                    PolyglotSentenceStructureSvoAllLevelsLessonSeeder::class,
+                ],
+                'direct_slug' => 'polyglot-sentence-structure-svo-all-levels',
                 'links_seeder' => BasicGrammarSentenceStructureSvoTheoryLinksSeeder::class,
                 'tag_expectations' => [
                     ['tags' => ['Basic SVO order', 'S-V-O word order'], 'sort_orders' => [6, 7]],
@@ -147,10 +186,17 @@ class BasicGrammarTheoryLinksSeedersTest extends TestCase
             'sentence_types' => [
                 'page_slug' => 'sentence-types',
                 'page_seeder' => BasicGrammarSentenceTypesTheorySeeder::class,
-                'question_seeders' => [
+                'ai_seeders' => [
                     SonateSentenceTypesSeeder::class,
                     Opus46SentenceTypesSeeder::class,
                 ],
+                'polyglot_seeder' => PolyglotSentenceTypesAllLevelsLessonSeeder::class,
+                'covered_seeders' => [
+                    SonateSentenceTypesSeeder::class,
+                    Opus46SentenceTypesSeeder::class,
+                    PolyglotSentenceTypesAllLevelsLessonSeeder::class,
+                ],
+                'direct_slug' => 'polyglot-sentence-types-all-levels',
                 'links_seeder' => BasicGrammarSentenceTypesTheoryLinksSeeder::class,
                 'tag_expectations' => [
                     ['tags' => ['Affirmative sentence structure'], 'sort_orders' => [3]],
@@ -162,10 +208,17 @@ class BasicGrammarTheoryLinksSeedersTest extends TestCase
             'conjunctions' => [
                 'page_slug' => 'basic-conjunctions-and-but-or-because-so',
                 'page_seeder' => BasicGrammarConjunctionsTheorySeeder::class,
-                'question_seeders' => [
+                'ai_seeders' => [
                     SonateConjunctionsSeeder::class,
                     Opus46ConjunctionsSeeder::class,
                 ],
+                'polyglot_seeder' => PolyglotConjunctionsAllLevelsLessonSeeder::class,
+                'covered_seeders' => [
+                    SonateConjunctionsSeeder::class,
+                    Opus46ConjunctionsSeeder::class,
+                    PolyglotConjunctionsAllLevelsLessonSeeder::class,
+                ],
+                'direct_slug' => 'polyglot-conjunctions-all-levels',
                 'links_seeder' => BasicGrammarConjunctionsTheoryLinksSeeder::class,
                 'tag_expectations' => [
                     ['tags' => ["Additive conjunction 'and'", 'conjunction_and'], 'sort_orders' => [3]],
@@ -178,10 +231,17 @@ class BasicGrammarTheoryLinksSeedersTest extends TestCase
             'imperatives' => [
                 'page_slug' => 'imperatives-sit-down-dont-open-it',
                 'page_seeder' => BasicGrammarImperativesTheorySeeder::class,
-                'question_seeders' => [
+                'ai_seeders' => [
                     SonateImperativesSeeder::class,
                     Opus46ImperativesSeeder::class,
                 ],
+                'polyglot_seeder' => PolyglotImperativesAllLevelsLessonSeeder::class,
+                'covered_seeders' => [
+                    SonateImperativesSeeder::class,
+                    Opus46ImperativesSeeder::class,
+                    PolyglotImperativesAllLevelsLessonSeeder::class,
+                ],
+                'direct_slug' => 'polyglot-imperatives-all-levels',
                 'links_seeder' => BasicGrammarImperativesTheoryLinksSeeder::class,
                 'tag_expectations' => [
                     ['tags' => ['Affirmative imperatives', 'Affirmative imperative (base form)'], 'sort_orders' => [4]],
@@ -233,6 +293,26 @@ class BasicGrammarTheoryLinksSeedersTest extends TestCase
             ->all();
 
         $this->assertNotEmpty(array_intersect($expectedSortOrders, $linkedSortOrders), $label);
+    }
+
+    /**
+     * @param  array<int, class-string>  $seederClasses
+     */
+    private function assertEveryQuestionFromSeedersHasTheoryLinks(array $seederClasses, string $label): void
+    {
+        $questions = Question::query()
+            ->whereIn('seeder', $seederClasses)
+            ->get(['uuid', 'theory_text_block_uuid']);
+
+        $this->assertGreaterThan(0, $questions->count(), $label);
+        $this->assertSame($questions->count(), $questions->whereNotNull('theory_text_block_uuid')->count(), $label);
+
+        $linkedQuestionCount = DB::table('question_theory_text_blocks')
+            ->whereIn('question_uuid', $questions->pluck('uuid'))
+            ->distinct()
+            ->count('question_uuid');
+
+        $this->assertSame($questions->count(), $linkedQuestionCount, $label);
     }
 
     private function normalizeKey(string $value): string

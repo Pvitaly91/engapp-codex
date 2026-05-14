@@ -200,9 +200,82 @@
       "interrogative",
       "punctuation",
       "summary"
+    ],
+    "exclamative": [
+      "punctuation",
+      "structure_comparison",
+      "summary",
+      "general_overview"
     ]
   },
   "tests_on_page": [
+    {
+      "kind": "direct_polyglot_saved_test",
+      "saved_test_slug": "polyglot-sentence-types-all-levels",
+      "saved_test_name": "Sentence Builder: Sentence Types (All levels)",
+      "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder",
+      "strategy": "explicit_question_uuid_map",
+      "question_links": {
+        "poly-stype-a1-01": [
+          "affirmative",
+          "general_overview"
+        ],
+        "poly-stype-a1-02": [
+          "yes_no_question",
+          "interrogative",
+          "general_overview"
+        ],
+        "poly-stype-a2-01": [
+          "negative",
+          "general_overview"
+        ],
+        "poly-stype-a2-02": [
+          "imperative",
+          "general_overview"
+        ],
+        "poly-stype-b1-01": [
+          "wh_question",
+          "interrogative",
+          "general_overview"
+        ],
+        "poly-stype-b1-02": [
+          "exclamative",
+          "general_overview"
+        ],
+        "poly-stype-b2-01": [
+          "indirect_question",
+          "negative",
+          "general_overview"
+        ],
+        "poly-stype-b2-02": [
+          "negative_question",
+          "interrogative",
+          "negative",
+          "general_overview"
+        ],
+        "poly-stype-c1-01": [
+          "emphatic_affirmative",
+          "affirmative",
+          "general_overview"
+        ],
+        "poly-stype-c1-02": [
+          "tag_question",
+          "interrogative",
+          "general_overview"
+        ],
+        "poly-stype-c2-01": [
+          "advanced_inversion",
+          "interrogative",
+          "general_overview"
+        ],
+        "poly-stype-c2-02": [
+          "rhetorical_question",
+          "interrogative",
+          "general_overview"
+        ]
+      },
+      "linking_note": "These are explicit sentence-level theory links for the Polyglot / Sentence Builder test. Codex must apply this map exactly and must not re-infer these listed links."
+    },
     {
       "kind": "virtual_theory_page_tests",
       "saved_test_slug_patterns": [
@@ -216,93 +289,101 @@
       "expected_page_route": "/theory/basic-grammar/sentence-types",
       "expected_seeder_classes": [
         "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceTypesVidiRecenV3QuestionsOnlySeeder",
-        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceTypesVidiRecenV3QuestionsOnlySeeder"
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceTypesVidiRecenV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder"
       ],
       "strategy": "map_questions_by_seeder_tag_keys_marker_answers_and_text_patterns",
       "tag_key_to_bundle": {
         "sentence_type_structure": "general_overview",
-        "sentence_types": "general_overview",
-        "sentence_type_identification": "general_overview",
         "affirmative_structure": "affirmative",
-        "affirmative_sentence": "affirmative",
-        "affirmative_sentence_structure": "affirmative",
         "negative_with_do_does": "negative",
-        "negation_with_do_does_not": "negative",
         "negative_with_did": "negative",
-        "negation_with_did_not": "negative",
         "negative_with_be": "negative",
-        "negation_with_am_is_are_not": "negative",
         "negative_with_be_past": "negative",
-        "negation_with_was_were_not": "negative",
         "negative_with_modal": "negative",
-        "negation_with_modal_verbs": "negative",
         "negative_present_perfect": "negative",
-        "negation_in_present_perfect": "negative",
-        "negative_sentence": "negative",
-        "negative_sentence_formation": "negative",
-        "negative_contraction": "negative",
-        "negative_contraction_forms": "negative",
         "yes_no_question_do": "yes_no_question",
-        "yes_no_question_with_do_does": "yes_no_question",
         "yes_no_question_be": "yes_no_question",
-        "yes_no_question_with_am_is_are": "yes_no_question",
         "yes_no_question_be_past": "yes_no_question",
-        "yes_no_question_with_was_were": "yes_no_question",
         "yes_no_question_past": "yes_no_question",
-        "yes_no_question_with_did": "yes_no_question",
         "yes_no_question_modal": "yes_no_question",
-        "yes_no_question_with_modal_verbs": "yes_no_question",
         "yes_no_question_present_perfect": "yes_no_question",
-        "yes_no_question_in_present_perfect": "yes_no_question",
-        "yes_no_question": "yes_no_question",
-        "yes_no_question_formation": "yes_no_question",
-        "auxiliary_do_does": "yes_no_question",
-        "auxiliary_do_does_usage": "yes_no_question",
-        "auxiliary_inversion": "yes_no_question",
-        "subject_auxiliary_inversion": "yes_no_question",
         "wh_question_structure": "wh_question",
         "wh_question_present_perfect": "wh_question",
-        "wh_question_in_present_perfect": "wh_question",
-        "wh_question": "wh_question",
-        "wh_question_formation": "wh_question",
         "imperative_affirmative": "imperative",
-        "affirmative_imperative": "imperative",
         "imperative_negative": "imperative",
-        "negative_imperative_dont_verb": "imperative",
-        "imperative_sentence": "imperative",
-        "imperative_sentence_structure": "imperative",
-        "negative_imperative": "imperative",
-        "negative_imperative_prohibition": "imperative",
         "tag_question_formation": "tag_question",
-        "tag_question": "tag_question",
         "tag_question_i_am": "tag_question",
-        "tag_question_for_i_am_arent_i": "tag_question",
         "tag_question_imperative": "tag_question",
-        "tag_question_for_imperatives_shall_we": "tag_question",
         "tag_question_nobody": "tag_question",
-        "tag_question_with_nobody_nothing": "tag_question",
         "tag_question_would_rather": "tag_question",
-        "tag_question_with_would_rather": "tag_question",
         "tag_question_must": "tag_question",
-        "tag_question_with_must_deduction": "tag_question",
         "indirect_question_order": "indirect_question",
-        "word_order_in_indirect_questions": "indirect_question",
-        "indirect_question": "indirect_question",
-        "indirect_question_word_order": "indirect_question",
         "negative_question_formation": "negative_question",
         "inverted_conditional_sentence": "advanced_inversion",
-        "inverted_conditional_sentence_should_were_had": "advanced_inversion",
         "negative_fronting_inversion": "advanced_inversion",
-        "subject_auxiliary_inversion_after_negative_restrictive_adverbials": "advanced_inversion",
         "emphatic_do_affirmative": "emphatic_affirmative",
-        "emphatic_do_does_did_in_affirmative_sentences": "emphatic_affirmative",
+        "rhetorical_question_formation": "rhetorical_question",
+        "sentence_types": "general_overview",
+        "affirmative_sentence": "affirmative",
+        "negative_sentence": "negative",
+        "wh_question": "wh_question",
+        "imperative_sentence": "imperative",
+        "negative_imperative": "imperative",
+        "auxiliary_do_does": "yes_no_question",
+        "auxiliary_inversion": "advanced_inversion",
+        "sentence_type_identification": "general_overview",
         "word_order": "general_overview",
-        "word_order_in_sentence_types": "general_overview",
-        "exclamatory_sentence": "general_overview",
-        "exclamatory_sentence_structure": "general_overview",
+        "tag_question": "tag_question",
+        "indirect_question": "indirect_question",
         "rhetorical_question": "rhetorical_question",
-        "rhetorical_question_usage": "rhetorical_question",
-        "rhetorical_question_formation": "rhetorical_question"
+        "exclamatory_sentence": "exclamative",
+        "negative_contraction": "negative",
+        "Sentence type structure": "general_overview",
+        "Affirmative sentence structure": "affirmative",
+        "Negation with do/does + not": "negative",
+        "Negation with did + not": "negative",
+        "Negation with am/is/are + not": "negative",
+        "Negation with was/were + not": "negative",
+        "Negation with modal verbs": "negative",
+        "Negation in Present Perfect": "negative",
+        "Yes/No question with do/does": "yes_no_question",
+        "Yes/No question with am/is/are": "yes_no_question",
+        "Yes/No question with was/were": "yes_no_question",
+        "Yes/No question with did": "yes_no_question",
+        "Yes/No question with modal verbs": "yes_no_question",
+        "Yes/No question in Present Perfect": "yes_no_question",
+        "WH question structure": "wh_question",
+        "WH question in Present Perfect": "wh_question",
+        "Affirmative imperative": "imperative",
+        "Negative imperative (Don't + verb)": "imperative",
+        "Tag question formation": "tag_question",
+        "Tag question for I am (aren't I)": "tag_question",
+        "Tag question for imperatives (shall we)": "tag_question",
+        "Tag question with nobody/nothing": "tag_question",
+        "Tag question with would rather": "tag_question",
+        "Tag question with must (deduction)": "tag_question",
+        "Word order in indirect questions": "indirect_question",
+        "Negative question formation": "negative_question",
+        "Inverted conditional sentence (Should/Were/Had)": "advanced_inversion",
+        "Subject-auxiliary inversion after negative/restrictive adverbials": "advanced_inversion",
+        "Emphatic do/does/did in affirmative sentences": "emphatic_affirmative",
+        "Rhetorical question formation": "rhetorical_question",
+        "Sentence types": "general_overview",
+        "Negative sentence formation": "negative",
+        "Wh-question formation": "wh_question",
+        "Imperative sentence structure": "imperative",
+        "Negative imperative (prohibition)": "imperative",
+        "Auxiliary do/does usage": "yes_no_question",
+        "Subject-auxiliary inversion": "advanced_inversion",
+        "Sentence type identification": "general_overview",
+        "Word order in sentence types": "general_overview",
+        "Indirect question word order": "indirect_question",
+        "Rhetorical question usage": "rhetorical_question",
+        "Exclamatory sentence structure": "exclamative",
+        "Negative contraction forms": "negative",
+        "yes_no_question": "yes_no_question",
+        "Yes/No question formation": "yes_no_question"
       },
       "answer_value_to_bundle_fallback": {
         "do": "yes_no_question",
@@ -323,7 +404,21 @@
         "who": "wh_question",
         "how": "wh_question"
       },
-      "default_bundle": "general_overview"
+      "default_bundle": "general_overview",
+      "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceTypesVidiRecenV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceTypesVidiRecenV3QuestionsOnlySeeder"
+      ],
+      "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder"
+      ],
+      "expected_all_seeders": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceTypesVidiRecenV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceTypesVidiRecenV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder"
+      ],
+      "polyglot_strategy": "Use direct_polyglot_saved_test.question_links for questions where question.seeder is the polyglot seeder; use fallback only for future/unlisted polyglot questions.",
+      "direct_polyglot_saved_test_slug": "polyglot-sentence-types-all-levels"
     }
   ],
   "seeder_requirements": {
@@ -335,9 +430,15 @@
       "If more than one tag maps to a bundle, merge all bundles preserving manifest order and dedupe text_block_uuid values.",
       "If a text block is missing, fail with a clear RuntimeException that says which page seeder/sort_order is missing.",
       "If a question is missing, warn and continue.",
-      "Do not create or modify questions, answers, options, saved tests, pages, or text blocks. Only write question_theory_text_blocks and questions.theory_text_block_uuid."
+      "Do not create or modify questions, answers, options, saved tests, pages, or text blocks. Only write question_theory_text_blocks and questions.theory_text_block_uuid.",
+      "For polyglot questions, prefer explicit direct_polyglot_saved_test.question_links by uuid before fallback classification.",
+      "For standard V3 questions, use tag_key_to_bundle and answer_value_to_bundle_fallback from the virtual/mixed test section.",
+      "When processing expected_all_seeders, do not skip Database\\Seeders\\V3\\Polyglot\\* classes."
     ],
-    "notes": []
+    "notes": [
+      "Polyglot/Sentence Builder questions must be linked using explicit question_links in this JSON. Do not infer these specific links in PHP.",
+      "Expected all seeders means standard V3 AI seeders plus Polyglot/Sentence Builder seeder."
+    ]
   },
   "qa": {
     "commands": [
@@ -353,6 +454,108 @@
       "For covered questions, verify 'Показати теорію' appears and opens relevant blocks.",
       "Verify question_theory_text_blocks has rows for questions from expected_seeder_classes.",
       "Run the seeder twice and verify row counts do not grow."
+    ],
+    "must_cover_polyglot_sentence_builder": true,
+    "polyglot_direct_test_slug": "polyglot-sentence-types-all-levels",
+    "polyglot_seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder",
+    "expected_all_seeders": [
+      "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceTypesVidiRecenV3QuestionsOnlySeeder",
+      "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceTypesVidiRecenV3QuestionsOnlySeeder",
+      "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder"
+    ],
+    "assertions": [
+      "All questions from Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder have at least one question_theory_text_blocks row.",
+      "Direct Polyglot/Sentence Builder test polyglot-sentence-types-all-levels shows the Show Theory / Показати теорію block.",
+      "Virtual mixed test includes standard V3 AI seeders and the Polyglot/Sentence Builder seeder.",
+      "Running the seeder twice does not increase pivot row count."
+    ]
+  },
+  "expected_standard_seeders": [
+    "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceTypesVidiRecenV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceTypesVidiRecenV3QuestionsOnlySeeder"
+  ],
+  "expected_polyglot_seeders": [
+    "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder"
+  ],
+  "expected_all_seeders": [
+    "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceTypesVidiRecenV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceTypesVidiRecenV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder"
+  ],
+  "polyglot_bundle_rules": {
+    "sentence_level_always_include": [
+      "general_overview"
+    ],
+    "answer_or_text_patterns": {
+      "affirmative": [
+        "стверджувальне",
+        "emphatic affirmative"
+      ],
+      "negative": [
+        "не ",
+        "not",
+        "don't",
+        "doesn't",
+        "isn't",
+        "aren't"
+      ],
+      "interrogative": [
+        "?",
+        "питальне",
+        "wh-question",
+        "Where",
+        "Did",
+        "Are",
+        "Who",
+        "What"
+      ],
+      "imperative": [
+        "наказове",
+        "Open",
+        "Close",
+        "Don't"
+      ],
+      "exclamative": [
+        "окличне",
+        "!",
+        "What a"
+      ],
+      "indirect_question": [
+        "не знаю",
+        "where she works",
+        "indirect"
+      ],
+      "tag_question": [
+        "aren't you",
+        "tag question",
+        "чи не так"
+      ],
+      "rhetorical_question": [
+        "rhetorical",
+        "Хто міг би"
+      ],
+      "advanced_inversion": [
+        "Only after",
+        "Лише після"
+      ]
+    }
+  },
+  "implementation_contract": {
+    "codex_role": "Implement loader/seeder that applies this manifest exactly.",
+    "manifest_role": "This JSON is the source of truth for links. Do not let Codex re-decide mappings for listed polyglot question UUIDs.",
+    "standard_v3_strategy": "Use tag_key_to_bundle and answer_value_to_bundle_fallback from the virtual/mixed test section.",
+    "polyglot_strategy": "Use direct_polyglot_saved_test.question_links first. If a future polyglot UUID is not listed, use polyglot_bundle_rules fallback and report it in seeder output.",
+    "write_targets": [
+      "question_theory_text_blocks",
+      "questions.theory_text_block_uuid"
+    ],
+    "do_not_modify": [
+      "questions.question",
+      "question_answers",
+      "question_options",
+      "saved_grammar_tests",
+      "text_blocks",
+      "pages"
     ]
   }
 }

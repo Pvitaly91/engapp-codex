@@ -119,6 +119,29 @@ class BasicGrammarPartsOfSpeechTheoryLinksSeederTest extends TestCase
             ],
             $tests->pluck('slug')->all()
         );
+
+        $mixedTest = $tests->firstWhere('slug', 'theory-page-' . $page->id . '-mixed-a1-c2');
+        $this->assertNotNull($mixedTest);
+        $this->assertSame(
+            collect(self::COVERED_SEEDERS)->sort()->values()->all(),
+            collect($mixedTest->filters['seeder_classes'] ?? [])->sort()->values()->all(),
+            'Mixed test should include Sonate + Opus46 + Polyglot seeders.'
+        );
+
+        $directResponse = $this->get('/test/polyglot-parts-of-speech-all-levels/step/compose');
+        $directResponse->assertOk();
+        $directResponse->assertSee(__('frontend.tests.question.show_theory'));
+
+        $questionData = $directResponse->viewData('questionData');
+        $this->assertIsArray($questionData);
+        $this->assertNotEmpty($questionData);
+
+        foreach ($questionData as $question) {
+            $this->assertNotEmpty(
+                $question['theory_blocks'] ?? [],
+                'Direct Parts of Speech Polyglot question should expose theory blocks.'
+            );
+        }
     }
 
     private function seedPartsOfSpeechStack(): void
