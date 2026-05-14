@@ -18,6 +18,7 @@ use App\Support\SavedTestJsState;
 use App\Support\SentenceBuilderBranding;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class TestJsV2Controller extends Controller
@@ -366,19 +367,61 @@ class TestJsV2Controller extends Controller
 
     protected function persistedQuestionData($test, ?array $savedState): ?array
     {
-        $questionData = session($this->jsQuestionDataSessionKey($test));
+        $sessionKey = $this->jsQuestionDataSessionKey($test);
+        $questionData = session($sessionKey);
 
         if (is_array($questionData)) {
+            if ($this->cachedQuestionDataNeedsTheoryRefresh($questionData)) {
+                session()->forget($sessionKey);
+
+                return null;
+            }
+
             return $questionData;
         }
 
         $questionData = SavedTestJsState::questionData($savedState);
 
         if (is_array($questionData)) {
-            session([$this->jsQuestionDataSessionKey($test) => $questionData]);
+            if ($this->cachedQuestionDataNeedsTheoryRefresh($questionData)) {
+                return null;
+            }
+
+            session([$sessionKey => $questionData]);
         }
 
         return is_array($questionData) ? $questionData : null;
+    }
+
+    protected function cachedQuestionDataNeedsTheoryRefresh(array $questionData): bool
+    {
+        $questionUuids = collect($questionData)
+            ->filter(fn ($question): bool => is_array($question))
+            ->filter(function (array $question): bool {
+                return filled($question['uuid'] ?? null)
+                    && empty($question['theory_blocks'] ?? [])
+                    && empty($question['theory_block'] ?? null);
+            })
+            ->pluck('uuid')
+            ->map(fn ($uuid): string => (string) $uuid)
+            ->unique()
+            ->values();
+
+        if ($questionUuids->isEmpty()) {
+            return false;
+        }
+
+        return Question::query()
+            ->whereIn('uuid', $questionUuids->all())
+            ->where(function ($query): void {
+                $query->whereNotNull('theory_text_block_uuid')
+                    ->orWhereExists(function ($subQuery): void {
+                        $subQuery->select(DB::raw(1))
+                            ->from('question_theory_text_blocks')
+                            ->whereColumn('question_theory_text_blocks.question_uuid', 'questions.uuid');
+                    });
+            })
+            ->exists();
     }
 
     protected function buildComposeQuestionDataset($resolved, bool $includeTechnicalInfo = false): array

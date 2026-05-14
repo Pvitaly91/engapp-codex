@@ -214,6 +214,14 @@ class DatabaseSeeder extends Seeder
             V3\Polyglot\PolyglotVerbToBePastAllLevelsTheoryLinksSeeder::class,
             V3\Polyglot\PolyglotVerbToBePresentAllLevelsTheoryLinksSeeder::class,
             V3\Polyglot\PolyglotVerbToBeQuestionsAllLevelsTheoryLinksSeeder::class,
+
+            // Basic Grammar theory-page relations — power Sentence Builder
+            // direct tests and their /theory/basic-grammar mixed tests.
+            V3\TheoryLinks\BasicGrammarPartsOfSpeechTheoryLinksSeeder::class,
+            V3\TheoryLinks\BasicGrammarSentenceStructureSvoTheoryLinksSeeder::class,
+            V3\TheoryLinks\BasicGrammarSentenceTypesTheoryLinksSeeder::class,
+            V3\TheoryLinks\BasicGrammarConjunctionsTheoryLinksSeeder::class,
+            V3\TheoryLinks\BasicGrammarImperativesTheoryLinksSeeder::class,
         ]);
     }
 }

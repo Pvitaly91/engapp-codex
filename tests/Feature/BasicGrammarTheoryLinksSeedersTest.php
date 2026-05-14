@@ -4,8 +4,10 @@ namespace Tests\Feature;
 
 use App\Models\Page;
 use App\Models\Question;
+use App\Models\SavedGrammarTest;
 use App\Models\TextBlock;
 use App\Services\TheoryPagePromptLinkedTestsService;
+use App\Support\SentenceBuilderBranding;
 use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarCategorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarConjunctionsTheorySeeder;
 use Database\Seeders\Page_V3\BasicGrammar\BasicGrammarImperativesTheorySeeder;
@@ -150,6 +152,44 @@ class BasicGrammarTheoryLinksSeedersTest extends TestCase
             $this->assertNotEmpty($questionData, $caseName);
             foreach ($questionData as $question) {
                 $this->assertNotEmpty($question['theory_blocks'] ?? [], $caseName . ': direct Polyglot question should expose theory blocks.');
+            }
+
+            $publicDirectSlug = SentenceBuilderBranding::canonicalLessonSlug($case['direct_slug']);
+            $publicDirectResponse = $this->get('/test/' . $publicDirectSlug);
+            $publicDirectResponse->assertOk();
+
+            $publicQuestionData = $publicDirectResponse->viewData('questionData');
+            $this->assertIsArray($publicQuestionData, $caseName . ': public Sentence Builder route should expose question data.');
+            $this->assertNotEmpty($publicQuestionData, $caseName . ': public Sentence Builder route should expose question data.');
+            foreach ($publicQuestionData as $question) {
+                $this->assertNotEmpty($question['theory_blocks'] ?? [], $caseName . ': public Sentence Builder question should expose theory blocks.');
+            }
+
+            $savedTest = SavedGrammarTest::query()->where('slug', $case['direct_slug'])->firstOrFail();
+            $staleQuestionData = Question::query()
+                ->where('seeder', $case['polyglot_seeder'])
+                ->orderBy('id')
+                ->get(['id', 'uuid', 'type', 'question', 'level'])
+                ->map(fn (Question $question): array => [
+                    'id' => $question->id,
+                    'uuid' => $question->uuid,
+                    'type' => $question->type,
+                    'question' => $question->question,
+                    'level' => $question->level,
+                    'theory_block' => null,
+                    'theory_blocks' => [],
+                ])
+                ->all();
+
+            $staleSessionResponse = $this
+                ->withSession(['saved_test_js_questions:' . $savedTest->slug => $staleQuestionData])
+                ->get('/test/' . $publicDirectSlug);
+
+            $staleSessionResponse->assertOk();
+            $refreshedQuestionData = $staleSessionResponse->viewData('questionData');
+            $this->assertIsArray($refreshedQuestionData, $caseName . ': stale public Sentence Builder session should be refreshed.');
+            foreach ($refreshedQuestionData as $question) {
+                $this->assertNotEmpty($question['theory_blocks'] ?? [], $caseName . ': stale public Sentence Builder session should not hide theory blocks.');
             }
         }
     }
