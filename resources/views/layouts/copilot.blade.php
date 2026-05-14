@@ -218,6 +218,7 @@
     @livewireStyles
 </head>
 <body class="cp-mesh min-h-full font-sans antialiased">
+    @include('components.admin-domain-switcher')
 
     {{-- ══════════════════════════════ LAYOUT SHELL ══════════════════════════════ --}}
     <div class="flex min-h-screen" x-data="{ sidebarOpen: false }">

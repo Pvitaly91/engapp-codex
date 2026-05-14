@@ -360,6 +360,7 @@
     @yield('head')
 </head>
 <body class="min-h-full font-body antialiased @yield('body_class')">
+    @include('components.admin-domain-switcher')
     <div class="app-fixed-background" aria-hidden="true"></div>
     <div class="catalog-frame relative mx-auto max-w-[1440px] px-0 py-0 lg:px-8 lg:py-6">
         <div id="catalog-shell" class="catalog-shell rounded-none border-0 shadow-none lg:rounded-[30px] lg:border lg:shadow-panel">

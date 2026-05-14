@@ -53,6 +53,7 @@
     @stack('head-scripts')
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col" style="background-attachment: fixed;">
+    @include('components.admin-domain-switcher')
 
     <!-- Навігація -->
     <nav class="bg-white shadow mb-6" x-data="{ open: false }">

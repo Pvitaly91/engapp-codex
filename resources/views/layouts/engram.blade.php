@@ -56,6 +56,7 @@
     @livewireStyles
 </head>
 <body class="min-h-full font-sans antialiased bg-[var(--bg)] text-[var(--fg)]">
+    @include('components.admin-domain-switcher')
     <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.6),transparent_20%),radial-gradient(circle_at_90%_10%,rgba(90,107,255,0.12),transparent_20%)]"></div>
     <div class="relative">
         <header id="site-header" class="sticky top-0 z-40 border-b border-[var(--border)]/80 backdrop-blur bg-[color-mix(in_srgb,var(--card)_90%,transparent)]">
