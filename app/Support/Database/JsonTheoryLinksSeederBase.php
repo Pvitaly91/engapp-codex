@@ -329,6 +329,7 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
 
         $tagToBundle = $this->normalizeMap(Arr::get($testDefinition, 'tag_key_to_bundle', []));
         $answerToBundle = $this->normalizeMap(Arr::get($testDefinition, 'answer_value_to_bundle_fallback', []));
+        $questionTextToBundle = $this->normalizeMap(Arr::get($testDefinition, 'question_text_to_bundle_fallback', []));
         $defaultBundle = $this->normalizeKey((string) Arr::get($testDefinition, 'default_bundle', 'general_overview'));
 
         foreach ($questions as $question) {
@@ -341,6 +342,7 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
                 $question,
                 $tagToBundle,
                 $answerToBundle,
+                $questionTextToBundle,
                 $defaultBundle
             );
 
@@ -370,14 +372,17 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
     /**
      * @param  array<string, string>  $tagToBundle
      * @param  array<string, string>  $answerToBundle
+     * @param  array<string, string>  $questionTextToBundle
      * @return array{0: array<int, string>, 1: bool}
      */
     protected function bundleNamesForQuestion(
         Question $question,
         array $tagToBundle,
         array $answerToBundle,
+        array $questionTextToBundle,
         string $defaultBundle
     ): array {
+        $textMatchedBundles = $this->bundleNamesFromQuestionText($question, $questionTextToBundle);
         $tagKeys = $question->tags
             ->map(fn ($tag): string => $this->normalizeKey((string) ($tag->name ?? '')))
             ->filter()
@@ -387,7 +392,7 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
 
         $matchedBundles = $this->bundleNamesFromNormalizedValues($tagKeys, $tagToBundle);
         if ($matchedBundles !== []) {
-            return [$matchedBundles, false];
+            return [$this->mergeBundleNames($matchedBundles, $textMatchedBundles), false];
         }
 
         $acceptedAnswerValues = $this->acceptedAnswerValues($question)
@@ -399,7 +404,7 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
 
         $matchedBundles = $this->bundleNamesFromNormalizedValues($acceptedAnswerValues, $answerToBundle);
         if ($matchedBundles !== []) {
-            return [$matchedBundles, true];
+            return [$this->mergeBundleNames($matchedBundles, $textMatchedBundles), true];
         }
 
         $optionValues = $this->optionFallbackValues($question)
@@ -411,7 +416,11 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
 
         $matchedBundles = $this->bundleNamesFromNormalizedValues($optionValues, $answerToBundle);
         if ($matchedBundles !== []) {
-            return [$matchedBundles, true];
+            return [$this->mergeBundleNames($matchedBundles, $textMatchedBundles), true];
+        }
+
+        if ($textMatchedBundles !== []) {
+            return [$textMatchedBundles, true];
         }
 
         return [[$defaultBundle], true];
@@ -434,6 +443,57 @@ abstract class JsonTheoryLinksSeederBase extends LaravelSeeder
         }
 
         return $bundles;
+    }
+
+    /**
+     * @param  array<string, string>  $map
+     * @return array<int, string>
+     */
+    protected function bundleNamesFromQuestionText(Question $question, array $map): array
+    {
+        if ($map === []) {
+            return [];
+        }
+
+        $normalizedQuestion = $this->normalizeKey((string) $question->question);
+        if ($normalizedQuestion === '') {
+            return [];
+        }
+
+        $haystack = '_' . $normalizedQuestion . '_';
+        $bundles = [];
+
+        foreach ($map as $candidate => $bundle) {
+            if ($candidate === '') {
+                continue;
+            }
+
+            if (str_contains($haystack, '_' . $candidate . '_') && ! in_array($bundle, $bundles, true)) {
+                $bundles[] = $bundle;
+            }
+        }
+
+        return $bundles;
+    }
+
+    /**
+     * @param  array<int, string>  $primary
+     * @param  array<int, string>  $secondary
+     * @return array<int, string>
+     */
+    protected function mergeBundleNames(array $primary, array $secondary): array
+    {
+        $merged = [];
+
+        foreach (array_merge($primary, $secondary) as $bundleName) {
+            $bundleName = $this->normalizeKey((string) $bundleName);
+
+            if ($bundleName !== '' && ! in_array($bundleName, $merged, true)) {
+                $merged[] = $bundleName;
+            }
+        }
+
+        return $merged;
     }
 
     /**

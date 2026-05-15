@@ -1,0 +1,595 @@
+{
+  "schema_version": 1,
+  "content_type": "theory_test_links_manifest",
+  "purpose": "Describe curated links between Some / Any — Places theory text blocks and theory-page tests so the public test UI can render the 'Показати теорію' / Show theory block.",
+  "page": {
+    "route": "/theory/some-any/theory-some-any-places",
+    "category_slug": "some-any",
+    "slug": "theory-some-any-places",
+    "page_seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+    "title": "Some / Any — Places"
+  },
+  "target_pivot": {
+    "table": "question_theory_text_blocks",
+    "question_key": "question_uuid",
+    "block_key": "text_block_uuid",
+    "position_column": "position",
+    "legacy_question_column": "questions.theory_text_block_uuid",
+    "notes": [
+      "Seeder must write many-to-many links into question_theory_text_blocks.",
+      "Seeder must also set questions.theory_text_block_uuid to the first resolved block UUID for backward compatibility.",
+      "Seeder must be idempotent: delete existing links for a covered question_uuid before inserting the resolved ordered block list."
+    ]
+  },
+  "theory_text_block_aliases": {
+    "overview": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+      "sort_order": 1,
+      "title": "Hero / overview"
+    },
+    "general_rule": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+      "sort_order": 2,
+      "title": "Forms: somewhere / anywhere / nowhere / everywhere"
+    },
+    "somewhere": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+      "sort_order": 3,
+      "title": "Somewhere usage"
+    },
+    "anywhere": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+      "sort_order": 3,
+      "title": "Anywhere usage"
+    },
+    "nowhere": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+      "sort_order": 4,
+      "title": "Nowhere / anywhere comparison"
+    },
+    "everywhere": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+      "sort_order": 3,
+      "title": "Everywhere usage"
+    },
+    "questions": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+      "sort_order": 3,
+      "title": "Questions with place words"
+    },
+    "negatives": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+      "sort_order": 3,
+      "title": "Negatives with place words"
+    },
+    "anywhere_vs_nowhere": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+      "sort_order": 4,
+      "title": "Anywhere vs Nowhere"
+    },
+    "typical_mistakes": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+      "sort_order": 5,
+      "title": "Типові помилки"
+    },
+    "summary": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+      "sort_order": 6,
+      "title": "Короткий конспект"
+    }
+  },
+  "bundles": {
+    "general_overview": [
+      "overview",
+      "general_rule",
+      "summary"
+    ],
+    "some_places": [
+      "somewhere",
+      "general_rule",
+      "summary"
+    ],
+    "any_places": [
+      "anywhere",
+      "questions",
+      "negatives",
+      "summary"
+    ],
+    "no_places": [
+      "nowhere",
+      "anywhere_vs_nowhere",
+      "negatives",
+      "typical_mistakes",
+      "summary"
+    ],
+    "every_places": [
+      "everywhere",
+      "general_rule",
+      "summary"
+    ],
+    "question_usage": [
+      "questions",
+      "anywhere",
+      "general_rule",
+      "summary"
+    ],
+    "negative_usage": [
+      "negatives",
+      "anywhere_vs_nowhere",
+      "typical_mistakes",
+      "summary"
+    ],
+    "typical_mistakes": [
+      "typical_mistakes",
+      "summary"
+    ]
+  },
+  "tests_on_page": [
+    {
+      "kind": "direct_sentence_builder",
+      "saved_test_slug": "polyglot-some-any-places-all-levels",
+      "saved_test_name": "Sentence Builder: Some / Any — Places (All levels)",
+      "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyPlacesAllLevelsLessonSeeder",
+      "strategy": "explicit_question_uuid_map",
+      "question_links": {
+        "poly-places-a1-01": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-a1-02": [
+          "any_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-a1-03": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-a1-04": [
+          "every_places",
+          "general_overview"
+        ],
+        "poly-places-a1-05": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-a1-06": [
+          "any_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-a1-07": [
+          "any_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-a1-08": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-a1-09": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-a1-10": [
+          "every_places",
+          "general_overview"
+        ],
+        "poly-places-a1-11": [
+          "some_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-a1-12": [
+          "any_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-a2-13": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-a2-14": [
+          "any_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-a2-15": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-a2-16": [
+          "every_places",
+          "general_overview"
+        ],
+        "poly-places-a2-17": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-a2-18": [
+          "any_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-a2-19": [
+          "any_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-a2-20": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-a2-21": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-a2-22": [
+          "every_places",
+          "general_overview"
+        ],
+        "poly-places-a2-23": [
+          "some_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-a2-24": [
+          "any_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-b1-25": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-b1-26": [
+          "any_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-b1-27": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-b1-28": [
+          "every_places",
+          "general_overview"
+        ],
+        "poly-places-b1-29": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-b1-30": [
+          "any_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-b1-31": [
+          "any_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-b1-32": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-b1-33": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-b1-34": [
+          "every_places",
+          "general_overview"
+        ],
+        "poly-places-b1-35": [
+          "any_places",
+          "general_overview"
+        ],
+        "poly-places-b1-36": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-b2-37": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-b2-38": [
+          "any_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-b2-39": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-b2-40": [
+          "every_places",
+          "general_overview"
+        ],
+        "poly-places-b2-41": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-b2-42": [
+          "any_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-b2-43": [
+          "any_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-b2-44": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-b2-45": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-b2-46": [
+          "every_places",
+          "general_overview"
+        ],
+        "poly-places-b2-47": [
+          "any_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-b2-48": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-c1-49": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-c1-50": [
+          "any_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-c1-51": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-c1-52": [
+          "every_places",
+          "general_overview"
+        ],
+        "poly-places-c1-53": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-c1-54": [
+          "any_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-c1-55": [
+          "any_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-c1-56": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-c1-57": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-c1-58": [
+          "every_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-c1-59": [
+          "any_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-c1-60": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-c2-61": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-c2-62": [
+          "any_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-c2-63": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-c2-64": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-c2-65": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-c2-66": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-c2-67": [
+          "any_places",
+          "question_usage",
+          "general_overview"
+        ],
+        "poly-places-c2-68": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-c2-69": [
+          "some_places",
+          "general_overview"
+        ],
+        "poly-places-c2-70": [
+          "every_places",
+          "general_overview"
+        ],
+        "poly-places-c2-71": [
+          "any_places",
+          "negative_usage",
+          "general_overview"
+        ],
+        "poly-places-c2-72": [
+          "no_places",
+          "negative_usage",
+          "general_overview"
+        ]
+      },
+      "linking_note": "Explicit Polyglot / Sentence Builder links. Do not infer these listed UUIDs in PHP."
+    },
+    {
+      "kind": "virtual_mixed_test",
+      "saved_test_slug_pattern": "theory-page-{page_id}-mixed-a1-c2",
+      "expected_page_route": "/theory/some-any/theory-some-any-places",
+      "expected_seeder_classes": [
+        "Database\\Seeders\\V3\\SomeAnyPlacesAllLevelsV3Seeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyPlacesAllLevelsLessonSeeder"
+      ],
+      "strategy": "map_questions_by_seeder_tag_keys_marker_answers_options_and_question_text",
+      "tag_key_to_bundle": {},
+      "answer_value_to_bundle_fallback": {
+        "somewhere": "some_places",
+        "anywhere": "any_places",
+        "nowhere": "no_places",
+        "everywhere": "every_places"
+      },
+      "question_text_to_bundle_fallback": {
+        "do_you": "question_usage",
+        "did": "question_usage",
+        "does": "question_usage",
+        "are_there": "question_usage",
+        "is_there": "question_usage",
+        "have_you": "question_usage",
+        "has": "question_usage",
+        "can_we": "question_usage",
+        "could_we": "question_usage",
+        "should": "question_usage",
+        "do_not": "negative_usage",
+        "does_not": "negative_usage",
+        "did_not": "negative_usage",
+        "could_not": "negative_usage",
+        "would_not": "negative_usage",
+        "will_not": "negative_usage",
+        "cannot": "negative_usage",
+        "not": "negative_usage",
+        "hardly": "negative_usage",
+        "barely": "negative_usage",
+        "scarcely": "negative_usage",
+        "seldom": "negative_usage",
+        "rarely": "negative_usage",
+        "refuse": "negative_usage"
+      },
+      "default_bundle": "general_overview",
+      "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\SomeAnyPlacesAllLevelsV3Seeder"
+      ],
+      "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyPlacesAllLevelsLessonSeeder"
+      ],
+      "expected_all_seeders": [
+        "Database\\Seeders\\V3\\SomeAnyPlacesAllLevelsV3Seeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyPlacesAllLevelsLessonSeeder"
+      ],
+      "polyglot_strategy": "Use explicit question_links for Polyglot/Sentence Builder UUIDs first; use fallback only for future unlisted questions."
+    }
+  ],
+  "seeder_requirements": {
+    "new_seeder_class": "Database\\Seeders\\V3\\TheoryLinks\\SomeAnyPlacesTheoryLinksSeeder",
+    "suggested_php_path": "database/seeders/V3/TheoryLinks/SomeAnyPlacesTheoryLinksSeeder.php",
+    "suggested_json_path": "database/seeders/V3/TheoryLinks/data/some-any-places-theory-links.json",
+    "idempotent": true,
+    "must_resolve_text_blocks_by": [
+      "seeder_class",
+      "sort_order"
+    ],
+    "must_resolve_questions_by": [
+      "uuid",
+      "seeder_class"
+    ],
+    "must_not_modify": [
+      "source question seeders",
+      "theory page seeders",
+      "saved_grammar_tests definitions",
+      "question_marker_tag"
+    ],
+    "must_update": [
+      "question_theory_text_blocks pivot",
+      "questions.theory_text_block_uuid legacy first-block field"
+    ]
+  },
+  "qa": {
+    "commands": [
+      "php artisan test tests/Feature/SomeAnyTheoryLinksSeedersTest.php",
+      "php artisan test tests/Feature/SomeAnySectionMixedCardsTest.php",
+      "php artisan theory-pages:audit-tests-unification"
+    ],
+    "manual_checks": [
+      "Open /theory/some-any/theory-some-any-places and confirm Sentence Builder and Mixed A1-C2 cards are present.",
+      "Open the direct Sentence Builder test and verify Show theory appears for questions.",
+      "Open the Mixed A1-C2 virtual test and verify Show theory appears for V3 and Polyglot questions."
+    ],
+    "must_cover_polyglot_sentence_builder": true,
+    "polyglot_direct_test_slug": "polyglot-some-any-places-all-levels",
+    "polyglot_seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyPlacesAllLevelsLessonSeeder",
+    "expected_all_seeders": [
+      "Database\\Seeders\\V3\\SomeAnyPlacesAllLevelsV3Seeder",
+      "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyPlacesAllLevelsLessonSeeder"
+    ]
+  },
+  "expected_standard_seeders": [
+    "Database\\Seeders\\V3\\SomeAnyPlacesAllLevelsV3Seeder"
+  ],
+  "expected_polyglot_seeders": [
+    "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyPlacesAllLevelsLessonSeeder"
+  ],
+  "expected_all_seeders": [
+    "Database\\Seeders\\V3\\SomeAnyPlacesAllLevelsV3Seeder",
+    "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyPlacesAllLevelsLessonSeeder"
+  ],
+  "implementation_contract": {
+    "manifest_role": "This JSON is the source of truth for links. Do not let PHP re-decide mappings for listed Polyglot question UUIDs.",
+    "standard_v3_strategy": "Use tag_key_to_bundle, answer_value_to_bundle_fallback, option values, and question_text_to_bundle_fallback from the virtual mixed test section.",
+    "polyglot_strategy": "Use explicit question_links first. If a future Polyglot UUID is not listed, use fallback and report it in seeder output.",
+    "write_targets": [
+      "question_theory_text_blocks",
+      "questions.theory_text_block_uuid"
+    ],
+    "do_not_modify": [
+      "questions.question",
+      "question_answers",
+      "question_options",
+      "saved_grammar_tests",
+      "text_blocks",
+      "pages"
+    ]
+  }
+}
