@@ -1,0 +1,508 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Past Continuous: Time Expressions theory text blocks and page-local tests so the public test UI can render Show theory.",
+    "page": {
+        "route": "/theory/tenses/past-continuous/past-continuous-time-expressions",
+        "category_slug": "tenses/past-continuous",
+        "slug": "past-continuous-time-expressions",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsTheorySeeder",
+        "title": "Past Continuous: Time Expressions"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent: it deletes existing links only for each covered question_uuid before inserting the resolved ordered block list."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsTheorySeeder",
+            "sort_order": 1,
+            "title": "Hero / overview"
+        },
+        "exact_past_time": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsTheorySeeder",
+            "sort_order": 2,
+            "title": "at 7 o'clock yesterday"
+        },
+        "at_that_moment": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsTheorySeeder",
+            "sort_order": 2,
+            "title": "at that moment"
+        },
+        "while_clause": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsTheorySeeder",
+            "sort_order": 3,
+            "title": "while clause"
+        },
+        "when_clause": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsTheorySeeder",
+            "sort_order": 3,
+            "title": "when clause"
+        },
+        "duration_expression": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsTheorySeeder",
+            "sort_order": 3,
+            "title": "all evening / all morning"
+        },
+        "time_range": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsTheorySeeder",
+            "sort_order": 3,
+            "title": "from 5 to 6"
+        },
+        "past_simple_contrast": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsTheorySeeder",
+            "sort_order": 4,
+            "title": "Past Continuous vs Past Simple signal words"
+        },
+        "typical_mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsTheorySeeder",
+            "sort_order": 5,
+            "title": "Typical mistakes"
+        },
+        "summary": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsTheorySeeder",
+            "sort_order": 6,
+            "title": "Summary"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "summary"
+        ],
+        "exact_past_time": [
+            "exact_past_time",
+            "summary"
+        ],
+        "at_that_moment": [
+            "at_that_moment",
+            "summary"
+        ],
+        "while_clause": [
+            "while_clause",
+            "summary"
+        ],
+        "when_clause": [
+            "when_clause",
+            "summary"
+        ],
+        "duration_expression": [
+            "duration_expression",
+            "summary"
+        ],
+        "time_range": [
+            "time_range",
+            "summary"
+        ],
+        "past_simple_contrast": [
+            "past_simple_contrast",
+            "summary"
+        ],
+        "typical_mistakes": [
+            "typical_mistakes",
+            "summary"
+        ]
+    },
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-past-continuous-time-expressions-all-levels",
+            "saved_test_name": "Sentence Builder: Past Continuous: Time Expressions (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotPastContinuousTimeExpressionsAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "past-continuous-time-expressions-poly-a1-01": [
+                    "exact_past_time",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a1-02": [
+                    "exact_past_time",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a1-03": [
+                    "at_that_moment",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a1-04": [
+                    "at_that_moment",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a1-05": [
+                    "while_clause",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a1-06": [
+                    "when_clause",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a1-07": [
+                    "duration_expression",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a1-08": [
+                    "duration_expression",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a1-09": [
+                    "time_range",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a1-10": [
+                    "past_simple_contrast",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a1-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a1-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a2-01": [
+                    "exact_past_time",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a2-02": [
+                    "exact_past_time",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a2-03": [
+                    "at_that_moment",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a2-04": [
+                    "at_that_moment",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a2-05": [
+                    "while_clause",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a2-06": [
+                    "when_clause",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a2-07": [
+                    "duration_expression",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a2-08": [
+                    "duration_expression",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a2-09": [
+                    "time_range",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a2-10": [
+                    "past_simple_contrast",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a2-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-a2-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b1-01": [
+                    "exact_past_time",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b1-02": [
+                    "exact_past_time",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b1-03": [
+                    "at_that_moment",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b1-04": [
+                    "at_that_moment",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b1-05": [
+                    "while_clause",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b1-06": [
+                    "when_clause",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b1-07": [
+                    "duration_expression",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b1-08": [
+                    "duration_expression",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b1-09": [
+                    "time_range",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b1-10": [
+                    "past_simple_contrast",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b1-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b1-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b2-01": [
+                    "exact_past_time",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b2-02": [
+                    "exact_past_time",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b2-03": [
+                    "at_that_moment",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b2-04": [
+                    "at_that_moment",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b2-05": [
+                    "while_clause",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b2-06": [
+                    "when_clause",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b2-07": [
+                    "duration_expression",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b2-08": [
+                    "duration_expression",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b2-09": [
+                    "time_range",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b2-10": [
+                    "past_simple_contrast",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b2-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-b2-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c1-01": [
+                    "exact_past_time",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c1-02": [
+                    "exact_past_time",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c1-03": [
+                    "at_that_moment",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c1-04": [
+                    "at_that_moment",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c1-05": [
+                    "while_clause",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c1-06": [
+                    "when_clause",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c1-07": [
+                    "duration_expression",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c1-08": [
+                    "duration_expression",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c1-09": [
+                    "time_range",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c1-10": [
+                    "past_simple_contrast",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c1-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c1-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c2-01": [
+                    "exact_past_time",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c2-02": [
+                    "exact_past_time",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c2-03": [
+                    "at_that_moment",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c2-04": [
+                    "at_that_moment",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c2-05": [
+                    "while_clause",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c2-06": [
+                    "when_clause",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c2-07": [
+                    "duration_expression",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c2-08": [
+                    "duration_expression",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c2-09": [
+                    "time_range",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c2-10": [
+                    "past_simple_contrast",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c2-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "past-continuous-time-expressions-poly-c2-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ]
+            }
+        },
+        {
+            "kind": "virtual_mixed_test",
+            "saved_test_slug_pattern": "theory-page-{page_id}-mixed-a1-c2",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsAllLevelsV3Seeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastContinuousTimeExpressionsAllLevelsLessonSeeder"
+            ],
+            "strategy": "mapped_question_fallback",
+            "tag_key_to_bundle": {
+                "Exact Past Time": "exact_past_time",
+                "At That Moment": "at_that_moment",
+                "While Clause": "while_clause",
+                "When Clause": "when_clause",
+                "Duration Expression": "duration_expression",
+                "Time Range": "time_range",
+                "Past Simple Contrast": "past_simple_contrast",
+                "Typical Mistakes": "typical_mistakes",
+                "past continuous in progress": "general_overview",
+                "affirmative": "general_overview",
+                "negative": "typical_mistakes",
+                "question": "general_overview",
+                "wh question": "general_overview"
+            },
+            "answer_value_to_bundle_fallback": {
+                "exact past time": "exact_past_time",
+                "at that moment": "at_that_moment",
+                "while clause": "while_clause",
+                "when clause": "when_clause",
+                "duration expression": "duration_expression",
+                "time range": "time_range",
+                "past simple contrast": "past_simple_contrast",
+                "typical mistakes": "typical_mistakes",
+                "was reading": "general_overview",
+                "were waiting": "general_overview",
+                "wasn't working": "typical_mistakes",
+                "weren't working": "typical_mistakes",
+                "while": "while_clause",
+                "when": "when_clause",
+                "at seven yesterday": "exact_past_time"
+            },
+            "question_text_to_bundle_fallback": {
+                "exact past time": "exact_past_time",
+                "at that moment": "at_that_moment",
+                "while clause": "while_clause",
+                "when clause": "when_clause",
+                "duration expression": "duration_expression",
+                "time range": "time_range",
+                "past simple contrast": "past_simple_contrast",
+                "typical mistakes": "typical_mistakes",
+                "was were": "general_overview",
+                "wasn": "typical_mistakes",
+                "weren": "typical_mistakes",
+                "what": "general_overview",
+                "where": "general_overview",
+                "while": "while_clause",
+                "when": "when_clause"
+            },
+            "default_bundle": "general_overview",
+            "expected_standard_seeders": [
+                "Database\\Seeders\\V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsAllLevelsV3Seeder"
+            ],
+            "expected_polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastContinuousTimeExpressionsAllLevelsLessonSeeder"
+            ],
+            "source_saved_test_slug": "past-continuous-time-expressions-all-levels-v3"
+        }
+    ],
+    "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsAllLevelsV3Seeder"
+    ],
+    "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastContinuousTimeExpressionsAllLevelsLessonSeeder"
+    ],
+    "seeder_requirements": {
+        "page_seeders_must_run_first": [
+            "Database\\Seeders\\Page_V3\\Tenses\\TensesCategorySeeder",
+            "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousCategorySeeder",
+            "Database\\Seeders\\Page_V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsTheorySeeder"
+        ],
+        "question_seeders_must_run_first": [
+            "Database\\Seeders\\V3\\Tenses\\PastContinuous\\PastContinuousTimeExpressionsAllLevelsV3Seeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotPastContinuousTimeExpressionsAllLevelsLessonSeeder"
+        ],
+        "json_is_source_of_truth": true,
+        "php_seeder_should_only_load_this_manifest": true,
+        "do_not_use_question_marker_tag": true
+    },
+    "qa": {
+        "expected_routes_without_missing_theory_links": [
+            "/theory/tenses/past-continuous/past-continuous-time-expressions"
+        ],
+        "direct_polyglot_saved_test_slug": "polyglot-past-continuous-time-expressions-all-levels",
+        "mixed_saved_test_slug_pattern": "theory-page-{page_id}-mixed-a1-c2",
+        "expected_questions_per_new_seeder": 72,
+        "expected_questions_per_level": 12
+    }
+}
