@@ -1,0 +1,621 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Present Simple Questions theory text blocks and page-local tests so the public test UI can render Show theory.",
+    "page": {
+        "route": "/theory/tenses/present-simple/present-simple-questions",
+        "category_slug": "tenses/present-simple",
+        "slug": "present-simple-questions",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsTheorySeeder",
+        "title": "Present Simple: Questions and Short Answers"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent: it deletes existing links only for each covered question_uuid before inserting the resolved ordered block list."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsTheorySeeder",
+            "sort_order": 1,
+            "title": "Hero / question overview"
+        },
+        "question_order": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsTheorySeeder",
+            "sort_order": 1,
+            "title": "Do / Does before subject"
+        },
+        "do_questions": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsTheorySeeder",
+            "sort_order": 2,
+            "title": "Do + I / you / we / they"
+        },
+        "does_questions": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsTheorySeeder",
+            "sort_order": 2,
+            "title": "Does + he / she / it"
+        },
+        "yes_no_questions": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsTheorySeeder",
+            "sort_order": 2,
+            "title": "Yes / no question models"
+        },
+        "wh_questions": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsTheorySeeder",
+            "sort_order": 1,
+            "title": "Wh-question order with do / does"
+        },
+        "short_answers": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsTheorySeeder",
+            "sort_order": 3,
+            "title": "Short answers usage"
+        },
+        "base_after_does": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsTheorySeeder",
+            "sort_order": 5,
+            "title": "No -s after does"
+        },
+        "typical_mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsTheorySeeder",
+            "sort_order": 5,
+            "title": "Typical mistakes"
+        },
+        "summary": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsTheorySeeder",
+            "sort_order": 6,
+            "title": "Summary"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "summary"
+        ],
+        "do_questions": [
+            "do_questions",
+            "question_order",
+            "summary"
+        ],
+        "does_questions": [
+            "does_questions",
+            "question_order",
+            "summary"
+        ],
+        "yes_no_questions": [
+            "yes_no_questions",
+            "question_order",
+            "summary"
+        ],
+        "wh_questions": [
+            "wh_questions",
+            "question_order",
+            "summary"
+        ],
+        "short_answers": [
+            "short_answers",
+            "summary"
+        ],
+        "base_after_does": [
+            "base_after_does",
+            "typical_mistakes",
+            "summary"
+        ],
+        "question_order": [
+            "question_order",
+            "do_questions",
+            "does_questions",
+            "summary"
+        ],
+        "typical_mistakes": [
+            "typical_mistakes",
+            "base_after_does",
+            "summary"
+        ]
+    },
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-present-simple-questions-all-levels",
+            "saved_test_name": "Sentence Builder: Present Simple Questions (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentSimpleQuestionsAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "ps-q-poly-a1-01": [
+                    "do_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a1-02": [
+                    "do_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a1-03": [
+                    "do_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a1-04": [
+                    "does_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a1-05": [
+                    "does_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a1-06": [
+                    "does_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a1-07": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a1-08": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a1-09": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-a1-10": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-a1-11": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-a1-12": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-a2-01": [
+                    "do_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a2-02": [
+                    "do_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a2-03": [
+                    "does_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a2-04": [
+                    "does_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a2-05": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a2-06": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-a2-07": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-a2-08": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-a2-09": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-a2-10": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-a2-11": [
+                    "question_order",
+                    "general_overview"
+                ],
+                "ps-q-poly-a2-12": [
+                    "question_order",
+                    "general_overview"
+                ],
+                "ps-q-poly-b1-01": [
+                    "does_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-b1-02": [
+                    "do_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-b1-03": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-b1-04": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-b1-05": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-b1-06": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-b1-07": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-b1-08": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-b1-09": [
+                    "question_order",
+                    "general_overview"
+                ],
+                "ps-q-poly-b1-10": [
+                    "question_order",
+                    "general_overview"
+                ],
+                "ps-q-poly-b1-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ps-q-poly-b1-12": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-b2-01": [
+                    "does_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-b2-02": [
+                    "do_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-b2-03": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-b2-04": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-b2-05": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-b2-06": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-b2-07": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-b2-08": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-b2-09": [
+                    "question_order",
+                    "general_overview"
+                ],
+                "ps-q-poly-b2-10": [
+                    "question_order",
+                    "general_overview"
+                ],
+                "ps-q-poly-b2-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ps-q-poly-b2-12": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-c1-01": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-c1-02": [
+                    "do_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-c1-03": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-c1-04": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-c1-05": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-c1-06": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-c1-07": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-c1-08": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-c1-09": [
+                    "question_order",
+                    "general_overview"
+                ],
+                "ps-q-poly-c1-10": [
+                    "question_order",
+                    "general_overview"
+                ],
+                "ps-q-poly-c1-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ps-q-poly-c1-12": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-c2-01": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-c2-02": [
+                    "do_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-c2-03": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-c2-04": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "ps-q-poly-c2-05": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-c2-06": [
+                    "short_answers",
+                    "general_overview"
+                ],
+                "ps-q-poly-c2-07": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-c2-08": [
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "ps-q-poly-c2-09": [
+                    "question_order",
+                    "general_overview"
+                ],
+                "ps-q-poly-c2-10": [
+                    "question_order",
+                    "general_overview"
+                ],
+                "ps-q-poly-c2-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ps-q-poly-c2-12": [
+                    "short_answers",
+                    "general_overview"
+                ]
+            }
+        },
+        {
+            "kind": "legacy_polyglot_coverage",
+            "saved_test_slug": "polyglot-present-simple-verbs-a1",
+            "saved_test_name": "Sentence Builder: Present Simple Verbs (A1)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentSimpleVerbsLessonSeeder",
+            "direct_page_package": false,
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "polyglot-present-simple-verbs-q01": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q02": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q03": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q04": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q05": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q06": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q07": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q08": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q09": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q10": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q11": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q12": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q13": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q14": [
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q15": [
+                    "yes_no_questions",
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q16": [
+                    "yes_no_questions",
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q17": [
+                    "yes_no_questions",
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q18": [
+                    "yes_no_questions",
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q19": [
+                    "yes_no_questions",
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q20": [
+                    "yes_no_questions",
+                    "base_after_does",
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q21": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q22": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q23": [
+                    "wh_questions",
+                    "general_overview"
+                ],
+                "polyglot-present-simple-verbs-q24": [
+                    "wh_questions",
+                    "general_overview"
+                ]
+            }
+        },
+        {
+            "kind": "virtual_mixed_test",
+            "saved_test_slug_pattern": "theory-page-{page_id}-mixed-a1-c2",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsAllLevelsV3Seeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentSimpleQuestionsAllLevelsLessonSeeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentSimpleVerbsLessonSeeder"
+            ],
+            "strategy": "mapped_question_fallback",
+            "tag_key_to_bundle": {
+                "Do Questions": "do_questions",
+                "Does Questions": "does_questions",
+                "Wh Questions": "wh_questions",
+                "Short Answers": "short_answers",
+                "Base Verb After Does": "base_after_does",
+                "Question Word Order": "question_order",
+                "Typical Mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {
+                "Do": "do_questions",
+                "Does": "does_questions",
+                "Where do": "wh_questions",
+                "What does": "wh_questions",
+                "When do": "wh_questions",
+                "Why does": "wh_questions",
+                "do": "short_answers",
+                "does": "short_answers",
+                "does not": "short_answers",
+                "go": "base_after_does",
+                "watch": "base_after_does",
+                "send": "base_after_does",
+                "try": "base_after_does",
+                "Does he works": "typical_mistakes",
+                "Does the app sends": "typical_mistakes"
+            },
+            "question_text_to_bundle_fallback": {
+                "do you": "do_questions",
+                "do they": "do_questions",
+                "does he": "does_questions",
+                "does she": "does_questions",
+                "where": "wh_questions",
+                "what": "wh_questions",
+                "why": "wh_questions",
+                "how": "wh_questions",
+                "yes": "short_answers",
+                "no": "short_answers",
+                "works": "typical_mistakes",
+                "sends": "typical_mistakes"
+            },
+            "default_bundle": "general_overview",
+            "expected_standard_seeders": [
+                "Database\\Seeders\\V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsAllLevelsV3Seeder"
+            ],
+            "expected_polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentSimpleQuestionsAllLevelsLessonSeeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentSimpleVerbsLessonSeeder"
+            ],
+            "source_saved_test_slug": "present-simple-questions-all-levels-v3"
+        }
+    ],
+    "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsAllLevelsV3Seeder"
+    ],
+    "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentSimpleQuestionsAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentSimpleVerbsLessonSeeder"
+    ],
+    "seeder_requirements": {
+        "page_seeders_must_run_first": [
+            "Database\\Seeders\\Page_V3\\Tenses\\TensesCategorySeeder",
+            "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleCategorySeeder",
+            "Database\\Seeders\\Page_V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsTheorySeeder"
+        ],
+        "question_seeders_must_run_first": [
+            "Database\\Seeders\\V3\\Tenses\\PresentSimple\\PresentSimpleQuestionsAllLevelsV3Seeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentSimpleQuestionsAllLevelsLessonSeeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentSimpleVerbsLessonSeeder"
+        ],
+        "json_is_source_of_truth": true,
+        "php_seeder_should_only_load_this_manifest": true,
+        "do_not_use_question_marker_tag": true
+    },
+    "qa": {
+        "expected_routes_without_missing_theory_links": [
+            "/theory/tenses/present-simple/present-simple-questions"
+        ],
+        "direct_polyglot_saved_test_slug": "polyglot-present-simple-questions-all-levels",
+        "mixed_saved_test_slug_pattern": "theory-page-{page_id}-mixed-a1-c2",
+        "standard_v3_strategy": "Use tag_key_to_bundle, answer_value_to_bundle_fallback, option values, question_text_to_bundle_fallback, then default_bundle.",
+        "polyglot_strategy": "Use explicit question_links first. If future Polyglot UUIDs are absent, fallback links them and prints a warning.",
+        "write_targets": [
+            "question_theory_text_blocks",
+            "questions.theory_text_block_uuid"
+        ],
+        "do_not_modify": [
+            "questions.question",
+            "question_answers",
+            "question_options",
+            "saved_grammar_tests",
+            "text_blocks",
+            "pages"
+        ]
+    }
+}
