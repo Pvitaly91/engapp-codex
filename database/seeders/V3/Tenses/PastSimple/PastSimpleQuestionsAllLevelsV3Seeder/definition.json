@@ -1,0 +1,2043 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleQuestionsAllLevelsV3Seeder",
+        "uuid_namespace": "PastSimpleQuestionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Tenses / Past Simple"
+    },
+    "sources": {
+        "theory_page_past_simple_questions": {
+            "name": "Past Simple: Questions and Short Answers"
+        }
+    },
+    "tags": {
+        "past_simple": {
+            "name": "Past Simple",
+            "category": "tense"
+        },
+        "did_questions": {
+            "name": "Did Questions",
+            "category": "topic"
+        },
+        "wh_questions": {
+            "name": "Wh Questions",
+            "category": "topic"
+        },
+        "be_questions": {
+            "name": "Be Questions",
+            "category": "topic"
+        },
+        "short_answers": {
+            "name": "Short Answers",
+            "category": "topic"
+        },
+        "base_after_did": {
+            "name": "Base After Did",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "past_simple"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "past-simple-questions-v3-a1-01",
+            "question": "{a1} you visit your friend yesterday",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Does",
+                        "Was"
+                    ],
+                    "verb_hint": "Start Past Simple yes/no questions with Did.",
+                    "gap_tags": [
+                        "did_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "did_questions"
+            ],
+            "variants": [
+                "{a1} you visit your friend yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 2,
+            "uuid": "past-simple-questions-v3-a1-02",
+            "question": "Where did she {a1} last night",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "go",
+                    "options": [
+                        "go",
+                        "went",
+                        "goes"
+                    ],
+                    "verb_hint": "Use base verb after did in wh-questions.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Where did she {a1} last night"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 3,
+            "uuid": "past-simple-questions-v3-a1-03",
+            "question": "What did they {a1} yesterday",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "buy",
+                    "options": [
+                        "buy",
+                        "bought",
+                        "buys"
+                    ],
+                    "verb_hint": "Use wh-word + did + subject + base verb.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "What did they {a1} yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 4,
+            "uuid": "past-simple-questions-v3-a1-04",
+            "question": "{a1} she at home yesterday",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Did"
+                    ],
+                    "verb_hint": "Use was before a singular subject in past be questions.",
+                    "gap_tags": [
+                        "be_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_questions"
+            ],
+            "variants": [
+                "{a1} she at home yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 5,
+            "uuid": "past-simple-questions-v3-a1-05",
+            "question": "{a1} they at school last Monday",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Was",
+                        "Did"
+                    ],
+                    "verb_hint": "Use were before plural subjects in past be questions.",
+                    "gap_tags": [
+                        "be_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_questions"
+            ],
+            "variants": [
+                "{a1} they at school last Monday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 6,
+            "uuid": "past-simple-questions-v3-a1-06",
+            "question": "Did he {a1} the film",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "see",
+                    "options": [
+                        "see",
+                        "saw",
+                        "sees"
+                    ],
+                    "verb_hint": "Use the base verb after did.",
+                    "gap_tags": [
+                        "base_after_did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_after_did"
+            ],
+            "variants": [
+                "Did he {a1} the film"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 7,
+            "uuid": "past-simple-questions-v3-a1-07",
+            "question": "Why did you {a1} early",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "leave",
+                    "options": [
+                        "leave",
+                        "left",
+                        "leaves"
+                    ],
+                    "verb_hint": "Use base verb after did.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Why did you {a1} early"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 8,
+            "uuid": "past-simple-questions-v3-a1-08",
+            "question": "Did she call you? Yes, she {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was"
+                    ],
+                    "verb_hint": "Use did in short answers to Did questions.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Did she call you? Yes, she {a1}"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 9,
+            "uuid": "past-simple-questions-v3-a1-09",
+            "question": "Did they finish? No, they {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "didn't",
+                    "options": [
+                        "didn't",
+                        "weren't",
+                        "don't"
+                    ],
+                    "verb_hint": "Use didn't in negative short answers.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Did they finish? No, they {a1}"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 10,
+            "uuid": "past-simple-questions-v3-a1-10",
+            "question": "When did we {a1} in Kyiv",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "meet",
+                    "options": [
+                        "meet",
+                        "met",
+                        "meets"
+                    ],
+                    "verb_hint": "Use base verb after did.",
+                    "gap_tags": [
+                        "base_after_did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_after_did"
+            ],
+            "variants": [
+                "When did we {a1} in Kyiv"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 11,
+            "uuid": "past-simple-questions-v3-a1-11",
+            "question": "What {a1} you do yesterday",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "were"
+                    ],
+                    "verb_hint": "Question word order is wh-word + did + subject + verb.",
+                    "gap_tags": [
+                        "did_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "did_questions"
+            ],
+            "variants": [
+                "What {a1} you do yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 12,
+            "uuid": "past-simple-questions-v3-a1-12",
+            "question": "Did he {a1} dinner last night",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "make",
+                    "options": [
+                        "make",
+                        "made",
+                        "makes"
+                    ],
+                    "verb_hint": "Avoid Did he made.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Did he {a1} dinner last night"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 13,
+            "uuid": "past-simple-questions-v3-a2-01",
+            "question": "{a1} you visit your friend yesterday",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Does",
+                        "Was"
+                    ],
+                    "verb_hint": "Start Past Simple yes/no questions with Did.",
+                    "gap_tags": [
+                        "did_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "did_questions"
+            ],
+            "variants": [
+                "{a1} you visit your friend yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 14,
+            "uuid": "past-simple-questions-v3-a2-02",
+            "question": "Where did he {a1} last night",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "go",
+                    "options": [
+                        "go",
+                        "went",
+                        "goes"
+                    ],
+                    "verb_hint": "Use base verb after did in wh-questions.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Where did he {a1} last night"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 15,
+            "uuid": "past-simple-questions-v3-a2-03",
+            "question": "What did we {a1} yesterday",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "buy",
+                    "options": [
+                        "buy",
+                        "bought",
+                        "buys"
+                    ],
+                    "verb_hint": "Use wh-word + did + subject + base verb.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "What did we {a1} yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 16,
+            "uuid": "past-simple-questions-v3-a2-04",
+            "question": "{a1} he at home yesterday",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Did"
+                    ],
+                    "verb_hint": "Use was before a singular subject in past be questions.",
+                    "gap_tags": [
+                        "be_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_questions"
+            ],
+            "variants": [
+                "{a1} he at home yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 17,
+            "uuid": "past-simple-questions-v3-a2-05",
+            "question": "{a1} they at school last Monday",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Was",
+                        "Did"
+                    ],
+                    "verb_hint": "Use were before plural subjects in past be questions.",
+                    "gap_tags": [
+                        "be_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_questions"
+            ],
+            "variants": [
+                "{a1} they at school last Monday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 18,
+            "uuid": "past-simple-questions-v3-a2-06",
+            "question": "Did he {a1} the film",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "see",
+                    "options": [
+                        "see",
+                        "saw",
+                        "sees"
+                    ],
+                    "verb_hint": "Use the base verb after did.",
+                    "gap_tags": [
+                        "base_after_did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_after_did"
+            ],
+            "variants": [
+                "Did he {a1} the film"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 19,
+            "uuid": "past-simple-questions-v3-a2-07",
+            "question": "Why did you {a1} early",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "leave",
+                    "options": [
+                        "leave",
+                        "left",
+                        "leaves"
+                    ],
+                    "verb_hint": "Use base verb after did.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Why did you {a1} early"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 20,
+            "uuid": "past-simple-questions-v3-a2-08",
+            "question": "Did she call you? Yes, she {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was"
+                    ],
+                    "verb_hint": "Use did in short answers to Did questions.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Did she call you? Yes, she {a1}"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 21,
+            "uuid": "past-simple-questions-v3-a2-09",
+            "question": "Did they finish? No, they {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "didn't",
+                    "options": [
+                        "didn't",
+                        "weren't",
+                        "don't"
+                    ],
+                    "verb_hint": "Use didn't in negative short answers.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Did they finish? No, they {a1}"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 22,
+            "uuid": "past-simple-questions-v3-a2-10",
+            "question": "When did we {a1} in Kyiv",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "meet",
+                    "options": [
+                        "meet",
+                        "met",
+                        "meets"
+                    ],
+                    "verb_hint": "Use base verb after did.",
+                    "gap_tags": [
+                        "base_after_did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_after_did"
+            ],
+            "variants": [
+                "When did we {a1} in Kyiv"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 23,
+            "uuid": "past-simple-questions-v3-a2-11",
+            "question": "What {a1} you do yesterday",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "were"
+                    ],
+                    "verb_hint": "Question word order is wh-word + did + subject + verb.",
+                    "gap_tags": [
+                        "did_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "did_questions"
+            ],
+            "variants": [
+                "What {a1} you do yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 24,
+            "uuid": "past-simple-questions-v3-a2-12",
+            "question": "Did he {a1} dinner last night",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "make",
+                    "options": [
+                        "make",
+                        "made",
+                        "makes"
+                    ],
+                    "verb_hint": "Avoid Did he made.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Did he {a1} dinner last night"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 25,
+            "uuid": "past-simple-questions-v3-b1-01",
+            "question": "{a1} you visit your friend yesterday",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Does",
+                        "Was"
+                    ],
+                    "verb_hint": "Start Past Simple yes/no questions with Did.",
+                    "gap_tags": [
+                        "did_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "did_questions"
+            ],
+            "variants": [
+                "{a1} you visit your friend yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 26,
+            "uuid": "past-simple-questions-v3-b1-02",
+            "question": "Where did the manager {a1} last night",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "go",
+                    "options": [
+                        "go",
+                        "went",
+                        "goes"
+                    ],
+                    "verb_hint": "Use base verb after did in wh-questions.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Where did the manager {a1} last night"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 27,
+            "uuid": "past-simple-questions-v3-b1-03",
+            "question": "What did our friends {a1} yesterday",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "buy",
+                    "options": [
+                        "buy",
+                        "bought",
+                        "buys"
+                    ],
+                    "verb_hint": "Use wh-word + did + subject + base verb.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "What did our friends {a1} yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 28,
+            "uuid": "past-simple-questions-v3-b1-04",
+            "question": "{a1} the manager at home yesterday",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Did"
+                    ],
+                    "verb_hint": "Use was before a singular subject in past be questions.",
+                    "gap_tags": [
+                        "be_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_questions"
+            ],
+            "variants": [
+                "{a1} the manager at home yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 29,
+            "uuid": "past-simple-questions-v3-b1-05",
+            "question": "{a1} they at school last Monday",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Was",
+                        "Did"
+                    ],
+                    "verb_hint": "Use were before plural subjects in past be questions.",
+                    "gap_tags": [
+                        "be_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_questions"
+            ],
+            "variants": [
+                "{a1} they at school last Monday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 30,
+            "uuid": "past-simple-questions-v3-b1-06",
+            "question": "Did he {a1} the film",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "see",
+                    "options": [
+                        "see",
+                        "saw",
+                        "sees"
+                    ],
+                    "verb_hint": "Use the base verb after did.",
+                    "gap_tags": [
+                        "base_after_did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_after_did"
+            ],
+            "variants": [
+                "Did he {a1} the film"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 31,
+            "uuid": "past-simple-questions-v3-b1-07",
+            "question": "Why did you {a1} early",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "leave",
+                    "options": [
+                        "leave",
+                        "left",
+                        "leaves"
+                    ],
+                    "verb_hint": "Use base verb after did.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Why did you {a1} early"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 32,
+            "uuid": "past-simple-questions-v3-b1-08",
+            "question": "Did she call you? Yes, she {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was"
+                    ],
+                    "verb_hint": "Use did in short answers to Did questions.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Did she call you? Yes, she {a1}"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 33,
+            "uuid": "past-simple-questions-v3-b1-09",
+            "question": "Did they finish? No, they {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "didn't",
+                    "options": [
+                        "didn't",
+                        "weren't",
+                        "don't"
+                    ],
+                    "verb_hint": "Use didn't in negative short answers.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Did they finish? No, they {a1}"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 34,
+            "uuid": "past-simple-questions-v3-b1-10",
+            "question": "When did we {a1} in Kyiv",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "meet",
+                    "options": [
+                        "meet",
+                        "met",
+                        "meets"
+                    ],
+                    "verb_hint": "Use base verb after did.",
+                    "gap_tags": [
+                        "base_after_did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_after_did"
+            ],
+            "variants": [
+                "When did we {a1} in Kyiv"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 35,
+            "uuid": "past-simple-questions-v3-b1-11",
+            "question": "What {a1} you do yesterday",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "were"
+                    ],
+                    "verb_hint": "Question word order is wh-word + did + subject + verb.",
+                    "gap_tags": [
+                        "did_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "did_questions"
+            ],
+            "variants": [
+                "What {a1} you do yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 36,
+            "uuid": "past-simple-questions-v3-b1-12",
+            "question": "Did he {a1} dinner last night",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "make",
+                    "options": [
+                        "make",
+                        "made",
+                        "makes"
+                    ],
+                    "verb_hint": "Avoid Did he made.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Did he {a1} dinner last night"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 37,
+            "uuid": "past-simple-questions-v3-b2-01",
+            "question": "{a1} you visit your friend yesterday",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Does",
+                        "Was"
+                    ],
+                    "verb_hint": "Start Past Simple yes/no questions with Did.",
+                    "gap_tags": [
+                        "did_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "did_questions"
+            ],
+            "variants": [
+                "{a1} you visit your friend yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 38,
+            "uuid": "past-simple-questions-v3-b2-02",
+            "question": "Where did the client {a1} last night",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "go",
+                    "options": [
+                        "go",
+                        "went",
+                        "goes"
+                    ],
+                    "verb_hint": "Use base verb after did in wh-questions.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Where did the client {a1} last night"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 39,
+            "uuid": "past-simple-questions-v3-b2-03",
+            "question": "What did the students {a1} yesterday",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "buy",
+                    "options": [
+                        "buy",
+                        "bought",
+                        "buys"
+                    ],
+                    "verb_hint": "Use wh-word + did + subject + base verb.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "What did the students {a1} yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 40,
+            "uuid": "past-simple-questions-v3-b2-04",
+            "question": "{a1} the client at home yesterday",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Did"
+                    ],
+                    "verb_hint": "Use was before a singular subject in past be questions.",
+                    "gap_tags": [
+                        "be_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_questions"
+            ],
+            "variants": [
+                "{a1} the client at home yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 41,
+            "uuid": "past-simple-questions-v3-b2-05",
+            "question": "{a1} they at school last Monday",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Was",
+                        "Did"
+                    ],
+                    "verb_hint": "Use were before plural subjects in past be questions.",
+                    "gap_tags": [
+                        "be_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_questions"
+            ],
+            "variants": [
+                "{a1} they at school last Monday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 42,
+            "uuid": "past-simple-questions-v3-b2-06",
+            "question": "Did he {a1} the film",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "see",
+                    "options": [
+                        "see",
+                        "saw",
+                        "sees"
+                    ],
+                    "verb_hint": "Use the base verb after did.",
+                    "gap_tags": [
+                        "base_after_did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_after_did"
+            ],
+            "variants": [
+                "Did he {a1} the film"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 43,
+            "uuid": "past-simple-questions-v3-b2-07",
+            "question": "Why did you {a1} early",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "leave",
+                    "options": [
+                        "leave",
+                        "left",
+                        "leaves"
+                    ],
+                    "verb_hint": "Use base verb after did.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Why did you {a1} early"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 44,
+            "uuid": "past-simple-questions-v3-b2-08",
+            "question": "Did she call you? Yes, she {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was"
+                    ],
+                    "verb_hint": "Use did in short answers to Did questions.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Did she call you? Yes, she {a1}"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 45,
+            "uuid": "past-simple-questions-v3-b2-09",
+            "question": "Did they finish? No, they {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "didn't",
+                    "options": [
+                        "didn't",
+                        "weren't",
+                        "don't"
+                    ],
+                    "verb_hint": "Use didn't in negative short answers.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Did they finish? No, they {a1}"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 46,
+            "uuid": "past-simple-questions-v3-b2-10",
+            "question": "When did we {a1} in Kyiv",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "meet",
+                    "options": [
+                        "meet",
+                        "met",
+                        "meets"
+                    ],
+                    "verb_hint": "Use base verb after did.",
+                    "gap_tags": [
+                        "base_after_did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_after_did"
+            ],
+            "variants": [
+                "When did we {a1} in Kyiv"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 47,
+            "uuid": "past-simple-questions-v3-b2-11",
+            "question": "What {a1} you do yesterday",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "were"
+                    ],
+                    "verb_hint": "Question word order is wh-word + did + subject + verb.",
+                    "gap_tags": [
+                        "did_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "did_questions"
+            ],
+            "variants": [
+                "What {a1} you do yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 48,
+            "uuid": "past-simple-questions-v3-b2-12",
+            "question": "Did he {a1} dinner last night",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "make",
+                    "options": [
+                        "make",
+                        "made",
+                        "makes"
+                    ],
+                    "verb_hint": "Avoid Did he made.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Did he {a1} dinner last night"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 49,
+            "uuid": "past-simple-questions-v3-c1-01",
+            "question": "{a1} you visit your friend yesterday",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Does",
+                        "Was"
+                    ],
+                    "verb_hint": "Start Past Simple yes/no questions with Did.",
+                    "gap_tags": [
+                        "did_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "did_questions"
+            ],
+            "variants": [
+                "{a1} you visit your friend yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 50,
+            "uuid": "past-simple-questions-v3-c1-02",
+            "question": "Where did the researcher {a1} last night",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "go",
+                    "options": [
+                        "go",
+                        "went",
+                        "goes"
+                    ],
+                    "verb_hint": "Use base verb after did in wh-questions.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Where did the researcher {a1} last night"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 51,
+            "uuid": "past-simple-questions-v3-c1-03",
+            "question": "What did the witnesses {a1} yesterday",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "buy",
+                    "options": [
+                        "buy",
+                        "bought",
+                        "buys"
+                    ],
+                    "verb_hint": "Use wh-word + did + subject + base verb.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "What did the witnesses {a1} yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 52,
+            "uuid": "past-simple-questions-v3-c1-04",
+            "question": "{a1} the researcher at home yesterday",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Did"
+                    ],
+                    "verb_hint": "Use was before a singular subject in past be questions.",
+                    "gap_tags": [
+                        "be_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_questions"
+            ],
+            "variants": [
+                "{a1} the researcher at home yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 53,
+            "uuid": "past-simple-questions-v3-c1-05",
+            "question": "{a1} they at school last Monday",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Was",
+                        "Did"
+                    ],
+                    "verb_hint": "Use were before plural subjects in past be questions.",
+                    "gap_tags": [
+                        "be_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_questions"
+            ],
+            "variants": [
+                "{a1} they at school last Monday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 54,
+            "uuid": "past-simple-questions-v3-c1-06",
+            "question": "Did he {a1} the film",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "see",
+                    "options": [
+                        "see",
+                        "saw",
+                        "sees"
+                    ],
+                    "verb_hint": "Use the base verb after did.",
+                    "gap_tags": [
+                        "base_after_did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_after_did"
+            ],
+            "variants": [
+                "Did he {a1} the film"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 55,
+            "uuid": "past-simple-questions-v3-c1-07",
+            "question": "Why did you {a1} early",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "leave",
+                    "options": [
+                        "leave",
+                        "left",
+                        "leaves"
+                    ],
+                    "verb_hint": "Use base verb after did.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Why did you {a1} early"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 56,
+            "uuid": "past-simple-questions-v3-c1-08",
+            "question": "Did she call you? Yes, she {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was"
+                    ],
+                    "verb_hint": "Use did in short answers to Did questions.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Did she call you? Yes, she {a1}"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 57,
+            "uuid": "past-simple-questions-v3-c1-09",
+            "question": "Did they finish? No, they {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "didn't",
+                    "options": [
+                        "didn't",
+                        "weren't",
+                        "don't"
+                    ],
+                    "verb_hint": "Use didn't in negative short answers.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Did they finish? No, they {a1}"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 58,
+            "uuid": "past-simple-questions-v3-c1-10",
+            "question": "When did we {a1} in Kyiv",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "meet",
+                    "options": [
+                        "meet",
+                        "met",
+                        "meets"
+                    ],
+                    "verb_hint": "Use base verb after did.",
+                    "gap_tags": [
+                        "base_after_did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_after_did"
+            ],
+            "variants": [
+                "When did we {a1} in Kyiv"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 59,
+            "uuid": "past-simple-questions-v3-c1-11",
+            "question": "What {a1} you do yesterday",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "were"
+                    ],
+                    "verb_hint": "Question word order is wh-word + did + subject + verb.",
+                    "gap_tags": [
+                        "did_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "did_questions"
+            ],
+            "variants": [
+                "What {a1} you do yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 60,
+            "uuid": "past-simple-questions-v3-c1-12",
+            "question": "Did he {a1} dinner last night",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "make",
+                    "options": [
+                        "make",
+                        "made",
+                        "makes"
+                    ],
+                    "verb_hint": "Avoid Did he made.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Did he {a1} dinner last night"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 61,
+            "uuid": "past-simple-questions-v3-c2-01",
+            "question": "{a1} you visit your friend yesterday",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Does",
+                        "Was"
+                    ],
+                    "verb_hint": "Start Past Simple yes/no questions with Did.",
+                    "gap_tags": [
+                        "did_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "did_questions"
+            ],
+            "variants": [
+                "{a1} you visit your friend yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 62,
+            "uuid": "past-simple-questions-v3-c2-02",
+            "question": "Where did the analyst {a1} last night",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "go",
+                    "options": [
+                        "go",
+                        "went",
+                        "goes"
+                    ],
+                    "verb_hint": "Use base verb after did in wh-questions.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Where did the analyst {a1} last night"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 63,
+            "uuid": "past-simple-questions-v3-c2-03",
+            "question": "What did the participants {a1} yesterday",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "buy",
+                    "options": [
+                        "buy",
+                        "bought",
+                        "buys"
+                    ],
+                    "verb_hint": "Use wh-word + did + subject + base verb.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "What did the participants {a1} yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 64,
+            "uuid": "past-simple-questions-v3-c2-04",
+            "question": "{a1} the analyst at home yesterday",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Did"
+                    ],
+                    "verb_hint": "Use was before a singular subject in past be questions.",
+                    "gap_tags": [
+                        "be_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_questions"
+            ],
+            "variants": [
+                "{a1} the analyst at home yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 65,
+            "uuid": "past-simple-questions-v3-c2-05",
+            "question": "{a1} they at school last Monday",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Was",
+                        "Did"
+                    ],
+                    "verb_hint": "Use were before plural subjects in past be questions.",
+                    "gap_tags": [
+                        "be_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_questions"
+            ],
+            "variants": [
+                "{a1} they at school last Monday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 66,
+            "uuid": "past-simple-questions-v3-c2-06",
+            "question": "Did he {a1} the film",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "see",
+                    "options": [
+                        "see",
+                        "saw",
+                        "sees"
+                    ],
+                    "verb_hint": "Use the base verb after did.",
+                    "gap_tags": [
+                        "base_after_did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_after_did"
+            ],
+            "variants": [
+                "Did he {a1} the film"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 67,
+            "uuid": "past-simple-questions-v3-c2-07",
+            "question": "Why did you {a1} early",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "leave",
+                    "options": [
+                        "leave",
+                        "left",
+                        "leaves"
+                    ],
+                    "verb_hint": "Use base verb after did.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Why did you {a1} early"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 68,
+            "uuid": "past-simple-questions-v3-c2-08",
+            "question": "Did she call you? Yes, she {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was"
+                    ],
+                    "verb_hint": "Use did in short answers to Did questions.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Did she call you? Yes, she {a1}"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 69,
+            "uuid": "past-simple-questions-v3-c2-09",
+            "question": "Did they finish? No, they {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "didn't",
+                    "options": [
+                        "didn't",
+                        "weren't",
+                        "don't"
+                    ],
+                    "verb_hint": "Use didn't in negative short answers.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Did they finish? No, they {a1}"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 70,
+            "uuid": "past-simple-questions-v3-c2-10",
+            "question": "When did we {a1} in Kyiv",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "meet",
+                    "options": [
+                        "meet",
+                        "met",
+                        "meets"
+                    ],
+                    "verb_hint": "Use base verb after did.",
+                    "gap_tags": [
+                        "base_after_did"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_after_did"
+            ],
+            "variants": [
+                "When did we {a1} in Kyiv"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 71,
+            "uuid": "past-simple-questions-v3-c2-11",
+            "question": "What {a1} you do yesterday",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "were"
+                    ],
+                    "verb_hint": "Question word order is wh-word + did + subject + verb.",
+                    "gap_tags": [
+                        "did_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "did_questions"
+            ],
+            "variants": [
+                "What {a1} you do yesterday"
+            ],
+            "source": "theory_page_past_simple_questions"
+        },
+        {
+            "id": 72,
+            "uuid": "past-simple-questions-v3-c2-12",
+            "question": "Did he {a1} dinner last night",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "make",
+                    "options": [
+                        "make",
+                        "made",
+                        "makes"
+                    ],
+                    "verb_hint": "Avoid Did he made.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Did he {a1} dinner last night"
+            ],
+            "source": "theory_page_past_simple_questions"
+        }
+    ],
+    "saved_test": {
+        "uuid": "past-simple-questions-v3-all-levels",
+        "slug": "past-simple-questions-all-levels-v3",
+        "name": "Past Simple: Questions and Short Answers: V3 All Levels",
+        "description": "Page-local V3 package for Past Simple: Questions and Short Answers with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleQuestionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "past-simple-questions",
+                    "title": "Past Simple: Questions and Short Answers",
+                    "category_slug_path": "tenses/past-simple",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastSimple\\PastSimpleQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/tenses/past-simple/past-simple-questions"
+                }
+            }
+        }
+    }
+}

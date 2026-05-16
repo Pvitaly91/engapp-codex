@@ -1,0 +1,2041 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsAllLevelsV3Seeder",
+        "uuid_namespace": "PastSimpleTimeExpressionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Tenses / Past Simple"
+    },
+    "sources": {
+        "theory_page_past_simple_time_expressions": {
+            "name": "Past Simple: Time Expressions"
+        }
+    },
+    "tags": {
+        "past_simple": {
+            "name": "Past Simple",
+            "category": "tense"
+        },
+        "yesterday": {
+            "name": "Yesterday",
+            "category": "topic"
+        },
+        "last_time": {
+            "name": "Last Time",
+            "category": "topic"
+        },
+        "ago": {
+            "name": "Ago",
+            "category": "topic"
+        },
+        "finished_time_points": {
+            "name": "Finished Time Points",
+            "category": "topic"
+        },
+        "when_past": {
+            "name": "When Past",
+            "category": "topic"
+        },
+        "present_perfect_contrast": {
+            "name": "Present Perfect Contrast",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "past_simple"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "past-simple-time-v3-a1-01",
+            "question": "I saw him {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "yesterday",
+                    "options": [
+                        "yesterday",
+                        "now",
+                        "since"
+                    ],
+                    "verb_hint": "Use yesterday with a finished past action.",
+                    "gap_tags": [
+                        "yesterday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yesterday"
+            ],
+            "variants": [
+                "I saw him {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 2,
+            "uuid": "past-simple-time-v3-a1-02",
+            "question": "She moved here two years {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "ago",
+                    "options": [
+                        "ago",
+                        "last",
+                        "since"
+                    ],
+                    "verb_hint": "Use ago after a length of time.",
+                    "gap_tags": [
+                        "ago"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ago"
+            ],
+            "variants": [
+                "She moved here two years {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 3,
+            "uuid": "past-simple-time-v3-a1-03",
+            "question": "We met {a1} 2010",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "on",
+                        "at"
+                    ],
+                    "verb_hint": "Use in with years.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "We met {a1} 2010"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 4,
+            "uuid": "past-simple-time-v3-a1-04",
+            "question": "They arrived {a1} Monday",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "on",
+                    "options": [
+                        "on",
+                        "in",
+                        "at"
+                    ],
+                    "verb_hint": "Use on with days.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "They arrived {a1} Monday"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 5,
+            "uuid": "past-simple-time-v3-a1-05",
+            "question": "He called me last {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "night",
+                    "options": [
+                        "night",
+                        "ago",
+                        "since"
+                    ],
+                    "verb_hint": "Use last night / last week / last year.",
+                    "gap_tags": [
+                        "last_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "last_time"
+            ],
+            "variants": [
+                "He called me last {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 6,
+            "uuid": "past-simple-time-v3-a1-06",
+            "question": "I was happy when I {a1} a child",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "am",
+                        "have been"
+                    ],
+                    "verb_hint": "Use Past Simple after when for a finished past period.",
+                    "gap_tags": [
+                        "when_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_past"
+            ],
+            "variants": [
+                "I was happy when I {a1} a child"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 7,
+            "uuid": "past-simple-time-v3-a1-07",
+            "question": "They finished the project {a1} May",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "on",
+                        "at"
+                    ],
+                    "verb_hint": "Use in with months.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "They finished the project {a1} May"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 8,
+            "uuid": "past-simple-time-v3-a1-08",
+            "question": "She visited us {a1} week",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "last",
+                    "options": [
+                        "last",
+                        "ago",
+                        "since"
+                    ],
+                    "verb_hint": "Use last before a past time noun.",
+                    "gap_tags": [
+                        "last_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "last_time"
+            ],
+            "variants": [
+                "She visited us {a1} week"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 9,
+            "uuid": "past-simple-time-v3-a1-09",
+            "question": "We bought this car five days {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "ago",
+                    "options": [
+                        "ago",
+                        "last",
+                        "before"
+                    ],
+                    "verb_hint": "Use ago after the time phrase.",
+                    "gap_tags": [
+                        "ago"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ago"
+            ],
+            "variants": [
+                "We bought this car five days {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 10,
+            "uuid": "past-simple-time-v3-a1-10",
+            "question": "{a1}, I watched a documentary",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Yesterday",
+                    "options": [
+                        "Yesterday",
+                        "Since",
+                        "Nowadays"
+                    ],
+                    "verb_hint": "Use Yesterday for a finished past day.",
+                    "gap_tags": [
+                        "yesterday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yesterday"
+            ],
+            "variants": [
+                "{a1}, I watched a documentary"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 11,
+            "uuid": "past-simple-time-v3-a1-11",
+            "question": "I saw her {a1} 2018, not recently",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "since",
+                        "for"
+                    ],
+                    "verb_hint": "Use Past Simple with finished time points like in 2018.",
+                    "gap_tags": [
+                        "present_perfect_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_perfect_contrast"
+            ],
+            "variants": [
+                "I saw her {a1} 2018, not recently"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 12,
+            "uuid": "past-simple-time-v3-a1-12",
+            "question": "He went there {a1} night, not every night",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "last",
+                    "options": [
+                        "last",
+                        "since",
+                        "already"
+                    ],
+                    "verb_hint": "Use finished past time markers with Past Simple.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He went there {a1} night, not every night"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 13,
+            "uuid": "past-simple-time-v3-a2-01",
+            "question": "I saw him {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "yesterday",
+                    "options": [
+                        "yesterday",
+                        "now",
+                        "since"
+                    ],
+                    "verb_hint": "Use yesterday with a finished past action.",
+                    "gap_tags": [
+                        "yesterday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yesterday"
+            ],
+            "variants": [
+                "I saw him {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 14,
+            "uuid": "past-simple-time-v3-a2-02",
+            "question": "She moved here two years {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "ago",
+                    "options": [
+                        "ago",
+                        "last",
+                        "since"
+                    ],
+                    "verb_hint": "Use ago after a length of time.",
+                    "gap_tags": [
+                        "ago"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ago"
+            ],
+            "variants": [
+                "She moved here two years {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 15,
+            "uuid": "past-simple-time-v3-a2-03",
+            "question": "We met {a1} 2010",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "on",
+                        "at"
+                    ],
+                    "verb_hint": "Use in with years.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "We met {a1} 2010"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 16,
+            "uuid": "past-simple-time-v3-a2-04",
+            "question": "They arrived {a1} Monday",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "on",
+                    "options": [
+                        "on",
+                        "in",
+                        "at"
+                    ],
+                    "verb_hint": "Use on with days.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "They arrived {a1} Monday"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 17,
+            "uuid": "past-simple-time-v3-a2-05",
+            "question": "He called me last {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "night",
+                    "options": [
+                        "night",
+                        "ago",
+                        "since"
+                    ],
+                    "verb_hint": "Use last night / last week / last year.",
+                    "gap_tags": [
+                        "last_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "last_time"
+            ],
+            "variants": [
+                "He called me last {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 18,
+            "uuid": "past-simple-time-v3-a2-06",
+            "question": "I was happy when I {a1} a child",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "am",
+                        "have been"
+                    ],
+                    "verb_hint": "Use Past Simple after when for a finished past period.",
+                    "gap_tags": [
+                        "when_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_past"
+            ],
+            "variants": [
+                "I was happy when I {a1} a child"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 19,
+            "uuid": "past-simple-time-v3-a2-07",
+            "question": "They finished the project {a1} May",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "on",
+                        "at"
+                    ],
+                    "verb_hint": "Use in with months.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "They finished the project {a1} May"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 20,
+            "uuid": "past-simple-time-v3-a2-08",
+            "question": "She visited us {a1} week",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "last",
+                    "options": [
+                        "last",
+                        "ago",
+                        "since"
+                    ],
+                    "verb_hint": "Use last before a past time noun.",
+                    "gap_tags": [
+                        "last_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "last_time"
+            ],
+            "variants": [
+                "She visited us {a1} week"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 21,
+            "uuid": "past-simple-time-v3-a2-09",
+            "question": "We bought this car five days {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "ago",
+                    "options": [
+                        "ago",
+                        "last",
+                        "before"
+                    ],
+                    "verb_hint": "Use ago after the time phrase.",
+                    "gap_tags": [
+                        "ago"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ago"
+            ],
+            "variants": [
+                "We bought this car five days {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 22,
+            "uuid": "past-simple-time-v3-a2-10",
+            "question": "{a1}, I watched a documentary",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Yesterday",
+                    "options": [
+                        "Yesterday",
+                        "Since",
+                        "Nowadays"
+                    ],
+                    "verb_hint": "Use Yesterday for a finished past day.",
+                    "gap_tags": [
+                        "yesterday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yesterday"
+            ],
+            "variants": [
+                "{a1}, I watched a documentary"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 23,
+            "uuid": "past-simple-time-v3-a2-11",
+            "question": "I saw her {a1} 2018, not recently",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "since",
+                        "for"
+                    ],
+                    "verb_hint": "Use Past Simple with finished time points like in 2018.",
+                    "gap_tags": [
+                        "present_perfect_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_perfect_contrast"
+            ],
+            "variants": [
+                "I saw her {a1} 2018, not recently"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 24,
+            "uuid": "past-simple-time-v3-a2-12",
+            "question": "He went there {a1} night, not every night",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "last",
+                    "options": [
+                        "last",
+                        "since",
+                        "already"
+                    ],
+                    "verb_hint": "Use finished past time markers with Past Simple.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He went there {a1} night, not every night"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 25,
+            "uuid": "past-simple-time-v3-b1-01",
+            "question": "I saw him {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "yesterday",
+                    "options": [
+                        "yesterday",
+                        "now",
+                        "since"
+                    ],
+                    "verb_hint": "Use yesterday with a finished past action.",
+                    "gap_tags": [
+                        "yesterday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yesterday"
+            ],
+            "variants": [
+                "I saw him {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 26,
+            "uuid": "past-simple-time-v3-b1-02",
+            "question": "She moved here two years {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "ago",
+                    "options": [
+                        "ago",
+                        "last",
+                        "since"
+                    ],
+                    "verb_hint": "Use ago after a length of time.",
+                    "gap_tags": [
+                        "ago"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ago"
+            ],
+            "variants": [
+                "She moved here two years {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 27,
+            "uuid": "past-simple-time-v3-b1-03",
+            "question": "We met {a1} 2010",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "on",
+                        "at"
+                    ],
+                    "verb_hint": "Use in with years.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "We met {a1} 2010"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 28,
+            "uuid": "past-simple-time-v3-b1-04",
+            "question": "They arrived {a1} Monday",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "on",
+                    "options": [
+                        "on",
+                        "in",
+                        "at"
+                    ],
+                    "verb_hint": "Use on with days.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "They arrived {a1} Monday"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 29,
+            "uuid": "past-simple-time-v3-b1-05",
+            "question": "He called me last {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "night",
+                    "options": [
+                        "night",
+                        "ago",
+                        "since"
+                    ],
+                    "verb_hint": "Use last night / last week / last year.",
+                    "gap_tags": [
+                        "last_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "last_time"
+            ],
+            "variants": [
+                "He called me last {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 30,
+            "uuid": "past-simple-time-v3-b1-06",
+            "question": "I was happy when I {a1} a child",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "am",
+                        "have been"
+                    ],
+                    "verb_hint": "Use Past Simple after when for a finished past period.",
+                    "gap_tags": [
+                        "when_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_past"
+            ],
+            "variants": [
+                "I was happy when I {a1} a child"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 31,
+            "uuid": "past-simple-time-v3-b1-07",
+            "question": "They finished the project {a1} May",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "on",
+                        "at"
+                    ],
+                    "verb_hint": "Use in with months.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "They finished the project {a1} May"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 32,
+            "uuid": "past-simple-time-v3-b1-08",
+            "question": "She visited us {a1} week",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "last",
+                    "options": [
+                        "last",
+                        "ago",
+                        "since"
+                    ],
+                    "verb_hint": "Use last before a past time noun.",
+                    "gap_tags": [
+                        "last_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "last_time"
+            ],
+            "variants": [
+                "She visited us {a1} week"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 33,
+            "uuid": "past-simple-time-v3-b1-09",
+            "question": "We bought this car five days {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "ago",
+                    "options": [
+                        "ago",
+                        "last",
+                        "before"
+                    ],
+                    "verb_hint": "Use ago after the time phrase.",
+                    "gap_tags": [
+                        "ago"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ago"
+            ],
+            "variants": [
+                "We bought this car five days {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 34,
+            "uuid": "past-simple-time-v3-b1-10",
+            "question": "{a1}, I watched a documentary",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Yesterday",
+                    "options": [
+                        "Yesterday",
+                        "Since",
+                        "Nowadays"
+                    ],
+                    "verb_hint": "Use Yesterday for a finished past day.",
+                    "gap_tags": [
+                        "yesterday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yesterday"
+            ],
+            "variants": [
+                "{a1}, I watched a documentary"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 35,
+            "uuid": "past-simple-time-v3-b1-11",
+            "question": "I saw her {a1} 2018, not recently",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "since",
+                        "for"
+                    ],
+                    "verb_hint": "Use Past Simple with finished time points like in 2018.",
+                    "gap_tags": [
+                        "present_perfect_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_perfect_contrast"
+            ],
+            "variants": [
+                "I saw her {a1} 2018, not recently"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 36,
+            "uuid": "past-simple-time-v3-b1-12",
+            "question": "He went there {a1} night, not every night",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "last",
+                    "options": [
+                        "last",
+                        "since",
+                        "already"
+                    ],
+                    "verb_hint": "Use finished past time markers with Past Simple.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He went there {a1} night, not every night"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 37,
+            "uuid": "past-simple-time-v3-b2-01",
+            "question": "I saw him {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "yesterday",
+                    "options": [
+                        "yesterday",
+                        "now",
+                        "since"
+                    ],
+                    "verb_hint": "Use yesterday with a finished past action.",
+                    "gap_tags": [
+                        "yesterday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yesterday"
+            ],
+            "variants": [
+                "I saw him {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 38,
+            "uuid": "past-simple-time-v3-b2-02",
+            "question": "She moved here two years {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "ago",
+                    "options": [
+                        "ago",
+                        "last",
+                        "since"
+                    ],
+                    "verb_hint": "Use ago after a length of time.",
+                    "gap_tags": [
+                        "ago"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ago"
+            ],
+            "variants": [
+                "She moved here two years {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 39,
+            "uuid": "past-simple-time-v3-b2-03",
+            "question": "We met {a1} 2010",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "on",
+                        "at"
+                    ],
+                    "verb_hint": "Use in with years.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "We met {a1} 2010"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 40,
+            "uuid": "past-simple-time-v3-b2-04",
+            "question": "They arrived {a1} Monday",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "on",
+                    "options": [
+                        "on",
+                        "in",
+                        "at"
+                    ],
+                    "verb_hint": "Use on with days.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "They arrived {a1} Monday"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 41,
+            "uuid": "past-simple-time-v3-b2-05",
+            "question": "He called me last {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "night",
+                    "options": [
+                        "night",
+                        "ago",
+                        "since"
+                    ],
+                    "verb_hint": "Use last night / last week / last year.",
+                    "gap_tags": [
+                        "last_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "last_time"
+            ],
+            "variants": [
+                "He called me last {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 42,
+            "uuid": "past-simple-time-v3-b2-06",
+            "question": "I was happy when I {a1} a child",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "am",
+                        "have been"
+                    ],
+                    "verb_hint": "Use Past Simple after when for a finished past period.",
+                    "gap_tags": [
+                        "when_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_past"
+            ],
+            "variants": [
+                "I was happy when I {a1} a child"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 43,
+            "uuid": "past-simple-time-v3-b2-07",
+            "question": "They finished the project {a1} May",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "on",
+                        "at"
+                    ],
+                    "verb_hint": "Use in with months.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "They finished the project {a1} May"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 44,
+            "uuid": "past-simple-time-v3-b2-08",
+            "question": "She visited us {a1} week",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "last",
+                    "options": [
+                        "last",
+                        "ago",
+                        "since"
+                    ],
+                    "verb_hint": "Use last before a past time noun.",
+                    "gap_tags": [
+                        "last_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "last_time"
+            ],
+            "variants": [
+                "She visited us {a1} week"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 45,
+            "uuid": "past-simple-time-v3-b2-09",
+            "question": "We bought this car five days {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "ago",
+                    "options": [
+                        "ago",
+                        "last",
+                        "before"
+                    ],
+                    "verb_hint": "Use ago after the time phrase.",
+                    "gap_tags": [
+                        "ago"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ago"
+            ],
+            "variants": [
+                "We bought this car five days {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 46,
+            "uuid": "past-simple-time-v3-b2-10",
+            "question": "{a1}, I watched a documentary",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Yesterday",
+                    "options": [
+                        "Yesterday",
+                        "Since",
+                        "Nowadays"
+                    ],
+                    "verb_hint": "Use Yesterday for a finished past day.",
+                    "gap_tags": [
+                        "yesterday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yesterday"
+            ],
+            "variants": [
+                "{a1}, I watched a documentary"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 47,
+            "uuid": "past-simple-time-v3-b2-11",
+            "question": "I saw her {a1} 2018, not recently",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "since",
+                        "for"
+                    ],
+                    "verb_hint": "Use Past Simple with finished time points like in 2018.",
+                    "gap_tags": [
+                        "present_perfect_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_perfect_contrast"
+            ],
+            "variants": [
+                "I saw her {a1} 2018, not recently"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 48,
+            "uuid": "past-simple-time-v3-b2-12",
+            "question": "He went there {a1} night, not every night",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "last",
+                    "options": [
+                        "last",
+                        "since",
+                        "already"
+                    ],
+                    "verb_hint": "Use finished past time markers with Past Simple.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He went there {a1} night, not every night"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 49,
+            "uuid": "past-simple-time-v3-c1-01",
+            "question": "I saw him {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "yesterday",
+                    "options": [
+                        "yesterday",
+                        "now",
+                        "since"
+                    ],
+                    "verb_hint": "Use yesterday with a finished past action.",
+                    "gap_tags": [
+                        "yesterday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yesterday"
+            ],
+            "variants": [
+                "I saw him {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 50,
+            "uuid": "past-simple-time-v3-c1-02",
+            "question": "She moved here two years {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "ago",
+                    "options": [
+                        "ago",
+                        "last",
+                        "since"
+                    ],
+                    "verb_hint": "Use ago after a length of time.",
+                    "gap_tags": [
+                        "ago"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ago"
+            ],
+            "variants": [
+                "She moved here two years {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 51,
+            "uuid": "past-simple-time-v3-c1-03",
+            "question": "We met {a1} 2010",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "on",
+                        "at"
+                    ],
+                    "verb_hint": "Use in with years.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "We met {a1} 2010"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 52,
+            "uuid": "past-simple-time-v3-c1-04",
+            "question": "They arrived {a1} Monday",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "on",
+                    "options": [
+                        "on",
+                        "in",
+                        "at"
+                    ],
+                    "verb_hint": "Use on with days.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "They arrived {a1} Monday"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 53,
+            "uuid": "past-simple-time-v3-c1-05",
+            "question": "He called me last {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "night",
+                    "options": [
+                        "night",
+                        "ago",
+                        "since"
+                    ],
+                    "verb_hint": "Use last night / last week / last year.",
+                    "gap_tags": [
+                        "last_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "last_time"
+            ],
+            "variants": [
+                "He called me last {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 54,
+            "uuid": "past-simple-time-v3-c1-06",
+            "question": "I was happy when I {a1} a child",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "am",
+                        "have been"
+                    ],
+                    "verb_hint": "Use Past Simple after when for a finished past period.",
+                    "gap_tags": [
+                        "when_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_past"
+            ],
+            "variants": [
+                "I was happy when I {a1} a child"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 55,
+            "uuid": "past-simple-time-v3-c1-07",
+            "question": "They finished the project {a1} May",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "on",
+                        "at"
+                    ],
+                    "verb_hint": "Use in with months.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "They finished the project {a1} May"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 56,
+            "uuid": "past-simple-time-v3-c1-08",
+            "question": "She visited us {a1} week",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "last",
+                    "options": [
+                        "last",
+                        "ago",
+                        "since"
+                    ],
+                    "verb_hint": "Use last before a past time noun.",
+                    "gap_tags": [
+                        "last_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "last_time"
+            ],
+            "variants": [
+                "She visited us {a1} week"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 57,
+            "uuid": "past-simple-time-v3-c1-09",
+            "question": "We bought this car five days {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "ago",
+                    "options": [
+                        "ago",
+                        "last",
+                        "before"
+                    ],
+                    "verb_hint": "Use ago after the time phrase.",
+                    "gap_tags": [
+                        "ago"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ago"
+            ],
+            "variants": [
+                "We bought this car five days {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 58,
+            "uuid": "past-simple-time-v3-c1-10",
+            "question": "{a1}, I watched a documentary",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Yesterday",
+                    "options": [
+                        "Yesterday",
+                        "Since",
+                        "Nowadays"
+                    ],
+                    "verb_hint": "Use Yesterday for a finished past day.",
+                    "gap_tags": [
+                        "yesterday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yesterday"
+            ],
+            "variants": [
+                "{a1}, I watched a documentary"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 59,
+            "uuid": "past-simple-time-v3-c1-11",
+            "question": "I saw her {a1} 2018, not recently",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "since",
+                        "for"
+                    ],
+                    "verb_hint": "Use Past Simple with finished time points like in 2018.",
+                    "gap_tags": [
+                        "present_perfect_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_perfect_contrast"
+            ],
+            "variants": [
+                "I saw her {a1} 2018, not recently"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 60,
+            "uuid": "past-simple-time-v3-c1-12",
+            "question": "He went there {a1} night, not every night",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "last",
+                    "options": [
+                        "last",
+                        "since",
+                        "already"
+                    ],
+                    "verb_hint": "Use finished past time markers with Past Simple.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He went there {a1} night, not every night"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 61,
+            "uuid": "past-simple-time-v3-c2-01",
+            "question": "I saw him {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "yesterday",
+                    "options": [
+                        "yesterday",
+                        "now",
+                        "since"
+                    ],
+                    "verb_hint": "Use yesterday with a finished past action.",
+                    "gap_tags": [
+                        "yesterday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yesterday"
+            ],
+            "variants": [
+                "I saw him {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 62,
+            "uuid": "past-simple-time-v3-c2-02",
+            "question": "She moved here two years {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "ago",
+                    "options": [
+                        "ago",
+                        "last",
+                        "since"
+                    ],
+                    "verb_hint": "Use ago after a length of time.",
+                    "gap_tags": [
+                        "ago"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ago"
+            ],
+            "variants": [
+                "She moved here two years {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 63,
+            "uuid": "past-simple-time-v3-c2-03",
+            "question": "We met {a1} 2010",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "on",
+                        "at"
+                    ],
+                    "verb_hint": "Use in with years.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "We met {a1} 2010"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 64,
+            "uuid": "past-simple-time-v3-c2-04",
+            "question": "They arrived {a1} Monday",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "on",
+                    "options": [
+                        "on",
+                        "in",
+                        "at"
+                    ],
+                    "verb_hint": "Use on with days.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "They arrived {a1} Monday"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 65,
+            "uuid": "past-simple-time-v3-c2-05",
+            "question": "He called me last {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "night",
+                    "options": [
+                        "night",
+                        "ago",
+                        "since"
+                    ],
+                    "verb_hint": "Use last night / last week / last year.",
+                    "gap_tags": [
+                        "last_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "last_time"
+            ],
+            "variants": [
+                "He called me last {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 66,
+            "uuid": "past-simple-time-v3-c2-06",
+            "question": "I was happy when I {a1} a child",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "am",
+                        "have been"
+                    ],
+                    "verb_hint": "Use Past Simple after when for a finished past period.",
+                    "gap_tags": [
+                        "when_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_past"
+            ],
+            "variants": [
+                "I was happy when I {a1} a child"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 67,
+            "uuid": "past-simple-time-v3-c2-07",
+            "question": "They finished the project {a1} May",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "on",
+                        "at"
+                    ],
+                    "verb_hint": "Use in with months.",
+                    "gap_tags": [
+                        "finished_time_points"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "finished_time_points"
+            ],
+            "variants": [
+                "They finished the project {a1} May"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 68,
+            "uuid": "past-simple-time-v3-c2-08",
+            "question": "She visited us {a1} week",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "last",
+                    "options": [
+                        "last",
+                        "ago",
+                        "since"
+                    ],
+                    "verb_hint": "Use last before a past time noun.",
+                    "gap_tags": [
+                        "last_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "last_time"
+            ],
+            "variants": [
+                "She visited us {a1} week"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 69,
+            "uuid": "past-simple-time-v3-c2-09",
+            "question": "We bought this car five days {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "ago",
+                    "options": [
+                        "ago",
+                        "last",
+                        "before"
+                    ],
+                    "verb_hint": "Use ago after the time phrase.",
+                    "gap_tags": [
+                        "ago"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ago"
+            ],
+            "variants": [
+                "We bought this car five days {a1}"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 70,
+            "uuid": "past-simple-time-v3-c2-10",
+            "question": "{a1}, I watched a documentary",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Yesterday",
+                    "options": [
+                        "Yesterday",
+                        "Since",
+                        "Nowadays"
+                    ],
+                    "verb_hint": "Use Yesterday for a finished past day.",
+                    "gap_tags": [
+                        "yesterday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yesterday"
+            ],
+            "variants": [
+                "{a1}, I watched a documentary"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 71,
+            "uuid": "past-simple-time-v3-c2-11",
+            "question": "I saw her {a1} 2018, not recently",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "since",
+                        "for"
+                    ],
+                    "verb_hint": "Use Past Simple with finished time points like in 2018.",
+                    "gap_tags": [
+                        "present_perfect_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_perfect_contrast"
+            ],
+            "variants": [
+                "I saw her {a1} 2018, not recently"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        },
+        {
+            "id": 72,
+            "uuid": "past-simple-time-v3-c2-12",
+            "question": "He went there {a1} night, not every night",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "last",
+                    "options": [
+                        "last",
+                        "since",
+                        "already"
+                    ],
+                    "verb_hint": "Use finished past time markers with Past Simple.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He went there {a1} night, not every night"
+            ],
+            "source": "theory_page_past_simple_time_expressions"
+        }
+    ],
+    "saved_test": {
+        "uuid": "past-simple-time-v3-all-levels",
+        "slug": "past-simple-time-expressions-all-levels-v3",
+        "name": "Past Simple: Time Expressions: V3 All Levels",
+        "description": "Page-local V3 package for Past Simple: Time Expressions with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "past-simple-time-expressions",
+                    "title": "Past Simple: Time Expressions",
+                    "category_slug_path": "tenses/past-simple",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/tenses/past-simple/past-simple-time-expressions"
+                }
+            }
+        }
+    }
+}
