@@ -1,0 +1,2257 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Tenses\\Comparisons\\PresentSimpleVsPresentContinuousAllLevelsV3Seeder",
+        "uuid_namespace": "PresentSimpleVsPresentContinuousAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Tenses / Comparisons"
+    },
+    "sources": {
+        "theory_page_present_simple_vs_present_continuous": {
+            "name": "Present Simple vs Present Continuous"
+        }
+    },
+    "tags": {
+        "present_simple_vs_present_continuous": {
+            "name": "Present Simple vs Present Continuous",
+            "category": "tense-comparison"
+        },
+        "present_simple": {
+            "name": "Present Simple",
+            "category": "topic"
+        },
+        "present_continuous": {
+            "name": "Present Continuous",
+            "category": "topic"
+        },
+        "permanent_situation": {
+            "name": "Permanent Situation",
+            "category": "topic"
+        },
+        "temporary_situation": {
+            "name": "Temporary Situation",
+            "category": "topic"
+        },
+        "stative_verbs": {
+            "name": "Stative Verbs",
+            "category": "topic"
+        },
+        "time_markers": {
+            "name": "Time Markers",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "present_simple_vs_present_continuous"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "psvc-v3-a1-01",
+            "question": "Every Monday, Lina {a1} at the same cafe",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "works",
+                    "options": [
+                        "works",
+                        "is working",
+                        "work",
+                        "worked",
+                        "has worked",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "Every Monday, Lina {a1} at the same cafe"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 2,
+            "uuid": "psvc-v3-a1-02",
+            "question": "Right now, Lina {a1} at the kitchen table",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is working",
+                    "options": [
+                        "is working",
+                        "works",
+                        "work",
+                        "worked",
+                        "has worked",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Right now, Lina {a1} at the kitchen table"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 3,
+            "uuid": "psvc-v3-a1-03",
+            "question": "My parents {a1} in Lviv permanently",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "live",
+                    "options": [
+                        "live",
+                        "are living",
+                        "lives",
+                        "lived",
+                        "have lived",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "My parents {a1} in Lviv permanently"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 4,
+            "uuid": "psvc-v3-a1-04",
+            "question": "This month, my parents {a1} with my aunt",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are living",
+                    "options": [
+                        "are living",
+                        "live",
+                        "lives",
+                        "lived",
+                        "have lived",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: temporary situation.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "This month, my parents {a1} with my aunt"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 5,
+            "uuid": "psvc-v3-a1-05",
+            "question": "I {a1} what you mean",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "am understanding",
+                        "understands",
+                        "understood",
+                        "have understood",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: stative verbs.",
+                    "gap_tags": [
+                        "stative_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stative_verbs"
+            ],
+            "variants": [
+                "I {a1} what you mean"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 6,
+            "uuid": "psvc-v3-a1-06",
+            "question": "Listen, the baby {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is crying",
+                    "options": [
+                        "is crying",
+                        "cries",
+                        "cry",
+                        "cried",
+                        "has cried",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Listen, the baby {a1}"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 7,
+            "uuid": "psvc-v3-a1-07",
+            "question": "The train {a1} at six according to the timetable",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "is leaving",
+                        "leave",
+                        "left",
+                        "has left",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "The train {a1} at six according to the timetable"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 8,
+            "uuid": "psvc-v3-a1-08",
+            "question": "Prices {a1} this spring",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are rising",
+                    "options": [
+                        "are rising",
+                        "rise",
+                        "rises",
+                        "rose",
+                        "have risen",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Prices {a1} this spring"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 9,
+            "uuid": "psvc-v3-a1-09",
+            "question": "She usually {a1} tea after lunch",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "is drinking",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: time markers.",
+                    "gap_tags": [
+                        "time_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_markers"
+            ],
+            "variants": [
+                "She usually {a1} tea after lunch"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 10,
+            "uuid": "psvc-v3-a1-10",
+            "question": "She {a1} tea at the moment",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is drinking",
+                    "options": [
+                        "is drinking",
+                        "drinks",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: time markers.",
+                    "gap_tags": [
+                        "time_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_markers"
+            ],
+            "variants": [
+                "She {a1} tea at the moment"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 11,
+            "uuid": "psvc-v3-a1-11",
+            "question": "He never {a1} coffee at night",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "is drinking",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He never {a1} coffee at night"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 12,
+            "uuid": "psvc-v3-a1-12",
+            "question": "They {a1} for exams this week",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are studying",
+                    "options": [
+                        "are studying",
+                        "study",
+                        "studies",
+                        "studied",
+                        "have studied",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: temporary situation.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "They {a1} for exams this week"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 13,
+            "uuid": "psvc-v3-a2-01",
+            "question": "Every Monday, Lina {a1} at the same cafe (A2 context)",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "works",
+                    "options": [
+                        "works",
+                        "is working",
+                        "work",
+                        "worked",
+                        "has worked",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "Every Monday, Lina {a1} at the same cafe"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 14,
+            "uuid": "psvc-v3-a2-02",
+            "question": "Right now, Lina {a1} at the kitchen table (A2 context)",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is working",
+                    "options": [
+                        "is working",
+                        "works",
+                        "work",
+                        "worked",
+                        "has worked",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Right now, Lina {a1} at the kitchen table"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 15,
+            "uuid": "psvc-v3-a2-03",
+            "question": "My parents {a1} in Lviv permanently (A2 context)",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "live",
+                    "options": [
+                        "live",
+                        "are living",
+                        "lives",
+                        "lived",
+                        "have lived",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "My parents {a1} in Lviv permanently"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 16,
+            "uuid": "psvc-v3-a2-04",
+            "question": "This month, my parents {a1} with my aunt (A2 context)",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are living",
+                    "options": [
+                        "are living",
+                        "live",
+                        "lives",
+                        "lived",
+                        "have lived",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: temporary situation.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "This month, my parents {a1} with my aunt"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 17,
+            "uuid": "psvc-v3-a2-05",
+            "question": "I {a1} what you mean (A2 context)",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "am understanding",
+                        "understands",
+                        "understood",
+                        "have understood",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: stative verbs.",
+                    "gap_tags": [
+                        "stative_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stative_verbs"
+            ],
+            "variants": [
+                "I {a1} what you mean"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 18,
+            "uuid": "psvc-v3-a2-06",
+            "question": "Listen, the baby {a1} (A2 context)",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is crying",
+                    "options": [
+                        "is crying",
+                        "cries",
+                        "cry",
+                        "cried",
+                        "has cried",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Listen, the baby {a1}"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 19,
+            "uuid": "psvc-v3-a2-07",
+            "question": "The train {a1} at six according to the timetable (A2 context)",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "is leaving",
+                        "leave",
+                        "left",
+                        "has left",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "The train {a1} at six according to the timetable"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 20,
+            "uuid": "psvc-v3-a2-08",
+            "question": "Prices {a1} this spring (A2 context)",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are rising",
+                    "options": [
+                        "are rising",
+                        "rise",
+                        "rises",
+                        "rose",
+                        "have risen",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Prices {a1} this spring"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 21,
+            "uuid": "psvc-v3-a2-09",
+            "question": "She usually {a1} tea after lunch (A2 context)",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "is drinking",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: time markers.",
+                    "gap_tags": [
+                        "time_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_markers"
+            ],
+            "variants": [
+                "She usually {a1} tea after lunch"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 22,
+            "uuid": "psvc-v3-a2-10",
+            "question": "She {a1} tea at the moment (A2 context)",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is drinking",
+                    "options": [
+                        "is drinking",
+                        "drinks",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: time markers.",
+                    "gap_tags": [
+                        "time_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_markers"
+            ],
+            "variants": [
+                "She {a1} tea at the moment"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 23,
+            "uuid": "psvc-v3-a2-11",
+            "question": "He never {a1} coffee at night (A2 context)",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "is drinking",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He never {a1} coffee at night"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 24,
+            "uuid": "psvc-v3-a2-12",
+            "question": "They {a1} for exams this week (A2 context)",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are studying",
+                    "options": [
+                        "are studying",
+                        "study",
+                        "studies",
+                        "studied",
+                        "have studied",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: temporary situation.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "They {a1} for exams this week"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 25,
+            "uuid": "psvc-v3-b1-01",
+            "question": "Every Monday, Lina {a1} at the same cafe (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "works",
+                    "options": [
+                        "works",
+                        "is working",
+                        "work",
+                        "worked",
+                        "has worked",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "Every Monday, Lina {a1} at the same cafe"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 26,
+            "uuid": "psvc-v3-b1-02",
+            "question": "Right now, Lina {a1} at the kitchen table (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is working",
+                    "options": [
+                        "is working",
+                        "works",
+                        "work",
+                        "worked",
+                        "has worked",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Right now, Lina {a1} at the kitchen table"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 27,
+            "uuid": "psvc-v3-b1-03",
+            "question": "My parents {a1} in Lviv permanently (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "live",
+                    "options": [
+                        "live",
+                        "are living",
+                        "lives",
+                        "lived",
+                        "have lived",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "My parents {a1} in Lviv permanently"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 28,
+            "uuid": "psvc-v3-b1-04",
+            "question": "This month, my parents {a1} with my aunt (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are living",
+                    "options": [
+                        "are living",
+                        "live",
+                        "lives",
+                        "lived",
+                        "have lived",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: temporary situation.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "This month, my parents {a1} with my aunt"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 29,
+            "uuid": "psvc-v3-b1-05",
+            "question": "I {a1} what you mean (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "am understanding",
+                        "understands",
+                        "understood",
+                        "have understood",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: stative verbs.",
+                    "gap_tags": [
+                        "stative_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stative_verbs"
+            ],
+            "variants": [
+                "I {a1} what you mean"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 30,
+            "uuid": "psvc-v3-b1-06",
+            "question": "Listen, the baby {a1} (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is crying",
+                    "options": [
+                        "is crying",
+                        "cries",
+                        "cry",
+                        "cried",
+                        "has cried",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Listen, the baby {a1}"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 31,
+            "uuid": "psvc-v3-b1-07",
+            "question": "The train {a1} at six according to the timetable (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "is leaving",
+                        "leave",
+                        "left",
+                        "has left",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "The train {a1} at six according to the timetable"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 32,
+            "uuid": "psvc-v3-b1-08",
+            "question": "Prices {a1} this spring (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are rising",
+                    "options": [
+                        "are rising",
+                        "rise",
+                        "rises",
+                        "rose",
+                        "have risen",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Prices {a1} this spring"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 33,
+            "uuid": "psvc-v3-b1-09",
+            "question": "She usually {a1} tea after lunch (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "is drinking",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: time markers.",
+                    "gap_tags": [
+                        "time_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_markers"
+            ],
+            "variants": [
+                "She usually {a1} tea after lunch"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 34,
+            "uuid": "psvc-v3-b1-10",
+            "question": "She {a1} tea at the moment (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is drinking",
+                    "options": [
+                        "is drinking",
+                        "drinks",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: time markers.",
+                    "gap_tags": [
+                        "time_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_markers"
+            ],
+            "variants": [
+                "She {a1} tea at the moment"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 35,
+            "uuid": "psvc-v3-b1-11",
+            "question": "He never {a1} coffee at night (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "is drinking",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He never {a1} coffee at night"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 36,
+            "uuid": "psvc-v3-b1-12",
+            "question": "They {a1} for exams this week (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are studying",
+                    "options": [
+                        "are studying",
+                        "study",
+                        "studies",
+                        "studied",
+                        "have studied",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: temporary situation.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "They {a1} for exams this week"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 37,
+            "uuid": "psvc-v3-b2-01",
+            "question": "Every Monday, Lina {a1} at the same cafe (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "works",
+                    "options": [
+                        "works",
+                        "is working",
+                        "work",
+                        "worked",
+                        "has worked",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "Every Monday, Lina {a1} at the same cafe"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 38,
+            "uuid": "psvc-v3-b2-02",
+            "question": "Right now, Lina {a1} at the kitchen table (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is working",
+                    "options": [
+                        "is working",
+                        "works",
+                        "work",
+                        "worked",
+                        "has worked",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Right now, Lina {a1} at the kitchen table"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 39,
+            "uuid": "psvc-v3-b2-03",
+            "question": "My parents {a1} in Lviv permanently (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "live",
+                    "options": [
+                        "live",
+                        "are living",
+                        "lives",
+                        "lived",
+                        "have lived",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "My parents {a1} in Lviv permanently"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 40,
+            "uuid": "psvc-v3-b2-04",
+            "question": "This month, my parents {a1} with my aunt (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are living",
+                    "options": [
+                        "are living",
+                        "live",
+                        "lives",
+                        "lived",
+                        "have lived",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: temporary situation.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "This month, my parents {a1} with my aunt"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 41,
+            "uuid": "psvc-v3-b2-05",
+            "question": "I {a1} what you mean (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "am understanding",
+                        "understands",
+                        "understood",
+                        "have understood",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: stative verbs.",
+                    "gap_tags": [
+                        "stative_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stative_verbs"
+            ],
+            "variants": [
+                "I {a1} what you mean"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 42,
+            "uuid": "psvc-v3-b2-06",
+            "question": "Listen, the baby {a1} (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is crying",
+                    "options": [
+                        "is crying",
+                        "cries",
+                        "cry",
+                        "cried",
+                        "has cried",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Listen, the baby {a1}"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 43,
+            "uuid": "psvc-v3-b2-07",
+            "question": "The train {a1} at six according to the timetable (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "is leaving",
+                        "leave",
+                        "left",
+                        "has left",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "The train {a1} at six according to the timetable"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 44,
+            "uuid": "psvc-v3-b2-08",
+            "question": "Prices {a1} this spring (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are rising",
+                    "options": [
+                        "are rising",
+                        "rise",
+                        "rises",
+                        "rose",
+                        "have risen",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Prices {a1} this spring"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 45,
+            "uuid": "psvc-v3-b2-09",
+            "question": "She usually {a1} tea after lunch (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "is drinking",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: time markers.",
+                    "gap_tags": [
+                        "time_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_markers"
+            ],
+            "variants": [
+                "She usually {a1} tea after lunch"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 46,
+            "uuid": "psvc-v3-b2-10",
+            "question": "She {a1} tea at the moment (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is drinking",
+                    "options": [
+                        "is drinking",
+                        "drinks",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: time markers.",
+                    "gap_tags": [
+                        "time_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_markers"
+            ],
+            "variants": [
+                "She {a1} tea at the moment"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 47,
+            "uuid": "psvc-v3-b2-11",
+            "question": "He never {a1} coffee at night (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "is drinking",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He never {a1} coffee at night"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 48,
+            "uuid": "psvc-v3-b2-12",
+            "question": "They {a1} for exams this week (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are studying",
+                    "options": [
+                        "are studying",
+                        "study",
+                        "studies",
+                        "studied",
+                        "have studied",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: temporary situation.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "They {a1} for exams this week"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 49,
+            "uuid": "psvc-v3-c1-01",
+            "question": "Every Monday, Lina {a1} at the same cafe (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "works",
+                    "options": [
+                        "works",
+                        "is working",
+                        "work",
+                        "worked",
+                        "has worked",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "Every Monday, Lina {a1} at the same cafe"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 50,
+            "uuid": "psvc-v3-c1-02",
+            "question": "Right now, Lina {a1} at the kitchen table (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is working",
+                    "options": [
+                        "is working",
+                        "works",
+                        "work",
+                        "worked",
+                        "has worked",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Right now, Lina {a1} at the kitchen table"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 51,
+            "uuid": "psvc-v3-c1-03",
+            "question": "My parents {a1} in Lviv permanently (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "live",
+                    "options": [
+                        "live",
+                        "are living",
+                        "lives",
+                        "lived",
+                        "have lived",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "My parents {a1} in Lviv permanently"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 52,
+            "uuid": "psvc-v3-c1-04",
+            "question": "This month, my parents {a1} with my aunt (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are living",
+                    "options": [
+                        "are living",
+                        "live",
+                        "lives",
+                        "lived",
+                        "have lived",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: temporary situation.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "This month, my parents {a1} with my aunt"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 53,
+            "uuid": "psvc-v3-c1-05",
+            "question": "I {a1} what you mean (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "am understanding",
+                        "understands",
+                        "understood",
+                        "have understood",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: stative verbs.",
+                    "gap_tags": [
+                        "stative_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stative_verbs"
+            ],
+            "variants": [
+                "I {a1} what you mean"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 54,
+            "uuid": "psvc-v3-c1-06",
+            "question": "Listen, the baby {a1} (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is crying",
+                    "options": [
+                        "is crying",
+                        "cries",
+                        "cry",
+                        "cried",
+                        "has cried",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Listen, the baby {a1}"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 55,
+            "uuid": "psvc-v3-c1-07",
+            "question": "The train {a1} at six according to the timetable (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "is leaving",
+                        "leave",
+                        "left",
+                        "has left",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "The train {a1} at six according to the timetable"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 56,
+            "uuid": "psvc-v3-c1-08",
+            "question": "Prices {a1} this spring (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are rising",
+                    "options": [
+                        "are rising",
+                        "rise",
+                        "rises",
+                        "rose",
+                        "have risen",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Prices {a1} this spring"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 57,
+            "uuid": "psvc-v3-c1-09",
+            "question": "She usually {a1} tea after lunch (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "is drinking",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: time markers.",
+                    "gap_tags": [
+                        "time_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_markers"
+            ],
+            "variants": [
+                "She usually {a1} tea after lunch"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 58,
+            "uuid": "psvc-v3-c1-10",
+            "question": "She {a1} tea at the moment (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is drinking",
+                    "options": [
+                        "is drinking",
+                        "drinks",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: time markers.",
+                    "gap_tags": [
+                        "time_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_markers"
+            ],
+            "variants": [
+                "She {a1} tea at the moment"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 59,
+            "uuid": "psvc-v3-c1-11",
+            "question": "He never {a1} coffee at night (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "is drinking",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He never {a1} coffee at night"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 60,
+            "uuid": "psvc-v3-c1-12",
+            "question": "They {a1} for exams this week (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are studying",
+                    "options": [
+                        "are studying",
+                        "study",
+                        "studies",
+                        "studied",
+                        "have studied",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: temporary situation.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "They {a1} for exams this week"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 61,
+            "uuid": "psvc-v3-c2-01",
+            "question": "Every Monday, Lina {a1} at the same cafe (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "works",
+                    "options": [
+                        "works",
+                        "is working",
+                        "work",
+                        "worked",
+                        "has worked",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "Every Monday, Lina {a1} at the same cafe"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 62,
+            "uuid": "psvc-v3-c2-02",
+            "question": "Right now, Lina {a1} at the kitchen table (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is working",
+                    "options": [
+                        "is working",
+                        "works",
+                        "work",
+                        "worked",
+                        "has worked",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Right now, Lina {a1} at the kitchen table"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 63,
+            "uuid": "psvc-v3-c2-03",
+            "question": "My parents {a1} in Lviv permanently (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "live",
+                    "options": [
+                        "live",
+                        "are living",
+                        "lives",
+                        "lived",
+                        "have lived",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "My parents {a1} in Lviv permanently"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 64,
+            "uuid": "psvc-v3-c2-04",
+            "question": "This month, my parents {a1} with my aunt (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are living",
+                    "options": [
+                        "are living",
+                        "live",
+                        "lives",
+                        "lived",
+                        "have lived",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: temporary situation.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "This month, my parents {a1} with my aunt"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 65,
+            "uuid": "psvc-v3-c2-05",
+            "question": "I {a1} what you mean (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "am understanding",
+                        "understands",
+                        "understood",
+                        "have understood",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: stative verbs.",
+                    "gap_tags": [
+                        "stative_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stative_verbs"
+            ],
+            "variants": [
+                "I {a1} what you mean"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 66,
+            "uuid": "psvc-v3-c2-06",
+            "question": "Listen, the baby {a1} (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is crying",
+                    "options": [
+                        "is crying",
+                        "cries",
+                        "cry",
+                        "cried",
+                        "has cried",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Listen, the baby {a1}"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 67,
+            "uuid": "psvc-v3-c2-07",
+            "question": "The train {a1} at six according to the timetable (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "is leaving",
+                        "leave",
+                        "left",
+                        "has left",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present simple.",
+                    "gap_tags": [
+                        "present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple"
+            ],
+            "variants": [
+                "The train {a1} at six according to the timetable"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 68,
+            "uuid": "psvc-v3-c2-08",
+            "question": "Prices {a1} this spring (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are rising",
+                    "options": [
+                        "are rising",
+                        "rise",
+                        "rises",
+                        "rose",
+                        "have risen",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: present continuous.",
+                    "gap_tags": [
+                        "present_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous"
+            ],
+            "variants": [
+                "Prices {a1} this spring"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 69,
+            "uuid": "psvc-v3-c2-09",
+            "question": "She usually {a1} tea after lunch (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "is drinking",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: time markers.",
+                    "gap_tags": [
+                        "time_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_markers"
+            ],
+            "variants": [
+                "She usually {a1} tea after lunch"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 70,
+            "uuid": "psvc-v3-c2-10",
+            "question": "She {a1} tea at the moment (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is drinking",
+                    "options": [
+                        "is drinking",
+                        "drinks",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: time markers.",
+                    "gap_tags": [
+                        "time_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_markers"
+            ],
+            "variants": [
+                "She {a1} tea at the moment"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 71,
+            "uuid": "psvc-v3-c2-11",
+            "question": "He never {a1} coffee at night (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "is drinking",
+                        "drink",
+                        "drank",
+                        "has drunk",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He never {a1} coffee at night"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        },
+        {
+            "id": 72,
+            "uuid": "psvc-v3-c2-12",
+            "question": "They {a1} for exams this week (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are studying",
+                    "options": [
+                        "are studying",
+                        "study",
+                        "studies",
+                        "studied",
+                        "have studied",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the tense that matches the contrast: temporary situation.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "They {a1} for exams this week"
+            ],
+            "source": "theory_page_present_simple_vs_present_continuous"
+        }
+    ],
+    "saved_test": {
+        "uuid": "cmp-psvc-v3-all",
+        "slug": "present-simple-vs-present-continuous-all-levels-v3",
+        "name": "Present Simple vs Present Continuous: V3 All Levels",
+        "description": "Page-local V3 package for Present Simple vs Present Continuous with A1-C2 contrast coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Tenses\\Comparisons\\PresentSimpleVsPresentContinuousAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "present-simple-vs-present-continuous",
+                    "title": "Present Simple vs Present Continuous",
+                    "category_slug_path": "tenses",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\TensesPresentSimpleVsPresentContinuousTheorySeeder",
+                    "url": "https://gramlyze.com/theory/tenses/present-simple-vs-present-continuous"
+                }
+            }
+        }
+    }
+}
