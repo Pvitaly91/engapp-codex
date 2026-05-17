@@ -1,0 +1,2261 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ModalVerbs\\ShouldOughtToAllLevelsV3Seeder",
+        "uuid_namespace": "ShouldOughtToAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Modal Verbs"
+    },
+    "sources": {
+        "theory_page_should_ought_to": {
+            "name": "Should / Ought to"
+        }
+    },
+    "tags": {
+        "modal_should_ought_to": {
+            "name": "Should / Ought to",
+            "category": "modal-verbs"
+        },
+        "should_advice": {
+            "name": "Should Advice",
+            "category": "topic"
+        },
+        "ought_to_advice": {
+            "name": "Ought To Advice",
+            "category": "topic"
+        },
+        "shouldnt": {
+            "name": "Should Not",
+            "category": "topic"
+        },
+        "should_have": {
+            "name": "Should Have",
+            "category": "topic"
+        },
+        "ought_to_have": {
+            "name": "Ought To Have",
+            "category": "topic"
+        },
+        "should_vs_must": {
+            "name": "Should vs Must",
+            "category": "topic"
+        },
+        "should_vs_had_better": {
+            "name": "Should vs Had Better",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "modal_should_ought_to"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "sot-v3-a1-01",
+            "question": "You {a1} rest today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "can",
+                        "ought",
+                        "have to",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Advice.",
+                    "gap_tags": [
+                        "should_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_advice"
+            ],
+            "variants": [
+                "You {a1} rest today"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 2,
+            "uuid": "sot-v3-a1-02",
+            "question": "You {a1} call your parents",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "ought to",
+                    "options": [
+                        "ought to",
+                        "should",
+                        "must",
+                        "can",
+                        "ought",
+                        "have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Advice.",
+                    "gap_tags": [
+                        "ought_to_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_advice"
+            ],
+            "variants": [
+                "You {a1} call your parents"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 3,
+            "uuid": "sot-v3-a1-03",
+            "question": "You {a1} eat so much sugar",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't",
+                    "options": [
+                        "shouldn't",
+                        "should",
+                        "must not",
+                        "do not have to",
+                        "ought not",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Not.",
+                    "gap_tags": [
+                        "shouldnt"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "shouldnt"
+            ],
+            "variants": [
+                "You {a1} eat so much sugar"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 4,
+            "uuid": "sot-v3-a1-04",
+            "question": "You {a1} called me earlier",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "should",
+                        "must have",
+                        "ought",
+                        "had better",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Have.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "You {a1} called me earlier"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 5,
+            "uuid": "sot-v3-a1-05",
+            "question": "You {a1} told us the truth",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "ought to have",
+                    "options": [
+                        "ought to have",
+                        "should have",
+                        "ought to",
+                        "must have",
+                        "had better",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Have.",
+                    "gap_tags": [
+                        "ought_to_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_have"
+            ],
+            "variants": [
+                "You {a1} told us the truth"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 6,
+            "uuid": "sot-v3-a1-06",
+            "question": "You {a1} ask for advice first",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "have to",
+                        "can",
+                        "must not",
+                        "had better"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Must.",
+                    "gap_tags": [
+                        "should_vs_must"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_must"
+            ],
+            "variants": [
+                "You {a1} ask for advice first"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 7,
+            "uuid": "sot-v3-a1-07",
+            "question": "You {a1} wear a seat belt",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "should",
+                        "ought to",
+                        "can",
+                        "do not have to",
+                        "had better"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Must.",
+                    "gap_tags": [
+                        "should_vs_must"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_must"
+            ],
+            "variants": [
+                "You {a1} wear a seat belt"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 8,
+            "uuid": "sot-v3-a1-08",
+            "question": "You {a1} hurry or we will miss the bus",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "should",
+                        "ought to",
+                        "must have",
+                        "can",
+                        "will have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Had Better.",
+                    "gap_tags": [
+                        "should_vs_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_had_better"
+            ],
+            "variants": [
+                "You {a1} hurry or we will miss the bus"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 9,
+            "uuid": "sot-v3-a1-09",
+            "question": "{a1} I call her now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Do",
+                        "Must",
+                        "Can",
+                        "Have",
+                        "Ought"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Advice.",
+                    "gap_tags": [
+                        "should_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_advice"
+            ],
+            "variants": [
+                "{a1} I call her now"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 10,
+            "uuid": "sot-v3-a1-10",
+            "question": "You {a1} opened the file",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't have",
+                    "options": [
+                        "shouldn't have",
+                        "should not",
+                        "must not have",
+                        "ought not",
+                        "could not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Have.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "You {a1} opened the file"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 11,
+            "uuid": "sot-v3-a1-11",
+            "question": "You {a1} rest now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "should to",
+                        "must to",
+                        "ought",
+                        "can to",
+                        "shoulds"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "You {a1} rest now"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 12,
+            "uuid": "sot-v3-a1-12",
+            "question": "You {a1} be patient",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "ought to",
+                    "options": [
+                        "ought to",
+                        "should to",
+                        "ought",
+                        "must to",
+                        "can to",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Advice.",
+                    "gap_tags": [
+                        "ought_to_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_advice"
+            ],
+            "variants": [
+                "You {a1} be patient"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 13,
+            "uuid": "sot-v3-a2-01",
+            "question": "She {a1} drink more water",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "can",
+                        "ought",
+                        "have to",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Advice.",
+                    "gap_tags": [
+                        "should_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_advice"
+            ],
+            "variants": [
+                "She {a1} drink more water"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 14,
+            "uuid": "sot-v3-a2-02",
+            "question": "He {a1} see a dentist",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "ought to",
+                    "options": [
+                        "ought to",
+                        "should",
+                        "must",
+                        "can",
+                        "ought",
+                        "have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Advice.",
+                    "gap_tags": [
+                        "ought_to_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_advice"
+            ],
+            "variants": [
+                "He {a1} see a dentist"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 15,
+            "uuid": "sot-v3-a2-03",
+            "question": "He {a1} drive so fast",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't",
+                    "options": [
+                        "shouldn't",
+                        "should",
+                        "must not",
+                        "do not have to",
+                        "ought not",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Not.",
+                    "gap_tags": [
+                        "shouldnt"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "shouldnt"
+            ],
+            "variants": [
+                "He {a1} drive so fast"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 16,
+            "uuid": "sot-v3-a2-04",
+            "question": "She {a1} checked the address",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "should",
+                        "must have",
+                        "ought",
+                        "had better",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Have.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "She {a1} checked the address"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 17,
+            "uuid": "sot-v3-a2-05",
+            "question": "He {a1} apologized immediately",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "ought to have",
+                    "options": [
+                        "ought to have",
+                        "should have",
+                        "ought to",
+                        "must have",
+                        "had better",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Have.",
+                    "gap_tags": [
+                        "ought_to_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_have"
+            ],
+            "variants": [
+                "He {a1} apologized immediately"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 18,
+            "uuid": "sot-v3-a2-06",
+            "question": "She {a1} revise the paragraph",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "have to",
+                        "can",
+                        "must not",
+                        "had better"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Must.",
+                    "gap_tags": [
+                        "should_vs_must"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_must"
+            ],
+            "variants": [
+                "She {a1} revise the paragraph"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 19,
+            "uuid": "sot-v3-a2-07",
+            "question": "Drivers {a1} stop at a red light",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "should",
+                        "ought to",
+                        "can",
+                        "do not have to",
+                        "had better"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Must.",
+                    "gap_tags": [
+                        "should_vs_must"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_must"
+            ],
+            "variants": [
+                "Drivers {a1} stop at a red light"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 20,
+            "uuid": "sot-v3-a2-08",
+            "question": "He {a1} leave now or he will be late",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "should",
+                        "ought to",
+                        "must have",
+                        "can",
+                        "will have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Had Better.",
+                    "gap_tags": [
+                        "should_vs_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_had_better"
+            ],
+            "variants": [
+                "He {a1} leave now or he will be late"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 21,
+            "uuid": "sot-v3-a2-09",
+            "question": "{a1} we wait outside",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Do",
+                        "Must",
+                        "Can",
+                        "Have",
+                        "Ought"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Advice.",
+                    "gap_tags": [
+                        "should_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_advice"
+            ],
+            "variants": [
+                "{a1} we wait outside"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 22,
+            "uuid": "sot-v3-a2-10",
+            "question": "She {a1} told him the secret",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't have",
+                    "options": [
+                        "shouldn't have",
+                        "should not",
+                        "must not have",
+                        "ought not",
+                        "could not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Have.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "She {a1} told him the secret"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 23,
+            "uuid": "sot-v3-a2-11",
+            "question": "He {a1} speak more politely",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "should to",
+                        "must to",
+                        "ought",
+                        "can to",
+                        "shoulds"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He {a1} speak more politely"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 24,
+            "uuid": "sot-v3-a2-12",
+            "question": "She {a1} listen more carefully",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "ought to",
+                    "options": [
+                        "ought to",
+                        "should to",
+                        "ought",
+                        "must to",
+                        "can to",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Advice.",
+                    "gap_tags": [
+                        "ought_to_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_advice"
+            ],
+            "variants": [
+                "She {a1} listen more carefully"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 25,
+            "uuid": "sot-v3-b1-01",
+            "question": "We {a1} leave before eight",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "can",
+                        "ought",
+                        "have to",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Advice.",
+                    "gap_tags": [
+                        "should_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_advice"
+            ],
+            "variants": [
+                "We {a1} leave before eight"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 26,
+            "uuid": "sot-v3-b1-02",
+            "question": "We {a1} be more careful",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "ought to",
+                    "options": [
+                        "ought to",
+                        "should",
+                        "must",
+                        "can",
+                        "ought",
+                        "have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Advice.",
+                    "gap_tags": [
+                        "ought_to_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_advice"
+            ],
+            "variants": [
+                "We {a1} be more careful"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 27,
+            "uuid": "sot-v3-b1-03",
+            "question": "We {a1} ignore this warning",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't",
+                    "options": [
+                        "shouldn't",
+                        "should",
+                        "must not",
+                        "do not have to",
+                        "ought not",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Not.",
+                    "gap_tags": [
+                        "shouldnt"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "shouldnt"
+            ],
+            "variants": [
+                "We {a1} ignore this warning"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 28,
+            "uuid": "sot-v3-b1-04",
+            "question": "We {a1} booked seats in advance",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "should",
+                        "must have",
+                        "ought",
+                        "had better",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Have.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "We {a1} booked seats in advance"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 29,
+            "uuid": "sot-v3-b1-05",
+            "question": "We {a1} saved a copy",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "ought to have",
+                    "options": [
+                        "ought to have",
+                        "should have",
+                        "ought to",
+                        "must have",
+                        "had better",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Have.",
+                    "gap_tags": [
+                        "ought_to_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_have"
+            ],
+            "variants": [
+                "We {a1} saved a copy"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 30,
+            "uuid": "sot-v3-b1-06",
+            "question": "We {a1} compare both options",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "have to",
+                        "can",
+                        "must not",
+                        "had better"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Must.",
+                    "gap_tags": [
+                        "should_vs_must"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_must"
+            ],
+            "variants": [
+                "We {a1} compare both options"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 31,
+            "uuid": "sot-v3-b1-07",
+            "question": "All visitors {a1} show ID",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "should",
+                        "ought to",
+                        "can",
+                        "do not have to",
+                        "had better"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Must.",
+                    "gap_tags": [
+                        "should_vs_must"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_must"
+            ],
+            "variants": [
+                "All visitors {a1} show ID"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 32,
+            "uuid": "sot-v3-b1-08",
+            "question": "We {a1} save the file before it crashes",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "should",
+                        "ought to",
+                        "must have",
+                        "can",
+                        "will have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Had Better.",
+                    "gap_tags": [
+                        "should_vs_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_had_better"
+            ],
+            "variants": [
+                "We {a1} save the file before it crashes"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 33,
+            "uuid": "sot-v3-b1-09",
+            "question": "{a1} they ask for help",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Do",
+                        "Must",
+                        "Can",
+                        "Have",
+                        "Ought"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Advice.",
+                    "gap_tags": [
+                        "should_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_advice"
+            ],
+            "variants": [
+                "{a1} they ask for help"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 34,
+            "uuid": "sot-v3-b1-10",
+            "question": "We {a1} ignored the alarm",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't have",
+                    "options": [
+                        "shouldn't have",
+                        "should not",
+                        "must not have",
+                        "ought not",
+                        "could not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Have.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "We {a1} ignored the alarm"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 35,
+            "uuid": "sot-v3-b1-11",
+            "question": "We {a1} check the spelling",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "should to",
+                        "must to",
+                        "ought",
+                        "can to",
+                        "shoulds"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "We {a1} check the spelling"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 36,
+            "uuid": "sot-v3-b1-12",
+            "question": "We {a1} update the schedule",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "ought to",
+                    "options": [
+                        "ought to",
+                        "should to",
+                        "ought",
+                        "must to",
+                        "can to",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Advice.",
+                    "gap_tags": [
+                        "ought_to_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_advice"
+            ],
+            "variants": [
+                "We {a1} update the schedule"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 37,
+            "uuid": "sot-v3-b2-01",
+            "question": "The team {a1} check the figures again",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "can",
+                        "ought",
+                        "have to",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Advice.",
+                    "gap_tags": [
+                        "should_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_advice"
+            ],
+            "variants": [
+                "The team {a1} check the figures again"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 38,
+            "uuid": "sot-v3-b2-02",
+            "question": "Managers {a1} explain the change clearly",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "ought to",
+                    "options": [
+                        "ought to",
+                        "should",
+                        "must",
+                        "can",
+                        "ought",
+                        "have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Advice.",
+                    "gap_tags": [
+                        "ought_to_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_advice"
+            ],
+            "variants": [
+                "Managers {a1} explain the change clearly"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 39,
+            "uuid": "sot-v3-b2-03",
+            "question": "The company {a1} delay the refund",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't",
+                    "options": [
+                        "shouldn't",
+                        "should",
+                        "must not",
+                        "do not have to",
+                        "ought not",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Not.",
+                    "gap_tags": [
+                        "shouldnt"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "shouldnt"
+            ],
+            "variants": [
+                "The company {a1} delay the refund"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 40,
+            "uuid": "sot-v3-b2-04",
+            "question": "The team {a1} tested the backup plan",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "should",
+                        "must have",
+                        "ought",
+                        "had better",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Have.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "The team {a1} tested the backup plan"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 41,
+            "uuid": "sot-v3-b2-05",
+            "question": "The organizers {a1} informed participants earlier",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "ought to have",
+                    "options": [
+                        "ought to have",
+                        "should have",
+                        "ought to",
+                        "must have",
+                        "had better",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Have.",
+                    "gap_tags": [
+                        "ought_to_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_have"
+            ],
+            "variants": [
+                "The organizers {a1} informed participants earlier"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 42,
+            "uuid": "sot-v3-b2-06",
+            "question": "The manager {a1} consult the team",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "have to",
+                        "can",
+                        "must not",
+                        "had better"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Must.",
+                    "gap_tags": [
+                        "should_vs_must"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_must"
+            ],
+            "variants": [
+                "The manager {a1} consult the team"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 43,
+            "uuid": "sot-v3-b2-07",
+            "question": "Applicants {a1} sign the declaration",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "should",
+                        "ought to",
+                        "can",
+                        "do not have to",
+                        "had better"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Must.",
+                    "gap_tags": [
+                        "should_vs_must"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_must"
+            ],
+            "variants": [
+                "Applicants {a1} sign the declaration"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 44,
+            "uuid": "sot-v3-b2-08",
+            "question": "The team {a1} fix the leak before inspection",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "should",
+                        "ought to",
+                        "must have",
+                        "can",
+                        "will have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Had Better.",
+                    "gap_tags": [
+                        "should_vs_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_had_better"
+            ],
+            "variants": [
+                "The team {a1} fix the leak before inspection"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 45,
+            "uuid": "sot-v3-b2-09",
+            "question": "{a1} the report include an appendix",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Do",
+                        "Must",
+                        "Can",
+                        "Have",
+                        "Ought"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Advice.",
+                    "gap_tags": [
+                        "should_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_advice"
+            ],
+            "variants": [
+                "{a1} the report include an appendix"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 46,
+            "uuid": "sot-v3-b2-10",
+            "question": "The company {a1} promised a fixed date",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't have",
+                    "options": [
+                        "shouldn't have",
+                        "should not",
+                        "must not have",
+                        "ought not",
+                        "could not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Have.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "The company {a1} promised a fixed date"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 47,
+            "uuid": "sot-v3-b2-11",
+            "question": "The report {a1} include sources",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "should to",
+                        "must to",
+                        "ought",
+                        "can to",
+                        "shoulds"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The report {a1} include sources"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 48,
+            "uuid": "sot-v3-b2-12",
+            "question": "The firm {a1} review its policy",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "ought to",
+                    "options": [
+                        "ought to",
+                        "should to",
+                        "ought",
+                        "must to",
+                        "can to",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Advice.",
+                    "gap_tags": [
+                        "ought_to_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_advice"
+            ],
+            "variants": [
+                "The firm {a1} review its policy"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 49,
+            "uuid": "sot-v3-c1-01",
+            "question": "The editor {a1} shorten the introduction",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "can",
+                        "ought",
+                        "have to",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Advice.",
+                    "gap_tags": [
+                        "should_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_advice"
+            ],
+            "variants": [
+                "The editor {a1} shorten the introduction"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 50,
+            "uuid": "sot-v3-c1-02",
+            "question": "The report {a1} mention the limitation",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "ought to",
+                    "options": [
+                        "ought to",
+                        "should",
+                        "must",
+                        "can",
+                        "ought",
+                        "have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Advice.",
+                    "gap_tags": [
+                        "ought_to_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_advice"
+            ],
+            "variants": [
+                "The report {a1} mention the limitation"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 51,
+            "uuid": "sot-v3-c1-03",
+            "question": "The author {a1} overstate the evidence",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't",
+                    "options": [
+                        "shouldn't",
+                        "should",
+                        "must not",
+                        "do not have to",
+                        "ought not",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Not.",
+                    "gap_tags": [
+                        "shouldnt"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "shouldnt"
+            ],
+            "variants": [
+                "The author {a1} overstate the evidence"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 52,
+            "uuid": "sot-v3-c1-04",
+            "question": "The lawyer {a1} disclosed the risk sooner",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "should",
+                        "must have",
+                        "ought",
+                        "had better",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Have.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "The lawyer {a1} disclosed the risk sooner"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 53,
+            "uuid": "sot-v3-c1-05",
+            "question": "The agency {a1} considered the appeal",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "ought to have",
+                    "options": [
+                        "ought to have",
+                        "should have",
+                        "ought to",
+                        "must have",
+                        "had better",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Have.",
+                    "gap_tags": [
+                        "ought_to_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_have"
+            ],
+            "variants": [
+                "The agency {a1} considered the appeal"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 54,
+            "uuid": "sot-v3-c1-06",
+            "question": "The paper {a1} define its terms more precisely",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "have to",
+                        "can",
+                        "must not",
+                        "had better"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Must.",
+                    "gap_tags": [
+                        "should_vs_must"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_must"
+            ],
+            "variants": [
+                "The paper {a1} define its terms more precisely"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 55,
+            "uuid": "sot-v3-c1-07",
+            "question": "Researchers {a1} obtain informed consent",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "should",
+                        "ought to",
+                        "can",
+                        "do not have to",
+                        "had better"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Must.",
+                    "gap_tags": [
+                        "should_vs_must"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_must"
+            ],
+            "variants": [
+                "Researchers {a1} obtain informed consent"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 56,
+            "uuid": "sot-v3-c1-08",
+            "question": "The company {a1} respond before the deadline expires",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "should",
+                        "ought to",
+                        "must have",
+                        "can",
+                        "will have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Had Better.",
+                    "gap_tags": [
+                        "should_vs_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_had_better"
+            ],
+            "variants": [
+                "The company {a1} respond before the deadline expires"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 57,
+            "uuid": "sot-v3-c1-09",
+            "question": "{a1} the clause refer to both parties",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Do",
+                        "Must",
+                        "Can",
+                        "Have",
+                        "Ought"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Advice.",
+                    "gap_tags": [
+                        "should_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_advice"
+            ],
+            "variants": [
+                "{a1} the clause refer to both parties"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 58,
+            "uuid": "sot-v3-c1-10",
+            "question": "The witness {a1} discussed the case online",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't have",
+                    "options": [
+                        "shouldn't have",
+                        "should not",
+                        "must not have",
+                        "ought not",
+                        "could not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Have.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "The witness {a1} discussed the case online"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 59,
+            "uuid": "sot-v3-c1-11",
+            "question": "The applicant {a1} explain the gap",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "should to",
+                        "must to",
+                        "ought",
+                        "can to",
+                        "shoulds"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The applicant {a1} explain the gap"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 60,
+            "uuid": "sot-v3-c1-12",
+            "question": "The author {a1} cite the original source",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "ought to",
+                    "options": [
+                        "ought to",
+                        "should to",
+                        "ought",
+                        "must to",
+                        "can to",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Advice.",
+                    "gap_tags": [
+                        "ought_to_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_advice"
+            ],
+            "variants": [
+                "The author {a1} cite the original source"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 61,
+            "uuid": "sot-v3-c2-01",
+            "question": "The committee {a1} consider the social impact",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "can",
+                        "ought",
+                        "have to",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Advice.",
+                    "gap_tags": [
+                        "should_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_advice"
+            ],
+            "variants": [
+                "The committee {a1} consider the social impact"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 62,
+            "uuid": "sot-v3-c2-02",
+            "question": "The court {a1} weigh proportionality more carefully",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "ought to",
+                    "options": [
+                        "ought to",
+                        "should",
+                        "must",
+                        "can",
+                        "ought",
+                        "have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Advice.",
+                    "gap_tags": [
+                        "ought_to_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_advice"
+            ],
+            "variants": [
+                "The court {a1} weigh proportionality more carefully"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 63,
+            "uuid": "sot-v3-c2-03",
+            "question": "Policy makers {a1} dismiss local objections",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't",
+                    "options": [
+                        "shouldn't",
+                        "should",
+                        "must not",
+                        "do not have to",
+                        "ought not",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Not.",
+                    "gap_tags": [
+                        "shouldnt"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "shouldnt"
+            ],
+            "variants": [
+                "Policy makers {a1} dismiss local objections"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 64,
+            "uuid": "sot-v3-c2-04",
+            "question": "The researcher {a1} acknowledged the contrary data",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "should",
+                        "must have",
+                        "ought",
+                        "had better",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Have.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "The researcher {a1} acknowledged the contrary data"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 65,
+            "uuid": "sot-v3-c2-05",
+            "question": "The panel {a1} explained its reasoning",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "ought to have",
+                    "options": [
+                        "ought to have",
+                        "should have",
+                        "ought to",
+                        "must have",
+                        "had better",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Have.",
+                    "gap_tags": [
+                        "ought_to_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_have"
+            ],
+            "variants": [
+                "The panel {a1} explained its reasoning"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 66,
+            "uuid": "sot-v3-c2-06",
+            "question": "The proposal {a1} address foreseeable objections",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "have to",
+                        "can",
+                        "must not",
+                        "had better"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Must.",
+                    "gap_tags": [
+                        "should_vs_must"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_must"
+            ],
+            "variants": [
+                "The proposal {a1} address foreseeable objections"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 67,
+            "uuid": "sot-v3-c2-07",
+            "question": "The court {a1} apply the statute as written",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "should",
+                        "ought to",
+                        "can",
+                        "do not have to",
+                        "had better"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Must.",
+                    "gap_tags": [
+                        "should_vs_must"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_must"
+            ],
+            "variants": [
+                "The court {a1} apply the statute as written"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 68,
+            "uuid": "sot-v3-c2-08",
+            "question": "The negotiators {a1} clarify the clause before signing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "should",
+                        "ought to",
+                        "must have",
+                        "can",
+                        "will have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should vs Had Better.",
+                    "gap_tags": [
+                        "should_vs_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_vs_had_better"
+            ],
+            "variants": [
+                "The negotiators {a1} clarify the clause before signing"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 69,
+            "uuid": "sot-v3-c2-09",
+            "question": "{a1} we treat this exception as decisive",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Do",
+                        "Must",
+                        "Can",
+                        "Have",
+                        "Ought"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Advice.",
+                    "gap_tags": [
+                        "should_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_advice"
+            ],
+            "variants": [
+                "{a1} we treat this exception as decisive"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 70,
+            "uuid": "sot-v3-c2-10",
+            "question": "The committee {a1} dismissed the objection so quickly",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't have",
+                    "options": [
+                        "shouldn't have",
+                        "should not",
+                        "must not have",
+                        "ought not",
+                        "could not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Should Have.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "The committee {a1} dismissed the objection so quickly"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 71,
+            "uuid": "sot-v3-c2-11",
+            "question": "The reviewer {a1} separate facts from assumptions",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "should to",
+                        "must to",
+                        "ought",
+                        "can to",
+                        "shoulds"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The reviewer {a1} separate facts from assumptions"
+            ],
+            "source": "theory_page_should_ought_to"
+        },
+        {
+            "id": 72,
+            "uuid": "sot-v3-c2-12",
+            "question": "The panel {a1} justify the distinction",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "ought to",
+                    "options": [
+                        "ought to",
+                        "should to",
+                        "ought",
+                        "must to",
+                        "can to",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Ought To Advice.",
+                    "gap_tags": [
+                        "ought_to_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ought_to_advice"
+            ],
+            "variants": [
+                "The panel {a1} justify the distinction"
+            ],
+            "source": "theory_page_should_ought_to"
+        }
+    ],
+    "saved_test": {
+        "uuid": "modal-sot-v3-all",
+        "slug": "should-ought-to-all-levels-v3",
+        "name": "Should / Ought to: V3 All Levels",
+        "description": "Page-local V3 package for Should / Ought to with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ModalVerbs\\ShouldOughtToAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "should-ought-to",
+                    "title": "Should / Ought to",
+                    "category_slug_path": "modal-verbs",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsShouldOughtToTheorySeeder",
+                    "url": "https://gramlyze.com/theory/modal-verbs/should-ought-to"
+                }
+            }
+        }
+    }
+}
