@@ -1,0 +1,475 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Future Perfect Negatives theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/maibutni-formy/future-perfect/future-perfect-negatives",
+        "category_slug": "maibutni-formy/future-perfect",
+        "slug": "future-perfect-negatives",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+        "title": "Future Perfect Negatives"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+            "sort_order": 1,
+            "title": "Overview"
+        },
+        "forms": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+            "sort_order": 2,
+            "title": "Forms"
+        },
+        "usage": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+            "sort_order": 3,
+            "title": "Usage"
+        },
+        "patterns": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+            "sort_order": 4,
+            "title": "Patterns"
+        },
+        "typical_mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+            "sort_order": 5,
+            "title": "Typical Mistakes"
+        },
+        "summary": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+            "sort_order": 6,
+            "title": "Summary"
+        },
+        "will_not_have_v3": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+            "sort_order": 2,
+            "title": "Will Not Have V3"
+        },
+        "wont_have_v3": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+            "sort_order": 2,
+            "title": "Wont Have V3"
+        },
+        "not_completed_before_future": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+            "sort_order": 3,
+            "title": "Not Completed Before Future"
+        },
+        "by_marker": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+            "sort_order": 3,
+            "title": "By Marker"
+        },
+        "future_simple_negative_contrast": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+            "sort_order": 4,
+            "title": "Future Simple Negative Contrast"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "summary"
+        ],
+        "will_not_have_v3": [
+            "will_not_have_v3",
+            "overview",
+            "summary"
+        ],
+        "wont_have_v3": [
+            "wont_have_v3",
+            "overview",
+            "summary"
+        ],
+        "not_completed_before_future": [
+            "not_completed_before_future",
+            "overview",
+            "summary"
+        ],
+        "by_marker": [
+            "by_marker",
+            "overview",
+            "summary"
+        ],
+        "future_simple_negative_contrast": [
+            "future_simple_negative_contrast",
+            "overview",
+            "summary"
+        ],
+        "typical_mistakes": [
+            "typical_mistakes",
+            "overview",
+            "summary"
+        ]
+    },
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-future-perfect-negatives-all-levels",
+            "saved_test_name": "Sentence Builder: Future Perfect Negatives (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectNegativesAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "fpn-poly-a1-01": [
+                    "will_not_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-a1-02": [
+                    "wont_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-a1-03": [
+                    "not_completed_before_future",
+                    "general_overview"
+                ],
+                "fpn-poly-a1-04": [
+                    "by_marker",
+                    "general_overview"
+                ],
+                "fpn-poly-a1-05": [
+                    "future_simple_negative_contrast",
+                    "general_overview"
+                ],
+                "fpn-poly-a1-06": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "fpn-poly-a1-07": [
+                    "will_not_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-a1-08": [
+                    "wont_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-a1-09": [
+                    "not_completed_before_future",
+                    "general_overview"
+                ],
+                "fpn-poly-a1-10": [
+                    "by_marker",
+                    "general_overview"
+                ],
+                "fpn-poly-a1-11": [
+                    "future_simple_negative_contrast",
+                    "general_overview"
+                ],
+                "fpn-poly-a1-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "fpn-poly-a2-01": [
+                    "will_not_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-a2-02": [
+                    "wont_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-a2-03": [
+                    "not_completed_before_future",
+                    "general_overview"
+                ],
+                "fpn-poly-a2-04": [
+                    "by_marker",
+                    "general_overview"
+                ],
+                "fpn-poly-a2-05": [
+                    "future_simple_negative_contrast",
+                    "general_overview"
+                ],
+                "fpn-poly-a2-06": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "fpn-poly-a2-07": [
+                    "will_not_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-a2-08": [
+                    "wont_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-a2-09": [
+                    "not_completed_before_future",
+                    "general_overview"
+                ],
+                "fpn-poly-a2-10": [
+                    "by_marker",
+                    "general_overview"
+                ],
+                "fpn-poly-a2-11": [
+                    "future_simple_negative_contrast",
+                    "general_overview"
+                ],
+                "fpn-poly-a2-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "fpn-poly-b1-01": [
+                    "will_not_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-b1-02": [
+                    "wont_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-b1-03": [
+                    "not_completed_before_future",
+                    "general_overview"
+                ],
+                "fpn-poly-b1-04": [
+                    "by_marker",
+                    "general_overview"
+                ],
+                "fpn-poly-b1-05": [
+                    "future_simple_negative_contrast",
+                    "general_overview"
+                ],
+                "fpn-poly-b1-06": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "fpn-poly-b1-07": [
+                    "will_not_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-b1-08": [
+                    "wont_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-b1-09": [
+                    "not_completed_before_future",
+                    "general_overview"
+                ],
+                "fpn-poly-b1-10": [
+                    "by_marker",
+                    "general_overview"
+                ],
+                "fpn-poly-b1-11": [
+                    "future_simple_negative_contrast",
+                    "general_overview"
+                ],
+                "fpn-poly-b1-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "fpn-poly-b2-01": [
+                    "will_not_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-b2-02": [
+                    "wont_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-b2-03": [
+                    "not_completed_before_future",
+                    "general_overview"
+                ],
+                "fpn-poly-b2-04": [
+                    "by_marker",
+                    "general_overview"
+                ],
+                "fpn-poly-b2-05": [
+                    "future_simple_negative_contrast",
+                    "general_overview"
+                ],
+                "fpn-poly-b2-06": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "fpn-poly-b2-07": [
+                    "will_not_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-b2-08": [
+                    "wont_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-b2-09": [
+                    "not_completed_before_future",
+                    "general_overview"
+                ],
+                "fpn-poly-b2-10": [
+                    "by_marker",
+                    "general_overview"
+                ],
+                "fpn-poly-b2-11": [
+                    "future_simple_negative_contrast",
+                    "general_overview"
+                ],
+                "fpn-poly-b2-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "fpn-poly-c1-01": [
+                    "will_not_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-c1-02": [
+                    "wont_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-c1-03": [
+                    "not_completed_before_future",
+                    "general_overview"
+                ],
+                "fpn-poly-c1-04": [
+                    "by_marker",
+                    "general_overview"
+                ],
+                "fpn-poly-c1-05": [
+                    "future_simple_negative_contrast",
+                    "general_overview"
+                ],
+                "fpn-poly-c1-06": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "fpn-poly-c1-07": [
+                    "will_not_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-c1-08": [
+                    "wont_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-c1-09": [
+                    "not_completed_before_future",
+                    "general_overview"
+                ],
+                "fpn-poly-c1-10": [
+                    "by_marker",
+                    "general_overview"
+                ],
+                "fpn-poly-c1-11": [
+                    "future_simple_negative_contrast",
+                    "general_overview"
+                ],
+                "fpn-poly-c1-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "fpn-poly-c2-01": [
+                    "will_not_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-c2-02": [
+                    "wont_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-c2-03": [
+                    "not_completed_before_future",
+                    "general_overview"
+                ],
+                "fpn-poly-c2-04": [
+                    "by_marker",
+                    "general_overview"
+                ],
+                "fpn-poly-c2-05": [
+                    "future_simple_negative_contrast",
+                    "general_overview"
+                ],
+                "fpn-poly-c2-06": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "fpn-poly-c2-07": [
+                    "will_not_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-c2-08": [
+                    "wont_have_v3",
+                    "general_overview"
+                ],
+                "fpn-poly-c2-09": [
+                    "not_completed_before_future",
+                    "general_overview"
+                ],
+                "fpn-poly-c2-10": [
+                    "by_marker",
+                    "general_overview"
+                ],
+                "fpn-poly-c2-11": [
+                    "future_simple_negative_contrast",
+                    "general_overview"
+                ],
+                "fpn-poly-c2-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ]
+            }
+        },
+        {
+            "kind": "mixed_standard_v3",
+            "saved_test_slug": "future-perfect-negatives-all-levels-v3",
+            "seeder_class": "Database\\Seeders\\V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesAllLevelsV3Seeder",
+            "strategy": "mapped_by_tags_answers_and_text",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesAllLevelsV3Seeder"
+            ],
+            "tag_key_to_bundle": {
+                "will_not_have_v3": "will_not_have_v3",
+                "wont_have_v3": "wont_have_v3",
+                "not_completed_before_future": "not_completed_before_future",
+                "by_marker": "by_marker",
+                "future_simple_negative_contrast": "future_simple_negative_contrast",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {
+                "will not have finished": "will_not_have_v3",
+                "won't have gone": "wont_have_v3",
+                "will not have cooked": "not_completed_before_future",
+                "will not have signed": "by_marker",
+                "will not have completed": "future_simple_negative_contrast",
+                "will not have saved": "typical_mistakes",
+                "will not have deleted": "will_not_have_v3",
+                "won't have caught": "wont_have_v3",
+                "will not have approved": "not_completed_before_future",
+                "will not have checked": "by_marker",
+                "will not have written": "future_simple_negative_contrast",
+                "will not have found": "typical_mistakes"
+            },
+            "question_text_to_bundle_fallback": {},
+            "default_bundle": "general_overview"
+        }
+    ],
+    "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesAllLevelsV3Seeder"
+    ],
+    "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectNegativesAllLevelsLessonSeeder"
+    ],
+    "seeder_requirements": {
+        "seed_before_links": [
+            "Database\\Seeders\\Page_V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesTheorySeeder",
+            "Database\\Seeders\\V3\\FutureForms\\FuturePerfect\\FuturePerfectNegativesAllLevelsV3Seeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectNegativesAllLevelsLessonSeeder"
+        ],
+        "question_counts": {
+            "standard_v3": 72,
+            "polyglot_direct": 72
+        }
+    },
+    "qa": {
+        "expected_route_status": "OK",
+        "no_question_marker_tag": true,
+        "source_of_truth": "json_manifest",
+        "notes": [
+            "Polyglot questions use explicit uuid maps.",
+            "Standard V3 questions use tag and answer fallbacks."
+        ]
+    }
+}
