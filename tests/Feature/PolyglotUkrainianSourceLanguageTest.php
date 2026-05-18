@@ -15,10 +15,38 @@ class PolyglotUkrainianSourceLanguageTest extends TestCase
     ];
 
     private const GENERATED_PLACEHOLDER_MARKERS = [
+        'склади пропущену частину речення:',
         'українська підказка',
         'до слово',
         'для українська',
         'з українська',
+        '[',
+        ']',
+        '(a1 context)',
+        '(a2 context)',
+        '(b1 context)',
+        '(b2 context)',
+        '(c1 context)',
+        '(c2 context)',
+        '(a1)',
+        '(a2)',
+        '(b1)',
+        '(b2)',
+        '(c1)',
+        '(c2)',
+        '(a1 контекст)',
+        '(a2 контекст)',
+        '(b1 контекст)',
+        '(b2 контекст)',
+        '(c1 контекст)',
+        '(c2 контекст)',
+        '...',
+        '…',
+        'not sure',
+        'advanced word order',
+        'context)',
+        'контекст)',
+        'фразове дієслово',
     ];
 
     public function test_theory_page_polyglot_source_prompts_are_fully_ukrainian(): void
@@ -69,7 +97,7 @@ class PolyglotUkrainianSourceLanguageTest extends TestCase
 
                     foreach (self::GENERATED_PLACEHOLDER_MARKERS as $marker) {
                         if (str_contains(mb_strtolower($value), $marker)) {
-                            $failures[] = $this->failure($path, (string) $uuid, $field, 'source field contains generated placeholder text', $value);
+                            $failures[] = $this->failure($path, (string) $uuid, $field, 'source field contains generated, cloze, or placeholder text', $value);
                         }
                     }
                 }
@@ -102,7 +130,7 @@ class PolyglotUkrainianSourceLanguageTest extends TestCase
         $this->assertSame(
             [],
             $failures,
-            "Mixed-language Ukrainian source prompts were found.\n" . json_encode($failures, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
+            "Invalid Ukrainian source prompts were found.\n" . json_encode($failures, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
         );
     }
 
