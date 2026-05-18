@@ -1,0 +1,2195 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\FutureForms\\ChoosingTheRightFutureFormAllLevelsV3Seeder",
+        "uuid_namespace": "ChoosingTheRightFutureFormAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Future Forms"
+    },
+    "sources": {
+        "theory_page_choosing_the_right_future_form": {
+            "name": "Choosing the Right Future Form"
+        }
+    },
+    "tags": {
+        "future_forms_choosing_the_right_future_form": {
+            "name": "Choosing the Right Future Form",
+            "category": "future-forms"
+        },
+        "will": {
+            "name": "Will",
+            "category": "topic"
+        },
+        "going_to": {
+            "name": "Going To",
+            "category": "topic"
+        },
+        "present_continuous_future": {
+            "name": "Present Continuous Future",
+            "category": "topic"
+        },
+        "present_simple_timetable": {
+            "name": "Present Simple Timetable",
+            "category": "topic"
+        },
+        "future_continuous": {
+            "name": "Future Continuous",
+            "category": "topic"
+        },
+        "future_perfect": {
+            "name": "Future Perfect",
+            "category": "topic"
+        },
+        "future_perfect_continuous": {
+            "name": "Future Perfect Continuous",
+            "category": "topic"
+        },
+        "context_choice": {
+            "name": "Context Choice",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "future_forms_choosing_the_right_future_form"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "ctrff-v3-a1-01",
+            "question": "The doorbell is ringing. I {a1} open the door",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "am going to",
+                        "am opening",
+                        "open"
+                    ],
+                    "verb_hint": "Choose the future form for: spontaneous decision.",
+                    "gap_tags": [
+                        "will"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will"
+            ],
+            "variants": [
+                "The doorbell is ringing. I {a1} open the door"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 2,
+            "uuid": "ctrff-v3-a1-02",
+            "question": "We decided last week. We {a1} move in June",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are going to",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "are moving",
+                        "move"
+                    ],
+                    "verb_hint": "Choose the future form for: prior plan.",
+                    "gap_tags": [
+                        "going_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "going_to"
+            ],
+            "variants": [
+                "We decided last week. We {a1} move in June"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 3,
+            "uuid": "ctrff-v3-a1-03",
+            "question": "I {a1} the dentist at four tomorrow",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am seeing",
+                    "options": [
+                        "am seeing",
+                        "will see",
+                        "am going to see",
+                        "see"
+                    ],
+                    "verb_hint": "Choose the future form for: fixed appointment.",
+                    "gap_tags": [
+                        "present_continuous_future"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous_future"
+            ],
+            "variants": [
+                "I {a1} the dentist at four tomorrow"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 4,
+            "uuid": "ctrff-v3-a1-04",
+            "question": "The train {a1} at six tomorrow morning",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "will leave",
+                        "is leaving",
+                        "is going to leave"
+                    ],
+                    "verb_hint": "Choose the future form for: timetable.",
+                    "gap_tags": [
+                        "present_simple_timetable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_timetable"
+            ],
+            "variants": [
+                "The train {a1} at six tomorrow morning"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 5,
+            "uuid": "ctrff-v3-a1-05",
+            "question": "At nine tomorrow I {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be studying",
+                    "options": [
+                        "will be studying",
+                        "will study",
+                        "will have studied",
+                        "am going to study"
+                    ],
+                    "verb_hint": "Choose the future form for: action in progress at future time.",
+                    "gap_tags": [
+                        "future_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_continuous"
+            ],
+            "variants": [
+                "At nine tomorrow I {a1}"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 6,
+            "uuid": "ctrff-v3-a1-06",
+            "question": "By ten I {a1} the report",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will have finished",
+                    "options": [
+                        "will have finished",
+                        "will be finishing",
+                        "will finish",
+                        "am finishing"
+                    ],
+                    "verb_hint": "Choose the future form for: completed before future deadline.",
+                    "gap_tags": [
+                        "future_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_perfect"
+            ],
+            "variants": [
+                "By ten I {a1} the report"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 7,
+            "uuid": "ctrff-v3-a1-07",
+            "question": "By July I {a1} here for a year",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will have been working",
+                    "options": [
+                        "will have been working",
+                        "will be working",
+                        "will have worked",
+                        "am working"
+                    ],
+                    "verb_hint": "Choose the future form for: duration up to future point.",
+                    "gap_tags": [
+                        "future_perfect_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_perfect_continuous"
+            ],
+            "variants": [
+                "By July I {a1} here for a year"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 8,
+            "uuid": "ctrff-v3-a1-08",
+            "question": "Look at the sky. It {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is going to rain",
+                    "options": [
+                        "is going to rain",
+                        "will rain",
+                        "is raining",
+                        "rains"
+                    ],
+                    "verb_hint": "Choose the future form for: visible evidence.",
+                    "gap_tags": [
+                        "context_choice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "context_choice"
+            ],
+            "variants": [
+                "Look at the sky. It {a1}"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 9,
+            "uuid": "ctrff-v3-a1-09",
+            "question": "I think they {a1} the match",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will win",
+                    "options": [
+                        "will win",
+                        "are going to win",
+                        "are winning",
+                        "win"
+                    ],
+                    "verb_hint": "Choose the future form for: opinion-based prediction.",
+                    "gap_tags": [
+                        "context_choice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "context_choice"
+            ],
+            "variants": [
+                "I think they {a1} the match"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 10,
+            "uuid": "ctrff-v3-a1-10",
+            "question": "By six we {a1} the task",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will have completed",
+                    "options": [
+                        "will have completed",
+                        "will complete",
+                        "will be completing",
+                        "will have been completing"
+                    ],
+                    "verb_hint": "Choose the future form for: result before a future time.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "By six we {a1} the task"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 11,
+            "uuid": "ctrff-v3-a1-11",
+            "question": "The lesson {a1} at eight tomorrow",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "starts",
+                    "options": [
+                        "starts",
+                        "will start",
+                        "is starting",
+                        "is going to start"
+                    ],
+                    "verb_hint": "Choose the future form for: scheduled timetable.",
+                    "gap_tags": [
+                        "present_simple_timetable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_timetable"
+            ],
+            "variants": [
+                "The lesson {a1} at eight tomorrow"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 12,
+            "uuid": "ctrff-v3-a1-12",
+            "question": "This time tomorrow we {a1} to Rome",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will be flying",
+                    "options": [
+                        "will be flying",
+                        "will fly",
+                        "will have flown",
+                        "are going to fly"
+                    ],
+                    "verb_hint": "Choose the future form for: process at future moment.",
+                    "gap_tags": [
+                        "future_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_continuous"
+            ],
+            "variants": [
+                "This time tomorrow we {a1} to Rome"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 13,
+            "uuid": "ctrff-v3-a2-01",
+            "question": "The doorbell is ringing. I {a1} open the door",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "am going to",
+                        "am opening",
+                        "open"
+                    ],
+                    "verb_hint": "Choose the future form for: spontaneous decision.",
+                    "gap_tags": [
+                        "will"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will"
+            ],
+            "variants": [
+                "The doorbell is ringing. I {a1} open the door"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 14,
+            "uuid": "ctrff-v3-a2-02",
+            "question": "We decided last week. We {a1} move in June",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are going to",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "are moving",
+                        "move"
+                    ],
+                    "verb_hint": "Choose the future form for: prior plan.",
+                    "gap_tags": [
+                        "going_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "going_to"
+            ],
+            "variants": [
+                "We decided last week. We {a1} move in June"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 15,
+            "uuid": "ctrff-v3-a2-03",
+            "question": "I {a1} the dentist at four tomorrow",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "am seeing",
+                    "options": [
+                        "am seeing",
+                        "will see",
+                        "am going to see",
+                        "see"
+                    ],
+                    "verb_hint": "Choose the future form for: fixed appointment.",
+                    "gap_tags": [
+                        "present_continuous_future"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous_future"
+            ],
+            "variants": [
+                "I {a1} the dentist at four tomorrow"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 16,
+            "uuid": "ctrff-v3-a2-04",
+            "question": "The train {a1} at six tomorrow morning",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "will leave",
+                        "is leaving",
+                        "is going to leave"
+                    ],
+                    "verb_hint": "Choose the future form for: timetable.",
+                    "gap_tags": [
+                        "present_simple_timetable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_timetable"
+            ],
+            "variants": [
+                "The train {a1} at six tomorrow morning"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 17,
+            "uuid": "ctrff-v3-a2-05",
+            "question": "At nine tomorrow I {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will be studying",
+                    "options": [
+                        "will be studying",
+                        "will study",
+                        "will have studied",
+                        "am going to study"
+                    ],
+                    "verb_hint": "Choose the future form for: action in progress at future time.",
+                    "gap_tags": [
+                        "future_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_continuous"
+            ],
+            "variants": [
+                "At nine tomorrow I {a1}"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 18,
+            "uuid": "ctrff-v3-a2-06",
+            "question": "By ten I {a1} the report",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will have finished",
+                    "options": [
+                        "will have finished",
+                        "will be finishing",
+                        "will finish",
+                        "am finishing"
+                    ],
+                    "verb_hint": "Choose the future form for: completed before future deadline.",
+                    "gap_tags": [
+                        "future_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_perfect"
+            ],
+            "variants": [
+                "By ten I {a1} the report"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 19,
+            "uuid": "ctrff-v3-a2-07",
+            "question": "By July I {a1} here for a year",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will have been working",
+                    "options": [
+                        "will have been working",
+                        "will be working",
+                        "will have worked",
+                        "am working"
+                    ],
+                    "verb_hint": "Choose the future form for: duration up to future point.",
+                    "gap_tags": [
+                        "future_perfect_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_perfect_continuous"
+            ],
+            "variants": [
+                "By July I {a1} here for a year"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 20,
+            "uuid": "ctrff-v3-a2-08",
+            "question": "Look at the sky. It {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is going to rain",
+                    "options": [
+                        "is going to rain",
+                        "will rain",
+                        "is raining",
+                        "rains"
+                    ],
+                    "verb_hint": "Choose the future form for: visible evidence.",
+                    "gap_tags": [
+                        "context_choice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "context_choice"
+            ],
+            "variants": [
+                "Look at the sky. It {a1}"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 21,
+            "uuid": "ctrff-v3-a2-09",
+            "question": "I think they {a1} the match",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will win",
+                    "options": [
+                        "will win",
+                        "are going to win",
+                        "are winning",
+                        "win"
+                    ],
+                    "verb_hint": "Choose the future form for: opinion-based prediction.",
+                    "gap_tags": [
+                        "context_choice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "context_choice"
+            ],
+            "variants": [
+                "I think they {a1} the match"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 22,
+            "uuid": "ctrff-v3-a2-10",
+            "question": "By six we {a1} the task",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will have completed",
+                    "options": [
+                        "will have completed",
+                        "will complete",
+                        "will be completing",
+                        "will have been completing"
+                    ],
+                    "verb_hint": "Choose the future form for: result before a future time.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "By six we {a1} the task"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 23,
+            "uuid": "ctrff-v3-a2-11",
+            "question": "The lesson {a1} at eight tomorrow",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "starts",
+                    "options": [
+                        "starts",
+                        "will start",
+                        "is starting",
+                        "is going to start"
+                    ],
+                    "verb_hint": "Choose the future form for: scheduled timetable.",
+                    "gap_tags": [
+                        "present_simple_timetable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_timetable"
+            ],
+            "variants": [
+                "The lesson {a1} at eight tomorrow"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 24,
+            "uuid": "ctrff-v3-a2-12",
+            "question": "This time tomorrow we {a1} to Rome",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will be flying",
+                    "options": [
+                        "will be flying",
+                        "will fly",
+                        "will have flown",
+                        "are going to fly"
+                    ],
+                    "verb_hint": "Choose the future form for: process at future moment.",
+                    "gap_tags": [
+                        "future_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_continuous"
+            ],
+            "variants": [
+                "This time tomorrow we {a1} to Rome"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 25,
+            "uuid": "ctrff-v3-b1-01",
+            "question": "The doorbell is ringing. I {a1} open the door",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "am going to",
+                        "am opening",
+                        "open"
+                    ],
+                    "verb_hint": "Choose the future form for: spontaneous decision.",
+                    "gap_tags": [
+                        "will"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will"
+            ],
+            "variants": [
+                "The doorbell is ringing. I {a1} open the door"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 26,
+            "uuid": "ctrff-v3-b1-02",
+            "question": "We decided last week. We {a1} move in June",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are going to",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "are moving",
+                        "move"
+                    ],
+                    "verb_hint": "Choose the future form for: prior plan.",
+                    "gap_tags": [
+                        "going_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "going_to"
+            ],
+            "variants": [
+                "We decided last week. We {a1} move in June"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 27,
+            "uuid": "ctrff-v3-b1-03",
+            "question": "I {a1} the dentist at four tomorrow",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "am seeing",
+                    "options": [
+                        "am seeing",
+                        "will see",
+                        "am going to see",
+                        "see"
+                    ],
+                    "verb_hint": "Choose the future form for: fixed appointment.",
+                    "gap_tags": [
+                        "present_continuous_future"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous_future"
+            ],
+            "variants": [
+                "I {a1} the dentist at four tomorrow"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 28,
+            "uuid": "ctrff-v3-b1-04",
+            "question": "The train {a1} at six tomorrow morning",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "will leave",
+                        "is leaving",
+                        "is going to leave"
+                    ],
+                    "verb_hint": "Choose the future form for: timetable.",
+                    "gap_tags": [
+                        "present_simple_timetable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_timetable"
+            ],
+            "variants": [
+                "The train {a1} at six tomorrow morning"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 29,
+            "uuid": "ctrff-v3-b1-05",
+            "question": "At nine tomorrow I {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be studying",
+                    "options": [
+                        "will be studying",
+                        "will study",
+                        "will have studied",
+                        "am going to study"
+                    ],
+                    "verb_hint": "Choose the future form for: action in progress at future time.",
+                    "gap_tags": [
+                        "future_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_continuous"
+            ],
+            "variants": [
+                "At nine tomorrow I {a1}"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 30,
+            "uuid": "ctrff-v3-b1-06",
+            "question": "By ten I {a1} the report",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will have finished",
+                    "options": [
+                        "will have finished",
+                        "will be finishing",
+                        "will finish",
+                        "am finishing"
+                    ],
+                    "verb_hint": "Choose the future form for: completed before future deadline.",
+                    "gap_tags": [
+                        "future_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_perfect"
+            ],
+            "variants": [
+                "By ten I {a1} the report"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 31,
+            "uuid": "ctrff-v3-b1-07",
+            "question": "By July I {a1} here for a year",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will have been working",
+                    "options": [
+                        "will have been working",
+                        "will be working",
+                        "will have worked",
+                        "am working"
+                    ],
+                    "verb_hint": "Choose the future form for: duration up to future point.",
+                    "gap_tags": [
+                        "future_perfect_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_perfect_continuous"
+            ],
+            "variants": [
+                "By July I {a1} here for a year"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 32,
+            "uuid": "ctrff-v3-b1-08",
+            "question": "Look at the sky. It {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is going to rain",
+                    "options": [
+                        "is going to rain",
+                        "will rain",
+                        "is raining",
+                        "rains"
+                    ],
+                    "verb_hint": "Choose the future form for: visible evidence.",
+                    "gap_tags": [
+                        "context_choice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "context_choice"
+            ],
+            "variants": [
+                "Look at the sky. It {a1}"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 33,
+            "uuid": "ctrff-v3-b1-09",
+            "question": "I think they {a1} the match",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will win",
+                    "options": [
+                        "will win",
+                        "are going to win",
+                        "are winning",
+                        "win"
+                    ],
+                    "verb_hint": "Choose the future form for: opinion-based prediction.",
+                    "gap_tags": [
+                        "context_choice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "context_choice"
+            ],
+            "variants": [
+                "I think they {a1} the match"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 34,
+            "uuid": "ctrff-v3-b1-10",
+            "question": "By six we {a1} the task",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will have completed",
+                    "options": [
+                        "will have completed",
+                        "will complete",
+                        "will be completing",
+                        "will have been completing"
+                    ],
+                    "verb_hint": "Choose the future form for: result before a future time.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "By six we {a1} the task"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 35,
+            "uuid": "ctrff-v3-b1-11",
+            "question": "The lesson {a1} at eight tomorrow",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "starts",
+                    "options": [
+                        "starts",
+                        "will start",
+                        "is starting",
+                        "is going to start"
+                    ],
+                    "verb_hint": "Choose the future form for: scheduled timetable.",
+                    "gap_tags": [
+                        "present_simple_timetable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_timetable"
+            ],
+            "variants": [
+                "The lesson {a1} at eight tomorrow"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 36,
+            "uuid": "ctrff-v3-b1-12",
+            "question": "This time tomorrow we {a1} to Rome",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will be flying",
+                    "options": [
+                        "will be flying",
+                        "will fly",
+                        "will have flown",
+                        "are going to fly"
+                    ],
+                    "verb_hint": "Choose the future form for: process at future moment.",
+                    "gap_tags": [
+                        "future_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_continuous"
+            ],
+            "variants": [
+                "This time tomorrow we {a1} to Rome"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 37,
+            "uuid": "ctrff-v3-b2-01",
+            "question": "The doorbell is ringing. I {a1} open the door",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "am going to",
+                        "am opening",
+                        "open"
+                    ],
+                    "verb_hint": "Choose the future form for: spontaneous decision.",
+                    "gap_tags": [
+                        "will"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will"
+            ],
+            "variants": [
+                "The doorbell is ringing. I {a1} open the door"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 38,
+            "uuid": "ctrff-v3-b2-02",
+            "question": "We decided last week. We {a1} move in June",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are going to",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "are moving",
+                        "move"
+                    ],
+                    "verb_hint": "Choose the future form for: prior plan.",
+                    "gap_tags": [
+                        "going_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "going_to"
+            ],
+            "variants": [
+                "We decided last week. We {a1} move in June"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 39,
+            "uuid": "ctrff-v3-b2-03",
+            "question": "I {a1} the dentist at four tomorrow",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "am seeing",
+                    "options": [
+                        "am seeing",
+                        "will see",
+                        "am going to see",
+                        "see"
+                    ],
+                    "verb_hint": "Choose the future form for: fixed appointment.",
+                    "gap_tags": [
+                        "present_continuous_future"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous_future"
+            ],
+            "variants": [
+                "I {a1} the dentist at four tomorrow"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 40,
+            "uuid": "ctrff-v3-b2-04",
+            "question": "The train {a1} at six tomorrow morning",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "will leave",
+                        "is leaving",
+                        "is going to leave"
+                    ],
+                    "verb_hint": "Choose the future form for: timetable.",
+                    "gap_tags": [
+                        "present_simple_timetable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_timetable"
+            ],
+            "variants": [
+                "The train {a1} at six tomorrow morning"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 41,
+            "uuid": "ctrff-v3-b2-05",
+            "question": "At nine tomorrow I {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will be studying",
+                    "options": [
+                        "will be studying",
+                        "will study",
+                        "will have studied",
+                        "am going to study"
+                    ],
+                    "verb_hint": "Choose the future form for: action in progress at future time.",
+                    "gap_tags": [
+                        "future_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_continuous"
+            ],
+            "variants": [
+                "At nine tomorrow I {a1}"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 42,
+            "uuid": "ctrff-v3-b2-06",
+            "question": "By ten I {a1} the report",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will have finished",
+                    "options": [
+                        "will have finished",
+                        "will be finishing",
+                        "will finish",
+                        "am finishing"
+                    ],
+                    "verb_hint": "Choose the future form for: completed before future deadline.",
+                    "gap_tags": [
+                        "future_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_perfect"
+            ],
+            "variants": [
+                "By ten I {a1} the report"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 43,
+            "uuid": "ctrff-v3-b2-07",
+            "question": "By July I {a1} here for a year",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will have been working",
+                    "options": [
+                        "will have been working",
+                        "will be working",
+                        "will have worked",
+                        "am working"
+                    ],
+                    "verb_hint": "Choose the future form for: duration up to future point.",
+                    "gap_tags": [
+                        "future_perfect_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_perfect_continuous"
+            ],
+            "variants": [
+                "By July I {a1} here for a year"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 44,
+            "uuid": "ctrff-v3-b2-08",
+            "question": "Look at the sky. It {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is going to rain",
+                    "options": [
+                        "is going to rain",
+                        "will rain",
+                        "is raining",
+                        "rains"
+                    ],
+                    "verb_hint": "Choose the future form for: visible evidence.",
+                    "gap_tags": [
+                        "context_choice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "context_choice"
+            ],
+            "variants": [
+                "Look at the sky. It {a1}"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 45,
+            "uuid": "ctrff-v3-b2-09",
+            "question": "I think they {a1} the match",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will win",
+                    "options": [
+                        "will win",
+                        "are going to win",
+                        "are winning",
+                        "win"
+                    ],
+                    "verb_hint": "Choose the future form for: opinion-based prediction.",
+                    "gap_tags": [
+                        "context_choice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "context_choice"
+            ],
+            "variants": [
+                "I think they {a1} the match"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 46,
+            "uuid": "ctrff-v3-b2-10",
+            "question": "By six we {a1} the task",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will have completed",
+                    "options": [
+                        "will have completed",
+                        "will complete",
+                        "will be completing",
+                        "will have been completing"
+                    ],
+                    "verb_hint": "Choose the future form for: result before a future time.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "By six we {a1} the task"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 47,
+            "uuid": "ctrff-v3-b2-11",
+            "question": "The lesson {a1} at eight tomorrow",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "starts",
+                    "options": [
+                        "starts",
+                        "will start",
+                        "is starting",
+                        "is going to start"
+                    ],
+                    "verb_hint": "Choose the future form for: scheduled timetable.",
+                    "gap_tags": [
+                        "present_simple_timetable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_timetable"
+            ],
+            "variants": [
+                "The lesson {a1} at eight tomorrow"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 48,
+            "uuid": "ctrff-v3-b2-12",
+            "question": "This time tomorrow we {a1} to Rome",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will be flying",
+                    "options": [
+                        "will be flying",
+                        "will fly",
+                        "will have flown",
+                        "are going to fly"
+                    ],
+                    "verb_hint": "Choose the future form for: process at future moment.",
+                    "gap_tags": [
+                        "future_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_continuous"
+            ],
+            "variants": [
+                "This time tomorrow we {a1} to Rome"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 49,
+            "uuid": "ctrff-v3-c1-01",
+            "question": "The doorbell is ringing. I {a1} open the door",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "am going to",
+                        "am opening",
+                        "open"
+                    ],
+                    "verb_hint": "Choose the future form for: spontaneous decision.",
+                    "gap_tags": [
+                        "will"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will"
+            ],
+            "variants": [
+                "The doorbell is ringing. I {a1} open the door"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 50,
+            "uuid": "ctrff-v3-c1-02",
+            "question": "We decided last week. We {a1} move in June",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are going to",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "are moving",
+                        "move"
+                    ],
+                    "verb_hint": "Choose the future form for: prior plan.",
+                    "gap_tags": [
+                        "going_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "going_to"
+            ],
+            "variants": [
+                "We decided last week. We {a1} move in June"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 51,
+            "uuid": "ctrff-v3-c1-03",
+            "question": "I {a1} the dentist at four tomorrow",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "am seeing",
+                    "options": [
+                        "am seeing",
+                        "will see",
+                        "am going to see",
+                        "see"
+                    ],
+                    "verb_hint": "Choose the future form for: fixed appointment.",
+                    "gap_tags": [
+                        "present_continuous_future"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous_future"
+            ],
+            "variants": [
+                "I {a1} the dentist at four tomorrow"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 52,
+            "uuid": "ctrff-v3-c1-04",
+            "question": "The train {a1} at six tomorrow morning",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "will leave",
+                        "is leaving",
+                        "is going to leave"
+                    ],
+                    "verb_hint": "Choose the future form for: timetable.",
+                    "gap_tags": [
+                        "present_simple_timetable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_timetable"
+            ],
+            "variants": [
+                "The train {a1} at six tomorrow morning"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 53,
+            "uuid": "ctrff-v3-c1-05",
+            "question": "At nine tomorrow I {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will be studying",
+                    "options": [
+                        "will be studying",
+                        "will study",
+                        "will have studied",
+                        "am going to study"
+                    ],
+                    "verb_hint": "Choose the future form for: action in progress at future time.",
+                    "gap_tags": [
+                        "future_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_continuous"
+            ],
+            "variants": [
+                "At nine tomorrow I {a1}"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 54,
+            "uuid": "ctrff-v3-c1-06",
+            "question": "By ten I {a1} the report",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will have finished",
+                    "options": [
+                        "will have finished",
+                        "will be finishing",
+                        "will finish",
+                        "am finishing"
+                    ],
+                    "verb_hint": "Choose the future form for: completed before future deadline.",
+                    "gap_tags": [
+                        "future_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_perfect"
+            ],
+            "variants": [
+                "By ten I {a1} the report"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 55,
+            "uuid": "ctrff-v3-c1-07",
+            "question": "By July I {a1} here for a year",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will have been working",
+                    "options": [
+                        "will have been working",
+                        "will be working",
+                        "will have worked",
+                        "am working"
+                    ],
+                    "verb_hint": "Choose the future form for: duration up to future point.",
+                    "gap_tags": [
+                        "future_perfect_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_perfect_continuous"
+            ],
+            "variants": [
+                "By July I {a1} here for a year"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 56,
+            "uuid": "ctrff-v3-c1-08",
+            "question": "Look at the sky. It {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is going to rain",
+                    "options": [
+                        "is going to rain",
+                        "will rain",
+                        "is raining",
+                        "rains"
+                    ],
+                    "verb_hint": "Choose the future form for: visible evidence.",
+                    "gap_tags": [
+                        "context_choice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "context_choice"
+            ],
+            "variants": [
+                "Look at the sky. It {a1}"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 57,
+            "uuid": "ctrff-v3-c1-09",
+            "question": "I think they {a1} the match",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will win",
+                    "options": [
+                        "will win",
+                        "are going to win",
+                        "are winning",
+                        "win"
+                    ],
+                    "verb_hint": "Choose the future form for: opinion-based prediction.",
+                    "gap_tags": [
+                        "context_choice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "context_choice"
+            ],
+            "variants": [
+                "I think they {a1} the match"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 58,
+            "uuid": "ctrff-v3-c1-10",
+            "question": "By six we {a1} the task",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will have completed",
+                    "options": [
+                        "will have completed",
+                        "will complete",
+                        "will be completing",
+                        "will have been completing"
+                    ],
+                    "verb_hint": "Choose the future form for: result before a future time.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "By six we {a1} the task"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 59,
+            "uuid": "ctrff-v3-c1-11",
+            "question": "The lesson {a1} at eight tomorrow",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "starts",
+                    "options": [
+                        "starts",
+                        "will start",
+                        "is starting",
+                        "is going to start"
+                    ],
+                    "verb_hint": "Choose the future form for: scheduled timetable.",
+                    "gap_tags": [
+                        "present_simple_timetable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_timetable"
+            ],
+            "variants": [
+                "The lesson {a1} at eight tomorrow"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 60,
+            "uuid": "ctrff-v3-c1-12",
+            "question": "This time tomorrow we {a1} to Rome",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will be flying",
+                    "options": [
+                        "will be flying",
+                        "will fly",
+                        "will have flown",
+                        "are going to fly"
+                    ],
+                    "verb_hint": "Choose the future form for: process at future moment.",
+                    "gap_tags": [
+                        "future_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_continuous"
+            ],
+            "variants": [
+                "This time tomorrow we {a1} to Rome"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 61,
+            "uuid": "ctrff-v3-c2-01",
+            "question": "The doorbell is ringing. I {a1} open the door",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "am going to",
+                        "am opening",
+                        "open"
+                    ],
+                    "verb_hint": "Choose the future form for: spontaneous decision.",
+                    "gap_tags": [
+                        "will"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will"
+            ],
+            "variants": [
+                "The doorbell is ringing. I {a1} open the door"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 62,
+            "uuid": "ctrff-v3-c2-02",
+            "question": "We decided last week. We {a1} move in June",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are going to",
+                    "options": [
+                        "are going to",
+                        "will",
+                        "are moving",
+                        "move"
+                    ],
+                    "verb_hint": "Choose the future form for: prior plan.",
+                    "gap_tags": [
+                        "going_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "going_to"
+            ],
+            "variants": [
+                "We decided last week. We {a1} move in June"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 63,
+            "uuid": "ctrff-v3-c2-03",
+            "question": "I {a1} the dentist at four tomorrow",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "am seeing",
+                    "options": [
+                        "am seeing",
+                        "will see",
+                        "am going to see",
+                        "see"
+                    ],
+                    "verb_hint": "Choose the future form for: fixed appointment.",
+                    "gap_tags": [
+                        "present_continuous_future"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_continuous_future"
+            ],
+            "variants": [
+                "I {a1} the dentist at four tomorrow"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 64,
+            "uuid": "ctrff-v3-c2-04",
+            "question": "The train {a1} at six tomorrow morning",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "will leave",
+                        "is leaving",
+                        "is going to leave"
+                    ],
+                    "verb_hint": "Choose the future form for: timetable.",
+                    "gap_tags": [
+                        "present_simple_timetable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_timetable"
+            ],
+            "variants": [
+                "The train {a1} at six tomorrow morning"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 65,
+            "uuid": "ctrff-v3-c2-05",
+            "question": "At nine tomorrow I {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will be studying",
+                    "options": [
+                        "will be studying",
+                        "will study",
+                        "will have studied",
+                        "am going to study"
+                    ],
+                    "verb_hint": "Choose the future form for: action in progress at future time.",
+                    "gap_tags": [
+                        "future_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_continuous"
+            ],
+            "variants": [
+                "At nine tomorrow I {a1}"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 66,
+            "uuid": "ctrff-v3-c2-06",
+            "question": "By ten I {a1} the report",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will have finished",
+                    "options": [
+                        "will have finished",
+                        "will be finishing",
+                        "will finish",
+                        "am finishing"
+                    ],
+                    "verb_hint": "Choose the future form for: completed before future deadline.",
+                    "gap_tags": [
+                        "future_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_perfect"
+            ],
+            "variants": [
+                "By ten I {a1} the report"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 67,
+            "uuid": "ctrff-v3-c2-07",
+            "question": "By July I {a1} here for a year",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will have been working",
+                    "options": [
+                        "will have been working",
+                        "will be working",
+                        "will have worked",
+                        "am working"
+                    ],
+                    "verb_hint": "Choose the future form for: duration up to future point.",
+                    "gap_tags": [
+                        "future_perfect_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_perfect_continuous"
+            ],
+            "variants": [
+                "By July I {a1} here for a year"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 68,
+            "uuid": "ctrff-v3-c2-08",
+            "question": "Look at the sky. It {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is going to rain",
+                    "options": [
+                        "is going to rain",
+                        "will rain",
+                        "is raining",
+                        "rains"
+                    ],
+                    "verb_hint": "Choose the future form for: visible evidence.",
+                    "gap_tags": [
+                        "context_choice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "context_choice"
+            ],
+            "variants": [
+                "Look at the sky. It {a1}"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 69,
+            "uuid": "ctrff-v3-c2-09",
+            "question": "I think they {a1} the match",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will win",
+                    "options": [
+                        "will win",
+                        "are going to win",
+                        "are winning",
+                        "win"
+                    ],
+                    "verb_hint": "Choose the future form for: opinion-based prediction.",
+                    "gap_tags": [
+                        "context_choice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "context_choice"
+            ],
+            "variants": [
+                "I think they {a1} the match"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 70,
+            "uuid": "ctrff-v3-c2-10",
+            "question": "By six we {a1} the task",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will have completed",
+                    "options": [
+                        "will have completed",
+                        "will complete",
+                        "will be completing",
+                        "will have been completing"
+                    ],
+                    "verb_hint": "Choose the future form for: result before a future time.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "By six we {a1} the task"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 71,
+            "uuid": "ctrff-v3-c2-11",
+            "question": "The lesson {a1} at eight tomorrow",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "starts",
+                    "options": [
+                        "starts",
+                        "will start",
+                        "is starting",
+                        "is going to start"
+                    ],
+                    "verb_hint": "Choose the future form for: scheduled timetable.",
+                    "gap_tags": [
+                        "present_simple_timetable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_timetable"
+            ],
+            "variants": [
+                "The lesson {a1} at eight tomorrow"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        },
+        {
+            "id": 72,
+            "uuid": "ctrff-v3-c2-12",
+            "question": "This time tomorrow we {a1} to Rome",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will be flying",
+                    "options": [
+                        "will be flying",
+                        "will fly",
+                        "will have flown",
+                        "are going to fly"
+                    ],
+                    "verb_hint": "Choose the future form for: process at future moment.",
+                    "gap_tags": [
+                        "future_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_continuous"
+            ],
+            "variants": [
+                "This time tomorrow we {a1} to Rome"
+            ],
+            "source": "theory_page_choosing_the_right_future_form"
+        }
+    ],
+    "saved_test": {
+        "uuid": "future-ctrff-v3-all",
+        "slug": "choosing-the-right-future-form-all-levels-v3",
+        "name": "Choosing the Right Future Form: V3 All Levels",
+        "description": "Page-local V3 package for Choosing the Right Future Form with A1-C2 coverage.",
+        "question_uuids": [
+            "ctrff-v3-a1-01",
+            "ctrff-v3-a1-02",
+            "ctrff-v3-a1-03",
+            "ctrff-v3-a1-04",
+            "ctrff-v3-a1-05",
+            "ctrff-v3-a1-06",
+            "ctrff-v3-a1-07",
+            "ctrff-v3-a1-08",
+            "ctrff-v3-a1-09",
+            "ctrff-v3-a1-10",
+            "ctrff-v3-a1-11",
+            "ctrff-v3-a1-12",
+            "ctrff-v3-a2-01",
+            "ctrff-v3-a2-02",
+            "ctrff-v3-a2-03",
+            "ctrff-v3-a2-04",
+            "ctrff-v3-a2-05",
+            "ctrff-v3-a2-06",
+            "ctrff-v3-a2-07",
+            "ctrff-v3-a2-08",
+            "ctrff-v3-a2-09",
+            "ctrff-v3-a2-10",
+            "ctrff-v3-a2-11",
+            "ctrff-v3-a2-12",
+            "ctrff-v3-b1-01",
+            "ctrff-v3-b1-02",
+            "ctrff-v3-b1-03",
+            "ctrff-v3-b1-04",
+            "ctrff-v3-b1-05",
+            "ctrff-v3-b1-06",
+            "ctrff-v3-b1-07",
+            "ctrff-v3-b1-08",
+            "ctrff-v3-b1-09",
+            "ctrff-v3-b1-10",
+            "ctrff-v3-b1-11",
+            "ctrff-v3-b1-12",
+            "ctrff-v3-b2-01",
+            "ctrff-v3-b2-02",
+            "ctrff-v3-b2-03",
+            "ctrff-v3-b2-04",
+            "ctrff-v3-b2-05",
+            "ctrff-v3-b2-06",
+            "ctrff-v3-b2-07",
+            "ctrff-v3-b2-08",
+            "ctrff-v3-b2-09",
+            "ctrff-v3-b2-10",
+            "ctrff-v3-b2-11",
+            "ctrff-v3-b2-12",
+            "ctrff-v3-c1-01",
+            "ctrff-v3-c1-02",
+            "ctrff-v3-c1-03",
+            "ctrff-v3-c1-04",
+            "ctrff-v3-c1-05",
+            "ctrff-v3-c1-06",
+            "ctrff-v3-c1-07",
+            "ctrff-v3-c1-08",
+            "ctrff-v3-c1-09",
+            "ctrff-v3-c1-10",
+            "ctrff-v3-c1-11",
+            "ctrff-v3-c1-12",
+            "ctrff-v3-c2-01",
+            "ctrff-v3-c2-02",
+            "ctrff-v3-c2-03",
+            "ctrff-v3-c2-04",
+            "ctrff-v3-c2-05",
+            "ctrff-v3-c2-06",
+            "ctrff-v3-c2-07",
+            "ctrff-v3-c2-08",
+            "ctrff-v3-c2-09",
+            "ctrff-v3-c2-10",
+            "ctrff-v3-c2-11",
+            "ctrff-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\FutureForms\\ChoosingTheRightFutureFormAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "choosing-the-right-future-form",
+                    "title": "Choosing the Right Future Form",
+                    "category_slug_path": "maibutni-formy",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+                    "url": "https://gramlyze.com/theory/maibutni-formy/choosing-the-right-future-form"
+                }
+            }
+        }
+    }
+}

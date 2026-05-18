@@ -128,6 +128,8 @@ class WillVsBeGoingToFutureFormsAllLevelsV3SeederTest extends TestCase
             'verb_hints',
             'question_answers',
             'question_options',
+            'saved_grammar_test_questions',
+            'saved_grammar_tests',
             'questions',
             'tags',
             'sources',
@@ -250,6 +252,25 @@ class WillVsBeGoingToFutureFormsAllLevelsV3SeederTest extends TestCase
             $table->id();
             $table->string('class_name')->unique();
             $table->timestamp('ran_at')->nullable();
+        });
+
+        Schema::create('saved_grammar_tests', function (Blueprint $table) {
+            $table->id();
+            $table->uuid('uuid')->unique();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->json('filters')->nullable();
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('saved_grammar_test_questions', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('saved_grammar_test_id');
+            $table->uuid('question_uuid');
+            $table->unsignedInteger('position')->default(0);
+            $table->timestamps();
+            $table->unique(['saved_grammar_test_id', 'question_uuid'], 'will_going_saved_test_questions_unique');
         });
     }
 }
