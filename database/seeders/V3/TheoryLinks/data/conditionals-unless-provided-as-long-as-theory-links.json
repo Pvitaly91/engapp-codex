@@ -1,0 +1,497 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Unless / Provided / As long as theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/conditionals/unless-provided-as-long-as",
+        "category_slug": "conditionals",
+        "slug": "unless-provided-as-long-as",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+        "title": "Unless / Provided / As long as"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "sort_order": 1,
+            "title": "Overview"
+        },
+        "forms": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "sort_order": 2,
+            "title": "Forms"
+        },
+        "usage": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "sort_order": 3,
+            "title": "Usage"
+        },
+        "typical_mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "sort_order": 4,
+            "title": "Typical Mistakes"
+        },
+        "summary": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "sort_order": 5,
+            "title": "Summary"
+        },
+        "unless_if_not": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "sort_order": 2,
+            "title": "Unless If Not"
+        },
+        "unless_present_simple": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "sort_order": 2,
+            "title": "Unless Present Simple"
+        },
+        "provided_that": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "sort_order": 2,
+            "title": "Provided That"
+        },
+        "as_long_as": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "sort_order": 2,
+            "title": "As Long As"
+        },
+        "formal_condition": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "sort_order": 3,
+            "title": "Formal Condition"
+        },
+        "no_double_negative": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "sort_order": 4,
+            "title": "No Double Negative"
+        },
+        "comma_rules": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "sort_order": 2,
+            "title": "Comma Rules"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "summary"
+        ],
+        "unless_if_not": [
+            "unless_if_not",
+            "overview",
+            "summary"
+        ],
+        "unless_present_simple": [
+            "unless_present_simple",
+            "overview",
+            "summary"
+        ],
+        "provided_that": [
+            "provided_that",
+            "overview",
+            "summary"
+        ],
+        "as_long_as": [
+            "as_long_as",
+            "overview",
+            "summary"
+        ],
+        "formal_condition": [
+            "formal_condition",
+            "overview",
+            "summary"
+        ],
+        "no_double_negative": [
+            "no_double_negative",
+            "overview",
+            "summary"
+        ],
+        "comma_rules": [
+            "comma_rules",
+            "overview",
+            "summary"
+        ],
+        "typical_mistakes": [
+            "typical_mistakes",
+            "overview",
+            "summary"
+        ]
+    },
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-unless-provided-as-long-as-all-levels",
+            "saved_test_name": "Sentence Builder: Unless / Provided / As long as (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotUnlessProvidedAsLongAsAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "upa-poly-a1-01": [
+                    "unless_if_not",
+                    "general_overview"
+                ],
+                "upa-poly-a1-02": [
+                    "unless_present_simple",
+                    "general_overview"
+                ],
+                "upa-poly-a1-03": [
+                    "provided_that",
+                    "general_overview"
+                ],
+                "upa-poly-a1-04": [
+                    "as_long_as",
+                    "general_overview"
+                ],
+                "upa-poly-a1-05": [
+                    "formal_condition",
+                    "general_overview"
+                ],
+                "upa-poly-a1-06": [
+                    "no_double_negative",
+                    "general_overview"
+                ],
+                "upa-poly-a1-07": [
+                    "comma_rules",
+                    "general_overview"
+                ],
+                "upa-poly-a1-08": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "upa-poly-a1-09": [
+                    "unless_if_not",
+                    "general_overview"
+                ],
+                "upa-poly-a1-10": [
+                    "provided_that",
+                    "general_overview"
+                ],
+                "upa-poly-a1-11": [
+                    "as_long_as",
+                    "general_overview"
+                ],
+                "upa-poly-a1-12": [
+                    "no_double_negative",
+                    "general_overview"
+                ],
+                "upa-poly-a2-01": [
+                    "unless_if_not",
+                    "general_overview"
+                ],
+                "upa-poly-a2-02": [
+                    "unless_present_simple",
+                    "general_overview"
+                ],
+                "upa-poly-a2-03": [
+                    "provided_that",
+                    "general_overview"
+                ],
+                "upa-poly-a2-04": [
+                    "as_long_as",
+                    "general_overview"
+                ],
+                "upa-poly-a2-05": [
+                    "formal_condition",
+                    "general_overview"
+                ],
+                "upa-poly-a2-06": [
+                    "no_double_negative",
+                    "general_overview"
+                ],
+                "upa-poly-a2-07": [
+                    "comma_rules",
+                    "general_overview"
+                ],
+                "upa-poly-a2-08": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "upa-poly-a2-09": [
+                    "unless_if_not",
+                    "general_overview"
+                ],
+                "upa-poly-a2-10": [
+                    "provided_that",
+                    "general_overview"
+                ],
+                "upa-poly-a2-11": [
+                    "as_long_as",
+                    "general_overview"
+                ],
+                "upa-poly-a2-12": [
+                    "no_double_negative",
+                    "general_overview"
+                ],
+                "upa-poly-b1-01": [
+                    "unless_if_not",
+                    "general_overview"
+                ],
+                "upa-poly-b1-02": [
+                    "unless_present_simple",
+                    "general_overview"
+                ],
+                "upa-poly-b1-03": [
+                    "provided_that",
+                    "general_overview"
+                ],
+                "upa-poly-b1-04": [
+                    "as_long_as",
+                    "general_overview"
+                ],
+                "upa-poly-b1-05": [
+                    "formal_condition",
+                    "general_overview"
+                ],
+                "upa-poly-b1-06": [
+                    "no_double_negative",
+                    "general_overview"
+                ],
+                "upa-poly-b1-07": [
+                    "comma_rules",
+                    "general_overview"
+                ],
+                "upa-poly-b1-08": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "upa-poly-b1-09": [
+                    "unless_if_not",
+                    "general_overview"
+                ],
+                "upa-poly-b1-10": [
+                    "provided_that",
+                    "general_overview"
+                ],
+                "upa-poly-b1-11": [
+                    "as_long_as",
+                    "general_overview"
+                ],
+                "upa-poly-b1-12": [
+                    "no_double_negative",
+                    "general_overview"
+                ],
+                "upa-poly-b2-01": [
+                    "unless_if_not",
+                    "general_overview"
+                ],
+                "upa-poly-b2-02": [
+                    "unless_present_simple",
+                    "general_overview"
+                ],
+                "upa-poly-b2-03": [
+                    "provided_that",
+                    "general_overview"
+                ],
+                "upa-poly-b2-04": [
+                    "as_long_as",
+                    "general_overview"
+                ],
+                "upa-poly-b2-05": [
+                    "formal_condition",
+                    "general_overview"
+                ],
+                "upa-poly-b2-06": [
+                    "no_double_negative",
+                    "general_overview"
+                ],
+                "upa-poly-b2-07": [
+                    "comma_rules",
+                    "general_overview"
+                ],
+                "upa-poly-b2-08": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "upa-poly-b2-09": [
+                    "unless_if_not",
+                    "general_overview"
+                ],
+                "upa-poly-b2-10": [
+                    "provided_that",
+                    "general_overview"
+                ],
+                "upa-poly-b2-11": [
+                    "as_long_as",
+                    "general_overview"
+                ],
+                "upa-poly-b2-12": [
+                    "no_double_negative",
+                    "general_overview"
+                ],
+                "upa-poly-c1-01": [
+                    "unless_if_not",
+                    "general_overview"
+                ],
+                "upa-poly-c1-02": [
+                    "unless_present_simple",
+                    "general_overview"
+                ],
+                "upa-poly-c1-03": [
+                    "provided_that",
+                    "general_overview"
+                ],
+                "upa-poly-c1-04": [
+                    "as_long_as",
+                    "general_overview"
+                ],
+                "upa-poly-c1-05": [
+                    "formal_condition",
+                    "general_overview"
+                ],
+                "upa-poly-c1-06": [
+                    "no_double_negative",
+                    "general_overview"
+                ],
+                "upa-poly-c1-07": [
+                    "comma_rules",
+                    "general_overview"
+                ],
+                "upa-poly-c1-08": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "upa-poly-c1-09": [
+                    "unless_if_not",
+                    "general_overview"
+                ],
+                "upa-poly-c1-10": [
+                    "provided_that",
+                    "general_overview"
+                ],
+                "upa-poly-c1-11": [
+                    "as_long_as",
+                    "general_overview"
+                ],
+                "upa-poly-c1-12": [
+                    "no_double_negative",
+                    "general_overview"
+                ],
+                "upa-poly-c2-01": [
+                    "unless_if_not",
+                    "general_overview"
+                ],
+                "upa-poly-c2-02": [
+                    "unless_present_simple",
+                    "general_overview"
+                ],
+                "upa-poly-c2-03": [
+                    "provided_that",
+                    "general_overview"
+                ],
+                "upa-poly-c2-04": [
+                    "as_long_as",
+                    "general_overview"
+                ],
+                "upa-poly-c2-05": [
+                    "formal_condition",
+                    "general_overview"
+                ],
+                "upa-poly-c2-06": [
+                    "no_double_negative",
+                    "general_overview"
+                ],
+                "upa-poly-c2-07": [
+                    "comma_rules",
+                    "general_overview"
+                ],
+                "upa-poly-c2-08": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "upa-poly-c2-09": [
+                    "unless_if_not",
+                    "general_overview"
+                ],
+                "upa-poly-c2-10": [
+                    "provided_that",
+                    "general_overview"
+                ],
+                "upa-poly-c2-11": [
+                    "as_long_as",
+                    "general_overview"
+                ],
+                "upa-poly-c2-12": [
+                    "no_double_negative",
+                    "general_overview"
+                ]
+            }
+        },
+        {
+            "kind": "mixed_standard_v3",
+            "saved_test_slug": "unless-provided-as-long-as-all-levels-v3",
+            "seeder_class": "Database\\Seeders\\V3\\Conditionals\\UnlessProvidedAsLongAsAllLevelsV3Seeder",
+            "strategy": "mapped_by_tags_answers_and_text",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\Conditionals\\UnlessProvidedAsLongAsAllLevelsV3Seeder"
+            ],
+            "tag_key_to_bundle": {
+                "unless_if_not": "unless_if_not",
+                "unless_present_simple": "unless_present_simple",
+                "provided_that": "provided_that",
+                "as_long_as": "as_long_as",
+                "formal_condition": "formal_condition",
+                "no_double_negative": "no_double_negative",
+                "comma_rules": "comma_rules",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {
+                "unless": "unless_if_not",
+                "hurry": "no_double_negative",
+                "provided that": "formal_condition",
+                "as long as": "as_long_as",
+                "call": "no_double_negative",
+                "Unless": "comma_rules",
+                "provided": "provided_that",
+                "send": "unless_present_simple",
+                "listen": "no_double_negative",
+                "ask": "no_double_negative",
+                "confirms": "unless_present_simple",
+                "bring": "no_double_negative",
+                "check": "no_double_negative",
+                "approve": "unless_present_simple",
+                "answer": "no_double_negative",
+                "Use": "typical_mistakes",
+                "report": "no_double_negative",
+                "submits": "unless_present_simple",
+                "declare": "no_double_negative",
+                "disclose": "no_double_negative",
+                "resolve": "unless_present_simple",
+                "comply": "no_double_negative",
+                "intervene": "no_double_negative"
+            },
+            "question_text_to_bundle_fallback": {},
+            "default_bundle": "general_overview"
+        }
+    ],
+    "seeder_requirements": {
+        "seed_before_links": [
+            "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+            "Database\\Seeders\\V3\\Conditionals\\UnlessProvidedAsLongAsAllLevelsV3Seeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotUnlessProvidedAsLongAsAllLevelsLessonSeeder"
+        ],
+        "question_counts": {
+            "standard_v3": 72,
+            "polyglot_direct": 72
+        }
+    },
+    "qa": {
+        "expected_route_status": "OK",
+        "no_question_marker_tag": true,
+        "source_of_truth": "json_manifest",
+        "notes": [
+            "Polyglot questions use explicit uuid maps.",
+            "Standard V3 questions use tag and answer fallbacks."
+        ]
+    }
+}

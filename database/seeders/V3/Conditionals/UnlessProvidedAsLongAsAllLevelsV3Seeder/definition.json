@@ -1,0 +1,2191 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Conditionals\\UnlessProvidedAsLongAsAllLevelsV3Seeder",
+        "uuid_namespace": "UnlessProvidedAsLongAsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "theory_page_unless_provided_as_long_as": {
+            "name": "Unless / Provided / As long as"
+        }
+    },
+    "tags": {
+        "conditionals_unless_provided_as_long_as": {
+            "name": "Unless / Provided / As long as",
+            "category": "conditionals"
+        },
+        "unless_if_not": {
+            "name": "Unless If Not",
+            "category": "topic"
+        },
+        "unless_present_simple": {
+            "name": "Unless Present Simple",
+            "category": "topic"
+        },
+        "provided_that": {
+            "name": "Provided That",
+            "category": "topic"
+        },
+        "as_long_as": {
+            "name": "As Long As",
+            "category": "topic"
+        },
+        "formal_condition": {
+            "name": "Formal Condition",
+            "category": "topic"
+        },
+        "no_double_negative": {
+            "name": "No Double Negative",
+            "category": "topic"
+        },
+        "comma_rules": {
+            "name": "Comma Rules",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "conditionals_unless_provided_as_long_as"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "upa-v3-a1-01",
+            "question": "We will go {a1} it rains",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Unless If Not.",
+                    "gap_tags": [
+                        "unless_if_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_if_not"
+            ],
+            "variants": [
+                "We will go {a1} it rains"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 2,
+            "uuid": "upa-v3-a1-02",
+            "question": "Unless you {a1} we will be late",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "hurry",
+                    "options": [
+                        "hurry",
+                        "will hurry",
+                        "would hurry",
+                        "did hurry"
+                    ],
+                    "verb_hint": "Focus on Unless Present Simple.",
+                    "gap_tags": [
+                        "unless_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_present_simple"
+            ],
+            "variants": [
+                "Unless you {a1} we will be late"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 3,
+            "uuid": "upa-v3-a1-03",
+            "question": "You can stay here {a1} you are quiet",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "will provided that",
+                        "would provided that",
+                        "did provided that"
+                    ],
+                    "verb_hint": "Focus on Provided That.",
+                    "gap_tags": [
+                        "provided_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "provided_that"
+            ],
+            "variants": [
+                "You can stay here {a1} you are quiet"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 4,
+            "uuid": "upa-v3-a1-04",
+            "question": "You can borrow my pen {a1} you return it",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "as long as",
+                    "options": [
+                        "as long as",
+                        "will as long as",
+                        "would as long as",
+                        "did as long as"
+                    ],
+                    "verb_hint": "Focus on As Long As.",
+                    "gap_tags": [
+                        "as_long_as"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_long_as"
+            ],
+            "variants": [
+                "You can borrow my pen {a1} you return it"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 5,
+            "uuid": "upa-v3-a1-05",
+            "question": "You may enter {a1} you show your ticket",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "will provided that",
+                        "would provided that",
+                        "did provided that"
+                    ],
+                    "verb_hint": "Focus on Formal Condition.",
+                    "gap_tags": [
+                        "formal_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_condition"
+            ],
+            "variants": [
+                "You may enter {a1} you show your ticket"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 6,
+            "uuid": "upa-v3-a1-06",
+            "question": "Unless you {a1} me I will worry",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "call",
+                    "options": [
+                        "call",
+                        "will call",
+                        "would call",
+                        "did call"
+                    ],
+                    "verb_hint": "Focus on No Double Negative.",
+                    "gap_tags": [
+                        "no_double_negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_double_negative"
+            ],
+            "variants": [
+                "Unless you {a1} me I will worry"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 7,
+            "uuid": "upa-v3-a1-07",
+            "question": "{a1} you are ready we will start without you",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Unless",
+                    "options": [
+                        "Unless",
+                        "will Unless",
+                        "would Unless",
+                        "did Unless"
+                    ],
+                    "verb_hint": "Focus on Comma Rules.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "{a1} you are ready we will start without you"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 8,
+            "uuid": "upa-v3-a1-08",
+            "question": "Use {a1} when you mean if not",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use {a1} when you mean if not"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 9,
+            "uuid": "upa-v3-a1-09",
+            "question": "I will cook dinner {a1} you want to eat out",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Unless If Not.",
+                    "gap_tags": [
+                        "unless_if_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_if_not"
+            ],
+            "variants": [
+                "I will cook dinner {a1} you want to eat out"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 10,
+            "uuid": "upa-v3-a1-10",
+            "question": "You can use my laptop {a1} you save your work",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "provided",
+                    "options": [
+                        "provided",
+                        "will provided",
+                        "would provided",
+                        "did provided"
+                    ],
+                    "verb_hint": "Focus on Provided That.",
+                    "gap_tags": [
+                        "provided_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "provided_that"
+            ],
+            "variants": [
+                "You can use my laptop {a1} you save your work"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 11,
+            "uuid": "upa-v3-a1-11",
+            "question": "I will help {a1} you try first",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "as long as",
+                    "options": [
+                        "as long as",
+                        "will as long as",
+                        "would as long as",
+                        "did as long as"
+                    ],
+                    "verb_hint": "Focus on As Long As.",
+                    "gap_tags": [
+                        "as_long_as"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_long_as"
+            ],
+            "variants": [
+                "I will help {a1} you try first"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 12,
+            "uuid": "upa-v3-a1-12",
+            "question": "Unless you {a1} the shop will close",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "hurry",
+                    "options": [
+                        "hurry",
+                        "will hurry",
+                        "would hurry",
+                        "did hurry"
+                    ],
+                    "verb_hint": "Focus on No Double Negative.",
+                    "gap_tags": [
+                        "no_double_negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_double_negative"
+            ],
+            "variants": [
+                "Unless you {a1} the shop will close"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 13,
+            "uuid": "upa-v3-a2-01",
+            "question": "You will miss the bus {a1} you hurry",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Unless If Not.",
+                    "gap_tags": [
+                        "unless_if_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_if_not"
+            ],
+            "variants": [
+                "You will miss the bus {a1} you hurry"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 14,
+            "uuid": "upa-v3-a2-02",
+            "question": "Unless you {a1} the file today I will call you",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "send",
+                    "options": [
+                        "send",
+                        "will send",
+                        "would send",
+                        "did send"
+                    ],
+                    "verb_hint": "Focus on Unless Present Simple.",
+                    "gap_tags": [
+                        "unless_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_present_simple"
+            ],
+            "variants": [
+                "Unless you {a1} the file today I will call you"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 15,
+            "uuid": "upa-v3-a2-03",
+            "question": "We will help you {a1} you ask early",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "will provided that",
+                        "would provided that",
+                        "did provided that"
+                    ],
+                    "verb_hint": "Focus on Provided That.",
+                    "gap_tags": [
+                        "provided_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "provided_that"
+            ],
+            "variants": [
+                "We will help you {a1} you ask early"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 16,
+            "uuid": "upa-v3-a2-04",
+            "question": "We can leave early {a1} the work is done",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "as long as",
+                    "options": [
+                        "as long as",
+                        "will as long as",
+                        "would as long as",
+                        "did as long as"
+                    ],
+                    "verb_hint": "Focus on As Long As.",
+                    "gap_tags": [
+                        "as_long_as"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_long_as"
+            ],
+            "variants": [
+                "We can leave early {a1} the work is done"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 17,
+            "uuid": "upa-v3-a2-05",
+            "question": "Visitors may park here {a1} they register first",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "will provided that",
+                        "would provided that",
+                        "did provided that"
+                    ],
+                    "verb_hint": "Focus on Formal Condition.",
+                    "gap_tags": [
+                        "formal_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_condition"
+            ],
+            "variants": [
+                "Visitors may park here {a1} they register first"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 18,
+            "uuid": "upa-v3-a2-06",
+            "question": "Unless you {a1} carefully you will miss the rule",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "listen",
+                    "options": [
+                        "listen",
+                        "will listen",
+                        "would listen",
+                        "did listen"
+                    ],
+                    "verb_hint": "Focus on No Double Negative.",
+                    "gap_tags": [
+                        "no_double_negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_double_negative"
+            ],
+            "variants": [
+                "Unless you {a1} carefully you will miss the rule"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 19,
+            "uuid": "upa-v3-a2-07",
+            "question": "{a1} it stops raining we will stay inside",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Unless",
+                    "options": [
+                        "Unless",
+                        "will Unless",
+                        "would Unless",
+                        "did Unless"
+                    ],
+                    "verb_hint": "Focus on Comma Rules.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "{a1} it stops raining we will stay inside"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 20,
+            "uuid": "upa-v3-a2-08",
+            "question": "Choose {a1} when the condition is negative",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Choose {a1} when the condition is negative"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 21,
+            "uuid": "upa-v3-a2-09",
+            "question": "We will meet outside {a1} the hall is open",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Unless If Not.",
+                    "gap_tags": [
+                        "unless_if_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_if_not"
+            ],
+            "variants": [
+                "We will meet outside {a1} the hall is open"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 22,
+            "uuid": "upa-v3-a2-10",
+            "question": "We can extend the deadline {a1} everyone agrees",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "provided",
+                    "options": [
+                        "provided",
+                        "will provided",
+                        "would provided",
+                        "did provided"
+                    ],
+                    "verb_hint": "Focus on Provided That.",
+                    "gap_tags": [
+                        "provided_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "provided_that"
+            ],
+            "variants": [
+                "We can extend the deadline {a1} everyone agrees"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 23,
+            "uuid": "upa-v3-a2-11",
+            "question": "You can join us {a1} you arrive on time",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "as long as",
+                    "options": [
+                        "as long as",
+                        "will as long as",
+                        "would as long as",
+                        "did as long as"
+                    ],
+                    "verb_hint": "Focus on As Long As.",
+                    "gap_tags": [
+                        "as_long_as"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_long_as"
+            ],
+            "variants": [
+                "You can join us {a1} you arrive on time"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 24,
+            "uuid": "upa-v3-a2-12",
+            "question": "Unless you {a1} she will not know",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "ask",
+                    "options": [
+                        "ask",
+                        "will ask",
+                        "would ask",
+                        "did ask"
+                    ],
+                    "verb_hint": "Focus on No Double Negative.",
+                    "gap_tags": [
+                        "no_double_negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_double_negative"
+            ],
+            "variants": [
+                "Unless you {a1} she will not know"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 25,
+            "uuid": "upa-v3-b1-01",
+            "question": "The shop will close early {a1} more customers come",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Unless If Not.",
+                    "gap_tags": [
+                        "unless_if_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_if_not"
+            ],
+            "variants": [
+                "The shop will close early {a1} more customers come"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 26,
+            "uuid": "upa-v3-b1-02",
+            "question": "Unless the manager {a1} the time we will wait",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "confirms",
+                    "options": [
+                        "confirms",
+                        "will confirms",
+                        "would confirms",
+                        "did confirms"
+                    ],
+                    "verb_hint": "Focus on Unless Present Simple.",
+                    "gap_tags": [
+                        "unless_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_present_simple"
+            ],
+            "variants": [
+                "Unless the manager {a1} the time we will wait"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 27,
+            "uuid": "upa-v3-b1-03",
+            "question": "The school will accept the form {a1} it is signed",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "will provided that",
+                        "would provided that",
+                        "did provided that"
+                    ],
+                    "verb_hint": "Focus on Provided That.",
+                    "gap_tags": [
+                        "provided_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "provided_that"
+            ],
+            "variants": [
+                "The school will accept the form {a1} it is signed"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 28,
+            "uuid": "upa-v3-b1-04",
+            "question": "The children may play outside {a1} an adult watches them",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "as long as",
+                    "options": [
+                        "as long as",
+                        "will as long as",
+                        "would as long as",
+                        "did as long as"
+                    ],
+                    "verb_hint": "Focus on As Long As.",
+                    "gap_tags": [
+                        "as_long_as"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_long_as"
+            ],
+            "variants": [
+                "The children may play outside {a1} an adult watches them"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 29,
+            "uuid": "upa-v3-b1-05",
+            "question": "Employees may work remotely {a1} their manager agrees",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "will provided that",
+                        "would provided that",
+                        "did provided that"
+                    ],
+                    "verb_hint": "Focus on Formal Condition.",
+                    "gap_tags": [
+                        "formal_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_condition"
+            ],
+            "variants": [
+                "Employees may work remotely {a1} their manager agrees"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 30,
+            "uuid": "upa-v3-b1-06",
+            "question": "Unless they {a1} the receipt we cannot refund the money",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "bring",
+                    "options": [
+                        "bring",
+                        "will bring",
+                        "would bring",
+                        "did bring"
+                    ],
+                    "verb_hint": "Focus on No Double Negative.",
+                    "gap_tags": [
+                        "no_double_negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_double_negative"
+            ],
+            "variants": [
+                "Unless they {a1} the receipt we cannot refund the money"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 31,
+            "uuid": "upa-v3-b1-07",
+            "question": "{a1} the printer works we will send the file later",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Unless",
+                    "options": [
+                        "Unless",
+                        "will Unless",
+                        "would Unless",
+                        "did Unless"
+                    ],
+                    "verb_hint": "Focus on Comma Rules.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "{a1} the printer works we will send the file later"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 32,
+            "uuid": "upa-v3-b1-08",
+            "question": "Use {a1} you hurry not unless you do not hurry",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use {a1} you hurry not unless you do not hurry"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 33,
+            "uuid": "upa-v3-b1-09",
+            "question": "They will wait downstairs {a1} the receptionist calls them",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Unless If Not.",
+                    "gap_tags": [
+                        "unless_if_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_if_not"
+            ],
+            "variants": [
+                "They will wait downstairs {a1} the receptionist calls them"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 34,
+            "uuid": "upa-v3-b1-10",
+            "question": "The museum will open the room {a1} security is present",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "provided",
+                    "options": [
+                        "provided",
+                        "will provided",
+                        "would provided",
+                        "did provided"
+                    ],
+                    "verb_hint": "Focus on Provided That.",
+                    "gap_tags": [
+                        "provided_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "provided_that"
+            ],
+            "variants": [
+                "The museum will open the room {a1} security is present"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 35,
+            "uuid": "upa-v3-b1-11",
+            "question": "The plan will work {a1} the data stays accurate",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "as long as",
+                    "options": [
+                        "as long as",
+                        "will as long as",
+                        "would as long as",
+                        "did as long as"
+                    ],
+                    "verb_hint": "Focus on As Long As.",
+                    "gap_tags": [
+                        "as_long_as"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_long_as"
+            ],
+            "variants": [
+                "The plan will work {a1} the data stays accurate"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 36,
+            "uuid": "upa-v3-b1-12",
+            "question": "Unless they {a1} the cables the system may fail",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "check",
+                    "options": [
+                        "check",
+                        "will check",
+                        "would check",
+                        "did check"
+                    ],
+                    "verb_hint": "Focus on No Double Negative.",
+                    "gap_tags": [
+                        "no_double_negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_double_negative"
+            ],
+            "variants": [
+                "Unless they {a1} the cables the system may fail"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 37,
+            "uuid": "upa-v3-b2-01",
+            "question": "The team will delay the launch {a1} the tests pass",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Unless If Not.",
+                    "gap_tags": [
+                        "unless_if_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_if_not"
+            ],
+            "variants": [
+                "The team will delay the launch {a1} the tests pass"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 38,
+            "uuid": "upa-v3-b2-02",
+            "question": "Unless they {a1} the budget the project will pause",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "approve",
+                    "options": [
+                        "approve",
+                        "will approve",
+                        "would approve",
+                        "did approve"
+                    ],
+                    "verb_hint": "Focus on Unless Present Simple.",
+                    "gap_tags": [
+                        "unless_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_present_simple"
+            ],
+            "variants": [
+                "Unless they {a1} the budget the project will pause"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 39,
+            "uuid": "upa-v3-b2-03",
+            "question": "The company will fund the course {a1} it improves your work",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "will provided that",
+                        "would provided that",
+                        "did provided that"
+                    ],
+                    "verb_hint": "Focus on Provided That.",
+                    "gap_tags": [
+                        "provided_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "provided_that"
+            ],
+            "variants": [
+                "The company will fund the course {a1} it improves your work"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 40,
+            "uuid": "upa-v3-b2-04",
+            "question": "The supplier may join the tender {a1} it meets the rules",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "as long as",
+                    "options": [
+                        "as long as",
+                        "will as long as",
+                        "would as long as",
+                        "did as long as"
+                    ],
+                    "verb_hint": "Focus on As Long As.",
+                    "gap_tags": [
+                        "as_long_as"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_long_as"
+            ],
+            "variants": [
+                "The supplier may join the tender {a1} it meets the rules"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 41,
+            "uuid": "upa-v3-b2-05",
+            "question": "Applicants may retake the exam {a1} they pay the fee",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "will provided that",
+                        "would provided that",
+                        "did provided that"
+                    ],
+                    "verb_hint": "Focus on Formal Condition.",
+                    "gap_tags": [
+                        "formal_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_condition"
+            ],
+            "variants": [
+                "Applicants may retake the exam {a1} they pay the fee"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 42,
+            "uuid": "upa-v3-b2-06",
+            "question": "Unless the witness {a1}s clearly the judge will interrupt",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "answer",
+                    "options": [
+                        "answer",
+                        "will answer",
+                        "would answer",
+                        "did answer"
+                    ],
+                    "verb_hint": "Focus on No Double Negative.",
+                    "gap_tags": [
+                        "no_double_negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_double_negative"
+            ],
+            "variants": [
+                "Unless the witness {a1}s clearly the judge will interrupt"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 43,
+            "uuid": "upa-v3-b2-07",
+            "question": "{a1} the figures change we will keep the forecast",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Unless",
+                    "options": [
+                        "Unless",
+                        "will Unless",
+                        "would Unless",
+                        "did Unless"
+                    ],
+                    "verb_hint": "Focus on Comma Rules.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "{a1} the figures change we will keep the forecast"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 44,
+            "uuid": "upa-v3-b2-08",
+            "question": "{a1} provided that for a strict condition",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Use",
+                    "options": [
+                        "Use",
+                        "will Use",
+                        "would Use",
+                        "did Use"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} provided that for a strict condition"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 45,
+            "uuid": "upa-v3-b2-09",
+            "question": "The invoice will remain unpaid {a1} the client updates the details",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Unless If Not.",
+                    "gap_tags": [
+                        "unless_if_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_if_not"
+            ],
+            "variants": [
+                "The invoice will remain unpaid {a1} the client updates the details"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 46,
+            "uuid": "upa-v3-b2-10",
+            "question": "The publisher will accept the chapter {a1} the references are complete",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "provided",
+                    "options": [
+                        "provided",
+                        "will provided",
+                        "would provided",
+                        "did provided"
+                    ],
+                    "verb_hint": "Focus on Provided That.",
+                    "gap_tags": [
+                        "provided_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "provided_that"
+            ],
+            "variants": [
+                "The publisher will accept the chapter {a1} the references are complete"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 47,
+            "uuid": "upa-v3-b2-11",
+            "question": "The contract remains valid {a1} both sides meet the deadlines",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "as long as",
+                    "options": [
+                        "as long as",
+                        "will as long as",
+                        "would as long as",
+                        "did as long as"
+                    ],
+                    "verb_hint": "Focus on As Long As.",
+                    "gap_tags": [
+                        "as_long_as"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_long_as"
+            ],
+            "variants": [
+                "The contract remains valid {a1} both sides meet the deadlines"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 48,
+            "uuid": "upa-v3-b2-12",
+            "question": "Unless the analyst {a1}s the error the forecast will mislead us",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "report",
+                    "options": [
+                        "report",
+                        "will report",
+                        "would report",
+                        "did report"
+                    ],
+                    "verb_hint": "Focus on No Double Negative.",
+                    "gap_tags": [
+                        "no_double_negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_double_negative"
+            ],
+            "variants": [
+                "Unless the analyst {a1}s the error the forecast will mislead us"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 49,
+            "uuid": "upa-v3-c1-01",
+            "question": "The grant will be withdrawn {a1} the documents arrive by Monday",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Unless If Not.",
+                    "gap_tags": [
+                        "unless_if_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_if_not"
+            ],
+            "variants": [
+                "The grant will be withdrawn {a1} the documents arrive by Monday"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 50,
+            "uuid": "upa-v3-c1-02",
+            "question": "Unless the lawyer {a1} the draft today the hearing will move",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "submits",
+                    "options": [
+                        "submits",
+                        "will submits",
+                        "would submits",
+                        "did submits"
+                    ],
+                    "verb_hint": "Focus on Unless Present Simple.",
+                    "gap_tags": [
+                        "unless_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_present_simple"
+            ],
+            "variants": [
+                "Unless the lawyer {a1} the draft today the hearing will move"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 51,
+            "uuid": "upa-v3-c1-03",
+            "question": "The board will release the money {a1} the audit is clean",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "will provided that",
+                        "would provided that",
+                        "did provided that"
+                    ],
+                    "verb_hint": "Focus on Provided That.",
+                    "gap_tags": [
+                        "provided_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "provided_that"
+            ],
+            "variants": [
+                "The board will release the money {a1} the audit is clean"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 52,
+            "uuid": "upa-v3-c1-04",
+            "question": "The clinic can share the data {a1} every patient agrees",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "as long as",
+                    "options": [
+                        "as long as",
+                        "will as long as",
+                        "would as long as",
+                        "did as long as"
+                    ],
+                    "verb_hint": "Focus on As Long As.",
+                    "gap_tags": [
+                        "as_long_as"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_long_as"
+            ],
+            "variants": [
+                "The clinic can share the data {a1} every patient agrees"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 53,
+            "uuid": "upa-v3-c1-05",
+            "question": "Researchers may use the archive {a1} they cite the source",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "will provided that",
+                        "would provided that",
+                        "did provided that"
+                    ],
+                    "verb_hint": "Focus on Formal Condition.",
+                    "gap_tags": [
+                        "formal_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_condition"
+            ],
+            "variants": [
+                "Researchers may use the archive {a1} they cite the source"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 54,
+            "uuid": "upa-v3-c1-06",
+            "question": "Unless the minister {a1}s the conflict the committee will object",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "declare",
+                    "options": [
+                        "declare",
+                        "will declare",
+                        "would declare",
+                        "did declare"
+                    ],
+                    "verb_hint": "Focus on No Double Negative.",
+                    "gap_tags": [
+                        "no_double_negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_double_negative"
+            ],
+            "variants": [
+                "Unless the minister {a1}s the conflict the committee will object"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 55,
+            "uuid": "upa-v3-c1-07",
+            "question": "{a1} the appeal succeeds the sentence will stand",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Unless",
+                    "options": [
+                        "Unless",
+                        "will Unless",
+                        "would Unless",
+                        "did Unless"
+                    ],
+                    "verb_hint": "Focus on Comma Rules.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "{a1} the appeal succeeds the sentence will stand"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 56,
+            "uuid": "upa-v3-c1-08",
+            "question": "{a1} as long as when the result depends on one condition",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Use",
+                    "options": [
+                        "Use",
+                        "will Use",
+                        "would Use",
+                        "did Use"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} as long as when the result depends on one condition"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 57,
+            "uuid": "upa-v3-c1-09",
+            "question": "The decision will stand {a1} new evidence emerges",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Unless If Not.",
+                    "gap_tags": [
+                        "unless_if_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_if_not"
+            ],
+            "variants": [
+                "The decision will stand {a1} new evidence emerges"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 58,
+            "uuid": "upa-v3-c1-10",
+            "question": "The panel will hear the appeal {a1} the filing is valid",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "provided",
+                    "options": [
+                        "provided",
+                        "will provided",
+                        "would provided",
+                        "did provided"
+                    ],
+                    "verb_hint": "Focus on Provided That.",
+                    "gap_tags": [
+                        "provided_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "provided_that"
+            ],
+            "variants": [
+                "The panel will hear the appeal {a1} the filing is valid"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 59,
+            "uuid": "upa-v3-c1-11",
+            "question": "The model is reliable {a1} the assumptions remain stable",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "as long as",
+                    "options": [
+                        "as long as",
+                        "will as long as",
+                        "would as long as",
+                        "did as long as"
+                    ],
+                    "verb_hint": "Focus on As Long As.",
+                    "gap_tags": [
+                        "as_long_as"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_long_as"
+            ],
+            "variants": [
+                "The model is reliable {a1} the assumptions remain stable"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 60,
+            "uuid": "upa-v3-c1-12",
+            "question": "Unless the company {a1}s the risk investors will object",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "disclose",
+                    "options": [
+                        "disclose",
+                        "will disclose",
+                        "would disclose",
+                        "did disclose"
+                    ],
+                    "verb_hint": "Focus on No Double Negative.",
+                    "gap_tags": [
+                        "no_double_negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_double_negative"
+            ],
+            "variants": [
+                "Unless the company {a1}s the risk investors will object"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 61,
+            "uuid": "upa-v3-c2-01",
+            "question": "The agreement will collapse {a1} both sides accept the final clause",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Unless If Not.",
+                    "gap_tags": [
+                        "unless_if_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_if_not"
+            ],
+            "variants": [
+                "The agreement will collapse {a1} both sides accept the final clause"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 62,
+            "uuid": "upa-v3-c2-02",
+            "question": "Unless the negotiators {a1} the final issue the vote will fail",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "resolve",
+                    "options": [
+                        "resolve",
+                        "will resolve",
+                        "would resolve",
+                        "did resolve"
+                    ],
+                    "verb_hint": "Focus on Unless Present Simple.",
+                    "gap_tags": [
+                        "unless_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_present_simple"
+            ],
+            "variants": [
+                "Unless the negotiators {a1} the final issue the vote will fail"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 63,
+            "uuid": "upa-v3-c2-03",
+            "question": "The committee will endorse the plan {a1} the safeguards remain binding",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "will provided that",
+                        "would provided that",
+                        "did provided that"
+                    ],
+                    "verb_hint": "Focus on Provided That.",
+                    "gap_tags": [
+                        "provided_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "provided_that"
+            ],
+            "variants": [
+                "The committee will endorse the plan {a1} the safeguards remain binding"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 64,
+            "uuid": "upa-v3-c2-04",
+            "question": "The treaty can survive {a1} each party respects the monitoring process",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "as long as",
+                    "options": [
+                        "as long as",
+                        "will as long as",
+                        "would as long as",
+                        "did as long as"
+                    ],
+                    "verb_hint": "Focus on As Long As.",
+                    "gap_tags": [
+                        "as_long_as"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_long_as"
+            ],
+            "variants": [
+                "The treaty can survive {a1} each party respects the monitoring process"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 65,
+            "uuid": "upa-v3-c2-05",
+            "question": "Contractors may access the site {a1} they follow the safety protocol",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "will provided that",
+                        "would provided that",
+                        "did provided that"
+                    ],
+                    "verb_hint": "Focus on Formal Condition.",
+                    "gap_tags": [
+                        "formal_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_condition"
+            ],
+            "variants": [
+                "Contractors may access the site {a1} they follow the safety protocol"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 66,
+            "uuid": "upa-v3-c2-06",
+            "question": "Unless the firms {a1} fully the regulator will block the merger",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "comply",
+                    "options": [
+                        "comply",
+                        "will comply",
+                        "would comply",
+                        "did comply"
+                    ],
+                    "verb_hint": "Focus on No Double Negative.",
+                    "gap_tags": [
+                        "no_double_negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_double_negative"
+            ],
+            "variants": [
+                "Unless the firms {a1} fully the regulator will block the merger"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 67,
+            "uuid": "upa-v3-c2-07",
+            "question": "{a1} the evidence is withdrawn the precedent will matter",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Unless",
+                    "options": [
+                        "Unless",
+                        "will Unless",
+                        "would Unless",
+                        "did Unless"
+                    ],
+                    "verb_hint": "Focus on Comma Rules.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "{a1} the evidence is withdrawn the precedent will matter"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 68,
+            "uuid": "upa-v3-c2-08",
+            "question": "Use {a1} carefully because it already includes not",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use {a1} carefully because it already includes not"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 69,
+            "uuid": "upa-v3-c2-09",
+            "question": "The clause will remain dormant {a1} the market conditions deteriorate",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "will unless",
+                        "would unless",
+                        "did unless"
+                    ],
+                    "verb_hint": "Focus on Unless If Not.",
+                    "gap_tags": [
+                        "unless_if_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless_if_not"
+            ],
+            "variants": [
+                "The clause will remain dormant {a1} the market conditions deteriorate"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 70,
+            "uuid": "upa-v3-c2-10",
+            "question": "The fund will support the trial {a1} the ethics review is approved",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "provided",
+                    "options": [
+                        "provided",
+                        "will provided",
+                        "would provided",
+                        "did provided"
+                    ],
+                    "verb_hint": "Focus on Provided That.",
+                    "gap_tags": [
+                        "provided_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "provided_that"
+            ],
+            "variants": [
+                "The fund will support the trial {a1} the ethics review is approved"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 71,
+            "uuid": "upa-v3-c2-11",
+            "question": "The compromise is defensible {a1} transparency is preserved",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "as long as",
+                    "options": [
+                        "as long as",
+                        "will as long as",
+                        "would as long as",
+                        "did as long as"
+                    ],
+                    "verb_hint": "Focus on As Long As.",
+                    "gap_tags": [
+                        "as_long_as"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_long_as"
+            ],
+            "variants": [
+                "The compromise is defensible {a1} transparency is preserved"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        },
+        {
+            "id": 72,
+            "uuid": "upa-v3-c2-12",
+            "question": "Unless the court {a1}s the policy will remain in force",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "intervene",
+                    "options": [
+                        "intervene",
+                        "will intervene",
+                        "would intervene",
+                        "did intervene"
+                    ],
+                    "verb_hint": "Focus on No Double Negative.",
+                    "gap_tags": [
+                        "no_double_negative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_double_negative"
+            ],
+            "variants": [
+                "Unless the court {a1}s the policy will remain in force"
+            ],
+            "source": "theory_page_unless_provided_as_long_as"
+        }
+    ],
+    "saved_test": {
+        "uuid": "cond-extra-upa-v3-all",
+        "slug": "unless-provided-as-long-as-all-levels-v3",
+        "name": "Unless / Provided / As long as: V3 All Levels",
+        "description": "Page-local V3 package for Unless / Provided / As long as with A1-C2 coverage.",
+        "question_uuids": [
+            "upa-v3-a1-01",
+            "upa-v3-a1-02",
+            "upa-v3-a1-03",
+            "upa-v3-a1-04",
+            "upa-v3-a1-05",
+            "upa-v3-a1-06",
+            "upa-v3-a1-07",
+            "upa-v3-a1-08",
+            "upa-v3-a1-09",
+            "upa-v3-a1-10",
+            "upa-v3-a1-11",
+            "upa-v3-a1-12",
+            "upa-v3-a2-01",
+            "upa-v3-a2-02",
+            "upa-v3-a2-03",
+            "upa-v3-a2-04",
+            "upa-v3-a2-05",
+            "upa-v3-a2-06",
+            "upa-v3-a2-07",
+            "upa-v3-a2-08",
+            "upa-v3-a2-09",
+            "upa-v3-a2-10",
+            "upa-v3-a2-11",
+            "upa-v3-a2-12",
+            "upa-v3-b1-01",
+            "upa-v3-b1-02",
+            "upa-v3-b1-03",
+            "upa-v3-b1-04",
+            "upa-v3-b1-05",
+            "upa-v3-b1-06",
+            "upa-v3-b1-07",
+            "upa-v3-b1-08",
+            "upa-v3-b1-09",
+            "upa-v3-b1-10",
+            "upa-v3-b1-11",
+            "upa-v3-b1-12",
+            "upa-v3-b2-01",
+            "upa-v3-b2-02",
+            "upa-v3-b2-03",
+            "upa-v3-b2-04",
+            "upa-v3-b2-05",
+            "upa-v3-b2-06",
+            "upa-v3-b2-07",
+            "upa-v3-b2-08",
+            "upa-v3-b2-09",
+            "upa-v3-b2-10",
+            "upa-v3-b2-11",
+            "upa-v3-b2-12",
+            "upa-v3-c1-01",
+            "upa-v3-c1-02",
+            "upa-v3-c1-03",
+            "upa-v3-c1-04",
+            "upa-v3-c1-05",
+            "upa-v3-c1-06",
+            "upa-v3-c1-07",
+            "upa-v3-c1-08",
+            "upa-v3-c1-09",
+            "upa-v3-c1-10",
+            "upa-v3-c1-11",
+            "upa-v3-c1-12",
+            "upa-v3-c2-01",
+            "upa-v3-c2-02",
+            "upa-v3-c2-03",
+            "upa-v3-c2-04",
+            "upa-v3-c2-05",
+            "upa-v3-c2-06",
+            "upa-v3-c2-07",
+            "upa-v3-c2-08",
+            "upa-v3-c2-09",
+            "upa-v3-c2-10",
+            "upa-v3-c2-11",
+            "upa-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Conditionals\\UnlessProvidedAsLongAsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "unless-provided-as-long-as",
+                    "title": "Unless / Provided / As long as",
+                    "category_slug_path": "conditionals",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsUnlessProvidedAsLongAsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/conditionals/unless-provided-as-long-as"
+                }
+            }
+        }
+    }
+}
