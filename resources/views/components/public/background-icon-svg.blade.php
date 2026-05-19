@@ -1,158 +1,181 @@
-@props(['name'])
-
-{{--
-    Background icon library for the public fixed background.
-    All icons share viewBox 0 0 24 24 and use currentColor so the
-    parent .app-bg-icon--* tone wrapper can tint them. Icons that
-    embed literal letters (Aa / ABC / Hi / EN / ?) read clearly even
-    at thumbnail sizes, which is what makes the pattern feel like an
-    English-learning hub instead of a generic shape backdrop.
---}}
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
     @switch($name)
-        {{-- ===== TEXTUAL ICONS — instantly readable ===== --}}
-
-        @case('letter-aa')
-            {{-- Big A + small a in a rounded square — alphabet learning. --}}
-            <rect x="3" y="3" width="18" height="18" rx="4" />
-            <path d="M7 17 L9 9 L11 17 M7.6 14.2 H10.4" stroke-width="1.8" />
-            <path d="M17.2 17 V12.6 A2.2 2.2 0 0 0 15 10.4 A2.2 2.2 0 0 0 12.8 12.6 A2.2 2.2 0 0 0 15 14.8 A2.2 2.2 0 0 0 17.2 13" stroke-width="1.8" />
-            @break
-
-        @case('letter-abc')
-            {{-- "ABC" text inside a card. --}}
-            <rect x="3" y="6" width="18" height="12" rx="2.5" />
-            <text x="12" y="15.6" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="800" font-size="7.2" fill="currentColor" stroke="none">ABC</text>
-            @break
-
-        @case('question-bubble')
-            {{-- Speech bubble with a question mark. --}}
-            <path d="M5 6.5C5 5.12 6.12 4 7.5 4H16.5C17.88 4 19 5.12 19 6.5V13C19 14.38 17.88 15.5 16.5 15.5H11.5L8 19V15.5H7.5C6.12 15.5 5 14.38 5 13Z" />
-            <path d="M10.4 8.4 A1.6 1.6 0 0 1 12 7 A1.7 1.7 0 0 1 13.6 8.8 C13.6 10 12 10.4 12 11.6" stroke-width="1.7" />
-            <circle cx="12" cy="13" r="0.65" fill="currentColor" stroke="none" />
-            @break
-
-        @case('hi-bubble')
-            {{-- Speech bubble with literal "Hi". --}}
-            <path d="M4.5 6.5C4.5 5.12 5.62 4 7 4H17C18.38 4 19.5 5.12 19.5 6.5V13.2C19.5 14.58 18.38 15.7 17 15.7H10.5L7 19V15.7H7C5.62 15.7 4.5 14.58 4.5 13.2Z" />
-            <text x="12" y="13" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="800" font-size="6.6" fill="currentColor" stroke="none">Hi</text>
-            @break
-
-        @case('en-globe')
-            {{-- Globe + "EN" label. --}}
-            <circle cx="12" cy="12" r="8" />
-            <path d="M4 12h16" />
-            <path d="M12 4c2.5 2.4 3.6 5 3.6 8s-1.1 5.6-3.6 8" />
-            <path d="M12 4c-2.5 2.4-3.6 5-3.6 8s1.1 5.6 3.6 8" />
-            <text x="12" y="14.6" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="800" font-size="5.4" fill="currentColor" stroke="none">EN</text>
-            @break
-
-        @case('translate-arrows')
-            {{-- EN ⇄ UA translation. --}}
-            <rect x="3" y="4.5" width="8.5" height="6.5" rx="1.6" />
-            <text x="7.25" y="9.4" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="800" font-size="4.4" fill="currentColor" stroke="none">EN</text>
-            <rect x="12.5" y="13" width="8.5" height="6.5" rx="1.6" />
-            <text x="16.75" y="17.9" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="800" font-size="4.4" fill="currentColor" stroke="none">UA</text>
-            <path d="M11.5 11 L13 12.5 L14.5 11" />
-            <path d="M12.5 14.5 L11 13 L9.5 14.5" />
-            @break
-
-        @case('plus-letter')
-            {{-- "A" letter in a small chip — used as filler / accent. --}}
-            <rect x="6" y="6" width="12" height="12" rx="2" />
-            <text x="12" y="15.2" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="800" font-size="8.4" fill="currentColor" stroke="none">A</text>
-            @break
-
-        {{-- ===== OBJECT ICONS — clearly recognisable line art ===== --}}
-
         @case('book-open')
-            <path d="M3 5.5C3 5.22 3.22 5 3.5 5H10.5C11.33 5 12 5.67 12 6.5V19.5C12 19.78 11.78 20 11.5 20H4.5C3.67 20 3 19.33 3 18.5Z" />
-            <path d="M21 5.5C21 5.22 20.78 5 20.5 5H13.5C12.67 5 12 5.67 12 6.5V19.5C12 19.78 12.22 20 12.5 20H19.5C20.33 20 21 19.33 21 18.5Z" />
-            <path d="M5.5 8.5H9.5" />
-            <path d="M5.5 11H9.5" />
-            <path d="M14.5 8.5H18.5" />
-            <path d="M14.5 11H18.5" />
+            <path d="M4 6.25C4 4.455 5.455 3 7.25 3H11.25V19H7.25C5.455 19 4 20.455 4 22V6.25Z" />
+            <path d="M20 6.25C20 4.455 18.545 3 16.75 3H12.75V19H16.75C18.545 19 20 20.455 20 22V6.25Z" />
+            <path d="M8 7H10.25" />
+            <path d="M8 10H10.25" />
+            <path d="M14 7H16.25" />
+            <path d="M14 10H16.25" />
             @break
 
-        @case('pencil')
-            <path d="M16.5 4.5L19.5 7.5L8 19H5V16Z" />
-            <path d="M14.5 6.5L17.5 9.5" />
-            <path d="M6.5 17.5L8 19" />
+        @case('messages')
+            <path d="M4.5 6.5C4.5 5.119 5.619 4 7 4H13.5C14.881 4 16 5.119 16 6.5V11C16 12.381 14.881 13.5 13.5 13.5H9L6 16V13.5H7C5.619 13.5 4.5 12.381 4.5 11V6.5Z" />
+            <path d="M11 8.5H12.5" />
+            <path d="M8 8.5H8.01" />
+            <path d="M8 11H12" />
+            <path d="M11.5 14.5H17C18.381 14.5 19.5 13.381 19.5 12V9" />
             @break
 
-        @case('notebook')
-            <rect x="5" y="3" width="14" height="18" rx="2" />
-            <path d="M5 7H19" />
-            <path d="M5 11H19" />
-            <path d="M5 15H19" />
-            <path d="M5 19H19" />
-            <path d="M8 3V21" />
-            @break
-
-        @case('headphones')
-            <path d="M4 13V12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12V13" />
-            <path d="M4 13H7V18C7 19.1 6.1 20 5 20C4.45 20 4 19.55 4 19Z" />
-            <path d="M20 13H17V18C17 19.1 17.9 20 19 20C19.55 20 20 19.55 20 19Z" />
-            <path d="M3 14.5L2 15" />
-            <path d="M21 14.5L22 15" />
-            @break
-
-        @case('microphone')
-            <rect x="9" y="3" width="6" height="11" rx="3" />
-            <path d="M6 11V12C6 15.31 8.69 18 12 18C15.31 18 18 15.31 18 12V11" />
-            <path d="M12 18V21" />
-            <path d="M9 21H15" />
-            @break
-
-        @case('lightbulb')
-            <path d="M9 17H15" />
-            <path d="M10 20H14" />
-            <path d="M7.5 11A4.5 4.5 0 0 1 12 6.5A4.5 4.5 0 0 1 16.5 11C16.5 13 15 14 14.5 16H9.5C9 14 7.5 13 7.5 11Z" />
-            <path d="M12 3V4" />
-            <path d="M3.5 11H4.5" />
-            <path d="M19.5 11H20.5" />
-            <path d="M5.5 5.5L6.2 6.2" />
-            <path d="M17.8 6.2L18.5 5.5" />
+        @case('quote-bubble')
+            <path d="M5 6.5C5 5.119 6.119 4 7.5 4H16.5C17.881 4 19 5.119 19 6.5V12.5C19 13.881 17.881 15 16.5 15H10.5L7 18V15H7.5C6.119 15 5 13.881 5 12.5V6.5Z" />
+            <path d="M8 8.5H9.8V11H7.8V9.2C7.8 8.813 8.113 8.5 8.5 8.5H8Z" />
+            <path d="M13 8.5H14.8V11H12.8V9.2C12.8 8.813 13.113 8.5 13.5 8.5H13Z" />
             @break
 
         @case('flashcards')
-            <rect x="4" y="5" width="10.5" height="7.5" rx="2" transform="rotate(-6 9.25 8.75)" />
-            <rect x="9" y="11" width="11" height="8" rx="2" transform="rotate(4 14.5 15)" />
-            <path d="M7 8.5H11" />
-            <path d="M13 16H17.5" />
-            <path d="M13 17.8H17" />
+            <rect x="4" y="5" width="10.5" height="7.5" rx="2.25" />
+            <rect x="9.5" y="11.5" width="10.5" height="7.5" rx="2.25" />
+            <path d="M7 8.75H11.25" />
+            <path d="M12.5 15.25H16.75" />
+            <path d="M12.5 17.5H18" />
             @break
 
-        @case('star')
-            <path d="M12 4L14.2 9L19.5 9.7L15.6 13.5L16.6 18.7L12 16L7.4 18.7L8.4 13.5L4.5 9.7L9.8 9Z" />
+        @case('bookmark-star')
+            <path d="M7.5 4H16.5C17.605 4 18.5 4.895 18.5 6V20L12 16.5L5.5 20V6C5.5 4.895 6.395 4 7.5 4Z" />
+            <path d="M12 8.1L12.93 10L15 10.3L13.5 11.76L13.85 13.8L12 12.83L10.15 13.8L10.5 11.76L9 10.3L11.07 10L12 8.1Z" />
             @break
 
-        @case('checkmark')
-            <circle cx="12" cy="12" r="8.5" />
-            <path d="M8 12.4L11 15L16 9.5" stroke-width="1.8" />
+        @case('headphones')
+            <path d="M5 13V12C5 8.134 8.134 5 12 5C15.866 5 19 8.134 19 12V13" />
+            <rect x="4.5" y="12.5" width="3.5" height="6.5" rx="1.5" />
+            <rect x="16" y="12.5" width="3.5" height="6.5" rx="1.5" />
+            <path d="M8 17.5C8.7 18.167 9.533 18.5 10.5 18.5H13.5" />
             @break
 
-        @case('quote-marks')
-            <path d="M5 7C5 5.9 5.9 5 7 5H9.5V8.5C9.5 11.5 7.5 13 5 13.5V11C6.5 10.5 7.5 9.5 7.5 8.5H5Z" />
-            <path d="M14.5 7C14.5 5.9 15.4 5 16.5 5H19V8.5C19 11.5 17 13 14.5 13.5V11C16 10.5 17 9.5 17 8.5H14.5Z" />
+        @case('checklist')
+            <rect x="5" y="3.5" width="14" height="17" rx="2.25" />
+            <path d="M8.3 8.2L9.7 9.6L11.9 7.4" />
+            <path d="M13.5 8.5H16.2" />
+            <path d="M8.3 12.7L9.7 14.1L11.9 11.9" />
+            <path d="M13.5 13H16.2" />
+            <path d="M8.3 17.2L9.7 18.6L11.9 16.4" />
+            <path d="M13.5 17.5H16.2" />
+            @break
+
+        @case('document-check')
+            <path d="M8 3.5H15.5L19 7V18.5C19 19.881 17.881 21 16.5 21H8C6.619 21 5.5 19.881 5.5 18.5V6C5.5 4.619 6.619 3.5 8 3.5Z" />
+            <path d="M15.5 3.5V7H19" />
+            <path d="M8.5 10H15.5" />
+            <path d="M8.5 13H14.5" />
+            <path d="M8.75 16.1L10.75 18.1L15.5 13.35" />
+            @break
+
+        @case('translate-cards')
+            <rect x="4" y="4.5" width="6.5" height="6.5" rx="1.75" />
+            <rect x="13.5" y="13" width="6.5" height="6.5" rx="1.75" />
+            <path d="M6.2 9L7.25 6.25L8.3 9" />
+            <path d="M6.6 8H7.9" />
+            <path d="M15.8 15.8H18.1L15.8 18.2H18.1" />
+            <path d="M9.75 15H13.5" />
+            <path d="M11.6 13.15L13.45 15L11.6 16.85" />
+            @break
+
+        @case('search-card')
+            <rect x="4.5" y="4.5" width="10" height="13.5" rx="2.25" />
+            <path d="M7.25 8.5H11.5" />
+            <path d="M7.25 11.5H10.5" />
+            <circle cx="16.75" cy="15.75" r="2.75" />
+            <path d="M18.7 17.7L20.5 19.5" />
+            @break
+
+        @case('letters-flow')
+            <rect x="3.5" y="8.25" width="4.5" height="4.5" rx="1.2" />
+            <rect x="9.75" y="8.25" width="4.5" height="4.5" rx="1.2" />
+            <rect x="16" y="8.25" width="4.5" height="4.5" rx="1.2" />
+            <path d="M5.2 11.35L5.75 9.65L6.3 11.35" />
+            <path d="M5.42 10.7H6.08" />
+            <path d="M11.05 9.7H12.4L11.05 12H12.4" />
+            <path d="M17.7 9.7H19.45L17.7 12H19.45" />
+            <path d="M8 10.5H9.75" />
+            <path d="M14.25 10.5H16" />
+            @break
+
+        @case('microphone')
+            <rect x="9" y="4" width="6" height="9.5" rx="3" />
+            <path d="M6.5 10.5C6.5 13.261 8.739 15.5 11.5 15.5H12.5C15.261 15.5 17.5 13.261 17.5 10.5" />
+            <path d="M12 15.5V19" />
+            <path d="M9.5 19H14.5" />
+            @break
+
+        @case('puzzle-letters')
+            <path d="M8 5.5C8 4.672 8.672 4 9.5 4C10.328 4 11 4.672 11 5.5V6H13C14.105 6 15 6.895 15 8V10H16C16.828 10 17.5 10.672 17.5 11.5C17.5 12.328 16.828 13 16 13H15V15C15 16.105 14.105 17 13 17H11V18.5C11 19.328 10.328 20 9.5 20C8.672 20 8 19.328 8 18.5V17H6C4.895 17 4 16.105 4 15V13H5C5.828 13 6.5 12.328 6.5 11.5C6.5 10.672 5.828 10 5 10H4V8C4 6.895 4.895 6 6 6H8V5.5Z" />
+            <path d="M8.85 11L9.7 8.9L10.55 11" />
+            <path d="M9.15 10.2H10.25" />
+            <path d="M12.45 8.95H14.35L12.45 11.35H14.35" />
+            @break
+
+        @case('notebook-pencil')
+            <path d="M8 3.5H16C17.381 3.5 18.5 4.619 18.5 6V18C18.5 19.381 17.381 20.5 16 20.5H8C6.619 20.5 5.5 19.381 5.5 18V6C5.5 4.619 6.619 3.5 8 3.5Z" />
+            <path d="M8.5 7.5H15.5" />
+            <path d="M8.5 10.75H14.25" />
+            <path d="M8.5 14H12.5" />
+            <path d="M14.5 15L18.2 11.3L20 13.1L16.3 16.8L13.8 17.3L14.5 15Z" />
             @break
 
         @case('graduation-cap')
-            <path d="M12 3L22 8L12 13L2 8Z" />
-            <path d="M6 10V15C6 16 8.5 17.5 12 17.5C15.5 17.5 18 16 18 15V10" />
-            <path d="M22 8V13" />
+            <path d="M3.5 9.5L12 5.5L20.5 9.5L12 13.5L3.5 9.5Z" />
+            <path d="M6.5 11V15.25L12 18.25L17.5 15.25V11" />
+            <path d="M20.5 9.5V14.25" />
+            <path d="M10 15L12 16.1L14 15" />
+            @break
+
+        @case('chat-question')
+            <path d="M5 6.75C5 5.231 6.231 4 7.75 4H16.25C17.769 4 19 5.231 19 6.75V12.25C19 13.769 17.769 15 16.25 15H11L7 18V15H7.75C6.231 15 5 13.769 5 12.25V6.75Z" />
+            <path d="M10 9C10 7.895 10.895 7 12 7C13.105 7 14 7.895 14 9C14 9.889 13.513 10.449 12.7 10.93C12.257 11.192 12 11.579 12 12" />
+            <circle cx="12" cy="13.85" r="0.75" fill="currentColor" stroke="none" />
+            @break
+
+        @case('alphabet-blocks')
+            <rect x="3.5" y="8" width="5" height="5" rx="1.2" />
+            <rect x="9.5" y="6" width="5" height="5" rx="1.2" />
+            <rect x="15.5" y="10" width="5" height="5" rx="1.2" />
+            <path d="M5.1 11.5L6 9.4L6.9 11.5" />
+            <path d="M5.45 10.75H6.55" />
+            <path d="M11.2 7.8V10.2" />
+            <path d="M11.2 7.8C12.55 7.8 13.35 8.25 13.35 9C13.35 9.75 12.55 10.2 11.2 10.2" />
+            <path d="M17.2 11.2H19.25L17.2 13.8H19.25" />
+            @break
+
+        @case('abc-chip')
+            <rect x="4.5" y="6.25" width="15" height="11.5" rx="3" />
+            <path d="M7.5 14L8.5 10.4L9.5 14" />
+            <path d="M7.9 12.8H9.1" />
+            <path d="M11.7 10.5V14" />
+            <path d="M11.7 10.5C13.15 10.5 13.95 11.1 13.95 12.25C13.95 13.4 13.15 14 11.7 14" />
+            <path d="M16.3 10.7H18.55L16.3 13.3H18.55" />
+            @break
+
+        @case('pencil')
+            <path d="M5.5 18.5L8.3 17.9L18.4 7.8L16.2 5.6L6.1 15.7L5.5 18.5Z" />
+            <path d="M14.9 6.9L17.1 9.1" />
+            <path d="M5.5 18.5L4.6 19.4" />
+            @break
+
+        @case('mini-star')
+            <path d="M12 5.4L13.7 8.3L16.6 10L13.7 11.7L12 14.6L10.3 11.7L7.4 10L10.3 8.3L12 5.4Z" />
+            @break
+
+        @case('small-heart')
+            <path d="M12 17C12 17 6.5 13.7 6.5 9.8C6.5 8.145 7.845 6.8 9.5 6.8C10.488 6.8 11.365 7.28 12 8.027C12.635 7.28 13.512 6.8 14.5 6.8C16.155 6.8 17.5 8.145 17.5 9.8C17.5 13.7 12 17 12 17Z" />
             @break
 
         @case('spiral')
-            {{-- Tiny accent — coiled spiral. --}}
-            <path d="M12 8.5A3.5 3.5 0 1 0 15.5 12A2.5 2.5 0 1 0 13 14.5A1.6 1.6 0 1 0 14.6 12.9" />
+            <path d="M12.8 18C16.163 18 18.6 15.78 18.6 12.95C18.6 10.37 16.604 8.3 13.95 8.3C11.689 8.3 10.1 9.83 10.1 11.8C10.1 13.468 11.365 14.7 13.05 14.7C14.412 14.7 15.35 13.842 15.35 12.7C15.35 11.76 14.678 11.1 13.8 11.1" />
             @break
 
-        @case('dot')
-            <circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none" />
+        @case('quote-mini')
+            <path d="M8.1 8.6H10.2V11.1H7.75V9.05C7.75 8.801 7.951 8.6 8.2 8.6H8.1Z" />
+            <path d="M13.2 8.6H15.3V11.1H12.85V9.05C12.85 8.801 13.051 8.6 13.3 8.6H13.2Z" />
             @break
 
-        @default
-            <circle cx="12" cy="12" r="6" />
+        @case('globe')
+            <circle cx="12" cy="12" r="8.5" />
+            <path d="M3.5 12H20.5" />
+            <path d="M12 3.5C14.75 5.75 16.25 8.75 16.25 12C16.25 15.25 14.75 18.25 12 20.5" />
+            <path d="M12 3.5C9.25 5.75 7.75 8.75 7.75 12C7.75 15.25 9.25 18.25 12 20.5" />
+            <path d="M6 8.5C7.85 9.45 9.9 10 12 10C14.1 10 16.15 9.45 18 8.5" />
+            <path d="M6 15.5C7.85 14.55 9.9 14 12 14C14.1 14 16.15 14.55 18 15.5" />
+            @break
     @endswitch
 </svg>
